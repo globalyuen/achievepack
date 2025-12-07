@@ -290,11 +290,11 @@
         }
     },
     "contact": {
-        "title": "立即開始",
-        "description": "準備好改造您的包裝了嗎？請聯繫我們進行免費諮詢，了解 Achieve Pack 如何幫助您的企業實現可持續發展。",
+        "title": "今天就開始",
+        "description": "準備好轉變您的包裝了嗎？聯繫我們進行免費諮詢，發現 Achieve Pack 如何幫助您的業務實現可持續發展。",
         "form": {
-            "title": "發送訊息給我們",
-            "sendTo": "發送至：ryan@achievepack.com",
+            "title": "傳送訊息給我們",
+            "sendTo": "發送至",
             "name": "姓名",
             "namePlaceholder": "您的全名",
             "email": "電子郵件",
@@ -303,35 +303,53 @@
             "companyPlaceholder": "您的公司名稱",
             "message": "訊息",
             "messagePlaceholder": "告訴我們您的包裝需求...",
-            "submit": "發送訊息",
-            "thankYou": "感謝您的訊息！您的電子郵件客戶端應會開啟並顯示預填的電子郵件。"
+            "submit": "傳送訊息"
         },
         "info": {
             "title": "聯絡資訊",
-            "addressTitle": "地址",
-            "addressValue": "香港火炭\n禾寮坑村 41 號 1 樓",
-            "phoneTitle": "電話",
-            "phoneValue": "(852) 6970-4411",
-            "emailTitle": "電子郵件",
-            "emailValue": "ryan@achievepack.com"
+            "address": "地址",
+            "addressLine1": "No.41 1/F Wo Liu Hang Tsuen",
+            "addressLine2": "Fotan, Hong Kong",
+            "phone": "電話",
+            "phoneNumber": "(852) 6970-4411",
+            "email": "電子郵件",
+            "emailAddress": "ryan@achievepack.com"
         },
-        "book": {
+        "consultation": {
             "title": "預約免費諮詢",
-            "desc": "預約 15 分鐘的諮詢，討論您的包裝需求，並探索我們的可持續解決方案如何使您的業務受益。",
-            "btn": "預約諮詢"
+            "description": "安排 15 分鐘的諮詢，討論您的包裝需求，探索我們的可持續解決方案如何惠及您的業務。",
+            "button": "安排諮詢"
         },
-        "reg": {
+        "registration": {
             "title": "商業登記",
-            "desc": "香港商業登記號碼：41007097"
+            "number": "香港商業登記號碼：41007097"
         }
     },
     "footer": {
-        "company": "Achieve Pack",
-        "desc": "以經認證的環保解決方案引領全球企業的可持續包裝革命。",
-        "rights": "© 2025 Achieve Pack. 保留所有權利。",
-        "productsTitle": "產品",
-        "companyTitle": "公司",
-        "contactTitle": "聯絡我們",
-        "reg": "香港商業登記號碼：41007097 | 香港火炭禾寮坑村 41 號 1 樓"
+        "brand": "Achieve Pack",
+        "tagline": "以認證的環保解決方案引領全球企業的可持續包裝革命。",
+        "copyright": "© 2025 Achieve Pack. 保留所有權利。",
+        "products": {
+            "title": "產品",
+            "compostable": "可堆肥包裝",
+            "recyclable": "可回收解決方案",
+            "biobased": "生物基材料",
+            "custom": "客製化包裝"
+        },
+        "company": {
+            "title": "公司",
+            "about": "關於我們",
+            "sustainability": "可持續性",
+            "certifications": "認證",
+            "careers": "職業機會"
+        },
+        "contact": {
+            "title": "聯絡我們",
+            "getInTouch": "聯繫我們",
+            "support": "支援",
+            "documentation": "文件",
+            "legal": "法律"
+        },
+        "registration": "香港商業登記號碼：41007097 | No.41 1/F Wo Liu Hang Tsuen, Fotan, HK"
     }
 }

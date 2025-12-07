@@ -997,18 +997,18 @@ function App() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {[1, 2, 3].map((index) => (
-              <div key={index} className="bg-white rounded-lg p-8 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1">
+            {['sarah', 'michael', 'emily'].map((key) => (
+              <div key={key} className="bg-white rounded-lg p-8 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1">
                 <div className="flex items-center mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="h-5 w-5 text-warning fill-current" />
                   ))}
                 </div>
-                <p className="text-neutral-700 mb-6 italic">"{t(`testimonials.items.${index}.quote`)}"</p>
+                <p className="text-neutral-700 mb-6 italic">"{t(`testimonials.items.${key}.quote`)}"</p>
                 <div>
-                  <div className="font-semibold text-neutral-900">{t(`testimonials.items.${index}.name`)}</div>
-                  <div className="text-sm text-neutral-600">{t(`testimonials.items.${index}.company`)}</div>
-                  <div className="text-sm text-primary-500">{t(`testimonials.items.${index}.industry`)}</div>
+                  <div className="font-semibold text-neutral-900">{t(`testimonials.items.${key}.name`)}</div>
+                  <div className="text-sm text-neutral-600">{t(`testimonials.items.${key}.company`)}</div>
+                  <div className="text-sm text-primary-500">{t(`testimonials.items.${key}.industry`)}</div>
                 </div>
               </div>
             ))}
@@ -1039,13 +1039,13 @@ function App() {
           </div>
 
           <div className="space-y-4">
-            {[1, 2, 3, 4, 5, 6].map((index) => (
-              <details key={index} className="bg-neutral-50 rounded-lg p-6">
+            {['certs', 'moq', 'time', 'cost', 'barrier', 'design'].map((key) => (
+              <details key={key} className="bg-neutral-50 rounded-lg p-6">
                 <summary className="flex items-center justify-between cursor-pointer">
-                  <span className="text-lg font-semibold text-neutral-900">{t(`faq.items.${index}.q`)}</span>
+                  <span className="text-lg font-semibold text-neutral-900">{t(`faq.items.${key}.q`)}</span>
                   <ChevronDown className="h-5 w-5 text-neutral-500 transition-transform duration-200" />
                 </summary>
-                <div className="mt-4 text-neutral-700 leading-relaxed">{t(`faq.items.${index}.a`)}</div>
+                <div className="mt-4 text-neutral-700 leading-relaxed">{t(`faq.items.${key}.a`)}</div>
               </details>
             ))}
           </div>

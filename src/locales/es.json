@@ -290,48 +290,66 @@
         }
     },
     "contact": {
-        "title": "Empiece hoy",
-        "description": "¿Listo para transformar su embalaje? Contáctenos para una consulta gratuita y descubra cómo Achieve Pack puede ayudar a su empresa a ser sostenible.",
+        "title": "Comience hoy",
+        "description": "¿Listo para transformar su embalaje? Contáctenos para una consulta gratuita y descubra cómo Achieve Pack puede ayudar a su negocio a ser sostenible.",
         "form": {
             "title": "Envíenos un mensaje",
-            "sendTo": "Enviar a: ryan@achievepack.com",
+            "sendTo": "Enviar a",
             "name": "Nombre",
             "namePlaceholder": "Su nombre completo",
             "email": "Correo electrónico",
-            "emailPlaceholder": "su@correo.com",
+            "emailPlaceholder": "su@email.com",
             "company": "Empresa",
             "companyPlaceholder": "Nombre de su empresa",
             "message": "Mensaje",
             "messagePlaceholder": "Cuéntenos sobre sus necesidades de embalaje...",
-            "submit": "Enviar mensaje",
-            "thankYou": "¡Gracias por su mensaje! Su cliente de correo electrónico debería abrirse con el correo pre-rellenado."
+            "submit": "Enviar mensaje"
         },
         "info": {
             "title": "Información de contacto",
-            "addressTitle": "Dirección",
-            "addressValue": "No.41 1/F Wo Liu Hang Tsuen\nFotan, Hong Kong",
-            "phoneTitle": "Teléfono",
-            "phoneValue": "(852) 6970-4411",
-            "emailTitle": "Correo electrónico",
-            "emailValue": "ryan@achievepack.com"
+            "address": "Dirección",
+            "addressLine1": "No.41 1/F Wo Liu Hang Tsuen",
+            "addressLine2": "Fotan, Hong Kong",
+            "phone": "Teléfono",
+            "phoneNumber": "(852) 6970-4411",
+            "email": "Correo electrónico",
+            "emailAddress": "ryan@achievepack.com"
         },
-        "book": {
-            "title": "Reservar una consulta gratuita",
-            "desc": "Programe una consulta de 15 minutos para analizar sus necesidades de embalaje y explorar cómo nuestras soluciones sostenibles pueden beneficiar a su negocio.",
-            "btn": "Programar consulta"
+        "consultation": {
+            "title": "Reserve una consulta gratuita",
+            "description": "Programe una consulta de 15 minutos para discutir sus necesidades de embalaje y explorar cómo nuestras soluciones sostenibles pueden beneficiar a su negocio.",
+            "button": "Programar consulta"
         },
-        "reg": {
-            "title": "Registro comercial",
-            "desc": "Número de registro comercial de Hong Kong: 41007097"
+        "registration": {
+            "title": "Registro empresarial",
+            "number": "Número de registro empresarial de Hong Kong: 41007097"
         }
     },
     "footer": {
-        "company": "Achieve Pack",
-        "desc": "Liderando la revolución del embalaje sostenible con soluciones ecológicas certificadas para empresas de todo el mundo.",
-        "rights": "© 2025 Achieve Pack. Todos los derechos reservados.",
-        "productsTitle": "Productos",
-        "companyTitle": "Empresa",
-        "contactTitle": "Contacto",
-        "reg": "Número de registro comercial de Hong Kong: 41007097 | No.41 1/F Wo Liu Hang Tsuen, Fotan, HK"
+        "brand": "Achieve Pack",
+        "tagline": "Liderando la revolución del embalaje sostenible con soluciones ecológicas certificadas para empresas de todo el mundo.",
+        "copyright": "© 2025 Achieve Pack. Todos los derechos reservados.",
+        "products": {
+            "title": "Productos",
+            "compostable": "Embalaje compostable",
+            "recyclable": "Soluciones reciclables",
+            "biobased": "Materiales de base biológica",
+            "custom": "Embalaje personalizado"
+        },
+        "company": {
+            "title": "Empresa",
+            "about": "Sobre nosotros",
+            "sustainability": "Sostenibilidad",
+            "certifications": "Certificaciones",
+            "careers": "Carreras"
+        },
+        "contact": {
+            "title": "Contacto",
+            "getInTouch": "Ponerse en contacto",
+            "support": "Soporte",
+            "documentation": "Documentación",
+            "legal": "Legal"
+        },
+        "registration": "Número de registro empresarial de Hong Kong: 41007097 | No.41 1/F Wo Liu Hang Tsuen, Fotan, HK"
     }
 }

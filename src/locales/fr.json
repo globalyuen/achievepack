@@ -294,7 +294,7 @@
         "description": "Prêt à transformer votre emballage ? Contactez-nous pour une consultation gratuite et découvrez comment Achieve Pack peut aider votre entreprise à devenir durable.",
         "form": {
             "title": "Envoyez-nous un message",
-            "sendTo": "Envoyer à : ryan@achievepack.com",
+            "sendTo": "Envoyer à",
             "name": "Nom",
             "namePlaceholder": "Votre nom complet",
             "email": "Email",
@@ -303,35 +303,53 @@
             "companyPlaceholder": "Nom de votre entreprise",
             "message": "Message",
             "messagePlaceholder": "Parlez-nous de vos besoins en emballage...",
-            "submit": "Envoyer le message",
-            "thankYou": "Merci pour votre message ! Votre client de messagerie devrait s'ouvrir avec l'email pré-rempli."
+            "submit": "Envoyer le message"
         },
         "info": {
             "title": "Informations de contact",
-            "addressTitle": "Adresse",
-            "addressValue": "No.41 1/F Wo Liu Hang Tsuen\nFotan, Hong Kong",
-            "phoneTitle": "Téléphone",
-            "phoneValue": "(852) 6970-4411",
-            "emailTitle": "Email",
-            "emailValue": "ryan@achievepack.com"
+            "address": "Adresse",
+            "addressLine1": "No.41 1/F Wo Liu Hang Tsuen",
+            "addressLine2": "Fotan, Hong Kong",
+            "phone": "Téléphone",
+            "phoneNumber": "(852) 6970-4411",
+            "email": "Email",
+            "emailAddress": "ryan@achievepack.com"
         },
-        "book": {
+        "consultation": {
             "title": "Réserver une consultation gratuite",
-            "desc": "Planifiez une consultation de 15 minutes pour discuter de vos besoins en emballage et explorer comment nos solutions durables peuvent profiter à votre entreprise.",
-            "btn": "Planifier la consultation"
+            "description": "Planifiez une consultation de 15 minutes pour discuter de vos besoins en emballage et explorer comment nos solutions durables peuvent profiter à votre entreprise.",
+            "button": "Planifier la consultation"
         },
-        "reg": {
+        "registration": {
             "title": "Inscription d'entreprise",
-            "desc": "Numéro d'enregistrement d'entreprise à Hong Kong : 41007097"
+            "number": "Numéro d'enregistrement d'entreprise à Hong Kong : 41007097"
         }
     },
     "footer": {
-        "company": "Achieve Pack",
-        "desc": "Chef de file de la révolution de l'emballage durable avec des solutions certifiées écologiques pour les entreprises du monde entier.",
-        "rights": "© 2025 Achieve Pack. Tous droits réservés.",
-        "productsTitle": "Produits",
-        "companyTitle": "Entreprise",
-        "contactTitle": "Contact",
-        "reg": "Numéro d'enregistrement d'entreprise à Hong Kong : 41007097 | No.41 1/F Wo Liu Hang Tsuen, Fotan, HK"
+        "brand": "Achieve Pack",
+        "tagline": "Chef de file de la révolution de l'emballage durable avec des solutions certifiées écologiques pour les entreprises du monde entier.",
+        "copyright": "© 2025 Achieve Pack. Tous droits réservés.",
+        "products": {
+            "title": "Produits",
+            "compostable": "Emballage compostable",
+            "recyclable": "Solutions recyclables",
+            "biobased": "Matériaux biosourcés",
+            "custom": "Emballage personnalisé"
+        },
+        "company": {
+            "title": "Entreprise",
+            "about": "À propos",
+            "sustainability": "Durabilité",
+            "certifications": "Certifications",
+            "careers": "Carrières"
+        },
+        "contact": {
+            "title": "Contact",
+            "getInTouch": "Nous contacter",
+            "support": "Support",
+            "documentation": "Documentation",
+            "legal": "Légal"
+        },
+        "registration": "Numéro d'enregistrement d'entreprise à Hong Kong : 41007097 | No.41 1/F Wo Liu Hang Tsuen, Fotan, HK"
     }
 }
