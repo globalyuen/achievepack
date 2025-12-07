@@ -1303,21 +1303,15 @@ ${formData.message}`
 
 Calculator Results:
 - Annual Savings: $${results.costSavings.totalAnnualSavings.toLocaleString()}
-- Material Savings: $${results.costSavings.materialSavings.toLocaleString()}
-- Shipping Savings: $${results.costSavings.shippingSavings.toLocaleString()}
-- Storage Savings: $${results.costSavings.storageSavings.toLocaleString()}
 - CO₂ Reduction: ${results.environmentalImpact.co2Reduction.toFixed(0)} kg/year
 - Plastic Reduction: ${results.environmentalImpact.plasticReduction.toFixed(0)} kg/year
-- Water Savings: ${results.environmentalImpact.waterSavings.toFixed(0)} liters/year
 
-Please contact me to discuss custom packaging solutions.`;
+Please contact me to discuss custom solutions.`;
 
-          setFormData(prev => ({ ...prev, message }));
+          setFormData({ ...formData, message });
 
-          // Scroll to contact section after a short delay to ensure state update
-          setTimeout(() => {
-            scrollToSection('contact');
-          }, 100);
+          // Scroll to contact section
+          scrollToSection('contact');
         }}
       />
     </div>

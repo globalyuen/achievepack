@@ -12,7 +12,6 @@ import {
     formatNumber,
     formatPercentage,
 } from '../utils/calculatorUtils';
-import { getImage } from '../utils/imageMapper';
 
 interface CalculatorProps {
     isOpen: boolean;
@@ -57,13 +56,13 @@ const Calculator: React.FC<CalculatorProps> = ({ isOpen, onClose, language, onSu
     const totalSteps = 4;
 
     const handleNext = () => {
-        if (currentStep === 3) {
-            // Calculate results when moving from step 3 to step 4
+        if (currentStep < totalSteps) {
+            setCurrentStep(currentStep + 1);
+        } else if (currentStep === 3) {
+            // Calculate results
             const calculatedResults = calculateSavings(packageSpecs, usage);
             setResults(calculatedResults);
             setCurrentStep(4);
-        } else if (currentStep < totalSteps) {
-            setCurrentStep(currentStep + 1);
         }
     };
 
@@ -105,16 +104,37 @@ const Calculator: React.FC<CalculatorProps> = ({ isOpen, onClose, language, onSu
         }
     };
 
-    // Helper function to get calculator images
-    const img = (imageName: string) => getImage(imageName, language as any);
-
-    const packageTypes: { type: PackageType; imageName: string }[] = [
-        { type: 'rigid-plastic', imageName: 'calculator-rigid-plastic' },
-        { type: 'glass', imageName: 'calculator-glass-jar' },
-        { type: 'metal', imageName: 'calculator-metal-can' },
-        { type: 'cardboard', imageName: 'calculator-cardboard-box' },
-        { type: 'flexible', imageName: 'calculator-flexible-pouch' },
-        { type: 'unknown', imageName: 'calculator-question-mark' },
+    const packageTypes: { type: PackageType; image: string; prompt: string }[] = [
+        {
+            type: 'rigid-plastic',
+            image: '/imgs/calculator/calculator-rigid-plastic.webp',
+            prompt: 'Professional product photo of clear rigid plastic container with lid on white background, studio lighting, clean minimal style',
+        },
+        {
+            type: 'glass',
+            image: '/imgs/calculator/calculator-glass-jar.webp',
+            prompt: 'Professional product photo of glass jar with metal lid on white background, studio lighting, clean minimal style',
+        },
+        {
+            type: 'metal',
+            image: '/imgs/calculator/calculator-metal-can.webp',
+            prompt: 'Professional product photo of metal tin can on white background, studio lighting, clean minimal style',
+        },
+        {
+            type: 'cardboard',
+            image: '/imgs/calculator/calculator-cardboard-box.webp',
+            prompt: 'Professional product photo of small cardboard box on white background, studio lighting, clean minimal style',
+        },
+        {
+            type: 'flexible',
+            image: '/imgs/calculator/calculator-flexible-pouch.webp',
+            prompt: 'Professional product photo of green eco-friendly stand-up flexible pouch on white background, studio lighting, clean minimal style',
+        },
+        {
+            type: 'unknown',
+            image: '/imgs/calculator/calculator-question-mark.webp',
+            prompt: 'Friendly question mark icon in green circle (#2cbc63), modern flat design, clean minimal style',
+        },
     ];
 
     return (
@@ -175,8 +195,8 @@ const Calculator: React.FC<CalculatorProps> = ({ isOpen, onClose, language, onSu
                                     >
                                         <div className="aspect-square bg-neutral-100 rounded-lg mb-3 flex items-center justify-center overflow-hidden">
                                             <img
-                                                src={img(pkg.imageName)}
-                                                alt={t(`calculator.step1.options.${pkg.type.replace('-', '')}`)}
+                                                src={pkg.image}
+                                                alt={`${pkg.type} - AI Prompt: ${pkg.prompt}`}
                                                 className="w-full h-full object-cover"
                                                 onError={(e) => {
                                                     e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="200" height="200"%3E%3Crect fill="%23f3f4f6" width="200" height="200"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" fill="%239ca3af" font-size="14"%3EImage%3C/text%3E%3C/svg%3E';
@@ -375,8 +395,8 @@ const Calculator: React.FC<CalculatorProps> = ({ isOpen, onClose, language, onSu
                             <div className="text-center mb-8">
                                 <div className="inline-block p-4 bg-primary-100 rounded-full mb-4">
                                     <img
-                                        src={img('calculator-success-icon')}
-                                        alt="Success"
+                                        src="/imgs/calculator/calculator-success-icon.webp"
+                                        alt="Success - AI Prompt: Green checkmark in circle with sparkles, modern flat design, celebration style"
                                         className="w-16 h-16"
                                         onError={(e) => {
                                             e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="64" height="64"%3E%3Ccircle fill="%2310b981" cx="32" cy="32" r="32"/%3E%3Cpath fill="white" d="M20 32l8 8 16-16" stroke="white" stroke-width="4" fill="none"/%3E%3C/svg%3E';

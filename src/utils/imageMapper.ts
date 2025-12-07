@@ -70,9 +70,9 @@ const imageMapping: ImageMapping = {
     },
     'infographic-compostable': {
         en: '/imgs/infographic-compostable.webp',
-        fr: '/img-fr/a_sustainability_data_french_4992181.webp',
-        es: '/imgs-sp/a_sustainability_data_spanish_7986400.webp',
-        zh: '/imgs-ch/a_sustainability_data_traditional_chinese_1167620.webp',
+        fr: '/img-fr/a_compostable_infographic_french_8263137.webp',
+        es: '/imgs-sp/a_compostable_infographic_spanish_9919790.webp',
+        zh: '/imgs-ch/a_compostable_infographic_traditional_chinese_9082533.webp',
     },
     'infographic-plant-based': {
         en: '/imgs/infographic-plant-based.webp',
@@ -204,80 +204,6 @@ const imageMapping: ImageMapping = {
         fr: '/img-fr/a_sustainable_packaging_banner_french_6395454.webp',
         es: '/imgs-sp/a_sustainable_packaging_banner_spanish_9446290.webp',
         zh: '/imgs-ch/a_sustainable_packaging_banner_traditional_chinese_9050358.webp',
-    },
-
-    // Calculator Images (no translation needed - icons and illustrations)
-    'calculator-rigid-plastic': {
-        en: '/imgs/calculator/a_calculator_rigid_plastic_9646528.webp',
-        fr: '/imgs/calculator/a_calculator_rigid_plastic_9646528.webp',
-        es: '/imgs/calculator/a_calculator_rigid_plastic_9646528.webp',
-        zh: '/imgs/calculator/a_calculator_rigid_plastic_9646528.webp',
-    },
-    'calculator-glass-jar': {
-        en: '/imgs/calculator/a_calculator_glass_jar_6073879.webp',
-        fr: '/imgs/calculator/a_calculator_glass_jar_6073879.webp',
-        es: '/imgs/calculator/a_calculator_glass_jar_6073879.webp',
-        zh: '/imgs/calculator/a_calculator_glass_jar_6073879.webp',
-    },
-    'calculator-metal-can': {
-        en: '/imgs/calculator/a_calculator_metal_can_8467151.webp',
-        fr: '/imgs/calculator/a_calculator_metal_can_8467151.webp',
-        es: '/imgs/calculator/a_calculator_metal_can_8467151.webp',
-        zh: '/imgs/calculator/a_calculator_metal_can_8467151.webp',
-    },
-    'calculator-cardboard-box': {
-        en: '/imgs/calculator/a_calculator_cardboard_box_8054435.webp',
-        fr: '/imgs/calculator/a_calculator_cardboard_box_8054435.webp',
-        es: '/imgs/calculator/a_calculator_cardboard_box_8054435.webp',
-        zh: '/imgs/calculator/a_calculator_cardboard_box_8054435.webp',
-    },
-    'calculator-flexible-pouch': {
-        en: '/imgs/calculator/a_calculator_flexible_pouch_8495656.webp',
-        fr: '/imgs/calculator/a_calculator_flexible_pouch_8495656.webp',
-        es: '/imgs/calculator/a_calculator_flexible_pouch_8495656.webp',
-        zh: '/imgs/calculator/a_calculator_flexible_pouch_8495656.webp',
-    },
-    'calculator-question-mark': {
-        en: '/imgs/calculator/a_calculator_question_mark_1525340.webp',
-        fr: '/imgs/calculator/a_calculator_question_mark_1525340.webp',
-        es: '/imgs/calculator/a_calculator_question_mark_1525340.webp',
-        zh: '/imgs/calculator/a_calculator_question_mark_1525340.webp',
-    },
-    'calculator-dimensions-guide': {
-        en: '/imgs/calculator/a_calculator_dimensions_guide_9407366.webp',
-        fr: '/imgs/calculator/a_calculator_dimensions_guide_9407366.webp',
-        es: '/imgs/calculator/a_calculator_dimensions_guide_9407366.webp',
-        zh: '/imgs/calculator/a_calculator_dimensions_guide_9407366.webp',
-    },
-    'calculator-shipping-illustration': {
-        en: '/imgs/calculator/a_calculator_shipping_illustration_1305407.webp',
-        fr: '/imgs/calculator/a_calculator_shipping_illustration_1305407.webp',
-        es: '/imgs/calculator/a_calculator_shipping_illustration_1305407.webp',
-        zh: '/imgs/calculator/a_calculator_shipping_illustration_1305407.webp',
-    },
-    'calculator-savings-chart': {
-        en: '/imgs/calculator/a_calculator_savings_chart_5545421.webp',
-        fr: '/imgs/calculator/a_calculator_savings_chart_5545421.webp',
-        es: '/imgs/calculator/a_calculator_savings_chart_5545421.webp',
-        zh: '/imgs/calculator/a_calculator_savings_chart_5545421.webp',
-    },
-    'calculator-environmental-chart': {
-        en: '/imgs/calculator/a_calculator_environmental_chart_0728270.webp',
-        fr: '/imgs/calculator/a_calculator_environmental_chart_0728270.webp',
-        es: '/imgs/calculator/a_calculator_environmental_chart_0728270.webp',
-        zh: '/imgs/calculator/a_calculator_environmental_chart_0728270.webp',
-    },
-    'calculator-projection-graph': {
-        en: '/imgs/calculator/a_calculator_projection_graph_8271356.webp',
-        fr: '/imgs/calculator/a_calculator_projection_graph_8271356.webp',
-        es: '/imgs/calculator/a_calculator_projection_graph_8271356.webp',
-        zh: '/imgs/calculator/a_calculator_projection_graph_8271356.webp',
-    },
-    'calculator-success-icon': {
-        en: '/imgs/calculator/a_calculator_success_icon_9230577.webp',
-        fr: '/imgs/calculator/a_calculator_success_icon_9230577.webp',
-        es: '/imgs/calculator/a_calculator_success_icon_9230577.webp',
-        zh: '/imgs/calculator/a_calculator_success_icon_9230577.webp',
     },
 };
 
