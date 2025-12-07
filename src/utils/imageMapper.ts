@@ -30,9 +30,9 @@ const imageMapping: ImageMapping = {
     },
     'product-pcr-biobased': {
         en: '/imgs/product-pcr-biobased.webp',
-        fr: '/imgs/product-pcr-biobased.webp',
-        es: '/imgs/product-pcr-biobased.webp',
-        zh: '/imgs/product-pcr-biobased.webp',
+        fr: '/img-fr/a_product-pcr-biobased_french_3500775.webp',
+        es: '/imgs-sp/a_product-pcr-biobased_spanish_1279891.webp',
+        zh: '/imgs-ch/a_product-pcr-biobased_traditional_chinese_3103542.webp',
     },
 
     // Certifications (no translation needed)
@@ -137,9 +137,9 @@ const imageMapping: ImageMapping = {
     },
     'solution-cosmetics': {
         en: '/imgs/solution-cosmetics.webp',
-        fr: '/imgs/solution-cosmetics.webp',
-        es: '/imgs/solution-cosmetics.webp',
-        zh: '/imgs/solution-cosmetics.webp',
+        fr: '/img-fr/a_cosmetic_pouch_finishes_french_1648364.webp',
+        es: '/imgs-sp/a_cosmetic_pouch_finishes_spanish_0646579.webp',
+        zh: '/imgs-ch/a_cosmetic_pouch_finishes_traditional_chinese_7020370.webp',
     },
     'solution-wellness': {
         en: '/imgs/solution-wellness.webp',
