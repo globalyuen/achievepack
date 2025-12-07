@@ -183,9 +183,9 @@ const imageMapping: ImageMapping = {
     // Other
     'comparison-flexible-vs-rigid': {
         en: '/imgs/comparison-flexible-vs-rigid.webp',
-        fr: '/imgs/comparison-flexible-vs-rigid.webp',
-        es: '/imgs/comparison-flexible-vs-rigid.webp',
-        zh: '/imgs/comparison-flexible-vs-rigid.webp',
+        fr: '/img-fr/a_comparison-flexible-vs-rigid_french.webp',
+        es: '/imgs-sp/a_comparison-flexible-vs-rigid_spanish.webp',
+        zh: '/imgs/comparison-flexible-vs-rigid.webp', // Chinese version not available yet
     },
     'process-5-steps': {
         en: '/imgs/process-5-steps.webp',
