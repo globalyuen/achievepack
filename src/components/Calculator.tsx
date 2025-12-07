@@ -56,13 +56,13 @@ const Calculator: React.FC<CalculatorProps> = ({ isOpen, onClose, language, onSu
     const totalSteps = 4;
 
     const handleNext = () => {
-        if (currentStep < totalSteps) {
-            setCurrentStep(currentStep + 1);
-        } else if (currentStep === 3) {
-            // Calculate results
+        if (currentStep === 3) {
+            // Calculate results before moving to step 4
             const calculatedResults = calculateSavings(packageSpecs, usage);
             setResults(calculatedResults);
             setCurrentStep(4);
+        } else if (currentStep < totalSteps) {
+            setCurrentStep(currentStep + 1);
         }
     };
 
@@ -107,32 +107,32 @@ const Calculator: React.FC<CalculatorProps> = ({ isOpen, onClose, language, onSu
     const packageTypes: { type: PackageType; image: string; prompt: string }[] = [
         {
             type: 'rigid-plastic',
-            image: '/imgs/calculator/calculator-rigid-plastic.webp',
+            image: '/imgs/calculator/a_calculator_rigid_plastic_9646528.webp',
             prompt: 'Professional product photo of clear rigid plastic container with lid on white background, studio lighting, clean minimal style',
         },
         {
             type: 'glass',
-            image: '/imgs/calculator/calculator-glass-jar.webp',
+            image: '/imgs/calculator/a_calculator_glass_jar_6073879.webp',
             prompt: 'Professional product photo of glass jar with metal lid on white background, studio lighting, clean minimal style',
         },
         {
             type: 'metal',
-            image: '/imgs/calculator/calculator-metal-can.webp',
+            image: '/imgs/calculator/a_calculator_metal_can_8467151.webp',
             prompt: 'Professional product photo of metal tin can on white background, studio lighting, clean minimal style',
         },
         {
             type: 'cardboard',
-            image: '/imgs/calculator/calculator-cardboard-box.webp',
+            image: '/imgs/calculator/a_calculator_cardboard_box_8054435.webp',
             prompt: 'Professional product photo of small cardboard box on white background, studio lighting, clean minimal style',
         },
         {
             type: 'flexible',
-            image: '/imgs/calculator/calculator-flexible-pouch.webp',
+            image: '/imgs/calculator/a_calculator_flexible_pouch_8495656.webp',
             prompt: 'Professional product photo of green eco-friendly stand-up flexible pouch on white background, studio lighting, clean minimal style',
         },
         {
             type: 'unknown',
-            image: '/imgs/calculator/calculator-question-mark.webp',
+            image: '/imgs/calculator/a_calculator_question_mark_1525340.webp',
             prompt: 'Friendly question mark icon in green circle (#2cbc63), modern flat design, clean minimal style',
         },
     ];
@@ -395,7 +395,7 @@ const Calculator: React.FC<CalculatorProps> = ({ isOpen, onClose, language, onSu
                             <div className="text-center mb-8">
                                 <div className="inline-block p-4 bg-primary-100 rounded-full mb-4">
                                     <img
-                                        src="/imgs/calculator/calculator-success-icon.webp"
+                                        src="/imgs/calculator/a_calculator_success_icon_9230577.webp"
                                         alt="Success - AI Prompt: Green checkmark in circle with sparkles, modern flat design, celebration style"
                                         className="w-16 h-16"
                                         onError={(e) => {
