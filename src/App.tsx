@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next';
 import ReactGA from "react-ga4";
 import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield } from 'lucide-react'
+import { HeroGrainBackground } from './components/HeroGrainBackground'
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -77,7 +78,12 @@ function App() {
 
     // Create email content
     const subject = `New Contact Form Submission from ${formData.name}`
-    const body = `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\n\nMessage:\n${formData.message}`
+    const body = `Name: ${formData.name}
+Email: ${formData.email}
+Company: ${formData.company}
+
+Message:
+${formData.message}`
 
     // Create mailto link
     const mailtoLink = `mailto:ryan@achievepack.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
@@ -208,9 +214,11 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="hero" className="pt-24 pb-16 bg-neutral-50 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-50 to-accent-50 opacity-20"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <section id="hero" className="pt-24 pb-16 relative overflow-hidden">
+        {/* GrainGradient 背景动效 */}
+        <HeroGrainBackground animate={true} />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-left">
               <h1 className="text-5xl md:text-6xl font-bold text-neutral-900 leading-tight tracking-tight mb-6">
@@ -235,15 +243,15 @@ function App() {
 
               {/* Key Metrics */}
               <div className="grid grid-cols-3 gap-4">
-                <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 shadow-sm border border-neutral-100">
+                <div className="bg-white/90 backdrop-blur-md rounded-lg p-4 shadow-sm border border-white/20">
                   <div className="text-2xl md:text-3xl font-bold text-primary-500 mb-1">70%</div>
                   <div className="text-xs md:text-sm text-neutral-600 leading-tight">{t('hero.stats.carbon')}</div>
                 </div>
-                <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 shadow-sm border border-neutral-100">
+                <div className="bg-white/90 backdrop-blur-md rounded-lg p-4 shadow-sm border border-white/20">
                   <div className="text-2xl md:text-3xl font-bold text-primary-500 mb-1">70%</div>
                   <div className="text-xs md:text-sm text-neutral-600 leading-tight">{t('hero.stats.plastic')}</div>
                 </div>
-                <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 shadow-sm border border-neutral-100">
+                <div className="bg-white/90 backdrop-blur-md rounded-lg p-4 shadow-sm border border-white/20">
                   <div className="text-2xl md:text-3xl font-bold text-primary-500 mb-1">22%</div>
                   <div className="text-xs md:text-sm text-neutral-600 leading-tight">{t('hero.stats.shipping')}</div>
                 </div>
