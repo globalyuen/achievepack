@@ -351,5 +351,126 @@
             "legal": "Legal"
         },
         "registration": "Hong Kong Business Registration Number: 41007097 | No.41 1/F Wo Liu Hang Tsuen, Fotan, HK"
+    },
+    "calculator": {
+        "title": "Calculate Your Savings",
+        "subtitle": "Discover how much you can save by switching to flexible packaging",
+        "progress": "Step {{current}} of {{total}}",
+        "step1": {
+            "title": "What type of packaging do you currently use?",
+            "subtitle": "Select the option that best matches your current packaging",
+            "options": {
+                "rigidplastic": "Rigid Plastic Container",
+                "glass": "Glass Jar",
+                "metal": "Metal Can/Tin",
+                "cardboard": "Cardboard Box",
+                "flexible": "Flexible Pouch",
+                "unknown": "Not Sure Yet"
+            }
+        },
+        "step2": {
+            "title": "Tell us about your package specifications",
+            "subtitle": "Don't worry if you don't know exact numbers - we can estimate!",
+            "dimensions": {
+                "label": "Package Dimensions",
+                "length": "Length (mm)",
+                "width": "Width (mm)",
+                "height": "Height (mm)",
+                "volume": "Volume: {{volume}} cm³",
+                "notSure": "Not sure about dimensions"
+            },
+            "weight": {
+                "label": "Package Weight",
+                "package": "Empty package weight (grams)",
+                "product": "Product weight (grams) - optional",
+                "notSure": "Not sure about weight"
+            },
+            "material": {
+                "label": "Primary Material",
+                "options": [
+                    "Plastic",
+                    "Glass",
+                    "Metal",
+                    "Paper/Cardboard",
+                    "Mixed"
+                ],
+                "notSure": "Not sure"
+            }
+        },
+        "step3": {
+            "title": "How much do you ship?",
+            "subtitle": "This helps us calculate your potential savings",
+            "volume": {
+                "label": "Monthly Volume",
+                "units": "Units per month",
+                "notSure": "Not sure - use average (1,000 units)"
+            },
+            "shipping": {
+                "label": "Shipping Details",
+                "distance": "Average shipping distance (km) - optional",
+                "frequency": "Shipping frequency",
+                "frequencies": {
+                    "daily": "Daily",
+                    "weekly": "Weekly",
+                    "monthly": "Monthly"
+                },
+                "notSure": "Skip shipping details"
+            },
+            "costs": {
+                "label": "Current Costs (Optional)",
+                "packaging": "Current packaging cost per unit ($)",
+                "shipping": "Current shipping cost per unit ($)",
+                "skip": "Skip this step"
+            }
+        },
+        "step4": {
+            "title": "Your Potential Savings",
+            "subtitle": "Here's what you could save by switching to flexible packaging",
+            "costSavings": {
+                "title": "Annual Cost Savings",
+                "material": "Material Savings",
+                "shipping": "Shipping Savings",
+                "storage": "Storage Savings",
+                "total": "Total Annual Savings"
+            },
+            "environmental": {
+                "title": "Environmental Impact",
+                "co2": "CO₂ Reduction",
+                "plastic": "Plastic Reduction",
+                "water": "Water Savings",
+                "trees": "Equivalent to {{count}} trees planted"
+            },
+            "operational": {
+                "title": "Operational Benefits",
+                "storage": "Storage Space Saved",
+                "efficiency": "Shipping Efficiency",
+                "handling": "Handling Time Reduction"
+            },
+            "charts": {
+                "comparison": "Cost Comparison",
+                "environmental": "Environmental Breakdown",
+                "projection": "5-Year Savings Projection"
+            }
+        },
+        "actions": {
+            "next": "Next Step",
+            "back": "Go Back",
+            "calculate": "Calculate Savings",
+            "reset": "Start Over",
+            "getQuote": "Get Custom Quote",
+            "downloadPDF": "Download Report",
+            "share": "Share Results"
+        },
+        "tooltips": {
+            "dimensions": "Measure the outer dimensions of your package",
+            "weight": "Include the weight of the empty package only",
+            "volume": "How many units you produce or ship each month",
+            "notSure": "We'll use industry averages to estimate your savings"
+        },
+        "validation": {
+            "required": "This field is required",
+            "positive": "Please enter a positive number",
+            "realistic": "Please enter a realistic value"
+        }
     }
 }

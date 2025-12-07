@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next';
 import ReactGA from "react-ga4";
-import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield } from 'lucide-react'
+import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield } from 'lucide-react'
 import { HeroGrainBackground } from './components/HeroGrainBackground'
 import { getImage } from './utils/imageMapper'
+import Calculator from './components/Calculator'
+import type { CalculatorResults } from './utils/calculatorUtils'
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -14,6 +16,8 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [modalImage, setModalImage] = useState('')
   const [modalAlt, setModalAlt] = useState('')
+  const [isCalculatorOpen, setIsCalculatorOpen] = useState(false)
+  const [calculatorResults, setCalculatorResults] = useState<CalculatorResults | null>(null)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -235,8 +239,11 @@ ${formData.message}`
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-start mb-12">
-                <button className="flex items-center justify-center space-x-2 bg-primary-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-600 transition-all duration-200 hover:shadow-hover hover:-translate-y-0.5">
-                  <Calculator className="h-5 w-5" />
+                <button
+                  onClick={() => setIsCalculatorOpen(true)}
+                  className="flex items-center justify-center space-x-2 bg-primary-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-600 transition-all duration-200 hover:shadow-hover hover:-translate-y-0.5"
+                >
+                  <CalcIcon className="h-5 w-5" />
                   <span>{t('hero.calculateSavings')}</span>
                 </button>
                 <a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center space-x-2 border-2 border-neutral-200 text-neutral-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-neutral-50 transition-colors">
@@ -1281,6 +1288,32 @@ ${formData.message}`
           </div>
         </div>
       )}
+
+      {/* Calculator Modal */}
+      <Calculator
+        isOpen={isCalculatorOpen}
+        onClose={() => setIsCalculatorOpen(false)}
+        language={i18n.language}
+        onSubmitToContact={(results) => {
+          setCalculatorResults(results);
+          setIsCalculatorOpen(false);
+
+          // Pre-fill contact form with calculator results
+          const message = `Hi, I used your savings calculator and found I could save $${results.costSavings.totalAnnualSavings.toLocaleString()} annually by switching to flexible packaging. I'd like to discuss this further.
+
+Calculator Results:
+- Annual Savings: $${results.costSavings.totalAnnualSavings.toLocaleString()}
+- CO₂ Reduction: ${results.environmentalImpact.co2Reduction.toFixed(0)} kg/year
+- Plastic Reduction: ${results.environmentalImpact.plasticReduction.toFixed(0)} kg/year
+
+Please contact me to discuss custom solutions.`;
+
+          setFormData({ ...formData, message });
+
+          // Scroll to contact section
+          scrollToSection('contact');
+        }}
+      />
     </div>
   )
 }
