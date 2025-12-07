@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import ReactGA from "react-ga4";
 import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield } from 'lucide-react'
 import { HeroGrainBackground } from './components/HeroGrainBackground'
+import { getImage } from './utils/imageMapper'
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -24,6 +25,9 @@ function App() {
     i18n.changeLanguage(lng);
     setIsLangMenuOpen(false);
   };
+
+  // Helper function to get language-specific images
+  const img = (imageName: string) => getImage(imageName, i18n.language as any);
 
   useEffect(() => {
     // Initialize Google Analytics
@@ -217,7 +221,7 @@ ${formData.message}`
       <section id="hero" className="pt-24 pb-16 relative overflow-hidden">
         {/* GrainGradient 背景动效 */}
         <HeroGrainBackground animate={true} />
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-left">
@@ -261,11 +265,11 @@ ${formData.message}`
             <div className="hidden lg:block relative">
               <div className="absolute inset-0 bg-primary-500 rounded-full filter blur-3xl opacity-10 animate-pulse"></div>
               <img
-                src="https://pouch.eco/wp-content/uploads/2025/12/Premium-kraft-stand-up-pouch-with-Achieve-Pack-green-logo-surrounded-by-natural-elements-fresh-leaves-moss-and-wooden-surface-in-warm-morning-sunlight-showcasing-sustainable-packaging-luxury.webp"
+                src={img("about-hero")}
                 alt="Premium Sustainable Packaging"
                 className="relative z-10 w-full rounded-2xl shadow-2xl transform hover:scale-[1.02] transition-all duration-500 cursor-pointer"
                 onClick={() => {
-                  setModalImage('https://pouch.eco/wp-content/uploads/2025/12/Premium-kraft-stand-up-pouch-with-Achieve-Pack-green-logo-surrounded-by-natural-elements-fresh-leaves-moss-and-wooden-surface-in-warm-morning-sunlight-showcasing-sustainable-packaging-luxury.webp')
+                  setModalImage(img("about-hero"))
                   setModalAlt('Premium Sustainable Packaging')
                   setIsModalOpen(true)
                 }}
@@ -307,41 +311,41 @@ ${formData.message}`
             <div className="lg:col-span-5">
               <div className="grid grid-cols-2 gap-4">
                 <img
-                  src="https://pouch.eco/wp-content/uploads/2025/04/home-compost.png"
+                  src={img("cert-home-compost")}
                   alt="Home Compost Certification"
                   className="rounded-lg shadow-card cursor-pointer hover:shadow-lg transition-shadow duration-200"
                   onClick={() => {
-                    setModalImage('https://pouch.eco/wp-content/uploads/2025/04/home-compost.png')
+                    setModalImage(img("cert-home-compost"))
                     setModalAlt('Home Compost Certification')
                     setIsModalOpen(true)
                   }}
                 />
                 <img
-                  src="https://pouch.eco/wp-content/uploads/2025/04/pcr-grs-cert-1.png"
+                  src={img("cert-pcr-grs")}
                   alt="PCR GRS Certification"
                   className="rounded-lg shadow-card cursor-pointer hover:shadow-lg transition-shadow duration-200"
                   onClick={() => {
-                    setModalImage('https://pouch.eco/wp-content/uploads/2025/04/pcr-grs-cert-1.png')
+                    setModalImage(img("cert-pcr-grs"))
                     setModalAlt('PCR GRS Certification')
                     setIsModalOpen(true)
                   }}
                 />
                 <img
-                  src="https://pouch.eco/wp-content/uploads/2025/04/brc-cert.png"
+                  src={img("cert-brc")}
                   alt="BRC Food Safety Certification"
                   className="rounded-lg shadow-card cursor-pointer hover:shadow-lg transition-shadow duration-200"
                   onClick={() => {
-                    setModalImage('https://pouch.eco/wp-content/uploads/2025/04/brc-cert.png')
+                    setModalImage(img("cert-brc"))
                     setModalAlt('BRC Food Safety Certification')
                     setIsModalOpen(true)
                   }}
                 />
                 <img
-                  src="https://pouch.eco/wp-content/uploads/2025/04/BioPE.png"
+                  src={img("cert-biope")}
                   alt="BioPE Sustainable Certification"
                   className="rounded-lg shadow-card cursor-pointer hover:shadow-lg transition-shadow duration-200"
                   onClick={() => {
-                    setModalImage('https://pouch.eco/wp-content/uploads/2025/04/BioPE.png')
+                    setModalImage(img("cert-biope"))
                     setModalAlt('BioPE Sustainable Certification')
                     setIsModalOpen(true)
                   }}
@@ -372,11 +376,11 @@ ${formData.message}`
               <div className="space-y-4">
                 <div className="bg-white rounded-lg p-6 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1">
                   <img
-                    src="https://pouch.eco/wp-content/uploads/2025/12/a_carbon_footprint_reduction_infographic_6668500.webp"
+                    src={img("infographic-carbon-footprint")}
                     alt={t('benefits.env.carbon.title')}
                     className="w-full h-32 object-cover rounded-lg mb-3 cursor-pointer"
                     onClick={() => {
-                      setModalImage('https://pouch.eco/wp-content/uploads/2025/12/a_carbon_footprint_reduction_infographic_6668500.webp')
+                      setModalImage(img("infographic-carbon-footprint"))
                       setModalAlt(t('benefits.env.carbon.title'))
                       setIsModalOpen(true)
                     }}
@@ -386,11 +390,11 @@ ${formData.message}`
                 </div>
                 <div className="bg-white rounded-lg p-6 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1">
                   <img
-                    src="https://pouch.eco/wp-content/uploads/2025/12/a_compostable_materials_infographic_5689913.webp"
+                    src={img("infographic-compostable")}
                     alt={t('benefits.env.compostable.title')}
                     className="w-full h-32 object-cover rounded-lg mb-3 cursor-pointer"
                     onClick={() => {
-                      setModalImage('https://pouch.eco/wp-content/uploads/2025/12/a_compostable_materials_infographic_5689913.webp')
+                      setModalImage(img("infographic-compostable"))
                       setModalAlt(t('benefits.env.compostable.title'))
                       setIsModalOpen(true)
                     }}
@@ -400,11 +404,11 @@ ${formData.message}`
                 </div>
                 <div className="bg-white rounded-lg p-6 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1">
                   <img
-                    src="https://pouch.eco/wp-content/uploads/2025/12/a_plant_based_materials_infographic_2991523.webp"
+                    src={img("infographic-plant-based")}
                     alt={t('benefits.env.plantBased.title')}
                     className="w-full h-32 object-cover rounded-lg mb-3 cursor-pointer"
                     onClick={() => {
-                      setModalImage('https://pouch.eco/wp-content/uploads/2025/12/a_plant_based_materials_infographic_2991523.webp')
+                      setModalImage(img("infographic-plant-based"))
                       setModalAlt(t('benefits.env.plantBased.title'))
                       setIsModalOpen(true)
                     }}
@@ -414,11 +418,11 @@ ${formData.message}`
                 </div>
                 <div className="bg-white rounded-lg p-6 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1">
                   <img
-                    src="https://pouch.eco/wp-content/uploads/2025/12/a_grs_recyclable_infographic_8929966.webp"
+                    src={img("infographic-grs-recyclable")}
                     alt={t('benefits.env.recyclable.title')}
                     className="w-full h-32 object-cover rounded-lg mb-3 cursor-pointer"
                     onClick={() => {
-                      setModalImage('https://pouch.eco/wp-content/uploads/2025/12/a_grs_recyclable_infographic_8929966.webp')
+                      setModalImage(img("infographic-grs-recyclable"))
                       setModalAlt(t('benefits.env.recyclable.title'))
                       setIsModalOpen(true)
                     }}
@@ -438,11 +442,11 @@ ${formData.message}`
               <div className="space-y-4">
                 <div className="bg-white rounded-lg p-6 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1">
                   <img
-                    src="https://pouch.eco/wp-content/uploads/2025/12/a_low_moq_infographic_9327303.webp"
+                    src={img("infographic-low-moq")}
                     alt={t('benefits.biz.moq.title')}
                     className="w-full h-32 object-cover rounded-lg mb-3 cursor-pointer"
                     onClick={() => {
-                      setModalImage('https://pouch.eco/wp-content/uploads/2025/12/a_low_moq_infographic_9327303.webp')
+                      setModalImage(img("infographic-low-moq"))
                       setModalAlt(t('benefits.biz.moq.title'))
                       setIsModalOpen(true)
                     }}
@@ -452,11 +456,11 @@ ${formData.message}`
                 </div>
                 <div className="bg-white rounded-lg p-6 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1">
                   <img
-                    src="https://pouch.eco/wp-content/uploads/2025/12/a_fast_turnaround_infographic_1726271.webp"
+                    src={img("infographic-fast-turnaround")}
                     alt={t('benefits.biz.turnaround.title')}
                     className="w-full h-32 object-cover rounded-lg mb-3 cursor-pointer"
                     onClick={() => {
-                      setModalImage('https://pouch.eco/wp-content/uploads/2025/12/a_fast_turnaround_infographic_1726271.webp')
+                      setModalImage(img("infographic-fast-turnaround"))
                       setModalAlt(t('benefits.biz.turnaround.title'))
                       setIsModalOpen(true)
                     }}
@@ -466,11 +470,11 @@ ${formData.message}`
                 </div>
                 <div className="bg-white rounded-lg p-6 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1">
                   <img
-                    src="https://pouch.eco/wp-content/uploads/2025/12/Split-infographic-showing-shipping-and-storage-benefits-top-section-displays-15-22-shipping-cost-reduction-with-box-comparison-bottom-shows-70-space-savings-with-warehouse-shelf-visualization.webp"
+                    src={img("infographic-shipping-storage")}
                     alt={t('benefits.biz.shipping.title')}
                     className="w-full h-32 object-cover rounded-lg mb-3 cursor-pointer"
                     onClick={() => {
-                      setModalImage('https://pouch.eco/wp-content/uploads/2025/12/Split-infographic-showing-shipping-and-storage-benefits-top-section-displays-15-22-shipping-cost-reduction-with-box-comparison-bottom-shows-70-space-savings-with-warehouse-shelf-visualization.webp')
+                      setModalImage(img("infographic-shipping-storage"))
                       setModalAlt(t('benefits.biz.shipping.title'))
                       setIsModalOpen(true)
                     }}
@@ -481,11 +485,11 @@ ${formData.message}`
 
                 <div className="bg-white rounded-lg p-6 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1">
                   <img
-                    src="https://pouch.eco/wp-content/uploads/2025/12/a_premium_finishes_infographic_5805298.webp"
+                    src={img("infographic-premium-finishes")}
                     alt={t('benefits.biz.finish.title')}
                     className="w-full h-32 object-cover rounded-lg mb-3 cursor-pointer"
                     onClick={() => {
-                      setModalImage('https://pouch.eco/wp-content/uploads/2025/12/a_premium_finishes_infographic_5805298.webp')
+                      setModalImage(img("infographic-premium-finishes"))
                       setModalAlt(t('benefits.biz.finish.title'))
                       setIsModalOpen(true)
                     }}
@@ -512,11 +516,11 @@ ${formData.message}`
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white rounded-lg p-6 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1 border border-neutral-100">
               <img
-                src="https://pouch.eco/wp-content/uploads/2025/12/Educational-timeline-infographic-showing-five-month-composting-process-from-intact-pouch-to-rich-soil-with-EN13432ASTM-D6400-certification-and-earthy-color-progression.webp"
+                src={img("product-composting-timeline")}
                 alt={t('products.items.compostable.title')}
                 className="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer"
                 onClick={() => {
-                  setModalImage('https://pouch.eco/wp-content/uploads/2025/12/Educational-timeline-infographic-showing-five-month-composting-process-from-intact-pouch-to-rich-soil-with-EN13432ASTM-D6400-certification-and-earthy-color-progression.webp')
+                  setModalImage(img("product-composting-timeline"))
                   setModalAlt(t('products.items.compostable.title'))
                   setIsModalOpen(true)
                 }}
@@ -528,11 +532,11 @@ ${formData.message}`
 
             <div className="bg-white rounded-lg p-6 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1 border border-neutral-100">
               <img
-                src="https://pouch.eco/wp-content/uploads/2025/12/Close-up-editorial-shot-of-GRS-certified-mono-material-recyclable-pouches-in-neutral-tones-hands-presenting-premium-matte-and-soft-touch-finishes-on-marble-surface-with-natural-window-lighting.webp"
+                src={img("product-recyclable-pouches")}
                 alt={t('products.items.recyclable.title')}
                 className="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer"
                 onClick={() => {
-                  setModalImage('https://pouch.eco/wp-content/uploads/2025/12/Close-up-editorial-shot-of-GRS-certified-mono-material-recyclable-pouches-in-neutral-tones-hands-presenting-premium-matte-and-soft-touch-finishes-on-marble-surface-with-natural-window-lighting.webp')
+                  setModalImage(img("product-recyclable-pouches"))
                   setModalAlt(t('products.items.recyclable.title'))
                   setIsModalOpen(true)
                 }}
@@ -544,11 +548,11 @@ ${formData.message}`
 
             <div className="bg-white rounded-lg p-6 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1 border border-neutral-100">
               <img
-                src="https://pouch.eco/wp-content/uploads/2025/12/Overhead-flat-lay-of-PCR-and-bio-based-material-pouches-artfully-arranged-with-seeds-and-plant-elements-FDA-food-contact-approved-showing-circular-economy-innovation-with-Achieve-Pack-branding.webp"
+                src={img("product-pcr-biobased")}
                 alt={t('products.items.pcr.title')}
                 className="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer"
                 onClick={() => {
-                  setModalImage('https://pouch.eco/wp-content/uploads/2025/12/Overhead-flat-lay-of-PCR-and-bio-based-material-pouches-artfully-arranged-with-seeds-and-plant-elements-FDA-food-contact-approved-showing-circular-economy-innovation-with-Achieve-Pack-branding.webp')
+                  setModalImage(img("product-pcr-biobased"))
                   setModalAlt(t('products.items.pcr.title'))
                   setIsModalOpen(true)
                 }}
@@ -560,11 +564,11 @@ ${formData.message}`
 
             <div className="bg-white rounded-lg p-6 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1 border border-neutral-100">
               <img
-                src="https://pouch.eco/wp-content/uploads/2025/12/Premium-kraft-stand-up-pouch-with-Achieve-Pack-green-logo-surrounded-by-natural-elements-fresh-leaves-moss-and-wooden-surface-in-warm-morning-sunlight-showcasing-sustainable-packaging-luxury.webp"
+                src={img("about-hero")}
                 alt={t('products.items.bio.title')}
                 className="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer"
                 onClick={() => {
-                  setModalImage('https://pouch.eco/wp-content/uploads/2025/12/Premium-kraft-stand-up-pouch-with-Achieve-Pack-green-logo-surrounded-by-natural-elements-fresh-leaves-moss-and-wooden-surface-in-warm-morning-sunlight-showcasing-sustainable-packaging-luxury.webp')
+                  setModalImage(img("about-hero"))
                   setModalAlt(t('products.items.bio.title'))
                   setIsModalOpen(true)
                 }}
@@ -590,11 +594,11 @@ ${formData.message}`
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white rounded-lg p-8 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1 text-center border border-neutral-100">
               <img
-                src="https://pouch.eco/wp-content/uploads/2025/12/a_food_beverage_lifestyle_showcase_6362188.webp"
+                src={img("solution-food-beverage")}
                 alt="Food & Beverage Packaging"
                 className="w-full h-32 object-cover rounded-lg mb-4 cursor-pointer"
                 onClick={() => {
-                  setModalImage('https://pouch.eco/wp-content/uploads/2025/12/a_food_beverage_lifestyle_showcase_6362188.webp')
+                  setModalImage(img("solution-food-beverage"))
                   setModalAlt('Food & Beverage Packaging')
                   setIsModalOpen(true)
                 }}
@@ -608,11 +612,11 @@ ${formData.message}`
 
             <div className="bg-white rounded-lg p-8 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1 text-center border border-neutral-100">
               <img
-                src="https://pouch.eco/wp-content/uploads/2025/12/Dramatic-showcase-of-six-premium-finishing-options-matte-gloss-soft-touch-metallic-embossed-and-spot-UV-with-hand-touching-pouch-to-emphasize-tactile-luxury-under-directional-lighting.webp"
+                src={img("solution-cosmetics")}
                 alt={t('solutions.items.cosmetics.title')}
                 className="w-full h-32 object-cover rounded-lg mb-4 cursor-pointer"
                 onClick={() => {
-                  setModalImage('https://pouch.eco/wp-content/uploads/2025/12/Dramatic-showcase-of-six-premium-finishing-options-matte-gloss-soft-touch-metallic-embossed-and-spot-UV-with-hand-touching-pouch-to-emphasize-tactile-luxury-under-directional-lighting.webp')
+                  setModalImage(img("solution-cosmetics"))
                   setModalAlt(t('solutions.items.cosmetics.title'))
                   setIsModalOpen(true)
                 }}
@@ -626,11 +630,11 @@ ${formData.message}`
 
             <div className="bg-white rounded-lg p-8 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1 text-center border border-neutral-100">
               <img
-                src="https://pouch.eco/wp-content/uploads/2025/12/Fresh-wellness-photography-showing-athletic-hands-scooping-superfood-powder-from-clean-stand-up-wellness-pouch-into-glass-shaker-bottle-with-fresh-fruit-and-fitness-props-in-bright-modern-kitchen-setting.webp"
+                src={img("solution-wellness")}
                 alt={t('solutions.items.health.title')}
                 className="w-full h-32 object-cover rounded-lg mb-4 cursor-pointer"
                 onClick={() => {
-                  setModalImage('https://pouch.eco/wp-content/uploads/2025/12/Fresh-wellness-photography-showing-athletic-hands-scooping-superfood-powder-from-clean-stand-up-wellness-pouch-into-glass-shaker-bottle-with-fresh-fruit-and-fitness-props-in-bright-modern-kitchen-setting.webp')
+                  setModalImage(img("solution-wellness"))
                   setModalAlt(t('solutions.items.health.title'))
                   setIsModalOpen(true)
                 }}
@@ -644,11 +648,11 @@ ${formData.message}`
 
             <div className="bg-white rounded-lg p-8 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1 text-center border border-neutral-100">
               <img
-                src="https://pouch.eco/wp-content/uploads/2025/12/a_pet_products_with_cute_pet_9679118.webp"
+                src={img("solution-pet-products")}
                 alt={t('solutions.items.pet.title')}
                 className="w-full h-32 object-cover rounded-lg mb-4 cursor-pointer"
                 onClick={() => {
-                  setModalImage('https://pouch.eco/wp-content/uploads/2025/12/a_pet_products_with_cute_pet_9679118.webp')
+                  setModalImage(img("solution-pet-products"))
                   setModalAlt(t('solutions.items.pet.title'))
                   setIsModalOpen(true)
                 }}
@@ -679,11 +683,11 @@ ${formData.message}`
               <h3 className="text-2xl font-bold text-neutral-900 mb-6">{t('features.barrier.title')}</h3>
               <div className="mb-6">
                 <img
-                  src="https://pouch.eco/wp-content/uploads/2025/12/a_achieve_pack_barrier_options_infographic_4264860-scaled.webp"
+                  src={img("feature-barrier-options")}
                   alt={t('features.barrier.title')}
                   className="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer"
                   onClick={() => {
-                    setModalImage('https://pouch.eco/wp-content/uploads/2025/12/a_achieve_pack_barrier_options_infographic_4264860-scaled.webp')
+                    setModalImage(img("feature-barrier-options"))
                     setModalAlt(t('features.barrier.title'))
                     setIsModalOpen(true)
                   }}
@@ -726,11 +730,11 @@ ${formData.message}`
               <h3 className="text-2xl font-bold text-neutral-900 mb-6">{t('features.shapes.title')}</h3>
               <div className="mb-6">
                 <img
-                  src="https://pouch.eco/wp-content/uploads/2025/12/a_achieve_pack_pouches_single_row_2617439-scaled.webp"
+                  src={img("feature-pouch-shapes")}
                   alt={t('features.shapes.title')}
                   className="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer"
                   onClick={() => {
-                    setModalImage('https://pouch.eco/wp-content/uploads/2025/12/a_achieve_pack_pouches_single_row_2617439-scaled.webp')
+                    setModalImage(img("feature-pouch-shapes"))
                     setModalAlt(t('features.shapes.title'))
                     setIsModalOpen(true)
                   }}
@@ -765,11 +769,11 @@ ${formData.message}`
               <h3 className="text-2xl font-bold text-neutral-900 mb-6">{t('features.printing.title')}</h3>
               <div className="mb-6">
                 <img
-                  src="https://pouch.eco/wp-content/uploads/2025/12/a_achieve_pack_bags_stamp_foil_3332905-scaled.webp"
+                  src={img("feature-printing-finishes")}
                   alt={t('features.printing.title')}
                   className="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer"
                   onClick={() => {
-                    setModalImage('https://pouch.eco/wp-content/uploads/2025/12/a_achieve_pack_bags_stamp_foil_3332905-scaled.webp')
+                    setModalImage(img("feature-printing-finishes"))
                     setModalAlt(t('features.printing.title'))
                     setIsModalOpen(true)
                   }}
@@ -808,11 +812,11 @@ ${formData.message}`
               <h3 className="text-2xl font-bold text-neutral-900 mb-6">{t('features.reclosure.title')}</h3>
               <div className="mb-6">
                 <img
-                  src="https://pouch.eco/wp-content/uploads/2025/12/Educational-infographic-displaying-five-closure-systems-zipper-spout-cap-tin-tie-press-to-close-and-valve-with-clear-labels-and-technical-illustrations-showing-convenience-and-freshness-benefits.webp"
+                  src={img("feature-reclosure-solutions")}
                   alt={t('features.reclosure.title')}
                   className="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer"
                   onClick={() => {
-                    setModalImage('https://pouch.eco/wp-content/uploads/2025/12/Educational-infographic-displaying-five-closure-systems-zipper-spout-cap-tin-tie-press-to-close-and-valve-with-clear-labels-and-technical-illustrations-showing-convenience-and-freshness-benefits.webp')
+                    setModalImage(img("feature-reclosure-solutions"))
                     setModalAlt(t('features.reclosure.title'))
                     setIsModalOpen(true)
                   }}
@@ -855,11 +859,11 @@ ${formData.message}`
             </p>
             <div className="mt-8">
               <img
-                src="https://pouch.eco/wp-content/uploads/2025/12/Bold-three-column-comparison-infographic-titled-The-Data-Doesnt-Lie-showing-70-less-plastic-70-lower-CO2-and-70-space-savings-with-clear-icons-bar-charts-and-green-accent-colors.webp"
+                src={img("comparison-flexible-vs-rigid")}
                 alt={t('comparison.title')}
                 className="w-full max-w-4xl mx-auto rounded-lg shadow-lg cursor-pointer"
                 onClick={() => {
-                  setModalImage('https://pouch.eco/wp-content/uploads/2025/12/Bold-three-column-comparison-infographic-titled-The-Data-Doesnt-Lie-showing-70-less-plastic-70-lower-CO2-and-70-space-savings-with-clear-icons-bar-charts-and-green-accent-colors.webp')
+                  setModalImage(img("comparison-flexible-vs-rigid"))
                   setModalAlt(t('comparison.title'))
                   setIsModalOpen(true)
                 }}
@@ -1027,7 +1031,7 @@ ${formData.message}`
             <h3 className="text-lg font-semibold text-neutral-900 mb-6">{t('testimonials.trusted')}</h3>
             <div className="flex justify-center items-center opacity-70">
               <img
-                src="https://pouch.eco/wp-content/uploads/2025/12/a_customer_logos_grid_grey_multiple_rows_6481588-scaled.webp"
+                src={img("testimonials-client-logos")}
                 alt={t('testimonials.trusted')}
                 className="w-full max-w-4xl h-auto object-contain"
               />
@@ -1070,11 +1074,11 @@ ${formData.message}`
             </p>
             <div className="mt-8">
               <img
-                src="https://pouch.eco/wp-content/uploads/2025/12/Compelling-call-to-action-marketing-banner-featuring-prominent-Achieve-Pack-logo-headline-22Start-Your-Sustainable-Packaging-Journey22-showcase-of-diverse-sustainable-pouches.webp"
+                src={img("contact-cta-banner")}
                 alt={t('contact.title')}
                 className="w-full max-w-4xl mx-auto h-48 object-cover rounded-lg cursor-pointer"
                 onClick={() => {
-                  setModalImage('https://pouch.eco/wp-content/uploads/2025/12/Compelling-call-to-action-marketing-banner-featuring-prominent-Achieve-Pack-logo-headline-22Start-Your-Sustainable-Packaging-Journey22-showcase-of-diverse-sustainable-pouches.webp')
+                  setModalImage(img("contact-cta-banner"))
                   setModalAlt(t('contact.title'))
                   setIsModalOpen(true)
                 }}

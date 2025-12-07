@@ -1,0 +1,192 @@
+{
+    "imageMapping": {
+        "about-hero.webp": {
+            "en": "/imgs/about-hero.webp",
+            "fr": "/imgs/about-hero.webp",
+            "zh": "/imgs/about-hero.webp",
+            "es": "/imgs/about-hero.webp",
+            "note": "Hero image - no text, use English version"
+        },
+        "BioPE.webp": {
+            "en": "/imgs/BioPE.webp",
+            "fr": "/imgs/BioPE.webp",
+            "zh": "/imgs/BioPE.webp",
+            "es": "/imgs/BioPE.webp",
+            "note": "Certification logo - no translation needed"
+        },
+        "brc-cert.webp": {
+            "en": "/imgs/brc-cert.webp",
+            "fr": "/imgs/brc-cert.webp",
+            "zh": "/imgs/brc-cert.webp",
+            "es": "/imgs/brc-cert.webp",
+            "note": "Certification - no translation needed"
+        },
+        "cert-home-compost.png": {
+            "en": "/imgs/cert-home-compost.png",
+            "fr": "/imgs/cert-home-compost.png",
+            "zh": "/imgs/cert-home-compost.png",
+            "es": "/imgs/cert-home-compost.png",
+            "note": "Certification - no translation needed"
+        },
+        "pcr-grs-cert-1.webp": {
+            "en": "/imgs/pcr-grs-cert-1.webp",
+            "fr": "/imgs/pcr-grs-cert-1.webp",
+            "zh": "/imgs/pcr-grs-cert-1.webp",
+            "es": "/imgs/pcr-grs-cert-1.webp",
+            "note": "Certification - no translation needed"
+        },
+        "infographic-carbon-footprint.webp": {
+            "en": "/imgs/infographic-carbon-footprint.webp",
+            "fr": "/img-fr/a_carbon_footprint_french_6831696.webp",
+            "zh": "/imgs-ch/a_carbon_footprint_traditional_chinese_4007408.webp",
+            "es": "/imgs-sp/a_carbon_footprint_spanish_8619151.webp"
+        },
+        "infographic-compostable.webp": {
+            "en": "/imgs/infographic-compostable.webp",
+            "fr": "/img-fr/a_sustainability_data_french_4992181.webp",
+            "zh": "/imgs-ch/a_sustainability_data_traditional_chinese_1167620.webp",
+            "es": "/imgs-sp/a_sustainability_data_spanish_7986400.webp"
+        },
+        "infographic-plant-based.webp": {
+            "en": "/imgs/infographic-plant-based.webp",
+            "fr": "/img-fr/a_plant_based_french_0202435.webp",
+            "zh": "/imgs-ch/a_plant_based_traditional_chinese_2911132.webp",
+            "es": "/imgs-sp/a_plant_based_spanish_1163987.webp"
+        },
+        "infographic-grs-recyclable.webp": {
+            "en": "/imgs/infographic-grs-recyclable.webp",
+            "fr": "/img-fr/a_grs_recyclable_french_3775236.webp",
+            "zh": "/imgs-ch/a_grs_recyclable_traditional_chinese_4658307.webp",
+            "es": "/imgs-sp/a_grs_recyclable_spanish_6585716.webp"
+        },
+        "infographic-low-moq.webp": {
+            "en": "/imgs/infographic-low-moq.webp",
+            "fr": "/img-fr/a_low_moq_french_6133875.webp",
+            "zh": "/imgs-ch/a_low_moq_traditional_chinese_9053549.webp",
+            "es": "/imgs-sp/a_low_moq_spanish_0051694.webp"
+        },
+        "infographic-fast-turnaround.webp": {
+            "en": "/imgs/infographic-fast-turnaround.webp",
+            "fr": "/img-fr/a_fast_turnaround_french_7131233.webp",
+            "zh": "/imgs-ch/a_fast_turnaround_traditional_chinese_3580499.webp",
+            "es": "/imgs-sp/a_fast_turnaround_spanish_6936404.webp"
+        },
+        "infographic-shipping-storage.webp": {
+            "en": "/imgs/infographic-shipping-storage.webp",
+            "fr": "/img-fr/a_shipping_storage_french_0128938.webp",
+            "zh": "/imgs-ch/a_shipping_storage_traditional_chinese_2385301.webp",
+            "es": "/imgs-sp/a_shipping_storage_spanish_3657988.webp"
+        },
+        "infographic-premium-finishes.webp": {
+            "en": "/imgs/infographic-premium-finishes.webp",
+            "fr": "/img-fr/a_premium_finishes_french_6211544.webp",
+            "zh": "/imgs-ch/a_premium_finishes_traditional_chinese_8868993.webp",
+            "es": "/imgs-sp/a_premium_finishes_spanish_8460591.webp"
+        },
+        "product-composting-timeline.webp": {
+            "en": "/imgs/product-composting-timeline.webp",
+            "fr": "/img-fr/a_composting_timeline_spanish_3885780.webp",
+            "zh": "/imgs-ch/a_composting_timeline_traditional_chinese_5384539.webp",
+            "es": "/imgs-sp/a_composting_timeline_french_4908607.webp",
+            "note": "WARNING: French and Spanish versions are swapped!"
+        },
+        "product-recyclable-pouches.webp": {
+            "en": "/imgs/product-recyclable-pouches.webp",
+            "fr": "/img-fr/a_recyclable_pouches_french_6677876.webp",
+            "zh": "/imgs-ch/a_recyclable_pouches_traditional_chinese_7491817.webp",
+            "es": "/imgs-sp/a_recyclable_pouches_spanish_4919688.webp"
+        },
+        "product-pcr-biobased.webp": {
+            "en": "/imgs/product-pcr-biobased.webp",
+            "fr": "/imgs/product-pcr-biobased.webp",
+            "zh": "/imgs/product-pcr-biobased.webp",
+            "es": "/imgs/product-pcr-biobased.webp",
+            "note": "Product photo - no text, use English version"
+        },
+        "product-hero-pouch.webp": {
+            "en": "/imgs/product-hero-pouch.webp",
+            "fr": "/imgs/product-hero-pouch.webp",
+            "zh": "/imgs/product-hero-pouch.webp",
+            "es": "/imgs/product-hero-pouch.webp",
+            "note": "Product photo - no text, use English version"
+        },
+        "solution-food-beverage.webp": {
+            "en": "/imgs/solution-food-beverage.webp",
+            "fr": "/imgs/solution-food-beverage.webp",
+            "zh": "/imgs/solution-food-beverage.webp",
+            "es": "/imgs/solution-food-beverage.webp",
+            "note": "Lifestyle photo - no text, use English version"
+        },
+        "solution-cosmetics.webp": {
+            "en": "/imgs/solution-cosmetics.webp",
+            "fr": "/imgs/solution-cosmetics.webp",
+            "zh": "/imgs/solution-cosmetics.webp",
+            "es": "/imgs/solution-cosmetics.webp",
+            "note": "Lifestyle photo - no text, use English version"
+        },
+        "solution-wellness.webp": {
+            "en": "/imgs/solution-wellness.webp",
+            "fr": "/imgs/solution-wellness.webp",
+            "zh": "/imgs/solution-wellness.webp",
+            "es": "/imgs/solution-wellness.webp",
+            "note": "Lifestyle photo - no text, use English version"
+        },
+        "solution-pet-products.webp": {
+            "en": "/imgs/solution-pet-products.webp",
+            "fr": "/imgs/solution-pet-products.webp",
+            "zh": "/imgs/solution-pet-products.webp",
+            "es": "/imgs/solution-pet-products.webp",
+            "note": "Lifestyle photo - no text, use English version"
+        },
+        "feature-barrier-options.webp": {
+            "en": "/imgs/feature-barrier-options.webp",
+            "fr": "/img-fr/a_barrier_options_french_0428734.webp",
+            "zh": "/imgs-ch/a_barrier_options_traditional_chinese_8182562.webp",
+            "es": "/imgs-sp/a_barrier_options_spanish_8504244.webp"
+        },
+        "feature-pouch-shapes.webp": {
+            "en": "/imgs/feature-pouch-shapes.webp",
+            "fr": "/img-fr/a_pouch_shapes_french_1317267.webp",
+            "zh": "/imgs-ch/a_pouch_shapes_traditional_chinese_7135337.webp",
+            "es": "/imgs-sp/a_pouch_shapes_spanish_4323102.webp"
+        },
+        "feature-printing-finishes.webp": {
+            "en": "/imgs/feature-printing-finishes.webp",
+            "fr": "/img-fr/a_printing_finishes_french_2575256.webp",
+            "zh": "/imgs-ch/a_printing_finishes_traditional_chinese_6621128.webp",
+            "es": "/imgs-sp/a_printing_finishes_spanish_0018271.webp"
+        },
+        "feature-reclosure-solutions.webp": {
+            "en": "/imgs/feature-reclosure-solutions.webp",
+            "fr": "/img-fr/a_reclosure_options_french_3234977.webp",
+            "zh": "/imgs-ch/a_reclosure_options_traditional_chinese_7952293.webp",
+            "es": "/imgs-sp/a_reclosure_options_spanish_8419525.webp"
+        },
+        "comparison-flexible-vs-rigid.webp": {
+            "en": "/imgs/comparison-flexible-vs-rigid.webp",
+            "fr": "/imgs/comparison-flexible-vs-rigid.webp",
+            "zh": "/imgs/comparison-flexible-vs-rigid.webp",
+            "es": "/imgs/comparison-flexible-vs-rigid.webp",
+            "note": "Missing translations - use English version"
+        },
+        "process-5-steps.webp": {
+            "en": "/imgs/process-5-steps.webp",
+            "fr": "/img-fr/a_process_french_4594650.webp",
+            "zh": "/imgs-ch/a_process_traditional_chinese_7374254.webp",
+            "es": "/imgs-sp/a_process_spanish_3226411.webp"
+        },
+        "testimonials-client-logos.webp": {
+            "en": "/imgs/testimonials-client-logos.webp",
+            "fr": "/imgs/testimonials-client-logos.webp",
+            "zh": "/imgs/testimonials-client-logos.webp",
+            "es": "/imgs/testimonials-client-logos.webp",
+            "note": "Logo grid - no translation needed"
+        },
+        "contact-cta-banner.webp": {
+            "en": "/imgs/contact-cta-banner.webp",
+            "fr": "/img-fr/a_sustainable_packaging_banner_french_6395454.webp",
+            "zh": "/imgs-ch/a_sustainable_packaging_banner_traditional_chinese_9050358.webp",
+            "es": "/imgs-sp/a_sustainable_packaging_banner_spanish_9446290.webp"
+        }
+    }
+}

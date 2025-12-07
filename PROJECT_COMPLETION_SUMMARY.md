@@ -26,7 +26,7 @@
    - ✅ CTAs: "Calculate Your Savings" and "Book Free Consultation"
 
 2. **About Section**
-   - ✅ Company story (parent of pouch.eco, founded 2021, Hong Kong)
+   - ✅ Company story (parent of pouch.eco, founded 2011, Hong Kong)
    - ✅ Certifications: EN13432, ASTM D6400, GRS-certified
    - ✅ Professional messaging and trust indicators
 
