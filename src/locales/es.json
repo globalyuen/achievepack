@@ -1,0 +1,337 @@
+{
+    "nav": {
+        "about": "Acerca de",
+        "benefits": "Beneficios",
+        "products": "Productos",
+        "solutions": "Soluciones",
+        "features": "Características",
+        "contact": "Contacto",
+        "getStarted": "Empezar"
+    },
+    "hero": {
+        "titlePrefix": "Haga que el embalaje sea sostenible con",
+        "titleSuffix": "Achieve Pack",
+        "description": "Transforme su negocio con soluciones de embalaje ecológico certificadas que reducen su impacto ambiental mientras ofrecen un valor comercial excepcional.",
+        "calculateSavings": "Calcule sus ahorros",
+        "bookConsultation": "Reservar consulta gratuita",
+        "stats": {
+            "carbon": "Reducción de la huella de carbono",
+            "plastic": "Menos uso de plástico",
+            "shipping": "Ahorro en costos de envío"
+        }
+    },
+    "about": {
+        "title": "Liderando la revolución del embalaje sostenible",
+        "p1": "Achieve Pack® es la empresa matriz de pouch.eco, fundada en 2021 en Hong Kong. Nos especializamos en brindar soluciones integrales para empresas que buscan hacer la transición a envases ecológicos sin comprometer la calidad ni la rentabilidad.",
+        "p2": "Nuestra misión es hacer que el embalaje sostenible sea accesible para empresas de todos los tamaños, ofreciendo materiales compostables certificados, opciones reciclables y soluciones de base biológica que reducen significativamente el impacto ambiental al tiempo que ofrecen un valor comercial superior.",
+        "certs": {
+            "en13432": "Certificado EN13432",
+            "astm": "Cumple con ASTM D6400",
+            "grs": "Certificado GRS"
+        }
+    },
+    "benefits": {
+        "title": "Beneficios ambientales y comerciales",
+        "description": "Nuestras soluciones de embalaje sostenible ofrecen un valor excepcional tanto en el frente ambiental como en el comercial.",
+        "envTitle": "Impacto ambiental",
+        "bizTitle": "Ventajas comerciales",
+        "env": {
+            "carbon": {
+                "title": "70% de reducción de la huella de carbono",
+                "desc": "Impacto ambiental significativamente menor en comparación con los envases de plástico tradicionales."
+            },
+            "compostable": {
+                "title": "Materiales compostables certificados",
+                "desc": "Se descomponen naturalmente en entornos de compostaje sin residuos nocivos."
+            },
+            "plantBased": {
+                "title": "Materiales renovables de origen vegetal",
+                "desc": "Fabricados a partir de recursos renovables como almidón de maíz y caña de azúcar, reduciendo la dependencia de combustibles fósiles."
+            },
+            "recyclable": {
+                "title": "Opciones reciclables certificadas por GRS",
+                "desc": "Materiales certificados por el Estándar Global de Reciclaje para una integración completa en la economía circular."
+            }
+        },
+        "biz": {
+            "moq": {
+                "title": "Pedido mínimo bajo: 100 piezas",
+                "desc": "Empiece con poco con nuestro bajo MOQ, en comparación con los mínimos de 5K-10K en otros lugares."
+            },
+            "turnaround": {
+                "title": "Tiempos de entrega rápidos",
+                "desc": "Muestras en 2-3 semanas, producción completa en 6-8 semanas para cumplir con su cronograma."
+            },
+            "shipping": {
+                "title": "15-22% de ahorro en costos de envío",
+                "desc": "El embalaje más ligero reduce los costos de envío mientras mantiene la protección del producto."
+            },
+            "finish": {
+                "title": "Acabados premium a menor costo",
+                "desc": "Opciones de impresión y acabado profesionales que no exceden el presupuesto."
+            }
+        }
+    },
+    "products": {
+        "title": "Soluciones de embalaje sostenible",
+        "description": "Elija entre nuestra amplia gama de materiales de embalaje ecológicos diseñados para diversas aplicaciones.",
+        "items": {
+            "compostable": {
+                "title": "Compostable y biodegradable",
+                "desc": "Opciones compostables domésticas e industriales que se descomponen de forma segura.",
+                "badge": "✓ Certificado EN13432 y ASTM D6400"
+            },
+            "recyclable": {
+                "title": "Mono-Reciclable",
+                "desc": "Materiales 100% reciclables certificados por GRS diseñados para flujos de reciclaje eficientes.",
+                "badge": "✓ Certificado GRS | 100% Reciclable"
+            },
+            "pcr": {
+                "title": "Reciclado posconsumo",
+                "desc": "Plástico PCR con menor huella de carbono, dando nueva vida a materiales reciclados.",
+                "badge": "✓ Materiales PCR | Carbono reducido"
+            },
+            "bio": {
+                "title": "PE de base biológica",
+                "desc": "Embalaje sostenible a base de caña de azúcar que reduce la dependencia de combustibles fósiles.",
+                "badge": "✓ A base de caña de azúcar | Renovable"
+            }
+        }
+    },
+    "solutions": {
+        "title": "Soluciones por industria",
+        "description": "Soluciones de embalaje especializadas adaptadas a los requisitos únicos de diferentes industrias.",
+        "items": {
+            "food": {
+                "title": "Alimentos y bebidas",
+                "desc": "Chocolate, nueces, té, café y otros productos alimenticios con diversos requisitos de barrera."
+            },
+            "cosmetics": {
+                "title": "Cosmética y cuidado personal",
+                "desc": "Embalaje premium para productos de belleza y cuidado personal con acabados elegantes."
+            },
+            "health": {
+                "title": "Salud y bienestar",
+                "desc": "Productos médicos y de bienestar que requieren alta protección de barrera y cumplimiento."
+            },
+            "pet": {
+                "title": "Productos para mascotas",
+                "desc": "Embalaje para alimentos y golosinas para mascotas con barreras contra olores y opciones resellables."
+            }
+        }
+    },
+    "features": {
+        "title": "Características avanzadas de embalaje",
+        "description": "Opciones completas de personalización para satisfacer los requisitos específicos de su producto y las necesidades de su marca.",
+        "barrier": {
+            "title": "Niveles de protección de barrera",
+            "low": {
+                "title": "Barrera baja",
+                "desc": "Productos secos"
+            },
+            "medium": {
+                "title": "Barrera media",
+                "desc": "Snacks y café"
+            },
+            "high": {
+                "title": "Barrera alta",
+                "desc": "Productos sensibles"
+            },
+            "max": {
+                "title": "Barrera máxima",
+                "desc": "Larga vida útil"
+            }
+        },
+        "shapes": {
+            "title": "Formas y estilos de bolsas",
+            "standup": "Bolsa Doypack",
+            "flat": "Fondo plano",
+            "gusset": "Fuelle lateral",
+            "quad": "Sello cuádruple",
+            "threeside": "Sellado de 3 lados"
+        },
+        "printing": {
+            "title": "Impresión y acabados",
+            "methods": {
+                "title": "Métodos de impresión",
+                "i1": "Impresión de placa de hasta 10 colores",
+                "i2": "Impresión digital ilimitada",
+                "i3": "Gráficos de alta resolución"
+            },
+            "finishes": {
+                "title": "Acabados superficiales",
+                "i1": "Opciones mate y brillante",
+                "i2": "Revestimiento suave al tacto",
+                "i3": "Acabados metálicos"
+            },
+            "effects": {
+                "title": "Efectos especiales",
+                "i1": "Revestimiento UV localizado",
+                "i2": "Relieve y bajo relieve",
+                "i3": "Efectos holográficos"
+            }
+        },
+        "reclosure": {
+            "title": "Soluciones de recierre",
+            "zipper": "Cierres de cremallera",
+            "spout": "Tapas con boquilla",
+            "tintie": "Tin-ties",
+            "press": "Press-to-Close",
+            "child": "Resistente a niños"
+        }
+    },
+    "comparison": {
+        "title": "Embalaje flexible vs rígido",
+        "description": "Descubra por qué el embalaje flexible es la opción superior tanto por consideraciones ambientales como comerciales.",
+        "flexible": {
+            "title": "Embalaje flexible",
+            "subtitle": "Soluciones Achieve Pack",
+            "i1": "70% menos uso de plástico",
+            "i2": "70% de reducción de peso",
+            "i3": "15-22% de ahorro en costos de envío",
+            "i4": "70% de reducción de espacio en almacén",
+            "i5": "Tiempo de comercialización 2 veces más rápido",
+            "i6": "Protección superior del producto",
+            "i7": "Niveles de barrera personalizables",
+            "i8": "Opciones de impresión premium"
+        },
+        "rigid": {
+            "title": "Embalaje rígido",
+            "subtitle": "Soluciones tradicionales",
+            "i1": "Mayor consumo de plástico",
+            "i2": "Peso más pesado",
+            "i3": "Costos de envío más altos",
+            "i4": "Grandes requisitos de almacenamiento",
+            "i5": "Tiempo de desarrollo más largo",
+            "i6": "Personalización limitada",
+            "i7": "Opciones de barrera estándar",
+            "i8": "Capacidades de impresión básicas"
+        }
+    },
+    "process": {
+        "title": "Nuestro proceso simple de 5 pasos",
+        "description": "Desde la consulta inicial hasta la entrega final, hacemos que el embalaje sostenible sea accesible y sencillo.",
+        "steps": {
+            "1": {
+                "title": "Consulta",
+                "desc": "Análisis de requisitos y recomendaciones de materiales"
+            },
+            "2": {
+                "title": "Diseño y selección",
+                "desc": "Diseño personalizado y selección de materiales"
+            },
+            "3": {
+                "title": "Producción de muestras",
+                "desc": "Producción de muestras en 2-3 semanas"
+            },
+            "4": {
+                "title": "Producción completa",
+                "desc": "Producción completa en 6-8 semanas"
+            },
+            "5": {
+                "title": "Entrega y soporte",
+                "desc": "Entrega y soporte continuo"
+            }
+        }
+    },
+    "testimonials": {
+        "title": "Historias de éxito",
+        "description": "Vea cómo empresas como la suya han transformado su embalaje con las soluciones de Achieve Pack.",
+        "items": {
+            "sarah": {
+                "quote": "Achieve Pack nos ayudó a hacer la transición a envases sostenibles sin comprometer la calidad. A nuestros clientes les encanta el enfoque ecológico.",
+                "name": "Sarah Chen",
+                "company": "GreenSnacks Ltd",
+                "industry": "Alimentos y bebidas"
+            },
+            "michael": {
+                "quote": "El bajo MOQ y la rapidez nos permitieron ser sostenibles desde el primer día. ¡Servicio excepcional!",
+                "name": "Michael Rodriguez",
+                "company": "EcoBeauty Co",
+                "industry": "Cosmética"
+            },
+            "emily": {
+                "quote": "Redujimos nuestros costos de embalaje en un 18% mientras mejoramos nuestro impacto ambiental. Achieve Pack cumplió en todos los frentes.",
+                "name": "Emily Watson",
+                "company": "Wellness Plus",
+                "industry": "Salud y bienestar"
+            }
+        },
+        "trusted": "Con la confianza de marcas líderes en todo el mundo"
+    },
+    "faq": {
+        "title": "Preguntas frecuentes",
+        "description": "Obtenga respuestas a preguntas comunes sobre nuestras soluciones de embalaje sostenible.",
+        "items": {
+            "certs": {
+                "q": "¿Qué certificaciones tienen sus materiales de embalaje?",
+                "a": "Nuestros materiales compostables están certificados según las normas EN13432 y ASTM D6400, mientras que nuestras opciones reciclables cuentan con la certificación GRS (Estándar Global de Reciclaje). Todos los materiales cumplen con las normas internacionales de seguridad y medio ambiente."
+            },
+            "moq": {
+                "q": "¿Cuál es la cantidad mínima de pedido?",
+                "a": "Ofrecemos uno de los MOQ más bajos de la industria con solo 100 piezas, lo que hace que el embalaje sostenible sea accesible para nuevas empresas y pequeños negocios. Esto es significativamente menor que los mínimos de 5,000-10,000 piezas que generalmente se requieren en otros lugares."
+            },
+            "time": {
+                "q": "¿Cuánto tiempo lleva la producción?",
+                "a": "La producción de muestras tarda de 2 a 3 semanas, y la producción completa de 6 a 8 semanas desde la aprobación. Este plazo nos permite garantizar la calidad mientras cumplimos con sus requisitos de lanzamiento."
+            },
+            "cost": {
+                "q": "¿Son sus materiales de embalaje rentables en comparación con el plástico tradicional?",
+                "a": "¡Sí! Si bien el costo del material puede ser ligeramente mayor, generalmente ahorra entre un 15 y un 22% en costos de envío debido al peso reducido y un 70% en espacio de almacén. Muchos clientes encuentran que el costo total de propiedad es competitivo o mejor que las opciones tradicionales."
+            },
+            "barrier": {
+                "q": "¿Qué opciones de barrera están disponibles para diferentes productos?",
+                "a": "Ofrecemos 8 niveles de barrera diferentes, desde barrera baja para productos secos hasta barrera máxima para productos que requieren una vida útil prolongada. Nuestro equipo recomendará la barrera óptima según los requisitos específicos de su producto."
+            },
+            "design": {
+                "q": "¿Pueden ayudar con el diseño personalizado y la impresión?",
+                "a": "¡Absolutamente! Ofrecemos servicios completos de diseño, incluida la impresión de placas de hasta 10 colores y la impresión digital ilimitada. También ofrecemos varios acabados como mate, brillo, tacto suave, metálico, UV localizado y opciones de relieve."
+            }
+        }
+    },
+    "contact": {
+        "title": "Empiece hoy",
+        "description": "¿Listo para transformar su embalaje? Contáctenos para una consulta gratuita y descubra cómo Achieve Pack puede ayudar a su empresa a ser sostenible.",
+        "form": {
+            "title": "Envíenos un mensaje",
+            "sendTo": "Enviar a: ryan@achievepack.com",
+            "name": "Nombre",
+            "namePlaceholder": "Su nombre completo",
+            "email": "Correo electrónico",
+            "emailPlaceholder": "su@correo.com",
+            "company": "Empresa",
+            "companyPlaceholder": "Nombre de su empresa",
+            "message": "Mensaje",
+            "messagePlaceholder": "Cuéntenos sobre sus necesidades de embalaje...",
+            "submit": "Enviar mensaje",
+            "thankYou": "¡Gracias por su mensaje! Su cliente de correo electrónico debería abrirse con el correo pre-rellenado."
+        },
+        "info": {
+            "title": "Información de contacto",
+            "addressTitle": "Dirección",
+            "addressValue": "No.41 1/F Wo Liu Hang Tsuen\nFotan, Hong Kong",
+            "phoneTitle": "Teléfono",
+            "phoneValue": "(852) 6970-4411",
+            "emailTitle": "Correo electrónico",
+            "emailValue": "ryan@achievepack.com"
+        },
+        "book": {
+            "title": "Reservar una consulta gratuita",
+            "desc": "Programe una consulta de 15 minutos para analizar sus necesidades de embalaje y explorar cómo nuestras soluciones sostenibles pueden beneficiar a su negocio.",
+            "btn": "Programar consulta"
+        },
+        "reg": {
+            "title": "Registro comercial",
+            "desc": "Número de registro comercial de Hong Kong: 41007097"
+        }
+    },
+    "footer": {
+        "company": "Achieve Pack",
+        "desc": "Liderando la revolución del embalaje sostenible con soluciones ecológicas certificadas para empresas de todo el mundo.",
+        "rights": "© 2025 Achieve Pack. Todos los derechos reservados.",
+        "productsTitle": "Productos",
+        "companyTitle": "Empresa",
+        "contactTitle": "Contacto",
+        "reg": "Número de registro comercial de Hong Kong: 41007097 | No.41 1/F Wo Liu Hang Tsuen, Fotan, HK"
+    }
+}

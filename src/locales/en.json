@@ -1,0 +1,337 @@
+{
+    "nav": {
+        "about": "About",
+        "benefits": "Benefits",
+        "products": "Products",
+        "solutions": "Solutions",
+        "features": "Features",
+        "contact": "Contact",
+        "getStarted": "Get Started"
+    },
+    "hero": {
+        "titlePrefix": "Make packaging sustainable with",
+        "titleSuffix": "Achieve Pack",
+        "description": "Transform your business with certified eco-friendly packaging solutions that reduce your environmental impact while delivering exceptional business value.",
+        "calculateSavings": "Calculate Your Savings",
+        "bookConsultation": "Book Free Consultation",
+        "stats": {
+            "carbon": "Carbon Footprint Reduction",
+            "plastic": "Less Plastic Usage",
+            "shipping": "Shipping Cost Savings"
+        }
+    },
+    "about": {
+        "title": "Leading the Sustainable Packaging Revolution",
+        "p1": "Achieve Pack® is the parent company of pouch.eco, founded in 2021 in Hong Kong. We specialize in providing one-stop solutions for businesses seeking to transition to eco-friendly packaging without compromising on quality or cost-effectiveness.",
+        "p2": "Our mission is to make sustainable packaging accessible to businesses of all sizes, offering certified compostable materials, recyclable options, and bio-based solutions that significantly reduce environmental impact while delivering superior business value.",
+        "certs": {
+            "en13432": "EN13432 Certified",
+            "astm": "ASTM D6400 Compliant",
+            "grs": "GRS-Certified"
+        }
+    },
+    "benefits": {
+        "title": "Environmental & Business Benefits",
+        "description": "Our sustainable packaging solutions deliver exceptional value on both environmental and business fronts.",
+        "envTitle": "Environmental Impact",
+        "bizTitle": "Business Advantages",
+        "env": {
+            "carbon": {
+                "title": "70% Carbon Footprint Reduction",
+                "desc": "Significantly lower environmental impact compared to traditional plastic packaging."
+            },
+            "compostable": {
+                "title": "Certified Compostable Materials",
+                "desc": "Break down naturally in composting environments without harmful residues."
+            },
+            "plantBased": {
+                "title": "Plant-Based Renewable Materials",
+                "desc": "Made from renewable resources like cornstarch and sugarcane, reducing fossil fuel dependence."
+            },
+            "recyclable": {
+                "title": "GRS-Certified Recyclable Options",
+                "desc": "Global Recyclable Standard certified materials for complete circular economy integration."
+            }
+        },
+        "biz": {
+            "moq": {
+                "title": "Low Minimum Order: 100 Pieces",
+                "desc": "Start small with our low MOQ, compared to 5K-10K minimums elsewhere."
+            },
+            "turnaround": {
+                "title": "Fast Turnaround Times",
+                "desc": "Samples in 2-3 weeks, full production in 6-8 weeks to meet your timeline."
+            },
+            "shipping": {
+                "title": "15-22% Shipping Cost Savings",
+                "desc": "Lighter packaging reduces shipping costs while maintaining product protection."
+            },
+            "finish": {
+                "title": "Premium Finishes at Lower Cost",
+                "desc": "Professional printing and finishing options that don't break the budget."
+            }
+        }
+    },
+    "products": {
+        "title": "Sustainable Packaging Solutions",
+        "description": "Choose from our comprehensive range of eco-friendly packaging materials designed for various applications.",
+        "items": {
+            "compostable": {
+                "title": "Compostable & Biodegradable",
+                "desc": "Home and industrial compostable options that break down safely in composting environments.",
+                "badge": "✓ EN13432 & ASTM D6400 Certified"
+            },
+            "recyclable": {
+                "title": "Mono-Recyclable",
+                "desc": "GRS-certified 100% recyclable materials designed for efficient recycling streams.",
+                "badge": "✓ GRS-Certified | 100% Recyclable"
+            },
+            "pcr": {
+                "title": "Post-Consumer Recycled",
+                "desc": "PCR plastic with lower carbon footprint, giving new life to recycled materials.",
+                "badge": "✓ PCR Materials | Lower Carbon"
+            },
+            "bio": {
+                "title": "Bio-based PE",
+                "desc": "Sustainable sugarcane-based packaging that reduces fossil fuel dependence.",
+                "badge": "✓ Sugarcane-Based | Renewable"
+            }
+        }
+    },
+    "solutions": {
+        "title": "Industry Solutions",
+        "description": "Specialized packaging solutions tailored to meet the unique requirements of different industries.",
+        "items": {
+            "food": {
+                "title": "Food & Beverage",
+                "desc": "Chocolate, nuts, tea, coffee, and other food products with various barrier requirements."
+            },
+            "cosmetics": {
+                "title": "Cosmetics & Personal Care",
+                "desc": "Premium packaging for beauty and personal care products with elegant finishes."
+            },
+            "health": {
+                "title": "Health & Wellness",
+                "desc": "Medical and wellness products requiring high barrier protection and compliance."
+            },
+            "pet": {
+                "title": "Pet Products",
+                "desc": "Pet food and treats packaging with odor barriers and resealable options."
+            }
+        }
+    },
+    "features": {
+        "title": "Advanced Packaging Features",
+        "description": "Comprehensive customization options to meet your specific product requirements and brand needs.",
+        "barrier": {
+            "title": "Barrier Protection Levels",
+            "low": {
+                "title": "Low Barrier",
+                "desc": "Dry goods"
+            },
+            "medium": {
+                "title": "Medium Barrier",
+                "desc": "Snacks & coffee"
+            },
+            "high": {
+                "title": "High Barrier",
+                "desc": "Sensitive products"
+            },
+            "max": {
+                "title": "Maximum Barrier",
+                "desc": "Long shelf life"
+            }
+        },
+        "shapes": {
+            "title": "Pouch Shapes & Styles",
+            "standup": "Stand-up Pouch",
+            "flat": "Flat Bottom",
+            "gusset": "Side Gusseted",
+            "quad": "Quad Seal",
+            "threeside": "3-Side Sealed"
+        },
+        "printing": {
+            "title": "Printing & Finishes",
+            "methods": {
+                "title": "Printing Methods",
+                "i1": "Up to 10 colors plate printing",
+                "i2": "Unlimited digital printing",
+                "i3": "High-resolution graphics"
+            },
+            "finishes": {
+                "title": "Surface Finishes",
+                "i1": "Matte & gloss options",
+                "i2": "Soft-touch coating",
+                "i3": "Metallic finishes"
+            },
+            "effects": {
+                "title": "Special Effects",
+                "i1": "Spot UV coating",
+                "i2": "Embossing & debossing",
+                "i3": "Holographic effects"
+            }
+        },
+        "reclosure": {
+            "title": "Reclosure Solutions",
+            "zipper": "Zipper Closures",
+            "spout": "Spout Caps",
+            "tintie": "Tin-ties",
+            "press": "Press-to-Close",
+            "child": "Child-Resistant"
+        }
+    },
+    "comparison": {
+        "title": "Flexible vs. Rigid Packaging",
+        "description": "Discover why flexible packaging is the superior choice for both environmental and business considerations.",
+        "flexible": {
+            "title": "Flexible Packaging",
+            "subtitle": "Achieve Pack Solutions",
+            "i1": "70% less plastic usage",
+            "i2": "70% weight reduction",
+            "i3": "15-22% shipping cost savings",
+            "i4": "70% warehouse space reduction",
+            "i5": "2x faster time to market",
+            "i6": "Superior product protection",
+            "i7": "Customizable barrier levels",
+            "i8": "Premium printing options"
+        },
+        "rigid": {
+            "title": "Rigid Packaging",
+            "subtitle": "Traditional Solutions",
+            "i1": "Higher plastic consumption",
+            "i2": "Heavier weight",
+            "i3": "Higher shipping costs",
+            "i4": "Large storage requirements",
+            "i5": "Longer development time",
+            "i6": "Limited customization",
+            "i7": "Standard barrier options",
+            "i8": "Basic printing capabilities"
+        }
+    },
+    "process": {
+        "title": "Our Simple 5-Step Process",
+        "description": "From initial consultation to final delivery, we make sustainable packaging accessible and straightforward.",
+        "steps": {
+            "1": {
+                "title": "Consultation",
+                "desc": "Requirements analysis and material recommendations"
+            },
+            "2": {
+                "title": "Design & Selection",
+                "desc": "Custom design and material selection"
+            },
+            "3": {
+                "title": "Sample Production",
+                "desc": "Sample production in 2-3 weeks"
+            },
+            "4": {
+                "title": "Full Production",
+                "desc": "Full production in 6-8 weeks"
+            },
+            "5": {
+                "title": "Delivery & Support",
+                "desc": "Delivery and ongoing support"
+            }
+        }
+    },
+    "testimonials": {
+        "title": "Success Stories",
+        "description": "See how businesses like yours have transformed their packaging with Achieve Pack solutions.",
+        "items": {
+            "sarah": {
+                "quote": "Achieve Pack helped us transition to sustainable packaging without compromising on quality. Our customers love the eco-friendly approach.",
+                "name": "Sarah Chen",
+                "company": "GreenSnacks Ltd",
+                "industry": "Food & Beverage"
+            },
+            "michael": {
+                "quote": "The low MOQ and fast turnaround made it easy for our startup to go sustainable from day one. Outstanding service!",
+                "name": "Michael Rodriguez",
+                "company": "EcoBeauty Co",
+                "industry": "Cosmetics"
+            },
+            "emily": {
+                "quote": "We reduced our packaging costs by 18% while improving our environmental impact. Achieve Pack delivered on all fronts.",
+                "name": "Emily Watson",
+                "company": "Wellness Plus",
+                "industry": "Health & Wellness"
+            }
+        },
+        "trusted": "Trusted by leading brands worldwide"
+    },
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "description": "Get answers to common questions about our sustainable packaging solutions.",
+        "items": {
+            "certs": {
+                "q": "What certifications do your packaging materials have?",
+                "a": "Our compostable materials are certified to EN13432 and ASTM D6400 standards, while our recyclable options carry GRS (Global Recycled Standard) certification. All materials meet international safety and environmental standards."
+            },
+            "moq": {
+                "q": "What is the minimum order quantity?",
+                "a": "We offer one of the lowest MOQs in the industry at just 100 pieces, making sustainable packaging accessible to startups and small businesses. This is significantly lower than the 5,000-10,000 piece minimums typically required elsewhere."
+            },
+            "time": {
+                "q": "How long does production take?",
+                "a": "Sample production takes 2-3 weeks, and full production takes 6-8 weeks from approval. This timeline allows us to ensure quality while meeting your launch requirements."
+            },
+            "cost": {
+                "q": "Are your packaging materials cost-effective compared to traditional plastic?",
+                "a": "Yes! While the material cost may be slightly higher, you typically save 15-22% on shipping costs due to reduced weight, and 70% on warehouse space. Many clients find the total cost of ownership is competitive or better than traditional options."
+            },
+            "barrier": {
+                "q": "What barrier options are available for different products?",
+                "a": "We offer 8 different barrier levels ranging from low barrier for dry goods to maximum barrier for products requiring extended shelf life. Our team will recommend the optimal barrier based on your specific product requirements."
+            },
+            "design": {
+                "q": "Can you help with custom design and printing?",
+                "a": "Absolutely! We offer comprehensive design services including up to 10-color plate printing and unlimited digital printing. We also provide various finishes like matte, gloss, soft-touch, metallic, spot UV, and embossing options."
+            }
+        }
+    },
+    "contact": {
+        "title": "Get Started Today",
+        "description": "Ready to transform your packaging? Contact us for a free consultation and discover how Achieve Pack can help your business go sustainable.",
+        "form": {
+            "title": "Send us a message",
+            "sendTo": "Send to: ryan@achievepack.com",
+            "name": "Name",
+            "namePlaceholder": "Your full name",
+            "email": "Email",
+            "emailPlaceholder": "your@email.com",
+            "company": "Company",
+            "companyPlaceholder": "Your company name",
+            "message": "Message",
+            "messagePlaceholder": "Tell us about your packaging needs...",
+            "submit": "Send Message",
+            "thankYou": "Thank you for your message! Your email client should open with the pre-filled email."
+        },
+        "info": {
+            "title": "Contact Information",
+            "addressTitle": "Address",
+            "addressValue": "No.41 1/F Wo Liu Hang Tsuen\nFotan, Hong Kong",
+            "phoneTitle": "Phone",
+            "phoneValue": "(852) 6970-4411",
+            "emailTitle": "Email",
+            "emailValue": "ryan@achievepack.com"
+        },
+        "book": {
+            "title": "Book a Free Consultation",
+            "desc": "Schedule a 15-minute consultation to discuss your packaging needs and explore how our sustainable solutions can benefit your business.",
+            "btn": "Schedule Consultation"
+        },
+        "reg": {
+            "title": "Business Registration",
+            "desc": "Hong Kong Business Registration Number: 41007097"
+        }
+    },
+    "footer": {
+        "company": "Achieve Pack",
+        "desc": "Leading the sustainable packaging revolution with certified eco-friendly solutions for businesses worldwide.",
+        "rights": "© 2025 Achieve Pack. All rights reserved.",
+        "productsTitle": "Products",
+        "companyTitle": "Company",
+        "contactTitle": "Contact",
+        "reg": "Hong Kong Business Registration Number: 41007097 | No.41 1/F Wo Liu Hang Tsuen, Fotan, HK"
+    }
+}
