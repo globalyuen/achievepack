@@ -27,7 +27,19 @@ export const useAuth = () => {
   }
 
   const signUp = async (email: string, password: string, metadata?: { full_name?: string; company?: string }) => {
-    return await supabase.auth.signUp({ email, password, options: { data: metadata } })
+    // Get the current origin for redirect URL
+    const redirectUrl = typeof window !== 'undefined' 
+      ? `${window.location.origin}/dashboard` 
+      : 'https://achievepack.vercel.app/dashboard'
+    
+    return await supabase.auth.signUp({ 
+      email, 
+      password, 
+      options: { 
+        data: metadata,
+        emailRedirectTo: redirectUrl
+      } 
+    })
   }
 
   const signOut = async () => {
