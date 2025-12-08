@@ -5,6 +5,7 @@ import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Gl
 import { HeroGrainBackground } from './components/HeroGrainBackground'
 import { CardContainer, CardBody, CardItem } from './components/ui/3d-card'
 import { AnimatedTestimonials } from './components/ui/animated-testimonials'
+import { Carousel, Card } from './components/ui/apple-cards-carousel'
 import { getImage } from './utils/imageMapper'
 import Calculator from './components/Calculator'
 import type { CalculatorResults } from './utils/calculatorUtils'
@@ -457,81 +458,92 @@ ${formData.message}`
         </div>
       </section>
 
-      {/* Products Section */}
+      {/* Products Section - Pouch Shapes Carousel */}
       <section id="products" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h2 className="text-4xl font-bold text-neutral-900 mb-4">{t('products.title')}</h2>
             <p className="text-lg text-neutral-700 max-w-3xl mx-auto">
               {t('products.description')}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white rounded-lg p-6 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1 border border-neutral-100">
-              <img
-                src={img("product-composting-timeline")}
-                alt={t('products.items.compostable.title')}
-                className="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer"
-                onClick={() => {
-                  setModalImage(img("product-composting-timeline"))
-                  setModalAlt(t('products.items.compostable.title'))
-                  setIsModalOpen(true)
-                }}
-              />
-              <h3 className="text-xl font-semibold text-neutral-900 mb-3">{t('products.items.compostable.title')}</h3>
-              <p className="text-neutral-700 mb-4">{t('products.items.compostable.desc')}</p>
-              <div className="text-sm text-primary-500 font-medium">{t('products.items.compostable.badge')}</div>
-            </div>
-
-            <div className="bg-white rounded-lg p-6 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1 border border-neutral-100">
-              <img
-                src={img("product-recyclable-pouches")}
-                alt={t('products.items.recyclable.title')}
-                className="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer"
-                onClick={() => {
-                  setModalImage(img("product-recyclable-pouches"))
-                  setModalAlt(t('products.items.recyclable.title'))
-                  setIsModalOpen(true)
-                }}
-              />
-              <h3 className="text-xl font-semibold text-neutral-900 mb-3">{t('products.items.recyclable.title')}</h3>
-              <p className="text-neutral-700 mb-4">{t('products.items.recyclable.desc')}</p>
-              <div className="text-sm text-primary-500 font-medium">{t('products.items.recyclable.badge')}</div>
-            </div>
-
-            <div className="bg-white rounded-lg p-6 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1 border border-neutral-100">
-              <img
-                src={img("product-pcr-biobased")}
-                alt={t('products.items.pcr.title')}
-                className="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer"
-                onClick={() => {
-                  setModalImage(img("product-pcr-biobased"))
-                  setModalAlt(t('products.items.pcr.title'))
-                  setIsModalOpen(true)
-                }}
-              />
-              <h3 className="text-xl font-semibold text-neutral-900 mb-3">{t('products.items.pcr.title')}</h3>
-              <p className="text-neutral-700 mb-4">{t('products.items.pcr.desc')}</p>
-              <div className="text-sm text-primary-500 font-medium">{t('products.items.pcr.badge')}</div>
-            </div>
-
-            <div className="bg-white rounded-lg p-6 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1 border border-neutral-100">
-              <img
-                src={img("about-hero")}
-                alt={t('products.items.bio.title')}
-                className="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer"
-                onClick={() => {
-                  setModalImage(img("about-hero"))
-                  setModalAlt(t('products.items.bio.title'))
-                  setIsModalOpen(true)
-                }}
-              />
-              <h3 className="text-xl font-semibold text-neutral-900 mb-3">{t('products.items.bio.title')}</h3>
-              <p className="text-neutral-700 mb-4">{t('products.items.bio.desc')}</p>
-              <div className="text-sm text-primary-500 font-medium">{t('products.items.bio.badge')}</div>
-            </div>
-          </div>
+          <Carousel
+            items={[
+              {
+                category: "Flexible Packaging",
+                title: "Stand Up Pouch",
+                src: "/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp",
+                content: (
+                  <div className="bg-neutral-50 p-8 rounded-3xl">
+                    <p className="text-neutral-700 text-lg mb-6">
+                      Our stand-up pouches offer excellent shelf presence with a stable base. 
+                      Perfect for snacks, coffee, pet food, and more. Available in multiple sizes with various closure options.
+                    </p>
+                    <img src="/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp" alt="Stand Up Pouch" className="w-full max-w-md mx-auto rounded-xl" />
+                  </div>
+                ),
+              },
+              {
+                category: "Flexible Packaging",
+                title: "Flat Bottom Pouch",
+                src: "/imgs/pouch-shape/a_flat_bottom_pouch_isolated_7901973.webp",
+                content: (
+                  <div className="bg-neutral-50 p-8 rounded-3xl">
+                    <p className="text-neutral-700 text-lg mb-6">
+                      Flat bottom pouches provide maximum shelf stability and premium appearance. 
+                      Ideal for coffee, tea, and premium food products.
+                    </p>
+                    <img src="/imgs/pouch-shape/a_flat_bottom_pouch_isolated_7901973.webp" alt="Flat Bottom Pouch" className="w-full max-w-md mx-auto rounded-xl" />
+                  </div>
+                ),
+              },
+              {
+                category: "Flexible Packaging",
+                title: "Side Gusset Pouch",
+                src: "/imgs/pouch-shape/a_side_gusset_pouch_isolated_2545871.webp",
+                content: (
+                  <div className="bg-neutral-50 p-8 rounded-3xl">
+                    <p className="text-neutral-700 text-lg mb-6">
+                      Side gusset pouches expand for larger capacity while maintaining compact storage. 
+                      Popular for coffee beans and bulk products.
+                    </p>
+                    <img src="/imgs/pouch-shape/a_side_gusset_pouch_isolated_2545871.webp" alt="Side Gusset Pouch" className="w-full max-w-md mx-auto rounded-xl" />
+                  </div>
+                ),
+              },
+              {
+                category: "Flexible Packaging",
+                title: "Spout Pouch",
+                src: "/imgs/pouch-shape/a_spout_pouch_isolated_6857112.webp",
+                content: (
+                  <div className="bg-neutral-50 p-8 rounded-3xl">
+                    <p className="text-neutral-700 text-lg mb-6">
+                      Spout pouches are perfect for liquids and semi-liquids. 
+                      Easy to pour and reseal, ideal for beverages, sauces, and baby food.
+                    </p>
+                    <img src="/imgs/pouch-shape/a_spout_pouch_isolated_6857112.webp" alt="Spout Pouch" className="w-full max-w-md mx-auto rounded-xl" />
+                  </div>
+                ),
+              },
+              {
+                category: "Flexible Packaging",
+                title: "Three Side Seal Pouch",
+                src: "/imgs/pouch-shape/a_three_side_seal_pouch_isolated_0879222.webp",
+                content: (
+                  <div className="bg-neutral-50 p-8 rounded-3xl">
+                    <p className="text-neutral-700 text-lg mb-6">
+                      Three side seal pouches are simple, economical, and versatile. 
+                      Great for samples, single-serve products, and sachets.
+                    </p>
+                    <img src="/imgs/pouch-shape/a_three_side_seal_pouch_isolated_0879222.webp" alt="Three Side Seal Pouch" className="w-full max-w-md mx-auto rounded-xl" />
+                  </div>
+                ),
+              },
+            ].map((card, index) => (
+              <Card key={card.src} card={card} index={index} />
+            ))}
+          />
         </div>
       </section>
 
