@@ -458,5 +458,134 @@
             "selectSize": "選擇尺寸",
             "selectQuantity": "選擇數量"
         }
+    },
+    "terms": {
+        "title": "條款與條件",
+        "subtitle": "ACHIEVE PACK 訂單與服務協議",
+        "backToHome": "返回首頁",
+        "tableOfContents": "目錄",
+        "englishReference": "如有任何歧義，以英文版本為準。",
+        "nav": {
+            "production": "生產與訂單",
+            "shipping": "運輸與交付",
+            "payment": "付款條款",
+            "specifications": "產品規格",
+            "ip": "知識產權",
+            "color": "顏色準確度",
+            "quantity": "數量容差",
+            "quality": "質量標準",
+            "cancellations": "取消與退貨",
+            "liability": "責任限制",
+            "acknowledgment": "客戶確認"
+        },
+        "production": {
+            "title": "生產與訂單流程",
+            "leadTime": {
+                "title": "生產交期",
+                "desc": "從收到簽署的訂購單、訂金、證書、授權書和批准的設計稿起算，10 個工作天（±1-2 天）。"
+            },
+            "artwork": {
+                "title": "設計稿要求",
+                "desc": "可印刷檔案（AI、PDF、EPS），300 DPI，CMYK 色彩模式，3mm 出血。客戶需對設計稿錯誤負責。"
+            },
+            "sample": {
+                "title": "生產前樣品",
+                "desc": "提供一份免費印刷樣品用於確認顏色/圖案。批准後次日開始生產。"
+            },
+            "confirmation": {
+                "title": "訂單確認",
+                "desc": "生產前需支付訂金或全額付款並確認設計稿。"
+            }
+        },
+        "shipping": {
+            "title": "運輸與交付",
+            "times": {
+                "title": "運輸時間",
+                "desc": "空運：20 天 | 海運：60 天。視承運商可用性和海關情況而定。"
+            },
+            "costs": {
+                "title": "費用與條款",
+                "desc": "深圳市內免費配送。深圳以外由客戶承擔費用。FOB 香港條款。"
+            },
+            "inspection": {
+                "title": "檢驗",
+                "desc": "客戶必須在 7 天內檢查貨物並以書面形式報告問題。未報告視為接受貨物。"
+            },
+            "thirdParty": {
+                "title": "第三方物流免責聲明",
+                "desc": "所有運輸服務均由第三方物流提供商提供。ACHIEVE PACK 對運輸過程中的延誤、海關扣留、包裹遺失或任何超出我們控制範圍的情況概不負責。"
+            }
+        },
+        "payment": {
+            "title": "付款條款",
+            "desc": "除非另有說明，否則淨 15 天付款。未付款訂單可能被取消/暫停。定製訂單生產開始後不退款。生產前取消需支付 10% 取消費。"
+        },
+        "specifications": {
+            "title": "產品規格",
+            "size": {
+                "title": "尺寸容差",
+                "desc": "袋子尺寸完全可定製，容差通常為 ±2mm 至 ±4mm。標準容差：厚度 ±0.05mm，尺寸 ±3mm，套印 ±1mm，沖孔 ±3mm。"
+            },
+            "fit": {
+                "title": "適用性",
+                "desc": "客戶必須確認尺寸相容性。ACHIEVE PACK 不對適配問題負責。建議訂購尺寸樣品包進行測試。"
+            }
+        },
+        "ip": {
+            "title": "知識產權",
+            "desc1": "客戶保證設計稿不侵犯知識產權。客戶提供資質證書和授權書。客戶對所有侵權索賠負責，並須賠償 ACHIEVE PACK 的損失。",
+            "desc2": "除非另有說明，ACHIEVE PACK 可將設計用於作品集/營銷。"
+        },
+        "color": {
+            "title": "顏色準確度",
+            "table": {
+                "material": "材料",
+                "tolerance": "容差",
+                "notes": "備註"
+            },
+            "kraft": { "name": "牛皮紙", "note": "因吸收性較暗淡" },
+            "white": { "name": "白紙", "note": "色彩鮮艷" },
+            "plastic": { "name": "塑膠/覆膜", "note": "高保真度" },
+            "specialty": { "name": "特殊材料", "note": "因材料而異" },
+            "sample": "可按成本提供樣品確認。"
+        },
+        "quantity": {
+            "title": "數量容差",
+            "table": {
+                "qty": "訂購數量",
+                "tolerance": "容差",
+                "resolution": "解決方案"
+            },
+            "refund": "提供退款/折扣",
+            "production": "退款/追加生產"
+        },
+        "quality": {
+            "title": "質量標準",
+            "desc": "基於批准的設計稿/樣品。按中國 GB 標準測試。客戶在 7 天內檢驗。確認缺陷免費更換/退款。"
+        },
+        "cancellations": {
+            "title": "取消與退貨",
+            "cancel": {
+                "title": "取消",
+                "desc": "生產前可取消，需支付 10% 費用。生產開始後不可取消。"
+            },
+            "returns": {
+                "title": "退貨",
+                "desc": "僅限 7 天內的缺陷產品。除非確認缺陷，否則退貨運費由客戶承擔。"
+            }
+        },
+        "liability": {
+            "title": "責任限制",
+            "desc": "ACHIEVE PACK 不對第三方或不可抗力造成的延誤負責。客戶負責第三方爭議。所有規格必須在生產前確認。"
+        },
+        "acknowledgment": {
+            "title": "客戶確認",
+            "desc": "下訂單即表示您確認並同意這些條款與條件。請簽名確認並發送電子郵件至 account@achievepack.com",
+            "name": "姓名",
+            "company": "公司",
+            "signature": "簽名",
+            "date": "日期",
+            "contact": "如有疑問或需要澄清，請聯繫 ACHIEVE PACK："
+        }
     }
 }

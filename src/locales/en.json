@@ -580,5 +580,134 @@
             "selectSize": "Select a size",
             "selectQuantity": "Select quantity"
         }
+    },
+    "terms": {
+        "title": "Terms & Conditions",
+        "subtitle": "ACHIEVE PACK Order & Service Agreement",
+        "backToHome": "Back to Home",
+        "tableOfContents": "Table of Contents",
+        "englishReference": "In case of any discrepancy, the English version shall prevail.",
+        "nav": {
+            "production": "Production & Order",
+            "shipping": "Shipping & Delivery",
+            "payment": "Payment Terms",
+            "specifications": "Product Specifications",
+            "ip": "Intellectual Property",
+            "color": "Color Accuracy",
+            "quantity": "Quantity Tolerances",
+            "quality": "Quality Standards",
+            "cancellations": "Cancellations & Returns",
+            "liability": "Liability Limitations",
+            "acknowledgment": "Acknowledgment"
+        },
+        "production": {
+            "title": "Production & Order Process",
+            "leadTime": {
+                "title": "Production Lead Time",
+                "desc": "10 working days (±1-2 days) from receipt of signed PO, deposit, certificates, authorization letter, and approved artwork."
+            },
+            "artwork": {
+                "title": "Artwork Requirements",
+                "desc": "Print-ready files (AI, PDF, EPS) with 300 DPI, CMYK color mode, 3mm bleed. Customer responsible for artwork errors."
+            },
+            "sample": {
+                "title": "Pre-Production Sample",
+                "desc": "One free printed sample for color/pattern confirmation. Production starts day after approval."
+            },
+            "confirmation": {
+                "title": "Order Confirmation",
+                "desc": "Deposit or full payment and artwork confirmation required before production begins."
+            }
+        },
+        "shipping": {
+            "title": "Shipping & Delivery",
+            "times": {
+                "title": "Shipping Times",
+                "desc": "Air: 20 days | Sea: 60 days. Subject to carrier availability and customs."
+            },
+            "costs": {
+                "title": "Costs & Terms",
+                "desc": "Free delivery within Shenzhen. Customer bears costs outside Shenzhen. FOB Hong Kong terms."
+            },
+            "inspection": {
+                "title": "Inspection",
+                "desc": "Customer must inspect goods within 7 days and report issues in writing. Failure to report deems goods accepted."
+            },
+            "thirdParty": {
+                "title": "Third-Party Shipping Disclaimer",
+                "desc": "All shipping services are provided by third-party logistics providers. ACHIEVE PACK is not responsible for delays, customs holds, lost packages, or any other circumstances beyond our control during transit."
+            }
+        },
+        "payment": {
+            "title": "Payment Terms",
+            "desc": "Net 15 days unless specified otherwise. Orders may be canceled/held for non-payment. No refunds for custom orders after production begins. 10% cancellation fee before production."
+        },
+        "specifications": {
+            "title": "Product Specifications",
+            "size": {
+                "title": "Size Tolerances",
+                "desc": "Pouches have fully customizable sizes with tolerances typically ±2mm to ±4mm. Standard tolerances: thickness ±0.05mm, dimensions ±3mm, registration ±1mm, hole punching ±3mm."
+            },
+            "fit": {
+                "title": "Fit for Use",
+                "desc": "Customer must confirm size compatibility. ACHIEVE PACK not liable for fit issues. Recommend ordering size pack for testing."
+            }
+        },
+        "ip": {
+            "title": "Intellectual Property",
+            "desc1": "Customer warrants artwork doesn't infringe IP rights. Customer provides qualification certificates and authorization letter. Customer liable for all infringement claims and must compensate ACHIEVE PACK for losses.",
+            "desc2": "ACHIEVE PACK may use designs for portfolio/marketing unless specified otherwise."
+        },
+        "color": {
+            "title": "Color Accuracy",
+            "table": {
+                "material": "Material",
+                "tolerance": "Tolerance",
+                "notes": "Notes"
+            },
+            "kraft": { "name": "Kraft Paper", "note": "Duller due to absorption" },
+            "white": { "name": "White Paper", "note": "Vibrant colors" },
+            "plastic": { "name": "Plastic/Laminated", "note": "High fidelity" },
+            "specialty": { "name": "Specialty Materials", "note": "Varies by material" },
+            "sample": "Sample provided for confirmation at cost."
+        },
+        "quantity": {
+            "title": "Quantity Tolerances",
+            "table": {
+                "qty": "Order Qty",
+                "tolerance": "Tolerance",
+                "resolution": "Resolution"
+            },
+            "refund": "Refund/discount offered",
+            "production": "Refund/additional production"
+        },
+        "quality": {
+            "title": "Quality Standards",
+            "desc": "Based on approved artwork/sample. Tested per China GB Standards. Customer inspects within 7 days. Free replacement/refund for confirmed defects."
+        },
+        "cancellations": {
+            "title": "Cancellations & Returns",
+            "cancel": {
+                "title": "Cancellations",
+                "desc": "Before production with 10% fee. No cancellations after production starts."
+            },
+            "returns": {
+                "title": "Returns",
+                "desc": "Only defective products within 7 days. Return shipping customer's responsibility unless defect confirmed."
+            }
+        },
+        "liability": {
+            "title": "Liability Limitations",
+            "desc": "ACHIEVE PACK not liable for delays by third parties or force majeure. Customer responsible for third-party disputes. All specifications must be confirmed before production."
+        },
+        "acknowledgment": {
+            "title": "Customer Acknowledgment",
+            "desc": "By placing an order, you acknowledge and agree to these terms and conditions. Please sign to confirm and email to account@achievepack.com",
+            "name": "Name",
+            "company": "Company",
+            "signature": "Signature",
+            "date": "Date",
+            "contact": "For inquiries or clarifications, contact ACHIEVE PACK at"
+        }
     }
 }

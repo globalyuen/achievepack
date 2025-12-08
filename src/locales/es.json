@@ -458,5 +458,134 @@
             "selectSize": "Seleccionar tamaño",
             "selectQuantity": "Seleccionar cantidad"
         }
+    },
+    "terms": {
+        "title": "Términos y Condiciones",
+        "subtitle": "Acuerdo de Pedido y Servicio de ACHIEVE PACK",
+        "backToHome": "Volver al inicio",
+        "tableOfContents": "Índice",
+        "englishReference": "En caso de discrepancia, prevalecerá la versión en inglés.",
+        "nav": {
+            "production": "Producción y Pedido",
+            "shipping": "Envío y Entrega",
+            "payment": "Condiciones de Pago",
+            "specifications": "Especificaciones del Producto",
+            "ip": "Propiedad Intelectual",
+            "color": "Precisión del Color",
+            "quantity": "Tolerancias de Cantidad",
+            "quality": "Estándares de Calidad",
+            "cancellations": "Cancelaciones y Devoluciones",
+            "liability": "Limitaciones de Responsabilidad",
+            "acknowledgment": "Reconocimiento"
+        },
+        "production": {
+            "title": "Proceso de Producción y Pedido",
+            "leadTime": {
+                "title": "Tiempo de Producción",
+                "desc": "10 días hábiles (±1-2 días) desde la recepción de la orden de compra firmada, depósito, certificados, carta de autorización y arte aprobado."
+            },
+            "artwork": {
+                "title": "Requisitos del Arte",
+                "desc": "Archivos listos para imprimir (AI, PDF, EPS) con 300 DPI, modo de color CMYK, 3mm de sangrado. El cliente es responsable de los errores en el arte."
+            },
+            "sample": {
+                "title": "Muestra de Pre-producción",
+                "desc": "Una muestra impresa gratuita para confirmación de color/patrón. La producción comienza al día siguiente de la aprobación."
+            },
+            "confirmation": {
+                "title": "Confirmación del Pedido",
+                "desc": "Se requiere depósito o pago completo y confirmación del arte antes de comenzar la producción."
+            }
+        },
+        "shipping": {
+            "title": "Envío y Entrega",
+            "times": {
+                "title": "Tiempos de Envío",
+                "desc": "Aéreo: 20 días | Marítimo: 60 días. Sujeto a disponibilidad del transportista y aduanas."
+            },
+            "costs": {
+                "title": "Costos y Términos",
+                "desc": "Entrega gratuita dentro de Shenzhen. El cliente asume los costos fuera de Shenzhen. Términos FOB Hong Kong."
+            },
+            "inspection": {
+                "title": "Inspección",
+                "desc": "El cliente debe inspeccionar la mercancía dentro de 7 días e informar problemas por escrito. La falta de informe implica aceptación de la mercancía."
+            },
+            "thirdParty": {
+                "title": "Aviso de Envío por Terceros",
+                "desc": "Todos los servicios de envío son proporcionados por proveedores logísticos de terceros. ACHIEVE PACK no es responsable de retrasos, retenciones aduaneras, paquetes perdidos o cualquier otra circunstancia fuera de nuestro control durante el tránsito."
+            }
+        },
+        "payment": {
+            "title": "Condiciones de Pago",
+            "desc": "Neto 15 días salvo indicación contraria. Los pedidos pueden ser cancelados/retenidos por falta de pago. Sin reembolsos para pedidos personalizados después de iniciar la producción. Cargo del 10% por cancelación antes de la producción."
+        },
+        "specifications": {
+            "title": "Especificaciones del Producto",
+            "size": {
+                "title": "Tolerancias de Tamaño",
+                "desc": "Las bolsas tienen tamaños totalmente personalizables con tolerancias típicamente de ±2mm a ±4mm. Tolerancias estándar: espesor ±0.05mm, dimensiones ±3mm, registro ±1mm, perforación ±3mm."
+            },
+            "fit": {
+                "title": "Aptitud para el Uso",
+                "desc": "El cliente debe confirmar la compatibilidad de tamaños. ACHIEVE PACK no es responsable de problemas de ajuste. Se recomienda pedir un paquete de muestras para pruebas."
+            }
+        },
+        "ip": {
+            "title": "Propiedad Intelectual",
+            "desc1": "El cliente garantiza que el arte no infringe derechos de propiedad intelectual. El cliente proporciona certificados de calificación y carta de autorización. El cliente es responsable de todas las reclamaciones por infracción y debe indemnizar a ACHIEVE PACK por las pérdidas.",
+            "desc2": "ACHIEVE PACK puede usar los diseños para portafolio/marketing salvo indicación contraria."
+        },
+        "color": {
+            "title": "Precisión del Color",
+            "table": {
+                "material": "Material",
+                "tolerance": "Tolerancia",
+                "notes": "Notas"
+            },
+            "kraft": { "name": "Papel Kraft", "note": "Más opaco debido a la absorción" },
+            "white": { "name": "Papel Blanco", "note": "Colores vibrantes" },
+            "plastic": { "name": "Plástico/Laminado", "note": "Alta fidelidad" },
+            "specialty": { "name": "Materiales Especiales", "note": "Varía según el material" },
+            "sample": "Muestra proporcionada para confirmación con costo."
+        },
+        "quantity": {
+            "title": "Tolerancias de Cantidad",
+            "table": {
+                "qty": "Cantidad Pedida",
+                "tolerance": "Tolerancia",
+                "resolution": "Resolución"
+            },
+            "refund": "Reembolso/descuento ofrecido",
+            "production": "Reembolso/producción adicional"
+        },
+        "quality": {
+            "title": "Estándares de Calidad",
+            "desc": "Basado en el arte/muestra aprobado. Probado según las normas GB de China. El cliente inspecciona dentro de 7 días. Reemplazo/reembolso gratuito por defectos confirmados."
+        },
+        "cancellations": {
+            "title": "Cancelaciones y Devoluciones",
+            "cancel": {
+                "title": "Cancelaciones",
+                "desc": "Antes de la producción con cargo del 10%. Sin cancelaciones después de iniciar la producción."
+            },
+            "returns": {
+                "title": "Devoluciones",
+                "desc": "Solo productos defectuosos dentro de 7 días. El envío de devolución es responsabilidad del cliente a menos que se confirme el defecto."
+            }
+        },
+        "liability": {
+            "title": "Limitaciones de Responsabilidad",
+            "desc": "ACHIEVE PACK no es responsable de retrasos causados por terceros o fuerza mayor. El cliente es responsable de disputas con terceros. Todas las especificaciones deben confirmarse antes de la producción."
+        },
+        "acknowledgment": {
+            "title": "Reconocimiento del Cliente",
+            "desc": "Al realizar un pedido, usted reconoce y acepta estos términos y condiciones. Por favor firme para confirmar y envíe por correo electrónico a account@achievepack.com",
+            "name": "Nombre",
+            "company": "Empresa",
+            "signature": "Firma",
+            "date": "Fecha",
+            "contact": "Para consultas o aclaraciones, contacte a ACHIEVE PACK en"
+        }
     }
 }

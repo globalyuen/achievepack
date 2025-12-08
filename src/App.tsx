@@ -1189,7 +1189,7 @@ ${formData.message}`
       {/* Footer */}
       <footer className="bg-neutral-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8">
             {/* Company Info */}
             <div className="lg:col-span-1">
               <div className="flex items-center space-x-2 mb-4">
@@ -1199,8 +1199,6 @@ ${formData.message}`
               <p className="text-neutral-300 text-sm mb-4">
                 {t('footer.tagline')}
               </p>
-              {/* Certification Badge */}
-              <img src="/imgs/cert-b.webp" alt="B Corp Certified" className="h-16 w-auto mb-4" />
               {/* Social Media Icons */}
               <div className="flex space-x-3">
                 <a href="https://www.instagram.com/pouch_eco/" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary-500 transition-colors">
@@ -1216,6 +1214,12 @@ ${formData.message}`
                   <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                 </a>
               </div>
+            </div>
+
+            {/* Certification Badge - Separate Column */}
+            <div className="lg:col-span-1 flex flex-col items-center justify-start">
+              <h4 className="text-lg font-semibold mb-4">Certified</h4>
+              <img src="/imgs/cert-b.webp" alt="B Corp Certified" className="h-24 w-auto" />
             </div>
 
             {/* Products */}
