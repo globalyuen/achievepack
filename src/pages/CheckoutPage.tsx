@@ -1,12 +1,24 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { ArrowLeft, Lock } from 'lucide-react'
+import { ArrowLeft, Lock, Loader2 } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
+import { supabase } from '../lib/supabase'
+import { useAuth } from '../hooks/useAuth'
+
+// Generate order number
+const generateOrderNumber = () => {
+  const date = new Date()
+  const dateStr = `${date.getFullYear()}${String(date.getMonth() + 1).padStart(2, '0')}${String(date.getDate()).padStart(2, '0')}`
+  const random = Math.floor(Math.random() * 10000).toString().padStart(4, '0')
+  return `AP-${dateStr}-${random}`
+}
 
 const CheckoutPage: React.FC = () => {
   const { cart, cartTotal, clearCart } = useStore()
+  const { user } = useAuth()
   const navigate = useNavigate()
   const [isProcessing, setIsProcessing] = useState(false)
+  const [error, setError] = useState('')
   const [formData, setFormData] = useState({
     email: '', firstName: '', lastName: '', company: '',
     address: '', city: '', country: '', postalCode: '', phone: ''
@@ -15,17 +27,78 @@ const CheckoutPage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsProcessing(true)
+    setError('')
     
-    // TODO: Integrate with Stripe
-    // 1. Call your backend: POST /api/create-checkout-session
-    // 2. Backend uses stripe.checkout.sessions.create()
-    // 3. Redirect to Stripe Checkout
+    const orderNumber = generateOrderNumber()
     
-    // Simulate processing
-    setTimeout(() => {
+    try {
+      // 1. Save order to Supabase
+      const { error: dbError } = await supabase.from('orders').insert({
+        user_id: user?.id || null,
+        order_number: orderNumber,
+        status: 'pending',
+        total_amount: cartTotal,
+        items: cart.map(item => ({
+          productId: item.productId,
+          name: item.name,
+          variant: item.variant,
+          quantity: item.quantity,
+          unitPrice: item.unitPrice,
+          totalPrice: item.totalPrice
+        })),
+        shipping_address: {
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          company: formData.company,
+          address: formData.address,
+          city: formData.city,
+          country: formData.country,
+          zipCode: formData.postalCode,
+          phone: formData.phone
+        },
+        customer_email: formData.email,
+        customer_name: `${formData.firstName} ${formData.lastName}`
+      })
+
+      if (dbError) {
+        console.error('Database error:', dbError)
+      }
+
+      // 2. Send email notifications via Brevo
+      try {
+        await fetch('/api/send-order-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            orderNumber,
+            customerEmail: formData.email,
+            customerName: `${formData.firstName} ${formData.lastName}`,
+            items: cart,
+            totalAmount: cartTotal,
+            shippingAddress: {
+              firstName: formData.firstName,
+              lastName: formData.lastName,
+              address: formData.address,
+              city: formData.city,
+              state: '',
+              zipCode: formData.postalCode,
+              country: formData.country
+            }
+          })
+        })
+      } catch (emailError) {
+        console.error('Email error:', emailError)
+        // Don't block checkout if email fails
+      }
+
+      // 3. Clear cart and redirect
       clearCart()
-      navigate('/store/order-confirmation')
-    }, 2000)
+      navigate('/store/order-confirmation', { state: { orderNumber } })
+    } catch (err) {
+      console.error('Checkout error:', err)
+      setError('Something went wrong. Please try again.')
+      setIsProcessing(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

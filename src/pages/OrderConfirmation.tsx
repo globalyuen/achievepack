@@ -1,9 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { CheckCircle, Package, Mail, ArrowRight } from 'lucide-react'
+import { Link, useLocation } from 'react-router-dom'
+import { CheckCircle, Package, Mail, ArrowRight, User } from 'lucide-react'
+import { useAuth } from '../hooks/useAuth'
 
 const OrderConfirmation: React.FC = () => {
-  const orderNumber = `AP-${Date.now().toString(36).toUpperCase()}`
+  const location = useLocation()
+  const { user } = useAuth()
+  const orderNumber = location.state?.orderNumber || `AP-${Date.now().toString(36).toUpperCase()}`
 
   return (
     <div className="min-h-screen bg-neutral-50 flex items-center justify-center p-4">
@@ -32,7 +35,12 @@ const OrderConfirmation: React.FC = () => {
         </div>
 
         <div className="space-y-3">
-          <Link to="/store" className="block w-full py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition">
+          {user && (
+            <Link to="/dashboard" className="block w-full py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2">
+              <User className="h-5 w-5" /> Go to Dashboard
+            </Link>
+          )}
+          <Link to="/store" className={`block w-full py-3 ${user ? 'border border-neutral-300 hover:bg-neutral-50 text-neutral-700' : 'bg-primary-600 hover:bg-primary-700 text-white'} font-semibold rounded-xl transition`}>
             Continue Shopping
           </Link>
           <Link to="/" className="block w-full py-3 border border-neutral-300 hover:bg-neutral-50 text-neutral-700 font-medium rounded-xl transition flex items-center justify-center gap-2">
