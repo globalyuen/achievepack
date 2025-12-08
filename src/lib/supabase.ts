@@ -60,3 +60,12 @@ export type ArtworkFile = {
   feedback: string
   created_at: string
 }
+
+export type NewsletterSubscriber = {
+  id: string
+  first_name: string
+  email: string
+  subscribed: boolean
+  created_at: string
+  updated_at: string
+}

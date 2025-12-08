@@ -9,6 +9,7 @@ import { AnimatedTestimonials } from './components/ui/animated-testimonials'
 import { Carousel, Card } from './components/ui/apple-cards-carousel'
 import { getImage } from './utils/imageMapper'
 import Calculator from './components/Calculator'
+import Newsletter from './components/Newsletter'
 import type { CalculatorResults } from './utils/calculatorUtils'
 
 function App() {
@@ -1048,6 +1049,9 @@ ${formData.message}`
           </div>
         </div>
       </section>
+
+      {/* Newsletter Section */}
+      <Newsletter />
 
       {/* Contact Section */}
       <section id="contact" className="py-16 bg-neutral-50">

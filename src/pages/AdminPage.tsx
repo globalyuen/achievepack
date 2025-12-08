@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
-import { supabase, Order, Profile } from '../lib/supabase'
-import { Home, Users, Package, Settings, Search, ChevronDown, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag } from 'lucide-react'
+import { supabase, Order, Profile, NewsletterSubscriber } from '../lib/supabase'
+import { Home, Users, Package, Settings, Search, ChevronDown, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper } from 'lucide-react'
 
-type TabType = 'dashboard' | 'customers' | 'orders' | 'settings'
+type TabType = 'dashboard' | 'customers' | 'orders' | 'newsletter' | 'settings'
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
 
@@ -14,6 +14,7 @@ const AdminPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>('dashboard')
   const [customers, setCustomers] = useState<Profile[]>([])
   const [orders, setOrders] = useState<Order[]>([])
+  const [subscribers, setSubscribers] = useState<NewsletterSubscriber[]>([])
   const [loading, setLoading] = useState(true)
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null)
@@ -35,12 +36,14 @@ const AdminPage: React.FC = () => {
 
   const fetchData = async () => {
     setLoading(true)
-    const [customersRes, ordersRes] = await Promise.all([
+    const [customersRes, ordersRes, subscribersRes] = await Promise.all([
       supabase.from('profiles').select('*').order('created_at', { ascending: false }),
-      supabase.from('orders').select('*').order('created_at', { ascending: false })
+      supabase.from('orders').select('*').order('created_at', { ascending: false }),
+      supabase.from('newsletter_subscribers').select('*').order('created_at', { ascending: false })
     ])
     setCustomers(customersRes.data || [])
     setOrders(ordersRes.data || [])
+    setSubscribers(subscribersRes.data || [])
     setLoading(false)
   }
 
@@ -61,6 +64,28 @@ const AdminPage: React.FC = () => {
       fetchData()
     }
   }
+
+  const toggleSubscription = async (id: string, currentStatus: boolean) => {
+    await supabase.from('newsletter_subscribers').update({ 
+      subscribed: !currentStatus, 
+      updated_at: new Date().toISOString() 
+    }).eq('id', id)
+    fetchData()
+  }
+
+  const deleteSubscriber = async (id: string) => {
+    if (confirm('Are you sure you want to delete this subscriber?')) {
+      await supabase.from('newsletter_subscribers').delete().eq('id', id)
+      fetchData()
+    }
+  }
+
+  const filteredSubscribers = subscribers.filter(s =>
+    s.first_name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    s.email?.toLowerCase().includes(searchQuery.toLowerCase())
+  )
+
+  const activeSubscribers = subscribers.filter(s => s.subscribed).length
 
   const filteredCustomers = customers.filter(c => 
     c.full_name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -179,6 +204,21 @@ const AdminPage: React.FC = () => {
                 )}
               </button>
 
+              <button
+                onClick={() => setActiveTab('newsletter')}
+                className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
+                  activeTab === 'newsletter'
+                    ? 'bg-primary-500 text-white'
+                    : 'text-gray-900 hover:bg-primary-50 hover:text-primary-600'
+                }`}
+              >
+                <Newspaper className="flex-shrink-0 w-5 h-5 mr-4" />
+                Newsletter
+                <span className="ml-auto bg-gray-200 text-gray-700 text-xs px-2 py-0.5 rounded-full">
+                  {activeSubscribers}
+                </span>
+              </button>
+
               <hr className="border-gray-200 my-4" />
 
               <button
@@ -233,7 +273,7 @@ const AdminPage: React.FC = () => {
 
         {/* Mobile Nav */}
         <div className="md:hidden flex overflow-x-auto bg-white border-b px-2 py-2 gap-2">
-          {(['dashboard', 'customers', 'orders', 'settings'] as TabType[]).map(tab => (
+          {(['dashboard', 'customers', 'orders', 'newsletter', 'settings'] as TabType[]).map(tab => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -488,6 +528,91 @@ const AdminPage: React.FC = () => {
                     <Calendar className="h-5 w-5 text-gray-400" />
                     <span className="text-gray-600">Last login: {new Date().toLocaleDateString()}</span>
                   </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Newsletter Tab */}
+          {activeTab === 'newsletter' && (
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <h1 className="text-2xl font-bold text-gray-900">Newsletter Subscribers</h1>
+                <div className="flex items-center gap-4">
+                  <div className="text-sm text-gray-500">
+                    <span className="font-semibold text-green-600">{activeSubscribers}</span> active / 
+                    <span className="font-semibold text-gray-600"> {subscribers.length}</span> total
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Subscribed</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200">
+                      {filteredSubscribers.map(subscriber => (
+                        <tr key={subscriber.id} className="hover:bg-gray-50">
+                          <td className="px-6 py-4">
+                            <div className="flex items-center">
+                              <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                                <span className="text-green-600 font-semibold">
+                                  {subscriber.first_name?.charAt(0) || '?'}
+                                </span>
+                              </div>
+                              <div className="ml-3">
+                                <p className="text-sm font-medium text-gray-900">{subscriber.first_name || 'No name'}</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td className="px-6 py-4 text-sm text-gray-600">{subscriber.email}</td>
+                          <td className="px-6 py-4">
+                            <span className={`px-2 py-1 text-xs font-medium rounded-full ${
+                              subscriber.subscribed 
+                                ? 'bg-green-100 text-green-800' 
+                                : 'bg-gray-100 text-gray-800'
+                            }`}>
+                              {subscriber.subscribed ? 'Active' : 'Unsubscribed'}
+                            </span>
+                          </td>
+                          <td className="px-6 py-4 text-sm text-gray-500">
+                            {subscriber.created_at ? new Date(subscriber.created_at).toLocaleDateString() : '-'}
+                          </td>
+                          <td className="px-6 py-4">
+                            <div className="flex items-center gap-2">
+                              <button
+                                onClick={() => toggleSubscription(subscriber.id, subscriber.subscribed)}
+                                className={`px-3 py-1 text-xs font-medium rounded-lg transition-colors ${
+                                  subscriber.subscribed
+                                    ? 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                                    : 'bg-green-100 text-green-700 hover:bg-green-200'
+                                }`}
+                              >
+                                {subscriber.subscribed ? 'Unsubscribe' : 'Resubscribe'}
+                              </button>
+                              <button
+                                onClick={() => deleteSubscriber(subscriber.id)}
+                                className="text-red-600 hover:text-red-700"
+                              >
+                                <Trash2 className="h-5 w-5" />
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                  {filteredSubscribers.length === 0 && (
+                    <div className="text-center py-12 text-gray-500">No subscribers found</div>
+                  )}
                 </div>
               </div>
             </div>
