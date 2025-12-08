@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import ReactGA from "react-ga4";
 import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield } from 'lucide-react'
 import { HeroGrainBackground } from './components/HeroGrainBackground'
+import { CardContainer, CardBody, CardItem } from './components/ui/3d-card'
 import { getImage } from './utils/imageMapper'
 import Calculator from './components/Calculator'
 import type { CalculatorResults } from './utils/calculatorUtils'
@@ -270,17 +271,23 @@ ${formData.message}`
             </div>
 
             <div className="hidden lg:block relative">
-              <div className="absolute inset-0 bg-primary-500 rounded-full filter blur-3xl opacity-10 animate-pulse"></div>
-              <img
-                src={img("about-hero")}
-                alt="Premium Sustainable Packaging"
-                className="relative z-10 w-full rounded-2xl shadow-2xl transform hover:scale-[1.02] transition-all duration-500 cursor-pointer"
-                onClick={() => {
-                  setModalImage(img("about-hero"))
-                  setModalAlt('Premium Sustainable Packaging')
-                  setIsModalOpen(true)
-                }}
-              />
+              <CardContainer containerClassName="py-0">
+                <CardBody className="relative group/card w-full">
+                  <div className="absolute inset-0 bg-primary-500 rounded-full filter blur-3xl opacity-10 animate-pulse"></div>
+                  <CardItem translateZ="100" className="w-full">
+                    <img
+                      src={img("about-hero")}
+                      alt="Premium Sustainable Packaging"
+                      className="relative z-10 w-full rounded-2xl shadow-2xl cursor-pointer group-hover/card:shadow-primary-500/[0.3]"
+                      onClick={() => {
+                        setModalImage(img("about-hero"))
+                        setModalAlt('Premium Sustainable Packaging')
+                        setIsModalOpen(true)
+                      }}
+                    />
+                  </CardItem>
+                </CardBody>
+              </CardContainer>
             </div>
           </div>
         </div>
