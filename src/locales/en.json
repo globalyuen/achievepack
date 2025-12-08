@@ -473,4 +473,111 @@
             "realistic": "Please enter a realistic value"
         }
     }
+,
+    "customerCenter": {
+        "backToHome": "Back to Home",
+        "login": {
+            "title": "Welcome Back",
+            "subtitle": "Sign in to your account",
+            "email": "Email",
+            "password": "Password",
+            "signIn": "Sign In",
+            "noAccount": "Don't have an account?",
+            "signUp": "Sign Up"
+        },
+        "register": {
+            "title": "Create Account",
+            "subtitle": "Join AchievePack today",
+            "fullName": "Full Name",
+            "company": "Company",
+            "email": "Email",
+            "password": "Password",
+            "createAccount": "Create Account",
+            "hasAccount": "Already have an account?",
+            "signIn": "Sign In",
+            "checkEmail": "Check Your Email",
+            "confirmationSent": "We've sent a confirmation link to"
+        },
+        "dashboard": {
+            "title": "Customer Portal",
+            "signOut": "Sign Out",
+            "loading": "Loading...",
+            "stats": {
+                "activeOrders": "Active Orders",
+                "pendingQuotes": "Pending Quotes",
+                "documents": "Documents",
+                "artworkFiles": "Artwork Files"
+            },
+            "sections": {
+                "recentOrders": "Recent Orders",
+                "activeQuotes": "Active Quotes",
+                "complianceDocs": "Compliance Documents",
+                "quickActions": "Quick Actions"
+            },
+            "empty": {
+                "noOrders": "No orders yet",
+                "noQuotes": "No quotes yet",
+                "shopNow": "Shop Now"
+            },
+            "actions": {
+                "newOrder": "New Order",
+                "uploadArtwork": "Upload Artwork",
+                "viewDocuments": "Documents",
+                "settings": "Settings"
+            },
+            "order": {
+                "viewAll": "View All"
+            }
+        },
+        "orderConfirmation": {
+            "title": "Order Confirmed!",
+            "thankYou": "Thank you for your order.",
+            "orderNumber": "Order Number",
+            "emailSent": "Confirmation email sent",
+            "estimatedDelivery": "Estimated delivery: 15-20 business days",
+            "continueShopping": "Continue Shopping",
+            "backToHome": "Back to Homepage",
+            "goToDashboard": "Go to Dashboard"
+        },
+        "checkout": {
+            "title": "Checkout",
+            "backToStore": "Back to Store",
+            "contactInfo": "Contact Information",
+            "shippingAddress": "Shipping Address",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "company": "Company (Optional)",
+            "address": "Address",
+            "city": "City",
+            "postalCode": "Postal Code",
+            "country": "Country",
+            "phone": "Phone",
+            "pay": "Pay",
+            "securedBy": "Secured by Stripe",
+            "orderSummary": "Order Summary",
+            "subtotal": "Subtotal",
+            "shipping": "Shipping",
+            "free": "Free",
+            "total": "Total",
+            "emptyCart": "Your cart is empty",
+            "continueShopping": "Continue Shopping"
+        },
+        "store": {
+            "title": "Shop",
+            "backToHome": "Back to Home",
+            "allProducts": "All Products",
+            "addToCart": "Add to Cart",
+            "viewDetails": "View Details",
+            "cart": "Cart",
+            "checkout": "Checkout",
+            "shape": "Shape",
+            "size": "Size",
+            "quantity": "Quantity",
+            "unitPrice": "Unit Price",
+            "total": "Total",
+            "selectShape": "Select a shape",
+            "selectSize": "Select a size",
+            "selectQuantity": "Select quantity"
+        }
+    }
 }

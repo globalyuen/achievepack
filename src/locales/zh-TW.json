@@ -351,5 +351,111 @@
             "legal": "法律"
         },
         "registration": "香港商業登記號碼：41007097 | No.41 1/F Wo Liu Hang Tsuen, Fotan, HK"
+    },
+    "customerCenter": {
+        "backToHome": "返回首頁",
+        "login": {
+            "title": "歡迎回來",
+            "subtitle": "登入您的帳戶",
+            "email": "電子郵件",
+            "password": "密碼",
+            "signIn": "登入",
+            "noAccount": "還沒有帳戶？",
+            "signUp": "註冊"
+        },
+        "register": {
+            "title": "建立帳戶",
+            "subtitle": "立即加入 AchievePack",
+            "fullName": "姓名",
+            "company": "公司",
+            "email": "電子郵件",
+            "password": "密碼",
+            "createAccount": "建立帳戶",
+            "hasAccount": "已有帳戶？",
+            "signIn": "登入",
+            "checkEmail": "檢查您的電子郵件",
+            "confirmationSent": "我們已發送確認連結至"
+        },
+        "dashboard": {
+            "title": "客戶中心",
+            "signOut": "登出",
+            "loading": "載入中...",
+            "stats": {
+                "activeOrders": "進行中訂單",
+                "pendingQuotes": "待處理報價",
+                "documents": "文件",
+                "artworkFiles": "設計稿"
+            },
+            "sections": {
+                "recentOrders": "最近訂單",
+                "activeQuotes": "有效報價",
+                "complianceDocs": "合規文件",
+                "quickActions": "快速操作"
+            },
+            "empty": {
+                "noOrders": "暫無訂單",
+                "noQuotes": "暫無報價",
+                "shopNow": "立即購買"
+            },
+            "actions": {
+                "newOrder": "新訂單",
+                "uploadArtwork": "上傳設計稿",
+                "viewDocuments": "查看文件",
+                "settings": "設定"
+            },
+            "order": {
+                "viewAll": "查看全部"
+            }
+        },
+        "orderConfirmation": {
+            "title": "訂單已確認！",
+            "thankYou": "感謝您的訂購。",
+            "orderNumber": "訂單編號",
+            "emailSent": "確認郵件已發送",
+            "estimatedDelivery": "預計送達：15-20 個工作天",
+            "continueShopping": "繼續購物",
+            "backToHome": "返回首頁",
+            "goToDashboard": "前往客戶中心"
+        },
+        "checkout": {
+            "title": "結帳",
+            "backToStore": "返回商店",
+            "contactInfo": "聯絡資訊",
+            "shippingAddress": "送貨地址",
+            "firstName": "名字",
+            "lastName": "姓氏",
+            "company": "公司（選填）",
+            "address": "地址",
+            "city": "城市",
+            "postalCode": "郵遞區號",
+            "country": "國家/地區",
+            "phone": "電話",
+            "pay": "付款",
+            "securedBy": "由 Stripe 安全保護",
+            "orderSummary": "訂單摘要",
+            "subtotal": "小計",
+            "shipping": "運費",
+            "free": "免運費",
+            "total": "總計",
+            "emptyCart": "購物車是空的",
+            "continueShopping": "繼續購物"
+        },
+        "store": {
+            "title": "商店",
+            "backToHome": "返回首頁",
+            "allProducts": "所有產品",
+            "addToCart": "加入購物車",
+            "viewDetails": "查看詳情",
+            "cart": "購物車",
+            "checkout": "結帳",
+            "shape": "形狀",
+            "size": "尺寸",
+            "quantity": "數量",
+            "unitPrice": "單價",
+            "total": "總計",
+            "selectShape": "選擇形狀",
+            "selectSize": "選擇尺寸",
+            "selectQuantity": "選擇數量"
+        }
     }
 }

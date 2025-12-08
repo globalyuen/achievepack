@@ -351,5 +351,111 @@
             "legal": "Légal"
         },
         "registration": "Numéro d'enregistrement d'entreprise à Hong Kong : 41007097 | No.41 1/F Wo Liu Hang Tsuen, Fotan, HK"
+    },
+    "customerCenter": {
+        "backToHome": "Retour à l'accueil",
+        "login": {
+            "title": "Bienvenue",
+            "subtitle": "Connectez-vous à votre compte",
+            "email": "E-mail",
+            "password": "Mot de passe",
+            "signIn": "Se connecter",
+            "noAccount": "Pas de compte ?",
+            "signUp": "S'inscrire"
+        },
+        "register": {
+            "title": "Créer un compte",
+            "subtitle": "Rejoignez AchievePack aujourd'hui",
+            "fullName": "Nom complet",
+            "company": "Entreprise",
+            "email": "E-mail",
+            "password": "Mot de passe",
+            "createAccount": "Créer un compte",
+            "hasAccount": "Déjà un compte ?",
+            "signIn": "Se connecter",
+            "checkEmail": "Vérifiez votre e-mail",
+            "confirmationSent": "Nous avons envoyé un lien de confirmation à"
+        },
+        "dashboard": {
+            "title": "Espace client",
+            "signOut": "Déconnexion",
+            "loading": "Chargement...",
+            "stats": {
+                "activeOrders": "Commandes actives",
+                "pendingQuotes": "Devis en attente",
+                "documents": "Documents",
+                "artworkFiles": "Fichiers graphiques"
+            },
+            "sections": {
+                "recentOrders": "Commandes récentes",
+                "activeQuotes": "Devis actifs",
+                "complianceDocs": "Documents de conformité",
+                "quickActions": "Actions rapides"
+            },
+            "empty": {
+                "noOrders": "Aucune commande",
+                "noQuotes": "Aucun devis",
+                "shopNow": "Commander maintenant"
+            },
+            "actions": {
+                "newOrder": "Nouvelle commande",
+                "uploadArtwork": "Télécharger graphiques",
+                "viewDocuments": "Documents",
+                "settings": "Paramètres"
+            },
+            "order": {
+                "viewAll": "Voir tout"
+            }
+        },
+        "orderConfirmation": {
+            "title": "Commande confirmée !",
+            "thankYou": "Merci pour votre commande.",
+            "orderNumber": "Numéro de commande",
+            "emailSent": "E-mail de confirmation envoyé",
+            "estimatedDelivery": "Livraison estimée : 15-20 jours ouvrables",
+            "continueShopping": "Continuer les achats",
+            "backToHome": "Retour à l'accueil",
+            "goToDashboard": "Aller à l'espace client"
+        },
+        "checkout": {
+            "title": "Paiement",
+            "backToStore": "Retour à la boutique",
+            "contactInfo": "Coordonnées",
+            "shippingAddress": "Adresse de livraison",
+            "firstName": "Prénom",
+            "lastName": "Nom",
+            "company": "Entreprise (optionnel)",
+            "address": "Adresse",
+            "city": "Ville",
+            "postalCode": "Code postal",
+            "country": "Pays",
+            "phone": "Téléphone",
+            "pay": "Payer",
+            "securedBy": "Sécurisé par Stripe",
+            "orderSummary": "Récapitulatif",
+            "subtotal": "Sous-total",
+            "shipping": "Livraison",
+            "free": "Gratuit",
+            "total": "Total",
+            "emptyCart": "Votre panier est vide",
+            "continueShopping": "Continuer les achats"
+        },
+        "store": {
+            "title": "Boutique",
+            "backToHome": "Retour à l'accueil",
+            "allProducts": "Tous les produits",
+            "addToCart": "Ajouter au panier",
+            "viewDetails": "Voir les détails",
+            "cart": "Panier",
+            "checkout": "Paiement",
+            "shape": "Forme",
+            "size": "Taille",
+            "quantity": "Quantité",
+            "unitPrice": "Prix unitaire",
+            "total": "Total",
+            "selectShape": "Sélectionner une forme",
+            "selectSize": "Sélectionner une taille",
+            "selectQuantity": "Sélectionner la quantité"
+        }
     }
 }
