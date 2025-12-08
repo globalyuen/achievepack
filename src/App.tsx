@@ -4,6 +4,7 @@ import ReactGA from "react-ga4";
 import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield } from 'lucide-react'
 import { HeroGrainBackground } from './components/HeroGrainBackground'
 import { CardContainer, CardBody, CardItem } from './components/ui/3d-card'
+import { AnimatedTestimonials } from './components/ui/animated-testimonials'
 import { getImage } from './utils/imageMapper'
 import Calculator from './components/Calculator'
 import type { CalculatorResults } from './utils/calculatorUtils'
@@ -373,146 +374,85 @@ ${formData.message}`
       {/* Benefits Section */}
       <section id="benefits" className="py-16 bg-neutral-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h2 className="text-4xl font-bold text-neutral-900 mb-4">{t('benefits.title')}</h2>
             <p className="text-lg text-neutral-700 max-w-3xl mx-auto">
               {t('benefits.description')}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Environmental Benefits */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-neutral-900 flex items-center">
-                <Leaf className="h-6 w-6 text-primary-500 mr-3" />
-                {t('benefits.envTitle')}
-              </h3>
-              <div className="space-y-4">
-                <div className="bg-white rounded-lg p-6 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1">
-                  <img
-                    src={img("infographic-carbon-footprint")}
-                    alt={t('benefits.env.carbon.title')}
-                    className="w-full h-32 object-cover rounded-lg mb-3 cursor-pointer"
-                    onClick={() => {
-                      setModalImage(img("infographic-carbon-footprint"))
-                      setModalAlt(t('benefits.env.carbon.title'))
-                      setIsModalOpen(true)
-                    }}
-                  />
-                  <h4 className="text-lg font-semibold text-neutral-900 mb-2">{t('benefits.env.carbon.title')}</h4>
-                  <p className="text-neutral-700">{t('benefits.env.carbon.desc')}</p>
-                </div>
-                <div className="bg-white rounded-lg p-6 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1">
-                  <img
-                    src={img("infographic-compostable")}
-                    alt={t('benefits.env.compostable.title')}
-                    className="w-full h-32 object-cover rounded-lg mb-3 cursor-pointer"
-                    onClick={() => {
-                      setModalImage(img("infographic-compostable"))
-                      setModalAlt(t('benefits.env.compostable.title'))
-                      setIsModalOpen(true)
-                    }}
-                  />
-                  <h4 className="text-lg font-semibold text-neutral-900 mb-2">{t('benefits.env.compostable.title')}</h4>
-                  <p className="text-neutral-700">{t('benefits.env.compostable.desc')}</p>
-                </div>
-                <div className="bg-white rounded-lg p-6 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1">
-                  <img
-                    src={img("infographic-plant-based")}
-                    alt={t('benefits.env.plantBased.title')}
-                    className="w-full h-32 object-cover rounded-lg mb-3 cursor-pointer"
-                    onClick={() => {
-                      setModalImage(img("infographic-plant-based"))
-                      setModalAlt(t('benefits.env.plantBased.title'))
-                      setIsModalOpen(true)
-                    }}
-                  />
-                  <h4 className="text-lg font-semibold text-neutral-900 mb-2">{t('benefits.env.plantBased.title')}</h4>
-                  <p className="text-neutral-700">{t('benefits.env.plantBased.desc')}</p>
-                </div>
-                <div className="bg-white rounded-lg p-6 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1">
-                  <img
-                    src={img("infographic-grs-recyclable")}
-                    alt={t('benefits.env.recyclable.title')}
-                    className="w-full h-32 object-cover rounded-lg mb-3 cursor-pointer"
-                    onClick={() => {
-                      setModalImage(img("infographic-grs-recyclable"))
-                      setModalAlt(t('benefits.env.recyclable.title'))
-                      setIsModalOpen(true)
-                    }}
-                  />
-                  <h4 className="text-lg font-semibold text-neutral-900 mb-2">{t('benefits.env.recyclable.title')}</h4>
-                  <p className="text-neutral-700">{t('benefits.env.recyclable.desc')}</p>
-                </div>
-              </div>
-            </div>
+          {/* Environmental Benefits - Animated */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-bold text-neutral-900 flex items-center justify-center mb-4">
+              <Leaf className="h-6 w-6 text-primary-500 mr-3" />
+              {t('benefits.envTitle')}
+            </h3>
+            <AnimatedTestimonials
+              autoplay={true}
+              testimonials={[
+                {
+                  quote: t('benefits.env.carbon.desc'),
+                  name: t('benefits.env.carbon.title'),
+                  designation: "70% Less CO₂ Emissions",
+                  src: img("infographic-carbon-footprint"),
+                },
+                {
+                  quote: t('benefits.env.compostable.desc'),
+                  name: t('benefits.env.compostable.title'),
+                  designation: "EN13432 & ASTM D6400 Certified",
+                  src: img("infographic-compostable"),
+                },
+                {
+                  quote: t('benefits.env.plantBased.desc'),
+                  name: t('benefits.env.plantBased.title'),
+                  designation: "Renewable Resources",
+                  src: img("infographic-plant-based"),
+                },
+                {
+                  quote: t('benefits.env.recyclable.desc'),
+                  name: t('benefits.env.recyclable.title'),
+                  designation: "GRS Certified Materials",
+                  src: img("infographic-grs-recyclable"),
+                },
+              ]}
+            />
+          </div>
 
-            {/* Business Benefits */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-neutral-900 flex items-center">
-                <Zap className="h-6 w-6 text-accent-500 mr-3" />
-                {t('benefits.bizTitle')}
-              </h3>
-              <div className="space-y-4">
-                <div className="bg-white rounded-lg p-6 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1">
-                  <img
-                    src={img("infographic-low-moq")}
-                    alt={t('benefits.biz.moq.title')}
-                    className="w-full h-32 object-cover rounded-lg mb-3 cursor-pointer"
-                    onClick={() => {
-                      setModalImage(img("infographic-low-moq"))
-                      setModalAlt(t('benefits.biz.moq.title'))
-                      setIsModalOpen(true)
-                    }}
-                  />
-                  <h4 className="text-lg font-semibold text-neutral-900 mb-2">{t('benefits.biz.moq.title')}</h4>
-                  <p className="text-neutral-700">{t('benefits.biz.moq.desc')}</p>
-                </div>
-                <div className="bg-white rounded-lg p-6 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1">
-                  <img
-                    src={img("infographic-fast-turnaround")}
-                    alt={t('benefits.biz.turnaround.title')}
-                    className="w-full h-32 object-cover rounded-lg mb-3 cursor-pointer"
-                    onClick={() => {
-                      setModalImage(img("infographic-fast-turnaround"))
-                      setModalAlt(t('benefits.biz.turnaround.title'))
-                      setIsModalOpen(true)
-                    }}
-                  />
-                  <h4 className="text-lg font-semibold text-neutral-900 mb-2">{t('benefits.biz.turnaround.title')}</h4>
-                  <p className="text-neutral-700">{t('benefits.biz.turnaround.desc')}</p>
-                </div>
-                <div className="bg-white rounded-lg p-6 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1">
-                  <img
-                    src={img("infographic-shipping-storage")}
-                    alt={t('benefits.biz.shipping.title')}
-                    className="w-full h-32 object-cover rounded-lg mb-3 cursor-pointer"
-                    onClick={() => {
-                      setModalImage(img("infographic-shipping-storage"))
-                      setModalAlt(t('benefits.biz.shipping.title'))
-                      setIsModalOpen(true)
-                    }}
-                  />
-                  <h4 className="text-lg font-semibold text-neutral-900 mb-2">{t('benefits.biz.shipping.title')}</h4>
-                  <p className="text-neutral-700">{t('benefits.biz.shipping.desc')}</p>
-                </div>
-
-                <div className="bg-white rounded-lg p-6 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1">
-                  <img
-                    src={img("infographic-premium-finishes")}
-                    alt={t('benefits.biz.finish.title')}
-                    className="w-full h-32 object-cover rounded-lg mb-3 cursor-pointer"
-                    onClick={() => {
-                      setModalImage(img("infographic-premium-finishes"))
-                      setModalAlt(t('benefits.biz.finish.title'))
-                      setIsModalOpen(true)
-                    }}
-                  />
-                  <h4 className="text-lg font-semibold text-neutral-900 mb-2">{t('benefits.biz.finish.title')}</h4>
-                  <p className="text-neutral-700">{t('benefits.biz.finish.desc')}</p>
-                </div>
-              </div>
-            </div>
+          {/* Business Benefits - Animated */}
+          <div>
+            <h3 className="text-2xl font-bold text-neutral-900 flex items-center justify-center mb-4">
+              <Zap className="h-6 w-6 text-accent-500 mr-3" />
+              {t('benefits.bizTitle')}
+            </h3>
+            <AnimatedTestimonials
+              autoplay={true}
+              testimonials={[
+                {
+                  quote: t('benefits.biz.moq.desc'),
+                  name: t('benefits.biz.moq.title'),
+                  designation: "Start from 1,000 units",
+                  src: img("infographic-low-moq"),
+                },
+                {
+                  quote: t('benefits.biz.turnaround.desc'),
+                  name: t('benefits.biz.turnaround.title'),
+                  designation: "2-3 Weeks Production",
+                  src: img("infographic-fast-turnaround"),
+                },
+                {
+                  quote: t('benefits.biz.shipping.desc'),
+                  name: t('benefits.biz.shipping.title'),
+                  designation: "70% Less Shipping Volume",
+                  src: img("infographic-shipping-storage"),
+                },
+                {
+                  quote: t('benefits.biz.finish.desc'),
+                  name: t('benefits.biz.finish.title'),
+                  designation: "Matte, Gloss & Soft Touch",
+                  src: img("infographic-premium-finishes"),
+                },
+              ]}
+            />
           </div>
         </div>
       </section>
