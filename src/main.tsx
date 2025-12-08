@@ -15,6 +15,7 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import DashboardPage from './pages/DashboardPage'
 import TermsPage from './pages/TermsPage'
+import AdminPage from './pages/AdminPage'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -32,6 +33,7 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/dashboard" element={<DashboardPage />} />
                         <Route path="/terms" element={<TermsPage />} />
+            <Route path="/admin" element={<AdminPage />} />
           </Routes>
         </StoreProvider>
       </BrowserRouter>
