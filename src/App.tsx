@@ -142,6 +142,12 @@ ${formData.message}`
                   {label}
                 </button>
               ))}
+              <Link
+                to="/dashboard"
+                className="text-base font-medium transition-colors duration-200 text-neutral-700 hover:text-primary-500"
+              >
+                {t('nav.customerCenter')}
+              </Link>
             </div>
 
             <div className="hidden lg:flex items-center space-x-4">
@@ -209,6 +215,12 @@ ${formData.message}`
                   {label}
                 </button>
               ))}
+              <Link
+                to="/dashboard"
+                className="block w-full text-left text-base font-medium text-neutral-700 hover:text-primary-500 py-2"
+              >
+                {t('nav.customerCenter')}
+              </Link>
               {/* Mobile Language Options */}
               <div className="py-2 border-t border-neutral-100 my-2">
                 <div className="text-xs text-neutral-500 font-semibold mb-2 uppercase px-1">Language</div>
