@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom'
 import ReactGA from "react-ga4";
 import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield } from 'lucide-react'
 import { HeroGrainBackground } from './components/HeroGrainBackground'
@@ -162,6 +163,12 @@ ${formData.message}`
                 )}
               </div>
 
+              <Link
+                to="/store"
+                className="bg-accent-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-accent-600 transition-all duration-200 hover:shadow-hover hover:-translate-y-0.5"
+              >
+                Shop Now
+              </Link>
               <button
                 onClick={() => scrollToSection('contact')}
                 className="bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-all duration-200 hover:shadow-hover hover:-translate-y-0.5"
