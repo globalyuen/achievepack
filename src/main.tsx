@@ -11,6 +11,9 @@ import StorePage from './pages/StorePage'
 import ProductPage from './pages/ProductPage'
 import CheckoutPage from './pages/CheckoutPage'
 import OrderConfirmation from './pages/OrderConfirmation'
+import LoginPage from './pages/LoginPage'
+import RegisterPage from './pages/RegisterPage'
+import DashboardPage from './pages/DashboardPage'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -24,6 +27,9 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/store/product/:productId" element={<ProductPage />} />
             <Route path="/store/checkout" element={<CheckoutPage />} />
             <Route path="/store/order-confirmation" element={<OrderConfirmation />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
           </Routes>
         </StoreProvider>
       </BrowserRouter>
