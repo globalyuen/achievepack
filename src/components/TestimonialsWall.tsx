@@ -30,12 +30,81 @@ export default function TestimonialsWall() {
           </p>
         </div>
 
-        {/* Masonry Grid of Testimonials */}
-        <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
-          {TESTIMONIALS.map((testimonial) => (
+        {/* Grid of Testimonials with Featured Pouch */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          {TESTIMONIALS.slice(0, 4).map((testimonial) => (
             <div
               key={testimonial.id}
-              className={`break-inside-avoid ${testimonial.bgColor} rounded-2xl p-5 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer`}
+              className={`${testimonial.bgColor} rounded-2xl p-5 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer`}
+              onClick={() => handleClick(testimonial)}
+            >
+              {/* Author header */}
+              <div className="flex items-center gap-3 mb-4">
+                {/* Avatar with company logo */}
+                <div className="relative flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-md">
+                    <img
+                      src={testimonial.ownerImage}
+                      alt={testimonial.name}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement
+                        target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name)}&background=22c55e&color=fff&size=128`
+                      }}
+                    />
+                  </div>
+                </div>
+
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2">
+                    <span className="font-semibold text-neutral-900 truncate">{testimonial.name}</span>
+                    {testimonial.url && (
+                      <a
+                        href={testimonial.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary-500 hover:text-primary-600"
+                      >
+                        <ExternalLink className="h-3.5 w-3.5" />
+                      </a>
+                    )}
+                  </div>
+                  {(testimonial.role || testimonial.company) && (
+                    <p className="text-xs text-neutral-600 truncate">
+                      {testimonial.role && `${testimonial.role}${testimonial.company ? ' @ ' : ''}`}
+                      {testimonial.company}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              {/* Quote */}
+              <p className="text-neutral-800 text-sm leading-relaxed mb-3">
+                {testimonial.quote}
+              </p>
+
+              {/* Rating stars */}
+              <div className="flex items-center gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+            </div>
+          ))}
+
+          {/* Featured Pouch - Occupies 4 card spaces (2x2 on large screens) */}
+          <div className="md:col-span-2 md:row-span-2 rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-primary-50 to-white flex items-center justify-center p-8">
+            <img
+              src="/imgs/testimonials/pouch-hover/morlife.webp"
+              alt="Eco-Friendly Packaging Pouch"
+              className="w-full h-full object-contain drop-shadow-2xl transform rotate-12 hover:rotate-0 transition-transform duration-500"
+            />
+          </div>
+
+          {TESTIMONIALS.slice(4).map((testimonial) => (
+            <div
+              key={testimonial.id}
+              className={`${testimonial.bgColor} rounded-2xl p-5 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer`}
               onClick={() => handleClick(testimonial)}
             >
               {/* Author header */}
