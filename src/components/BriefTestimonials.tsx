@@ -2,9 +2,6 @@ import { useState, useRef, MouseEvent } from 'react'
 import { X, Quote, ExternalLink } from 'lucide-react'
 import { TESTIMONIALS, type Testimonial } from '../data/testimonialsData'
 
-// Pouch image path - you can upload actual images later
-const POUCH_IMAGE = '/imgs/testimonials/pouch-hover.png'
-
 // 3D Tilt Card Component
 function TiltCard({ testimonial, onClick }: { testimonial: Testimonial; onClick: () => void }) {
   const cardRef = useRef<HTMLDivElement>(null)
@@ -46,29 +43,39 @@ function TiltCard({ testimonial, onClick }: { testimonial: Testimonial; onClick:
     >
       {/* Background Pouch Image - Shows on Hover */}
       <div 
-        className={`absolute inset-0 flex items-center justify-center transition-all duration-500 pointer-events-none ${
-          isHovered ? 'opacity-20 scale-110' : 'opacity-0 scale-75'
+        className={`absolute inset-0 flex items-center justify-center transition-all duration-300 pointer-events-none ${
+          isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
         }`}
       >
-        <img
-          src={POUCH_IMAGE}
-          alt="Packaging Pouch"
-          className="w-24 h-32 object-contain"
-          onError={(e) => {
-            // Fallback to a simple pouch icon/placeholder
-            const target = e.target as HTMLImageElement
-            target.style.display = 'none'
-          }}
-        />
-        {/* Fallback SVG Pouch when image fails */}
+        {/* SVG Pouch - Always visible as fallback */}
         <svg 
-          className="w-20 h-28 text-neutral-400" 
+          className="w-16 h-24 md:w-20 md:h-28 drop-shadow-lg" 
           viewBox="0 0 80 120" 
-          fill="currentColor"
         >
-          <path d="M10 20 Q10 10 20 10 L60 10 Q70 10 70 20 L70 100 Q70 115 55 115 L25 115 Q10 115 10 100 Z" opacity="0.3"/>
-          <rect x="20" y="5" width="40" height="10" rx="2" opacity="0.5"/>
-          <ellipse cx="40" cy="60" rx="15" ry="20" opacity="0.2"/>
+          {/* Pouch body */}
+          <path 
+            d="M12 25 Q12 15 22 15 L58 15 Q68 15 68 25 L68 105 Q68 115 55 115 L25 115 Q12 115 12 105 Z" 
+            fill="#22c55e"
+            opacity="0.4"
+          />
+          {/* Pouch top seal */}
+          <rect x="18" y="8" width="44" height="12" rx="3" fill="#16a34a" opacity="0.5"/>
+          {/* Zipper line */}
+          <line x1="18" y1="20" x2="62" y2="20" stroke="#15803d" strokeWidth="2" opacity="0.6"/>
+          {/* Window/Label area */}
+          <ellipse cx="40" cy="65" rx="18" ry="25" fill="white" opacity="0.3"/>
+          {/* Eco leaf icon */}
+          <path 
+            d="M35 60 Q40 50 50 55 Q45 65 40 70 Q38 65 35 60" 
+            fill="#16a34a" 
+            opacity="0.8"
+          />
+          <path 
+            d="M40 55 L40 72" 
+            stroke="#16a34a" 
+            strokeWidth="1.5" 
+            opacity="0.8"
+          />
         </svg>
       </div>
 
