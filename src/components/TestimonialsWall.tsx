@@ -85,16 +85,11 @@ export default function TestimonialsWall() {
               </p>
 
               {/* Rating stars */}
-              <div className="flex items-center gap-1 mb-2">
+              <div className="flex items-center gap-1">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-4 w-4 text-yellow-400 fill-yellow-400" />
                 ))}
               </div>
-
-              {/* Extra info / date */}
-              <p className="text-xs text-neutral-500">
-                {testimonial.extraInfo}
-              </p>
             </div>
           ))}
         </div>
