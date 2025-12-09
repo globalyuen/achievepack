@@ -46,5 +46,19 @@ export const useAuth = () => {
     return await supabase.auth.signOut()
   }
 
-  return { session, user, loading, signIn, signUp, signOut }
+  const resetPassword = async (email: string) => {
+    const redirectUrl = typeof window !== 'undefined' 
+      ? `${window.location.origin}/reset-password` 
+      : 'https://achievepack.vercel.app/reset-password'
+    
+    return await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: redirectUrl
+    })
+  }
+
+  const updatePassword = async (newPassword: string) => {
+    return await supabase.auth.updateUser({ password: newPassword })
+  }
+
+  return { session, user, loading, signIn, signUp, signOut, resetPassword, updatePassword }
 }
