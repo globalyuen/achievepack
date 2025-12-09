@@ -114,10 +114,7 @@ const Newsletter: React.FC = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-4 rounded-xl font-semibold text-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-            style={{
-              background: 'linear-gradient(90deg, #111827 0%, #374151 50%, #9333ea 100%)'
-            }}
+            className="w-full py-4 rounded-xl font-semibold text-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed bg-primary-600 hover:bg-primary-700"
           >
             {isSubmitting ? t('newsletter.submitting') : t('newsletter.button')}
           </button>
