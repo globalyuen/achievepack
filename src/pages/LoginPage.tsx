@@ -17,22 +17,22 @@ const LoginPage: React.FC = () => {
 
   const slides = [
     {
-      image: '/imgs/signin/slide-1.webp',
+      image: '/imgs/sign-in/slide-1.webp',
       title: 'Customer Center Dashboard',
       description: 'Track all your orders, quotes, and documents in one centralized dashboard.'
     },
     {
-      image: '/imgs/signin/slide-2.webp',
+      image: '/imgs/sign-in/slide-2.webp',
       title: 'Manage Quotes & Orders',
       description: 'Easily view, track, and manage all your quotes and orders with real-time status updates.'
     },
     {
-      image: '/imgs/signin/slide-3.webp',
+      image: '/imgs/sign-in/slide-3.webp',
       title: 'Access Documents',
       description: 'Download certifications, compliance documents, and product catalogs anytime.'
     },
     {
-      image: '/imgs/signin/slide-4.webp',
+      image: '/imgs/sign-in/slide-4.webp',
       title: 'Manage Artwork Files',
       description: 'Upload, review, and approve your packaging designs with our streamlined workflow.'
     }
