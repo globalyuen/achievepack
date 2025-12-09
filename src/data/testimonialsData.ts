@@ -26,10 +26,10 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: "Eco Pouch's custom packaging met and exceeded expectations, with product fitting perfectly. Strong recommendation for anyone looking for quality sustainable packaging solutions.",
     shortQuote: "Custom packaging met and exceeded expectations!",
     extraInfo: 'Case study + transcript, 1 year ago',
-    ownerImage: '/imgs/testimonials/michelle-correa.jpg',
-    companyLogo: '/imgs/testimonials/logo-themclife.png',
+    ownerImage: '/imgs/testimonials/logo/michelle.png',
+    companyLogo: '/imgs/testimonials/logo/michelle.png',
     bgColor: 'bg-orange-100',
-    pouchImage: DEFAULT_POUCH
+    pouchImage: '/imgs/testimonials/pouch-hover/michelle.webp'
   },
   {
     id: 'nicole-sarduy',
@@ -39,10 +39,10 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: "Working with Eco Pouch Packaging has been the best production experience. The communication was outstanding, quality exceeded expectations, and pricing was unbeatable.",
     shortQuote: "Best production experience ever!",
     extraInfo: '3 months ago',
-    ownerImage: '/imgs/testimonials/nicole-sarduy.jpg',
-    companyLogo: '/imgs/testimonials/logo-placeholder.png',
+    ownerImage: '/imgs/testimonials/logo/michelle.png',
+    companyLogo: '/imgs/testimonials/logo/michelle.png',
     bgColor: 'bg-pink-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/a_plantpowders_fava_protein_amazon_pouch_0994375.webp'
+    pouchImage: '/imgs/testimonials/pouch-hover/Nicole.webp'
   },
   {
     id: 'jemma-defore',
@@ -53,10 +53,10 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: "Eco Pouch is a great company with excellent communication and great-quality bags. They made the entire process smooth and professional.",
     shortQuote: "Great company with excellent communication!",
     extraInfo: '7 months ago',
-    ownerImage: '/imgs/testimonials/jemma-defore.jpg',
-    companyLogo: '/imgs/testimonials/logo-mylkmade.png',
+    ownerImage: '/imgs/testimonials/logo/jemma.png',
+    companyLogo: '/imgs/testimonials/logo/jemma.png',
     bgColor: 'bg-cyan-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/wise-angler.webp'
+    pouchImage: '/imgs/testimonials/pouch-hover/jemma.webp'
   },
   {
     id: 'ruby-mayer',
@@ -66,10 +66,10 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: "The packaging looks and feels wonderful, matches my design almost perfectly. It's the main thing customers compliment about our products.",
     shortQuote: "Packaging is the main thing customers compliment!",
     extraInfo: 'Transcript, 1 year ago',
-    ownerImage: '/imgs/testimonials/ruby-mayer.jpg',
-    companyLogo: '/imgs/testimonials/logo-emuelixir.png',
+    ownerImage: '/imgs/testimonials/logo/ruby.png',
+    companyLogo: '/imgs/testimonials/logo/ruby.png',
     bgColor: 'bg-green-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/a_barky_bakey_amazon_stand_up_pouch_2727754.webp'
+    pouchImage: '/imgs/testimonials/pouch-hover/ruby.webp'
   },
   {
     id: 'richard-tango-lowy',
@@ -80,10 +80,10 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: "These fully compostable pouches decompose in about a year and a half. Thank you to the Eco Pouch team for fantastic work on our sustainable packaging!",
     shortQuote: "Fantastic work on compostable pouches!",
     extraInfo: 'Instagram video linked, 1 year ago',
-    ownerImage: '/imgs/testimonials/richard-tango-lowy.jpg',
-    companyLogo: '/imgs/testimonials/logo-dancinglion.png',
+    ownerImage: '/imgs/testimonials/logo/Richard.png',
+    companyLogo: '/imgs/testimonials/logo/Richard.png',
     bgColor: 'bg-amber-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/Cocktail by Mail.webp'
+    pouchImage: '/imgs/testimonials/pouch-hover/Richard.webp'
   },
   {
     id: 'holly-baer',
@@ -93,10 +93,10 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: "Grateful to find quality compostable packaging with low MOQs. Top communication, helpful rep, proactive updates, and excellent-quality pouches at reasonable prices.",
     shortQuote: "Quality compostable packaging with low MOQs!",
     extraInfo: 'Transcript + text, 1 year ago',
-    ownerImage: '/imgs/testimonials/holly-baer.jpg',
-    companyLogo: '/imgs/testimonials/logo-superiorfeline.png',
+    ownerImage: '/imgs/testimonials/logo/holly.png',
+    companyLogo: '/imgs/testimonials/logo/holly.png',
     bgColor: 'bg-purple-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/a_shield_again_amazon_stand_up_pouch_2340630.webp'
+    pouchImage: '/imgs/testimonials/pouch-hover/Holly.webp'
   },
   {
     id: 'arielle',
@@ -106,10 +106,10 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: "Very impressed with service, high-quality compostable pouches for dog supplements, and easy contact. Highly recommends for sustainable businesses.",
     shortQuote: "Highly recommend for sustainable businesses!",
     extraInfo: '1–2 years ago, 2 written testimonials',
-    ownerImage: '/imgs/testimonials/arielle.jpg',
-    companyLogo: '/imgs/testimonials/logo-justbekind.png',
+    ownerImage: '/imgs/testimonials/logo/arielle.png',
+    companyLogo: '/imgs/testimonials/logo/arielle.png',
     bgColor: 'bg-blue-100',
-    pouchImage: DEFAULT_POUCH
+    pouchImage: '/imgs/testimonials/pouch-hover/Arielle.webp'
   },
   {
     id: 'leo-vieira',
@@ -119,10 +119,10 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: "Eco Pouch met a tight deadline after we lost our prior supplier. Professional, fast communication. Highly recommend the team for quality, sustainable packaging.",
     shortQuote: "Met tight deadline with professional service!",
     extraInfo: '2 years ago',
-    ownerImage: '/imgs/testimonials/leo-vieira.jpg',
-    companyLogo: '/imgs/testimonials/logo-wiseangler.png',
+    ownerImage: '/imgs/testimonials/logo/leo.png',
+    companyLogo: '/imgs/testimonials/logo/leo.png',
     bgColor: 'bg-teal-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/wise-angler.webp'
+    pouchImage: '/imgs/testimonials/pouch-hover/Leo.webp'
   },
   {
     id: 'remi',
@@ -133,10 +133,10 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: "Eco Pouch is the best packaging company. We've had multiple years of collaboration and consistently satisfying packaging quality.",
     shortQuote: "Best packaging company, years of collaboration!",
     extraInfo: '2 years ago',
-    ownerImage: '/imgs/testimonials/remi.jpg',
-    companyLogo: '/imgs/testimonials/logo-plantpowders.png',
+    ownerImage: '/imgs/testimonials/logo/remi.png',
+    companyLogo: '/imgs/testimonials/logo/remi.png',
     bgColor: 'bg-lime-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/a_plantpowders_fava_protein_amazon_pouch_0994375.webp'
+    pouchImage: '/imgs/testimonials/pouch-hover/Remi.webp'
   },
   {
     id: 'david',
@@ -147,10 +147,10 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: "Pouch.eco and Ryan helped meet a very tight launch deadline and navigate supply chain issues, ensuring on-time delivery.",
     shortQuote: "Helped meet tight launch deadline!",
     extraInfo: '2 years ago',
-    ownerImage: '/imgs/testimonials/david.jpg',
-    companyLogo: '/imgs/testimonials/logo-hikeagain.png',
+    ownerImage: '/imgs/testimonials/logo/david.png',
+    companyLogo: '/imgs/testimonials/logo/david.png',
     bgColor: 'bg-rose-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/a_shield_again_amazon_stand_up_pouch_2340630.webp'
+    pouchImage: '/imgs/testimonials/pouch-hover/David.webp'
   },
   {
     id: 'paul',
@@ -160,10 +160,10 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: "Ryan helped over months answering startup packaging questions. Very pleased with the high-quality biodegradable packaging and A+ customer service.",
     shortQuote: "A+ customer service and quality packaging!",
     extraInfo: '2 years ago',
-    ownerImage: '/imgs/testimonials/paul.jpg',
-    companyLogo: '/imgs/testimonials/logo-barkybakey.png',
+    ownerImage: '/imgs/testimonials/logo/Paul.png',
+    companyLogo: '/imgs/testimonials/logo/Paul.png',
     bgColor: 'bg-yellow-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/a_barky_bakey_amazon_stand_up_pouch_2727754.webp'
+    pouchImage: '/imgs/testimonials/pouch-hover/Paul.webp'
   },
   {
     id: 'steph',
@@ -173,10 +173,10 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: "Great team from start to finish. Ryan helped resolve a pricing mistake and was eager to help a small business find the perfect solution despite time zone differences.",
     shortQuote: "Great team, eager to help small businesses!",
     extraInfo: '3 years ago',
-    ownerImage: '/imgs/testimonials/steph.jpg',
-    companyLogo: '/imgs/testimonials/logo-cocktailbymail.png',
+    ownerImage: '/imgs/testimonials/logo/Steph.png',
+    companyLogo: '/imgs/testimonials/logo/Steph.png',
     bgColor: 'bg-indigo-100',
-    pouchImage: '/imgs/testimonials/pouch-hover/Cocktail by Mail.webp'
+    pouchImage: '/imgs/testimonials/pouch-hover/Steph.webp'
   },
   {
     id: 'cheryl',
@@ -186,8 +186,8 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: "Great pouches with awesome printing. Impeccable quality, remarkable communication, and above-average delivery performance from Ryan and Pouch.eco.",
     shortQuote: "Impeccable quality and awesome printing!",
     extraInfo: '4 years ago',
-    ownerImage: '/imgs/testimonials/cheryl.jpg',
-    companyLogo: '/imgs/testimonials/logo-morlife.png',
+    ownerImage: '/imgs/testimonials/logo/cheryl.png',
+    companyLogo: '/imgs/testimonials/logo/cheryl.png',
     bgColor: 'bg-sky-100',
     pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp'
   }

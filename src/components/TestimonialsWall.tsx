@@ -1,10 +1,33 @@
+import { useState, useEffect } from 'react'
 import { ExternalLink, Star, Quote } from 'lucide-react'
 import { TESTIMONIALS } from '../data/testimonialsData'
 
 export default function TestimonialsWall() {
+  const [showPouch, setShowPouch] = useState(false)
+
+  // Trigger pouch animation when section is visible
+  useEffect(() => {
+    const timer = setTimeout(() => setShowPouch(true), 800)
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
-    <section id="testimonials" className="py-20 bg-neutral-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" className="py-20 bg-neutral-50 relative overflow-hidden">
+      {/* Large Background Pouch - Slides from right, rotated 45 degrees */}
+      <div 
+        className={`absolute -bottom-40 -right-40 w-[800px] h-[1000px] lg:w-[1000px] lg:h-[1200px] pointer-events-none transition-all duration-1000 ease-out z-0 ${
+          showPouch ? 'opacity-20 translate-x-0' : 'opacity-0 translate-x-full'
+        }`}
+        style={{ transform: showPouch ? 'rotate(45deg)' : 'rotate(45deg) translateX(100%)' }}
+      >
+        <img
+          src="/imgs/testimonials/pouch-hover/morlife.webp"
+          alt="Eco Pouch Packaging"
+          className="w-full h-full object-contain"
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
           <div className="flex justify-center mb-4">

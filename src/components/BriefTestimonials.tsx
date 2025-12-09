@@ -105,11 +105,12 @@ export default function BriefTestimonials() {
 
   return (
     <section className="py-12 md:py-16 bg-gradient-to-b from-white to-neutral-50 relative overflow-hidden">
-      {/* Large Background Pouch - Slides from right */}
+      {/* Large Background Pouch - Slides from right, 200% bigger, rotated 45 degrees */}
       <div 
-        className={`absolute bottom-0 right-0 w-[400px] h-[500px] lg:w-[500px] lg:h-[600px] pointer-events-none transition-all duration-1000 ease-out z-0 ${
-          showPouch ? 'opacity-30 translate-x-0' : 'opacity-0 translate-x-full'
+        className={`absolute -bottom-20 -right-20 w-[800px] h-[1000px] lg:w-[1000px] lg:h-[1200px] pointer-events-none transition-all duration-1000 ease-out z-0 ${
+          showPouch ? 'opacity-25 translate-x-0' : 'opacity-0 translate-x-full'
         }`}
+        style={{ transform: showPouch ? 'rotate(45deg)' : 'rotate(45deg) translateX(100%)' }}
       >
         <img
           src="/imgs/testimonials/pouch-hover/morlife.webp"
@@ -156,16 +157,16 @@ export default function BriefTestimonials() {
           onClick={() => setActiveTestimonial(null)}
         >
           <div
-            className={`relative max-w-3xl w-full rounded-2xl shadow-2xl ${activeTestimonial.bgColor} overflow-hidden`}
+            className={`relative max-w-5xl w-full rounded-2xl shadow-2xl ${activeTestimonial.bgColor} overflow-hidden`}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex flex-col md:flex-row">
-              {/* Pouch Image - Left Side */}
-              <div className="hidden md:flex w-48 bg-white/30 items-center justify-center p-4">
+              {/* Large Pouch Image - Left Side (10x bigger) */}
+              <div className="hidden md:flex w-80 lg:w-96 bg-white/30 items-center justify-center p-6">
                 <img
                   src={activeTestimonial.pouchImage}
                   alt="Packaging Pouch"
-                  className="w-full h-auto max-h-64 object-contain drop-shadow-lg"
+                  className="w-full h-auto min-h-[400px] max-h-[500px] object-contain drop-shadow-2xl"
                 />
               </div>
               
