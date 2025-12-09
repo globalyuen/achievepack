@@ -1,5 +1,6 @@
 import { useState, useRef, MouseEvent, useEffect, useCallback } from 'react'
 import { X, Quote, ExternalLink } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { TESTIMONIALS, type Testimonial } from '../data/testimonialsData'
 
 // 3D Tilt Card Component
@@ -95,6 +96,7 @@ function TiltCard({ testimonial, onClick, onHover }: { testimonial: Testimonial;
 }
 
 export default function BriefTestimonials() {
+  const { t } = useTranslation()
   const [activeTestimonial, setActiveTestimonial] = useState<Testimonial | null>(null)
   const [hoveredTestimonial, setHoveredTestimonial] = useState<Testimonial | null>(null)
 
@@ -112,12 +114,12 @@ export default function BriefTestimonials() {
         {/* Section Title */}
         <div className="text-center mb-10">
           <p className="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-3">
-            Trusted by 500+ Brands Worldwide
+            {t('testimonials.wallOfLove.trustedBy')}
           </p>
           <h3 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-2">
-            See What Our Customers Say
+            {t('testimonials.title')}
           </h3>
-          <p className="text-neutral-500">Hover and click to explore their stories</p>
+          <p className="text-neutral-500">{t('testimonials.description')}</p>
         </div>
 
         {/* Grid of Testimonials with Featured Pouch */}
