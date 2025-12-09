@@ -2,9 +2,6 @@ import { useState, useRef, MouseEvent } from 'react'
 import { X, Quote, ExternalLink } from 'lucide-react'
 import { TESTIMONIALS, type Testimonial } from '../data/testimonialsData'
 
-// Pouch image path
-const POUCH_IMAGE = '/imgs/testimonials/pouch-hover.png'
-
 // 3D Tilt Card Component
 function TiltCard({ testimonial, onClick }: { testimonial: Testimonial; onClick: () => void }) {
   const cardRef = useRef<HTMLDivElement>(null)
@@ -51,7 +48,7 @@ function TiltCard({ testimonial, onClick }: { testimonial: Testimonial; onClick:
         }`}
       >
         <img
-          src={POUCH_IMAGE}
+          src={testimonial.pouchImage}
           alt="Packaging Pouch"
           className="w-full h-full object-cover"
         />
@@ -156,7 +153,7 @@ export default function BriefTestimonials() {
               {/* Pouch Image - Left Side */}
               <div className="hidden md:flex w-48 bg-white/30 items-center justify-center p-4">
                 <img
-                  src={POUCH_IMAGE}
+                  src={activeTestimonial.pouchImage}
                   alt="Packaging Pouch"
                   className="w-full h-auto max-h-64 object-contain drop-shadow-lg"
                 />

@@ -10,7 +10,11 @@ export interface Testimonial {
   ownerImage: string
   companyLogo: string
   bgColor: string
+  pouchImage: string
 }
+
+// Default pouch image for testimonials without specific product images
+const DEFAULT_POUCH = '/imgs/testimonials/pouch-hover/morlife.webp'
 
 export const TESTIMONIALS: Testimonial[] = [
   {
@@ -24,7 +28,8 @@ export const TESTIMONIALS: Testimonial[] = [
     extraInfo: 'Case study + transcript, 1 year ago',
     ownerImage: '/imgs/testimonials/michelle-correa.jpg',
     companyLogo: '/imgs/testimonials/logo-themclife.png',
-    bgColor: 'bg-orange-100'
+    bgColor: 'bg-orange-100',
+    pouchImage: DEFAULT_POUCH
   },
   {
     id: 'nicole-sarduy',
@@ -36,7 +41,8 @@ export const TESTIMONIALS: Testimonial[] = [
     extraInfo: '3 months ago',
     ownerImage: '/imgs/testimonials/nicole-sarduy.jpg',
     companyLogo: '/imgs/testimonials/logo-placeholder.png',
-    bgColor: 'bg-pink-100'
+    bgColor: 'bg-pink-100',
+    pouchImage: '/imgs/testimonials/pouch-hover/a_plantpowders_fava_protein_amazon_pouch_0994375.webp'
   },
   {
     id: 'jemma-defore',
@@ -49,7 +55,8 @@ export const TESTIMONIALS: Testimonial[] = [
     extraInfo: '7 months ago',
     ownerImage: '/imgs/testimonials/jemma-defore.jpg',
     companyLogo: '/imgs/testimonials/logo-mylkmade.png',
-    bgColor: 'bg-cyan-100'
+    bgColor: 'bg-cyan-100',
+    pouchImage: '/imgs/testimonials/pouch-hover/wise-angler.webp'
   },
   {
     id: 'ruby-mayer',
@@ -61,7 +68,8 @@ export const TESTIMONIALS: Testimonial[] = [
     extraInfo: 'Transcript, 1 year ago',
     ownerImage: '/imgs/testimonials/ruby-mayer.jpg',
     companyLogo: '/imgs/testimonials/logo-emuelixir.png',
-    bgColor: 'bg-green-100'
+    bgColor: 'bg-green-100',
+    pouchImage: '/imgs/testimonials/pouch-hover/a_barky_bakey_amazon_stand_up_pouch_2727754.webp'
   },
   {
     id: 'richard-tango-lowy',
@@ -74,7 +82,8 @@ export const TESTIMONIALS: Testimonial[] = [
     extraInfo: 'Instagram video linked, 1 year ago',
     ownerImage: '/imgs/testimonials/richard-tango-lowy.jpg',
     companyLogo: '/imgs/testimonials/logo-dancinglion.png',
-    bgColor: 'bg-amber-100'
+    bgColor: 'bg-amber-100',
+    pouchImage: '/imgs/testimonials/pouch-hover/Cocktail by Mail.webp'
   },
   {
     id: 'holly-baer',
@@ -86,7 +95,8 @@ export const TESTIMONIALS: Testimonial[] = [
     extraInfo: 'Transcript + text, 1 year ago',
     ownerImage: '/imgs/testimonials/holly-baer.jpg',
     companyLogo: '/imgs/testimonials/logo-superiorfeline.png',
-    bgColor: 'bg-purple-100'
+    bgColor: 'bg-purple-100',
+    pouchImage: '/imgs/testimonials/pouch-hover/a_shield_again_amazon_stand_up_pouch_2340630.webp'
   },
   {
     id: 'arielle',
@@ -98,7 +108,8 @@ export const TESTIMONIALS: Testimonial[] = [
     extraInfo: '1–2 years ago, 2 written testimonials',
     ownerImage: '/imgs/testimonials/arielle.jpg',
     companyLogo: '/imgs/testimonials/logo-justbekind.png',
-    bgColor: 'bg-blue-100'
+    bgColor: 'bg-blue-100',
+    pouchImage: DEFAULT_POUCH
   },
   {
     id: 'leo-vieira',
@@ -110,7 +121,8 @@ export const TESTIMONIALS: Testimonial[] = [
     extraInfo: '2 years ago',
     ownerImage: '/imgs/testimonials/leo-vieira.jpg',
     companyLogo: '/imgs/testimonials/logo-wiseangler.png',
-    bgColor: 'bg-teal-100'
+    bgColor: 'bg-teal-100',
+    pouchImage: '/imgs/testimonials/pouch-hover/wise-angler.webp'
   },
   {
     id: 'remi',
@@ -123,7 +135,8 @@ export const TESTIMONIALS: Testimonial[] = [
     extraInfo: '2 years ago',
     ownerImage: '/imgs/testimonials/remi.jpg',
     companyLogo: '/imgs/testimonials/logo-plantpowders.png',
-    bgColor: 'bg-lime-100'
+    bgColor: 'bg-lime-100',
+    pouchImage: '/imgs/testimonials/pouch-hover/a_plantpowders_fava_protein_amazon_pouch_0994375.webp'
   },
   {
     id: 'david',
@@ -136,7 +149,8 @@ export const TESTIMONIALS: Testimonial[] = [
     extraInfo: '2 years ago',
     ownerImage: '/imgs/testimonials/david.jpg',
     companyLogo: '/imgs/testimonials/logo-hikeagain.png',
-    bgColor: 'bg-rose-100'
+    bgColor: 'bg-rose-100',
+    pouchImage: '/imgs/testimonials/pouch-hover/a_shield_again_amazon_stand_up_pouch_2340630.webp'
   },
   {
     id: 'paul',
@@ -148,7 +162,8 @@ export const TESTIMONIALS: Testimonial[] = [
     extraInfo: '2 years ago',
     ownerImage: '/imgs/testimonials/paul.jpg',
     companyLogo: '/imgs/testimonials/logo-barkybakey.png',
-    bgColor: 'bg-yellow-100'
+    bgColor: 'bg-yellow-100',
+    pouchImage: '/imgs/testimonials/pouch-hover/a_barky_bakey_amazon_stand_up_pouch_2727754.webp'
   },
   {
     id: 'steph',
@@ -160,7 +175,8 @@ export const TESTIMONIALS: Testimonial[] = [
     extraInfo: '3 years ago',
     ownerImage: '/imgs/testimonials/steph.jpg',
     companyLogo: '/imgs/testimonials/logo-cocktailbymail.png',
-    bgColor: 'bg-indigo-100'
+    bgColor: 'bg-indigo-100',
+    pouchImage: '/imgs/testimonials/pouch-hover/Cocktail by Mail.webp'
   },
   {
     id: 'cheryl',
@@ -172,6 +188,7 @@ export const TESTIMONIALS: Testimonial[] = [
     extraInfo: '4 years ago',
     ownerImage: '/imgs/testimonials/cheryl.jpg',
     companyLogo: '/imgs/testimonials/logo-morlife.png',
-    bgColor: 'bg-sky-100'
+    bgColor: 'bg-sky-100',
+    pouchImage: '/imgs/testimonials/pouch-hover/morlife.webp'
   }
 ]
