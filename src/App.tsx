@@ -1023,9 +1023,9 @@ ${formData.message}`
       <section id="team" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-neutral-900 mb-4">Meet Our Team</h2>
+            <h2 className="text-4xl font-bold text-neutral-900 mb-4">{t('team.title')}</h2>
             <p className="text-lg text-neutral-700 max-w-3xl mx-auto">
-              Our dedicated team of packaging experts is here to help you find the perfect sustainable solution for your business.
+              {t('team.description')}
             </p>
           </div>
 
@@ -1033,39 +1033,39 @@ ${formData.message}`
             {[
               {
                 name: 'Ryan Wong',
-                role: 'Packaging Specialist',
+                roleKey: 'packagingSpecialist',
                 image: '/imgs/team/Ryan Wong - Packaging Specialist.png',
                 linkedin: 'https://www.linkedin.com/in/ryanwwc/',
                 email: 'ryan@achievepack.com'
               },
               {
                 name: 'Jericha Kwok',
-                role: 'Business Development',
+                roleKey: 'businessDevelopment',
                 image: '/imgs/team/Jericha Kwok - Business Development.png',
                 linkedin: 'https://www.linkedin.com/in/jericha-kwok-474bb118a/',
                 email: 'jericha@achievepack.com'
               },
               {
                 name: 'Eric Kwok',
-                role: 'Business Development',
+                roleKey: 'businessDevelopment',
                 image: '/imgs/team/Eric Kwok - Business Development.png',
                 email: 'eric@achievepack.com'
               },
               {
                 name: 'Jackie Kwok',
-                role: 'Customer Support',
+                roleKey: 'customerSupport',
                 image: '/imgs/team/Jackie Kwok - Customer Support.png',
                 email: 'jackie@achievepack.com'
               },
               {
                 name: 'Amy Huang',
-                role: 'Customer Support',
+                roleKey: 'customerSupport',
                 image: '/imgs/team/Amy Huang - customer support.png',
                 email: 'amy@achievepack.com'
               },
               {
                 name: 'Emma Guo',
-                role: 'Customer Support',
+                roleKey: 'customerSupport',
                 image: '/imgs/team/Emma Guo - customer support.png',
                 email: 'emma@achievepack.com'
               }
@@ -1105,7 +1105,7 @@ ${formData.message}`
                 {/* Info Bubble on Hover */}
                 <div className="mt-4 text-center transition-all duration-300 group-hover:-translate-y-1">
                   <h3 className="font-semibold text-neutral-900 group-hover:text-primary-600 transition-colors">{member.name}</h3>
-                  <p className="text-sm text-neutral-600">{member.role}</p>
+                  <p className="text-sm text-neutral-600">{t(`team.roles.${member.roleKey}`)}</p>
                 </div>
               </div>
             ))}

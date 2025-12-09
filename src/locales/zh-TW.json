@@ -279,6 +279,15 @@
         },
         "trusted": "深受全球領先品牌信賴"
     },
+    "team": {
+        "title": "認識我們的團隊",
+        "description": "我們專業的包裝團隊致力於為您的業務找到完美的可持續解決方案。",
+        "roles": {
+            "packagingSpecialist": "包裝專家",
+            "businessDevelopment": "業務發展",
+            "customerSupport": "客戶支援"
+        }
+    },
     "faq": {
         "title": "常見問題",
         "description": "獲取有關我們可持續包裝解決方案的常見問題解答。",

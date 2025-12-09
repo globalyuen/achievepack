@@ -279,6 +279,15 @@
         },
         "trusted": "Con la confianza de marcas líderes en todo el mundo"
     },
+    "team": {
+        "title": "Conoce a Nuestro Equipo",
+        "description": "Nuestro equipo dedicado de expertos en embalaje está aquí para ayudarte a encontrar la solución sostenible perfecta para tu negocio.",
+        "roles": {
+            "packagingSpecialist": "Especialista en Embalaje",
+            "businessDevelopment": "Desarrollo de Negocios",
+            "customerSupport": "Atención al Cliente"
+        }
+    },
     "faq": {
         "title": "Preguntas frecuentes",
         "description": "Obtenga respuestas a preguntas comunes sobre nuestras soluciones de embalaje sostenible.",

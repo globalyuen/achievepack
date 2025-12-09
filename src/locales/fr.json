@@ -279,6 +279,15 @@
         },
         "trusted": "Reconnu par les grandes marques mondiales"
     },
+    "team": {
+        "title": "Rencontrez Notre Équipe",
+        "description": "Notre équipe dédiée d'experts en emballage est là pour vous aider à trouver la solution durable parfaite pour votre entreprise.",
+        "roles": {
+            "packagingSpecialist": "Spécialiste Emballage",
+            "businessDevelopment": "Développement Commercial",
+            "customerSupport": "Support Client"
+        }
+    },
     "faq": {
         "title": "Questions fréquemment posées",
         "description": "Obtenez des réponses aux questions courantes sur nos solutions d'emballage durable.",
