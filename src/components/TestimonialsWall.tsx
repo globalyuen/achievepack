@@ -9,7 +9,7 @@ export default function TestimonialsWall() {
   const [hoveredTestimonial, setHoveredTestimonial] = useState<Testimonial | null>(null)
 
   // Get current pouch image - use hovered testimonial's pouch or default
-  const currentPouchImage = hoveredTestimonial?.pouchImage || '/imgs/testimonials/pouch-hover/morlife.webp'
+  const currentPouchImage = hoveredTestimonial?.pouchImage || '/imgs/testimonials/start.webp'
 
   // Memoized event handlers to prevent blocking
   const handleClick = useCallback((testimonial: Testimonial) => {

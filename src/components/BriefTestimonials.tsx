@@ -99,7 +99,7 @@ export default function BriefTestimonials() {
   const [hoveredTestimonial, setHoveredTestimonial] = useState<Testimonial | null>(null)
 
   // Get current pouch image - use hovered testimonial's pouch or default
-  const currentPouchImage = hoveredTestimonial?.pouchImage || '/imgs/testimonials/pouch-hover/morlife.webp'
+  const currentPouchImage = hoveredTestimonial?.pouchImage || '/imgs/testimonials/start.webp'
 
   // Memoized hover handler
   const handleCardHover = useCallback((testimonial: Testimonial | null) => {
