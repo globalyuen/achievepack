@@ -1,59 +1,121 @@
-import { useState } from 'react'
+import { useState, useRef, MouseEvent } from 'react'
 import { X, Quote, ExternalLink } from 'lucide-react'
 import { TESTIMONIALS, type Testimonial } from '../data/testimonialsData'
+
+// 3D Tilt Card Component
+function TiltCard({ testimonial, onClick }: { testimonial: Testimonial; onClick: () => void }) {
+  const cardRef = useRef<HTMLDivElement>(null)
+  const [transform, setTransform] = useState('')
+  const [glarePos, setGlarePos] = useState({ x: 50, y: 50 })
+
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return
+    const rect = cardRef.current.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    const centerX = rect.width / 2
+    const centerY = rect.height / 2
+    const rotateX = (y - centerY) / 8
+    const rotateY = (centerX - x) / 8
+    setTransform(`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`)
+    setGlarePos({ x: (x / rect.width) * 100, y: (y / rect.height) * 100 })
+  }
+
+  const handleMouseLeave = () => {
+    setTransform('')
+  }
+
+  return (
+    <div
+      ref={cardRef}
+      onClick={onClick}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className={`relative cursor-pointer rounded-2xl p-4 ${testimonial.bgColor} shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden`}
+      style={{ transform, transition: transform ? 'none' : 'transform 0.5s ease-out' }}
+    >
+      {/* Glare effect */}
+      <div
+        className="absolute inset-0 opacity-0 hover:opacity-30 transition-opacity pointer-events-none"
+        style={{
+          background: `radial-gradient(circle at ${glarePos.x}% ${glarePos.y}%, rgba(255,255,255,0.8) 0%, transparent 60%)`,
+        }}
+      />
+      
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center text-center">
+        {/* Avatar */}
+        <div className="relative mb-3">
+          <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-white bg-neutral-100 overflow-hidden shadow-xl">
+            <img
+              src={testimonial.ownerImage}
+              alt={testimonial.name}
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement
+                target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name)}&background=22c55e&color=fff&size=128`
+              }}
+            />
+          </div>
+          {/* Company logo badge */}
+          <div className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-white border-2 border-white overflow-hidden shadow-md">
+            <img
+              src={testimonial.companyLogo}
+              alt={testimonial.company}
+              className="w-full h-full object-contain p-0.5"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement
+                target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.company || 'Co')}&background=f3f4f6&color=6b7280&size=64`
+              }}
+            />
+          </div>
+        </div>
+        
+        {/* Name */}
+        <h4 className="font-semibold text-neutral-900 text-sm md:text-base">{testimonial.name}</h4>
+        
+        {/* Short quote */}
+        <p className="text-xs md:text-sm text-neutral-600 mt-1 line-clamp-2">
+          "{testimonial.shortQuote}"
+        </p>
+      </div>
+    </div>
+  )
+}
 
 export default function BriefTestimonials() {
   const [activeTestimonial, setActiveTestimonial] = useState<Testimonial | null>(null)
 
   return (
-    <section className="py-8 bg-white border-b border-neutral-100">
+    <section className="py-12 md:py-16 bg-gradient-to-b from-white to-neutral-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
-        <div className="text-center mb-6">
-          <p className="text-sm font-medium text-primary-600 uppercase tracking-wider mb-2">
+        <div className="text-center mb-10">
+          <p className="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-3">
             Trusted by 500+ Brands Worldwide
           </p>
-          <h3 className="text-2xl font-bold text-neutral-900">
+          <h3 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-2">
             See What Our Customers Say
           </h3>
+          <p className="text-neutral-500">Hover and click to explore their stories</p>
         </div>
 
-        {/* Avatar Row - Clickable */}
-        <div className="flex justify-center items-center">
-          <div className="flex -space-x-3 overflow-hidden">
-            {TESTIMONIALS.map((testimonial, index) => (
-              <button
-                key={testimonial.id}
-                onClick={() => setActiveTestimonial(testimonial)}
-                className="relative group"
-                style={{ zIndex: TESTIMONIALS.length - index }}
-              >
-                {/* Avatar with border ring */}
-                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full border-3 border-white bg-neutral-100 overflow-hidden shadow-md hover:scale-110 hover:z-50 transition-all duration-200 cursor-pointer ring-2 ring-primary-200 hover:ring-primary-500">
-                  <img
-                    src={testimonial.ownerImage}
-                    alt={testimonial.name}
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement
-                      target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name)}&background=22c55e&color=fff&size=128`
-                    }}
-                  />
-                </div>
-                
-                {/* Tooltip on hover */}
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-neutral-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                  {testimonial.name}
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-neutral-900" />
-                </div>
-              </button>
-            ))}
-          </div>
+        {/* Testimonial Cards Grid - 3D Tilt Effect */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-5">
+          {TESTIMONIALS.map((testimonial) => (
+            <TiltCard
+              key={testimonial.id}
+              testimonial={testimonial}
+              onClick={() => setActiveTestimonial(testimonial)}
+            />
+          ))}
         </div>
 
         {/* Click hint */}
-        <p className="text-center text-sm text-neutral-500 mt-4">
-          Click any avatar to read their story
+        <p className="text-center text-sm text-neutral-400 mt-8 flex items-center justify-center gap-2">
+          <span className="inline-block w-8 h-px bg-neutral-300"></span>
+          Click any card to read their full story
+          <span className="inline-block w-8 h-px bg-neutral-300"></span>
         </p>
       </div>
 
