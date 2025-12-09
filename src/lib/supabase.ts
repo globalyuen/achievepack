@@ -24,6 +24,9 @@ export type Order = {
   shipping_address: any
   customer_email: string
   customer_name: string
+  tracking_number?: string
+  tracking_url?: string
+  carrier?: string
   created_at: string
   updated_at: string
 }
