@@ -860,7 +860,7 @@ ${formData.message}`
               Say goodbye to rigid packaging
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
-              Packaging that excel<br />in all aspect
+              Packaging that excel<br />in all aspects
             </h2>
             <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
               Flexible packaging gives you all you need to create a truly cost effective and environmental friendly packaging by Achieve Pack
