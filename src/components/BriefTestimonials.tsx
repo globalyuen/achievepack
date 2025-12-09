@@ -41,16 +41,16 @@ function TiltCard({ testimonial, onClick }: { testimonial: Testimonial; onClick:
       className={`relative cursor-pointer rounded-2xl p-4 ${testimonial.bgColor} shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden`}
       style={{ transform, transition: transform ? 'none' : 'transform 0.5s ease-out' }}
     >
-      {/* Background Pouch Image - Slides from left on Hover */}
+      {/* Background Pouch Image - Slides from right corner on Hover */}
       <div 
-        className={`absolute inset-0 pointer-events-none transition-all duration-500 ease-out ${
-          isHovered ? 'opacity-40 translate-x-0' : 'opacity-0 -translate-x-full'
+        className={`absolute bottom-0 right-0 w-20 h-28 pointer-events-none transition-all duration-500 ease-out ${
+          isHovered ? 'opacity-60 translate-x-0 translate-y-0' : 'opacity-0 translate-x-full translate-y-full'
         }`}
       >
         <img
           src={testimonial.pouchImage}
           alt="Packaging Pouch"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain drop-shadow-lg"
         />
       </div>
 
@@ -121,7 +121,7 @@ export default function BriefTestimonials() {
         </div>
 
         {/* Testimonial Cards Grid - 3D Tilt Effect */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-5">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-5">
           {TESTIMONIALS.map((testimonial) => (
             <TiltCard
               key={testimonial.id}
