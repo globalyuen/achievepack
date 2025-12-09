@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom'
 import ReactGA from "react-ga4";
-import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield, ShoppingCart, User } from 'lucide-react'
+import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield, ShoppingCart, User, Linkedin } from 'lucide-react'
 import { HeroGrainBackground } from './components/HeroGrainBackground'
 import { CardContainer, CardBody, CardItem } from './components/ui/3d-card'
 import { AnimatedTestimonials } from './components/ui/animated-testimonials'
@@ -1015,6 +1015,100 @@ ${formData.message}`
                 className="w-full max-w-4xl h-auto object-contain"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Meet Our Team Section */}
+      <section id="team" className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-neutral-900 mb-4">Meet Our Team</h2>
+            <p className="text-lg text-neutral-700 max-w-3xl mx-auto">
+              Our dedicated team of packaging experts is here to help you find the perfect sustainable solution for your business.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            {[
+              {
+                name: 'Ryan Wong',
+                role: 'Packaging Specialist',
+                image: '/imgs/team/Ryan Wong - Packaging Specialist.png',
+                linkedin: 'https://www.linkedin.com/in/ryanwwc/',
+                email: 'ryan@achievepack.com'
+              },
+              {
+                name: 'Jericha Kwok',
+                role: 'Business Development',
+                image: '/imgs/team/Jericha Kwok - Business Development.png',
+                linkedin: 'https://www.linkedin.com/in/jericha-kwok-474bb118a/',
+                email: 'jericha@achievepack.com'
+              },
+              {
+                name: 'Eric Kwok',
+                role: 'Business Development',
+                image: '/imgs/team/Eric Kwok - Business Development.png',
+                email: 'eric@achievepack.com'
+              },
+              {
+                name: 'Jackie Kwok',
+                role: 'Customer Support',
+                image: '/imgs/team/Jackie Kwok - Customer Support.png',
+                email: 'jackie@achievepack.com'
+              },
+              {
+                name: 'Amy Huang',
+                role: 'Customer Support',
+                image: '/imgs/team/Amy Huang - customer support.png',
+                email: 'amy@achievepack.com'
+              },
+              {
+                name: 'Emma Guo',
+                role: 'Customer Support',
+                image: '/imgs/team/Emma Guo - customer support.png',
+                email: 'emma@achievepack.com'
+              }
+            ].map((member) => (
+              <div
+                key={member.name}
+                className="group relative flex flex-col items-center"
+              >
+                {/* Image Container */}
+                <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden bg-neutral-100 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
+                  <div className="absolute inset-0 bg-primary-500 opacity-0 group-hover:opacity-80 transition-opacity duration-300 z-10"></div>
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Hover Icons */}
+                  <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                    {member.linkedin && (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-neutral-100 transition-colors"
+                      >
+                        <Linkedin className="h-5 w-5 text-primary-600" />
+                      </a>
+                    )}
+                    <a
+                      href={`mailto:${member.email}`}
+                      className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-neutral-100 transition-colors"
+                    >
+                      <Mail className="h-5 w-5 text-primary-600" />
+                    </a>
+                  </div>
+                </div>
+                {/* Info Bubble on Hover */}
+                <div className="mt-4 text-center transition-all duration-300 group-hover:-translate-y-1">
+                  <h3 className="font-semibold text-neutral-900 group-hover:text-primary-600 transition-colors">{member.name}</h3>
+                  <p className="text-sm text-neutral-600">{member.role}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
