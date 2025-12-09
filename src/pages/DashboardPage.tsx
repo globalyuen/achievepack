@@ -3,7 +3,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { 
   Package, FileText, Palette, Settings, LogOut, Home, Download, Search, Bell, 
   LayoutDashboard, ShoppingCart, FileCheck, Image, ChevronRight, TrendingUp, 
-  TrendingDown, Users, DollarSign, MoreHorizontal, Plus, RefreshCw
+  TrendingDown, Users, DollarSign, MoreHorizontal, Plus, RefreshCw, Eye, X, 
+  MapPin, Phone, Mail as MailIcon, Truck, ExternalLink
 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, Order, Quote, Document } from '../lib/supabase'
@@ -32,6 +33,7 @@ const DashboardPage: React.FC = () => {
   const [loading, setLoading] = useState(true)
   const [activeTab, setActiveTab] = useState<TabType>('dashboard')
   const [searchQuery, setSearchQuery] = useState('')
+  const [selectedOrder, setSelectedOrder] = useState<Order | null>(null)
 
   useEffect(() => {
     if (!authLoading && !user) {
@@ -345,7 +347,7 @@ const DashboardPage: React.FC = () => {
                         </Link>
                       </div>
                     ) : orders.slice(0, 5).map(order => (
-                      <div key={order.id} className="p-4 hover:bg-gray-50 transition flex items-center justify-between">
+                      <div key={order.id} className="p-4 hover:bg-gray-50 transition flex items-center justify-between cursor-pointer" onClick={() => setSelectedOrder(order)}>
                         <div className="flex items-center gap-4">
                           <div className="w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center">
                             <Package className="h-5 w-5 text-primary-600" />
@@ -355,11 +357,14 @@ const DashboardPage: React.FC = () => {
                             <p className="text-sm text-gray-500">{new Date(order.created_at).toLocaleDateString()}</p>
                           </div>
                         </div>
-                        <div className="text-right">
-                          <p className="font-semibold text-gray-900">${order.total_amount?.toLocaleString()}</p>
-                          <span className={`inline-block px-2 py-0.5 text-xs font-medium rounded-full ${statusColors[order.status]}`}>
-                            {order.status}
-                          </span>
+                        <div className="text-right flex items-center gap-3">
+                          <div>
+                            <p className="font-semibold text-gray-900">${order.total_amount?.toLocaleString()}</p>
+                            <span className={`inline-block px-2 py-0.5 text-xs font-medium rounded-full ${statusColors[order.status]}`}>
+                              {order.status}
+                            </span>
+                          </div>
+                          <Eye className="h-5 w-5 text-gray-400" />
                         </div>
                       </div>
                     ))}
@@ -426,7 +431,7 @@ const DashboardPage: React.FC = () => {
                 ) : (
                   <div className="divide-y divide-gray-100">
                     {orders.map(order => (
-                      <div key={order.id} className="p-5 hover:bg-gray-50 transition flex items-center justify-between">
+                      <div key={order.id} className="p-5 hover:bg-gray-50 transition flex items-center justify-between cursor-pointer" onClick={() => setSelectedOrder(order)}>
                         <div className="flex items-center gap-4">
                           <div className="w-12 h-12 bg-primary-50 rounded-lg flex items-center justify-center">
                             <Package className="h-6 w-6 text-primary-600" />
@@ -436,11 +441,14 @@ const DashboardPage: React.FC = () => {
                             <p className="text-sm text-gray-500">{new Date(order.created_at).toLocaleDateString()}</p>
                           </div>
                         </div>
-                        <div className="text-right">
-                          <p className="text-lg font-bold text-gray-900">${order.total_amount?.toLocaleString()}</p>
-                          <span className={`inline-block px-3 py-1 text-xs font-medium rounded-full ${statusColors[order.status]}`}>
-                            {order.status}
-                          </span>
+                        <div className="text-right flex items-center gap-4">
+                          <div>
+                            <p className="text-lg font-bold text-gray-900">${order.total_amount?.toLocaleString()}</p>
+                            <span className={`inline-block px-3 py-1 text-xs font-medium rounded-full ${statusColors[order.status]}`}>
+                              {order.status}
+                            </span>
+                          </div>
+                          <Eye className="h-5 w-5 text-gray-400" />
                         </div>
                       </div>
                     ))}
@@ -549,6 +557,138 @@ const DashboardPage: React.FC = () => {
           )}
         </main>
       </div>
+
+      {/* Order Detail Modal */}
+      {selectedOrder && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={() => setSelectedOrder(null)}>
+          <div className="bg-white rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+            {/* Header */}
+            <div className="p-6 border-b border-gray-100 flex items-center justify-between sticky top-0 bg-white">
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900">Order Details</h2>
+                <p className="text-sm text-gray-500 mt-1">{selectedOrder.order_number}</p>
+              </div>
+              <button onClick={() => setSelectedOrder(null)} className="text-gray-400 hover:text-gray-600 transition">
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+
+            <div className="p-6 space-y-6">
+              {/* Status and Date */}
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-gray-500">Order Status</p>
+                  <span className={`inline-block px-3 py-1.5 text-sm font-medium rounded-lg mt-1 ${statusColors[selectedOrder.status]}`}>
+                    {selectedOrder.status.charAt(0).toUpperCase() + selectedOrder.status.slice(1)}
+                  </span>
+                </div>
+                <div className="text-right">
+                  <p className="text-sm text-gray-500">Order Date</p>
+                  <p className="text-lg font-semibold text-gray-900 mt-1">
+                    {new Date(selectedOrder.created_at).toLocaleDateString()}
+                  </p>
+                </div>
+              </div>
+
+              {/* Tracking Information */}
+              {selectedOrder.tracking_number && (
+                <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Truck className="h-5 w-5 text-blue-600" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-gray-900 mb-2">Tracking Information</h3>
+                      <div className="space-y-2 text-sm">
+                        {selectedOrder.carrier && (
+                          <div>
+                            <span className="text-gray-500">Carrier: </span>
+                            <span className="font-medium text-gray-900">{selectedOrder.carrier}</span>
+                          </div>
+                        )}
+                        <div>
+                          <span className="text-gray-500">Tracking Number: </span>
+                          <span className="font-medium text-gray-900">{selectedOrder.tracking_number}</span>
+                        </div>
+                        {selectedOrder.tracking_url && (
+                          <a 
+                            href={selectedOrder.tracking_url} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium"
+                          >
+                            Track Package <ExternalLink className="h-4 w-4" />
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Order Items */}
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-3">Order Items</h3>
+                <div className="bg-gray-50 rounded-xl divide-y divide-gray-200">
+                  {selectedOrder.items?.map((item: any, i: number) => (
+                    <div key={i} className="p-4 flex justify-between items-start">
+                      <div className="flex-1">
+                        <p className="font-medium text-gray-900">{item.name}</p>
+                        {item.variant && (
+                          <div className="text-sm text-gray-600 mt-1 space-y-0.5">
+                            {item.variant.size && <p>Size: {item.variant.size}</p>}
+                            {item.variant.shape && <p>Shape: {item.variant.shape}</p>}
+                            {item.variant.finish && <p>Finish: {item.variant.finish}</p>}
+                            {item.variant.barrier && <p>Barrier: {item.variant.barrier}</p>}
+                          </div>
+                        )}
+                        <p className="text-sm text-gray-500 mt-1">Quantity: {item.quantity}</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="font-semibold text-gray-900">${item.totalPrice?.toLocaleString()}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Shipping Address */}
+              {selectedOrder.shipping_address && (
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-3">Shipping Address</h3>
+                  <div className="bg-gray-50 rounded-xl p-4 space-y-2">
+                    <div className="flex items-start gap-2">
+                      <MapPin className="h-5 w-5 text-gray-400 mt-0.5 flex-shrink-0" />
+                      <div className="text-sm">
+                        <p className="font-medium text-gray-900">{selectedOrder.shipping_address.fullName || selectedOrder.customer_name}</p>
+                        <p className="text-gray-600 mt-1">{selectedOrder.shipping_address.address}</p>
+                        <p className="text-gray-600">
+                          {selectedOrder.shipping_address.city}, {selectedOrder.shipping_address.state} {selectedOrder.shipping_address.zipCode}
+                        </p>
+                        <p className="text-gray-600">{selectedOrder.shipping_address.country}</p>
+                      </div>
+                    </div>
+                    {selectedOrder.shipping_address.phone && (
+                      <div className="flex items-center gap-2 pt-2 border-t border-gray-200">
+                        <Phone className="h-4 w-4 text-gray-400" />
+                        <p className="text-sm text-gray-600">{selectedOrder.shipping_address.phone}</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Order Summary */}
+              <div className="border-t border-gray-200 pt-4">
+                <div className="flex justify-between items-center">
+                  <p className="text-lg font-semibold text-gray-900">Total Amount</p>
+                  <p className="text-2xl font-bold text-primary-600">${selectedOrder.total_amount?.toLocaleString()}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
