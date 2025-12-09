@@ -813,7 +813,15 @@ const AdminPage: React.FC = () => {
                 <div className="bg-gray-50 rounded-lg p-4 space-y-2">
                   {selectedOrder.items?.map((item: any, i: number) => (
                     <div key={i} className="flex justify-between text-sm">
-                      <span>{item.name} ({item.variant}) x{item.quantity}</span>
+                      <span>
+                        {item.name}
+                        {item.variant && (
+                          <span className="text-gray-600">
+                            {' '}({item.variant.size || ''} • {item.variant.shape || ''} • {item.variant.finish || ''} • {item.variant.barrier || ''})
+                          </span>
+                        )}
+                        {' '}x{item.quantity}
+                      </span>
                       <span className="font-medium">${item.totalPrice?.toLocaleString()}</span>
                     </div>
                   ))}
