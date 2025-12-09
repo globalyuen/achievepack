@@ -104,8 +104,21 @@ export default function BriefTestimonials() {
   }, [])
 
   return (
-    <section className="py-12 md:py-16 bg-gradient-to-b from-white to-neutral-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 md:py-16 bg-gradient-to-b from-white to-neutral-50 relative overflow-hidden">
+      {/* Large Background Pouch - Slides from right */}
+      <div 
+        className={`absolute bottom-0 right-0 w-[400px] h-[500px] lg:w-[500px] lg:h-[600px] pointer-events-none transition-all duration-1000 ease-out z-0 ${
+          showPouch ? 'opacity-30 translate-x-0' : 'opacity-0 translate-x-full'
+        }`}
+      >
+        <img
+          src="/imgs/testimonials/pouch-hover/morlife.webp"
+          alt="Eco Pouch Packaging"
+          className="w-full h-full object-contain"
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Title */}
         <div className="text-center mb-10">
           <p className="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-3">
@@ -126,21 +139,6 @@ export default function BriefTestimonials() {
               onClick={() => setActiveTestimonial(testimonial)}
             />
           ))}
-          
-          {/* Large Pouch Image - Slides from right into empty grid space */}
-          <div className="hidden lg:flex col-span-2 items-center justify-center p-4 relative overflow-hidden">
-            <div 
-              className={`transition-all duration-1000 ease-out ${
-                showPouch ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
-              }`}
-            >
-              <img
-                src="/imgs/testimonials/pouch-hover/morlife.webp"
-                alt="Eco Pouch Packaging"
-                className="w-full max-w-[300px] h-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-          </div>
         </div>
 
         {/* Click hint */}
