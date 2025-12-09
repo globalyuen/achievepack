@@ -857,13 +857,13 @@ ${formData.message}`
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <p className="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-3">
-              Say goodbye to rigid packaging
+              {t('comparison.subtitle')}
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
-              Packaging that excel<br />in all aspects
+              {t('comparison.headline')}
             </h2>
             <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
-              Flexible packaging gives you all you need to create a truly cost effective and environmental friendly packaging by Achieve Pack
+              {t('comparison.description')}
             </p>
             <div className="flex items-center justify-center gap-3 mt-6">
               <div className="flex items-center gap-1">
@@ -871,7 +871,7 @@ ${formData.message}`
                   <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
                 ))}
               </div>
-              <span className="text-neutral-600 font-medium">Trusted by 500+ customers</span>
+              <span className="text-neutral-600 font-medium">{t('comparison.trustedBy')}</span>
             </div>
           </div>
 
