@@ -18,12 +18,12 @@ export default function TestimonialsWall() {
 
   return (
     <section id="testimonials" className="py-20 bg-neutral-50 relative overflow-hidden">
-      {/* Large Background Pouch - Slides from right, rotated 45 degrees */}
+      {/* Large Background Pouch - Slides from bottom, rotated 45 degrees, centered */}
       <div 
-        className={`absolute -bottom-[640px] -right-[940px] w-[800px] h-[1000px] lg:w-[1000px] lg:h-[1200px] pointer-events-none transition-all duration-500 ease-out z-0 ${
-          showPouch ? 'opacity-20 translate-x-0' : 'opacity-0 translate-x-full'
+        className={`absolute bottom-0 right-1/2 translate-x-1/2 w-[800px] h-[1000px] lg:w-[1000px] lg:h-[1200px] pointer-events-none transition-all duration-500 ease-out z-0 ${
+          showPouch ? 'opacity-20 translate-y-0' : 'opacity-0 translate-y-full'
         }`}
-        style={{ transform: showPouch ? 'rotate(45deg)' : 'rotate(45deg) translateX(100%)' }}
+        style={{ transform: showPouch ? 'translateX(50%) rotate(45deg)' : 'translateX(50%) rotate(45deg) translateY(100%)' }}
       >
         <img
           src={currentPouchImage}
@@ -73,19 +73,18 @@ export default function TestimonialsWall() {
                       }}
                     />
                   </div>
-                  {/* Company logo badge */}
-                  <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-white border border-neutral-200 overflow-hidden shadow-sm">
+                </div>
+
+                {/* Brand Logo in top right corner */}
+                {testimonial.brandLogo && (
+                  <div className="absolute top-2 right-2 w-10 h-10 md:w-12 md:h-12 bg-white/90 rounded-lg p-1 shadow-md">
                     <img
-                      src={testimonial.companyLogo}
-                      alt={testimonial.company || 'Company'}
-                      className="w-full h-full object-contain p-0.5"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement
-                        target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.company || testimonial.name.charAt(0))}&background=f3f4f6&color=6b7280&size=64`
-                      }}
+                      src={testimonial.brandLogo}
+                      alt={`${testimonial.company} logo`}
+                      className="w-full h-full object-contain"
                     />
                   </div>
-                </div>
+                )}
 
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">

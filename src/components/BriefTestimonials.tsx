@@ -69,19 +69,18 @@ function TiltCard({ testimonial, onClick, onHover }: { testimonial: Testimonial;
               }}
             />
           </div>
-          {/* Company logo badge */}
-          <div className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-white border-2 border-white overflow-hidden shadow-md">
+        </div>
+        
+        {/* Brand Logo in top right corner */}
+        {testimonial.brandLogo && (
+          <div className="absolute top-2 right-2 w-12 h-12 md:w-14 md:h-14 bg-white/90 rounded-lg p-1.5 shadow-md">
             <img
-              src={testimonial.companyLogo}
-              alt={testimonial.company}
-              className="w-full h-full object-contain p-0.5"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement
-                target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.company || 'Co')}&background=f3f4f6&color=6b7280&size=64`
-              }}
+              src={testimonial.brandLogo}
+              alt={`${testimonial.company} logo`}
+              className="w-full h-full object-contain"
             />
           </div>
-        </div>
+        )}
         
         {/* Name */}
         <h4 className="font-semibold text-neutral-900 text-sm md:text-base">{testimonial.name}</h4>
@@ -111,12 +110,12 @@ export default function BriefTestimonials() {
 
   return (
     <section className="py-12 md:py-16 bg-gradient-to-b from-white to-neutral-50 relative overflow-hidden">
-      {/* Large Background Pouch - Slides from right, 200% bigger, rotated 45 degrees */}
+      {/* Large Background Pouch - Slides from right, 200% bigger, rotated 45 degrees, centered */}
       <div 
-        className={`absolute -bottom-[600px] -right-[920px] w-[800px] h-[1000px] lg:w-[1000px] lg:h-[1200px] pointer-events-none transition-all duration-500 ease-out z-0 ${
-          showPouch ? 'opacity-25 translate-x-0' : 'opacity-0 translate-x-full'
+        className={`absolute bottom-0 right-1/2 translate-x-1/2 w-[800px] h-[1000px] lg:w-[1000px] lg:h-[1200px] pointer-events-none transition-all duration-500 ease-out z-0 ${
+          showPouch ? 'opacity-25 translate-y-0' : 'opacity-0 translate-y-full'
         }`}
-        style={{ transform: showPouch ? 'rotate(45deg)' : 'rotate(45deg) translateX(100%)' }}
+        style={{ transform: showPouch ? 'translateX(50%) rotate(45deg)' : 'translateX(50%) rotate(45deg) translateY(100%)' }}
       >
         <img
           src={currentPouchImage}
