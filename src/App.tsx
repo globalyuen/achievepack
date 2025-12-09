@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom'
 import ReactGA from "react-ga4";
-import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield, ShoppingCart } from 'lucide-react'
+import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield, ShoppingCart, User } from 'lucide-react'
 import { HeroGrainBackground } from './components/HeroGrainBackground'
 import { CardContainer, CardBody, CardItem } from './components/ui/3d-card'
 import { AnimatedTestimonials } from './components/ui/animated-testimonials'
@@ -140,32 +140,40 @@ ${formData.message}`
 
             {/* Center Logo */}
             <div className="flex items-center justify-center lg:absolute lg:left-1/2 lg:-translate-x-1/2">
-              <Link to="/" className="flex items-center space-x-2">
-                <img src="/achieve-pack-logo.png" alt="Achieve Pack Logo" className="h-8 w-auto" />
-                <span className="text-xl font-bold text-neutral-900">AchievePack</span>
+              <Link to="/" className="flex items-center">
+                <img src="/achieve-pack-logo.png" alt="Achieve Pack Logo" className="h-12 w-auto" />
               </Link>
             </div>
 
             {/* Right Actions */}
-            <div className="hidden lg:flex items-center space-x-6">
-              <Link
-                to="/register"
-                className="text-sm font-medium text-neutral-600 hover:text-neutral-900 transition-colors"
-              >
-                Sign up
-              </Link>
-              <Link
-                to="/login"
-                className="text-sm font-medium text-neutral-600 hover:text-neutral-900 transition-colors"
-              >
-                Sign in
-              </Link>
+            <div className="hidden lg:flex items-center space-x-3">
               <Link
                 to="/store"
-                className="p-2 text-neutral-600 hover:text-neutral-900 transition-colors"
+                className="w-10 h-10 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
               >
-                <ShoppingCart className="h-5 w-5" />
+                <ShoppingCart className="h-5 w-5 text-white" />
               </Link>
+              <Link
+                to="/dashboard"
+                className="w-10 h-10 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
+              >
+                <User className="h-5 w-5 text-white" />
+              </Link>
+              <div className="relative">
+                <button
+                  onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+                  className="w-10 h-10 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
+                >
+                  <Globe className="h-5 w-5 text-white" />
+                </button>
+                {isLangMenuOpen && (
+                  <div className="absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-neutral-200 py-1 z-50">
+                    <button onClick={() => changeLanguage('en')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">English</button>
+                    <button onClick={() => changeLanguage('zh-TW')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">繁體中文</button>
+                    <button onClick={() => changeLanguage('zh-CN')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">简体中文</button>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Mobile Menu Button */}
