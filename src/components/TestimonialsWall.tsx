@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
-import { ExternalLink, Star, Quote } from 'lucide-react'
-import { TESTIMONIALS } from '../data/testimonialsData'
+import { ExternalLink, Star, Quote, X } from 'lucide-react'
+import { TESTIMONIALS, type Testimonial } from '../data/testimonialsData'
 
 export default function TestimonialsWall() {
   const [showPouch, setShowPouch] = useState(false)
+  const [hoveredTestimonial, setHoveredTestimonial] = useState<Testimonial | null>(null)
+  const [activeTestimonial, setActiveTestimonial] = useState<Testimonial | null>(null)
 
   // Trigger pouch animation when section is visible
   useEffect(() => {
@@ -11,19 +13,22 @@ export default function TestimonialsWall() {
     return () => clearTimeout(timer)
   }, [])
 
+  // Get current pouch image - use hovered testimonial's pouch or default
+  const currentPouchImage = hoveredTestimonial?.pouchImage || '/imgs/testimonials/pouch-hover/morlife.webp'
+
   return (
     <section id="testimonials" className="py-20 bg-neutral-50 relative overflow-hidden">
       {/* Large Background Pouch - Slides from right, rotated 45 degrees */}
       <div 
-        className={`absolute -bottom-40 -right-40 w-[800px] h-[1000px] lg:w-[1000px] lg:h-[1200px] pointer-events-none transition-all duration-1000 ease-out z-0 ${
+        className={`absolute -bottom-40 -right-40 w-[800px] h-[1000px] lg:w-[1000px] lg:h-[1200px] pointer-events-none transition-all duration-500 ease-out z-0 ${
           showPouch ? 'opacity-20 translate-x-0' : 'opacity-0 translate-x-full'
         }`}
         style={{ transform: showPouch ? 'rotate(45deg)' : 'rotate(45deg) translateX(100%)' }}
       >
         <img
-          src="/imgs/testimonials/pouch-hover/morlife.webp"
+          src={currentPouchImage}
           alt="Eco Pouch Packaging"
-          className="w-full h-full object-contain"
+          className="w-full h-full object-contain transition-opacity duration-300"
         />
       </div>
 
@@ -48,7 +53,10 @@ export default function TestimonialsWall() {
           {TESTIMONIALS.map((testimonial) => (
             <div
               key={testimonial.id}
-              className={`break-inside-avoid ${testimonial.bgColor} rounded-2xl p-5 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
+              className={`break-inside-avoid ${testimonial.bgColor} rounded-2xl p-5 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer`}
+              onMouseEnter={() => setHoveredTestimonial(testimonial)}
+              onMouseLeave={() => setHoveredTestimonial(null)}
+              onClick={() => setActiveTestimonial(testimonial)}
             >
               {/* Author header */}
               <div className="flex items-center gap-3 mb-4">
@@ -131,6 +139,88 @@ export default function TestimonialsWall() {
           </div>
         </div>
       </div>
+
+      {/* Testimonial Popup Modal with 600px Pouch */}
+      {activeTestimonial && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+          onClick={() => setActiveTestimonial(null)}
+        >
+          <div
+            className={`relative max-w-5xl w-full rounded-2xl shadow-2xl ${activeTestimonial.bgColor} overflow-hidden`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex flex-col md:flex-row">
+              {/* Large Pouch Image - Left Side (600px width) */}
+              <div className="hidden md:flex w-[600px] bg-white/30 items-center justify-center p-6 flex-shrink-0">
+                <img
+                  src={activeTestimonial.pouchImage}
+                  alt="Packaging Pouch"
+                  className="w-full h-auto max-h-[600px] object-contain drop-shadow-2xl"
+                />
+              </div>
+              
+              {/* Testimonial Content - Right Side */}
+              <div className="flex-1 p-6">
+                {/* Close button */}
+                <button
+                  onClick={() => setActiveTestimonial(null)}
+                  className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/80 flex items-center justify-center hover:bg-white transition-colors"
+                >
+                  <X className="h-4 w-4 text-neutral-700" />
+                </button>
+
+                {/* Quote icon */}
+                <Quote className="h-8 w-8 text-primary-500 mb-4" />
+
+                {/* Testimonial content */}
+                <p className="text-neutral-800 text-lg leading-relaxed mb-6">
+                  "{activeTestimonial.quote}"
+                </p>
+
+                {/* Author info */}
+                <div className="flex items-center gap-4">
+                  <div className="relative">
+                    <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-md">
+                      <img
+                        src={activeTestimonial.ownerImage}
+                        alt={activeTestimonial.name}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement
+                          target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(activeTestimonial.name)}&background=22c55e&color=fff&size=128`
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex-1">
+                    <div className="font-semibold text-neutral-900">{activeTestimonial.name}</div>
+                    {(activeTestimonial.role || activeTestimonial.company) && (
+                      <div className="text-sm text-neutral-600">
+                        {activeTestimonial.role && `${activeTestimonial.role}${activeTestimonial.company ? ', ' : ''}`}
+                        {activeTestimonial.company}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Website link */}
+                  {activeTestimonial.url && (
+                    <a
+                      href={activeTestimonial.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-neutral-100 transition-colors shadow-sm"
+                    >
+                      <ExternalLink className="h-4 w-4 text-neutral-600" />
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }

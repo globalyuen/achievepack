@@ -3,7 +3,7 @@ import { X, Quote, ExternalLink } from 'lucide-react'
 import { TESTIMONIALS, type Testimonial } from '../data/testimonialsData'
 
 // 3D Tilt Card Component
-function TiltCard({ testimonial, onClick }: { testimonial: Testimonial; onClick: () => void }) {
+function TiltCard({ testimonial, onClick, onHover }: { testimonial: Testimonial; onClick: () => void; onHover: (t: Testimonial | null) => void }) {
   const cardRef = useRef<HTMLDivElement>(null)
   const [transform, setTransform] = useState('')
   const [glarePos, setGlarePos] = useState({ x: 50, y: 50 })
@@ -24,11 +24,13 @@ function TiltCard({ testimonial, onClick }: { testimonial: Testimonial; onClick:
 
   const handleMouseEnter = () => {
     setIsHovered(true)
+    onHover(testimonial)
   }
 
   const handleMouseLeave = () => {
     setTransform('')
     setIsHovered(false)
+    onHover(null)
   }
 
   return (
@@ -95,6 +97,7 @@ function TiltCard({ testimonial, onClick }: { testimonial: Testimonial; onClick:
 
 export default function BriefTestimonials() {
   const [activeTestimonial, setActiveTestimonial] = useState<Testimonial | null>(null)
+  const [hoveredTestimonial, setHoveredTestimonial] = useState<Testimonial | null>(null)
   const [showPouch, setShowPouch] = useState(false)
 
   // Trigger pouch animation on mount
@@ -103,19 +106,22 @@ export default function BriefTestimonials() {
     return () => clearTimeout(timer)
   }, [])
 
+  // Get current pouch image - use hovered testimonial's pouch or default
+  const currentPouchImage = hoveredTestimonial?.pouchImage || '/imgs/testimonials/pouch-hover/morlife.webp'
+
   return (
     <section className="py-12 md:py-16 bg-gradient-to-b from-white to-neutral-50 relative overflow-hidden">
       {/* Large Background Pouch - Slides from right, 200% bigger, rotated 45 degrees */}
       <div 
-        className={`absolute -bottom-20 -right-20 w-[800px] h-[1000px] lg:w-[1000px] lg:h-[1200px] pointer-events-none transition-all duration-1000 ease-out z-0 ${
+        className={`absolute -bottom-20 -right-20 w-[800px] h-[1000px] lg:w-[1000px] lg:h-[1200px] pointer-events-none transition-all duration-500 ease-out z-0 ${
           showPouch ? 'opacity-25 translate-x-0' : 'opacity-0 translate-x-full'
         }`}
         style={{ transform: showPouch ? 'rotate(45deg)' : 'rotate(45deg) translateX(100%)' }}
       >
         <img
-          src="/imgs/testimonials/pouch-hover/morlife.webp"
+          src={currentPouchImage}
           alt="Eco Pouch Packaging"
-          className="w-full h-full object-contain"
+          className="w-full h-full object-contain transition-opacity duration-300"
         />
       </div>
 
@@ -138,6 +144,7 @@ export default function BriefTestimonials() {
               key={testimonial.id}
               testimonial={testimonial}
               onClick={() => setActiveTestimonial(testimonial)}
+              onHover={setHoveredTestimonial}
             />
           ))}
         </div>
@@ -161,12 +168,12 @@ export default function BriefTestimonials() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex flex-col md:flex-row">
-              {/* Large Pouch Image - Left Side (10x bigger) */}
-              <div className="hidden md:flex w-80 lg:w-96 bg-white/30 items-center justify-center p-6">
+              {/* Large Pouch Image - Left Side (600px width) */}
+              <div className="hidden md:flex w-[600px] bg-white/30 items-center justify-center p-6 flex-shrink-0">
                 <img
                   src={activeTestimonial.pouchImage}
                   alt="Packaging Pouch"
-                  className="w-full h-auto min-h-[400px] max-h-[500px] object-contain drop-shadow-2xl"
+                  className="w-full h-auto max-h-[600px] object-contain drop-shadow-2xl"
                 />
               </div>
               

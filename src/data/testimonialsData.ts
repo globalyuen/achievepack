@@ -39,8 +39,8 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: "Working with Eco Pouch Packaging has been the best production experience. The communication was outstanding, quality exceeded expectations, and pricing was unbeatable.",
     shortQuote: "Best production experience ever!",
     extraInfo: '3 months ago',
-    ownerImage: '/imgs/testimonials/logo/michelle.png',
-    companyLogo: '/imgs/testimonials/logo/michelle.png',
+    ownerImage: '/imgs/testimonials/logo/nicole.png',
+    companyLogo: '/imgs/testimonials/logo/nicole.png',
     bgColor: 'bg-pink-100',
     pouchImage: '/imgs/testimonials/pouch-hover/Nicole.webp'
   },
