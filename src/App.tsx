@@ -10,6 +10,8 @@ import { Carousel, Card } from './components/ui/apple-cards-carousel'
 import { getImage } from './utils/imageMapper'
 import Calculator from './components/Calculator'
 import Newsletter from './components/Newsletter'
+import BriefTestimonials from './components/BriefTestimonials'
+import TestimonialsWall from './components/TestimonialsWall'
 import CartSidebar from './components/store/CartSidebar'
 import type { CalculatorResults } from './utils/calculatorUtils'
 import { useStore } from './store/StoreContext'
@@ -317,6 +319,9 @@ ${formData.message}`
           </div>
         </div>
       </section>
+
+      {/* Brief Testimonials - Avatar Row */}
+      <BriefTestimonials />
 
       {/* About Section */}
       <section id="about" className="py-16 bg-white">
@@ -996,47 +1001,8 @@ ${formData.message}`
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section id="testimonials" className="py-16 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-neutral-900 mb-4">{t('testimonials.title')}</h2>
-            <p className="text-lg text-neutral-700 max-w-3xl mx-auto">
-              {t('testimonials.description')}
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {['sarah', 'michael', 'emily'].map((key) => (
-              <div key={key} className="bg-white rounded-lg p-8 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1">
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-warning fill-current" />
-                  ))}
-                </div>
-                <p className="text-neutral-700 mb-6 italic">"{t(`testimonials.items.${key}.quote`)}"</p>
-                <div>
-                  <div className="font-semibold text-neutral-900">{t(`testimonials.items.${key}.name`)}</div>
-                  <div className="text-sm text-neutral-600">{t(`testimonials.items.${key}.company`)}</div>
-                  <div className="text-sm text-primary-500">{t(`testimonials.items.${key}.industry`)}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Client Logos */}
-          <div className="text-center">
-            <h3 className="text-lg font-semibold text-neutral-900 mb-6">{t('testimonials.trusted')}</h3>
-            <div className="flex justify-center items-center opacity-70">
-              <img
-                src={img("testimonials-client-logos")}
-                alt={t('testimonials.trusted')}
-                className="w-full max-w-4xl h-auto object-contain"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Testimonials Wall Section */}
+      <TestimonialsWall />
 
       {/* Meet Our Team Section */}
       <section id="team" className="py-16 bg-white">
