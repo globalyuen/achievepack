@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom'
 import ReactGA from "react-ga4";
-import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield, ShoppingCart, User, Linkedin } from 'lucide-react'
+import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield, ShoppingCart, User, Linkedin, ArrowRight, Plus } from 'lucide-react'
 import { HeroGrainBackground } from './components/HeroGrainBackground'
 import { CardContainer, CardBody, CardItem } from './components/ui/3d-card'
 import { AnimatedTestimonials } from './components/ui/animated-testimonials'
@@ -10,10 +10,14 @@ import { Carousel, Card } from './components/ui/apple-cards-carousel'
 import { getImage } from './utils/imageMapper'
 import Calculator from './components/Calculator'
 import Newsletter from './components/Newsletter'
+import CartSidebar from './components/store/CartSidebar'
 import type { CalculatorResults } from './utils/calculatorUtils'
+import { useStore } from './store/StoreContext'
+import { FEATURED_PRODUCTS, type PouchProduct } from './store/productData'
 
 function App() {
   const { t, i18n } = useTranslation();
+  const { cartCount, addToCart, setIsCartOpen } = useStore();
   const [activeSection, setActiveSection] = useState('')
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -23,6 +27,7 @@ function App() {
   const [modalAlt, setModalAlt] = useState('')
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false)
   const [calculatorResults, setCalculatorResults] = useState<CalculatorResults | null>(null)
+  const [selectedProduct, setSelectedProduct] = useState<PouchProduct | null>(null)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -147,12 +152,17 @@ ${formData.message}`
 
             {/* Right Actions */}
             <div className="hidden lg:flex items-center space-x-3">
-              <Link
-                to="/store"
-                className="w-10 h-10 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
+              <button
+                onClick={() => setIsCartOpen(true)}
+                className="relative w-10 h-10 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
               >
                 <ShoppingCart className="h-5 w-5 text-white" />
-              </Link>
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center">
+                    {cartCount > 99 ? '99+' : cartCount}
+                  </span>
+                )}
+              </button>
               <Link
                 to="/dashboard"
                 className="w-10 h-10 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
@@ -471,7 +481,7 @@ ${formData.message}`
         </div>
       </section>
 
-      {/* Products Section - Pouch Shapes Carousel */}
+      {/* Products Section - Shop Products Grid */}
       <section id="products" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
@@ -481,82 +491,91 @@ ${formData.message}`
             </p>
           </div>
 
-          <Carousel
-            items={[
-              {
-                category: "Flexible Packaging",
-                title: "Stand Up Pouch",
-                src: "/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp",
-                content: (
-                  <div className="bg-neutral-50 p-8 rounded-3xl">
-                    <p className="text-neutral-700 text-lg mb-6">
-                      Our stand-up pouches offer excellent shelf presence with a stable base. 
-                      Perfect for snacks, coffee, pet food, and more. Available in multiple sizes with various closure options.
-                    </p>
-                    <img src="/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp" alt="Stand Up Pouch" className="w-full max-w-md mx-auto rounded-xl" />
+          {/* Products Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {FEATURED_PRODUCTS.slice(0, 6).map((product) => (
+              <div
+                key={product.id}
+                className="bg-white rounded-xl shadow-card hover:shadow-hover transition-all duration-300 overflow-hidden border border-neutral-100 group cursor-pointer"
+                onClick={() => setSelectedProduct(product)}
+              >
+                {/* Product Image */}
+                <div className="relative h-48 bg-neutral-50 overflow-hidden">
+                  <img
+                    src={product.images[0]}
+                    alt={product.name}
+                    className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                  />
+                  {product.badge && (
+                    <span className="absolute top-3 left-3 bg-primary-500 text-white text-xs font-semibold px-2 py-1 rounded-full">
+                      {product.badge}
+                    </span>
+                  )}
+                </div>
+
+                {/* Product Info */}
+                <div className="p-5">
+                  <h3 className="text-lg font-semibold text-neutral-900 mb-2 group-hover:text-primary-600 transition-colors">
+                    {product.name}
+                  </h3>
+                  <p className="text-sm text-neutral-600 mb-3 line-clamp-2">
+                    {product.description}
+                  </p>
+
+                  {/* Rating */}
+                  <div className="flex items-center gap-1 mb-3">
+                    <div className="flex items-center">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className={`h-4 w-4 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-neutral-200'}`}
+                        />
+                      ))}
+                    </div>
+                    <span className="text-sm text-neutral-500">({product.reviews})</span>
                   </div>
-                ),
-              },
-              {
-                category: "Flexible Packaging",
-                title: "Flat Bottom Pouch",
-                src: "/imgs/pouch-shape/a_flat_bottom_pouch_isolated_7901973.webp",
-                content: (
-                  <div className="bg-neutral-50 p-8 rounded-3xl">
-                    <p className="text-neutral-700 text-lg mb-6">
-                      Flat bottom pouches provide maximum shelf stability and premium appearance. 
-                      Ideal for coffee, tea, and premium food products.
-                    </p>
-                    <img src="/imgs/pouch-shape/a_flat_bottom_pouch_isolated_7901973.webp" alt="Flat Bottom Pouch" className="w-full max-w-md mx-auto rounded-xl" />
+
+                  {/* Price & CTA */}
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <span className="text-lg font-bold text-primary-600">US${product.basePrice}</span>
+                      <span className="text-xs text-neutral-500 block">for {product.minOrder} pcs</span>
+                    </div>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        addToCart({
+                          productId: product.id,
+                          name: product.name,
+                          image: product.images[0],
+                          variant: { shape: 'stand-up', size: '120x200', barrier: 'clear', finish: 'glossy' },
+                          quantity: 1,
+                          unitPrice: product.basePrice,
+                          totalPrice: product.basePrice
+                        });
+                      }}
+                      className="flex items-center gap-1 bg-primary-500 text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-primary-600 transition-colors"
+                    >
+                      <Plus className="h-4 w-4" />
+                      Add
+                    </button>
                   </div>
-                ),
-              },
-              {
-                category: "Flexible Packaging",
-                title: "Side Gusset Pouch",
-                src: "/imgs/pouch-shape/a_side_gusset_pouch_isolated_2545871.webp",
-                content: (
-                  <div className="bg-neutral-50 p-8 rounded-3xl">
-                    <p className="text-neutral-700 text-lg mb-6">
-                      Side gusset pouches expand for larger capacity while maintaining compact storage. 
-                      Popular for coffee beans and bulk products.
-                    </p>
-                    <img src="/imgs/pouch-shape/a_side_gusset_pouch_isolated_2545871.webp" alt="Side Gusset Pouch" className="w-full max-w-md mx-auto rounded-xl" />
-                  </div>
-                ),
-              },
-              {
-                category: "Flexible Packaging",
-                title: "Spout Pouch",
-                src: "/imgs/pouch-shape/a_spout_pouch_isolated_6857112.webp",
-                content: (
-                  <div className="bg-neutral-50 p-8 rounded-3xl">
-                    <p className="text-neutral-700 text-lg mb-6">
-                      Spout pouches are perfect for liquids and semi-liquids. 
-                      Easy to pour and reseal, ideal for beverages, sauces, and baby food.
-                    </p>
-                    <img src="/imgs/pouch-shape/a_spout_pouch_isolated_6857112.webp" alt="Spout Pouch" className="w-full max-w-md mx-auto rounded-xl" />
-                  </div>
-                ),
-              },
-              {
-                category: "Flexible Packaging",
-                title: "Three Side Seal Pouch",
-                src: "/imgs/pouch-shape/a_three_side_seal_pouch_isolated_0879222.webp",
-                content: (
-                  <div className="bg-neutral-50 p-8 rounded-3xl">
-                    <p className="text-neutral-700 text-lg mb-6">
-                      Three side seal pouches are simple, economical, and versatile. 
-                      Great for samples, single-serve products, and sachets.
-                    </p>
-                    <img src="/imgs/pouch-shape/a_three_side_seal_pouch_isolated_0879222.webp" alt="Three Side Seal Pouch" className="w-full max-w-md mx-auto rounded-xl" />
-                  </div>
-                ),
-              },
-            ].map((card, index) => (
-              <Card key={card.src} card={card} index={index} />
+                </div>
+              </div>
             ))}
-          />
+          </div>
+
+          {/* Explore More Button */}
+          <div className="text-center mt-10">
+            <Link
+              to="/store"
+              className="inline-flex items-center gap-2 bg-primary-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-600 transition-all duration-200 hover:shadow-hover hover:-translate-y-0.5"
+            >
+              <ShoppingCart className="h-5 w-5" />
+              Explore Full Shop
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -1419,6 +1438,130 @@ Please contact me to discuss custom solutions.`;
           scrollToSection('contact');
         }}
       />
+
+      {/* Product Detail Modal */}
+      {selectedProduct && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 p-4"
+          onClick={() => setSelectedProduct(null)}
+        >
+          <div
+            className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="relative">
+              <img
+                src={selectedProduct.images[0]}
+                alt={selectedProduct.name}
+                className="w-full h-64 object-contain bg-neutral-50 p-8"
+              />
+              <button
+                onClick={() => setSelectedProduct(null)}
+                className="absolute top-4 right-4 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-neutral-100 transition-colors"
+              >
+                <X className="h-5 w-5 text-neutral-700" />
+              </button>
+              {selectedProduct.badge && (
+                <span className="absolute top-4 left-4 bg-primary-500 text-white text-sm font-semibold px-3 py-1 rounded-full">
+                  {selectedProduct.badge}
+                </span>
+              )}
+            </div>
+
+            {/* Modal Content */}
+            <div className="p-6">
+              <h2 className="text-2xl font-bold text-neutral-900 mb-2">
+                {selectedProduct.name}
+              </h2>
+
+              {/* Rating */}
+              <div className="flex items-center gap-2 mb-4">
+                <div className="flex items-center">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`h-5 w-5 ${i < Math.floor(selectedProduct.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-neutral-200'}`}
+                    />
+                  ))}
+                </div>
+                <span className="text-neutral-600">{selectedProduct.rating} ({selectedProduct.reviews} reviews)</span>
+              </div>
+
+              {/* Price */}
+              <div className="mb-4">
+                <span className="text-3xl font-bold text-primary-600">US${selectedProduct.basePrice}</span>
+                <span className="text-neutral-500 ml-2">for {selectedProduct.minOrder} pcs</span>
+              </div>
+
+              {/* Description */}
+              <p className="text-neutral-700 mb-6">
+                {selectedProduct.description}
+              </p>
+
+              {/* Features */}
+              <div className="mb-6">
+                <h3 className="font-semibold text-neutral-900 mb-3">Features</h3>
+                <ul className="grid grid-cols-2 gap-2">
+                  {selectedProduct.features.map((feature, index) => (
+                    <li key={index} className="flex items-center gap-2 text-sm text-neutral-700">
+                      <CheckCircle className="h-4 w-4 text-primary-500 flex-shrink-0" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Turnaround & Stock */}
+              <div className="flex items-center gap-4 mb-6 text-sm">
+                <div className="flex items-center gap-2">
+                  <Clock className="h-4 w-4 text-neutral-500" />
+                  <span className="text-neutral-700">{selectedProduct.turnaround}</span>
+                </div>
+                {selectedProduct.inStock && (
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-green-500" />
+                    <span className="text-green-600">In Stock</span>
+                  </div>
+                )}
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex gap-4">
+                <button
+                  onClick={() => {
+                    addToCart({
+                      productId: selectedProduct.id,
+                      name: selectedProduct.name,
+                      image: selectedProduct.images[0],
+                      variant: { shape: 'stand-up', size: '120x200', barrier: 'clear', finish: 'glossy' },
+                      quantity: 1,
+                      unitPrice: selectedProduct.basePrice,
+                      totalPrice: selectedProduct.basePrice
+                    });
+                    setSelectedProduct(null);
+                  }}
+                  className="flex-1 flex items-center justify-center gap-2 bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-colors"
+                >
+                  <ShoppingCart className="h-5 w-5" />
+                  Add to Cart
+                </button>
+                <Link
+                  to="/store"
+                  onClick={() => setSelectedProduct(null)}
+                  className="flex items-center justify-center gap-2 border-2 border-primary-500 text-primary-600 px-6 py-3 rounded-lg font-semibold hover:bg-primary-50 transition-colors"
+                >
+                  Explore More
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Cart Sidebar */}
+      <CartSidebar />
     </div>
   )
 }
