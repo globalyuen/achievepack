@@ -20,7 +20,7 @@ export default function TestimonialsWall() {
     <section id="testimonials" className="py-20 bg-neutral-50 relative overflow-hidden">
       {/* Large Background Pouch - Slides from right, rotated 45 degrees */}
       <div 
-        className={`absolute -bottom-40 -right-40 w-[800px] h-[1000px] lg:w-[1000px] lg:h-[1200px] pointer-events-none transition-all duration-500 ease-out z-0 ${
+        className={`absolute -bottom-[340px] -right-[240px] w-[800px] h-[1000px] lg:w-[1000px] lg:h-[1200px] pointer-events-none transition-all duration-500 ease-out z-0 ${
           showPouch ? 'opacity-20 translate-x-0' : 'opacity-0 translate-x-full'
         }`}
         style={{ transform: showPouch ? 'rotate(45deg)' : 'rotate(45deg) translateX(100%)' }}

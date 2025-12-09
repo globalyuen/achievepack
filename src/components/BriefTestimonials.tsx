@@ -113,7 +113,7 @@ export default function BriefTestimonials() {
     <section className="py-12 md:py-16 bg-gradient-to-b from-white to-neutral-50 relative overflow-hidden">
       {/* Large Background Pouch - Slides from right, 200% bigger, rotated 45 degrees */}
       <div 
-        className={`absolute -bottom-20 -right-20 w-[800px] h-[1000px] lg:w-[1000px] lg:h-[1200px] pointer-events-none transition-all duration-500 ease-out z-0 ${
+        className={`absolute -bottom-[300px] -right-[220px] w-[800px] h-[1000px] lg:w-[1000px] lg:h-[1200px] pointer-events-none transition-all duration-500 ease-out z-0 ${
           showPouch ? 'opacity-25 translate-x-0' : 'opacity-0 translate-x-full'
         }`}
         style={{ transform: showPouch ? 'rotate(45deg)' : 'rotate(45deg) translateX(100%)' }}
