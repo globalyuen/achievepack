@@ -162,10 +162,10 @@ const imageMapping: ImageMapping = {
         zh: '/imgs-ch/a_barrier_options_traditional_chinese_8182562.webp',
     },
     'feature-pouch-shapes': {
-        en: '/imgs/feature-pouch-shapes.webp',
-        fr: '/img-fr/a_pouch_shapes_french_1317267.webp',
-        es: '/imgs-sp/a_pouch_shapes_spanish_4323102.webp',
-        zh: '/imgs-ch/a_pouch_shapes_traditional_chinese_7135337.webp',
+        en: '/imgs/updates/feature-pouch-shapes.webp',
+        fr: '/imgs/updates/feature-pouch-shapes_french_8379516.webp',
+        es: '/imgs/updates/feature-pouch-shapes_spanish_2317615.webp',
+        zh: '/imgs/updates/feature-pouch-shapes_traditional_chinese_3853426.webp',
     },
     'feature-printing-finishes': {
         en: '/imgs/feature-printing-finishes.webp',
