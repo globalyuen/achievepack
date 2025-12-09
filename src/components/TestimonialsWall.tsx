@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { ExternalLink, Star, Quote, X } from 'lucide-react'
 import { TESTIMONIALS, type Testimonial } from '../data/testimonialsData'
 
@@ -15,6 +15,19 @@ export default function TestimonialsWall() {
 
   // Get current pouch image - use hovered testimonial's pouch or default
   const currentPouchImage = hoveredTestimonial?.pouchImage || '/imgs/testimonials/pouch-hover/morlife.webp'
+
+  // Memoized event handlers to prevent blocking
+  const handleMouseEnter = useCallback((testimonial: Testimonial) => {
+    setHoveredTestimonial(testimonial)
+  }, [])
+
+  const handleMouseLeave = useCallback(() => {
+    setHoveredTestimonial(null)
+  }, [])
+
+  const handleClick = useCallback((testimonial: Testimonial) => {
+    setActiveTestimonial(testimonial)
+  }, [])
 
   return (
     <section id="testimonials" className="py-20 bg-neutral-50 relative overflow-hidden">
@@ -54,9 +67,9 @@ export default function TestimonialsWall() {
             <div
               key={testimonial.id}
               className={`break-inside-avoid ${testimonial.bgColor} rounded-2xl p-5 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer`}
-              onMouseEnter={() => setHoveredTestimonial(testimonial)}
-              onMouseLeave={() => setHoveredTestimonial(null)}
-              onClick={() => setActiveTestimonial(testimonial)}
+              onMouseEnter={() => handleMouseEnter(testimonial)}
+              onMouseLeave={handleMouseLeave}
+              onClick={() => handleClick(testimonial)}
             >
               {/* Author header */}
               <div className="flex items-center gap-3 mb-4">
@@ -74,17 +87,6 @@ export default function TestimonialsWall() {
                     />
                   </div>
                 </div>
-
-                {/* Brand Logo in top right corner */}
-                {testimonial.brandLogo && (
-                  <div className="absolute top-2 right-2 w-10 h-10 md:w-12 md:h-12 bg-white/90 rounded-lg p-1 shadow-md">
-                    <img
-                      src={testimonial.brandLogo}
-                      alt={`${testimonial.company} logo`}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                )}
 
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
