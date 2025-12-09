@@ -857,14 +857,22 @@ ${formData.message}`
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <p className="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-3">
-              Say hello to Landingfolio
+              Say goodbye to rigid packaging
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
-              Pricing that scale<br />with business
+              Packaging that excel<br />in all aspect
             </h2>
             <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
-              {t('comparison.description')}
+              Flexible packaging gives you all you need to create a truly cost effective and environmental friendly packaging by Achieve Pack
             </p>
+            <div className="flex items-center justify-center gap-3 mt-6">
+              <div className="flex items-center gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+              <span className="text-neutral-600 font-medium">Trusted by 500+ customers</span>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
