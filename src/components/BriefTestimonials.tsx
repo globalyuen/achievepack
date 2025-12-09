@@ -1,4 +1,4 @@
-import { useState, useRef, MouseEvent, useEffect } from 'react'
+import { useState, useRef, MouseEvent, useEffect, useCallback } from 'react'
 import { X, Quote, ExternalLink } from 'lucide-react'
 import { TESTIMONIALS, type Testimonial } from '../data/testimonialsData'
 
@@ -97,33 +97,17 @@ function TiltCard({ testimonial, onClick, onHover }: { testimonial: Testimonial;
 export default function BriefTestimonials() {
   const [activeTestimonial, setActiveTestimonial] = useState<Testimonial | null>(null)
   const [hoveredTestimonial, setHoveredTestimonial] = useState<Testimonial | null>(null)
-  const [showPouch, setShowPouch] = useState(false)
-
-  // Trigger pouch animation on mount
-  useEffect(() => {
-    const timer = setTimeout(() => setShowPouch(true), 500)
-    return () => clearTimeout(timer)
-  }, [])
 
   // Get current pouch image - use hovered testimonial's pouch or default
   const currentPouchImage = hoveredTestimonial?.pouchImage || '/imgs/testimonials/pouch-hover/morlife.webp'
 
+  // Memoized hover handler
+  const handleCardHover = useCallback((testimonial: Testimonial | null) => {
+    setHoveredTestimonial(testimonial)
+  }, [])
+
   return (
     <section className="py-12 md:py-16 bg-gradient-to-b from-white to-neutral-50 relative overflow-hidden">
-      {/* Large Background Pouch - Full background, rotated 45 degrees, centered */}
-      <div 
-        className={`absolute inset-0 w-full h-full pointer-events-none transition-all duration-500 ease-out z-0 overflow-hidden ${
-          showPouch ? 'opacity-25' : 'opacity-0'
-        }`}
-      >
-        <img
-          src={currentPouchImage}
-          alt="Eco Pouch Packaging"
-          className="w-full h-full object-cover transition-opacity duration-300"
-          style={{ transform: 'rotate(45deg) scale(1.5)' }}
-        />
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Title */}
         <div className="text-center mb-10">
@@ -136,14 +120,41 @@ export default function BriefTestimonials() {
           <p className="text-neutral-500">Hover and click to explore their stories</p>
         </div>
 
-        {/* Testimonial Cards Grid - 3D Tilt Effect */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-5">
-          {TESTIMONIALS.map((testimonial) => (
+        {/* Grid of Testimonials with Featured Pouch */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          {TESTIMONIALS.slice(0, 3).map((testimonial) => (
             <TiltCard
               key={testimonial.id}
               testimonial={testimonial}
               onClick={() => setActiveTestimonial(testimonial)}
-              onHover={setHoveredTestimonial}
+              onHover={handleCardHover}
+            />
+          ))}
+
+          {/* Featured Pouch - Occupies 4 card spaces on larger screens */}
+          <div className="md:col-span-2 md:row-span-2 rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-primary-50 to-white flex items-center justify-center p-6">
+            <img
+              src={currentPouchImage}
+              alt="Eco-Friendly Packaging Pouch"
+              className="w-full h-full object-contain drop-shadow-2xl transform rotate-12 hover:rotate-0 transition-all duration-500"
+            />
+          </div>
+
+          {TESTIMONIALS.slice(3, 6).map((testimonial) => (
+            <TiltCard
+              key={testimonial.id}
+              testimonial={testimonial}
+              onClick={() => setActiveTestimonial(testimonial)}
+              onHover={handleCardHover}
+            />
+          ))}
+
+          {TESTIMONIALS.slice(6, 10).map((testimonial) => (
+            <TiltCard
+              key={testimonial.id}
+              testimonial={testimonial}
+              onClick={() => setActiveTestimonial(testimonial)}
+              onHover={handleCardHover}
             />
           ))}
         </div>

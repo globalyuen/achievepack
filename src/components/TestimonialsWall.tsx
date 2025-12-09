@@ -6,10 +6,22 @@ import { TESTIMONIALS, type Testimonial } from '../data/testimonialsData'
 export default function TestimonialsWall() {
   const { t } = useTranslation()
   const [activeTestimonial, setActiveTestimonial] = useState<Testimonial | null>(null)
+  const [hoveredTestimonial, setHoveredTestimonial] = useState<Testimonial | null>(null)
+
+  // Get current pouch image - use hovered testimonial's pouch or default
+  const currentPouchImage = hoveredTestimonial?.pouchImage || '/imgs/testimonials/pouch-hover/morlife.webp'
 
   // Memoized event handlers to prevent blocking
   const handleClick = useCallback((testimonial: Testimonial) => {
     setActiveTestimonial(testimonial)
+  }, [])
+
+  const handleMouseEnter = useCallback((testimonial: Testimonial) => {
+    setHoveredTestimonial(testimonial)
+  }, [])
+
+  const handleMouseLeave = useCallback(() => {
+    setHoveredTestimonial(null)
   }, [])
 
   return (
@@ -37,6 +49,8 @@ export default function TestimonialsWall() {
               key={testimonial.id}
               className={`${testimonial.bgColor} rounded-2xl p-5 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer`}
               onClick={() => handleClick(testimonial)}
+              onMouseEnter={() => handleMouseEnter(testimonial)}
+              onMouseLeave={handleMouseLeave}
             >
               {/* Author header */}
               <div className="flex items-center gap-3 mb-4">
@@ -95,9 +109,9 @@ export default function TestimonialsWall() {
           {/* Featured Pouch - Occupies 4 card spaces (2x2 on large screens) */}
           <div className="md:col-span-2 md:row-span-2 rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-primary-50 to-white flex items-center justify-center p-8">
             <img
-              src="/imgs/testimonials/pouch-hover/morlife.webp"
+              src={currentPouchImage}
               alt="Eco-Friendly Packaging Pouch"
-              className="w-full h-full object-contain drop-shadow-2xl transform rotate-12 hover:rotate-0 transition-transform duration-500"
+              className="w-full h-full object-contain drop-shadow-2xl transform rotate-12 hover:rotate-0 transition-all duration-500"
             />
           </div>
 
@@ -106,6 +120,8 @@ export default function TestimonialsWall() {
               key={testimonial.id}
               className={`${testimonial.bgColor} rounded-2xl p-5 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer`}
               onClick={() => handleClick(testimonial)}
+              onMouseEnter={() => handleMouseEnter(testimonial)}
+              onMouseLeave={handleMouseLeave}
             >
               {/* Author header */}
               <div className="flex items-center gap-3 mb-4">
