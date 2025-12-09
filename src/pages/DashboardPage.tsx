@@ -8,6 +8,7 @@ import {
 import { useAuth } from '../hooks/useAuth'
 import { supabase, Order, Quote, Document } from '../lib/supabase'
 import { useTranslation } from 'react-i18next'
+import { isDemoUser, getDemoData } from '../data/demoCustomerData'
 
 type TabType = 'dashboard' | 'orders' | 'quotes' | 'documents' | 'artwork' | 'settings'
 
@@ -44,6 +45,18 @@ const DashboardPage: React.FC = () => {
 
   const fetchData = async () => {
     setLoading(true)
+    
+    // Check if this is demo user
+    if (isDemoUser(user?.email)) {
+      const demoData = getDemoData(user?.email)
+      setOrders(demoData.orders as Order[])
+      setQuotes(demoData.quotes as Quote[])
+      setDocuments(demoData.documents as Document[])
+      setLoading(false)
+      return
+    }
+    
+    // Regular user - fetch from database
     const [ordersRes, quotesRes, docsRes] = await Promise.all([
       supabase.from('orders').select('*').eq('user_id', user?.id).order('created_at', { ascending: false }),
       supabase.from('quotes').select('*').eq('user_id', user?.id).order('created_at', { ascending: false }),
