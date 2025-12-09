@@ -1,4 +1,23 @@
 {
+    "newsletter": {
+        "subtitle": "Join other 3200+ Eco Packers now",
+        "title": "Weekly eco packaging tips directly on your inbox",
+        "firstName": "First name",
+        "email": "Email address",
+        "button": "Join Exclusive Group",
+        "submitting": "Subscribing...",
+        "privacyNote": "Get the latest content in your inbox every week. We don't spam.",
+        "success": {
+            "subscribed": "Successfully subscribed! Welcome to our eco packer community.",
+            "resubscribed": "Welcome back! You have been resubscribed."
+        },
+        "errors": {
+            "fillFields": "Please fill in all fields",
+            "alreadySubscribed": "This email is already subscribed!",
+            "generic": "Something went wrong. Please try again.",
+            "tableNotFound": "Newsletter service is being set up. Please try again later."
+        }
+    },
     "nav": {
         "about": "About",
         "benefits": "Benefits",

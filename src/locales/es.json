@@ -1,4 +1,23 @@
 {
+    "newsletter": {
+        "subtitle": "Únete a más de 3200+ Eco Packers ahora",
+        "title": "Consejos semanales de embalaje ecológico directamente en tu bandeja de entrada",
+        "firstName": "Nombre",
+        "email": "Correo electrónico",
+        "button": "Unirse al grupo exclusivo",
+        "submitting": "Suscribiendo...",
+        "privacyNote": "Recibe el último contenido en tu bandeja de entrada cada semana. No hacemos spam.",
+        "success": {
+            "subscribed": "¡Suscripción exitosa! Bienvenido a nuestra comunidad eco packer.",
+            "resubscribed": "¡Bienvenido de vuelta! Te has vuelto a suscribir."
+        },
+        "errors": {
+            "fillFields": "Por favor completa todos los campos",
+            "alreadySubscribed": "¡Este correo ya está suscrito!",
+            "generic": "Algo salió mal. Por favor intenta de nuevo.",
+            "tableNotFound": "El servicio de newsletter se está configurando. Por favor intenta más tarde."
+        }
+    },
     "nav": {
         "about": "Acerca de",
         "benefits": "Beneficios",

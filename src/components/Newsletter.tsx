@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { supabase } from '../lib/supabase'
 
 const Newsletter: React.FC = () => {
+  const { t } = useTranslation()
   const [firstName, setFirstName] = useState('')
   const [email, setEmail] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -11,7 +13,7 @@ const Newsletter: React.FC = () => {
     e.preventDefault()
     
     if (!firstName.trim() || !email.trim()) {
-      setMessage({ type: 'error', text: 'Please fill in all fields' })
+      setMessage({ type: 'error', text: t('newsletter.errors.fillFields') })
       return
     }
 
@@ -20,28 +22,36 @@ const Newsletter: React.FC = () => {
 
     try {
       // Check if email already exists
-      const { data: existing } = await supabase
+      const { data: existing, error: selectError } = await supabase
         .from('newsletter_subscribers')
         .select('id, subscribed')
         .eq('email', email.toLowerCase())
-        .single()
+        .maybeSingle()
+
+      if (selectError) {
+        console.error('Select error:', selectError)
+        throw selectError
+      }
 
       if (existing) {
         if (existing.subscribed) {
-          setMessage({ type: 'error', text: 'This email is already subscribed!' })
+          setMessage({ type: 'error', text: t('newsletter.errors.alreadySubscribed') })
         } else {
           // Resubscribe
-          await supabase
+          const { error: updateError } = await supabase
             .from('newsletter_subscribers')
             .update({ subscribed: true, first_name: firstName, updated_at: new Date().toISOString() })
             .eq('id', existing.id)
-          setMessage({ type: 'success', text: 'Welcome back! You have been resubscribed.' })
+          
+          if (updateError) throw updateError
+          
+          setMessage({ type: 'success', text: t('newsletter.success.resubscribed') })
           setFirstName('')
           setEmail('')
         }
       } else {
         // Insert new subscriber
-        const { error } = await supabase
+        const { error: insertError } = await supabase
           .from('newsletter_subscribers')
           .insert({
             first_name: firstName,
@@ -51,15 +61,20 @@ const Newsletter: React.FC = () => {
             updated_at: new Date().toISOString()
           })
 
-        if (error) throw error
+        if (insertError) throw insertError
         
-        setMessage({ type: 'success', text: 'Successfully subscribed! Welcome to our eco packer community.' })
+        setMessage({ type: 'success', text: t('newsletter.success.subscribed') })
         setFirstName('')
         setEmail('')
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Newsletter subscription error:', error)
-      setMessage({ type: 'error', text: 'Something went wrong. Please try again.' })
+      // Check if table doesn't exist
+      if (error?.code === '42P01' || error?.message?.includes('does not exist')) {
+        setMessage({ type: 'error', text: t('newsletter.errors.tableNotFound') })
+      } else {
+        setMessage({ type: 'error', text: t('newsletter.errors.generic') })
+      }
     } finally {
       setIsSubmitting(false)
     }
@@ -70,19 +85,19 @@ const Newsletter: React.FC = () => {
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Subtitle */}
         <p className="text-primary-500 font-medium mb-4 underline underline-offset-4">
-          Join other 3200+ Eco Packers now
+          {t('newsletter.subtitle')}
         </p>
 
         {/* Main Title */}
         <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-10 leading-tight">
-          Weekly eco packaging tips<br />directly on your inbox
+          {t('newsletter.title')}
         </h2>
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4 max-w-md mx-auto">
           <input
             type="text"
-            placeholder="First name"
+            placeholder={t('newsletter.firstName')}
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             className="w-full px-5 py-4 rounded-xl border border-neutral-200 bg-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-neutral-900 placeholder-neutral-400"
@@ -90,7 +105,7 @@ const Newsletter: React.FC = () => {
           />
           <input
             type="email"
-            placeholder="Email address"
+            placeholder={t('newsletter.email')}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="w-full px-5 py-4 rounded-xl border border-neutral-200 bg-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-neutral-900 placeholder-neutral-400"
@@ -104,7 +119,7 @@ const Newsletter: React.FC = () => {
               background: 'linear-gradient(90deg, #111827 0%, #374151 50%, #9333ea 100%)'
             }}
           >
-            {isSubmitting ? 'Subscribing...' : 'Join Exclusive Group'}
+            {isSubmitting ? t('newsletter.submitting') : t('newsletter.button')}
           </button>
         </form>
 
@@ -117,8 +132,7 @@ const Newsletter: React.FC = () => {
 
         {/* Privacy Note */}
         <p className="mt-6 text-neutral-500 text-sm">
-          Get the latest content in your inbox every week.<br />
-          We don't spam.
+          {t('newsletter.privacyNote')}
         </p>
       </div>
     </section>

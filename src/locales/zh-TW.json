@@ -1,4 +1,23 @@
 {
+    "newsletter": {
+        "subtitle": "立即加入 3200+ 環保包裝者行列",
+        "title": "每週環保包裝技巧直送您的信箱",
+        "firstName": "名字",
+        "email": "電子郵件地址",
+        "button": "加入專屬群組",
+        "submitting": "訂閱中...",
+        "privacyNote": "每週獲取最新內容。我們不會發送垃圾郵件。",
+        "success": {
+            "subscribed": "訂閱成功！歡迎加入我們的環保包裝社群。",
+            "resubscribed": "歡迎回來！您已重新訂閱。"
+        },
+        "errors": {
+            "fillFields": "請填寫所有欄位",
+            "alreadySubscribed": "此電子郵件已訂閱！",
+            "generic": "發生錯誤，請重試。",
+            "tableNotFound": "電子報服務正在設定中，請稍後再試。"
+        }
+    },
     "nav": {
         "about": "關於我們",
         "benefits": "優勢",
