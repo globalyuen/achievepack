@@ -111,7 +111,7 @@ export default function TestimonialsWall() {
             <img
               src={currentPouchImage}
               alt="Eco-Friendly Packaging Pouch"
-              className="w-full h-full object-contain drop-shadow-2xl transform rotate-12 hover:rotate-0 transition-all duration-500"
+              className="w-full h-full object-cover transition-all duration-500"
             />
           </div>
 
