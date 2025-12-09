@@ -277,7 +277,12 @@
                 "industry": "Salud y bienestar"
             }
         },
-        "trusted": "Con la confianza de marcas líderes en todo el mundo"
+        "trusted": "Con la confianza de marcas líderes en todo el mundo",
+        "wallOfLove": {
+            "title": "Muro de amor",
+            "description": "Somos amados por emprendedores, creadores y marcas sostenibles. ¡Aquí está por qué tú también lo harás!",
+            "trustedBy": "Confianza de marcas líderes"
+        }
     },
     "team": {
         "title": "Conoce a Nuestro Equipo",

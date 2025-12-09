@@ -277,7 +277,12 @@
                 "industry": "Health & Wellness"
             }
         },
-        "trusted": "Trusted by leading brands worldwide"
+        "trusted": "Trusted by leading brands worldwide",
+        "wallOfLove": {
+            "title": "Wall of Love",
+            "description": "We're loved by entrepreneurs, creators, and sustainable brands. Here's why you will too!",
+            "trustedBy": "Trusted by Leading Brands"
+        }
     },
     "team": {
         "title": "Meet Our Team",

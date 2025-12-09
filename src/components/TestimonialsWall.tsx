@@ -1,8 +1,10 @@
 import { useState, useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 import { ExternalLink, Star, Quote, X } from 'lucide-react'
 import { TESTIMONIALS, type Testimonial } from '../data/testimonialsData'
 
 export default function TestimonialsWall() {
+  const { t } = useTranslation()
   const [activeTestimonial, setActiveTestimonial] = useState<Testimonial | null>(null)
 
   // Memoized event handlers to prevent blocking
@@ -21,10 +23,10 @@ export default function TestimonialsWall() {
             </div>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
-            Wall of Love
+            {t('testimonials.wallOfLove.title')}
           </h2>
           <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-            We're loved by entrepreneurs, creators, and sustainable brands. Here's why you will too!
+            {t('testimonials.wallOfLove.description')}
           </p>
         </div>
 
@@ -94,7 +96,7 @@ export default function TestimonialsWall() {
         {/* Client Logos Section */}
         <div className="mt-16 text-center">
           <p className="text-sm font-medium text-neutral-500 uppercase tracking-wider mb-6">
-            Trusted by Leading Brands
+            {t('testimonials.wallOfLove.trustedBy')}
           </p>
           <div className="flex justify-center">
             <img

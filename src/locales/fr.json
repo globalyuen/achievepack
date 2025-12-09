@@ -277,7 +277,12 @@
                 "industry": "Santé et bien-être"
             }
         },
-        "trusted": "Reconnu par les grandes marques mondiales"
+        "trusted": "Reconnu par les grandes marques mondiales",
+        "wallOfLove": {
+            "title": "Mur d'amour",
+            "description": "Nous sommes aimés par les entrepreneurs, les créateurs et les marques durables. Voici pourquoi vous aussi vous allez nous aimer !",
+            "trustedBy": "Fait confiance par les grandes marques"
+        }
     },
     "team": {
         "title": "Rencontrez Notre Équipe",
