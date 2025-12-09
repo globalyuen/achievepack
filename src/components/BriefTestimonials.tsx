@@ -1,4 +1,4 @@
-import { useState, useRef, MouseEvent } from 'react'
+import { useState, useRef, MouseEvent, useEffect } from 'react'
 import { X, Quote, ExternalLink } from 'lucide-react'
 import { TESTIMONIALS, type Testimonial } from '../data/testimonialsData'
 
@@ -42,17 +42,7 @@ function TiltCard({ testimonial, onClick }: { testimonial: Testimonial; onClick:
       style={{ transform, transition: transform ? 'none' : 'transform 0.5s ease-out' }}
     >
       {/* Background Pouch Image - Slides from right corner on Hover */}
-      <div 
-        className={`absolute bottom-0 right-0 w-20 h-28 pointer-events-none transition-all duration-500 ease-out ${
-          isHovered ? 'opacity-60 translate-x-0 translate-y-0' : 'opacity-0 translate-x-full translate-y-full'
-        }`}
-      >
-        <img
-          src={testimonial.pouchImage}
-          alt="Packaging Pouch"
-          className="w-full h-full object-contain drop-shadow-lg"
-        />
-      </div>
+      {/* Removed - using section-level pouch instead */}
 
       {/* Glare effect */}
       <div
@@ -105,6 +95,13 @@ function TiltCard({ testimonial, onClick }: { testimonial: Testimonial; onClick:
 
 export default function BriefTestimonials() {
   const [activeTestimonial, setActiveTestimonial] = useState<Testimonial | null>(null)
+  const [showPouch, setShowPouch] = useState(false)
+
+  // Trigger pouch animation on mount
+  useEffect(() => {
+    const timer = setTimeout(() => setShowPouch(true), 500)
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     <section className="py-12 md:py-16 bg-gradient-to-b from-white to-neutral-50">
@@ -129,6 +126,21 @@ export default function BriefTestimonials() {
               onClick={() => setActiveTestimonial(testimonial)}
             />
           ))}
+          
+          {/* Large Pouch Image - Slides from right into empty grid space */}
+          <div className="hidden lg:flex col-span-2 items-center justify-center p-4 relative overflow-hidden">
+            <div 
+              className={`transition-all duration-1000 ease-out ${
+                showPouch ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
+              }`}
+            >
+              <img
+                src="/imgs/testimonials/pouch-hover/morlife.webp"
+                alt="Eco Pouch Packaging"
+                className="w-full max-w-[300px] h-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+          </div>
         </div>
 
         {/* Click hint */}
