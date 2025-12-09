@@ -852,105 +852,116 @@ ${formData.message}`
         </div>
       </section>
 
-      {/* Comparison Section */}
-      <section id="comparison" className="py-16 bg-neutral-50">
+      {/* Comparison Section - Pricing Style Design */}
+      <section id="comparison" className="py-20 bg-gradient-to-b from-white to-neutral-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-neutral-900 mb-4">{t('comparison.title')}</h2>
-            <p className="text-lg text-neutral-700 max-w-3xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-3">
+              Say hello to Landingfolio
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
+              Pricing that scale<br />with business
+            </h2>
+            <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
               {t('comparison.description')}
             </p>
-            <div className="mt-8">
-              <img
-                src={img("comparison-flexible-vs-rigid")}
-                alt={t('comparison.title')}
-                className="w-full max-w-4xl mx-auto rounded-lg shadow-lg cursor-pointer"
-                onClick={() => {
-                  setModalImage(img("comparison-flexible-vs-rigid"))
-                  setModalAlt(t('comparison.title'))
-                  setIsModalOpen(true)
-                }}
-              />
-            </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mt-12">
-            <div className="bg-white rounded-lg p-8 shadow-card border-t-4 border-primary-500">
-              <h3 className="text-2xl font-bold text-neutral-900 mb-2">{t('comparison.flexible.title')}</h3>
-              <p className="text-primary-500 font-medium mb-6">{t('comparison.flexible.subtitle')}</p>
-              <ul className="space-y-4">
-                <li className="flex items-center text-neutral-700">
-                  <CheckCircle className="h-5 w-5 text-primary-500 mr-3 flex-shrink-0" />
-                  {t('comparison.flexible.i1')}
-                </li>
-                <li className="flex items-center text-neutral-700">
-                  <CheckCircle className="h-5 w-5 text-primary-500 mr-3 flex-shrink-0" />
-                  {t('comparison.flexible.i2')}
-                </li>
-                <li className="flex items-center text-neutral-700">
-                  <CheckCircle className="h-5 w-5 text-primary-500 mr-3 flex-shrink-0" />
-                  {t('comparison.flexible.i3')}
-                </li>
-                <li className="flex items-center text-neutral-700">
-                  <CheckCircle className="h-5 w-5 text-primary-500 mr-3 flex-shrink-0" />
-                  {t('comparison.flexible.i4')}
-                </li>
-                <li className="flex items-center text-neutral-700">
-                  <CheckCircle className="h-5 w-5 text-primary-500 mr-3 flex-shrink-0" />
-                  {t('comparison.flexible.i5')}
-                </li>
-                <li className="flex items-center text-neutral-700">
-                  <CheckCircle className="h-5 w-5 text-primary-500 mr-3 flex-shrink-0" />
-                  {t('comparison.flexible.i6')}
-                </li>
-                <li className="flex items-center text-neutral-700">
-                  <CheckCircle className="h-5 w-5 text-primary-500 mr-3 flex-shrink-0" />
-                  {t('comparison.flexible.i7')}
-                </li>
-                <li className="flex items-center text-neutral-700">
-                  <CheckCircle className="h-5 w-5 text-primary-500 mr-3 flex-shrink-0" />
-                  {t('comparison.flexible.i8')}
-                </li>
-              </ul>
+          <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+            {/* Rigid Packaging Card - Left Side */}
+            <div className="bg-white rounded-2xl shadow-lg border border-neutral-200 overflow-hidden">
+              <div className="text-center px-8 pt-8 pb-6">
+                <p className="text-xs font-semibold text-neutral-500 uppercase tracking-wider mb-3">
+                  {t('comparison.rigid.subtitle')}
+                </p>
+                <h3 className="text-3xl font-bold text-neutral-900 mb-6">
+                  {t('comparison.rigid.title')}
+                </h3>
+              </div>
+              <div className="px-8 pb-8">
+                <ul className="space-y-4">
+                  <li className="flex items-start text-neutral-600">
+                    <X className="h-5 w-5 text-neutral-400 mr-3 flex-shrink-0 mt-0.5" />
+                    <span>{t('comparison.rigid.i1')}</span>
+                  </li>
+                  <li className="flex items-start text-neutral-600">
+                    <X className="h-5 w-5 text-neutral-400 mr-3 flex-shrink-0 mt-0.5" />
+                    <span>{t('comparison.rigid.i2')}</span>
+                  </li>
+                  <li className="flex items-start text-neutral-600">
+                    <X className="h-5 w-5 text-neutral-400 mr-3 flex-shrink-0 mt-0.5" />
+                    <span>{t('comparison.rigid.i3')}</span>
+                  </li>
+                  <li className="flex items-start text-neutral-600">
+                    <X className="h-5 w-5 text-neutral-400 mr-3 flex-shrink-0 mt-0.5" />
+                    <span>{t('comparison.rigid.i4')}</span>
+                  </li>
+                  <li className="flex items-start text-neutral-600">
+                    <X className="h-5 w-5 text-neutral-400 mr-3 flex-shrink-0 mt-0.5" />
+                    <span>{t('comparison.rigid.i5')}</span>
+                  </li>
+                  <li className="flex items-start text-neutral-600">
+                    <X className="h-5 w-5 text-neutral-400 mr-3 flex-shrink-0 mt-0.5" />
+                    <span>{t('comparison.rigid.i6')}</span>
+                  </li>
+                  <li className="flex items-start text-neutral-600">
+                    <X className="h-5 w-5 text-neutral-400 mr-3 flex-shrink-0 mt-0.5" />
+                    <span>{t('comparison.rigid.i7')}</span>
+                  </li>
+                  <li className="flex items-start text-neutral-600">
+                    <X className="h-5 w-5 text-neutral-400 mr-3 flex-shrink-0 mt-0.5" />
+                    <span>{t('comparison.rigid.i8')}</span>
+                  </li>
+                </ul>
+              </div>
             </div>
 
-            <div className="bg-white rounded-lg p-8 shadow-card border-t-4 border-neutral-300">
-              <h3 className="text-2xl font-bold text-neutral-900 mb-2">{t('comparison.rigid.title')}</h3>
-              <p className="text-neutral-500 font-medium mb-6">{t('comparison.rigid.subtitle')}</p>
-              <ul className="space-y-4">
-                <li className="flex items-center text-neutral-600">
-                  <X className="h-5 w-5 text-neutral-400 mr-3 flex-shrink-0" />
-                  {t('comparison.rigid.i1')}
-                </li>
-                <li className="flex items-center text-neutral-600">
-                  <X className="h-5 w-5 text-neutral-400 mr-3 flex-shrink-0" />
-                  {t('comparison.rigid.i2')}
-                </li>
-                <li className="flex items-center text-neutral-600">
-                  <X className="h-5 w-5 text-neutral-400 mr-3 flex-shrink-0" />
-                  {t('comparison.rigid.i3')}
-                </li>
-                <li className="flex items-center text-neutral-600">
-                  <X className="h-5 w-5 text-neutral-400 mr-3 flex-shrink-0" />
-                  {t('comparison.rigid.i4')}
-                </li>
-                <li className="flex items-center text-neutral-600">
-                  <X className="h-5 w-5 text-neutral-400 mr-3 flex-shrink-0" />
-                  {t('comparison.rigid.i5')}
-                </li>
-                <li className="flex items-center text-neutral-600">
-                  <X className="h-5 w-5 text-neutral-400 mr-3 flex-shrink-0" />
-                  {t('comparison.rigid.i6')}
-                </li>
-                <li className="flex items-center text-neutral-600">
-                  <X className="h-5 w-5 text-neutral-400 mr-3 flex-shrink-0" />
-                  {t('comparison.rigid.i7')}
-                </li>
-                <li className="flex items-center text-neutral-600">
-                  <X className="h-5 w-5 text-neutral-400 mr-3 flex-shrink-0" />
-                  {t('comparison.rigid.i8')}
-                </li>
-              </ul>
+            {/* Flexible Packaging Card - Right Side (Featured) */}
+            <div className="bg-white rounded-2xl shadow-lg border border-neutral-200 overflow-hidden">
+              <div className="text-center px-8 pt-8 pb-6">
+                <p className="text-xs font-semibold text-primary-600 uppercase tracking-wider mb-3">
+                  {t('comparison.flexible.subtitle')}
+                </p>
+                <h3 className="text-3xl font-bold text-neutral-900 mb-6">
+                  {t('comparison.flexible.title')}
+                </h3>
+              </div>
+              <div className="px-8 pb-8">
+                <ul className="space-y-4">
+                  <li className="flex items-start text-neutral-700">
+                    <CheckCircle className="h-5 w-5 text-primary-500 mr-3 flex-shrink-0 mt-0.5" />
+                    <span>{t('comparison.flexible.i1')}</span>
+                  </li>
+                  <li className="flex items-start text-neutral-700">
+                    <CheckCircle className="h-5 w-5 text-primary-500 mr-3 flex-shrink-0 mt-0.5" />
+                    <span>{t('comparison.flexible.i2')}</span>
+                  </li>
+                  <li className="flex items-start text-neutral-700">
+                    <CheckCircle className="h-5 w-5 text-primary-500 mr-3 flex-shrink-0 mt-0.5" />
+                    <span>{t('comparison.flexible.i3')}</span>
+                  </li>
+                  <li className="flex items-start text-neutral-700">
+                    <CheckCircle className="h-5 w-5 text-primary-500 mr-3 flex-shrink-0 mt-0.5" />
+                    <span>{t('comparison.flexible.i4')}</span>
+                  </li>
+                  <li className="flex items-start text-neutral-700">
+                    <CheckCircle className="h-5 w-5 text-primary-500 mr-3 flex-shrink-0 mt-0.5" />
+                    <span>{t('comparison.flexible.i5')}</span>
+                  </li>
+                  <li className="flex items-start text-neutral-700">
+                    <CheckCircle className="h-5 w-5 text-primary-500 mr-3 flex-shrink-0 mt-0.5" />
+                    <span>{t('comparison.flexible.i6')}</span>
+                  </li>
+                  <li className="flex items-start text-neutral-700">
+                    <CheckCircle className="h-5 w-5 text-primary-500 mr-3 flex-shrink-0 mt-0.5" />
+                    <span>{t('comparison.flexible.i7')}</span>
+                  </li>
+                  <li className="flex items-start text-neutral-700">
+                    <CheckCircle className="h-5 w-5 text-primary-500 mr-3 flex-shrink-0 mt-0.5" />
+                    <span>{t('comparison.flexible.i8')}</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
