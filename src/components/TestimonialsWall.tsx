@@ -1,50 +1,17 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useCallback } from 'react'
 import { ExternalLink, Star, Quote, X } from 'lucide-react'
 import { TESTIMONIALS, type Testimonial } from '../data/testimonialsData'
 
 export default function TestimonialsWall() {
-  const [showPouch, setShowPouch] = useState(false)
-  const [hoveredTestimonial, setHoveredTestimonial] = useState<Testimonial | null>(null)
   const [activeTestimonial, setActiveTestimonial] = useState<Testimonial | null>(null)
 
-  // Trigger pouch animation when section is visible
-  useEffect(() => {
-    const timer = setTimeout(() => setShowPouch(true), 800)
-    return () => clearTimeout(timer)
-  }, [])
-
-  // Get current pouch image - use hovered testimonial's pouch or default
-  const currentPouchImage = hoveredTestimonial?.pouchImage || '/imgs/testimonials/pouch-hover/morlife.webp'
-
   // Memoized event handlers to prevent blocking
-  const handleMouseEnter = useCallback((testimonial: Testimonial) => {
-    setHoveredTestimonial(testimonial)
-  }, [])
-
-  const handleMouseLeave = useCallback(() => {
-    setHoveredTestimonial(null)
-  }, [])
-
   const handleClick = useCallback((testimonial: Testimonial) => {
     setActiveTestimonial(testimonial)
   }, [])
 
   return (
     <section id="testimonials" className="py-20 bg-neutral-50 relative overflow-hidden">
-      {/* Large Background Pouch - Slides from bottom, rotated 45 degrees, centered */}
-      <div 
-        className={`absolute bottom-0 right-1/2 translate-x-1/2 w-[800px] h-[1000px] lg:w-[1000px] lg:h-[1200px] pointer-events-none transition-all duration-500 ease-out z-0 ${
-          showPouch ? 'opacity-20 translate-y-0' : 'opacity-0 translate-y-full'
-        }`}
-        style={{ transform: showPouch ? 'translateX(50%) rotate(45deg)' : 'translateX(50%) rotate(45deg) translateY(100%)' }}
-      >
-        <img
-          src={currentPouchImage}
-          alt="Eco Pouch Packaging"
-          className="w-full h-full object-contain transition-opacity duration-300"
-        />
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
@@ -67,8 +34,6 @@ export default function TestimonialsWall() {
             <div
               key={testimonial.id}
               className={`break-inside-avoid ${testimonial.bgColor} rounded-2xl p-5 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer`}
-              onMouseEnter={() => handleMouseEnter(testimonial)}
-              onMouseLeave={handleMouseLeave}
               onClick={() => handleClick(testimonial)}
             >
               {/* Author header */}

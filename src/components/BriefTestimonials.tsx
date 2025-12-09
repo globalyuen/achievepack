@@ -110,17 +110,17 @@ export default function BriefTestimonials() {
 
   return (
     <section className="py-12 md:py-16 bg-gradient-to-b from-white to-neutral-50 relative overflow-hidden">
-      {/* Large Background Pouch - Slides from right, 200% bigger, rotated 45 degrees, centered */}
+      {/* Large Background Pouch - Full background, rotated 45 degrees, centered */}
       <div 
-        className={`absolute bottom-0 right-1/2 translate-x-1/2 w-[800px] h-[1000px] lg:w-[1000px] lg:h-[1200px] pointer-events-none transition-all duration-500 ease-out z-0 ${
-          showPouch ? 'opacity-25 translate-y-0' : 'opacity-0 translate-y-full'
+        className={`absolute inset-0 w-full h-full pointer-events-none transition-all duration-500 ease-out z-0 overflow-hidden ${
+          showPouch ? 'opacity-25' : 'opacity-0'
         }`}
-        style={{ transform: showPouch ? 'translateX(50%) rotate(45deg)' : 'translateX(50%) rotate(45deg) translateY(100%)' }}
       >
         <img
           src={currentPouchImage}
           alt="Eco Pouch Packaging"
-          className="w-full h-full object-contain transition-opacity duration-300"
+          className="w-full h-full object-cover transition-opacity duration-300"
+          style={{ transform: 'rotate(45deg) scale(1.5)' }}
         />
       </div>
 
