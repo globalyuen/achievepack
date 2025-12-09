@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom'
 import ReactGA from "react-ga4";
-import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield } from 'lucide-react'
+import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield, ShoppingCart } from 'lucide-react'
 import { HeroGrainBackground } from './components/HeroGrainBackground'
 import { CardContainer, CardBody, CardItem } from './components/ui/3d-card'
 import { AnimatedTestimonials } from './components/ui/animated-testimonials'
@@ -113,75 +113,59 @@ ${formData.message}`
   return (
     <div className="min-h-screen bg-neutral-50 font-sans">
       {/* Navigation */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white'}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-neutral-100' : 'bg-white border-b border-neutral-100'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-18">
-            <div className="flex items-center">
-              <div className="flex items-center space-x-2">
-                <img src="/achieve-pack-logo.png" alt="Achieve Pack Logo" className="h-10 w-auto" />
-              </div>
-            </div>
-
-            {/* Desktop Navigation */}
+          <div className="flex items-center justify-between h-16">
+            {/* Left Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
               {[
                 { id: 'about', label: t('nav.about') },
-                { id: 'benefits', label: t('nav.benefits') },
-                { id: 'products', label: t('nav.products') },
                 { id: 'solutions', label: t('nav.solutions') },
-                { id: 'features', label: t('nav.features') },
-                { id: 'contact', label: t('nav.contact') }
+                { id: 'products', label: t('nav.products') },
+                { id: 'features', label: t('nav.features') }
               ].map(({ id, label }) => (
                 <button
                   key={id}
                   onClick={() => scrollToSection(id)}
-                  className={`text-base font-medium transition-colors duration-200 ${activeSection === id
-                    ? 'text-primary-500 font-semibold'
-                    : 'text-neutral-700 hover:text-primary-500'
-                    }`}
+                  className={`text-sm font-medium transition-colors duration-200 ${
+                    activeSection === id
+                      ? 'text-neutral-900 font-semibold'
+                      : 'text-neutral-600 hover:text-neutral-900'
+                  }`}
                 >
                   {label}
                 </button>
               ))}
-              <Link
-                to="/dashboard"
-                className="text-base font-medium transition-colors duration-200 text-neutral-700 hover:text-primary-500"
-              >
-                {t('nav.customerCenter')}
+            </div>
+
+            {/* Center Logo */}
+            <div className="flex items-center justify-center lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+              <Link to="/" className="flex items-center space-x-2">
+                <img src="/achieve-pack-logo.png" alt="Achieve Pack Logo" className="h-8 w-auto" />
+                <span className="text-xl font-bold text-neutral-900">AchievePack</span>
               </Link>
             </div>
 
-            <div className="hidden lg:flex items-center space-x-4">
-              {/* Language Switcher */}
-              <div className="relative">
-                <button
-                  className="p-2 text-neutral-700 hover:text-primary-500 transition-colors"
-                  onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                >
-                  <Globe className="h-5 w-5" />
-                </button>
-                {isLangMenuOpen && (
-                  <div className="absolute top-full right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 border border-neutral-100">
-                    <button onClick={() => changeLanguage('en')} className="block w-full text-left px-4 py-2 hover:bg-neutral-50 text-sm">English</button>
-                    <button onClick={() => changeLanguage('fr')} className="block w-full text-left px-4 py-2 hover:bg-neutral-50 text-sm">Français</button>
-                    <button onClick={() => changeLanguage('es')} className="block w-full text-left px-4 py-2 hover:bg-neutral-50 text-sm">Español</button>
-                    <button onClick={() => changeLanguage('zh-TW')} className="block w-full text-left px-4 py-2 hover:bg-neutral-50 text-sm">繁體中文</button>
-                  </div>
-                )}
-              </div>
-
+            {/* Right Actions */}
+            <div className="hidden lg:flex items-center space-x-6">
+              <Link
+                to="/register"
+                className="text-sm font-medium text-neutral-600 hover:text-neutral-900 transition-colors"
+              >
+                Sign up
+              </Link>
+              <Link
+                to="/login"
+                className="text-sm font-medium text-neutral-600 hover:text-neutral-900 transition-colors"
+              >
+                Sign in
+              </Link>
               <Link
                 to="/store"
-                className="bg-accent-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-accent-600 transition-all duration-200 hover:shadow-hover hover:-translate-y-0.5"
+                className="p-2 text-neutral-600 hover:text-neutral-900 transition-colors"
               >
-                Shop Now
+                <ShoppingCart className="h-5 w-5" />
               </Link>
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-all duration-200 hover:shadow-hover hover:-translate-y-0.5"
-              >
-                {t('nav.getStarted')}
-              </button>
             </div>
 
             {/* Mobile Menu Button */}
