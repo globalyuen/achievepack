@@ -132,7 +132,7 @@ export default function TestimonialsWall() {
           </p>
           <div className="flex justify-center">
             <img
-              src="/imgs/testimonials/testimonials-client-logos.webp"
+              src="/imgs/testimonials-client-logos.webp"
               alt="Our Client Logos"
               className="max-w-full h-auto opacity-80 hover:opacity-100 transition-opacity duration-500"
             />
