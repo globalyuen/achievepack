@@ -2,11 +2,15 @@ import { useState, useRef, MouseEvent } from 'react'
 import { X, Quote, ExternalLink } from 'lucide-react'
 import { TESTIMONIALS, type Testimonial } from '../data/testimonialsData'
 
+// Pouch image path - you can upload actual images later
+const POUCH_IMAGE = '/imgs/testimonials/pouch-hover.png'
+
 // 3D Tilt Card Component
 function TiltCard({ testimonial, onClick }: { testimonial: Testimonial; onClick: () => void }) {
   const cardRef = useRef<HTMLDivElement>(null)
   const [transform, setTransform] = useState('')
   const [glarePos, setGlarePos] = useState({ x: 50, y: 50 })
+  const [isHovered, setIsHovered] = useState(false)
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return
@@ -21,8 +25,13 @@ function TiltCard({ testimonial, onClick }: { testimonial: Testimonial; onClick:
     setGlarePos({ x: (x / rect.width) * 100, y: (y / rect.height) * 100 })
   }
 
+  const handleMouseEnter = () => {
+    setIsHovered(true)
+  }
+
   const handleMouseLeave = () => {
     setTransform('')
+    setIsHovered(false)
   }
 
   return (
@@ -30,13 +39,42 @@ function TiltCard({ testimonial, onClick }: { testimonial: Testimonial; onClick:
       ref={cardRef}
       onClick={onClick}
       onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={`relative cursor-pointer rounded-2xl p-4 ${testimonial.bgColor} shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden`}
       style={{ transform, transition: transform ? 'none' : 'transform 0.5s ease-out' }}
     >
+      {/* Background Pouch Image - Shows on Hover */}
+      <div 
+        className={`absolute inset-0 flex items-center justify-center transition-all duration-500 pointer-events-none ${
+          isHovered ? 'opacity-20 scale-110' : 'opacity-0 scale-75'
+        }`}
+      >
+        <img
+          src={POUCH_IMAGE}
+          alt="Packaging Pouch"
+          className="w-24 h-32 object-contain"
+          onError={(e) => {
+            // Fallback to a simple pouch icon/placeholder
+            const target = e.target as HTMLImageElement
+            target.style.display = 'none'
+          }}
+        />
+        {/* Fallback SVG Pouch when image fails */}
+        <svg 
+          className="w-20 h-28 text-neutral-400" 
+          viewBox="0 0 80 120" 
+          fill="currentColor"
+        >
+          <path d="M10 20 Q10 10 20 10 L60 10 Q70 10 70 20 L70 100 Q70 115 55 115 L25 115 Q10 115 10 100 Z" opacity="0.3"/>
+          <rect x="20" y="5" width="40" height="10" rx="2" opacity="0.5"/>
+          <ellipse cx="40" cy="60" rx="15" ry="20" opacity="0.2"/>
+        </svg>
+      </div>
+
       {/* Glare effect */}
       <div
-        className="absolute inset-0 opacity-0 hover:opacity-30 transition-opacity pointer-events-none"
+        className={`absolute inset-0 transition-opacity pointer-events-none ${isHovered ? 'opacity-30' : 'opacity-0'}`}
         style={{
           background: `radial-gradient(circle at ${glarePos.x}% ${glarePos.y}%, rgba(255,255,255,0.8) 0%, transparent 60%)`,
         }}
