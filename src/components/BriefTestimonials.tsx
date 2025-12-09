@@ -2,6 +2,9 @@ import { useState, useRef, MouseEvent } from 'react'
 import { X, Quote, ExternalLink } from 'lucide-react'
 import { TESTIMONIALS, type Testimonial } from '../data/testimonialsData'
 
+// Pouch image path
+const POUCH_IMAGE = '/imgs/testimonials/pouch-hover.png'
+
 // 3D Tilt Card Component
 function TiltCard({ testimonial, onClick }: { testimonial: Testimonial; onClick: () => void }) {
   const cardRef = useRef<HTMLDivElement>(null)
@@ -41,42 +44,17 @@ function TiltCard({ testimonial, onClick }: { testimonial: Testimonial; onClick:
       className={`relative cursor-pointer rounded-2xl p-4 ${testimonial.bgColor} shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden`}
       style={{ transform, transition: transform ? 'none' : 'transform 0.5s ease-out' }}
     >
-      {/* Background Pouch Image - Shows on Hover */}
+      {/* Background Pouch Image - Slides from left on Hover */}
       <div 
-        className={`absolute inset-0 flex items-center justify-center transition-all duration-300 pointer-events-none ${
-          isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+        className={`absolute inset-0 pointer-events-none transition-all duration-500 ease-out ${
+          isHovered ? 'opacity-40 translate-x-0' : 'opacity-0 -translate-x-full'
         }`}
       >
-        {/* SVG Pouch - Always visible as fallback */}
-        <svg 
-          className="w-16 h-24 md:w-20 md:h-28 drop-shadow-lg" 
-          viewBox="0 0 80 120" 
-        >
-          {/* Pouch body */}
-          <path 
-            d="M12 25 Q12 15 22 15 L58 15 Q68 15 68 25 L68 105 Q68 115 55 115 L25 115 Q12 115 12 105 Z" 
-            fill="#22c55e"
-            opacity="0.4"
-          />
-          {/* Pouch top seal */}
-          <rect x="18" y="8" width="44" height="12" rx="3" fill="#16a34a" opacity="0.5"/>
-          {/* Zipper line */}
-          <line x1="18" y1="20" x2="62" y2="20" stroke="#15803d" strokeWidth="2" opacity="0.6"/>
-          {/* Window/Label area */}
-          <ellipse cx="40" cy="65" rx="18" ry="25" fill="white" opacity="0.3"/>
-          {/* Eco leaf icon */}
-          <path 
-            d="M35 60 Q40 50 50 55 Q45 65 40 70 Q38 65 35 60" 
-            fill="#16a34a" 
-            opacity="0.8"
-          />
-          <path 
-            d="M40 55 L40 72" 
-            stroke="#16a34a" 
-            strokeWidth="1.5" 
-            opacity="0.8"
-          />
-        </svg>
+        <img
+          src={POUCH_IMAGE}
+          alt="Packaging Pouch"
+          className="w-full h-full object-cover"
+        />
       </div>
 
       {/* Glare effect */}
@@ -171,76 +149,89 @@ export default function BriefTestimonials() {
           onClick={() => setActiveTestimonial(null)}
         >
           <div
-            className={`relative max-w-md w-full rounded-2xl p-6 shadow-2xl ${activeTestimonial.bgColor}`}
+            className={`relative max-w-3xl w-full rounded-2xl shadow-2xl ${activeTestimonial.bgColor} overflow-hidden`}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close button */}
-            <button
-              onClick={() => setActiveTestimonial(null)}
-              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/80 flex items-center justify-center hover:bg-white transition-colors"
-            >
-              <X className="h-4 w-4 text-neutral-700" />
-            </button>
-
-            {/* Quote icon */}
-            <Quote className="h-8 w-8 text-primary-500 mb-4" />
-
-            {/* Testimonial content */}
-            <p className="text-neutral-800 text-lg leading-relaxed mb-6">
-              "{activeTestimonial.quote}"
-            </p>
-
-            {/* Author info */}
-            <div className="flex items-center gap-4">
-              {/* Owner photo with company logo overlay */}
-              <div className="relative">
-                <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-md">
-                  <img
-                    src={activeTestimonial.ownerImage}
-                    alt={activeTestimonial.name}
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement
-                      target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(activeTestimonial.name)}&background=22c55e&color=fff&size=128`
-                    }}
-                  />
-                </div>
-                {/* Company logo badge */}
-                <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-white border border-neutral-200 overflow-hidden shadow-sm">
-                  <img
-                    src={activeTestimonial.companyLogo}
-                    alt={activeTestimonial.company}
-                    className="w-full h-full object-contain p-0.5"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement
-                      target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(activeTestimonial.company || 'Co')}&background=f3f4f6&color=6b7280&size=64`
-                    }}
-                  />
-                </div>
+            <div className="flex flex-col md:flex-row">
+              {/* Pouch Image - Left Side */}
+              <div className="hidden md:flex w-48 bg-white/30 items-center justify-center p-4">
+                <img
+                  src={POUCH_IMAGE}
+                  alt="Packaging Pouch"
+                  className="w-full h-auto max-h-64 object-contain drop-shadow-lg"
+                />
               </div>
-
-              <div className="flex-1">
-                <div className="font-semibold text-neutral-900">{activeTestimonial.name}</div>
-                {(activeTestimonial.role || activeTestimonial.company) && (
-                  <div className="text-sm text-neutral-600">
-                    {activeTestimonial.role && `${activeTestimonial.role}${activeTestimonial.company ? ', ' : ''}`}
-                    {activeTestimonial.company}
-                  </div>
-                )}
-                <div className="text-xs text-neutral-500 mt-1">{activeTestimonial.extraInfo}</div>
-              </div>
-
-              {/* Website link */}
-              {activeTestimonial.url && (
-                <a
-                  href={activeTestimonial.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-neutral-100 transition-colors shadow-sm"
+              
+              {/* Testimonial Content - Right Side */}
+              <div className="flex-1 p-6">
+                {/* Close button */}
+                <button
+                  onClick={() => setActiveTestimonial(null)}
+                  className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/80 flex items-center justify-center hover:bg-white transition-colors"
                 >
-                  <ExternalLink className="h-4 w-4 text-neutral-600" />
-                </a>
-              )}
+                  <X className="h-4 w-4 text-neutral-700" />
+                </button>
+
+                {/* Quote icon */}
+                <Quote className="h-8 w-8 text-primary-500 mb-4" />
+
+                {/* Testimonial content */}
+                <p className="text-neutral-800 text-lg leading-relaxed mb-6">
+                  "{activeTestimonial.quote}"
+                </p>
+
+                {/* Author info */}
+                <div className="flex items-center gap-4">
+                  {/* Owner photo with company logo overlay */}
+                  <div className="relative">
+                    <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-md">
+                      <img
+                        src={activeTestimonial.ownerImage}
+                        alt={activeTestimonial.name}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement
+                          target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(activeTestimonial.name)}&background=22c55e&color=fff&size=128`
+                        }}
+                      />
+                    </div>
+                    {/* Company logo badge */}
+                    <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-white border border-neutral-200 overflow-hidden shadow-sm">
+                      <img
+                        src={activeTestimonial.companyLogo}
+                        alt={activeTestimonial.company}
+                        className="w-full h-full object-contain p-0.5"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement
+                          target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(activeTestimonial.company || 'Co')}&background=f3f4f6&color=6b7280&size=64`
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex-1">
+                    <div className="font-semibold text-neutral-900">{activeTestimonial.name}</div>
+                    {(activeTestimonial.role || activeTestimonial.company) && (
+                      <div className="text-sm text-neutral-600">
+                        {activeTestimonial.role && `${activeTestimonial.role}${activeTestimonial.company ? ', ' : ''}`}
+                        {activeTestimonial.company}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Website link */}
+                  {activeTestimonial.url && (
+                    <a
+                      href={activeTestimonial.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-neutral-100 transition-colors shadow-sm"
+                    >
+                      <ExternalLink className="h-4 w-4 text-neutral-600" />
+                    </a>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         </div>

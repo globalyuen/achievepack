@@ -99,20 +99,12 @@ export default function TestimonialsWall() {
           <p className="text-sm font-medium text-neutral-500 uppercase tracking-wider mb-6">
             Trusted by Leading Brands
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-            {/* Placeholder for client logos - you can add actual logos later */}
-            {[
-              'themclife.com',
-              'Mylk Made',
-              'Dancing Lion',
-              'EMU Elixir',
-              'Wise Angler',
-              'Morlife'
-            ].map((brand) => (
-              <div key={brand} className="px-4 py-2">
-                <span className="text-lg font-semibold text-neutral-400">{brand}</span>
-              </div>
-            ))}
+          <div className="flex justify-center">
+            <img
+              src="/imgs/testimonials/testimonials-client-logos.png"
+              alt="Our Client Logos"
+              className="max-w-full h-auto opacity-80 hover:opacity-100 transition-opacity duration-500"
+            />
           </div>
         </div>
       </div>
