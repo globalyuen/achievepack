@@ -46,6 +46,16 @@ const DashboardPage: React.FC = () => {
   const [selectedArtwork, setSelectedArtwork] = useState<ArtworkFile | null>(null)
   const [revisionComment, setRevisionComment] = useState('')
   const [showRevisionModal, setShowRevisionModal] = useState(false)
+  
+  // Saved item edit states
+  const [editingItem, setEditingItem] = useState<SavedCartItem | null>(null)
+  const [editForm, setEditForm] = useState({
+    quantity: 0,
+    shape: '',
+    size: '',
+    barrier: '',
+    finish: ''
+  })
 
   useEffect(() => {
     if (!authLoading && !user) {
@@ -1093,6 +1103,22 @@ const DashboardPage: React.FC = () => {
                               <div className="flex items-center gap-3 mt-4">
                                 <button
                                   onClick={() => {
+                                    setEditingItem(item)
+                                    setEditForm({
+                                      quantity: item.quantity,
+                                      shape: item.variant?.shape || '',
+                                      size: item.variant?.size || '',
+                                      barrier: item.variant?.barrier || '',
+                                      finish: item.variant?.finish || ''
+                                    })
+                                  }}
+                                  className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition"
+                                >
+                                  <Settings className="h-4 w-4" />
+                                  Edit
+                                </button>
+                                <button
+                                  onClick={() => {
                                     addToCart({
                                       productId: item.product_id,
                                       name: item.name,
@@ -1111,8 +1137,14 @@ const DashboardPage: React.FC = () => {
                                 </button>
                                 <button
                                   onClick={async () => {
-                                    await supabase.from('saved_cart_items').delete().eq('id', item.id)
-                                    fetchData()
+                                    if (isDemoUser(user?.email)) {
+                                      const demoItems = JSON.parse(localStorage.getItem('demo_saved_items') || '[]')
+                                      localStorage.setItem('demo_saved_items', JSON.stringify(demoItems.filter((i: any) => i.id !== item.id)))
+                                      setSavedItems(prev => prev.filter(i => i.id !== item.id))
+                                    } else {
+                                      await supabase.from('saved_cart_items').delete().eq('id', item.id)
+                                      fetchData()
+                                    }
                                   }}
                                   className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition"
                                 >
@@ -1483,6 +1515,176 @@ const DashboardPage: React.FC = () => {
                 <button
                   onClick={() => setShowRevisionModal(false)}
                   className="px-4 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Edit Saved Item Modal */}
+      {editingItem && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={() => setEditingItem(null)}>
+          <div className="bg-white rounded-xl max-w-lg w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+            <div className="p-6 border-b border-gray-100 flex items-center justify-between sticky top-0 bg-white">
+              <div>
+                <h2 className="text-xl font-bold text-gray-900">Edit Saved Item</h2>
+                <p className="text-sm text-gray-500 mt-1">{editingItem.name}</p>
+              </div>
+              <button onClick={() => setEditingItem(null)} className="text-gray-400 hover:text-gray-600 transition">
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+            
+            <div className="p-6 space-y-5">
+              {/* Product Image */}
+              {editingItem.image && (
+                <div className="flex justify-center">
+                  <img 
+                    src={editingItem.image} 
+                    alt={editingItem.name}
+                    className="w-32 h-32 object-cover rounded-lg"
+                  />
+                </div>
+              )}
+              
+              {/* Quantity */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Quantity</label>
+                <input
+                  type="number"
+                  min="100"
+                  step="100"
+                  value={editForm.quantity}
+                  onChange={(e) => setEditForm(prev => ({ ...prev, quantity: parseInt(e.target.value) || 0 }))}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                />
+              </div>
+              
+              {/* Shape */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Shape</label>
+                <select
+                  value={editForm.shape}
+                  onChange={(e) => setEditForm(prev => ({ ...prev, shape: e.target.value }))}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                >
+                  <option value="stand-up">Stand Up Pouch</option>
+                  <option value="flat-bottom">Flat Bottom Bag</option>
+                  <option value="side-gusset">Side Gusset Bag</option>
+                  <option value="three-side-seal">Three Side Seal</option>
+                  <option value="spout">Spout Pouch</option>
+                </select>
+              </div>
+              
+              {/* Size */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Size</label>
+                <select
+                  value={editForm.size}
+                  onChange={(e) => setEditForm(prev => ({ ...prev, size: e.target.value }))}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                >
+                  <option value="80x120mm">80 x 120mm (Small)</option>
+                  <option value="100x150mm">100 x 150mm</option>
+                  <option value="120x200mm">120 x 200mm</option>
+                  <option value="150x250mm">150 x 250mm</option>
+                  <option value="180x280mm">180 x 280mm (Large)</option>
+                  <option value="100x300mm">100 x 300mm (Tall)</option>
+                  <option value="130x180mm">130 x 180mm</option>
+                </select>
+              </div>
+              
+              {/* Barrier */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Barrier Material</label>
+                <select
+                  value={editForm.barrier}
+                  onChange={(e) => setEditForm(prev => ({ ...prev, barrier: e.target.value }))}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                >
+                  <option value="clear">Clear</option>
+                  <option value="kraft">Kraft Paper</option>
+                  <option value="foil">Foil / Metalised</option>
+                  <option value="white">White Matte</option>
+                </select>
+              </div>
+              
+              {/* Finish */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Finish</label>
+                <select
+                  value={editForm.finish}
+                  onChange={(e) => setEditForm(prev => ({ ...prev, finish: e.target.value }))}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                >
+                  <option value="glossy">Glossy</option>
+                  <option value="matte">Matte</option>
+                  <option value="soft-touch">Soft Touch</option>
+                </select>
+              </div>
+              
+              {/* Estimated Price */}
+              <div className="bg-gray-50 rounded-lg p-4">
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-600">Estimated Unit Price:</span>
+                  <span className="font-semibold text-gray-900">${editingItem.unit_price.toFixed(2)}</span>
+                </div>
+                <div className="flex justify-between items-center mt-2">
+                  <span className="text-gray-600">Estimated Total:</span>
+                  <span className="text-xl font-bold text-primary-600">
+                    ${(editingItem.unit_price * editForm.quantity).toLocaleString()}
+                  </span>
+                </div>
+                <p className="text-xs text-gray-400 mt-2">* Final price may vary based on options</p>
+              </div>
+              
+              {/* Action Buttons */}
+              <div className="flex gap-3">
+                <button
+                  onClick={async () => {
+                    const updatedItem = {
+                      ...editingItem,
+                      quantity: editForm.quantity,
+                      variant: {
+                        shape: editForm.shape,
+                        size: editForm.size,
+                        barrier: editForm.barrier,
+                        finish: editForm.finish
+                      },
+                      total_price: editingItem.unit_price * editForm.quantity,
+                      updated_at: new Date().toISOString()
+                    }
+                    
+                    if (isDemoUser(user?.email)) {
+                      // Update in localStorage for demo user
+                      const demoItems = JSON.parse(localStorage.getItem('demo_saved_items') || '[]')
+                      const updatedDemoItems = demoItems.map((i: any) => i.id === editingItem.id ? updatedItem : i)
+                      localStorage.setItem('demo_saved_items', JSON.stringify(updatedDemoItems))
+                      setSavedItems(prev => prev.map(i => i.id === editingItem.id ? updatedItem : i))
+                    } else {
+                      // Update in database
+                      await supabase.from('saved_cart_items').update({
+                        quantity: editForm.quantity,
+                        variant: updatedItem.variant,
+                        total_price: updatedItem.total_price,
+                        updated_at: updatedItem.updated_at
+                      }).eq('id', editingItem.id)
+                      fetchData()
+                    }
+                    
+                    setEditingItem(null)
+                  }}
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition"
+                >
+                  <CheckCircle className="h-5 w-5" />
+                  Save Changes
+                </button>
+                <button
+                  onClick={() => setEditingItem(null)}
+                  className="px-4 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition"
                 >
                   Cancel
                 </button>
