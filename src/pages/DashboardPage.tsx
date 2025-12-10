@@ -153,15 +153,15 @@ const DashboardPage: React.FC = () => {
           updated_at: '2024-12-08T11:00:00Z'
         }
       ] as ArtworkFile[])
-      // Demo saved items - use local images
+      // Demo saved items - use real product images from pouch.eco
       setSavedItems([
         {
           id: 'demo-saved-1',
           user_id: 'demo-user',
           product_id: 'stand-up-pouch',
           name: 'Stand Up Pouch - Eco Series',
-          image: '/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp',
-          variant: { shape: 'stand-up', size: '120x200mm', barrier: 'kraft', finish: 'matte' },
+          image: 'https://pouch.eco/wp-content/uploads/2025/12/standup_no_zipper_matt_silver-2.webp',
+          variant: { shape: 'stand-up', size: '120x200mm', barrier: 'metalised', finish: 'matte' },
           quantity: 5000,
           unit_price: 0.42,
           total_price: 2100,
@@ -172,9 +172,9 @@ const DashboardPage: React.FC = () => {
           id: 'demo-saved-2',
           user_id: 'demo-user',
           product_id: 'flat-bottom-pouch',
-          name: 'Flat Bottom Bag - Premium',
-          image: '/imgs/pouch-shape/a_flat_bottom_pouch_isolated_7901973.webp',
-          variant: { shape: 'flat-bottom', size: '150x250mm', barrier: 'clear', finish: 'glossy' },
+          name: 'Flat Bottom Bag - Compostable',
+          image: 'https://pouch.eco/wp-content/uploads/2025/12/a_kraft_bag_with_dimensions_3083325.webp',
+          variant: { shape: 'flat-bottom', size: '150x250mm', barrier: 'kraft', finish: 'matte' },
           quantity: 3000,
           unit_price: 0.58,
           total_price: 1740,
@@ -186,8 +186,8 @@ const DashboardPage: React.FC = () => {
           user_id: 'demo-user',
           product_id: 'side-gusset-bag',
           name: 'Side Gusset Coffee Bag',
-          image: '/imgs/pouch-shape/a_side_gusset_pouch_isolated_2545871.webp',
-          variant: { shape: 'side-gusset', size: '100x300mm', barrier: 'foil', finish: 'matte' },
+          image: 'https://pouch.eco/wp-content/uploads/2025/12/3side_no_zipper_matt_silver-1.webp',
+          variant: { shape: 'side-gusset', size: '100x300mm', barrier: 'metalised', finish: 'matte' },
           quantity: 10000,
           unit_price: 0.35,
           total_price: 3500,
@@ -197,10 +197,10 @@ const DashboardPage: React.FC = () => {
         {
           id: 'demo-saved-4',
           user_id: 'demo-user',
-          product_id: 'spout-pouch',
-          name: 'Spout Pouch - Juice Pack',
-          image: '/imgs/pouch-shape/a_spout_pouch_isolated_6857112.webp',
-          variant: { shape: 'spout', size: '130x180mm', barrier: 'clear', finish: 'glossy' },
+          product_id: 'standup-zipper',
+          name: 'Zipper Stand Up Pouch',
+          image: 'https://pouch.eco/wp-content/uploads/2025/12/standup_zipper_glossy_clear-1.webp',
+          variant: { shape: 'zipper-stand-up', size: '130x180mm', barrier: 'clear', finish: 'glossy' },
           quantity: 2000,
           unit_price: 0.85,
           total_price: 1700,
