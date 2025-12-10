@@ -5,14 +5,15 @@ import {
   LayoutDashboard, ShoppingCart, FileCheck, Image, ChevronRight, TrendingUp, 
   TrendingDown, Users, DollarSign, MoreHorizontal, Plus, RefreshCw, Eye, X, 
   MapPin, Phone, Mail as MailIcon, Truck, ExternalLink, Upload, CheckCircle, 
-  Clock, AlertCircle, FileImage, MessageSquare, Send
+  Clock, AlertCircle, FileImage, MessageSquare, Send, Heart, Trash2
 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
-import { supabase, Order, Quote, Document, ArtworkFile } from '../lib/supabase'
+import { supabase, Order, Quote, Document, ArtworkFile, SavedCartItem } from '../lib/supabase'
 import { useTranslation } from 'react-i18next'
 import { isDemoUser, getDemoData } from '../data/demoCustomerData'
+import { useStore } from '../store/StoreContext'
 
-type TabType = 'dashboard' | 'orders' | 'quotes' | 'documents' | 'artwork' | 'settings'
+type TabType = 'dashboard' | 'orders' | 'quotes' | 'documents' | 'artwork' | 'saved' | 'settings'
 
 const statusColors: Record<string, string> = {
   pending: 'bg-yellow-100 text-yellow-800',
@@ -28,10 +29,12 @@ const DashboardPage: React.FC = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const { user, signOut, loading: authLoading } = useAuth()
+  const { addToCart, setIsCartOpen } = useStore()
   const [orders, setOrders] = useState<Order[]>([])
   const [quotes, setQuotes] = useState<Quote[]>([])
   const [documents, setDocuments] = useState<Document[]>([])
   const [artworks, setArtworks] = useState<ArtworkFile[]>([])
+  const [savedItems, setSavedItems] = useState<SavedCartItem[]>([])
   const [loading, setLoading] = useState(true)
   const [activeTab, setActiveTab] = useState<TabType>('dashboard')
   const [searchQuery, setSearchQuery] = useState('')
@@ -115,21 +118,52 @@ const DashboardPage: React.FC = () => {
           updated_at: '2024-12-09T08:00:00Z'
         }
       ] as ArtworkFile[])
+      // Demo saved items
+      setSavedItems([
+        {
+          id: 'demo-saved-1',
+          user_id: 'demo-user',
+          product_id: 'stand-up-pouch',
+          name: 'Stand Up Pouch - Eco Series',
+          image: '/products/stand-up-pouch.jpg',
+          variant: { shape: 'stand-up', size: '120x200', barrier: 'kraft', finish: 'matte' },
+          quantity: 5000,
+          unit_price: 0.42,
+          total_price: 2100,
+          created_at: '2024-12-08T10:00:00Z',
+          updated_at: '2024-12-08T10:00:00Z'
+        },
+        {
+          id: 'demo-saved-2',
+          user_id: 'demo-user',
+          product_id: 'flat-bottom-pouch',
+          name: 'Flat Bottom Bag - Premium',
+          image: '/products/flat-bottom.jpg',
+          variant: { shape: 'flat-bottom', size: '150x250', barrier: 'clear', finish: 'glossy' },
+          quantity: 3000,
+          unit_price: 0.58,
+          total_price: 1740,
+          created_at: '2024-12-09T14:30:00Z',
+          updated_at: '2024-12-09T14:30:00Z'
+        }
+      ] as SavedCartItem[])
       setLoading(false)
       return
     }
     
     // Regular user - fetch from database
-    const [ordersRes, quotesRes, docsRes, artworksRes] = await Promise.all([
+    const [ordersRes, quotesRes, docsRes, artworksRes, savedRes] = await Promise.all([
       supabase.from('orders').select('*').eq('user_id', user?.id).order('created_at', { ascending: false }),
       supabase.from('quotes').select('*').eq('user_id', user?.id).order('created_at', { ascending: false }),
       supabase.from('documents').select('*').or(`user_id.eq.${user?.id},is_public.eq.true`).order('created_at', { ascending: false }),
       supabase.from('artwork_files').select('*').eq('user_id', user?.id).order('created_at', { ascending: false }),
+      supabase.from('saved_cart_items').select('*').eq('user_id', user?.id).order('created_at', { ascending: false }),
     ])
     setOrders(ordersRes.data || [])
     setQuotes(quotesRes.data || [])
     setDocuments(docsRes.data || [])
     setArtworks(artworksRes.data || [])
+    setSavedItems(savedRes.data || [])
     setLoading(false)
   }
 
@@ -389,6 +423,27 @@ const DashboardPage: React.FC = () => {
           >
             <Image className="h-5 w-5 mr-3" />
             Artwork Files
+          </button>
+
+          <button
+            onClick={() => setActiveTab('saved')}
+            className={`flex items-center justify-between w-full px-4 py-2.5 text-sm font-medium rounded-lg transition ${
+              activeTab === 'saved'
+                ? 'bg-primary-500 text-white'
+                : 'text-gray-700 hover:bg-gray-100'
+            }`}
+          >
+            <div className="flex items-center">
+              <Heart className="h-5 w-5 mr-3" />
+              Saved Items
+            </div>
+            {savedItems.length > 0 && (
+              <span className={`px-2 py-0.5 text-xs rounded-full ${
+                activeTab === 'saved' ? 'bg-white/20 text-white' : 'bg-amber-100 text-amber-700'
+              }`}>
+                {savedItems.length}
+              </span>
+            )}
           </button>
 
           <hr className="my-4 border-gray-100" />
@@ -909,6 +964,169 @@ const DashboardPage: React.FC = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          )}
+
+          {/* Saved Items Tab */}
+          {activeTab === 'saved' && (
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <h1 className="text-2xl font-bold text-gray-900">Saved Items</h1>
+                <Link
+                  to="/store"
+                  className="flex items-center gap-2 px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition"
+                >
+                  <Plus className="h-4 w-4" /> Add More Items
+                </Link>
+              </div>
+
+              {savedItems.length === 0 ? (
+                <div className="bg-white rounded-xl border border-gray-100 p-12 text-center">
+                  <Heart className="h-12 w-12 mx-auto mb-4 text-gray-300" />
+                  <p className="text-gray-500">No saved items yet</p>
+                  <p className="text-sm text-gray-400 mt-2">Items you save from your cart will appear here</p>
+                  <Link
+                    to="/store"
+                    className="inline-flex items-center gap-2 mt-4 text-primary-600 hover:text-primary-700 font-medium"
+                  >
+                    <ShoppingCart className="h-4 w-4" /> Browse Products
+                  </Link>
+                </div>
+              ) : (
+                <>
+                  {/* Saved Items List */}
+                  <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
+                    <div className="divide-y divide-gray-100">
+                      {savedItems.map(item => (
+                        <div key={item.id} className="p-5 hover:bg-gray-50 transition">
+                          <div className="flex gap-4">
+                            {/* Product Image */}
+                            {item.image && (
+                              <div className="w-20 h-20 rounded-lg overflow-hidden bg-gray-100 flex-shrink-0">
+                                <img 
+                                  src={item.image} 
+                                  alt={item.name} 
+                                  className="w-full h-full object-cover"
+                                  onError={(e) => {
+                                    const target = e.target as HTMLImageElement
+                                    target.src = '/placeholder-product.png'
+                                  }}
+                                />
+                              </div>
+                            )}
+                            
+                            {/* Item Details */}
+                            <div className="flex-1 min-w-0">
+                              <div className="flex justify-between items-start gap-4">
+                                <div>
+                                  <h3 className="font-semibold text-gray-900">{item.name}</h3>
+                                  {item.variant && (
+                                    <p className="text-sm text-gray-500 mt-1">
+                                      {item.variant.shape} • {item.variant.size} • {item.variant.barrier}
+                                    </p>
+                                  )}
+                                  <div className="flex items-center gap-4 mt-2 text-sm">
+                                    <span className="text-gray-500">Qty: <span className="font-medium text-gray-900">{item.quantity.toLocaleString()}</span></span>
+                                    <span className="text-gray-500">Unit: <span className="font-medium text-gray-900">${item.unit_price.toFixed(2)}</span></span>
+                                  </div>
+                                </div>
+                                <div className="text-right">
+                                  <p className="text-lg font-bold text-primary-600">${item.total_price.toLocaleString()}</p>
+                                  <p className="text-xs text-gray-400 mt-1">
+                                    Saved {new Date(item.created_at).toLocaleDateString()}
+                                  </p>
+                                </div>
+                              </div>
+                              
+                              {/* Action Buttons */}
+                              <div className="flex items-center gap-3 mt-4">
+                                <button
+                                  onClick={() => {
+                                    addToCart({
+                                      productId: item.product_id,
+                                      name: item.name,
+                                      image: item.image,
+                                      variant: item.variant,
+                                      quantity: item.quantity,
+                                      unitPrice: item.unit_price,
+                                      totalPrice: item.total_price
+                                    })
+                                    setIsCartOpen(true)
+                                  }}
+                                  className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-white bg-primary-600 rounded-lg hover:bg-primary-700 transition"
+                                >
+                                  <ShoppingCart className="h-4 w-4" />
+                                  Add to Cart
+                                </button>
+                                <button
+                                  onClick={async () => {
+                                    await supabase.from('saved_cart_items').delete().eq('id', item.id)
+                                    fetchData()
+                                  }}
+                                  className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition"
+                                >
+                                  <Trash2 className="h-4 w-4" />
+                                  Remove
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Summary & Checkout */}
+                  <div className="bg-white rounded-xl border border-gray-100 p-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <div>
+                        <p className="text-sm text-gray-500">Total Saved Items</p>
+                        <p className="text-lg font-bold text-gray-900">{savedItems.length} items</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-sm text-gray-500">Estimated Total</p>
+                        <p className="text-2xl font-bold text-primary-600">
+                          ${savedItems.reduce((sum, item) => sum + item.total_price, 0).toLocaleString()}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex gap-3">
+                      <button
+                        onClick={() => {
+                          // Add all items to cart
+                          savedItems.forEach(item => {
+                            addToCart({
+                              productId: item.product_id,
+                              name: item.name,
+                              image: item.image,
+                              variant: item.variant,
+                              quantity: item.quantity,
+                              unitPrice: item.unit_price,
+                              totalPrice: item.total_price
+                            })
+                          })
+                          setIsCartOpen(true)
+                        }}
+                        className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition"
+                      >
+                        <ShoppingCart className="h-5 w-5" />
+                        Add All to Cart & Checkout
+                      </button>
+                      <button
+                        onClick={async () => {
+                          if (confirm('Are you sure you want to remove all saved items?')) {
+                            await supabase.from('saved_cart_items').delete().eq('user_id', user?.id)
+                            fetchData()
+                          }
+                        }}
+                        className="px-4 py-3 border border-red-200 text-red-600 rounded-xl hover:bg-red-50 transition"
+                      >
+                        <Trash2 className="h-5 w-5" />
+                      </button>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
           )}
 

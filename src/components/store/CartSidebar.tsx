@@ -1,10 +1,59 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { X, ShoppingBag, Trash2 } from 'lucide-react'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { X, ShoppingBag, Trash2, Heart, Loader2, CheckCircle } from 'lucide-react'
 import { useStore } from '../../store/StoreContext'
+import { useAuth } from '../../hooks/useAuth'
+import { supabase } from '../../lib/supabase'
 
 const CartSidebar: React.FC = () => {
-  const { cart, cartTotal, isCartOpen, setIsCartOpen, removeFromCart } = useStore()
+  const { cart, cartTotal, isCartOpen, setIsCartOpen, removeFromCart, clearCart } = useStore()
+  const { user } = useAuth()
+  const navigate = useNavigate()
+  const [saving, setSaving] = useState(false)
+  const [saved, setSaved] = useState(false)
+
+  // Save cart to customer center
+  const handleSaveForLater = async () => {
+    if (!user) {
+      // Redirect to login if not logged in
+      setIsCartOpen(false)
+      navigate('/login', { state: { from: '/dashboard', message: 'Please login to save items for later' } })
+      return
+    }
+    
+    setSaving(true)
+    try {
+      // Save each cart item to database
+      const itemsToSave = cart.map(item => ({
+        user_id: user.id,
+        product_id: item.productId,
+        name: item.name,
+        image: item.image,
+        variant: item.variant,
+        quantity: item.quantity,
+        unit_price: item.unitPrice,
+        total_price: item.totalPrice,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      }))
+      
+      const { error } = await supabase.from('saved_cart_items').insert(itemsToSave)
+      
+      if (error) throw error
+      
+      setSaved(true)
+      setTimeout(() => {
+        clearCart()
+        setIsCartOpen(false)
+        navigate('/dashboard')
+      }, 1500)
+    } catch (error) {
+      console.error('Error saving cart:', error)
+      alert('Failed to save. Please try again.')
+    } finally {
+      setSaving(false)
+    }
+  }
 
   if (!isCartOpen) return null
 
@@ -52,17 +101,44 @@ const CartSidebar: React.FC = () => {
               ))}
             </div>
 
-            <div className="border-t p-4 space-y-4">
+            <div className="border-t p-4 space-y-3">
               <div className="flex items-center justify-between text-lg">
                 <span>Total:</span>
                 <span className="font-bold text-primary-600">${cartTotal.toLocaleString()}</span>
               </div>
+              
+              {/* Save for Later Button */}
+              <button
+                onClick={handleSaveForLater}
+                disabled={saving || saved}
+                className="w-full py-3 bg-amber-500 hover:bg-amber-600 disabled:bg-amber-300 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2"
+              >
+                {saved ? (
+                  <><CheckCircle className="h-5 w-5" /> Saved to My Account!</>
+                ) : saving ? (
+                  <><Loader2 className="h-5 w-5 animate-spin" /> Saving...</>
+                ) : (
+                  <><Heart className="h-5 w-5" /> Save for Later</>
+                )}
+              </button>
+              
+              {!user && (
+                <p className="text-xs text-center text-neutral-500">
+                  Login required to save items
+                </p>
+              )}
+              
+              <div className="relative flex items-center justify-center">
+                <div className="border-t border-neutral-200 w-full"></div>
+                <span className="absolute bg-white px-3 text-xs text-neutral-400">or</span>
+              </div>
+              
               <Link
                 to="/store/checkout"
                 onClick={() => setIsCartOpen(false)}
                 className="block w-full py-3 bg-primary-600 hover:bg-primary-700 text-white text-center font-semibold rounded-xl transition"
               >
-                Proceed to Checkout
+                Proceed to Checkout Now
               </Link>
               <Link
                 to="/store"

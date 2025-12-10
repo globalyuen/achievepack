@@ -79,3 +79,22 @@ export type NewsletterSubscriber = {
   created_at: string
   updated_at: string
 }
+
+export type SavedCartItem = {
+  id: string
+  user_id: string
+  product_id: string
+  name: string
+  image: string
+  variant: {
+    shape: string
+    size: string
+    barrier: string
+    finish: string
+  }
+  quantity: number
+  unit_price: number
+  total_price: number
+  created_at: string
+  updated_at: string
+}
