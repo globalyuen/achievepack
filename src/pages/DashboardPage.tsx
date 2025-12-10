@@ -153,14 +153,14 @@ const DashboardPage: React.FC = () => {
           updated_at: '2024-12-08T11:00:00Z'
         }
       ] as ArtworkFile[])
-      // Demo saved items
+      // Demo saved items - use local images
       setSavedItems([
         {
           id: 'demo-saved-1',
           user_id: 'demo-user',
           product_id: 'stand-up-pouch',
           name: 'Stand Up Pouch - Eco Series',
-          image: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=400',
+          image: '/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp',
           variant: { shape: 'stand-up', size: '120x200mm', barrier: 'kraft', finish: 'matte' },
           quantity: 5000,
           unit_price: 0.42,
@@ -173,7 +173,7 @@ const DashboardPage: React.FC = () => {
           user_id: 'demo-user',
           product_id: 'flat-bottom-pouch',
           name: 'Flat Bottom Bag - Premium',
-          image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400',
+          image: '/imgs/pouch-shape/a_flat_bottom_pouch_isolated_7901973.webp',
           variant: { shape: 'flat-bottom', size: '150x250mm', barrier: 'clear', finish: 'glossy' },
           quantity: 3000,
           unit_price: 0.58,
@@ -186,7 +186,7 @@ const DashboardPage: React.FC = () => {
           user_id: 'demo-user',
           product_id: 'side-gusset-bag',
           name: 'Side Gusset Coffee Bag',
-          image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400',
+          image: '/imgs/pouch-shape/a_side_gusset_pouch_isolated_2545871.webp',
           variant: { shape: 'side-gusset', size: '100x300mm', barrier: 'foil', finish: 'matte' },
           quantity: 10000,
           unit_price: 0.35,
@@ -199,7 +199,7 @@ const DashboardPage: React.FC = () => {
           user_id: 'demo-user',
           product_id: 'spout-pouch',
           name: 'Spout Pouch - Juice Pack',
-          image: 'https://images.unsplash.com/photo-1534353473418-4cfa6c56fd38?w=400',
+          image: '/imgs/pouch-shape/a_spout_pouch_isolated_6857112.webp',
           variant: { shape: 'spout', size: '130x180mm', barrier: 'clear', finish: 'glossy' },
           quantity: 2000,
           unit_price: 0.85,
@@ -1136,14 +1136,12 @@ const DashboardPage: React.FC = () => {
                                   Add to Cart
                                 </button>
                                 <button
-                                  onClick={async () => {
-                                    if (isDemoUser(user?.email)) {
-                                      const demoItems = JSON.parse(localStorage.getItem('demo_saved_items') || '[]')
-                                      localStorage.setItem('demo_saved_items', JSON.stringify(demoItems.filter((i: any) => i.id !== item.id)))
-                                      setSavedItems(prev => prev.filter(i => i.id !== item.id))
-                                    } else {
-                                      await supabase.from('saved_cart_items').delete().eq('id', item.id)
-                                      fetchData()
+                                  onClick={() => {
+                                    // Remove item from state directly
+                                    setSavedItems(prev => prev.filter(i => i.id !== item.id))
+                                    // For non-demo users, also delete from database
+                                    if (!isDemoUser(user?.email)) {
+                                      supabase.from('saved_cart_items').delete().eq('id', item.id)
                                     }
                                   }}
                                   className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition"
