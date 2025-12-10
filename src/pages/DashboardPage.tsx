@@ -629,23 +629,125 @@ const DashboardPage: React.FC = () => {
               {/* Order Items */}
               <div>
                 <h3 className="font-semibold text-gray-900 mb-3">Order Items</h3>
-                <div className="bg-gray-50 rounded-xl divide-y divide-gray-200">
+                <div className="space-y-4">
                   {selectedOrder.items?.map((item: any, i: number) => (
-                    <div key={i} className="p-4 flex justify-between items-start">
-                      <div className="flex-1">
-                        <p className="font-medium text-gray-900">{item.name}</p>
-                        {item.variant && (
-                          <div className="text-sm text-gray-600 mt-1 space-y-0.5">
-                            {item.variant.size && <p>Size: {item.variant.size}</p>}
-                            {item.variant.shape && <p>Shape: {item.variant.shape}</p>}
-                            {item.variant.finish && <p>Finish: {item.variant.finish}</p>}
-                            {item.variant.barrier && <p>Barrier: {item.variant.barrier}</p>}
+                    <div key={i} className="bg-gray-50 rounded-xl p-4">
+                      <div className="flex gap-4">
+                        {/* Product Image */}
+                        {item.image && (
+                          <div className="w-20 h-20 rounded-lg overflow-hidden bg-white border border-gray-200 flex-shrink-0">
+                            <img 
+                              src={item.image} 
+                              alt={item.name} 
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement
+                                target.style.display = 'none'
+                              }}
+                            />
                           </div>
                         )}
-                        <p className="text-sm text-gray-500 mt-1">Quantity: {item.quantity}</p>
-                      </div>
-                      <div className="text-right">
-                        <p className="font-semibold text-gray-900">${item.totalPrice?.toLocaleString()}</p>
+                        
+                        {/* Product Details */}
+                        <div className="flex-1 min-w-0">
+                          <div className="flex justify-between items-start gap-4">
+                            <div>
+                              <h4 className="font-semibold text-gray-900">{item.name}</h4>
+                              
+                              {/* Variant Details */}
+                              {item.variant && (
+                                <div className="mt-2 grid grid-cols-2 gap-x-6 gap-y-1 text-sm">
+                                  {item.variant.size && (
+                                    <div className="flex">
+                                      <span className="text-gray-500 w-16">Size:</span>
+                                      <span className="text-gray-900 font-medium">{item.variant.size}</span>
+                                    </div>
+                                  )}
+                                  {item.variant.shape && (
+                                    <div className="flex">
+                                      <span className="text-gray-500 w-16">Shape:</span>
+                                      <span className="text-gray-900 font-medium">{item.variant.shape}</span>
+                                    </div>
+                                  )}
+                                  {item.variant.finish && (
+                                    <div className="flex">
+                                      <span className="text-gray-500 w-16">Finish:</span>
+                                      <span className="text-gray-900 font-medium">{item.variant.finish}</span>
+                                    </div>
+                                  )}
+                                  {item.variant.barrier && (
+                                    <div className="flex">
+                                      <span className="text-gray-500 w-16">Barrier:</span>
+                                      <span className="text-gray-900 font-medium">{item.variant.barrier}</span>
+                                    </div>
+                                  )}
+                                </div>
+                              )}
+                              
+                              {/* Additional Details (from older order format) */}
+                              {(item.size || item.material || item.printing) && (
+                                <div className="mt-2 grid grid-cols-2 gap-x-6 gap-y-1 text-sm">
+                                  {item.size && !item.variant?.size && (
+                                    <div className="flex">
+                                      <span className="text-gray-500 w-16">Size:</span>
+                                      <span className="text-gray-900 font-medium">{item.size}</span>
+                                    </div>
+                                  )}
+                                  {item.material && (
+                                    <div className="flex">
+                                      <span className="text-gray-500 w-16">Material:</span>
+                                      <span className="text-gray-900 font-medium">{item.material}</span>
+                                    </div>
+                                  )}
+                                  {item.printing && (
+                                    <div className="flex col-span-2">
+                                      <span className="text-gray-500 w-16">Printing:</span>
+                                      <span className="text-gray-900 font-medium">{item.printing}</span>
+                                    </div>
+                                  )}
+                                </div>
+                              )}
+                              
+                              {/* Features */}
+                              {item.features && item.features.length > 0 && (
+                                <div className="mt-2">
+                                  <span className="text-sm text-gray-500">Features: </span>
+                                  <span className="text-sm text-gray-900">{item.features.join(', ')}</span>
+                                </div>
+                              )}
+                              
+                              {/* Notes */}
+                              {item.notes && (
+                                <div className="mt-2 text-sm text-gray-600 italic">
+                                  {item.notes}
+                                </div>
+                              )}
+                            </div>
+                            
+                            {/* Pricing */}
+                            <div className="text-right flex-shrink-0">
+                              <p className="text-lg font-bold text-gray-900">
+                                ${(item.totalPrice || item.total)?.toLocaleString()}
+                              </p>
+                            </div>
+                          </div>
+                          
+                          {/* Quantity & Unit Price Row */}
+                          <div className="mt-3 pt-3 border-t border-gray-200 flex justify-between items-center text-sm">
+                            <div className="flex gap-4">
+                              <span>
+                                <span className="text-gray-500">Qty: </span>
+                                <span className="font-semibold text-gray-900">{item.quantity?.toLocaleString()}</span>
+                              </span>
+                              {(item.unitPrice || item.unit_price) && (
+                                <span>
+                                  <span className="text-gray-500">Unit Price: </span>
+                                  <span className="font-medium text-gray-900">${(item.unitPrice || item.unit_price)?.toFixed(4)}</span>
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   ))}
