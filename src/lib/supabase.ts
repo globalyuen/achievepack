@@ -56,12 +56,19 @@ export type Document = {
 export type ArtworkFile = {
   id: string
   user_id: string
-  order_id: string
+  order_id?: string
   name: string
   file_url: string
-  status: 'pending' | 'approved' | 'revision_needed'
-  feedback: string
+  file_type: string
+  file_size: number
+  status: 'pending_review' | 'in_review' | 'prepress' | 'proof_ready' | 'approved' | 'revision_needed'
+  proof_url?: string
+  admin_feedback?: string
+  customer_comment?: string
+  reviewed_by?: string
+  reviewed_at?: string
   created_at: string
+  updated_at: string
 }
 
 export type NewsletterSubscriber = {

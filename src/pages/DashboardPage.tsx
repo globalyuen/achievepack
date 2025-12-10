@@ -4,10 +4,11 @@ import {
   Package, FileText, Palette, Settings, LogOut, Home, Download, Search, Bell, 
   LayoutDashboard, ShoppingCart, FileCheck, Image, ChevronRight, TrendingUp, 
   TrendingDown, Users, DollarSign, MoreHorizontal, Plus, RefreshCw, Eye, X, 
-  MapPin, Phone, Mail as MailIcon, Truck, ExternalLink
+  MapPin, Phone, Mail as MailIcon, Truck, ExternalLink, Upload, CheckCircle, 
+  Clock, AlertCircle, FileImage, MessageSquare, Send
 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
-import { supabase, Order, Quote, Document } from '../lib/supabase'
+import { supabase, Order, Quote, Document, ArtworkFile } from '../lib/supabase'
 import { useTranslation } from 'react-i18next'
 import { isDemoUser, getDemoData } from '../data/demoCustomerData'
 
@@ -30,10 +31,18 @@ const DashboardPage: React.FC = () => {
   const [orders, setOrders] = useState<Order[]>([])
   const [quotes, setQuotes] = useState<Quote[]>([])
   const [documents, setDocuments] = useState<Document[]>([])
+  const [artworks, setArtworks] = useState<ArtworkFile[]>([])
   const [loading, setLoading] = useState(true)
   const [activeTab, setActiveTab] = useState<TabType>('dashboard')
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null)
+  
+  // Artwork upload states
+  const [uploading, setUploading] = useState(false)
+  const [uploadError, setUploadError] = useState('')
+  const [selectedArtwork, setSelectedArtwork] = useState<ArtworkFile | null>(null)
+  const [revisionComment, setRevisionComment] = useState('')
+  const [showRevisionModal, setShowRevisionModal] = useState(false)
 
   useEffect(() => {
     if (!authLoading && !user) {
@@ -54,19 +63,73 @@ const DashboardPage: React.FC = () => {
       setOrders(demoData.orders as Order[])
       setQuotes(demoData.quotes as Quote[])
       setDocuments(demoData.documents as Document[])
+      // Demo artwork data
+      setArtworks([
+        {
+          id: 'demo-art-1',
+          user_id: 'demo-user',
+          name: 'coffee_pouch_design_v1.ai',
+          file_url: '#',
+          file_type: 'application/illustrator',
+          file_size: 2500000,
+          status: 'approved',
+          proof_url: '/sample-proof.pdf',
+          admin_feedback: 'Design approved! Ready for production.',
+          created_at: '2024-12-01T10:00:00Z',
+          updated_at: '2024-12-03T15:30:00Z'
+        },
+        {
+          id: 'demo-art-2',
+          user_id: 'demo-user',
+          name: 'snack_bag_artwork.pdf',
+          file_url: '#',
+          file_type: 'application/pdf',
+          file_size: 1800000,
+          status: 'proof_ready',
+          proof_url: '/sample-proof-2.pdf',
+          admin_feedback: 'Prepress complete. Please review the proof.',
+          created_at: '2024-12-05T14:00:00Z',
+          updated_at: '2024-12-07T09:00:00Z'
+        },
+        {
+          id: 'demo-art-3',
+          user_id: 'demo-user',
+          name: 'eco_pouch_label.eps',
+          file_url: '#',
+          file_type: 'application/postscript',
+          file_size: 3200000,
+          status: 'revision_needed',
+          admin_feedback: 'Text too close to bleed edge. Please adjust margins by 3mm.',
+          created_at: '2024-12-08T11:00:00Z',
+          updated_at: '2024-12-09T16:00:00Z'
+        },
+        {
+          id: 'demo-art-4',
+          user_id: 'demo-user',
+          name: 'new_product_design.ai',
+          file_url: '#',
+          file_type: 'application/illustrator',
+          file_size: 4100000,
+          status: 'in_review',
+          created_at: '2024-12-09T08:00:00Z',
+          updated_at: '2024-12-09T08:00:00Z'
+        }
+      ] as ArtworkFile[])
       setLoading(false)
       return
     }
     
     // Regular user - fetch from database
-    const [ordersRes, quotesRes, docsRes] = await Promise.all([
+    const [ordersRes, quotesRes, docsRes, artworksRes] = await Promise.all([
       supabase.from('orders').select('*').eq('user_id', user?.id).order('created_at', { ascending: false }),
       supabase.from('quotes').select('*').eq('user_id', user?.id).order('created_at', { ascending: false }),
       supabase.from('documents').select('*').or(`user_id.eq.${user?.id},is_public.eq.true`).order('created_at', { ascending: false }),
+      supabase.from('artwork_files').select('*').eq('user_id', user?.id).order('created_at', { ascending: false }),
     ])
     setOrders(ordersRes.data || [])
     setQuotes(quotesRes.data || [])
     setDocuments(docsRes.data || [])
+    setArtworks(artworksRes.data || [])
     setLoading(false)
   }
 
@@ -77,6 +140,113 @@ const DashboardPage: React.FC = () => {
 
   const getUserName = () => {
     return user?.email?.split('@')[0] || 'User'
+  }
+
+  // Artwork upload handler
+  const handleArtworkUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files
+    if (!files || files.length === 0) return
+    
+    setUploading(true)
+    setUploadError('')
+    
+    try {
+      for (const file of Array.from(files) as File[]) {
+        // Validate file type
+        const validTypes = ['application/pdf', 'application/postscript', 'application/illustrator', 
+          'image/png', 'image/jpeg', 'image/tiff', 'application/zip']
+        const isValid = validTypes.some(t => file.type.includes(t.split('/')[1])) || 
+          file.name.match(/\.(ai|eps|pdf|png|jpg|jpeg|tiff|tif|zip|psd)$/i)
+        
+        if (!isValid) {
+          setUploadError(`Invalid file type: ${file.name}. Please upload AI, EPS, PDF, PNG, JPG, TIFF, PSD, or ZIP files.`)
+          continue
+        }
+        
+        // Upload to Supabase Storage
+        const fileName = `${user?.id}/${Date.now()}_${file.name}`
+        const { data: uploadData, error: uploadError } = await supabase.storage
+          .from('artworks')
+          .upload(fileName, file)
+        
+        if (uploadError) throw uploadError
+        
+        // Get public URL
+        const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(fileName)
+        
+        // Create artwork record
+        const { error: dbError } = await supabase.from('artwork_files').insert({
+          user_id: user?.id,
+          name: file.name,
+          file_url: urlData.publicUrl,
+          file_type: file.type || 'unknown',
+          file_size: file.size,
+          status: 'pending_review',
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        })
+        
+        if (dbError) throw dbError
+      }
+      
+      // Refresh artwork list
+      fetchData()
+    } catch (error: any) {
+      console.error('Upload error:', error)
+      setUploadError(error.message || 'Failed to upload artwork')
+    } finally {
+      setUploading(false)
+      // Reset input
+      e.target.value = ''
+    }
+  }
+
+  // Submit revision comment
+  const handleSubmitRevision = async () => {
+    if (!selectedArtwork || !revisionComment.trim()) return
+    
+    try {
+      await supabase.from('artwork_files')
+        .update({ 
+          customer_comment: revisionComment,
+          updated_at: new Date().toISOString()
+        })
+        .eq('id', selectedArtwork.id)
+      
+      setShowRevisionModal(false)
+      setRevisionComment('')
+      setSelectedArtwork(null)
+      fetchData()
+    } catch (error) {
+      console.error('Error submitting revision:', error)
+    }
+  }
+
+  // Get status display info
+  const getArtworkStatus = (status: string) => {
+    switch (status) {
+      case 'pending_review':
+        return { label: 'Pending Review', color: 'bg-yellow-100 text-yellow-800', icon: Clock }
+      case 'in_review':
+        return { label: 'In Review', color: 'bg-blue-100 text-blue-800', icon: Eye }
+      case 'prepress':
+        return { label: 'Prepress', color: 'bg-purple-100 text-purple-800', icon: Palette }
+      case 'proof_ready':
+        return { label: 'Proof Ready', color: 'bg-indigo-100 text-indigo-800', icon: FileCheck }
+      case 'approved':
+        return { label: 'Approved', color: 'bg-green-100 text-green-800', icon: CheckCircle }
+      case 'revision_needed':
+        return { label: 'Revision Needed', color: 'bg-red-100 text-red-800', icon: AlertCircle }
+      default:
+        return { label: status, color: 'bg-gray-100 text-gray-800', icon: Clock }
+    }
+  }
+
+  // Format file size
+  const formatFileSize = (bytes: number) => {
+    if (bytes < 1024) return bytes + ' B'
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB'
+    return (bytes / (1024 * 1024)).toFixed(1) + ' MB'
   }
 
   const totalSpent = orders.reduce((sum, o) => sum + (o.total_amount || 0), 0)
@@ -525,11 +695,219 @@ const DashboardPage: React.FC = () => {
           {/* Artwork Tab */}
           {activeTab === 'artwork' && (
             <div className="space-y-6">
-              <h1 className="text-2xl font-bold text-gray-900">Artwork Files</h1>
-              <div className="bg-white rounded-xl border border-gray-100 p-12 text-center">
-                <Image className="h-12 w-12 mx-auto mb-4 text-gray-300" />
-                <p className="text-gray-500">No artwork files yet</p>
-                <p className="text-sm text-gray-400 mt-2">Your design files will appear here once you place an order</p>
+              <div className="flex items-center justify-between">
+                <h1 className="text-2xl font-bold text-gray-900">Artwork Files</h1>
+                <label className="flex items-center gap-2 px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition cursor-pointer">
+                  <Upload className="h-4 w-4" />
+                  Upload Artwork
+                  <input
+                    type="file"
+                    multiple
+                    accept=".ai,.eps,.pdf,.png,.jpg,.jpeg,.tiff,.tif,.psd,.zip"
+                    onChange={handleArtworkUpload}
+                    className="hidden"
+                    disabled={uploading}
+                  />
+                </label>
+              </div>
+
+              {/* Upload Error */}
+              {uploadError && (
+                <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-center gap-3">
+                  <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0" />
+                  <p className="text-sm text-red-700">{uploadError}</p>
+                  <button onClick={() => setUploadError('')} className="ml-auto text-red-600 hover:text-red-800">
+                    <X className="h-4 w-4" />
+                  </button>
+                </div>
+              )}
+
+              {/* Uploading Indicator */}
+              {uploading && (
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 flex items-center gap-3">
+                  <RefreshCw className="h-5 w-5 text-blue-600 animate-spin" />
+                  <p className="text-sm text-blue-700">Uploading artwork files...</p>
+                </div>
+              )}
+
+              {/* Upload Guidelines */}
+              <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
+                <h3 className="font-semibold text-gray-900 mb-3">Upload Guidelines</h3>
+                <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-600">
+                  <div>
+                    <p className="font-medium text-gray-800 mb-1">Accepted Formats:</p>
+                    <p>AI, EPS, PDF, PNG, JPG, TIFF, PSD, ZIP</p>
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-800 mb-1">Requirements:</p>
+                    <p>300 DPI minimum, CMYK color mode, 3mm bleed</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Artwork List */}
+              <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
+                {artworks.length === 0 ? (
+                  <div className="p-12 text-center">
+                    <FileImage className="h-12 w-12 mx-auto mb-4 text-gray-300" />
+                    <p className="text-gray-500">No artwork files uploaded yet</p>
+                    <p className="text-sm text-gray-400 mt-2">Upload your design files to get started</p>
+                  </div>
+                ) : (
+                  <div className="divide-y divide-gray-100">
+                    {artworks.map(artwork => {
+                      const statusInfo = getArtworkStatus(artwork.status)
+                      const StatusIcon = statusInfo.icon
+                      return (
+                        <div key={artwork.id} className="p-5 hover:bg-gray-50 transition">
+                          <div className="flex items-start gap-4">
+                            {/* File Icon */}
+                            <div className="w-12 h-12 bg-purple-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                              <FileImage className="h-6 w-6 text-purple-600" />
+                            </div>
+                            
+                            {/* File Info */}
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-start justify-between gap-4">
+                                <div>
+                                  <h3 className="font-semibold text-gray-900 truncate">{artwork.name}</h3>
+                                  <div className="flex items-center gap-3 mt-1 text-sm text-gray-500">
+                                    <span>{formatFileSize(artwork.file_size)}</span>
+                                    <span>•</span>
+                                    <span>{new Date(artwork.created_at).toLocaleDateString()}</span>
+                                  </div>
+                                </div>
+                                
+                                {/* Status Badge */}
+                                <span className={`inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium rounded-full ${statusInfo.color}`}>
+                                  <StatusIcon className="h-3.5 w-3.5" />
+                                  {statusInfo.label}
+                                </span>
+                              </div>
+                              
+                              {/* Admin Feedback */}
+                              {artwork.admin_feedback && (
+                                <div className="mt-3 bg-gray-50 rounded-lg p-3">
+                                  <p className="text-xs font-medium text-gray-500 mb-1">Achieve Pack Team Feedback:</p>
+                                  <p className="text-sm text-gray-700">{artwork.admin_feedback}</p>
+                                </div>
+                              )}
+                              
+                              {/* Customer Comment */}
+                              {artwork.customer_comment && (
+                                <div className="mt-3 bg-blue-50 rounded-lg p-3">
+                                  <p className="text-xs font-medium text-blue-600 mb-1">Your Comment:</p>
+                                  <p className="text-sm text-blue-800">{artwork.customer_comment}</p>
+                                </div>
+                              )}
+                              
+                              {/* Action Buttons */}
+                              <div className="mt-4 flex flex-wrap items-center gap-3">
+                                {/* Download Original */}
+                                <a 
+                                  href={artwork.file_url} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition"
+                                >
+                                  <Download className="h-4 w-4" />
+                                  Original File
+                                </a>
+                                
+                                {/* Download Proof (if available) */}
+                                {artwork.proof_url && (artwork.status === 'proof_ready' || artwork.status === 'approved') && (
+                                  <a 
+                                    href={artwork.proof_url} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition"
+                                  >
+                                    <Download className="h-4 w-4" />
+                                    Download Proof
+                                  </a>
+                                )}
+                                
+                                {/* Approve Button (if proof ready) */}
+                                {artwork.status === 'proof_ready' && (
+                                  <button 
+                                    onClick={async () => {
+                                      await supabase.from('artwork_files')
+                                        .update({ status: 'approved', updated_at: new Date().toISOString() })
+                                        .eq('id', artwork.id)
+                                      fetchData()
+                                    }}
+                                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 transition"
+                                  >
+                                    <CheckCircle className="h-4 w-4" />
+                                    Approve
+                                  </button>
+                                )}
+                                
+                                {/* Request Revision / Upload Revised (if revision needed or proof ready) */}
+                                {(artwork.status === 'revision_needed' || artwork.status === 'proof_ready') && (
+                                  <>
+                                    <button 
+                                      onClick={() => {
+                                        setSelectedArtwork(artwork)
+                                        setShowRevisionModal(true)
+                                      }}
+                                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-orange-700 bg-orange-100 rounded-lg hover:bg-orange-200 transition"
+                                    >
+                                      <MessageSquare className="h-4 w-4" />
+                                      Leave Comment
+                                    </button>
+                                    
+                                    <label className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-purple-700 bg-purple-100 rounded-lg hover:bg-purple-200 transition cursor-pointer">
+                                      <Upload className="h-4 w-4" />
+                                      Upload Revised
+                                      <input
+                                        type="file"
+                                        accept=".ai,.eps,.pdf,.png,.jpg,.jpeg,.tiff,.tif,.psd,.zip"
+                                        onChange={handleArtworkUpload}
+                                        className="hidden"
+                                      />
+                                    </label>
+                                  </>
+                                )}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                )}
+              </div>
+
+              {/* Workflow Status Legend */}
+              <div className="bg-white rounded-xl border border-gray-100 p-5">
+                <h3 className="font-semibold text-gray-900 mb-4">Artwork Review Workflow</h3>
+                <div className="flex flex-wrap gap-4">
+                  <div className="flex items-center gap-2">
+                    <span className="w-3 h-3 rounded-full bg-yellow-400"></span>
+                    <span className="text-sm text-gray-600">Pending Review</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-3 h-3 rounded-full bg-blue-400"></span>
+                    <span className="text-sm text-gray-600">In Review</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-3 h-3 rounded-full bg-purple-400"></span>
+                    <span className="text-sm text-gray-600">Prepress</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-3 h-3 rounded-full bg-indigo-400"></span>
+                    <span className="text-sm text-gray-600">Proof Ready</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-3 h-3 rounded-full bg-green-400"></span>
+                    <span className="text-sm text-gray-600">Approved</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-3 h-3 rounded-full bg-red-400"></span>
+                    <span className="text-sm text-gray-600">Revision Needed</span>
+                  </div>
+                </div>
               </div>
             </div>
           )}
@@ -786,6 +1164,59 @@ const DashboardPage: React.FC = () => {
                   <p className="text-lg font-semibold text-gray-900">Total Amount</p>
                   <p className="text-2xl font-bold text-primary-600">${selectedOrder.total_amount?.toLocaleString()}</p>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Revision Comment Modal */}
+      {showRevisionModal && selectedArtwork && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={() => setShowRevisionModal(false)}>
+          <div className="bg-white rounded-xl max-w-lg w-full" onClick={(e) => e.stopPropagation()}>
+            <div className="p-6 border-b border-gray-100 flex items-center justify-between">
+              <div>
+                <h2 className="text-xl font-bold text-gray-900">Leave a Comment</h2>
+                <p className="text-sm text-gray-500 mt-1">{selectedArtwork.name}</p>
+              </div>
+              <button onClick={() => setShowRevisionModal(false)} className="text-gray-400 hover:text-gray-600 transition">
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+            
+            <div className="p-6 space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  What changes do you need?
+                </label>
+                <textarea
+                  value={revisionComment}
+                  onChange={(e) => setRevisionComment(e.target.value)}
+                  rows={4}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-none"
+                  placeholder="Describe the changes you'd like to see..."
+                />
+              </div>
+              
+              <div className="bg-gray-50 rounded-lg p-3 text-sm text-gray-600">
+                <p><strong>Tip:</strong> Be specific about colors, placement, text changes, or any other modifications needed.</p>
+              </div>
+              
+              <div className="flex gap-3">
+                <button
+                  onClick={handleSubmitRevision}
+                  disabled={!revisionComment.trim()}
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-primary-600 hover:bg-primary-700 disabled:bg-gray-300 text-white font-medium rounded-lg transition"
+                >
+                  <Send className="h-4 w-4" />
+                  Submit Comment
+                </button>
+                <button
+                  onClick={() => setShowRevisionModal(false)}
+                  className="px-4 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition"
+                >
+                  Cancel
+                </button>
               </div>
             </div>
           </div>
