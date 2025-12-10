@@ -285,6 +285,60 @@
             "title": "Mur d'amour",
             "description": "Nous sommes aimés par les entrepreneurs, les créateurs et les marques durables. Voici pourquoi vous aussi vous allez nous aimer !",
             "trustedBy": "Fait confiance par les grandes marques"
+        },
+        "customers": {
+            "michelle-correa": {
+                "quote": "L'emballage personnalisé d'Eco Pouch a répondu et dépassé nos attentes, avec un produit parfaitement adapté. Forte recommandation pour quiconque recherche des solutions d'emballage durable de qualité.",
+                "shortQuote": "L'emballage personnalisé a dépassé nos attentes !"
+            },
+            "nicole-sarduy": {
+                "quote": "Travailler avec Eco Pouch Packaging a été la meilleure expérience de production. La communication était exceptionnelle, la qualité a dépassé les attentes et les prix étaient imbattables.",
+                "shortQuote": "Meilleure expérience de production jamais !"
+            },
+            "jemma-defore": {
+                "quote": "Eco Pouch est une excellente entreprise avec une communication excellente et des sachets de grande qualité. Ils ont rendu tout le processus fluide et professionnel.",
+                "shortQuote": "Excellente entreprise avec une communication parfaite !"
+            },
+            "ruby-mayer": {
+                "quote": "L'emballage est magnifique au toucher et à la vue, il correspond presque parfaitement à mon design. C'est ce que les clients complimentent le plus sur nos produits.",
+                "shortQuote": "L'emballage est ce que les clients adorent le plus !"
+            },
+            "richard-tango-lowy": {
+                "quote": "Ces sachets entièrement compostables se décomposent en environ un an et demi. Merci à l'équipe Eco Pouch pour ce travail fantastique sur notre emballage durable !",
+                "shortQuote": "Travail fantastique sur les sachets compostables !"
+            },
+            "holly-baer": {
+                "quote": "Reconnaissante de trouver un emballage compostable de qualité avec de faibles MOQ. Communication au top, représentant serviable, mises à jour proactives et sachets de qualité excellente à des prix raisonnables.",
+                "shortQuote": "Emballage compostable de qualité avec faible MOQ !"
+            },
+            "arielle": {
+                "quote": "Très impressionnée par le service, les sachets compostables de haute qualité pour les suppléments pour chiens, et le contact facile. Recommande vivement pour les entreprises durables.",
+                "shortQuote": "Recommande vivement pour les entreprises durables !"
+            },
+            "leo-vieira": {
+                "quote": "Eco Pouch a respecté un délai serré après avoir perdu notre fournisseur précédent. Communication professionnelle et rapide. Recommande fortement l'équipe pour un emballage durable de qualité.",
+                "shortQuote": "Délai serré respecté avec un service professionnel !"
+            },
+            "remi": {
+                "quote": "Eco Pouch est la meilleure entreprise d'emballage. Nous avons plusieurs années de collaboration et une qualité d'emballage toujours satisfaisante.",
+                "shortQuote": "Meilleure entreprise d'emballage, années de collaboration !"
+            },
+            "david": {
+                "quote": "Pouch.eco et Ryan ont aidé à respecter un délai de lancement très serré et à naviguer les problèmes de chaîne d'approvisionnement, assurant une livraison à temps.",
+                "shortQuote": "A aidé à respecter un délai de lancement serré !"
+            },
+            "paul": {
+                "quote": "Ryan a aidé pendant des mois à répondre aux questions d'emballage pour startup. Très satisfait de l'emballage biodégradable de haute qualité et du service client A+.",
+                "shortQuote": "Service client A+ et emballage de qualité !"
+            },
+            "steph": {
+                "quote": "Excellente équipe du début à la fin. Ryan a aidé à résoudre une erreur de prix et était désireux d'aider une petite entreprise à trouver la solution parfaite malgré les différences de fuseau horaire.",
+                "shortQuote": "Excellente équipe, prête à aider les petites entreprises !"
+            },
+            "cheryl": {
+                "quote": "Excellents sachets avec une impression géniale. Qualité impeccable, communication remarquable et performance de livraison supérieure à la moyenne de Ryan et Pouch.eco.",
+                "shortQuote": "Qualité impeccable et impression géniale !"
+            }
         }
     },
     "team": {

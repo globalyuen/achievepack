@@ -285,6 +285,60 @@
             "title": "Muro de amor",
             "description": "Somos amados por emprendedores, creadores y marcas sostenibles. ¡Aquí está por qué tú también lo harás!",
             "trustedBy": "Confianza de marcas líderes"
+        },
+        "customers": {
+            "michelle-correa": {
+                "quote": "El embalaje personalizado de Eco Pouch cumplió y superó las expectativas, con el producto encajando perfectamente. Recomendación fuerte para cualquiera que busque soluciones de embalaje sostenible de calidad.",
+                "shortQuote": "¡El embalaje personalizado superó las expectativas!"
+            },
+            "nicole-sarduy": {
+                "quote": "Trabajar con Eco Pouch Packaging ha sido la mejor experiencia de producción. La comunicación fue excepcional, la calidad superó las expectativas y los precios eran imbatibles.",
+                "shortQuote": "¡La mejor experiencia de producción!"
+            },
+            "jemma-defore": {
+                "quote": "Eco Pouch es una gran empresa con excelente comunicación y bolsas de gran calidad. Hicieron que todo el proceso fuera fluido y profesional.",
+                "shortQuote": "¡Gran empresa con excelente comunicación!"
+            },
+            "ruby-mayer": {
+                "quote": "El embalaje se ve y se siente maravilloso, coincide casi perfectamente con mi diseño. Es lo principal que los clientes elogian de nuestros productos.",
+                "shortQuote": "¡El embalaje es lo que más elogian los clientes!"
+            },
+            "richard-tango-lowy": {
+                "quote": "Estas bolsas totalmente compostables se descomponen en aproximadamente un año y medio. ¡Gracias al equipo de Eco Pouch por el trabajo fantástico en nuestro embalaje sostenible!",
+                "shortQuote": "¡Trabajo fantástico en bolsas compostables!"
+            },
+            "holly-baer": {
+                "quote": "Agradecida de encontrar embalaje compostable de calidad con bajos MOQ. Comunicación de primera, representante servicial, actualizaciones proactivas y bolsas de excelente calidad a precios razonables.",
+                "shortQuote": "¡Embalaje compostable de calidad con bajo MOQ!"
+            },
+            "arielle": {
+                "quote": "Muy impresionada con el servicio, bolsas compostables de alta calidad para suplementos para perros y contacto fácil. Recomienda altamente para negocios sostenibles.",
+                "shortQuote": "¡Altamente recomendado para negocios sostenibles!"
+            },
+            "leo-vieira": {
+                "quote": "Eco Pouch cumplió con un plazo ajustado después de que perdimos a nuestro proveedor anterior. Comunicación profesional y rápida. Recomiendo altamente al equipo para embalaje sostenible de calidad.",
+                "shortQuote": "¡Plazo ajustado cumplido con servicio profesional!"
+            },
+            "remi": {
+                "quote": "Eco Pouch es la mejor empresa de embalaje. Hemos tenido múltiples años de colaboración y calidad de embalaje consistentemente satisfactoria.",
+                "shortQuote": "¡Mejor empresa de embalaje, años de colaboración!"
+            },
+            "david": {
+                "quote": "Pouch.eco y Ryan ayudaron a cumplir con un plazo de lanzamiento muy ajustado y a navegar problemas de cadena de suministro, asegurando la entrega a tiempo.",
+                "shortQuote": "¡Ayudó a cumplir con el plazo de lanzamiento!"
+            },
+            "paul": {
+                "quote": "Ryan ayudó durante meses respondiendo preguntas de embalaje para startups. Muy satisfecho con el embalaje biodegradable de alta calidad y el servicio al cliente A+.",
+                "shortQuote": "¡Servicio al cliente A+ y embalaje de calidad!"
+            },
+            "steph": {
+                "quote": "Gran equipo de principio a fin. Ryan ayudó a resolver un error de precio y estaba ansioso por ayudar a una pequeña empresa a encontrar la solución perfecta a pesar de las diferencias de zona horaria.",
+                "shortQuote": "¡Gran equipo, ansioso por ayudar a pequeñas empresas!"
+            },
+            "cheryl": {
+                "quote": "Excelentes bolsas con impresión increíble. Calidad impecable, comunicación notable y rendimiento de entrega superior al promedio de Ryan y Pouch.eco.",
+                "shortQuote": "¡Calidad impecable e impresión increíble!"
+            }
         }
     },
     "team": {

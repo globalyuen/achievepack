@@ -285,6 +285,60 @@
             "title": "Wall of Love",
             "description": "We're loved by entrepreneurs, creators, and sustainable brands. Here's why you will too!",
             "trustedBy": "Trusted by Leading Brands"
+        },
+        "customers": {
+            "michelle-correa": {
+                "quote": "Eco Pouch's custom packaging met and exceeded expectations, with product fitting perfectly. Strong recommendation for anyone looking for quality sustainable packaging solutions.",
+                "shortQuote": "Custom packaging met and exceeded expectations!"
+            },
+            "nicole-sarduy": {
+                "quote": "Working with Eco Pouch Packaging has been the best production experience. The communication was outstanding, quality exceeded expectations, and pricing was unbeatable.",
+                "shortQuote": "Best production experience ever!"
+            },
+            "jemma-defore": {
+                "quote": "Eco Pouch is a great company with excellent communication and great-quality bags. They made the entire process smooth and professional.",
+                "shortQuote": "Great company with excellent communication!"
+            },
+            "ruby-mayer": {
+                "quote": "The packaging looks and feels wonderful, matches my design almost perfectly. It's the main thing customers compliment about our products.",
+                "shortQuote": "Packaging is the main thing customers compliment!"
+            },
+            "richard-tango-lowy": {
+                "quote": "These fully compostable pouches decompose in about a year and a half. Thank you to the Eco Pouch team for fantastic work on our sustainable packaging!",
+                "shortQuote": "Fantastic work on compostable pouches!"
+            },
+            "holly-baer": {
+                "quote": "Grateful to find quality compostable packaging with low MOQs. Top communication, helpful rep, proactive updates, and excellent-quality pouches at reasonable prices.",
+                "shortQuote": "Quality compostable packaging with low MOQs!"
+            },
+            "arielle": {
+                "quote": "Very impressed with service, high-quality compostable pouches for dog supplements, and easy contact. Highly recommends for sustainable businesses.",
+                "shortQuote": "Highly recommend for sustainable businesses!"
+            },
+            "leo-vieira": {
+                "quote": "Eco Pouch met a tight deadline after we lost our prior supplier. Professional, fast communication. Highly recommend the team for quality, sustainable packaging.",
+                "shortQuote": "Met tight deadline with professional service!"
+            },
+            "remi": {
+                "quote": "Eco Pouch is the best packaging company. We've had multiple years of collaboration and consistently satisfying packaging quality.",
+                "shortQuote": "Best packaging company, years of collaboration!"
+            },
+            "david": {
+                "quote": "Pouch.eco and Ryan helped meet a very tight launch deadline and navigate supply chain issues, ensuring on-time delivery.",
+                "shortQuote": "Helped meet tight launch deadline!"
+            },
+            "paul": {
+                "quote": "Ryan helped over months answering startup packaging questions. Very pleased with the high-quality biodegradable packaging and A+ customer service.",
+                "shortQuote": "A+ customer service and quality packaging!"
+            },
+            "steph": {
+                "quote": "Great team from start to finish. Ryan helped resolve a pricing mistake and was eager to help a small business find the perfect solution despite time zone differences.",
+                "shortQuote": "Great team, eager to help small businesses!"
+            },
+            "cheryl": {
+                "quote": "Great pouches with awesome printing. Impeccable quality, remarkable communication, and above-average delivery performance from Ryan and Pouch.eco.",
+                "shortQuote": "Impeccable quality and awesome printing!"
+            }
         }
     },
     "team": {

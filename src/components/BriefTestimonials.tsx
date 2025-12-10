@@ -3,8 +3,16 @@ import { X, Quote, ExternalLink } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { TESTIMONIALS, type Testimonial } from '../data/testimonialsData'
 
+// Helper function to get translated testimonial text
+function getTestimonialText(t: (key: string) => string, id: string, field: 'quote' | 'shortQuote', fallback: string): string {
+  const key = `testimonials.customers.${id}.${field}`
+  const translated = t(key)
+  // If translation key is returned (not found), use fallback
+  return translated === key ? fallback : translated
+}
+
 // 3D Tilt Card Component
-function TiltCard({ testimonial, onClick, onHover }: { testimonial: Testimonial; onClick: () => void; onHover: (t: Testimonial | null) => void }) {
+function TiltCard({ testimonial, onClick, onHover, t }: { testimonial: Testimonial; onClick: () => void; onHover: (t: Testimonial | null) => void; t: (key: string) => string }) {
   const cardRef = useRef<HTMLDivElement>(null)
   const [transform, setTransform] = useState('')
   const [glarePos, setGlarePos] = useState({ x: 50, y: 50 })
@@ -88,7 +96,7 @@ function TiltCard({ testimonial, onClick, onHover }: { testimonial: Testimonial;
         
         {/* Short quote */}
         <p className="text-xs md:text-sm text-neutral-600 mt-1 line-clamp-2">
-          "{testimonial.shortQuote}"
+          "{getTestimonialText(t, testimonial.id, 'shortQuote', testimonial.shortQuote)}"
         </p>
       </div>
     </div>
@@ -130,6 +138,7 @@ export default function BriefTestimonials() {
               testimonial={testimonial}
               onClick={() => setActiveTestimonial(testimonial)}
               onHover={handleCardHover}
+              t={t}
             />
           ))}
 
@@ -148,6 +157,7 @@ export default function BriefTestimonials() {
               testimonial={testimonial}
               onClick={() => setActiveTestimonial(testimonial)}
               onHover={handleCardHover}
+              t={t}
             />
           ))}
 
@@ -157,6 +167,7 @@ export default function BriefTestimonials() {
               testimonial={testimonial}
               onClick={() => setActiveTestimonial(testimonial)}
               onHover={handleCardHover}
+              t={t}
             />
           ))}
         </div>
@@ -204,7 +215,7 @@ export default function BriefTestimonials() {
 
                 {/* Testimonial content */}
                 <p className="text-neutral-800 text-lg leading-relaxed mb-6">
-                  "{activeTestimonial.quote}"
+                  "{getTestimonialText(t, activeTestimonial.id, 'quote', activeTestimonial.quote)}"
                 </p>
 
                 {/* Author info */}

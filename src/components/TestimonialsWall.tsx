@@ -3,6 +3,14 @@ import { useTranslation } from 'react-i18next'
 import { ExternalLink, Star, Quote, X } from 'lucide-react'
 import { TESTIMONIALS, type Testimonial } from '../data/testimonialsData'
 
+// Helper function to get translated testimonial text
+function getTestimonialText(t: (key: string) => string, id: string, field: 'quote' | 'shortQuote', fallback: string): string {
+  const key = `testimonials.customers.${id}.${field}`
+  const translated = t(key)
+  // If translation key is returned (not found), use fallback
+  return translated === key ? fallback : translated
+}
+
 export default function TestimonialsWall() {
   const { t } = useTranslation()
   const [activeTestimonial, setActiveTestimonial] = useState<Testimonial | null>(null)
@@ -94,7 +102,7 @@ export default function TestimonialsWall() {
 
               {/* Quote */}
               <p className="text-neutral-800 text-sm leading-relaxed mb-3">
-                {testimonial.quote}
+                {getTestimonialText(t, testimonial.id, 'quote', testimonial.quote)}
               </p>
 
               {/* Rating stars */}
@@ -165,7 +173,7 @@ export default function TestimonialsWall() {
 
               {/* Quote */}
               <p className="text-neutral-800 text-sm leading-relaxed mb-3">
-                {testimonial.quote}
+                {getTestimonialText(t, testimonial.id, 'quote', testimonial.quote)}
               </p>
 
               {/* Rating stars */}
@@ -228,7 +236,7 @@ export default function TestimonialsWall() {
 
                 {/* Testimonial content */}
                 <p className="text-neutral-800 text-lg leading-relaxed mb-6">
-                  "{activeTestimonial.quote}"
+                  "{getTestimonialText(t, activeTestimonial.id, 'quote', activeTestimonial.quote)}"
                 </p>
 
                 {/* Author info */}
