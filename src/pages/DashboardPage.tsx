@@ -77,7 +77,7 @@ const DashboardPage: React.FC = () => {
           file_size: 2500000,
           status: 'approved',
           proof_url: '/sample-proof.pdf',
-          admin_feedback: 'Design approved! Ready for production.',
+          admin_feedback: 'Design approved! Ready for production. Colors match Pantone specifications perfectly.',
           created_at: '2024-12-01T10:00:00Z',
           updated_at: '2024-12-03T15:30:00Z'
         },
@@ -90,7 +90,7 @@ const DashboardPage: React.FC = () => {
           file_size: 1800000,
           status: 'proof_ready',
           proof_url: '/sample-proof-2.pdf',
-          admin_feedback: 'Prepress complete. Please review the proof.',
+          admin_feedback: 'Prepress complete. Please review the proof and confirm colors before production.',
           created_at: '2024-12-05T14:00:00Z',
           updated_at: '2024-12-07T09:00:00Z'
         },
@@ -102,7 +102,8 @@ const DashboardPage: React.FC = () => {
           file_type: 'application/postscript',
           file_size: 3200000,
           status: 'revision_needed',
-          admin_feedback: 'Text too close to bleed edge. Please adjust margins by 3mm.',
+          admin_feedback: 'Text too close to bleed edge. Please adjust margins by 3mm. Logo resolution is low - need 300dpi minimum.',
+          customer_comment: 'Will update the margins and provide high-res logo by tomorrow.',
           created_at: '2024-12-08T11:00:00Z',
           updated_at: '2024-12-09T16:00:00Z'
         },
@@ -114,8 +115,32 @@ const DashboardPage: React.FC = () => {
           file_type: 'application/illustrator',
           file_size: 4100000,
           status: 'in_review',
+          admin_feedback: 'Currently reviewing your artwork. Expected completion: 1-2 business days.',
           created_at: '2024-12-09T08:00:00Z',
           updated_at: '2024-12-09T08:00:00Z'
+        },
+        {
+          id: 'demo-art-5',
+          user_id: 'demo-user',
+          name: 'holiday_edition_pouch.pdf',
+          file_url: '#',
+          file_type: 'application/pdf',
+          file_size: 5600000,
+          status: 'pending_review',
+          created_at: '2024-12-10T09:30:00Z',
+          updated_at: '2024-12-10T09:30:00Z'
+        },
+        {
+          id: 'demo-art-6',
+          user_id: 'demo-user',
+          name: 'organic_tea_packaging.ai',
+          file_url: '#',
+          file_type: 'application/illustrator',
+          file_size: 3800000,
+          status: 'prepress',
+          admin_feedback: 'Artwork in prepress. Converting to CMYK and preparing print-ready files.',
+          created_at: '2024-12-06T16:00:00Z',
+          updated_at: '2024-12-08T11:00:00Z'
         }
       ] as ArtworkFile[])
       // Demo saved items
@@ -125,8 +150,8 @@ const DashboardPage: React.FC = () => {
           user_id: 'demo-user',
           product_id: 'stand-up-pouch',
           name: 'Stand Up Pouch - Eco Series',
-          image: '/products/stand-up-pouch.jpg',
-          variant: { shape: 'stand-up', size: '120x200', barrier: 'kraft', finish: 'matte' },
+          image: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=400',
+          variant: { shape: 'stand-up', size: '120x200mm', barrier: 'kraft', finish: 'matte' },
           quantity: 5000,
           unit_price: 0.42,
           total_price: 2100,
@@ -138,13 +163,39 @@ const DashboardPage: React.FC = () => {
           user_id: 'demo-user',
           product_id: 'flat-bottom-pouch',
           name: 'Flat Bottom Bag - Premium',
-          image: '/products/flat-bottom.jpg',
-          variant: { shape: 'flat-bottom', size: '150x250', barrier: 'clear', finish: 'glossy' },
+          image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400',
+          variant: { shape: 'flat-bottom', size: '150x250mm', barrier: 'clear', finish: 'glossy' },
           quantity: 3000,
           unit_price: 0.58,
           total_price: 1740,
           created_at: '2024-12-09T14:30:00Z',
           updated_at: '2024-12-09T14:30:00Z'
+        },
+        {
+          id: 'demo-saved-3',
+          user_id: 'demo-user',
+          product_id: 'side-gusset-bag',
+          name: 'Side Gusset Coffee Bag',
+          image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400',
+          variant: { shape: 'side-gusset', size: '100x300mm', barrier: 'foil', finish: 'matte' },
+          quantity: 10000,
+          unit_price: 0.35,
+          total_price: 3500,
+          created_at: '2024-12-07T09:15:00Z',
+          updated_at: '2024-12-07T09:15:00Z'
+        },
+        {
+          id: 'demo-saved-4',
+          user_id: 'demo-user',
+          product_id: 'spout-pouch',
+          name: 'Spout Pouch - Juice Pack',
+          image: 'https://images.unsplash.com/photo-1534353473418-4cfa6c56fd38?w=400',
+          variant: { shape: 'spout', size: '130x180mm', barrier: 'clear', finish: 'glossy' },
+          quantity: 2000,
+          unit_price: 0.85,
+          total_price: 1700,
+          created_at: '2024-12-05T16:45:00Z',
+          updated_at: '2024-12-05T16:45:00Z'
         }
       ] as SavedCartItem[])
       setLoading(false)

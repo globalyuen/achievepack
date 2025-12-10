@@ -51,6 +51,9 @@ export const demoOrders = [
     total_amount: 1890.00,
     customer_email: DEMO_USER_EMAIL,
     customer_name: 'Ryan Chen',
+    tracking_number: 'DHL8294756123',
+    tracking_url: 'https://www.dhl.com/track?id=DHL8294756123',
+    carrier: 'DHL Express',
     created_at: '2024-11-15T09:15:00Z',
     updated_at: '2024-11-25T16:45:00Z',
     items: [
@@ -83,6 +86,9 @@ export const demoOrders = [
     total_amount: 3250.00,
     customer_email: DEMO_USER_EMAIL,
     customer_name: 'Ryan Chen',
+    tracking_number: 'FEDEX4829175630',
+    tracking_url: 'https://www.fedex.com/track?id=FEDEX4829175630',
+    carrier: 'FedEx International',
     created_at: '2024-10-20T11:00:00Z',
     updated_at: '2024-11-10T10:30:00Z',
     items: [
