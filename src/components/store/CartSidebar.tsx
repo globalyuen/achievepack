@@ -23,23 +23,45 @@ const CartSidebar: React.FC = () => {
     
     setSaving(true)
     try {
-      // Save each cart item to database
-      const itemsToSave = cart.map(item => ({
-        user_id: user.id,
-        product_id: item.productId,
-        name: item.name,
-        image: item.image,
-        variant: item.variant,
-        quantity: item.quantity,
-        unit_price: item.unitPrice,
-        total_price: item.totalPrice,
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString()
-      }))
+      // Check if this is demo user (ryan@pouch.eco)
+      const isDemoUser = user.email === 'ryan@pouch.eco'
       
-      const { error } = await supabase.from('saved_cart_items').insert(itemsToSave)
-      
-      if (error) throw error
+      if (isDemoUser) {
+        // For demo user, save to localStorage instead of database
+        const existingItems = JSON.parse(localStorage.getItem('demo_saved_items') || '[]')
+        const newItems = cart.map(item => ({
+          id: `saved-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+          user_id: user.id,
+          product_id: item.productId,
+          name: item.name,
+          image: item.image,
+          variant: item.variant,
+          quantity: item.quantity,
+          unit_price: item.unitPrice,
+          total_price: item.totalPrice,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        }))
+        localStorage.setItem('demo_saved_items', JSON.stringify([...existingItems, ...newItems]))
+      } else {
+        // Save each cart item to database
+        const itemsToSave = cart.map(item => ({
+          user_id: user.id,
+          product_id: item.productId,
+          name: item.name,
+          image: item.image,
+          variant: item.variant,
+          quantity: item.quantity,
+          unit_price: item.unitPrice,
+          total_price: item.totalPrice,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        }))
+        
+        const { error } = await supabase.from('saved_cart_items').insert(itemsToSave)
+        
+        if (error) throw error
+      }
       
       setSaved(true)
       setTimeout(() => {
