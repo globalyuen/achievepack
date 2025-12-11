@@ -503,6 +503,119 @@ const ProductPage: React.FC = () => {
                 </div>
               </div>
             )}
+            
+            {/* Testimonial Section */}
+            <div className="bg-white rounded-lg border border-neutral-200 p-6 shadow-sm">
+              <h3 className="text-lg font-semibold text-neutral-900 mb-4 flex items-center gap-2">
+                <span className="text-2xl">💬</span>
+                Customer Testimonials
+              </h3>
+              <div className="space-y-4">
+                {/* Testimonial 1 - Placeholder */}
+                <div className="bg-neutral-50 rounded-lg p-4 border-l-4 border-primary-500">
+                  <div className="flex items-start gap-3 mb-2">
+                    <div className="w-12 h-12 rounded-full bg-neutral-200 flex-shrink-0 flex items-center justify-center text-neutral-500 font-semibold">
+                      JD
+                    </div>
+                    <div className="flex-1">
+                      <div className="font-semibold text-neutral-900">John Doe</div>
+                      <div className="text-xs text-neutral-500">Coffee Roaster, Verified Buyer</div>
+                    </div>
+                    <div className="flex text-yellow-400">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-current" />
+                      ))}
+                    </div>
+                  </div>
+                  <p className="text-sm text-neutral-700 italic">
+                    "Outstanding quality and fast delivery! The eco-friendly materials are perfect for our brand. Highly recommended!"
+                  </p>
+                  <div className="text-xs text-neutral-400 mt-2">2 weeks ago</div>
+                </div>
+
+                {/* Testimonial 2 - Placeholder */}
+                <div className="bg-neutral-50 rounded-lg p-4 border-l-4 border-primary-500">
+                  <div className="flex items-start gap-3 mb-2">
+                    <div className="w-12 h-12 rounded-full bg-neutral-200 flex-shrink-0 flex items-center justify-center text-neutral-500 font-semibold">
+                      SM
+                    </div>
+                    <div className="flex-1">
+                      <div className="font-semibold text-neutral-900">Sarah Miller</div>
+                      <div className="text-xs text-neutral-500">Tea Shop Owner, Verified Buyer</div>
+                    </div>
+                    <div className="flex text-yellow-400">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-current" />
+                      ))}
+                    </div>
+                  </div>
+                  <p className="text-sm text-neutral-700 italic">
+                    "The packaging looks amazing! Our customers love the sustainable materials and the quality is top-notch."
+                  </p>
+                  <div className="text-xs text-neutral-400 mt-2">1 month ago</div>
+                </div>
+
+                {/* Testimonial 3 - Placeholder */}
+                <div className="bg-neutral-50 rounded-lg p-4 border-l-4 border-primary-500">
+                  <div className="flex items-start gap-3 mb-2">
+                    <div className="w-12 h-12 rounded-full bg-neutral-200 flex-shrink-0 flex items-center justify-center text-neutral-500 font-semibold">
+                      RW
+                    </div>
+                    <div className="flex-1">
+                      <div className="font-semibold text-neutral-900">Robert Wilson</div>
+                      <div className="text-xs text-neutral-500">Snack Brand, Verified Buyer</div>
+                    </div>
+                    <div className="flex text-yellow-400">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-current" />
+                      ))}
+                    </div>
+                  </div>
+                  <p className="text-sm text-neutral-700 italic">
+                    "Excellent service and product quality. The custom printing came out perfectly. Will definitely order again!"
+                  </p>
+                  <div className="text-xs text-neutral-400 mt-2">3 weeks ago</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Other Customer Examples Section */}
+            <div className="bg-white rounded-lg border border-neutral-200 p-6 shadow-sm">
+              <h3 className="text-lg font-semibold text-neutral-900 mb-4 flex items-center gap-2">
+                <span className="text-2xl">📸</span>
+                Customer Examples
+              </h3>
+              <p className="text-sm text-neutral-600 mb-4">
+                See how other customers are using our packaging
+              </p>
+              
+              {/* Photo Grid - 2 columns */}
+              <div className="grid grid-cols-2 gap-3">
+                {/* Placeholder images - will be replaced with actual customer photos */}
+                {[1, 2, 3, 4, 5, 6].map((index) => (
+                  <div 
+                    key={index}
+                    className="aspect-square bg-neutral-100 rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition flex items-center justify-center border border-neutral-200"
+                    onClick={() => setEnlargedImage({
+                      src: `/imgs/store/customer-examples/example-${index}.webp`,
+                      alt: `Customer Example ${index}`
+                    })}
+                  >
+                    <div className="text-center text-neutral-400">
+                      <div className="text-4xl mb-2">📦</div>
+                      <div className="text-xs">Example {index}</div>
+                      <div className="text-xs mt-1">(Photo pending)</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="mt-4 text-center">
+                <button className="text-sm text-primary-600 hover:text-primary-700 font-medium">
+                  View All Examples →
+                </button>
+              </div>
+            </div>
           </div>
 
           {/* Right Column - Product Info */}
