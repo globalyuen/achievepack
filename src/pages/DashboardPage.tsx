@@ -1633,7 +1633,7 @@ const DashboardPage: React.FC = () => {
                 <div className="flex justify-between items-center mt-2">
                   <span className="text-gray-600">Estimated Total:</span>
                   <span className="text-xl font-bold text-primary-600">
-                    ${(editingItem.unit_price * editForm.quantity).toLocaleString()}
+                    ${(editingItem.unit_price * editForm.quantity).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}
                   </span>
                 </div>
                 <p className="text-xs text-gray-400 mt-2">* Final price may vary based on options</p>
