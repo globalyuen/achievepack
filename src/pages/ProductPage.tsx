@@ -191,63 +191,11 @@ const ProductPage: React.FC = () => {
 
       <main className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Product Images */}
+          {/* Left Column - Sticky Tabs */}
           <div className="space-y-4">
-            {/* Main Image */}
-            <div className="bg-white rounded-2xl p-8 aspect-square flex items-center justify-center shadow-sm">
-              <img src={productImage} alt={product.name} className="max-w-full max-h-full object-contain" />
-            </div>
-            
-            {/* Thumbnail Gallery - Only for Eco Digital products */}
-            {isEcoDigital && ecoProduct && (
-              <div className="flex gap-3 overflow-x-auto pb-2">
-                {/* PCR or Bio Plastic Thumbnail */}
-                <button
-                  onClick={() => setSelectedMaterial('PCR or Bio Plastic')}
-                  className={`flex-shrink-0 bg-white rounded-lg p-3 w-24 h-24 flex items-center justify-center border-2 transition hover:border-primary-400 ${
-                    selectedMaterial === 'PCR or Bio Plastic' ? 'border-primary-600 ring-2 ring-primary-200' : 'border-neutral-200'
-                  }`}
-                >
-                  <img 
-                    src="/imgs/store/eco-material/pcr-or-biope.webp" 
-                    alt="PCR or Bio Plastic" 
-                    className="max-w-full max-h-full object-contain"
-                  />
-                </button>
-                
-                {/* Mono Recyclable Plastic Thumbnail */}
-                <button
-                  onClick={() => setSelectedMaterial('Mono Recyclable Plastic')}
-                  className={`flex-shrink-0 bg-white rounded-lg p-3 w-24 h-24 flex items-center justify-center border-2 transition hover:border-primary-400 ${
-                    selectedMaterial === 'Mono Recyclable Plastic' ? 'border-primary-600 ring-2 ring-primary-200' : 'border-neutral-200'
-                  }`}
-                >
-                  <img 
-                    src="/imgs/store/eco-material/recycle.webp" 
-                    alt="Mono Recyclable Plastic" 
-                    className="max-w-full max-h-full object-contain"
-                  />
-                </button>
-                
-                {/* Biodegradable and Compostable Thumbnail */}
-                <button
-                  onClick={() => setSelectedMaterial('Biodegradable and Compostable')}
-                  className={`flex-shrink-0 bg-white rounded-lg p-3 w-24 h-24 flex items-center justify-center border-2 transition hover:border-primary-400 ${
-                    selectedMaterial === 'Biodegradable and Compostable' ? 'border-primary-600 ring-2 ring-primary-200' : 'border-neutral-200'
-                  }`}
-                >
-                  <img 
-                    src="/imgs/store/eco-material/compostable.webp" 
-                    alt="Biodegradable and Compostable" 
-                    className="max-w-full max-h-full object-contain"
-                  />
-                </button>
-              </div>
-            )}
-            
-            {/* Tabs for Package Visualization and Specifications */}
+            {/* Tabs for Package Visualization and Specifications - Now Sticky */}
             {isEcoDigital && calculationResult && (
-              <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden">
+              <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden sticky top-20">
                 {/* Tab Headers */}
                 <div className="flex border-b border-neutral-200">
                   <button
@@ -273,89 +221,111 @@ const ProductPage: React.FC = () => {
                 </div>
                 
                 {/* Tab Content */}
-                <div className="p-4">
+                <div className="p-4 max-h-[600px] overflow-y-auto">
                   {activeTab === 'visualization' ? (
                     /* Package Visualization Content */
-                    <div className="grid grid-cols-3 gap-3">
-                      {/* Material */}
+                    <div className="space-y-4">
+                      {/* Main Product Image */}
                       <div className="text-center">
                         <button 
                           onClick={() => setEnlargedImage({
-                            src: selectedMaterial === 'PCR or Bio Plastic' 
-                              ? '/imgs/store/eco-material/pcr-or-biope.webp'
-                              : selectedMaterial === 'Mono Recyclable Plastic'
-                              ? '/imgs/store/eco-material/recycle.webp'
-                              : '/imgs/store/eco-material/compostable.webp',
-                            alt: selectedMaterial
+                            src: productImage,
+                            alt: product.name
                           })}
-                          className="bg-neutral-50 rounded-lg p-3 mb-2 cursor-pointer hover:bg-neutral-100 transition w-full"
+                          className="bg-neutral-50 rounded-lg p-4 mb-2 cursor-pointer hover:bg-neutral-100 transition w-full"
                         >
                           <img 
-                            src={
-                              selectedMaterial === 'PCR or Bio Plastic' 
+                            src={productImage}
+                            alt={product.name}
+                            className="w-full h-48 object-contain"
+                          />
+                        </button>
+                        <p className="text-sm font-semibold text-neutral-800">Main Package</p>
+                        <p className="text-xs text-neutral-500">{product.name}</p>
+                      </div>
+                      
+                      {/* Material, Size, Closure Grid */}
+                      <div className="grid grid-cols-3 gap-3">
+                        {/* Material */}
+                        <div className="text-center">
+                          <button 
+                            onClick={() => setEnlargedImage({
+                              src: selectedMaterial === 'PCR or Bio Plastic' 
                                 ? '/imgs/store/eco-material/pcr-or-biope.webp'
                                 : selectedMaterial === 'Mono Recyclable Plastic'
                                 ? '/imgs/store/eco-material/recycle.webp'
-                                : '/imgs/store/eco-material/compostable.webp'
-                            }
-                            alt={selectedMaterial}
-                            className="w-full h-20 object-contain"
-                          />
-                        </button>
-                        <p className="text-xs font-medium text-neutral-700">Material</p>
-                        <p className="text-xs text-neutral-500">{selectedMaterial}</p>
-                      </div>
-                      
-                      {/* Size */}
-                      <div className="text-center">
-                        <button 
-                          onClick={() => setEnlargedImage({
-                            src: getSizeImage(selectedSize as EcoSizeType),
-                            alt: `Size ${selectedSize}`
-                          })}
-                          className="bg-neutral-50 rounded-lg p-3 mb-2 cursor-pointer hover:bg-neutral-100 transition w-full"
-                        >
-                          <img 
-                            src={getSizeImage(selectedSize as EcoSizeType)}
-                            alt={`Size ${selectedSize}`}
-                            className="w-full h-20 object-contain"
-                          />
-                        </button>
-                        <p className="text-xs font-medium text-neutral-700">Size</p>
-                        <p className="text-xs text-neutral-500">{selectedSize}</p>
-                      </div>
-                      
-                      {/* Closure */}
-                      <div className="text-center">
-                        <button 
-                          onClick={() => setEnlargedImage({
-                            src: selectedClosure === 'No' ? '/imgs/store/closure/no-zipper.webp' :
-                              selectedClosure === 'Regular Zipper' ? '/imgs/store/closure/normal-zipper.webp' :
-                              selectedClosure === 'One-Sided Zipper' ? '/imgs/store/closure/front-zipper.webp' :
-                              selectedClosure === 'Child Resistant Zipper' ? '/imgs/store/closure/child-resistant-zipper.webp' :
-                              selectedClosure === 'Slider' ? '/imgs/store/closure/slider-zipper.webp' :
-                              selectedClosure === 'Tin Tie' ? '/imgs/store/closure/tin-tie.webp' :
-                              '/imgs/store/closure/no-zipper.webp',
-                            alt: selectedClosure
-                          })}
-                          className="bg-neutral-50 rounded-lg p-3 mb-2 cursor-pointer hover:bg-neutral-100 transition w-full"
-                        >
-                          <img 
-                            src={
-                              selectedClosure === 'No' ? '/imgs/store/closure/no-zipper.webp' :
-                              selectedClosure === 'Regular Zipper' ? '/imgs/store/closure/normal-zipper.webp' :
-                              selectedClosure === 'One-Sided Zipper' ? '/imgs/store/closure/front-zipper.webp' :
-                              selectedClosure === 'Child Resistant Zipper' ? '/imgs/store/closure/child-resistant-zipper.webp' :
-                              selectedClosure === 'Slider' ? '/imgs/store/closure/slider-zipper.webp' :
-                              selectedClosure === 'Tin Tie' ? '/imgs/store/closure/tin-tie.webp' :
-                              '/imgs/store/closure/no-zipper.webp'
-                            }
-                            alt={selectedClosure}
-                            className="w-full h-20 object-contain"
-                          />
-                        </button>
-                        <p className="text-xs font-medium text-neutral-700">Closure</p>
-                        <p className="text-xs text-neutral-500">{selectedClosure === 'No' ? 'None' : selectedClosure}</p>
+                                : '/imgs/store/eco-material/compostable.webp',
+                              alt: selectedMaterial
+                            })}
+                            className="bg-neutral-50 rounded-lg p-3 mb-2 cursor-pointer hover:bg-neutral-100 transition w-full"
+                          >
+                            <img 
+                              src={
+                                selectedMaterial === 'PCR or Bio Plastic' 
+                                  ? '/imgs/store/eco-material/pcr-or-biope.webp'
+                                  : selectedMaterial === 'Mono Recyclable Plastic'
+                                  ? '/imgs/store/eco-material/recycle.webp'
+                                  : '/imgs/store/eco-material/compostable.webp'
+                              }
+                              alt={selectedMaterial}
+                              className="w-full h-16 object-contain"
+                            />
+                          </button>
+                          <p className="text-xs font-medium text-neutral-700">Material</p>
+                          <p className="text-xs text-neutral-500 truncate">{selectedMaterial}</p>
+                        </div>
+                        
+                        {/* Size */}
+                        <div className="text-center">
+                          <button 
+                            onClick={() => setEnlargedImage({
+                              src: getSizeImage(selectedSize as EcoSizeType),
+                              alt: `Size ${selectedSize}`
+                            })}
+                            className="bg-neutral-50 rounded-lg p-3 mb-2 cursor-pointer hover:bg-neutral-100 transition w-full"
+                          >
+                            <img 
+                              src={getSizeImage(selectedSize as EcoSizeType)}
+                              alt={`Size ${selectedSize}`}
+                              className="w-full h-16 object-contain"
+                            />
+                          </button>
+                          <p className="text-xs font-medium text-neutral-700">Size</p>
+                          <p className="text-xs text-neutral-500">{selectedSize}</p>
+                        </div>
+                        
+                        {/* Closure */}
+                        <div className="text-center">
+                          <button 
+                            onClick={() => setEnlargedImage({
+                              src: selectedClosure === 'No' ? '/imgs/store/closure/no-zipper.webp' :
+                                selectedClosure === 'Regular Zipper' ? '/imgs/store/closure/normal-zipper.webp' :
+                                selectedClosure === 'One-Sided Zipper' ? '/imgs/store/closure/front-zipper.webp' :
+                                selectedClosure === 'Child Resistant Zipper' ? '/imgs/store/closure/child-resistant-zipper.webp' :
+                                selectedClosure === 'Slider' ? '/imgs/store/closure/slider-zipper.webp' :
+                                selectedClosure === 'Tin Tie' ? '/imgs/store/closure/tin-tie.webp' :
+                                '/imgs/store/closure/no-zipper.webp',
+                              alt: selectedClosure
+                            })}
+                            className="bg-neutral-50 rounded-lg p-3 mb-2 cursor-pointer hover:bg-neutral-100 transition w-full"
+                          >
+                            <img 
+                              src={
+                                selectedClosure === 'No' ? '/imgs/store/closure/no-zipper.webp' :
+                                selectedClosure === 'Regular Zipper' ? '/imgs/store/closure/normal-zipper.webp' :
+                                selectedClosure === 'One-Sided Zipper' ? '/imgs/store/closure/front-zipper.webp' :
+                                selectedClosure === 'Child Resistant Zipper' ? '/imgs/store/closure/child-resistant-zipper.webp' :
+                                selectedClosure === 'Slider' ? '/imgs/store/closure/slider-zipper.webp' :
+                                selectedClosure === 'Tin Tie' ? '/imgs/store/closure/tin-tie.webp' :
+                                '/imgs/store/closure/no-zipper.webp'
+                              }
+                              alt={selectedClosure}
+                              className="w-full h-16 object-contain"
+                            />
+                          </button>
+                          <p className="text-xs font-medium text-neutral-700">Closure</p>
+                          <p className="text-xs text-neutral-500 truncate">{selectedClosure === 'No' ? 'None' : selectedClosure}</p>
+                        </div>
                       </div>
                     </div>
                   ) : (
@@ -472,8 +442,39 @@ const ProductPage: React.FC = () => {
             )}
           </div>
 
-          {/* Product Info */}
+          {/* Right Column - Product Info */}
           <div className="space-y-6">
+            {/* Price Section - Now at Top and Sticky */}
+            {isEcoDigital && (
+              <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl p-6 border-2 border-primary-200 shadow-lg sticky top-20 z-10">
+                <div className="text-sm font-semibold text-primary-800 mb-2">💰 Total Investment</div>
+                <div className="text-4xl font-bold text-primary-700 mb-3">US${Math.round(totalPrice).toLocaleString()}</div>
+                {calculationResult && (
+                  <div className="grid grid-cols-2 gap-3 text-sm">
+                    <div className="bg-white bg-opacity-60 rounded-lg p-3">
+                      <div className="text-neutral-600 text-xs mb-1">Unit Price</div>
+                      <div className="font-semibold text-neutral-800">${unitPrice.toFixed(4)}/pc</div>
+                    </div>
+                    <div className="bg-white bg-opacity-60 rounded-lg p-3">
+                      <div className="text-neutral-600 text-xs mb-1">Quantity</div>
+                      <div className="font-semibold text-neutral-800">{calculationResult.price.quantityUnits.toLocaleString()} pcs</div>
+                    </div>
+                    <div className="bg-white bg-opacity-60 rounded-lg p-3">
+                      <div className="text-neutral-600 text-xs mb-1">Designs</div>
+                      <div className="font-semibold text-neutral-800">{calculationResult.price.designCount}</div>
+                    </div>
+                    <div className="bg-white bg-opacity-60 rounded-lg p-3">
+                      <div className="text-neutral-600 text-xs mb-1">Shipping</div>
+                      <div className="font-semibold text-neutral-800 text-xs">{calculationResult.price.shippingMethod}</div>
+                    </div>
+                  </div>
+                )}
+                <div className="text-xs text-primary-700 mt-3 bg-white bg-opacity-40 rounded-lg p-2 text-center">
+                  ✓ Shipping Included
+                </div>
+              </div>
+            )}
+            
             {product.badge && <span className="inline-block bg-primary-100 text-primary-700 text-sm px-4 py-1 rounded-full font-medium">{product.badge}</span>}
             <h1 className="text-3xl font-bold text-neutral-900">{product.name}</h1>
             
@@ -952,20 +953,6 @@ const ProductPage: React.FC = () => {
                 </div>
               </div>
             )}
-
-            {/* Price */}
-            <div className="bg-neutral-100 rounded-xl p-6">
-              <div className="text-sm text-neutral-600 mb-2">Total Investment (Shipping Included)</div>
-              <div className="text-4xl font-bold text-primary-600 mb-2">US${Math.round(totalPrice).toLocaleString()}</div>
-              {calculationResult && (
-                <div className="text-sm text-neutral-500 space-y-1">
-                  <div>Unit Price: ${unitPrice.toFixed(4)}/pc</div>
-                  <div>Quantity: {calculationResult.price.quantityUnits.toLocaleString()} pcs</div>
-                  <div>Designs: {calculationResult.price.designCount}</div>
-                  <div>Shipping: {calculationResult.price.shippingMethod}</div>
-                </div>
-              )}
-            </div>
 
             {/* Add to Cart */}
             <button onClick={handleAddToCart} disabled={totalPrice <= 0} className="w-full py-4 bg-primary-600 hover:bg-primary-700 disabled:bg-neutral-400 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2">
