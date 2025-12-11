@@ -307,12 +307,12 @@ const ProductPage: React.FC = () => {
                   <div className="flex gap-3 items-center">
                     <select value={selectedClosure} onChange={e => setSelectedClosure(e.target.value as ClosureType)} className="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                       <option value="No">No Closure</option>
-                      <option value="Regular Zipper">Regular Zipper (+$5.00/pc)</option>
-                      <option value="One-Sided Zipper">One-Sided Zipper (+$14.00/pc)</option>
-                      <option value="Child Resistant Zipper">Child Resistant Zipper (+$20.00/pc)</option>
-                      <option value="Slider">Slider Zipper (+$20.00/pc)</option>
-                      <option value="Tin Tie">Tin Tie (Variable cost)</option>
-                      <option value="Spout">Spout (Variable cost)</option>
+                      <option value="Regular Zipper">Regular Zipper (+5%)</option>
+                      <option value="One-Sided Zipper">One-Sided Zipper (+14%)</option>
+                      <option value="Child Resistant Zipper">Child Resistant Zipper (+20%)</option>
+                      <option value="Slider">Slider Zipper (+20%)</option>
+                      <option value="Tin Tie">Tin Tie (+Variable cost)</option>
+                      <option value="Spout">Spout (+Variable cost)</option>
                     </select>
                     {/* Closure Image Thumbnail */}
                     <div className="flex-shrink-0 bg-white rounded-lg p-2 w-16 h-16 flex items-center justify-center border-2 border-primary-600">
@@ -432,6 +432,121 @@ const ProductPage: React.FC = () => {
                 </div>
               )}
             </div>
+
+            {/* Package Specifications */}
+            {calculationResult && isEcoDigital && (
+              <div className="bg-white border border-neutral-200 rounded-xl p-6">
+                <h3 className="text-lg font-semibold text-neutral-900 mb-4">
+                  Package Specifications
+                </h3>
+                <dl className="grid grid-cols-1 gap-y-3 text-sm">
+                  <div className="grid grid-cols-3 gap-2">
+                    <dt className="text-neutral-500 col-span-1">Total Quantity</dt>
+                    <dd className="text-neutral-900 col-span-2">
+                      {calculationResult.price.quantityUnits.toLocaleString()} (Digital print) pieces
+                    </dd>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-2">
+                    <dt className="text-neutral-500 col-span-1">Total Designs</dt>
+                    <dd className="text-neutral-900 col-span-2">
+                      {calculationResult.price.designCount} {calculationResult.price.designCount === 1 ? 'type' : 'types'}
+                    </dd>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-2">
+                    <dt className="text-neutral-500 col-span-1">Package Type</dt>
+                    <dd className="text-neutral-900 col-span-2">
+                      {calculationResult.package.shapeLabel}
+                    </dd>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-2">
+                    <dt className="text-neutral-500 col-span-1">Package Size</dt>
+                    <dd className="text-neutral-900 col-span-2">
+                      {calculationResult.package.sizeDisplay}
+                    </dd>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-2">
+                    <dt className="text-neutral-500 col-span-1">Material</dt>
+                    <dd className="text-neutral-900 col-span-2">
+                      {calculationResult.package.materialTypeLabel}
+                    </dd>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-2">
+                    <dt className="text-neutral-500 col-span-1">Barrier Type</dt>
+                    <dd className="text-neutral-900 col-span-2">
+                      {selectedBarrier}
+                    </dd>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-2">
+                    <dt className="text-neutral-500 col-span-1">Structure</dt>
+                    <dd className="text-neutral-900 col-span-2">
+                      {calculationResult.package.materialStructure}
+                    </dd>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-2">
+                    <dt className="text-neutral-500 col-span-1">Thickness</dt>
+                    <dd className="text-neutral-900 col-span-2">
+                      100 micron or 4 mil
+                    </dd>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-2">
+                    <dt className="text-neutral-500 col-span-1">OTR</dt>
+                    <dd className="text-neutral-900 col-span-2">
+                      {calculationResult.package.barrierProperties.otr}
+                    </dd>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-2">
+                    <dt className="text-neutral-500 col-span-1">WVTR</dt>
+                    <dd className="text-neutral-900 col-span-2">
+                      {calculationResult.package.barrierProperties.wvtr}
+                    </dd>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-2">
+                    <dt className="text-neutral-500 col-span-1">Stiffness</dt>
+                    <dd className="text-neutral-900 col-span-2">
+                      {selectedStiffness}
+                    </dd>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-2">
+                    <dt className="text-neutral-500 col-span-1">Reclosable Option</dt>
+                    <dd className="text-neutral-900 col-span-2">
+                      {selectedClosure === 'No' ? 'None' : selectedClosure}
+                    </dd>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-2">
+                    <dt className="text-neutral-500 col-span-1">Surface Treatment</dt>
+                    <dd className="text-neutral-900 col-span-2">
+                      {calculationResult.package.surface}
+                    </dd>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-2">
+                    <dt className="text-neutral-500 col-span-1">Additional Features</dt>
+                    <dd className="text-neutral-900 col-span-2">
+                      {calculationResult.package.additional}
+                    </dd>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-2">
+                    <dt className="text-neutral-500 col-span-1">Shipping Method</dt>
+                    <dd className="text-neutral-900 col-span-2">
+                      {calculationResult.price.shippingMethod}
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            )}
 
             {/* Add to Cart */}
             <button onClick={handleAddToCart} disabled={totalPrice <= 0} className="w-full py-4 bg-primary-600 hover:bg-primary-700 disabled:bg-neutral-400 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2">

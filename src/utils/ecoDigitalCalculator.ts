@@ -163,18 +163,21 @@ function calculateFactors(
   let unitCost = baseCost * costMultiplier
   let unitWeight = baseWeight * weightMultiplier
 
-  // Add fixed costs (Zipper types, Spout, Valve, Tin Tie, Stamps, Surface Treatments)
-  // Apply zipper costs based on ZIPPER_FACTORS from ecoDigitalData.ts
-  if (factors.zipper && factors.zipper !== 'No') {
-    const zipperInfo = ZIPPER_FACTORS[factors.zipper]
-    if (zipperInfo) {
-      fixedCosts += zipperInfo.cost
-      unitWeight += zipperInfo.weight
-    } else if (factors.zipper === 'Spout') {
-      // Spout has variable cost based on unit price
-      const spoutCost = unitCost >= 0.6 ? 0.15 : 0.10
-      fixedCosts += spoutCost
-    }
+  // Add fixed costs (Spout, Valve, Tin Tie, Stamps, Surface Treatments)
+  // Note: Zipper costs are now applied as percentage factors in the main calculation
+  // Special handling for Spout and Tin Tie which have variable/fixed costs
+  const zipperType = factors.zipper_type || 'No'  // Get original zipper string for special cases
+  
+  if (zipperType === 'Spout') {
+    // Spout has variable cost based on unit price
+    const spoutCost = unitCost >= 0.6 ? 0.15 : 0.10
+    fixedCosts += spoutCost
+  }
+  
+  if (zipperType === 'Tin Tie') {
+    // Tin tie cost based on width (simplified average)
+    const tinTieCost = 0.05
+    fixedCosts += tinTieCost
   }
 
   if (factors.valve === 'Yes') {
@@ -234,7 +237,8 @@ export function calculateEcoPrice(selections: EcoCalculatorSelections): EcoCalcu
     material: MATERIALS_FACTORS[material],
     barrier: barrier,
     stiffness: STIFFNESS_FACTORS[stiffness],
-    zipper: zipper,
+    zipper: ZIPPER_FACTORS[zipper] || { cost: 0, weight: 0 },  // Apply zipper as percentage factor
+    zipper_type: zipper,  // Keep original string for special handling in calculateFactors
     laser_scoring: laserScoring === 'Yes' ? { cost: 5, weight: 0 } : { cost: 0, weight: 0 },
     valve: valve,
     surfaceTreatments: surfaceTreatments,
