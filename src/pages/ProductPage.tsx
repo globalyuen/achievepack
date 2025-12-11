@@ -26,6 +26,7 @@ const ProductPage: React.FC = () => {
   const [selectedSurface, setSelectedSurface] = useState<SurfaceType>('Matt')
   const [selectedLaserScoring, setSelectedLaserScoring] = useState<'Yes' | 'No'>('No')
   const [selectedValve, setSelectedValve] = useState<'Yes' | 'No'>('No')
+  const [selectedKraftPaper, setSelectedKraftPaper] = useState<'Yes' | 'No'>('No')
   const [selectedShipping, setSelectedShipping] = useState('Air Freight')
   
   // Tab state for Package Visualization / Specifications
@@ -575,13 +576,44 @@ const ProductPage: React.FC = () => {
                 <div>
                   <label className="block text-sm font-medium text-neutral-700 mb-2">Additional Features</label>
                   <div className="space-y-2">
-                    <label className="flex items-center gap-2">
+                    <label className="flex items-center gap-2 group relative cursor-pointer">
                       <input type="checkbox" checked={selectedValve === 'Yes'} onChange={e => setSelectedValve(e.target.checked ? 'Yes' : 'No')} className="rounded" />
-                      <span className="text-sm">Valve</span>
+                      <span className="text-sm">One Way Degassing Valve</span>
+                      <span className="text-neutral-400 text-xs ml-auto">ℹ️</span>
+                      {/* Tooltip */}
+                      <div className="invisible group-hover:visible absolute left-0 top-full mt-2 w-64 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
+                        <div className="font-semibold mb-1">One Way Degassing Valve:</div>
+                        • Releases built-up gases while preventing air entry<br/>
+                        • Maintains product freshness and preserves flavor<br/>
+                        • Ideal for coffee and food packaging<br/>
+                        • Extends shelf life
+                      </div>
                     </label>
-                    <label className="flex items-center gap-2">
+                    <label className="flex items-center gap-2 group relative cursor-pointer">
                       <input type="checkbox" checked={selectedLaserScoring === 'Yes'} onChange={e => setSelectedLaserScoring(e.target.checked ? 'Yes' : 'No')} className="rounded" />
                       <span className="text-sm">Laser Scoring</span>
+                      <span className="text-neutral-400 text-xs ml-auto">ℹ️</span>
+                      {/* Tooltip */}
+                      <div className="invisible group-hover:visible absolute left-0 top-full mt-2 w-64 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
+                        <div className="font-semibold mb-1">Laser Scoring:</div>
+                        • Creates easy-tear lines for convenient opening<br/>
+                        • Clean, precise perforation<br/>
+                        • No blade marks or rough edges<br/>
+                        • Professional package presentation
+                      </div>
+                    </label>
+                    <label className="flex items-center gap-2 group relative cursor-pointer">
+                      <input type="checkbox" checked={selectedKraftPaper === 'Yes'} onChange={e => setSelectedKraftPaper(e.target.checked ? 'Yes' : 'No')} className="rounded" />
+                      <span className="text-sm">Kraft Paper Lining</span>
+                      <span className="text-neutral-400 text-xs ml-auto">ℹ️</span>
+                      {/* Tooltip */}
+                      <div className="invisible group-hover:visible absolute left-0 top-full mt-2 w-64 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
+                        <div className="font-semibold mb-1">Kraft Paper Lining:</div>
+                        • Adds natural stiffness to packaging<br/>
+                        • Eco-friendly reinforcement layer<br/>
+                        • Improved standing stability<br/>
+                        • Premium tactile feel and appearance
+                      </div>
                     </label>
                   </div>
                 </div>
