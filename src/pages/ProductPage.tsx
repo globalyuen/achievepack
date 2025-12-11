@@ -424,12 +424,12 @@ const ProductPage: React.FC = () => {
                   <div className="flex gap-3 items-center">
                     <select value={selectedClosure} onChange={e => setSelectedClosure(e.target.value as ClosureType)} className="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                       <option value="No">No Closure</option>
-                      <option value="Regular Zipper">Regular Zipper (+5%)</option>
-                      <option value="One-Sided Zipper">One-Sided Zipper (+14%)</option>
-                      <option value="Child Resistant Zipper">Child Resistant Zipper (+20%)</option>
-                      <option value="Slider">Slider Zipper (+20%)</option>
-                      <option value="Tin Tie">Tin Tie (+Variable cost)</option>
-                      <option value="Spout">Spout (+Variable cost)</option>
+                      <option value="Regular Zipper">Regular Zipper</option>
+                      <option value="One-Sided Zipper">One-Sided Zipper</option>
+                      <option value="Child Resistant Zipper">Child Resistant Zipper</option>
+                      <option value="Slider">Slider Zipper</option>
+                      <option value="Tin Tie">Tin Tie</option>
+                      <option value="Spout">Spout</option>
                     </select>
                     {/* Closure Image Thumbnail */}
                     <div className="flex-shrink-0 bg-white rounded-lg p-2 w-16 h-16 flex items-center justify-center border-2 border-primary-600">
@@ -495,11 +495,11 @@ const ProductPage: React.FC = () => {
                   <div className="space-y-2">
                     <label className="flex items-center gap-2">
                       <input type="checkbox" checked={selectedValve === 'Yes'} onChange={e => setSelectedValve(e.target.checked ? 'Yes' : 'No')} className="rounded" />
-                      <span className="text-sm">Valve (+$0.08/pc)</span>
+                      <span className="text-sm">Valve</span>
                     </label>
                     <label className="flex items-center gap-2">
                       <input type="checkbox" checked={selectedLaserScoring === 'Yes'} onChange={e => setSelectedLaserScoring(e.target.checked ? 'Yes' : 'No')} className="rounded" />
-                      <span className="text-sm">Laser Scoring (+5%)</span>
+                      <span className="text-sm">Laser Scoring</span>
                     </label>
                   </div>
                 </div>
