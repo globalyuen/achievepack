@@ -129,7 +129,8 @@ function calculateShippingCost(
 function calculateFactors(
   baseCost: number,
   baseWeight: number,
-  factors: Record<string, any>
+  factors: Record<string, any>,
+  material: string  // Add material parameter for material-based costs
 ): {
   unit_cost: number
   unit_weight: number
@@ -167,11 +168,14 @@ function calculateFactors(
   // Note: Zipper costs are now applied as percentage factors in the main calculation
   // Special handling for Spout and Tin Tie which have variable/fixed costs
   const zipperType = factors.zipper_type || 'No'  // Get original zipper string for special cases
+  const isBioCompostable = material === 'Biodegradable and Compostable'
   
   if (zipperType === 'Spout') {
-    // Spout has variable cost based on unit price
-    const spoutCost = unitCost >= 0.6 ? 0.15 : 0.10
+    // Spout has variable cost based on material type (matching Python logic)
+    const spoutCost = isBioCompostable ? 0.15 : 0.10
     fixedCosts += spoutCost
+    // Spout also has $300 setup cost (matching Python)
+    setupCosts += 300
   }
   
   if (zipperType === 'Tin Tie') {
@@ -181,7 +185,9 @@ function calculateFactors(
   }
 
   if (factors.valve === 'Yes') {
-    fixedCosts += 0.08
+    // Valve cost depends on material type (matching Python logic)
+    const valveCost = isBioCompostable ? 0.15 : 0.10
+    fixedCosts += valveCost
   }
 
   // Stamps (UV, Foil, Embossing)
@@ -247,7 +253,7 @@ export function calculateEcoPrice(selections: EcoCalculatorSelections): EcoCalcu
   }
 
   // Calculate unit cost/weight with factors
-  const calculations = calculateFactors(baseCost, baseWeight, factors)
+  const calculations = calculateFactors(baseCost, baseWeight, factors, material)
 
   // Apply quantity multiplier
   const quantityFactor = QUANTITY_FACTORS[quantityOption]
