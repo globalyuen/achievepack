@@ -509,6 +509,38 @@ const ProductPage: React.FC = () => {
                       <strong>Biodegradable:</strong> Breaks down naturally, compostable, returns nutrients to soil
                     </div>
                   </div>
+                  
+                  {/* Image Grid Selection */}
+                  <div className="grid grid-cols-3 gap-3 mb-3">
+                    {[
+                      { value: 'PCR or Bio Plastic', label: 'PCR/Bio', img: '/imgs/store/eco-material/pcr-or-biope.webp' },
+                      { value: 'Mono Recyclable Plastic', label: 'Recyclable', img: '/imgs/store/eco-material/recycle.webp' },
+                      { value: 'Biodegradable and Compostable', label: 'Compostable', img: '/imgs/store/eco-material/compostable.webp' }
+                    ].map(option => (
+                      <button
+                        key={option.value}
+                        type="button"
+                        onClick={() => setSelectedMaterial(option.value)}
+                        className={`relative p-3 border-2 rounded-lg transition-all hover:shadow-md ${
+                          selectedMaterial === option.value
+                            ? 'border-primary-600 bg-primary-50'
+                            : 'border-neutral-200 hover:border-primary-300'
+                        }`}
+                      >
+                        <div className="aspect-square bg-white rounded-lg mb-2 flex items-center justify-center">
+                          <img src={option.img} alt={option.label} className="max-w-full max-h-full object-contain p-2" />
+                        </div>
+                        <div className="text-xs font-medium text-neutral-700 text-center">{option.label}</div>
+                        {selectedMaterial === option.value && (
+                          <div className="absolute top-1 right-1 bg-primary-600 text-white rounded-full w-5 h-5 flex items-center justify-center">
+                            <Check className="w-3 h-3" />
+                          </div>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                  
+                  {/* Dropdown Option */}
                   <div className="flex gap-3 items-center">
                     <select value={selectedMaterial} onChange={e => setSelectedMaterial(e.target.value)} className="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                       <option value="PCR or Bio Plastic">PCR or Bio Plastic</option>
@@ -544,6 +576,34 @@ const ProductPage: React.FC = () => {
                     • <strong>M-L:</strong> Standard retail products, family-sized packs<br/>
                     • <strong>XL-XXL:</strong> Bulk items, wholesale, subscription products
                   </div>
+                  
+                  {/* Image Grid Selection */}
+                  <div className="grid grid-cols-4 gap-2 mb-3">
+                    {sizeOptions.map(size => (
+                      <button
+                        key={size.value}
+                        type="button"
+                        onClick={() => setSelectedSize(size.value)}
+                        className={`relative p-2 border-2 rounded-lg transition-all hover:shadow-md ${
+                          selectedSize === size.value
+                            ? 'border-primary-600 bg-primary-50'
+                            : 'border-neutral-200 hover:border-primary-300'
+                        }`}
+                      >
+                        <div className="aspect-square bg-white rounded-lg mb-1 flex items-center justify-center">
+                          <img src={getSizeImage(size.value as EcoSizeType)} alt={size.label} className="max-w-full max-h-full object-contain p-1" />
+                        </div>
+                        <div className="text-xs font-medium text-neutral-700 text-center">{size.value}</div>
+                        {selectedSize === size.value && (
+                          <div className="absolute top-1 right-1 bg-primary-600 text-white rounded-full w-4 h-4 flex items-center justify-center">
+                            <Check className="w-2.5 h-2.5" />
+                          </div>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                  
+                  {/* Dropdown Option */}
                   <div className="flex gap-3 items-start">
                     <select value={selectedSize} onChange={e => setSelectedSize(e.target.value)} className="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                       {sizeOptions.map(size => (
@@ -576,6 +636,42 @@ const ProductPage: React.FC = () => {
                     • <strong>Tin Tie:</strong> Cost-effective for coffee/tea<br/>
                     • <strong>Spout:</strong> Perfect for liquids, precise pouring
                   </div>
+                  
+                  {/* Image Grid Selection */}
+                  <div className="grid grid-cols-4 gap-2 mb-3">
+                    {[
+                      { value: 'No' as ClosureType, label: 'No Closure', img: '/imgs/store/closure/no-zipper.webp' },
+                      { value: 'Regular Zipper' as ClosureType, label: 'Regular', img: '/imgs/store/closure/normal-zipper.webp' },
+                      { value: 'One-Sided Zipper' as ClosureType, label: 'One-Sided', img: '/imgs/store/closure/front-zipper.webp' },
+                      { value: 'Child Resistant Zipper' as ClosureType, label: 'Child Safe', img: '/imgs/store/closure/child-resistant-zipper.webp' },
+                      { value: 'Slider' as ClosureType, label: 'Slider', img: '/imgs/store/closure/slider-zipper.webp' },
+                      { value: 'Tin Tie' as ClosureType, label: 'Tin Tie', img: '/imgs/store/closure/tin-tie.webp' },
+                      { value: 'Spout' as ClosureType, label: 'Spout', img: '/imgs/store/closure/no-zipper.webp' }
+                    ].map(option => (
+                      <button
+                        key={option.value}
+                        type="button"
+                        onClick={() => setSelectedClosure(option.value)}
+                        className={`relative p-2 border-2 rounded-lg transition-all hover:shadow-md ${
+                          selectedClosure === option.value
+                            ? 'border-primary-600 bg-primary-50'
+                            : 'border-neutral-200 hover:border-primary-300'
+                        }`}
+                      >
+                        <div className="aspect-square bg-white rounded-lg mb-1 flex items-center justify-center">
+                          <img src={option.img} alt={option.label} className="max-w-full max-h-full object-contain p-1" />
+                        </div>
+                        <div className="text-xs font-medium text-neutral-700 text-center truncate">{option.label}</div>
+                        {selectedClosure === option.value && (
+                          <div className="absolute top-1 right-1 bg-primary-600 text-white rounded-full w-4 h-4 flex items-center justify-center">
+                            <Check className="w-2.5 h-2.5" />
+                          </div>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                  
+                  {/* Dropdown Option */}
                   <div className="flex gap-3 items-center">
                     <select value={selectedClosure} onChange={e => setSelectedClosure(e.target.value as ClosureType)} className="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                       <option value="No">No Closure</option>
@@ -620,6 +716,41 @@ const ProductPage: React.FC = () => {
                     • <strong>Emboss:</strong> Raised/depressed design, tactile<br/>
                     • <strong>Stamp Foil:</strong> Metallic accents, luxury effect
                   </div>
+                  
+                  {/* Image Grid Selection */}
+                  <div className="grid grid-cols-3 gap-3 mb-3">
+                    {[
+                      { value: 'Glossy' as SurfaceType, label: 'Glossy' },
+                      { value: 'Matt' as SurfaceType, label: 'Matt' },
+                      { value: 'Metallic' as SurfaceType, label: 'Metallic' },
+                      { value: 'Soft Touch' as SurfaceType, label: 'Soft Touch' },
+                      { value: 'Emboss' as SurfaceType, label: 'Emboss' },
+                      { value: 'Stamp Foil' as SurfaceType, label: 'Stamp Foil' }
+                    ].map(option => (
+                      <button
+                        key={option.value}
+                        type="button"
+                        onClick={() => setSelectedSurface(option.value)}
+                        className={`relative p-2 border-2 rounded-lg transition-all hover:shadow-md ${
+                          selectedSurface === option.value
+                            ? 'border-primary-600 bg-primary-50'
+                            : 'border-neutral-200 hover:border-primary-300'
+                        }`}
+                      >
+                        <div className="aspect-square bg-white rounded-lg mb-1 flex items-center justify-center">
+                          <img src={getSurfaceImage(option.value)} alt={option.label} className="max-w-full max-h-full object-contain p-1" />
+                        </div>
+                        <div className="text-xs font-medium text-neutral-700 text-center">{option.label}</div>
+                        {selectedSurface === option.value && (
+                          <div className="absolute top-1 right-1 bg-primary-600 text-white rounded-full w-4 h-4 flex items-center justify-center">
+                            <Check className="w-2.5 h-2.5" />
+                          </div>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                  
+                  {/* Dropdown Option */}
                   <div className="flex gap-3 items-center">
                     <select value={selectedSurface} onChange={e => setSelectedSurface(e.target.value as SurfaceType)} className="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                       <option value="Glossy">Glossy</option>
@@ -658,6 +789,36 @@ const ProductPage: React.FC = () => {
                       <strong>Highest Barrier:</strong> 12-18 months, aluminum layer, maximum protection
                     </div>
                   </div>
+                  
+                  {/* Button Grid Selection */}
+                  <div className="grid grid-cols-3 gap-3 mb-3">
+                    {[
+                      { value: 'mid clear mid barrier (Optional Window)', label: 'Mid Barrier', sublabel: '(Window)' },
+                      { value: 'metalised high barrier (No Window)', label: 'High Barrier', sublabel: '(No Window)' },
+                      { value: 'Aluminum highest barrier (No Window)', label: 'Highest', sublabel: '(No Window)' }
+                    ].map(option => (
+                      <button
+                        key={option.value}
+                        type="button"
+                        onClick={() => setSelectedBarrier(option.value)}
+                        className={`relative p-3 border-2 rounded-lg transition-all hover:shadow-md text-left ${
+                          selectedBarrier === option.value
+                            ? 'border-primary-600 bg-primary-50'
+                            : 'border-neutral-200 hover:border-primary-300'
+                        }`}
+                      >
+                        <div className="text-sm font-semibold text-neutral-800">{option.label}</div>
+                        <div className="text-xs text-neutral-600">{option.sublabel}</div>
+                        {selectedBarrier === option.value && (
+                          <div className="absolute top-2 right-2 bg-primary-600 text-white rounded-full w-5 h-5 flex items-center justify-center">
+                            <Check className="w-3 h-3" />
+                          </div>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                  
+                  {/* Dropdown Option */}
                   <select value={selectedBarrier} onChange={e => setSelectedBarrier(e.target.value)} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                     <option value="mid clear mid barrier (Optional Window)">Mid Barrier (Window)</option>
                     <option value="metalised high barrier (No Window)">High Barrier (No Window)</option>
@@ -680,6 +841,35 @@ const ProductPage: React.FC = () => {
                       <strong>Without Paper:</strong> Softer, lighter package, 20% cost reduction, more flexible
                     </div>
                   </div>
+                  
+                  {/* Button Grid Selection */}
+                  <div className="grid grid-cols-2 gap-3 mb-3">
+                    {[
+                      { value: 'Without Paper Lining (Softer)', label: 'Softer', sublabel: '(No Paper)' },
+                      { value: 'With Paper Lining (stiffer)', label: 'Stiffer', sublabel: '(With Paper)' }
+                    ].map(option => (
+                      <button
+                        key={option.value}
+                        type="button"
+                        onClick={() => setSelectedStiffness(option.value)}
+                        className={`relative p-3 border-2 rounded-lg transition-all hover:shadow-md text-left ${
+                          selectedStiffness === option.value
+                            ? 'border-primary-600 bg-primary-50'
+                            : 'border-neutral-200 hover:border-primary-300'
+                        }`}
+                      >
+                        <div className="text-sm font-semibold text-neutral-800">{option.label}</div>
+                        <div className="text-xs text-neutral-600">{option.sublabel}</div>
+                        {selectedStiffness === option.value && (
+                          <div className="absolute top-2 right-2 bg-primary-600 text-white rounded-full w-5 h-5 flex items-center justify-center">
+                            <Check className="w-3 h-3" />
+                          </div>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                  
+                  {/* Dropdown Option */}
                   <select value={selectedStiffness} onChange={e => setSelectedStiffness(e.target.value)} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                     <option value="Without Paper Lining (Softer)">Softer (No Paper)</option>
                     <option value="With Paper Lining (stiffer)">Stiffer (With Paper)</option>
