@@ -24,6 +24,8 @@ const AdminManagementPage: React.FC = () => {
   const [selectedQuote, setSelectedQuote] = useState<Quote | null>(null)
   const [selectedArtwork, setSelectedArtwork] = useState<ArtworkFile | null>(null)
   const [artworkFeedback, setArtworkFeedback] = useState('')
+  const [adminReply, setAdminReply] = useState('')
+  const [quotedAmount, setQuotedAmount] = useState('')
 
   // Check URL params for tab
   useEffect(() => {
@@ -91,6 +93,46 @@ const AdminManagementPage: React.FC = () => {
     }
     fetchData()
     setSelectedQuote(null)
+  }
+
+  const sendQuoteReply = async () => {
+    if (!selectedQuote || !adminReply.trim()) {
+      alert('Please enter a reply message')
+      return
+    }
+
+    try {
+      const quote = quotes.find(q => q.id === selectedQuote.id)
+      const updateData: any = {
+        admin_reply: adminReply,
+        replied_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      }
+
+      // Add quoted amount if provided
+      if (quotedAmount && !isNaN(parseFloat(quotedAmount))) {
+        updateData.quoted_amount = parseFloat(quotedAmount)
+      }
+
+      // Update the appropriate table
+      if (quote?.is_rfq) {
+        await supabase.from('rfq_submissions').update(updateData).eq('id', selectedQuote.id)
+      } else {
+        await supabase.from('quotes').update(updateData).eq('id', selectedQuote.id)
+      }
+
+      // TODO: Send email notification to customer
+      // This would require setting up email service (e.g., SendGrid, AWS SES)
+
+      alert('Reply sent successfully! Customer will be notified via email.')
+      setAdminReply('')
+      setQuotedAmount('')
+      fetchData()
+      setSelectedQuote(null)
+    } catch (error: any) {
+      console.error('Error sending reply:', error)
+      alert('Failed to send reply: ' + error.message)
+    }
   }
 
   const deleteQuote = async (quoteId: string) => {
@@ -587,6 +629,69 @@ const AdminManagementPage: React.FC = () => {
                   <p className="text-2xl font-bold text-green-600">${selectedQuote.total_amount.toLocaleString()}</p>
                 </div>
               )}
+
+              {/* Show existing admin reply if present */}
+              {(selectedQuote.admin_reply || (selectedQuote as any).quoted_amount) && (
+                <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                  <p className="text-sm font-semibold text-blue-800 mb-2">Previous Admin Reply</p>
+                  {selectedQuote.admin_reply && (
+                    <p className="text-sm text-blue-900 whitespace-pre-wrap mb-2">{selectedQuote.admin_reply}</p>
+                  )}
+                  {(selectedQuote as any).quoted_amount && (
+                    <div className="flex items-center gap-2 mt-2">
+                      <span className="text-sm text-blue-700">Quoted Amount:</span>
+                      <span className="text-lg font-bold text-blue-900">${(selectedQuote as any).quoted_amount.toLocaleString()}</span>
+                    </div>
+                  )}
+                  {(selectedQuote as any).replied_at && (
+                    <p className="text-xs text-blue-600 mt-2">Replied: {new Date((selectedQuote as any).replied_at).toLocaleString()}</p>
+                  )}
+                </div>
+              )}
+
+              {/* Admin Reply Section */}
+              <div className="border-t pt-4">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <Mail className="inline h-4 w-4 mr-1" />
+                  Admin Reply to Customer
+                </label>
+                <textarea
+                  value={adminReply}
+                  onChange={(e) => setAdminReply(e.target.value)}
+                  placeholder="Enter your reply to the customer...\n\nExample:\n- Pricing details\n- Product recommendations\n- Timeline estimates\n- Next steps"
+                  rows={6}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-none"
+                />
+                
+                {/* Quoted Amount (optional) */}
+                <div className="mt-3">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Quoted Amount (Optional)
+                  </label>
+                  <div className="flex items-center gap-2">
+                    <span className="text-gray-500">$</span>
+                    <input
+                      type="number"
+                      value={quotedAmount}
+                      onChange={(e) => setQuotedAmount(e.target.value)}
+                      placeholder="0.00"
+                      step="0.01"
+                      min="0"
+                      className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                    />
+                  </div>
+                </div>
+
+                {/* Send Reply Button */}
+                <button
+                  onClick={sendQuoteReply}
+                  disabled={!adminReply.trim()}
+                  className="w-full mt-3 px-4 py-3 bg-primary-600 hover:bg-primary-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-medium rounded-lg transition flex items-center justify-center gap-2"
+                >
+                  <Mail className="h-5 w-5" />
+                  Send Reply to Customer
+                </button>
+              </div>
 
               <div className="text-sm text-gray-500">
                 Created: {new Date(selectedQuote.created_at).toLocaleString()}

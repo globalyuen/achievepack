@@ -4,8 +4,8 @@ import { ArrowLeft, ShoppingCart, Star, Check } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct } from '../store/productData'
 import { calculateEcoPrice, type EcoCalculatorSelections } from '../utils/ecoDigitalCalculator'
-import { getProductImage } from '../utils/productImageMapper'
-import type { ShapeType, ClosureType, SurfaceType } from '../utils/productImageMapper'
+import { getProductImage, getSizeImage } from '../utils/productImageMapper'
+import type { ShapeType, ClosureType, SurfaceType, EcoSizeType } from '../utils/productImageMapper'
 
 const ProductPage: React.FC = () => {
   const { productId } = useParams<{ productId: string }>()
@@ -53,25 +53,39 @@ const ProductPage: React.FC = () => {
     if (is3SideOrCenterSeal) {
       // 3 Side Seal & Center Seal sizes (no gusset)
       return [
-        { value: 'XXXS', label: 'XXXS (3.6 width x 6.3 length Inch / 90 x 110 mm)' },
-        { value: 'XXS', label: 'XXS (4.3 width x 6.3 length Inch / 110 x 160 mm)' },
-        { value: 'XS', label: 'XS (5.1 width x 7.1 length Inch / 130 x 180 mm)' },
-        { value: 'S', label: 'S (5.9 width x 7.9 length Inch / 150 x 200 mm)' },
-        { value: 'L', label: 'L (7.1 width x 9.8 length Inch / 180 x 250 mm)' },
-        { value: 'XL', label: 'XL (7.9 width x 11.8 length Inch / 200 x 300 mm)' },
-        { value: 'XXL', label: 'XXL (9.8 width x 13.8 length Inch / 250 x 350 mm)' },
+        { value: 'XXXS', label: 'XXXS (3.6" × 6.3" / 90 × 110 mm)' },
+        { value: 'XXS', label: 'XXS (4.3" × 6.3" / 110 × 160 mm)' },
+        { value: 'XS', label: 'XS (5.1" × 7.1" / 130 × 180 mm)' },
+        { value: 'S', label: 'S (5.9" × 7.9" / 150 × 200 mm)' },
+        { value: 'L', label: 'L (7.1" × 9.8" / 180 × 250 mm)' },
+        { value: 'XL', label: 'XL (7.9" × 11.8" / 200 × 300 mm)' },
+        { value: 'XXL', label: 'XXL (9.8" × 13.8" / 250 × 350 mm)' },
       ]
     } else {
       // Other shapes (with gusset)
       return [
-        { value: 'XXXS', label: 'XXXS (3.6 width x 6.3 length + 2.4 Inch unfolded gusset / 90 x 110 + 60 mm)' },
-        { value: 'XXS', label: 'XXS (4.3 width x 6.3 length + 2.4 Inch unfolded gusset / 110 x 160 + 60 mm)' },
-        { value: 'XS', label: 'XS (5.1 width x 7.1 length + 3.1 Inch unfolded gusset / 130 x 180 + 80 mm)' },
-        { value: 'S', label: 'S (5.9 width x 7.9 length + 3.1 Inch unfolded gusset / 150 x 200 + 80 mm)' },
-        { value: 'L', label: 'L (7.1 width x 9.8 length + 3.1 Inch unfolded gusset / 180 x 250 + 80 mm)' },
-        { value: 'XL', label: 'XL (7.9 width x 11.8 length + 3.9 Inch unfolded gusset / 200 x 300 + 100 mm)' },
-        { value: 'XXL', label: 'XXL (9.8 width x 13.8 length + 3.9 Inch unfolded gusset / 250 x 350 + 100 mm)' },
+        { value: 'XXXS', label: 'XXXS (3.6" × 6.3" + 2.4" / 90 × 110 + 60 mm)' },
+        { value: 'XXS', label: 'XXS (4.3" × 6.3" + 2.4" / 110 × 160 + 60 mm)' },
+        { value: 'XS', label: 'XS (5.1" × 7.1" + 3.1" / 130 × 180 + 80 mm)' },
+        { value: 'S', label: 'S (5.9" × 7.9" + 3.1" / 150 × 200 + 80 mm)' },
+        { value: 'L', label: 'L (7.1" × 9.8" + 3.1" / 180 × 250 + 80 mm)' },
+        { value: 'XL', label: 'XL (7.9" × 11.8" + 3.9" / 200 × 300 + 100 mm)' },
+        { value: 'XXL', label: 'XXL (9.8" × 13.8" + 3.9" / 250 × 350 + 100 mm)' },
       ]
+    }
+  }, [isEcoDigital, ecoProduct])
+
+  // Get size label text based on product shape
+  const getSizeLabel = useMemo(() => {
+    if (!isEcoDigital || !ecoProduct) return 'Size'
+    
+    const shape = ecoProduct.shape
+    const is3SideOrCenterSeal = shape === '3 Side Seal Pouch' || shape === 'Center Seal Pouch'
+    
+    if (is3SideOrCenterSeal) {
+      return 'Size (width × length)'
+    } else {
+      return 'Size (width × length + unfolded gusset)'
     }
   }, [isEcoDigital, ecoProduct])
 
@@ -115,10 +129,11 @@ const ProductPage: React.FC = () => {
         closure: selectedClosure,
         surface: selectedSurface,
         material: undefined, // Don't use material for main image
+        size: selectedSize as EcoSizeType, // Include size for Stand Up Pouch
       })
     }
     return product?.images[0] || ''
-  }, [isEcoDigital, ecoProduct, selectedClosure, selectedSurface, product])
+  }, [isEcoDigital, ecoProduct, selectedClosure, selectedSurface, selectedSize, product])
 
   if (!product) {
     return (
@@ -269,12 +284,22 @@ const ProductPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2">Size</label>
-                  <select value={selectedSize} onChange={e => setSelectedSize(e.target.value)} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                    {sizeOptions.map(size => (
-                      <option key={size.value} value={size.value}>{size.label}</option>
-                    ))}
-                  </select>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">{getSizeLabel}</label>
+                  <div className="flex gap-3 items-start">
+                    <select value={selectedSize} onChange={e => setSelectedSize(e.target.value)} className="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                      {sizeOptions.map(size => (
+                        <option key={size.value} value={size.value}>{size.label}</option>
+                      ))}
+                    </select>
+                    {/* Size Preview Thumbnail */}
+                    <div className="flex-shrink-0 bg-white rounded-lg p-2 w-16 h-16 flex items-center justify-center border-2 border-primary-600">
+                      <img 
+                        src={getSizeImage(selectedSize as EcoSizeType)} 
+                        alt={`Size ${selectedSize}`} 
+                        className="max-w-full max-h-full object-contain"
+                      />
+                    </div>
+                  </div>
                 </div>
 
                 <div>

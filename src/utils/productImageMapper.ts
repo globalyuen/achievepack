@@ -1,6 +1,6 @@
 /**
  * Product Image Mapper
- * Maps product attributes (shape, material, closure, surface) to the correct product image
+ * Maps product attributes (shape, material, closure, surface, size) to the correct product image
  */
 
 export type ShapeType = 
@@ -19,11 +19,15 @@ export type MaterialType =
   | 'Mono Recyclable Plastic'
   | 'Biodegradable and Compostable'
 
+// Eco Digital size options
+export type EcoSizeType = 'XXXS' | 'XXS' | 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL'
+
 interface ImageMapperOptions {
   shape: ShapeType
   closure?: ClosureType
   surface?: SurfaceType
   material?: MaterialType
+  size?: EcoSizeType
 }
 
 /**
@@ -31,6 +35,7 @@ interface ImageMapperOptions {
  * Using local images from public/imgs/store/pouch shape/
  */
 const IMAGE_BASE_URL = '/imgs/store/pouch shape/'
+const SIZE_IMAGE_BASE_URL = '/imgs/store/size/stand-up/'
 
 const shapeNameMap: Record<ShapeType, string> = {
   '3 Side Seal Pouch': '3-side',
@@ -54,6 +59,22 @@ const surfaceMap: Record<SurfaceType, string> = {
 }
 
 /**
+ * Size image mapping for Stand Up Pouch
+ * Maps Eco Digital size options (XXXS-XXL) to actual size dimension images
+ * File naming: {size}.webp (e.g., xxxs.webp, xxs.webp, xs.webp, s.webp, l.webp, xl.webp, xxl.webp)
+ */
+const standUpSizeImageMap: Record<EcoSizeType, string> = {
+  'XXXS': 'xxxs.webp',
+  'XXS': 'xxs.webp',
+  'XS': 'xs.webp',
+  'S': 's.webp',
+  'M': 'l.webp',  // Using L file for M size (no separate M file)
+  'L': 'l.webp',
+  'XL': 'xl.webp',
+  'XXL': 'xxl.webp',
+}
+
+/**
  * Get product image URL based on attributes
  */
 export function getProductImage(options: ImageMapperOptions): string {
@@ -62,9 +83,15 @@ export function getProductImage(options: ImageMapperOptions): string {
     closure = 'No',
     surface = 'Matt',
     material,
+    size,
   } = options
 
   const shapeName = shapeNameMap[shape]
+
+  // If size is provided and shape is Stand Up Pouch, return size-specific image
+  if (size && shape === 'Stand Up Pouch / Doypack') {
+    return getSizeImage(size)
+  }
 
   // Map material types to specific images
   if (material === 'Biodegradable and Compostable') {
@@ -84,6 +111,31 @@ export function getProductImage(options: ImageMapperOptions): string {
   const imageFilename = `${shapeName}.webp`
 
   return `${IMAGE_BASE_URL}${imageFilename}`
+}
+
+/**
+ * Get size-specific image for Stand Up Pouch
+ */
+export function getSizeImage(size: EcoSizeType): string {
+  const imageFilename = standUpSizeImageMap[size]
+  if (!imageFilename) {
+    // Fallback to default stand up image
+    return `${IMAGE_BASE_URL}stand-up.webp`
+  }
+  return `${SIZE_IMAGE_BASE_URL}${imageFilename}`
+}
+
+/**
+ * Get all available size images for Stand Up Pouch
+ */
+export function getAllSizeImages(): Record<EcoSizeType, string> {
+  const sizeImages: Record<EcoSizeType, string> = {} as Record<EcoSizeType, string>
+  
+  Object.keys(standUpSizeImageMap).forEach((size) => {
+    sizeImages[size as EcoSizeType] = getSizeImage(size as EcoSizeType)
+  })
+  
+  return sizeImages
 }
 
 /**

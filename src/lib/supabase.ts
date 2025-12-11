@@ -46,6 +46,10 @@ export type Quote = {
   message?: string
   website_link?: string
   photo_urls?: string[]
+  // Admin reply fields
+  admin_reply?: string
+  quoted_amount?: number
+  replied_at?: string
 }
 
 export type Document = {

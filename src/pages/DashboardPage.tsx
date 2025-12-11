@@ -669,24 +669,35 @@ const DashboardPage: React.FC = () => {
                         </Link>
                       </div>
                     ) : orders.slice(0, 5).map(order => (
-                      <div key={order.id} className="p-4 hover:bg-gray-50 transition flex items-center justify-between cursor-pointer" onClick={() => setSelectedOrder(order)}>
-                        <div className="flex items-center gap-4">
-                          <div className="w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center">
-                            <Package className="h-5 w-5 text-primary-600" />
+                      <div key={order.id} className="p-4 hover:bg-gray-50 transition cursor-pointer" onClick={() => setSelectedOrder(order)}>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-4">
+                            <div className="w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center">
+                              <Package className="h-5 w-5 text-primary-600" />
+                            </div>
+                            <div>
+                              <p className="font-medium text-gray-900">{order.order_number}</p>
+                              <p className="text-sm text-gray-500">{new Date(order.created_at).toLocaleDateString()}</p>
+                              {/* Show tracking info if available */}
+                              {order.tracking_number && (
+                                <div className="flex items-center gap-1.5 mt-0.5">
+                                  <Truck className="h-3 w-3 text-blue-600" />
+                                  <span className="text-xs text-blue-600 font-medium truncate">
+                                    {order.carrier || 'Tracking'}: {order.tracking_number}
+                                  </span>
+                                </div>
+                              )}
+                            </div>
                           </div>
-                          <div>
-                            <p className="font-medium text-gray-900">{order.order_number}</p>
-                            <p className="text-sm text-gray-500">{new Date(order.created_at).toLocaleDateString()}</p>
+                          <div className="text-right flex items-center gap-3">
+                            <div>
+                              <p className="font-semibold text-gray-900">${order.total_amount?.toLocaleString()}</p>
+                              <span className={`inline-block px-2 py-0.5 text-xs font-medium rounded-full ${statusColors[order.status]}`}>
+                                {order.status}
+                              </span>
+                            </div>
+                            <Eye className="h-5 w-5 text-gray-400" />
                           </div>
-                        </div>
-                        <div className="text-right flex items-center gap-3">
-                          <div>
-                            <p className="font-semibold text-gray-900">${order.total_amount?.toLocaleString()}</p>
-                            <span className={`inline-block px-2 py-0.5 text-xs font-medium rounded-full ${statusColors[order.status]}`}>
-                              {order.status}
-                            </span>
-                          </div>
-                          <Eye className="h-5 w-5 text-gray-400" />
                         </div>
                       </div>
                     ))}
@@ -764,24 +775,35 @@ const DashboardPage: React.FC = () => {
                 ) : (
                   <div className="divide-y divide-gray-100">
                     {orders.map(order => (
-                      <div key={order.id} className="p-5 hover:bg-gray-50 transition flex items-center justify-between cursor-pointer" onClick={() => setSelectedOrder(order)}>
-                        <div className="flex items-center gap-4">
-                          <div className="w-12 h-12 bg-primary-50 rounded-lg flex items-center justify-center">
-                            <Package className="h-6 w-6 text-primary-600" />
+                      <div key={order.id} className="p-5 hover:bg-gray-50 transition cursor-pointer" onClick={() => setSelectedOrder(order)}>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-4">
+                            <div className="w-12 h-12 bg-primary-50 rounded-lg flex items-center justify-center">
+                              <Package className="h-6 w-6 text-primary-600" />
+                            </div>
+                            <div>
+                              <p className="font-semibold text-gray-900">{order.order_number}</p>
+                              <p className="text-sm text-gray-500">{new Date(order.created_at).toLocaleDateString()}</p>
+                              {/* Show tracking info if available */}
+                              {order.tracking_number && (
+                                <div className="flex items-center gap-2 mt-1">
+                                  <Truck className="h-3.5 w-3.5 text-blue-600" />
+                                  <span className="text-xs text-blue-600 font-medium">
+                                    {order.carrier || 'Tracking'}: {order.tracking_number}
+                                  </span>
+                                </div>
+                              )}
+                            </div>
                           </div>
-                          <div>
-                            <p className="font-semibold text-gray-900">{order.order_number}</p>
-                            <p className="text-sm text-gray-500">{new Date(order.created_at).toLocaleDateString()}</p>
+                          <div className="text-right flex items-center gap-4">
+                            <div>
+                              <p className="text-lg font-bold text-gray-900">${order.total_amount?.toLocaleString()}</p>
+                              <span className={`inline-block px-3 py-1 text-xs font-medium rounded-full ${statusColors[order.status]}`}>
+                                {order.status}
+                              </span>
+                            </div>
+                            <Eye className="h-5 w-5 text-gray-400" />
                           </div>
-                        </div>
-                        <div className="text-right flex items-center gap-4">
-                          <div>
-                            <p className="text-lg font-bold text-gray-900">${order.total_amount?.toLocaleString()}</p>
-                            <span className={`inline-block px-3 py-1 text-xs font-medium rounded-full ${statusColors[order.status]}`}>
-                              {order.status}
-                            </span>
-                          </div>
-                          <Eye className="h-5 w-5 text-gray-400" />
                         </div>
                       </div>
                     ))}
