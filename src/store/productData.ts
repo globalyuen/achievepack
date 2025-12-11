@@ -134,7 +134,7 @@ export const FEATURED_PRODUCTS: PouchProduct[] = [
     description: 'Launch Your Brand in Days – Not Months. Full-color digital printing included with professional finish.',
     shortDesc: 'Starting at US$90 for 100 pcs',
     features: ['Free Shipping Included', 'Fast Turnaround: 15-20 days', 'High Quality Printing', 'Custom Design Available'],
-    images: ['/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp'],
+    images: ['https://pouch.eco/wp-content/uploads/2025/12/standup_no_zipper_matt_silver-2.webp'],
     basePrice: 90,
     badge: '✨ Free Shipping',
     rating: 4.9,
@@ -150,7 +150,7 @@ export const FEATURED_PRODUCTS: PouchProduct[] = [
     description: '100% certified compostable packaging. Perfect for eco-conscious brands.',
     shortDesc: 'Starting at US$500 for 500 pcs',
     features: ['100% Compostable', 'Home & Industrial Compostable', 'Premium Flat Bottom Design', 'Eco-Friendly Materials'],
-    images: ['/imgs/pouch-shape/a_flat_bottom_pouch_isolated_7901973.webp'],
+    images: ['https://pouch.eco/wp-content/uploads/2025/12/a_kraft_bag_with_dimensions_3083325.webp'],
     basePrice: 500,
     badge: '🌱 Eco-Friendly',
     rating: 4.8,
@@ -166,7 +166,7 @@ export const FEATURED_PRODUCTS: PouchProduct[] = [
     description: 'Mono-material recyclable pouches for sustainable packaging solutions.',
     shortDesc: 'Starting at US$120 for 100 pcs',
     features: ['Fully Recyclable', 'GRS Certified', 'Multiple Sizes', 'High Barrier Options'],
-    images: ['/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp'],
+    images: ['https://pouch.eco/wp-content/uploads/2025/12/standup_zipper_glossy_clear-1.webp'],
     basePrice: 120,
     badge: '♻️ Recyclable',
     rating: 4.7,
@@ -182,7 +182,7 @@ export const FEATURED_PRODUCTS: PouchProduct[] = [
     description: 'Perfect for liquids and semi-liquids. Easy to pour and reseal.',
     shortDesc: 'Starting at US$150 for 100 pcs',
     features: ['Ideal for Liquids', 'Resealable Spout', 'Multiple Spout Options', 'Custom Printing'],
-    images: ['/imgs/pouch-shape/a_spout_pouch_isolated_6857112.webp'],
+    images: ['https://pouch.eco/wp-content/uploads/2025/12/standup_no_zipper_glossy_clear-1.webp'],
     basePrice: 150,
     badge: '💧 For Liquids',
     rating: 4.6,
@@ -198,7 +198,7 @@ export const FEATURED_PRODUCTS: PouchProduct[] = [
     description: 'Classic coffee bag style. Expands for larger capacity.',
     shortDesc: 'Starting at US$100 for 100 pcs',
     features: ['Expandable Capacity', 'Classic Coffee Bag Style', 'Valve Options Available', 'High Barrier Protection'],
-    images: ['/imgs/pouch-shape/a_side_gusset_pouch_isolated_2545871.webp'],
+    images: ['https://pouch.eco/wp-content/uploads/2025/12/3side_no_zipper_matt_silver-1.webp'],
     basePrice: 100,
     badge: '☕ Coffee Style',
     rating: 4.8,
@@ -219,10 +219,10 @@ export const getPrice = (shape: string, size: string, quantity: number): number 
 
 export const getProductImage = (shape: string): string => {
   const images: Record<string, string> = {
-    '3-side-seal': '/imgs/pouch-shape/a_three_side_seal_pouch_isolated_0879222.webp',
-    'zipper-3-side-seal': '/imgs/pouch-shape/a_three_side_seal_pouch_isolated_0879222.webp',
-    'stand-up': '/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp',
-    'zipper-stand-up': '/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp',
+    '3-side-seal': 'https://pouch.eco/wp-content/uploads/2025/12/3side_no_zipper_matt_silver-1.webp',
+    'zipper-3-side-seal': 'https://pouch.eco/wp-content/uploads/2025/12/3side_zipper_clear_-1.webp',
+    'stand-up': 'https://pouch.eco/wp-content/uploads/2025/12/standup_no_zipper_matt_silver-2.webp',
+    'zipper-stand-up': 'https://pouch.eco/wp-content/uploads/2025/12/standup_zipper_glossy_clear-1.webp',
   }
-  return images[shape] || '/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp'
+  return images[shape] || 'https://pouch.eco/wp-content/uploads/2025/12/standup_no_zipper_matt_silver-2.webp'
 }
