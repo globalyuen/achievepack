@@ -13,7 +13,7 @@ export type ShapeType =
   | 'Side Gusset Pouch'
 
 export type ClosureType = 'No' | 'Regular Zipper' | 'One-Sided Zipper' | 'Child Resistant Zipper' | 'Slider' | 'Tin Tie' | 'Spout'
-export type SurfaceType = 'Glossy' | 'Matt'
+export type SurfaceType = 'Glossy' | 'Matt' | 'Metallic' | 'Soft Touch' | 'Emboss' | 'Stamp Foil'
 export type MaterialType = 
   | 'PCR or Bio Plastic'
   | 'Mono Recyclable Plastic'
@@ -60,6 +60,10 @@ const closureMap: Record<ClosureType, string> = {
 const surfaceMap: Record<SurfaceType, string> = {
   'Glossy': 'glossy',
   'Matt': 'matt',
+  'Metallic': 'metalic',  // File name is 'metalic.webp'
+  'Soft Touch': 'soft-touch',
+  'Emboss': 'emboss',
+  'Stamp Foil': 'stamp-foil',
 }
 
 /**
@@ -127,6 +131,15 @@ export function getSizeImage(size: EcoSizeType): string {
     return `${IMAGE_BASE_URL}stand-up.webp`
   }
   return `${SIZE_IMAGE_BASE_URL}${imageFilename}`
+}
+
+/**
+ * Get surface treatment image
+ * Returns image from /imgs/store/surface/ directory
+ */
+export function getSurfaceImage(surface: SurfaceType): string {
+  const surfaceFileName = surfaceMap[surface]
+  return `/imgs/store/surface/${surfaceFileName}.webp`
 }
 
 /**

@@ -4,8 +4,7 @@ import { ArrowLeft, ShoppingCart, Star, Check } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct } from '../store/productData'
 import { calculateEcoPrice, type EcoCalculatorSelections } from '../utils/ecoDigitalCalculator'
-import { getProductImage, getSizeImage } from '../utils/productImageMapper'
-import type { ShapeType, ClosureType, SurfaceType, EcoSizeType } from '../utils/productImageMapper'
+import { getProductImage, getSizeImage, getSurfaceImage, type ShapeType, ClosureType, SurfaceType, EcoSizeType } from '../utils/productImageMapper'
 
 const ProductPage: React.FC = () => {
   const { productId } = useParams<{ productId: string }>()
@@ -454,18 +453,17 @@ const ProductPage: React.FC = () => {
                   <label className="block text-sm font-medium text-neutral-700 mb-2">Surface</label>
                   <div className="flex gap-3 items-center">
                     <select value={selectedSurface} onChange={e => setSelectedSurface(e.target.value as SurfaceType)} className="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                      <option value="Glossy">Glossy (Clear)</option>
-                      <option value="Matt">Matt (Silver)</option>
+                      <option value="Glossy">Glossy</option>
+                      <option value="Matt">Matt</option>
+                      <option value="Metallic">Metallic</option>
+                      <option value="Soft Touch">Soft Touch</option>
+                      <option value="Emboss">Emboss</option>
+                      <option value="Stamp Foil">Stamp Foil</option>
                     </select>
                     {/* Surface Preview Thumbnail */}
                     <div className="flex-shrink-0 bg-white rounded-lg p-2 w-16 h-16 flex items-center justify-center border-2 border-primary-600">
                       <img 
-                        src={getProductImage({
-                          shape: ecoProduct.shape as ShapeType,
-                          closure: selectedClosure,
-                          surface: selectedSurface,
-                          material: selectedMaterial as any,
-                        })} 
+                        src={getSurfaceImage(selectedSurface)} 
                         alt={`${selectedSurface} surface`} 
                         className="max-w-full max-h-full object-contain"
                       />
