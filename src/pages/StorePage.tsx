@@ -9,9 +9,9 @@ type SortOption = 'popularity' | 'price-low' | 'price-high' | 'newest'
 
 const CATEGORIES = [
   { id: 'all', label: 'All Products' },
-  { id: 'custom-printed', label: 'Custom Printed' },
-  { id: 'compostable', label: 'Compostable' },
-  { id: 'recyclable', label: 'Recyclable' },
+  { id: 'sample', label: 'Sample' },
+  { id: 'conventional-digital', label: 'Conventional Digital' },
+  { id: 'eco-digital', label: 'Eco Digital' },
 ]
 
 const PRICE_RANGES = [
