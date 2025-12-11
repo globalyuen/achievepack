@@ -32,6 +32,9 @@ const ProductPage: React.FC = () => {
   // Tab state for Package Visualization / Specifications
   const [activeTab, setActiveTab] = useState<'visualization' | 'specifications'>('visualization')
   
+  // Image enlargement modal state
+  const [enlargedImage, setEnlargedImage] = useState<{ src: string; alt: string } | null>(null)
+  
   // Initialize from product defaults
   useEffect(() => {
     if (ecoProduct?.ecoConfig) {
@@ -276,7 +279,17 @@ const ProductPage: React.FC = () => {
                     <div className="grid grid-cols-3 gap-3">
                       {/* Material */}
                       <div className="text-center">
-                        <div className="bg-neutral-50 rounded-lg p-3 mb-2">
+                        <button 
+                          onClick={() => setEnlargedImage({
+                            src: selectedMaterial === 'PCR or Bio Plastic' 
+                              ? '/imgs/store/eco-material/pcr-or-biope.webp'
+                              : selectedMaterial === 'Mono Recyclable Plastic'
+                              ? '/imgs/store/eco-material/recycle.webp'
+                              : '/imgs/store/eco-material/compostable.webp',
+                            alt: selectedMaterial
+                          })}
+                          className="bg-neutral-50 rounded-lg p-3 mb-2 cursor-pointer hover:bg-neutral-100 transition w-full"
+                        >
                           <img 
                             src={
                               selectedMaterial === 'PCR or Bio Plastic' 
@@ -288,27 +301,45 @@ const ProductPage: React.FC = () => {
                             alt={selectedMaterial}
                             className="w-full h-20 object-contain"
                           />
-                        </div>
+                        </button>
                         <p className="text-xs font-medium text-neutral-700">Material</p>
                         <p className="text-xs text-neutral-500">{selectedMaterial}</p>
                       </div>
                       
                       {/* Size */}
                       <div className="text-center">
-                        <div className="bg-neutral-50 rounded-lg p-3 mb-2">
+                        <button 
+                          onClick={() => setEnlargedImage({
+                            src: getSizeImage(selectedSize as EcoSizeType),
+                            alt: `Size ${selectedSize}`
+                          })}
+                          className="bg-neutral-50 rounded-lg p-3 mb-2 cursor-pointer hover:bg-neutral-100 transition w-full"
+                        >
                           <img 
                             src={getSizeImage(selectedSize as EcoSizeType)}
                             alt={`Size ${selectedSize}`}
                             className="w-full h-20 object-contain"
                           />
-                        </div>
+                        </button>
                         <p className="text-xs font-medium text-neutral-700">Size</p>
                         <p className="text-xs text-neutral-500">{selectedSize}</p>
                       </div>
                       
                       {/* Closure */}
                       <div className="text-center">
-                        <div className="bg-neutral-50 rounded-lg p-3 mb-2">
+                        <button 
+                          onClick={() => setEnlargedImage({
+                            src: selectedClosure === 'No' ? '/imgs/store/closure/no-zipper.webp' :
+                              selectedClosure === 'Regular Zipper' ? '/imgs/store/closure/normal-zipper.webp' :
+                              selectedClosure === 'One-Sided Zipper' ? '/imgs/store/closure/front-zipper.webp' :
+                              selectedClosure === 'Child Resistant Zipper' ? '/imgs/store/closure/child-resistant-zipper.webp' :
+                              selectedClosure === 'Slider' ? '/imgs/store/closure/slider-zipper.webp' :
+                              selectedClosure === 'Tin Tie' ? '/imgs/store/closure/tin-tie.webp' :
+                              '/imgs/store/closure/no-zipper.webp',
+                            alt: selectedClosure
+                          })}
+                          className="bg-neutral-50 rounded-lg p-3 mb-2 cursor-pointer hover:bg-neutral-100 transition w-full"
+                        >
                           <img 
                             src={
                               selectedClosure === 'No' ? '/imgs/store/closure/no-zipper.webp' :
@@ -322,7 +353,7 @@ const ProductPage: React.FC = () => {
                             alt={selectedClosure}
                             className="w-full h-20 object-contain"
                           />
-                        </div>
+                        </button>
                         <p className="text-xs font-medium text-neutral-700">Closure</p>
                         <p className="text-xs text-neutral-500">{selectedClosure === 'No' ? 'None' : selectedClosure}</p>
                       </div>
@@ -680,6 +711,34 @@ const ProductPage: React.FC = () => {
           </div>
         </div>
       </main>
+
+      {/* Image Enlargement Modal */}
+      {enlargedImage && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+          onClick={() => setEnlargedImage(null)}
+        >
+          <div className="relative max-w-4xl max-h-[90vh] bg-white rounded-lg overflow-hidden">
+            <button
+              onClick={() => setEnlargedImage(null)}
+              className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg hover:bg-neutral-100 transition z-10"
+            >
+              <svg className="w-6 h-6 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <img 
+              src={enlargedImage.src}
+              alt={enlargedImage.alt}
+              className="w-full h-full object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+              <p className="text-white text-center font-medium">{enlargedImage.alt}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
