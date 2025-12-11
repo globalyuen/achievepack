@@ -491,8 +491,24 @@ const ProductPage: React.FC = () => {
             {/* Options */}
             {isEcoDigital && ecoProduct && (
               <div className="space-y-4 pt-4 border-t">
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2">Eco Material Type</label>
+                <div className="group relative">
+                  <label className="block text-sm font-medium text-neutral-700 mb-2 flex items-center gap-2">
+                    Eco Material Type
+                    <span className="text-neutral-400 text-xs cursor-help">ℹ️</span>
+                  </label>
+                  {/* Tooltip */}
+                  <div className="invisible group-hover:visible absolute left-0 top-full mt-1 w-72 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
+                    <div className="font-semibold mb-1">Material Type Guide:</div>
+                    <div className="mb-2">
+                      <strong>PCR/Bio Plastic:</strong> 30% lower carbon footprint, uses recycled or plant-based materials
+                    </div>
+                    <div className="mb-2">
+                      <strong>Mono Recyclable:</strong> 40% lower carbon footprint, 95% recyclable, single-material construction
+                    </div>
+                    <div>
+                      <strong>Biodegradable:</strong> Breaks down naturally, compostable, returns nutrients to soil
+                    </div>
+                  </div>
                   <div className="flex gap-3 items-center">
                     <select value={selectedMaterial} onChange={e => setSelectedMaterial(e.target.value)} className="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                       <option value="PCR or Bio Plastic">PCR or Bio Plastic</option>
@@ -515,8 +531,19 @@ const ProductPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2">{getSizeLabel}</label>
+                <div className="group relative">
+                  <label className="block text-sm font-medium text-neutral-700 mb-2 flex items-center gap-2">
+                    {getSizeLabel}
+                    <span className="text-neutral-400 text-xs cursor-help">ℹ️</span>
+                  </label>
+                  {/* Tooltip */}
+                  <div className="invisible group-hover:visible absolute left-0 top-full mt-1 w-72 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
+                    <div className="font-semibold mb-1">Package Size Guide:</div>
+                    • <strong>XXXS-XXS:</strong> Trial sizes, samples, single-serve products<br/>
+                    • <strong>XS-S:</strong> Specialty foods, premium coffee, small portions<br/>
+                    • <strong>M-L:</strong> Standard retail products, family-sized packs<br/>
+                    • <strong>XL-XXL:</strong> Bulk items, wholesale, subscription products
+                  </div>
                   <div className="flex gap-3 items-start">
                     <select value={selectedSize} onChange={e => setSelectedSize(e.target.value)} className="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                       {sizeOptions.map(size => (
@@ -534,8 +561,21 @@ const ProductPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2">Closure</label>
+                <div className="group relative">
+                  <label className="block text-sm font-medium text-neutral-700 mb-2 flex items-center gap-2">
+                    Closure
+                    <span className="text-neutral-400 text-xs cursor-help">ℹ️</span>
+                  </label>
+                  {/* Tooltip */}
+                  <div className="invisible group-hover:visible absolute left-0 top-full mt-1 w-72 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
+                    <div className="font-semibold mb-1">Closure Options:</div>
+                    • <strong>Regular Zipper:</strong> Resealable, maintains freshness<br/>
+                    • <strong>One-Sided:</strong> Easy pouring, front access<br/>
+                    • <strong>Child Resistant:</strong> Safety feature for medications<br/>
+                    • <strong>Slider:</strong> Premium smooth action<br/>
+                    • <strong>Tin Tie:</strong> Cost-effective for coffee/tea<br/>
+                    • <strong>Spout:</strong> Perfect for liquids, precise pouring
+                  </div>
                   <div className="flex gap-3 items-center">
                     <select value={selectedClosure} onChange={e => setSelectedClosure(e.target.value as ClosureType)} className="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                       <option value="No">No Closure</option>
@@ -565,8 +605,21 @@ const ProductPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2">Surface</label>
+                <div className="group relative">
+                  <label className="block text-sm font-medium text-neutral-700 mb-2 flex items-center gap-2">
+                    Surface
+                    <span className="text-neutral-400 text-xs cursor-help">ℹ️</span>
+                  </label>
+                  {/* Tooltip */}
+                  <div className="invisible group-hover:visible absolute left-0 top-full mt-1 w-72 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
+                    <div className="font-semibold mb-1">Surface Treatment:</div>
+                    • <strong>Glossy:</strong> Vibrant colors, classic finish<br/>
+                    • <strong>Matt:</strong> Elegant, reduced glare, modern look<br/>
+                    • <strong>Metallic:</strong> Premium metallic appearance<br/>
+                    • <strong>Soft Touch:</strong> Luxurious velvet-like feel<br/>
+                    • <strong>Emboss:</strong> Raised/depressed design, tactile<br/>
+                    • <strong>Stamp Foil:</strong> Metallic accents, luxury effect
+                  </div>
                   <div className="flex gap-3 items-center">
                     <select value={selectedSurface} onChange={e => setSelectedSurface(e.target.value as SurfaceType)} className="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                       <option value="Glossy">Glossy</option>
@@ -587,8 +640,24 @@ const ProductPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2">Barrier</label>
+                <div className="group relative">
+                  <label className="block text-sm font-medium text-neutral-700 mb-2 flex items-center gap-2">
+                    Barrier
+                    <span className="text-neutral-400 text-xs cursor-help">ℹ️</span>
+                  </label>
+                  {/* Tooltip */}
+                  <div className="invisible group-hover:visible absolute left-0 top-full mt-1 w-80 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
+                    <div className="font-semibold mb-1">Barrier Protection:</div>
+                    <div className="mb-2">
+                      <strong>Mid Barrier:</strong> 6-9 months shelf life, clear visibility, good for dry snacks
+                    </div>
+                    <div className="mb-2">
+                      <strong>High Barrier:</strong> 9-12 months, blocks light/oxygen, for coffee/tea/spices
+                    </div>
+                    <div>
+                      <strong>Highest Barrier:</strong> 12-18 months, aluminum layer, maximum protection
+                    </div>
+                  </div>
                   <select value={selectedBarrier} onChange={e => setSelectedBarrier(e.target.value)} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                     <option value="mid clear mid barrier (Optional Window)">Mid Barrier (Window)</option>
                     <option value="metalised high barrier (No Window)">High Barrier (No Window)</option>
@@ -596,8 +665,21 @@ const ProductPage: React.FC = () => {
                   </select>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2">Stiffness</label>
+                <div className="group relative">
+                  <label className="block text-sm font-medium text-neutral-700 mb-2 flex items-center gap-2">
+                    Stiffness
+                    <span className="text-neutral-400 text-xs cursor-help">ℹ️</span>
+                  </label>
+                  {/* Tooltip */}
+                  <div className="invisible group-hover:visible absolute left-0 top-full mt-1 w-72 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
+                    <div className="font-semibold mb-1">Package Stiffness:</div>
+                    <div className="mb-2">
+                      <strong>With Paper Lining:</strong> Stiffer package, better standing stability, +30g weight
+                    </div>
+                    <div>
+                      <strong>Without Paper:</strong> Softer, lighter package, 20% cost reduction, more flexible
+                    </div>
+                  </div>
                   <select value={selectedStiffness} onChange={e => setSelectedStiffness(e.target.value)} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                     <option value="Without Paper Lining (Softer)">Softer (No Paper)</option>
                     <option value="With Paper Lining (stiffer)">Stiffer (With Paper)</option>
