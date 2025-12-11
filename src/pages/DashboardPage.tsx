@@ -1194,10 +1194,13 @@ const DashboardPage: React.FC = () => {
                         Add All to Cart & Checkout
                       </button>
                       <button
-                        onClick={async () => {
+                        onClick={() => {
                           if (confirm('Are you sure you want to remove all saved items?')) {
-                            await supabase.from('saved_cart_items').delete().eq('user_id', user?.id)
-                            fetchData()
+                            setSavedItems([])
+                            // For non-demo users, also delete from database
+                            if (!isDemoUser(user?.email)) {
+                              supabase.from('saved_cart_items').delete().eq('user_id', user?.id)
+                            }
                           }
                         }}
                         className="px-4 py-3 border border-red-200 text-red-600 rounded-xl hover:bg-red-50 transition"
