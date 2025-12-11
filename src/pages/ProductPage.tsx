@@ -591,21 +591,35 @@ const ProductPage: React.FC = () => {
               
               {/* Photo Grid - 2 columns */}
               <div className="grid grid-cols-2 gap-3">
-                {/* Placeholder images - will be replaced with actual customer photos */}
-                {[1, 2, 3, 4, 5, 6].map((index) => (
+                {/* Real customer sample photos */}
+                {[
+                  { name: 'Arielle', img: 'Arielle.webp' },
+                  { name: 'David', img: 'David.webp' },
+                  { name: 'Holly', img: 'Holly.webp' },
+                  { name: 'Leo', img: 'Leo.webp' },
+                  { name: 'Nicole', img: 'Nicole.webp' },
+                  { name: 'Paul', img: 'Paul.webp' },
+                  { name: 'Remi', img: 'Remi.webp' },
+                  { name: 'Richard', img: 'Richard.webp' },
+                  { name: 'Steph', img: 'Steph.webp' },
+                  { name: 'Jemma', img: 'jemma.webp' },
+                  { name: 'Michelle', img: 'michelle.webp' },
+                  { name: 'Morlife', img: 'morlife.webp' },
+                  { name: 'Ruby', img: 'ruby.webp' },
+                ].slice(0, 6).map((sample) => (
                   <div 
-                    key={index}
-                    className="aspect-square bg-neutral-100 rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition flex items-center justify-center border border-neutral-200"
+                    key={sample.name}
+                    className="aspect-square bg-neutral-100 rounded-lg overflow-hidden cursor-pointer hover:opacity-90 hover:scale-105 transition-all border border-neutral-200 shadow-sm"
                     onClick={() => setEnlargedImage({
-                      src: `/imgs/store/customer-examples/example-${index}.webp`,
-                      alt: `Customer Example ${index}`
+                      src: `/imgs/store/customer-sample/${sample.img}`,
+                      alt: `${sample.name}'s Package`
                     })}
                   >
-                    <div className="text-center text-neutral-400">
-                      <div className="text-4xl mb-2">📦</div>
-                      <div className="text-xs">Example {index}</div>
-                      <div className="text-xs mt-1">(Photo pending)</div>
-                    </div>
+                    <img 
+                      src={`/imgs/store/customer-sample/${sample.img}`}
+                      alt={`${sample.name}'s Package`}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 ))}
               </div>
