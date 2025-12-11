@@ -18,6 +18,7 @@ import ResetPasswordPage from './pages/ResetPasswordPage'
 import DashboardPage from './pages/DashboardPage'
 import TermsPage from './pages/TermsPage'
 import AdminPage from './pages/AdminPage'
+import AdminManagementPage from './pages/AdminManagementPage'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -36,8 +37,9 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />
             <Route path="/reset-password" element={<ResetPasswordPage />} />
             <Route path="/dashboard" element={<DashboardPage />} />
-                        <Route path="/terms" element={<TermsPage />} />
+            <Route path="/terms" element={<TermsPage />} />
             <Route path="/admin" element={<AdminPage />} />
+            <Route path="/admin/management" element={<AdminManagementPage />} />
           </Routes>
         </StoreProvider>
       </BrowserRouter>

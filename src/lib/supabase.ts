@@ -37,9 +37,15 @@ export type Quote = {
   quote_number: string
   status: 'pending' | 'accepted' | 'expired' | 'rejected'
   total_amount: number
-  items: any[]
+  items?: any[]
   valid_until: string
   created_at: string
+  notes?: string
+  // RFQ specific fields
+  is_rfq?: boolean
+  message?: string
+  website_link?: string
+  photo_urls?: string[]
 }
 
 export type Document = {

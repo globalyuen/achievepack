@@ -5,12 +5,12 @@ import {
   LayoutDashboard, ShoppingCart, FileCheck, Image, ChevronRight, TrendingUp, 
   TrendingDown, Users, DollarSign, MoreHorizontal, Plus, RefreshCw, Eye, X, 
   MapPin, Phone, Mail as MailIcon, Truck, ExternalLink, Upload, CheckCircle, 
-  Clock, AlertCircle, FileImage, MessageSquare, Send, Heart, Trash2
+  Clock, AlertCircle, FileImage, MessageSquare, Send, Heart, Trash2, Globe, 
+  Camera, Info
 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, Order, Quote, Document, ArtworkFile, SavedCartItem } from '../lib/supabase'
 import { useTranslation } from 'react-i18next'
-import { isDemoUser, getDemoData } from '../data/demoCustomerData'
 import { useStore } from '../store/StoreContext'
 
 type TabType = 'dashboard' | 'orders' | 'quotes' | 'documents' | 'artwork' | 'saved' | 'settings'
@@ -56,6 +56,16 @@ const DashboardPage: React.FC = () => {
     barrier: '',
     finish: ''
   })
+  
+  // RFQ submission states
+  const [showRfqForm, setShowRfqForm] = useState(false)
+  const [rfqForm, setRfqForm] = useState({
+    message: '',
+    websiteLink: '',
+  })
+  const [rfqPhotos, setRfqPhotos] = useState<File[]>([])
+  const [rfqSubmitting, setRfqSubmitting] = useState(false)
+  const [rfqError, setRfqError] = useState('')
 
   useEffect(() => {
     if (!authLoading && !user) {
@@ -70,158 +80,34 @@ const DashboardPage: React.FC = () => {
   const fetchData = async () => {
     setLoading(true)
     
-    // Check if this is demo user
-    if (isDemoUser(user?.email)) {
-      const demoData = getDemoData(user?.email)
-      setOrders(demoData.orders as Order[])
-      setQuotes(demoData.quotes as Quote[])
-      setDocuments(demoData.documents as Document[])
-      // Demo artwork data
-      setArtworks([
-        {
-          id: 'demo-art-1',
-          user_id: 'demo-user',
-          name: 'coffee_pouch_design_v1.ai',
-          file_url: '#',
-          file_type: 'application/illustrator',
-          file_size: 2500000,
-          status: 'approved',
-          proof_url: '/sample-proof.pdf',
-          admin_feedback: 'Design approved! Ready for production. Colors match Pantone specifications perfectly.',
-          created_at: '2024-12-01T10:00:00Z',
-          updated_at: '2024-12-03T15:30:00Z'
-        },
-        {
-          id: 'demo-art-2',
-          user_id: 'demo-user',
-          name: 'snack_bag_artwork.pdf',
-          file_url: '#',
-          file_type: 'application/pdf',
-          file_size: 1800000,
-          status: 'proof_ready',
-          proof_url: '/sample-proof-2.pdf',
-          admin_feedback: 'Prepress complete. Please review the proof and confirm colors before production.',
-          created_at: '2024-12-05T14:00:00Z',
-          updated_at: '2024-12-07T09:00:00Z'
-        },
-        {
-          id: 'demo-art-3',
-          user_id: 'demo-user',
-          name: 'eco_pouch_label.eps',
-          file_url: '#',
-          file_type: 'application/postscript',
-          file_size: 3200000,
-          status: 'revision_needed',
-          admin_feedback: 'Text too close to bleed edge. Please adjust margins by 3mm. Logo resolution is low - need 300dpi minimum.',
-          customer_comment: 'Will update the margins and provide high-res logo by tomorrow.',
-          created_at: '2024-12-08T11:00:00Z',
-          updated_at: '2024-12-09T16:00:00Z'
-        },
-        {
-          id: 'demo-art-4',
-          user_id: 'demo-user',
-          name: 'new_product_design.ai',
-          file_url: '#',
-          file_type: 'application/illustrator',
-          file_size: 4100000,
-          status: 'in_review',
-          admin_feedback: 'Currently reviewing your artwork. Expected completion: 1-2 business days.',
-          created_at: '2024-12-09T08:00:00Z',
-          updated_at: '2024-12-09T08:00:00Z'
-        },
-        {
-          id: 'demo-art-5',
-          user_id: 'demo-user',
-          name: 'holiday_edition_pouch.pdf',
-          file_url: '#',
-          file_type: 'application/pdf',
-          file_size: 5600000,
-          status: 'pending_review',
-          created_at: '2024-12-10T09:30:00Z',
-          updated_at: '2024-12-10T09:30:00Z'
-        },
-        {
-          id: 'demo-art-6',
-          user_id: 'demo-user',
-          name: 'organic_tea_packaging.ai',
-          file_url: '#',
-          file_type: 'application/illustrator',
-          file_size: 3800000,
-          status: 'prepress',
-          admin_feedback: 'Artwork in prepress. Converting to CMYK and preparing print-ready files.',
-          created_at: '2024-12-06T16:00:00Z',
-          updated_at: '2024-12-08T11:00:00Z'
-        }
-      ] as ArtworkFile[])
-      // Demo saved items - use real product images from pouch.eco
-      setSavedItems([
-        {
-          id: 'demo-saved-1',
-          user_id: 'demo-user',
-          product_id: 'stand-up-pouch',
-          name: 'Stand Up Pouch - Eco Series',
-          image: 'https://pouch.eco/wp-content/uploads/2025/12/standup_no_zipper_matt_silver-2.webp',
-          variant: { shape: 'stand-up', size: '120x200mm', barrier: 'metalised', finish: 'matte' },
-          quantity: 5000,
-          unit_price: 0.42,
-          total_price: 2100,
-          created_at: '2024-12-08T10:00:00Z',
-          updated_at: '2024-12-08T10:00:00Z'
-        },
-        {
-          id: 'demo-saved-2',
-          user_id: 'demo-user',
-          product_id: 'flat-bottom-pouch',
-          name: 'Flat Bottom Bag - Compostable',
-          image: 'https://pouch.eco/wp-content/uploads/2025/12/a_kraft_bag_with_dimensions_3083325.webp',
-          variant: { shape: 'flat-bottom', size: '150x250mm', barrier: 'kraft', finish: 'matte' },
-          quantity: 3000,
-          unit_price: 0.58,
-          total_price: 1740,
-          created_at: '2024-12-09T14:30:00Z',
-          updated_at: '2024-12-09T14:30:00Z'
-        },
-        {
-          id: 'demo-saved-3',
-          user_id: 'demo-user',
-          product_id: 'side-gusset-bag',
-          name: 'Side Gusset Coffee Bag',
-          image: 'https://pouch.eco/wp-content/uploads/2025/12/3side_no_zipper_matt_silver-1.webp',
-          variant: { shape: 'side-gusset', size: '100x300mm', barrier: 'metalised', finish: 'matte' },
-          quantity: 10000,
-          unit_price: 0.35,
-          total_price: 3500,
-          created_at: '2024-12-07T09:15:00Z',
-          updated_at: '2024-12-07T09:15:00Z'
-        },
-        {
-          id: 'demo-saved-4',
-          user_id: 'demo-user',
-          product_id: 'standup-zipper',
-          name: 'Zipper Stand Up Pouch',
-          image: 'https://pouch.eco/wp-content/uploads/2025/12/standup_zipper_glossy_clear-1.webp',
-          variant: { shape: 'zipper-stand-up', size: '130x180mm', barrier: 'clear', finish: 'glossy' },
-          quantity: 2000,
-          unit_price: 0.85,
-          total_price: 1700,
-          created_at: '2024-12-05T16:45:00Z',
-          updated_at: '2024-12-05T16:45:00Z'
-        }
-      ] as SavedCartItem[])
-      setLoading(false)
-      return
-    }
-    
-    // Regular user - fetch from database
-    const [ordersRes, quotesRes, docsRes, artworksRes, savedRes] = await Promise.all([
+    // Fetch from database
+    const [ordersRes, quotesRes, rfqRes, docsRes, artworksRes, savedRes] = await Promise.all([
       supabase.from('orders').select('*').eq('user_id', user?.id).order('created_at', { ascending: false }),
       supabase.from('quotes').select('*').eq('user_id', user?.id).order('created_at', { ascending: false }),
+      supabase.from('rfq_submissions').select('*').eq('user_id', user?.id).order('created_at', { ascending: false }),
       supabase.from('documents').select('*').or(`user_id.eq.${user?.id},is_public.eq.true`).order('created_at', { ascending: false }),
       supabase.from('artwork_files').select('*').eq('user_id', user?.id).order('created_at', { ascending: false }),
       supabase.from('saved_cart_items').select('*').eq('user_id', user?.id).order('created_at', { ascending: false }),
     ])
     setOrders(ordersRes.data || [])
-    setQuotes(quotesRes.data || [])
+    
+    // Merge quotes and RFQ submissions
+    const regularQuotes = quotesRes.data || []
+    const rfqSubmissions = (rfqRes.data || []).map(rfq => ({
+      ...rfq,
+      quote_number: `RFQ-${rfq.id.slice(0, 8)}`,
+      total_amount: 0,
+      valid_until: new Date(new Date(rfq.created_at).getTime() + 30 * 24 * 60 * 60 * 1000).toISOString(),
+      notes: rfq.message,
+      is_rfq: true
+    }))
+    
+    // Combine and sort by created_at
+    const allQuotes = [...regularQuotes, ...rfqSubmissions].sort(
+      (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+    )
+    
+    setQuotes(allQuotes)
     setDocuments(docsRes.data || [])
     setArtworks(artworksRes.data || [])
     setSavedItems(savedRes.data || [])
@@ -247,6 +133,22 @@ const DashboardPage: React.FC = () => {
     
     try {
       for (const file of Array.from(files) as File[]) {
+        // Validate file size (250MB limit)
+        const maxSize = 250 * 1024 * 1024 // 250MB in bytes
+        if (file.size > maxSize) {
+          const fileSizeMB = (file.size / (1024 * 1024)).toFixed(1)
+          setUploadError(
+            `File "${file.name}" is too large (${fileSizeMB} MB).\n\n` +
+            `Maximum file size is 250 MB.\n\n` +
+            `For larger files, please use one of these options:\n` +
+            `• WeTransfer: https://wetransfer.com\n` +
+            `• Dropbox: https://www.dropbox.com\n` +
+            `• Google Drive: https://drive.google.com\n\n` +
+            `Then share the download link with us at ryan@achievepack.com`
+          )
+          continue
+        }
+        
         // Validate file type
         const validTypes = ['application/pdf', 'application/postscript', 'application/illustrator', 
           'image/png', 'image/jpeg', 'image/tiff', 'application/zip']
@@ -314,6 +216,140 @@ const DashboardPage: React.FC = () => {
       fetchData()
     } catch (error) {
       console.error('Error submitting revision:', error)
+    }
+  }
+  
+  // Handle RFQ photo upload
+  const handleRfqPhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files
+    if (!files) return
+    
+    const validFiles: File[] = []
+    let errorMsg = ''
+    
+    for (const file of Array.from(files) as File[]) {
+      // Check file size (10MB limit per file)
+      const maxSize = 10 * 1024 * 1024 // 10MB
+      if (file.size > maxSize) {
+        errorMsg = `File "${file.name}" exceeds 10MB limit`
+        continue
+      }
+      
+      // Check file type (images only)
+      if (!file.type.startsWith('image/')) {
+        errorMsg = `File "${file.name}" is not an image`
+        continue
+      }
+      
+      validFiles.push(file)
+    }
+    
+    if (errorMsg) {
+      setRfqError(errorMsg)
+    }
+    
+    setRfqPhotos(prev => [...prev, ...validFiles])
+  }
+  
+  // Remove RFQ photo
+  const removeRfqPhoto = (index: number) => {
+    setRfqPhotos(prev => prev.filter((_, i) => i !== index))
+  }
+  
+  // Submit RFQ
+  const handleSubmitRfq = async () => {
+    if (!rfqForm.message.trim()) {
+      setRfqError('Please enter a message')
+      return
+    }
+    
+    setRfqSubmitting(true)
+    setRfqError('')
+    
+    try {
+      // Upload photos to storage if any
+      const photoUrls: string[] = []
+      
+      if (rfqPhotos.length > 0) {
+        try {
+          for (const photo of rfqPhotos) {
+            const fileName = `${user?.id}/${Date.now()}_${photo.name}`
+            const { data, error } = await supabase.storage
+              .from('rfq-photos')
+              .upload(fileName, photo)
+            
+            if (error) {
+              console.error('Photo upload error:', error)
+              // Continue without photos if upload fails
+              break
+            }
+            
+            const { data: urlData } = supabase.storage.from('rfq-photos').getPublicUrl(fileName)
+            photoUrls.push(urlData.publicUrl)
+          }
+        } catch (photoError) {
+          console.error('Photo upload failed:', photoError)
+          // Continue without photos
+        }
+      }
+      
+      // Create RFQ record - try different approaches
+      try {
+        // First try: Insert into rfq_submissions table
+        const { error: dbError } = await supabase.from('rfq_submissions').insert({
+          user_id: user?.id,
+          message: rfqForm.message,
+          website_link: rfqForm.websiteLink || null,
+          photo_urls: photoUrls.length > 0 ? photoUrls : null,
+          status: 'pending',
+          created_at: new Date().toISOString(),
+        })
+        
+        if (dbError) throw dbError
+      } catch (dbError: any) {
+        console.error('Database insert failed:', dbError)
+        
+        // Fallback: Try to insert into quotes table as a workaround
+        try {
+          await supabase.from('quotes').insert({
+            user_id: user?.id,
+            quote_number: `RFQ-${Date.now()}`,
+            status: 'pending',
+            total_amount: 0,
+            valid_until: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
+            created_at: new Date().toISOString(),
+            notes: `RFQ: ${rfqForm.message}${rfqForm.websiteLink ? '\nWebsite: ' + rfqForm.websiteLink : ''}${photoUrls.length > 0 ? '\nPhotos: ' + photoUrls.join(', ') : ''}`
+          })
+        } catch (fallbackError) {
+          // If both fail, send email notification as last resort
+          console.error('All save methods failed, user will be notified:', fallbackError)
+          throw new Error('Unable to save RFQ. Please contact us at ryan@achievepack.com with your requirements.')
+        }
+      }
+      
+      // Reset form
+      setRfqForm({ message: '', websiteLink: '' })
+      setRfqPhotos([])
+      setShowRfqForm(false)
+      
+      // Show success message with ticket-style notification
+      alert(
+        '✅ Request Submitted Successfully!\n\n' +
+        'Your custom packaging request has been received.\n\n' +
+        'What happens next:\n' +
+        '• Our team will review your requirements\n' +
+        '• You\'ll receive a detailed quote within 24 hours\n' +
+        '• Check your email for updates\n\n' +
+        'Request ID: RFQ-' + Date.now().toString().slice(-8)
+      )
+      
+      // Refresh data to show new quote/RFQ
+      fetchData()
+    } catch (error: any) {
+      console.error('RFQ submission error:', error)
+      setRfqError(error.message || 'Failed to submit RFQ. Please try again or contact us at ryan@achievepack.com')
+    } finally {
+      setRfqSubmitting(false)
     }
   }
 
@@ -701,9 +737,20 @@ const DashboardPage: React.FC = () => {
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <h1 className="text-2xl font-bold text-gray-900">My Orders</h1>
-                <Link to="/store" className="flex items-center gap-2 px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition">
-                  <Plus className="h-4 w-4" /> New Order
-                </Link>
+                <div className="flex gap-3">
+                  <Link to="/store" className="flex items-center gap-2 px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition">
+                    <Plus className="h-4 w-4" /> New Order
+                  </Link>
+                  <button
+                    onClick={() => {
+                      setActiveTab('quotes')
+                      setShowRfqForm(true)
+                    }}
+                    className="flex items-center gap-2 px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg transition"
+                  >
+                    <FileText className="h-4 w-4" /> New Quote
+                  </button>
+                </div>
               </div>
               <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
                 {orders.length === 0 ? (
@@ -747,7 +794,206 @@ const DashboardPage: React.FC = () => {
           {/* Quotes Tab */}
           {activeTab === 'quotes' && (
             <div className="space-y-6">
-              <h1 className="text-2xl font-bold text-gray-900">My Quotes</h1>
+              <div className="flex items-center justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold text-gray-900">Quotes & Requests</h1>
+                  <p className="text-sm text-gray-500 mt-1">View your quotes and submit custom packaging requests</p>
+                </div>
+                <button
+                  onClick={() => setShowRfqForm(true)}
+                  className="flex items-center gap-2 px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition"
+                >
+                  <Plus className="h-4 w-4" />
+                  New Request
+                </button>
+              </div>
+              
+              {/* RFQ Submission Form - Improved Ticket Style */}
+              {showRfqForm && (
+                <div className="bg-white rounded-xl border-2 border-primary-200 shadow-lg p-6 space-y-5">
+                  <div className="flex items-center justify-between pb-4 border-b border-gray-200">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
+                        <FileText className="h-5 w-5 text-primary-600" />
+                      </div>
+                      <div>
+                        <h2 className="text-lg font-semibold text-gray-900">Submit Custom Request</h2>
+                        <p className="text-sm text-gray-500">Tell us about your packaging needs</p>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setShowRfqForm(false)
+                        setRfqForm({ message: '', websiteLink: '' })
+                        setRfqPhotos([])
+                        setRfqError('')
+                      }}
+                      className="text-gray-400 hover:text-gray-600 transition"
+                    >
+                      <X className="h-5 w-5" />
+                    </button>
+                  </div>
+                  
+                  {/* Error Message */}
+                  {rfqError && (
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-start gap-3">
+                      <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" />
+                      <p className="text-sm text-red-700">{rfqError}</p>
+                      <button onClick={() => setRfqError('')} className="ml-auto text-red-600 hover:text-red-800">
+                        <X className="h-4 w-4" />
+                      </button>
+                    </div>
+                  )}
+                  
+                  <div className="grid md:grid-cols-2 gap-5">
+                    {/* Left Column - Main Info */}
+                    <div className="space-y-4">
+                      {/* Message Text Box */}
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          <span className="flex items-center gap-2">
+                            <MessageSquare className="h-4 w-4" />
+                            Describe Your Requirements *
+                          </span>
+                        </label>
+                        <textarea
+                          value={rfqForm.message}
+                          onChange={(e) => setRfqForm({ ...rfqForm, message: e.target.value })}
+                          placeholder="Please include:\n• Product type and quantity\n• Size and material preferences\n• Special features or requirements\n• Timeline expectations"
+                          rows={8}
+                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-none"
+                        />
+                        <p className="text-xs text-gray-500 mt-1">
+                          Be as detailed as possible to help us provide an accurate quote
+                        </p>
+                      </div>
+                      
+                      {/* Website Link */}
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          <span className="flex items-center gap-2">
+                            <Globe className="h-4 w-4" />
+                            Product Website (Optional)
+                          </span>
+                        </label>
+                        <input
+                          type="url"
+                          value={rfqForm.websiteLink}
+                          onChange={(e) => setRfqForm({ ...rfqForm, websiteLink: e.target.value })}
+                          placeholder="https://example.com/product"
+                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                        />
+                        <p className="text-xs text-gray-500 mt-1">
+                          Help us understand your brand and product better
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* Right Column - Attachments */}
+                    <div className="space-y-4">
+                      {/* Photo Upload */}
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          <span className="flex items-center gap-2">
+                            <Camera className="h-4 w-4" />
+                            Reference Images (Optional)
+                          </span>
+                        </label>
+                        <label className="flex flex-col items-center justify-center gap-3 p-6 border-2 border-dashed border-gray-300 rounded-lg hover:border-primary-400 hover:bg-primary-50 transition cursor-pointer min-h-[200px]">
+                          <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+                            <Upload className="h-6 w-6 text-primary-600" />
+                          </div>
+                          <div className="text-center">
+                            <span className="text-sm font-medium text-gray-700">Click to upload images</span>
+                            <p className="text-xs text-gray-500 mt-1">PNG, JPG, WEBP (Max 10MB each)</p>
+                          </div>
+                          <input
+                            type="file"
+                            multiple
+                            accept="image/*"
+                            onChange={handleRfqPhotoChange}
+                            className="hidden"
+                          />
+                        </label>
+                        
+                        {/* Photo Preview */}
+                        {rfqPhotos.length > 0 && (
+                          <div className="mt-3">
+                            <p className="text-xs font-medium text-gray-700 mb-2">Uploaded ({rfqPhotos.length})</p>
+                            <div className="grid grid-cols-2 gap-2">
+                              {rfqPhotos.map((photo, index) => (
+                                <div key={index} className="relative group">
+                                  <img
+                                    src={URL.createObjectURL(photo)}
+                                    alt={`Photo ${index + 1}`}
+                                    className="w-full h-24 object-cover rounded-lg border border-gray-200"
+                                  />
+                                  <button
+                                    onClick={() => removeRfqPhoto(index)}
+                                    className="absolute -top-1.5 -right-1.5 p-1 bg-red-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition shadow-lg"
+                                  >
+                                    <X className="h-3.5 w-3.5" />
+                                  </button>
+                                  <p className="text-xs text-gray-500 mt-1 truncate">{photo.name}</p>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                      
+                      {/* Info Box */}
+                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <div className="flex gap-3">
+                          <Info className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                          <div className="text-sm text-blue-800">
+                            <p className="font-medium mb-1">What happens next?</p>
+                            <ul className="space-y-1 text-xs">
+                              <li>• Our team will review your request</li>
+                              <li>• You'll receive a detailed quote within 24 hours</li>
+                              <li>• We may contact you for clarifications</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Submit Button */}
+                  <div className="flex gap-3 pt-4 border-t border-gray-200">
+                    <button
+                      onClick={handleSubmitRfq}
+                      disabled={rfqSubmitting || !rfqForm.message.trim()}
+                      className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-medium rounded-lg transition shadow-sm hover:shadow-md"
+                    >
+                      {rfqSubmitting ? (
+                        <>
+                          <RefreshCw className="h-5 w-5 animate-spin" />
+                          Submitting Request...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="h-5 w-5" />
+                          Submit Request
+                        </>
+                      )}
+                    </button>
+                    <button
+                      onClick={() => {
+                        setShowRfqForm(false)
+                        setRfqForm({ message: '', websiteLink: '' })
+                        setRfqPhotos([])
+                        setRfqError('')
+                      }}
+                      disabled={rfqSubmitting}
+                      className="px-6 py-3 border-2 border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              )}
+              
               <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
                 {quotes.length === 0 ? (
                   <div className="p-12 text-center text-gray-400">
@@ -757,21 +1003,69 @@ const DashboardPage: React.FC = () => {
                 ) : (
                   <div className="divide-y divide-gray-100">
                     {quotes.map(quote => (
-                      <div key={quote.id} className="p-5 hover:bg-gray-50 transition flex items-center justify-between">
-                        <div className="flex items-center gap-4">
-                          <div className="w-12 h-12 bg-yellow-50 rounded-lg flex items-center justify-center">
-                            <FileCheck className="h-6 w-6 text-yellow-600" />
+                      <div key={quote.id} className="p-5 hover:bg-gray-50 transition">
+                        <div className="flex items-start justify-between">
+                          <div className="flex items-start gap-4 flex-1">
+                            <div className={`w-12 h-12 ${quote.is_rfq ? 'bg-blue-50' : 'bg-yellow-50'} rounded-lg flex items-center justify-center flex-shrink-0`}>
+                              <FileCheck className={`h-6 w-6 ${quote.is_rfq ? 'text-blue-600' : 'text-yellow-600'}`} />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-2">
+                                <p className="font-semibold text-gray-900">{quote.quote_number}</p>
+                                {quote.is_rfq && (
+                                  <span className="px-2 py-0.5 text-xs font-medium bg-blue-100 text-blue-700 rounded">RFQ</span>
+                                )}
+                              </div>
+                              <p className="text-sm text-gray-500 mt-1">
+                                {quote.is_rfq ? 'Submitted' : 'Valid until'}: {new Date(quote.is_rfq ? quote.created_at : quote.valid_until).toLocaleDateString()}
+                              </p>
+                              
+                              {/* RFQ Details */}
+                              {quote.is_rfq && (
+                                <div className="mt-3 space-y-2">
+                                  {quote.message && (
+                                    <div className="bg-gray-50 rounded-lg p-3">
+                                      <p className="text-xs font-medium text-gray-500 mb-1">Message:</p>
+                                      <p className="text-sm text-gray-700 whitespace-pre-wrap">{quote.message}</p>
+                                    </div>
+                                  )}
+                                  {quote.website_link && (
+                                    <div className="flex items-center gap-2 text-sm">
+                                      <span className="text-gray-500">Website:</span>
+                                      <a href={quote.website_link} target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline truncate">
+                                        {quote.website_link}
+                                      </a>
+                                    </div>
+                                  )}
+                                  {quote.photo_urls && quote.photo_urls.length > 0 && (
+                                    <div>
+                                      <p className="text-xs font-medium text-gray-500 mb-2">Attached Photos:</p>
+                                      <div className="grid grid-cols-4 gap-2">
+                                        {quote.photo_urls.map((url, idx) => (
+                                          <a key={idx} href={url} target="_blank" rel="noopener noreferrer" className="block">
+                                            <img src={url} alt={`Photo ${idx + 1}`} className="w-full h-20 object-cover rounded border border-gray-200 hover:border-primary-400 transition" />
+                                          </a>
+                                        ))}
+                                      </div>
+                                    </div>
+                                  )}
+                                </div>
+                              )}
+                              
+                              {/* Regular Quote Notes */}
+                              {!quote.is_rfq && quote.notes && (
+                                <p className="text-sm text-gray-600 mt-2">{quote.notes}</p>
+                              )}
+                            </div>
                           </div>
-                          <div>
-                            <p className="font-semibold text-gray-900">{quote.quote_number}</p>
-                            <p className="text-sm text-gray-500">Valid until: {new Date(quote.valid_until).toLocaleDateString()}</p>
+                          <div className="text-right ml-4">
+                            {!quote.is_rfq && (
+                              <p className="text-lg font-bold text-gray-900">${quote.total_amount?.toLocaleString()}</p>
+                            )}
+                            <span className={`inline-block px-3 py-1 text-xs font-medium rounded-full ${statusColors[quote.status] || 'bg-gray-100 text-gray-600'}`}>
+                              {quote.status}
+                            </span>
                           </div>
-                        </div>
-                        <div className="text-right">
-                          <p className="text-lg font-bold text-gray-900">${quote.total_amount?.toLocaleString()}</p>
-                          <span className={`inline-block px-3 py-1 text-xs font-medium rounded-full ${statusColors[quote.status]}`}>
-                            {quote.status}
-                          </span>
                         </div>
                       </div>
                     ))}
@@ -829,10 +1123,12 @@ const DashboardPage: React.FC = () => {
 
               {/* Upload Error */}
               {uploadError && (
-                <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-center gap-3">
-                  <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0" />
-                  <p className="text-sm text-red-700">{uploadError}</p>
-                  <button onClick={() => setUploadError('')} className="ml-auto text-red-600 hover:text-red-800">
+                <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex gap-3">
+                  <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" />
+                  <div className="flex-1">
+                    <p className="text-sm text-red-700 whitespace-pre-line">{uploadError}</p>
+                  </div>
+                  <button onClick={() => setUploadError('')} className="text-red-600 hover:text-red-800 flex-shrink-0">
                     <X className="h-4 w-4" />
                   </button>
                 </div>
@@ -855,8 +1151,16 @@ const DashboardPage: React.FC = () => {
                     <p>AI, EPS, PDF, PNG, JPG, TIFF, PSD, ZIP</p>
                   </div>
                   <div>
+                    <p className="font-medium text-gray-800 mb-1">File Size Limit:</p>
+                    <p>Maximum 250 MB per file</p>
+                  </div>
+                  <div>
                     <p className="font-medium text-gray-800 mb-1">Requirements:</p>
                     <p>300 DPI minimum, CMYK color mode, 3mm bleed</p>
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-800 mb-1">For Large Files:</p>
+                    <p>Use WeTransfer, Dropbox, or Google Drive</p>
                   </div>
                 </div>
               </div>
@@ -1136,13 +1440,10 @@ const DashboardPage: React.FC = () => {
                                   Add to Cart
                                 </button>
                                 <button
-                                  onClick={() => {
-                                    // Remove item from state directly
+                                  onClick={async () => {
+                                    // Remove item from state and database
                                     setSavedItems(prev => prev.filter(i => i.id !== item.id))
-                                    // For non-demo users, also delete from database
-                                    if (!isDemoUser(user?.email)) {
-                                      supabase.from('saved_cart_items').delete().eq('id', item.id)
-                                    }
+                                    await supabase.from('saved_cart_items').delete().eq('id', item.id)
                                   }}
                                   className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition"
                                 >
@@ -1194,13 +1495,10 @@ const DashboardPage: React.FC = () => {
                         Add All to Cart & Checkout
                       </button>
                       <button
-                        onClick={() => {
+                        onClick={async () => {
                           if (confirm('Are you sure you want to remove all saved items?')) {
                             setSavedItems([])
-                            // For non-demo users, also delete from database
-                            if (!isDemoUser(user?.email)) {
-                              supabase.from('saved_cart_items').delete().eq('user_id', user?.id)
-                            }
+                            await supabase.from('saved_cart_items').delete().eq('user_id', user?.id)
                           }
                         }}
                         className="px-4 py-3 border border-red-200 text-red-600 rounded-xl hover:bg-red-50 transition"
@@ -1553,15 +1851,58 @@ const DashboardPage: React.FC = () => {
               
               {/* Quantity */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Quantity</label>
-                <input
-                  type="number"
-                  min="100"
-                  step="100"
-                  value={editForm.quantity}
-                  onChange={(e) => setEditForm(prev => ({ ...prev, quantity: parseInt(e.target.value) || 0 }))}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-                />
+                <label className="block text-sm font-medium text-gray-700 mb-2">Quantity (units)</label>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-3">
+                    <button
+                      onClick={() => {
+                        const currentQty = editForm.quantity
+                        let newQty = currentQty
+                        // Decrease quantity with smart steps
+                        if (currentQty <= 1000) {
+                          newQty = Math.max(100, currentQty - 100)
+                        } else if (currentQty <= 5000) {
+                          newQty = Math.max(100, currentQty - 500)
+                        } else {
+                          newQty = Math.max(100, currentQty - 1000)
+                        }
+                        setEditForm(prev => ({ ...prev, quantity: newQty }))
+                      }}
+                      className="px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition font-bold text-xl"
+                    >
+                      −
+                    </button>
+                    <input
+                      type="number"
+                      min="100"
+                      step="100"
+                      value={editForm.quantity}
+                      onChange={(e) => setEditForm(prev => ({ ...prev, quantity: Math.max(100, parseInt(e.target.value) || 100) }))}
+                      className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-center font-semibold text-lg"
+                    />
+                    <button
+                      onClick={() => {
+                        const currentQty = editForm.quantity
+                        let newQty = currentQty
+                        // Increase quantity with smart steps
+                        if (currentQty < 1000) {
+                          newQty = currentQty + 100
+                        } else if (currentQty < 5000) {
+                          newQty = currentQty + 500
+                        } else {
+                          newQty = currentQty + 1000
+                        }
+                        setEditForm(prev => ({ ...prev, quantity: newQty }))
+                      }}
+                      className="px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition font-bold text-xl"
+                    >
+                      +
+                    </button>
+                  </div>
+                  <p className="text-xs text-gray-500">
+                    Quick steps: 100 units (below 1K), 500 units (1K-5K), 1000 units (above 5K)
+                  </p>
+                </div>
               </div>
               
               {/* Shape */}
@@ -1659,22 +2000,14 @@ const DashboardPage: React.FC = () => {
                       updated_at: new Date().toISOString()
                     }
                     
-                    if (isDemoUser(user?.email)) {
-                      // Update in localStorage for demo user
-                      const demoItems = JSON.parse(localStorage.getItem('demo_saved_items') || '[]')
-                      const updatedDemoItems = demoItems.map((i: any) => i.id === editingItem.id ? updatedItem : i)
-                      localStorage.setItem('demo_saved_items', JSON.stringify(updatedDemoItems))
-                      setSavedItems(prev => prev.map(i => i.id === editingItem.id ? updatedItem : i))
-                    } else {
-                      // Update in database
-                      await supabase.from('saved_cart_items').update({
-                        quantity: editForm.quantity,
-                        variant: updatedItem.variant,
-                        total_price: updatedItem.total_price,
-                        updated_at: updatedItem.updated_at
-                      }).eq('id', editingItem.id)
-                      fetchData()
-                    }
+                    // Update in database
+                    await supabase.from('saved_cart_items').update({
+                      quantity: editForm.quantity,
+                      variant: updatedItem.variant,
+                      total_price: updatedItem.total_price,
+                      updated_at: updatedItem.updated_at
+                    }).eq('id', editingItem.id)
+                    fetchData()
                     
                     setEditingItem(null)
                   }}

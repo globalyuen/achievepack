@@ -1,23 +1,124 @@
-import React, { useState, useMemo } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import React, { useState, useMemo, useEffect } from 'react'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import { ArrowLeft, ShoppingCart, Star, Check } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
-import { FEATURED_PRODUCTS, POUCH_SHAPES, POUCH_SIZES, BARRIER_OPTIONS, QUANTITY_OPTIONS, getPrice, getProductImage } from '../store/productData'
+import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct } from '../store/productData'
+import { calculateEcoPrice, type EcoCalculatorSelections } from '../utils/ecoDigitalCalculator'
+import { getProductImage } from '../utils/productImageMapper'
+import type { ShapeType, ClosureType, SurfaceType } from '../utils/productImageMapper'
 
 const ProductPage: React.FC = () => {
   const { productId } = useParams<{ productId: string }>()
   const { addToCart, cartCount, setIsCartOpen } = useStore()
+  const navigate = useNavigate()
   
   const product = FEATURED_PRODUCTS.find(p => p.id === productId)
+  const isEcoDigital = product?.category === 'eco-digital'
+  const ecoProduct = isEcoDigital ? (product as EcoDigitalProduct) : null
   
-  const [selectedShape, setSelectedShape] = useState('stand-up')
-  const [selectedSize, setSelectedSize] = useState('100x150')
-  const [selectedBarrier, setSelectedBarrier] = useState('metalised')
-  const [selectedQuantity, setSelectedQuantity] = useState(100)
+  // Eco Digital product options
+  const [selectedMaterial, setSelectedMaterial] = useState('Mono Recyclable Plastic')
+  const [selectedSize, setSelectedSize] = useState('M')
+  const [selectedQuantity, setSelectedQuantity] = useState('1,000 (Digital print)')
+  const [selectedDesignCount, setSelectedDesignCount] = useState(1)
+  const [selectedBarrier, setSelectedBarrier] = useState('mid clear mid barrier (Optional Window)')
+  const [selectedStiffness, setSelectedStiffness] = useState('Without Paper Lining (Softer)')
+  const [selectedClosure, setSelectedClosure] = useState<ClosureType>('No')
+  const [selectedSurface, setSelectedSurface] = useState<SurfaceType>('Matt')
+  const [selectedLaserScoring, setSelectedLaserScoring] = useState<'Yes' | 'No'>('No')
+  const [selectedValve, setSelectedValve] = useState<'Yes' | 'No'>('No')
+  const [selectedShipping, setSelectedShipping] = useState('Air Freight')
+  
+  // Initialize from product defaults
+  useEffect(() => {
+    if (ecoProduct?.ecoConfig) {
+      setSelectedMaterial(ecoProduct.ecoConfig.defaultMaterial)
+      setSelectedSize(ecoProduct.ecoConfig.defaultSize)
+      setSelectedQuantity(ecoProduct.ecoConfig.defaultQuantity)
+      setSelectedDesignCount(ecoProduct.ecoConfig.defaultDesignCount)
+      setSelectedBarrier(ecoProduct.ecoConfig.defaultBarrier)
+      setSelectedStiffness(ecoProduct.ecoConfig.defaultStiffness)
+      setSelectedClosure(ecoProduct.ecoConfig.defaultZipper as ClosureType)
+      setSelectedShipping(ecoProduct.ecoConfig.defaultShippingMethod)
+    }
+  }, [ecoProduct])
 
-  const totalPrice = useMemo(() => getPrice(selectedShape, selectedSize, selectedQuantity), [selectedShape, selectedSize, selectedQuantity])
-  const unitPrice = totalPrice > 0 ? totalPrice / selectedQuantity : 0
-  const productImage = useMemo(() => getProductImage(selectedShape), [selectedShape])
+  // Get size options based on product shape
+  const sizeOptions = useMemo(() => {
+    if (!isEcoDigital || !ecoProduct) return []
+    
+    const shape = ecoProduct.shape
+    const is3SideOrCenterSeal = shape === '3 Side Seal Pouch' || shape === 'Center Seal Pouch'
+    
+    if (is3SideOrCenterSeal) {
+      // 3 Side Seal & Center Seal sizes (no gusset)
+      return [
+        { value: 'XXXS', label: 'XXXS (3.6 width x 6.3 length Inch / 90 x 110 mm)' },
+        { value: 'XXS', label: 'XXS (4.3 width x 6.3 length Inch / 110 x 160 mm)' },
+        { value: 'XS', label: 'XS (5.1 width x 7.1 length Inch / 130 x 180 mm)' },
+        { value: 'S', label: 'S (5.9 width x 7.9 length Inch / 150 x 200 mm)' },
+        { value: 'L', label: 'L (7.1 width x 9.8 length Inch / 180 x 250 mm)' },
+        { value: 'XL', label: 'XL (7.9 width x 11.8 length Inch / 200 x 300 mm)' },
+        { value: 'XXL', label: 'XXL (9.8 width x 13.8 length Inch / 250 x 350 mm)' },
+      ]
+    } else {
+      // Other shapes (with gusset)
+      return [
+        { value: 'XXXS', label: 'XXXS (3.6 width x 6.3 length + 2.4 Inch unfolded gusset / 90 x 110 + 60 mm)' },
+        { value: 'XXS', label: 'XXS (4.3 width x 6.3 length + 2.4 Inch unfolded gusset / 110 x 160 + 60 mm)' },
+        { value: 'XS', label: 'XS (5.1 width x 7.1 length + 3.1 Inch unfolded gusset / 130 x 180 + 80 mm)' },
+        { value: 'S', label: 'S (5.9 width x 7.9 length + 3.1 Inch unfolded gusset / 150 x 200 + 80 mm)' },
+        { value: 'L', label: 'L (7.1 width x 9.8 length + 3.1 Inch unfolded gusset / 180 x 250 + 80 mm)' },
+        { value: 'XL', label: 'XL (7.9 width x 11.8 length + 3.9 Inch unfolded gusset / 200 x 300 + 100 mm)' },
+        { value: 'XXL', label: 'XXL (9.8 width x 13.8 length + 3.9 Inch unfolded gusset / 250 x 350 + 100 mm)' },
+      ]
+    }
+  }, [isEcoDigital, ecoProduct])
+
+  // Calculate price for Eco Digital products
+  const calculationResult = useMemo(() => {
+    if (!isEcoDigital || !ecoProduct) return null
+    
+    try {
+      const selections: EcoCalculatorSelections = {
+        shape: ecoProduct.shape as any,
+        material: selectedMaterial as any,
+        size: selectedSize as any,
+        quantityOption: selectedQuantity,
+        designCount: selectedDesignCount,
+        barrier: selectedBarrier,
+        stiffness: selectedStiffness,
+        zipper: selectedClosure,
+        laserScoring: selectedLaserScoring,
+        valve: selectedValve,
+        additions: [],
+        surfaceTreatments: selectedSurface === 'Glossy' ? [] : ['Matt'],
+        shippingMethod: selectedShipping as any,
+      }
+      
+      return calculateEcoPrice(selections)
+    } catch (error) {
+      console.error('Price calculation error:', error)
+      return null
+    }
+  }, [isEcoDigital, ecoProduct, selectedMaterial, selectedSize, selectedQuantity, selectedDesignCount, selectedBarrier, selectedStiffness, selectedClosure, selectedSurface, selectedLaserScoring, selectedValve, selectedShipping])
+
+  const totalPrice = calculationResult?.price.totalInvestment || product?.basePrice || 0
+  const unitPrice = calculationResult?.price.currentUnitPrice || 0
+  
+  // Product image based on selections - Always show pouch shape for Eco Digital
+  const productImage = useMemo(() => {
+    if (isEcoDigital && ecoProduct) {
+      // Always show pouch shape image, not material type
+      return getProductImage({
+        shape: ecoProduct.shape as ShapeType,
+        closure: selectedClosure,
+        surface: selectedSurface,
+        material: undefined, // Don't use material for main image
+      })
+    }
+    return product?.images[0] || ''
+  }, [isEcoDigital, ecoProduct, selectedClosure, selectedSurface, product])
 
   if (!product) {
     return (
@@ -29,12 +130,17 @@ const ProductPage: React.FC = () => {
   }
 
   const handleAddToCart = () => {
-    if (totalPrice <= 0) return
+    if (totalPrice <= 0 || !product) return
+    
+    const variantDescription = isEcoDigital && ecoProduct
+      ? `${ecoProduct.shape} / ${selectedSize} / ${selectedClosure} / ${selectedSurface} / ${selectedQuantity}`
+      : 'Standard'
+    
     addToCart({
       productId: product.id,
       name: product.name,
       image: productImage,
-      variant: { shape: selectedShape, size: selectedSize, barrier: selectedBarrier, finish: 'matt' },
+      variant: { shape: variantDescription, size: selectedSize, barrier: selectedBarrier, finish: selectedSurface.toLowerCase() },
       quantity: 1,
       unitPrice: totalPrice,
       totalPrice: totalPrice
@@ -49,7 +155,13 @@ const ProductPage: React.FC = () => {
           <Link to="/store" className="flex items-center gap-2 text-neutral-600 hover:text-primary-600 transition">
             <ArrowLeft className="h-5 w-5" /> Back to Store
           </Link>
-          <button onClick={() => setIsCartOpen(true)} className="relative p-2 hover:bg-neutral-100 rounded-full transition">
+          <button onClick={() => {
+            if (cartCount === 0) {
+              navigate('/store')
+            } else {
+              setIsCartOpen(true)
+            }
+          }} className="relative p-2 hover:bg-neutral-100 rounded-full transition">
             <ShoppingCart className="h-6 w-6 text-neutral-700" />
             {cartCount > 0 && <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">{cartCount}</span>}
           </button>
@@ -60,9 +172,57 @@ const ProductPage: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Product Images */}
           <div className="space-y-4">
+            {/* Main Image */}
             <div className="bg-white rounded-2xl p-8 aspect-square flex items-center justify-center shadow-sm">
               <img src={productImage} alt={product.name} className="max-w-full max-h-full object-contain" />
             </div>
+            
+            {/* Thumbnail Gallery - Only for Eco Digital products */}
+            {isEcoDigital && ecoProduct && (
+              <div className="flex gap-3 overflow-x-auto pb-2">
+                {/* PCR or Bio Plastic Thumbnail */}
+                <button
+                  onClick={() => setSelectedMaterial('PCR or Bio Plastic')}
+                  className={`flex-shrink-0 bg-white rounded-lg p-3 w-24 h-24 flex items-center justify-center border-2 transition hover:border-primary-400 ${
+                    selectedMaterial === 'PCR or Bio Plastic' ? 'border-primary-600 ring-2 ring-primary-200' : 'border-neutral-200'
+                  }`}
+                >
+                  <img 
+                    src="/imgs/store/eco-material/pcr-or-biope.webp" 
+                    alt="PCR or Bio Plastic" 
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </button>
+                
+                {/* Mono Recyclable Plastic Thumbnail */}
+                <button
+                  onClick={() => setSelectedMaterial('Mono Recyclable Plastic')}
+                  className={`flex-shrink-0 bg-white rounded-lg p-3 w-24 h-24 flex items-center justify-center border-2 transition hover:border-primary-400 ${
+                    selectedMaterial === 'Mono Recyclable Plastic' ? 'border-primary-600 ring-2 ring-primary-200' : 'border-neutral-200'
+                  }`}
+                >
+                  <img 
+                    src="/imgs/store/eco-material/recycle.webp" 
+                    alt="Mono Recyclable Plastic" 
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </button>
+                
+                {/* Biodegradable and Compostable Thumbnail */}
+                <button
+                  onClick={() => setSelectedMaterial('Biodegradable and Compostable')}
+                  className={`flex-shrink-0 bg-white rounded-lg p-3 w-24 h-24 flex items-center justify-center border-2 transition hover:border-primary-400 ${
+                    selectedMaterial === 'Biodegradable and Compostable' ? 'border-primary-600 ring-2 ring-primary-200' : 'border-neutral-200'
+                  }`}
+                >
+                  <img 
+                    src="/imgs/store/eco-material/compostable.webp" 
+                    alt="Biodegradable and Compostable" 
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </button>
+              </div>
+            )}
           </div>
 
           {/* Product Info */}
@@ -82,43 +242,163 @@ const ProductPage: React.FC = () => {
             <p className="text-neutral-600">{product.description}</p>
 
             {/* Options */}
-            <div className="space-y-4 pt-4 border-t">
-              <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-2">Package Shape</label>
-                <select value={selectedShape} onChange={e => setSelectedShape(e.target.value)} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                  {POUCH_SHAPES.map(shape => <option key={shape.id} value={shape.id}>{shape.label}</option>)}
-                </select>
-              </div>
+            {isEcoDigital && ecoProduct && (
+              <div className="space-y-4 pt-4 border-t">
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">Eco Material Type</label>
+                  <div className="flex gap-3 items-center">
+                    <select value={selectedMaterial} onChange={e => setSelectedMaterial(e.target.value)} className="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                      <option value="PCR or Bio Plastic">PCR or Bio Plastic</option>
+                      <option value="Mono Recyclable Plastic">Mono Recyclable Plastic</option>
+                      <option value="Biodegradable and Compostable">Biodegradable and Compostable</option>
+                    </select>
+                    {/* Material Thumbnail */}
+                    <div className="flex-shrink-0 bg-white rounded-lg p-2 w-16 h-16 flex items-center justify-center border-2 border-primary-600">
+                      <img 
+                        src={selectedMaterial === 'PCR or Bio Plastic' 
+                          ? '/imgs/store/eco-material/pcr-or-biope.webp'
+                          : selectedMaterial === 'Mono Recyclable Plastic'
+                          ? '/imgs/store/eco-material/recycle.webp'
+                          : '/imgs/store/eco-material/compostable.webp'
+                        } 
+                        alt={selectedMaterial} 
+                        className="max-w-full max-h-full object-contain"
+                      />
+                    </div>
+                  </div>
+                </div>
 
-              <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-2">Size</label>
-                <select value={selectedSize} onChange={e => setSelectedSize(e.target.value)} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                  {POUCH_SIZES.map(size => <option key={size.id} value={size.id}>{size.label} ({size.imperial})</option>)}
-                </select>
-              </div>
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">Size</label>
+                  <select value={selectedSize} onChange={e => setSelectedSize(e.target.value)} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                    {sizeOptions.map(size => (
+                      <option key={size.value} value={size.value}>{size.label}</option>
+                    ))}
+                  </select>
+                </div>
 
-              <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-2">Barrier + Finish</label>
-                <select value={selectedBarrier} onChange={e => setSelectedBarrier(e.target.value)} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                  {BARRIER_OPTIONS.map(opt => <option key={opt.id} value={opt.id}>{opt.label}</option>)}
-                </select>
-              </div>
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">Closure</label>
+                  <div className="flex gap-3 items-center">
+                    <select value={selectedClosure} onChange={e => setSelectedClosure(e.target.value as ClosureType)} className="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                      <option value="No">No</option>
+                      <option value="Zipper">Zipper</option>
+                      <option value="Spout">Spout</option>
+                    </select>
+                    {/* Closure Preview Thumbnail */}
+                    <div className="flex-shrink-0 bg-white rounded-lg p-2 w-16 h-16 flex items-center justify-center border-2 border-primary-600">
+                      <img 
+                        src={getProductImage({
+                          shape: ecoProduct.shape as ShapeType,
+                          closure: selectedClosure,
+                          surface: selectedSurface,
+                          material: selectedMaterial as any,
+                        })} 
+                        alt={`${selectedClosure} closure`} 
+                        className="max-w-full max-h-full object-contain"
+                      />
+                    </div>
+                  </div>
+                </div>
 
-              <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-2">Quantity</label>
-                <select value={selectedQuantity} onChange={e => setSelectedQuantity(Number(e.target.value))} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                  {QUANTITY_OPTIONS.map(qty => <option key={qty} value={qty}>{qty.toLocaleString()} pieces</option>)}
-                </select>
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">Surface</label>
+                  <div className="flex gap-3 items-center">
+                    <select value={selectedSurface} onChange={e => setSelectedSurface(e.target.value as SurfaceType)} className="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                      <option value="Glossy">Glossy (Clear)</option>
+                      <option value="Matt">Matt (Silver)</option>
+                    </select>
+                    {/* Surface Preview Thumbnail */}
+                    <div className="flex-shrink-0 bg-white rounded-lg p-2 w-16 h-16 flex items-center justify-center border-2 border-primary-600">
+                      <img 
+                        src={getProductImage({
+                          shape: ecoProduct.shape as ShapeType,
+                          closure: selectedClosure,
+                          surface: selectedSurface,
+                          material: selectedMaterial as any,
+                        })} 
+                        alt={`${selectedSurface} surface`} 
+                        className="max-w-full max-h-full object-contain"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">Barrier</label>
+                  <select value={selectedBarrier} onChange={e => setSelectedBarrier(e.target.value)} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                    <option value="mid clear mid barrier (Optional Window)">Mid Barrier (Window)</option>
+                    <option value="metalised high barrier (No Window)">High Barrier (No Window)</option>
+                    <option value="Aluminum highest barrier (No Window)">Highest Barrier (No Window)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">Stiffness</label>
+                  <select value={selectedStiffness} onChange={e => setSelectedStiffness(e.target.value)} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                    <option value="Without Paper Lining (Softer)">Softer (No Paper)</option>
+                    <option value="With Paper Lining (stiffer)">Stiffer (With Paper)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">Additional Features</label>
+                  <div className="space-y-2">
+                    <label className="flex items-center gap-2">
+                      <input type="checkbox" checked={selectedValve === 'Yes'} onChange={e => setSelectedValve(e.target.checked ? 'Yes' : 'No')} className="rounded" />
+                      <span className="text-sm">Valve (+$0.08/pc)</span>
+                    </label>
+                    <label className="flex items-center gap-2">
+                      <input type="checkbox" checked={selectedLaserScoring === 'Yes'} onChange={e => setSelectedLaserScoring(e.target.checked ? 'Yes' : 'No')} className="rounded" />
+                      <span className="text-sm">Laser Scoring (+5%)</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">Quantity</label>
+                  <select value={selectedQuantity} onChange={e => setSelectedQuantity(e.target.value)} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                    <option value="1,000 (Digital print)">1,000 (Digital print)</option>
+                    <option value="2,000 (Digital print)">2,000 (Digital print)</option>
+                    <option value="3,000 (Digital print)">3,000 (Digital print)</option>
+                    <option value="5,000 (Flexo print)">5,000 (Flexo print)</option>
+                    <option value="10,000 (Flexo print)">10,000 (Flexo print)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">Design Count</label>
+                  <select value={selectedDesignCount} onChange={e => setSelectedDesignCount(Number(e.target.value))} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                    <option value={1}>1 Design</option>
+                    <option value={2}>2 Designs</option>
+                    <option value={3}>3 Designs</option>
+                    <option value={4}>4 Designs</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">Shipping Method</label>
+                  <select value={selectedShipping} onChange={e => setSelectedShipping(e.target.value)} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                    <option value="Air Freight">Air Freight (Faster)</option>
+                    <option value="Sea Freight">Sea Freight (Cheaper)</option>
+                    <option value="Dual Shipping">Dual Shipping (Balanced)</option>
+                  </select>
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Price */}
             <div className="bg-neutral-100 rounded-xl p-6">
-              <div className="text-sm text-neutral-600 mb-2">Total Price (Shipping Included)</div>
-              <div className="text-4xl font-bold text-primary-600 mb-2">US${totalPrice.toLocaleString()}</div>
-              <div className="text-sm text-neutral-500">
-                Unit Price: ${unitPrice.toFixed(2)}/pc • Quantity: {selectedQuantity.toLocaleString()} pcs
-              </div>
+              <div className="text-sm text-neutral-600 mb-2">Total Investment (Shipping Included)</div>
+              <div className="text-4xl font-bold text-primary-600 mb-2">US${Math.round(totalPrice).toLocaleString()}</div>
+              {calculationResult && (
+                <div className="text-sm text-neutral-500 space-y-1">
+                  <div>Unit Price: ${unitPrice.toFixed(4)}/pc</div>
+                  <div>Quantity: {calculationResult.price.quantityUnits.toLocaleString()} pcs</div>
+                  <div>Designs: {calculationResult.price.designCount}</div>
+                  <div>Shipping: {calculationResult.price.shippingMethod}</div>
+                </div>
+              )}
             </div>
 
             {/* Add to Cart */}

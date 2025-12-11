@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useMemo } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { ShoppingCart, Search, Star, Truck, Shield, Clock, ArrowLeft, Grid3X3, List, ChevronDown } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
-import { FEATURED_PRODUCTS, POUCH_SIZES } from '../store/productData'
+import { FEATURED_PRODUCTS, type StoreProduct, type EcoDigitalProduct, type ConventionalProduct } from '../store/productData'
+import { getProductImage } from '../utils/productImageMapper'
+import type { ShapeType } from '../utils/productImageMapper'
 
 type ViewMode = 'grid' | 'list'
 type SortOption = 'popularity' | 'price-low' | 'price-high' | 'newest'
@@ -14,53 +16,88 @@ const CATEGORIES = [
   { id: 'eco-digital', label: 'Eco Digital' },
 ]
 
-const PRICE_RANGES = [
-  { id: 'all', label: 'All Prices', min: 0, max: Infinity },
-  { id: 'under-100', label: 'Under $100', min: 0, max: 100 },
-  { id: '100-200', label: '$100 - $200', min: 100, max: 200 },
-  { id: '200-500', label: '$200 - $500', min: 200, max: 500 },
-  { id: 'over-500', label: 'Over $500', min: 500, max: Infinity },
-]
-
-const SIZE_OPTIONS = [
-  '90x130', '100x150', '110x160', '120x170', '140x200', '160x240'
+const SHAPES = [
+  { id: 'all', label: 'All Shapes' },
+  { id: '3 Side Seal Pouch', label: '3 Side Seal' },
+  { id: 'Center Seal Pouch', label: 'Center Seal' },
+  { id: 'Stand Up Pouch / Doypack', label: 'Stand Up' },
+  { id: 'Box Bottom Pouch', label: 'Box Bottom' },
+  { id: 'Flat Squared Bottom Pouch', label: 'Flat Bottom' },
+  { id: 'Quad Seal Pouch', label: 'Quad Seal' },
+  { id: 'Side Gusset Pouch', label: 'Side Gusset' },
 ]
 
 const StorePage: React.FC = () => {
   const { cartCount, setIsCartOpen } = useStore()
+  const navigate = useNavigate()
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
-  const [selectedPrice, setSelectedPrice] = useState<string>('all')
-  const [selectedSizes, setSelectedSizes] = useState<string[]>([])
+  const [selectedShape, setSelectedShape] = useState<string>('all')
   const [searchQuery, setSearchQuery] = useState('')
   const [viewMode, setViewMode] = useState<ViewMode>('grid')
   const [sortBy, setSortBy] = useState<SortOption>('popularity')
   const [isSortOpen, setIsSortOpen] = useState(false)
 
-  const toggleSize = (size: string) => {
-    setSelectedSizes(prev => 
-      prev.includes(size) 
-        ? prev.filter(s => s !== size)
-        : [...prev, size]
-    )
+  // Helper function to get product image - Always show pouch shape
+  const getProductDisplayImage = (product: StoreProduct): string => {
+    // For Eco Digital products, always show pouch shape (not material type)
+    if (product.category === 'eco-digital') {
+      const ecoProduct = product as EcoDigitalProduct
+      try {
+        return getProductImage({
+          shape: ecoProduct.shape as ShapeType,
+          closure: 'No',
+          surface: 'Matt',
+          material: undefined, // Don't use material for store thumbnails
+        })
+      } catch (error) {
+        console.error('Image mapping error:', error)
+        return product.images[0]
+      }
+    }
+    
+    // For other products, use existing images
+    return product.images[0]
   }
 
-  const priceRange = PRICE_RANGES.find(p => p.id === selectedPrice) || PRICE_RANGES[0]
-
-  const filteredProducts = FEATURED_PRODUCTS.filter(product => {
-    const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory
-    const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase())
-    const matchesPrice = product.basePrice >= priceRange.min && product.basePrice < priceRange.max
-    return matchesCategory && matchesSearch && matchesPrice
-  })
-
-  const sortedProducts = [...filteredProducts].sort((a, b) => {
-    switch (sortBy) {
-      case 'price-low': return a.basePrice - b.basePrice
-      case 'price-high': return b.basePrice - a.basePrice
-      case 'newest': return 0 // Would use date if available
-      default: return b.reviews - a.reviews // popularity
+  // Helper function to get product shape
+  const getProductShape = (product: StoreProduct): string | null => {
+    if ('shape' in product) {
+      const shape = product.shape
+      // Normalize conventional digital shapes to match SHAPES filter format
+      const shapeMap: Record<string, string> = {
+        '3-side-seal': '3 Side Seal Pouch',
+        'zipper-3-side-seal': '3 Side Seal Pouch',
+        'stand-up': 'Stand Up Pouch / Doypack',
+        'zipper-stand-up': 'Stand Up Pouch / Doypack',
+      }
+      return shapeMap[shape] || shape
     }
-  })
+    return null
+  }
+
+  const filteredProducts = useMemo(() => {
+    return FEATURED_PRODUCTS.filter(product => {
+      const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory
+      const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                           product.description.toLowerCase().includes(searchQuery.toLowerCase())
+      
+      const productShape = getProductShape(product)
+      const matchesShape = selectedShape === 'all' || productShape === selectedShape
+      
+      return matchesCategory && matchesSearch && matchesShape
+    })
+  }, [selectedCategory, searchQuery, selectedShape])
+
+  const sortedProducts = useMemo(() => {
+    return [...filteredProducts].sort((a, b) => {
+      switch (sortBy) {
+        case 'price-low': return a.basePrice - b.basePrice
+        case 'price-high': return b.basePrice - a.basePrice
+        case 'newest': return 0
+        default: return b.reviews - a.reviews
+      }
+    })
+  }, [filteredProducts, sortBy])
 
   const getSortLabel = (sort: SortOption) => {
     const labels: Record<SortOption, string> = {
@@ -94,7 +131,13 @@ const StorePage: React.FC = () => {
                 className="pl-10 pr-4 py-2 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 w-64"
               />
             </div>
-            <button onClick={() => setIsCartOpen(true)} className="relative p-2 hover:bg-white/10 rounded-full transition">
+            <button onClick={() => {
+              if (cartCount === 0) {
+                navigate('/store')
+              } else {
+                setIsCartOpen(true)
+              }
+            }} className="relative p-2 hover:bg-white/10 rounded-full transition">
               <ShoppingCart className="h-6 w-6" />
               {cartCount > 0 && (
                 <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
@@ -202,45 +245,25 @@ const StorePage: React.FC = () => {
               </ul>
             </div>
 
-            {/* Price Filter */}
+            {/* Shape Filter */}
             <div className="bg-white border border-neutral-200 rounded-xl p-5 mb-4">
-              <h3 className="font-bold text-neutral-900 mb-4">Price</h3>
+              <h3 className="font-bold text-neutral-900 mb-4">Shape</h3>
               <ul className="space-y-2">
-                {PRICE_RANGES.map(range => (
-                  <li key={range.id}>
+                {SHAPES.map(shape => (
+                  <li key={shape.id}>
                     <button
-                      onClick={() => setSelectedPrice(range.id)}
+                      onClick={() => setSelectedShape(shape.id)}
                       className={`w-full text-left py-1.5 text-sm transition ${
-                        selectedPrice === range.id
+                        selectedShape === shape.id
                           ? 'text-primary-600 font-medium'
                           : 'text-neutral-600 hover:text-neutral-900'
                       }`}
                     >
-                      {range.label}
+                      {shape.label}
                     </button>
                   </li>
                 ))}
               </ul>
-            </div>
-
-            {/* Size Filter */}
-            <div className="bg-white border border-neutral-200 rounded-xl p-5">
-              <h3 className="font-bold text-neutral-900 mb-4">Size</h3>
-              <div className="grid grid-cols-3 gap-2">
-                {SIZE_OPTIONS.map(size => (
-                  <button
-                    key={size}
-                    onClick={() => toggleSize(size)}
-                    className={`py-2 px-3 text-sm border rounded-lg transition ${
-                      selectedSizes.includes(size)
-                        ? 'border-neutral-900 bg-neutral-900 text-white'
-                        : 'border-neutral-200 text-neutral-700 hover:border-neutral-300'
-                    }`}
-                  >
-                    {size.split('x')[0]}
-                  </button>
-                ))}
-              </div>
             </div>
           </aside>
 
@@ -255,7 +278,7 @@ const StorePage: React.FC = () => {
                     className="bg-white rounded-2xl overflow-hidden border border-neutral-200 hover:shadow-lg hover:border-neutral-300 transition group"
                   >
                     <div className="relative aspect-square bg-neutral-50 overflow-hidden p-4">
-                      <img src={product.images[0]} alt={product.name} className="w-full h-full object-contain group-hover:scale-105 transition duration-300" />
+                      <img src={getProductDisplayImage(product)} alt={product.name} className="w-full h-full object-contain group-hover:scale-105 transition duration-300" />
                       {product.badge && (
                         <span className="absolute top-3 left-3 bg-primary-500 text-white text-xs px-3 py-1 rounded-full">
                           {product.badge}
@@ -286,7 +309,7 @@ const StorePage: React.FC = () => {
                     className="flex bg-white rounded-2xl overflow-hidden border border-neutral-200 hover:shadow-lg hover:border-neutral-300 transition group"
                   >
                     <div className="relative w-48 h-48 bg-neutral-50 overflow-hidden p-4 flex-shrink-0">
-                      <img src={product.images[0]} alt={product.name} className="w-full h-full object-contain group-hover:scale-105 transition duration-300" />
+                      <img src={getProductDisplayImage(product)} alt={product.name} className="w-full h-full object-contain group-hover:scale-105 transition duration-300" />
                       {product.badge && (
                         <span className="absolute top-3 left-3 bg-primary-500 text-white text-xs px-2 py-0.5 rounded-full">
                           {product.badge}
@@ -314,7 +337,11 @@ const StorePage: React.FC = () => {
               <div className="text-center py-16">
                 <p className="text-neutral-500 text-lg">No products found matching your criteria.</p>
                 <button
-                  onClick={() => { setSelectedCategory('all'); setSelectedPrice('all'); setSelectedSizes([]); setSearchQuery('') }}
+                  onClick={() => { 
+                    setSelectedCategory('all'); 
+                    setSelectedShape('all');
+                    setSearchQuery('') 
+                  }}
                   className="mt-4 text-primary-600 font-medium hover:underline"
                 >
                   Clear all filters

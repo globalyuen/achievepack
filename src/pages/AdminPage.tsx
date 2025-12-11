@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
-import { supabase, Order, Profile, NewsletterSubscriber, Document } from '../lib/supabase'
-import { Home, Users, Package, Settings, Search, ChevronDown, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X } from 'lucide-react'
+import { supabase, Order, Profile, NewsletterSubscriber, Document, Quote, ArtworkFile } from '../lib/supabase'
+import { Home, Users, Package, Settings, Search, ChevronDown, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare } from 'lucide-react'
 
-type TabType = 'dashboard' | 'customers' | 'orders' | 'documents' | 'newsletter' | 'settings'
+type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'artwork' | 'documents' | 'newsletter' | 'settings'
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
 
@@ -14,16 +14,21 @@ const AdminPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>('dashboard')
   const [customers, setCustomers] = useState<Profile[]>([])
   const [orders, setOrders] = useState<Order[]>([])
+  const [quotes, setQuotes] = useState<Quote[]>([])
+  const [artworks, setArtworks] = useState<ArtworkFile[]>([])
   const [subscribers, setSubscribers] = useState<NewsletterSubscriber[]>([])
   const [loading, setLoading] = useState(true)
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null)
   const [selectedCustomer, setSelectedCustomer] = useState<Profile | null>(null)
+  const [selectedQuote, setSelectedQuote] = useState<Quote | null>(null)
+  const [selectedArtwork, setSelectedArtwork] = useState<ArtworkFile | null>(null)
   const [documents, setDocuments] = useState<Document[]>([])
   const [showUploadModal, setShowUploadModal] = useState(false)
   const [showTrackingModal, setShowTrackingModal] = useState(false)
   const [uploadForm, setUploadForm] = useState({ userId: '', name: '', description: '', fileUrl: '', type: 'PDF' })
   const [trackingForm, setTrackingForm] = useState({ trackingNumber: '', carrier: '', trackingUrl: '' })
+  const [artworkFeedback, setArtworkFeedback] = useState('')
 
   // Check if user is admin
   useEffect(() => {
@@ -118,9 +123,22 @@ const AdminPage: React.FC = () => {
       status: 'shipped',
       updated_at: new Date().toISOString()
     }).eq('id', selectedOrder.id)
+    
+    // Fetch updated order data
+    const { data: updatedOrder } = await supabase
+      .from('orders')
+      .select('*')
+      .eq('id', selectedOrder.id)
+      .single()
+    
     setShowTrackingModal(false)
     setTrackingForm({ trackingNumber: '', carrier: '', trackingUrl: '' })
-    setSelectedOrder(null)
+    
+    // Update the selected order with fresh data
+    if (updatedOrder) {
+      setSelectedOrder(updatedOrder)
+    }
+    
     fetchData()
     alert('Tracking information updated!')
   }
@@ -285,6 +303,22 @@ const AdminPage: React.FC = () => {
                   {activeSubscribers}
                 </span>
               </button>
+
+              <Link
+                to="/admin/management?tab=quotes"
+                className="flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 text-gray-900 hover:bg-yellow-50 hover:text-yellow-600"
+              >
+                <MessageSquare className="flex-shrink-0 w-5 h-5 mr-4" />
+                Quotes & RFQ
+              </Link>
+
+              <Link
+                to="/admin/management?tab=artwork"
+                className="flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 text-gray-900 hover:bg-purple-50 hover:text-purple-600"
+              >
+                <Image className="flex-shrink-0 w-5 h-5 mr-4" />
+                Artwork Files
+              </Link>
 
               <hr className="border-gray-200 my-4" />
 

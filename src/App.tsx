@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import ReactGA from "react-ga4";
 import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield, ShoppingCart, User, Linkedin, ArrowRight, Plus } from 'lucide-react'
 import { HeroGrainBackground } from './components/HeroGrainBackground'
@@ -20,6 +20,7 @@ import { FEATURED_PRODUCTS, type PouchProduct } from './store/productData'
 function App() {
   const { t, i18n } = useTranslation();
   const { cartCount, addToCart, setIsCartOpen } = useStore();
+  const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('')
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -155,7 +156,13 @@ ${formData.message}`
             {/* Right Actions */}
             <div className="hidden lg:flex items-center space-x-3">
               <button
-                onClick={() => setIsCartOpen(true)}
+                onClick={() => {
+                  if (cartCount === 0) {
+                    navigate('/store')
+                  } else {
+                    setIsCartOpen(true)
+                  }
+                }}
                 className="relative w-10 h-10 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
               >
                 <ShoppingCart className="h-5 w-5 text-white" />
