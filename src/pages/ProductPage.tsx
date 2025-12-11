@@ -26,7 +26,6 @@ const ProductPage: React.FC = () => {
   const [selectedSurface, setSelectedSurface] = useState<SurfaceType>('Matt')
   const [selectedLaserScoring, setSelectedLaserScoring] = useState<'Yes' | 'No'>('No')
   const [selectedValve, setSelectedValve] = useState<'Yes' | 'No'>('No')
-  const [selectedKraftPaper, setSelectedKraftPaper] = useState<'Yes' | 'No'>('No')
   const [selectedShipping, setSelectedShipping] = useState('Air Freight')
   
   // Tab state for Package Visualization / Specifications
@@ -244,7 +243,7 @@ const ProductPage: React.FC = () => {
                         <p className="text-xs text-neutral-500">{product.name}</p>
                       </div>
                       
-                      {/* Material, Size, Closure Grid */}
+                      {/* Grid: Material, Size, Closure, Surface, Barrier, Stiffness */}
                       <div className="grid grid-cols-3 gap-3">
                         {/* Material */}
                         <div className="text-center">
@@ -326,6 +325,70 @@ const ProductPage: React.FC = () => {
                           <p className="text-xs font-medium text-neutral-700">Closure</p>
                           <p className="text-xs text-neutral-500 truncate">{selectedClosure === 'No' ? 'None' : selectedClosure}</p>
                         </div>
+                        
+                        {/* Surface */}
+                        <div className="text-center">
+                          <button 
+                            onClick={() => setEnlargedImage({
+                              src: getSurfaceImage(selectedSurface),
+                              alt: selectedSurface
+                            })}
+                            className="bg-neutral-50 rounded-lg p-3 mb-2 cursor-pointer hover:bg-neutral-100 transition w-full"
+                          >
+                            <img 
+                              src={getSurfaceImage(selectedSurface)}
+                              alt={selectedSurface}
+                              className="w-full h-16 object-contain"
+                            />
+                          </button>
+                          <p className="text-xs font-medium text-neutral-700">Surface</p>
+                          <p className="text-xs text-neutral-500 truncate">{selectedSurface}</p>
+                        </div>
+                        
+                        {/* Barrier - Placeholder for future image */}
+                        <div className="text-center">
+                          <div className="bg-neutral-50 rounded-lg p-3 mb-2 w-full h-[88px] flex items-center justify-center">
+                            <div className="text-neutral-400 text-2xl">🛡️</div>
+                          </div>
+                          <p className="text-xs font-medium text-neutral-700">Barrier</p>
+                          <p className="text-xs text-neutral-500 truncate">
+                            {selectedBarrier === 'mid clear mid barrier (Optional Window)' ? 'Mid' :
+                             selectedBarrier === 'metalised high barrier (No Window)' ? 'High' : 'Highest'}
+                          </p>
+                        </div>
+                        
+                        {/* Stiffness - Placeholder for future image */}
+                        <div className="text-center">
+                          <div className="bg-neutral-50 rounded-lg p-3 mb-2 w-full h-[88px] flex items-center justify-center">
+                            <div className="text-neutral-400 text-2xl">💪</div>
+                          </div>
+                          <p className="text-xs font-medium text-neutral-700">Stiffness</p>
+                          <p className="text-xs text-neutral-500 truncate">
+                            {selectedStiffness === 'Without Paper Lining (Softer)' ? 'Softer' : 'Stiffer'}
+                          </p>
+                        </div>
+                        
+                        {/* Valve - if selected */}
+                        {selectedValve === 'Yes' && (
+                          <div className="text-center">
+                            <div className="bg-neutral-50 rounded-lg p-3 mb-2 w-full h-[88px] flex items-center justify-center">
+                              <div className="text-neutral-400 text-2xl">💨</div>
+                            </div>
+                            <p className="text-xs font-medium text-neutral-700">Valve</p>
+                            <p className="text-xs text-neutral-500">Degassing</p>
+                          </div>
+                        )}
+                        
+                        {/* Laser Scoring - if selected */}
+                        {selectedLaserScoring === 'Yes' && (
+                          <div className="text-center">
+                            <div className="bg-neutral-50 rounded-lg p-3 mb-2 w-full h-[88px] flex items-center justify-center">
+                              <div className="text-neutral-400 text-2xl">✂️</div>
+                            </div>
+                            <p className="text-xs font-medium text-neutral-700">Laser</p>
+                            <p className="text-xs text-neutral-500">Scoring</p>
+                          </div>
+                        )}
                       </div>
                     </div>
                   ) : (
@@ -829,17 +892,17 @@ const ProductPage: React.FC = () => {
 
                 <div className="group relative">
                   <label className="block text-sm font-medium text-neutral-700 mb-2 flex items-center gap-2">
-                    Stiffness
+                    Stiffness and Thickness
                     <span className="text-neutral-400 text-xs cursor-help">ℹ️</span>
                   </label>
                   {/* Tooltip */}
-                  <div className="invisible group-hover:visible absolute left-0 top-full mt-1 w-72 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
-                    <div className="font-semibold mb-1">Package Stiffness:</div>
+                  <div className="invisible group-hover:visible absolute left-0 top-full mt-1 w-80 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
+                    <div className="font-semibold mb-1">Package Stiffness and Thickness:</div>
                     <div className="mb-2">
-                      <strong>With Paper Lining:</strong> Stiffer package, better standing stability, +30g weight
+                      <strong>With Paper Lining (Stiffer):</strong> Better standing stability, premium feel. Adding kraft paper increases thickness by 50-60 micron / 2 mil.
                     </div>
                     <div>
-                      <strong>Without Paper:</strong> Softer, lighter package, 20% cost reduction, more flexible
+                      <strong>Without Paper (Softer):</strong> More flexible, lighter weight, thinner profile.
                     </div>
                   </div>
                   
@@ -877,47 +940,70 @@ const ProductPage: React.FC = () => {
                   </select>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2">Additional Features</label>
+                <div className="group relative">
+                  <label className="block text-sm font-medium text-neutral-700 mb-2 flex items-center gap-2">
+                    Additional Features
+                    <span className="text-neutral-400 text-xs cursor-help">ℹ️</span>
+                  </label>
+                  {/* Tooltip */}
+                  <div className="invisible group-hover:visible absolute left-0 top-full mt-1 w-80 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
+                    <div className="font-semibold mb-1">Additional Features:</div>
+                    <div className="mb-2">
+                      <strong>Degassing Valve:</strong> Releases gases while preventing air entry, ideal for coffee/tea
+                    </div>
+                    <div>
+                      <strong>Laser Scoring:</strong> Easy-tear lines for convenient opening, professional finish
+                    </div>
+                  </div>
+                  
+                  {/* Button Grid Selection - Same as Barrier/Stiffness */}
+                  <div className="grid grid-cols-2 gap-3 mb-3">
+                    <button
+                      type="button"
+                      onClick={() => setSelectedValve(selectedValve === 'Yes' ? 'No' : 'Yes')}
+                      className={`relative p-3 border-2 rounded-lg transition-all hover:shadow-md text-left ${
+                        selectedValve === 'Yes'
+                          ? 'border-primary-600 bg-primary-50'
+                          : 'border-neutral-200 hover:border-primary-300'
+                      }`}
+                    >
+                      <div className="text-sm font-semibold text-neutral-800">Degassing Valve</div>
+                      <div className="text-xs text-neutral-600">(Coffee/Tea)</div>
+                      {selectedValve === 'Yes' && (
+                        <div className="absolute top-2 right-2 bg-primary-600 text-white rounded-full w-5 h-5 flex items-center justify-center">
+                          <Check className="w-3 h-3" />
+                        </div>
+                      )}
+                    </button>
+                    
+                    <button
+                      type="button"
+                      onClick={() => setSelectedLaserScoring(selectedLaserScoring === 'Yes' ? 'No' : 'Yes')}
+                      className={`relative p-3 border-2 rounded-lg transition-all hover:shadow-md text-left ${
+                        selectedLaserScoring === 'Yes'
+                          ? 'border-primary-600 bg-primary-50'
+                          : 'border-neutral-200 hover:border-primary-300'
+                      }`}
+                    >
+                      <div className="text-sm font-semibold text-neutral-800">Laser Scoring</div>
+                      <div className="text-xs text-neutral-600">(Easy Tear)</div>
+                      {selectedLaserScoring === 'Yes' && (
+                        <div className="absolute top-2 right-2 bg-primary-600 text-white rounded-full w-5 h-5 flex items-center justify-center">
+                          <Check className="w-3 h-3" />
+                        </div>
+                      )}
+                    </button>
+                  </div>
+                  
+                  {/* Checkbox Options - Keep for accessibility */}
                   <div className="space-y-2">
-                    <label className="flex items-center gap-2 group relative cursor-pointer">
+                    <label className="flex items-center gap-2 cursor-pointer">
                       <input type="checkbox" checked={selectedValve === 'Yes'} onChange={e => setSelectedValve(e.target.checked ? 'Yes' : 'No')} className="rounded" />
                       <span className="text-sm">One Way Degassing Valve</span>
-                      <span className="text-neutral-400 text-xs ml-auto">ℹ️</span>
-                      {/* Tooltip */}
-                      <div className="invisible group-hover:visible absolute left-0 top-full mt-2 w-64 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
-                        <div className="font-semibold mb-1">One Way Degassing Valve:</div>
-                        • Releases built-up gases while preventing air entry<br/>
-                        • Maintains product freshness and preserves flavor<br/>
-                        • Ideal for coffee and food packaging<br/>
-                        • Extends shelf life
-                      </div>
                     </label>
-                    <label className="flex items-center gap-2 group relative cursor-pointer">
+                    <label className="flex items-center gap-2 cursor-pointer">
                       <input type="checkbox" checked={selectedLaserScoring === 'Yes'} onChange={e => setSelectedLaserScoring(e.target.checked ? 'Yes' : 'No')} className="rounded" />
                       <span className="text-sm">Laser Scoring</span>
-                      <span className="text-neutral-400 text-xs ml-auto">ℹ️</span>
-                      {/* Tooltip */}
-                      <div className="invisible group-hover:visible absolute left-0 top-full mt-2 w-64 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
-                        <div className="font-semibold mb-1">Laser Scoring:</div>
-                        • Creates easy-tear lines for convenient opening<br/>
-                        • Clean, precise perforation<br/>
-                        • No blade marks or rough edges<br/>
-                        • Professional package presentation
-                      </div>
-                    </label>
-                    <label className="flex items-center gap-2 group relative cursor-pointer">
-                      <input type="checkbox" checked={selectedKraftPaper === 'Yes'} onChange={e => setSelectedKraftPaper(e.target.checked ? 'Yes' : 'No')} className="rounded" />
-                      <span className="text-sm">Kraft Paper Lining</span>
-                      <span className="text-neutral-400 text-xs ml-auto">ℹ️</span>
-                      {/* Tooltip */}
-                      <div className="invisible group-hover:visible absolute left-0 top-full mt-2 w-64 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
-                        <div className="font-semibold mb-1">Kraft Paper Lining:</div>
-                        • Adds natural stiffness to packaging<br/>
-                        • Eco-friendly reinforcement layer<br/>
-                        • Improved standing stability<br/>
-                        • Premium tactile feel and appearance
-                      </div>
                     </label>
                   </div>
                 </div>
