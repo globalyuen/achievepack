@@ -12,7 +12,7 @@ export type ShapeType =
   | 'Quad Seal Pouch'
   | 'Side Gusset Pouch'
 
-export type ClosureType = 'No' | 'Zipper' | 'Spout'
+export type ClosureType = 'No' | 'Regular Zipper' | 'One-Sided Zipper' | 'Child Resistant Zipper' | 'Slider' | 'Tin Tie' | 'Spout'
 export type SurfaceType = 'Glossy' | 'Matt'
 export type MaterialType = 
   | 'PCR or Bio Plastic'
@@ -49,7 +49,11 @@ const shapeNameMap: Record<ShapeType, string> = {
 
 const closureMap: Record<ClosureType, string> = {
   'No': 'no_zipper',
-  'Zipper': 'zipper',
+  'Regular Zipper': 'regular_zipper',
+  'One-Sided Zipper': 'one_sided_zipper',
+  'Child Resistant Zipper': 'child_resistant_zipper',
+  'Slider': 'slider',
+  'Tin Tie': 'tin_tie',
   'Spout': 'spout',
 }
 

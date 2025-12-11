@@ -306,19 +306,26 @@ const ProductPage: React.FC = () => {
                   <label className="block text-sm font-medium text-neutral-700 mb-2">Closure</label>
                   <div className="flex gap-3 items-center">
                     <select value={selectedClosure} onChange={e => setSelectedClosure(e.target.value as ClosureType)} className="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                      <option value="No">No</option>
-                      <option value="Zipper">Zipper</option>
-                      <option value="Spout">Spout</option>
+                      <option value="No">No Closure</option>
+                      <option value="Regular Zipper">Regular Zipper (+$5.00/pc)</option>
+                      <option value="One-Sided Zipper">One-Sided Zipper (+$14.00/pc)</option>
+                      <option value="Child Resistant Zipper">Child Resistant Zipper (+$20.00/pc)</option>
+                      <option value="Slider">Slider Zipper (+$20.00/pc)</option>
+                      <option value="Tin Tie">Tin Tie (Variable cost)</option>
+                      <option value="Spout">Spout (Variable cost)</option>
                     </select>
-                    {/* Closure Preview Thumbnail */}
+                    {/* Closure Image Thumbnail */}
                     <div className="flex-shrink-0 bg-white rounded-lg p-2 w-16 h-16 flex items-center justify-center border-2 border-primary-600">
                       <img 
-                        src={getProductImage({
-                          shape: ecoProduct.shape as ShapeType,
-                          closure: selectedClosure,
-                          surface: selectedSurface,
-                          material: selectedMaterial as any,
-                        })} 
+                        src={
+                          selectedClosure === 'No' ? '/imgs/store/closure/no-zipper.webp' :
+                          selectedClosure === 'Regular Zipper' ? '/imgs/store/closure/normal-zipper.webp' :
+                          selectedClosure === 'One-Sided Zipper' ? '/imgs/store/closure/front-zipper.webp' :
+                          selectedClosure === 'Child Resistant Zipper' ? '/imgs/store/closure/child-resistant-zipper.webp' :
+                          selectedClosure === 'Slider' ? '/imgs/store/closure/slider-zipper.webp' :
+                          selectedClosure === 'Tin Tie' ? '/imgs/store/closure/tin-tie.webp' :
+                          '/imgs/store/closure/no-zipper.webp'
+                        } 
                         alt={`${selectedClosure} closure`} 
                         className="max-w-full max-h-full object-contain"
                       />

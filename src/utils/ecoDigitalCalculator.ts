@@ -163,20 +163,22 @@ function calculateFactors(
   let unitCost = baseCost * costMultiplier
   let unitWeight = baseWeight * weightMultiplier
 
-  // Add fixed costs (Spout, Valve, Tin Tie, Stamps, Surface Treatments)
-  if (factors.zipper === 'Spout') {
-    const spoutCost = unitCost >= 0.6 ? 0.15 : 0.10
-    fixedCosts += spoutCost
+  // Add fixed costs (Zipper types, Spout, Valve, Tin Tie, Stamps, Surface Treatments)
+  // Apply zipper costs based on ZIPPER_FACTORS from ecoDigitalData.ts
+  if (factors.zipper && factors.zipper !== 'No') {
+    const zipperInfo = ZIPPER_FACTORS[factors.zipper]
+    if (zipperInfo) {
+      fixedCosts += zipperInfo.cost
+      unitWeight += zipperInfo.weight
+    } else if (factors.zipper === 'Spout') {
+      // Spout has variable cost based on unit price
+      const spoutCost = unitCost >= 0.6 ? 0.15 : 0.10
+      fixedCosts += spoutCost
+    }
   }
 
   if (factors.valve === 'Yes') {
     fixedCosts += 0.08
-  }
-
-  if (factors.zipper === 'Tin Tie') {
-    // Tin tie cost based on width (simplified)
-    const tinTieCost = 0.05 // Average
-    fixedCosts += tinTieCost
   }
 
   // Stamps (UV, Foil, Embossing)
