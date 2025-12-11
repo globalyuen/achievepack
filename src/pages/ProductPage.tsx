@@ -29,6 +29,9 @@ const ProductPage: React.FC = () => {
   const [selectedValve, setSelectedValve] = useState<'Yes' | 'No'>('No')
   const [selectedShipping, setSelectedShipping] = useState('Air Freight')
   
+  // Tab state for Package Visualization / Specifications
+  const [activeTab, setActiveTab] = useState<'visualization' | 'specifications'>('visualization')
+  
   // Initialize from product defaults
   useEffect(() => {
     if (ecoProduct?.ecoConfig) {
@@ -236,6 +239,120 @@ const ProductPage: React.FC = () => {
                     className="max-w-full max-h-full object-contain"
                   />
                 </button>
+              </div>
+            )}
+            
+            {/* Tabs for Package Visualization and Specifications */}
+            {isEcoDigital && calculationResult && (
+              <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden">
+                {/* Tab Headers */}
+                <div className="flex border-b border-neutral-200">
+                  <button
+                    onClick={() => setActiveTab('visualization')}
+                    className={`flex-1 px-4 py-3 text-sm font-medium transition ${
+                      activeTab === 'visualization'
+                        ? 'bg-primary-50 text-primary-700 border-b-2 border-primary-600'
+                        : 'text-neutral-600 hover:bg-neutral-50'
+                    }`}
+                  >
+                    📦 Package Visualization
+                  </button>
+                  <button
+                    onClick={() => setActiveTab('specifications')}
+                    className={`flex-1 px-4 py-3 text-sm font-medium transition ${
+                      activeTab === 'specifications'
+                        ? 'bg-primary-50 text-primary-700 border-b-2 border-primary-600'
+                        : 'text-neutral-600 hover:bg-neutral-50'
+                    }`}
+                  >
+                    📋 Package Specifications
+                  </button>
+                </div>
+                
+                {/* Tab Content */}
+                <div className="p-4">
+                  {activeTab === 'visualization' ? (
+                    /* Package Visualization Content */
+                    <div className="grid grid-cols-3 gap-3">
+                      {/* Material */}
+                      <div className="text-center">
+                        <div className="bg-neutral-50 rounded-lg p-3 mb-2">
+                          <img 
+                            src={
+                              selectedMaterial === 'PCR or Bio Plastic' 
+                                ? '/imgs/store/eco-material/pcr-or-biope.webp'
+                                : selectedMaterial === 'Mono Recyclable Plastic'
+                                ? '/imgs/store/eco-material/recycle.webp'
+                                : '/imgs/store/eco-material/compostable.webp'
+                            }
+                            alt={selectedMaterial}
+                            className="w-full h-20 object-contain"
+                          />
+                        </div>
+                        <p className="text-xs font-medium text-neutral-700">Material</p>
+                        <p className="text-xs text-neutral-500">{selectedMaterial}</p>
+                      </div>
+                      
+                      {/* Size */}
+                      <div className="text-center">
+                        <div className="bg-neutral-50 rounded-lg p-3 mb-2">
+                          <img 
+                            src={getSizeImage(selectedSize as EcoSizeType)}
+                            alt={`Size ${selectedSize}`}
+                            className="w-full h-20 object-contain"
+                          />
+                        </div>
+                        <p className="text-xs font-medium text-neutral-700">Size</p>
+                        <p className="text-xs text-neutral-500">{selectedSize}</p>
+                      </div>
+                      
+                      {/* Closure */}
+                      <div className="text-center">
+                        <div className="bg-neutral-50 rounded-lg p-3 mb-2">
+                          <img 
+                            src={
+                              selectedClosure === 'No' ? '/imgs/store/closure/no-zipper.webp' :
+                              selectedClosure === 'Regular Zipper' ? '/imgs/store/closure/normal-zipper.webp' :
+                              selectedClosure === 'One-Sided Zipper' ? '/imgs/store/closure/front-zipper.webp' :
+                              selectedClosure === 'Child Resistant Zipper' ? '/imgs/store/closure/child-resistant-zipper.webp' :
+                              selectedClosure === 'Slider' ? '/imgs/store/closure/slider-zipper.webp' :
+                              selectedClosure === 'Tin Tie' ? '/imgs/store/closure/tin-tie.webp' :
+                              '/imgs/store/closure/no-zipper.webp'
+                            }
+                            alt={selectedClosure}
+                            className="w-full h-20 object-contain"
+                          />
+                        </div>
+                        <p className="text-xs font-medium text-neutral-700">Closure</p>
+                        <p className="text-xs text-neutral-500">{selectedClosure === 'No' ? 'None' : selectedClosure}</p>
+                      </div>
+                    </div>
+                  ) : (
+                    /* Package Specifications Content */
+                    <div className="space-y-2 text-sm">
+                      <div className="flex justify-between py-1.5 border-b border-neutral-100">
+                        <span className="text-neutral-500">Material Structure</span>
+                        <span className="text-neutral-900 font-medium text-right">{calculationResult.package.materialStructure}</span>
+                      </div>
+                      <div className="flex justify-between py-1.5 border-b border-neutral-100">
+                        <span className="text-neutral-500">Thickness</span>
+                        <span className="text-neutral-900 font-medium">100 micron / 4 mil</span>
+                      </div>
+                      <div className="flex justify-between py-1.5 border-b border-neutral-100">
+                        <span className="text-neutral-500">OTR</span>
+                        <span className="text-neutral-900 font-medium">{calculationResult.package.barrierProperties.otr}</span>
+                      </div>
+                      <div className="flex justify-between py-1.5 border-b border-neutral-100">
+                        <span className="text-neutral-500">WVTR</span>
+                        <span className="text-neutral-900 font-medium">{calculationResult.package.barrierProperties.wvtr}</span>
+                      </div>
+                      <div className="flex justify-between py-1.5">
+                        <span className="text-neutral-500">Surface Treatment</span>
+                        <span className="text-neutral-900 font-medium">{calculationResult.package.surface}</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             )}
           </div>
