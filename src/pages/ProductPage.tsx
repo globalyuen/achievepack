@@ -210,12 +210,12 @@ const ProductPage: React.FC = () => {
 
       <main className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Left Column - Sticky Tabs */}
-          <div className="space-y-4">
+          {/* Left Column - Sticky Preview */}
+          <div className="space-y-4 lg:self-start">
             {/* Tabs for Package Visualization and Specifications - Desktop Only */}
             {isEcoDigital && calculationResult && (
               <div className="hidden md:block bg-white rounded-lg border border-neutral-200 overflow-hidden sticky top-16 z-20">
-                {/* Collapsible Header with Mini Icons */}
+                {/* Collapsible Header with Summary */}
                 <div 
                   className="flex items-center justify-between px-3 py-2 bg-neutral-50 border-b border-neutral-200 cursor-pointer hover:bg-neutral-100 transition"
                   onClick={() => setIsLeftCollapsed(!isLeftCollapsed)}
@@ -223,10 +223,14 @@ const ProductPage: React.FC = () => {
                   <div className="flex items-center gap-2 min-w-0 flex-1">
                     <span className="text-sm font-semibold text-neutral-700 whitespace-nowrap">📦 Preview</span>
                     {isLeftCollapsed && (
-                      <div className="flex items-center gap-1 overflow-hidden">
-                        <img src={productImage} alt="" className="w-6 h-6 object-contain rounded" />
-                        <img src={getSizeImage(selectedSize as EcoSizeType)} alt="" className="w-6 h-6 object-contain rounded" />
-                        <img src={getSurfaceImage(selectedSurface)} alt="" className="w-6 h-6 object-contain rounded" />
+                      <div className="flex items-center gap-1 overflow-hidden flex-wrap">
+                        <img src={productImage} alt="" className="w-5 h-5 object-contain rounded" />
+                        <span className="text-xs text-neutral-500">|</span>
+                        <span className="text-xs text-neutral-600">{selectedSize}</span>
+                        <span className="text-xs text-neutral-500">|</span>
+                        <span className="text-xs text-neutral-600 truncate max-w-[60px]">{selectedClosure === 'No' ? 'None' : selectedClosure}</span>
+                        <span className="text-xs text-neutral-500">|</span>
+                        <span className="text-xs text-neutral-600 truncate max-w-[50px]">{selectedSurface}</span>
                       </div>
                     )}
                   </div>
@@ -691,7 +695,7 @@ const ProductPage: React.FC = () => {
           </div>
 
           {/* Right Column - Product Info */}
-          <div className="space-y-6">
+          <div className="space-y-6 lg:self-start">
             {/* Price Section - Desktop Only */}
             {isEcoDigital && (
               <div className="hidden md:block bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border-2 border-primary-200 shadow-lg sticky top-16 z-20 overflow-hidden">
@@ -1323,7 +1327,11 @@ const ProductPage: React.FC = () => {
                   <div className="flex justify-center mb-3">
                     <img src={productImage} alt={product.name} className="h-32 object-contain" />
                   </div>
-                  <div className="grid grid-cols-3 gap-2 text-center text-xs">
+                  <div className="grid grid-cols-3 gap-2 text-center text-xs mb-2">
+                    <div className="bg-neutral-50 rounded p-2">
+                      <div className="text-neutral-500">Material</div>
+                      <div className="font-medium truncate">{selectedMaterial === 'PCR or Bio Plastic' ? 'PCR/Bio' : selectedMaterial === 'Mono Recyclable Plastic' ? 'Recyclable' : 'Compostable'}</div>
+                    </div>
                     <div className="bg-neutral-50 rounded p-2">
                       <div className="text-neutral-500">Size</div>
                       <div className="font-medium">{selectedSize}</div>
@@ -1332,11 +1340,39 @@ const ProductPage: React.FC = () => {
                       <div className="text-neutral-500">Closure</div>
                       <div className="font-medium truncate">{selectedClosure === 'No' ? 'None' : selectedClosure}</div>
                     </div>
+                  </div>
+                  <div className="grid grid-cols-3 gap-2 text-center text-xs mb-2">
                     <div className="bg-neutral-50 rounded p-2">
                       <div className="text-neutral-500">Surface</div>
-                      <div className="font-medium">{selectedSurface}</div>
+                      <div className="font-medium truncate">{selectedSurface}</div>
+                    </div>
+                    <div className="bg-neutral-50 rounded p-2">
+                      <div className="text-neutral-500">Barrier</div>
+                      <div className="font-medium truncate">{selectedBarrier === 'mid clear mid barrier (Optional Window)' ? 'Mid' : selectedBarrier === 'metalised high barrier (No Window)' ? 'High' : 'Highest'}</div>
+                    </div>
+                    <div className="bg-neutral-50 rounded p-2">
+                      <div className="text-neutral-500">Stiffness</div>
+                      <div className="font-medium truncate">{selectedStiffness === 'Without Paper Lining (Softer)' ? 'Softer' : 'Stiffer'}</div>
                     </div>
                   </div>
+                  <div className="grid grid-cols-2 gap-2 text-center text-xs">
+                    <div className="bg-neutral-50 rounded p-2">
+                      <div className="text-neutral-500">Quantity</div>
+                      <div className="font-medium">{selectedQuantity.split(' ')[0]}</div>
+                    </div>
+                    <div className="bg-neutral-50 rounded p-2">
+                      <div className="text-neutral-500">Designs</div>
+                      <div className="font-medium">{selectedDesignCount}</div>
+                    </div>
+                  </div>
+                  {(selectedValve === 'Yes' || selectedLaserScoring === 'Yes' || selectedAdhesiveTape === 'Yes' || selectedHangHole === 'Yes' || selectedSpout === 'Yes') && (
+                    <div className="mt-2 p-2 bg-primary-50 rounded text-xs">
+                      <div className="text-neutral-500 mb-1">Additional Features:</div>
+                      <div className="font-medium text-primary-700">
+                        {[selectedValve === 'Yes' && 'Valve', selectedLaserScoring === 'Yes' && 'Laser Tear', selectedAdhesiveTape === 'Yes' && 'Adhesive Tape', selectedHangHole === 'Yes' && 'Hang Hole', selectedSpout === 'Yes' && 'Spout'].filter(Boolean).join(', ')}
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
               {mobileActivePanel === 'testimonials' && (
