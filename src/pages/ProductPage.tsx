@@ -640,6 +640,31 @@ const ProductPage: React.FC = () => {
               </div>
             </div>
 
+            {/* Simple Product Image for Non-Eco Digital Products */}
+            {!isEcoDigital && (
+              <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden">
+                <div className="p-6">
+                  <div className="text-center">
+                    <button 
+                      onClick={() => setEnlargedImage({
+                        src: productImage,
+                        alt: product.name
+                      })}
+                      className="bg-neutral-50 rounded-lg p-6 mb-4 cursor-pointer hover:bg-neutral-100 transition w-full"
+                    >
+                      <img 
+                        src={productImage}
+                        alt={product.name}
+                        className="w-full h-64 object-contain"
+                      />
+                    </button>
+                    <h3 className="text-lg font-semibold text-neutral-900">{product.name}</h3>
+                    <p className="text-sm text-neutral-500 mt-1">{product.shortDesc}</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* Other Customer Examples Section - Desktop Only */}
             <div className="hidden lg:block bg-white rounded-lg border border-neutral-200 p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-neutral-900 mb-4 flex items-center gap-2">
