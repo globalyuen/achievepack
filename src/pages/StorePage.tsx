@@ -110,9 +110,9 @@ const StorePage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-neutral-50 overflow-x-hidden">
-      {/* Store Header */}
-      <header className="bg-primary-600 text-white sticky top-0 z-50">
+    <div className="min-h-screen bg-neutral-50">
+      {/* Store Header - Fixed */}
+      <header className="bg-primary-600 text-white fixed top-0 left-0 right-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Link to="/" className="flex items-center gap-3 hover:opacity-90 transition">
@@ -152,6 +152,9 @@ const StorePage: React.FC = () => {
           </div>
         </div>
       </header>
+
+      {/* Spacer for fixed header */}
+      <div className="h-[72px]"></div>
 
       {/* Hero Banner */}
       <section className="bg-gradient-to-r from-primary-600 to-primary-700 text-white py-16">

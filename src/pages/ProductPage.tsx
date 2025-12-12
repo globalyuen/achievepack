@@ -179,9 +179,9 @@ const ProductPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-neutral-50 overflow-x-hidden">
-      {/* Header */}
-      <header className="bg-white border-b sticky top-0 z-50">
+    <div className="min-h-screen bg-neutral-50">
+      {/* Header - Fixed at top */}
+      <header className="bg-white border-b fixed top-0 left-0 right-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition">
@@ -208,13 +208,16 @@ const ProductPage: React.FC = () => {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 py-8">
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Left Column - Sticky Tabs */}
-          <div className="space-y-4 lg:self-start">
+      {/* Spacer for fixed header */}
+      <div className="h-[60px]"></div>
+
+      <main className="max-w-7xl mx-auto px-4 py-8 lg:pt-14">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+          {/* Left Column - Package Preview (visible inline on desktop) */}
+          <div className="hidden lg:block space-y-4">
             {/* Tabs for Package Visualization and Specifications - Desktop Only */}
             {isEcoDigital && calculationResult && (
-              <div className="hidden md:block bg-white rounded-lg border border-neutral-200 overflow-hidden md:sticky md:top-16 z-20">
+              <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden">
                 {/* Collapsible Header with Mini Icons */}
                 <div 
                   className="flex items-center justify-between px-3 py-2 bg-neutral-50 border-b border-neutral-200 cursor-pointer hover:bg-neutral-100 transition"
@@ -690,11 +693,11 @@ const ProductPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column - Product Info */}
-          <div className="space-y-6 lg:row-span-2">
-            {/* Price Section - Desktop Only */}
+          {/* Right Column - Product Options */}
+          <div className="space-y-6">
+            {/* Price Section - Hide on desktop since we have fixed top bar */}
             {isEcoDigital && (
-              <div className="hidden md:block bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border-2 border-primary-200 shadow-lg md:sticky md:top-16 z-20 overflow-hidden">
+              <div className="lg:hidden bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border-2 border-primary-200 shadow-lg overflow-hidden">
                 {/* Collapsible Header with Unit Price */}
                 <div 
                   className="flex items-center justify-between px-3 py-3 cursor-pointer hover:bg-primary-100 transition"
@@ -1306,6 +1309,109 @@ const ProductPage: React.FC = () => {
         </div>
       </main>
 
+      {/* Desktop Top Fixed Bar - Similar to mobile but at top */}
+      {isEcoDigital && calculationResult && (
+        <div className="hidden lg:block fixed top-[60px] left-0 right-0 z-40">
+          {/* Top Bar with icons */}
+          <div className="bg-white border-b border-neutral-200 shadow-sm">
+            <div className="max-w-7xl mx-auto px-4">
+              <div className="flex items-center justify-between py-2">
+                {/* Left: Preview Toggle */}
+                <button 
+                  onClick={() => setMobileActivePanel(mobileActivePanel === 'preview' ? 'none' : 'preview')}
+                  className={`flex items-center gap-2 px-3 py-2 rounded-lg transition ${mobileActivePanel === 'preview' ? 'bg-primary-50 text-primary-700' : 'text-neutral-600 hover:bg-neutral-50'}`}
+                >
+                  <span className="text-lg">📦</span>
+                  <span className="text-sm font-medium">Preview</span>
+                  <div className="flex items-center gap-1 ml-2">
+                    <img src={productImage} alt="" className="w-6 h-6 object-contain rounded" />
+                    <img src={getSizeImage(selectedSize as EcoSizeType)} alt="" className="w-6 h-6 object-contain rounded" />
+                    <img src={getSurfaceImage(selectedSurface)} alt="" className="w-6 h-6 object-contain rounded" />
+                  </div>
+                  {mobileActivePanel === 'preview' ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                </button>
+                
+                {/* Right: Price Toggle */}
+                <button 
+                  onClick={() => setMobileActivePanel(mobileActivePanel === 'price' ? 'none' : 'price')}
+                  className={`flex items-center gap-2 px-3 py-2 rounded-lg transition ${mobileActivePanel === 'price' ? 'bg-primary-50 text-primary-700' : 'text-neutral-600 hover:bg-neutral-50'}`}
+                >
+                  <span className="text-lg">💰</span>
+                  <span className="text-sm font-bold text-primary-700">${unitPrice.toFixed(2)}/pc</span>
+                  <span className="text-xs text-neutral-500">|</span>
+                  <span className="text-sm font-semibold text-primary-600">US${Math.round(totalPrice).toLocaleString()}</span>
+                  {mobileActivePanel === 'price' ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          {/* Expandable Panel */}
+          {mobileActivePanel !== 'none' && (
+            <div className="bg-white border-b border-neutral-200 shadow-lg max-h-[50vh] overflow-y-auto">
+              <div className="max-w-7xl mx-auto px-4">
+                {mobileActivePanel === 'preview' && (
+                  <div className="py-4">
+                    <div className="grid grid-cols-2 gap-6">
+                      {/* Left: Main Image */}
+                      <div className="text-center">
+                        <button onClick={() => setEnlargedImage({ src: productImage, alt: product.name })} className="bg-neutral-50 rounded-lg p-4 hover:bg-neutral-100 transition w-full">
+                          <img src={productImage} alt={product.name} className="w-full h-40 object-contain" />
+                        </button>
+                        <p className="text-sm font-semibold text-neutral-800 mt-2">{product.name}</p>
+                      </div>
+                      {/* Right: Specs Grid */}
+                      <div className="grid grid-cols-3 gap-3">
+                        <div className="text-center">
+                          <div className="bg-neutral-50 rounded-lg p-2 h-16 flex items-center justify-center">
+                            <img src={getSizeImage(selectedSize as EcoSizeType)} alt="" className="max-h-full object-contain" />
+                          </div>
+                          <p className="text-xs font-medium mt-1">Size: {selectedSize}</p>
+                        </div>
+                        <div className="text-center">
+                          <div className="bg-neutral-50 rounded-lg p-2 h-16 flex items-center justify-center">
+                            <img src={getSurfaceImage(selectedSurface)} alt="" className="max-h-full object-contain" />
+                          </div>
+                          <p className="text-xs font-medium mt-1">Surface: {selectedSurface}</p>
+                        </div>
+                        <div className="text-center">
+                          <div className="bg-neutral-50 rounded-lg p-2 h-16 flex items-center justify-center">
+                            <span className="text-2xl">🛡️</span>
+                          </div>
+                          <p className="text-xs font-medium mt-1">Barrier</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                {mobileActivePanel === 'price' && (
+                  <div className="py-4">
+                    <div className="grid grid-cols-4 gap-4">
+                      <div className="bg-primary-50 rounded-lg p-3 text-center">
+                        <div className="text-xs text-neutral-600 mb-1">Total</div>
+                        <div className="text-xl font-bold text-primary-700">US${Math.round(totalPrice).toLocaleString()}</div>
+                      </div>
+                      <div className="bg-primary-50 rounded-lg p-3 text-center">
+                        <div className="text-xs text-neutral-600 mb-1">Unit Price</div>
+                        <div className="text-lg font-semibold">${unitPrice.toFixed(4)}/pc</div>
+                      </div>
+                      <div className="bg-primary-50 rounded-lg p-3 text-center">
+                        <div className="text-xs text-neutral-600 mb-1">Quantity</div>
+                        <div className="text-lg font-semibold">{calculationResult.price.quantityUnits.toLocaleString()}</div>
+                      </div>
+                      <div className="bg-primary-50 rounded-lg p-3 text-center">
+                        <div className="text-xs text-neutral-600 mb-1">Shipping</div>
+                        <div className="text-sm font-medium">✓ Included</div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
       {/* Mobile Bottom Fixed Bar */}
       {isEcoDigital && (
         <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40">
@@ -1427,6 +1533,9 @@ const ProductPage: React.FC = () => {
 
       {/* Add bottom padding for mobile to account for fixed bottom bar */}
       {isEcoDigital && <div className="lg:hidden h-20"></div>}
+      
+      {/* Add top padding for desktop to account for fixed top bar */}
+      {isEcoDigital && <div className="hidden lg:block h-14"></div>}
 
       {/* Image Enlargement Modal */}
       {enlargedImage && (
