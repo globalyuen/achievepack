@@ -167,8 +167,8 @@ const StorePage: React.FC = () => {
       </section>
 
       <main className="max-w-7xl mx-auto px-4 py-8">
-        {/* Search Result Header - Sticky */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 bg-white md:sticky md:top-14 z-30 py-3 px-4 -mx-4 md:rounded-lg md:border md:border-neutral-200 md:shadow-sm">
+        {/* Search Result Header */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div>
             <h2 className="text-xl text-neutral-600">
               {searchQuery ? (
