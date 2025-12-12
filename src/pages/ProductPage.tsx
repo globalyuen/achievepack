@@ -26,6 +26,9 @@ const ProductPage: React.FC = () => {
   const [selectedSurface, setSelectedSurface] = useState<SurfaceType>('Matt')
   const [selectedLaserScoring, setSelectedLaserScoring] = useState<'Yes' | 'No'>('No')
   const [selectedValve, setSelectedValve] = useState<'Yes' | 'No'>('No')
+  const [selectedAdhesiveTape, setSelectedAdhesiveTape] = useState<'Yes' | 'No'>('No')
+  const [selectedHangHole, setSelectedHangHole] = useState<'Yes' | 'No'>('No')
+  const [selectedSpout, setSelectedSpout] = useState<'Yes' | 'No'>('No')
   const [selectedShipping, setSelectedShipping] = useState('Air Freight')
   
   // Tab state for Package Visualization / Specifications
@@ -1161,21 +1164,21 @@ const ProductPage: React.FC = () => {
                     </div>
                   </div>
                   
-                  {/* Button Grid Selection - Same layout as Surface */}
-                  <div className="grid grid-cols-2 gap-3 mb-3">
+                  {/* Button Grid Selection - 5 options */}
+                  <div className="grid grid-cols-3 gap-2 mb-3">
                     {[
-                      { key: 'Valve' as AdditionalType, value: 'valve', label: 'Degassing Valve', sublabel: '(Coffee/Tea)' },
-                      { key: 'Laser Scoring' as AdditionalType, value: 'laser', label: 'Laser Scoring', sublabel: '(Easy Tear)' }
+                      { key: 'Valve' as AdditionalType, value: 'valve', label: 'Valve', sublabel: '(Coffee/Tea)', state: selectedValve, setter: setSelectedValve },
+                      { key: 'Laser Scoring' as AdditionalType, value: 'laser', label: 'Laser Tear', sublabel: '(Easy Open)', state: selectedLaserScoring, setter: setSelectedLaserScoring },
+                      { key: 'Adhesive Tape' as AdditionalType, value: 'tape', label: 'Adhesive Tape', sublabel: '(Reseal)', state: selectedAdhesiveTape, setter: setSelectedAdhesiveTape },
+                      { key: 'Hang Hole' as AdditionalType, value: 'hang', label: 'Hang Hole', sublabel: '(Display)', state: selectedHangHole, setter: setSelectedHangHole },
+                      { key: 'Spout' as AdditionalType, value: 'spout', label: 'Spout', sublabel: '(Liquids)', state: selectedSpout, setter: setSelectedSpout }
                     ].map(option => (
                       <button
                         key={option.value}
                         type="button"
-                        onClick={() => option.value === 'valve' 
-                          ? setSelectedValve(selectedValve === 'Yes' ? 'No' : 'Yes')
-                          : setSelectedLaserScoring(selectedLaserScoring === 'Yes' ? 'No' : 'Yes')
-                        }
+                        onClick={() => option.setter(option.state === 'Yes' ? 'No' : 'Yes')}
                         className={`relative p-2 border-2 rounded-lg transition-all hover:shadow-md ${
-                          (option.value === 'valve' ? selectedValve === 'Yes' : selectedLaserScoring === 'Yes')
+                          option.state === 'Yes'
                             ? 'border-primary-600 bg-primary-50'
                             : 'border-neutral-200 hover:border-primary-300'
                         }`}
@@ -1183,9 +1186,9 @@ const ProductPage: React.FC = () => {
                         <div className="aspect-square bg-white rounded-lg mb-1 flex items-center justify-center">
                           <img src={getAdditionalImage(option.key)} alt={option.label} className="max-w-full max-h-full object-contain p-1" />
                         </div>
-                        <div className="text-xs font-medium text-neutral-700 text-center">{option.label}</div>
-                        <div className="text-xs text-neutral-500 text-center">{option.sublabel}</div>
-                        {(option.value === 'valve' ? selectedValve === 'Yes' : selectedLaserScoring === 'Yes') && (
+                        <div className="text-xs font-medium text-neutral-700 text-center truncate">{option.label}</div>
+                        <div className="text-xs text-neutral-500 text-center truncate">{option.sublabel}</div>
+                        {option.state === 'Yes' && (
                           <div className="absolute top-1 right-1 bg-primary-600 text-white rounded-full w-4 h-4 flex items-center justify-center">
                             <Check className="w-2.5 h-2.5" />
                           </div>
@@ -1195,14 +1198,26 @@ const ProductPage: React.FC = () => {
                   </div>
                   
                   {/* Checkbox Options - Keep for accessibility */}
-                  <div className="space-y-2">
+                  <div className="grid grid-cols-2 gap-2 text-sm">
                     <label className="flex items-center gap-2 cursor-pointer">
                       <input type="checkbox" checked={selectedValve === 'Yes'} onChange={e => setSelectedValve(e.target.checked ? 'Yes' : 'No')} className="rounded" />
-                      <span className="text-sm">One Way Degassing Valve</span>
+                      <span>Valve</span>
                     </label>
                     <label className="flex items-center gap-2 cursor-pointer">
                       <input type="checkbox" checked={selectedLaserScoring === 'Yes'} onChange={e => setSelectedLaserScoring(e.target.checked ? 'Yes' : 'No')} className="rounded" />
-                      <span className="text-sm">Laser Scoring</span>
+                      <span>Laser Tear</span>
+                    </label>
+                    <label className="flex items-center gap-2 cursor-pointer">
+                      <input type="checkbox" checked={selectedAdhesiveTape === 'Yes'} onChange={e => setSelectedAdhesiveTape(e.target.checked ? 'Yes' : 'No')} className="rounded" />
+                      <span>Adhesive Tape</span>
+                    </label>
+                    <label className="flex items-center gap-2 cursor-pointer">
+                      <input type="checkbox" checked={selectedHangHole === 'Yes'} onChange={e => setSelectedHangHole(e.target.checked ? 'Yes' : 'No')} className="rounded" />
+                      <span>Hang Hole</span>
+                    </label>
+                    <label className="flex items-center gap-2 cursor-pointer">
+                      <input type="checkbox" checked={selectedSpout === 'Yes'} onChange={e => setSelectedSpout(e.target.checked ? 'Yes' : 'No')} className="rounded" />
+                      <span>Spout</span>
                     </label>
                   </div>
                 </div>

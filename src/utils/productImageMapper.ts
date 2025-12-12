@@ -14,7 +14,7 @@ export type ShapeType =
 
 export type ClosureType = 'No' | 'Regular Zipper' | 'One-Sided Zipper' | 'Child Resistant Zipper' | 'Slider' | 'Tin Tie' | 'Spout'
 export type SurfaceType = 'Glossy' | 'Matt' | 'Metallic' | 'Soft Touch' | 'Emboss' | 'Stamp Foil'
-export type AdditionalType = 'Valve' | 'Laser Scoring' | 'Adhesive Tape' | 'Hang Hole'
+export type AdditionalType = 'Valve' | 'Laser Scoring' | 'Adhesive Tape' | 'Hang Hole' | 'Spout'
 export type MaterialType = 
   | 'PCR or Bio Plastic'
   | 'Mono Recyclable Plastic'
@@ -149,8 +149,9 @@ export function getSurfaceImage(surface: SurfaceType): string {
 const additionalMap: Record<AdditionalType, string> = {
   'Valve': 'valve',
   'Laser Scoring': 'laser-tear',
-  'Adhesive Tape': 'ahesive-tap',  // File name as-is
+  'Adhesive Tape': 'adhesive-tap',
   'Hang Hole': 'hang-hole',
+  'Spout': 'spout',
 }
 
 /**
