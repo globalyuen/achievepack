@@ -37,6 +37,10 @@ const ProductPage: React.FC = () => {
   // Collapsible section states
   const [isLeftCollapsed, setIsLeftCollapsed] = useState(false)
   const [isRightCollapsed, setIsRightCollapsed] = useState(false)
+  const [isTestimonialsCollapsed, setIsTestimonialsCollapsed] = useState(true)
+  
+  // Mobile bottom bar state
+  const [mobileActivePanel, setMobileActivePanel] = useState<'none' | 'preview' | 'testimonials' | 'price'>('none')
   
   // Initialize from product defaults
   useEffect(() => {
@@ -205,9 +209,9 @@ const ProductPage: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Left Column - Sticky Tabs */}
           <div className="space-y-4">
-            {/* Tabs for Package Visualization and Specifications - Now Sticky */}
+            {/* Tabs for Package Visualization and Specifications - Desktop Only */}
             {isEcoDigital && calculationResult && (
-              <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden sticky top-20">
+              <div className="hidden lg:block bg-white rounded-lg border border-neutral-200 overflow-hidden sticky top-20">
                 {/* Collapsible Header */}
                 <div 
                   className="flex items-center justify-between px-3 py-2 bg-neutral-50 border-b border-neutral-200 cursor-pointer hover:bg-neutral-100 transition"
@@ -546,13 +550,25 @@ const ProductPage: React.FC = () => {
               </div>
             )}
             
-            {/* Testimonial Section */}
-            <div className="bg-white rounded-lg border border-neutral-200 p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-neutral-900 mb-4 flex items-center gap-2">
-                <span className="text-2xl">💬</span>
-                Customer Testimonials
-              </h3>
-              <div className="space-y-4">
+            {/* Testimonial Section - Desktop Only, Collapsible */}
+            <div className="hidden lg:block bg-white rounded-lg border border-neutral-200 shadow-sm overflow-hidden">
+              <div 
+                className="flex items-center justify-between p-4 cursor-pointer hover:bg-neutral-50 transition"
+                onClick={() => setIsTestimonialsCollapsed(!isTestimonialsCollapsed)}
+              >
+                <h3 className="text-lg font-semibold text-neutral-900 flex items-center gap-2">
+                  <span className="text-2xl">💬</span>
+                  Customer Testimonials
+                </h3>
+                <div className="flex-shrink-0">
+                  {isTestimonialsCollapsed ? (
+                    <ChevronDown className="w-5 h-5 text-neutral-500" />
+                  ) : (
+                    <ChevronUp className="w-5 h-5 text-neutral-500" />
+                  )}
+                </div>
+              </div>
+              <div className={`px-6 pb-6 space-y-4 transition-all duration-300 ${isTestimonialsCollapsed ? 'hidden' : ''}`}>
                 {/* Testimonial 1 - Placeholder */}
                 <div className="bg-neutral-50 rounded-lg p-4 border-l-4 border-primary-500">
                   <div className="flex items-start gap-3 mb-2">
@@ -621,8 +637,8 @@ const ProductPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Other Customer Examples Section */}
-            <div className="bg-white rounded-lg border border-neutral-200 p-6 shadow-sm">
+            {/* Other Customer Examples Section - Desktop Only */}
+            <div className="hidden lg:block bg-white rounded-lg border border-neutral-200 p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-neutral-900 mb-4 flex items-center gap-2">
                 <span className="text-2xl">📸</span>
                 Customer Examples
@@ -676,9 +692,9 @@ const ProductPage: React.FC = () => {
 
           {/* Right Column - Product Info */}
           <div className="space-y-6">
-            {/* Price Section - Now at Top and Sticky */}
+            {/* Price Section - Desktop Only */}
             {isEcoDigital && (
-              <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border-2 border-primary-200 shadow-lg sticky top-20 z-10 overflow-hidden">
+              <div className="hidden lg:block bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border-2 border-primary-200 shadow-lg sticky top-20 z-10 overflow-hidden">
                 {/* Collapsible Header */}
                 <div 
                   className="flex items-center justify-between px-3 py-3 cursor-pointer hover:bg-primary-100 transition"
@@ -1248,6 +1264,128 @@ const ProductPage: React.FC = () => {
           </div>
         </div>
       </main>
+
+      {/* Mobile Bottom Fixed Bar */}
+      {isEcoDigital && (
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40">
+          {/* Expandable Panel */}
+          {mobileActivePanel !== 'none' && (
+            <div className="bg-white border-t border-neutral-200 shadow-lg max-h-[60vh] overflow-y-auto">
+              {mobileActivePanel === 'preview' && calculationResult && (
+                <div className="p-4">
+                  <div className="flex justify-between items-center mb-3">
+                    <h3 className="font-semibold text-neutral-900">📦 Package Preview</h3>
+                    <button onClick={() => setMobileActivePanel('none')} className="p-1">
+                      <ChevronDown className="w-5 h-5 text-neutral-500" />
+                    </button>
+                  </div>
+                  <div className="flex justify-center mb-3">
+                    <img src={productImage} alt={product.name} className="h-32 object-contain" />
+                  </div>
+                  <div className="grid grid-cols-3 gap-2 text-center text-xs">
+                    <div className="bg-neutral-50 rounded p-2">
+                      <div className="text-neutral-500">Size</div>
+                      <div className="font-medium">{selectedSize}</div>
+                    </div>
+                    <div className="bg-neutral-50 rounded p-2">
+                      <div className="text-neutral-500">Closure</div>
+                      <div className="font-medium truncate">{selectedClosure === 'No' ? 'None' : selectedClosure}</div>
+                    </div>
+                    <div className="bg-neutral-50 rounded p-2">
+                      <div className="text-neutral-500">Surface</div>
+                      <div className="font-medium">{selectedSurface}</div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {mobileActivePanel === 'testimonials' && (
+                <div className="p-4">
+                  <div className="flex justify-between items-center mb-3">
+                    <h3 className="font-semibold text-neutral-900">💬 Testimonials</h3>
+                    <button onClick={() => setMobileActivePanel('none')} className="p-1">
+                      <ChevronDown className="w-5 h-5 text-neutral-500" />
+                    </button>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="bg-neutral-50 rounded-lg p-3 border-l-4 border-primary-500">
+                      <div className="flex items-center gap-2 mb-1">
+                        <div className="w-8 h-8 rounded-full bg-neutral-200 flex items-center justify-center text-xs font-semibold">JD</div>
+                        <div className="text-sm font-semibold">John Doe</div>
+                        <div className="flex text-yellow-400 ml-auto">
+                          {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}
+                        </div>
+                      </div>
+                      <p className="text-xs text-neutral-600 italic">"Outstanding quality and fast delivery!"</p>
+                    </div>
+                    <div className="bg-neutral-50 rounded-lg p-3 border-l-4 border-primary-500">
+                      <div className="flex items-center gap-2 mb-1">
+                        <div className="w-8 h-8 rounded-full bg-neutral-200 flex items-center justify-center text-xs font-semibold">SM</div>
+                        <div className="text-sm font-semibold">Sarah Miller</div>
+                        <div className="flex text-yellow-400 ml-auto">
+                          {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}
+                        </div>
+                      </div>
+                      <p className="text-xs text-neutral-600 italic">"The packaging looks amazing!"</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {mobileActivePanel === 'price' && calculationResult && (
+                <div className="p-4">
+                  <div className="flex justify-between items-center mb-3">
+                    <h3 className="font-semibold text-neutral-900">💰 Price Details</h3>
+                    <button onClick={() => setMobileActivePanel('none')} className="p-1">
+                      <ChevronDown className="w-5 h-5 text-neutral-500" />
+                    </button>
+                  </div>
+                  <div className="text-3xl font-bold text-primary-700 mb-3">US${Math.round(totalPrice).toLocaleString()}</div>
+                  <div className="grid grid-cols-2 gap-2 text-sm">
+                    <div className="bg-primary-50 rounded-lg p-2">
+                      <div className="text-neutral-600 text-xs">Unit Price</div>
+                      <div className="font-semibold">${unitPrice.toFixed(4)}/pc</div>
+                    </div>
+                    <div className="bg-primary-50 rounded-lg p-2">
+                      <div className="text-neutral-600 text-xs">Quantity</div>
+                      <div className="font-semibold">{calculationResult.price.quantityUnits.toLocaleString()}</div>
+                    </div>
+                  </div>
+                  <div className="text-xs text-primary-700 mt-2 text-center">✓ Shipping Included</div>
+                </div>
+              )}
+            </div>
+          )}
+          
+          {/* Bottom Tab Bar */}
+          <div className="bg-white border-t border-neutral-200 shadow-lg">
+            <div className="flex">
+              <button 
+                onClick={() => setMobileActivePanel(mobileActivePanel === 'preview' ? 'none' : 'preview')}
+                className={`flex-1 py-3 px-2 flex flex-col items-center gap-1 text-xs transition ${mobileActivePanel === 'preview' ? 'bg-primary-50 text-primary-700' : 'text-neutral-600'}`}
+              >
+                <span className="text-lg">📦</span>
+                <span className="truncate">Preview</span>
+              </button>
+              <button 
+                onClick={() => setMobileActivePanel(mobileActivePanel === 'testimonials' ? 'none' : 'testimonials')}
+                className={`flex-1 py-3 px-2 flex flex-col items-center gap-1 text-xs transition ${mobileActivePanel === 'testimonials' ? 'bg-primary-50 text-primary-700' : 'text-neutral-600'}`}
+              >
+                <span className="text-lg">💬</span>
+                <span className="truncate">Reviews</span>
+              </button>
+              <button 
+                onClick={() => setMobileActivePanel(mobileActivePanel === 'price' ? 'none' : 'price')}
+                className={`flex-1 py-3 px-2 flex flex-col items-center gap-1 text-xs transition ${mobileActivePanel === 'price' ? 'bg-primary-50 text-primary-700' : 'text-neutral-600'}`}
+              >
+                <span className="text-lg">💰</span>
+                <span className="font-semibold text-primary-700">${unitPrice.toFixed(2)}/pc</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Add bottom padding for mobile to account for fixed bottom bar */}
+      {isEcoDigital && <div className="lg:hidden h-20"></div>}
 
       {/* Image Enlargement Modal */}
       {enlargedImage && (
