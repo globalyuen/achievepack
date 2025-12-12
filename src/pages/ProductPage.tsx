@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp } from 'lucide-react'
+import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct } from '../store/productData'
 import { calculateEcoPrice, type EcoCalculatorSelections } from '../utils/ecoDigitalCalculator'
@@ -798,8 +798,15 @@ const ProductPage: React.FC = () => {
                             : 'border-neutral-200 hover:border-primary-300'
                         }`}
                       >
-                        <div className="aspect-square bg-white rounded-lg mb-2 flex items-center justify-center">
+                        <div className="aspect-square bg-white rounded-lg mb-2 flex items-center justify-center relative group/img">
                           <img src={option.img} alt={option.label} className="max-w-full max-h-full object-contain p-2" />
+                          <button
+                            type="button"
+                            onClick={(e) => { e.stopPropagation(); setEnlargedImage({ src: option.img, alt: option.label }); }}
+                            className="absolute bottom-1 right-1 bg-white/90 rounded-full p-1 opacity-0 group-hover/img:opacity-100 transition shadow hover:bg-primary-50"
+                          >
+                            <ZoomIn className="w-3 h-3 text-neutral-600" />
+                          </button>
                         </div>
                         <div className="text-xs font-medium text-neutral-700 text-center">{option.label}</div>
                         {selectedMaterial === option.value && (
@@ -861,8 +868,15 @@ const ProductPage: React.FC = () => {
                             : 'border-neutral-200 hover:border-primary-300'
                         }`}
                       >
-                        <div className="aspect-square bg-white rounded-lg mb-1 flex items-center justify-center">
+                        <div className="aspect-square bg-white rounded-lg mb-1 flex items-center justify-center relative group/img">
                           <img src={getSizeImage(size.value as EcoSizeType)} alt={size.label} className="max-w-full max-h-full object-contain p-1" />
+                          <button
+                            type="button"
+                            onClick={(e) => { e.stopPropagation(); setEnlargedImage({ src: getSizeImage(size.value as EcoSizeType), alt: size.label }); }}
+                            className="absolute bottom-1 right-1 bg-white/90 rounded-full p-1 opacity-0 group-hover/img:opacity-100 transition shadow hover:bg-primary-50"
+                          >
+                            <ZoomIn className="w-3 h-3 text-neutral-600" />
+                          </button>
                         </div>
                         <div className="text-xs font-medium text-neutral-700 text-center">{size.value}</div>
                         {selectedSize === size.value && (
@@ -929,8 +943,15 @@ const ProductPage: React.FC = () => {
                             : 'border-neutral-200 hover:border-primary-300'
                         }`}
                       >
-                        <div className="aspect-square bg-white rounded-lg mb-1 flex items-center justify-center">
+                        <div className="aspect-square bg-white rounded-lg mb-1 flex items-center justify-center relative group/img">
                           <img src={option.img} alt={option.label} className="max-w-full max-h-full object-contain p-1" />
+                          <button
+                            type="button"
+                            onClick={(e) => { e.stopPropagation(); setEnlargedImage({ src: option.img, alt: option.label }); }}
+                            className="absolute bottom-1 right-1 bg-white/90 rounded-full p-1 opacity-0 group-hover/img:opacity-100 transition shadow hover:bg-primary-50"
+                          >
+                            <ZoomIn className="w-3 h-3 text-neutral-600" />
+                          </button>
                         </div>
                         <div className="text-xs font-medium text-neutral-700 text-center truncate">{option.label}</div>
                         {selectedClosure === option.value && (
@@ -1009,8 +1030,15 @@ const ProductPage: React.FC = () => {
                             : 'border-neutral-200 hover:border-primary-300'
                         }`}
                       >
-                        <div className="aspect-square bg-white rounded-lg mb-1 flex items-center justify-center">
+                        <div className="aspect-square bg-white rounded-lg mb-1 flex items-center justify-center relative group/img">
                           <img src={getSurfaceImage(option.value)} alt={option.label} className="max-w-full max-h-full object-contain p-1" />
+                          <button
+                            type="button"
+                            onClick={(e) => { e.stopPropagation(); setEnlargedImage({ src: getSurfaceImage(option.value), alt: option.label }); }}
+                            className="absolute bottom-1 right-1 bg-white/90 rounded-full p-1 opacity-0 group-hover/img:opacity-100 transition shadow hover:bg-primary-50"
+                          >
+                            <ZoomIn className="w-3 h-3 text-neutral-600" />
+                          </button>
                         </div>
                         <div className="text-xs font-medium text-neutral-700 text-center">{option.label}</div>
                         {selectedSurface === option.value && (
@@ -1183,8 +1211,15 @@ const ProductPage: React.FC = () => {
                             : 'border-neutral-200 hover:border-primary-300'
                         }`}
                       >
-                        <div className="aspect-square bg-white rounded-lg mb-1 flex items-center justify-center">
+                        <div className="aspect-square bg-white rounded-lg mb-1 flex items-center justify-center relative group/img">
                           <img src={getAdditionalImage(option.key)} alt={option.label} className="max-w-full max-h-full object-contain p-1" />
+                          <button
+                            type="button"
+                            onClick={(e) => { e.stopPropagation(); setEnlargedImage({ src: getAdditionalImage(option.key), alt: option.label }); }}
+                            className="absolute bottom-1 right-1 bg-white/90 rounded-full p-1 opacity-0 group-hover/img:opacity-100 transition shadow hover:bg-primary-50"
+                          >
+                            <ZoomIn className="w-3 h-3 text-neutral-600" />
+                          </button>
                         </div>
                         <div className="text-xs font-medium text-neutral-700 text-center truncate">{option.label}</div>
                         <div className="text-xs text-neutral-500 text-center truncate">{option.sublabel}</div>
