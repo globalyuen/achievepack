@@ -35,8 +35,8 @@ const ProductPage: React.FC = () => {
   const [enlargedImage, setEnlargedImage] = useState<{ src: string; alt: string } | null>(null)
   
   // Collapsible section states
-  const [isLeftCollapsed, setIsLeftCollapsed] = useState(false)
-  const [isRightCollapsed, setIsRightCollapsed] = useState(false)
+  const [isLeftCollapsed, setIsLeftCollapsed] = useState(true)
+  const [isRightCollapsed, setIsRightCollapsed] = useState(true)
   const [isTestimonialsCollapsed, setIsTestimonialsCollapsed] = useState(true)
   
   // Mobile bottom bar state
@@ -212,14 +212,21 @@ const ProductPage: React.FC = () => {
             {/* Tabs for Package Visualization and Specifications - Desktop Only */}
             {isEcoDigital && calculationResult && (
               <div className="hidden md:block bg-white rounded-lg border border-neutral-200 overflow-hidden sticky top-20">
-                {/* Collapsible Header */}
+                {/* Collapsible Header with Mini Icons */}
                 <div 
                   className="flex items-center justify-between px-3 py-2 bg-neutral-50 border-b border-neutral-200 cursor-pointer hover:bg-neutral-100 transition"
                   onClick={() => setIsLeftCollapsed(!isLeftCollapsed)}
                 >
-                  <span className="text-sm font-semibold text-neutral-700 truncate mr-2">
-                    {activeTab === 'visualization' ? '📦 Package Preview' : '📋 Specifications'}
-                  </span>
+                  <div className="flex items-center gap-2 min-w-0 flex-1">
+                    <span className="text-sm font-semibold text-neutral-700 whitespace-nowrap">📦 Preview</span>
+                    {isLeftCollapsed && (
+                      <div className="flex items-center gap-1 overflow-hidden">
+                        <img src={productImage} alt="" className="w-6 h-6 object-contain rounded" />
+                        <img src={getSizeImage(selectedSize as EcoSizeType)} alt="" className="w-6 h-6 object-contain rounded" />
+                        <img src={getSurfaceImage(selectedSurface)} alt="" className="w-6 h-6 object-contain rounded" />
+                      </div>
+                    )}
+                  </div>
                   <div className="flex-shrink-0">
                     {isLeftCollapsed ? (
                       <ChevronDown className="w-5 h-5 text-neutral-500" />
@@ -550,25 +557,15 @@ const ProductPage: React.FC = () => {
               </div>
             )}
             
-            {/* Testimonial Section - Desktop Only, Collapsible */}
+            {/* Testimonial Section - Desktop Only, Always Expanded */}
             <div className="hidden lg:block bg-white rounded-lg border border-neutral-200 shadow-sm overflow-hidden">
-              <div 
-                className="flex items-center justify-between p-4 cursor-pointer hover:bg-neutral-50 transition"
-                onClick={() => setIsTestimonialsCollapsed(!isTestimonialsCollapsed)}
-              >
+              <div className="p-4">
                 <h3 className="text-lg font-semibold text-neutral-900 flex items-center gap-2">
                   <span className="text-2xl">💬</span>
                   Customer Testimonials
                 </h3>
-                <div className="flex-shrink-0">
-                  {isTestimonialsCollapsed ? (
-                    <ChevronDown className="w-5 h-5 text-neutral-500" />
-                  ) : (
-                    <ChevronUp className="w-5 h-5 text-neutral-500" />
-                  )}
-                </div>
               </div>
-              <div className={`px-6 pb-6 space-y-4 transition-all duration-300 ${isTestimonialsCollapsed ? 'hidden' : ''}`}>
+              <div className="px-6 pb-6 space-y-4">
                 {/* Testimonial 1 - Placeholder */}
                 <div className="bg-neutral-50 rounded-lg p-4 border-l-4 border-primary-500">
                   <div className="flex items-start gap-3 mb-2">
@@ -695,7 +692,7 @@ const ProductPage: React.FC = () => {
             {/* Price Section - Desktop Only */}
             {isEcoDigital && (
               <div className="hidden md:block bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border-2 border-primary-200 shadow-lg sticky top-20 z-10 overflow-hidden">
-                {/* Collapsible Header */}
+                {/* Collapsible Header with Unit Price */}
                 <div 
                   className="flex items-center justify-between px-3 py-3 cursor-pointer hover:bg-primary-100 transition"
                   onClick={() => setIsRightCollapsed(!isRightCollapsed)}
@@ -703,7 +700,7 @@ const ProductPage: React.FC = () => {
                   <div className="flex items-center gap-2 min-w-0 flex-1">
                     <span className="text-sm font-semibold text-primary-800 whitespace-nowrap">💰 Total</span>
                     {isRightCollapsed && (
-                      <span className="text-xl font-bold text-primary-700 truncate">US${Math.round(totalPrice).toLocaleString()}</span>
+                      <span className="text-sm font-bold text-primary-700 truncate">${unitPrice.toFixed(2)}/pc</span>
                     )}
                   </div>
                   <div className="flex-shrink-0 ml-2">
