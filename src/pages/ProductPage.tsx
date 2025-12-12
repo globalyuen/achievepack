@@ -350,7 +350,7 @@ const ProductPage: React.FC = () => {
                                 selectedClosure === 'Child Resistant Zipper' ? '/imgs/store/closure/child-resistant-zipper.webp' :
                                 selectedClosure === 'Slider' ? '/imgs/store/closure/slider-zipper.webp' :
                                 selectedClosure === 'Tin Tie' ? '/imgs/store/closure/tin-tie.webp' :
-                                selectedClosure === 'Spout' ? '/imgs/store/additional/spout.webp' :
+                                selectedClosure === 'Spout' ? '/imgs/store/closure/spout.webp' :
                                 '/imgs/store/closure/no-zipper.webp',
                               alt: selectedClosure
                             })}
@@ -364,7 +364,7 @@ const ProductPage: React.FC = () => {
                                 selectedClosure === 'Child Resistant Zipper' ? '/imgs/store/closure/child-resistant-zipper.webp' :
                                 selectedClosure === 'Slider' ? '/imgs/store/closure/slider-zipper.webp' :
                                 selectedClosure === 'Tin Tie' ? '/imgs/store/closure/tin-tie.webp' :
-                                selectedClosure === 'Spout' ? '/imgs/store/additional/spout.webp' :
+                                selectedClosure === 'Spout' ? '/imgs/store/closure/spout.webp' :
                                 '/imgs/store/closure/no-zipper.webp'
                               }
                               alt={selectedClosure}
@@ -934,7 +934,8 @@ const ProductPage: React.FC = () => {
                       { value: 'Child Resistant Zipper' as ClosureType, label: 'Child Safe', img: '/imgs/store/closure/child-resistant-zipper.webp' },
                       { value: 'Slider' as ClosureType, label: 'Slider', img: '/imgs/store/closure/slider-zipper.webp' },
                       { value: 'Tin Tie' as ClosureType, label: 'Tin Tie', img: '/imgs/store/closure/tin-tie.webp' },
-                      { value: 'Spout' as ClosureType, label: 'Spout', img: '/imgs/store/additional/spout.webp' }
+                      { value: 'Spout' as ClosureType, label: 'Spout', img: '/imgs/store/closure/spout.webp' },
+                      { value: 'Adhesive Tape' as ClosureType, label: 'Adhesive Tape', img: '/imgs/store/closure/adhesive-tap.webp' }
                     ].map(option => (
                       <button
                         key={option.value}
@@ -976,6 +977,7 @@ const ProductPage: React.FC = () => {
                       <option value="Slider">Slider Zipper</option>
                       <option value="Tin Tie">Tin Tie</option>
                       <option value="Spout">Spout</option>
+                      <option value="Adhesive Tape">Adhesive Tape</option>
                     </select>
                     {/* Closure Image Thumbnail */}
                     <div className="flex-shrink-0 bg-white rounded-lg p-2 w-16 h-16 flex items-center justify-center border-2 border-primary-600">
@@ -987,7 +989,8 @@ const ProductPage: React.FC = () => {
                           selectedClosure === 'Child Resistant Zipper' ? '/imgs/store/closure/child-resistant-zipper.webp' :
                           selectedClosure === 'Slider' ? '/imgs/store/closure/slider-zipper.webp' :
                           selectedClosure === 'Tin Tie' ? '/imgs/store/closure/tin-tie.webp' :
-                          selectedClosure === 'Spout' ? '/imgs/store/additional/spout.webp' :
+                          selectedClosure === 'Spout' ? '/imgs/store/closure/spout.webp' :
+                          selectedClosure === 'Adhesive Tape' ? '/imgs/store/closure/adhesive-tap.webp' :
                           '/imgs/store/closure/no-zipper.webp'
                         } 
                         alt={`${selectedClosure} closure`} 
@@ -1195,14 +1198,12 @@ const ProductPage: React.FC = () => {
                     </div>
                   </div>
                   
-                  {/* Button Grid Selection - 5 options */}
+                  {/* Button Grid Selection - 3 options */}
                   <div className="grid grid-cols-3 gap-2 mb-3">
                     {[
                       { key: 'Valve' as AdditionalType, value: 'valve', label: 'Valve', sublabel: '(Coffee/Tea)', state: selectedValve, setter: setSelectedValve },
                       { key: 'Laser Scoring' as AdditionalType, value: 'laser', label: 'Laser Tear', sublabel: '(Easy Open)', state: selectedLaserScoring, setter: setSelectedLaserScoring },
-                      { key: 'Adhesive Tape' as AdditionalType, value: 'tape', label: 'Adhesive Tape', sublabel: '(Reseal)', state: selectedAdhesiveTape, setter: setSelectedAdhesiveTape },
-                      { key: 'Hang Hole' as AdditionalType, value: 'hang', label: 'Hang Hole', sublabel: '(Display)', state: selectedHangHole, setter: setSelectedHangHole },
-                      { key: 'Spout' as AdditionalType, value: 'spout', label: 'Spout', sublabel: '(Liquids)', state: selectedSpout, setter: setSelectedSpout }
+                      { key: 'Hang Hole' as AdditionalType, value: 'hang', label: 'Hang Hole', sublabel: '(Display)', state: selectedHangHole, setter: setSelectedHangHole }
                     ].map(option => (
                       <button
                         key={option.value}
@@ -1246,16 +1247,8 @@ const ProductPage: React.FC = () => {
                       <span>Laser Tear</span>
                     </label>
                     <label className="flex items-center gap-2 cursor-pointer">
-                      <input type="checkbox" checked={selectedAdhesiveTape === 'Yes'} onChange={e => setSelectedAdhesiveTape(e.target.checked ? 'Yes' : 'No')} className="rounded" />
-                      <span>Adhesive Tape</span>
-                    </label>
-                    <label className="flex items-center gap-2 cursor-pointer">
                       <input type="checkbox" checked={selectedHangHole === 'Yes'} onChange={e => setSelectedHangHole(e.target.checked ? 'Yes' : 'No')} className="rounded" />
                       <span>Hang Hole</span>
-                    </label>
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <input type="checkbox" checked={selectedSpout === 'Yes'} onChange={e => setSelectedSpout(e.target.checked ? 'Yes' : 'No')} className="rounded" />
-                      <span>Spout</span>
                     </label>
                   </div>
                 </div>
@@ -1324,9 +1317,11 @@ const ProductPage: React.FC = () => {
                   <span className="text-lg">📦</span>
                   <span className="text-sm font-medium">Preview</span>
                   <div className="flex items-center gap-1 ml-2">
-                    <img src={productImage} alt="" className="w-6 h-6 object-contain rounded" />
-                    <img src={getSizeImage(selectedSize as EcoSizeType)} alt="" className="w-6 h-6 object-contain rounded" />
-                    <img src={getSurfaceImage(selectedSurface)} alt="" className="w-6 h-6 object-contain rounded" />
+                    <img src={productImage} alt="" className="w-6 h-6 object-contain rounded border border-neutral-200" />
+                    <img src={selectedMaterial === 'PCR or Bio Plastic' ? '/imgs/store/eco-material/pcr-or-biope.webp' : selectedMaterial === 'Mono Recyclable Plastic' ? '/imgs/store/eco-material/recycle.webp' : '/imgs/store/eco-material/compostable.webp'} alt="" className="w-6 h-6 object-contain rounded border border-neutral-200" />
+                    <img src={getSizeImage(selectedSize as EcoSizeType)} alt="" className="w-6 h-6 object-contain rounded border border-neutral-200" />
+                    <img src={selectedClosure === 'No' ? '/imgs/store/closure/no-zipper.webp' : selectedClosure === 'Regular Zipper' ? '/imgs/store/closure/normal-zipper.webp' : selectedClosure === 'One-Sided Zipper' ? '/imgs/store/closure/front-zipper.webp' : selectedClosure === 'Child Resistant Zipper' ? '/imgs/store/closure/child-resistant-zipper.webp' : selectedClosure === 'Slider' ? '/imgs/store/closure/slider-zipper.webp' : selectedClosure === 'Tin Tie' ? '/imgs/store/closure/tin-tie.webp' : selectedClosure === 'Spout' ? '/imgs/store/closure/spout.webp' : selectedClosure === 'Adhesive Tape' ? '/imgs/store/closure/adhesive-tap.webp' : '/imgs/store/closure/no-zipper.webp'} alt="" className="w-6 h-6 object-contain rounded border border-neutral-200" />
+                    <img src={getSurfaceImage(selectedSurface)} alt="" className="w-6 h-6 object-contain rounded border border-neutral-200" />
                   </div>
                   {mobileActivePanel === 'preview' ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                 </button>
@@ -1352,33 +1347,99 @@ const ProductPage: React.FC = () => {
               <div className="max-w-7xl mx-auto px-4">
                 {mobileActivePanel === 'preview' && (
                   <div className="py-4">
-                    <div className="grid grid-cols-2 gap-6">
+                    <div className="flex gap-6">
                       {/* Left: Main Image */}
-                      <div className="text-center">
-                        <button onClick={() => setEnlargedImage({ src: productImage, alt: product.name })} className="bg-neutral-50 rounded-lg p-4 hover:bg-neutral-100 transition w-full">
-                          <img src={productImage} alt={product.name} className="w-full h-40 object-contain" />
+                      <div className="text-center flex-shrink-0">
+                        <button onClick={() => setEnlargedImage({ src: productImage, alt: product.name })} className="bg-neutral-50 rounded-lg p-3 hover:bg-neutral-100 transition">
+                          <img src={productImage} alt={product.name} className="w-32 h-32 object-contain" />
                         </button>
-                        <p className="text-sm font-semibold text-neutral-800 mt-2">{product.name}</p>
+                        <p className="text-xs font-semibold text-neutral-800 mt-1">{ecoProduct?.shape}</p>
                       </div>
-                      {/* Right: Specs Grid */}
-                      <div className="grid grid-cols-3 gap-3">
+                      {/* Right: All Options Grid */}
+                      <div className="flex-1 grid grid-cols-6 gap-2">
+                        {/* Material */}
                         <div className="text-center">
-                          <div className="bg-neutral-50 rounded-lg p-2 h-16 flex items-center justify-center">
+                          <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
+                            <img src={selectedMaterial === 'PCR or Bio Plastic' ? '/imgs/store/eco-material/pcr-or-biope.webp' : selectedMaterial === 'Mono Recyclable Plastic' ? '/imgs/store/eco-material/recycle.webp' : '/imgs/store/eco-material/compostable.webp'} alt="" className="max-h-full object-contain" />
+                          </div>
+                          <p className="text-[10px] font-medium mt-0.5 truncate">Material</p>
+                        </div>
+                        {/* Size */}
+                        <div className="text-center">
+                          <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
                             <img src={getSizeImage(selectedSize as EcoSizeType)} alt="" className="max-h-full object-contain" />
                           </div>
-                          <p className="text-xs font-medium mt-1">Size: {selectedSize}</p>
+                          <p className="text-[10px] font-medium mt-0.5">{selectedSize}</p>
                         </div>
+                        {/* Closure */}
                         <div className="text-center">
-                          <div className="bg-neutral-50 rounded-lg p-2 h-16 flex items-center justify-center">
+                          <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
+                            <img src={selectedClosure === 'No' ? '/imgs/store/closure/no-zipper.webp' : selectedClosure === 'Regular Zipper' ? '/imgs/store/closure/normal-zipper.webp' : selectedClosure === 'One-Sided Zipper' ? '/imgs/store/closure/front-zipper.webp' : selectedClosure === 'Child Resistant Zipper' ? '/imgs/store/closure/child-resistant-zipper.webp' : selectedClosure === 'Slider' ? '/imgs/store/closure/slider-zipper.webp' : selectedClosure === 'Tin Tie' ? '/imgs/store/closure/tin-tie.webp' : selectedClosure === 'Spout' ? '/imgs/store/closure/spout.webp' : selectedClosure === 'Adhesive Tape' ? '/imgs/store/closure/adhesive-tap.webp' : '/imgs/store/closure/no-zipper.webp'} alt="" className="max-h-full object-contain" />
+                          </div>
+                          <p className="text-[10px] font-medium mt-0.5 truncate">{selectedClosure === 'No' ? 'None' : selectedClosure.split(' ')[0]}</p>
+                        </div>
+                        {/* Surface */}
+                        <div className="text-center">
+                          <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
                             <img src={getSurfaceImage(selectedSurface)} alt="" className="max-h-full object-contain" />
                           </div>
-                          <p className="text-xs font-medium mt-1">Surface: {selectedSurface}</p>
+                          <p className="text-[10px] font-medium mt-0.5">{selectedSurface}</p>
                         </div>
+                        {/* Barrier */}
                         <div className="text-center">
-                          <div className="bg-neutral-50 rounded-lg p-2 h-16 flex items-center justify-center">
-                            <span className="text-2xl">🛡️</span>
+                          <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
+                            <span className="text-lg">🛡️</span>
                           </div>
-                          <p className="text-xs font-medium mt-1">Barrier</p>
+                          <p className="text-[10px] font-medium mt-0.5 truncate">{selectedBarrier.includes('mid') ? 'Mid' : selectedBarrier.includes('high') ? 'High' : 'Max'}</p>
+                        </div>
+                        {/* Stiffness */}
+                        <div className="text-center">
+                          <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
+                            <span className="text-lg">💪</span>
+                          </div>
+                          <p className="text-[10px] font-medium mt-0.5">{selectedStiffness.includes('Without') ? 'Soft' : 'Stiff'}</p>
+                        </div>
+                        {/* Quantity */}
+                        <div className="text-center">
+                          <div className="bg-primary-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
+                            <span className="text-xs font-bold text-primary-700">{selectedQuantity.split(' ')[0]}</span>
+                          </div>
+                          <p className="text-[10px] font-medium mt-0.5">Qty</p>
+                        </div>
+                        {/* Designs */}
+                        <div className="text-center">
+                          <div className="bg-primary-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
+                            <span className="text-xs font-bold text-primary-700">{selectedDesignCount}</span>
+                          </div>
+                          <p className="text-[10px] font-medium mt-0.5">Designs</p>
+                        </div>
+                        {/* Valve */}
+                        <div className="text-center">
+                          <div className={`rounded-lg p-1.5 h-12 flex items-center justify-center ${selectedValve === 'Yes' ? 'bg-green-50' : 'bg-neutral-50'}`}>
+                            <span className="text-lg">{selectedValve === 'Yes' ? '💨' : '➖'}</span>
+                          </div>
+                          <p className="text-[10px] font-medium mt-0.5">Valve</p>
+                        </div>
+                        {/* Laser */}
+                        <div className="text-center">
+                          <div className={`rounded-lg p-1.5 h-12 flex items-center justify-center ${selectedLaserScoring === 'Yes' ? 'bg-green-50' : 'bg-neutral-50'}`}>
+                            {selectedLaserScoring === 'Yes' ? <img src="/imgs/store/additional/laser-tear.webp" alt="" className="max-h-full object-contain" /> : <span className="text-lg">➖</span>}
+                          </div>
+                          <p className="text-[10px] font-medium mt-0.5">Laser</p>
+                        </div>
+                        {/* Hang Hole */}
+                        <div className="text-center">
+                          <div className={`rounded-lg p-1.5 h-12 flex items-center justify-center ${selectedHangHole === 'Yes' ? 'bg-green-50' : 'bg-neutral-50'}`}>
+                            <span className="text-lg">{selectedHangHole === 'Yes' ? '🕳️' : '➖'}</span>
+                          </div>
+                          <p className="text-[10px] font-medium mt-0.5">Hole</p>
+                        </div>
+                        {/* Shipping */}
+                        <div className="text-center">
+                          <div className="bg-blue-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
+                            <span className="text-lg">{selectedShipping === 'Air Freight' ? '✈️' : selectedShipping === 'Sea Freight' ? '🚢' : '📦'}</span>
+                          </div>
+                          <p className="text-[10px] font-medium mt-0.5">{selectedShipping.split(' ')[0]}</p>
                         </div>
                       </div>
                     </div>
