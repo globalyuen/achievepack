@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { ArrowLeft, ShoppingCart, Star, Check } from 'lucide-react'
+import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct } from '../store/productData'
 import { calculateEcoPrice, type EcoCalculatorSelections } from '../utils/ecoDigitalCalculator'
@@ -33,6 +33,10 @@ const ProductPage: React.FC = () => {
   
   // Image enlargement modal state
   const [enlargedImage, setEnlargedImage] = useState<{ src: string; alt: string } | null>(null)
+  
+  // Collapsible section states
+  const [isLeftCollapsed, setIsLeftCollapsed] = useState(false)
+  const [isRightCollapsed, setIsRightCollapsed] = useState(false)
   
   // Initialize from product defaults
   useEffect(() => {
@@ -195,8 +199,23 @@ const ProductPage: React.FC = () => {
             {/* Tabs for Package Visualization and Specifications - Now Sticky */}
             {isEcoDigital && calculationResult && (
               <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden sticky top-20">
+                {/* Collapsible Header */}
+                <div 
+                  className="flex items-center justify-between px-4 py-2 bg-neutral-50 border-b border-neutral-200 cursor-pointer hover:bg-neutral-100 transition"
+                  onClick={() => setIsLeftCollapsed(!isLeftCollapsed)}
+                >
+                  <span className="text-sm font-semibold text-neutral-700">
+                    {activeTab === 'visualization' ? '📦 Package Preview' : '📋 Specifications'}
+                  </span>
+                  {isLeftCollapsed ? (
+                    <ChevronDown className="w-5 h-5 text-neutral-500" />
+                  ) : (
+                    <ChevronUp className="w-5 h-5 text-neutral-500" />
+                  )}
+                </div>
+                
                 {/* Tab Headers */}
-                <div className="flex border-b border-neutral-200">
+                <div className={`flex border-b border-neutral-200 transition-all duration-300 ${isLeftCollapsed ? 'hidden' : ''}`}>
                   <button
                     onClick={() => setActiveTab('visualization')}
                     className={`flex-1 px-4 py-3 text-sm font-medium transition ${
@@ -220,7 +239,7 @@ const ProductPage: React.FC = () => {
                 </div>
                 
                 {/* Tab Content */}
-                <div className="p-4 max-h-[600px] overflow-y-auto">
+                <div className={`p-4 max-h-[600px] overflow-y-auto transition-all duration-300 ${isLeftCollapsed ? 'hidden' : ''}`}>
                   {activeTab === 'visualization' ? (
                     /* Package Visualization Content */
                     <div className="space-y-4">
@@ -636,31 +655,51 @@ const ProductPage: React.FC = () => {
           <div className="space-y-6">
             {/* Price Section - Now at Top and Sticky */}
             {isEcoDigital && (
-              <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl p-6 border-2 border-primary-200 shadow-lg sticky top-20 z-10">
-                <div className="text-sm font-semibold text-primary-800 mb-2">💰 Total Investment</div>
-                <div className="text-4xl font-bold text-primary-700 mb-3">US${Math.round(totalPrice).toLocaleString()}</div>
-                {calculationResult && (
-                  <div className="grid grid-cols-2 gap-3 text-sm">
-                    <div className="bg-white bg-opacity-60 rounded-lg p-3">
-                      <div className="text-neutral-600 text-xs mb-1">Unit Price</div>
-                      <div className="font-semibold text-neutral-800">${unitPrice.toFixed(4)}/pc</div>
-                    </div>
-                    <div className="bg-white bg-opacity-60 rounded-lg p-3">
-                      <div className="text-neutral-600 text-xs mb-1">Quantity</div>
-                      <div className="font-semibold text-neutral-800">{calculationResult.price.quantityUnits.toLocaleString()} pcs</div>
-                    </div>
-                    <div className="bg-white bg-opacity-60 rounded-lg p-3">
-                      <div className="text-neutral-600 text-xs mb-1">Designs</div>
-                      <div className="font-semibold text-neutral-800">{calculationResult.price.designCount}</div>
-                    </div>
-                    <div className="bg-white bg-opacity-60 rounded-lg p-3">
-                      <div className="text-neutral-600 text-xs mb-1">Shipping</div>
-                      <div className="font-semibold text-neutral-800 text-xs">{calculationResult.price.shippingMethod}</div>
-                    </div>
+              <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border-2 border-primary-200 shadow-lg sticky top-20 z-10 overflow-hidden">
+                {/* Collapsible Header */}
+                <div 
+                  className="flex items-center justify-between px-4 py-3 cursor-pointer hover:bg-primary-100 transition"
+                  onClick={() => setIsRightCollapsed(!isRightCollapsed)}
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="text-sm font-semibold text-primary-800">💰 Total Investment</span>
+                    {isRightCollapsed && (
+                      <span className="text-2xl font-bold text-primary-700">US${Math.round(totalPrice).toLocaleString()}</span>
+                    )}
                   </div>
-                )}
-                <div className="text-xs text-primary-700 mt-3 bg-white bg-opacity-40 rounded-lg p-2 text-center">
-                  ✓ Shipping Included
+                  {isRightCollapsed ? (
+                    <ChevronDown className="w-5 h-5 text-primary-600" />
+                  ) : (
+                    <ChevronUp className="w-5 h-5 text-primary-600" />
+                  )}
+                </div>
+                
+                {/* Collapsible Content */}
+                <div className={`px-6 pb-6 transition-all duration-300 ${isRightCollapsed ? 'hidden' : ''}`}>
+                  <div className="text-4xl font-bold text-primary-700 mb-3">US${Math.round(totalPrice).toLocaleString()}</div>
+                  {calculationResult && (
+                    <div className="grid grid-cols-2 gap-3 text-sm">
+                      <div className="bg-white bg-opacity-60 rounded-lg p-3">
+                        <div className="text-neutral-600 text-xs mb-1">Unit Price</div>
+                        <div className="font-semibold text-neutral-800">${unitPrice.toFixed(4)}/pc</div>
+                      </div>
+                      <div className="bg-white bg-opacity-60 rounded-lg p-3">
+                        <div className="text-neutral-600 text-xs mb-1">Quantity</div>
+                        <div className="font-semibold text-neutral-800">{calculationResult.price.quantityUnits.toLocaleString()} pcs</div>
+                      </div>
+                      <div className="bg-white bg-opacity-60 rounded-lg p-3">
+                        <div className="text-neutral-600 text-xs mb-1">Designs</div>
+                        <div className="font-semibold text-neutral-800">{calculationResult.price.designCount}</div>
+                      </div>
+                      <div className="bg-white bg-opacity-60 rounded-lg p-3">
+                        <div className="text-neutral-600 text-xs mb-1">Shipping</div>
+                        <div className="font-semibold text-neutral-800 text-xs">{calculationResult.price.shippingMethod}</div>
+                      </div>
+                    </div>
+                  )}
+                  <div className="text-xs text-primary-700 mt-3 bg-white bg-opacity-40 rounded-lg p-2 text-center">
+                    ✓ Shipping Included
+                  </div>
                 </div>
               </div>
             )}
