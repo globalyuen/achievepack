@@ -117,7 +117,7 @@ const StorePage: React.FC = () => {
           <div className="flex items-center gap-4">
             <Link to="/" className="flex items-center gap-3 hover:opacity-90 transition">
               <img 
-                src="/achieve-pack-logo.png" 
+                src="/ap-logo-white.png" 
                 alt="Achieve Pack" 
                 className="h-10 w-auto"
               />
