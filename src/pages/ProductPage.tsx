@@ -211,7 +211,7 @@ const ProductPage: React.FC = () => {
           <div className="space-y-4">
             {/* Tabs for Package Visualization and Specifications - Desktop Only */}
             {isEcoDigital && calculationResult && (
-              <div className="hidden lg:block bg-white rounded-lg border border-neutral-200 overflow-hidden sticky top-20">
+              <div className="hidden md:block bg-white rounded-lg border border-neutral-200 overflow-hidden sticky top-20">
                 {/* Collapsible Header */}
                 <div 
                   className="flex items-center justify-between px-3 py-2 bg-neutral-50 border-b border-neutral-200 cursor-pointer hover:bg-neutral-100 transition"
@@ -694,7 +694,7 @@ const ProductPage: React.FC = () => {
           <div className="space-y-6">
             {/* Price Section - Desktop Only */}
             {isEcoDigital && (
-              <div className="hidden lg:block bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border-2 border-primary-200 shadow-lg sticky top-20 z-10 overflow-hidden">
+              <div className="hidden md:block bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border-2 border-primary-200 shadow-lg sticky top-20 z-10 overflow-hidden">
                 {/* Collapsible Header */}
                 <div 
                   className="flex items-center justify-between px-3 py-3 cursor-pointer hover:bg-primary-100 transition"
