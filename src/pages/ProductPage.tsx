@@ -4,7 +4,7 @@ import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp } from 'lu
 import { useStore } from '../store/StoreContext'
 import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct } from '../store/productData'
 import { calculateEcoPrice, type EcoCalculatorSelections } from '../utils/ecoDigitalCalculator'
-import { getProductImage, getSizeImage, getSurfaceImage, type ShapeType, ClosureType, SurfaceType, EcoSizeType } from '../utils/productImageMapper'
+import { getProductImage, getSizeImage, getSurfaceImage, getAdditionalImage, type ShapeType, ClosureType, SurfaceType, EcoSizeType, AdditionalType } from '../utils/productImageMapper'
 
 const ProductPage: React.FC = () => {
   const { productId } = useParams<{ productId: string }>()
@@ -1164,43 +1164,37 @@ const ProductPage: React.FC = () => {
                     </div>
                   </div>
                   
-                  {/* Button Grid Selection - Same as Barrier/Stiffness */}
+                  {/* Button Grid Selection - Same layout as Surface */}
                   <div className="grid grid-cols-2 gap-3 mb-3">
-                    <button
-                      type="button"
-                      onClick={() => setSelectedValve(selectedValve === 'Yes' ? 'No' : 'Yes')}
-                      className={`relative p-3 border-2 rounded-lg transition-all hover:shadow-md text-left ${
-                        selectedValve === 'Yes'
-                          ? 'border-primary-600 bg-primary-50'
-                          : 'border-neutral-200 hover:border-primary-300'
-                      }`}
-                    >
-                      <div className="text-sm font-semibold text-neutral-800">Degassing Valve</div>
-                      <div className="text-xs text-neutral-600">(Coffee/Tea)</div>
-                      {selectedValve === 'Yes' && (
-                        <div className="absolute top-2 right-2 bg-primary-600 text-white rounded-full w-5 h-5 flex items-center justify-center">
-                          <Check className="w-3 h-3" />
+                    {[
+                      { key: 'Valve' as AdditionalType, value: 'valve', label: 'Degassing Valve', sublabel: '(Coffee/Tea)' },
+                      { key: 'Laser Scoring' as AdditionalType, value: 'laser', label: 'Laser Scoring', sublabel: '(Easy Tear)' }
+                    ].map(option => (
+                      <button
+                        key={option.value}
+                        type="button"
+                        onClick={() => option.value === 'valve' 
+                          ? setSelectedValve(selectedValve === 'Yes' ? 'No' : 'Yes')
+                          : setSelectedLaserScoring(selectedLaserScoring === 'Yes' ? 'No' : 'Yes')
+                        }
+                        className={`relative p-2 border-2 rounded-lg transition-all hover:shadow-md ${
+                          (option.value === 'valve' ? selectedValve === 'Yes' : selectedLaserScoring === 'Yes')
+                            ? 'border-primary-600 bg-primary-50'
+                            : 'border-neutral-200 hover:border-primary-300'
+                        }`}
+                      >
+                        <div className="aspect-square bg-white rounded-lg mb-1 flex items-center justify-center">
+                          <img src={getAdditionalImage(option.key)} alt={option.label} className="max-w-full max-h-full object-contain p-1" />
                         </div>
-                      )}
-                    </button>
-                    
-                    <button
-                      type="button"
-                      onClick={() => setSelectedLaserScoring(selectedLaserScoring === 'Yes' ? 'No' : 'Yes')}
-                      className={`relative p-3 border-2 rounded-lg transition-all hover:shadow-md text-left ${
-                        selectedLaserScoring === 'Yes'
-                          ? 'border-primary-600 bg-primary-50'
-                          : 'border-neutral-200 hover:border-primary-300'
-                      }`}
-                    >
-                      <div className="text-sm font-semibold text-neutral-800">Laser Scoring</div>
-                      <div className="text-xs text-neutral-600">(Easy Tear)</div>
-                      {selectedLaserScoring === 'Yes' && (
-                        <div className="absolute top-2 right-2 bg-primary-600 text-white rounded-full w-5 h-5 flex items-center justify-center">
-                          <Check className="w-3 h-3" />
-                        </div>
-                      )}
-                    </button>
+                        <div className="text-xs font-medium text-neutral-700 text-center">{option.label}</div>
+                        <div className="text-xs text-neutral-500 text-center">{option.sublabel}</div>
+                        {(option.value === 'valve' ? selectedValve === 'Yes' : selectedLaserScoring === 'Yes') && (
+                          <div className="absolute top-1 right-1 bg-primary-600 text-white rounded-full w-4 h-4 flex items-center justify-center">
+                            <Check className="w-2.5 h-2.5" />
+                          </div>
+                        )}
+                      </button>
+                    ))}
                   </div>
                   
                   {/* Checkbox Options - Keep for accessibility */}

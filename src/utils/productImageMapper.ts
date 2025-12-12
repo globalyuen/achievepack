@@ -14,6 +14,7 @@ export type ShapeType =
 
 export type ClosureType = 'No' | 'Regular Zipper' | 'One-Sided Zipper' | 'Child Resistant Zipper' | 'Slider' | 'Tin Tie' | 'Spout'
 export type SurfaceType = 'Glossy' | 'Matt' | 'Metallic' | 'Soft Touch' | 'Emboss' | 'Stamp Foil'
+export type AdditionalType = 'Valve' | 'Laser Scoring' | 'Adhesive Tape' | 'Hang Hole'
 export type MaterialType = 
   | 'PCR or Bio Plastic'
   | 'Mono Recyclable Plastic'
@@ -140,6 +141,25 @@ export function getSizeImage(size: EcoSizeType): string {
 export function getSurfaceImage(surface: SurfaceType): string {
   const surfaceFileName = surfaceMap[surface]
   return `/imgs/store/surface/${surfaceFileName}.webp`
+}
+
+/**
+ * Additional features image mapping
+ */
+const additionalMap: Record<AdditionalType, string> = {
+  'Valve': 'valve',
+  'Laser Scoring': 'laser-tear',
+  'Adhesive Tape': 'ahesive-tap',  // File name as-is
+  'Hang Hole': 'hang-hole',
+}
+
+/**
+ * Get additional feature image
+ * Returns image from /imgs/store/additional/ directory
+ */
+export function getAdditionalImage(additional: AdditionalType): string {
+  const additionalFileName = additionalMap[additional]
+  return `/imgs/store/additional/${additionalFileName}.webp`
 }
 
 /**
