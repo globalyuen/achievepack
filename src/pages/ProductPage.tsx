@@ -210,17 +210,19 @@ const ProductPage: React.FC = () => {
               <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden sticky top-20">
                 {/* Collapsible Header */}
                 <div 
-                  className="flex items-center justify-between px-4 py-2 bg-neutral-50 border-b border-neutral-200 cursor-pointer hover:bg-neutral-100 transition"
+                  className="flex items-center justify-between px-3 py-2 bg-neutral-50 border-b border-neutral-200 cursor-pointer hover:bg-neutral-100 transition"
                   onClick={() => setIsLeftCollapsed(!isLeftCollapsed)}
                 >
-                  <span className="text-sm font-semibold text-neutral-700">
+                  <span className="text-sm font-semibold text-neutral-700 truncate mr-2">
                     {activeTab === 'visualization' ? '📦 Package Preview' : '📋 Specifications'}
                   </span>
-                  {isLeftCollapsed ? (
-                    <ChevronDown className="w-5 h-5 text-neutral-500" />
-                  ) : (
-                    <ChevronUp className="w-5 h-5 text-neutral-500" />
-                  )}
+                  <div className="flex-shrink-0">
+                    {isLeftCollapsed ? (
+                      <ChevronDown className="w-5 h-5 text-neutral-500" />
+                    ) : (
+                      <ChevronUp className="w-5 h-5 text-neutral-500" />
+                    )}
+                  </div>
                 </div>
                 
                 {/* Tab Headers */}
@@ -679,20 +681,22 @@ const ProductPage: React.FC = () => {
               <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border-2 border-primary-200 shadow-lg sticky top-20 z-10 overflow-hidden">
                 {/* Collapsible Header */}
                 <div 
-                  className="flex items-center justify-between px-4 py-3 cursor-pointer hover:bg-primary-100 transition"
+                  className="flex items-center justify-between px-3 py-3 cursor-pointer hover:bg-primary-100 transition"
                   onClick={() => setIsRightCollapsed(!isRightCollapsed)}
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="text-sm font-semibold text-primary-800">💰 Total Investment</span>
+                  <div className="flex items-center gap-2 min-w-0 flex-1">
+                    <span className="text-sm font-semibold text-primary-800 whitespace-nowrap">💰 Total</span>
                     {isRightCollapsed && (
-                      <span className="text-2xl font-bold text-primary-700">US${Math.round(totalPrice).toLocaleString()}</span>
+                      <span className="text-xl font-bold text-primary-700 truncate">US${Math.round(totalPrice).toLocaleString()}</span>
                     )}
                   </div>
-                  {isRightCollapsed ? (
-                    <ChevronDown className="w-5 h-5 text-primary-600" />
-                  ) : (
-                    <ChevronUp className="w-5 h-5 text-primary-600" />
-                  )}
+                  <div className="flex-shrink-0 ml-2">
+                    {isRightCollapsed ? (
+                      <ChevronDown className="w-5 h-5 text-primary-600" />
+                    ) : (
+                      <ChevronUp className="w-5 h-5 text-primary-600" />
+                    )}
+                  </div>
                 </div>
                 
                 {/* Collapsible Content */}
