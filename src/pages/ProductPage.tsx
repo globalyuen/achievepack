@@ -322,6 +322,7 @@ const ProductPage: React.FC = () => {
                                 selectedClosure === 'Child Resistant Zipper' ? '/imgs/store/closure/child-resistant-zipper.webp' :
                                 selectedClosure === 'Slider' ? '/imgs/store/closure/slider-zipper.webp' :
                                 selectedClosure === 'Tin Tie' ? '/imgs/store/closure/tin-tie.webp' :
+                                selectedClosure === 'Spout' ? '/imgs/store/additional/spout.webp' :
                                 '/imgs/store/closure/no-zipper.webp',
                               alt: selectedClosure
                             })}
@@ -335,6 +336,7 @@ const ProductPage: React.FC = () => {
                                 selectedClosure === 'Child Resistant Zipper' ? '/imgs/store/closure/child-resistant-zipper.webp' :
                                 selectedClosure === 'Slider' ? '/imgs/store/closure/slider-zipper.webp' :
                                 selectedClosure === 'Tin Tie' ? '/imgs/store/closure/tin-tie.webp' :
+                                selectedClosure === 'Spout' ? '/imgs/store/additional/spout.webp' :
                                 '/imgs/store/closure/no-zipper.webp'
                               }
                               alt={selectedClosure}
@@ -401,9 +403,19 @@ const ProductPage: React.FC = () => {
                         {/* Laser Scoring - if selected */}
                         {selectedLaserScoring === 'Yes' && (
                           <div className="text-center">
-                            <div className="bg-neutral-50 rounded-lg p-3 mb-2 w-full h-[88px] flex items-center justify-center">
-                              <div className="text-neutral-400 text-2xl">✂️</div>
-                            </div>
+                            <button 
+                              onClick={() => setEnlargedImage({
+                                src: '/imgs/store/additional/laser-tear.webp',
+                                alt: 'Laser Scoring'
+                              })}
+                              className="bg-neutral-50 rounded-lg p-3 mb-2 cursor-pointer hover:bg-neutral-100 transition w-full"
+                            >
+                              <img 
+                                src="/imgs/store/additional/laser-tear.webp"
+                                alt="Laser Scoring"
+                                className="w-full h-16 object-contain"
+                              />
+                            </button>
                             <p className="text-xs font-medium text-neutral-700">Laser</p>
                             <p className="text-xs text-neutral-500">Scoring</p>
                           </div>
@@ -876,7 +888,7 @@ const ProductPage: React.FC = () => {
                       { value: 'Child Resistant Zipper' as ClosureType, label: 'Child Safe', img: '/imgs/store/closure/child-resistant-zipper.webp' },
                       { value: 'Slider' as ClosureType, label: 'Slider', img: '/imgs/store/closure/slider-zipper.webp' },
                       { value: 'Tin Tie' as ClosureType, label: 'Tin Tie', img: '/imgs/store/closure/tin-tie.webp' },
-                      { value: 'Spout' as ClosureType, label: 'Spout', img: '/imgs/store/closure/no-zipper.webp' }
+                      { value: 'Spout' as ClosureType, label: 'Spout', img: '/imgs/store/additional/spout.webp' }
                     ].map(option => (
                       <button
                         key={option.value}
@@ -922,6 +934,7 @@ const ProductPage: React.FC = () => {
                           selectedClosure === 'Child Resistant Zipper' ? '/imgs/store/closure/child-resistant-zipper.webp' :
                           selectedClosure === 'Slider' ? '/imgs/store/closure/slider-zipper.webp' :
                           selectedClosure === 'Tin Tie' ? '/imgs/store/closure/tin-tie.webp' :
+                          selectedClosure === 'Spout' ? '/imgs/store/additional/spout.webp' :
                           '/imgs/store/closure/no-zipper.webp'
                         } 
                         alt={`${selectedClosure} closure`} 
