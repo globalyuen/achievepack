@@ -749,19 +749,37 @@ const ProductPage: React.FC = () => {
               </div>
             )}
             
-            {product.badge && <span className="inline-block bg-primary-100 text-primary-700 text-sm px-4 py-1 rounded-full font-medium">{product.badge}</span>}
-            <h1 className="text-3xl font-bold text-neutral-900">{product.name}</h1>
-            
-            <div className="flex items-center gap-2">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className={`h-5 w-5 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-neutral-300'}`} />
-                ))}
+            {/* Product Heading - Sticky on Laptop */}
+            <div className="hidden md:block bg-white rounded-lg border border-neutral-200 p-4 sticky top-16 z-20 mb-4">
+              {product.badge && <span className="inline-block bg-primary-100 text-primary-700 text-sm px-4 py-1 rounded-full font-medium mb-2">{product.badge}</span>}
+              <h1 className="text-2xl font-bold text-neutral-900 mb-2">{product.name}</h1>
+              <div className="flex items-center gap-2 mb-2">
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className={`h-4 w-4 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-neutral-300'}`} />
+                  ))}
+                </div>
+                <span className="text-neutral-600 text-sm">({product.reviews} reviews)</span>
               </div>
-              <span className="text-neutral-600">({product.reviews} reviews)</span>
+              <p className="text-neutral-600 text-sm line-clamp-2">{product.description}</p>
             </div>
+            
+            {/* Mobile Product Heading */}
+            <div className="md:hidden">
+              {product.badge && <span className="inline-block bg-primary-100 text-primary-700 text-sm px-4 py-1 rounded-full font-medium">{product.badge}</span>}
+              <h1 className="text-3xl font-bold text-neutral-900">{product.name}</h1>
+              
+              <div className="flex items-center gap-2">
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className={`h-5 w-5 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-neutral-300'}`} />
+                  ))}
+                </div>
+                <span className="text-neutral-600">({product.reviews} reviews)</span>
+              </div>
 
-            <p className="text-neutral-600">{product.description}</p>
+              <p className="text-neutral-600">{product.description}</p>
+            </div>
 
             {/* Options */}
             {isEcoDigital && ecoProduct && (
