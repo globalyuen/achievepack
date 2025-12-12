@@ -87,9 +87,13 @@ const CartSidebar: React.FC = () => {
                   <img src={item.image} alt={item.name} className="w-20 h-20 object-contain rounded-lg bg-white" />
                   <div className="flex-1 min-w-0">
                     <h3 className="font-medium text-neutral-900 truncate">{item.name}</h3>
-                    <p className="text-xs text-neutral-500 truncate">
-                      {item.variant.shape} • {item.variant.size} • {item.variant.barrier}
-                    </p>
+                    {item.productId.startsWith('sample-') ? (
+                      <p className="text-xs text-neutral-500">Sample Pack</p>
+                    ) : (
+                      <p className="text-xs text-neutral-500 truncate">
+                        {item.variant.shape} • {item.variant.size} • {item.variant.barrier}
+                      </p>
+                    )}
                     <div className="flex items-center justify-between mt-2">
                       <span className="font-bold text-primary-600">${item.totalPrice.toLocaleString()}</span>
                       <button onClick={() => removeFromCart(item.id)} className="text-red-500 hover:text-red-700 p-1">
