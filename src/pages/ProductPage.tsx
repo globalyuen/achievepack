@@ -175,10 +175,19 @@ const ProductPage: React.FC = () => {
     <div className="min-h-screen bg-neutral-50">
       {/* Header */}
       <header className="bg-white border-b sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link to="/store" className="flex items-center gap-2 text-neutral-600 hover:text-primary-600 transition">
-            <ArrowLeft className="h-5 w-5" /> Back to Store
-          </Link>
+        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition">
+              <img 
+                src="/achieve-pack-logo.png" 
+                alt="Achieve Pack" 
+                className="h-9 w-auto"
+              />
+            </Link>
+            <Link to="/store" className="flex items-center gap-1 text-sm text-neutral-500 hover:text-primary-600 transition">
+              <ArrowLeft className="h-4 w-4" /> Back to Store
+            </Link>
+          </div>
           <button onClick={() => {
             if (cartCount === 0) {
               navigate('/store')

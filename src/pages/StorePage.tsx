@@ -115,10 +115,14 @@ const StorePage: React.FC = () => {
       <header className="bg-primary-600 text-white sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <Link to="/" className="flex items-center gap-2 text-white/80 hover:text-white transition">
-              <ArrowLeft className="h-5 w-5" />
+            <Link to="/" className="flex items-center gap-3 hover:opacity-90 transition">
+              <img 
+                src="/achieve-pack-logo.png" 
+                alt="Achieve Pack" 
+                className="h-10 w-auto"
+              />
+              <span className="text-2xl font-bold hidden sm:inline">Store</span>
             </Link>
-            <Link to="/store" className="text-2xl font-bold">AchievePack Store</Link>
           </div>
           <div className="flex items-center gap-4">
             <div className="relative hidden md:block">
