@@ -205,8 +205,8 @@ const ProductPage: React.FC = () => {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 py-8">
-        <div className="grid lg:grid-cols-2 gap-12">
+      <main className="max-w-7xl mx-auto px-4 py-8 overflow-x-hidden">
+        <div className="grid lg:grid-cols-2 gap-12 overflow-hidden">
           {/* Left Column - Sticky Tabs */}
           <div className="space-y-4">
             {/* Tabs for Package Visualization and Specifications - Desktop Only */}
@@ -691,7 +691,7 @@ const ProductPage: React.FC = () => {
           </div>
 
           {/* Right Column - Product Info */}
-          <div className="space-y-6">
+          <div className="space-y-6 overflow-hidden">
             {/* Price Section - Desktop Only */}
             {isEcoDigital && (
               <div className="hidden md:block bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border-2 border-primary-200 shadow-lg sticky top-20 z-10 overflow-hidden">
