@@ -212,6 +212,33 @@ const ProductPage: React.FC = () => {
       <div className="h-[60px]"></div>
 
       <main className="max-w-7xl mx-auto px-4 py-8 lg:pt-14">
+        {/* Main Product Image for Non-Eco Digital Products - Top of Page */}
+        {!isEcoDigital && (
+          <div className="mb-8">
+            <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden max-w-2xl mx-auto">
+              <div className="p-6">
+                <div className="text-center">
+                  <button 
+                    onClick={() => setEnlargedImage({
+                      src: productImage,
+                      alt: product.name
+                    })}
+                    className="bg-neutral-50 rounded-lg p-6 mb-4 cursor-pointer hover:bg-neutral-100 transition w-full"
+                  >
+                    <img 
+                      src={productImage}
+                      alt={product.name}
+                      className="w-full h-64 object-contain"
+                    />
+                  </button>
+                  <h3 className="text-lg font-semibold text-neutral-900">{product.name}</h3>
+                  <p className="text-sm text-neutral-500 mt-1">{product.shortDesc}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left Column - Package Preview (visible inline on desktop) */}
           <div className="hidden lg:block space-y-4">
@@ -639,31 +666,6 @@ const ProductPage: React.FC = () => {
                 </div>
               </div>
             </div>
-
-            {/* Simple Product Image for Non-Eco Digital Products */}
-            {!isEcoDigital && (
-              <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden">
-                <div className="p-6">
-                  <div className="text-center">
-                    <button 
-                      onClick={() => setEnlargedImage({
-                        src: productImage,
-                        alt: product.name
-                      })}
-                      className="bg-neutral-50 rounded-lg p-6 mb-4 cursor-pointer hover:bg-neutral-100 transition w-full"
-                    >
-                      <img 
-                        src={productImage}
-                        alt={product.name}
-                        className="w-full h-64 object-contain"
-                      />
-                    </button>
-                    <h3 className="text-lg font-semibold text-neutral-900">{product.name}</h3>
-                    <p className="text-sm text-neutral-500 mt-1">{product.shortDesc}</p>
-                  </div>
-                </div>
-              </div>
-            )}
 
             {/* Other Customer Examples Section - Desktop Only */}
             <div className="hidden lg:block bg-white rounded-lg border border-neutral-200 p-6 shadow-sm">
