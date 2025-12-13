@@ -16,7 +16,7 @@ export default function InstagramFeed() {
   const [isFollowModalOpen, setIsFollowModalOpen] = useState(false)
 
   useEffect(() => {
-    // Load Instagram embed script
+    // Load Instagram embed script with idle callback to avoid blocking UI
     const loadInstagramScript = () => {
       if (!(window as any).instgrm) {
         const script = document.createElement('script')
@@ -24,23 +24,49 @@ export default function InstagramFeed() {
         script.async = true
         document.body.appendChild(script)
         script.onload = () => {
-          if ((window as any).instgrm) {
-            (window as any).instgrm.Embeds.process()
+          // Use requestIdleCallback to process embeds during idle time
+          if ('requestIdleCallback' in window) {
+            (window as any).requestIdleCallback(() => {
+              if ((window as any).instgrm) {
+                (window as any).instgrm.Embeds.process()
+              }
+            })
+          } else {
+            setTimeout(() => {
+              if ((window as any).instgrm) {
+                (window as any).instgrm.Embeds.process()
+              }
+            }, 100)
           }
         }
       } else {
-        (window as any).instgrm.Embeds.process()
+        // Use requestIdleCallback for re-processing
+        if ('requestIdleCallback' in window) {
+          (window as any).requestIdleCallback(() => {
+            (window as any).instgrm.Embeds.process()
+          })
+        } else {
+          setTimeout(() => {
+            (window as any).instgrm.Embeds.process()
+          }, 100)
+        }
       }
     }
     loadInstagramScript()
   }, [])
 
-  // Re-process embeds when modal opens
+  // Re-process embeds when modal opens - using idle callback
   useEffect(() => {
     if (selectedPost && (window as any).instgrm) {
-      setTimeout(() => {
-        (window as any).instgrm.Embeds.process()
-      }, 100)
+      if ('requestIdleCallback' in window) {
+        (window as any).requestIdleCallback(() => {
+          (window as any).instgrm.Embeds.process()
+        })
+      } else {
+        setTimeout(() => {
+          (window as any).instgrm.Embeds.process()
+        }, 100)
+      }
     }
   }, [selectedPost])
 
