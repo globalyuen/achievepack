@@ -71,40 +71,53 @@ export default function InstagramFeed() {
           </p>
         </div>
 
-        {/* Instagram Posts Grid - Clickable Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {INSTAGRAM_POSTS.map((postUrl, index) => {
-            // Extract post ID from URL
-            const postId = postUrl.split('/p/')[1]?.replace('/', '')
-            const thumbnailUrl = `https://www.instagram.com/p/${postId}/media/?size=m`
-            
-            return (
-              <div 
-                key={index} 
-                className="cursor-pointer group"
-                onClick={() => setSelectedPost(postUrl)}
-              >
-                <div className="relative aspect-square rounded-xl overflow-hidden bg-neutral-100 shadow-md hover:shadow-xl transition-all duration-300">
-                  {/* Thumbnail placeholder with Instagram gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-400 via-pink-400 to-orange-400 flex items-center justify-center">
-                    <svg className="h-12 w-12 text-white/80" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/>
-                    </svg>
+        {/* Instagram Posts Grid - Using Embeds as Thumbnails */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {INSTAGRAM_POSTS.map((postUrl, index) => (
+            <div 
+              key={index} 
+              className="cursor-pointer group relative"
+              onClick={() => setSelectedPost(postUrl)}
+            >
+              {/* Instagram Embed as Thumbnail */}
+              <div className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 pointer-events-none">
+                <blockquote
+                  className="instagram-media"
+                  data-instgrm-permalink={postUrl}
+                  data-instgrm-version="14"
+                  style={{
+                    background: '#FFF',
+                    border: 0,
+                    borderRadius: '12px',
+                    margin: 0,
+                    maxWidth: '100%',
+                    minWidth: '100%',
+                    padding: 0,
+                    width: '100%',
+                  }}
+                >
+                  <div style={{ padding: '16px' }}>
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500"></div>
+                      <span className="font-medium text-neutral-800">@pouch_eco</span>
+                    </div>
+                    <div className="h-48 bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100 rounded-lg flex items-center justify-center">
+                      <svg className="h-12 w-12 text-pink-400 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/>
+                      </svg>
+                    </div>
                   </div>
-                  
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-medium text-sm">View Post</span>
-                  </div>
-                  
-                  {/* Post number badge */}
-                  <div className="absolute bottom-2 right-2 w-6 h-6 bg-white/90 rounded-full flex items-center justify-center text-xs font-bold text-neutral-700">
-                    {index + 1}
-                  </div>
-                </div>
+                </blockquote>
               </div>
-            )
-          })}
+              
+              {/* Click overlay */}
+              <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors duration-300 rounded-xl flex items-center justify-center opacity-0 hover:opacity-100">
+                <span className="bg-white/90 text-neutral-800 px-4 py-2 rounded-full font-medium text-sm shadow-lg">
+                  View Post
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Follow Button - Opens Lightbox */}
