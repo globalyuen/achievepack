@@ -14,6 +14,8 @@ import BriefTestimonials from './components/BriefTestimonials'
 import TestimonialsWall from './components/TestimonialsWall'
 import CartSidebar from './components/store/CartSidebar'
 import FloatingButtons from './components/FloatingButtons'
+import YouTubeShorts from './components/YouTubeShorts'
+import InstagramFeed from './components/InstagramFeed'
 import type { CalculatorResults } from './utils/calculatorUtils'
 import { useStore } from './store/StoreContext'
 import { FEATURED_PRODUCTS, type PouchProduct } from './store/productData'
@@ -330,6 +332,12 @@ ${formData.message}`
 
       {/* Brief Testimonials - Avatar Row */}
       <BriefTestimonials />
+
+      {/* YouTube Shorts Section - Hidden for now */}
+      {/* <YouTubeShorts /> */}
+
+      {/* Instagram Feed Section */}
+      <InstagramFeed />
 
       {/* About Section */}
       <section id="about" className="py-16 bg-white">
