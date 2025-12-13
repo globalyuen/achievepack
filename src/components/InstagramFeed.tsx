@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
-import { ExternalLink } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { ExternalLink, X } from 'lucide-react'
 
 // Real Instagram post URLs from @pouch_eco
 const INSTAGRAM_POSTS = [
@@ -12,24 +12,37 @@ const INSTAGRAM_POSTS = [
 ]
 
 export default function InstagramFeed() {
+  const [selectedPost, setSelectedPost] = useState<string | null>(null)
+  const [isFollowModalOpen, setIsFollowModalOpen] = useState(false)
+
   useEffect(() => {
     // Load Instagram embed script
-    const script = document.createElement('script')
-    script.src = 'https://www.instagram.com/embed.js'
-    script.async = true
-    document.body.appendChild(script)
-
-    // Process embeds when script loads
-    script.onload = () => {
-      if ((window as any).instgrm) {
+    const loadInstagramScript = () => {
+      if (!(window as any).instgrm) {
+        const script = document.createElement('script')
+        script.src = 'https://www.instagram.com/embed.js'
+        script.async = true
+        document.body.appendChild(script)
+        script.onload = () => {
+          if ((window as any).instgrm) {
+            (window as any).instgrm.Embeds.process()
+          }
+        }
+      } else {
         (window as any).instgrm.Embeds.process()
       }
     }
-
-    return () => {
-      document.body.removeChild(script)
-    }
+    loadInstagramScript()
   }, [])
+
+  // Re-process embeds when modal opens
+  useEffect(() => {
+    if (selectedPost && (window as any).instgrm) {
+      setTimeout(() => {
+        (window as any).instgrm.Embeds.process()
+      }, 100)
+    }
+  }, [selectedPost])
 
   return (
     <section className="py-16 bg-white relative overflow-hidden">
@@ -58,14 +71,82 @@ export default function InstagramFeed() {
           </p>
         </div>
 
-        {/* Instagram Posts Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {INSTAGRAM_POSTS.map((postUrl, index) => (
-            <div key={index} className="flex justify-center">
+        {/* Instagram Posts Grid - Clickable Cards */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {INSTAGRAM_POSTS.map((postUrl, index) => {
+            // Extract post ID from URL
+            const postId = postUrl.split('/p/')[1]?.replace('/', '')
+            const thumbnailUrl = `https://www.instagram.com/p/${postId}/media/?size=m`
+            
+            return (
+              <div 
+                key={index} 
+                className="cursor-pointer group"
+                onClick={() => setSelectedPost(postUrl)}
+              >
+                <div className="relative aspect-square rounded-xl overflow-hidden bg-neutral-100 shadow-md hover:shadow-xl transition-all duration-300">
+                  {/* Thumbnail placeholder with Instagram gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-400 via-pink-400 to-orange-400 flex items-center justify-center">
+                    <svg className="h-12 w-12 text-white/80" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/>
+                    </svg>
+                  </div>
+                  
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="text-white font-medium text-sm">View Post</span>
+                  </div>
+                  
+                  {/* Post number badge */}
+                  <div className="absolute bottom-2 right-2 w-6 h-6 bg-white/90 rounded-full flex items-center justify-center text-xs font-bold text-neutral-700">
+                    {index + 1}
+                  </div>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Follow Button - Opens Lightbox */}
+        <div className="text-center mt-10">
+          <button
+            onClick={() => setIsFollowModalOpen(true)}
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white px-6 lg:px-8 py-3 lg:py-4 rounded-full font-semibold hover:opacity-90 transition-all hover:scale-105"
+          >
+            <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/>
+            </svg>
+            Follow @pouch_eco
+            <ExternalLink className="h-4 w-4" />
+          </button>
+        </div>
+      </div>
+
+      {/* Post Detail Lightbox */}
+      {selectedPost && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            onClick={() => setSelectedPost(null)}
+          />
+          
+          {/* Modal Content */}
+          <div className="relative bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-auto shadow-2xl">
+            {/* Close Button */}
+            <button
+              onClick={() => setSelectedPost(null)}
+              className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-colors"
+            >
+              <X className="h-5 w-5 text-white" />
+            </button>
+
+            {/* Instagram Embed */}
+            <div className="p-4">
               <blockquote
                 className="instagram-media"
                 data-instgrm-captioned
-                data-instgrm-permalink={postUrl}
+                data-instgrm-permalink={selectedPost}
                 data-instgrm-version="14"
                 style={{
                   background: '#FFF',
@@ -80,36 +161,94 @@ export default function InstagramFeed() {
                 }}
               >
                 <div style={{ padding: '16px' }}>
-                  <a
-                    href={postUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-green-700 hover:text-green-800 font-medium"
-                  >
-                    View post on Instagram
-                  </a>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500"></div>
+                    <div>
+                      <p className="font-semibold text-neutral-900">@pouch_eco</p>
+                      <p className="text-xs text-neutral-500">View on Instagram</p>
+                    </div>
+                  </div>
+                  <p className="text-neutral-600 text-sm">Loading post...</p>
                 </div>
               </blockquote>
             </div>
-          ))}
+          </div>
         </div>
+      )}
 
-        {/* Follow Button */}
-        <div className="text-center mt-10">
-          <a
-            href="https://www.instagram.com/pouch_eco/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white px-6 lg:px-8 py-3 lg:py-4 rounded-full font-semibold hover:opacity-90 transition-all hover:scale-105"
-          >
-            <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/>
-            </svg>
-            Follow @pouch_eco
-            <ExternalLink className="h-4 w-4" />
-          </a>
+      {/* Follow Profile Lightbox */}
+      {isFollowModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            onClick={() => setIsFollowModalOpen(false)}
+          />
+          
+          {/* Modal Content */}
+          <div className="relative bg-white rounded-2xl max-w-md w-full overflow-hidden shadow-2xl">
+            {/* Close Button */}
+            <button
+              onClick={() => setIsFollowModalOpen(false)}
+              className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-colors"
+            >
+              <X className="h-5 w-5 text-white" />
+            </button>
+
+            {/* Header with gradient */}
+            <div className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 p-8 text-center">
+              <div className="w-24 h-24 mx-auto rounded-full bg-white p-1 mb-4">
+                <div className="w-full h-full rounded-full bg-gradient-to-br from-purple-400 via-pink-400 to-orange-400 flex items-center justify-center">
+                  <svg className="h-10 w-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/>
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold text-white">@pouch_eco</h3>
+              <p className="text-white/80 mt-1">AchievePack EcoPouch</p>
+            </div>
+
+            {/* Content */}
+            <div className="p-6 text-center">
+              <p className="text-neutral-600 mb-6">
+                Follow us on Instagram for sustainable packaging inspiration, behind-the-scenes content, and eco-friendly tips!
+              </p>
+
+              {/* Instagram Profile Embed */}
+              <iframe
+                src="https://www.instagram.com/pouch_eco/embed"
+                width="100%"
+                height="400"
+                frameBorder="0"
+                scrolling="no"
+                allowTransparency={true}
+                className="rounded-lg border border-neutral-200"
+              ></iframe>
+
+              {/* Action Buttons */}
+              <div className="mt-6 space-y-3">
+                <a
+                  href="https://www.instagram.com/pouch_eco/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-all"
+                >
+                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/>
+                  </svg>
+                  Open Instagram to Follow
+                </a>
+                <button
+                  onClick={() => setIsFollowModalOpen(false)}
+                  className="w-full px-6 py-3 rounded-lg font-medium text-neutral-600 hover:bg-neutral-100 transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </section>
   )
 }
