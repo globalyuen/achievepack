@@ -677,5 +677,15 @@
             "date": "日期",
             "contact": "如有疑問或需要澄清，請聯繫 ACHIEVE PACK："
         }
+    },
+    "climate": {
+        "title": "環境與碳中和",
+        "description": "Achieve Pack 積極參與地球氣候行動，我們同 Stripe Climate and Frontier 合作，將我們的部分收入直接投入到碳中和項目中，幫助地球減少二氧化碳的排放。",
+        "stats": {
+            "revenue": "收入投入碳移除",
+            "removal": "支持碳移除項目"
+        },
+        "learnMore": "瞭解更多我們的影響",
+        "backToAchievePack": "返回 Achieve Pack"
     }
 }

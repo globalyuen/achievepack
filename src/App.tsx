@@ -15,6 +15,7 @@ import TestimonialsWall from './components/TestimonialsWall'
 import CartSidebar from './components/store/CartSidebar'
 import FloatingButtons from './components/FloatingButtons'
 import FloatingTestimonialVideo from './components/FloatingTestimonialVideo'
+import ClimateAction from './components/ClimateAction'
 import YouTubeShorts from './components/YouTubeShorts'
 import InstagramFeed from './components/InstagramFeed'
 import type { CalculatorResults } from './utils/calculatorUtils'
@@ -1172,6 +1173,9 @@ ${formData.message}`
 
       {/* Newsletter Section */}
       <Newsletter />
+
+      {/* Climate Action Section */}
+      <ClimateAction />
 
       {/* Contact Section */}
       <section id="contact" className="py-16 bg-neutral-50">
