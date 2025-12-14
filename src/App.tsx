@@ -14,6 +14,7 @@ import BriefTestimonials from './components/BriefTestimonials'
 import TestimonialsWall from './components/TestimonialsWall'
 import CartSidebar from './components/store/CartSidebar'
 import FloatingButtons from './components/FloatingButtons'
+import FloatingTestimonialVideo from './components/FloatingTestimonialVideo'
 import YouTubeShorts from './components/YouTubeShorts'
 import InstagramFeed from './components/InstagramFeed'
 import type { CalculatorResults } from './utils/calculatorUtils'
@@ -1578,6 +1579,9 @@ Please contact me to discuss custom solutions.`;
 
       {/* Floating Contact Buttons */}
       <FloatingButtons />
+
+      {/* Floating Testimonial Video */}
+      <FloatingTestimonialVideo />
     </div>
   )
 }
