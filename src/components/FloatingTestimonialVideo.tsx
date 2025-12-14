@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { X, Play } from 'lucide-react'
-import { TESTIMONIALS } from '../data/testimonialsData'
+import { TESTIMONIALS, type Testimonial } from '../data/testimonialsData'
 
 export default function FloatingTestimonialVideo() {
   const [isVideoOpen, setIsVideoOpen] = useState(false)
@@ -57,10 +57,10 @@ export default function FloatingTestimonialVideo() {
             isAnimating ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'
           }`}
         >
-          {/* Owner Image as Thumbnail */}
+          {/* Pouch Image as Thumbnail */}
           <div className="relative flex-shrink-0">
             <img
-              src={currentTestimonial.ownerImage}
+              src={currentTestimonial.pouchImage}
               alt={currentTestimonial.name}
               className="w-16 h-16 md:w-20 md:h-20 rounded-xl object-cover"
             />

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom'
 import ReactGA from "react-ga4";
@@ -15,7 +15,6 @@ import TestimonialsWall from './components/TestimonialsWall'
 import CartSidebar from './components/store/CartSidebar'
 import FloatingButtons from './components/FloatingButtons'
 import FloatingTestimonialVideo from './components/FloatingTestimonialVideo'
-import ClimateAction from './components/ClimateAction'
 import YouTubeShorts from './components/YouTubeShorts'
 import InstagramFeed from './components/InstagramFeed'
 import type { CalculatorResults } from './utils/calculatorUtils'
@@ -43,10 +42,10 @@ function App() {
     message: ''
   })
 
-  const changeLanguage = (lng: string) => {
+  const changeLanguage = useCallback((lng: string) => {
     i18n.changeLanguage(lng);
     setIsLangMenuOpen(false);
-  };
+  }, [i18n]);
 
   // Helper function to get language-specific images
   const img = (imageName: string) => getImage(imageName, i18n.language as any);
@@ -91,7 +90,7 @@ function App() {
     }
   }, [])
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = useCallback((sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
       const navHeight = 72
@@ -104,14 +103,14 @@ function App() {
       })
     }
     setIsMenuOpen(false)
-  }
+  }, [])
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target
     setFormData(prev => ({ ...prev, [id]: value }))
-  }
+  }, [])
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = useCallback((e: React.FormEvent) => {
     e.preventDefault()
 
     // Create email content
@@ -133,7 +132,37 @@ ${formData.message}`
     setFormData({ name: '', email: '', company: '', message: '' })
 
     alert('Thank you for your message! Your email client should open with the pre-filled email.')
-  }
+  }, [formData])
+
+  const handleCartClick = useCallback(() => {
+    if (cartCount === 0) {
+      navigate('/store')
+    } else {
+      setIsCartOpen(true)
+    }
+  }, [cartCount, navigate, setIsCartOpen])
+
+  const toggleLangMenu = useCallback(() => {
+    setIsLangMenuOpen(prev => !prev)
+  }, [])
+
+  const toggleMobileMenu = useCallback(() => {
+    setIsMenuOpen(prev => !prev)
+  }, [])
+
+  const openCalculator = useCallback(() => {
+    setIsCalculatorOpen(true)
+  }, [])
+
+  const openImageModal = useCallback((imageSrc: string, altText: string) => {
+    setModalImage(imageSrc)
+    setModalAlt(altText)
+    setIsModalOpen(true)
+  }, [])
+
+  const closeImageModal = useCallback(() => {
+    setIsModalOpen(false)
+  }, [])
 
   return (
     <div className="min-h-screen bg-neutral-50 font-sans">
@@ -173,13 +202,7 @@ ${formData.message}`
             {/* Right Actions */}
             <div className="hidden lg:flex items-center space-x-3">
               <button
-                onClick={() => {
-                  if (cartCount === 0) {
-                    navigate('/store')
-                  } else {
-                    setIsCartOpen(true)
-                  }
-                }}
+                onClick={handleCartClick}
                 className="relative w-10 h-10 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
               >
                 <ShoppingCart className="h-5 w-5 text-white" />
@@ -197,7 +220,7 @@ ${formData.message}`
               </Link>
               <div className="relative">
                 <button
-                  onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+                  onClick={toggleLangMenu}
                   className="w-10 h-10 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
                 >
                   <Globe className="h-5 w-5 text-white" />
@@ -216,7 +239,7 @@ ${formData.message}`
             {/* Mobile Menu Button */}
             <div className="lg:hidden">
               <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                onClick={toggleMobileMenu}
                 className="text-neutral-700 hover:text-primary-500 transition-colors"
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -292,7 +315,7 @@ ${formData.message}`
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-start mb-12">
                 <button
-                  onClick={() => setIsCalculatorOpen(true)}
+                  onClick={openCalculator}
                   className="flex items-center justify-center space-x-2 bg-primary-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-600 transition-all duration-200 hover:shadow-hover hover:-translate-y-0.5"
                 >
                   <CalcIcon className="h-5 w-5" />
@@ -321,20 +344,16 @@ ${formData.message}`
               </div>
             </div>
 
-            <div className="hidden lg:block relative h-full">
-              <CardContainer containerClassName="py-0 h-full">
-                <CardBody className="relative group/card w-full h-full flex items-center">
+            <div className="hidden lg:block relative">
+              <CardContainer containerClassName="py-0">
+                <CardBody className="relative group/card w-full">
                   <div className="absolute inset-0 bg-primary-500 rounded-full filter blur-3xl opacity-10 animate-pulse"></div>
-                  <CardItem translateZ="100" className="w-full h-full">
+                  <CardItem translateZ="100" className="w-full">
                     <img
-                      src={img("hero")}
+                      src={img("about-hero")}
                       alt="Premium Sustainable Packaging"
-                      className="relative z-10 w-full h-full object-cover object-center rounded-2xl shadow-2xl cursor-pointer group-hover/card:shadow-primary-500/[0.3]"
-                      onClick={() => {
-                        setModalImage(img("hero"))
-                        setModalAlt('Premium Sustainable Packaging')
-                        setIsModalOpen(true)
-                      }}
+                      className="relative z-10 w-full rounded-2xl shadow-2xl cursor-pointer group-hover/card:shadow-primary-500/[0.3]"
+                      onClick={() => openImageModal(img("about-hero"), 'Premium Sustainable Packaging')}
                     />
                   </CardItem>
                 </CardBody>
@@ -388,41 +407,25 @@ ${formData.message}`
                   src={img("cert-home-compost")}
                   alt="Home Compost Certification"
                   className="rounded-lg shadow-card cursor-pointer hover:shadow-lg transition-shadow duration-200"
-                  onClick={() => {
-                    setModalImage(img("cert-home-compost"))
-                    setModalAlt('Home Compost Certification')
-                    setIsModalOpen(true)
-                  }}
+                  onClick={() => openImageModal(img("cert-home-compost"), 'Home Compost Certification')}
                 />
                 <img
                   src={img("cert-pcr-grs")}
                   alt="PCR GRS Certification"
                   className="rounded-lg shadow-card cursor-pointer hover:shadow-lg transition-shadow duration-200"
-                  onClick={() => {
-                    setModalImage(img("cert-pcr-grs"))
-                    setModalAlt('PCR GRS Certification')
-                    setIsModalOpen(true)
-                  }}
+                  onClick={() => openImageModal(img("cert-pcr-grs"), 'PCR GRS Certification')}
                 />
                 <img
                   src={img("cert-brc")}
                   alt="BRC Food Safety Certification"
                   className="rounded-lg shadow-card cursor-pointer hover:shadow-lg transition-shadow duration-200"
-                  onClick={() => {
-                    setModalImage(img("cert-brc"))
-                    setModalAlt('BRC Food Safety Certification')
-                    setIsModalOpen(true)
-                  }}
+                  onClick={() => openImageModal(img("cert-brc"), 'BRC Food Safety Certification')}
                 />
                 <img
                   src={img("cert-biope")}
                   alt="BioPE Sustainable Certification"
                   className="rounded-lg shadow-card cursor-pointer hover:shadow-lg transition-shadow duration-200"
-                  onClick={() => {
-                    setModalImage(img("cert-biope"))
-                    setModalAlt('BioPE Sustainable Certification')
-                    setIsModalOpen(true)
-                  }}
+                  onClick={() => openImageModal(img("cert-biope"), 'BioPE Sustainable Certification')}
                 />
               </div>
             </div>
@@ -1174,9 +1177,6 @@ ${formData.message}`
       {/* Newsletter Section */}
       <Newsletter />
 
-      {/* Climate Action Section */}
-      <ClimateAction />
-
       {/* Contact Section */}
       <section id="contact" className="py-16 bg-neutral-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1412,10 +1412,10 @@ ${formData.message}`
 
       {/* Image Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75" onClick={() => setIsModalOpen(false)}>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75" onClick={closeImageModal}>
           <div className="relative max-w-4xl max-h-[90vh] mx-4">
             <button
-              onClick={() => setIsModalOpen(false)}
+              onClick={closeImageModal}
               className="absolute -top-10 right-0 text-white hover:text-gray-300 transition-colors"
             >
               <X className="h-8 w-8" />

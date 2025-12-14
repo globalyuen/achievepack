@@ -677,15 +677,5 @@
             "date": "Fecha",
             "contact": "Para consultas o aclaraciones, contacte a ACHIEVE PACK en"
         }
-    },
-    "climate": {
-        "title": "Medio Ambiente y Neutralidad de Carbono",
-        "description": "Achieve Pack participa activamente en la acción climática global. Colaboramos con Stripe Climate y Frontier, dedicando una parte de nuestros ingresos directamente a proyectos de eliminación de carbono, ayudando a reducir las emisiones de CO₂ en la Tierra.",
-        "stats": {
-            "revenue": "de ingresos a eliminación de carbono",
-            "removal": "Proyectos de eliminación apoyados"
-        },
-        "learnMore": "Conoce más sobre nuestro impacto",
-        "backToAchievePack": "Volver a Achieve Pack"
     }
 }
