@@ -321,15 +321,15 @@ ${formData.message}`
               </div>
             </div>
 
-            <div className="hidden lg:block relative">
-              <CardContainer containerClassName="py-0">
-                <CardBody className="relative group/card w-full">
+            <div className="hidden lg:block relative h-full">
+              <CardContainer containerClassName="py-0 h-full">
+                <CardBody className="relative group/card w-full h-full flex items-center">
                   <div className="absolute inset-0 bg-primary-500 rounded-full filter blur-3xl opacity-10 animate-pulse"></div>
-                  <CardItem translateZ="100" className="w-full">
+                  <CardItem translateZ="100" className="w-full h-full">
                     <img
                       src={img("hero")}
                       alt="Premium Sustainable Packaging"
-                      className="relative z-10 w-full rounded-2xl shadow-2xl cursor-pointer group-hover/card:shadow-primary-500/[0.3]"
+                      className="relative z-10 w-full h-full object-cover object-center rounded-2xl shadow-2xl cursor-pointer group-hover/card:shadow-primary-500/[0.3]"
                       onClick={() => {
                         setModalImage(img("hero"))
                         setModalAlt('Premium Sustainable Packaging')
