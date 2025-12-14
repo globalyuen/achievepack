@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { X, Play } from 'lucide-react'
-import { TESTIMONIALS, type Testimonial } from '../data/testimonialsData'
+import { TESTIMONIALS } from '../data/testimonialsData'
 
 export default function FloatingTestimonialVideo() {
   const [isVideoOpen, setIsVideoOpen] = useState(false)
