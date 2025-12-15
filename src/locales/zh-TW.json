@@ -765,7 +765,7 @@
                 "platePrinting": "版畫印刷",
                 "reclosureOptions": "重合閘選項",
                 "surfaceFinishes": "表面處理",
-                "barrierOptions": "障礙期權",
+                "barrierOptions": "阻隔選項",
                 "coffeeTea": "咖啡和茶",
                 "snacksFood": "零食及食品",
                 "petFood": "寵物食品和零食",
@@ -910,7 +910,7 @@
                     "title": "可堆肥材料比較",
                     "headers": [
                         "材料",
-                        "障礙水平",
+                        "阻隔水平",
                         "堆肥類型",
                         "最適合"
                     ],
@@ -1272,8 +1272,8 @@
                 "introSummary": "表面處理增強了包裝的觸覺和視覺吸引力，創造令人難忘的拆箱體驗。"
             },
             "barrierOptions": {
-                "title": "障礙期權|防潮和氧氣保護",
-                "heroTitle": "障礙期權",
+                "title": "阻隔選項|防潮和氧氣保護",
+                "heroTitle": "阻隔選項",
                 "heroSubtitle": "針對不同產品提供從低到最高保護的多種屏障級別。",
                 "introSummary": "阻隔性能可保護產品免受濕氣、氧氣、光線和異味的影響，以保持新鮮度並延長保質期。"
             }
