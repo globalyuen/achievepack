@@ -17,10 +17,10 @@ interface ImageMapping {
 const imageMapping: ImageMapping = {
     // Hero & Product Images (no translation needed)
     'about-hero': {
-        en: '/imgs/landing-hero.png',
-        fr: '/imgs/landing-hero.png',
-        es: '/imgs/landing-hero.png',
-        zh: '/imgs/landing-hero.png',
+        en: '/imgs/landing-hero.webp',
+        fr: '/imgs/landing-hero.webp',
+        es: '/imgs/landing-hero.webp',
+        zh: '/imgs/landing-hero.webp',
     },
     'product-hero-pouch': {
         en: '/imgs/product-hero-pouch.webp',

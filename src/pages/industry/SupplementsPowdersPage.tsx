@@ -207,7 +207,7 @@ const SupplementsPowdersPage: React.FC = () => {
       canonicalUrl="https://achievepack.com/industry/supplements-powders"
       heroTitle={t('seoPages.pages.supplementsPowders.heroTitle')}
       heroSubtitle={t('seoPages.pages.supplementsPowders.heroSubtitle')}
-      heroImage="/imgs/seo-photos/a_vitalgreen_superfood_chicago_wellness_pouch_1211501.webp"
+      heroImage="/imgs/seo-photos/a_wellness_superfood_lifestyle_9527146.webp"
       heroImageAlt="Eco-friendly supplement powder packaging pouches"
       introSummary={t('seoPages.pages.supplementsPowders.introSummary')}
       sections={sections}

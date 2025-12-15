@@ -198,7 +198,7 @@ const SpoutPouchesPage: React.FC = () => {
       canonicalUrl="https://achievepack.com/packaging/spout-pouches"
       heroTitle={t('seoPages.pages.spoutPouches.heroTitle')}
       heroSubtitle={t('seoPages.pages.spoutPouches.heroSubtitle')}
-      heroImage="/imgs/seo-photos/a_food_beverage_vacation_lifestyle_2486493.webp"
+      heroImage="/imgs/seo-photos/a_food_grade_olive_stone_pouch_achieve_pack_8628145.webp"
       heroImageAlt="Spout pouch packaging for liquids"
       introSummary={t('seoPages.pages.spoutPouches.introSummary')}
       sections={sections}

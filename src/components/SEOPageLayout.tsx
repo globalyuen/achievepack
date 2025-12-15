@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, Leaf, Mail, Phone, Calendar, Globe } from 'lucide-react'
-import { Helmet as HelmetOriginal } from 'react-helmet-async'
-const Helmet = HelmetOriginal as any
+import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 
 interface FAQ {
@@ -98,7 +97,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
     { code: 'en', name: 'English', flag: '🇺🇸' },
     { code: 'fr', name: 'Français', flag: '🇫🇷' },
     { code: 'es', name: 'Español', flag: '🇪🇸' },
-    { code: 'zh-TW', name: '繁體中文', flag: '🇹🇼' }
+    { code: 'zh-TW', name: '🇨🇳 繁體中文', flag: '🇨🇳' }
   ]
 
   const changeLanguage = (lng: string) => {
@@ -208,86 +207,52 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
           </div>
         </header>
 
-        {/* Sidebar Navigation - Fixed Top Left */}
-        <aside className="hidden lg:block fixed left-4 top-24 w-56 max-h-[calc(100vh-120px)] overflow-y-auto bg-white rounded-xl shadow-sm border border-neutral-100 p-4 z-40">
-          <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wide mb-4">{t('seoPages.contents')}</h3>
-          <nav className="space-y-1">
-            {sections.map((section) => (
-              <a
-                key={section.id}
-                href={`#${section.id}`}
-                className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition"
-              >
-                {section.title}
-              </a>
-            ))}
-            {faqs && faqs.length > 0 && (
-              <a href="#faq" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">
-                FAQ
-              </a>
-            )}
-          </nav>
-
-          {/* Explore More SEO Pages */}
-          <div className="mt-6 pt-4 border-t border-neutral-200">
-            <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wide mb-3">{t('seoPages.exploreMore')}</h3>
-            <nav className="space-y-2">
-              <div className="text-xs font-medium text-neutral-400 uppercase mt-2">{t('seoPages.footer.products')}</div>
-              <Link to="/packaging/stand-up-pouches" onClick={scrollToTop} className="block px-2 py-1 text-xs text-neutral-600 hover:text-primary-600 transition">{t('seoPages.footer.links.standUpPouches')}</Link>
-              <Link to="/packaging/flat-bottom-bags" onClick={scrollToTop} className="block px-2 py-1 text-xs text-neutral-600 hover:text-primary-600 transition">{t('seoPages.footer.links.flatBottomBags')}</Link>
-              <Link to="/packaging/spout-pouches" onClick={scrollToTop} className="block px-2 py-1 text-xs text-neutral-600 hover:text-primary-600 transition">{t('seoPages.footer.links.spoutPouches')}</Link>
-              
-              <div className="text-xs font-medium text-neutral-400 uppercase mt-3">{t('seoPages.footer.materials')}</div>
-              <Link to="/materials/compostable" onClick={scrollToTop} className="block px-2 py-1 text-xs text-neutral-600 hover:text-primary-600 transition">{t('seoPages.footer.links.compostable')}</Link>
-              <Link to="/materials/recyclable-mono-pe" onClick={scrollToTop} className="block px-2 py-1 text-xs text-neutral-600 hover:text-primary-600 transition">{t('seoPages.footer.links.recyclableMonoPE')}</Link>
-              <Link to="/materials/pcr" onClick={scrollToTop} className="block px-2 py-1 text-xs text-neutral-600 hover:text-primary-600 transition">{t('seoPages.footer.links.pcrRecycled')}</Link>
-              
-              <div className="text-xs font-medium text-neutral-400 uppercase mt-3">{t('seoPages.footer.industries')}</div>
-              <Link to="/industry/coffee-tea" onClick={scrollToTop} className="block px-2 py-1 text-xs text-neutral-600 hover:text-primary-600 transition">{t('seoPages.footer.links.coffeeTea')}</Link>
-              <Link to="/industry/snacks-food" onClick={scrollToTop} className="block px-2 py-1 text-xs text-neutral-600 hover:text-primary-600 transition">{t('seoPages.footer.links.snacksFood')}</Link>
-              <Link to="/industry/pet-food" onClick={scrollToTop} className="block px-2 py-1 text-xs text-neutral-600 hover:text-primary-600 transition">{t('seoPages.footer.links.petFood')}</Link>
-            </nav>
-          </div>
-        </aside>
-
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-16 md:py-24 relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 lg:pl-72 lg:pr-8 relative z-10">
-            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight max-w-3xl">
-              {heroTitle}
-            </h1>
-            <p className="text-lg md:text-xl text-primary-100 mb-8 max-w-2xl">
-              {heroSubtitle}
-            </p>
-            <a 
-              href="https://calendly.com/30-min-free-packaging-consultancy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-[#15803d] px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition"
-            >
-              <Calendar className="h-4 w-4" />
-              Book Meeting
-            </a>
-          </div>
-          {/* Hero Image - Centered */}
-          {heroImage && (
-            <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 h-3/4 w-1/4 overflow-hidden">
-              <div className="absolute inset-0 z-10" style={{
-                background: 'linear-gradient(to right, rgb(22 101 52) 0%, rgba(22, 101, 52, 0.2) 40%, transparent 70%)'
-              }} />
-              <img 
-                src={heroImage} 
-                alt={heroImageAlt || heroTitle}
-                className="h-full w-full object-cover object-center rounded-l-2xl"
-                loading="lazy"
-              />
+        <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-16 md:py-24">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              {/* Hero Content */}
+              <div className="lg:pr-8">
+                <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+                  {heroTitle}
+                </h1>
+                <p className="text-lg md:text-xl text-primary-100 mb-8">
+                  {heroSubtitle}
+                </p>
+                <a 
+                  href="https://calendly.com/30-min-free-packaging-consultancy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-white text-[#15803d] px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition"
+                >
+                  <Calendar className="h-4 w-4" />
+                  Book Meeting
+                </a>
+              </div>
+              {/* Hero Image - centered in grid */}
+              {heroImage && (
+                <div className="hidden lg:flex justify-center items-center">
+                  <div className="relative w-full max-w-lg">
+                    {/* Smooth edge fade effect */}
+                    <div className="absolute inset-0 z-10 rounded-lg" style={{
+                      background: 'linear-gradient(to left, transparent 60%, rgb(22 101 52 / 0.2) 100%)'
+                    }} />
+                    <img 
+                      src={heroImage} 
+                      alt={heroImageAlt || heroTitle}
+                      className="w-full h-auto object-cover rounded-lg shadow-2xl"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </section>
 
         {/* Quick Summary - Answer First Approach */}
         <section className="py-8 bg-primary-50 border-b border-primary-100">
-          <div className="max-w-7xl mx-auto px-4 lg:pl-72 lg:pr-8">
+          <div className="max-w-4xl mx-auto px-4 lg:ml-72">
             <div className="bg-white rounded-xl p-6 shadow-sm border-l-4 border-primary-500">
               <h2 className="text-sm font-semibold text-primary-600 uppercase tracking-wide mb-2">{t('seoPages.quickSummary')}</h2>
               <p className="text-lg text-neutral-700 leading-relaxed">{introSummary}</p>
@@ -296,10 +261,33 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         </section>
 
         {/* Main Content */}
-        <div className="max-w-7xl mx-auto px-4 py-12 lg:pl-72 lg:pr-8">
-          <div className="space-y-8">
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          <div className="grid lg:grid-cols-4 gap-8">
+            {/* Sidebar Navigation */}
+            <aside className="hidden lg:block lg:col-span-1">
+              <div className="fixed top-24 w-64 max-h-[calc(100vh-120px)] overflow-y-auto bg-white rounded-xl shadow-sm border border-neutral-100 p-4">
+                <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wide mb-4">{t('seoPages.contents')}</h3>
+                <nav className="space-y-1">
+                  {sections.map((section) => (
+                    <a
+                      key={section.id}
+                      href={`#${section.id}`}
+                      className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition"
+                    >
+                      {section.title}
+                    </a>
+                  ))}
+                  {faqs && faqs.length > 0 && (
+                    <a href="#faq" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">
+                      FAQ
+                    </a>
+                  )}
+                </nav>
+              </div>
+            </aside>
+
             {/* Main Content Area */}
-            <main className="space-y-8">
+            <main className="lg:col-span-3 space-y-8">
               {/* Content Sections */}
               {sections.map((section) => (
                 <section 
@@ -423,8 +411,8 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
 
         {/* Footer */}
         <footer className="bg-neutral-900 text-white py-12">
-          <div className="max-w-7xl mx-auto px-4 lg:pl-72 lg:pr-8">
-            <div className="grid md:grid-cols-5 gap-8 mb-8">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid md:grid-cols-4 gap-8 mb-8">
               <div>
                 <div className="flex items-center gap-2 mb-4">
                   <Leaf className="h-6 w-6 text-primary-500" />

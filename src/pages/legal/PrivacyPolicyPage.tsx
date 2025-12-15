@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, Leaf, Shield, Mail, Phone } from 'lucide-react'
-import { Helmet as HelmetOriginal } from 'react-helmet-async'
-const Helmet = HelmetOriginal as any
+import { Helmet } from 'react-helmet-async'
 
 const PrivacyPolicyPage: React.FC = () => {
   return (
