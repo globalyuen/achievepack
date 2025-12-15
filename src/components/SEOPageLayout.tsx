@@ -231,7 +231,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
           {/* Hero Content - overlay on top */}
           <div className="absolute inset-0 z-20 flex items-center">
             <div className="max-w-7xl mx-auto px-4 w-full">
-              <div className="max-w-xl bg-primary-800/80 backdrop-blur-sm rounded-xl p-6 md:p-8">
+              <div className="max-w-xl rounded-xl p-6 md:p-8" style={{ backgroundColor: 'rgba(21, 128, 61, 0.85)', backdropFilter: 'blur(8px)' }}>
                 <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
                   {heroTitle}
                 </h1>
