@@ -187,7 +187,7 @@ const PlatePrintingPage: React.FC = () => {
       canonicalUrl="https://achievepack.com/printing/plate-printing"
       heroTitle={t('seoPages.pages.platePrinting.heroTitle')}
       heroSubtitle={t('seoPages.pages.platePrinting.heroSubtitle')}
-      heroImage="/imgs/feature-printing-finishes.webp"
+      heroImage="/imgs/seo-photos/a_plate_printing_quality_7667893.webp"
       heroImageAlt="Gravure printed premium eco-friendly pouches"
       introSummary={t('seoPages.pages.platePrinting.introSummary')}
       sections={sections}

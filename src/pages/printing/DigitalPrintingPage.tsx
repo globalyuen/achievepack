@@ -173,7 +173,7 @@ const DigitalPrintingPage: React.FC = () => {
       canonicalUrl="https://achievepack.com/printing/digital-printing"
       heroTitle={t('seoPages.pages.digitalPrinting.heroTitle')}
       heroSubtitle={t('seoPages.pages.digitalPrinting.heroSubtitle')}
-      heroImage="/imgs/solution-cosmetics.webp"
+      heroImage="/imgs/seo-photos/a_digital_printing_customization_2717640.webp"
       heroImageAlt="HP Indigo digital printed eco-friendly pouches"
       introSummary={t('seoPages.pages.digitalPrinting.introSummary')}
       sections={sections}
