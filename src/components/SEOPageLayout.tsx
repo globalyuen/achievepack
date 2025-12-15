@@ -227,12 +227,33 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
               </a>
             )}
           </nav>
+
+          {/* Explore More SEO Pages */}
+          <div className="mt-6 pt-4 border-t border-neutral-200">
+            <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wide mb-3">{t('seoPages.exploreMore')}</h3>
+            <nav className="space-y-2">
+              <div className="text-xs font-medium text-neutral-400 uppercase mt-2">{t('seoPages.footer.products')}</div>
+              <Link to="/packaging/stand-up-pouches" onClick={scrollToTop} className="block px-2 py-1 text-xs text-neutral-600 hover:text-primary-600 transition">{t('seoPages.footer.links.standUpPouches')}</Link>
+              <Link to="/packaging/flat-bottom-bags" onClick={scrollToTop} className="block px-2 py-1 text-xs text-neutral-600 hover:text-primary-600 transition">{t('seoPages.footer.links.flatBottomBags')}</Link>
+              <Link to="/packaging/spout-pouches" onClick={scrollToTop} className="block px-2 py-1 text-xs text-neutral-600 hover:text-primary-600 transition">{t('seoPages.footer.links.spoutPouches')}</Link>
+              
+              <div className="text-xs font-medium text-neutral-400 uppercase mt-3">{t('seoPages.footer.materials')}</div>
+              <Link to="/materials/compostable" onClick={scrollToTop} className="block px-2 py-1 text-xs text-neutral-600 hover:text-primary-600 transition">{t('seoPages.footer.links.compostable')}</Link>
+              <Link to="/materials/recyclable-mono-pe" onClick={scrollToTop} className="block px-2 py-1 text-xs text-neutral-600 hover:text-primary-600 transition">{t('seoPages.footer.links.recyclableMonoPE')}</Link>
+              <Link to="/materials/pcr" onClick={scrollToTop} className="block px-2 py-1 text-xs text-neutral-600 hover:text-primary-600 transition">{t('seoPages.footer.links.pcrRecycled')}</Link>
+              
+              <div className="text-xs font-medium text-neutral-400 uppercase mt-3">{t('seoPages.footer.industries')}</div>
+              <Link to="/industry/coffee-tea" onClick={scrollToTop} className="block px-2 py-1 text-xs text-neutral-600 hover:text-primary-600 transition">{t('seoPages.footer.links.coffeeTea')}</Link>
+              <Link to="/industry/snacks-food" onClick={scrollToTop} className="block px-2 py-1 text-xs text-neutral-600 hover:text-primary-600 transition">{t('seoPages.footer.links.snacksFood')}</Link>
+              <Link to="/industry/pet-food" onClick={scrollToTop} className="block px-2 py-1 text-xs text-neutral-600 hover:text-primary-600 transition">{t('seoPages.footer.links.petFood')}</Link>
+            </nav>
+          </div>
         </aside>
 
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-16 md:py-24 relative overflow-hidden">
-          <div className="max-w-4xl mx-auto px-4 lg:ml-64 relative z-10">
-            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+          <div className="max-w-7xl mx-auto px-4 lg:pl-72 lg:pr-8 relative z-10">
+            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight max-w-3xl">
               {heroTitle}
             </h1>
             <p className="text-lg md:text-xl text-primary-100 mb-8 max-w-2xl">
@@ -250,7 +271,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
           </div>
           {/* Hero Image - Centered */}
           {heroImage && (
-            <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 h-3/4 w-1/3 overflow-hidden">
+            <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 h-3/4 w-1/4 overflow-hidden">
               <div className="absolute inset-0 z-10" style={{
                 background: 'linear-gradient(to right, rgb(22 101 52) 0%, rgba(22, 101, 52, 0.2) 40%, transparent 70%)'
               }} />
@@ -266,7 +287,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
 
         {/* Quick Summary - Answer First Approach */}
         <section className="py-8 bg-primary-50 border-b border-primary-100">
-          <div className="max-w-4xl mx-auto px-4 lg:ml-64">
+          <div className="max-w-7xl mx-auto px-4 lg:pl-72 lg:pr-8">
             <div className="bg-white rounded-xl p-6 shadow-sm border-l-4 border-primary-500">
               <h2 className="text-sm font-semibold text-primary-600 uppercase tracking-wide mb-2">{t('seoPages.quickSummary')}</h2>
               <p className="text-lg text-neutral-700 leading-relaxed">{introSummary}</p>
@@ -275,7 +296,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         </section>
 
         {/* Main Content */}
-        <div className="max-w-4xl mx-auto px-4 py-12 lg:ml-64">
+        <div className="max-w-7xl mx-auto px-4 py-12 lg:pl-72 lg:pr-8">
           <div className="space-y-8">
             {/* Main Content Area */}
             <main className="space-y-8">
@@ -402,7 +423,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
 
         {/* Footer */}
         <footer className="bg-neutral-900 text-white py-12">
-          <div className="max-w-4xl mx-auto px-4 lg:ml-64">
+          <div className="max-w-7xl mx-auto px-4 lg:pl-72 lg:pr-8">
             <div className="grid md:grid-cols-5 gap-8 mb-8">
               <div>
                 <div className="flex items-center gap-2 mb-4">
