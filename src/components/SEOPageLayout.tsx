@@ -208,45 +208,31 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
           </div>
         </header>
 
-        {/* Sidebar Navigation - Fixed Left */}
-        <aside className="hidden lg:block fixed left-4 top-24 w-56 max-h-[calc(100vh-120px)] overflow-y-auto bg-white rounded-xl shadow-sm border border-neutral-100 p-4 z-40">
-          <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wide mb-4">{t('seoPages.contents')}</h3>
-          <nav className="space-y-1">
-            {sections.map((section) => (
-              <a
-                key={section.id}
-                href={`#${section.id}`}
-                className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition"
-              >
-                {section.title}
-              </a>
-            ))}
-            {faqs && faqs.length > 0 && (
-              <a href="#faq" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">
-                FAQ
-              </a>
-            )}
-          </nav>
-        </aside>
-
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-16 md:py-24 relative overflow-hidden">
-          <div className="max-w-4xl mx-auto px-4 lg:ml-64 relative z-10">
-            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-              {heroTitle}
-            </h1>
-            <p className="text-lg md:text-xl text-primary-100 mb-8">
-              {heroSubtitle}
-            </p>
-            <a 
-              href="https://calendly.com/30-min-free-packaging-consultancy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-[#15803d] px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition"
-            >
-              <Calendar className="h-4 w-4" />
-              Book Meeting
-            </a>
+          <div className="max-w-7xl mx-auto px-4 relative z-10">
+            <div className="lg:grid lg:grid-cols-4 lg:gap-8">
+              {/* Spacer for sidebar */}
+              <div className="hidden lg:block lg:col-span-1"></div>
+              {/* Content */}
+              <div className="lg:col-span-3">
+                <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+                  {heroTitle}
+                </h1>
+                <p className="text-lg md:text-xl text-primary-100 mb-8 max-w-2xl">
+                  {heroSubtitle}
+                </p>
+                <a 
+                  href="https://calendly.com/30-min-free-packaging-consultancy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-white text-[#15803d] px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition"
+                >
+                  <Calendar className="h-4 w-4" />
+                  Book Meeting
+                </a>
+              </div>
+            </div>
           </div>
           {/* Hero Image with transparent gradient edge */}
           {heroImage && (
@@ -269,19 +255,49 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
 
         {/* Quick Summary - Answer First Approach */}
         <section className="py-8 bg-primary-50 border-b border-primary-100">
-          <div className="max-w-4xl mx-auto px-4 lg:ml-64">
-            <div className="bg-white rounded-xl p-6 shadow-sm border-l-4 border-primary-500">
-              <h2 className="text-sm font-semibold text-primary-600 uppercase tracking-wide mb-2">{t('seoPages.quickSummary')}</h2>
-              <p className="text-lg text-neutral-700 leading-relaxed">{introSummary}</p>
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="lg:grid lg:grid-cols-4 lg:gap-8">
+              {/* Spacer for sidebar */}
+              <div className="hidden lg:block lg:col-span-1"></div>
+              {/* Content */}
+              <div className="lg:col-span-3">
+                <div className="bg-white rounded-xl p-6 shadow-sm border-l-4 border-primary-500">
+                  <h2 className="text-sm font-semibold text-primary-600 uppercase tracking-wide mb-2">{t('seoPages.quickSummary')}</h2>
+                  <p className="text-lg text-neutral-700 leading-relaxed">{introSummary}</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Main Content */}
-        <div className="max-w-4xl mx-auto px-4 py-12 lg:ml-64">
-          <div className="space-y-8">
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          <div className="lg:grid lg:grid-cols-4 lg:gap-8">
+            {/* Sidebar Navigation - Left Column */}
+            <aside className="hidden lg:block lg:col-span-1">
+              <div className="sticky top-24 bg-white rounded-xl shadow-sm border border-neutral-100 p-4">
+                <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wide mb-4">{t('seoPages.contents')}</h3>
+                <nav className="space-y-1">
+                  {sections.map((section) => (
+                    <a
+                      key={section.id}
+                      href={`#${section.id}`}
+                      className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition"
+                    >
+                      {section.title}
+                    </a>
+                  ))}
+                  {faqs && faqs.length > 0 && (
+                    <a href="#faq" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">
+                      FAQ
+                    </a>
+                  )}
+                </nav>
+              </div>
+            </aside>
+
             {/* Main Content Area */}
-            <main className="space-y-8">
+            <main className="lg:col-span-3 space-y-8">
               {/* Content Sections */}
               {sections.map((section) => (
                 <section 
@@ -405,75 +421,81 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
 
         {/* Footer */}
         <footer className="bg-neutral-900 text-white py-12">
-          <div className="max-w-4xl mx-auto px-4 lg:ml-64">
-            <div className="grid md:grid-cols-4 gap-8 mb-8">
-              <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <Leaf className="h-6 w-6 text-primary-500" />
-                  <span className="text-lg font-bold">Achieve Pack</span>
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="lg:grid lg:grid-cols-4 lg:gap-8">
+              {/* Spacer for sidebar alignment */}
+              <div className="hidden lg:block lg:col-span-1"></div>
+              <div className="lg:col-span-3">
+                <div className="grid md:grid-cols-5 gap-8 mb-8">
+                  <div>
+                    <div className="flex items-center gap-2 mb-4">
+                      <Leaf className="h-6 w-6 text-primary-500" />
+                      <span className="text-lg font-bold">Achieve Pack</span>
+                    </div>
+                    <p className="text-neutral-400 text-sm">
+                      {t('seoPages.footer.tagline')}
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold mb-4">{t('seoPages.footer.products')}</h4>
+                    <ul className="space-y-2 text-sm text-neutral-400">
+                      <li><Link to="/packaging/stand-up-pouches" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.standUpPouches')}</Link></li>
+                      <li><Link to="/packaging/flat-bottom-bags" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.flatBottomBags')}</Link></li>
+                      <li><Link to="/packaging/spout-pouches" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.spoutPouches')}</Link></li>
+                      <li><Link to="/packaging/vacuum-pouches" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.vacuumPouches')}</Link></li>
+                      <li><Link to="/packaging/flat-pouches" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.flatPouches')}</Link></li>
+                      <li><Link to="/packaging/side-gusset-bags" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.sideGussetBags')}</Link></li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold mb-4">{t('seoPages.footer.materials')}</h4>
+                    <ul className="space-y-2 text-sm text-neutral-400">
+                      <li><Link to="/materials/compostable" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.compostable')}</Link></li>
+                      <li><Link to="/materials/home-compostable" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.homeCompostable')}</Link></li>
+                      <li><Link to="/materials/industrial-compostable" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.industrialCompostable')}</Link></li>
+                      <li><Link to="/materials/recyclable-mono-pe" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.recyclableMonoPE')}</Link></li>
+                      <li><Link to="/materials/bio-pe" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.bioPE')}</Link></li>
+                      <li><Link to="/materials/pcr" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.pcrRecycled')}</Link></li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold mb-4">{t('seoPages.footer.options')}</h4>
+                    <ul className="space-y-2 text-sm text-neutral-400">
+                      <li><Link to="/printing/digital-printing" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.digitalPrinting')}</Link></li>
+                      <li><Link to="/printing/plate-printing" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.platePrinting')}</Link></li>
+                      <li><Link to="/features/reclosure-options" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.reclosureOptions')}</Link></li>
+                      <li><Link to="/features/surface-finish" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.surfaceFinishes')}</Link></li>
+                      <li><Link to="/features/barrier-options" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.barrierOptions')}</Link></li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold mb-4">{t('seoPages.footer.industries')}</h4>
+                    <ul className="space-y-2 text-sm text-neutral-400">
+                      <li><Link to="/industry/coffee-tea" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.coffeeTea')}</Link></li>
+                      <li><Link to="/industry/snacks-food" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.snacksFood')}</Link></li>
+                      <li><Link to="/industry/pet-food" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.petFood')}</Link></li>
+                      <li><Link to="/industry/supplements-powders" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.supplements')}</Link></li>
+                      <li><Link to="/industry/baby-food" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.babyFood')}</Link></li>
+                      <li><Link to="/industry/frozen-food" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.frozenFood')}</Link></li>
+                      <li><Link to="/industry/sauces-condiments" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.saucesCondiments')}</Link></li>
+                    </ul>
+                  </div>
                 </div>
-                <p className="text-neutral-400 text-sm">
-                  {t('seoPages.footer.tagline')}
-                </p>
-              </div>
-              
-              <div>
-                <h4 className="font-semibold mb-4">{t('seoPages.footer.products')}</h4>
-                <ul className="space-y-2 text-sm text-neutral-400">
-                  <li><Link to="/packaging/stand-up-pouches" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.standUpPouches')}</Link></li>
-                  <li><Link to="/packaging/flat-bottom-bags" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.flatBottomBags')}</Link></li>
-                  <li><Link to="/packaging/spout-pouches" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.spoutPouches')}</Link></li>
-                  <li><Link to="/packaging/vacuum-pouches" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.vacuumPouches')}</Link></li>
-                  <li><Link to="/packaging/flat-pouches" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.flatPouches')}</Link></li>
-                  <li><Link to="/packaging/side-gusset-bags" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.sideGussetBags')}</Link></li>
-                </ul>
-              </div>
-              
-              <div>
-                <h4 className="font-semibold mb-4">{t('seoPages.footer.materials')}</h4>
-                <ul className="space-y-2 text-sm text-neutral-400">
-                  <li><Link to="/materials/compostable" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.compostable')}</Link></li>
-                  <li><Link to="/materials/home-compostable" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.homeCompostable')}</Link></li>
-                  <li><Link to="/materials/industrial-compostable" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.industrialCompostable')}</Link></li>
-                  <li><Link to="/materials/recyclable-mono-pe" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.recyclableMonoPE')}</Link></li>
-                  <li><Link to="/materials/bio-pe" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.bioPE')}</Link></li>
-                  <li><Link to="/materials/pcr" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.pcrRecycled')}</Link></li>
-                </ul>
-              </div>
-              
-              <div>
-                <h4 className="font-semibold mb-4">{t('seoPages.footer.options')}</h4>
-                <ul className="space-y-2 text-sm text-neutral-400">
-                  <li><Link to="/printing/digital-printing" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.digitalPrinting')}</Link></li>
-                  <li><Link to="/printing/plate-printing" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.platePrinting')}</Link></li>
-                  <li><Link to="/features/reclosure-options" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.reclosureOptions')}</Link></li>
-                  <li><Link to="/features/surface-finish" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.surfaceFinishes')}</Link></li>
-                  <li><Link to="/features/barrier-options" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.barrierOptions')}</Link></li>
-                </ul>
-              </div>
-              
-              <div>
-                <h4 className="font-semibold mb-4">{t('seoPages.footer.industries')}</h4>
-                <ul className="space-y-2 text-sm text-neutral-400">
-                  <li><Link to="/industry/coffee-tea" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.coffeeTea')}</Link></li>
-                  <li><Link to="/industry/snacks-food" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.snacksFood')}</Link></li>
-                  <li><Link to="/industry/pet-food" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.petFood')}</Link></li>
-                  <li><Link to="/industry/supplements-powders" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.supplements')}</Link></li>
-                  <li><Link to="/industry/baby-food" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.babyFood')}</Link></li>
-                  <li><Link to="/industry/frozen-food" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.frozenFood')}</Link></li>
-                  <li><Link to="/industry/sauces-condiments" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.saucesCondiments')}</Link></li>
-                </ul>
-              </div>
-            </div>
-            
-            <div className="border-t border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-neutral-500 text-sm">
-                © {new Date().getFullYear()} Achieve Pack. {t('seoPages.footer.copyright')}
-              </p>
-              <div className="flex gap-6 text-sm text-neutral-500">
-                <Link to="/terms" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.termsConditions')}</Link>
-                <Link to="/privacy" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.privacyPolicy')}</Link>
-                <Link to="/shipping" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.shippingPolicy')}</Link>
+                
+                <div className="border-t border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                  <p className="text-neutral-500 text-sm">
+                    © {new Date().getFullYear()} Achieve Pack. {t('seoPages.footer.copyright')}
+                  </p>
+                  <div className="flex gap-6 text-sm text-neutral-500">
+                    <Link to="/terms" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.termsConditions')}</Link>
+                    <Link to="/privacy" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.privacyPolicy')}</Link>
+                    <Link to="/shipping" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.shippingPolicy')}</Link>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
