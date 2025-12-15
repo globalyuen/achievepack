@@ -248,11 +248,14 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
               Book Meeting
             </a>
           </div>
-          {/* Hero Image with smooth edge fade effect */}
+          {/* Hero Image with transparent gradient edge */}
           {heroImage && (
             <div className="hidden lg:block absolute right-0 top-0 h-full w-1/3 overflow-hidden">
               <div className="absolute inset-0 z-10" style={{
-                background: 'linear-gradient(to right, rgb(22 101 52) 0%, rgb(22 101 52 / 0.6) 20%, transparent 50%)'
+                background: 'linear-gradient(to right, transparent 0%, transparent 30%, rgba(0,0,0,0) 100%)'
+              }} />
+              <div className="absolute inset-0 z-10" style={{
+                background: 'linear-gradient(to right, rgb(22 101 52) 0%, rgba(22, 101, 52, 0.3) 30%, transparent 60%)'
               }} />
               <img 
                 src={heroImage} 
