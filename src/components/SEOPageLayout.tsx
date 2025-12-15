@@ -208,42 +208,50 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         </header>
 
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-16 md:py-24 relative overflow-hidden">
-          {/* Full Banner Hero Image */}
+        <section className="bg-primary-700 text-white relative overflow-hidden">
+          {/* Full Banner Hero Image - natural height, centered */}
           {heroImage && (
-            <div className="absolute inset-0 w-full h-full">
+            <div className="flex justify-center">
+              {/* Left gradient overlay */}
+              <div className="absolute left-0 top-0 bottom-0 w-1/3 z-10" style={{
+                background: 'linear-gradient(to right, rgb(21 128 61) 0%, rgb(21 128 61 / 0.8) 40%, transparent 100%)'
+              }} />
+              {/* Right gradient overlay */}
+              <div className="absolute right-0 top-0 bottom-0 w-1/3 z-10" style={{
+                background: 'linear-gradient(to left, rgb(21 128 61) 0%, rgb(21 128 61 / 0.8) 40%, transparent 100%)'
+              }} />
               <img 
                 src={heroImage} 
                 alt={heroImageAlt || heroTitle}
-                className="w-full h-full object-cover"
+                className="w-auto h-auto max-w-full"
                 loading="lazy"
               />
-              {/* Left gradient overlay for text readability */}
-              <div className="absolute inset-0" style={{
-                background: 'linear-gradient(to right, rgb(22 101 52) 0%, rgb(22 101 52 / 0.95) 25%, rgb(22 101 52 / 0.7) 50%, transparent 75%)'
-              }} />
             </div>
           )}
-          <div className="max-w-7xl mx-auto px-4 relative z-10">
-            <div className="max-w-2xl">
-              {/* Hero Content */}
-              <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-                {heroTitle}
-              </h1>
-              <p className="text-lg md:text-xl text-primary-100 mb-8">
-                {heroSubtitle}
-              </p>
-              <a 
-                href="https://calendly.com/30-min-free-packaging-consultancy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white text-[#15803d] px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition"
-              >
-                <Calendar className="h-4 w-4" />
-                Book Meeting
-              </a>
+          {/* Hero Content - overlay on top */}
+          <div className="absolute inset-0 z-20 flex items-center">
+            <div className="max-w-7xl mx-auto px-4 w-full">
+              <div className="max-w-xl">
+                <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+                  {heroTitle}
+                </h1>
+                <p className="text-lg md:text-xl text-primary-100 mb-8">
+                  {heroSubtitle}
+                </p>
+                <a 
+                  href="https://calendly.com/30-min-free-packaging-consultancy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-white text-[#15803d] px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition"
+                >
+                  <Calendar className="h-4 w-4" />
+                  Book Meeting
+                </a>
+              </div>
             </div>
           </div>
+          {/* Fallback min-height when no image */}
+          {!heroImage && <div className="py-16 md:py-24" />}
         </section>
 
         {/* Quick Summary - Answer First Approach */}
