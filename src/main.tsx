@@ -55,10 +55,42 @@ import PlatePrintingPage from './pages/printing/PlatePrintingPage'
 import ReclosureOptionsPage from './pages/features/ReclosureOptionsPage'
 import SurfaceFinishPage from './pages/features/SurfaceFinishPage'
 import BarrierOptionsPage from './pages/features/BarrierOptionsPage'
+import LowBarrierPage from './pages/features/LowBarrierPage'
+import MediumBarrierPage from './pages/features/MediumBarrierPage'
+import HighBarrierPage from './pages/features/HighBarrierPage'
 
 // Legal Pages
 import PrivacyPolicyPage from './pages/legal/PrivacyPolicyPage'
 import ShippingPolicyPage from './pages/legal/ShippingPolicyPage'
+
+// Company Pages
+import AboutPage from './pages/company/AboutPage'
+import FactoryTourPage from './pages/company/FactoryTourPage'
+import CertificatesPage from './pages/company/CertificatesPage'
+
+// Knowledge Pages
+import AllOptionsPage from './pages/knowledge/AllOptionsPage'
+import SizeGuidePage from './pages/knowledge/SizeGuidePage'
+import PrintingTypesPage from './pages/knowledge/PrintingTypesPage'
+import WorkflowPage from './pages/knowledge/WorkflowPage'
+
+// Support Pages
+import FAQsPage from './pages/support/FAQsPage'
+import LeadTimePage from './pages/support/LeadTimePage'
+
+// Case Studies Pages
+import CoffeeRoasteryCaseStudy from './pages/case-studies/CoffeeRoasteryCaseStudy'
+import TeaBrandCaseStudy from './pages/case-studies/TeaBrandCaseStudy'
+import SuperfoodBrandCaseStudy from './pages/case-studies/SuperfoodBrandCaseStudy'
+import PetTreatsCaseStudy from './pages/case-studies/PetTreatsCaseStudy'
+import ChocolateBrandCaseStudy from './pages/case-studies/ChocolateBrandCaseStudy'
+import CandleBrandCaseStudy from './pages/case-studies/CandleBrandCaseStudy'
+import BakeryCaseStudy from './pages/case-studies/BakeryCaseStudy'
+import WellnessBrandCaseStudy from './pages/case-studies/WellnessBrandCaseStudy'
+import OrganicNutsCaseStudy from './pages/case-studies/OrganicNutsCaseStudy'
+import BathProductsCaseStudy from './pages/case-studies/BathProductsCaseStudy'
+import AdaptogensCaseStudy from './pages/case-studies/AdaptogensCaseStudy'
+import OutdoorSnacksCaseStudy from './pages/case-studies/OutdoorSnacksCaseStudy'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -116,10 +148,42 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/features/reclosure-options" element={<ReclosureOptionsPage />} />
               <Route path="/features/surface-finish" element={<SurfaceFinishPage />} />
               <Route path="/features/barrier-options" element={<BarrierOptionsPage />} />
+              <Route path="/features/low-barrier" element={<LowBarrierPage />} />
+              <Route path="/features/medium-barrier" element={<MediumBarrierPage />} />
+              <Route path="/features/high-barrier" element={<HighBarrierPage />} />
               
               {/* Legal Pages */}
               <Route path="/privacy" element={<PrivacyPolicyPage />} />
               <Route path="/shipping" element={<ShippingPolicyPage />} />
+              
+              {/* Company Pages */}
+              <Route path="/company/about" element={<AboutPage />} />
+              <Route path="/company/factory-tour" element={<FactoryTourPage />} />
+              <Route path="/company/certificates" element={<CertificatesPage />} />
+              
+              {/* Knowledge Pages */}
+              <Route path="/knowledge/all-options" element={<AllOptionsPage />} />
+              <Route path="/knowledge/size-guide" element={<SizeGuidePage />} />
+              <Route path="/knowledge/printing-types" element={<PrintingTypesPage />} />
+              <Route path="/knowledge/workflow" element={<WorkflowPage />} />
+              
+              {/* Support Pages */}
+              <Route path="/support/faqs" element={<FAQsPage />} />
+              <Route path="/support/lead-time" element={<LeadTimePage />} />
+              
+              {/* Case Studies Pages */}
+              <Route path="/case-studies/coffee-roastery" element={<CoffeeRoasteryCaseStudy />} />
+              <Route path="/case-studies/tea-brand" element={<TeaBrandCaseStudy />} />
+              <Route path="/case-studies/superfood-brand" element={<SuperfoodBrandCaseStudy />} />
+              <Route path="/case-studies/pet-treats" element={<PetTreatsCaseStudy />} />
+              <Route path="/case-studies/chocolate-brand" element={<ChocolateBrandCaseStudy />} />
+              <Route path="/case-studies/candle-brand" element={<CandleBrandCaseStudy />} />
+              <Route path="/case-studies/bakery" element={<BakeryCaseStudy />} />
+              <Route path="/case-studies/wellness-brand" element={<WellnessBrandCaseStudy />} />
+              <Route path="/case-studies/organic-nuts" element={<OrganicNutsCaseStudy />} />
+              <Route path="/case-studies/bath-products" element={<BathProductsCaseStudy />} />
+              <Route path="/case-studies/adaptogens" element={<AdaptogensCaseStudy />} />
+              <Route path="/case-studies/outdoor-snacks" element={<OutdoorSnacksCaseStudy />} />
             </Routes>
           </StoreProvider>
         </BrowserRouter>

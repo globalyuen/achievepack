@@ -876,13 +876,25 @@
                 "reclosureOptions": "Reclosure Options",
                 "surfaceFinishes": "Surface Finishes",
                 "barrierOptions": "Barrier Options",
+                "lowBarrier": "Low Barrier",
+                "mediumBarrier": "Medium Barrier",
+                "highBarrier": "High Barrier",
                 "coffeeTea": "Coffee & Tea",
                 "snacksFood": "Snacks & Food",
                 "petFood": "Pet Food & Treats",
                 "supplements": "Supplements",
                 "babyFood": "Baby Food",
                 "frozenFood": "Frozen Food",
-                "saucesCondiments": "Sauces & Condiments"
+                "saucesCondiments": "Sauces & Condiments",
+                "aboutUs": "About Us",
+                "factoryTour": "Virtual Factory Tour",
+                "certificates": "Certificates",
+                "allOptions": "All Options",
+                "sizeGuide": "Size Guide",
+                "printingTypes": "Printing Types",
+                "workflow": "Workflow",
+                "faqs": "FAQs",
+                "leadTime": "Lead Time"
             }
         },
         "pages": {

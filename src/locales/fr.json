@@ -772,7 +772,19 @@
                 "supplements": "Suppléments",
                 "babyFood": "Nourriture pour bébés",
                 "frozenFood": "Aliments surgelés",
-                "saucesCondiments": "Sauces et condiments"
+                "saucesCondiments": "Sauces et condiments",
+                "lowBarrier": "Barrière faible",
+                "mediumBarrier": "Barrière moyenne",
+                "highBarrier": "Barrière élevée",
+                "aboutUs": "À propos de nous",
+                "factoryTour": "Visite virtuelle de l'usine",
+                "certificates": "Certificats",
+                "allOptions": "Toutes les options",
+                "sizeGuide": "Guide des tailles",
+                "printingTypes": "Types d'impression",
+                "workflow": "Processus de travail",
+                "faqs": "FAQ",
+                "leadTime": "Délais de livraison"
             }
         },
         "pages": {

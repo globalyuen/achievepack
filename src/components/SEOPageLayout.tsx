@@ -412,7 +412,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         {/* Footer */}
         <footer className="bg-neutral-900 text-white py-12">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="grid md:grid-cols-4 gap-8 mb-8">
+            <div className="grid md:grid-cols-6 gap-8 mb-8">
               <div>
                 <div className="flex items-center gap-2 mb-4">
                   <Leaf className="h-6 w-6 text-primary-500" />
@@ -455,6 +455,9 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                   <li><Link to="/features/reclosure-options" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.reclosureOptions')}</Link></li>
                   <li><Link to="/features/surface-finish" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.surfaceFinishes')}</Link></li>
                   <li><Link to="/features/barrier-options" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.barrierOptions')}</Link></li>
+                  <li><Link to="/features/low-barrier" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.lowBarrier')}</Link></li>
+                  <li><Link to="/features/medium-barrier" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.mediumBarrier')}</Link></li>
+                  <li><Link to="/features/high-barrier" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.highBarrier')}</Link></li>
                 </ul>
               </div>
               
@@ -469,6 +472,46 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                   <li><Link to="/industry/frozen-food" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.frozenFood')}</Link></li>
                   <li><Link to="/industry/sauces-condiments" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.saucesCondiments')}</Link></li>
                 </ul>
+              </div>
+              
+              <div>
+                <h4 className="font-semibold mb-4">Company</h4>
+                <ul className="space-y-2 text-sm text-neutral-400">
+                  <li><Link to="/company/about" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.aboutUs')}</Link></li>
+                  <li><Link to="/company/factory-tour" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.factoryTour')}</Link></li>
+                  <li><Link to="/company/certificates" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.certificates')}</Link></li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="font-semibold mb-4">Support</h4>
+                <ul className="space-y-2 text-sm text-neutral-400">
+                  <li><Link to="/support/faqs" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.faqs')}</Link></li>
+                  <li><Link to="/support/lead-time" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.leadTime')}</Link></li>
+                  <li><Link to="/knowledge/all-options" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.allOptions')}</Link></li>
+                  <li><Link to="/knowledge/size-guide" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.sizeGuide')}</Link></li>
+                  <li><Link to="/knowledge/printing-types" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.printingTypes')}</Link></li>
+                  <li><Link to="/knowledge/workflow" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.workflow')}</Link></li>
+                </ul>
+              </div>
+            </div>
+            
+            {/* Case Studies */}
+            <div className="mb-8">
+              <h4 className="font-semibold mb-4">Case Studies</h4>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm text-neutral-400">
+                <Link to="/case-studies/coffee-roastery" onClick={scrollToTop} className="hover:text-primary-400">Coffee Roastery</Link>
+                <Link to="/case-studies/tea-brand" onClick={scrollToTop} className="hover:text-primary-400">Tea Brand</Link>
+                <Link to="/case-studies/superfood-brand" onClick={scrollToTop} className="hover:text-primary-400">Superfood Brand</Link>
+                <Link to="/case-studies/pet-treats" onClick={scrollToTop} className="hover:text-primary-400">Pet Treats</Link>
+                <Link to="/case-studies/chocolate-brand" onClick={scrollToTop} className="hover:text-primary-400">Chocolate Brand</Link>
+                <Link to="/case-studies/candle-brand" onClick={scrollToTop} className="hover:text-primary-400">Candle Brand</Link>
+                <Link to="/case-studies/bakery" onClick={scrollToTop} className="hover:text-primary-400">Bakery</Link>
+                <Link to="/case-studies/wellness-brand" onClick={scrollToTop} className="hover:text-primary-400">Wellness Brand</Link>
+                <Link to="/case-studies/organic-nuts" onClick={scrollToTop} className="hover:text-primary-400">Organic Nuts</Link>
+                <Link to="/case-studies/bath-products" onClick={scrollToTop} className="hover:text-primary-400">Bath Products</Link>
+                <Link to="/case-studies/adaptogens" onClick={scrollToTop} className="hover:text-primary-400">Adaptogens</Link>
+                <Link to="/case-studies/outdoor-snacks" onClick={scrollToTop} className="hover:text-primary-400">Outdoor Snacks</Link>
               </div>
             </div>
             

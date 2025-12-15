@@ -766,13 +766,25 @@
                 "reclosureOptions": "重合閘選項",
                 "surfaceFinishes": "表面處理",
                 "barrierOptions": "阻隔選項",
+                "lowBarrier": "低阻隔",
+                "mediumBarrier": "中阻隔",
+                "highBarrier": "高阻隔",
                 "coffeeTea": "咖啡和茶",
                 "snacksFood": "零食及食品",
                 "petFood": "寵物食品和零食",
                 "supplements": "補充劑",
                 "babyFood": "嬰兒食品",
                 "frozenFood": "冷凍食品",
-                "saucesCondiments": "醬料和調味品"
+                "saucesCondiments": "醬料和調味品",
+                "aboutUs": "關於我們",
+                "factoryTour": "虛擬工廠參觀",
+                "certificates": "認證證書",
+                "allOptions": "所有選項",
+                "sizeGuide": "尺寸指南",
+                "printingTypes": "印刷類型",
+                "workflow": "工作流程",
+                "faqs": "常見問題",
+                "leadTime": "生產週期"
             }
         },
         "pages": {
