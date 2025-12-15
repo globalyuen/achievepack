@@ -208,35 +208,51 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
           </div>
         </header>
 
+        {/* Sidebar Navigation - Fixed Left */}
+        <aside className="hidden lg:block fixed left-4 top-24 w-56 max-h-[calc(100vh-120px)] overflow-y-auto bg-white rounded-xl shadow-sm border border-neutral-100 p-4 z-40">
+          <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wide mb-4">{t('seoPages.contents')}</h3>
+          <nav className="space-y-1">
+            {sections.map((section) => (
+              <a
+                key={section.id}
+                href={`#${section.id}`}
+                className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition"
+              >
+                {section.title}
+              </a>
+            ))}
+            {faqs && faqs.length > 0 && (
+              <a href="#faq" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">
+                FAQ
+              </a>
+            )}
+          </nav>
+        </aside>
+
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-16 md:py-24 relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 lg:pl-72 relative z-10">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-                  {heroTitle}
-                </h1>
-                <p className="text-lg md:text-xl text-primary-100 mb-8">
-                  {heroSubtitle}
-                </p>
-                <a 
-                  href="https://calendly.com/30-min-free-packaging-consultancy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-white text-[#15803d] px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition"
-                >
-                  <Calendar className="h-4 w-4" />
-                  Book Meeting
-                </a>
-              </div>
-            </div>
+          <div className="max-w-4xl mx-auto px-4 lg:ml-64 relative z-10">
+            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+              {heroTitle}
+            </h1>
+            <p className="text-lg md:text-xl text-primary-100 mb-8">
+              {heroSubtitle}
+            </p>
+            <a 
+              href="https://calendly.com/30-min-free-packaging-consultancy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-white text-[#15803d] px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition"
+            >
+              <Calendar className="h-4 w-4" />
+              Book Meeting
+            </a>
           </div>
-          {/* Hero Image with smooth edge fade effect - positioned on right, fitting hero height */}
+          {/* Hero Image with smooth edge fade effect */}
           {heroImage && (
-            <div className="hidden lg:block absolute right-0 top-0 h-full w-1/2 overflow-hidden">
-              {/* Gradient overlay for smooth edge blending */}
+            <div className="hidden lg:block absolute right-0 top-0 h-full w-1/3 overflow-hidden">
               <div className="absolute inset-0 z-10" style={{
-                background: 'linear-gradient(to right, rgb(22 101 52) 0%, rgb(22 101 52 / 0.8) 10%, rgb(22 101 52 / 0.4) 25%, transparent 45%)'
+                background: 'linear-gradient(to right, rgb(22 101 52) 0%, rgb(22 101 52 / 0.6) 20%, transparent 50%)'
               }} />
               <img 
                 src={heroImage} 
@@ -250,7 +266,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
 
         {/* Quick Summary - Answer First Approach */}
         <section className="py-8 bg-primary-50 border-b border-primary-100">
-          <div className="max-w-4xl mx-auto px-4 lg:ml-72">
+          <div className="max-w-4xl mx-auto px-4 lg:ml-64">
             <div className="bg-white rounded-xl p-6 shadow-sm border-l-4 border-primary-500">
               <h2 className="text-sm font-semibold text-primary-600 uppercase tracking-wide mb-2">{t('seoPages.quickSummary')}</h2>
               <p className="text-lg text-neutral-700 leading-relaxed">{introSummary}</p>
@@ -259,33 +275,10 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         </section>
 
         {/* Main Content */}
-        <div className="max-w-7xl mx-auto px-4 py-12">
-          <div className="grid lg:grid-cols-4 gap-8">
-            {/* Sidebar Navigation - Right Side */}
-            <aside className="hidden lg:block lg:col-span-1 lg:order-2">
-              <div className="fixed top-24 right-8 w-64 max-h-[calc(100vh-120px)] overflow-y-auto bg-white rounded-xl shadow-sm border border-neutral-100 p-4">
-                <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wide mb-4">{t('seoPages.contents')}</h3>
-                <nav className="space-y-1">
-                  {sections.map((section) => (
-                    <a
-                      key={section.id}
-                      href={`#${section.id}`}
-                      className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition"
-                    >
-                      {section.title}
-                    </a>
-                  ))}
-                  {faqs && faqs.length > 0 && (
-                    <a href="#faq" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">
-                      FAQ
-                    </a>
-                  )}
-                </nav>
-              </div>
-            </aside>
-
+        <div className="max-w-4xl mx-auto px-4 py-12 lg:ml-64">
+          <div className="space-y-8">
             {/* Main Content Area */}
-            <main className="lg:col-span-3 lg:order-1 space-y-8">
+            <main className="space-y-8">
               {/* Content Sections */}
               {sections.map((section) => (
                 <section 
@@ -409,7 +402,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
 
         {/* Footer */}
         <footer className="bg-neutral-900 text-white py-12">
-          <div className="max-w-7xl mx-auto px-4 lg:pl-72">
+          <div className="max-w-4xl mx-auto px-4 lg:ml-64">
             <div className="grid md:grid-cols-4 gap-8 mb-8">
               <div>
                 <div className="flex items-center gap-2 mb-4">
