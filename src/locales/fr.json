@@ -420,6 +420,43 @@
         "brand": "Achieve Pack",
         "tagline": "Chef de file de la révolution de l'emballage durable avec des solutions certifiées écologiques pour les entreprises du monde entier.",
         "copyright": "© 2025 Achieve Pack. Tous droits réservés.",
+        "certified": "Certifié",
+        "materials": "Matériaux",
+        "options": "Options",
+        "industries": "Industries",
+        "support": "Support",
+        "quickContact": "Contact Rapide",
+        "termsConditions": "Conditions Générales",
+        "privacyPolicy": "Politique de Confidentialité",
+        "shippingPolicy": "Politique d'Expédition",
+        "contactUs": "Nous Contacter",
+        "links": {
+            "standUpPouches": "Pochettes Stand-Up",
+            "flatBottomBags": "Sacs à Fond Plat",
+            "spoutPouches": "Pochettes à Bec",
+            "vacuumPouches": "Pochettes Sous Vide",
+            "flatPouches": "Pochettes Plates",
+            "sideGussetBags": "Sacs à Soufflets",
+            "compostable": "Compostable",
+            "homeCompostable": "Compostable Maison",
+            "industrialCompostable": "Compostable Industriel",
+            "recyclableMonoPE": "Mono-PE Recyclable",
+            "recyclableMonoPP": "Mono-PP Recyclable",
+            "bioPE": "Bio-PE",
+            "pcrRecycled": "PCR Recyclé",
+            "digitalPrinting": "Impression Numérique",
+            "platePrinting": "Impression Plaque",
+            "reclosureOptions": "Options de Fermeture",
+            "surfaceFinishes": "Finitions de Surface",
+            "barrierOptions": "Options de Barrière",
+            "coffeeTea": "Café & Thé",
+            "snacksFood": "Snacks & Alimentation",
+            "petFood": "Nourriture pour Animaux",
+            "supplements": "Compléments",
+            "babyFood": "Alimentation Bébé",
+            "frozenFood": "Surgelés",
+            "saucesCondiments": "Sauces & Condiments"
+        },
         "products": {
             "title": "Produits",
             "compostable": "Emballage compostable",
@@ -633,10 +670,22 @@
                 "tolerance": "Tolérance",
                 "notes": "Notes"
             },
-            "kraft": { "name": "Papier Kraft", "note": "Plus terne en raison de l'absorption" },
-            "white": { "name": "Papier Blanc", "note": "Couleurs vives" },
-            "plastic": { "name": "Plastique/Laminé", "note": "Haute fidélité" },
-            "specialty": { "name": "Matériaux Spéciaux", "note": "Varie selon le matériau" },
+            "kraft": {
+                "name": "Papier Kraft",
+                "note": "Plus terne en raison de l'absorption"
+            },
+            "white": {
+                "name": "Papier Blanc",
+                "note": "Couleurs vives"
+            },
+            "plastic": {
+                "name": "Plastique/Laminé",
+                "note": "Haute fidélité"
+            },
+            "specialty": {
+                "name": "Matériaux Spéciaux",
+                "note": "Varie selon le matériau"
+            },
             "sample": "Échantillon fourni pour confirmation au coût."
         },
         "quantity": {
@@ -676,6 +725,1020 @@
             "signature": "Signature",
             "date": "Date",
             "contact": "Pour toute question ou clarification, contactez ACHIEVE PACK à"
+        }
+    },
+    "seoPages": {
+        "backToHome": "Retour à la maison",
+        "quickSummary": "Résumé rapide",
+        "contents": "Contenu",
+        "faq": "Foire aux questions",
+        "relatedResources": "Ressources connexes",
+        "emailUs": "Envoyez-nous un courriel",
+        "bookMeeting": "Réunion du livre",
+        "getQuote": "Obtenez un devis gratuit",
+        "readyToStart": "Prêt à commencer ?",
+        "contactExperts": "Contactez nos experts en emballage pour une consultation et un devis gratuits.",
+        "footer": {
+            "products": "Produits",
+            "materials": "Matériels",
+            "options": "Possibilités",
+            "industries": "Secteurs",
+            "termsConditions": "Conditions générales",
+            "privacyPolicy": "politique de confidentialité",
+            "shippingPolicy": "Politique d'expédition",
+            "copyright": "Tous droits réservés.",
+            "tagline": "Votre partenaire de confiance pour des solutions d'emballage flexibles respectueuses de l'environnement.",
+            "links": {
+                "standUpPouches": "Pochettes verticales",
+                "flatBottomBags": "Sacs à fond plat",
+                "spoutPouches": "Pochettes à bec",
+                "vacuumPouches": "Pochettes sous vide",
+                "flatPouches": "Pochettes plates",
+                "sideGussetBags": "Sacs à soufflet latéraux",
+                "compostable": "Compostable",
+                "homeCompostable": "Compostable à la maison",
+                "industrialCompostable": "Compostable industriel",
+                "recyclableMonoPE": "Mono-PE recyclable",
+                "bioPE": "Bio-PE",
+                "pcrRecycled": "PCR recyclé",
+                "digitalPrinting": "Impression numérique",
+                "platePrinting": "Impression de plaques",
+                "reclosureOptions": "Options de refermeture",
+                "surfaceFinishes": "Finitions de surface",
+                "barrierOptions": "Options de barrière",
+                "coffeeTea": "Café et thé",
+                "snacksFood": "Collations et nourriture",
+                "petFood": "Nourriture et friandises pour animaux",
+                "supplements": "Suppléments",
+                "babyFood": "Nourriture pour bébés",
+                "frozenFood": "Aliments surgelés",
+                "saucesCondiments": "Sauces et condiments"
+            }
+        },
+        "pages": {
+            "compostable": {
+                "title": "Emballage compostable | Pochettes certifiées EN 13432 et ASTM D6400",
+                "description": "Emballage flexible certifié compostable à base de papier kraft, PLA et cellulose. Certifié EN 13432 et ASTM D6400. Se décompose en 90 à 180 jours. Matériaux d'origine végétale de qualité alimentaire.",
+                "heroTitle": "Emballage compostable certifié",
+                "heroSubtitle": "Emballage à base de plantes et sans danger pour les aliments qui retourne à la terre. Certifié selon les normes EN 13432 et ASTM D6400. Le choix durable pour les marques soucieuses de l'environnement.",
+                "introSummary": "L'emballage compostable certifié d'Achieve Pack est fabriqué à partir de matériaux renouvelables à base de plantes, notamment du papier kraft et du PLA. Nos sachets se décomposent en 90 à 180 jours lors du compostage commercial, ne laissant aucun microplastique ni résidu toxique. Certifié selon les normes EN 13432 (UE) et ASTM D6400 (US), avec documentation fournie.",
+                "ctaTitle": "Passez aux emballages compostables",
+                "ctaDescription": "Demandez un échantillon gratuit pour voir et sentir nos matériaux certifiés compostables.",
+                "ctaButtonText": "Obtenez un échantillon gratuit",
+                "sections": {
+                    "overview": {
+                        "title": "Qu’est-ce qu’un emballage compostable ?",
+                        "intro": "Les emballages compostables sont conçus pour se décomposer en éléments naturels dans un environnement de compostage, ne laissant aucun résidu toxique. Contrairement aux plastiques conventionnels qui persistent pendant des siècles, les matériaux certifiés compostables se décomposent en 90 à 180 jours dans les installations de compostage commerciales.",
+                        "keyFacts": "Faits clés sur les emballages compostables :",
+                        "fact1": "Se décompose en 90 à 180 jours en compostage commercial",
+                        "fact2": "Fabriqué à partir de matériaux renouvelables à base de plantes (PLA, cellulose)",
+                        "fact3": "Ne laisse aucun microplastique ni résidu toxique",
+                        "fact4": "Certifié selon les normes internationales (EN 13432, ASTM D6400)",
+                        "fact5": "Convient aux applications en contact avec les aliments",
+                        "marketInfo": "Selon l'Association européenne des bioplastiques, le marché mondial des emballages compostables devrait atteindre 23,7 milliards de dollars d'ici 2030, avec une croissance de 17,4 % TCAC à mesure que les marques s'éloignent des plastiques conventionnels."
+                    },
+                    "materials": {
+                        "title": "Types de matériaux compostables",
+                        "intro": "Nous proposons plusieurs structures de matériaux certifiés compostables :",
+                        "kraftPla": {
+                            "title": "Papier kraft + PLA",
+                            "desc": "Extérieur en papier kraft naturel avec couche intérieure en PLA (acide polylactique). Excellent pour le café, le thé, les collations et les produits secs.",
+                            "feature1": "Propriétés de barrière moyenne",
+                            "feature2": "Aspect naturel et terreux",
+                            "feature3": "Compostable à domicile sous certaines conditions"
+                        },
+                        "whiteKraftPla": {
+                            "title": "Kraft blanc + PLA",
+                            "desc": "Papier kraft blanchi pour des couleurs d'impression plus vives et un aspect haut de gamme, avec barrière PLA.",
+                            "feature1": "Meilleure qualité d'impression",
+                            "feature2": "Esthétique épurée et moderne",
+                            "feature3": "Compostage commercial requis"
+                        },
+                        "natureFlex": {
+                            "title": "Films NatureFlex™",
+                            "desc": "Film transparent à base de cellulose pour emballages et vitrines transparents.",
+                            "feature1": "Une transparence cristalline",
+                            "feature2": "Bonne barrière contre l'humidité",
+                            "feature3": "Compostable domestique et commercial"
+                        },
+                        "pbatPla": {
+                            "title": "Mélanges PBAT/PLA",
+                            "desc": "Films compostables haute performance pour des exigences de barrière exigeantes.",
+                            "feature1": "Propriétés barrière améliorées",
+                            "feature2": "Thermoscellable",
+                            "feature3": "Compostage commercial uniquement"
+                        }
+                    },
+                    "certifications": {
+                        "title": "Certifications de compostabilité",
+                        "intro": "Nos emballages compostables sont certifiés selon les normes internationales :",
+                        "eu": {
+                            "label": "UE",
+                            "title": "EN 13432",
+                            "desc": "Norme européenne pour les emballages compostables. Nécessite une désintégration de 90 % en 12 semaines et une biodégradation complète en 6 mois en compostage industriel."
+                        },
+                        "us": {
+                            "label": "NOUS",
+                            "title": "ASTM D6400",
+                            "desc": "Norme américaine pour les plastiques conçus pour les installations de compostage aérobie municipales/industrielles. Tests équivalents à la norme EN 13432."
+                        },
+                        "au": {
+                            "label": "UA",
+                            "title": "COMME 4736 / COMME 5810",
+                            "desc": "Normes australiennes pour la compostabilité commerciale (AS 4736) et la compostabilité domestique (AS 5810)."
+                        },
+                        "note": "Nous fournissons une documentation de certification avec chaque commande. Nos matériaux sont testés par des laboratoires accrédités, notamment TÜV Autriche, DIN CERTCO et BPI."
+                    },
+                    "applications": {
+                        "title": "Applications du produit",
+                        "intro": "Les emballages compostables sont idéaux pour les marques engagées dans le développement durable :",
+                        "items": [
+                            "Café de spécialité",
+                            "Thé biologique",
+                            "Collations diététiques",
+                            "Granola bio",
+                            "Des friandises naturelles pour animaux",
+                            "Poudres de superaliments",
+                            "Fruits secs",
+                            "Chocolats artisanaux",
+                            "Produits du marché fermier",
+                            "Articles de magasin zéro déchet",
+                            "Aliments biologiques pour bébés",
+                            "Suppléments à base de plantes"
+                        ]
+                    },
+                    "disposal": {
+                        "title": "Guide d'élimination et de compostage",
+                        "intro": "Comprendre l’élimination appropriée est essentiel pour réaliser les avantages environnementaux :",
+                        "commercialVsHome": "Compostage commercial ou domestique",
+                        "commercialVsHomeDesc": "Les installations de compostage commerciales maintiennent des températures de 55 à 60°C, ce qui accélère la décomposition. La plupart des emballages compostables certifiés nécessitent ces conditions. Le compostage domestique fonctionne à des températures plus basses et peut prendre de 6 à 12 mois pour une décomposition complète.",
+                        "instructionsTitle": "Instructions d'élimination pour les consommateurs :",
+                        "instruction1": "Retirez tous les éléments non compostables (les fermetures éclair devront peut-être être coupées si elles ne sont pas compostables)",
+                        "instruction2": "Placer dans un bac à compost commercial (vérifier la disponibilité locale)",
+                        "instruction3": "Ne pas placer dans le recyclage régulier : les produits compostables peuvent contaminer les flux de recyclage.",
+                        "instruction4": "Si aucun compostage commercial n'est disponible, jetez-le avec les déchets ordinaires (se décomposera toujours plus rapidement que le plastique conventionnel)."
+                    },
+                    "limitations": {
+                        "title": "Considérations et limites",
+                        "intro": "Les emballages compostables sont excellents pour de nombreuses applications, mais tenez compte des facteurs suivants :",
+                        "bestFor": "Idéal pour :",
+                        "bestFor1": "Produits secs avec une durée de conservation de 6 à 12 mois",
+                        "bestFor2": "Des marques premium, bio et naturelles",
+                        "bestFor3": "Produits vendus dans les régions dotées d'infrastructures de compostage",
+                        "bestFor4": "B-corp et entreprises axées sur le développement durable",
+                        "considerAlternatives": "Envisagez des alternatives pour :",
+                        "alt1": "Produits nécessitant une durée de conservation de plus de 18 mois",
+                        "alt2": "Produits à forte humidité/liquides",
+                        "alt3": "Exposition à des températures extrêmes",
+                        "alt4": "Régions sans accès au compostage",
+                        "note": "Notre équipe peut vous aider à déterminer si l’emballage compostable convient à votre produit. Nous proposons également des alternatives recyclables pour les applications où les compostables peuvent ne pas être optimaux."
+                    }
+                },
+                "faq": {
+                    "q1": "Quelle est la différence entre compostable et biodégradable ?",
+                    "a1": "Les matériaux compostables se décomposent complètement en éléments naturels dans un délai précis dans des conditions de compostage, avec une certification pour le prouver (EN 13432, ASTM D6400). « Biodégradable » est un terme plus large et non réglementé : techniquement, tout finit par se biodégrader, même le plastique conventionnel au fil des siècles. Recherchez toujours des allégations certifiées compostables, pas seulement biodégradables.",
+                    "q2": "Les emballages compostables se décomposeront-ils dans les décharges ?",
+                    "a2": "Les emballages compostables nécessitent de l’oxygène et des microbes pour se décomposer efficacement. Les décharges sont des environnements anaérobies (sans oxygène), la décomposition est donc très lente. Cependant, les matériaux compostables se décomposeront toujours plus rapidement que les plastiques conventionnels et ne laisseront pas de résidus de microplastiques.",
+                    "q3": "Puis-je composter à domicile des emballages compostables certifiés ?",
+                    "a3": "La plupart des emballages compostables certifiés sont conçus pour le compostage commercial/industriel (55-60°C). Certains matériaux sont compostables à domicile (certifiés selon la norme AS 5810 ou OK Home). Nous pouvons vous conseiller sur les matériaux adaptés à vos besoins.",
+                    "q4": "Les emballages compostables sont-ils sûrs pour les aliments ?",
+                    "a4": "Oui, tous nos matériaux compostables sont certifiés pour le contact alimentaire selon les réglementations FDA 21 CFR et EU 10/2011. Les matériaux à base de PLA et de cellulose sont dérivés de sources naturelles et sont sans danger pour le contact direct avec les aliments.",
+                    "q5": "Combien coûtent les emballages compostables par rapport au plastique ordinaire ?",
+                    "a5": "Les matériaux compostables coûtent généralement 15 à 30 % plus cher que le plastique conventionnel. Cependant, à mesure que la production augmente et que la demande augmente, l’écart de prix se réduit. De nombreuses marques estiment que les avantages en matière de durabilité et la valeur marketing justifient cette prime."
+                },
+                "table": {
+                    "title": "Comparaison des matériaux compostables",
+                    "headers": [
+                        "Matérielle",
+                        "Niveau de barrière",
+                        "Type de compostage",
+                        "Idéal pour"
+                    ],
+                    "row1": [
+                        "Kraft + PLA",
+                        "Moyen",
+                        "Commercial / Un peu de maison",
+                        "Café, thé, collations sèches"
+                    ],
+                    "row2": [
+                        "Kraft blanc + PLA",
+                        "Moyen",
+                        "Commerciale",
+                        "Café Premium, Poudres"
+                    ],
+                    "row3": [
+                        "Cellulose NatureFlex",
+                        "Moyen-élevé",
+                        "Maison et commerce",
+                        "Fenêtres transparentes, thé"
+                    ],
+                    "row4": [
+                        "Mélange PBAT/PLA",
+                        "Haut",
+                        "Commercial uniquement",
+                        "Produits sensibles à l'humidité"
+                    ],
+                    "row5": [
+                        "Papier/cellulose uniquement",
+                        "Faible",
+                        "Maison et commerce",
+                        "Articles à courte durée de conservation"
+                    ]
+                },
+                "relatedLinks": {
+                    "link1": {
+                        "title": "Matériaux recyclables",
+                        "description": "Options mono-PE et mono-PP"
+                    },
+                    "link2": {
+                        "title": "Emballage de café et de thé",
+                        "description": "Sachets de café compostables"
+                    },
+                    "link3": {
+                        "title": "Pochettes verticales",
+                        "description": "Disponible en matériaux compostables"
+                    }
+                }
+            },
+            "homeCompostable": {
+                "title": "Emballage compostable à domicile | Pochettes certifiées OK Home",
+                "heroTitle": "Compostable à domicile : du sachet à la terre de jardin",
+                "heroSubtitle": "Emballage certifié qui se décompose dans votre bac à compost de jardin. Aucune installation industrielle n’est nécessaire – une véritable circularité au niveau du consommateur.",
+                "introSummary": "Sachets certifiés OK Compost HOME et AS 5810 qui se décomposent en 6 à 12 mois à température ambiante. Le message ultime de durabilité pour les marques soucieuses de l’environnement.",
+                "ctaTitle": "Prêt pour une véritable compostabilité domestique ?",
+                "ctaDescription": "Obtenez des emballages certifiés compostables à domicile que vos clients peuvent composter dans leur propre cour.",
+                "ctaButtonText": "Obtenez un échantillon gratuit",
+                "sections": {
+                    "overview": {
+                        "title": "Emballage compostable à domicile",
+                        "intro": "Les emballages compostables à domicile se décomposent dans votre bac à compost de jardin, aucune installation industrielle n'est nécessaire. Les sachets compostables domestiques d'Achieve Pack répondent aux normes les plus strictes (OK Compost HOME, AS 5810) et se décomposent en 6 à 12 mois dans des conditions typiques de compostage domestique.",
+                        "whyChoose": "Pourquoi choisir le compostage domestique :",
+                        "benefit1": "Accessible aux consommateurs – Fonctionne dans les bacs à compost de jardin, aucune installation spéciale n’est nécessaire",
+                        "benefit2": "Températures plus basses – Se décompose à 20-30°C (contre 58°C pour l'industriel)",
+                        "benefit3": "Véritable circularité – Restitue les nutriments au sol au niveau du consommateur",
+                        "benefit4": "Positionnement premium – Message de durabilité le plus fort pour les marques soucieuses de l’environnement",
+                        "benefit5": "Normes certifiées – TÜV Autriche OK Compost HOME, AS 5810 (Australie)"
+                    },
+                    "certifications": {
+                        "title": "Certifications compostables à domicile",
+                        "okHome": {
+                            "title": "OK Compost ACCUEIL",
+                            "subtitle": "Certification TÜV Autriche",
+                            "feature1": "Biodégrade à 20-30°C",
+                            "feature2": "90% de désintégration en 6 mois",
+                            "feature3": "Aucun résidu toxique",
+                            "feature4": "Reconnu dans l'UE"
+                        },
+                        "as5810": {
+                            "title": "COMME 5810",
+                            "subtitle": "Norme australienne de compostage domestique",
+                            "feature1": "Décomposition à température ambiante",
+                            "feature2": "90% de biodégradation en 12 mois",
+                            "feature3": "Toxicité végétale testée",
+                            "feature4": "Obligatoire pour le marché australien"
+                        }
+                    },
+                    "materials": {
+                        "title": "Matériaux compostables à la maison",
+                        "intro": "Nos sachets compostables maison utilisent des matériaux certifiés biosourcés :",
+                        "kraftPla": {
+                            "title": "Film Kraft + PLA",
+                            "feature1": "Papier kraft certifié FSC",
+                            "feature2": "PLA dérivé de l'amidon de maïs",
+                            "feature3": "Aspect naturel et haut de gamme",
+                            "feature4": "Faible barrière (3-6 mois)"
+                        },
+                        "pbatPla": {
+                            "title": "Mélange PBAT/PLA",
+                            "feature1": "Structure du film flexible",
+                            "feature2": "Finition claire ou mate",
+                            "feature3": "Option barrière moyenne",
+                            "feature4": "Imprimable avec des encres à base d'eau"
+                        },
+                        "cellulose": {
+                            "title": "À base de cellulose",
+                            "feature1": "Pâte de bois dérivée",
+                            "feature2": "Excellente transparence",
+                            "feature3": "Applications à faible barrière",
+                            "feature4": "Pochettes à fenêtre disponibles"
+                        },
+                        "paper": {
+                            "title": "Papier Mono-Matériau",
+                            "feature1": "Construction 100% papier",
+                            "feature2": "Revêtement barrière biosourcé",
+                            "feature3": "Thermoscellable",
+                            "feature4": "Esthétique artisanale haut de gamme"
+                        }
+                    },
+                    "timeline": {
+                        "title": "Chronologie du compostage",
+                        "intro": "À quoi s'attendre lors du compostage de nos sachets compostables maison :",
+                        "month1": "Mois 1",
+                        "month1Desc": "Pochette intacte",
+                        "month2": "Mois 2-3",
+                        "month2Desc": "Le ramollissement commence",
+                        "month3": "Mois 4-5",
+                        "month3Desc": "Fragmentation",
+                        "month4": "Mois 6-9",
+                        "month4Desc": "Biodégradation",
+                        "month5": "Mois 12",
+                        "month5Desc": "Complet (sol)",
+                        "note": "*Le délai varie en fonction des conditions de compostage (température, humidité, aération). Un compostage actif avec retournement régulier accélère la décomposition."
+                    },
+                    "applications": {
+                        "title": "Meilleures applications",
+                        "items": [
+                            "Thés et infusions biologiques",
+                            "Grains de café artisanaux",
+                            "Fruits secs et plantes",
+                            "Snacks et biscuits biologiques",
+                            "Cadeaux alimentaires spécialisés",
+                            "Produits du marché fermier",
+                            "Articles de magasin zéro déchet",
+                            "Cosmétiques éco-responsables",
+                            "Chocolat haut de gamme"
+                        ]
+                    }
+                },
+                "faq": {
+                    "q1": "Quelle est la différence entre le compostable domestique et industriel ?",
+                    "a1": "Les emballages compostables domestiques se décomposent dans les bacs à compost de jardin à température ambiante (20-30°C). Le compostage industriel nécessite des installations commerciales avec des températures élevées contrôlées (58°C+). Le compostage domestique est plus accessible aux consommateurs mais possède généralement des propriétés barrières moindres.",
+                    "q2": "Combien de temps dure le compostage domestique ?",
+                    "a2": "Nos sachets compostables à domicile se décomposent généralement en 6 à 12 mois dans un compost actif de jardin. Les facteurs affectant la vitesse comprennent la température, l'humidité, la fréquence de retournement et l'activité microbienne existante dans votre compost.",
+                    "q3": "Puis-je mettre les emballages compostables maison dans mon bac vert ?",
+                    "a3": "Cela dépend des directives de votre municipalité. De nombreux programmes municipaux de bacs verts n’acceptent que les matières compostables industrielles. Les articles compostables à domicile sont conçus pour le compostage dans la cour. Vérifiez auprès de votre autorité locale des déchets.",
+                    "q4": "Les emballages compostables à domicile conviennent-ils à tous les produits ?",
+                    "a4": "Les matériaux compostables à domicile ont généralement des propriétés barrières faibles à moyennes, ce qui les rend idéaux pour les produits secs avec une durée de conservation de 3 à 6 mois. Pour les produits nécessitant une barrière élevée (café, suppléments), nous recommandons des options industrielles compostables ou recyclables."
+                },
+                "relatedLinks": {
+                    "link1": {
+                        "title": "Compostable industriel",
+                        "description": "Option compostable à barrière plus élevée"
+                    },
+                    "link2": {
+                        "title": "Aperçu des matériaux compostables",
+                        "description": "Toutes les options compostables"
+                    },
+                    "link3": {
+                        "title": "Emballage de café et de thé",
+                        "description": "Application populaire de compostage domestique"
+                    }
+                }
+            },
+            "industrialCompostable": {
+                "title": "Emballage compostable industriel | Pochettes de compostage commerciales",
+                "heroTitle": "Compostable Industriel : Haute Performance, Zéro Déchet",
+                "heroSubtitle": "Emballage certifié EN 13432 et ASTM D6400 qui se décompose dans les installations commerciales en 90 à 180 jours. Propriétés de barrière plus élevées pour les applications exigeantes.",
+                "introSummary": "Sachets compostables certifiés mondialement (EN 13432, ASTM D6400) avec options de barrière moyenne-élevée. Se décompose dans les installations de compostage commerciales en 90 à 180 jours.",
+                "ctaTitle": "Prêt pour le compostage industriel ?",
+                "ctaDescription": "Obtenez un emballage compostable certifié doté des propriétés barrières dont votre produit a besoin.",
+                "ctaButtonText": "Obtenez un échantillon gratuit",
+                "sections": {
+                    "overview": {
+                        "title": "Emballage compostable industriel",
+                        "intro": "Les emballages compostables industriels se décomposent dans les installations de compostage commerciales dans des conditions contrôlées de haute température. Les sachets certifiés EN 13432 et ASTM D6400 d'Achieve Pack se décomposent en 90 à 180 jours, offrant une protection plus élevée que les alternatives compostables à domicile.",
+                        "whyChoose": "Pourquoi choisir le compostage industriel :",
+                        "benefit1": "Propriétés de barrière plus élevées – Meilleure protection contre l’oxygène et l’humidité",
+                        "benefit2": "Décomposition plus rapide – 90 à 180 jours dans des installations commerciales",
+                        "benefit3": "Options de matériaux plus larges – Plus de choix de structures et de barrières",
+                        "benefit4": "Infrastructure évolutive – Réseau croissant d’installations de compostage",
+                        "benefit5": "Reconnu mondialement – ​​certifié EN 13432 (UE), ASTM D6400 (États-Unis)"
+                    },
+                    "certifications": {
+                        "title": "Normes de compostage industriel",
+                        "en13432": {
+                            "title": "EN 13432",
+                            "subtitle": "Norme européenne",
+                            "features": [
+                                "Biodégrade à 58°C",
+                                "90% de désintégration en 12 semaines",
+                                "90% de biodégradation en 6 mois",
+                                "Limites des métaux lourds",
+                                "Écotoxicité végétale testée"
+                            ]
+                        },
+                        "astm": {
+                            "title": "ASTM D6400",
+                            "subtitle": "Norme américaine/nord-américaine",
+                            "features": [
+                                "Conditions de compostage commercial",
+                                "60% de biodégradation en 180 jours",
+                                "Aucun résidu nocif",
+                                "Certification BPI disponible",
+                                "Reconnu partout en Amérique du Nord"
+                            ]
+                        },
+                        "okIndustrial": {
+                            "title": "OK Compost INDUSTRIEL",
+                            "desc": "Certification TÜV Autriche confirmant la conformité à la norme EN 13432. Nos pochettes portent cette marque pour une identification facile dans les centres de tri des déchets."
+                        }
+                    },
+                    "materials": {
+                        "title": "Matériaux compostables industriels",
+                        "intro": "Matériaux plus performants pour des applications exigeantes :"
+                    },
+                    "comparison": {
+                        "title": "Compostage domestique ou industriel"
+                    },
+                    "order": {
+                        "title": "Informations sur la commande",
+                        "minOrder": "Commande minimale",
+                        "daysToCompost": "Jours pour composter",
+                        "shelfLife": "Durée de conservation en mois"
+                    }
+                },
+                "faq": {
+                    "q1": "Comment les consommateurs se débarrassent-ils des emballages industriels compostables ?",
+                    "a1": "Les emballages compostables industriels doivent être placés dans des bacs de compostage commerciaux (souvent marqués « compostable » ou bacs verts/marrons) lorsqu'ils sont disponibles. De nombreuses villes disposent désormais d’une collecte des déchets organiques qui sont envoyés aux installations de compostage. Vérifiez vos directives locales.",
+                    "q2": "Les emballages industriels compostables se décomposeront-ils dans les décharges ?",
+                    "a2": "Non. Les décharges manquent de l’oxygène, de l’humidité et de l’activité microbienne nécessaires au compostage. Les emballages compostables industriels sont conçus pour les conditions de compostage aérobie. Si votre région ne dispose pas d’infrastructures de compostage, des emballages recyclables peuvent être plus appropriés.",
+                    "q3": "Le compostage industriel est-il plus ou moins cher que le compostage domestique ?",
+                    "a3": "Les matériaux compostables industriels sont généralement 10 à 20 % moins chers que les options compostables domestiques, car les exigences de certification sont moins strictes et les options de matériaux sont plus larges. Cependant, les deux sont plus chers que les plastiques conventionnels.",
+                    "q4": "Puis-je utiliser du compostable industriel pour l’exporter vers différents pays ?",
+                    "a4": "La certification EN 13432 est reconnue dans l'UE, au Royaume-Uni et sur de nombreux autres marchés. ASTM D6400 est la norme pour l'Amérique du Nord. Pour l'Australie, recherchez AS 4736. Nous pouvons vous aider à sélectionner la certification adaptée à vos marchés cibles."
+                },
+                "relatedLinks": {
+                    "link1": {
+                        "title": "Compostable à la maison",
+                        "description": "Option compostage dans la cour"
+                    },
+                    "link2": {
+                        "title": "Présentation du compostage",
+                        "description": "Toutes les solutions compostables"
+                    },
+                    "link3": {
+                        "title": "Options de barrière",
+                        "description": "Guide des niveaux de protection"
+                    }
+                }
+            },
+            "recyclableMonoPE": {
+                "title": "Emballage mono-PE recyclable | Pochettes flexibles 100 % PE",
+                "heroTitle": "Emballage mono-PE recyclable",
+                "heroSubtitle": "Pochettes en polyéthylène mono-matière recyclables dans les filières standards de recyclage PE. Le choix pratique et durable.",
+                "introSummary": "Les emballages Mono-PE utilisent une construction en polyéthylène mono-matériau, ce qui les rend compatibles avec les programmes de recyclage du PE. Contrairement aux stratifiés multi-matériaux, les sachets mono-PE peuvent être recyclés via des programmes de dépôt en magasin et de collecte en bordure de rue tout en conservant de bonnes propriétés de barrière.",
+                "ctaTitle": "Passer au mono-PE recyclable",
+                "ctaDescription": "Demandez un échantillon gratuit et un devis pour des emballages recyclables.",
+                "ctaButtonText": "Demander un échantillon gratuit",
+                "sections": {
+                    "overview": {
+                        "title": "Qu’est-ce que l’emballage Mono-PE ?",
+                        "intro": "Les emballages Mono-PE (polyéthylène mono-matériau) sont entièrement fabriqués à partir de polyéthylène, ce qui les rend compatibles avec les filières de recyclage PE standards. Contrairement aux stratifiés multicouches traditionnels, les sachets mono-PE peuvent être recyclés via des programmes de dépôt en magasin et, de plus en plus, par le biais du recyclage en bordure de rue.",
+                        "keyBenefits": "Avantages clés :",
+                        "benefits": [
+                            "Recyclable dans le flux PE (code de recyclage #2 ou #4)",
+                            "Accepté dans les points de recyclage en magasin",
+                            "Bonnes propriétés barrières maintenues",
+                            "Thermoscellable et flexible",
+                            "Empreinte environnementale inférieure à celle du multi-matériaux"
+                        ]
+                    },
+                    "howItWorks": {
+                        "title": "Comment Mono-PE atteint la barrière",
+                        "intro": "Les pochettes traditionnelles utilisent différents matériaux (PET, nylon, aluminium) comme barrière. Mono-PE y parvient avec des solutions uniquement PE :",
+                        "evoh": {
+                            "title": "Couche barrière EVOH",
+                            "desc": "Mince couche d'EVOH prise en sandwich entre PE. Fournit une excellente barrière à l'oxygène tout en restant recyclable dans le flux PE (teneur en EVOH <5%)."
+                        },
+                        "pePe": {
+                            "title": "Structures PE-PE",
+                            "desc": "Différents types de PE (HDPE, MDPE, LDPE) combinés pour une rigidité, une étanchéité et une barrière optimales sans autres matériaux."
+                        },
+                        "coatings": {
+                            "title": "Revêtements barrières",
+                            "desc": "Les revêtements SiOx ou AlOx sur PE offrent une barrière de type métallisé tout en conservant la recyclabilité."
+                        },
+                        "oriented": {
+                            "title": "Orienté PE",
+                            "desc": "Le PE orienté dans le sens machine (MDOPE) offre une rigidité et une imprimabilité améliorées généralement obtenues avec le PET."
+                        }
+                    },
+                    "applications": {
+                        "title": "Applications appropriées",
+                        "intro": "Les emballages mono-PE fonctionnent bien pour de nombreux produits :",
+                        "items": [
+                            "Aliments surgelés",
+                            "Collations et chips",
+                            "Nourriture sèche pour animaux",
+                            "Riz et céréales",
+                            "Café (avec EVOH)",
+                            "Noix et fruits secs",
+                            "Granola et céréales",
+                            "Produits de boulangerie",
+                            "Bonbons et confiseries"
+                        ]
+                    },
+                    "recycling": {
+                        "title": "Informations sur le recyclage",
+                        "whereTitle": "Où recycler :",
+                        "options": [
+                            "Programmes de dépôt en magasin – De nombreux grands détaillants acceptent les emballages flexibles en PE",
+                            "Recyclage sélective – Un nombre croissant de municipalités acceptent le PE flexible",
+                            "Programmes Terracycle – Recyclage spécialisé pour les marques"
+                        ],
+                        "note": "Remarque : les infrastructures de recyclage varient selon les régions. We recommend checking local guidelines and communicating proper disposal instructions on packaging."
+                    }
+                },
+                "table": {
+                    "title": "Comparaison mono-PE et stratifié traditionnel",
+                    "headers": [
+                        "Propriété",
+                        "Mono-PE",
+                        "PET/PE traditionnel"
+                    ],
+                    "rows": [
+                        [
+                            "Recyclabilité",
+                            "Flux PE recyclable",
+                            "Généralement non recyclable"
+                        ],
+                        [
+                            "Barrière d'oxygène",
+                            "Bon (avec EVOH)",
+                            "Excellent"
+                        ],
+                        [
+                            "Barrière contre l'humidité",
+                            "Bien",
+                            "Excellent"
+                        ],
+                        [
+                            "Rigidité",
+                            "Bon (avec MDOPE)",
+                            "Excellent"
+                        ],
+                        [
+                            "Coût",
+                            "+5-15%",
+                            "Référence"
+                        ],
+                        [
+                            "Qualité d'impression",
+                            "Très bien",
+                            "Excellent"
+                        ]
+                    ]
+                },
+                "faq": {
+                    "q1": "Le mono-PE est-il vraiment recyclable ?",
+                    "a1": "Oui, les sachets mono-PE sont recyclables dans les filières de recyclage du polyéthylène. Ils sont acceptés dans les points de dépôt en magasin (comme ceux des grands détaillants) et dans certains programmes en bordure de rue. Vérifiez toujours les directives locales de recyclage.",
+                    "q2": "Quel est le niveau barrière du mono-PE ?",
+                    "a2": "Mono-PE offre des propriétés de barrière moyennes adaptées à de nombreux produits secs. Pour les produits nécessitant une barrière plus élevée, nous utilisons du PE enduit d'EVOH qui maintient la recyclabilité tout en améliorant la barrière à l'oxygène. MVTR généralement 1-3 g/m²/24h, OTR 10-30 cc/m²/24h pour le PE standard.",
+                    "q3": "Comment le mono-PE se compare-t-il en termes de coût ?",
+                    "a3": "Les sachets mono-PE coûtent généralement 5 à 15 % de plus que les structures multimatériaux équivalentes en raison des matériaux spécialisés nécessaires pour la barrière. Cependant, l’avantage en matière de durabilité justifie souvent la prime accordée aux marques soucieuses de l’environnement.",
+                    "q4": "Les pochettes mono-PE peuvent-elles être imprimées ?",
+                    "a4": "Oui, les pochettes mono-PE permettent d'obtenir une impression de haute qualité avec jusqu'à 10 couleurs. Nous utilisons des encres et des revêtements spécialisés conçus pour les surfaces PE. Le traitement de surface assure une excellente adhérence de l'encre."
+                },
+                "relatedLinks": {
+                    "link1": {
+                        "title": "Mono-PP recyclable",
+                        "description": "Alternative au polypropylène"
+                    },
+                    "link2": {
+                        "title": "Bio-PE",
+                        "description": "Option PE d'origine végétale"
+                    },
+                    "link3": {
+                        "title": "Compostable",
+                        "description": "Matériaux compostables certifiés"
+                    }
+                }
+            },
+            "recyclableMonoPP": {
+                "title": "Emballage mono-PP recyclable | Pochettes en polypropylène mono-matière",
+                "heroTitle": "Emballage mono-PP recyclable",
+                "heroSubtitle": "Pochettes en polypropylène mono-matériau offrant une résistance à la chaleur et une clarté supérieures. Passe au micro-ondes et recyclable.",
+                "introSummary": "Les emballages mono-PP sont entièrement fabriqués en polypropylène, permettant un recyclage dans les flux PP. Il offre une résistance thermique plus élevée que le PE, idéal pour les applications de remplissage à chaud et micro-ondes.",
+                "ctaTitle": "Passer au Mono-PP Recyclable",
+                "ctaDescription": "Demandez un échantillon gratuit et un devis pour des emballages recyclables résistants à la chaleur.",
+                "ctaButtonText": "Demander un échantillon gratuit",
+                "sections": {
+                    "overview": {
+                        "title": "Qu’est-ce que l’emballage Mono-PP ?",
+                        "intro": "Les emballages Mono-PP (polypropylène mono-matériau) sont entièrement fabriqués à partir de polypropylène, permettant un recyclage dans les filières de recyclage du PP. Le PP offre une plus grande résistance à la chaleur et une meilleure transparence que le PE, ce qui le rend idéal pour des applications spécifiques.",
+                        "keyBenefits": "Avantages clés :",
+                        "benefits": [
+                            "Recyclable en flux PP (code de recyclage #5)",
+                            "Résistance à la chaleur supérieure au PE (jusqu'à 120°C)",
+                            "Meilleure clarté et brillance",
+                            "Bonnes propriétés de rigidité et de barrière",
+                            "Remplissage à chaud et compatible micro-ondes"
+                        ]
+                    },
+                    "vsPe": {
+                        "title": "Mono-PP vs Mono-PE",
+                        "choosePP": "Choisissez Mono-PP Quand :",
+                        "ppReasons": [
+                            "Applications de remplissage à chaud requises",
+                            "Chauffage au micro-ondes nécessaire",
+                            "Haute clarté/brillance importante",
+                            "Meilleure rigidité requise",
+                            "Résistance aux températures plus élevées"
+                        ],
+                        "choosePE": "Choisissez Mono-PE Quand :",
+                        "peReasons": [
+                            "Applications pour aliments surgelés",
+                            "Meilleure résistance aux fissures de flexion",
+                            "Utilisation à basse température",
+                            "Une plus grande acceptation du recyclage",
+                            "Sensibilité aux coûts"
+                        ]
+                    },
+                    "applications": {
+                        "title": "Applications idéales",
+                        "intro": "Le Mono-PP est particulièrement adapté pour :",
+                        "items": [
+                            "Sauces à chaud",
+                            "Plats allant au micro-ondes",
+                            "Collations et chips",
+                            "Confiserie",
+                            "Plats cuisinés",
+                            "Pâtes fraîches",
+                            "Produits de charcuterie",
+                            "Produits de boulangerie",
+                            "Emballage à fenêtre transparente"
+                        ]
+                    },
+                    "specifications": {
+                        "title": "Spécifications techniques",
+                        "specs": [
+                            "Résistance à la température : Jusqu'à 120°C (248°F)",
+                            "Capacité de remplissage à chaud : remplissage à 85°C (185°F)",
+                            "Passe au micro-ondes : Oui (pas d'aluminium)",
+                            "Clarté : supérieure à PE",
+                            "MVTR : 2-5 g/m²/24h",
+                            "OTR : 1000-2000 cc/m²/24h (amélioré avec EVOH)"
+                        ]
+                    }
+                },
+                "faq": {
+                    "q1": "Le mono-PP est-il recyclable partout ?",
+                    "a1": "Le recyclage du PP (#5) est moins largement disponible que le recyclage du PE. Cependant, les infrastructures de recyclage du PP se développent. De nombreux programmes de dépôt en magasin et un nombre croissant de programmes en bordure de rue acceptent les PP. Vérifiez toujours les directives locales.",
+                    "q2": "Les sachets mono-PP peuvent-ils être passés au micro-ondes ?",
+                    "a2": "Oui, les sachets mono-PP peuvent être passés au micro-ondes en toute sécurité car le PP résiste à la chaleur jusqu'à 120°C. Cela les rend idéaux pour les plats cuisinés et les produits allant au micro-ondes. La pochette ne doit contenir aucune métallisation.",
+                    "q3": "Quelles propriétés barrières le mono-PP offre-t-il ?",
+                    "a3": "Le mono-PP standard a des propriétés barrières modérées. Pour une meilleure barrière à l'oxygène, nous utilisons du PP avec une couche barrière EVOH (en gardant la teneur en PP > 95 % pour la recyclabilité) ou des revêtements barrière.",
+                    "q4": "Quel est le coût du mono-PP par rapport au mono-PE ?",
+                    "a4": "Le mono-PP est généralement 5 à 10 % plus cher que le mono-PE en raison du coût des matériaux. Cependant, les avantages en matière de résistance à la chaleur et de clarté justifient cela pour des applications appropriées."
+                },
+                "relatedLinks": {
+                    "link1": {
+                        "title": "Mono-PE recyclable",
+                        "description": "Option recyclable à base de PE"
+                    },
+                    "link2": {
+                        "title": "Compostable",
+                        "description": "Matériaux compostables certifiés"
+                    },
+                    "link3": {
+                        "title": "Pochettes verticales",
+                        "description": "Format de pochette populaire"
+                    }
+                }
+            },
+            "bioPE": {
+                "title": "Emballage Bio-PE | Sachets durables à base de canne à sucre",
+                "heroTitle": "Emballage à base de plantes Bio-PE",
+                "heroSubtitle": "Polyéthylène fabriqué à partir de canne à sucre renouvelable. Mêmes performances, empreinte carbone réduite, entièrement recyclable.",
+                "introSummary": "Le Bio-PE est un polyéthylène fabriqué à partir de canne à sucre renouvelable au lieu de combustibles fossiles. Il offre des performances identiques au PE classique tout en captant le carbone lors de la production. Le Bio-PE est entièrement recyclable dans les flux de PE standards et certifié par le programme I'm green™ de Braskem.",
+                "ctaTitle": "Passer au Bio-PE",
+                "ctaDescription": "Demandez un échantillon gratuit et un devis pour un emballage à base de plantes.",
+                "ctaButtonText": "Demander un échantillon gratuit",
+                "sections": {
+                    "overview": {
+                        "title": "Qu’est-ce que le Bio-PE ?",
+                        "intro": "Le bio-PE (polyéthylène biosourcé) est chimiquement identique au PE conventionnel mais fabriqué à partir de sources végétales renouvelables comme la canne à sucre au lieu de combustibles fossiles. Il offre les mêmes performances que le PE traditionnel tout en réduisant l'empreinte carbone.",
+                        "keyBenefits": "Avantages clés :",
+                        "benefits": [
+                            "Fabriqué à partir de canne à sucre renouvelable (jusqu'à 95 % d'origine biologique)",
+                            "Production de matières premières à bilan carbone négatif",
+                            "Mêmes performances que le PE conventionnel",
+                            "Recyclable dans les flux PE existants",
+                            "Je suis vert™ certifié par Braskem"
+                        ]
+                    },
+                    "howItWorks": {
+                        "title": "Comment est fabriqué le Bio-PE",
+                        "step1": "Croissance de la canne à sucre",
+                        "step1Desc": "La canne à sucre absorbe le CO2 de l'atmosphère lors de sa croissance",
+                        "step2": "Production d'éthanol",
+                        "step2Desc": "La canne à sucre est fermentée pour produire du bioéthanol",
+                        "step3": "Conversion d'éthylène",
+                        "step3Desc": "Le bioéthanol est déshydraté pour créer du bioéthylène",
+                        "step4": "Polymérisation",
+                        "step4Desc": "Le bioéthylène est polymérisé en bio-PE (chimiquement identique au PE fossile)"
+                    },
+                    "carbon": {
+                        "title": "Avantages du carbone",
+                        "comparisonTitle": "Comparaison de l'empreinte carbone :",
+                        "items": [
+                            "Bio-PE : capture environ 3,09 kg de CO2 par kg de PE produit",
+                            "PE fossile : émet ~1,8 kg de CO2 par kg de PE produit",
+                            "Différence nette : ~4,9 kg de CO2 par kg de matériau"
+                        ],
+                        "note": "Ce calcul est basé sur la culture de la canne à sucre absorbant le CO2, qui est capté dans le bio-PE. Les analyses de cycle de vie confirment le caractère carbone négatif de la production de bio-PE."
+                    },
+                    "applications": {
+                        "title": "Applications appropriées",
+                        "intro": "Bio-PE fonctionne pour toute application où le PE conventionnel est utilisé :",
+                        "items": [
+                            "Emballage alimentaire",
+                            "Sachets de boissons",
+                            "Soins personnels",
+                            "Produits ménagers",
+                            "Sacs de nourriture pour animaux",
+                            "Emballage de collations",
+                            "Aliments surgelés",
+                            "Films agricoles",
+                            "Sacs à provisions"
+                        ]
+                    },
+                    "recycling": {
+                        "title": "Recyclabilité",
+                        "distinctionTitle": "Distinction importante :",
+                        "distinction": "Le Bio-PE n'est PAS compostable. Il est chimiquement identique au PE fossile et ne se décompose pas dans des conditions de compostage. Le « bio » fait référence à son origine renouvelable, et non à son comportement en fin de vie.",
+                        "info": "Le Bio-PE est entièrement recyclable dans les flux de recyclage de PE standard (#2 et #4). Il peut être mélangé sans problème avec du PE fossile dans les processus de recyclage."
+                    }
+                },
+                "faq": {
+                    "q1": "Le Bio-PE est-il compostable ?",
+                    "a1": "Non, le Bio-PE n'est pas compostable. Il est chimiquement identique au PE conventionnel. Le « bio » fait référence à son origine végétale renouvelable, et non à sa fin de vie. Le Bio-PE est recyclable dans les flux de recyclage de PE standard.",
+                    "q2": "Quel est le bénéfice carbone du Bio-PE ?",
+                    "a2": "La canne à sucre absorbe le CO2 au fur et à mesure de sa croissance, ce qui rend la production de Bio-PE négative en carbone. Chaque tonne de Bio-PE capture environ 3,09 tonnes de CO2 de l'atmosphère, par rapport au PE fossile qui émet environ 1,8 tonne de CO2 par tonne produite.",
+                    "q3": "Le Bio-PE fonctionne-t-il de la même manière que le PE ordinaire ?",
+                    "a3": "Oui, le Bio-PE possède des propriétés identiques au PE d'origine fossile, notamment la température de thermoscellage, les propriétés barrières, la flexibilité et les caractéristiques d'impression. Il s'agit d'un remplacement direct.",
+                    "q4": "Combien coûte le Bio-PE par rapport au PE conventionnel ?",
+                    "a4": "Le bio-PE coûte généralement 15 à 30 % de plus que le PE fossile en raison de l’échelle de production et des coûts des matières premières. Cependant, les prix continuent de baisser à mesure que la capacité de production augmente.",
+                    "q5": "Quel pourcentage de contenu biosourcé est disponible ?",
+                    "a5": "Nous pouvons proposer des sachets Bio-PE contenant jusqu'à 95 % de contenu biosourcé. Pour les structures multicouches, le pourcentage de biosourcé dépend des couches utilisant du Bio-PE. Les options typiques sont 30 %, 50 % ou 95 % d’origine biologique."
+                },
+                "relatedLinks": {
+                    "link1": {
+                        "title": "Mono-PE recyclable",
+                        "description": "Emballage recyclable mono-matériau"
+                    },
+                    "link2": {
+                        "title": "Emballage PCR",
+                        "description": "Contenu recyclé post-consommation"
+                    },
+                    "link3": {
+                        "title": "Compostable",
+                        "description": "Options compostables certifiées"
+                    }
+                }
+            },
+            "pcr": {
+                "title": "Emballage PCR | Pochettes flexibles recyclées post-consommation",
+                "heroTitle": "Emballage à contenu recyclé PCR",
+                "heroSubtitle": "Emballage flexible avec 30 à 100 % de contenu recyclé post-consommation. Soutenir l’économie circulaire tout en maintenant la qualité.",
+                "introSummary": "L'emballage PCR intègre du plastique recyclé à partir de déchets de consommation, réduisant ainsi l'utilisation de plastique vierge et soutenant les objectifs d'économie circulaire. Nos sachets PCR sont certifiés GRS, approuvés par la FDA pour le contact alimentaire et disponibles en contenu recyclé à 30 %, 50 % ou 100 %.",
+                "ctaTitle": "Passer au conditionnement PCR",
+                "ctaDescription": "Demandez un échantillon gratuit et un devis pour des emballages à contenu recyclé.",
+                "ctaButtonText": "Demander un échantillon gratuit",
+                "sections": {
+                    "overview": {
+                        "title": "Qu’est-ce que l’emballage PCR ?",
+                        "intro": "Les emballages PCR (Post-Consumer Recycled) contiennent du plastique recyclé à partir des flux de déchets de consommation. En incorporant du contenu recyclé, les marques réduisent l'utilisation de plastique vierge et soutiennent l'économie circulaire.",
+                        "keyBenefits": "Avantages clés :",
+                        "benefits": [
+                            "Réduit la consommation de plastique vierge",
+                            "Soutient l’économie circulaire et les infrastructures de recyclage",
+                            "Empreinte carbone inférieure à celle du plastique vierge",
+                            "Maintient d’excellentes performances d’emballage",
+                            "Certifié GRS (Global Recycled Standard) disponible"
+                        ]
+                    },
+                    "contentLevels": {
+                        "title": "Niveaux de contenu du PCR",
+                        "intro": "Nous proposons différents niveaux de contenu PCR pour répondre à vos objectifs de développement durable :",
+                        "level30": {
+                            "title": "Niveau d'entrée",
+                            "desc": "Bon point de départ pour l’adoption du RAP. Impact minimal sur l'apparence."
+                        },
+                        "level50": {
+                            "title": "Recommandée",
+                            "desc": "Approche équilibrée. Impact significatif sur la durabilité avec de bonnes performances."
+                        },
+                        "level100": {
+                            "title": "Maximum",
+                            "desc": "Pour les marques privilégiant un maximum de contenu recyclé. Quelques variations optiques."
+                        }
+                    },
+                    "foodSafety": {
+                        "title": "Sécurité et qualité des aliments",
+                        "intro": "Nos matériaux PCR répondent à des exigences strictes en matière de sécurité alimentaire :",
+                        "items": [
+                            "Approuvé par la FDA pour le contact alimentaire (21 CFR 177)",
+                            "Conforme à l'EFSA pour les marchés européens",
+                            "PCR super-nettoyée – Processus de décontamination avancé",
+                            "Traçabilité – Flux sources connus, généralement du PET/PE de qualité alimentaire",
+                            "Tests – Tests de migration et tests de défi effectués"
+                        ],
+                        "note": "Nous utilisons des technologies de recyclage mécaniques et avancées pour garantir que les matériaux PCR répondent aux exigences de sécurité en matière de contact alimentaire."
+                    },
+                    "certifications": {
+                        "title": "Certifications",
+                        "grs": {
+                            "title": "Certifié GRS",
+                            "desc": "La certification Global Recycled Standard vérifie le contenu recyclé et suit les matériaux tout au long de la chaîne d'approvisionnement."
+                        },
+                        "scs": {
+                            "title": "Vérifié SCS",
+                            "desc": "Vérification SCS Global Services pour les allégations de contenu recyclé et l'impact environnemental."
+                        }
+                    },
+                    "applications": {
+                        "title": "Applications appropriées",
+                        "items": [
+                            "Snacks",
+                            "Nourriture pour animaux",
+                            "Café et thé",
+                            "Soins personnels",
+                            "Produits ménagers",
+                            "Aliments surgelés",
+                            "Produits secs",
+                            "Mailers de commerce électronique",
+                            "Applications non alimentaires"
+                        ]
+                    }
+                },
+                "table": {
+                    "title": "Comparaison du contenu PCR",
+                    "headers": [
+                        "Niveau PCR",
+                        "Impact sur l'apparence",
+                        "Coût Prime",
+                        "Réduction du carbone"
+                    ],
+                    "rows": [
+                        [
+                            "30% PCR",
+                            "Minimale",
+                            "+10-12%",
+                            "~20-25%"
+                        ],
+                        [
+                            "50% PCR",
+                            "Légère",
+                            "+15-18%",
+                            "~35-40%"
+                        ],
+                        [
+                            "100 % PCR",
+                            "Perceptible",
+                            "+20-25%",
+                            "~70-80%"
+                        ]
+                    ]
+                },
+                "faq": {
+                    "q1": "Les emballages PCR pour les aliments sont-ils sûrs ?",
+                    "a1": "Oui, nos matériaux PCR sont approuvés par la FDA pour le contact alimentaire. Le contenu recyclé est soumis à une décontamination avancée (super-nettoyage) et à des tests rigoureux pour répondre aux normes de sécurité alimentaire, y compris des tests de migration.",
+                    "q2": "La PCR affecte-t-elle la qualité d’impression ?",
+                    "a2": "Le PCR peut avoir des propriétés optiques légèrement différentes (légère brume ou variation de couleur) par rapport au plastique vierge. Avec une teneur en PCR de 30 à 50 %, l'impact sur la qualité d'impression est minime. Nous recommandons des échantillons pour évaluer l’apparence de votre application.",
+                    "q3": "Quelle est la source de votre PCR ?",
+                    "a3": "Notre PCR provient de flux de déchets post-consommation établis, principalement des bouteilles en PET de qualité alimentaire et des emballages en PE. Nous travaillons avec des recycleurs certifiés qui assurent une traçabilité complète et utilisent des procédés avancés de tri et de nettoyage.",
+                    "q4": "Combien coûte un emballage PCR ?",
+                    "a4": "Le PCR coûte généralement 10 à 20 % de plus que le plastique vierge, bien que les prix fluctuent en fonction de la disponibilité des matières premières recyclées. La prime soutient le développement des infrastructures de recyclage et reflète le traitement supplémentaire requis.",
+                    "q5": "Les pochettes PCR peuvent-elles encore être recyclées ?",
+                    "a5": "Oui, les pochettes PCR peuvent à nouveau être recyclées, poursuivant ainsi la boucle de l’économie circulaire. La recyclabilité dépend de la structure globale du sachet (mono-matériau ou multicouche) plutôt que du contenu PCR lui-même."
+                },
+                "relatedLinks": {
+                    "link1": {
+                        "title": "Mono-PE recyclable",
+                        "description": "Option recyclable mono-matériau"
+                    },
+                    "link2": {
+                        "title": "Bio-PE",
+                        "description": "Alternative végétale"
+                    },
+                    "link3": {
+                        "title": "Compostable",
+                        "description": "Emballage certifié compostable"
+                    }
+                }
+            },
+            "standUpPouches": {
+                "title": "Pochettes stand-up | Solutions d'emballage flexibles",
+                "heroTitle": "Pochettes stand-up personnalisées",
+                "heroSubtitle": "Emballage flexible haut de gamme avec une excellente présence en rayon. Disponible avec fermetures à glissière, curseur, bec ou valve. Options compostables et recyclables.",
+                "introSummary": "Les sachets stand-up (SUP) combinent la rentabilité d'un emballage flexible avec une excellente présence dans les rayons des magasins de détail. Achieve Pack propose des SUP imprimés personnalisés avec des fermetures refermables, des matériaux à haute barrière et des options durables, notamment des structures certifiées compostables et recyclables. MOQ à partir de 500 unités."
+            },
+            "flatBottomBags": {
+                "title": "Sacs à fond plat | Emballage en pochette",
+                "heroTitle": "Sacs à fond plat",
+                "heroSubtitle": "Pochettes de style boîte haut de gamme avec base rectangulaire stable et marquage à 5 panneaux. Le choix pour les cafés de spécialité, les aliments haut de gamme et les produits pour animaux de compagnie.",
+                "introSummary": "Les sacs à fond plat (pochettes à fond de boîte) offrent une stabilité maximale en rayon et une apparence haut de gamme avec 5 panneaux imprimables. Parfait pour les spécialités de café, les aliments pour animaux et les produits nécessitant une présentation haut de gamme au détail."
+            },
+            "spoutPouches": {
+                "title": "Pochettes à bec | Solutions d'emballage de liquides",
+                "heroTitle": "Pochettes à bec",
+                "heroSubtitle": "Sachets souples avec becs verseurs pour liquides, purées, sauces et boissons. L'alternative pratique et durable aux bouteilles rigides.",
+                "introSummary": "Les sachets à bec verseur allient l'efficacité de l'emballage flexible à la fonctionnalité des bouteilles. Ils utilisent 70 % moins de plastique que les contenants rigides tout en offrant une distribution facile et une commodité de refermeture. Parfait pour les aliments pour bébés, les sauces, les boissons et les recharges."
+            },
+            "vacuumPouches": {
+                "title": "Pochettes sous vide | Emballage à durée de conservation prolongée",
+                "heroTitle": "Pochettes sous vide",
+                "heroSubtitle": "Emballage sous vide haute barrière pour une durée de conservation prolongée. Protégez la viande, les fruits de mer, le fromage et les produits spécialisés de l'oxydation et des brûlures de congélation.",
+                "introSummary": "Les sachets sous vide prolongent la durée de conservation du produit de 3 à 5 fois en éliminant l'oxygène avant de les sceller. Nos sachets haute barrière protègent contre l’oxydation, l’humidité et la contamination. Disponible pour les machines à chambre et sous vide externe, y compris les applications sous vide et cornue."
+            },
+            "flatPouches": {
+                "title": "Pochettes plates | Sacs scellés sur trois côtés",
+                "heroTitle": "Pochettes plates",
+                "heroSubtitle": "Sachets scellés sur trois côtés simples et économiques pour diverses applications.",
+                "introSummary": "Les sachets plats constituent l'option d'emballage flexible la plus économique, idéale pour les échantillons, les sachets et les produits légers."
+            },
+            "sideGussetBags": {
+                "title": "Sacs à soufflet latéraux | Emballage à grand volume",
+                "heroTitle": "Sacs à soufflet latéraux",
+                "heroSubtitle": "Sacs à soufflets traditionnels avec côtés extensibles pour une grande capacité. Le choix classique pour le café, le thé et les produits en vrac.",
+                "introSummary": "Les sacs à soufflets latéraux (sacs à quatre joints) comportent des panneaux latéraux extensibles qui offrent une capacité de volume élevée dans un format compact. Populaire pour le café, le thé, les céréales et les produits en vrac. Disponible avec des options d’attache en étain, de fermeture à glissière et de valve de dégazage."
+            },
+            "coffeeTea": {
+                "title": "Emballage de café et de thé | Sachets barrière aromatique",
+                "heroTitle": "Emballage de café et de thé",
+                "heroSubtitle": "Emballage spécialisé avec vannes de dégazage et haute barrière pour une fraîcheur maximale.",
+                "introSummary": "Nos emballages de café et de thé comportent des barrières spécialisées pour protéger l'arôme et la fraîcheur, avec des vannes de dégazage en option pour le café fraîchement torréfié."
+            },
+            "snacksFood": {
+                "title": "Snacks et emballages alimentaires | Sachets alimentaires flexibles",
+                "heroTitle": "Snacks et emballages alimentaires durables",
+                "heroSubtitle": "Sachets écologiques de qualité supérieure pour chips, noix, fruits secs, viandes séchées et confiseries. Protection haute barrière avec des matériaux durables.",
+                "introSummary": "Achieve Pack fournit des emballages certifiés compostables et recyclables pour l'industrie des snacks. Nos pochettes offrent une protection haute barrière, des fermetures refermables et une impression personnalisée éclatante. Parfait pour les chips, les noix, les fruits secs, la viande séchée, le granola et les produits de confiserie."
+            },
+            "petFood": {
+                "title": "Emballage alimentaire pour animaux | Pochettes de friandises durables pour animaux de compagnie",
+                "heroTitle": "Emballage durable d'aliments et de friandises pour animaux de compagnie",
+                "heroSubtitle": "Sachets écologiques de qualité supérieure pour aliments pour chiens, aliments pour chats, friandises pour animaux de compagnie et suppléments. Matériaux robustes, refermables et sans danger pour les animaux.",
+                "introSummary": "Achieve Pack fournit des emballages certifiés compostables et recyclables pour l'industrie des aliments pour animaux de compagnie. Nos sachets sont dotés d'une construction robuste pour des croquettes denses, de films à haute barrière pour la fraîcheur et de matériaux sans danger pour les animaux et conformes à la FDA. Disponible depuis les friandises en portion individuelle jusqu'aux formats en vrac de plus de 10 kg."
+            },
+            "supplements": {
+                "title": "Emballage des suppléments | Sachets de poudre et de vitamines",
+                "heroTitle": "Emballage des suppléments",
+                "heroSubtitle": "Emballage haute barrière pour suppléments, poudres et nutraceutiques.",
+                "introSummary": "L’emballage des suppléments nécessite d’excellentes barrières contre l’humidité et l’oxygène pour maintenir la puissance et l’intégrité du produit."
+            },
+            "supplementsPowders": {
+                "title": "Suppléments et emballages de poudre | Sachets de protéines, de superaliments et de nutrition sportive",
+                "heroTitle": "Suppléments et emballages en poudre",
+                "heroSubtitle": "Sachets durables à haute barrière pour protéines, superaliments, collagène et nutrition sportive. Protégez la puissance tout en soutenant vos objectifs de développement durable.",
+                "introSummary": "Achieve Pack fournit un emballage flexible haut de gamme pour l'industrie des suppléments. Nos sachets à haute barrière protègent les poudres sensibles à l'humidité de la dégradation, avec des options comprenant des matériaux certifiés compostables, recyclables et conformes à la FDA. Des packs de sticks en portion individuelle aux sacs en vrac de 5 kg."
+            },
+            "babyFood": {
+                "title": "Emballages alimentaires pour bébés | Pochettes de nutrition infantile sûres",
+                "heroTitle": "Emballages alimentaires pour bébés",
+                "heroSubtitle": "Emballage sans danger pour les enfants avec options de bec verseur pour une alimentation pratique.",
+                "introSummary": "Les emballages alimentaires pour bébés répondent aux normes de sécurité les plus élevées avec des caractéristiques de sécurité enfants et des matériaux sans danger pour les aliments."
+            },
+            "frozenFood": {
+                "title": "Emballages alimentaires surgelés | Pochettes résistantes au froid",
+                "heroTitle": "Emballage d'aliments surgelés",
+                "heroSubtitle": "Emballage durable conçu pour résister aux températures glaciales sans se fissurer.",
+                "introSummary": "Les emballages de produits alimentaires surgelés conservent leur flexibilité et leur intégrité d’étanchéité à basse température tout en protégeant contre les brûlures de congélation."
+            },
+            "saucesCondiments": {
+                "title": "Emballage Sauces & Condiments | Pochettes résistantes aux liquides",
+                "heroTitle": "Emballage de sauces et condiments",
+                "heroSubtitle": "Sachets à bec flexible, recharges et sachets pour sauces, condiments, huiles et pâtes à tartiner. Pratique, durable et personnalisable.",
+                "introSummary": "Achieve Pack propose des solutions d'emballage flexibles pour les produits alimentaires liquides et semi-liquides. Nos pochettes à bec verseur offrent une distribution pratique tandis que les recharges réduisent l'utilisation de plastique de 80 % par rapport aux bouteilles."
+            },
+            "digitalPrinting": {
+                "title": "Impression numérique | Impression de pochettes personnalisées à faible MOQ",
+                "heroTitle": "Impression numérique",
+                "heroSubtitle": "Impression numérique de haute qualité sans minimum de commande et couleurs illimitées.",
+                "introSummary": "L'impression numérique permet des impressions de qualité photographique sans frais de plaque, ce qui est parfait pour les petits lots et plusieurs SKU."
+            },
+            "platePrinting": {
+                "title": "Impression de plaques | Impression hélio et flexographie",
+                "heroTitle": "Impression de plaques",
+                "heroSubtitle": "Impression sur plaques traditionnelle pour des commandes volumineuses avec une qualité constante.",
+                "introSummary": "L’héliogravure et la flexographie fournissent des résultats cohérents et de haute qualité pour les grandes séries avec une excellente précision des couleurs.",
+                "sections": {
+                    "overview": "Impression sur plaque hélio pour les commandes de gros volumes",
+                    "technology": "Technologie d'impression par héliogravure",
+                    "applications": "Meilleures applications",
+                    "finishes": "Options de finition haut de gamme",
+                    "order": "Informations sur la commande"
+                }
+            },
+            "reclosureOptions": {
+                "title": "Options de refermeture | Caractéristiques zippées et refermables.",
+                "heroTitle": "Options de refermeture",
+                "heroSubtitle": "Diverses solutions refermables, notamment des fermetures éclair, des becs verseurs et des fonctions de fermeture par pression.",
+                "introSummary": "Les options de refermeture aident à maintenir la fraîcheur du produit après ouverture et ajoutent de la commodité aux consommateurs."
+            },
+            "surfaceFinish": {
+                "title": "Finitions de surfaces | Mat, brillant et effets spéciaux",
+                "heroTitle": "Finitions de surface",
+                "heroSubtitle": "Finitions haut de gamme comprenant des effets mats, brillants, doux au toucher et métalliques.",
+                "introSummary": "Les finitions de surface améliorent l'attrait tactile et visuel de l'emballage, créant ainsi des expériences de déballage mémorables."
+            },
+            "barrierOptions": {
+                "title": "Options de barrière | Protection contre l'humidité et l'oxygène",
+                "heroTitle": "Options de barrière",
+                "heroSubtitle": "Plusieurs niveaux de barrière allant de la protection faible à la protection maximale pour différents produits.",
+                "introSummary": "Les propriétés barrières protègent les produits de l’humidité, de l’oxygène, de la lumière et des odeurs pour maintenir la fraîcheur et prolonger la durée de conservation."
+            }
         }
     }
 }

@@ -420,6 +420,43 @@
         "brand": "Achieve Pack",
         "tagline": "Liderando la revolución del embalaje sostenible con soluciones ecológicas certificadas para empresas de todo el mundo.",
         "copyright": "© 2025 Achieve Pack. Todos los derechos reservados.",
+        "certified": "Certificado",
+        "materials": "Materiales",
+        "options": "Opciones",
+        "industries": "Industrias",
+        "support": "Soporte",
+        "quickContact": "Contacto Rápido",
+        "termsConditions": "Términos y Condiciones",
+        "privacyPolicy": "Política de Privacidad",
+        "shippingPolicy": "Política de Envío",
+        "contactUs": "Contáctenos",
+        "links": {
+            "standUpPouches": "Bolsas Stand-Up",
+            "flatBottomBags": "Bolsas de Fondo Plano",
+            "spoutPouches": "Bolsas con Boquilla",
+            "vacuumPouches": "Bolsas al Vacío",
+            "flatPouches": "Bolsas Planas",
+            "sideGussetBags": "Bolsas con Fuelle",
+            "compostable": "Compostable",
+            "homeCompostable": "Compostable Hogar",
+            "industrialCompostable": "Compostable Industrial",
+            "recyclableMonoPE": "Mono-PE Reciclable",
+            "recyclableMonoPP": "Mono-PP Reciclable",
+            "bioPE": "Bio-PE",
+            "pcrRecycled": "PCR Reciclado",
+            "digitalPrinting": "Impresión Digital",
+            "platePrinting": "Impresión en Placa",
+            "reclosureOptions": "Opciones de Recierre",
+            "surfaceFinishes": "Acabados Superficiales",
+            "barrierOptions": "Opciones de Barrera",
+            "coffeeTea": "Café y Té",
+            "snacksFood": "Snacks y Alimentos",
+            "petFood": "Alimento para Mascotas",
+            "supplements": "Suplementos",
+            "babyFood": "Alimento para Bebés",
+            "frozenFood": "Congelados",
+            "saucesCondiments": "Salsas y Condimentos"
+        },
         "products": {
             "title": "Productos",
             "compostable": "Embalaje compostable",
@@ -633,10 +670,22 @@
                 "tolerance": "Tolerancia",
                 "notes": "Notas"
             },
-            "kraft": { "name": "Papel Kraft", "note": "Más opaco debido a la absorción" },
-            "white": { "name": "Papel Blanco", "note": "Colores vibrantes" },
-            "plastic": { "name": "Plástico/Laminado", "note": "Alta fidelidad" },
-            "specialty": { "name": "Materiales Especiales", "note": "Varía según el material" },
+            "kraft": {
+                "name": "Papel Kraft",
+                "note": "Más opaco debido a la absorción"
+            },
+            "white": {
+                "name": "Papel Blanco",
+                "note": "Colores vibrantes"
+            },
+            "plastic": {
+                "name": "Plástico/Laminado",
+                "note": "Alta fidelidad"
+            },
+            "specialty": {
+                "name": "Materiales Especiales",
+                "note": "Varía según el material"
+            },
             "sample": "Muestra proporcionada para confirmación con costo."
         },
         "quantity": {
@@ -676,6 +725,398 @@
             "signature": "Firma",
             "date": "Fecha",
             "contact": "Para consultas o aclaraciones, contacte a ACHIEVE PACK en"
+        }
+    },
+    "seoPages": {
+        "backToHome": "Volver a Inicio",
+        "quickSummary": "Resumen rápido",
+        "contents": "Contenido",
+        "faq": "Preguntas frecuentes",
+        "relatedResources": "Recursos relacionados",
+        "emailUs": "Envíenos un correo electrónico",
+        "bookMeeting": "Reservar reunión",
+        "getQuote": "Obtenga una cotización gratuita",
+        "readyToStart": "¿Listo para empezar?",
+        "contactExperts": "Póngase en contacto con nuestros expertos en embalaje para una consulta y cotización gratuitas.",
+        "footer": {
+            "products": "Productos",
+            "materials": "Materiales",
+            "options": "Opciones",
+            "industries": "Industrias",
+            "termsConditions": "Términos y condiciones",
+            "privacyPolicy": "política de privacidad",
+            "shippingPolicy": "Política de envío",
+            "copyright": "Reservados todos los derechos.",
+            "tagline": "Su socio de confianza para soluciones de embalaje flexible ecológicas.",
+            "links": {
+                "standUpPouches": "Bolsas de pie",
+                "flatBottomBags": "Bolsas de fondo plano",
+                "spoutPouches": "Bolsas con pico",
+                "vacuumPouches": "Bolsas de vacío",
+                "flatPouches": "Bolsas planas",
+                "sideGussetBags": "Bolsas con fuelle lateral",
+                "compostable": "Compostable",
+                "homeCompostable": "Compostable en casa",
+                "industrialCompostable": "Compostables Industriales",
+                "recyclableMonoPE": "Mono-PE reciclable",
+                "bioPE": "Bio-PE",
+                "pcrRecycled": "PCR Reciclado",
+                "digitalPrinting": "Impresión Digital",
+                "platePrinting": "Impresión de planchas",
+                "reclosureOptions": "Opciones de recierre",
+                "surfaceFinishes": "Acabados superficiales",
+                "barrierOptions": "Opciones de barrera",
+                "coffeeTea": "Café y té",
+                "snacksFood": "Aperitivos y comida",
+                "petFood": "Comida y golosinas para mascotas",
+                "supplements": "Suplementos",
+                "babyFood": "comida para bebe",
+                "frozenFood": "comida congelada",
+                "saucesCondiments": "Salsas y Condimentos"
+            }
+        },
+        "pages": {
+            "compostable": {
+                "title": "Embalajes compostables | Bolsas certificadas EN 13432 y ASTM D6400",
+                "description": "Envases flexibles compostables certificados elaborados a partir de papel kraft, PLA y celulosa. Certificado EN 13432 y ASTM D6400. Se descompone en 90-180 días. Materiales de origen vegetal aptos para alimentos.",
+                "heroTitle": "Embalaje compostable certificado",
+                "heroSubtitle": "Envases de origen vegetal y aptos para alimentos que regresan a la tierra. Certificado según las normas EN 13432 y ASTM D6400. La elección sostenible para marcas con conciencia ecológica.",
+                "introSummary": "Los envases compostables certificados de Achieve Pack están hechos de materiales renovables de origen vegetal, incluidos papel kraft y PLA. Nuestras bolsas se descomponen en 90-180 días en el compostaje comercial, sin dejar microplásticos ni residuos tóxicos. Certificado según las normas EN 13432 (UE) y ASTM D6400 (EE. UU.), con documentación proporcionada.",
+                "ctaTitle": "Cambie a envases compostables",
+                "ctaDescription": "Solicite una muestra gratuita para ver y sentir nuestros materiales compostables certificados.",
+                "ctaButtonText": "Obtenga una muestra gratis",
+                "sections": {
+                    "overview": {
+                        "title": "¿Qué es el embalaje compostable?",
+                        "intro": "Los envases compostables están diseñados para descomponerse en elementos naturales en un entorno de compostaje, sin dejar residuos tóxicos. A diferencia de los plásticos convencionales que persisten durante siglos, los materiales compostables certificados se descomponen en un plazo de 90 a 180 días en instalaciones de compostaje comerciales.",
+                        "keyFacts": "Datos clave sobre los envases compostables:",
+                        "fact1": "Se descompone en 90-180 días en el compostaje comercial.",
+                        "fact2": "Hecho de materiales renovables de origen vegetal (PLA, celulosa)",
+                        "fact3": "No deja microplásticos ni residuos tóxicos.",
+                        "fact4": "Certificado según estándares internacionales (EN 13432, ASTM D6400)",
+                        "fact5": "Adecuado para aplicaciones en contacto con alimentos",
+                        "marketInfo": "Según la Asociación Europea de Bioplásticos, se prevé que el mercado mundial de envases compostables alcance los 23.700 millones de dólares para 2030, creciendo a una tasa compuesta anual del 17,4% a medida que las marcas se alejan de los plásticos convencionales."
+                    },
+                    "materials": {
+                        "title": "Tipos de materiales compostables",
+                        "intro": "Ofrecemos varias estructuras de material compostable certificado:",
+                        "kraftPla": {
+                            "title": "Papel Kraft + PLA",
+                            "desc": "Exterior de papel kraft natural con capa interior de PLA (ácido poliláctico). Excelente para café, té, snacks y productos secos.",
+                            "feature1": "Propiedades de barrera media",
+                            "feature2": "Aspecto natural y terroso.",
+                            "feature3": "Home compostable en algunas condiciones."
+                        },
+                        "whiteKraftPla": {
+                            "title": "Kraft blanca + PLA",
+                            "desc": "Papel kraft blanqueado para colores de impresión más brillantes y una apariencia premium, con barrera PLA.",
+                            "feature1": "Mejor calidad de impresión",
+                            "feature2": "Estética limpia y moderna.",
+                            "feature3": "Se requiere compostaje comercial"
+                        },
+                        "natureFlex": {
+                            "title": "Películas NatureFlex™",
+                            "desc": "Film transparente a base de celulosa para embalajes y ventanas transparentes.",
+                            "feature1": "Transparencia cristalina",
+                            "feature2": "Buena barrera contra la humedad",
+                            "feature3": "Compostable doméstico y comercial"
+                        },
+                        "pbatPla": {
+                            "title": "Mezclas PBAT/PLA",
+                            "desc": "Películas compostables de alto rendimiento para requisitos de barrera exigentes.",
+                            "feature1": "Propiedades de barrera mejoradas",
+                            "feature2": "Sellable térmicamente",
+                            "feature3": "Solo compostaje comercial"
+                        }
+                    },
+                    "certifications": {
+                        "title": "Certificaciones de compostabilidad",
+                        "intro": "Nuestros envases compostables están certificados según estándares internacionales:",
+                        "eu": {
+                            "label": "UE",
+                            "title": "EN 13432",
+                            "desc": "Norma europea para envases compostables. Requiere una desintegración del 90% en 12 semanas y una biodegradación completa en 6 meses en compostaje industrial."
+                        },
+                        "us": {
+                            "label": "NOSOTRAS",
+                            "title": "Norma ASTM D6400",
+                            "desc": "Estándar estadounidense para plásticos diseñados para instalaciones de compostaje aeróbico municipal/industrial. Ensayos equivalentes a EN 13432."
+                        },
+                        "au": {
+                            "label": "AU",
+                            "title": "COMO 4736 / COMO 5810",
+                            "desc": "Estándares australianos para compostabilidad comercial (AS 4736) y compostabilidad doméstica (AS 5810)."
+                        },
+                        "note": "Proporcionamos documentación de certificación con cada pedido. Nuestros materiales son probados por laboratorios acreditados, incluidos TÜV Austria, DIN CERTCO y BPI."
+                    },
+                    "applications": {
+                        "title": "Aplicaciones de productos",
+                        "intro": "Los envases compostables son ideales para marcas comprometidas con la sostenibilidad:",
+                        "items": [
+                            "Café de especialidad",
+                            "Té orgánico",
+                            "Bocadillos de comida saludable",
+                            "granola orgánica",
+                            "Golosinas naturales para mascotas",
+                            "Polvos de superalimentos",
+                            "frutos secos",
+                            "chocolates artesanos",
+                            "Productos del mercado de agricultores.",
+                            "Artículos de tienda sin desperdicio",
+                            "Alimentos orgánicos para bebés",
+                            "Suplementos herbarios"
+                        ]
+                    },
+                    "disposal": {
+                        "title": "Guía de eliminación y compostaje",
+                        "intro": "Comprender la eliminación adecuada es clave para obtener los beneficios ambientales:",
+                        "commercialVsHome": "Compostaje comercial versus doméstico",
+                        "commercialVsHomeDesc": "Las instalaciones comerciales de compostaje mantienen temperaturas de 55 a 60°C, lo que acelera la descomposición. La mayoría de los envases compostables certificados requieren estas condiciones. El compostaje casero funciona a temperaturas más bajas y puede tardar entre 6 y 12 meses en descomponerse por completo.",
+                        "instructionsTitle": "Instrucciones de eliminación para los consumidores:",
+                        "instruction1": "Retire cualquier elemento que no sea compostable (es posible que sea necesario cortar las cremalleras si no es compostable)",
+                        "instruction2": "Colóquelo en un contenedor de abono comercial (consulte la disponibilidad local)",
+                        "instruction3": "NO los coloque en el reciclaje regular: los compostables pueden contaminar los flujos de reciclaje.",
+                        "instruction4": "Si no hay compostaje comercial disponible, deséchelo en la basura normal (aún así se descompondrá más rápido que el plástico convencional)"
+                    },
+                    "limitations": {
+                        "title": "Consideraciones y limitaciones",
+                        "intro": "Los envases compostables son excelentes para muchas aplicaciones, pero considere estos factores:",
+                        "bestFor": "La mejor para:",
+                        "bestFor1": "Productos secos con vida útil de 6 a 12 meses.",
+                        "bestFor2": "Marcas premium, orgánicas y naturales.",
+                        "bestFor3": "Productos vendidos en regiones con infraestructura de compostaje.",
+                        "bestFor4": "B-corp y empresas centradas en la sostenibilidad",
+                        "considerAlternatives": "Considere alternativas para:",
+                        "alt1": "Productos que requieren una vida útil de más de 18 meses",
+                        "alt2": "Productos líquidos/de alta humedad",
+                        "alt3": "Exposición a temperaturas extremas",
+                        "alt4": "Regiones sin acceso al compostaje",
+                        "note": "Nuestro equipo puede ayudarle a determinar si el embalaje compostable es adecuado para su producto. También ofrecemos alternativas reciclables para aplicaciones donde los compostables pueden no ser óptimos."
+                    }
+                },
+                "faq": {
+                    "q1": "¿Cuál es la diferencia entre compostable y biodegradable?",
+                    "a1": "Los materiales compostables se descomponen completamente en elementos naturales en un plazo de tiempo específico en condiciones de compostaje, con certificación que lo demuestra (EN 13432, ASTM D6400). \"Biodegradable\" es un término más amplio y no regulado: técnicamente todo se biodegrada eventualmente, incluso el plástico convencional, a lo largo de siglos. Busque siempre declaraciones certificadas como compostables, no solo biodegradables.",
+                    "q2": "¿Se descompondrán los envases compostables en los vertederos?",
+                    "a2": "Los envases compostables requieren oxígeno y microbios para descomponerse de manera eficiente. Los vertederos son ambientes anaeróbicos (sin oxígeno), por lo que la descomposición es muy lenta. Sin embargo, los materiales compostables se descompondrán más rápido que los plásticos convencionales y no dejarán residuos de microplásticos.",
+                    "q3": "¿Puedo hacer abono casero con envases compostables certificados?",
+                    "a3": "La mayoría de los envases compostables certificados están diseñados para compostaje comercial/industrial (55-60°C). Algunos materiales son compostables en casa (certificados según el estándar AS 5810 o OK Home). Podemos aconsejarle qué materiales se adaptan a sus necesidades.",
+                    "q4": "¿Son seguros los envases de alimentos compostables?",
+                    "a4": "Sí, todos nuestros materiales compostables están certificados para contacto con alimentos según las regulaciones FDA 21 CFR y EU 10/2011. Los materiales a base de PLA y celulosa se derivan de fuentes naturales y son seguros para el contacto directo con alimentos.",
+                    "q5": "¿Cuánto cuestan los envases compostables en comparación con los de plástico normal?",
+                    "a5": "Los materiales compostables suelen costar entre un 15 y un 30 % más que el plástico convencional. Sin embargo, a medida que la producción aumenta y la demanda crece, la brecha de precios se está reduciendo. Muchas marcas consideran que los beneficios de sostenibilidad y el valor de marketing justifican la prima."
+                },
+                "table": {
+                    "title": "Comparación de materiales compostables",
+                    "headers": [
+                        "Material",
+                        "Nivel de barrera",
+                        "Tipo de compostaje",
+                        "La mejor para"
+                    ],
+                    "row1": [
+                        "Kraft + PLA",
+                        "Medio",
+                        "Comercial / Alguna Vivienda",
+                        "Café, té, snacks secos"
+                    ],
+                    "row2": [
+                        "Kraft blanca + PLA",
+                        "Medio",
+                        "Comercial",
+                        "Café Premium, Polvos"
+                    ],
+                    "row3": [
+                        "Celulosa NatureFlex",
+                        "Medio-alto",
+                        "Hogar y Comercial",
+                        "Ventanas claras, té"
+                    ],
+                    "row4": [
+                        "Mezcla PBAT/PLA",
+                        "Alta",
+                        "Sólo comercial",
+                        "Productos sensibles a la humedad"
+                    ],
+                    "row5": [
+                        "Sólo papel/celulosa",
+                        "Bajo",
+                        "Hogar y Comercial",
+                        "Artículos de corta vida útil"
+                    ]
+                },
+                "relatedLinks": {
+                    "link1": {
+                        "title": "Materiales reciclables",
+                        "description": "Opciones mono-PE y mono-PP"
+                    },
+                    "link2": {
+                        "title": "Envasado de café y té",
+                        "description": "Bolsas de café compostables"
+                    },
+                    "link3": {
+                        "title": "Bolsas de pie",
+                        "description": "Disponible en materiales compostables."
+                    }
+                }
+            },
+            "homeCompostable": {
+                "title": "Envases compostables para el hogar | Bolsas certificadas OK Home",
+                "heroTitle": "Compostable en casa: de la bolsa a la tierra del jardín",
+                "heroSubtitle": "Embalaje certificado que se descompone en el contenedor de abono de su jardín. No se necesitan instalaciones industriales: verdadera circularidad a nivel del consumidor.",
+                "introSummary": "OK Compost HOME y bolsas certificadas AS 5810 que se descomponen en 6-12 meses a temperatura ambiente. El mensaje de sostenibilidad definitivo para marcas con conciencia ecológica."
+            },
+            "industrialCompostable": {
+                "title": "Embalajes compostables industriales | Bolsas de compostaje comerciales",
+                "heroTitle": "Compostable industrial: alto rendimiento, cero residuos",
+                "heroSubtitle": "Envase certificado EN 13432 y ASTM D6400 que se descompone en instalaciones comerciales en un plazo de 90-180 días. Propiedades de barrera más altas para aplicaciones exigentes.",
+                "introSummary": "Bolsas compostables certificadas a nivel mundial (EN 13432, ASTM D6400) con opciones de barrera media-alta. Se descompone en instalaciones comerciales de compostaje en 90-180 días."
+            },
+            "recyclableMonoPE": {
+                "title": "Embalaje reciclable Mono-PE | Bolsas flexibles 100% PE",
+                "heroTitle": "Embalaje mono-PE reciclable",
+                "heroSubtitle": "Bolsas de polietileno de un solo material que se pueden reciclar en flujos de reciclaje de PE estándar. La elección práctica y sostenible.",
+                "introSummary": "Los envases Mono-PE utilizan una construcción de polietileno de un solo material, lo que los hace compatibles con los programas de reciclaje de PE. A diferencia de los laminados multimaterial, las bolsas mono-PE se pueden reciclar a través de programas de entrega en tiendas y de crecientes aplicaciones en las aceras, manteniendo al mismo tiempo buenas propiedades de barrera."
+            },
+            "recyclableMonoPP": {
+                "title": "Embalaje Reciclable Mono-PP | Bolsas de polipropileno monomaterial",
+                "heroTitle": "Embalajes mono-PP reciclables",
+                "heroSubtitle": "Bolsas de polipropileno de un solo material con resistencia al calor y claridad superiores. Apto para microondas y reciclable.",
+                "introSummary": "Los envases de Mono-PP están fabricados íntegramente de polipropileno, lo que permite el reciclaje en flujos de PP. Ofrece mayor resistencia al calor que el PE, ideal para aplicaciones de llenado en caliente y aptos para microondas."
+            },
+            "bioPE": {
+                "title": "Embalaje de bioPE | Bolsas sustentables a base de caña de azúcar",
+                "heroTitle": "Envases de origen vegetal de Bio-PE",
+                "heroSubtitle": "Polietileno elaborado a partir de caña de azúcar renovable. Mismo rendimiento, menor huella de carbono, totalmente reciclable.",
+                "introSummary": "El bio-PE es polietileno elaborado a partir de caña de azúcar renovable en lugar de combustibles fósiles. Ofrece un rendimiento idéntico al PE convencional y captura carbono durante la producción. El Bio-PE es totalmente reciclable en flujos de PE estándar y está certificado por el programa I'm green™ de Braskem."
+            },
+            "pcr": {
+                "title": "Embalaje de PCR | Bolsas flexibles recicladas posconsumo",
+                "heroTitle": "Embalaje de contenido reciclado PCR",
+                "heroSubtitle": "Envases flexibles con un 30-100% de contenido reciclado posconsumo. Apoyar la economía circular manteniendo la calidad.",
+                "introSummary": "Los envases de PCR incorporan plástico reciclado de los desechos de los consumidores, lo que reduce el uso de plástico virgen y respalda los objetivos de la economía circular. Nuestras bolsas PCR cuentan con certificación GRS, aprobación de la FDA para contacto con alimentos y están disponibles con contenido 30 %, 50 % o 100 % reciclado."
+            },
+            "standUpPouches": {
+                "title": "Bolsas de pie | Soluciones de embalaje flexible",
+                "heroTitle": "Bolsas verticales personalizadas",
+                "heroSubtitle": "Envases flexibles de primera calidad con excelente presencia en los lineales. Disponible con cierres de cremallera, deslizador, pico o válvula. Opciones compostables y reciclables.",
+                "introSummary": "Las bolsas stand-up (SUP) combinan la rentabilidad del embalaje flexible con una excelente presencia en los lineales del comercio minorista. Achieve Pack ofrece SUP impresos personalizados con cierres resellables, materiales de alta barrera y opciones sostenibles que incluyen estructuras certificadas como compostables y reciclables. MOQ desde 500 unidades."
+            },
+            "flatBottomBags": {
+                "title": "Bolsas de fondo plano | Embalaje de bolsa de caja",
+                "heroTitle": "Bolsas de fondo plano",
+                "heroSubtitle": "Bolsas premium estilo caja con base rectangular estable y marca de 5 paneles. La elección para cafés especiales, alimentos premium y productos para mascotas.",
+                "introSummary": "Las bolsas de fondo plano (bolsas con fondo de caja) ofrecen máxima estabilidad en los estantes y una apariencia premium con 5 paneles imprimibles. Perfecto para cafés especiales, alimentos para mascotas y productos que requieren una presentación minorista premium."
+            },
+            "spoutPouches": {
+                "title": "Bolsas con pico | Soluciones de envasado de líquidos",
+                "heroTitle": "Bolsas con pico",
+                "heroSubtitle": "Bolsas flexibles con pico vertedor para líquidos, purés, salsas y bebidas. La alternativa cómoda y sostenible a las botellas rígidas.",
+                "introSummary": "Las bolsas con pico combinan la eficiencia del embalaje flexible con la funcionalidad de las botellas. Utilizan un 70% menos de plástico que los contenedores rígidos y, al mismo tiempo, ofrecen una fácil dispensación y comodidad de cierre. Perfecto para alimentos para bebés, salsas, bebidas y aplicaciones de recarga."
+            },
+            "vacuumPouches": {
+                "title": "Bolsas de vacío | Embalaje de vida útil prolongada",
+                "heroTitle": "Bolsas de vacío",
+                "heroSubtitle": "Envasado al vacío de alta barrera para una mayor vida útil. Proteja la carne, los mariscos, el queso y los productos especiales de la oxidación y las quemaduras por congelación.",
+                "introSummary": "Las bolsas de vacío prolongan la vida útil del producto entre 3 y 5 veces al eliminar el oxígeno antes de sellarlas. Nuestras bolsas de alta barrera protegen contra la oxidación, la humedad y la contaminación. Disponible para máquinas de vacío externas y de cámara, incluidas aplicaciones sous vide y retortas."
+            },
+            "flatPouches": {
+                "title": "Bolsas planas | Bolsas selladas por tres lados",
+                "heroTitle": "Bolsas planas",
+                "heroSubtitle": "Bolsas selladas por tres lados sencillas y rentables para diversas aplicaciones.",
+                "introSummary": "Las bolsas planas son la opción de embalaje flexible más económica, ideales para muestras, bolsitas y productos livianos."
+            },
+            "sideGussetBags": {
+                "title": "Bolsas con fuelle lateral | Embalaje de gran volumen",
+                "heroTitle": "Bolsas con fuelle lateral",
+                "heroSubtitle": "Bolsas tradicionales con fuelle y laterales expandibles para alta capacidad. La elección clásica para café, té y productos a granel.",
+                "introSummary": "Las bolsas con fuelle lateral (bolsas con sello cuádruple) cuentan con paneles laterales expandibles que brindan una gran capacidad de volumen en un formato compacto. Popular para café, té, cereales y productos a granel. Disponible con opciones de brida de hojalata, cremallera y válvula de desgasificación."
+            },
+            "coffeeTea": {
+                "title": "Envasado de café y té | Bolsas de barrera aromáticas",
+                "heroTitle": "Envasado de café y té",
+                "heroSubtitle": "Envases especializados con válvulas desgasificadoras y alta barrera para máxima frescura.",
+                "introSummary": "Nuestros envases de café y té cuentan con barreras especializadas para proteger el aroma y la frescura, con válvulas desgasificadoras opcionales para café recién tostado."
+            },
+            "snacksFood": {
+                "title": "Envasado de aperitivos y alimentos | Bolsas flexibles para alimentos",
+                "heroTitle": "Snacks y envases de alimentos sostenibles",
+                "heroSubtitle": "Bolsas ecológicas de primera calidad para patatas fritas, nueces, frutos secos, cecina y dulces. Protección de alta barrera con materiales sostenibles.",
+                "introSummary": "Achieve Pack proporciona envases compostables y reciclables certificados para la industria de snacks. Nuestras bolsas ofrecen protección de alta barrera, cierres resellables e impresión personalizada vibrante. Perfecto para patatas fritas, nueces, frutos secos, cecina, granola y productos de confitería."
+            },
+            "petFood": {
+                "title": "Envasado de alimentos para mascotas | Bolsas duraderas para golosinas para mascotas.",
+                "heroTitle": "Envases sostenibles de alimentos y golosinas para mascotas",
+                "heroSubtitle": "Bolsas ecológicas de primera calidad para comida para perros, comida para gatos, golosinas para mascotas y suplementos. Materiales resistentes, resellables y aptos para mascotas.",
+                "introSummary": "Achieve Pack proporciona envases compostables y reciclables certificados para la industria de alimentos para mascotas. Nuestras bolsas cuentan con una construcción resistente para croquetas densas, películas de alta barrera para mayor frescura y materiales aptos para mascotas que cumplen con la FDA. Disponible desde golosinas individuales hasta formatos a granel de más de 10 kg."
+            },
+            "supplements": {
+                "title": "Embalaje de suplementos | Bolsas de polvo y vitaminas",
+                "heroTitle": "Embalaje de suplementos",
+                "heroSubtitle": "Envases de alta barrera para suplementos, polvos y nutracéuticos.",
+                "introSummary": "El envasado de suplementos requiere excelentes barreras contra la humedad y el oxígeno para mantener la potencia y la integridad del producto."
+            },
+            "supplementsPowders": {
+                "title": "Envases de suplementos y polvos | Bolsas de proteínas, superalimentos y nutrición deportiva",
+                "heroTitle": "Envases de suplementos y polvos",
+                "heroSubtitle": "Bolsas sostenibles de alta barrera para proteínas, superalimentos, colágeno y nutrición deportiva. Proteja la potencia mientras apoya sus objetivos de sostenibilidad.",
+                "introSummary": "Achieve Pack ofrece envases flexibles de primera calidad para la industria de los suplementos. Nuestras bolsas de alta barrera protegen los polvos sensibles a la humedad de la degradación, con opciones que incluyen materiales certificados como compostables, reciclables y que cumplen con la FDA. Desde paquetes individuales hasta bolsas a granel de 5 kg."
+            },
+            "babyFood": {
+                "title": "Envasado de alimentos para bebés | Bolsas de nutrición infantil seguras",
+                "heroTitle": "Envasado de alimentos para bebés",
+                "heroSubtitle": "Embalaje seguro para niños con opciones de boquilla para una alimentación cómoda.",
+                "introSummary": "Los envases de alimentos para bebés cumplen con los más altos estándares de seguridad con características a prueba de niños y materiales aptos para alimentos."
+            },
+            "frozenFood": {
+                "title": "Envasado de alimentos congelados | Bolsas resistentes al frío",
+                "heroTitle": "Envasado de alimentos congelados",
+                "heroSubtitle": "Embalaje duradero diseñado para soportar temperaturas bajo cero sin agrietarse.",
+                "introSummary": "Los envases de alimentos congelados mantienen la flexibilidad y la integridad del sello a bajas temperaturas mientras protegen contra quemaduras por congelación."
+            },
+            "saucesCondiments": {
+                "title": "Envasado de Salsas y Condimentos | Bolsas resistentes a líquidos",
+                "heroTitle": "Envasado de salsas y condimentos",
+                "heroSubtitle": "Bolsas con pico flexible, paquetes de recarga y bolsitas para salsas, condimentos, aceites y productos para untar. Conveniente, sostenible y personalizable.",
+                "introSummary": "Achieve Pack ofrece soluciones de envasado flexible para productos alimenticios líquidos y semilíquidos. Nuestras bolsas con boquilla ofrecen una dispensación cómoda, mientras que los paquetes de recarga reducen el uso de plástico en un 80 % en comparación con las botellas."
+            },
+            "digitalPrinting": {
+                "title": "Impresión Digital | Impresión de bolsas personalizadas de MOQ bajo",
+                "heroTitle": "Impresión Digital",
+                "heroSubtitle": "Impresión digital de alta calidad sin pedido mínimo y colores ilimitados.",
+                "introSummary": "La impresión digital permite impresiones de calidad fotográfica sin costos de plancha, perfecta para lotes pequeños y múltiples SKU."
+            },
+            "platePrinting": {
+                "title": "Impresión de planchas | Impresión en huecograbado y flexografía",
+                "heroTitle": "Impresión de planchas",
+                "heroSubtitle": "Impresión de planchas tradicional para pedidos de gran volumen con calidad constante.",
+                "introSummary": "La impresión flexográfica y de huecograbado ofrece resultados consistentes y de alta calidad para grandes tiradas de producción con una excelente precisión del color.",
+                "sections": {
+                    "overview": "Impresión de planchas de huecograbado para pedidos de gran volumen",
+                    "technology": "Tecnología de impresión por huecograbado",
+                    "applications": "Mejores aplicaciones",
+                    "finishes": "Opciones de acabado premium",
+                    "order": "Información del pedido"
+                }
+            },
+            "reclosureOptions": {
+                "title": "Opciones de recierre | Cremallera y características resellables.",
+                "heroTitle": "Opciones de recierre",
+                "heroSubtitle": "Varias soluciones resellables que incluyen cremalleras, picos y funciones de presionar para cerrar.",
+                "introSummary": "Las opciones de cierre ayudan a mantener la frescura del producto después de abrirlo y añaden comodidad para los consumidores."
+            },
+            "surfaceFinish": {
+                "title": "Acabados superficiales | Mate, brillo y efectos especiales",
+                "heroTitle": "Acabados superficiales",
+                "heroSubtitle": "Acabados premium que incluyen efectos mate, brillante, suave al tacto y metálico.",
+                "introSummary": "Los acabados de las superficies mejoran el atractivo táctil y visual del embalaje, creando experiencias memorables al abrir la caja."
+            },
+            "barrierOptions": {
+                "title": "Opciones de barrera | Protección contra la humedad y el oxígeno",
+                "heroTitle": "Opciones de barrera",
+                "heroSubtitle": "Múltiples niveles de barrera desde protección baja hasta máxima para diferentes productos.",
+                "introSummary": "Las propiedades de barrera protegen los productos de la humedad, el oxígeno, la luz y los olores para mantener la frescura y prolongar la vida útil."
+            }
         }
     }
 }

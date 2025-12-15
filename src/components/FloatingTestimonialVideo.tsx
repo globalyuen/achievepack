@@ -57,10 +57,10 @@ export default function FloatingTestimonialVideo() {
             isAnimating ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'
           }`}
         >
-          {/* Pouch Image as Thumbnail */}
+          {/* Owner Image as Thumbnail */}
           <div className="relative flex-shrink-0">
             <img
-              src={currentTestimonial.pouchImage}
+              src={currentTestimonial.ownerImage}
               alt={currentTestimonial.name}
               className="w-16 h-16 md:w-20 md:h-20 rounded-xl object-cover"
             />

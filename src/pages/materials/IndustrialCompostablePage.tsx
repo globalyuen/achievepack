@@ -1,0 +1,175 @@
+import React from 'react'
+import { Factory, Leaf, CheckCircle, Clock, Award } from 'lucide-react'
+import SEOPageLayout from '../../components/SEOPageLayout'
+import { useTranslation } from 'react-i18next'
+
+const IndustrialCompostablePage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.industrialCompostable'
+  const sections = [
+    {
+      id: 'overview',
+      title: t(`${p}.sections.overview.title`),
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>
+            <strong>{t(`${p}.sections.overview.intro`)}</strong>
+          </p>
+          <h3 className="text-lg font-semibold text-neutral-900 mt-6">{t(`${p}.sections.overview.whyChoose`)}</h3>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>{t(`${p}.sections.overview.benefit1`)}</li>
+            <li>{t(`${p}.sections.overview.benefit2`)}</li>
+            <li>{t(`${p}.sections.overview.benefit3`)}</li>
+            <li>{t(`${p}.sections.overview.benefit4`)}</li>
+            <li>{t(`${p}.sections.overview.benefit5`)}</li>
+          </ul>
+        </div>
+      )
+    },
+    {
+      id: 'certifications',
+      title: t(`${p}.sections.certifications.title`),
+      icon: <Award className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="grid md:grid-cols-2 gap-4 mt-4">
+            <div className="bg-primary-50 p-4 rounded-lg border-2 border-primary-200">
+              <h4 className="font-semibold text-primary-800 mb-2">{t(`${p}.sections.certifications.en13432.title`)}</h4>
+              <p className="text-sm text-primary-700 mb-2">{t(`${p}.sections.certifications.en13432.subtitle`)}</p>
+              <ul className="text-sm space-y-1">
+                {(t(`${p}.sections.certifications.en13432.features`, { returnObjects: true }) as string[]).map((f, i) => <li key={i}>• {f}</li>)}
+              </ul>
+            </div>
+            <div className="bg-blue-50 p-4 rounded-lg border-2 border-blue-200">
+              <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.certifications.astm.title`)}</h4>
+              <p className="text-sm text-blue-700 mb-2">{t(`${p}.sections.certifications.astm.subtitle`)}</p>
+              <ul className="text-sm space-y-1">
+                {(t(`${p}.sections.certifications.astm.features`, { returnObjects: true }) as string[]).map((f, i) => <li key={i}>• {f}</li>)}
+              </ul>
+            </div>
+          </div>
+          <div className="bg-green-50 p-4 rounded-lg mt-4">
+            <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sections.certifications.okIndustrial.title`)}</h4>
+            <p className="text-sm text-green-700">{t(`${p}.sections.certifications.okIndustrial.desc`)}</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'materials',
+      title: t(`${p}.sections.materials.title`),
+      icon: <Leaf className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>{t(`${p}.sections.materials.intro`)}</p>
+          
+          <div className="overflow-x-auto mt-4">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-neutral-100">
+                  <th className="text-left p-3 border">Material</th>
+                  <th className="text-left p-3 border">Barrier Level</th>
+                  <th className="text-left p-3 border">Shelf Life</th>
+                  <th className="text-left p-3 border">Best For</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td className="p-3 border font-medium">PLA Film</td><td className="p-3 border">Low-Medium</td><td className="p-3 border">6-9 months</td><td className="p-3 border">Dry goods, snacks</td></tr>
+                <tr><td className="p-3 border font-medium">PLA + PBAT Blend</td><td className="p-3 border">Medium</td><td className="p-3 border">9-12 months</td><td className="p-3 border">Coffee, tea</td></tr>
+                <tr><td className="p-3 border font-medium">Kraft + PLA Barrier</td><td className="p-3 border">Medium</td><td className="p-3 border">9-12 months</td><td className="p-3 border">Premium coffee</td></tr>
+                <tr><td className="p-3 border font-medium">Cellulose + PLA</td><td className="p-3 border">Low</td><td className="p-3 border">3-6 months</td><td className="p-3 border">Quick-turn items</td></tr>
+                <tr><td className="p-3 border font-medium">Bio-PBS</td><td className="p-3 border">Medium-High</td><td className="p-3 border">12+ months</td><td className="p-3 border">Supplements</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'comparison',
+      title: t(`${p}.sections.comparison.title`),
+      icon: <CheckCircle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="overflow-x-auto mt-4">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-neutral-100">
+                  <th className="text-left p-3 border">Factor</th>
+                  <th className="text-left p-3 border">Home Compostable</th>
+                  <th className="text-left p-3 border">Industrial Compostable</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td className="p-3 border font-medium">Temperature</td><td className="p-3 border">20-30°C (ambient)</td><td className="p-3 border text-primary-600">58°C+ (controlled)</td></tr>
+                <tr><td className="p-3 border font-medium">Timeframe</td><td className="p-3 border">6-12 months</td><td className="p-3 border text-primary-600">90-180 days</td></tr>
+                <tr><td className="p-3 border font-medium">Barrier Level</td><td className="p-3 border">Low</td><td className="p-3 border text-primary-600">Low-Medium-High</td></tr>
+                <tr><td className="p-3 border font-medium">Accessibility</td><td className="p-3 border text-green-600">Backyard bin</td><td className="p-3 border">Facility required</td></tr>
+                <tr><td className="p-3 border font-medium">Infrastructure</td><td className="p-3 border text-green-600">Consumer level</td><td className="p-3 border">Commercial network</td></tr>
+                <tr><td className="p-3 border font-medium">Cost</td><td className="p-3 border">Higher</td><td className="p-3 border text-primary-600">More economical</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'order',
+      title: t(`${p}.sections.order.title`),
+      icon: <Clock className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
+              <div className="text-3xl font-bold text-primary-600 mb-2">500</div>
+              <div className="text-sm text-neutral-600">{t(`${p}.sections.order.minOrder`)}</div>
+            </div>
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
+              <div className="text-3xl font-bold text-primary-600 mb-2">90-180</div>
+              <div className="text-sm text-neutral-600">{t(`${p}.sections.order.daysToCompost`)}</div>
+            </div>
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
+              <div className="text-3xl font-bold text-primary-600 mb-2">12+</div>
+              <div className="text-sm text-neutral-600">{t(`${p}.sections.order.shelfLife`)}</div>
+            </div>
+          </div>
+        </div>
+      )
+    }
+  ]
+
+  const faqs = [
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) },
+    { question: t(`${p}.faq.q3`), answer: t(`${p}.faq.a3`) },
+    { question: t(`${p}.faq.q4`), answer: t(`${p}.faq.a4`) }
+  ]
+
+  const relatedLinks = [
+    { title: t(`${p}.relatedLinks.link1.title`), url: "/materials/home-compostable", description: t(`${p}.relatedLinks.link1.description`) },
+    { title: t(`${p}.relatedLinks.link2.title`), url: "/materials/compostable", description: t(`${p}.relatedLinks.link2.description`) },
+    { title: t(`${p}.relatedLinks.link3.title`), url: "/features/barrier-options", description: t(`${p}.relatedLinks.link3.description`) }
+  ]
+
+  return (
+    <SEOPageLayout
+      title="Industrial Compostable Packaging | EN 13432 & ASTM D6400 Certified"
+      description="EN 13432 and ASTM D6400 certified industrial compostable pouches. Breaks down in 90-180 days at commercial facilities. Higher barrier than home compostable."
+      keywords={['industrial compostable', 'EN 13432', 'ASTM D6400', 'commercial compostable', 'BPI certified', 'compostable flexible packaging']}
+      canonicalUrl="https://achievepack.com/materials/industrial-compostable"
+      heroTitle={t('seoPages.pages.industrialCompostable.heroTitle')}
+      heroSubtitle={t('seoPages.pages.industrialCompostable.heroSubtitle')}
+      heroImage="/imgs/seo-photos/a_industrial_compostable_facility_2850870.webp"
+      heroImageAlt="Industrial compostable packaging materials"
+      introSummary={t('seoPages.pages.industrialCompostable.introSummary')}
+      sections={sections}
+      faqs={faqs}
+      relatedLinks={relatedLinks}
+      ctaTitle={t(`${p}.ctaTitle`)}
+      ctaDescription={t(`${p}.ctaDescription`)}
+    />
+  )
+}
+
+export default IndustrialCompostablePage

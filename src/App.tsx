@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom'
 import ReactGA from "react-ga4";
@@ -42,10 +42,10 @@ function App() {
     message: ''
   })
 
-  const changeLanguage = useCallback((lng: string) => {
+  const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
     setIsLangMenuOpen(false);
-  }, [i18n]);
+  };
 
   // Helper function to get language-specific images
   const img = (imageName: string) => getImage(imageName, i18n.language as any);
@@ -90,7 +90,7 @@ function App() {
     }
   }, [])
 
-  const scrollToSection = useCallback((sectionId: string) => {
+  const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
       const navHeight = 72
@@ -103,14 +103,14 @@ function App() {
       })
     }
     setIsMenuOpen(false)
-  }, [])
+  }
 
-  const handleInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target
     setFormData(prev => ({ ...prev, [id]: value }))
-  }, [])
+  }
 
-  const handleSubmit = useCallback((e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
     // Create email content
@@ -132,37 +132,7 @@ ${formData.message}`
     setFormData({ name: '', email: '', company: '', message: '' })
 
     alert('Thank you for your message! Your email client should open with the pre-filled email.')
-  }, [formData])
-
-  const handleCartClick = useCallback(() => {
-    if (cartCount === 0) {
-      navigate('/store')
-    } else {
-      setIsCartOpen(true)
-    }
-  }, [cartCount, navigate, setIsCartOpen])
-
-  const toggleLangMenu = useCallback(() => {
-    setIsLangMenuOpen(prev => !prev)
-  }, [])
-
-  const toggleMobileMenu = useCallback(() => {
-    setIsMenuOpen(prev => !prev)
-  }, [])
-
-  const openCalculator = useCallback(() => {
-    setIsCalculatorOpen(true)
-  }, [])
-
-  const openImageModal = useCallback((imageSrc: string, altText: string) => {
-    setModalImage(imageSrc)
-    setModalAlt(altText)
-    setIsModalOpen(true)
-  }, [])
-
-  const closeImageModal = useCallback(() => {
-    setIsModalOpen(false)
-  }, [])
+  }
 
   return (
     <div className="min-h-screen bg-neutral-50 font-sans">
@@ -202,7 +172,13 @@ ${formData.message}`
             {/* Right Actions */}
             <div className="hidden lg:flex items-center space-x-3">
               <button
-                onClick={handleCartClick}
+                onClick={() => {
+                  if (cartCount === 0) {
+                    navigate('/store')
+                  } else {
+                    setIsCartOpen(true)
+                  }
+                }}
                 className="relative w-10 h-10 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
               >
                 <ShoppingCart className="h-5 w-5 text-white" />
@@ -220,7 +196,7 @@ ${formData.message}`
               </Link>
               <div className="relative">
                 <button
-                  onClick={toggleLangMenu}
+                  onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
                   className="w-10 h-10 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
                 >
                   <Globe className="h-5 w-5 text-white" />
@@ -239,7 +215,7 @@ ${formData.message}`
             {/* Mobile Menu Button */}
             <div className="lg:hidden">
               <button
-                onClick={toggleMobileMenu}
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-neutral-700 hover:text-primary-500 transition-colors"
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -315,7 +291,7 @@ ${formData.message}`
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-start mb-12">
                 <button
-                  onClick={openCalculator}
+                  onClick={() => setIsCalculatorOpen(true)}
                   className="flex items-center justify-center space-x-2 bg-primary-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-600 transition-all duration-200 hover:shadow-hover hover:-translate-y-0.5"
                 >
                   <CalcIcon className="h-5 w-5" />
@@ -353,7 +329,11 @@ ${formData.message}`
                       src={img("about-hero")}
                       alt="Premium Sustainable Packaging"
                       className="relative z-10 w-full rounded-2xl shadow-2xl cursor-pointer group-hover/card:shadow-primary-500/[0.3]"
-                      onClick={() => openImageModal(img("about-hero"), 'Premium Sustainable Packaging')}
+                      onClick={() => {
+                        setModalImage(img("about-hero"))
+                        setModalAlt('Premium Sustainable Packaging')
+                        setIsModalOpen(true)
+                      }}
                     />
                   </CardItem>
                 </CardBody>
@@ -407,25 +387,41 @@ ${formData.message}`
                   src={img("cert-home-compost")}
                   alt="Home Compost Certification"
                   className="rounded-lg shadow-card cursor-pointer hover:shadow-lg transition-shadow duration-200"
-                  onClick={() => openImageModal(img("cert-home-compost"), 'Home Compost Certification')}
+                  onClick={() => {
+                    setModalImage(img("cert-home-compost"))
+                    setModalAlt('Home Compost Certification')
+                    setIsModalOpen(true)
+                  }}
                 />
                 <img
                   src={img("cert-pcr-grs")}
                   alt="PCR GRS Certification"
                   className="rounded-lg shadow-card cursor-pointer hover:shadow-lg transition-shadow duration-200"
-                  onClick={() => openImageModal(img("cert-pcr-grs"), 'PCR GRS Certification')}
+                  onClick={() => {
+                    setModalImage(img("cert-pcr-grs"))
+                    setModalAlt('PCR GRS Certification')
+                    setIsModalOpen(true)
+                  }}
                 />
                 <img
                   src={img("cert-brc")}
                   alt="BRC Food Safety Certification"
                   className="rounded-lg shadow-card cursor-pointer hover:shadow-lg transition-shadow duration-200"
-                  onClick={() => openImageModal(img("cert-brc"), 'BRC Food Safety Certification')}
+                  onClick={() => {
+                    setModalImage(img("cert-brc"))
+                    setModalAlt('BRC Food Safety Certification')
+                    setIsModalOpen(true)
+                  }}
                 />
                 <img
                   src={img("cert-biope")}
                   alt="BioPE Sustainable Certification"
                   className="rounded-lg shadow-card cursor-pointer hover:shadow-lg transition-shadow duration-200"
-                  onClick={() => openImageModal(img("cert-biope"), 'BioPE Sustainable Certification')}
+                  onClick={() => {
+                    setModalImage(img("cert-biope"))
+                    setModalAlt('BioPE Sustainable Certification')
+                    setIsModalOpen(true)
+                  }}
                 />
               </div>
             </div>
@@ -1190,7 +1186,11 @@ ${formData.message}`
                 src={img("contact-cta-banner")}
                 alt={t('contact.title')}
                 className="w-full max-w-4xl mx-auto h-48 object-cover rounded-lg cursor-pointer"
-                onClick={() => openImageModal(img("contact-cta-banner"), t('contact.title'))}
+                onClick={() => {
+                  setModalImage(img("contact-cta-banner"))
+                  setModalAlt(t('contact.title'))
+                  setIsModalOpen(true)
+                }}
               />
             </div>
           </div>
@@ -1313,7 +1313,7 @@ ${formData.message}`
       {/* Footer */}
       <footer className="bg-neutral-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-8">
             {/* Company Info */}
             <div className="lg:col-span-1">
               <div className="flex items-center space-x-2 mb-4">
@@ -1342,7 +1342,7 @@ ${formData.message}`
 
             {/* Certification Badge - Separate Column */}
             <div className="lg:col-span-1 flex flex-col items-center justify-start">
-              <h4 className="text-lg font-semibold mb-4">Certified</h4>
+              <h4 className="text-lg font-semibold mb-4">{t('footer.certified')}</h4>
               <img src="/imgs/cert-b.webp" alt="B Corp Certified" className="h-24 w-auto" />
             </div>
 
@@ -1350,38 +1350,69 @@ ${formData.message}`
             <div>
               <h4 className="text-lg font-semibold mb-4">{t('footer.products.title')}</h4>
               <ul className="space-y-2 text-neutral-300 text-sm">
-                <li><a href="#products" className="hover:text-primary-500 transition-colors">{t('footer.products.compostable')}</a></li>
-                <li><a href="#products" className="hover:text-primary-500 transition-colors">{t('footer.products.recyclable')}</a></li>
-                <li><a href="#products" className="hover:text-primary-500 transition-colors">{t('footer.products.biobased')}</a></li>
-                <li><a href="#products" className="hover:text-primary-500 transition-colors">{t('footer.products.custom')}</a></li>
+                <li><Link to="/packaging/stand-up-pouches" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500 transition-colors">{t('footer.links.standUpPouches')}</Link></li>
+                <li><Link to="/packaging/flat-bottom-bags" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500 transition-colors">{t('footer.links.flatBottomBags')}</Link></li>
+                <li><Link to="/packaging/spout-pouches" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500 transition-colors">{t('footer.links.spoutPouches')}</Link></li>
+                <li><Link to="/packaging/vacuum-pouches" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500 transition-colors">{t('footer.links.vacuumPouches')}</Link></li>
+                <li><Link to="/packaging/flat-pouches" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500 transition-colors">{t('footer.links.flatPouches')}</Link></li>
+                <li><Link to="/packaging/side-gusset-bags" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500 transition-colors">{t('footer.links.sideGussetBags')}</Link></li>
               </ul>
             </div>
 
-            {/* Company */}
+            {/* Materials */}
             <div>
-              <h4 className="text-lg font-semibold mb-4">{t('footer.company.title')}</h4>
+              <h4 className="text-lg font-semibold mb-4">{t('footer.materials')}</h4>
               <ul className="space-y-2 text-neutral-300 text-sm">
-                <li><a href="#about" className="hover:text-primary-500 transition-colors">{t('footer.company.about')}</a></li>
-                <li><a href="#benefits" className="hover:text-primary-500 transition-colors">{t('footer.company.sustainability')}</a></li>
-                <li><a href="#about" className="hover:text-primary-500 transition-colors">{t('footer.company.certifications')}</a></li>
-                <li><a href="#contact" className="hover:text-primary-500 transition-colors">{t('footer.company.careers')}</a></li>
+                <li><Link to="/materials/compostable" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500 transition-colors">{t('footer.links.compostable')}</Link></li>
+                <li><Link to="/materials/home-compostable" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500 transition-colors">{t('footer.links.homeCompostable')}</Link></li>
+                <li><Link to="/materials/industrial-compostable" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500 transition-colors">{t('footer.links.industrialCompostable')}</Link></li>
+                <li><Link to="/materials/recyclable-mono-pe" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500 transition-colors">{t('footer.links.recyclableMonoPE')}</Link></li>
+                <li><Link to="/materials/recyclable-mono-pp" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500 transition-colors">{t('footer.links.recyclableMonoPP')}</Link></li>
+                <li><Link to="/materials/bio-pe" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500 transition-colors">{t('footer.links.bioPE')}</Link></li>
+                <li><Link to="/materials/pcr" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500 transition-colors">{t('footer.links.pcrRecycled')}</Link></li>
               </ul>
             </div>
 
-            {/* Contact */}
+            {/* Options & Features */}
             <div>
-              <h4 className="text-lg font-semibold mb-4">{t('footer.contact.title')}</h4>
+              <h4 className="text-lg font-semibold mb-4">{t('footer.options')}</h4>
               <ul className="space-y-2 text-neutral-300 text-sm">
-                <li><a href="#contact" className="hover:text-primary-500 transition-colors">{t('footer.contact.getInTouch')}</a></li>
-                <li><a href="#contact" className="hover:text-primary-500 transition-colors">{t('footer.contact.support')}</a></li>
-                <li><Link to="/terms" className="hover:text-primary-500 transition-colors">{t('footer.contact.documentation')}</Link></li>
-                <li><Link to="/terms" className="hover:text-primary-500 transition-colors">{t('footer.contact.legal')}</Link></li>
+                <li><Link to="/printing/digital-printing" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500 transition-colors">{t('footer.links.digitalPrinting')}</Link></li>
+                <li><Link to="/printing/plate-printing" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500 transition-colors">{t('footer.links.platePrinting')}</Link></li>
+                <li><Link to="/features/reclosure-options" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500 transition-colors">{t('footer.links.reclosureOptions')}</Link></li>
+                <li><Link to="/features/surface-finish" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500 transition-colors">{t('footer.links.surfaceFinishes')}</Link></li>
+                <li><Link to="/features/barrier-options" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500 transition-colors">{t('footer.links.barrierOptions')}</Link></li>
+              </ul>
+            </div>
+
+            {/* Industries */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4">{t('footer.industries')}</h4>
+              <ul className="space-y-2 text-neutral-300 text-sm">
+                <li><Link to="/industry/coffee-tea" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500 transition-colors">{t('footer.links.coffeeTea')}</Link></li>
+                <li><Link to="/industry/snacks-food" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500 transition-colors">{t('footer.links.snacksFood')}</Link></li>
+                <li><Link to="/industry/pet-food" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500 transition-colors">{t('footer.links.petFood')}</Link></li>
+                <li><Link to="/industry/supplements-powders" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500 transition-colors">{t('footer.links.supplements')}</Link></li>
+                <li><Link to="/industry/baby-food" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500 transition-colors">{t('footer.links.babyFood')}</Link></li>
+                <li><Link to="/industry/frozen-food" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500 transition-colors">{t('footer.links.frozenFood')}</Link></li>
+                <li><Link to="/industry/sauces-condiments" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500 transition-colors">{t('footer.links.saucesCondiments')}</Link></li>
+              </ul>
+            </div>
+
+            {/* Legal & Support */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4">{t('footer.support')}</h4>
+              <ul className="space-y-2 text-neutral-300 text-sm">
+                <li><Link to="/terms" className="hover:text-primary-500 transition-colors">{t('footer.termsConditions')}</Link></li>
+                <li><Link to="/privacy" className="hover:text-primary-500 transition-colors">{t('footer.privacyPolicy')}</Link></li>
+                <li><Link to="/shipping" className="hover:text-primary-500 transition-colors">{t('footer.shippingPolicy')}</Link></li>
+                <li><a href="#contact" className="hover:text-primary-500 transition-colors">{t('footer.contactUs')}</a></li>
               </ul>
             </div>
 
             {/* Quick Contact */}
             <div>
-              <h4 className="text-lg font-semibold mb-4">Quick Contact</h4>
+              <h4 className="text-lg font-semibold mb-4">{t('footer.quickContact')}</h4>
               <ul className="space-y-2 text-neutral-300 text-sm">
                 <li className="flex items-center gap-2">
                   <Mail className="h-4 w-4 text-primary-500" />
@@ -1408,10 +1439,10 @@ ${formData.message}`
 
       {/* Image Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75" onClick={closeImageModal}>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75" onClick={() => setIsModalOpen(false)}>
           <div className="relative max-w-4xl max-h-[90vh] mx-4">
             <button
-              onClick={closeImageModal}
+              onClick={() => setIsModalOpen(false)}
               className="absolute -top-10 right-0 text-white hover:text-gray-300 transition-colors"
             >
               <X className="h-8 w-8" />

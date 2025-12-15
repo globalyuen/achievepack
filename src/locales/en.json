@@ -420,6 +420,43 @@
         "brand": "Achieve Pack",
         "tagline": "Leading the sustainable packaging revolution with certified eco-friendly solutions for businesses worldwide.",
         "copyright": "© 2025 Achieve Pack. All rights reserved.",
+        "certified": "Certified",
+        "materials": "Materials",
+        "options": "Options",
+        "industries": "Industries",
+        "support": "Support",
+        "quickContact": "Quick Contact",
+        "termsConditions": "Terms & Conditions",
+        "privacyPolicy": "Privacy Policy",
+        "shippingPolicy": "Shipping Policy",
+        "contactUs": "Contact Us",
+        "links": {
+            "standUpPouches": "Stand-Up Pouches",
+            "flatBottomBags": "Flat Bottom Bags",
+            "spoutPouches": "Spout Pouches",
+            "vacuumPouches": "Vacuum Pouches",
+            "flatPouches": "Flat Pouches",
+            "sideGussetBags": "Side Gusset Bags",
+            "compostable": "Compostable",
+            "homeCompostable": "Home Compostable",
+            "industrialCompostable": "Industrial Compostable",
+            "recyclableMonoPE": "Recyclable Mono-PE",
+            "recyclableMonoPP": "Recyclable Mono-PP",
+            "bioPE": "Bio-PE",
+            "pcrRecycled": "PCR Recycled",
+            "digitalPrinting": "Digital Printing",
+            "platePrinting": "Plate Printing",
+            "reclosureOptions": "Reclosure Options",
+            "surfaceFinishes": "Surface Finishes",
+            "barrierOptions": "Barrier Options",
+            "coffeeTea": "Coffee & Tea",
+            "snacksFood": "Snacks & Food",
+            "petFood": "Pet Food & Treats",
+            "supplements": "Supplements",
+            "babyFood": "Baby Food",
+            "frozenFood": "Frozen Food",
+            "saucesCondiments": "Sauces & Condiments"
+        },
         "products": {
             "title": "Products",
             "compostable": "Compostable Packaging",
@@ -798,6 +835,729 @@
             "signature": "Signature",
             "date": "Date",
             "contact": "For inquiries or clarifications, contact ACHIEVE PACK at"
+        }
+    },
+    "seoPages": {
+        "backToHome": "Back to Home",
+        "quickSummary": "Quick Summary",
+        "contents": "Contents",
+        "faq": "Frequently Asked Questions",
+        "relatedResources": "Related Resources",
+        "emailUs": "Email Us",
+        "bookMeeting": "Book Meeting",
+        "getQuote": "Get Free Quote",
+        "readyToStart": "Ready to Get Started?",
+        "contactExperts": "Contact our packaging experts for a free consultation and quote.",
+        "footer": {
+            "products": "Products",
+            "materials": "Materials",
+            "options": "Options",
+            "industries": "Industries",
+            "termsConditions": "Terms & Conditions",
+            "privacyPolicy": "Privacy Policy",
+            "shippingPolicy": "Shipping Policy",
+            "copyright": "All rights reserved.",
+            "tagline": "Your trusted partner for eco-friendly flexible packaging solutions.",
+            "links": {
+                "standUpPouches": "Stand-Up Pouches",
+                "flatBottomBags": "Flat Bottom Bags",
+                "spoutPouches": "Spout Pouches",
+                "vacuumPouches": "Vacuum Pouches",
+                "flatPouches": "Flat Pouches",
+                "sideGussetBags": "Side Gusset Bags",
+                "compostable": "Compostable",
+                "homeCompostable": "Home Compostable",
+                "industrialCompostable": "Industrial Compostable",
+                "recyclableMonoPE": "Recyclable Mono-PE",
+                "bioPE": "Bio-PE",
+                "pcrRecycled": "PCR Recycled",
+                "digitalPrinting": "Digital Printing",
+                "platePrinting": "Plate Printing",
+                "reclosureOptions": "Reclosure Options",
+                "surfaceFinishes": "Surface Finishes",
+                "barrierOptions": "Barrier Options",
+                "coffeeTea": "Coffee & Tea",
+                "snacksFood": "Snacks & Food",
+                "petFood": "Pet Food & Treats",
+                "supplements": "Supplements",
+                "babyFood": "Baby Food",
+                "frozenFood": "Frozen Food",
+                "saucesCondiments": "Sauces & Condiments"
+            }
+        },
+        "pages": {
+            "compostable": {
+                "title": "Compostable Packaging | Certified EN 13432 & ASTM D6400 Pouches",
+                "description": "Certified compostable flexible packaging made from kraft paper, PLA, and cellulose. EN 13432 & ASTM D6400 certified. Breaks down in 90-180 days. Food-safe, plant-based materials.",
+                "heroTitle": "Certified Compostable Packaging",
+                "heroSubtitle": "Plant-based, food-safe packaging that returns to the earth. Certified to EN 13432 and ASTM D6400 standards. The sustainable choice for eco-conscious brands.",
+                "introSummary": "Achieve Pack's certified compostable packaging is made from renewable plant-based materials including kraft paper and PLA. Our pouches break down in 90-180 days in commercial composting, leaving no microplastics or toxic residue. Certified to EN 13432 (EU) and ASTM D6400 (US) standards, with documentation provided.",
+                "ctaTitle": "Switch to Compostable Packaging",
+                "ctaDescription": "Request a free sample to see and feel our certified compostable materials.",
+                "ctaButtonText": "Get Free Sample",
+                "sections": {
+                    "overview": {
+                        "title": "What is Compostable Packaging?",
+                        "intro": "Compostable packaging is designed to break down into natural elements in a composting environment, leaving no toxic residue. Unlike conventional plastics that persist for centuries, certified compostable materials decompose within 90-180 days in commercial composting facilities.",
+                        "keyFacts": "Key Facts About Compostable Packaging:",
+                        "fact1": "Breaks down in 90-180 days in commercial composting",
+                        "fact2": "Made from renewable, plant-based materials (PLA, cellulose)",
+                        "fact3": "Leaves no microplastics or toxic residue",
+                        "fact4": "Certified to international standards (EN 13432, ASTM D6400)",
+                        "fact5": "Suitable for food contact applications",
+                        "marketInfo": "According to the European Bioplastics Association, the global compostable packaging market is projected to reach $23.7 billion by 2030, growing at 17.4% CAGR as brands transition away from conventional plastics."
+                    },
+                    "materials": {
+                        "title": "Compostable Material Types",
+                        "intro": "We offer several certified compostable material structures:",
+                        "kraftPla": {
+                            "title": "Kraft Paper + PLA",
+                            "desc": "Natural kraft paper exterior with PLA (polylactic acid) inner layer. Excellent for coffee, tea, snacks, and dry goods.",
+                            "feature1": "Medium barrier properties",
+                            "feature2": "Natural, earthy appearance",
+                            "feature3": "Home compostable in some conditions"
+                        },
+                        "whiteKraftPla": {
+                            "title": "White Kraft + PLA",
+                            "desc": "Bleached kraft paper for brighter print colors and premium look, with PLA barrier.",
+                            "feature1": "Better print quality",
+                            "feature2": "Clean, modern aesthetic",
+                            "feature3": "Commercial composting required"
+                        },
+                        "natureFlex": {
+                            "title": "NatureFlex™ Films",
+                            "desc": "Cellulose-based transparent film for clear packaging and windows.",
+                            "feature1": "Crystal clear transparency",
+                            "feature2": "Good moisture barrier",
+                            "feature3": "Home and commercial compostable"
+                        },
+                        "pbatPla": {
+                            "title": "PBAT/PLA Blends",
+                            "desc": "High-performance compostable films for demanding barrier requirements.",
+                            "feature1": "Enhanced barrier properties",
+                            "feature2": "Heat sealable",
+                            "feature3": "Commercial composting only"
+                        }
+                    },
+                    "certifications": {
+                        "title": "Compostability Certifications",
+                        "intro": "Our compostable packaging is certified to international standards:",
+                        "eu": {
+                            "label": "EU",
+                            "title": "EN 13432",
+                            "desc": "European standard for compostable packaging. Requires 90% disintegration within 12 weeks and complete biodegradation within 6 months in industrial composting."
+                        },
+                        "us": {
+                            "label": "US",
+                            "title": "ASTM D6400",
+                            "desc": "US standard for plastics designed for municipal/industrial aerobic composting facilities. Equivalent testing to EN 13432."
+                        },
+                        "au": {
+                            "label": "AU",
+                            "title": "AS 4736 / AS 5810",
+                            "desc": "Australian standards for commercial compostability (AS 4736) and home compostability (AS 5810)."
+                        },
+                        "note": "We provide certification documentation with every order. Our materials are tested by accredited laboratories including TÜV Austria, DIN CERTCO, and BPI."
+                    },
+                    "applications": {
+                        "title": "Product Applications",
+                        "intro": "Compostable packaging is ideal for brands committed to sustainability:",
+                        "items": ["Specialty coffee", "Organic tea", "Health food snacks", "Organic granola", "Natural pet treats", "Superfood powders", "Dried fruits", "Artisan chocolates", "Farmers market products", "Zero-waste store items", "Organic baby food", "Herbal supplements"]
+                    },
+                    "disposal": {
+                        "title": "Disposal & Composting Guide",
+                        "intro": "Understanding proper disposal is key to realizing the environmental benefits:",
+                        "commercialVsHome": "Commercial vs Home Composting",
+                        "commercialVsHomeDesc": "Commercial composting facilities maintain temperatures of 55-60°C, which accelerates breakdown. Most certified compostable packaging requires these conditions. Home composting operates at lower temperatures and may take 6-12 months for complete decomposition.",
+                        "instructionsTitle": "Disposal Instructions for Consumers:",
+                        "instruction1": "Remove any non-compostable elements (zippers may need to be cut off if not compostable)",
+                        "instruction2": "Place in commercial compost bin (check local availability)",
+                        "instruction3": "Do NOT place in regular recycling - compostables can contaminate recycling streams",
+                        "instruction4": "If no commercial composting available, dispose in regular waste (will still break down faster than conventional plastic)"
+                    },
+                    "limitations": {
+                        "title": "Considerations & Limitations",
+                        "intro": "Compostable packaging is excellent for many applications, but consider these factors:",
+                        "bestFor": "Best For:",
+                        "bestFor1": "Dry products with 6-12 month shelf life",
+                        "bestFor2": "Premium, organic, natural brands",
+                        "bestFor3": "Products sold in regions with composting infrastructure",
+                        "bestFor4": "B-corp and sustainability-focused companies",
+                        "considerAlternatives": "Consider Alternatives For:",
+                        "alt1": "Products requiring 18+ month shelf life",
+                        "alt2": "High moisture/liquid products",
+                        "alt3": "Extreme temperature exposure",
+                        "alt4": "Regions without composting access",
+                        "note": "Our team can help you determine if compostable packaging is right for your product. We also offer recyclable alternatives for applications where compostables may not be optimal."
+                    }
+                },
+                "faq": {
+                    "q1": "What is the difference between compostable and biodegradable?",
+                    "a1": "Compostable materials break down completely into natural elements within a specific timeframe under composting conditions, with certification to prove it (EN 13432, ASTM D6400). 'Biodegradable' is a broader, unregulated term - technically everything biodegrades eventually, even conventional plastic over centuries. Always look for certified compostable, not just biodegradable claims.",
+                    "q2": "Will compostable packaging break down in landfill?",
+                    "a2": "Compostable packaging requires oxygen and microbes to break down efficiently. Landfills are anaerobic environments (no oxygen), so decomposition is very slow. However, compostable materials will still break down faster than conventional plastics and won't leave microplastic residue.",
+                    "q3": "Can I home compost certified compostable packaging?",
+                    "a3": "Most certified compostable packaging is designed for commercial/industrial composting (55-60°C). Some materials are home compostable (certified to AS 5810 or OK Home standard). We can advise which materials suit your needs.",
+                    "q4": "Is compostable packaging food safe?",
+                    "a4": "Yes, all our compostable materials are certified for food contact under FDA 21 CFR and EU 10/2011 regulations. PLA and cellulose-based materials are derived from natural sources and are safe for direct food contact.",
+                    "q5": "How much does compostable packaging cost compared to regular plastic?",
+                    "a5": "Compostable materials typically cost 15-30% more than conventional plastic. However, as production scales and demand grows, the price gap is narrowing. Many brands find the sustainability benefits and marketing value justify the premium."
+                },
+                "table": {
+                    "title": "Compostable Material Comparison",
+                    "headers": ["Material", "Barrier Level", "Composting Type", "Best For"],
+                    "row1": ["Kraft + PLA", "Medium", "Commercial / Some Home", "Coffee, Tea, Dry Snacks"],
+                    "row2": ["White Kraft + PLA", "Medium", "Commercial", "Premium Coffee, Powders"],
+                    "row3": ["NatureFlex Cellulose", "Medium-High", "Home & Commercial", "Clear Windows, Tea"],
+                    "row4": ["PBAT/PLA Blend", "High", "Commercial Only", "Moisture-Sensitive Products"],
+                    "row5": ["Paper/Cellulose Only", "Low", "Home & Commercial", "Short Shelf Life Items"]
+                },
+                "relatedLinks": {
+                    "link1": {
+                        "title": "Recyclable Materials",
+                        "description": "Mono-PE and mono-PP options"
+                    },
+                    "link2": {
+                        "title": "Coffee & Tea Packaging",
+                        "description": "Compostable coffee pouches"
+                    },
+                    "link3": {
+                        "title": "Stand-Up Pouches",
+                        "description": "Available in compostable materials"
+                    }
+                }
+            },
+            "homeCompostable": {
+                "title": "Home Compostable Packaging | OK Home Certified Pouches",
+                "heroTitle": "Home Compostable: From Pouch to Garden Soil",
+                "heroSubtitle": "Certified packaging that breaks down in your backyard compost bin. No industrial facility needed – true consumer-level circularity.",
+                "introSummary": "OK Compost HOME and AS 5810 certified pouches that decompose in 6-12 months at ambient temperatures. The ultimate sustainability message for eco-conscious brands.",
+                "ctaTitle": "Ready for True Home Compostability?",
+                "ctaDescription": "Get certified home compostable packaging that your customers can compost in their own backyards.",
+                "ctaButtonText": "Get Free Sample",
+                "sections": {
+                    "overview": {
+                        "title": "Home Compostable Packaging",
+                        "intro": "Home compostable packaging breaks down in your backyard compost bin, no industrial facility needed. Achieve Pack's home compostable pouches meet the strictest standards (OK Compost HOME, AS 5810) and decompose within 6-12 months in typical home composting conditions.",
+                        "whyChoose": "Why Choose Home Compostable:",
+                        "benefit1": "Consumer accessible – Works in backyard compost bins, no special facilities needed",
+                        "benefit2": "Lower temperatures – Breaks down at 20-30°C (vs 58°C for industrial)",
+                        "benefit3": "True circularity – Returns nutrients to soil at consumer level",
+                        "benefit4": "Premium positioning – Strongest sustainability message for eco-conscious brands",
+                        "benefit5": "Certified standards – TÜV Austria OK Compost HOME, AS 5810 (Australia)"
+                    },
+                    "certifications": {
+                        "title": "Home Compostable Certifications",
+                        "okHome": {
+                            "title": "OK Compost HOME",
+                            "subtitle": "TÜV Austria certification",
+                            "feature1": "Biodegrades at 20-30°C",
+                            "feature2": "90% disintegration in 6 months",
+                            "feature3": "No toxic residue",
+                            "feature4": "Recognized in EU"
+                        },
+                        "as5810": {
+                            "title": "AS 5810",
+                            "subtitle": "Australian home composting standard",
+                            "feature1": "Ambient temperature decomposition",
+                            "feature2": "90% biodegradation in 12 months",
+                            "feature3": "Plant toxicity tested",
+                            "feature4": "Required for Australia market"
+                        }
+                    },
+                    "materials": {
+                        "title": "Home Compostable Materials",
+                        "intro": "Our home compostable pouches use certified bio-based materials:",
+                        "kraftPla": {
+                            "title": "Kraft + PLA Film",
+                            "feature1": "FSC-certified kraft paper",
+                            "feature2": "PLA derived from corn starch",
+                            "feature3": "Natural, premium appearance",
+                            "feature4": "Low barrier (3-6 months)"
+                        },
+                        "pbatPla": {
+                            "title": "PBAT/PLA Blend",
+                            "feature1": "Flexible film structure",
+                            "feature2": "Clear or matte finish",
+                            "feature3": "Medium barrier option",
+                            "feature4": "Printable with water-based inks"
+                        },
+                        "cellulose": {
+                            "title": "Cellulose-Based",
+                            "feature1": "Wood pulp derived",
+                            "feature2": "Excellent transparency",
+                            "feature3": "Low barrier applications",
+                            "feature4": "Window pouches available"
+                        },
+                        "paper": {
+                            "title": "Paper Mono-Material",
+                            "feature1": "100% paper construction",
+                            "feature2": "Bio-based barrier coating",
+                            "feature3": "Heat-sealable",
+                            "feature4": "Premium craft aesthetic"
+                        }
+                    },
+                    "timeline": {
+                        "title": "Composting Timeline",
+                        "intro": "What to expect when composting our home compostable pouches:",
+                        "month1": "Month 1",
+                        "month1Desc": "Intact pouch",
+                        "month2": "Month 2-3",
+                        "month2Desc": "Softening begins",
+                        "month3": "Month 4-5",
+                        "month3Desc": "Fragmentation",
+                        "month4": "Month 6-9",
+                        "month4Desc": "Biodegradation",
+                        "month5": "Month 12",
+                        "month5Desc": "Complete (soil)",
+                        "note": "*Timeline varies based on composting conditions (temperature, moisture, aeration). Active composting with regular turning accelerates decomposition."
+                    },
+                    "applications": {
+                        "title": "Best Applications",
+                        "items": ["Organic Tea & Herbal Infusions", "Artisan Coffee Beans", "Dried Fruits & Botanicals", "Organic Snacks & Cookies", "Specialty Food Gifts", "Farmers Market Products", "Zero-Waste Store Items", "Eco-Conscious Cosmetics", "Premium Chocolate"]
+                    }
+                },
+                "faq": {
+                    "q1": "What's the difference between home and industrial compostable?",
+                    "a1": "Home compostable packaging breaks down in backyard compost bins at ambient temperatures (20-30°C). Industrial compostable requires commercial facilities with controlled high temperatures (58°C+). Home compostable is more accessible to consumers but typically has lower barrier properties.",
+                    "q2": "How long does home composting take?",
+                    "a2": "Our home compostable pouches typically break down in 6-12 months in an active backyard compost. Factors affecting speed include temperature, moisture, turning frequency, and the existing microbial activity in your compost.",
+                    "q3": "Can I put home compostable packaging in my green bin?",
+                    "a3": "It depends on your local council's guidelines. Many municipal green bin programs only accept industrial compostable materials. Home compostable items are designed for backyard composting. Check with your local waste authority.",
+                    "q4": "Is home compostable packaging suitable for all products?",
+                    "a4": "Home compostable materials typically have low-medium barrier properties, making them best for dry goods with 3-6 month shelf life. For products requiring high barrier (coffee, supplements), we recommend industrial compostable or recyclable options."
+                },
+                "relatedLinks": {
+                    "link1": { "title": "Industrial Compostable", "description": "Higher barrier compostable option" },
+                    "link2": { "title": "Compostable Materials Overview", "description": "All compostable options" },
+                    "link3": { "title": "Coffee & Tea Packaging", "description": "Popular home compostable application" }
+                }
+            },
+            "industrialCompostable": {
+                "title": "Industrial Compostable Packaging | Commercial Composting Pouches",
+                "heroTitle": "Industrial Compostable: High Performance, Zero Waste",
+                "heroSubtitle": "EN 13432 and ASTM D6400 certified packaging that decomposes in commercial facilities within 90-180 days. Higher barrier properties for demanding applications.",
+                "introSummary": "Globally certified (EN 13432, ASTM D6400) compostable pouches with medium-high barrier options. Decomposes in commercial composting facilities in 90-180 days.",
+                "ctaTitle": "Ready for Industrial Compostable?",
+                "ctaDescription": "Get certified compostable packaging with the barrier properties your product needs.",
+                "ctaButtonText": "Get Free Sample",
+                "sections": {
+                    "overview": {
+                        "title": "Industrial Compostable Packaging",
+                        "intro": "Industrial compostable packaging breaks down in commercial composting facilities under controlled high-temperature conditions. Achieve Pack's EN 13432 and ASTM D6400 certified pouches decompose within 90-180 days, offering higher barrier protection than home compostable alternatives.",
+                        "whyChoose": "Why Choose Industrial Compostable:",
+                        "benefit1": "Higher barrier properties \u2013 Better oxygen and moisture protection",
+                        "benefit2": "Faster decomposition \u2013 90-180 days in commercial facilities",
+                        "benefit3": "Wider material options \u2013 More structural and barrier choices",
+                        "benefit4": "Scalable infrastructure \u2013 Growing network of composting facilities",
+                        "benefit5": "Globally recognized \u2013 EN 13432 (EU), ASTM D6400 (US) certified"
+                    },
+                    "certifications": {
+                        "title": "Industrial Compostable Standards",
+                        "en13432": {
+                            "title": "EN 13432",
+                            "subtitle": "European Standard",
+                            "features": ["Biodegrades at 58\u00b0C", "90% disintegration in 12 weeks", "90% biodegradation in 6 months", "Heavy metal limits", "Plant ecotoxicity tested"]
+                        },
+                        "astm": {
+                            "title": "ASTM D6400",
+                            "subtitle": "US/North American Standard",
+                            "features": ["Commercial composting conditions", "60% biodegradation in 180 days", "No harmful residue", "BPI certification available", "Recognized across North America"]
+                        },
+                        "okIndustrial": {
+                            "title": "OK Compost INDUSTRIAL",
+                            "desc": "T\u00dcV Austria certification confirming compliance with EN 13432. Our pouches carry this mark for easy identification at waste sorting facilities."
+                        }
+                    },
+                    "materials": {
+                        "title": "Industrial Compostable Materials",
+                        "intro": "Higher performance materials for demanding applications:"
+                    },
+                    "comparison": {
+                        "title": "Home vs Industrial Composting"
+                    },
+                    "order": {
+                        "title": "Order Information",
+                        "minOrder": "Minimum Order",
+                        "daysToCompost": "Days to Compost",
+                        "shelfLife": "Month Shelf Life"
+                    }
+                },
+                "faq": {
+                    "q1": "How do consumers dispose of industrial compostable packaging?",
+                    "a1": "Industrial compostable packaging should go in commercial composting bins (often marked with 'compostable' or green/brown bins) where available. Many cities now have organic waste collection that goes to composting facilities. Check your local guidelines.",
+                    "q2": "Will industrial compostable packaging break down in landfill?",
+                    "a2": "No. Landfills lack the oxygen, moisture, and microbial activity needed for composting. Industrial compostable packaging is designed for aerobic composting conditions. If your area lacks composting infrastructure, recyclable packaging may be more appropriate.",
+                    "q3": "Is industrial compostable more or less expensive than home compostable?",
+                    "a3": "Industrial compostable materials are generally 10-20% less expensive than home compostable options because the certification requirements are less stringent and material options are broader. However, both are more expensive than conventional plastics.",
+                    "q4": "Can I use industrial compostable for export to different countries?",
+                    "a4": "EN 13432 certification is recognized in the EU, UK, and many other markets. ASTM D6400 is the standard for North America. For Australia, look for AS 4736. We can help you select the right certification for your target markets."
+                },
+                "relatedLinks": {
+                    "link1": { "title": "Home Compostable", "description": "Backyard compost option" },
+                    "link2": { "title": "Compostable Overview", "description": "All compostable solutions" },
+                    "link3": { "title": "Barrier Options", "description": "Protection level guide" }
+                }
+            },
+            "recyclableMonoPE": {
+                "title": "Recyclable Mono-PE Packaging | 100% PE Flexible Pouches",
+                "heroTitle": "Recyclable Mono-PE Packaging",
+                "heroSubtitle": "Single-material polyethylene pouches that can be recycled in standard PE recycling streams. The practical sustainable choice.",
+                "introSummary": "Mono-PE packaging uses single-material polyethylene construction, making it compatible with PE recycling programs. Unlike multi-material laminates, mono-PE pouches can be recycled through store drop-off and growing curbside programs while maintaining good barrier properties.",
+                "ctaTitle": "Switch to Recyclable Mono-PE",
+                "ctaDescription": "Request a free sample and quote for recyclable packaging.",
+                "ctaButtonText": "Request Free Sample",
+                "sections": {
+                    "overview": {
+                        "title": "What is Mono-PE Packaging?",
+                        "intro": "Mono-PE (mono-material polyethylene) packaging is made entirely from polyethylene, making it compatible with standard PE recycling streams. Unlike traditional multi-layer laminates, mono-PE pouches can be recycled through store drop-off programs and, increasingly, curbside recycling.",
+                        "keyBenefits": "Key Benefits:",
+                        "benefits": ["Recyclable in PE stream (recycling code #2 or #4)", "Accepted at store drop-off recycling points", "Good barrier properties maintained", "Heat sealable and flexible", "Lower environmental footprint than multi-material"]
+                    },
+                    "howItWorks": {
+                        "title": "How Mono-PE Achieves Barrier",
+                        "intro": "Traditional pouches use different materials (PET, nylon, aluminum) for barrier. Mono-PE achieves this with PE-only solutions:",
+                        "evoh": { "title": "EVOH Barrier Layer", "desc": "Thin EVOH layer sandwiched between PE. Provides excellent oxygen barrier while remaining recyclable in PE stream (EVOH content <5%)." },
+                        "pePe": { "title": "PE-PE Structures", "desc": "Different PE types (HDPE, MDPE, LDPE) combined for optimal stiffness, seal, and barrier without other materials." },
+                        "coatings": { "title": "Barrier Coatings", "desc": "SiOx or AlOx coatings on PE provide metallized-like barrier while maintaining recyclability." },
+                        "oriented": { "title": "Oriented PE", "desc": "Machine direction oriented PE (MDOPE) provides improved stiffness and printability typically achieved with PET." }
+                    },
+                    "applications": {
+                        "title": "Suitable Applications",
+                        "intro": "Mono-PE packaging works well for many products:",
+                        "items": ["Frozen foods", "Snacks & chips", "Dry pet food", "Rice & grains", "Coffee (with EVOH)", "Nuts & dried fruit", "Granola & cereal", "Bakery products", "Candy & confectionery"]
+                    },
+                    "recycling": {
+                        "title": "Recycling Information",
+                        "whereTitle": "Where to Recycle:",
+                        "options": ["Store drop-off programs – Many major retailers accept PE flexible packaging", "Curbside recycling – Growing number of municipalities accept flexible PE", "Terracycle programs – Specialty recycling for brands"],
+                        "note": "Note: Recycling infrastructure varies by region. We recommend checking local guidelines and communicating proper disposal instructions on packaging."
+                    }
+                },
+                "table": {
+                    "title": "Mono-PE vs Traditional Laminate Comparison",
+                    "headers": ["Property", "Mono-PE", "Traditional PET/PE"],
+                    "rows": [
+                        ["Recyclability", "PE stream recyclable", "Generally not recyclable"],
+                        ["Oxygen Barrier", "Good (with EVOH)", "Excellent"],
+                        ["Moisture Barrier", "Good", "Excellent"],
+                        ["Stiffness", "Good (with MDOPE)", "Excellent"],
+                        ["Cost", "+5-15%", "Baseline"],
+                        ["Print Quality", "Very good", "Excellent"]
+                    ]
+                },
+                "faq": {
+                    "q1": "Is mono-PE truly recyclable?",
+                    "a1": "Yes, mono-PE pouches are recyclable in polyethylene recycling streams. They are accepted at store drop-off points (like those at major retailers) and some curbside programs. Always check local recycling guidelines.",
+                    "q2": "What is the barrier level of mono-PE?",
+                    "a2": "Mono-PE offers medium barrier properties suitable for many dry goods. For products requiring higher barrier, we use EVOH-coated PE which maintains recyclability while improving oxygen barrier. MVTR typically 1-3 g/m²/24hr, OTR 10-30 cc/m²/24hr for standard PE.",
+                    "q3": "How does mono-PE compare in cost?",
+                    "a3": "Mono-PE pouches typically cost 5-15% more than equivalent multi-material structures due to specialized materials needed for barrier. However, the sustainability benefit often justifies the premium for eco-conscious brands.",
+                    "q4": "Can mono-PE pouches be printed?",
+                    "a4": "Yes, mono-PE pouches can achieve high-quality printing with up to 10 colors. We use specialized inks and coatings designed for PE surfaces. Surface treatment ensures excellent ink adhesion."
+                },
+                "relatedLinks": {
+                    "link1": { "title": "Recyclable Mono-PP", "description": "Polypropylene alternative" },
+                    "link2": { "title": "Bio-PE", "description": "Plant-based PE option" },
+                    "link3": { "title": "Compostable", "description": "Certified compostable materials" }
+                }
+            },
+            "recyclableMonoPP": {
+                "title": "Recyclable Mono-PP Packaging | Single-Material Polypropylene Pouches",
+                "heroTitle": "Recyclable Mono-PP Packaging",
+                "heroSubtitle": "Single-material polypropylene pouches with superior heat resistance and clarity. Microwave safe and recyclable.",
+                "introSummary": "Mono-PP packaging is made entirely from polypropylene, enabling recycling in PP streams. It offers higher heat resistance than PE, ideal for hot-fill and microwaveable applications.",
+                "ctaTitle": "Switch to Recyclable Mono-PP",
+                "ctaDescription": "Request a free sample and quote for heat-resistant recyclable packaging.",
+                "ctaButtonText": "Request Free Sample",
+                "sections": {
+                    "overview": {
+                        "title": "What is Mono-PP Packaging?",
+                        "intro": "Mono-PP (mono-material polypropylene) packaging is made entirely from polypropylene, enabling recycling in PP recycling streams. PP offers higher heat resistance and better clarity than PE, making it ideal for specific applications.",
+                        "keyBenefits": "Key Benefits:",
+                        "benefits": ["Recyclable in PP stream (recycling code #5)", "Higher heat resistance than PE (up to 120°C)", "Better clarity and gloss", "Good stiffness and barrier properties", "Hot-fill and microwave capable"]
+                    },
+                    "vsPe": {
+                        "title": "Mono-PP vs Mono-PE",
+                        "choosePP": "Choose Mono-PP When:",
+                        "ppReasons": ["Hot-fill applications required", "Microwave heating needed", "High clarity/gloss important", "Better stiffness required", "Higher temperature resistance"],
+                        "choosePE": "Choose Mono-PE When:",
+                        "peReasons": ["Frozen food applications", "Better flex-crack resistance", "Lower temperature use", "Wider recycling acceptance", "Cost sensitivity"]
+                    },
+                    "applications": {
+                        "title": "Ideal Applications",
+                        "intro": "Mono-PP is particularly suited for:",
+                        "items": ["Hot-fill sauces", "Microwaveable meals", "Snacks & chips", "Confectionery", "Ready meals", "Fresh pasta", "Deli products", "Baked goods", "Clear window packaging"]
+                    },
+                    "specifications": {
+                        "title": "Technical Specifications",
+                        "specs": ["Temperature resistance: Up to 120°C (248°F)", "Hot-fill capable: 85°C (185°F) filling", "Microwave safe: Yes (no aluminum)", "Clarity: Higher than PE", "MVTR: 2-5 g/m²/24hr", "OTR: 1000-2000 cc/m²/24hr (improved with EVOH)"]
+                    }
+                },
+                "faq": {
+                    "q1": "Is mono-PP recyclable everywhere?",
+                    "a1": "PP recycling (#5) is less widely available than PE recycling. However, PP recycling infrastructure is growing. Many store drop-off programs and an increasing number of curbside programs accept PP. Always check local guidelines.",
+                    "q2": "Can mono-PP pouches be microwaved?",
+                    "a2": "Yes, mono-PP pouches can be safely microwaved as PP is heat-resistant up to 120°C. This makes them ideal for ready meals and microwaveable products. The pouch must not contain any metallization.",
+                    "q3": "What barrier properties does mono-PP offer?",
+                    "a3": "Standard mono-PP has moderate barrier properties. For improved oxygen barrier, we use PP with EVOH barrier layer (keeping PP content >95% for recyclability) or barrier coatings.",
+                    "q4": "How does mono-PP compare in cost to mono-PE?",
+                    "a4": "Mono-PP is generally 5-10% more expensive than mono-PE due to material costs. However, the heat resistance and clarity benefits justify this for appropriate applications."
+                },
+                "relatedLinks": {
+                    "link1": { "title": "Recyclable Mono-PE", "description": "PE-based recyclable option" },
+                    "link2": { "title": "Compostable", "description": "Certified compostable materials" },
+                    "link3": { "title": "Stand-Up Pouches", "description": "Popular pouch format" }
+                }
+            },
+            "bioPE": {
+                "title": "Bio-PE Packaging | Sugarcane-Based Sustainable Pouches",
+                "heroTitle": "Bio-PE Plant-Based Packaging",
+                "heroSubtitle": "Polyethylene made from renewable sugarcane. Same performance, lower carbon footprint, fully recyclable.",
+                "introSummary": "Bio-PE is polyethylene made from renewable sugarcane instead of fossil fuels. It offers identical performance to conventional PE while capturing carbon during production. Bio-PE is fully recyclable in standard PE streams and certified by Braskem's I'm green™ program.",
+                "ctaTitle": "Switch to Bio-PE",
+                "ctaDescription": "Request a free sample and quote for plant-based packaging.",
+                "ctaButtonText": "Request Free Sample",
+                "sections": {
+                    "overview": {
+                        "title": "What is Bio-PE?",
+                        "intro": "Bio-PE (bio-based polyethylene) is chemically identical to conventional PE but made from renewable plant sources like sugarcane instead of fossil fuels. It offers the same performance as traditional PE while reducing carbon footprint.",
+                        "keyBenefits": "Key Benefits:",
+                        "benefits": ["Made from renewable sugarcane (up to 95% bio-based)", "Carbon negative raw material production", "Same performance as conventional PE", "Recyclable in existing PE streams", "I'm green™ certified by Braskem"]
+                    },
+                    "howItWorks": {
+                        "title": "How Bio-PE is Made",
+                        "step1": "Sugarcane Growth",
+                        "step1Desc": "Sugarcane absorbs CO2 from the atmosphere as it grows",
+                        "step2": "Ethanol Production",
+                        "step2Desc": "Sugarcane is fermented to produce bio-ethanol",
+                        "step3": "Ethylene Conversion",
+                        "step3Desc": "Bio-ethanol is dehydrated to create bio-ethylene",
+                        "step4": "Polymerization",
+                        "step4Desc": "Bio-ethylene is polymerized into bio-PE (chemically identical to fossil PE)"
+                    },
+                    "carbon": {
+                        "title": "Carbon Benefits",
+                        "comparisonTitle": "Carbon Footprint Comparison:",
+                        "items": ["Bio-PE: Captures ~3.09 kg CO2 per kg of PE produced", "Fossil PE: Emits ~1.8 kg CO2 per kg of PE produced", "Net difference: ~4.9 kg CO2 per kg of material"],
+                        "note": "This calculation is based on sugarcane cultivation absorbing CO2, which is captured in the bio-PE. Life cycle assessments confirm the carbon-negative nature of bio-PE production."
+                    },
+                    "applications": {
+                        "title": "Suitable Applications",
+                        "intro": "Bio-PE works for any application where conventional PE is used:",
+                        "items": ["Food packaging", "Beverage pouches", "Personal care", "Household products", "Pet food bags", "Snack packaging", "Frozen food", "Agricultural films", "Shopping bags"]
+                    },
+                    "recycling": {
+                        "title": "Recyclability",
+                        "distinctionTitle": "Important Distinction:",
+                        "distinction": "Bio-PE is NOT compostable. It is chemically identical to fossil PE and does not break down in composting conditions. The \"bio\" refers to its renewable origin, not its end-of-life behavior.",
+                        "info": "Bio-PE is fully recyclable in standard PE recycling streams (#2 and #4). It can be mixed with fossil PE in recycling processes without any issues."
+                    }
+                },
+                "faq": {
+                    "q1": "Is Bio-PE compostable?",
+                    "a1": "No, Bio-PE is not compostable. It is chemically identical to conventional PE. The 'bio' refers to its renewable plant-based origin, not its end-of-life. Bio-PE is recyclable in standard PE recycling streams.",
+                    "q2": "What is the carbon benefit of Bio-PE?",
+                    "a2": "Sugarcane absorbs CO2 as it grows, making Bio-PE production carbon negative. Each ton of Bio-PE captures approximately 3.09 tons of CO2 from the atmosphere, compared to fossil PE which emits ~1.8 tons CO2 per ton produced.",
+                    "q3": "Does Bio-PE perform the same as regular PE?",
+                    "a3": "Yes, Bio-PE has identical properties to fossil-based PE including heat seal temperature, barrier properties, flexibility, and printing characteristics. It's a direct drop-in replacement.",
+                    "q4": "How much does Bio-PE cost compared to conventional PE?",
+                    "a4": "Bio-PE typically costs 15-30% more than fossil PE due to production scale and feedstock costs. However, prices continue to decrease as production capacity increases.",
+                    "q5": "What percentage of bio-based content is available?",
+                    "a5": "We can offer Bio-PE pouches with up to 95% bio-based content. For multi-layer structures, the bio-based percentage depends on which layers use Bio-PE. Typical options are 30%, 50%, or 95% bio-based."
+                },
+                "relatedLinks": {
+                    "link1": { "title": "Recyclable Mono-PE", "description": "Single-material recyclable packaging" },
+                    "link2": { "title": "PCR Packaging", "description": "Post-consumer recycled content" },
+                    "link3": { "title": "Compostable", "description": "Certified compostable options" }
+                }
+            },
+            "pcr": {
+                "title": "PCR Packaging | Post-Consumer Recycled Flexible Pouches",
+                "heroTitle": "PCR Recycled Content Packaging",
+                "heroSubtitle": "Flexible packaging with 30-100% post-consumer recycled content. Supporting the circular economy while maintaining quality.",
+                "introSummary": "PCR packaging incorporates plastic recycled from consumer waste, reducing virgin plastic use and supporting circular economy goals. Our PCR pouches are GRS certified, FDA approved for food contact, and available in 30%, 50%, or 100% recycled content.",
+                "ctaTitle": "Switch to PCR Packaging",
+                "ctaDescription": "Request a free sample and quote for recycled content packaging.",
+                "ctaButtonText": "Request Free Sample",
+                "sections": {
+                    "overview": {
+                        "title": "What is PCR Packaging?",
+                        "intro": "PCR (Post-Consumer Recycled) packaging contains plastic that has been recycled from consumer waste streams. By incorporating recycled content, brands reduce virgin plastic use and support the circular economy.",
+                        "keyBenefits": "Key Benefits:",
+                        "benefits": ["Reduces virgin plastic consumption", "Supports circular economy and recycling infrastructure", "Lower carbon footprint than virgin plastic", "Maintains excellent packaging performance", "GRS (Global Recycled Standard) certified available"]
+                    },
+                    "contentLevels": {
+                        "title": "PCR Content Levels",
+                        "intro": "We offer various PCR content levels to meet your sustainability goals:",
+                        "level30": { "title": "Entry Level", "desc": "Good starting point for PCR adoption. Minimal impact on appearance." },
+                        "level50": { "title": "Recommended", "desc": "Balanced approach. Significant sustainability impact with good performance." },
+                        "level100": { "title": "Maximum", "desc": "For brands prioritizing maximum recycled content. Some optical variation." }
+                    },
+                    "foodSafety": {
+                        "title": "Food Safety & Quality",
+                        "intro": "Our PCR materials meet stringent food safety requirements:",
+                        "items": ["FDA approved for food contact (21 CFR 177)", "EFSA compliant for European markets", "Super-cleaned PCR – Advanced decontamination process", "Traceability – Known source streams, typically food-grade PET/PE", "Testing – Migration testing and challenge testing performed"],
+                        "note": "We use mechanical and advanced recycling technologies to ensure PCR materials meet food-contact safety requirements."
+                    },
+                    "certifications": {
+                        "title": "Certifications",
+                        "grs": { "title": "GRS Certified", "desc": "Global Recycled Standard certification verifies recycled content and tracks materials through the supply chain." },
+                        "scs": { "title": "SCS Verified", "desc": "SCS Global Services verification for recycled content claims and environmental impact." }
+                    },
+                    "applications": {
+                        "title": "Suitable Applications",
+                        "items": ["Snack foods", "Pet food", "Coffee & tea", "Personal care", "Household products", "Frozen food", "Dry goods", "E-commerce mailers", "Non-food applications"]
+                    }
+                },
+                "table": {
+                    "title": "PCR Content Comparison",
+                    "headers": ["PCR Level", "Appearance Impact", "Cost Premium", "Carbon Reduction"],
+                    "rows": [
+                        ["30% PCR", "Minimal", "+10-12%", "~20-25%"],
+                        ["50% PCR", "Slight", "+15-18%", "~35-40%"],
+                        ["100% PCR", "Noticeable", "+20-25%", "~70-80%"]
+                    ]
+                },
+                "faq": {
+                    "q1": "Is PCR packaging food safe?",
+                    "a1": "Yes, our PCR materials are FDA approved for food contact. The recycled content undergoes advanced decontamination (super-cleaning) and rigorous testing to meet food safety standards including migration testing.",
+                    "q2": "Does PCR affect print quality?",
+                    "a2": "PCR may have slightly different optical properties (slight haze or color variation) compared to virgin plastic. At 30-50% PCR content, the impact on print quality is minimal. We recommend samples to evaluate appearance for your application.",
+                    "q3": "What is the source of your PCR?",
+                    "a3": "Our PCR comes from established post-consumer waste streams, primarily food-grade PET bottles and PE packaging. We work with certified recyclers who provide full traceability and use advanced sorting and cleaning processes.",
+                    "q4": "How much does PCR packaging cost?",
+                    "a4": "PCR typically costs 10-20% more than virgin plastic, though pricing fluctuates with recycled feedstock availability. The premium supports recycling infrastructure development and reflects the additional processing required.",
+                    "q5": "Can PCR pouches still be recycled?",
+                    "a5": "Yes, PCR pouches can be recycled again, continuing the circular economy loop. The recyclability depends on the overall pouch structure (mono-material vs multi-layer) rather than the PCR content itself."
+                },
+                "relatedLinks": {
+                    "link1": { "title": "Recyclable Mono-PE", "description": "Single-material recyclable option" },
+                    "link2": { "title": "Bio-PE", "description": "Plant-based alternative" },
+                    "link3": { "title": "Compostable", "description": "Certified compostable packaging" }
+                }
+            },
+            "standUpPouches": {
+                "title": "Stand-Up Pouches | Flexible Packaging Solutions",
+                "heroTitle": "Custom Stand-Up Pouches",
+                "heroSubtitle": "Premium flexible packaging with excellent shelf presence. Available with zipper, slider, spout, or valve closures. Compostable and recyclable options.",
+                "introSummary": "Stand-up pouches (SUP) combine the cost efficiency of flexible packaging with excellent retail shelf presence. Achieve Pack offers custom printed SUPs with resealable closures, high-barrier materials, and sustainable options including certified compostable and recyclable structures. MOQ from 500 units."
+            },
+            "flatBottomBags": {
+                "title": "Flat Bottom Bags | Box Pouch Packaging",
+                "heroTitle": "Flat Bottom Bags",
+                "heroSubtitle": "Premium box-style pouches with stable rectangular base and 5-panel branding. The choice for specialty coffee, premium foods, and pet products.",
+                "introSummary": "Flat bottom bags (box bottom pouches) offer maximum shelf stability and premium appearance with 5 printable panels. Perfect for specialty coffee, pet food, and products requiring a premium retail presentation."
+            },
+            "spoutPouches": {
+                "title": "Spout Pouches | Liquid Packaging Solutions",
+                "heroTitle": "Spout Pouches",
+                "heroSubtitle": "Flexible pouches with pour spouts for liquids, purées, sauces, and beverages. The convenient, sustainable alternative to rigid bottles.",
+                "introSummary": "Spout pouches combine flexible packaging efficiency with the functionality of bottles. They use 70% less plastic than rigid containers while offering easy dispensing and reclosable convenience. Perfect for baby food, sauces, beverages, and refill applications."
+            },
+            "vacuumPouches": {
+                "title": "Vacuum Pouches | Extended Shelf Life Packaging",
+                "heroTitle": "Vacuum Pouches",
+                "heroSubtitle": "High-barrier vacuum packaging for extended shelf life. Protect meat, seafood, cheese, and specialty products from oxidation and freezer burn.",
+                "introSummary": "Vacuum pouches extend product shelf life 3-5x by removing oxygen before sealing. Our high-barrier pouches protect against oxidation, moisture, and contamination. Available for chamber and external vacuum machines, including sous vide and retort applications."
+            },
+            "flatPouches": {
+                "title": "Flat Pouches | Three-Side Sealed Bags",
+                "heroTitle": "Flat Pouches",
+                "heroSubtitle": "Simple, cost-effective three-side sealed pouches for various applications.",
+                "introSummary": "Flat pouches are the most economical flexible packaging option, ideal for samples, sachets, and lightweight products."
+            },
+            "sideGussetBags": {
+                "title": "Side Gusset Bags | High-Volume Packaging",
+                "heroTitle": "Side Gusset Bags",
+                "heroSubtitle": "Traditional gusseted bags with expandable sides for high capacity. The classic choice for coffee, tea, and bulk products.",
+                "introSummary": "Side gusset bags (quad seal bags) feature expandable side panels that provide high volume capacity in a compact format. Popular for coffee, tea, grains, and bulk products. Available with tin tie, zipper, and degassing valve options."
+            },
+            "coffeeTea": {
+                "title": "Coffee & Tea Packaging | Aromatic Barrier Pouches",
+                "heroTitle": "Coffee & Tea Packaging",
+                "heroSubtitle": "Specialized packaging with degassing valves and high barrier for maximum freshness.",
+                "introSummary": "Our coffee and tea packaging features specialized barriers to protect aroma and freshness, with optional degassing valves for freshly roasted coffee."
+            },
+            "snacksFood": {
+                "title": "Snacks & Food Packaging | Flexible Food Pouches",
+                "heroTitle": "Sustainable Snacks & Food Packaging",
+                "heroSubtitle": "Premium eco-friendly pouches for chips, nuts, dried fruits, jerky, and confectionery. High-barrier protection with sustainable materials.",
+                "introSummary": "Achieve Pack provides certified compostable and recyclable packaging for the snack food industry. Our pouches offer high-barrier protection, resealable closures, and vibrant custom printing. Perfect for chips, nuts, dried fruits, jerky, granola, and confectionery products."
+            },
+            "petFood": {
+                "title": "Pet Food Packaging | Durable Pet Treat Pouches",
+                "heroTitle": "Sustainable Pet Food & Treats Packaging",
+                "heroSubtitle": "Premium eco-friendly pouches for dog food, cat food, pet treats, and supplements. Heavy-duty, resealable, and pet-safe materials.",
+                "introSummary": "Achieve Pack provides certified compostable and recyclable packaging for the pet food industry. Our pouches feature heavy-duty construction for dense kibble, high-barrier films for freshness, and pet-safe materials with FDA compliance. Available from single-serve treats to 10kg+ bulk formats."
+            },
+            "supplements": {
+                "title": "Supplements Packaging | Powder & Vitamin Pouches",
+                "heroTitle": "Supplements Packaging",
+                "heroSubtitle": "High-barrier packaging for supplements, powders, and nutraceuticals.",
+                "introSummary": "Supplements packaging requires excellent moisture and oxygen barriers to maintain potency and product integrity."
+            },
+            "supplementsPowders": {
+                "title": "Supplements & Powder Packaging | Protein, Superfood & Sports Nutrition Pouches",
+                "heroTitle": "Supplements & Powder Packaging",
+                "heroSubtitle": "High-barrier sustainable pouches for protein, superfoods, collagen, and sports nutrition. Protect potency while supporting your sustainability goals.",
+                "introSummary": "Achieve Pack provides premium flexible packaging for the supplements industry. Our high-barrier pouches protect moisture-sensitive powders from degradation, with options including certified compostable, recyclable, and FDA-compliant materials. From single-serve stick packs to 5kg bulk bags."
+            },
+            "babyFood": {
+                "title": "Baby Food Packaging | Safe Infant Nutrition Pouches",
+                "heroTitle": "Baby Food Packaging",
+                "heroSubtitle": "Child-safe packaging with spout options for convenient feeding.",
+                "introSummary": "Baby food packaging meets the highest safety standards with child-resistant features and food-safe materials."
+            },
+            "frozenFood": {
+                "title": "Frozen Food Packaging | Cold-Resistant Pouches",
+                "heroTitle": "Frozen Food Packaging",
+                "heroSubtitle": "Durable packaging designed to withstand freezing temperatures without cracking.",
+                "introSummary": "Frozen food packaging maintains flexibility and seal integrity at low temperatures while protecting against freezer burn."
+            },
+            "saucesCondiments": {
+                "title": "Sauces & Condiments Packaging | Liquid-Resistant Pouches",
+                "heroTitle": "Sauces & Condiments Packaging",
+                "heroSubtitle": "Flexible spout pouches, refill packs, and sachets for sauces, condiments, oils, and spreads. Convenient, sustainable, and customizable.",
+                "introSummary": "Achieve Pack provides flexible packaging solutions for liquid and semi-liquid food products. Our spout pouches offer convenient dispensing while refill packs reduce plastic use by 80% compared to bottles."
+            },
+            "digitalPrinting": {
+                "title": "Digital Printing | Low MOQ Custom Pouch Printing",
+                "heroTitle": "Digital Printing",
+                "heroSubtitle": "High-quality digital printing with no minimum order and unlimited colors.",
+                "introSummary": "Digital printing allows for photographic quality prints with no plate costs, perfect for small batches and multiple SKUs."
+            },
+            "platePrinting": {
+                "title": "Plate Printing | Gravure & Flexo Printing",
+                "heroTitle": "Plate Printing",
+                "heroSubtitle": "Traditional plate printing for high-volume orders with consistent quality.",
+                "introSummary": "Gravure and flexographic printing deliver consistent, high-quality results for large production runs with excellent color accuracy.",
+                "sections": {
+                    "overview": "Gravure Plate Printing for High-Volume Orders",
+                    "technology": "Rotogravure Printing Technology",
+                    "applications": "Best Applications",
+                    "finishes": "Premium Finishing Options",
+                    "order": "Order Information"
+                }
+            },
+            "reclosureOptions": {
+                "title": "Reclosure Options | Zipper & Resealable Features",
+                "heroTitle": "Reclosure Options",
+                "heroSubtitle": "Various resealable solutions including zippers, spouts, and press-to-close features.",
+                "introSummary": "Reclosure options help maintain product freshness after opening and add convenience for consumers."
+            },
+            "surfaceFinish": {
+                "title": "Surface Finishes | Matte, Gloss & Special Effects",
+                "heroTitle": "Surface Finishes",
+                "heroSubtitle": "Premium finishes including matte, gloss, soft-touch, and metallic effects.",
+                "introSummary": "Surface finishes enhance the tactile and visual appeal of packaging, creating memorable unboxing experiences."
+            },
+            "barrierOptions": {
+                "title": "Barrier Options | Moisture & Oxygen Protection",
+                "heroTitle": "Barrier Options",
+                "heroSubtitle": "Multiple barrier levels from low to maximum protection for different products.",
+                "introSummary": "Barrier properties protect products from moisture, oxygen, light, and odors to maintain freshness and extend shelf life."
+            }
         }
     }
 }
