@@ -263,7 +263,7 @@ const SnacksFoodPage: React.FC = () => {
       canonicalUrl="https://achievepack.com/industry/snacks-food"
       heroTitle={t('seoPages.pages.snacksFood.heroTitle')}
       heroSubtitle={t('seoPages.pages.snacksFood.heroSubtitle')}
-      heroImage="/imgs/products/snack-pouch-hero.webp"
+      heroImage="/imgs/seo-photos/a_nutrivie_nuts_sustainable_pouch_lifestyle_0132786.webp"
       heroImageAlt="Eco-friendly snack packaging stand-up pouches with various snacks"
       introSummary={t('seoPages.pages.snacksFood.introSummary')}
       sections={sections}

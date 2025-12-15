@@ -230,7 +230,7 @@ const CoffeeTeaPage: React.FC = () => {
       canonicalUrl="https://achievepack.com/industry/coffee-tea"
       heroTitle={t('seoPages.pages.coffeeTea.heroTitle')}
       heroSubtitle={t('seoPages.pages.coffeeTea.heroSubtitle')}
-      heroImage="/imgs/products/coffee-pouch-hero.webp"
+      heroImage="/imgs/seo-photos/a_bean_bole_coffee_roastery_8131919.webp"
       heroImageAlt="Eco-friendly coffee packaging stand-up pouch with degassing valve"
       introSummary={t('seoPages.pages.coffeeTea.introSummary')}
       sections={sections}

@@ -212,7 +212,7 @@ const PetFoodPage: React.FC = () => {
       canonicalUrl="https://achievepack.com/industry/pet-food"
       heroTitle={t('seoPages.pages.petFood.heroTitle')}
       heroSubtitle={t('seoPages.pages.petFood.heroSubtitle')}
-      heroImage="/imgs/products/pet-food-pouch-hero.webp"
+      heroImage="/imgs/seo-photos/a_achieve_pack_outdoor_picnic_pouch_4758828.webp"
       heroImageAlt="Eco-friendly pet food packaging with dog treats stand-up pouch"
       introSummary={t('seoPages.pages.petFood.introSummary')}
       sections={sections}

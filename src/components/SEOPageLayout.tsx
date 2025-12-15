@@ -284,7 +284,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
             </aside>
 
             {/* Main Content Area */}
-            <main className="lg:col-span-3 space-y-8">
+            <main className="lg:col-span-3 lg:order-1 space-y-8">
               {/* Content Sections */}
               {sections.map((section) => (
                 <section 
