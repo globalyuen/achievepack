@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, Leaf, Truck, Globe, Clock, Package, Mail, Phone } from 'lucide-react'
-import { Helmet } from 'react-helmet-async'
+import { Helmet as HelmetOriginal } from 'react-helmet-async'
+const Helmet = HelmetOriginal as any
 
 const ShippingPolicyPage: React.FC = () => {
   return (
