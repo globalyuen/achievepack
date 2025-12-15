@@ -183,7 +183,7 @@ const VacuumPouchesPage: React.FC = () => {
       canonicalUrl="https://achievepack.com/packaging/vacuum-pouches"
       heroTitle={t('seoPages.pages.vacuumPouches.heroTitle')}
       heroSubtitle={t('seoPages.pages.vacuumPouches.heroSubtitle')}
-      heroImage="/imgs/product-hero-pouch.webp"
+      heroImage="/imgs/seo-photos/a_high_barrier_premium_protection_0120312.webp"
       heroImageAlt="Vacuum seal packaging pouches"
       introSummary={t('seoPages.pages.vacuumPouches.introSummary')}
       sections={sections}

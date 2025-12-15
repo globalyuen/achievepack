@@ -204,7 +204,7 @@ const SurfaceFinishPage: React.FC = () => {
       canonicalUrl="https://achievepack.com/features/surface-finish"
       heroTitle={t('seoPages.pages.surfaceFinish.heroTitle')}
       heroSubtitle={t('seoPages.pages.surfaceFinish.heroSubtitle')}
-      heroImage="/imgs/feature-printing-finishes.webp"
+      heroImage="/imgs/seo-photos/a_finishing_options_premium_showcase_3613860.webp"
       heroImageAlt="Premium surface finishes on eco-friendly pouches"
       introSummary={t('seoPages.pages.surfaceFinish.introSummary')}
       sections={sections}

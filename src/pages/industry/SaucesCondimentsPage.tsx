@@ -134,7 +134,7 @@ const SaucesCondimentsPage: React.FC = () => {
       canonicalUrl="https://achievepack.com/industry/sauces-condiments"
       heroTitle={t('seoPages.pages.saucesCondiments.heroTitle')}
       heroSubtitle={t('seoPages.pages.saucesCondiments.heroSubtitle')}
-      heroImage="/imgs/solution-food-beverage.webp"
+      heroImage="/imgs/seo-photos/a_food_grade_olive_stone_pouch_achieve_pack_8628145.webp"
       heroImageAlt="Spout pouches for sauces and condiments"
       introSummary={t('seoPages.pages.saucesCondiments.introSummary')}
       sections={sections}

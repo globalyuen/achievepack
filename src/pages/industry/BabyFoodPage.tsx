@@ -182,7 +182,7 @@ const BabyFoodPage: React.FC = () => {
       canonicalUrl="https://achievepack.com/industry/baby-food"
       heroTitle={t('seoPages.pages.babyFood.heroTitle')}
       heroSubtitle={t('seoPages.pages.babyFood.heroSubtitle')}
-      heroImage="/imgs/solution-food-beverage.webp"
+      heroImage="/imgs/seo-photos/a_food_beverage_vacation_lifestyle_2486493.webp"
       heroImageAlt="Safe baby food packaging spout pouches"
       introSummary={t('seoPages.pages.babyFood.introSummary')}
       sections={sections}

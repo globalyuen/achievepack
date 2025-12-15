@@ -270,7 +270,7 @@ const StandUpPouchesPage: React.FC = () => {
       canonicalUrl="https://achievepack.com/packaging/stand-up-pouches"
       heroTitle={t('seoPages.pages.standUpPouches.heroTitle')}
       heroSubtitle={t('seoPages.pages.standUpPouches.heroSubtitle')}
-      heroImage="/imgs/products/stand-up-pouch-hero.webp"
+      heroImage="/imgs/seo-photos/a_gusset_pouch_retail_shelf_7945470.webp"
       heroImageAlt="Custom printed stand-up pouches with zipper closure in various sizes"
       introSummary={t('seoPages.pages.standUpPouches.introSummary')}
       sections={sections}

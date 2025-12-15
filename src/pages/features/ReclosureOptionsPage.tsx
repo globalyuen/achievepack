@@ -188,7 +188,7 @@ const ReclosureOptionsPage: React.FC = () => {
       canonicalUrl="https://achievepack.com/features/reclosure-options"
       heroTitle={t('seoPages.pages.reclosureOptions.heroTitle')}
       heroSubtitle={t('seoPages.pages.reclosureOptions.heroSubtitle')}
-      heroImage="/imgs/feature-reclosure-solutions.webp"
+      heroImage="/imgs/seo-photos/a_closure_systems_infographic_4275938.webp"
       heroImageAlt="Various reclosure options for eco-friendly pouches"
       introSummary={t('seoPages.pages.reclosureOptions.introSummary')}
       sections={sections}

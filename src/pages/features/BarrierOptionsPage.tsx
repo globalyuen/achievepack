@@ -201,7 +201,7 @@ const BarrierOptionsPage: React.FC = () => {
       canonicalUrl="https://achievepack.com/features/barrier-options"
       heroTitle={t('seoPages.pages.barrierOptions.heroTitle')}
       heroSubtitle={t('seoPages.pages.barrierOptions.heroSubtitle')}
-      heroImage="/imgs/feature-barrier-options.webp"
+      heroImage="/imgs/seo-photos/a_achievepack_barrier_range_comparison_2896222.webp"
       heroImageAlt="Barrier protection levels for eco-friendly packaging"
       introSummary={t('seoPages.pages.barrierOptions.introSummary')}
       sections={sections}

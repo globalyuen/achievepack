@@ -122,7 +122,7 @@ const FrozenFoodPage: React.FC = () => {
       canonicalUrl="https://achievepack.com/industry/frozen-food"
       heroTitle={t('seoPages.pages.frozenFood.heroTitle')}
       heroSubtitle={t('seoPages.pages.frozenFood.heroSubtitle')}
-      heroImage="/imgs/solution-food-beverage.webp"
+      heroImage="/imgs/seo-photos/a_low_barrier_fresh_produce_5877816.webp"
       heroImageAlt="Cold-resistant frozen food packaging pouches"
       introSummary={t('seoPages.pages.frozenFood.introSummary')}
       sections={sections}
