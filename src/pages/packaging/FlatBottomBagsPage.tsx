@@ -160,7 +160,7 @@ const FlatBottomBagsPage: React.FC = () => {
       canonicalUrl="https://achievepack.com/packaging/flat-bottom-bags"
       heroTitle={t('seoPages.pages.flatBottomBags.heroTitle')}
       heroSubtitle={t('seoPages.pages.flatBottomBags.heroSubtitle')}
-      heroImage="/imgs/seo-photos/a_gusset_pouch_retail_shelf_7945470.webp"
+      heroImage="/imgs/pouch-shape/a_flat_bottom_pouch_isolated_7901973.webp"
       heroImageAlt="Flat bottom bag box pouch packaging"
       introSummary={t('seoPages.pages.flatBottomBags.introSummary')}
       sections={sections}

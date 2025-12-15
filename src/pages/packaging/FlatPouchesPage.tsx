@@ -178,7 +178,7 @@ const FlatPouchesPage: React.FC = () => {
       canonicalUrl="https://achievepack.com/packaging/flat-pouches"
       heroTitle={t('seoPages.pages.flatPouches.heroTitle')}
       heroSubtitle={t('seoPages.pages.flatPouches.heroSubtitle')}
-      heroImage="/imgs/seo-photos/a_homepage_hero_product_showcase_7097945.webp"
+      heroImage="/imgs/pouch-shape/a_three_side_seal_pouch_isolated_0879222.webp"
       heroImageAlt="3-side seal flat pouch sachet packaging"
       introSummary={t('seoPages.pages.flatPouches.introSummary')}
       sections={sections}

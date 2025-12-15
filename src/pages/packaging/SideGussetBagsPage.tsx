@@ -164,7 +164,7 @@ const SideGussetBagsPage: React.FC = () => {
       canonicalUrl="https://achievepack.com/packaging/side-gusset-bags"
       heroTitle={t('seoPages.pages.sideGussetBags.heroTitle')}
       heroSubtitle={t('seoPages.pages.sideGussetBags.heroSubtitle')}
-      heroImage="/imgs/seo-photos/a_gusset_pouch_retail_shelf_7945470.webp"
+      heroImage="/imgs/pouch-shape/a_side_gusset_pouch_isolated_2545871.webp"
       heroImageAlt="Side gusset coffee bag packaging"
       introSummary={t('seoPages.pages.sideGussetBags.introSummary')}
       sections={sections}
