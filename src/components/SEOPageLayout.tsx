@@ -252,7 +252,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
 
         {/* Quick Summary - Answer First Approach */}
         <section className="py-8 bg-primary-50 border-b border-primary-100">
-          <div className="max-w-4xl mx-auto px-4 lg:ml-72">
+          <div className="max-w-7xl mx-auto px-4">
             <div className="bg-white rounded-xl p-6 shadow-sm border-l-4 border-primary-500">
               <h2 className="text-sm font-semibold text-primary-600 uppercase tracking-wide mb-2">{t('seoPages.quickSummary')}</h2>
               <p className="text-lg text-neutral-700 leading-relaxed">{introSummary}</p>
@@ -265,7 +265,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
           <div className="grid lg:grid-cols-4 gap-8">
             {/* Sidebar Navigation */}
             <aside className="hidden lg:block lg:col-span-1">
-              <div className="fixed top-24 w-64 max-h-[calc(100vh-120px)] overflow-y-auto bg-white rounded-xl shadow-sm border border-neutral-100 p-4">
+              <div className="sticky top-24 max-h-[calc(100vh-120px)] overflow-y-auto bg-white rounded-xl shadow-sm border border-neutral-100 p-4">
                 <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wide mb-4">{t('seoPages.contents')}</h3>
                 <nav className="space-y-1">
                   {sections.map((section) => (
