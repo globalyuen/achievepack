@@ -208,10 +208,10 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         </header>
 
         {/* Hero Section */}
-        <section className="bg-primary-700 text-white relative overflow-hidden">
-          {/* Full Banner Hero Image - natural height, centered */}
+        <section className="bg-primary-700 text-white relative overflow-hidden h-auto min-h-[400px] md:h-[600px]">
+          {/* Full Banner Hero Image - 600px fixed height, centered */}
           {heroImage && (
-            <div className="flex justify-center">
+            <div className="absolute inset-0 flex justify-center">
               {/* Left gradient overlay */}
               <div className="absolute left-0 top-0 bottom-0 w-1/3 z-10" style={{
                 background: 'linear-gradient(to right, rgb(21 128 61) 0%, rgb(21 128 61 / 0.8) 40%, transparent 100%)'
@@ -223,7 +223,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
               <img 
                 src={heroImage} 
                 alt={heroImageAlt || heroTitle}
-                className="w-auto h-auto max-w-full"
+                className="h-full w-auto object-cover"
                 loading="lazy"
               />
             </div>
@@ -231,7 +231,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
           {/* Hero Content - overlay on top */}
           <div className="absolute inset-0 z-20 flex items-center">
             <div className="max-w-7xl mx-auto px-4 w-full">
-              <div className="max-w-xl">
+              <div className="max-w-xl bg-primary-800/80 backdrop-blur-sm rounded-xl p-6 md:p-8">
                 <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
                   {heroTitle}
                 </h1>
@@ -250,8 +250,6 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
               </div>
             </div>
           </div>
-          {/* Fallback min-height when no image */}
-          {!heroImage && <div className="py-16 md:py-24" />}
         </section>
 
         {/* Quick Summary - Answer First Approach */}
