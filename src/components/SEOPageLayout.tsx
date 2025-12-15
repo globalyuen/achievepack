@@ -208,42 +208,44 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         </header>
 
         {/* Hero Section */}
-        <section className="bg-primary-700 text-white relative overflow-hidden h-auto min-h-[400px] md:h-[600px]">
-          {/* Full Banner Hero Image - 600px fixed height, centered with dissolved edges */}
-          {heroImage && (
-            <div className="absolute inset-0 flex justify-center">
-              <img 
-                src={heroImage} 
-                alt={heroImageAlt || heroTitle}
-                className="h-full w-auto object-cover"
-                loading="lazy"
-                style={{
-                  maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.95) 5%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0.95) 95%, transparent 100%)',
-                  WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.95) 5%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0.95) 95%, transparent 100%)'
-                }}
-              />
-            </div>
-          )}
-          {/* Hero Content - overlay on top */}
-          <div className="absolute inset-0 z-20 flex items-center">
-            <div className="max-w-7xl mx-auto px-4 w-full">
-              <div className="max-w-xl rounded-xl p-6 md:p-8" style={{ backgroundColor: 'rgba(21, 128, 61, 0.85)', backdropFilter: 'blur(8px)' }}>
-                <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-                  {heroTitle}
-                </h1>
-                <p className="text-lg md:text-xl text-primary-100 mb-8">
-                  {heroSubtitle}
-                </p>
-                <a 
-                  href="https://calendly.com/30-min-free-packaging-consultancy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-white text-[#15803d] px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition"
-                >
-                  <Calendar className="h-4 w-4" />
-                  Book Meeting
-                </a>
+        <section className="bg-primary-700 text-white">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-8 items-center py-12 md:py-0">
+              {/* Hero Content - Left */}
+              <div className="md:py-16">
+                <div className="rounded-xl p-6 md:p-8" style={{ backgroundColor: 'rgba(21, 128, 61, 0.85)', backdropFilter: 'blur(8px)' }}>
+                  <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+                    {heroTitle}
+                  </h1>
+                  <p className="text-lg md:text-xl text-primary-100 mb-8">
+                    {heroSubtitle}
+                  </p>
+                  <a 
+                    href="https://calendly.com/30-min-free-packaging-consultancy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-white text-[#15803d] px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition"
+                  >
+                    <Calendar className="h-4 w-4" />
+                    Book Meeting
+                  </a>
+                </div>
               </div>
+              {/* Hero Image - Right, 400px fixed height */}
+              {heroImage && (
+                <div className="hidden md:flex justify-end items-center h-[400px]">
+                  <img 
+                    src={heroImage} 
+                    alt={heroImageAlt || heroTitle}
+                    className="h-full w-auto object-cover"
+                    loading="lazy"
+                    style={{
+                      maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.95) 5%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0.95) 95%, transparent 100%)',
+                      WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.95) 5%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0.95) 95%, transparent 100%)'
+                    }}
+                  />
+                </div>
+              )}
             </div>
           </div>
         </section>
