@@ -1190,11 +1190,7 @@ ${formData.message}`
                 src={img("contact-cta-banner")}
                 alt={t('contact.title')}
                 className="w-full max-w-4xl mx-auto h-48 object-cover rounded-lg cursor-pointer"
-                onClick={() => {
-                  setModalImage(img("contact-cta-banner"))
-                  setModalAlt(t('contact.title'))
-                  setIsModalOpen(true)
-                }}
+                onClick={() => openImageModal(img("contact-cta-banner"), t('contact.title'))}
               />
             </div>
           </div>
