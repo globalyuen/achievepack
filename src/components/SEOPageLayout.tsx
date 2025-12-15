@@ -209,22 +209,18 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
 
         {/* Hero Section */}
         <section className="bg-primary-700 text-white relative overflow-hidden h-auto min-h-[400px] md:h-[600px]">
-          {/* Full Banner Hero Image - 600px fixed height, centered */}
+          {/* Full Banner Hero Image - 600px fixed height, centered with dissolved edges */}
           {heroImage && (
             <div className="absolute inset-0 flex justify-center">
-              {/* Left gradient overlay */}
-              <div className="absolute left-0 top-0 bottom-0 w-1/3 z-10" style={{
-                background: 'linear-gradient(to right, rgb(21 128 61) 0%, rgb(21 128 61 / 0.8) 40%, transparent 100%)'
-              }} />
-              {/* Right gradient overlay */}
-              <div className="absolute right-0 top-0 bottom-0 w-1/3 z-10" style={{
-                background: 'linear-gradient(to left, rgb(21 128 61) 0%, rgb(21 128 61 / 0.8) 40%, transparent 100%)'
-              }} />
               <img 
                 src={heroImage} 
                 alt={heroImageAlt || heroTitle}
                 className="h-full w-auto object-cover"
                 loading="lazy"
+                style={{
+                  maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.95) 5%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0.95) 95%, transparent 100%)',
+                  WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.95) 5%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0.95) 95%, transparent 100%)'
+                }}
               />
             </div>
           )}
