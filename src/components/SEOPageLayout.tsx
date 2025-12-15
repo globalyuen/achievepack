@@ -97,7 +97,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
     { code: 'en', name: 'English', flag: '🇺🇸' },
     { code: 'fr', name: 'Français', flag: '🇫🇷' },
     { code: 'es', name: 'Español', flag: '🇪🇸' },
-    { code: 'zh-TW', name: '🇨🇳 繁體中文', flag: '🇨🇳' }
+    { code: 'zh-TW', name: '繁體中文', flag: '🇨🇳' }
   ]
 
   const changeLanguage = (lng: string) => {
@@ -208,44 +208,40 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         </header>
 
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-16 md:py-24">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-8 items-center">
+        <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-16 md:py-24 relative overflow-hidden">
+          {/* Full Banner Hero Image */}
+          {heroImage && (
+            <div className="absolute inset-0 w-full h-full">
+              <img 
+                src={heroImage} 
+                alt={heroImageAlt || heroTitle}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              {/* Left gradient overlay for text readability */}
+              <div className="absolute inset-0" style={{
+                background: 'linear-gradient(to right, rgb(22 101 52) 0%, rgb(22 101 52 / 0.95) 25%, rgb(22 101 52 / 0.7) 50%, transparent 75%)'
+              }} />
+            </div>
+          )}
+          <div className="max-w-7xl mx-auto px-4 relative z-10">
+            <div className="max-w-2xl">
               {/* Hero Content */}
-              <div className="lg:pr-8">
-                <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-                  {heroTitle}
-                </h1>
-                <p className="text-lg md:text-xl text-primary-100 mb-8">
-                  {heroSubtitle}
-                </p>
-                <a 
-                  href="https://calendly.com/30-min-free-packaging-consultancy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-white text-[#15803d] px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition"
-                >
-                  <Calendar className="h-4 w-4" />
-                  Book Meeting
-                </a>
-              </div>
-              {/* Hero Image - centered in grid */}
-              {heroImage && (
-                <div className="hidden lg:flex justify-center items-center">
-                  <div className="relative w-full max-w-lg">
-                    {/* Smooth edge fade effect */}
-                    <div className="absolute inset-0 z-10 rounded-lg" style={{
-                      background: 'linear-gradient(to left, transparent 60%, rgb(22 101 52 / 0.2) 100%)'
-                    }} />
-                    <img 
-                      src={heroImage} 
-                      alt={heroImageAlt || heroTitle}
-                      className="w-full h-auto object-cover rounded-lg shadow-2xl"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-              )}
+              <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+                {heroTitle}
+              </h1>
+              <p className="text-lg md:text-xl text-primary-100 mb-8">
+                {heroSubtitle}
+              </p>
+              <a 
+                href="https://calendly.com/30-min-free-packaging-consultancy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-white text-[#15803d] px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition"
+              >
+                <Calendar className="h-4 w-4" />
+                Book Meeting
+              </a>
             </div>
           </div>
         </section>
