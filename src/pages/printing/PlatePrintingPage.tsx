@@ -193,8 +193,9 @@ const PlatePrintingPage: React.FC = () => {
       sections={sections}
       faqs={faqs}
       relatedLinks={relatedLinks}
-      ctaTitle="Ready for Premium Plate Printing?"
-      ctaDescription="Get a detailed quote including plate costs and per-unit pricing for your high-volume order."
+      ctaTitle={t('seoPages.pages.platePrinting.cta.title')}
+      ctaDescription={t('seoPages.pages.platePrinting.cta.description')}
+      ctaButtonText={t('seoPages.pages.platePrinting.cta.button')}
     />
   )
 }

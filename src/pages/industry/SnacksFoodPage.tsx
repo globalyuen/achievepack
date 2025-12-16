@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 const SnacksFoodPage: React.FC = () => {
   const { t } = useTranslation()
+  const p = 'seoPages.pages.snacksFood'
   const sections = [
     {
       id: 'overview',
@@ -271,9 +272,9 @@ const SnacksFoodPage: React.FC = () => {
       tables={tables}
       schemaType="Product"
       relatedLinks={relatedLinks}
-      ctaTitle="Get Custom Snack Packaging"
-      ctaDescription="Request a free sample and quote for your snack brand. Our experts will recommend the best sustainable solution."
-      ctaButtonText="Request Free Sample"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
     />
   )
 }

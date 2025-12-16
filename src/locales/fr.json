@@ -1635,37 +1635,67 @@
                 "title": "Pochettes stand-up | Solutions d'emballage flexibles",
                 "heroTitle": "Pochettes stand-up personnalisées",
                 "heroSubtitle": "Emballage flexible haut de gamme avec une excellente présence en rayon. Disponible avec fermetures à glissière, curseur, bec ou valve. Options compostables et recyclables.",
-                "introSummary": "Les sachets stand-up (SUP) combinent la rentabilité d'un emballage flexible avec une excellente présence dans les rayons des magasins de détail. Achieve Pack propose des SUP imprimés personnalisés avec des fermetures refermables, des matériaux à haute barrière et des options durables, notamment des structures certifiées compostables et recyclables. MOQ à partir de 500 unités."
+                "introSummary": "Les sachets stand-up (SUP) combinent la rentabilité d'un emballage flexible avec une excellente présence dans les rayons des magasins de détail. Achieve Pack propose des SUP imprimés personnalisés avec des fermetures refermables, des matériaux à haute barrière et des options durables, notamment des structures certifiées compostables et recyclables. MOQ à partir de 500 unités.",
+                "cta": {
+                    "title": "Commander des pochettes stand-up",
+                    "description": "Demandez un échantillon gratuit et un devis pour votre projet de pochette stand-up.",
+                    "button": "Demander un échantillon"
+                }
             },
             "flatBottomBags": {
                 "title": "Sacs à fond plat | Emballage en pochette",
                 "heroTitle": "Sacs à fond plat",
                 "heroSubtitle": "Pochettes de style boîte haut de gamme avec base rectangulaire stable et marquage à 5 panneaux. Le choix pour les cafés de spécialité, les aliments haut de gamme et les produits pour animaux de compagnie.",
-                "introSummary": "Les sacs à fond plat (pochettes à fond de boîte) offrent une stabilité maximale en rayon et une apparence haut de gamme avec 5 panneaux imprimables. Parfait pour les spécialités de café, les aliments pour animaux et les produits nécessitant une présentation haut de gamme au détail."
+                "introSummary": "Les sacs à fond plat (pochettes à fond de boîte) offrent une stabilité maximale en rayon et une apparence haut de gamme avec 5 panneaux imprimables. Parfait pour les spécialités de café, les aliments pour animaux et les produits nécessitant une présentation haut de gamme au détail.",
+                "cta": {
+                    "title": "Obtenez des sacs à fond plat personnalisés",
+                    "description": "Demandez un échantillon gratuit et un devis pour vos produits premium.",
+                    "button": "Demander un échantillon"
+                }
             },
             "spoutPouches": {
                 "title": "Pochettes à bec | Solutions d'emballage de liquides",
                 "heroTitle": "Pochettes à bec",
                 "heroSubtitle": "Sachets souples avec becs verseurs pour liquides, purées, sauces et boissons. L'alternative pratique et durable aux bouteilles rigides.",
-                "introSummary": "Les sachets à bec verseur allient l'efficacité de l'emballage flexible à la fonctionnalité des bouteilles. Ils utilisent 70 % moins de plastique que les contenants rigides tout en offrant une distribution facile et une commodité de refermeture. Parfait pour les aliments pour bébés, les sauces, les boissons et les recharges."
+                "introSummary": "Les sachets à bec verseur allient l'efficacité de l'emballage flexible à la fonctionnalité des bouteilles. Ils utilisent 70 % moins de plastique que les contenants rigides tout en offrant une distribution facile et une commodité de refermeture. Parfait pour les aliments pour bébés, les sauces, les boissons et les recharges.",
+                "cta": {
+                    "title": "Obtenez des pochettes à bec personnalisées",
+                    "description": "Demandez un échantillon gratuit et un devis pour vos produits liquides.",
+                    "button": "Demander un échantillon"
+                }
             },
             "vacuumPouches": {
                 "title": "Pochettes sous vide | Emballage à durée de conservation prolongée",
                 "heroTitle": "Pochettes sous vide",
                 "heroSubtitle": "Emballage sous vide haute barrière pour une durée de conservation prolongée. Protégez la viande, les fruits de mer, le fromage et les produits spécialisés de l'oxydation et des brûlures de congélation.",
-                "introSummary": "Les sachets sous vide prolongent la durée de conservation du produit de 3 à 5 fois en éliminant l'oxygène avant de les sceller. Nos sachets haute barrière protègent contre l’oxydation, l’humidité et la contamination. Disponible pour les machines à chambre et sous vide externe, y compris les applications sous vide et cornue."
+                "introSummary": "Les sachets sous vide prolongent la durée de conservation du produit de 3 à 5 fois en éliminant l'oxygène avant de les sceller. Nos sachets haute barrière protègent contre l'oxydation, l'humidité et la contamination. Disponible pour les machines à chambre et sous vide externe, y compris les applications sous vide et cornue.",
+                                "cta": {
+                                    "title": "Obtenez des pochettes sous vide personnalisées",
+                                    "description": "Demandez un échantillon gratuit et un devis pour vos besoins d'emballage sous vide.",
+                                    "button": "Demander un échantillon"
+                                }
             },
             "flatPouches": {
                 "title": "Pochettes plates | Sacs scellés sur trois côtés",
                 "heroTitle": "Pochettes plates",
                 "heroSubtitle": "Sachets scellés sur trois côtés simples et économiques pour diverses applications.",
-                "introSummary": "Les sachets plats constituent l'option d'emballage flexible la plus économique, idéale pour les échantillons, les sachets et les produits légers."
+                "introSummary": "Les sachets plats constituent l'option d'emballage flexible la plus économique, idéale pour les échantillons, les sachets et les produits légers.",
+                "cta": {
+                    "title": "Obtenez des sachets personnalisés",
+                    "description": "Demandez un échantillon gratuit et un devis pour vos besoins d'emballage en sachets.",
+                    "button": "Demander un échantillon"
+                }
             },
             "sideGussetBags": {
                 "title": "Sacs à soufflet latéraux | Emballage à grand volume",
                 "heroTitle": "Sacs à soufflet latéraux",
                 "heroSubtitle": "Sacs à soufflets traditionnels avec côtés extensibles pour une grande capacité. Le choix classique pour le café, le thé et les produits en vrac.",
-                "introSummary": "Les sacs à soufflets latéraux (sacs à quatre joints) comportent des panneaux latéraux extensibles qui offrent une capacité de volume élevée dans un format compact. Populaire pour le café, le thé, les céréales et les produits en vrac. Disponible avec des options d’attache en étain, de fermeture à glissière et de valve de dégazage."
+                "introSummary": "Les sacs à soufflets latéraux (sacs à quatre joints) comportent des panneaux latéraux extensibles qui offrent une capacité de volume élevée dans un format compact. Populaire pour le café, le thé, les céréales et les produits en vrac. Disponible avec des options d'attache en étain, de fermeture à glissière et de valve de dégazage.",
+                                "cta": {
+                                    "title": "Obtenez des sacs à soufflet personnalisés",
+                                    "description": "Demandez un échantillon gratuit et un devis pour vos produits en vrac.",
+                                    "button": "Demander un échantillon"
+                                }
             },
             "coffeeTea": {
                 "title": "Emballage de café et de thé | Sachets barrière aromatique",
@@ -2313,7 +2343,7 @@
                     "q2": "Quelle était la quantité minimale pour ce projet ?",
                     "a2": "Bean & Bole a commencé avec 500 sacs par SKU en impression numérique. Cela leur a permis de tester l'emballage avec les clients avant de s'engager sur de plus grandes quantités.",
                     "q3": "La valve de dégazage est-elle aussi compostable ?",
-                    "a3": "Les valves de dégazage standard ne sont pas compostables et doivent être retirées avant le compostage. Nous l'indiquons clairement sur l'emballage. Des options de valves entièrement compostables sont en développement."
+                    "a3": "Nous proposons les deux options. Les valves de dégazage standard ne sont pas compostables et doivent être retirées avant le compostage—nous l'indiquons clairement sur l'emballage. Des options de valves entièrement compostables sont disponibles mais coûtent 2-3x plus cher que les valves café standard."
                 },
                 "cta": {
                     "title": "Prêt pour votre histoire d'emballage durable ?",

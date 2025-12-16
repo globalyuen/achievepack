@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 const SideGussetBagsPage: React.FC = () => {
   const { t } = useTranslation()
+  const p = 'seoPages.pages.sideGussetBags'
   const sections = [
     {
       id: 'overview',
@@ -172,9 +173,9 @@ const SideGussetBagsPage: React.FC = () => {
       tables={tables}
       schemaType="Product"
       relatedLinks={relatedLinks}
-      ctaTitle="Get Custom Side Gusset Bags"
-      ctaDescription="Request a free sample and quote for your bulk products."
-      ctaButtonText="Request Free Quote"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
     />
   )
 }

@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 const FlatPouchesPage: React.FC = () => {
   const { t } = useTranslation()
+  const p = 'seoPages.pages.flatPouches'
   const sections = [
     {
       id: 'overview',
@@ -186,9 +187,9 @@ const FlatPouchesPage: React.FC = () => {
       tables={tables}
       schemaType="Product"
       relatedLinks={relatedLinks}
-      ctaTitle="Get Custom Sachets"
-      ctaDescription="Request a free sample and quote for your sachet packaging needs."
-      ctaButtonText="Request Free Quote"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
     />
   )
 }

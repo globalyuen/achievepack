@@ -215,9 +215,9 @@ const SupplementsPowdersPage: React.FC = () => {
       tables={tables}
       schemaType="Product"
       relatedLinks={relatedLinks}
-      ctaTitle="Get Custom Supplement Packaging"
-      ctaDescription="Request a free sample and quote for your supplement brand."
-      ctaButtonText="Request Free Sample"
+      ctaTitle={t('seoPages.pages.supplementsPowders.cta.title')}
+      ctaDescription={t('seoPages.pages.supplementsPowders.cta.description')}
+      ctaButtonText={t('seoPages.pages.supplementsPowders.cta.button')}
     />
   )
 }

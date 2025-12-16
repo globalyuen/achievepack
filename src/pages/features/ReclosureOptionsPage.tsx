@@ -194,8 +194,9 @@ const ReclosureOptionsPage: React.FC = () => {
       sections={sections}
       faqs={faqs}
       relatedLinks={relatedLinks}
-      ctaTitle="Find Your Perfect Reclosure Solution"
-      ctaDescription="Let our experts recommend the best closure option for your product and market requirements."
+      ctaTitle={t('seoPages.pages.reclosureOptions.cta.title')}
+      ctaDescription={t('seoPages.pages.reclosureOptions.cta.description')}
+      ctaButtonText={t('seoPages.pages.reclosureOptions.cta.button')}
     />
   )
 }

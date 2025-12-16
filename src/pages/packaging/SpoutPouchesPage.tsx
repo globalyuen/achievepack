@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 const SpoutPouchesPage: React.FC = () => {
   const { t } = useTranslation()
+  const p = 'seoPages.pages.spoutPouches'
   const sections = [
     {
       id: 'overview',
@@ -206,9 +207,9 @@ const SpoutPouchesPage: React.FC = () => {
       tables={tables}
       schemaType="Product"
       relatedLinks={relatedLinks}
-      ctaTitle="Get Custom Spout Pouches"
-      ctaDescription="Request a free sample and quote for your liquid products."
-      ctaButtonText="Request Free Quote"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
     />
   )
 }

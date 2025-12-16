@@ -190,9 +190,9 @@ const BabyFoodPage: React.FC = () => {
       tables={tables}
       schemaType="Product"
       relatedLinks={relatedLinks}
-      ctaTitle="Get Safe Baby Food Packaging"
-      ctaDescription="Request a free sample and quote for your baby food brand."
-      ctaButtonText="Request Free Sample"
+      ctaTitle={t('seoPages.pages.babyFood.cta.title')}
+      ctaDescription={t('seoPages.pages.babyFood.cta.description')}
+      ctaButtonText={t('seoPages.pages.babyFood.cta.button')}
     />
   )
 }

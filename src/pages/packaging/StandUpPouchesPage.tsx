@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 const StandUpPouchesPage: React.FC = () => {
   const { t } = useTranslation()
+  const p = 'seoPages.pages.standUpPouches'
   const sections = [
     {
       id: 'overview',
@@ -278,9 +279,9 @@ const StandUpPouchesPage: React.FC = () => {
       tables={tables}
       schemaType="Product"
       relatedLinks={relatedLinks}
-      ctaTitle="Order Custom Stand-Up Pouches"
-      ctaDescription="Request a free sample and quote for your custom stand-up pouch project."
-      ctaButtonText="Get Free Quote"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
     />
   )
 }

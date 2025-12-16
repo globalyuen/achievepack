@@ -179,8 +179,9 @@ const DigitalPrintingPage: React.FC = () => {
       sections={sections}
       faqs={faqs}
       relatedLinks={relatedLinks}
-      ctaTitle="Ready to Start Your Digital Print Project?"
-      ctaDescription="Get a free quote for your custom digitally printed pouches. No plate costs, low minimums, fast delivery."
+      ctaTitle={t('seoPages.pages.digitalPrinting.cta.title')}
+      ctaDescription={t('seoPages.pages.digitalPrinting.cta.description')}
+      ctaButtonText={t('seoPages.pages.digitalPrinting.cta.button')}
     />
   )
 }

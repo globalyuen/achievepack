@@ -1454,55 +1454,100 @@
                 "title": "Stand-Up Pouches | Flexible Packaging Solutions",
                 "heroTitle": "Custom Stand-Up Pouches",
                 "heroSubtitle": "Premium flexible packaging with excellent shelf presence. Available with zipper, slider, spout, or valve closures. Compostable and recyclable options.",
-                "introSummary": "Stand-up pouches (SUP) combine the cost efficiency of flexible packaging with excellent retail shelf presence. Achieve Pack offers custom printed SUPs with resealable closures, high-barrier materials, and sustainable options including certified compostable and recyclable structures. MOQ from 500 units."
+                "introSummary": "Stand-up pouches (SUP) combine the cost efficiency of flexible packaging with excellent retail shelf presence. Achieve Pack offers custom printed SUPs with resealable closures, high-barrier materials, and sustainable options including certified compostable and recyclable structures. MOQ from 500 units.",
+                "cta": {
+                    "title": "Order Custom Stand-Up Pouches",
+                    "description": "Request a free sample and quote for your custom stand-up pouch project.",
+                    "button": "Request Free Sample"
+                }
             },
             "flatBottomBags": {
                 "title": "Flat Bottom Bags | Box Pouch Packaging",
                 "heroTitle": "Flat Bottom Bags",
                 "heroSubtitle": "Premium box-style pouches with stable rectangular base and 5-panel branding. The choice for specialty coffee, premium foods, and pet products.",
-                "introSummary": "Flat bottom bags (box bottom pouches) offer maximum shelf stability and premium appearance with 5 printable panels. Perfect for specialty coffee, pet food, and products requiring a premium retail presentation."
+                "introSummary": "Flat bottom bags (box bottom pouches) offer maximum shelf stability and premium appearance with 5 printable panels. Perfect for specialty coffee, pet food, and products requiring a premium retail presentation.",
+                "cta": {
+                    "title": "Get Custom Flat Bottom Bags",
+                    "description": "Request a free sample and quote for your premium products.",
+                    "button": "Request Free Sample"
+                }
             },
             "spoutPouches": {
                 "title": "Spout Pouches | Liquid Packaging Solutions",
                 "heroTitle": "Spout Pouches",
                 "heroSubtitle": "Flexible pouches with pour spouts for liquids, purées, sauces, and beverages. The convenient, sustainable alternative to rigid bottles.",
-                "introSummary": "Spout pouches combine flexible packaging efficiency with the functionality of bottles. They use 70% less plastic than rigid containers while offering easy dispensing and reclosable convenience. Perfect for baby food, sauces, beverages, and refill applications."
+                "introSummary": "Spout pouches combine flexible packaging efficiency with the functionality of bottles. They use 70% less plastic than rigid containers while offering easy dispensing and reclosable convenience. Perfect for baby food, sauces, beverages, and refill applications.",
+                "cta": {
+                    "title": "Get Custom Spout Pouches",
+                    "description": "Request a free sample and quote for your liquid products.",
+                    "button": "Request Free Sample"
+                }
             },
             "vacuumPouches": {
                 "title": "Vacuum Pouches | Extended Shelf Life Packaging",
                 "heroTitle": "Vacuum Pouches",
                 "heroSubtitle": "High-barrier vacuum packaging for extended shelf life. Protect meat, seafood, cheese, and specialty products from oxidation and freezer burn.",
-                "introSummary": "Vacuum pouches extend product shelf life 3-5x by removing oxygen before sealing. Our high-barrier pouches protect against oxidation, moisture, and contamination. Available for chamber and external vacuum machines, including sous vide and retort applications."
+                "introSummary": "Vacuum pouches extend product shelf life 3-5x by removing oxygen before sealing. Our high-barrier pouches protect against oxidation, moisture, and contamination. Available for chamber and external vacuum machines, including sous vide and retort applications.",
+                "cta": {
+                    "title": "Get Custom Vacuum Pouches",
+                    "description": "Request a free sample and quote for your vacuum packaging needs.",
+                    "button": "Request Free Sample"
+                }
             },
             "flatPouches": {
                 "title": "Flat Pouches | Three-Side Sealed Bags",
                 "heroTitle": "Flat Pouches",
                 "heroSubtitle": "Simple, cost-effective three-side sealed pouches for various applications.",
-                "introSummary": "Flat pouches are the most economical flexible packaging option, ideal for samples, sachets, and lightweight products."
+                "introSummary": "Flat pouches are the most economical flexible packaging option, ideal for samples, sachets, and lightweight products.",
+                "cta": {
+                    "title": "Get Custom Sachets",
+                    "description": "Request a free sample and quote for your sachet packaging needs.",
+                    "button": "Request Free Sample"
+                }
             },
             "sideGussetBags": {
                 "title": "Side Gusset Bags | High-Volume Packaging",
                 "heroTitle": "Side Gusset Bags",
                 "heroSubtitle": "Traditional gusseted bags with expandable sides for high capacity. The classic choice for coffee, tea, and bulk products.",
-                "introSummary": "Side gusset bags (quad seal bags) feature expandable side panels that provide high volume capacity in a compact format. Popular for coffee, tea, grains, and bulk products. Available with tin tie, zipper, and degassing valve options."
+                "introSummary": "Side gusset bags (quad seal bags) feature expandable side panels that provide high volume capacity in a compact format. Popular for coffee, tea, grains, and bulk products. Available with tin tie, zipper, and degassing valve options.",
+                "cta": {
+                    "title": "Get Custom Side Gusset Bags",
+                    "description": "Request a free sample and quote for your bulk products.",
+                    "button": "Request Free Sample"
+                }
             },
             "coffeeTea": {
                 "title": "Coffee & Tea Packaging | Aromatic Barrier Pouches",
                 "heroTitle": "Coffee & Tea Packaging",
                 "heroSubtitle": "Specialized packaging with degassing valves and high barrier for maximum freshness.",
-                "introSummary": "Our coffee and tea packaging features specialized barriers to protect aroma and freshness, with optional degassing valves for freshly roasted coffee."
+                "introSummary": "Our coffee and tea packaging features specialized barriers to protect aroma and freshness, with optional degassing valves for freshly roasted coffee.",
+                "cta": {
+                    "title": "Get Custom Coffee Packaging",
+                    "description": "Request a free sample and quote for your coffee or tea brand. Our packaging experts will help you choose the right materials and format.",
+                    "button": "Request Free Sample"
+                }
             },
             "snacksFood": {
                 "title": "Snacks & Food Packaging | Flexible Food Pouches",
                 "heroTitle": "Sustainable Snacks & Food Packaging",
                 "heroSubtitle": "Premium eco-friendly pouches for chips, nuts, dried fruits, jerky, and confectionery. High-barrier protection with sustainable materials.",
-                "introSummary": "Achieve Pack provides certified compostable and recyclable packaging for the snack food industry. Our pouches offer high-barrier protection, resealable closures, and vibrant custom printing. Perfect for chips, nuts, dried fruits, jerky, granola, and confectionery products."
+                "introSummary": "Achieve Pack provides certified compostable and recyclable packaging for the snack food industry. Our pouches offer high-barrier protection, resealable closures, and vibrant custom printing. Perfect for chips, nuts, dried fruits, jerky, granola, and confectionery products.",
+                "cta": {
+                    "title": "Get Custom Snack Packaging",
+                    "description": "Request a free sample and quote for your snack brand. Our experts will recommend the best sustainable solution.",
+                    "button": "Request Free Sample"
+                }
             },
             "petFood": {
                 "title": "Pet Food Packaging | Durable Pet Treat Pouches",
                 "heroTitle": "Sustainable Pet Food & Treats Packaging",
                 "heroSubtitle": "Premium eco-friendly pouches for dog food, cat food, pet treats, and supplements. Heavy-duty, resealable, and pet-safe materials.",
-                "introSummary": "Achieve Pack provides certified compostable and recyclable packaging for the pet food industry. Our pouches feature heavy-duty construction for dense kibble, high-barrier films for freshness, and pet-safe materials with FDA compliance. Available from single-serve treats to 10kg+ bulk formats."
+                "introSummary": "Achieve Pack provides certified compostable and recyclable packaging for the pet food industry. Our pouches feature heavy-duty construction for dense kibble, high-barrier films for freshness, and pet-safe materials with FDA compliance. Available from single-serve treats to 10kg+ bulk formats.",
+                "cta": {
+                    "title": "Get Custom Pet Food Packaging",
+                    "description": "Request a free sample and quote for your pet brand. Our packaging experts specialize in pet food solutions.",
+                    "button": "Request Free Sample"
+                }
             },
             "supplements": {
                 "title": "Supplements Packaging | Powder & Vitamin Pouches",
@@ -1514,31 +1559,56 @@
                 "title": "Supplements & Powder Packaging | Protein, Superfood & Sports Nutrition Pouches",
                 "heroTitle": "Supplements & Powder Packaging",
                 "heroSubtitle": "High-barrier sustainable pouches for protein, superfoods, collagen, and sports nutrition. Protect potency while supporting your sustainability goals.",
-                "introSummary": "Achieve Pack provides premium flexible packaging for the supplements industry. Our high-barrier pouches protect moisture-sensitive powders from degradation, with options including certified compostable, recyclable, and FDA-compliant materials. From single-serve stick packs to 5kg bulk bags."
+                "introSummary": "Achieve Pack provides premium flexible packaging for the supplements industry. Our high-barrier pouches protect moisture-sensitive powders from degradation, with options including certified compostable, recyclable, and FDA-compliant materials. From single-serve stick packs to 5kg bulk bags.",
+                "cta": {
+                    "title": "Get Custom Supplement Packaging",
+                    "description": "Request a free sample and quote for your supplement brand.",
+                    "button": "Request Free Sample"
+                }
             },
             "babyFood": {
                 "title": "Baby Food Packaging | Safe Infant Nutrition Pouches",
                 "heroTitle": "Baby Food Packaging",
                 "heroSubtitle": "Child-safe packaging with spout options for convenient feeding.",
-                "introSummary": "Baby food packaging meets the highest safety standards with child-resistant features and food-safe materials."
+                "introSummary": "Baby food packaging meets the highest safety standards with child-resistant features and food-safe materials.",
+                "cta": {
+                    "title": "Get Safe Baby Food Packaging",
+                    "description": "Request a free sample and quote for your baby food brand.",
+                    "button": "Request Free Sample"
+                }
             },
             "frozenFood": {
                 "title": "Frozen Food Packaging | Cold-Resistant Pouches",
                 "heroTitle": "Frozen Food Packaging",
                 "heroSubtitle": "Durable packaging designed to withstand freezing temperatures without cracking.",
-                "introSummary": "Frozen food packaging maintains flexibility and seal integrity at low temperatures while protecting against freezer burn."
+                "introSummary": "Frozen food packaging maintains flexibility and seal integrity at low temperatures while protecting against freezer burn.",
+                "cta": {
+                    "title": "Get Frozen Food Packaging",
+                    "description": "Request a free sample and quote for your frozen food products.",
+                    "button": "Request Free Sample"
+                }
             },
             "saucesCondiments": {
                 "title": "Sauces & Condiments Packaging | Liquid-Resistant Pouches",
                 "heroTitle": "Sauces & Condiments Packaging",
                 "heroSubtitle": "Flexible spout pouches, refill packs, and sachets for sauces, condiments, oils, and spreads. Convenient, sustainable, and customizable.",
-                "introSummary": "Achieve Pack provides flexible packaging solutions for liquid and semi-liquid food products. Our spout pouches offer convenient dispensing while refill packs reduce plastic use by 80% compared to bottles."
+                "introSummary": "Achieve Pack provides flexible packaging solutions for liquid and semi-liquid food products. Our spout pouches offer convenient dispensing while refill packs reduce plastic use by 80% compared to bottles.",
+                "cta": {
+                    "title": "Get Sauce & Condiment Packaging",
+                    "description": "Request a free sample and quote for your liquid products.",
+                    "button": "Request Free Sample"
+                }
             },
             "digitalPrinting": {
                 "title": "Digital Printing | Low MOQ Custom Pouch Printing",
                 "heroTitle": "Digital Printing",
                 "heroSubtitle": "High-quality digital printing with no minimum order and unlimited colors.",
-                "introSummary": "Digital printing allows for photographic quality prints with no plate costs, perfect for small batches and multiple SKUs."
+                "introSummary": "Digital printing allows for photographic quality prints with no plate costs, perfect for small batches and multiple SKUs.",
+                "cta": {
+                    "title": "Ready to Start Your Digital Print Project?",
+                    "description": "Get a free quote for your custom digitally printed pouches. No plate costs, low minimums, fast delivery.",
+                    "button": "Get Free Quote"
+                }
             },
             "platePrinting": {
                 "title": "Plate Printing | Gravure & Flexo Printing",
@@ -1551,25 +1621,45 @@
                     "applications": "Best Applications",
                     "finishes": "Premium Finishing Options",
                     "order": "Order Information"
+                },
+                "cta": {
+                    "title": "Ready for Premium Plate Printing?",
+                    "description": "Get a detailed quote including plate costs and per-unit pricing for your high-volume order.",
+                    "button": "Get Quote"
                 }
             },
             "reclosureOptions": {
                 "title": "Reclosure Options | Zipper & Resealable Features",
                 "heroTitle": "Reclosure Options",
                 "heroSubtitle": "Various resealable solutions including zippers, spouts, and press-to-close features.",
-                "introSummary": "Reclosure options help maintain product freshness after opening and add convenience for consumers."
+                "introSummary": "Reclosure options help maintain product freshness after opening and add convenience for consumers.",
+                "cta": {
+                    "title": "Find Your Perfect Reclosure Solution",
+                    "description": "Let our experts recommend the best closure option for your product and market requirements.",
+                    "button": "Get Free Quote"
+                }
             },
             "surfaceFinish": {
                 "title": "Surface Finishes | Matte, Gloss & Special Effects",
                 "heroTitle": "Surface Finishes",
                 "heroSubtitle": "Premium finishes including matte, gloss, soft-touch, and metallic effects.",
-                "introSummary": "Surface finishes enhance the tactile and visual appeal of packaging, creating memorable unboxing experiences."
+                "introSummary": "Surface finishes enhance the tactile and visual appeal of packaging, creating memorable unboxing experiences.",
+                "cta": {
+                    "title": "Ready to Elevate Your Packaging?",
+                    "description": "Get samples of different finish options and see the premium quality difference.",
+                    "button": "Request Samples"
+                }
             },
             "barrierOptions": {
                 "title": "Barrier Options | Moisture & Oxygen Protection",
                 "heroTitle": "Barrier Options",
                 "heroSubtitle": "Multiple barrier levels from low to maximum protection for different products.",
-                "introSummary": "Barrier properties protect products from moisture, oxygen, light, and odors to maintain freshness and extend shelf life."
+                "introSummary": "Barrier properties protect products from moisture, oxygen, light, and odors to maintain freshness and extend shelf life.",
+                "cta": {
+                    "title": "Need Help Choosing Your Barrier?",
+                    "description": "Get free shelf-life testing and expert recommendations for your product's optimal barrier level.",
+                    "button": "Get Expert Advice"
+                }
             },
             "about": {
                 "title": "About Achieve Pack | Sustainable Packaging Since 2011",
@@ -2140,7 +2230,7 @@
                     "q2": "What was the minimum order for this project?",
                     "a2": "Bean & Bole started with 500 bags per SKU using digital printing. This allowed them to test the packaging with customers before committing to larger quantities.",
                     "q3": "Is the degassing valve also compostable?",
-                    "a3": "Standard degassing valves are not compostable and need to be removed before composting. We clearly label this on the package. Fully compostable valve options are being developed."
+                    "a3": "We offer both options. Standard degassing valves are not compostable and need to be removed before composting—we clearly label this on the package. Fully compostable valve options are available but cost 2-3x more than standard coffee valves."
                 },
                 "cta": {
                     "title": "Ready for Your Sustainable Packaging Story?",

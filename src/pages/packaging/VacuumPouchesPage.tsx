@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 const VacuumPouchesPage: React.FC = () => {
   const { t } = useTranslation()
+  const p = 'seoPages.pages.vacuumPouches'
   const sections = [
     {
       id: 'overview',
@@ -190,9 +191,9 @@ const VacuumPouchesPage: React.FC = () => {
       faqs={faqs}
       schemaType="Product"
       relatedLinks={relatedLinks}
-      ctaTitle="Get Custom Vacuum Pouches"
-      ctaDescription="Request a free sample and quote for your vacuum packaging needs."
-      ctaButtonText="Request Free Quote"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
     />
   )
 }

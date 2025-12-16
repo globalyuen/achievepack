@@ -141,9 +141,9 @@ const SaucesCondimentsPage: React.FC = () => {
       faqs={faqs}
       schemaType="Product"
       relatedLinks={relatedLinks}
-      ctaTitle="Get Sauce & Condiment Packaging"
-      ctaDescription="Request a free sample and quote for your liquid products."
-      ctaButtonText="Request Free Sample"
+      ctaTitle={t('seoPages.pages.saucesCondiments.cta.title')}
+      ctaDescription={t('seoPages.pages.saucesCondiments.cta.description')}
+      ctaButtonText={t('seoPages.pages.saucesCondiments.cta.button')}
     />
   )
 }

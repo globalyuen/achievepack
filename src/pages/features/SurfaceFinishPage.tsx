@@ -210,8 +210,9 @@ const SurfaceFinishPage: React.FC = () => {
       sections={sections}
       faqs={faqs}
       relatedLinks={relatedLinks}
-      ctaTitle="Ready to Elevate Your Packaging?"
-      ctaDescription="Get samples of different finish options and see the premium quality difference."
+      ctaTitle={t('seoPages.pages.surfaceFinish.cta.title')}
+      ctaDescription={t('seoPages.pages.surfaceFinish.cta.description')}
+      ctaButtonText={t('seoPages.pages.surfaceFinish.cta.button')}
     />
   )
 }

@@ -129,9 +129,9 @@ const FrozenFoodPage: React.FC = () => {
       faqs={faqs}
       schemaType="Product"
       relatedLinks={relatedLinks}
-      ctaTitle="Get Frozen Food Packaging"
-      ctaDescription="Request a free sample and quote for your frozen food products."
-      ctaButtonText="Request Free Sample"
+      ctaTitle={t('seoPages.pages.frozenFood.cta.title')}
+      ctaDescription={t('seoPages.pages.frozenFood.cta.description')}
+      ctaButtonText={t('seoPages.pages.frozenFood.cta.button')}
     />
   )
 }

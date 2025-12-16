@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 const FlatBottomBagsPage: React.FC = () => {
   const { t } = useTranslation()
+  const p = 'seoPages.pages.flatBottomBags'
   const sections = [
     {
       id: 'overview',
@@ -168,9 +169,9 @@ const FlatBottomBagsPage: React.FC = () => {
       tables={tables}
       schemaType="Product"
       relatedLinks={relatedLinks}
-      ctaTitle="Get Custom Flat Bottom Bags"
-      ctaDescription="Request a free sample and quote for your premium products."
-      ctaButtonText="Request Free Quote"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
     />
   )
 }

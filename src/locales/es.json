@@ -1013,37 +1013,67 @@
                 "title": "Bolsas de pie | Soluciones de embalaje flexible",
                 "heroTitle": "Bolsas verticales personalizadas",
                 "heroSubtitle": "Envases flexibles de primera calidad con excelente presencia en los lineales. Disponible con cierres de cremallera, deslizador, pico o válvula. Opciones compostables y reciclables.",
-                "introSummary": "Las bolsas stand-up (SUP) combinan la rentabilidad del embalaje flexible con una excelente presencia en los lineales del comercio minorista. Achieve Pack ofrece SUP impresos personalizados con cierres resellables, materiales de alta barrera y opciones sostenibles que incluyen estructuras certificadas como compostables y reciclables. MOQ desde 500 unidades."
+                "introSummary": "Las bolsas stand-up (SUP) combinan la rentabilidad del embalaje flexible con una excelente presencia en los lineales del comercio minorista. Achieve Pack ofrece SUP impresos personalizados con cierres resellables, materiales de alta barrera y opciones sostenibles que incluyen estructuras certificadas como compostables y reciclables. MOQ desde 500 unidades.",
+                                "cta": {
+                                    "title": "Pedir bolsas de pie personalizadas",
+                                    "description": "Solicite una muestra gratuita y presupuesto para su proyecto de bolsas de pie.",
+                                    "button": "Solicitar muestra gratuita"
+                                }
             },
             "flatBottomBags": {
                 "title": "Bolsas de fondo plano | Embalaje de bolsa de caja",
                 "heroTitle": "Bolsas de fondo plano",
                 "heroSubtitle": "Bolsas premium estilo caja con base rectangular estable y marca de 5 paneles. La elección para cafés especiales, alimentos premium y productos para mascotas.",
-                "introSummary": "Las bolsas de fondo plano (bolsas con fondo de caja) ofrecen máxima estabilidad en los estantes y una apariencia premium con 5 paneles imprimibles. Perfecto para cafés especiales, alimentos para mascotas y productos que requieren una presentación minorista premium."
+                "introSummary": "Las bolsas de fondo plano (bolsas con fondo de caja) ofrecen máxima estabilidad en los estantes y una apariencia premium con 5 paneles imprimibles. Perfecto para cafés especiales, alimentos para mascotas y productos que requieren una presentación minorista premium.",
+                                "cta": {
+                                    "title": "Obtener bolsas de fondo plano personalizadas",
+                                    "description": "Solicite una muestra gratuita y presupuesto para sus productos premium.",
+                                    "button": "Solicitar muestra gratuita"
+                                }
             },
             "spoutPouches": {
                 "title": "Bolsas con pico | Soluciones de envasado de líquidos",
                 "heroTitle": "Bolsas con pico",
                 "heroSubtitle": "Bolsas flexibles con pico vertedor para líquidos, purés, salsas y bebidas. La alternativa cómoda y sostenible a las botellas rígidas.",
-                "introSummary": "Las bolsas con pico combinan la eficiencia del embalaje flexible con la funcionalidad de las botellas. Utilizan un 70% menos de plástico que los contenedores rígidos y, al mismo tiempo, ofrecen una fácil dispensación y comodidad de cierre. Perfecto para alimentos para bebés, salsas, bebidas y aplicaciones de recarga."
+                "introSummary": "Las bolsas con pico combinan la eficiencia del embalaje flexible con la funcionalidad de las botellas. Utilizan un 70% menos de plástico que los contenedores rígidos y, al mismo tiempo, ofrecen una fácil dispensación y comodidad de cierre. Perfecto para alimentos para bebés, salsas, bebidas y aplicaciones de recarga.",
+                                "cta": {
+                                    "title": "Obtener bolsas con pico personalizadas",
+                                    "description": "Solicite una muestra gratuita y presupuesto para sus productos líquidos.",
+                                    "button": "Solicitar muestra gratuita"
+                                }
             },
             "vacuumPouches": {
                 "title": "Bolsas de vacío | Embalaje de vida útil prolongada",
                 "heroTitle": "Bolsas de vacío",
                 "heroSubtitle": "Envasado al vacío de alta barrera para una mayor vida útil. Proteja la carne, los mariscos, el queso y los productos especiales de la oxidación y las quemaduras por congelación.",
-                "introSummary": "Las bolsas de vacío prolongan la vida útil del producto entre 3 y 5 veces al eliminar el oxígeno antes de sellarlas. Nuestras bolsas de alta barrera protegen contra la oxidación, la humedad y la contaminación. Disponible para máquinas de vacío externas y de cámara, incluidas aplicaciones sous vide y retortas."
+                "introSummary": "Las bolsas de vacío prolongan la vida útil del producto entre 3 y 5 veces al eliminar el oxígeno antes de sellarlas. Nuestras bolsas de alta barrera protegen contra la oxidación, la humedad y la contaminación. Disponible para máquinas de vacío externas y de cámara, incluidas aplicaciones sous vide y retortas.",
+                                "cta": {
+                                    "title": "Obtener bolsas de vacío personalizadas",
+                                    "description": "Solicite una muestra gratuita y presupuesto para sus necesidades de envasado al vacío.",
+                                    "button": "Solicitar muestra gratuita"
+                                }
             },
             "flatPouches": {
                 "title": "Bolsas planas | Bolsas selladas por tres lados",
                 "heroTitle": "Bolsas planas",
                 "heroSubtitle": "Bolsas selladas por tres lados sencillas y rentables para diversas aplicaciones.",
-                "introSummary": "Las bolsas planas son la opción de embalaje flexible más económica, ideales para muestras, bolsitas y productos livianos."
+                "introSummary": "Las bolsas planas son la opción de embalaje flexible más económica, ideales para muestras, bolsitas y productos livianos.",
+                                "cta": {
+                                    "title": "Obtener sobres personalizados",
+                                    "description": "Solicite una muestra gratuita y presupuesto para sus necesidades de envasado en sobres.",
+                                    "button": "Solicitar muestra gratuita"
+                                }
             },
             "sideGussetBags": {
                 "title": "Bolsas con fuelle lateral | Embalaje de gran volumen",
                 "heroTitle": "Bolsas con fuelle lateral",
                 "heroSubtitle": "Bolsas tradicionales con fuelle y laterales expandibles para alta capacidad. La elección clásica para café, té y productos a granel.",
-                "introSummary": "Las bolsas con fuelle lateral (bolsas con sello cuádruple) cuentan con paneles laterales expandibles que brindan una gran capacidad de volumen en un formato compacto. Popular para café, té, cereales y productos a granel. Disponible con opciones de brida de hojalata, cremallera y válvula de desgasificación."
+                "introSummary": "Las bolsas con fuelle lateral (bolsas con sello cuádruple) cuentan con paneles laterales expandibles que brindan una gran capacidad de volumen en un formato compacto. Popular para café, té, cereales y productos a granel. Disponible con opciones de brida de hojalata, cremallera y válvula de desgasificación.",
+                                "cta": {
+                                    "title": "Obtener bolsas con fuelle lateral personalizadas",
+                                    "description": "Solicite una muestra gratuita y presupuesto para sus productos a granel.",
+                                    "button": "Solicitar muestra gratuita"
+                                }
             },
             "coffeeTea": {
                 "title": "Envasado de café y té | Bolsas de barrera aromáticas",
@@ -1691,7 +1721,7 @@
                     "q2": "¿Cuál fue el pedido mínimo para este proyecto?",
                     "a2": "Bean & Bole comenzó con 500 bolsas por SKU usando impresión digital. Esto les permitió probar el embalaje con los clientes antes de comprometerse con cantidades mayores.",
                     "q3": "¿La válvula de desgasificación también es compostable?",
-                    "a3": "Las válvulas de desgasificación estándar no son compostables y deben retirarse antes del compostaje. Indicamos esto claramente en el empaque. Se están desarrollando opciones de válvulas completamente compostables."
+                    "a3": "Ofrecemos ambas opciones. Las válvulas de desgasificación estándar no son compostables y deben retirarse antes del compostaje—lo indicamos claramente en el empaque. Las opciones de válvulas totalmente compostables están disponibles pero cuestan 2-3 veces más que las válvulas de café estándar."
                 },
                 "cta": {
                     "title": "¿Listo para Su Historia de Embalaje Sostenible?",

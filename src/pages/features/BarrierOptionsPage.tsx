@@ -207,8 +207,9 @@ const BarrierOptionsPage: React.FC = () => {
       sections={sections}
       faqs={faqs}
       relatedLinks={relatedLinks}
-      ctaTitle="Need Help Choosing Your Barrier?"
-      ctaDescription="Get free shelf-life testing and expert recommendations for your product's optimal barrier level."
+      ctaTitle={t('seoPages.pages.barrierOptions.cta.title')}
+      ctaDescription={t('seoPages.pages.barrierOptions.cta.description')}
+      ctaButtonText={t('seoPages.pages.barrierOptions.cta.button')}
     />
   )
 }
