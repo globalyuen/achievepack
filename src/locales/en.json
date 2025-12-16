@@ -456,8 +456,21 @@
             "supplements": "Supplements",
             "babyFood": "Baby Food",
             "frozenFood": "Frozen Food",
-            "saucesCondiments": "Sauces & Condiments"
+            "saucesCondiments": "Sauces & Condiments",
+            "coffeeRoastery": "Coffee Roastery",
+            "teaBrand": "Tea Brand",
+            "superfood": "Superfood",
+            "petTreats": "Pet Treats",
+            "chocolate": "Chocolate",
+            "bakery": "Bakery",
+            "faqs": "FAQs",
+            "leadTime": "Lead Time",
+            "workflow": "Workflow",
+            "aboutUs": "About Us",
+            "certificates": "Certificates",
+            "factoryTour": "Factory Tour"
         },
+        "caseStudies": "Case Studies",
         "products": {
             "title": "Products",
             "compostable": "Compostable Packaging",

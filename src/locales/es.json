@@ -456,8 +456,21 @@
             "supplements": "Suplementos",
             "babyFood": "Alimento para Bebés",
             "frozenFood": "Congelados",
-            "saucesCondiments": "Salsas y Condimentos"
+            "saucesCondiments": "Salsas y Condimentos",
+            "coffeeRoastery": "Tostaduría de café",
+            "teaBrand": "Marca de té",
+            "superfood": "Superalimentos",
+            "petTreats": "Golosinas para mascotas",
+            "chocolate": "Chocolate",
+            "bakery": "Panadería",
+            "faqs": "Preguntas frecuentes",
+            "leadTime": "Tiempo de entrega",
+            "workflow": "Flujo de trabajo",
+            "aboutUs": "Sobre nosotros",
+            "certificates": "Certificados",
+            "factoryTour": "Tour de fábrica"
         },
+        "caseStudies": "Casos de estudio",
         "products": {
             "title": "Productos",
             "compostable": "Embalaje compostable",

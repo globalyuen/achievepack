@@ -456,8 +456,21 @@
             "supplements": "保健品",
             "babyFood": "嬰兒食品",
             "frozenFood": "冷凍食品",
-            "saucesCondiments": "醬料調味品"
+            "saucesCondiments": "醬料調味品",
+            "coffeeRoastery": "咖啡烘焙廠",
+            "teaBrand": "茶品牌",
+            "superfood": "超級食品",
+            "petTreats": "寵物零食",
+            "chocolate": "巧克力",
+            "bakery": "烘焙",
+            "faqs": "常見問題",
+            "leadTime": "交貨時間",
+            "workflow": "工作流程",
+            "aboutUs": "關於我們",
+            "certificates": "認證證書",
+            "factoryTour": "工廠導覽"
         },
+        "caseStudies": "案例研究",
         "products": {
             "title": "產品",
             "compostable": "可堆肥包裝",
