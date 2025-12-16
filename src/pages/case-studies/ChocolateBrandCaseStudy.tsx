@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Building2, AlertCircle, Lightbulb, TrendingUp, Package, CheckCircle } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 
 const ChocolateBrandCaseStudy = () => {
+  const { t } = useTranslation();
+  const p = 'seoPages.pages.csChocolate';
   const heroImage = '/imgs/seo-photos/a_artisan_chocolate_abu_dhabi_luxury_pouch_4218900.webp';
   
   const sections = [
@@ -129,24 +132,24 @@ const ChocolateBrandCaseStudy = () => {
   ];
 
   const faqs = [
-    { question: 'Can flexible packaging protect chocolate in hot climates?', answer: 'Yes! Our high-barrier mono-PP structure with advanced barrier technology protects against heat and humidity. Tested to 45°C for Middle East distribution.' },
-    { question: 'Is foil stamping sustainable?', answer: 'Hot foil stamping adds minimal material and the base package remains recyclable. We use responsible application methods.' }
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) }
   ];
 
   return (
     <SEOPageLayout
-      title="Chocolate Brand Case Study | Artisan Cocoa Luxury Packaging"
-      description="How Artisan Cocoa Emirates achieved luxury chocolate packaging with heat protection and premium finishes."
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
       keywords={['chocolate packaging', 'luxury packaging', 'heat resistant packaging', 'foil stamping pouches']}
-      heroTitle="Case Study: Artisan Cocoa Emirates"
-      heroSubtitle="How a luxury chocolate brand achieved premium packaging that withstands Middle East heat."
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage={heroImage}
       sections={sections}
-      introSummary="Artisan Cocoa Emirates partnered with Achieve Pack to create luxury packaging that protects chocolate in extreme heat while conveying premium brand values."
+      introSummary={t(`${p}.introSummary`)}
       faqs={faqs}
-      ctaTitle="Create Luxury Packaging"
-      ctaDescription="Elevate your confectionery brand with premium sustainable packaging."
-      ctaButtonText="Start Your Project"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
     />
   );

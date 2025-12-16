@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Building2, AlertCircle, Lightbulb, TrendingUp, Package, CheckCircle } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 
 const CoffeeRoasteryCaseStudy = () => {
+  const { t } = useTranslation();
+  const p = 'seoPages.pages.csCoffeeRoastery';
   const heroImage = '/imgs/seo-photos/a_bean_bole_coffee_roastery_8131919.webp';
   
   const sections = [
@@ -192,33 +195,33 @@ const CoffeeRoasteryCaseStudy = () => {
 
   const faqs = [
     {
-      question: 'Can compostable packaging maintain coffee freshness?',
-      answer: 'Yes! With the right material combination (like Kraft + PLA with proper barrier layers), compostable packaging can maintain coffee freshness for 3-4 months. Adding a degassing valve allows CO2 release while preventing oxygen entry.'
+      question: t(`${p}.faq.q1`),
+      answer: t(`${p}.faq.a1`)
     },
     {
-      question: 'What was the minimum order for this project?',
-      answer: 'Bean & Bole started with 500 bags per SKU using digital printing. This allowed them to test the packaging with customers before committing to larger quantities.'
+      question: t(`${p}.faq.q2`),
+      answer: t(`${p}.faq.a2`)
     },
     {
-      question: 'Is the degassing valve also compostable?',
-      answer: 'Standard degassing valves are not compostable and need to be removed before composting. We clearly label this on the package. Fully compostable valve options are being developed.'
+      question: t(`${p}.faq.q3`),
+      answer: t(`${p}.faq.a3`)
     }
   ];
 
   return (
     <SEOPageLayout
-      title="Coffee Roastery Case Study | Bean & Bole Compostable Packaging"
-      description="How Bean & Bole Coffee Roastery switched to compostable packaging while maintaining freshness. Case study featuring Kraft+PLA pouches with degassing valves."
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
       keywords={['coffee packaging case study', 'compostable coffee bags', 'specialty coffee packaging', 'degassing valve compostable', 'sustainable coffee roastery']}
-      heroTitle="Case Study: Bean & Bole Coffee Roastery"
-      heroSubtitle="How a specialty coffee roaster achieved 100% compostable packaging without compromising freshness or their small-batch approach."
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage={heroImage}
       sections={sections}
-      introSummary="Bean & Bole Coffee Roastery partnered with Achieve Pack to transition from conventional plastic to certified compostable packaging. The result: eco-friendly bags that maintain coffee freshness while reinforcing their sustainability story."
+      introSummary={t(`${p}.introSummary`)}
       faqs={faqs}
-      ctaTitle="Ready for Your Sustainable Packaging Story?"
-      ctaDescription="Let's discuss how we can help your coffee brand transition to eco-friendly packaging."
-      ctaButtonText="Start Your Project"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
     />
   );

@@ -434,40 +434,30 @@ const SizeGuidePage = () => {
     }
   ];
 
+  const p = 'seoPages.pages.sizeGuide';
+
   const faqs = [
-    {
-      question: 'Do you have standard sizes or is everything custom?',
-      answer: 'We have a range of standard sizes that cover most needs with lower MOQs. Custom sizes are available for orders of 500+ pieces (digital) or 5,000+ pieces (plate printing).'
-    },
-    {
-      question: 'How do I know what size fits my product?',
-      answer: 'Send us your product details (weight, dimensions, density) or a sample. We\'ll recommend sizes and can send blank pouches for you to test fill before ordering printed versions.'
-    },
-    {
-      question: 'Are dimensions exact or approximate?',
-      answer: 'Dimensions are nominal with standard manufacturing tolerance of ±1-2mm. Critical applications should account for this variance.'
-    },
-    {
-      question: 'Can I get the same product in multiple sizes?',
-      answer: 'Absolutely! Many brands offer the same product in different sizes (sample, regular, family size). Each size can share design elements while using size-specific artwork.'
-    }
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) },
+    { question: t(`${p}.faq.q3`), answer: t(`${p}.faq.a3`) },
+    { question: t(`${p}.faq.q4`), answer: t(`${p}.faq.a4`) }
   ];
 
   return (
     <>
       <SEOPageLayout
-        title="Pouch Size Guide | Dimensions & Capacity Reference"
-        description="Complete pouch size guide with dimensions and capacity for stand-up pouches, flat bottom bags, and more. Find the perfect size for your product."
+        title={t(`${p}.title`)}
+        description={t(`${p}.description`)}
         keywords={['pouch sizes', 'packaging dimensions', 'bag size guide', 'pouch capacity', 'custom pouch sizes']}
-        heroTitle="Pouch Size Guide"
-        heroSubtitle="Find the perfect pouch size for your product. Complete dimension guide with capacity references and custom size options."
+        heroTitle={t(`${p}.heroTitle`)}
+        heroSubtitle={t(`${p}.heroSubtitle`)}
         heroImage={heroImage}
         sections={sections}
-        introSummary="Selecting the right pouch size ensures optimal product presentation and cost efficiency. Use this comprehensive guide to understand standard sizes and find the perfect fit for your product."
+        introSummary={t(`${p}.introSummary`)}
         faqs={faqs}
-        ctaTitle="Need Help Choosing?"
-        ctaDescription="Send us your product details and we'll recommend the optimal size."
-        ctaButtonText="Get Size Recommendation"
+        ctaTitle={t(`${p}.cta.title`)}
+        ctaDescription={t(`${p}.cta.description`)}
+        ctaButtonText={t(`${p}.cta.button`)}
         ctaButtonUrl="/contact"
       />
 

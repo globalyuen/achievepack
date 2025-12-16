@@ -1570,6 +1570,785 @@
                 "heroTitle": "Barrier Options",
                 "heroSubtitle": "Multiple barrier levels from low to maximum protection for different products.",
                 "introSummary": "Barrier properties protect products from moisture, oxygen, light, and odors to maintain freshness and extend shelf life."
+            },
+            "about": {
+                "title": "About Achieve Pack | Sustainable Packaging Since 2011",
+                "description": "Learn about Achieve Pack's mission to make sustainable packaging accessible. Founded in 2011, we serve 500+ brands with eco-friendly flexible packaging solutions.",
+                "heroTitle": "About Achieve Pack",
+                "heroSubtitle": "Making sustainable packaging the easy choice since 2011. From Hong Kong to the world, we're helping brands reduce their environmental impact without compromising on quality.",
+                "introSummary": "Achieve Pack is the parent company behind pouch.eco, founded in 2011 with a mission to make sustainable packaging accessible to businesses of all sizes. We combine decades of packaging expertise with a genuine commitment to environmental responsibility.",
+                "sections": {
+                    "story": {
+                        "title": "Our Story",
+                        "p1": "Founded in 2011 in Hong Kong, Achieve Pack® has grown from a small packaging supplier into a leading provider of sustainable flexible packaging solutions. Our journey began with a simple belief: businesses shouldn't have to choose between quality packaging and environmental responsibility.",
+                        "p2": "Today, we serve over 500 brands worldwide, from artisan startups to established enterprises, helping them transition to eco-friendly packaging without compromising on quality, performance, or budget.",
+                        "p3": "Under the pouch.eco brand, we've made sustainable packaging accessible to businesses of all sizes, with low minimum order quantities and fast turnaround times that traditional manufacturers simply can't match."
+                    },
+                    "mission": {
+                        "title": "Our Mission",
+                        "intro": "Our mission is to make sustainable packaging the easy choice for every business. We believe that environmental responsibility shouldn't be a premium feature—it should be the standard.",
+                        "drivesUs": "What Drives Us:",
+                        "points": [
+                            "Reducing plastic waste in the packaging industry",
+                            "Making certified eco materials accessible to all business sizes",
+                            "Helping brands tell their sustainability story",
+                            "Innovating new materials and solutions for a circular economy"
+                        ]
+                    },
+                    "values": {
+                        "title": "Our Values",
+                        "sustainability": {
+                            "title": "Sustainability First",
+                            "desc": "Every decision we make considers environmental impact. From material selection to shipping methods, sustainability guides our operations."
+                        },
+                        "quality": {
+                            "title": "Quality Without Compromise",
+                            "desc": "Eco-friendly doesn't mean lower quality. Our packaging meets the same rigorous standards as conventional materials."
+                        },
+                        "partnership": {
+                            "title": "Customer Partnership",
+                            "desc": "We work as partners, not just suppliers. Your success is our success, and we're invested in helping you achieve your goals."
+                        },
+                        "innovation": {
+                            "title": "Innovation & Transparency",
+                            "desc": "We continuously develop new materials and share honest information about capabilities and limitations."
+                        }
+                    },
+                    "team": {
+                        "title": "Our Team",
+                        "intro": "Our team combines decades of packaging industry experience with a passion for sustainability. From material scientists to customer support specialists, every team member is committed to your success."
+                    },
+                    "impact": {
+                        "title": "Our Impact",
+                        "brands": "Brands Served",
+                        "carbon": "Carbon Reduction",
+                        "pouches": "Pouches Produced",
+                        "countries": "Countries Shipped",
+                        "outro": "Every pouch we produce represents a step away from conventional plastics and toward a more sustainable future. Join the hundreds of brands already making a difference."
+                    }
+                },
+                "faq": {
+                    "q1": "Where is Achieve Pack located?",
+                    "a1": "Our headquarters is in Hong Kong, with manufacturing facilities in China. We ship worldwide and have customers across North America, Europe, Asia, and Australia.",
+                    "q2": "What makes Achieve Pack different from other packaging suppliers?",
+                    "a2": "We specialize exclusively in sustainable packaging with low MOQs (100 pieces), fast turnaround (2-3 weeks for samples), and comprehensive certification documentation. We're partners, not just suppliers.",
+                    "q3": "Do you work with startups and small businesses?",
+                    "a3": "Absolutely! Our low minimum order quantities make sustainable packaging accessible to businesses of all sizes. Many of our customers started with us as startups and have grown with our support.",
+                    "q4": "What certifications do your materials have?",
+                    "a4": "Our materials are certified to various international standards including EN 13432, ASTM D6400, GRS (Global Recycled Standard), and food safety certifications (FDA, EU 10/2011). We provide documentation with every order."
+                },
+                "cta": {
+                    "title": "Partner With Us",
+                    "description": "Join 500+ brands already making a sustainable impact with Achieve Pack.",
+                    "button": "Start Your Journey"
+                }
+            },
+            "certificates": {
+                "title": "Packaging Certifications | EN 13432, GRS, FDA Compliance",
+                "description": "Explore Achieve Pack's comprehensive certifications: EN 13432, ASTM D6400, GRS, FDA, BRC, and more. Full documentation provided with every order.",
+                "heroTitle": "Certifications & Compliance",
+                "heroSubtitle": "Third-party verified certifications you can trust. From compostability to food safety, our certifications give you confidence in every claim.",
+                "introSummary": "Our packaging materials are certified to the world's leading standards for compostability, recyclability, and food safety. We provide complete documentation with every order to support your compliance and marketing needs.",
+                "sections": {
+                    "overview": {
+                        "title": "Our Certifications & Compliance",
+                        "p1": "At Achieve Pack, we believe that certifications are more than just badges—they're proof of our commitment to quality, safety, and sustainability. Every certification we hold represents rigorous third-party testing and ongoing audits.",
+                        "p2": "We provide full documentation with every order, giving you the confidence to make claims about your packaging and satisfy retailer requirements."
+                    },
+                    "compostability": {
+                        "title": "Compostability Certifications",
+                        "en13432": {
+                            "name": "EN 13432",
+                            "region": "European Standard",
+                            "desc": "The European standard for compostable packaging. Requires 90% disintegration within 12 weeks and complete biodegradation within 6 months in industrial composting conditions."
+                        },
+                        "astm": {
+                            "name": "ASTM D6400",
+                            "region": "US Standard",
+                            "desc": "US standard for plastics designed for municipal/industrial aerobic composting facilities. Testing equivalent to EN 13432, recognized across North America."
+                        },
+                        "australian": {
+                            "name": "AS 4736 / AS 5810",
+                            "region": "Australian Standards",
+                            "desc": "AS 4736 for commercial compostability and AS 5810 for home compostability. Required for compostable claims in Australia and New Zealand."
+                        },
+                        "okcompost": {
+                            "name": "OK Compost HOME",
+                            "region": "TÜV Austria",
+                            "desc": "Certification for materials that biodegrade in home composting conditions (20-30°C). The gold standard for consumer-level compostability."
+                        }
+                    },
+                    "recyclability": {
+                        "title": "Recyclability Certifications",
+                        "grs": {
+                            "name": "GRS - Global Recycled Standard",
+                            "desc": "Our PCR (post-consumer recycled) materials are GRS certified, verifying the recycled content and tracking it through the supply chain. This certification is increasingly required by major retailers."
+                        },
+                        "mono": {
+                            "title": "Mono-Material Recyclability",
+                            "desc": "Our mono-PE and mono-PP pouches are designed for recyclability in existing recycling streams. Structure verified by third-party testing."
+                        },
+                        "storeDropOff": {
+                            "title": "Store Drop-Off Compatible",
+                            "desc": "Many of our recyclable pouches qualify for store drop-off recycling programs (like How2Recycle's Store Drop-Off label)."
+                        }
+                    },
+                    "foodSafety": {
+                        "title": "Food Safety Certifications",
+                        "intro": "All our packaging materials intended for food contact are certified to international food safety standards. We can provide documentation for regulatory compliance in your target markets.",
+                        "fda": {
+                            "name": "FDA 21 CFR",
+                            "desc": "US Food & Drug Administration compliance for food contact materials"
+                        },
+                        "eu": {
+                            "name": "EU 10/2011",
+                            "desc": "European regulation for plastic materials in food contact"
+                        },
+                        "migration": {
+                            "name": "Migration Testing",
+                            "desc": "Third-party verified migration testing for specific food types"
+                        }
+                    },
+                    "facility": {
+                        "title": "Facility Certifications",
+                        "iso": {
+                            "name": "ISO 9001:2015",
+                            "desc": "Quality Management System certification. Demonstrates our commitment to consistent quality and continuous improvement in all processes."
+                        },
+                        "brc": {
+                            "name": "BRC Packaging Materials",
+                            "desc": "British Retail Consortium certification for packaging manufacturers. Often required by major retailers for food packaging suppliers."
+                        },
+                        "fsc": {
+                            "name": "FSC Chain of Custody",
+                            "desc": "For paper-based products, our FSC certification ensures responsibly sourced paper from well-managed forests."
+                        },
+                        "sedex": {
+                            "name": "SEDEX Membership",
+                            "desc": "Ethical trade audit platform. We maintain visibility into our ethical, labor, and environmental practices."
+                        }
+                    },
+                    "documentation": {
+                        "title": "Documentation We Provide",
+                        "intro": "With every order, we can provide the certification documents you need for retailer compliance, regulatory submissions, or marketing claims:",
+                        "items": [
+                            "Certificate of Compliance (CoC)",
+                            "Material specifications",
+                            "Food safety declarations",
+                            "Compostability certificates",
+                            "GRS transaction certificates",
+                            "Test reports (barrier, seal strength)",
+                            "REACH compliance statements",
+                            "Heavy metals declarations"
+                        ]
+                    }
+                },
+                "faq": {
+                    "q1": "Do you provide certification documents with orders?",
+                    "a1": "Yes, we provide all relevant certification documents with every order. This includes certificates of compliance, food safety declarations, and specific certifications like EN 13432 or GRS certificates as applicable.",
+                    "q2": "Are your compostable materials certified in my country?",
+                    "a2": "Our compostable materials are certified to EN 13432 (EU), ASTM D6400 (US), and AS 4736/5810 (Australia). These are the major international standards. Contact us for specific regional requirements.",
+                    "q3": "Can I use your certifications in my marketing?",
+                    "a3": "Yes, with the proper documentation we provide, you can make certified claims about your packaging. We'll advise on correct wording and logo usage to ensure compliance.",
+                    "q4": "How often are your certifications renewed?",
+                    "a4": "Most certifications require annual audits and renewal. We maintain current certifications and can provide up-to-date documentation at any time."
+                },
+                "cta": {
+                    "title": "Get Certified Packaging",
+                    "description": "Order eco-friendly packaging with full certification documentation.",
+                    "button": "Request a Quote"
+                }
+            },
+            "factoryTour": {
+                "title": "Virtual Factory Tour | Achieve Pack Manufacturing Facility",
+                "description": "Take a virtual tour of Achieve Pack's state-of-the-art sustainable packaging facility. See how we manufacture eco-friendly pouches with precision and quality control.",
+                "heroTitle": "Virtual Factory Tour",
+                "heroSubtitle": "Step inside our manufacturing facility where sustainable packaging innovation meets precision engineering. Discover how we bring your eco-friendly pouches to life.",
+                "introSummary": "Our factory combines modern manufacturing technology with rigorous quality control and sustainable practices. From material sourcing to final inspection, every step is designed to deliver premium eco-friendly packaging.",
+                "videos": {
+                    "entrance": { "title": "Factory Entrance", "desc": "Welcome to our state-of-the-art manufacturing facility" },
+                    "digital": { "title": "Digital Printing", "desc": "High-precision digital printing with unlimited colors" },
+                    "roto": { "title": "Rotogravure Printing", "desc": "Large-scale plate printing for high-volume orders" },
+                    "laminating": { "title": "Laminating Process", "desc": "Bonding multiple material layers for barrier protection" },
+                    "slitting": { "title": "Slitting Machine", "desc": "Precision cutting of laminated films to required widths" },
+                    "bagMaking": { "title": "Bag Making", "desc": "Converting films into finished pouches and bags" }
+                },
+                "sections": {
+                    "welcome": {
+                        "title": "Welcome to Our Virtual Factory Tour",
+                        "p1": "Step inside our state-of-the-art manufacturing facility where sustainable packaging comes to life. Our factory combines cutting-edge technology with rigorous quality control to produce eco-friendly pouches that meet the highest international standards.",
+                        "p2": "While we can't bring you physically to our facility, this virtual tour gives you insight into how we manufacture your packaging with precision, care, and environmental responsibility.",
+                        "videoTitle": "Factory Video Tour"
+                    },
+                    "materials": {
+                        "title": "Material Sourcing & Storage",
+                        "standards": "Our Material Standards:",
+                        "points": [
+                            "All raw materials sourced from certified suppliers",
+                            "Climate-controlled storage for material integrity",
+                            "Batch tracking for full traceability",
+                            "Regular quality testing of incoming materials"
+                        ],
+                        "outro": "We maintain partnerships with leading sustainable material manufacturers worldwide, including suppliers of certified compostable films, GRS-certified recycled plastics, and food-safe bio-based materials."
+                    },
+                    "printing": {
+                        "title": "Printing Department",
+                        "intro": "Our printing department features both digital and flexographic (plate) printing capabilities, allowing us to handle orders from 100 pieces to millions with consistent quality.",
+                        "digital": {
+                            "title": "Digital Printing",
+                            "points": ["Unlimited colors at no extra cost", "Perfect for short runs (100-5,000 pcs)", "Variable data printing available", "No plate costs"]
+                        },
+                        "plate": {
+                            "title": "Plate Printing",
+                            "points": ["Up to 10 colors", "Best for large volumes (5,000+ pcs)", "Pantone color matching", "Lower unit cost at scale"]
+                        },
+                        "outro": "All inks used are food-safe and compliant with FDA and EU regulations. We use solvent-free and water-based inks where possible."
+                    },
+                    "lamination": {
+                        "title": "Lamination & Material Processing",
+                        "intro": "Our lamination department bonds multiple material layers to create the barrier properties your product needs. This is where we combine materials like kraft paper with PLA, or create mono-material structures for recyclability.",
+                        "capabilities": "Process Capabilities:",
+                        "dry": { "title": "Dry Lamination", "desc": "For high-barrier multi-layer structures" },
+                        "solventless": { "title": "Solventless Lamination", "desc": "Eco-friendly bonding process" },
+                        "extrusion": { "title": "Extrusion Lamination", "desc": "For specialized barrier layers" }
+                    },
+                    "pouchMaking": {
+                        "title": "Pouch Making & Conversion",
+                        "intro": "Our pouch-making lines convert printed and laminated films into finished pouches. We can produce all major pouch formats including stand-up pouches, flat bottom bags, side gusset bags, and more.",
+                        "lines": "Production Lines",
+                        "width": "Width Range",
+                        "capacity": "Daily Capacity",
+                        "outro": "Each line is equipped for different pouch styles and can integrate features like zippers, valves, spouts, and tear notches."
+                    },
+                    "quality": {
+                        "title": "Quality Control Laboratory",
+                        "intro": "Our in-house laboratory performs rigorous testing at every production stage. From incoming material inspection to final product testing, we ensure every pouch meets specifications.",
+                        "capabilities": "Testing Capabilities:",
+                        "tests": [
+                            "Barrier testing (OTR, WVTR)",
+                            "Seal strength testing",
+                            "Tensile strength measurement",
+                            "Thickness uniformity",
+                            "Color consistency (spectrophotometer)",
+                            "Drop testing",
+                            "Migration testing",
+                            "Dimensional accuracy"
+                        ]
+                    },
+                    "sustainability": {
+                        "title": "Sustainability Practices",
+                        "intro": "Sustainability isn't just in our products—it's in our operations. Our factory implements comprehensive environmental management practices.",
+                        "waste": {
+                            "title": "Waste Reduction",
+                            "points": ["Production waste recycled or composted", "Optimized cutting patterns minimize trim waste", "Solvent recovery systems"]
+                        },
+                        "energy": {
+                            "title": "Energy Efficiency",
+                            "points": ["LED lighting throughout facility", "Energy-efficient machinery", "Heat recovery systems"]
+                        }
+                    }
+                },
+                "faq": {
+                    "q1": "Can I visit your factory in person?",
+                    "a1": "Yes, we welcome factory visits by appointment. Contact us to schedule a visit to our manufacturing facility. We also offer detailed video tours for customers who cannot travel.",
+                    "q2": "What quality certifications does your factory have?",
+                    "a2": "Our facility is ISO 9001 certified for quality management, BRC certified for food packaging, and maintains FSC chain of custody certification for paper-based products.",
+                    "q3": "What is your production capacity?",
+                    "a3": "We can produce over 100,000 pouches per day across our production lines. For large orders, we can scale up with advance notice. Rush orders are also possible for urgent needs.",
+                    "q4": "How do you ensure consistency across batches?",
+                    "a4": "We maintain detailed production records, use calibrated equipment, and perform statistical process control (SPC) to ensure every batch meets the same standards. Color matching is verified with spectrophotometers."
+                },
+                "cta": {
+                    "title": "See It For Yourself",
+                    "description": "Request a personalized video tour or schedule an in-person visit to our facility.",
+                    "button": "Schedule a Tour"
+                }
+            },
+            "faqs": {
+                "title": "Frequently Asked Questions | Packaging FAQs",
+                "description": "Find answers to common questions about sustainable packaging: MOQs, materials, production times, shipping, and more. Comprehensive FAQ from Achieve Pack.",
+                "heroTitle": "Frequently Asked Questions",
+                "heroSubtitle": "Answers to your packaging questions. Find information about ordering, materials, production, shipping, and more.",
+                "introSummary": "Browse our comprehensive FAQ covering ordering, materials, production, shipping, and customization. Can't find your answer? Contact us directly—we're happy to help.",
+                "faq": {
+                    "q1": "How do I get started?",
+                    "a1": "Simply contact us through our website, email, or WhatsApp. Share your product details and requirements, and we'll provide a quotation within 24-48 hours.",
+                    "q2": "Can I see samples before ordering?",
+                    "a2": "Absolutely! We provide material samples, blank pouches for test filling, and can produce printed samples with your design before full production.",
+                    "q3": "Do you work with small businesses and startups?",
+                    "a3": "Yes! Our low MOQs (100 pieces for digital printing) make us ideal for small businesses. Many of our customers started small and have grown with us.",
+                    "q4": "What support do you provide after delivery?",
+                    "a4": "We provide ongoing support including reorder assistance, design updates, and help resolving any issues. We're partners for the long term, not just one order."
+                },
+                "cta": {
+                    "title": "Still Have Questions?",
+                    "description": "Our team is ready to help with any questions not covered here.",
+                    "button": "Contact Us"
+                }
+            },
+            "leadTime": {
+                "title": "Lead Time Guide | Production & Shipping Timeline",
+                "description": "Understand Achieve Pack's lead times for sustainable packaging. Production timelines, shipping options, and tips for planning your packaging orders.",
+                "heroTitle": "Lead Time Guide",
+                "heroSubtitle": "Plan your packaging orders with confidence. Understand production and shipping timelines for smooth inventory management.",
+                "introSummary": "Total lead time ranges from 3-4 weeks (rush digital + express) to 10-12 weeks (plate printing + sea freight). This guide helps you understand timelines and plan effectively.",
+                "faq": {
+                    "q1": "Can you guarantee delivery dates?",
+                    "a1": "We provide estimated timelines based on typical production and shipping. While we strive to meet all dates, factors like customs delays or shipping disruptions can occasionally affect delivery. We keep you updated throughout.",
+                    "q2": "What happens if I need to change my delivery date?",
+                    "a2": "Contact us as early as possible. Before production starts, we can usually adjust. Once production begins, changes may not be possible, but we can sometimes adjust shipping speed.",
+                    "q3": "Do you offer rush production?",
+                    "a3": "Yes, for digital printing orders. Rush fees apply and depend on current production load. Contact us with your deadline and we'll confirm if rush is possible.",
+                    "q4": "How do holidays affect lead time?",
+                    "a4": "Chinese New Year (late Jan/Feb) significantly impacts production—plan 2-3 weeks extra. Other holidays have minimal impact. We'll advise on any timing concerns during quotation."
+                },
+                "cta": {
+                    "title": "Need a Timeline Estimate?",
+                    "description": "Tell us about your order and we'll provide a specific timeline.",
+                    "button": "Get Quote with Timeline"
+                }
+            },
+            "highBarrier": {
+                "title": "High Barrier Packaging | 12-24 Month Shelf Life Premium Pouches",
+                "description": "High barrier eco-friendly packaging for products with 12-24 month shelf life. Recyclable mono-PE with EVOH, mono-PP options. Perfect for coffee, supplements, baby food, and sensitive products.",
+                "heroTitle": "High Barrier Packaging",
+                "heroSubtitle": "Maximum protection with 12-24 month shelf life. Recyclable high barrier options for premium products.",
+                "introSummary": "High barrier packaging provides maximum oxygen and moisture protection for products requiring 12-24 month shelf life. Our recyclable mono-PE with EVOH structures offer premium protection while maintaining sustainability credentials.",
+                "faq": {
+                    "q1": "Can high barrier packaging still be recyclable?",
+                    "a1": "Yes! Our mono-PE with EVOH layer is recyclable because the EVOH is <5% of total structure. We also offer mono-PP and metallized mono-PE options that are 100% recyclable while providing excellent barrier properties.",
+                    "q2": "What's the difference between EVOH and aluminum barrier?",
+                    "a2": "EVOH is a plastic-based oxygen barrier that allows the packaging to remain recyclable. Aluminum provides similar barrier but makes packaging non-recyclable. Our EVOH structures offer comparable performance with recyclability.",
+                    "q3": "Do I need high barrier for coffee?",
+                    "a3": "For ground coffee and specialty whole beans, yes - high barrier with degassing valve is recommended. For standard whole bean coffee with quick turnover, medium barrier may suffice. We offer free testing to determine optimal choice.",
+                    "q4": "What certifications do your high barrier materials have?",
+                    "a4": "Our high barrier materials are food-safe certified (FDA, EU 10/2011), and we provide OTR/MVTR test certificates. PCR options are GRS certified. We can provide custom testing documentation for your quality requirements."
+                },
+                "cta": {
+                    "title": "Protect Your Premium Products",
+                    "description": "Request free OTR/MVTR testing and samples to validate high barrier performance for your products.",
+                    "button": "Get Free Sample"
+                }
+            },
+            "lowBarrier": {
+                "title": "Low Barrier Packaging | Eco-Friendly 3-6 Month Shelf Life Pouches",
+                "description": "Low barrier eco-friendly packaging for products with 3-6 month shelf life. Home compostable Kraft+PLA, NatureFlex cellulose. Perfect for cookies, tea, granola, and dry goods.",
+                "heroTitle": "Low Barrier Packaging",
+                "heroSubtitle": "Best eco-credentials with 3-6 month shelf life. Home compostable and recyclable options for sustainable brands.",
+                "introSummary": "Low barrier packaging offers the best sustainability credentials with 3-6 months shelf life protection. Perfect for products with fast turnover or naturally dry goods that don't require extended protection.",
+                "faq": {
+                    "q1": "Is low barrier packaging suitable for my product?",
+                    "a1": "Low barrier is ideal for dry products consumed within 3-6 months: cookies, tea, granola, dried fruits, rice, and similar dry goods. If your product is moisture or oxygen sensitive, consider medium or high barrier options.",
+                    "q2": "Can low barrier packaging be compostable?",
+                    "a2": "Yes! Many low barrier options like Kraft+PLA and NatureFlex are home compostable, breaking down in backyard compost within 6-12 months. These are certified to EN 13432 and OK Home standards.",
+                    "q3": "What's the price difference vs medium barrier?",
+                    "a3": "Low barrier materials typically cost 15-25% less than medium barrier options. The cost savings plus better eco-credentials make it an excellent choice when your product doesn't require extended shelf life.",
+                    "q4": "How do I transition from plastic to low barrier eco-packaging?",
+                    "a4": "We offer free consultation and samples to test compatibility. Many brands successfully switch dry goods to low barrier compostable packaging. We help you validate shelf life and optimize the transition."
+                },
+                "cta": {
+                    "title": "Start Your Eco Journey",
+                    "description": "Request samples of our home compostable low barrier packaging.",
+                    "button": "Get Free Sample"
+                }
+            },
+            "mediumBarrier": {
+                "title": "Medium Barrier Packaging | 6-12 Month Shelf Life Recyclable Pouches",
+                "description": "Medium barrier eco-friendly packaging for products with 6-12 month shelf life. Recyclable mono-PE, Bio-PE, PCR options. Perfect for coffee, nuts, pet food, and protein powders.",
+                "heroTitle": "Medium Barrier Packaging",
+                "heroSubtitle": "Balanced protection with 6-12 month shelf life. Recyclable options for most food products.",
+                "introSummary": "Medium barrier packaging provides balanced protection with 6-12 months shelf life. The sweet spot for most food products, combining good barrier properties with excellent sustainability credentials.",
+                "faq": {
+                    "q1": "What products work best with medium barrier?",
+                    "a1": "Medium barrier is ideal for coffee beans, nuts, pet food, protein powders, cereals, and chocolates - products needing 6-12 month protection. It's the most popular choice for food products requiring both freshness and sustainability.",
+                    "q2": "Is mono-PE recyclable everywhere?",
+                    "a2": "Mono-PE (polyethylene) is one of the most widely recycled plastics globally. It's accepted in most curbside recycling programs and store drop-off recycling. We provide recycling instructions for consumers on packaging.",
+                    "q3": "How does Bio-PE compare to regular PE?",
+                    "a3": "Bio-PE (from sugarcane) has identical barrier and sealing properties to fossil-based PE. The difference is environmental: Bio-PE is carbon-negative in production, meaning it removes CO2 during sugarcane growth.",
+                    "q4": "Can I use medium barrier for coffee?",
+                    "a4": "Yes! Medium barrier works well for roasted whole beans with standard turnover. For ground coffee or specialty roasts requiring maximum freshness, consider our high barrier options with degassing valves."
+                },
+                "cta": {
+                    "title": "Find Your Balance",
+                    "description": "Request samples to test medium barrier protection for your products.",
+                    "button": "Get Free Sample"
+                }
+            },
+            "allOptions": {
+                "title": "All Packaging Options | Complete Customization Guide",
+                "description": "Explore all sustainable packaging options: materials, pouch styles, barrier levels, closures, printing, and finishes. Complete customization guide from Achieve Pack.",
+                "heroTitle": "All Packaging Options",
+                "heroSubtitle": "Your complete guide to sustainable packaging customization. Explore every option available—from materials to finishes, closures to printing.",
+                "introSummary": "Achieve Pack offers extensive customization options for eco-friendly flexible packaging. This comprehensive guide covers all available materials, pouch styles, barrier levels, closures, printing methods, and special features.",
+                "faq": {
+                    "q1": "How do I choose between so many options?",
+                    "a1": "Start with your product requirements: What are you packaging? What shelf life do you need? What sustainability goals do you have? Our team can then recommend the best combination of material, style, and features.",
+                    "q2": "Can I mix and match options?",
+                    "a2": "Yes! Most options can be combined. For example, you can have a compostable stand-up pouch with a zipper, matte finish, and spot UV logo. Some combinations have limitations—we'll advise during consultation.",
+                    "q3": "Do all options have the same MOQ?",
+                    "a3": "MOQ varies by option. Digital printing starts at 100 pieces, while plate printing typically requires 5,000+. Complex features may have higher minimums. We offer flexibility for testing.",
+                    "q4": "How do I get samples of different options?",
+                    "a4": "Request a sample kit with examples of different materials, finishes, and features. We can also produce custom samples of your specific design before full production."
+                },
+                "cta": {
+                    "title": "Build Your Custom Package",
+                    "description": "Work with our specialists to design the perfect packaging for your product.",
+                    "button": "Start Customizing"
+                }
+            },
+            "sizeGuide": {
+                "title": "Pouch Size Guide | Dimensions & Capacity Reference",
+                "description": "Complete pouch size guide with dimensions and capacity for stand-up pouches, flat bottom bags, and more. Find the perfect size for your product.",
+                "heroTitle": "Pouch Size Guide",
+                "heroSubtitle": "Find the perfect pouch size for your product. Complete dimension guide with capacity references and custom size options.",
+                "introSummary": "Selecting the right pouch size ensures optimal product presentation and cost efficiency. Use this comprehensive guide to understand standard sizes and find the perfect fit for your product.",
+                "faq": {
+                    "q1": "Do you have standard sizes or is everything custom?",
+                    "a1": "We have a range of standard sizes that cover most needs with lower MOQs. Custom sizes are available for orders of 500+ pieces (digital) or 5,000+ pieces (plate printing).",
+                    "q2": "How do I know what size fits my product?",
+                    "a2": "Send us your product details (weight, dimensions, density) or a sample. We'll recommend sizes and can send blank pouches for you to test fill before ordering printed versions.",
+                    "q3": "Are dimensions exact or approximate?",
+                    "a3": "Dimensions are nominal with standard manufacturing tolerance of ±1-2mm. Critical applications should account for this variance.",
+                    "q4": "Can I get the same product in multiple sizes?",
+                    "a4": "Absolutely! Many brands offer the same product in different sizes (sample, regular, family size). Each size can share design elements while using size-specific artwork."
+                },
+                "cta": {
+                    "title": "Need Help Choosing?",
+                    "description": "Send us your product details and we'll recommend the optimal size.",
+                    "button": "Get Size Recommendation"
+                }
+            },
+            "printingTypes": {
+                "title": "Printing Types Explained | Digital vs Plate Printing",
+                "description": "Compare digital and plate printing for flexible packaging. Understand MOQs, costs, color options, and which method suits your needs.",
+                "heroTitle": "Printing Types Explained",
+                "heroSubtitle": "Understand your printing options. Compare digital and plate printing to choose the right method for your packaging project.",
+                "introSummary": "Achieve Pack offers digital printing for low MOQ orders and plate (flexographic) printing for high-volume production. Each method has distinct advantages—this guide helps you choose the right option.",
+                "faq": {
+                    "q1": "Which printing method should I choose?",
+                    "a1": "For orders under 5,000 pieces, digital is usually more cost-effective. For 5,000+, compare total costs including plates. If you need exact Pantone matching or special inks, plate printing is required.",
+                    "q2": "Can I switch from digital to plate printing later?",
+                    "a2": "Yes! Many customers start with digital for market testing, then switch to plate printing once they have consistent demand. We'll help you transition smoothly.",
+                    "q3": "How accurate is digital color matching?",
+                    "a3": "Digital printing simulates Pantone colors using CMYK, which is very close but not exact. For most applications it's excellent. Brand-critical colors (like specific logo colors) may benefit from plate printing.",
+                    "q4": "What's included in plate costs?",
+                    "a4": "Plate costs cover the creation of printing plates for each color in your design. Once made, plates can be reused for repeat orders. We store plates for 2 years at no charge."
+                },
+                "cta": {
+                    "title": "Get a Printing Quote",
+                    "description": "Tell us about your project and we'll recommend the best printing option.",
+                    "button": "Request Quote"
+                }
+            },
+            "workflow": {
+                "title": "Our Workflow | From Quote to Delivery",
+                "description": "Understand Achieve Pack's packaging production workflow. From initial consultation to final delivery—what to expect at every stage.",
+                "heroTitle": "Our Workflow",
+                "heroSubtitle": "A clear, transparent process from initial inquiry to packaging delivery. Know what to expect at every stage.",
+                "introSummary": "Our 5-step workflow ensures a smooth experience: Consultation → Design → Sample → Production → Delivery. Typical timeline is 8-12 weeks from inquiry to delivered packaging.",
+                "faq": {
+                    "q1": "Can the timeline be shortened?",
+                    "a1": "Yes, rush orders are possible with express production and air freight. Digital printing is faster than plate printing. Contact us for urgent timelines—we'll do our best to accommodate.",
+                    "q2": "Do I need to pay upfront?",
+                    "a2": "Typically, we require 50% deposit to start production, with the balance due before shipping. Sample orders may require full payment upfront. We accept bank transfer and major credit cards.",
+                    "q3": "What if I need to make changes after approval?",
+                    "a3": "Changes before production starts are usually possible. Once production begins, changes may incur additional costs or delays. We always confirm final approval before starting.",
+                    "q4": "Do you handle customs and import duties?",
+                    "a4": "We provide all export documentation. For DDP (Delivered Duty Paid), we handle customs clearance. For other terms (FOB, CIF), you or your freight forwarder handle import procedures."
+                },
+                "cta": {
+                    "title": "Start Your Project",
+                    "description": "Ready to begin? Contact us for a free consultation and quote.",
+                    "button": "Get Started"
+                }
+            },
+            "kraftHighBarrier": {
+                "title": "Kraft High Barrier Packaging | Premium Long Shelf Life Pouches",
+                "description": "Kraft high barrier packaging with aluminum foil for maximum protection. 12-24+ month shelf life for premium coffee, pharmaceuticals, and freeze-dried foods. FDA certified.",
+                "heroTitle": "Kraft High Barrier Packaging",
+                "heroSubtitle": "Maximum protection with premium kraft aesthetics. Aluminum foil barrier for 12-24+ month shelf life. Perfect for specialty coffee, pharmaceuticals, and premium foods.",
+                "introSummary": "Kraft high barrier packaging features thick aluminum foil layers that provide pharmaceutical-grade protection for oxygen-sensitive products, delivering 12-24+ months shelf life while maintaining the premium natural aesthetic of kraft paper.",
+                "faq": {
+                    "q1": "How long can products stay fresh in kraft high barrier packaging?",
+                    "a1": "Products can maintain freshness for 12-24+ months depending on the product type and storage conditions. The aluminum foil barrier provides maximum protection against oxygen, moisture, and light degradation.",
+                    "q2": "Is kraft high barrier packaging worth the extra cost?",
+                    "a2": "For premium products, long shelf life requirements, or export markets, absolutely. The extended shelf life reduces waste, allows broader distribution, and enhances perceived value.",
+                    "q3": "Can this packaging be used for pharmaceuticals?",
+                    "a3": "Yes, our kraft high barrier packaging meets pharmaceutical-grade requirements. We can provide all necessary certifications and documentation for regulated products.",
+                    "q4": "What printing options work best on kraft high barrier?",
+                    "a4": "Plate printing provides the most cost-effective solution for high barrier packaging due to typical higher MOQs (5,000-10,000 pcs). Digital printing is available for smaller runs with premium pricing."
+                },
+                "cta": {
+                    "title": "Discuss Your High Barrier Packaging Needs",
+                    "description": "Let's create premium kraft packaging with maximum protection for your high-value products.",
+                    "button": "Request a Quote"
+                }
+            },
+            "kraftMediumBarrier": {
+                "title": "Kraft Medium Barrier Packaging | Coffee & Premium Food Pouches",
+                "description": "Kraft medium barrier packaging with metallized layers for coffee, nuts, and premium foods. 6-12 month shelf life. Natural aesthetic with enhanced protection. MOQ 1,000 pcs.",
+                "heroTitle": "Kraft Medium Barrier Packaging",
+                "heroSubtitle": "Enhanced kraft paper packaging with metallized barrier layers for coffee, premium snacks, and moderately sensitive products. Natural look meets functional protection.",
+                "introSummary": "Kraft medium barrier packaging combines the rustic appeal of kraft paper with metallized or aluminum barrier layers, providing 6-12 months shelf life for coffee, nuts, dried fruits, and specialty foods.",
+                "faq": {
+                    "q1": "What is the difference between medium and high barrier kraft packaging?",
+                    "a1": "Medium barrier uses thinner metallized or aluminum layers (12-15µm) providing 6-12 months shelf life, while high barrier uses thicker aluminum (25-40µm) for 12-24+ months.",
+                    "q2": "Can I use kraft medium barrier for coffee packaging?",
+                    "a2": "Yes! It's ideal for coffee with 6-9 month shelf life targets. We can add degassing valves to release CO2 from freshly roasted beans while preventing oxygen entry.",
+                    "q3": "Is the metallized layer recyclable?",
+                    "a3": "The kraft paper component can be recycled, but metallized layers may require specialized recycling facilities. We recommend checking local recycling capabilities.",
+                    "q4": "What printing options are available?",
+                    "a4": "Both digital printing (500+ MOQ) and plate printing (5,000+ MOQ) are available. Kraft paper provides excellent ink adhesion and vibrant colors."
+                },
+                "cta": {
+                    "title": "Start Your Coffee Packaging Project",
+                    "description": "Let's create premium kraft packaging that protects your products and showcases your brand values.",
+                    "button": "Request a Quote"
+                }
+            },
+            "kraftLowBarrier": {
+                "title": "Kraft Low Barrier Packaging | Eco-Friendly Paper Pouches",
+                "description": "Kraft low barrier packaging for dry goods, bakery items, and short shelf life products. Natural paper appearance with basic moisture protection. MOQ 500 pcs.",
+                "heroTitle": "Kraft Low Barrier Packaging",
+                "heroSubtitle": "Natural kraft paper pouches with basic protection for dry goods and short shelf life products. Eco-friendly, cost-effective, and beautifully rustic.",
+                "introSummary": "Kraft low barrier packaging combines the natural aesthetic of kraft paper with basic moisture and oxygen protection, perfect for bakery items, dry snacks, and products with 3-6 month shelf life requirements.",
+                "faq": {
+                    "q1": "What is the shelf life for products in kraft low barrier packaging?",
+                    "a1": "Typically 3-6 months for dry, low-moisture products. The exact shelf life depends on the product type, storage conditions, and moisture content.",
+                    "q2": "Can kraft low barrier packaging be used for coffee?",
+                    "a2": "Yes, but only for short-term storage (2-3 months). For longer shelf life or premium coffee, consider our kraft medium or high barrier options with degassing valves.",
+                    "q3": "Is this packaging food safe?",
+                    "a3": "Yes, all our kraft packaging materials are FDA compliant and food-safe. The inner PE coating prevents direct contact between food and paper fibers.",
+                    "q4": "What is the minimum order quantity?",
+                    "a4": "For digital printing: 500-1,000 pieces. For plate printing: 5,000-10,000 pieces depending on size and design complexity."
+                },
+                "cta": {
+                    "title": "Get Started with Kraft Low Barrier Packaging",
+                    "description": "Let's create sustainable kraft paper packaging that showcases your brand's natural values.",
+                    "button": "Request a Quote"
+                }
+            },
+            "csCoffeeRoastery": {
+                "title": "Coffee Roastery Case Study | Bean & Bole Compostable Packaging",
+                "description": "How Bean & Bole Coffee Roastery switched to compostable packaging while maintaining freshness. Case study featuring Kraft+PLA pouches with degassing valves.",
+                "heroTitle": "Case Study: Bean & Bole Coffee Roastery",
+                "heroSubtitle": "How a specialty coffee roaster achieved 100% compostable packaging without compromising freshness or their small-batch approach.",
+                "introSummary": "Bean & Bole Coffee Roastery partnered with Achieve Pack to transition from conventional plastic to certified compostable packaging. The result: eco-friendly bags that maintain coffee freshness while reinforcing their sustainability story.",
+                "faq": {
+                    "q1": "Can compostable packaging maintain coffee freshness?",
+                    "a1": "Yes! With the right material combination (like Kraft + PLA with proper barrier layers), compostable packaging can maintain coffee freshness for 3-4 months. Adding a degassing valve allows CO2 release while preventing oxygen entry.",
+                    "q2": "What was the minimum order for this project?",
+                    "a2": "Bean & Bole started with 500 bags per SKU using digital printing. This allowed them to test the packaging with customers before committing to larger quantities.",
+                    "q3": "Is the degassing valve also compostable?",
+                    "a3": "Standard degassing valves are not compostable and need to be removed before composting. We clearly label this on the package. Fully compostable valve options are being developed."
+                },
+                "cta": {
+                    "title": "Ready for Your Sustainable Packaging Story?",
+                    "description": "Let's discuss how we can help your coffee brand transition to eco-friendly packaging.",
+                    "button": "Start Your Project"
+                }
+            },
+            "csTeaBrand": {
+                "title": "Tea Brand Case Study | Milano Botanica Premium Packaging",
+                "description": "How Milano Botanica achieved EU PPWR compliant luxury tea packaging with compostable windows. Case study featuring flat bottom bags with NatureFlex windows.",
+                "heroTitle": "Case Study: Milano Botanica Tea",
+                "heroSubtitle": "How a luxury Italian tea brand achieved EU compliance with stunning compostable packaging featuring clear windows.",
+                "introSummary": "Milano Botanica partnered with Achieve Pack to create premium compostable packaging with transparent windows. The result: beautiful packaging that showcases their teas while meeting EU sustainability requirements.",
+                "faq": {
+                    "q1": "Is the window also compostable?",
+                    "a1": "Yes! We used NatureFlex\u2122, a cellulose-based transparent film that is certified compostable. The entire package including the window can go into commercial composting.",
+                    "q2": "How does this meet EU PPWR requirements?",
+                    "a2": "The packaging is certified compostable under EN 13432, which is one pathway to EU PPWR compliance. Full documentation is provided for retailer and regulatory requirements.",
+                    "q3": "What shelf life can tea achieve in this packaging?",
+                    "a3": "Depending on the tea type, this packaging structure provides 9-12 months shelf life. The NatureFlex window maintains good moisture barrier while allowing product visibility."
+                },
+                "cta": {
+                    "title": "Create Your Premium Tea Packaging",
+                    "description": "Let's design compostable packaging that showcases your tea beautifully.",
+                    "button": "Start Your Project"
+                }
+            },
+            "csSuperfood": {
+                "title": "Superfood Brand Case Study | VitalGreen Recyclable Packaging",
+                "description": "How VitalGreen Superfoods achieved B-Corp packaging goals with GRS certified recyclable pouches. Case study featuring high-barrier mono-PE packaging.",
+                "heroTitle": "Case Study: VitalGreen Superfoods",
+                "heroSubtitle": "How a B-Corp superfood brand achieved high-barrier recyclable packaging that met certification requirements.",
+                "introSummary": "VitalGreen Superfoods partnered with Achieve Pack to develop recyclable high-barrier packaging for their superfood powders. The GRS-certified solution helped them gain B-Corp points while protecting product quality.",
+                "faq": {
+                    "q1": "How can recyclable packaging achieve high barrier?",
+                    "a1": "Our mono-PE structure incorporates a thin EVOH layer that provides excellent oxygen barrier while maintaining recyclability in PE recycling streams. The package is store drop-off recyclable.",
+                    "q2": "What documentation do you provide for B-Corp reporting?",
+                    "a2": "We provide GRS certificates, material specifications, carbon footprint estimates, and recyclability statements that can be used for B-Corp sustainability reporting.",
+                    "q3": "How did they launch 8 SKUs at once?",
+                    "a3": "Digital printing allows unlimited designs without plate costs. Each SKU had just 500 bags minimum, making the total initial order 4,000 bags\u2014affordable for a growing brand."
+                },
+                "cta": {
+                    "title": "Packaging for Your Wellness Brand",
+                    "description": "Let's create recyclable packaging that meets your sustainability goals.",
+                    "button": "Start Your Project"
+                }
+            },
+            "csPetTreats": {
+                "title": "Pet Treats Case Study | Pawsome Naturals Sustainable Packaging",
+                "description": "How Pawsome Naturals achieved sustainable pet treat packaging with PCR content and child-resistant closures.",
+                "heroTitle": "Case Study: Pawsome Naturals Pet Treats",
+                "heroSubtitle": "How a premium pet treat brand achieved 30% recycled content packaging with child-resistant closures.",
+                "introSummary": "Pawsome Naturals partnered with Achieve Pack to create PCR-based packaging with child-resistant zippers, meeting retailer requirements while reinforcing their sustainability message.",
+                "faq": {
+                    "q1": "Is the child-resistant closure pet-proof?",
+                    "a1": "The push-and-slide mechanism is designed for human adults and effectively prevents pets from opening the package. It meets CPSC child-resistant standards.",
+                    "q2": "What makes PCR packaging sustainable?",
+                    "a2": "PCR (post-consumer recycled) content reduces virgin plastic use. Our 30% PCR blend comes from recycled consumer plastics, reducing carbon footprint while maintaining performance."
+                },
+                "cta": {
+                    "title": "Packaging for Pet Products",
+                    "description": "Create sustainable packaging that protects treats and appeals to pet parents.",
+                    "button": "Start Your Project"
+                }
+            },
+            "csChocolate": {
+                "title": "Chocolate Brand Case Study | Artisan Cocoa Luxury Packaging",
+                "description": "How Artisan Cocoa Emirates achieved luxury chocolate packaging with heat protection and premium finishes.",
+                "heroTitle": "Case Study: Artisan Cocoa Emirates",
+                "heroSubtitle": "How a luxury chocolate brand achieved premium packaging that withstands Middle East heat.",
+                "introSummary": "Artisan Cocoa Emirates partnered with Achieve Pack to create luxury packaging that protects chocolate in extreme heat while conveying premium brand values.",
+                "faq": {
+                    "q1": "Can flexible packaging protect chocolate in hot climates?",
+                    "a1": "Yes! Our high-barrier mono-PP structure with advanced barrier technology protects against heat and humidity. Tested to 45\u00b0C for Middle East distribution.",
+                    "q2": "Is foil stamping sustainable?",
+                    "a2": "Hot foil stamping adds minimal material and the base package remains recyclable. We use responsible application methods."
+                },
+                "cta": {
+                    "title": "Create Luxury Packaging",
+                    "description": "Elevate your confectionery brand with premium sustainable packaging.",
+                    "button": "Start Your Project"
+                }
+            },
+            "csCandle": {
+                "title": "Candle Brand Case Study | Luminara Sustainable Packaging",
+                "description": "How Luminara Candles achieved boutique-worthy compostable packaging for artisan candles with tin-tie closures.",
+                "heroTitle": "Case Study: Luminara Candles",
+                "heroSubtitle": "How an artisan candle brand achieved compostable packaging that preserves fragrance and appeals to boutique retailers.",
+                "introSummary": "Luminara Candles partnered with Achieve Pack to create compostable kraft packaging with aroma barriers, enabling small-batch seasonal releases.",
+                "faq": {
+                    "q1": "Can paper packaging protect candle fragrances?",
+                    "a1": "Yes! Our kraft structure includes an inner barrier layer that seals in essential oil fragrances, maintaining scent integrity during storage and retail display.",
+                    "q2": "What is the minimum for seasonal editions?",
+                    "a2": "With digital printing, we can produce as few as 200 bags per design\u2014perfect for testing seasonal or limited edition scents."
+                },
+                "cta": {
+                    "title": "Packaging for Home Products",
+                    "description": "Create sustainable packaging for candles and home fragrance products.",
+                    "button": "Start Your Project"
+                }
+            },
+            "csBakery": {
+                "title": "Bakery Case Study | Wholesome Bakes Home Compostable Packaging",
+                "description": "How Wholesome Bakes achieved home compostable granola packaging with windows for farmers market success.",
+                "heroTitle": "Case Study: Wholesome Bakes Bakery",
+                "heroSubtitle": "How an artisan bakery achieved home compostable packaging that sells at farmers markets.",
+                "introSummary": "Wholesome Bakes partnered with Achieve Pack to create fully home compostable packaging with windows, perfect for farmers market sales and eco-conscious consumers.",
+                "faq": {
+                    "q1": "Is the window home compostable too?",
+                    "a1": "Yes! NatureFlex is made from cellulose and is certified for home composting. The entire package including the window can go into backyard compost.",
+                    "q2": "What makes this affordable for small bakeries?",
+                    "a2": "Digital printing eliminates plate costs, and our 300-bag minimum means small bakeries can access professional packaging without huge inventory."
+                },
+                "cta": {
+                    "title": "Packaging for Artisan Bakers",
+                    "description": "Create home compostable packaging that showcases your baked goods.",
+                    "button": "Start Your Project"
+                }
+            },
+            "csWellness": {
+                "title": "Wellness Brand Case Study | NourishNow Bio-PE Packaging",
+                "description": "How NourishNow Wellness achieved e-commerce ready bio-PE supplement packaging with child-resistant closures.",
+                "heroTitle": "Case Study: NourishNow Wellness",
+                "heroSubtitle": "How a DTC wellness brand achieved bio-based packaging that survives Amazon FBA handling.",
+                "introSummary": "NourishNow Wellness partnered with Achieve Pack to create bio-PE packaging optimized for e-commerce, with child-resistant closures and UV protection.",
+                "faq": {
+                    "q1": "What is Bio-PE?",
+                    "a1": "Bio-PE is polyethylene made from sugarcane ethanol instead of petroleum. It has identical performance to conventional PE but is made from renewable resources.",
+                    "q2": "Does it meet Amazon FBA requirements?",
+                    "a2": "Yes! Our pouches are designed for e-commerce durability\u2014they survive Amazon FBA handling, shipping, and storage without seal failure or punctures."
+                },
+                "cta": {
+                    "title": "Packaging for Wellness Brands",
+                    "description": "Create sustainable e-commerce packaging for supplements and wellness products.",
+                    "button": "Start Your Project"
+                }
+            },
+            "csOrganicNuts": {
+                "title": "Organic Nuts Case Study | NutriVie EU PPWR Compliant Packaging",
+                "description": "How NutriVie Organic achieved EU PPWR compliant nut packaging with 12-month shelf life and unified design system.",
+                "heroTitle": "Case Study: NutriVie Organic Nuts",
+                "heroSubtitle": "How an organic nut brand achieved EU PPWR compliance while reducing packaging costs across 15 SKUs.",
+                "introSummary": "NutriVie Organic partnered with Achieve Pack to create EU PPWR-compliant recyclable packaging with a unified design system that reduced costs across their 15-SKU range.",
+                "faq": {
+                    "q1": "How does one plate set work for 15 SKUs?",
+                    "a1": "We designed a unified brand layout where only the color bands and product names change. The base plate stays the same, with variable elements swapped during production.",
+                    "q2": "Is this fully EU PPWR compliant?",
+                    "a2": "Yes! The mono-PE structure meets the recyclability requirements. We provide full compliance documentation including material declarations and recyclability certificates."
+                },
+                "cta": {
+                    "title": "EU PPWR-Ready Packaging",
+                    "description": "Get ahead of regulations with compliant, recyclable packaging solutions.",
+                    "button": "Start Your Project"
+                }
+            },
+            "csBathProducts": {
+                "title": "Bath Products Case Study | Bavarian Bliss Clear Packaging",
+                "description": "How Bavarian Bliss achieved moisture-protected clear packaging for bath bombs with gift-worthy presentation.",
+                "heroTitle": "Case Study: Bavarian Bliss Bath Co.",
+                "heroSubtitle": "How a bath bomb brand achieved clear, moisture-protected packaging that tripled Christmas market sales.",
+                "introSummary": "Bavarian Bliss Bath Co. partnered with Achieve Pack to create clear recyclable packaging with high moisture barrier, perfect for showcasing colorful bath bombs at Christmas markets.",
+                "faq": {
+                    "q1": "How do you prevent bath bomb activation?",
+                    "a1": "The high moisture barrier seal structure prevents humidity from reaching the bath bombs. Properly sealed, products stay fresh for 12+ months even in humid conditions.",
+                    "q2": "Are clear pouches eco-friendly?",
+                    "a2": "Yes! Our clear mono-PE pouches are recyclable in PE recycling streams. The clear material also reduces need for printed windows, using less ink overall."
+                },
+                "cta": {
+                    "title": "Packaging for Bath & Body",
+                    "description": "Create protective packaging that showcases your bath and body products.",
+                    "button": "Start Your Project"
+                }
+            },
+            "csAdaptogens": {
+                "title": "Adaptogens Case Study | Zen Botanics Premium Packaging",
+                "description": "How Zen Botanics Asia achieved premium adaptogen packaging with maximum barrier protection for tropical climates.",
+                "heroTitle": "Case Study: Zen Botanics Asia",
+                "heroSubtitle": "How an adaptogen brand achieved premium positioning with matte black packaging that protects against tropical humidity.",
+                "introSummary": "Zen Botanics Asia partnered with Achieve Pack to create premium matte black packaging with maximum barrier protection, perfect for adaptogens in tropical climates.",
+                "faq": {
+                    "q1": "How long do adaptogens stay potent?",
+                    "a1": "With our high-barrier structure, functional mushrooms and adaptogens maintain potency for 18+ months. The light-blocking matte finish also prevents UV degradation.",
+                    "q2": "Can you do multi-size from one design?",
+                    "a2": "Yes! We create unified design systems that scale across sizes. Same plate artwork scales proportionally, maintaining brand consistency across your range."
+                },
+                "cta": {
+                    "title": "Premium Wellness Packaging",
+                    "description": "Create packaging that communicates quality and protects sensitive ingredients.",
+                    "button": "Start Your Project"
+                }
+            },
+            "csOutdoorSnacks": {
+                "title": "Outdoor Snacks Case Study | TrailFuel Adventure Packaging",
+                "description": "How TrailFuel achieved REI listing with puncture-resistant recycled content packaging for trail snacks.",
+                "heroTitle": "Case Study: TrailFuel Adventures",
+                "heroSubtitle": "How an outdoor snack brand achieved REI national listing with durable, eco-certified packaging.",
+                "introSummary": "TrailFuel Adventures partnered with Achieve Pack to create reinforced PCR packaging that survives trail conditions while meeting REI's sustainability requirements.",
+                "faq": {
+                    "q1": "How does the packaging handle altitude changes?",
+                    "a1": "We test packaging at high altitude (14,000+ ft) to ensure seals do not pop or fail. The flexible structure accommodates pressure changes during mountain retail and trail use.",
+                    "q2": "What makes it puncture-resistant?",
+                    "a2": "The reinforced mono-PE structure is thicker than standard pouches, designed specifically for outdoor use where gear, rocks, and trail conditions can damage packaging."
+                },
+                "cta": {
+                    "title": "Packaging for Active Lifestyles",
+                    "description": "Create durable, sustainable packaging for outdoor and adventure products.",
+                    "button": "Start Your Project"
+                }
             }
         }
     },

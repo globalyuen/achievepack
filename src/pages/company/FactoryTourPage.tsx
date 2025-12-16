@@ -29,47 +29,18 @@ const VideoCard = ({ title, description, videoSrc, icon: Icon }: { title: string
 
 const FactoryTourPage = () => {
   const { t } = useTranslation();
+  const p = 'seoPages.pages.factoryTour';
 
   const heroImage = '/imgs/seo-photos/a_factory_tour_quality_precision_0863191.webp';
 
   // Factory videos data
   const factoryVideos = [
-    {
-      title: 'Factory Entrance',
-      description: 'Welcome to our state-of-the-art manufacturing facility',
-      videoSrc: '/video/factory/enter.mp4',
-      icon: Factory
-    },
-    {
-      title: 'Digital Printing',
-      description: 'High-precision digital printing with unlimited colors',
-      videoSrc: '/video/factory/digital-printing.mp4',
-      icon: Printer
-    },
-    {
-      title: 'Rotogravure Printing',
-      description: 'Large-scale plate printing for high-volume orders',
-      videoSrc: '/video/factory/roto-printing.mp4',
-      icon: Printer
-    },
-    {
-      title: 'Laminating Process',
-      description: 'Bonding multiple material layers for barrier protection',
-      videoSrc: '/video/factory/laminating.mp4',
-      icon: Layers
-    },
-    {
-      title: 'Slitting Machine',
-      description: 'Precision cutting of laminated films to required widths',
-      videoSrc: '/video/factory/slitting.mp4',
-      icon: Scissors
-    },
-    {
-      title: 'Bag Making',
-      description: 'Converting films into finished pouches and bags',
-      videoSrc: '/video/factory/bag making.mp4',
-      icon: Package
-    }
+    { title: t(`${p}.videos.entrance.title`), description: t(`${p}.videos.entrance.desc`), videoSrc: '/video/factory/enter.mp4', icon: Factory },
+    { title: t(`${p}.videos.digital.title`), description: t(`${p}.videos.digital.desc`), videoSrc: '/video/factory/digital-printing.mp4', icon: Printer },
+    { title: t(`${p}.videos.roto.title`), description: t(`${p}.videos.roto.desc`), videoSrc: '/video/factory/roto-printing.mp4', icon: Printer },
+    { title: t(`${p}.videos.laminating.title`), description: t(`${p}.videos.laminating.desc`), videoSrc: '/video/factory/laminating.mp4', icon: Layers },
+    { title: t(`${p}.videos.slitting.title`), description: t(`${p}.videos.slitting.desc`), videoSrc: '/video/factory/slitting.mp4', icon: Scissors },
+    { title: t(`${p}.videos.bagMaking.title`), description: t(`${p}.videos.bagMaking.desc`), videoSrc: '/video/factory/bag making.mp4', icon: Package }
   ];
   
   const sections = [
@@ -280,38 +251,26 @@ const FactoryTourPage = () => {
   ];
 
   const faqs = [
-    {
-      question: 'Can I visit your factory in person?',
-      answer: 'Yes, we welcome factory visits by appointment. Contact us to schedule a visit to our manufacturing facility. We also offer detailed video tours for customers who cannot travel.'
-    },
-    {
-      question: 'What quality certifications does your factory have?',
-      answer: 'Our facility is ISO 9001 certified for quality management, BRC certified for food packaging, and maintains FSC chain of custody certification for paper-based products.'
-    },
-    {
-      question: 'What is your production capacity?',
-      answer: 'We can produce over 100,000 pouches per day across our production lines. For large orders, we can scale up with advance notice. Rush orders are also possible for urgent needs.'
-    },
-    {
-      question: 'How do you ensure consistency across batches?',
-      answer: 'We maintain detailed production records, use calibrated equipment, and perform statistical process control (SPC) to ensure every batch meets the same standards. Color matching is verified with spectrophotometers.'
-    }
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) },
+    { question: t(`${p}.faq.q3`), answer: t(`${p}.faq.a3`) },
+    { question: t(`${p}.faq.q4`), answer: t(`${p}.faq.a4`) }
   ];
 
   return (
     <SEOPageLayout
-      title="Virtual Factory Tour | Achieve Pack Manufacturing Facility"
-      description="Take a virtual tour of Achieve Pack's state-of-the-art sustainable packaging facility. See how we manufacture eco-friendly pouches with precision and quality control."
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
       keywords={['factory tour', 'packaging manufacturing', 'pouch production', 'quality control', 'sustainable manufacturing']}
-      heroTitle="Virtual Factory Tour"
-      heroSubtitle="Step inside our manufacturing facility where sustainable packaging innovation meets precision engineering. Discover how we bring your eco-friendly pouches to life."
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage={heroImage}
       sections={sections}
-      introSummary="Our factory combines modern manufacturing technology with rigorous quality control and sustainable practices. From material sourcing to final inspection, every step is designed to deliver premium eco-friendly packaging."
+      introSummary={t(`${p}.introSummary`)}
       faqs={faqs}
-      ctaTitle="See It For Yourself"
-      ctaDescription="Request a personalized video tour or schedule an in-person visit to our facility."
-      ctaButtonText="Schedule a Tour"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
     />
   );

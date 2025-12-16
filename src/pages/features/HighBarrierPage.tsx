@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 const HighBarrierPage: React.FC = () => {
   const { t } = useTranslation()
+  const p = 'seoPages.pages.highBarrier'
   const sections = [
     {
       id: 'overview',
@@ -169,22 +170,10 @@ const HighBarrierPage: React.FC = () => {
   ]
 
   const faqs = [
-    {
-      question: "Can high barrier packaging still be recyclable?",
-      answer: "Yes! Our mono-PE with EVOH layer is recyclable because the EVOH is <5% of total structure. We also offer mono-PP and metallized mono-PE options that are 100% recyclable while providing excellent barrier properties."
-    },
-    {
-      question: "What's the difference between EVOH and aluminum barrier?",
-      answer: "EVOH is a plastic-based oxygen barrier that allows the packaging to remain recyclable. Aluminum provides similar barrier but makes packaging non-recyclable. Our EVOH structures offer comparable performance with recyclability."
-    },
-    {
-      question: "Do I need high barrier for coffee?",
-      answer: "For ground coffee and specialty whole beans, yes - high barrier with degassing valve is recommended. For standard whole bean coffee with quick turnover, medium barrier may suffice. We offer free testing to determine optimal choice."
-    },
-    {
-      question: "What certifications do your high barrier materials have?",
-      answer: "Our high barrier materials are food-safe certified (FDA, EU 10/2011), and we provide OTR/MVTR test certificates. PCR options are GRS certified. We can provide custom testing documentation for your quality requirements."
-    }
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) },
+    { question: t(`${p}.faq.q3`), answer: t(`${p}.faq.a3`) },
+    { question: t(`${p}.faq.q4`), answer: t(`${p}.faq.a4`) }
   ]
 
   const relatedLinks = [
@@ -195,20 +184,20 @@ const HighBarrierPage: React.FC = () => {
 
   return (
     <SEOPageLayout
-      title="High Barrier Packaging | 12-24 Month Shelf Life Premium Pouches"
-      description="High barrier eco-friendly packaging for products with 12-24 month shelf life. Recyclable mono-PE with EVOH, mono-PP options. Perfect for coffee, supplements, baby food, and sensitive products."
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
       keywords={['high barrier packaging', 'EVOH barrier pouches', 'long shelf life packaging', 'supplement packaging', 'coffee bag high barrier']}
       canonicalUrl="https://achievepack.com/features/high-barrier"
-      heroTitle="High Barrier Packaging"
-      heroSubtitle="Maximum protection with 12-24 month shelf life. Recyclable high barrier options for premium products."
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage="/imgs/seo-photos/a_achievepack_high_barrier_luxury_1992395.webp"
       heroImageAlt="High barrier premium packaging for luxury products"
-      introSummary="High barrier packaging provides maximum oxygen and moisture protection for products requiring 12-24 month shelf life. Our recyclable mono-PE with EVOH structures offer premium protection while maintaining sustainability credentials."
+      introSummary={t(`${p}.introSummary`)}
       sections={sections}
       faqs={faqs}
       relatedLinks={relatedLinks}
-      ctaTitle="Protect Your Premium Products"
-      ctaDescription="Request free OTR/MVTR testing and samples to validate high barrier performance for your products."
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
     />
   )
 }

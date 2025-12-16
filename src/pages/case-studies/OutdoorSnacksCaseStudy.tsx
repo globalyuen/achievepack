@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Building2, AlertCircle, Lightbulb, TrendingUp, Package, CheckCircle } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 
 const OutdoorSnacksCaseStudy = () => {
+  const { t } = useTranslation();
+  const p = 'seoPages.pages.csOutdoorSnacks';
   const heroImage = '/imgs/seo-photos/a_achieve_pack_outdoor_picnic_pouch_4758828.webp';
   
   const sections = [
@@ -129,24 +132,24 @@ const OutdoorSnacksCaseStudy = () => {
   ];
 
   const faqs = [
-    { question: 'How does the packaging handle altitude changes?', answer: 'We test packaging at high altitude (14,000+ ft) to ensure seals do not pop or fail. The flexible structure accommodates pressure changes during mountain retail and trail use.' },
-    { question: 'What makes it puncture-resistant?', answer: 'The reinforced mono-PE structure is thicker than standard pouches, designed specifically for outdoor use where gear, rocks, and trail conditions can damage packaging.' }
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) }
   ];
 
   return (
     <SEOPageLayout
-      title="Outdoor Snacks Case Study | TrailFuel Adventure Packaging"
-      description="How TrailFuel achieved REI listing with puncture-resistant recycled content packaging for trail snacks."
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
       keywords={['outdoor snack packaging', 'trail snack bags', 'REI packaging', 'puncture resistant pouches']}
-      heroTitle="Case Study: TrailFuel Adventures"
-      heroSubtitle="How an outdoor snack brand achieved REI national listing with durable, eco-certified packaging."
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage={heroImage}
       sections={sections}
-      introSummary="TrailFuel Adventures partnered with Achieve Pack to create reinforced PCR packaging that survives trail conditions while meeting REI's sustainability requirements."
+      introSummary={t(`${p}.introSummary`)}
       faqs={faqs}
-      ctaTitle="Packaging for Active Lifestyles"
-      ctaDescription="Create durable, sustainable packaging for outdoor and adventure products."
-      ctaButtonText="Start Your Project"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
     />
   );

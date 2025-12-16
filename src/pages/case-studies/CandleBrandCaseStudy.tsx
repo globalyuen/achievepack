@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Building2, AlertCircle, Lightbulb, TrendingUp, Package, CheckCircle } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 
 const CandleBrandCaseStudy = () => {
+  const { t } = useTranslation();
+  const p = 'seoPages.pages.csCandle';
   const heroImage = '/imgs/seo-photos/a_luminara_candle_munich_luxury_evening_pouch_1830743.webp';
   
   const sections = [
@@ -125,24 +128,24 @@ const CandleBrandCaseStudy = () => {
   ];
 
   const faqs = [
-    { question: 'Can paper packaging protect candle fragrances?', answer: 'Yes! Our kraft structure includes an inner barrier layer that seals in essential oil fragrances, maintaining scent integrity during storage and retail display.' },
-    { question: 'What is the minimum for seasonal editions?', answer: 'With digital printing, we can produce as few as 200 bags per design—perfect for testing seasonal or limited edition scents.' }
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) }
   ];
 
   return (
     <SEOPageLayout
-      title="Candle Brand Case Study | Luminara Sustainable Packaging"
-      description="How Luminara Candles achieved boutique-worthy compostable packaging for artisan candles with tin-tie closures."
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
       keywords={['candle packaging', 'artisan packaging', 'compostable packaging', 'tin-tie bags']}
-      heroTitle="Case Study: Luminara Candles"
-      heroSubtitle="How an artisan candle brand achieved compostable packaging that preserves fragrance and appeals to boutique retailers."
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage={heroImage}
       sections={sections}
-      introSummary="Luminara Candles partnered with Achieve Pack to create compostable kraft packaging with aroma barriers, enabling small-batch seasonal releases."
+      introSummary={t(`${p}.introSummary`)}
       faqs={faqs}
-      ctaTitle="Packaging for Home Products"
-      ctaDescription="Create sustainable packaging for candles and home fragrance products."
-      ctaButtonText="Start Your Project"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
     />
   );

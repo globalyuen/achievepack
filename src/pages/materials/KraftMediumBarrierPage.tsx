@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Leaf, Shield, Award, CheckCircle, Package, Layers } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 
 const KraftMediumBarrierPage: React.FC = () => {
+  const { t } = useTranslation();
+  const p = 'seoPages.pages.kraftMediumBarrier';
   const sections = [
     {
       id: 'overview',
@@ -170,56 +173,33 @@ const KraftMediumBarrierPage: React.FC = () => {
   ];
 
   const faqs = [
-    {
-      question: 'What is the difference between medium and high barrier kraft packaging?',
-      answer: 'Medium barrier uses thinner metallized or aluminum layers (12-15µm) providing 6-12 months shelf life, while high barrier uses thicker aluminum (25-40µm) for 12-24+ months. Medium barrier is more cost-effective for products with moderate requirements.'
-    },
-    {
-      question: 'Can I use kraft medium barrier for coffee packaging?',
-      answer: 'Yes! It\'s ideal for coffee with 6-9 month shelf life targets. We can add degassing valves to release CO2 from freshly roasted beans while preventing oxygen entry.'
-    },
-    {
-      question: 'Is the metallized layer recyclable?',
-      answer: 'The kraft paper component can be recycled, but metallized layers may require specialized recycling facilities. We recommend checking local recycling capabilities or consider our compostable options.'
-    },
-    {
-      question: 'What printing options are available?',
-      answer: 'Both digital printing (500+ MOQ) and plate printing (5,000+ MOQ) are available. Kraft paper provides excellent ink adhesion and vibrant colors, especially with spot UV enhancements.'
-    },
-    {
-      question: 'Can this packaging be customized with windows?',
-      answer: 'Yes! We offer window options using transparent film. See our Kraft Windowed Medium Barrier page for details.'
-    }
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) },
+    { question: t(`${p}.faq.q3`), answer: t(`${p}.faq.a3`) },
+    { question: t(`${p}.faq.q4`), answer: t(`${p}.faq.a4`) }
   ];
 
   return (
     <SEOPageLayout
-      title="Kraft Medium Barrier Packaging | Coffee & Premium Food Pouches"
-      description="Kraft medium barrier packaging with metallized layers for coffee, nuts, and premium foods. 6-12 month shelf life. Natural aesthetic with enhanced protection. MOQ 1,000 pcs."
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
       keywords={[
         'kraft medium barrier packaging',
         'kraft coffee bags',
-        'metallized kraft pouches',
-        'premium kraft packaging',
-        'coffee packaging',
-        'kraft tea bags',
-        'aluminum kraft pouches',
-        'medium barrier bags',
-        'kraft food pouches',
-        'sustainable coffee packaging'
+        'metallized kraft pouches'
       ]}
       canonicalUrl="https://achievepack.com/materials/kraft-medium-barrier"
-      heroTitle="Kraft Medium Barrier Packaging"
-      heroSubtitle="Enhanced kraft paper packaging with metallized barrier layers for coffee, premium snacks, and moderately sensitive products. Natural look meets functional protection."
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage="/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp"
       heroImageAlt="Kraft medium barrier pouches with metallized layers for coffee and premium foods"
-      introSummary="Kraft medium barrier packaging combines the rustic appeal of kraft paper with metallized or aluminum barrier layers, providing 6-12 months shelf life for coffee, nuts, dried fruits, and specialty foods."
+      introSummary={t(`${p}.introSummary`)}
       sections={sections}
       faqs={faqs}
       schemaType="Product"
-      ctaTitle="Start Your Coffee Packaging Project"
-      ctaDescription="Let's create premium kraft packaging that protects your products and showcases your brand values."
-      ctaButtonText="Request a Quote"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
     />
   );
 };

@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Building2, AlertCircle, Lightbulb, TrendingUp, Package, CheckCircle } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 
 const BakeryCaseStudy = () => {
+  const { t } = useTranslation();
+  const p = 'seoPages.pages.csBakery';
   const heroImage = '/imgs/seo-photos/a_wholesome_bakery_pouch_kitchen_9227377.webp';
   
   const sections = [
@@ -125,24 +128,24 @@ const BakeryCaseStudy = () => {
   ];
 
   const faqs = [
-    { question: 'Is the window home compostable too?', answer: 'Yes! NatureFlex is made from cellulose and is certified for home composting. The entire package including the window can go into backyard compost.' },
-    { question: 'What makes this affordable for small bakeries?', answer: 'Digital printing eliminates plate costs, and our 300-bag minimum means small bakeries can access professional packaging without huge inventory.' }
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) }
   ];
 
   return (
     <SEOPageLayout
-      title="Bakery Case Study | Wholesome Bakes Home Compostable Packaging"
-      description="How Wholesome Bakes achieved home compostable granola packaging with windows for farmers market success."
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
       keywords={['bakery packaging', 'granola packaging', 'home compostable', 'farmers market packaging']}
-      heroTitle="Case Study: Wholesome Bakes Bakery"
-      heroSubtitle="How an artisan bakery achieved home compostable packaging that sells at farmers markets."
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage={heroImage}
       sections={sections}
-      introSummary="Wholesome Bakes partnered with Achieve Pack to create fully home compostable packaging with windows, perfect for farmers market sales and eco-conscious consumers."
+      introSummary={t(`${p}.introSummary`)}
       faqs={faqs}
-      ctaTitle="Packaging for Artisan Bakers"
-      ctaDescription="Create home compostable packaging that showcases your baked goods."
-      ctaButtonText="Start Your Project"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
     />
   );

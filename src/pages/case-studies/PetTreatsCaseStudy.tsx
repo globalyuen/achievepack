@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Building2, AlertCircle, Lightbulb, TrendingUp, Package, CheckCircle } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 
 const PetTreatsCaseStudy = () => {
+  const { t } = useTranslation();
+  const p = 'seoPages.pages.csPetTreats';
   const heroImage = '/imgs/seo-photos/a_food_grade_olive_stone_pouch_achieve_pack_8628145.webp';
   
   const sections = [
@@ -130,24 +133,24 @@ const PetTreatsCaseStudy = () => {
   ];
 
   const faqs = [
-    { question: 'Is the child-resistant closure pet-proof?', answer: 'The push-and-slide mechanism is designed for human adults and effectively prevents pets from opening the package. It meets CPSC child-resistant standards.' },
-    { question: 'What makes PCR packaging sustainable?', answer: 'PCR (post-consumer recycled) content reduces virgin plastic use. Our 30% PCR blend comes from recycled consumer plastics, reducing carbon footprint while maintaining performance.' }
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) }
   ];
 
   return (
     <SEOPageLayout
-      title="Pet Treats Case Study | Pawsome Naturals Sustainable Packaging"
-      description="How Pawsome Naturals achieved sustainable pet treat packaging with PCR content and child-resistant closures."
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
       keywords={['pet treat packaging', 'child-resistant packaging', 'PCR recycled pouches', 'sustainable pet food packaging']}
-      heroTitle="Case Study: Pawsome Naturals Pet Treats"
-      heroSubtitle="How a premium pet treat brand achieved 30% recycled content packaging with child-resistant closures."
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage={heroImage}
       sections={sections}
-      introSummary="Pawsome Naturals partnered with Achieve Pack to create PCR-based packaging with child-resistant zippers, meeting retailer requirements while reinforcing their sustainability message."
+      introSummary={t(`${p}.introSummary`)}
       faqs={faqs}
-      ctaTitle="Packaging for Pet Products"
-      ctaDescription="Create sustainable packaging that protects treats and appeals to pet parents."
-      ctaButtonText="Start Your Project"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
     />
   );

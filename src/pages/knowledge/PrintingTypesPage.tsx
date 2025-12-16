@@ -384,39 +384,29 @@ const PrintingTypesPage = () => {
     }
   ];
 
+  const p = 'seoPages.pages.printingTypes';
+
   const faqs = [
-    {
-      question: 'Which printing method should I choose?',
-      answer: 'For orders under 5,000 pieces, digital is usually more cost-effective. For 5,000+, compare total costs including plates. If you need exact Pantone matching or special inks, plate printing is required.'
-    },
-    {
-      question: 'Can I switch from digital to plate printing later?',
-      answer: 'Yes! Many customers start with digital for market testing, then switch to plate printing once they have consistent demand. We\'ll help you transition smoothly.'
-    },
-    {
-      question: 'How accurate is digital color matching?',
-      answer: 'Digital printing simulates Pantone colors using CMYK, which is very close but not exact. For most applications it\'s excellent. Brand-critical colors (like specific logo colors) may benefit from plate printing.'
-    },
-    {
-      question: 'What\'s included in plate costs?',
-      answer: 'Plate costs cover the creation of printing plates for each color in your design. Once made, plates can be reused for repeat orders. We store plates for 2 years at no charge.'
-    }
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) },
+    { question: t(`${p}.faq.q3`), answer: t(`${p}.faq.a3`) },
+    { question: t(`${p}.faq.q4`), answer: t(`${p}.faq.a4`) }
   ];
 
   return (
     <SEOPageLayout
-      title="Printing Types Explained | Digital vs Plate Printing"
-      description="Compare digital and plate printing for flexible packaging. Understand MOQs, costs, color options, and which method suits your needs."
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
       keywords={['digital printing', 'plate printing', 'flexographic printing', 'packaging printing', 'Pantone colors', 'CMYK printing']}
-      heroTitle="Printing Types Explained"
-      heroSubtitle="Understand your printing options. Compare digital and plate printing to choose the right method for your packaging project."
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage={heroImage}
       sections={sections}
-      introSummary="Achieve Pack offers digital printing for low MOQ orders and plate (flexographic) printing for high-volume production. Each method has distinct advantages—this guide helps you choose the right option."
+      introSummary={t(`${p}.introSummary`)}
       faqs={faqs}
-      ctaTitle="Get a Printing Quote"
-      ctaDescription="Tell us about your project and we'll recommend the best printing option."
-      ctaButtonText="Request Quote"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
     />
   );

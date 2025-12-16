@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Building2, AlertCircle, Lightbulb, TrendingUp, Package, CheckCircle } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 
 const TeaBrandCaseStudy = () => {
+  const { t } = useTranslation();
+  const p = 'seoPages.pages.csTeaBrand';
   const heroImage = '/imgs/seo-photos/a_milano_botanica_tea_caf_8381320.webp';
   
   const sections = [
@@ -191,34 +194,25 @@ const TeaBrandCaseStudy = () => {
   ];
 
   const faqs = [
-    {
-      question: 'Is the window also compostable?',
-      answer: 'Yes! We used NatureFlex™, a cellulose-based transparent film that is certified compostable. The entire package including the window can go into commercial composting.'
-    },
-    {
-      question: 'How does this meet EU PPWR requirements?',
-      answer: 'The packaging is certified compostable under EN 13432, which is one pathway to EU PPWR compliance. Full documentation is provided for retailer and regulatory requirements.'
-    },
-    {
-      question: 'What shelf life can tea achieve in this packaging?',
-      answer: 'Depending on the tea type, this packaging structure provides 9-12 months shelf life. The NatureFlex window maintains good moisture barrier while allowing product visibility.'
-    }
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) },
+    { question: t(`${p}.faq.q3`), answer: t(`${p}.faq.a3`) }
   ];
 
   return (
     <SEOPageLayout
-      title="Tea Brand Case Study | Milano Botanica Premium Packaging"
-      description="How Milano Botanica achieved EU PPWR compliant luxury tea packaging with compostable windows. Case study featuring flat bottom bags with NatureFlex windows."
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
       keywords={['tea packaging case study', 'compostable window packaging', 'luxury tea bags', 'EU PPWR compliant packaging', 'flat bottom tea bags']}
-      heroTitle="Case Study: Milano Botanica Tea"
-      heroSubtitle="How a luxury Italian tea brand achieved EU compliance with stunning compostable packaging featuring clear windows."
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage={heroImage}
       sections={sections}
-      introSummary="Milano Botanica partnered with Achieve Pack to create premium compostable packaging with transparent windows. The result: beautiful packaging that showcases their teas while meeting EU sustainability requirements."
+      introSummary={t(`${p}.introSummary`)}
       faqs={faqs}
-      ctaTitle="Create Your Premium Tea Packaging"
-      ctaDescription="Let's design compostable packaging that showcases your tea beautifully."
-      ctaButtonText="Start Your Project"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
     />
   );

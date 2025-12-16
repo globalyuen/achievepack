@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Building2, AlertCircle, Lightbulb, TrendingUp, Package, CheckCircle } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 
 const BathProductsCaseStudy = () => {
+  const { t } = useTranslation();
+  const p = 'seoPages.pages.csBathProducts';
   const heroImage = '/imgs/seo-photos/a_bavarian_bliss_bath_bombs_spa_pouch_9301794.webp';
   
   const sections = [
@@ -125,24 +128,24 @@ const BathProductsCaseStudy = () => {
   ];
 
   const faqs = [
-    { question: 'How do you prevent bath bomb activation?', answer: 'The high moisture barrier seal structure prevents humidity from reaching the bath bombs. Properly sealed, products stay fresh for 12+ months even in humid conditions.' },
-    { question: 'Are clear pouches eco-friendly?', answer: 'Yes! Our clear mono-PE pouches are recyclable in PE recycling streams. The clear material also reduces need for printed windows, using less ink overall.' }
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) }
   ];
 
   return (
     <SEOPageLayout
-      title="Bath Products Case Study | Bavarian Bliss Clear Packaging"
-      description="How Bavarian Bliss achieved moisture-protected clear packaging for bath bombs with gift-worthy presentation."
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
       keywords={['bath bomb packaging', 'clear pouches', 'moisture barrier packaging', 'cosmetic packaging']}
-      heroTitle="Case Study: Bavarian Bliss Bath Co."
-      heroSubtitle="How a bath bomb brand achieved clear, moisture-protected packaging that tripled Christmas market sales."
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage={heroImage}
       sections={sections}
-      introSummary="Bavarian Bliss Bath Co. partnered with Achieve Pack to create clear recyclable packaging with high moisture barrier, perfect for showcasing colorful bath bombs at Christmas markets."
+      introSummary={t(`${p}.introSummary`)}
       faqs={faqs}
-      ctaTitle="Packaging for Bath & Body"
-      ctaDescription="Create protective packaging that showcases your bath and body products."
-      ctaButtonText="Start Your Project"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
     />
   );

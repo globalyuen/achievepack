@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 const MediumBarrierPage: React.FC = () => {
   const { t } = useTranslation()
+  const p = 'seoPages.pages.mediumBarrier'
   const sections = [
     {
       id: 'overview',
@@ -183,22 +184,10 @@ const MediumBarrierPage: React.FC = () => {
   ]
 
   const faqs = [
-    {
-      question: "What products work best with medium barrier?",
-      answer: "Medium barrier is ideal for coffee beans, nuts, pet food, protein powders, cereals, and chocolates - products needing 6-12 month protection. It's the most popular choice for food products requiring both freshness and sustainability."
-    },
-    {
-      question: "Is mono-PE recyclable everywhere?",
-      answer: "Mono-PE (polyethylene) is one of the most widely recycled plastics globally. It's accepted in most curbside recycling programs and store drop-off recycling. We provide recycling instructions for consumers on packaging."
-    },
-    {
-      question: "How does Bio-PE compare to regular PE?",
-      answer: "Bio-PE (from sugarcane) has identical barrier and sealing properties to fossil-based PE. The difference is environmental: Bio-PE is carbon-negative in production, meaning it removes CO2 during sugarcane growth."
-    },
-    {
-      question: "Can I use medium barrier for coffee?",
-      answer: "Yes! Medium barrier works well for roasted whole beans with standard turnover. For ground coffee or specialty roasts requiring maximum freshness, consider our high barrier options with degassing valves."
-    }
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) },
+    { question: t(`${p}.faq.q3`), answer: t(`${p}.faq.a3`) },
+    { question: t(`${p}.faq.q4`), answer: t(`${p}.faq.a4`) }
   ]
 
   const relatedLinks = [
@@ -209,20 +198,20 @@ const MediumBarrierPage: React.FC = () => {
 
   return (
     <SEOPageLayout
-      title="Medium Barrier Packaging | 6-12 Month Shelf Life Recyclable Pouches"
-      description="Medium barrier eco-friendly packaging for products with 6-12 month shelf life. Mono-PE, Bio-PE, and PCR options. Perfect for coffee, nuts, pet food, and protein powders."
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
       keywords={['medium barrier packaging', 'recyclable pouches', 'mono-PE packaging', 'bio-PE pouches', 'coffee packaging', 'pet food packaging']}
       canonicalUrl="https://achievepack.com/features/medium-barrier"
-      heroTitle="Medium Barrier Packaging"
-      heroSubtitle="Balanced protection with 6-12 month shelf life. Recyclable mono-PE and bio-based options available."
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage="/imgs/seo-photos/a_achievepack_medium_barrier_pantry_7988653.webp"
       heroImageAlt="Medium barrier recyclable packaging for pantry products"
-      introSummary="Medium barrier packaging offers the ideal balance of protection and sustainability. With mono-PE, Bio-PE, and PCR options, it's perfect for coffee, nuts, pet food, and most food products requiring 6-12 month freshness."
+      introSummary={t(`${p}.introSummary`)}
       sections={sections}
       faqs={faqs}
       relatedLinks={relatedLinks}
-      ctaTitle="Find Your Perfect Barrier"
-      ctaDescription="Request free samples and shelf-life testing to determine the optimal barrier for your product."
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
     />
   )
 }

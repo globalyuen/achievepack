@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Building2, AlertCircle, Lightbulb, TrendingUp, Package, CheckCircle } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 
 const SuperfoodBrandCaseStudy = () => {
+  const { t } = useTranslation();
+  const p = 'seoPages.pages.csSuperfood';
   const heroImage = '/imgs/seo-photos/a_vitalgreen_superfood_chicago_wellness_pouch_1211501.webp';
   
   const sections = [
@@ -135,34 +138,25 @@ const SuperfoodBrandCaseStudy = () => {
   ];
 
   const faqs = [
-    {
-      question: 'How can recyclable packaging achieve high barrier?',
-      answer: 'Our mono-PE structure incorporates a thin EVOH layer that provides excellent oxygen barrier while maintaining recyclability in PE recycling streams. The package is store drop-off recyclable.'
-    },
-    {
-      question: 'What documentation do you provide for B-Corp reporting?',
-      answer: 'We provide GRS certificates, material specifications, carbon footprint estimates, and recyclability statements that can be used for B-Corp sustainability reporting.'
-    },
-    {
-      question: 'How did they launch 8 SKUs at once?',
-      answer: 'Digital printing allows unlimited designs without plate costs. Each SKU had just 500 bags minimum, making the total initial order 4,000 bags—affordable for a growing brand.'
-    }
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) },
+    { question: t(`${p}.faq.q3`), answer: t(`${p}.faq.a3`) }
   ];
 
   return (
     <SEOPageLayout
-      title="Superfood Brand Case Study | VitalGreen Recyclable Packaging"
-      description="How VitalGreen Superfoods achieved B-Corp packaging goals with GRS certified recyclable pouches. Case study featuring high-barrier mono-PE packaging."
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
       keywords={['superfood packaging case study', 'recyclable powder packaging', 'B-Corp packaging', 'GRS certified pouches', 'mono-PE packaging']}
-      heroTitle="Case Study: VitalGreen Superfoods"
-      heroSubtitle="How a B-Corp superfood brand achieved high-barrier recyclable packaging that met certification requirements."
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage={heroImage}
       sections={sections}
-      introSummary="VitalGreen Superfoods partnered with Achieve Pack to develop recyclable high-barrier packaging for their superfood powders. The GRS-certified solution helped them gain B-Corp points while protecting product quality."
+      introSummary={t(`${p}.introSummary`)}
       faqs={faqs}
-      ctaTitle="Packaging for Your Wellness Brand"
-      ctaDescription="Let's create recyclable packaging that meets your sustainability goals."
-      ctaButtonText="Start Your Project"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
     />
   );

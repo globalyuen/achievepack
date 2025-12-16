@@ -5,6 +5,7 @@ import SEOPageLayout from '../../components/SEOPageLayout';
 
 const LeadTimePage = () => {
   const { t } = useTranslation();
+  const p = 'seoPages.pages.leadTime';
 
   const heroImage = '/imgs/seo-photos/a_shipping_storage_savings_infographic_8051355.webp';
   
@@ -236,38 +237,26 @@ const LeadTimePage = () => {
   ];
 
   const faqs = [
-    {
-      question: 'Can you guarantee delivery dates?',
-      answer: 'We provide estimated timelines based on typical production and shipping. While we strive to meet all dates, factors like customs delays or shipping disruptions can occasionally affect delivery. We keep you updated throughout.'
-    },
-    {
-      question: 'What happens if I need to change my delivery date?',
-      answer: 'Contact us as early as possible. Before production starts, we can usually adjust. Once production begins, changes may not be possible, but we can sometimes adjust shipping speed.'
-    },
-    {
-      question: 'Do you offer rush production?',
-      answer: 'Yes, for digital printing orders. Rush fees apply and depend on current production load. Contact us with your deadline and we\'ll confirm if rush is possible.'
-    },
-    {
-      question: 'How do holidays affect lead time?',
-      answer: 'Chinese New Year (late Jan/Feb) significantly impacts production—plan 2-3 weeks extra. Other holidays have minimal impact. We\'ll advise on any timing concerns during quotation.'
-    }
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) },
+    { question: t(`${p}.faq.q3`), answer: t(`${p}.faq.a3`) },
+    { question: t(`${p}.faq.q4`), answer: t(`${p}.faq.a4`) }
   ];
 
   return (
     <SEOPageLayout
-      title="Lead Time Guide | Production & Shipping Timeline"
-      description="Understand Achieve Pack's lead times for sustainable packaging. Production timelines, shipping options, and tips for planning your packaging orders."
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
       keywords={['lead time', 'production time', 'shipping time', 'packaging timeline', 'delivery schedule']}
-      heroTitle="Lead Time Guide"
-      heroSubtitle="Plan your packaging orders with confidence. Understand production and shipping timelines for smooth inventory management."
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage={heroImage}
       sections={sections}
-      introSummary="Total lead time ranges from 3-4 weeks (rush digital + express) to 10-12 weeks (plate printing + sea freight). This guide helps you understand timelines and plan effectively."
+      introSummary={t(`${p}.introSummary`)}
       faqs={faqs}
-      ctaTitle="Need a Timeline Estimate?"
-      ctaDescription="Tell us about your order and we'll provide a specific timeline."
-      ctaButtonText="Get Quote with Timeline"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
     />
   );

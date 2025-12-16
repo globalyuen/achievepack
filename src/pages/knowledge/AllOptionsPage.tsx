@@ -370,39 +370,29 @@ const AllOptionsPage = () => {
     }
   ];
 
+  const p = 'seoPages.pages.allOptions';
+
   const faqs = [
-    {
-      question: 'How do I choose between so many options?',
-      answer: 'Start with your product requirements: What are you packaging? What shelf life do you need? What sustainability goals do you have? Our team can then recommend the best combination of material, style, and features.'
-    },
-    {
-      question: 'Can I mix and match options?',
-      answer: 'Yes! Most options can be combined. For example, you can have a compostable stand-up pouch with a zipper, matte finish, and spot UV logo. Some combinations have limitations—we\'ll advise during consultation.'
-    },
-    {
-      question: 'Do all options have the same MOQ?',
-      answer: 'MOQ varies by option. Digital printing starts at 100 pieces, while plate printing typically requires 5,000+. Complex features may have higher minimums. We offer flexibility for testing.'
-    },
-    {
-      question: 'How do I get samples of different options?',
-      answer: 'Request a sample kit with examples of different materials, finishes, and features. We can also produce custom samples of your specific design before full production.'
-    }
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) },
+    { question: t(`${p}.faq.q3`), answer: t(`${p}.faq.a3`) },
+    { question: t(`${p}.faq.q4`), answer: t(`${p}.faq.a4`) }
   ];
 
   return (
     <SEOPageLayout
-      title="All Packaging Options | Complete Customization Guide"
-      description="Explore all sustainable packaging options: materials, pouch styles, barrier levels, closures, printing, and finishes. Complete customization guide from Achieve Pack."
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
       keywords={['packaging options', 'pouch customization', 'barrier levels', 'zipper options', 'printing finishes', 'sustainable packaging features']}
-      heroTitle="All Packaging Options"
-      heroSubtitle="Your complete guide to sustainable packaging customization. Explore every option available—from materials to finishes, closures to printing."
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage={heroImage}
       sections={sections}
-      introSummary="Achieve Pack offers extensive customization options for eco-friendly flexible packaging. This comprehensive guide covers all available materials, pouch styles, barrier levels, closures, printing methods, and special features."
+      introSummary={t(`${p}.introSummary`)}
       faqs={faqs}
-      ctaTitle="Build Your Custom Package"
-      ctaDescription="Work with our specialists to design the perfect packaging for your product."
-      ctaButtonText="Start Customizing"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
     />
   );

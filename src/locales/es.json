@@ -1129,6 +1129,777 @@
                 "heroTitle": "Opciones de barrera",
                 "heroSubtitle": "Múltiples niveles de barrera desde protección baja hasta máxima para diferentes productos.",
                 "introSummary": "Las propiedades de barrera protegen los productos de la humedad, el oxígeno, la luz y los olores para mantener la frescura y prolongar la vida útil."
+            },
+            "about": {
+                "title": "Acerca de Achieve Pack | Embalaje sostenible desde 2011",
+                "description": "Conozca la misión de Achieve Pack para hacer que el embalaje sostenible sea accesible. Fundada en 2011, servimos a más de 500 marcas con soluciones de embalaje flexible ecológico.",
+                "heroTitle": "Acerca de Achieve Pack",
+                "heroSubtitle": "Haciendo del embalaje sostenible una elección fácil desde 2011. De Hong Kong al mundo, ayudamos a las marcas a reducir su impacto ambiental sin comprometer la calidad.",
+                "introSummary": "Achieve Pack es la empresa matriz de pouch.eco, fundada en 2011 con la misión de hacer que el embalaje sostenible sea accesible para empresas de todos los tamaños. Combinamos décadas de experiencia en embalaje con un compromiso genuino con la responsabilidad ambiental.",
+                "sections": {
+                    "story": {
+                        "title": "Nuestra historia",
+                        "p1": "Fundada en 2011 en Hong Kong, Achieve Pack® ha crecido de un pequeño proveedor de embalajes a un líder en soluciones de embalaje flexible sostenible. Nuestro viaje comenzó con una creencia simple: las empresas no deberían tener que elegir entre embalaje de calidad y responsabilidad ambiental.",
+                        "p2": "Hoy, servimos a más de 500 marcas en todo el mundo, desde startups artesanales hasta empresas establecidas, ayudándolas a hacer la transición a embalajes ecológicos sin comprometer la calidad, el rendimiento o el presupuesto.",
+                        "p3": "Bajo la marca pouch.eco, hemos hecho que el embalaje sostenible sea accesible para empresas de todos los tamaños, con cantidades mínimas de pedido bajas y tiempos de entrega rápidos que los fabricantes tradicionales simplemente no pueden igualar."
+                    },
+                    "mission": {
+                        "title": "Nuestra misión",
+                        "intro": "Nuestra misión es hacer que el embalaje sostenible sea la elección fácil para cada empresa. Creemos que la responsabilidad ambiental no debería ser una característica premium, debería ser el estándar.",
+                        "drivesUs": "Lo que nos impulsa:",
+                        "points": [
+                            "Reducir los residuos plásticos en la industria del embalaje",
+                            "Hacer que los materiales ecológicos certificados sean accesibles para empresas de todos los tamaños",
+                            "Ayudar a las marcas a contar su historia de sostenibilidad",
+                            "Innovar nuevos materiales y soluciones para una economía circular"
+                        ]
+                    },
+                    "values": {
+                        "title": "Nuestros valores",
+                        "sustainability": {
+                            "title": "Sostenibilidad primero",
+                            "desc": "Cada decisión que tomamos considera el impacto ambiental. Desde la selección de materiales hasta los métodos de envío, la sostenibilidad guía nuestras operaciones."
+                        },
+                        "quality": {
+                            "title": "Calidad sin compromisos",
+                            "desc": "Ecológico no significa menor calidad. Nuestros embalajes cumplen los mismos estándares rigurosos que los materiales convencionales."
+                        },
+                        "partnership": {
+                            "title": "Asociación con el cliente",
+                            "desc": "Trabajamos como socios, no solo como proveedores. Su éxito es nuestro éxito, y estamos comprometidos en ayudarle a alcanzar sus objetivos."
+                        },
+                        "innovation": {
+                            "title": "Innovación y transparencia",
+                            "desc": "Desarrollamos continuamente nuevos materiales y compartimos información honesta sobre capacidades y limitaciones."
+                        }
+                    },
+                    "team": {
+                        "title": "Nuestro equipo",
+                        "intro": "Nuestro equipo combina décadas de experiencia en la industria del embalaje con una pasión por la sostenibilidad. Desde científicos de materiales hasta especialistas en soporte al cliente, cada miembro del equipo está comprometido con su éxito."
+                    },
+                    "impact": {
+                        "title": "Nuestro impacto",
+                        "brands": "Marcas atendidas",
+                        "carbon": "Reducción de carbono",
+                        "pouches": "Bolsas producidas",
+                        "countries": "Países enviados",
+                        "outro": "Cada bolsa que producimos representa un paso lejos de los plásticos convencionales y hacia un futuro más sostenible. Únase a los cientos de marcas que ya están marcando la diferencia."
+                    }
+                },
+                "faq": {
+                    "q1": "¿Dónde se encuentra Achieve Pack?",
+                    "a1": "Nuestra sede central está en Hong Kong, con instalaciones de fabricación en China. Enviamos a todo el mundo y tenemos clientes en América del Norte, Europa, Asia y Australia.",
+                    "q2": "¿Qué diferencia a Achieve Pack de otros proveedores de embalajes?",
+                    "a2": "Nos especializamos exclusivamente en embalaje sostenible con MOQ bajos (100 piezas), entrega rápida (2-3 semanas para muestras) y documentación de certificación completa. Somos socios, no solo proveedores.",
+                    "q3": "¿Trabajan con startups y pequeñas empresas?",
+                    "a3": "¡Absolutamente! Nuestras bajas cantidades mínimas de pedido hacen que el embalaje sostenible sea accesible para empresas de todos los tamaños. Muchos de nuestros clientes comenzaron con nosotros como startups y han crecido con nuestro apoyo.",
+                    "q4": "¿Qué certificaciones tienen sus materiales?",
+                    "a4": "Nuestros materiales están certificados según varios estándares internacionales, incluyendo EN 13432, ASTM D6400, GRS (Global Recycled Standard) y certificaciones de seguridad alimentaria (FDA, EU 10/2011). Proporcionamos documentación con cada pedido."
+                },
+                "cta": {
+                    "title": "Asóciese con nosotros",
+                    "description": "Únase a más de 500 marcas que ya están causando un impacto sostenible con Achieve Pack.",
+                    "button": "Comience su viaje"
+                }
+            },
+            "certificates": {
+                "title": "Certificaciones de Embalaje | EN 13432, GRS, Cumplimiento FDA",
+                "description": "Explore las certificaciones completas de Achieve Pack: EN 13432, ASTM D6400, GRS, FDA, BRC y más. Documentación completa proporcionada con cada pedido.",
+                "heroTitle": "Certificaciones y Cumplimiento",
+                "heroSubtitle": "Certificaciones verificadas por terceros en las que puede confiar. Desde compostabilidad hasta seguridad alimentaria, nuestras certificaciones le dan confianza en cada afirmación.",
+                "introSummary": "Nuestros materiales de embalaje están certificados según los estándares mundiales líderes en compostabilidad, reciclabilidad y seguridad alimentaria. Proporcionamos documentación completa con cada pedido para apoyar sus necesidades de cumplimiento y marketing.",
+                "sections": {
+                    "overview": {
+                        "title": "Nuestras Certificaciones y Cumplimiento",
+                        "p1": "En Achieve Pack, creemos que las certificaciones son más que simples insignias: son prueba de nuestro compromiso con la calidad, seguridad y sostenibilidad. Cada certificación que tenemos representa pruebas rigurosas de terceros y auditorías continuas.",
+                        "p2": "Proporcionamos documentación completa con cada pedido, dándole la confianza para hacer afirmaciones sobre su embalaje y satisfacer los requisitos de los minoristas."
+                    },
+                    "compostability": {
+                        "title": "Certificaciones de Compostabilidad",
+                        "en13432": {
+                            "name": "EN 13432",
+                            "region": "Estándar Europeo",
+                            "desc": "El estándar europeo para embalajes compostables. Requiere 90% de desintegración en 12 semanas y biodegradación completa en 6 meses en condiciones de compostaje industrial."
+                        },
+                        "astm": {
+                            "name": "ASTM D6400",
+                            "region": "Estándar Estadounidense",
+                            "desc": "Estándar estadounidense para plásticos diseñados para instalaciones de compostaje aeróbico municipal/industrial. Pruebas equivalentes a EN 13432, reconocido en Norteamérica."
+                        },
+                        "australian": {
+                            "name": "AS 4736 / AS 5810",
+                            "region": "Estándares Australianos",
+                            "desc": "AS 4736 para compostabilidad comercial y AS 5810 para compostabilidad doméstica. Requerido para afirmaciones de compostabilidad en Australia y Nueva Zelanda."
+                        },
+                        "okcompost": {
+                            "name": "OK Compost HOME",
+                            "region": "TÜV Austria",
+                            "desc": "Certificación para materiales que se biodegradan en condiciones de compostaje doméstico (20-30°C). El estándar de oro para compostabilidad a nivel del consumidor."
+                        }
+                    },
+                    "recyclability": {
+                        "title": "Certificaciones de Reciclabilidad",
+                        "grs": {
+                            "name": "GRS - Estándar Global de Reciclaje",
+                            "desc": "Nuestros materiales PCR (reciclados post-consumo) están certificados por GRS, verificando el contenido reciclado y rastreándolo a través de la cadena de suministro. Esta certificación es cada vez más requerida por los grandes minoristas."
+                        },
+                        "mono": {
+                            "title": "Reciclabilidad Mono-Material",
+                            "desc": "Nuestras bolsas mono-PE y mono-PP están diseñadas para reciclabilidad en flujos de reciclaje existentes. Estructura verificada por pruebas de terceros."
+                        },
+                        "storeDropOff": {
+                            "title": "Compatible con Depósito en Tienda",
+                            "desc": "Muchas de nuestras bolsas reciclables califican para programas de reciclaje en tienda (como la etiqueta Store Drop-Off de How2Recycle)."
+                        }
+                    },
+                    "foodSafety": {
+                        "title": "Certificaciones de Seguridad Alimentaria",
+                        "intro": "Todos nuestros materiales de embalaje destinados al contacto con alimentos están certificados según estándares internacionales de seguridad alimentaria. Podemos proporcionar documentación para el cumplimiento regulatorio en sus mercados objetivo.",
+                        "fda": {
+                            "name": "FDA 21 CFR",
+                            "desc": "Cumplimiento FDA de EE.UU. para materiales en contacto con alimentos"
+                        },
+                        "eu": {
+                            "name": "EU 10/2011",
+                            "desc": "Regulación europea para materiales plásticos en contacto con alimentos"
+                        },
+                        "migration": {
+                            "name": "Pruebas de Migración",
+                            "desc": "Pruebas de migración verificadas por terceros para tipos específicos de alimentos"
+                        }
+                    },
+                    "facility": {
+                        "title": "Certificaciones de Instalaciones",
+                        "iso": {
+                            "name": "ISO 9001:2015",
+                            "desc": "Certificación del Sistema de Gestión de Calidad. Demuestra nuestro compromiso con la calidad constante y la mejora continua en todos los procesos."
+                        },
+                        "brc": {
+                            "name": "BRC Packaging Materials",
+                            "desc": "Certificación del British Retail Consortium para fabricantes de embalajes. A menudo requerida por los grandes minoristas para proveedores de embalajes alimentarios."
+                        },
+                        "fsc": {
+                            "name": "FSC Cadena de Custodia",
+                            "desc": "Para productos a base de papel, nuestra certificación FSC garantiza papel de origen responsable de bosques bien gestionados."
+                        },
+                        "sedex": {
+                            "name": "Membresía SEDEX",
+                            "desc": "Plataforma de auditoría de comercio ético. Mantenemos visibilidad de nuestras prácticas éticas, laborales y ambientales."
+                        }
+                    },
+                    "documentation": {
+                        "title": "Documentación que Proporcionamos",
+                        "intro": "Con cada pedido, podemos proporcionar los documentos de certificación que necesita para el cumplimiento de minoristas, presentaciones regulatorias o afirmaciones de marketing:",
+                        "items": [
+                            "Certificado de Conformidad (CoC)",
+                            "Especificaciones de materiales",
+                            "Declaraciones de seguridad alimentaria",
+                            "Certificados de compostabilidad",
+                            "Certificados de transacción GRS",
+                            "Informes de pruebas (barrera, resistencia de sellado)",
+                            "Declaraciones de cumplimiento REACH",
+                            "Declaraciones de metales pesados"
+                        ]
+                    }
+                },
+                "faq": {
+                    "q1": "¿Proporcionan documentos de certificación con los pedidos?",
+                    "a1": "Sí, proporcionamos todos los documentos de certificación relevantes con cada pedido. Esto incluye certificados de conformidad, declaraciones de seguridad alimentaria y certificaciones específicas como EN 13432 o certificados GRS según corresponda.",
+                    "q2": "¿Sus materiales compostables están certificados en mi país?",
+                    "a2": "Nuestros materiales compostables están certificados EN 13432 (UE), ASTM D6400 (EE.UU.) y AS 4736/5810 (Australia). Estos son los principales estándares internacionales. Contáctenos para requisitos regionales específicos.",
+                    "q3": "¿Puedo usar sus certificaciones en mi marketing?",
+                    "a3": "Sí, con la documentación adecuada que proporcionamos, puede hacer afirmaciones certificadas sobre su embalaje. Le asesoraremos sobre la redacción correcta y el uso del logotipo para garantizar el cumplimiento.",
+                    "q4": "¿Con qué frecuencia se renuevan sus certificaciones?",
+                    "a4": "La mayoría de las certificaciones requieren auditorías y renovaciones anuales. Mantenemos certificaciones actualizadas y podemos proporcionar documentación actualizada en cualquier momento."
+                },
+                "cta": {
+                    "title": "Obtenga Embalaje Certificado",
+                    "description": "Pida embalaje ecológico con documentación de certificación completa.",
+                    "button": "Solicitar Presupuesto"
+                }
+            },
+            "factoryTour": {
+                "title": "Visita Virtual de la Fábrica | Instalación de Fabricación Achieve Pack",
+                "description": "Haga una visita virtual a la instalación de embalaje sostenible de última generación de Achieve Pack. Vea cómo fabricamos bolsas ecológicas con precisión y control de calidad.",
+                "heroTitle": "Visita Virtual de la Fábrica",
+                "heroSubtitle": "Entre en nuestra instalación de fabricación donde la innovación en embalaje sostenible se encuentra con la ingeniería de precisión. Descubra cómo damos vida a sus bolsas ecológicas.",
+                "introSummary": "Nuestra fábrica combina tecnología de fabricación moderna con riguroso control de calidad y prácticas sostenibles. Desde el abastecimiento de materiales hasta la inspección final, cada paso está diseñado para entregar embalaje ecológico premium.",
+                "sections": {
+                    "welcome": {
+                        "title": "Bienvenido a Nuestra Visita Virtual",
+                        "p1": "Entre en nuestra instalación de fabricación de última generación donde el embalaje sostenible cobra vida. Nuestra fábrica combina tecnología de vanguardia con riguroso control de calidad para producir bolsas ecológicas que cumplen los más altos estándares internacionales.",
+                        "p2": "Aunque no podemos llevarle físicamente a nuestra instalación, esta visita virtual le da una visión de cómo fabricamos su embalaje con precisión, cuidado y responsabilidad ambiental.",
+                        "videoTitle": "Video Tour de la Fábrica"
+                    },
+                    "materials": {
+                        "title": "Abastecimiento y Almacenamiento de Materiales",
+                        "standards": "Nuestros Estándares de Materiales:",
+                        "points": [
+                            "Todas las materias primas provienen de proveedores certificados",
+                            "Almacenamiento climatizado para la integridad del material",
+                            "Seguimiento por lotes para trazabilidad completa",
+                            "Pruebas de calidad regulares de materiales entrantes"
+                        ],
+                        "outro": "Mantenemos asociaciones con fabricantes líderes de materiales sostenibles en todo el mundo, incluidos proveedores de películas compostables certificadas, plásticos reciclados certificados GRS y materiales de base biológica seguros para alimentos."
+                    },
+                    "printing": {
+                        "title": "Departamento de Impresión",
+                        "intro": "Nuestro departamento de impresión cuenta con capacidades de impresión digital y flexográfica (placa), permitiéndonos manejar pedidos desde 100 piezas hasta millones con calidad constante.",
+                        "digital": {
+                            "title": "Impresión Digital",
+                            "points": ["Colores ilimitados sin costo adicional", "Perfecto para tiradas cortas (100-5,000 pcs)", "Impresión de datos variables disponible", "Sin costos de placa"]
+                        },
+                        "plate": {
+                            "title": "Impresión de Placa",
+                            "points": ["Hasta 10 colores", "Mejor para grandes volúmenes (5,000+ pcs)", "Coincidencia de color Pantone", "Menor costo unitario a escala"]
+                        },
+                        "outro": "Todas las tintas utilizadas son seguras para alimentos y cumplen con las regulaciones FDA y UE. Usamos tintas sin solventes y a base de agua cuando es posible."
+                    },
+                    "lamination": {
+                        "title": "Laminación y Procesamiento de Materiales",
+                        "intro": "Nuestro departamento de laminación une múltiples capas de materiales para crear las propiedades de barrera que su producto necesita. Aquí es donde combinamos materiales como papel kraft con PLA, o creamos estructuras mono-material para reciclabilidad.",
+                        "capabilities": "Capacidades de Proceso:",
+                        "dry": { "title": "Laminación Seca", "desc": "Para estructuras multicapa de alta barrera" },
+                        "solventless": { "title": "Laminación Sin Solventes", "desc": "Proceso de unión ecológico" },
+                        "extrusion": { "title": "Laminación por Extrusión", "desc": "Para capas de barrera especializadas" }
+                    },
+                    "pouchMaking": {
+                        "title": "Fabricación y Conversión de Bolsas",
+                        "intro": "Nuestras líneas de fabricación de bolsas convierten películas impresas y laminadas en bolsas terminadas. Podemos producir todos los formatos principales de bolsas incluyendo bolsas stand-up, bolsas de fondo plano, bolsas con fuelle lateral y más.",
+                        "lines": "Líneas de Producción",
+                        "width": "Rango de Ancho",
+                        "capacity": "Capacidad Diaria",
+                        "outro": "Cada línea está equipada para diferentes estilos de bolsas y puede integrar características como cremalleras, válvulas, boquillas y muescas de desgarro."
+                    },
+                    "quality": {
+                        "title": "Laboratorio de Control de Calidad",
+                        "intro": "Nuestro laboratorio interno realiza pruebas rigurosas en cada etapa de producción. Desde la inspección de materiales entrantes hasta las pruebas del producto final, aseguramos que cada bolsa cumpla con las especificaciones.",
+                        "capabilities": "Capacidades de Prueba:",
+                        "tests": [
+                            "Pruebas de barrera (OTR, WVTR)",
+                            "Pruebas de resistencia de sellado",
+                            "Medición de resistencia a la tracción",
+                            "Uniformidad de espesor",
+                            "Consistencia de color (espectrofotómetro)",
+                            "Pruebas de caída",
+                            "Pruebas de migración",
+                            "Precisión dimensional"
+                        ]
+                    },
+                    "sustainability": {
+                        "title": "Prácticas de Sostenibilidad",
+                        "intro": "La sostenibilidad no solo está en nuestros productos, está en nuestras operaciones. Nuestra fábrica implementa prácticas integrales de gestión ambiental.",
+                        "waste": {
+                            "title": "Reducción de Residuos",
+                            "points": ["Residuos de producción reciclados o compostados", "Patrones de corte optimizados minimizan desperdicios", "Sistemas de recuperación de solventes"]
+                        },
+                        "energy": {
+                            "title": "Eficiencia Energética",
+                            "points": ["Iluminación LED en toda la instalación", "Maquinaria eficiente energéticamente", "Sistemas de recuperación de calor"]
+                        }
+                    }
+                },
+                "faq": {
+                    "q1": "¿Puedo visitar su fábrica en persona?",
+                    "a1": "Sí, damos la bienvenida a visitas de fábrica con cita previa. Contáctenos para programar una visita a nuestra instalación de fabricación. También ofrecemos visitas de video detalladas para clientes que no pueden viajar.",
+                    "q2": "¿Qué certificaciones de calidad tiene su fábrica?",
+                    "a2": "Nuestra instalación tiene certificación ISO 9001 para gestión de calidad, certificación BRC para embalaje alimentario, y mantiene certificación de cadena de custodia FSC para productos a base de papel.",
+                    "q3": "¿Cuál es su capacidad de producción?",
+                    "a3": "Podemos producir más de 100,000 bolsas por día en nuestras líneas de producción. Para pedidos grandes, podemos aumentar la capacidad con aviso previo. Los pedidos urgentes también son posibles.",
+                    "q4": "¿Cómo aseguran la consistencia entre lotes?",
+                    "a4": "Mantenemos registros de producción detallados, usamos equipos calibrados y realizamos control estadístico de procesos (SPC) para asegurar que cada lote cumpla los mismos estándares. La coincidencia de colores se verifica con espectrofotómetros."
+                },
+                "cta": {
+                    "title": "Véalo Por Sí Mismo",
+                    "description": "Solicite una visita de video personalizada o programe una visita en persona a nuestra instalación.",
+                    "button": "Programar Visita"
+                }
+            },
+            "faqs": {
+                "title": "Preguntas Frecuentes | FAQ de Embalaje",
+                "description": "Encuentre respuestas a preguntas comunes sobre embalaje sostenible: MOQ, materiales, tiempos de producción, envío y más. FAQ completo de Achieve Pack.",
+                "heroTitle": "Preguntas Frecuentes",
+                "heroSubtitle": "Respuestas a sus preguntas de embalaje. Encuentre información sobre pedidos, materiales, producción, envío y más.",
+                "introSummary": "Explore nuestro FAQ completo cubriendo pedidos, materiales, producción, envío y personalización. ¿No encuentra su respuesta? Contáctenos directamente—estamos encantados de ayudar.",
+                "faq": {
+                    "q1": "¿Cómo empezar?",
+                    "a1": "Simplemente contáctenos a través de nuestro sitio web, email o WhatsApp. Comparta los detalles de su producto y requisitos, y le proporcionaremos un presupuesto en 24-48 horas.",
+                    "q2": "¿Puedo ver muestras antes de ordenar?",
+                    "a2": "¡Absolutamente! Proporcionamos muestras de materiales, bolsas en blanco para pruebas de llenado, y podemos producir muestras impresas con su diseño antes de la producción completa.",
+                    "q3": "¿Trabajan con pequeñas empresas y startups?",
+                    "a3": "¡Sí! Nuestros bajos MOQ (100 piezas para impresión digital) nos hacen ideales para pequeñas empresas. Muchos de nuestros clientes empezaron pequeños y han crecido con nosotros.",
+                    "q4": "¿Qué soporte proporcionan después de la entrega?",
+                    "a4": "Proporcionamos soporte continuo incluyendo asistencia para pedidos repetidos, actualizaciones de diseño y ayuda para resolver cualquier problema. Somos socios a largo plazo, no solo para un pedido."
+                },
+                "cta": {
+                    "title": "¿Aún tiene preguntas?",
+                    "description": "Nuestro equipo está listo para ayudar con cualquier pregunta no cubierta aquí.",
+                    "button": "Contáctenos"
+                }
+            },
+            "leadTime": {
+                "title": "Guía de Tiempos de Entrega | Cronograma de Producción y Envío",
+                "description": "Entienda los tiempos de entrega de Achieve Pack para embalaje sostenible. Cronogramas de producción, opciones de envío y consejos para planificar sus pedidos.",
+                "heroTitle": "Guía de Tiempos de Entrega",
+                "heroSubtitle": "Planifique sus pedidos de embalaje con confianza. Entienda los cronogramas de producción y envío para una gestión fluida del inventario.",
+                "introSummary": "El tiempo total de entrega varía de 3-4 semanas (digital urgente + express) a 10-12 semanas (impresión de placa + flete marítimo). Esta guía le ayuda a entender los cronogramas y planificar efectivamente.",
+                "faq": {
+                    "q1": "¿Pueden garantizar fechas de entrega?",
+                    "a1": "Proporcionamos cronogramas estimados basados en producción y envío típicos. Aunque nos esforzamos por cumplir todas las fechas, factores como retrasos aduaneros pueden afectar ocasionalmente la entrega. Le mantenemos actualizado durante todo el proceso.",
+                    "q2": "¿Qué pasa si necesito cambiar mi fecha de entrega?",
+                    "a2": "Contáctenos lo antes posible. Antes de que comience la producción, generalmente podemos ajustar. Una vez que comienza la producción, los cambios pueden no ser posibles, pero a veces podemos ajustar la velocidad de envío.",
+                    "q3": "¿Ofrecen producción urgente?",
+                    "a3": "Sí, para pedidos de impresión digital. Se aplican cargos por urgencia y dependen de la carga de producción actual. Contáctenos con su fecha límite y confirmaremos si la urgencia es posible.",
+                    "q4": "¿Cómo afectan los feriados a los tiempos de entrega?",
+                    "a4": "El Año Nuevo Chino (finales de enero/febrero) impacta significativamente la producción—planifique 2-3 semanas extra. Otros feriados tienen impacto mínimo. Le asesoraremos sobre cualquier problema de timing durante el presupuesto."
+                },
+                "cta": {
+                    "title": "¿Necesita una estimación de tiempo?",
+                    "description": "Cuéntenos sobre su pedido y le proporcionaremos un cronograma específico.",
+                    "button": "Obtener presupuesto con cronograma"
+                }
+            },
+            "highBarrier": {
+                "title": "Embalaje Alta Barrera | Bolsas Premium 12-24 Meses de Vida Útil",
+                "description": "Embalaje alta barrera ecológico para productos con 12-24 meses de vida útil. Mono-PE reciclable con EVOH, opciones mono-PP. Perfecto para café, suplementos, alimentos para bebés.",
+                "heroTitle": "Embalaje Alta Barrera",
+                "heroSubtitle": "Protección máxima con 12-24 meses de vida útil. Opciones alta barrera reciclables para productos premium.",
+                "introSummary": "El embalaje alta barrera proporciona máxima protección contra oxígeno y humedad para productos que requieren 12-24 meses de vida útil. Nuestras estructuras mono-PE reciclables con EVOH ofrecen protección premium manteniendo certificaciones de sostenibilidad.",
+                "faq": {
+                    "q1": "¿El embalaje alta barrera puede ser reciclable?",
+                    "a1": "¡Sí! Nuestro mono-PE con capa EVOH es reciclable porque el EVOH es menos del 5% de la estructura total. También ofrecemos opciones mono-PP y mono-PE metalizado 100% reciclables con excelentes propiedades barrera.",
+                    "q2": "¿Cuál es la diferencia entre barrera EVOH y aluminio?",
+                    "a2": "EVOH es una barrera de oxígeno basada en plástico que permite que el embalaje permanezca reciclable. El aluminio proporciona barrera similar pero hace el embalaje no reciclable. Nuestras estructuras EVOH ofrecen rendimiento comparable con reciclabilidad.",
+                    "q3": "¿Necesito alta barrera para el café?",
+                    "a3": "Para café molido y granos enteros de especialidad, sí—se recomienda alta barrera con válvula de desgasificación. Para café en grano estándar de rotación rápida, barrera media puede ser suficiente. Ofrecemos pruebas gratuitas.",
+                    "q4": "¿Qué certificaciones tienen sus materiales alta barrera?",
+                    "a4": "Nuestros materiales alta barrera tienen certificación de contacto alimentario (FDA, EU 10/2011), y proporcionamos certificados de prueba OTR/MVTR. Las opciones PCR tienen certificación GRS."
+                },
+                "cta": {
+                    "title": "Proteja sus productos premium",
+                    "description": "Solicite pruebas OTR/MVTR gratuitas y muestras para validar el rendimiento alta barrera.",
+                    "button": "Obtener muestra gratis"
+                }
+            },
+            "lowBarrier": {
+                "title": "Embalaje Baja Barrera | Bolsas Eco 3-6 Meses de Vida Útil",
+                "description": "Embalaje baja barrera ecológico para productos con 3-6 meses de vida útil. Kraft+PLA compostable casero, celulosa NatureFlex. Perfecto para galletas, té, granola.",
+                "heroTitle": "Embalaje Baja Barrera",
+                "heroSubtitle": "Mejores certificaciones ecológicas con 3-6 meses de vida útil. Opciones compostables caseras y reciclables para marcas sostenibles.",
+                "introSummary": "El embalaje baja barrera ofrece las mejores certificaciones de sostenibilidad con 3-6 meses de protección. Perfecto para productos de rotación rápida o productos secos naturales.",
+                "faq": {
+                    "q1": "¿El embalaje baja barrera es adecuado para mi producto?",
+                    "a1": "Baja barrera es ideal para productos secos consumidos en 3-6 meses: galletas, té, granola, frutas secas, arroz y productos similares. Si su producto es sensible a la humedad u oxígeno, considere opciones de barrera media o alta.",
+                    "q2": "¿El embalaje baja barrera puede ser compostable?",
+                    "a2": "¡Sí! Muchas opciones baja barrera como Kraft+PLA y NatureFlex son compostables caseras, descomponiéndose en 6-12 meses. Certificadas EN 13432 y OK Home.",
+                    "q3": "¿Cuál es la diferencia de precio vs barrera media?",
+                    "a3": "Los materiales baja barrera cuestan típicamente 15-25% menos que las opciones de barrera media. El ahorro de costos más las mejores certificaciones ecológicas lo hacen una excelente opción.",
+                    "q4": "¿Cómo hago la transición del plástico al embalaje baja barrera ecológico?",
+                    "a4": "Ofrecemos consulta y muestras gratuitas para probar compatibilidad. Muchas marcas hacen la transición exitosa a embalajes compostables baja barrera."
+                },
+                "cta": {
+                    "title": "Comience su viaje ecológico",
+                    "description": "Solicite muestras de nuestro embalaje baja barrera compostable casero.",
+                    "button": "Obtener muestra gratis"
+                }
+            },
+            "mediumBarrier": {
+                "title": "Embalaje Barrera Media | Bolsas Reciclables 6-12 Meses de Vida Útil",
+                "description": "Embalaje barrera media ecológico para productos con 6-12 meses de vida útil. Mono-PE, Bio-PE, PCR reciclables. Perfecto para café, nueces, alimentos para mascotas, proteínas en polvo.",
+                "heroTitle": "Embalaje Barrera Media",
+                "heroSubtitle": "Protección equilibrada con 6-12 meses de vida útil. Opciones reciclables para la mayoría de productos alimentarios.",
+                "introSummary": "El embalaje barrera media ofrece protección equilibrada con 6-12 meses de vida útil. El punto ideal para la mayoría de productos alimentarios, combinando buenas propiedades barrera y excelentes certificaciones de sostenibilidad.",
+                "faq": {
+                    "q1": "¿Qué productos funcionan mejor con barrera media?",
+                    "a1": "Barrera media es ideal para granos de café, nueces, alimentos para mascotas, proteínas en polvo, cereales y chocolates—productos que necesitan 6-12 meses de protección. Es la opción más popular para productos alimentarios.",
+                    "q2": "¿El mono-PE es reciclable en todas partes?",
+                    "a2": "El mono-PE (polietileno) es uno de los plásticos más reciclados globalmente. Es aceptado en la mayoría de programas de reciclaje en la acera y puntos de recogida en tiendas.",
+                    "q3": "¿Cómo se compara el Bio-PE con el PE regular?",
+                    "a3": "El Bio-PE (de caña de azúcar) tiene propiedades de barrera y sellado idénticas al PE fósil. La diferencia es ambiental: el Bio-PE es carbono-negativo en producción.",
+                    "q4": "¿Puedo usar barrera media para café?",
+                    "a4": "¡Sí! Barrera media funciona bien para granos tostados enteros de rotación estándar. Para café molido o tostados especiales que requieren máxima frescura, considere nuestras opciones alta barrera con válvula."
+                },
+                "cta": {
+                    "title": "Encuentre su equilibrio",
+                    "description": "Solicite muestras para probar la protección barrera media para sus productos.",
+                    "button": "Obtener muestra gratis"
+                }
+            },
+            "allOptions": {
+                "title": "Todas las Opciones de Embalaje | Guía Completa de Personalización",
+                "description": "Explore todas las opciones de embalaje sostenible: materiales, estilos de bolsas, niveles de barrera, cierres, impresión y acabados. Guía completa de Achieve Pack.",
+                "heroTitle": "Todas las Opciones de Embalaje",
+                "heroSubtitle": "Su guía completa de personalización de embalaje sostenible. Explore todas las opciones disponibles—desde materiales hasta acabados, desde cierres hasta impresión.",
+                "introSummary": "Achieve Pack ofrece amplias opciones de personalización para embalaje flexible ecológico. Esta guía completa cubre todos los materiales, estilos, niveles de barrera, cierres, métodos de impresión y características especiales.",
+                "faq": {
+                    "q1": "¿Cómo elegir entre tantas opciones?",
+                    "a1": "Empiece por sus requisitos de producto: ¿Qué está empacando? ¿Qué vida útil necesita? ¿Qué objetivos de sostenibilidad tiene? Nuestro equipo puede recomendar la mejor combinación de material, estilo y características.",
+                    "q2": "¿Puedo combinar opciones?",
+                    "a2": "¡Sí! La mayoría de opciones pueden combinarse. Por ejemplo, puede tener una bolsa stand-up compostable con cremallera, acabado mate y logo UV spot. Algunas combinaciones tienen limitaciones—le asesoraremos.",
+                    "q3": "¿Todas las opciones tienen el mismo MOQ?",
+                    "a3": "El MOQ varía según la opción. Impresión digital desde 100 piezas, impresión de placa desde 5,000+. Características complejas pueden tener mínimos más altos. Ofrecemos flexibilidad para pruebas.",
+                    "q4": "¿Cómo obtengo muestras de diferentes opciones?",
+                    "a4": "Solicite un kit de muestras con diferentes materiales, acabados y características. También podemos producir muestras personalizadas antes de la producción completa."
+                },
+                "cta": {
+                    "title": "Cree su embalaje personalizado",
+                    "description": "Trabaje con nuestros especialistas para diseñar el embalaje perfecto.",
+                    "button": "Comenzar personalización"
+                }
+            },
+            "sizeGuide": {
+                "title": "Guía de Tamaños de Bolsas | Referencia de Dimensiones y Capacidad",
+                "description": "Guía completa de tamaños de bolsas con dimensiones y capacidad para bolsas stand-up, bolsas de fondo plano y más. Encuentre el tamaño perfecto.",
+                "heroTitle": "Guía de Tamaños de Bolsas",
+                "heroSubtitle": "Encuentre el tamaño de bolsa perfecto. Guía completa con referencias de capacidad y opciones de tamaños personalizados.",
+                "introSummary": "Elegir el tamaño correcto de bolsa asegura una presentación óptima del producto y rentabilidad. Use esta guía para entender tamaños estándar y encontrar el ajuste perfecto.",
+                "faq": {
+                    "q1": "¿Tienen tamaños estándar o todo es personalizado?",
+                    "a1": "Tenemos un rango de tamaños estándar con MOQ más bajos. Los tamaños personalizados están disponibles para pedidos de 500+ (digital) o 5,000+ (impresión de placa).",
+                    "q2": "¿Cómo sé qué tamaño se ajusta a mi producto?",
+                    "a2": "Envíenos los detalles de su producto (peso, dimensiones, densidad) o una muestra. Recomendaremos tamaños y podemos enviar bolsas en blanco para pruebas de llenado.",
+                    "q3": "¿Las dimensiones son exactas o aproximadas?",
+                    "a3": "Las dimensiones son nominales con tolerancia de fabricación estándar de ±1-2mm. Las aplicaciones críticas deben considerar esta variación.",
+                    "q4": "¿Puedo obtener el mismo producto en múltiples tamaños?",
+                    "a4": "¡Absolutamente! Muchas marcas ofrecen el mismo producto en diferentes tamaños (muestra, regular, familiar). Cada tamaño comparte elementos de diseño."
+                },
+                "cta": {
+                    "title": "¿Necesita ayuda para elegir?",
+                    "description": "Envíenos los detalles de su producto y recomendaremos el tamaño óptimo.",
+                    "button": "Obtener recomendación"
+                }
+            },
+            "printingTypes": {
+                "title": "Tipos de Impresión Explicados | Digital vs Placa",
+                "description": "Compare impresión digital y de placa para embalaje flexible. Entienda MOQ, costos, opciones de color y qué método se adapta a sus necesidades.",
+                "heroTitle": "Tipos de Impresión Explicados",
+                "heroSubtitle": "Entienda sus opciones de impresión. Compare digital y placa para elegir el método correcto.",
+                "introSummary": "Achieve Pack ofrece impresión digital para pedidos de bajo MOQ e impresión de placa (flexográfica) para producción de alto volumen. Cada método tiene ventajas distintas—esta guía le ayuda a elegir.",
+                "faq": {
+                    "q1": "¿Qué método de impresión debería elegir?",
+                    "a1": "Para menos de 5,000 piezas, digital suele ser más rentable. Para 5,000+, compare costos totales incluyendo placas. Si necesita coincidencia Pantone exacta o tintas especiales, se requiere impresión de placa.",
+                    "q2": "¿Puedo cambiar de digital a placa después?",
+                    "a2": "¡Sí! Muchos clientes empiezan con digital para pruebas de mercado, luego cambian a placa cuando tienen demanda constante. Le ayudamos a transicionar.",
+                    "q3": "¿Qué tan precisa es la coincidencia de color digital?",
+                    "a3": "La impresión digital simula colores Pantone usando CMYK, muy cercano pero no exacto. Para la mayoría de aplicaciones es excelente. Colores críticos de marca pueden beneficiarse de placa.",
+                    "q4": "¿Qué incluyen los costos de placa?",
+                    "a4": "Los costos de placa cubren la creación de placas de impresión para cada color. Una vez hechas, las placas pueden reutilizarse para pedidos repetidos. Guardamos placas 2 años gratis."
+                },
+                "cta": {
+                    "title": "Obtenga un presupuesto de impresión",
+                    "description": "Cuéntenos sobre su proyecto y recomendaremos la mejor opción.",
+                    "button": "Solicitar presupuesto"
+                }
+            },
+            "workflow": {
+                "title": "Nuestro Proceso | Del Presupuesto a la Entrega",
+                "description": "Entienda el proceso de producción de embalaje de Achieve Pack. Desde la consulta inicial hasta la entrega final—qué esperar en cada etapa.",
+                "heroTitle": "Nuestro Proceso",
+                "heroSubtitle": "Un proceso claro y transparente desde la consulta inicial hasta la entrega. Sepa qué esperar en cada etapa.",
+                "introSummary": "Nuestro proceso de 5 pasos asegura una experiencia fluida: Consulta → Diseño → Muestra → Producción → Entrega. Tiempo típico de 8-12 semanas.",
+                "faq": {
+                    "q1": "¿El tiempo puede acortarse?",
+                    "a1": "Sí, los pedidos urgentes son posibles con producción express y flete aéreo. La impresión digital es más rápida que la placa. Contáctenos para sus plazos urgentes.",
+                    "q2": "¿Necesito pagar por adelantado?",
+                    "a2": "Normalmente, requerimos 50% de depósito para iniciar producción, el saldo antes del envío. Los pedidos de muestras pueden requerir pago completo. Aceptamos transferencia y tarjetas.",
+                    "q3": "¿Qué pasa si necesito hacer cambios después de la aprobación?",
+                    "a3": "Los cambios antes de que comience la producción generalmente son posibles. Una vez que la producción comienza, los cambios pueden incurrir en costos o retrasos adicionales.",
+                    "q4": "¿Manejan aduanas y aranceles de importación?",
+                    "a4": "Proporcionamos toda la documentación de exportación. Para DDP (Entregado con derechos pagados), manejamos el despacho aduanal. Para otros términos (FOB, CIF), usted maneja los procedimientos de importación."
+                },
+                "cta": {
+                    "title": "Inicie su proyecto",
+                    "description": "¿Listo para comenzar? Contáctenos para una consulta y presupuesto gratuitos.",
+                    "button": "Comenzar"
+                }
+            },
+            "kraftHighBarrier": {
+                "title": "Embalaje Kraft Alta Barrera | Bolsas Premium Larga Conservación",
+                "description": "Embalaje kraft alta barrera con lámina de aluminio para máxima protección. Perfecto para café, té y productos que requieren 12+ meses de frescura.",
+                "heroTitle": "Embalaje Kraft Alta Barrera",
+                "heroSubtitle": "Máxima protección con la estética premium del kraft. Lámina de aluminio interna para frescura de larga duración.",
+                "introSummary": "El embalaje kraft alta barrera combina capas gruesas de lámina de aluminio con un exterior kraft natural. Ofrece excelentes propiedades de barrera contra oxígeno, humedad y luz para una vida útil de 12-24+ meses.",
+                "faq": {
+                    "q1": "¿Cuánto tiempo permanecen frescos los productos en embalaje kraft alta barrera?",
+                    "a1": "Los productos pueden mantener su frescura durante 12-24+ meses gracias a la capa de lámina de aluminio. Ideal para café, té, nueces y otros productos sensibles.",
+                    "q2": "¿La capa de lámina de aluminio es visible desde el exterior?",
+                    "a2": "No, la lámina de aluminio está laminada entre las capas internas. El exterior muestra un acabado de papel kraft natural para un atractivo premium y eco-consciente.",
+                    "q3": "¿Las bolsas kraft alta barrera se pueden reciclar?",
+                    "a3": "Debido a las múltiples capas de materiales, el reciclaje estándar no es posible. Sin embargo, ofrecen protección superior del producto, reduciendo el desperdicio de alimentos.",
+                    "q4": "¿Para qué productos se recomienda la alta barrera?",
+                    "a4": "Café, té, suplementos alimenticios, frutas secas, nueces, especias, y cualquier producto que requiera larga vida útil y protección contra la oxidación."
+                },
+                "cta": {
+                    "title": "Discutamos sus necesidades de embalaje alta barrera",
+                    "description": "Creemos un embalaje kraft premium que proteja sus productos y represente su marca.",
+                    "button": "Solicitar cotización"
+                }
+            },
+            "kraftMediumBarrier": {
+                "title": "Embalaje Kraft Barrera Media | Bolsas Versátiles",
+                "description": "Embalaje kraft barrera media con capas metalizadas. Ideal para snacks, cereales y productos que requieren buena protección con apariencia natural.",
+                "heroTitle": "Embalaje Kraft Barrera Media",
+                "heroSubtitle": "Protección equilibrada con la estética natural del kraft. Capas metalizadas para frescura prolongada.",
+                "introSummary": "El embalaje kraft barrera media utiliza capas de película metalizada para proporcionar buena protección contra oxígeno y humedad. Perfecto para productos con vida útil de 6-12 meses.",
+                "faq": {
+                    "q1": "¿Cuál es la vida útil de las bolsas kraft barrera media?",
+                    "a1": "Generalmente 6-12 meses dependiendo del producto. Las capas metalizadas ofrecen buena protección de barrera manteniendo un peso más ligero que la lámina de aluminio.",
+                    "q2": "¿Cuál es la diferencia entre barrera media y alta barrera?",
+                    "a2": "La barrera media usa capas metalizadas, mientras que la alta barrera usa lámina de aluminio. La alta barrera ofrece mejor protección pero cuesta más.",
+                    "q3": "¿Las bolsas kraft barrera media son adecuadas para productos alimenticios?",
+                    "a3": "Sí, están certificadas para contacto con alimentos. Ideales para snacks, cereales, frutas secas, nueces y productos similares.",
+                    "q4": "¿Puedo tener una ventana transparente en las bolsas kraft barrera media?",
+                    "a4": "Sí, podemos agregar ventanas transparentes o mates. Note que las ventanas reducen ligeramente las propiedades de barrera en esa zona."
+                },
+                "cta": {
+                    "title": "Explore las opciones kraft barrera media",
+                    "description": "Encontremos el equilibrio correcto entre protección y costo para su producto.",
+                    "button": "Solicitar cotización"
+                }
+            },
+            "kraftLowBarrier": {
+                "title": "Embalaje Kraft Baja Barrera | Bolsas Económicas",
+                "description": "Embalaje kraft baja barrera para productos secos y no sensibles. Solución económica con aspecto kraft natural para corta vida útil.",
+                "heroTitle": "Embalaje Kraft Baja Barrera",
+                "heroSubtitle": "Solución económica con la estética natural del kraft. Perfecto para productos secos y no sensibles.",
+                "introSummary": "El embalaje kraft baja barrera ofrece protección básica para productos secos. Sin capa metalizada o lámina de aluminio, es la opción más económica con aspecto natural auténtico.",
+                "faq": {
+                    "q1": "¿Para qué productos es adecuado el embalaje kraft baja barrera?",
+                    "a1": "Productos secos como cereales, arroz, pasta, granola, hierbas secas, y productos no alimenticios como jabones o velas.",
+                    "q2": "¿Cuál es la vida útil con embalaje baja barrera?",
+                    "a2": "Generalmente 3-6 meses para productos secos. No recomendado para productos sensibles a la oxidación o humedad.",
+                    "q3": "¿Las bolsas kraft baja barrera son reciclables?",
+                    "a3": "Las bolsas kraft baja barrera de papel simple a menudo pueden reciclarse con el papel. Verifique las regulaciones locales para especificaciones exactas.",
+                    "q4": "¿Puedo imprimir a color en las bolsas kraft baja barrera?",
+                    "a4": "Sí, la impresión a todo color está disponible. El color marrón natural del kraft puede afectar ligeramente los colores impresos, creando un aspecto único y artesanal."
+                },
+                "cta": {
+                    "title": "Descubra las opciones kraft económicas",
+                    "description": "Encuentre el embalaje kraft perfecto para sus productos secos a un precio competitivo.",
+                    "button": "Solicitar cotización"
+                }
+            },
+            "csCoffeeRoastery": {
+                "title": "Caso de Estudio Tostaduría de Café | Embalaje Compostable Bean & Bole",
+                "description": "Cómo Bean & Bole Coffee Roastery cambió a embalaje compostable manteniendo la frescura. Caso con bolsas Kraft+PLA con válvulas de desgasificación.",
+                "heroTitle": "Caso de Estudio: Bean & Bole Coffee Roastery",
+                "heroSubtitle": "Cómo una tostaduría de café especial logró embalaje 100% compostable sin comprometer la frescura ni su enfoque artesanal.",
+                "introSummary": "Bean & Bole Coffee Roastery se asoció con Achieve Pack para hacer la transición del plástico convencional al embalaje certificado compostable. El resultado: bolsas ecológicas que mantienen la frescura del café mientras refuerzan su historia de sostenibilidad.",
+                "faq": {
+                    "q1": "¿Puede el embalaje compostable mantener la frescura del café?",
+                    "a1": "¡Sí! Con la combinación correcta de materiales (como Kraft + PLA con capas de barrera adecuadas), el embalaje compostable puede mantener la frescura del café por 3-4 meses. Agregar una válvula de desgasificación permite la liberación de CO2 mientras previene la entrada de oxígeno.",
+                    "q2": "¿Cuál fue el pedido mínimo para este proyecto?",
+                    "a2": "Bean & Bole comenzó con 500 bolsas por SKU usando impresión digital. Esto les permitió probar el embalaje con los clientes antes de comprometerse con cantidades mayores.",
+                    "q3": "¿La válvula de desgasificación también es compostable?",
+                    "a3": "Las válvulas de desgasificación estándar no son compostables y deben retirarse antes del compostaje. Indicamos esto claramente en el empaque. Se están desarrollando opciones de válvulas completamente compostables."
+                },
+                "cta": {
+                    "title": "¿Listo para Su Historia de Embalaje Sostenible?",
+                    "description": "Hablemos de cómo podemos ayudar a su marca de café a hacer la transición a embalaje ecológico.",
+                    "button": "Iniciar Su Proyecto"
+                }
+            },
+            "csTeaBrand": {
+                "title": "Caso de Estudio Marca de Té | Embalaje Premium Milano Botanica",
+                "description": "Cómo Milano Botanica logró embalaje de té de lujo compatible con EU PPWR con ventanas compostables. Bolsas de fondo plano con ventanas NatureFlex.",
+                "heroTitle": "Caso de Estudio: Milano Botanica Tea",
+                "heroSubtitle": "Cómo una marca italiana de té de lujo logró cumplimiento con la UE con impresionante embalaje compostable con ventanas transparentes.",
+                "introSummary": "Milano Botanica se asoció con Achieve Pack para crear embalaje premium compostable con ventanas transparentes. El resultado: embalaje hermoso que muestra sus tés mientras cumple con los requisitos de sostenibilidad de la UE.",
+                "faq": {
+                    "q1": "¿La ventana también es compostable?",
+                    "a1": "¡Sí! Usamos NatureFlex™, una película transparente a base de celulosa que está certificada compostable. Todo el paquete incluyendo la ventana puede ir al compostaje comercial.",
+                    "q2": "¿Cómo cumple esto con los requisitos EU PPWR?",
+                    "a2": "El embalaje está certificado compostable bajo EN 13432, que es una vía para el cumplimiento de EU PPWR. Se proporciona documentación completa para minoristas y requisitos regulatorios.",
+                    "q3": "¿Qué vida útil puede lograr el té en este embalaje?",
+                    "a3": "Dependiendo del tipo de té, esta estructura de embalaje proporciona 9-12 meses de vida útil. La ventana NatureFlex mantiene buena barrera contra la humedad mientras permite visibilidad del producto."
+                },
+                "cta": {
+                    "title": "Cree Su Embalaje Premium de Té",
+                    "description": "Diseñemos embalaje compostable que muestre su té hermosamente.",
+                    "button": "Iniciar Su Proyecto"
+                }
+            },
+            "csSuperfood": {
+                "title": "Caso de Estudio Superalimentos | Embalaje Reciclable VitalGreen",
+                "description": "Cómo VitalGreen Superfoods logró objetivos de embalaje B-Corp con bolsas reciclables certificadas GRS. Embalaje mono-PE de alta barrera.",
+                "heroTitle": "Caso de Estudio: VitalGreen Superfoods",
+                "heroSubtitle": "Cómo una marca B-Corp de superalimentos logró embalaje reciclable de alta barrera que cumplió los requisitos de certificación.",
+                "introSummary": "VitalGreen Superfoods se asoció con Achieve Pack para desarrollar embalaje reciclable de alta barrera para sus polvos de superalimentos. La solución certificada GRS les ayudó a ganar puntos B-Corp mientras protegía la calidad del producto.",
+                "faq": {
+                    "q1": "¿Cómo puede el embalaje reciclable lograr alta barrera?",
+                    "a1": "Nuestra estructura mono-PE incorpora una fina capa de EVOH que proporciona excelente barrera al oxígeno manteniendo la reciclabilidad en flujos de reciclaje de PE. El paquete es reciclable en puntos de recogida de tiendas.",
+                    "q2": "¿Qué documentación proporcionan para informes B-Corp?",
+                    "a2": "Proporcionamos certificados GRS, especificaciones de materiales, estimaciones de huella de carbono y declaraciones de reciclabilidad que pueden usarse para informes de sostenibilidad B-Corp.",
+                    "q3": "¿Cómo lanzaron 8 SKUs a la vez?",
+                    "a3": "La impresión digital permite diseños ilimitados sin costos de placas. Cada SKU tenía solo 500 bolsas mínimo, haciendo el pedido inicial total de 4,000 bolsas—asequible para una marca en crecimiento."
+                },
+                "cta": {
+                    "title": "Embalaje para Su Marca de Bienestar",
+                    "description": "Creemos embalaje reciclable que cumpla sus objetivos de sostenibilidad.",
+                    "button": "Iniciar Su Proyecto"
+                }
+            },
+            "csPetTreats": {
+                "title": "Caso de Estudio Golosinas para Mascotas | Embalaje Sostenible Pawsome Naturals",
+                "description": "Cómo Pawsome Naturals logró embalaje sostenible para golosinas de mascotas con contenido PCR y cierres resistentes a niños.",
+                "heroTitle": "Caso de Estudio: Pawsome Naturals Pet Treats",
+                "heroSubtitle": "Cómo una marca premium de golosinas para mascotas logró embalaje con 30% contenido reciclado con cierres resistentes a niños.",
+                "introSummary": "Pawsome Naturals se asoció con Achieve Pack para crear embalaje basado en PCR con cremalleras resistentes a niños, cumpliendo requisitos de minoristas mientras refuerza su mensaje de sostenibilidad.",
+                "faq": {
+                    "q1": "¿El cierre resistente a niños es a prueba de mascotas?",
+                    "a1": "El mecanismo de presionar y deslizar está diseñado para adultos humanos y evita efectivamente que las mascotas abran el paquete. Cumple con los estándares CPSC de resistencia a niños.",
+                    "q2": "¿Qué hace sostenible al embalaje PCR?",
+                    "a2": "El contenido PCR (reciclado posconsumo) reduce el uso de plástico virgen. Nuestra mezcla de 30% PCR proviene de plásticos de consumo reciclados, reduciendo la huella de carbono mientras mantiene el rendimiento."
+                },
+                "cta": {
+                    "title": "Embalaje para Productos de Mascotas",
+                    "description": "Cree embalaje sostenible que proteja las golosinas y atraiga a los dueños de mascotas.",
+                    "button": "Iniciar Su Proyecto"
+                }
+            },
+            "csChocolate": {
+                "title": "Caso de Estudio Marca de Chocolate | Embalaje de Lujo Artisan Cocoa",
+                "description": "Cómo Artisan Cocoa Emirates logró embalaje de chocolate de lujo con protección térmica y acabados premium.",
+                "heroTitle": "Caso de Estudio: Artisan Cocoa Emirates",
+                "heroSubtitle": "Cómo una marca de chocolate de lujo logró embalaje premium que resiste el calor del Medio Oriente.",
+                "introSummary": "Artisan Cocoa Emirates se asoció con Achieve Pack para crear embalaje de lujo que protege el chocolate en calor extremo mientras transmite valores de marca premium.",
+                "faq": {
+                    "q1": "¿Puede el embalaje flexible proteger el chocolate en climas cálidos?",
+                    "a1": "¡Sí! Nuestra estructura mono-PP de alta barrera con tecnología de barrera avanzada protege contra el calor y la humedad. Probado a 45°C para distribución en Medio Oriente.",
+                    "q2": "¿El estampado en caliente es sostenible?",
+                    "a2": "El estampado en caliente agrega material mínimo y el paquete base sigue siendo reciclable. Usamos métodos de aplicación responsables."
+                },
+                "cta": {
+                    "title": "Cree Embalaje de Lujo",
+                    "description": "Eleve su marca de confitería con embalaje sostenible premium.",
+                    "button": "Iniciar Su Proyecto"
+                }
+            },
+            "csCandle": {
+                "title": "Caso de Estudio Marca de Velas | Embalaje Sostenible Luminara",
+                "description": "Cómo Luminara Candles logró embalaje compostable digno de boutique para velas artesanales con cierres tin-tie.",
+                "heroTitle": "Caso de Estudio: Luminara Candles",
+                "heroSubtitle": "Cómo una marca artesanal de velas logró embalaje compostable que preserva la fragancia y atrae a minoristas boutique.",
+                "introSummary": "Luminara Candles se asoció con Achieve Pack para crear embalaje kraft compostable con barreras de aroma, permitiendo lanzamientos de temporada en pequeños lotes.",
+                "faq": {
+                    "q1": "¿Puede el embalaje de papel proteger las fragancias de las velas?",
+                    "a1": "¡Sí! Nuestra estructura kraft incluye una capa de barrera interna que sella las fragancias de aceites esenciales, manteniendo la integridad del aroma durante el almacenamiento y exhibición.",
+                    "q2": "¿Cuál es el mínimo para ediciones de temporada?",
+                    "a2": "Con impresión digital, podemos producir tan solo 200 bolsas por diseño—perfecto para probar aromas de temporada o edición limitada."
+                },
+                "cta": {
+                    "title": "Embalaje para Productos del Hogar",
+                    "description": "Cree embalaje sostenible para velas y productos de fragancia del hogar.",
+                    "button": "Iniciar Su Proyecto"
+                }
+            },
+            "csBakery": {
+                "title": "Caso de Estudio Panadería | Embalaje Compostable Doméstico Wholesome Bakes",
+                "description": "Cómo Wholesome Bakes logró embalaje de granola compostable doméstico con ventanas para éxito en mercados de agricultores.",
+                "heroTitle": "Caso de Estudio: Wholesome Bakes Bakery",
+                "heroSubtitle": "Cómo una panadería artesanal logró embalaje compostable doméstico que vende en mercados de agricultores.",
+                "introSummary": "Wholesome Bakes se asoció con Achieve Pack para crear embalaje totalmente compostable doméstico con ventanas, perfecto para ventas en mercados de agricultores y consumidores eco-conscientes.",
+                "faq": {
+                    "q1": "¿La ventana también es compostable doméstico?",
+                    "a1": "¡Sí! NatureFlex está hecho de celulosa y está certificado para compostaje doméstico. Todo el paquete incluyendo la ventana puede ir al compost del jardín.",
+                    "q2": "¿Qué lo hace asequible para pequeñas panaderías?",
+                    "a2": "La impresión digital elimina costos de placas, y nuestro mínimo de 300 bolsas significa que pequeñas panaderías pueden acceder a embalaje profesional sin gran inventario."
+                },
+                "cta": {
+                    "title": "Embalaje para Panaderos Artesanales",
+                    "description": "Cree embalaje compostable doméstico que muestre sus productos horneados.",
+                    "button": "Iniciar Su Proyecto"
+                }
+            },
+            "csWellness": {
+                "title": "Caso de Estudio Marca de Bienestar | Embalaje Bio-PE NourishNow",
+                "description": "Cómo NourishNow Wellness logró embalaje de suplementos Bio-PE listo para e-commerce con cierres resistentes a niños.",
+                "heroTitle": "Caso de Estudio: NourishNow Wellness",
+                "heroSubtitle": "Cómo una marca de bienestar DTC logró embalaje de base biológica que sobrevive el manejo de Amazon FBA.",
+                "introSummary": "NourishNow Wellness se asoció con Achieve Pack para crear embalaje Bio-PE optimizado para e-commerce, con cierres resistentes a niños y protección UV.",
+                "faq": {
+                    "q1": "¿Qué es Bio-PE?",
+                    "a1": "Bio-PE es polietileno hecho de etanol de caña de azúcar en lugar de petróleo. Tiene rendimiento idéntico al PE convencional pero está hecho de recursos renovables.",
+                    "q2": "¿Cumple con los requisitos de Amazon FBA?",
+                    "a2": "¡Sí! Nuestras bolsas están diseñadas para durabilidad en e-commerce—sobreviven el manejo, envío y almacenamiento de Amazon FBA sin falla de sellos ni perforaciones."
+                },
+                "cta": {
+                    "title": "Embalaje para Marcas de Bienestar",
+                    "description": "Cree embalaje sostenible para e-commerce para suplementos y productos de bienestar.",
+                    "button": "Iniciar Su Proyecto"
+                }
+            },
+            "csOrganicNuts": {
+                "title": "Caso de Estudio Frutos Secos Orgánicos | Embalaje Compatible EU PPWR NutriVie",
+                "description": "Cómo NutriVie Organic logró embalaje de frutos secos compatible con EU PPWR con 12 meses de vida útil y sistema de diseño unificado.",
+                "heroTitle": "Caso de Estudio: NutriVie Organic Nuts",
+                "heroSubtitle": "Cómo una marca de frutos secos orgánicos logró cumplimiento EU PPWR mientras reducía costos de embalaje en 15 SKUs.",
+                "introSummary": "NutriVie Organic se asoció con Achieve Pack para crear embalaje reciclable compatible con EU PPWR con un sistema de diseño unificado que redujo costos en su gama de 15 SKUs.",
+                "faq": {
+                    "q1": "¿Cómo funciona un juego de placas para 15 SKUs?",
+                    "a1": "Diseñamos un layout de marca unificado donde solo cambian las bandas de color y nombres de productos. La placa base se mantiene igual, con elementos variables intercambiados durante producción.",
+                    "q2": "¿Esto cumple totalmente con EU PPWR?",
+                    "a2": "¡Sí! La estructura mono-PE cumple con los requisitos de reciclabilidad. Proporcionamos documentación completa de cumplimiento incluyendo declaraciones de materiales y certificados de reciclabilidad."
+                },
+                "cta": {
+                    "title": "Embalaje Listo para EU PPWR",
+                    "description": "Adelántese a las regulaciones con soluciones de embalaje reciclable y compatible.",
+                    "button": "Iniciar Su Proyecto"
+                }
+            },
+            "csBathProducts": {
+                "title": "Caso de Estudio Productos de Baño | Embalaje Transparente Bavarian Bliss",
+                "description": "Cómo Bavarian Bliss logró embalaje transparente con protección contra humedad para bombas de baño con presentación digna de regalo.",
+                "heroTitle": "Caso de Estudio: Bavarian Bliss Bath Co.",
+                "heroSubtitle": "Cómo una marca de bombas de baño logró embalaje transparente con protección contra humedad que triplicó las ventas en mercados navideños.",
+                "introSummary": "Bavarian Bliss Bath Co. se asoció con Achieve Pack para crear embalaje reciclable transparente con alta barrera contra humedad, perfecto para mostrar coloridas bombas de baño en mercados navideños.",
+                "faq": {
+                    "q1": "¿Cómo previenen la activación de las bombas de baño?",
+                    "a1": "La estructura de sellado de alta barrera contra humedad evita que la humedad llegue a las bombas de baño. Correctamente sellados, los productos se mantienen frescos por 12+ meses incluso en condiciones húmedas.",
+                    "q2": "¿Las bolsas transparentes son ecológicas?",
+                    "a2": "¡Sí! Nuestras bolsas transparentes mono-PE son reciclables en flujos de reciclaje de PE. El material transparente también reduce la necesidad de ventanas impresas, usando menos tinta en general."
+                },
+                "cta": {
+                    "title": "Embalaje para Baño y Cuerpo",
+                    "description": "Cree embalaje protector que muestre sus productos de baño y cuerpo.",
+                    "button": "Iniciar Su Proyecto"
+                }
+            },
+            "csAdaptogens": {
+                "title": "Caso de Estudio Adaptógenos | Embalaje Premium Zen Botanics",
+                "description": "Cómo Zen Botanics Asia logró embalaje premium de adaptógenos con máxima protección de barrera para climas tropicales.",
+                "heroTitle": "Caso de Estudio: Zen Botanics Asia",
+                "heroSubtitle": "Cómo una marca de adaptógenos logró posicionamiento premium con embalaje negro mate que protege contra la humedad tropical.",
+                "introSummary": "Zen Botanics Asia se asoció con Achieve Pack para crear embalaje premium negro mate con máxima protección de barrera, perfecto para adaptógenos en climas tropicales.",
+                "faq": {
+                    "q1": "¿Cuánto tiempo mantienen su potencia los adaptógenos?",
+                    "a1": "Con nuestra estructura de alta barrera, los hongos funcionales y adaptógenos mantienen su potencia por 18+ meses. El acabado mate que bloquea la luz también previene la degradación UV.",
+                    "q2": "¿Pueden hacer múltiples tamaños con un diseño?",
+                    "a2": "¡Sí! Creamos sistemas de diseño unificados que escalan a través de tamaños. El mismo arte de placa escala proporcionalmente, manteniendo consistencia de marca en toda su gama."
+                },
+                "cta": {
+                    "title": "Embalaje Premium de Bienestar",
+                    "description": "Cree embalaje que comunique calidad y proteja ingredientes sensibles.",
+                    "button": "Iniciar Su Proyecto"
+                }
+            },
+            "csOutdoorSnacks": {
+                "title": "Caso de Estudio Snacks de Aventura | Embalaje TrailFuel Adventures",
+                "description": "Cómo TrailFuel logró listado en REI con embalaje de contenido reciclado resistente a perforaciones para snacks de sendero.",
+                "heroTitle": "Caso de Estudio: TrailFuel Adventures",
+                "heroSubtitle": "Cómo una marca de snacks outdoor logró listado nacional en REI con embalaje duradero y eco-certificado.",
+                "introSummary": "TrailFuel Adventures se asoció con Achieve Pack para crear embalaje PCR reforzado que sobrevive condiciones de sendero mientras cumple los requisitos de sostenibilidad de REI.",
+                "faq": {
+                    "q1": "¿Cómo maneja el embalaje los cambios de altitud?",
+                    "a1": "Probamos el embalaje a gran altitud (4,200+ m) para asegurar que los sellos no revienten ni fallen. La estructura flexible acomoda cambios de presión durante venta minorista en montaña y uso en sendero.",
+                    "q2": "¿Qué lo hace resistente a perforaciones?",
+                    "a2": "La estructura mono-PE reforzada es más gruesa que las bolsas estándar, diseñada específicamente para uso outdoor donde equipo, rocas y condiciones de sendero pueden dañar el embalaje."
+                },
+                "cta": {
+                    "title": "Embalaje para Estilos de Vida Activos",
+                    "description": "Cree embalaje duradero y sostenible para productos outdoor y de aventura.",
+                    "button": "Iniciar Su Proyecto"
+                }
             }
         }
     },

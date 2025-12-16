@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Building2, AlertCircle, Lightbulb, TrendingUp, Package, CheckCircle } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 
 const AdaptogensCaseStudy = () => {
+  const { t } = useTranslation();
+  const p = 'seoPages.pages.csAdaptogens';
   const heroImage = '/imgs/seo-photos/a_adaptogens_singapore_zen_wellness_pouch_1951517.webp';
   
   const sections = [
@@ -129,24 +132,24 @@ const AdaptogensCaseStudy = () => {
   ];
 
   const faqs = [
-    { question: 'How long do adaptogens stay potent?', answer: 'With our high-barrier structure, functional mushrooms and adaptogens maintain potency for 18+ months. The light-blocking matte finish also prevents UV degradation.' },
-    { question: 'Can you do multi-size from one design?', answer: 'Yes! We create unified design systems that scale across sizes. Same plate artwork scales proportionally, maintaining brand consistency across your range.' }
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) }
   ];
 
   return (
     <SEOPageLayout
-      title="Adaptogens Case Study | Zen Botanics Premium Packaging"
-      description="How Zen Botanics Asia achieved premium adaptogen packaging with maximum barrier protection for tropical climates."
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
       keywords={['adaptogen packaging', 'functional mushroom packaging', 'premium wellness packaging', 'Singapore packaging']}
-      heroTitle="Case Study: Zen Botanics Asia"
-      heroSubtitle="How an adaptogen brand achieved premium positioning with matte black packaging that protects against tropical humidity."
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage={heroImage}
       sections={sections}
-      introSummary="Zen Botanics Asia partnered with Achieve Pack to create premium matte black packaging with maximum barrier protection, perfect for adaptogens in tropical climates."
+      introSummary={t(`${p}.introSummary`)}
       faqs={faqs}
-      ctaTitle="Premium Wellness Packaging"
-      ctaDescription="Create packaging that communicates quality and protects sensitive ingredients."
-      ctaButtonText="Start Your Project"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
     />
   );

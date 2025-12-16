@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Building2, AlertCircle, Lightbulb, TrendingUp, Package, CheckCircle } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 
 const WellnessBrandCaseStudy = () => {
+  const { t } = useTranslation();
+  const p = 'seoPages.pages.csWellness';
   const heroImage = '/imgs/seo-photos/a_nourishnow_seattle_morning_wellness_pouch_1061333.webp';
   
   const sections = [
@@ -129,24 +132,24 @@ const WellnessBrandCaseStudy = () => {
   ];
 
   const faqs = [
-    { question: 'What is Bio-PE?', answer: 'Bio-PE is polyethylene made from sugarcane ethanol instead of petroleum. It has identical performance to conventional PE but is made from renewable resources.' },
-    { question: 'Does it meet Amazon FBA requirements?', answer: 'Yes! Our pouches are designed for e-commerce durability—they survive Amazon FBA handling, shipping, and storage without seal failure or punctures.' }
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) }
   ];
 
   return (
     <SEOPageLayout
-      title="Wellness Brand Case Study | NourishNow Bio-PE Packaging"
-      description="How NourishNow Wellness achieved e-commerce ready bio-PE supplement packaging with child-resistant closures."
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
       keywords={['supplement packaging', 'bio-PE packaging', 'Amazon FBA packaging', 'child-resistant supplement bags']}
-      heroTitle="Case Study: NourishNow Wellness"
-      heroSubtitle="How a DTC wellness brand achieved bio-based packaging that survives Amazon FBA handling."
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage={heroImage}
       sections={sections}
-      introSummary="NourishNow Wellness partnered with Achieve Pack to create bio-PE packaging optimized for e-commerce, with child-resistant closures and UV protection."
+      introSummary={t(`${p}.introSummary`)}
       faqs={faqs}
-      ctaTitle="Packaging for Wellness Brands"
-      ctaDescription="Create sustainable e-commerce packaging for supplements and wellness products."
-      ctaButtonText="Start Your Project"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
     />
   );

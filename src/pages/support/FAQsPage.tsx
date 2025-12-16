@@ -14,6 +14,7 @@ const FAQItem = ({ question, answer }: { question: string; answer: React.ReactNo
 
 const FAQsPage = () => {
   const { t } = useTranslation();
+  const p = 'seoPages.pages.faqs';
 
   const heroImage = '/imgs/seo-photos/a_solutions_hub_comprehensive_offerings_0357822.webp';
   
@@ -171,38 +172,26 @@ const FAQsPage = () => {
   ];
 
   const faqs = [
-    {
-      question: 'How do I get started?',
-      answer: 'Simply contact us through our website, email, or WhatsApp. Share your product details and requirements, and we\'ll provide a quotation within 24-48 hours.'
-    },
-    {
-      question: 'Can I see samples before ordering?',
-      answer: 'Absolutely! We provide material samples, blank pouches for test filling, and can produce printed samples with your design before full production.'
-    },
-    {
-      question: 'Do you work with small businesses and startups?',
-      answer: 'Yes! Our low MOQs (100 pieces for digital printing) make us ideal for small businesses. Many of our customers started small and have grown with us.'
-    },
-    {
-      question: 'What support do you provide after delivery?',
-      answer: 'We provide ongoing support including reorder assistance, design updates, and help resolving any issues. We\'re partners for the long term, not just one order.'
-    }
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) },
+    { question: t(`${p}.faq.q3`), answer: t(`${p}.faq.a3`) },
+    { question: t(`${p}.faq.q4`), answer: t(`${p}.faq.a4`) }
   ];
 
   return (
     <SEOPageLayout
-      title="Frequently Asked Questions | Packaging FAQs"
-      description="Find answers to common questions about sustainable packaging: MOQs, materials, production times, shipping, and more. Comprehensive FAQ from Achieve Pack."
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
       keywords={['packaging FAQ', 'sustainable packaging questions', 'MOQ', 'lead time', 'compostable vs recyclable']}
-      heroTitle="Frequently Asked Questions"
-      heroSubtitle="Answers to your packaging questions. Find information about ordering, materials, production, shipping, and more."
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage={heroImage}
       sections={sections}
-      introSummary="Browse our comprehensive FAQ covering ordering, materials, production, shipping, and customization. Can't find your answer? Contact us directly—we're happy to help."
+      introSummary={t(`${p}.introSummary`)}
       faqs={faqs}
-      ctaTitle="Still Have Questions?"
-      ctaDescription="Our team is ready to help with any questions not covered here."
-      ctaButtonText="Contact Us"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
     />
   );

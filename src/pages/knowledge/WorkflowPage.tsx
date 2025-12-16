@@ -387,39 +387,29 @@ const WorkflowPage = () => {
     }
   ];
 
+  const p = 'seoPages.pages.workflow';
+
   const faqs = [
-    {
-      question: 'Can the timeline be shortened?',
-      answer: 'Yes, rush orders are possible with express production and air freight. Digital printing is faster than plate printing. Contact us for urgent timelines—we\'ll do our best to accommodate.'
-    },
-    {
-      question: 'Do I need to pay upfront?',
-      answer: 'Typically, we require 50% deposit to start production, with the balance due before shipping. Sample orders may require full payment upfront. We accept bank transfer and major credit cards.'
-    },
-    {
-      question: 'What if I need to make changes after approval?',
-      answer: 'Changes before production starts are usually possible. Once production begins, changes may incur additional costs or delays. We always confirm final approval before starting.'
-    },
-    {
-      question: 'Do you handle customs and import duties?',
-      answer: 'We provide all export documentation. For DDP (Delivered Duty Paid), we handle customs clearance. For other terms (FOB, CIF), you or your freight forwarder handle import procedures.'
-    }
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) },
+    { question: t(`${p}.faq.q3`), answer: t(`${p}.faq.a3`) },
+    { question: t(`${p}.faq.q4`), answer: t(`${p}.faq.a4`) }
   ];
 
   return (
     <SEOPageLayout
-      title="Our Workflow | From Quote to Delivery"
-      description="Understand Achieve Pack's packaging production workflow. From initial consultation to final delivery—what to expect at every stage."
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
       keywords={['packaging workflow', 'production process', 'lead time', 'packaging timeline', 'order process']}
-      heroTitle="Our Workflow"
-      heroSubtitle="A clear, transparent process from initial inquiry to packaging delivery. Know what to expect at every stage."
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage={heroImage}
       sections={sections}
-      introSummary="Our 5-step workflow ensures a smooth experience: Consultation → Design → Sample → Production → Delivery. Typical timeline is 8-12 weeks from inquiry to delivered packaging."
+      introSummary={t(`${p}.introSummary`)}
       faqs={faqs}
-      ctaTitle="Start Your Project"
-      ctaDescription="Ready to begin? Contact us for a free consultation and quote."
-      ctaButtonText="Get Started"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
     />
   );

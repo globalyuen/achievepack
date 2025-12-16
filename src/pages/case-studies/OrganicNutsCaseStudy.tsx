@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Building2, AlertCircle, Lightbulb, TrendingUp, Package, CheckCircle } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 
 const OrganicNutsCaseStudy = () => {
+  const { t } = useTranslation();
+  const p = 'seoPages.pages.csOrganicNuts';
   const heroImage = '/imgs/seo-photos/a_nutrivie_nuts_sustainable_pouch_lifestyle_0132786.webp';
   
   const sections = [
@@ -129,24 +132,24 @@ const OrganicNutsCaseStudy = () => {
   ];
 
   const faqs = [
-    { question: 'How does one plate set work for 15 SKUs?', answer: 'We designed a unified brand layout where only the color bands and product names change. The base plate stays the same, with variable elements swapped during production.' },
-    { question: 'Is this fully EU PPWR compliant?', answer: 'Yes! The mono-PE structure meets the recyclability requirements. We provide full compliance documentation including material declarations and recyclability certificates.' }
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) }
   ];
 
   return (
     <SEOPageLayout
-      title="Organic Nuts Case Study | NutriVie EU PPWR Compliant Packaging"
-      description="How NutriVie Organic achieved EU PPWR compliant nut packaging with 12-month shelf life and unified design system."
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
       keywords={['nut packaging', 'EU PPWR compliant', 'organic food packaging', 'recyclable food pouches']}
-      heroTitle="Case Study: NutriVie Organic Nuts"
-      heroSubtitle="How an organic nut brand achieved EU PPWR compliance while reducing packaging costs across 15 SKUs."
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage={heroImage}
       sections={sections}
-      introSummary="NutriVie Organic partnered with Achieve Pack to create EU PPWR-compliant recyclable packaging with a unified design system that reduced costs across their 15-SKU range."
+      introSummary={t(`${p}.introSummary`)}
       faqs={faqs}
-      ctaTitle="EU PPWR-Ready Packaging"
-      ctaDescription="Get ahead of regulations with compliant, recyclable packaging solutions."
-      ctaButtonText="Start Your Project"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
     />
   );

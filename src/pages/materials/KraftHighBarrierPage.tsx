@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Leaf, Shield, Award, CheckCircle, Package, Layers } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 
 const KraftHighBarrierPage: React.FC = () => {
+  const { t } = useTranslation();
+  const p = 'seoPages.pages.kraftHighBarrier';
   const sections = [
     {
       id: 'overview',
@@ -176,56 +179,33 @@ const KraftHighBarrierPage: React.FC = () => {
   ];
 
   const faqs = [
-    {
-      question: 'How long can products stay fresh in kraft high barrier packaging?',
-      answer: 'Products can maintain freshness for 12-24+ months depending on the product type and storage conditions. The aluminum foil barrier provides maximum protection against oxygen, moisture, and light degradation.'
-    },
-    {
-      question: 'Is kraft high barrier packaging worth the extra cost?',
-      answer: 'For premium products, long shelf life requirements, or export markets, absolutely. The extended shelf life reduces waste, allows broader distribution, and enhances perceived value. The natural kraft aesthetic also commands premium pricing.'
-    },
-    {
-      question: 'Can this packaging be used for pharmaceuticals?',
-      answer: 'Yes, our kraft high barrier packaging meets pharmaceutical-grade requirements. We can provide all necessary certifications and documentation for regulated products.'
-    },
-    {
-      question: 'What printing options work best on kraft high barrier?',
-      answer: 'Plate printing provides the most cost-effective solution for high barrier packaging due to typical higher MOQs (5,000-10,000 pcs). Digital printing is available for smaller runs with premium pricing.'
-    },
-    {
-      question: 'Is there a more sustainable alternative to aluminum foil barrier?',
-      answer: 'For some applications, our Kraft Medium Barrier with metallized layers can provide adequate protection with better recyclability. However, for maximum shelf life, aluminum foil remains the gold standard.'
-    }
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) },
+    { question: t(`${p}.faq.q3`), answer: t(`${p}.faq.a3`) },
+    { question: t(`${p}.faq.q4`), answer: t(`${p}.faq.a4`) }
   ];
 
   return (
     <SEOPageLayout
-      title="Kraft High Barrier Packaging | Premium Long Shelf Life Pouches"
-      description="Kraft high barrier packaging with aluminum foil for maximum protection. 12-24+ month shelf life for premium coffee, pharmaceuticals, and freeze-dried foods. FDA certified."
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
       keywords={[
         'kraft high barrier packaging',
         'aluminum kraft pouches',
-        'long shelf life packaging',
-        'premium kraft bags',
-        'pharmaceutical packaging',
-        'freeze dried food packaging',
-        'specialty coffee bags',
-        'high barrier kraft',
-        'foil kraft pouches',
-        'maximum barrier packaging'
+        'long shelf life packaging'
       ]}
       canonicalUrl="https://achievepack.com/materials/kraft-high-barrier"
-      heroTitle="Kraft High Barrier Packaging"
-      heroSubtitle="Maximum protection with premium kraft aesthetics. Aluminum foil barrier for 12-24+ month shelf life. Perfect for specialty coffee, pharmaceuticals, and premium foods."
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage="/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp"
       heroImageAlt="Kraft high barrier pouches with aluminum foil for long shelf life products"
-      introSummary="Kraft high barrier packaging features thick aluminum foil layers that provide pharmaceutical-grade protection for oxygen-sensitive products, delivering 12-24+ months shelf life while maintaining the premium natural aesthetic of kraft paper."
+      introSummary={t(`${p}.introSummary`)}
       sections={sections}
       faqs={faqs}
       schemaType="Product"
-      ctaTitle="Discuss Your High Barrier Packaging Needs"
-      ctaDescription="Let's create premium kraft packaging with maximum protection for your high-value products."
-      ctaButtonText="Request a Quote"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
     />
   );
 };

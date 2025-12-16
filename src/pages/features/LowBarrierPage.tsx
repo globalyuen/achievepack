@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 const LowBarrierPage: React.FC = () => {
   const { t } = useTranslation()
+  const p = 'seoPages.pages.lowBarrier'
   const sections = [
     {
       id: 'overview',
@@ -183,22 +184,10 @@ const LowBarrierPage: React.FC = () => {
   ]
 
   const faqs = [
-    {
-      question: "Is low barrier packaging suitable for my product?",
-      answer: "Low barrier is ideal for dry products consumed within 3-6 months: cookies, tea, granola, dried fruits, rice, and similar dry goods. If your product is moisture or oxygen sensitive, consider medium or high barrier options."
-    },
-    {
-      question: "Can low barrier packaging be compostable?",
-      answer: "Yes! Many low barrier options like Kraft+PLA and NatureFlex are home compostable, breaking down in backyard compost within 6-12 months. These are certified to EN 13432 and OK Home standards."
-    },
-    {
-      question: "What's the price difference vs medium barrier?",
-      answer: "Low barrier materials typically cost 15-25% less than medium barrier options. The cost savings plus better eco-credentials make it an excellent choice when your product doesn't require extended shelf life."
-    },
-    {
-      question: "How do I transition from plastic to low barrier eco-packaging?",
-      answer: "We offer free consultation and samples to test compatibility. Many brands successfully switch dry goods to low barrier compostable packaging. We help you validate shelf life and optimize the transition."
-    }
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) },
+    { question: t(`${p}.faq.q3`), answer: t(`${p}.faq.a3`) },
+    { question: t(`${p}.faq.q4`), answer: t(`${p}.faq.a4`) }
   ]
 
   const relatedLinks = [
@@ -209,20 +198,20 @@ const LowBarrierPage: React.FC = () => {
 
   return (
     <SEOPageLayout
-      title="Low Barrier Packaging | 3-6 Month Shelf Life Eco Pouches"
-      description="Low barrier eco-friendly packaging for products with 3-6 month shelf life. Home compostable and recyclable options. Best sustainability credentials. Perfect for dry goods, tea, cookies, granola."
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
       keywords={['low barrier packaging', 'compostable pouches', 'short shelf life packaging', 'eco-friendly packaging', 'kraft paper pouches']}
       canonicalUrl="https://achievepack.com/features/low-barrier"
-      heroTitle="Low Barrier Packaging"
-      heroSubtitle="Best eco-credentials with 3-6 month shelf life protection. Perfect for dry goods with fast turnover."
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage="/imgs/seo-photos/a_achievepack_low_barrier_fresh_5851801.webp"
       heroImageAlt="Low barrier eco-friendly packaging for fresh products"
-      introSummary="Low barrier packaging offers the most sustainable options with home compostable and widely recyclable materials. Ideal for dry products like cookies, tea, granola, and grains that don't require extended shelf life protection."
+      introSummary={t(`${p}.introSummary`)}
       sections={sections}
       faqs={faqs}
       relatedLinks={relatedLinks}
-      ctaTitle="Ready to Go Sustainable?"
-      ctaDescription="Get free samples of our low barrier compostable packaging and see the quality for yourself."
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
     />
   )
 }

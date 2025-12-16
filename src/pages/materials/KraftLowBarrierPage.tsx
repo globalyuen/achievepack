@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Leaf, Shield, Award, CheckCircle, Package, Layers } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 
 const KraftLowBarrierPage: React.FC = () => {
+  const { t } = useTranslation();
+  const p = 'seoPages.pages.kraftLowBarrier';
   const sections = [
     {
       id: 'overview',
@@ -171,56 +174,33 @@ const KraftLowBarrierPage: React.FC = () => {
   ];
 
   const faqs = [
-    {
-      question: 'What is the shelf life for products in kraft low barrier packaging?',
-      answer: 'Typically 3-6 months for dry, low-moisture products. The exact shelf life depends on the product type, storage conditions, and moisture content.'
-    },
-    {
-      question: 'Can kraft low barrier packaging be used for coffee?',
-      answer: 'Yes, but only for short-term storage (2-3 months). For longer shelf life or premium coffee, consider our kraft medium or high barrier options with degassing valves.'
-    },
-    {
-      question: 'Is this packaging food safe?',
-      answer: 'Yes, all our kraft packaging materials are FDA compliant and food-safe. The inner PE coating prevents direct contact between food and paper fibers.'
-    },
-    {
-      question: 'Can I print on kraft paper?',
-      answer: 'Absolutely! Kraft paper provides excellent printability. We offer both digital printing (low MOQ) and plate printing (high volume) options.'
-    },
-    {
-      question: 'What is the minimum order quantity?',
-      answer: 'For digital printing: 500-1,000 pieces. For plate printing: 5,000-10,000 pieces depending on size and design complexity.'
-    }
+    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
+    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) },
+    { question: t(`${p}.faq.q3`), answer: t(`${p}.faq.a3`) },
+    { question: t(`${p}.faq.q4`), answer: t(`${p}.faq.a4`) }
   ];
 
   return (
     <SEOPageLayout
-      title="Kraft Low Barrier Packaging | Eco-Friendly Paper Pouches"
-      description="Kraft low barrier packaging for dry goods, bakery items, and short shelf life products. Natural paper appearance with basic moisture protection. MOQ 500 pcs."
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
       keywords={[
         'kraft low barrier packaging',
         'kraft paper pouches',
-        'eco-friendly paper bags',
-        'recyclable kraft packaging',
-        'bakery packaging',
-        'dry goods packaging',
-        'natural kraft bags',
-        'sustainable paper pouches',
-        'kraft snack bags',
-        'paper food packaging'
+        'eco-friendly paper bags'
       ]}
       canonicalUrl="https://achievepack.com/materials/kraft-low-barrier"
-      heroTitle="Kraft Low Barrier Packaging"
-      heroSubtitle="Natural kraft paper pouches with basic protection for dry goods and short shelf life products. Eco-friendly, cost-effective, and beautifully rustic."
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage="/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp"
       heroImageAlt="Kraft low barrier paper pouches for dry goods and bakery products"
-      introSummary="Kraft low barrier packaging combines the natural aesthetic of kraft paper with basic moisture and oxygen protection, perfect for bakery items, dry snacks, and products with 3-6 month shelf life requirements."
+      introSummary={t(`${p}.introSummary`)}
       sections={sections}
       faqs={faqs}
       schemaType="Product"
-      ctaTitle="Get Started with Kraft Low Barrier Packaging"
-      ctaDescription="Let's create sustainable kraft paper packaging that showcases your brand's natural values."
-      ctaButtonText="Request a Quote"
+      ctaTitle={t(`${p}.cta.title`)}
+      ctaDescription={t(`${p}.cta.description`)}
+      ctaButtonText={t(`${p}.cta.button`)}
     />
   );
 };
