@@ -39,6 +39,7 @@ function SpinningPouch({ path }: { path: string }) {
         }
     })
 
+    // @ts-ignore
     return <primitive object={scene} ref={ref} />
 }
 
@@ -83,8 +84,8 @@ export default function ThreeDPreview() {
                             key={m.name}
                             onClick={() => setModelIndex(i)}
                             className={`pointer-events-auto px-6 py-3 rounded-full text-sm font-semibold transition-all shadow-lg transform hover:scale-105 active:scale-95 ${i === modelIndex
-                                    ? 'bg-primary-600 text-white ring-2 ring-primary-300 ring-offset-2'
-                                    : 'bg-white text-neutral-700 hover:bg-neutral-50 border border-neutral-200'
+                                ? 'bg-primary-600 text-white ring-2 ring-primary-300 ring-offset-2'
+                                : 'bg-white text-neutral-700 hover:bg-neutral-50 border border-neutral-200'
                                 }`}
                         >
                             {m.name}
