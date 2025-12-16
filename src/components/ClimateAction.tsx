@@ -128,7 +128,7 @@ export default function ClimateAction() {
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20">
                 <img
-                  src="/imgs/climate/earth-climate.webp"
+                  src="/imgs/climate.webp"
                   alt="Climate Action"
                   className="w-full h-auto"
                   onError={(e) => {
