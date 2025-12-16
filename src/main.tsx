@@ -90,8 +90,10 @@ import WellnessBrandCaseStudy from './pages/case-studies/WellnessBrandCaseStudy'
 import OrganicNutsCaseStudy from './pages/case-studies/OrganicNutsCaseStudy'
 import BathProductsCaseStudy from './pages/case-studies/BathProductsCaseStudy'
 import AdaptogensCaseStudy from './pages/case-studies/AdaptogensCaseStudy'
+import React, { Suspense } from 'react'
 import OutdoorSnacksCaseStudy from './pages/case-studies/OutdoorSnacksCaseStudy'
-import ThreeDPreview from './components/ThreeDPreview'
+// Lazy load 3D preview to protect main bundle
+const ThreeDPreview = React.lazy(() => import('./components/ThreeDPreview'))
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -185,9 +187,12 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/case-studies/bath-products" element={<BathProductsCaseStudy />} />
               <Route path="/case-studies/adaptogens" element={<AdaptogensCaseStudy />} />
               <Route path="/case-studies/outdoor-snacks" element={<OutdoorSnacksCaseStudy />} />
-
               {/* Dev / Test Routes */}
-              <Route path="/3d-preview" element={<ThreeDPreview />} />
+              <Route path="/3d-preview" element={
+                <Suspense fallback={<div className="h-screen w-full flex items-center justify-center bg-white">Loading...</div>}>
+                  <ThreeDPreview />
+                </Suspense>
+              } />
             </Routes>
           </StoreProvider>
         </BrowserRouter>
