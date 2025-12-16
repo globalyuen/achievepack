@@ -1,3 +1,5 @@
+import React from 'react';
+import { Building2, AlertCircle, Lightbulb, TrendingUp, Package, CheckCircle } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 
 const CandleBrandCaseStudy = () => {
@@ -7,76 +9,109 @@ const CandleBrandCaseStudy = () => {
     {
       id: 'overview',
       title: 'Client Overview',
-      content: `
-        <div class="bg-primary-50 p-6 rounded-xl mb-6">
-          <div class="grid md:grid-cols-2 gap-6">
-            <div><p class="text-sm text-neutral-500 mb-1">Company</p><p class="font-semibold text-lg">Luminara Candles</p></div>
-            <div><p class="text-sm text-neutral-500 mb-1">Industry</p><p class="font-semibold">Artisan Candles & Home Fragrance</p></div>
-            <div><p class="text-sm text-neutral-500 mb-1">Location</p><p class="font-semibold">Munich, Germany</p></div>
-            <div><p class="text-sm text-neutral-500 mb-1">Package Type</p><p class="font-semibold">Side Gusset Bags with Tin-Tie</p></div>
+      icon: <Building2 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="bg-primary-50 p-6 rounded-xl mb-6">
+            <div className="grid md:grid-cols-2 gap-6">
+              <div><p className="text-sm text-neutral-500 mb-1">Company</p><p className="font-semibold text-lg">Luminara Candles</p></div>
+              <div><p className="text-sm text-neutral-500 mb-1">Industry</p><p className="font-semibold">Artisan Candles & Home Fragrance</p></div>
+              <div><p className="text-sm text-neutral-500 mb-1">Location</p><p className="font-semibold">Munich, Germany</p></div>
+              <div><p className="text-sm text-neutral-500 mb-1">Package Type</p><p className="font-semibold">Side Gusset Bags with Tin-Tie</p></div>
+            </div>
           </div>
+          <p>Luminara creates hand-poured soy candles with essential oil blends. They needed packaging that protects fragrance integrity while presenting beautifully in boutique retail settings.</p>
         </div>
-        <p>Luminara creates hand-poured soy candles with essential oil blends. They needed packaging that protects fragrance integrity while presenting beautifully in boutique retail settings.</p>
-      `
+      )
     },
     {
       id: 'challenge',
       title: 'The Challenge',
-      content: `
-        <ul class="space-y-3 text-neutral-700">
-          <li class="flex items-start gap-3"><span class="text-red-500 mt-1">✗</span><span><strong>Fragrance preservation</strong> critical for essential oil candles</span></li>
-          <li class="flex items-start gap-3"><span class="text-red-500 mt-1">✗</span><span><strong>Boutique presentation</strong> for high-end home stores</span></li>
-          <li class="flex items-start gap-3"><span class="text-red-500 mt-1">✗</span><span><strong>EU packaging regulations</strong> compliance</span></li>
-          <li class="flex items-start gap-3"><span class="text-red-500 mt-1">✗</span><span><strong>Small batch flexibility</strong> for seasonal scents</span></li>
+      icon: <AlertCircle className="h-5 w-5 text-red-600" />,
+      content: (
+        <ul className="space-y-3 text-neutral-700">
+          <li className="flex items-start gap-3"><span className="text-red-500 mt-1">✗</span><span><strong>Fragrance preservation</strong> critical for essential oil candles</span></li>
+          <li className="flex items-start gap-3"><span className="text-red-500 mt-1">✗</span><span><strong>Boutique presentation</strong> for high-end home stores</span></li>
+          <li className="flex items-start gap-3"><span className="text-red-500 mt-1">✗</span><span><strong>EU packaging regulations</strong> compliance</span></li>
+          <li className="flex items-start gap-3"><span className="text-red-500 mt-1">✗</span><span><strong>Small batch flexibility</strong> for seasonal scents</span></li>
         </ul>
-      `
+      )
     },
     {
       id: 'solution',
       title: 'Our Solution',
-      content: `
-        <div class="grid md:grid-cols-2 gap-6 mb-6">
-          <div class="bg-white p-6 rounded-xl border border-neutral-200">
-            <h4 class="font-semibold text-primary-700 mb-3">Kraft Paper + Aroma Barrier</h4>
-            <p class="text-neutral-600 text-sm">Natural kraft exterior with inner barrier layer that seals in essential oil fragrances.</p>
+      icon: <Lightbulb className="h-5 w-5 text-green-600" />,
+      content: (
+        <div className="grid md:grid-cols-2 gap-4">
+          <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-5 rounded-xl border border-blue-200">
+            <h4 className="font-semibold text-blue-800 mb-3 flex items-center gap-2">
+              <CheckCircle className="h-5 w-5 text-blue-600" />
+              Kraft Paper + Aroma Barrier
+            </h4>
+            <p className="text-sm text-blue-700">Natural kraft exterior with inner barrier layer that seals in essential oil fragrances.</p>
           </div>
-          <div class="bg-white p-6 rounded-xl border border-neutral-200">
-            <h4 class="font-semibold text-primary-700 mb-3">Elegant Tin-Tie Closure</h4>
-            <p class="text-neutral-600 text-sm">Wire closure adds artisan appeal and allows customers to reseal between uses.</p>
+          <div className="bg-gradient-to-br from-green-50 to-green-100 p-5 rounded-xl border border-green-200">
+            <h4 className="font-semibold text-green-800 mb-3 flex items-center gap-2">
+              <CheckCircle className="h-5 w-5 text-green-600" />
+              Elegant Tin-Tie Closure
+            </h4>
+            <p className="text-sm text-green-700">Wire closure adds artisan appeal and allows customers to reseal between uses.</p>
           </div>
-          <div class="bg-white p-6 rounded-xl border border-neutral-200">
-            <h4 class="font-semibold text-primary-700 mb-3">Seasonal Flexibility</h4>
-            <p class="text-neutral-600 text-sm">Digital printing allows 200-piece runs for limited edition seasonal scents.</p>
+          <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-5 rounded-xl border border-purple-200">
+            <h4 className="font-semibold text-purple-800 mb-3 flex items-center gap-2">
+              <CheckCircle className="h-5 w-5 text-purple-600" />
+              Seasonal Flexibility
+            </h4>
+            <p className="text-sm text-purple-700">Digital printing allows 200-piece runs for limited edition seasonal scents.</p>
           </div>
-          <div class="bg-white p-6 rounded-xl border border-neutral-200">
-            <h4 class="font-semibold text-primary-700 mb-3">Compostable Structure</h4>
-            <p class="text-neutral-600 text-sm">EN 13432 certified compostable—appeals to eco-conscious home décor shoppers.</p>
+          <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-5 rounded-xl border border-amber-200">
+            <h4 className="font-semibold text-amber-800 mb-3 flex items-center gap-2">
+              <CheckCircle className="h-5 w-5 text-amber-600" />
+              Compostable Structure
+            </h4>
+            <p className="text-sm text-amber-700">EN 13432 certified compostable—appeals to eco-conscious home décor shoppers.</p>
           </div>
         </div>
-      `
+      )
     },
     {
       id: 'results',
       title: 'The Results',
-      content: `
-        <div class="grid md:grid-cols-4 gap-6 mb-6">
-          <div class="text-center p-6 bg-green-50 rounded-xl"><div class="text-3xl font-bold text-green-600 mb-1">6</div><div class="text-sm text-neutral-600">Boutiques Listed</div></div>
-          <div class="text-center p-6 bg-green-50 rounded-xl"><div class="text-3xl font-bold text-green-600 mb-1">12</div><div class="text-sm text-neutral-600">Seasonal Scents</div></div>
-          <div class="text-center p-6 bg-green-50 rounded-xl"><div class="text-3xl font-bold text-green-600 mb-1">100%</div><div class="text-sm text-neutral-600">Compostable</div></div>
-          <div class="text-center p-6 bg-green-50 rounded-xl"><div class="text-3xl font-bold text-green-600 mb-1">200</div><div class="text-sm text-neutral-600">Piece Minimum</div></div>
+      icon: <TrendingUp className="h-5 w-5 text-green-600" />,
+      content: (
+        <div className="space-y-6">
+          <div className="grid md:grid-cols-4 gap-4 mb-6">
+            <div className="text-center p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-xl border border-green-200">
+              <div className="text-3xl font-bold text-green-600 mb-1">6</div>
+              <div className="text-sm text-green-700">Boutiques Listed</div>
+            </div>
+            <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl border border-blue-200">
+              <div className="text-3xl font-bold text-blue-600 mb-1">12</div>
+              <div className="text-sm text-blue-700">Seasonal Scents</div>
+            </div>
+            <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl border border-purple-200">
+              <div className="text-3xl font-bold text-purple-600 mb-1">100%</div>
+              <div className="text-sm text-purple-700">Compostable</div>
+            </div>
+            <div className="text-center p-6 bg-gradient-to-br from-amber-50 to-amber-100 rounded-xl border border-amber-200">
+              <div className="text-3xl font-bold text-amber-600 mb-1">200</div>
+              <div className="text-sm text-amber-700">Piece Minimum</div>
+            </div>
+          </div>
+          <blockquote className="border-l-4 border-primary-500 pl-4 italic text-neutral-600">
+            "Being able to create packaging for just 200 candles means I can test new scents without huge commitment. The kraft bags look beautiful and my customers love composting them."
+            <footer className="mt-2 text-sm font-semibold text-neutral-700">— Hannah Bergmann, Founder, Luminara Candles</footer>
+          </blockquote>
         </div>
-        <blockquote class="border-l-4 border-primary-500 pl-4 italic text-neutral-600">
-          "Being able to create packaging for just 200 candles means I can test new scents without huge commitment. The kraft bags look beautiful and my customers love composting them."
-          <footer class="mt-2 text-sm font-semibold text-neutral-700">— Hannah Bergmann, Founder, Luminara Candles</footer>
-        </blockquote>
-      `
+      )
     },
     {
       id: 'specs',
       title: 'Package Specifications',
-      content: `
-        <div class="bg-neutral-100 p-6 rounded-xl">
-          <div class="grid md:grid-cols-2 gap-4 text-sm">
+      icon: <Package className="h-5 w-5 text-neutral-600" />,
+      content: (
+        <div className="bg-neutral-100 p-6 rounded-xl">
+          <div className="grid md:grid-cols-2 gap-4 text-sm">
             <div><strong>Format:</strong> Side Gusset Bag</div>
             <div><strong>Size:</strong> 120 × 300 × 80mm</div>
             <div><strong>Material:</strong> Kraft + PLA (compostable)</div>
@@ -85,7 +120,7 @@ const CandleBrandCaseStudy = () => {
             <div><strong>Certification:</strong> EN 13432</div>
           </div>
         </div>
-      `
+      )
     }
   ];
 

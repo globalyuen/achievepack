@@ -1,4 +1,6 @@
+import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Building2, Target, Heart, Users, TrendingUp, Leaf, Award, Handshake, Lightbulb, CheckCircle } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 
 const AboutPage = () => {
@@ -10,100 +12,128 @@ const AboutPage = () => {
     {
       id: 'story',
       title: 'Our Story',
-      content: `
-        <p class="mb-4">Founded in 2011 in Hong Kong, Achieve Pack® has grown from a small packaging supplier into a leading provider of sustainable flexible packaging solutions. Our journey began with a simple belief: businesses shouldn't have to choose between quality packaging and environmental responsibility.</p>
-        <p class="mb-4">Today, we serve over 500 brands worldwide, from artisan startups to established enterprises, helping them transition to eco-friendly packaging without compromising on quality, performance, or budget.</p>
-        <p>Under the pouch.eco brand, we've made sustainable packaging accessible to businesses of all sizes, with low minimum order quantities and fast turnaround times that traditional manufacturers simply can't match.</p>
-      `
+      icon: <Building2 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4">
+          <p className="text-neutral-700">Founded in 2011 in Hong Kong, Achieve Pack® has grown from a small packaging supplier into a leading provider of sustainable flexible packaging solutions. Our journey began with a simple belief: businesses shouldn't have to choose between quality packaging and environmental responsibility.</p>
+          <p className="text-neutral-700">Today, we serve over 500 brands worldwide, from artisan startups to established enterprises, helping them transition to eco-friendly packaging without compromising on quality, performance, or budget.</p>
+          <p className="text-neutral-700">Under the pouch.eco brand, we've made sustainable packaging accessible to businesses of all sizes, with low minimum order quantities and fast turnaround times that traditional manufacturers simply can't match.</p>
+        </div>
+      )
     },
     {
       id: 'mission',
       title: 'Our Mission',
-      content: `
-        <p class="mb-4">Our mission is to make sustainable packaging the easy choice for every business. We believe that environmental responsibility shouldn't be a premium feature—it should be the standard.</p>
-        <div class="bg-primary-50 p-6 rounded-xl mb-4">
-          <h4 class="font-semibold text-primary-700 mb-3">What Drives Us:</h4>
-          <ul class="space-y-2 text-neutral-700">
-            <li class="flex items-start gap-2"><span class="text-primary-500 mt-1">✓</span> Reducing plastic waste in the packaging industry</li>
-            <li class="flex items-start gap-2"><span class="text-primary-500 mt-1">✓</span> Making certified eco materials accessible to all business sizes</li>
-            <li class="flex items-start gap-2"><span class="text-primary-500 mt-1">✓</span> Helping brands tell their sustainability story</li>
-            <li class="flex items-start gap-2"><span class="text-primary-500 mt-1">✓</span> Innovating new materials and solutions for a circular economy</li>
-          </ul>
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4">
+          <p className="text-neutral-700">Our mission is to make sustainable packaging the easy choice for every business. We believe that environmental responsibility shouldn't be a premium feature—it should be the standard.</p>
+          <div className="bg-gradient-to-br from-primary-50 to-green-100 p-6 rounded-xl border border-primary-200">
+            <h4 className="font-semibold text-primary-800 mb-3 flex items-center gap-2">
+              <Leaf className="h-5 w-5 text-primary-600" />
+              What Drives Us:
+            </h4>
+            <ul className="space-y-2 text-neutral-700">
+              <li className="flex items-start gap-2"><CheckCircle className="h-5 w-5 text-primary-500 mt-0.5 flex-shrink-0" /> Reducing plastic waste in the packaging industry</li>
+              <li className="flex items-start gap-2"><CheckCircle className="h-5 w-5 text-primary-500 mt-0.5 flex-shrink-0" /> Making certified eco materials accessible to all business sizes</li>
+              <li className="flex items-start gap-2"><CheckCircle className="h-5 w-5 text-primary-500 mt-0.5 flex-shrink-0" /> Helping brands tell their sustainability story</li>
+              <li className="flex items-start gap-2"><CheckCircle className="h-5 w-5 text-primary-500 mt-0.5 flex-shrink-0" /> Innovating new materials and solutions for a circular economy</li>
+            </ul>
+          </div>
         </div>
-      `
+      )
     },
     {
       id: 'values',
       title: 'Our Values',
-      content: `
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="bg-white p-6 rounded-xl border border-neutral-200">
-            <h4 class="font-semibold text-lg mb-2 text-primary-700">Sustainability First</h4>
-            <p class="text-neutral-600">Every decision we make considers environmental impact. From material selection to shipping methods, sustainability guides our operations.</p>
+      icon: <Heart className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl border border-green-200">
+            <h4 className="font-semibold text-lg mb-2 text-green-800 flex items-center gap-2">
+              <Leaf className="h-5 w-5 text-green-600" />
+              Sustainability First
+            </h4>
+            <p className="text-green-700">Every decision we make considers environmental impact. From material selection to shipping methods, sustainability guides our operations.</p>
           </div>
-          <div class="bg-white p-6 rounded-xl border border-neutral-200">
-            <h4 class="font-semibold text-lg mb-2 text-primary-700">Quality Without Compromise</h4>
-            <p class="text-neutral-600">Eco-friendly doesn't mean lower quality. Our packaging meets the same rigorous standards as conventional materials.</p>
+          <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl border border-blue-200">
+            <h4 className="font-semibold text-lg mb-2 text-blue-800 flex items-center gap-2">
+              <Award className="h-5 w-5 text-blue-600" />
+              Quality Without Compromise
+            </h4>
+            <p className="text-blue-700">Eco-friendly doesn't mean lower quality. Our packaging meets the same rigorous standards as conventional materials.</p>
           </div>
-          <div class="bg-white p-6 rounded-xl border border-neutral-200">
-            <h4 class="font-semibold text-lg mb-2 text-primary-700">Customer Partnership</h4>
-            <p class="text-neutral-600">We work as partners, not just suppliers. Your success is our success, and we're invested in helping you achieve your goals.</p>
+          <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl border border-purple-200">
+            <h4 className="font-semibold text-lg mb-2 text-purple-800 flex items-center gap-2">
+              <Handshake className="h-5 w-5 text-purple-600" />
+              Customer Partnership
+            </h4>
+            <p className="text-purple-700">We work as partners, not just suppliers. Your success is our success, and we're invested in helping you achieve your goals.</p>
           </div>
-          <div class="bg-white p-6 rounded-xl border border-neutral-200">
-            <h4 class="font-semibold text-lg mb-2 text-primary-700">Innovation & Transparency</h4>
-            <p class="text-neutral-600">We continuously develop new materials and share honest information about capabilities and limitations.</p>
+          <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-6 rounded-xl border border-amber-200">
+            <h4 className="font-semibold text-lg mb-2 text-amber-800 flex items-center gap-2">
+              <Lightbulb className="h-5 w-5 text-amber-600" />
+              Innovation & Transparency
+            </h4>
+            <p className="text-amber-700">We continuously develop new materials and share honest information about capabilities and limitations.</p>
           </div>
         </div>
-      `
+      )
     },
     {
       id: 'team',
       title: 'Our Team',
-      content: `
-        <p class="mb-6">Our team combines decades of packaging industry experience with a passion for sustainability. From material scientists to customer support specialists, every team member is committed to your success.</p>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="text-center">
-            <img src="/imgs/team/Ryan Wong - Packaging Specialist.png" alt="Ryan Wong" class="w-32 h-32 rounded-full mx-auto mb-3 object-cover" />
-            <h4 class="font-semibold">Ryan Wong</h4>
-            <p class="text-sm text-neutral-600">Packaging Specialist</p>
-          </div>
-          <div class="text-center">
-            <img src="/imgs/team/Eric Kwok - Business Development.png" alt="Eric Kwok" class="w-32 h-32 rounded-full mx-auto mb-3 object-cover" />
-            <h4 class="font-semibold">Eric Kwok</h4>
-            <p class="text-sm text-neutral-600">Business Development</p>
-          </div>
-          <div class="text-center">
-            <img src="/imgs/team/Jericha Kwok - Business Development.png" alt="Jericha Kwok" class="w-32 h-32 rounded-full mx-auto mb-3 object-cover" />
-            <h4 class="font-semibold">Jericha Kwok</h4>
-            <p class="text-sm text-neutral-600">Business Development</p>
+      icon: <Users className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">Our team combines decades of packaging industry experience with a passion for sustainability. From material scientists to customer support specialists, every team member is committed to your success.</p>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="text-center bg-white p-6 rounded-xl border border-neutral-200 hover:shadow-md transition-shadow">
+              <img src="/imgs/team/Ryan Wong - Packaging Specialist.png" alt="Ryan Wong" className="w-32 h-32 rounded-full mx-auto mb-3 object-cover border-4 border-primary-100" />
+              <h4 className="font-semibold text-neutral-800">Ryan Wong</h4>
+              <p className="text-sm text-primary-600">Packaging Specialist</p>
+            </div>
+            <div className="text-center bg-white p-6 rounded-xl border border-neutral-200 hover:shadow-md transition-shadow">
+              <img src="/imgs/team/Eric Kwok - Business Development.png" alt="Eric Kwok" className="w-32 h-32 rounded-full mx-auto mb-3 object-cover border-4 border-primary-100" />
+              <h4 className="font-semibold text-neutral-800">Eric Kwok</h4>
+              <p className="text-sm text-primary-600">Business Development</p>
+            </div>
+            <div className="text-center bg-white p-6 rounded-xl border border-neutral-200 hover:shadow-md transition-shadow">
+              <img src="/imgs/team/Jericha Kwok - Business Development.png" alt="Jericha Kwok" className="w-32 h-32 rounded-full mx-auto mb-3 object-cover border-4 border-primary-100" />
+              <h4 className="font-semibold text-neutral-800">Jericha Kwok</h4>
+              <p className="text-sm text-primary-600">Business Development</p>
+            </div>
           </div>
         </div>
-      `
+      )
     },
     {
       id: 'impact',
       title: 'Our Impact',
-      content: `
-        <div class="grid md:grid-cols-4 gap-6 mb-6">
-          <div class="text-center p-4 bg-primary-50 rounded-xl">
-            <div class="text-3xl font-bold text-primary-600 mb-1">500+</div>
-            <div class="text-sm text-neutral-600">Brands Served</div>
+      icon: <TrendingUp className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6">
+          <div className="grid md:grid-cols-4 gap-6">
+            <div className="text-center p-6 bg-gradient-to-br from-primary-50 to-green-100 rounded-xl border border-primary-200">
+              <div className="text-3xl font-bold text-primary-600 mb-1">500+</div>
+              <div className="text-sm text-primary-700">Brands Served</div>
+            </div>
+            <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl border border-blue-200">
+              <div className="text-3xl font-bold text-blue-600 mb-1">70%</div>
+              <div className="text-sm text-blue-700">Carbon Reduction</div>
+            </div>
+            <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl border border-purple-200">
+              <div className="text-3xl font-bold text-purple-600 mb-1">10M+</div>
+              <div className="text-sm text-purple-700">Pouches Produced</div>
+            </div>
+            <div className="text-center p-6 bg-gradient-to-br from-amber-50 to-amber-100 rounded-xl border border-amber-200">
+              <div className="text-3xl font-bold text-amber-600 mb-1">30+</div>
+              <div className="text-sm text-amber-700">Countries Shipped</div>
+            </div>
           </div>
-          <div class="text-center p-4 bg-primary-50 rounded-xl">
-            <div class="text-3xl font-bold text-primary-600 mb-1">70%</div>
-            <div class="text-sm text-neutral-600">Carbon Reduction</div>
-          </div>
-          <div class="text-center p-4 bg-primary-50 rounded-xl">
-            <div class="text-3xl font-bold text-primary-600 mb-1">10M+</div>
-            <div class="text-sm text-neutral-600">Pouches Produced</div>
-          </div>
-          <div class="text-center p-4 bg-primary-50 rounded-xl">
-            <div class="text-3xl font-bold text-primary-600 mb-1">30+</div>
-            <div class="text-sm text-neutral-600">Countries Shipped</div>
-          </div>
+          <p className="text-neutral-700">Every pouch we produce represents a step away from conventional plastics and toward a more sustainable future. Join the hundreds of brands already making a difference.</p>
         </div>
-        <p>Every pouch we produce represents a step away from conventional plastics and toward a more sustainable future. Join the hundreds of brands already making a difference.</p>
-      `
+      )
     }
   ];
 

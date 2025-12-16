@@ -422,9 +422,10 @@
         "copyright": "© 2025 Achieve Pack. 保留所有權利。",
         "certified": "認證",
         "materials": "材料",
-        "options": "選項",
+        "options": "選項與功能",
         "industries": "行業",
         "support": "支援",
+        "company": "公司",
         "quickContact": "快速聯絡",
         "termsConditions": "條款與條件",
         "privacyPolicy": "隱私政策",
@@ -464,7 +465,7 @@
             "biobased": "生物基材料",
             "custom": "客製化包裝"
         },
-        "company": {
+        "companySection": {
             "title": "公司",
             "about": "關於我們",
             "sustainability": "可持續性",
@@ -1290,5 +1291,15 @@
                 "introSummary": "阻隔性能可保護產品免受濕氣、氧氣、光線和異味的影響，以保持新鮮度並延長保質期。"
             }
         }
+    },
+    "climate": {
+        "title": "環境與碳中和",
+        "description": "Achieve Pack 積極參與地球氣候行動，我們同 Stripe Climate and Frontier 合作，將我們的部分收入直接投入到碳中和項目中，幫助地球減少二氧化碳的排放。",
+        "stats": {
+            "revenue": "收入投入碳移除",
+            "removal": "支持碳移除項目"
+        },
+        "learnMore": "瞭解更多我們的影響",
+        "backToAchievePack": "返回 Achieve Pack"
     }
 }

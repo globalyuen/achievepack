@@ -422,9 +422,10 @@
         "copyright": "© 2025 Achieve Pack. Tous droits réservés.",
         "certified": "Certifié",
         "materials": "Matériaux",
-        "options": "Options",
+        "options": "Options & Fonctionnalités",
         "industries": "Industries",
         "support": "Support",
+        "company": "Entreprise",
         "quickContact": "Contact Rapide",
         "termsConditions": "Conditions Générales",
         "privacyPolicy": "Politique de Confidentialité",
@@ -464,7 +465,7 @@
             "biobased": "Matériaux biosourcés",
             "custom": "Emballage personnalisé"
         },
-        "company": {
+        "companySection": {
             "title": "Entreprise",
             "about": "À propos",
             "sustainability": "Durabilité",
@@ -1752,5 +1753,15 @@
                 "introSummary": "Les propriétés barrières protègent les produits de l’humidité, de l’oxygène, de la lumière et des odeurs pour maintenir la fraîcheur et prolonger la durée de conservation."
             }
         }
+    },
+    "climate": {
+        "title": "Environnement et Neutralité Carbone",
+        "description": "Achieve Pack participe activement à l'action climatique mondiale. Nous collaborons avec Stripe Climate et Frontier, dédiant une partie de nos revenus directement aux projets d'élimination du carbone, contribuant à réduire les émissions de CO₂ sur Terre.",
+        "stats": {
+            "revenue": "des revenus vers l'élimination du carbone",
+            "removal": "Projets d'élimination soutenus"
+        },
+        "learnMore": "En savoir plus sur notre impact",
+        "backToAchievePack": "Retour à Achieve Pack"
     }
 }

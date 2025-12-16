@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import { X, Play } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { TESTIMONIALS, type Testimonial } from '../data/testimonialsData'
 
 export default function FloatingTestimonialVideo() {
+  const { i18n } = useTranslation()
   const [isVideoOpen, setIsVideoOpen] = useState(false)
   const [isDismissed, setIsDismissed] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -15,6 +17,20 @@ export default function FloatingTestimonialVideo() {
   if (allTestimonials.length === 0) return null
 
   const currentTestimonial = allTestimonials[currentIndex]
+  
+  // Get translated content based on current language
+  const getTranslatedContent = (testimonial: Testimonial) => {
+    const lang = i18n.language as 'en' | 'fr' | 'es' | 'zh-TW'
+    const translation = testimonial.translations?.[lang]
+    
+    return {
+      quote: translation?.quote || testimonial.quote,
+      shortQuote: translation?.shortQuote || testimonial.shortQuote,
+      extraInfo: translation?.extraInfo || testimonial.extraInfo
+    }
+  }
+  
+  const translatedContent = getTranslatedContent(currentTestimonial)
 
   // Auto-rotate testimonials every 4 seconds
   useEffect(() => {
@@ -77,7 +93,7 @@ export default function FloatingTestimonialVideo() {
           {/* Content */}
           <div className="flex-1 text-left min-w-0">
             <p className="text-neutral-700 text-sm leading-snug line-clamp-3 mb-2">
-              {currentTestimonial.shortQuote}
+              {translatedContent.shortQuote}
             </p>
             <div className="flex items-center justify-between">
               <div>

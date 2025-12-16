@@ -410,22 +410,22 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         </div>
 
         {/* Footer */}
-        <footer className="bg-neutral-900 text-white py-12">
+        <footer className="bg-neutral-900 text-white py-6">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="grid md:grid-cols-6 gap-8 mb-8">
+            <div className="grid md:grid-cols-6 gap-4 mb-4">
               <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <Leaf className="h-6 w-6 text-primary-500" />
-                  <span className="text-lg font-bold">Achieve Pack</span>
+                <div className="flex items-center gap-2 mb-2">
+                  <Leaf className="h-5 w-5 text-primary-500" />
+                  <span className="text-base font-bold">Achieve Pack</span>
                 </div>
-                <p className="text-neutral-400 text-sm">
+                <p className="text-neutral-400 text-xs">
                   {t('seoPages.footer.tagline')}
                 </p>
               </div>
               
               <div>
-                <h4 className="font-semibold mb-4">{t('seoPages.footer.products')}</h4>
-                <ul className="space-y-2 text-sm text-neutral-400">
+                <h4 className="font-semibold text-sm mb-2">{t('seoPages.footer.products')}</h4>
+                <ul className="space-y-0.5 text-xs text-neutral-400">
                   <li><Link to="/packaging/stand-up-pouches" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.standUpPouches')}</Link></li>
                   <li><Link to="/packaging/flat-bottom-bags" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.flatBottomBags')}</Link></li>
                   <li><Link to="/packaging/spout-pouches" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.spoutPouches')}</Link></li>
@@ -436,8 +436,8 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
               </div>
               
               <div>
-                <h4 className="font-semibold mb-4">{t('seoPages.footer.materials')}</h4>
-                <ul className="space-y-2 text-sm text-neutral-400">
+                <h4 className="font-semibold text-sm mb-2">{t('seoPages.footer.materials')}</h4>
+                <ul className="space-y-0.5 text-xs text-neutral-400">
                   <li><Link to="/materials/compostable" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.compostable')}</Link></li>
                   <li><Link to="/materials/home-compostable" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.homeCompostable')}</Link></li>
                   <li><Link to="/materials/industrial-compostable" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.industrialCompostable')}</Link></li>
@@ -448,8 +448,8 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
               </div>
               
               <div>
-                <h4 className="font-semibold mb-4">{t('seoPages.footer.options')}</h4>
-                <ul className="space-y-2 text-sm text-neutral-400">
+                <h4 className="font-semibold text-sm mb-2">{t('seoPages.footer.options')}</h4>
+                <ul className="space-y-0.5 text-xs text-neutral-400">
                   <li><Link to="/printing/digital-printing" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.digitalPrinting')}</Link></li>
                   <li><Link to="/printing/plate-printing" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.platePrinting')}</Link></li>
                   <li><Link to="/features/reclosure-options" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.reclosureOptions')}</Link></li>
@@ -462,8 +462,8 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
               </div>
               
               <div>
-                <h4 className="font-semibold mb-4">{t('seoPages.footer.industries')}</h4>
-                <ul className="space-y-2 text-sm text-neutral-400">
+                <h4 className="font-semibold text-sm mb-2">{t('seoPages.footer.industries')}</h4>
+                <ul className="space-y-0.5 text-xs text-neutral-400">
                   <li><Link to="/industry/coffee-tea" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.coffeeTea')}</Link></li>
                   <li><Link to="/industry/snacks-food" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.snacksFood')}</Link></li>
                   <li><Link to="/industry/pet-food" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.petFood')}</Link></li>
@@ -475,8 +475,8 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
               </div>
               
               <div>
-                <h4 className="font-semibold mb-4">Company</h4>
-                <ul className="space-y-2 text-sm text-neutral-400">
+                <h4 className="font-semibold text-sm mb-2">Company</h4>
+                <ul className="space-y-0.5 text-xs text-neutral-400">
                   <li><Link to="/company/about" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.aboutUs')}</Link></li>
                   <li><Link to="/company/factory-tour" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.factoryTour')}</Link></li>
                   <li><Link to="/company/certificates" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.certificates')}</Link></li>
@@ -484,8 +484,8 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
               </div>
               
               <div>
-                <h4 className="font-semibold mb-4">Support</h4>
-                <ul className="space-y-2 text-sm text-neutral-400">
+                <h4 className="font-semibold text-sm mb-2">Support</h4>
+                <ul className="space-y-0.5 text-xs text-neutral-400">
                   <li><Link to="/support/faqs" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.faqs')}</Link></li>
                   <li><Link to="/support/lead-time" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.leadTime')}</Link></li>
                   <li><Link to="/knowledge/all-options" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.allOptions')}</Link></li>
@@ -497,9 +497,9 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
             </div>
             
             {/* Case Studies */}
-            <div className="mb-8">
-              <h4 className="font-semibold mb-4">Case Studies</h4>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm text-neutral-400">
+            <div className="mb-4">
+              <h4 className="font-semibold text-sm mb-2">Case Studies</h4>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-1 text-xs text-neutral-400">
                 <Link to="/case-studies/coffee-roastery" onClick={scrollToTop} className="hover:text-primary-400">Coffee Roastery</Link>
                 <Link to="/case-studies/tea-brand" onClick={scrollToTop} className="hover:text-primary-400">Tea Brand</Link>
                 <Link to="/case-studies/superfood-brand" onClick={scrollToTop} className="hover:text-primary-400">Superfood Brand</Link>
@@ -515,7 +515,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
               </div>
             </div>
             
-            <div className="border-t border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="border-t border-neutral-800 pt-4 flex flex-col md:flex-row justify-between items-center gap-2">
               <p className="text-neutral-500 text-sm">
                 © {new Date().getFullYear()} Achieve Pack. {t('seoPages.footer.copyright')}
               </p>

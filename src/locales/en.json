@@ -422,9 +422,10 @@
         "copyright": "© 2025 Achieve Pack. All rights reserved.",
         "certified": "Certified",
         "materials": "Materials",
-        "options": "Options",
+        "options": "Options & Features",
         "industries": "Industries",
         "support": "Support",
+        "company": "Company",
         "quickContact": "Quick Contact",
         "termsConditions": "Terms & Conditions",
         "privacyPolicy": "Privacy Policy",
@@ -464,7 +465,7 @@
             "biobased": "Bio-based Materials",
             "custom": "Custom Packaging"
         },
-        "company": {
+        "companySection": {
             "title": "Company",
             "about": "About Us",
             "sustainability": "Sustainability",
@@ -1571,5 +1572,15 @@
                 "introSummary": "Barrier properties protect products from moisture, oxygen, light, and odors to maintain freshness and extend shelf life."
             }
         }
+    },
+    "climate": {
+        "title": "Environment & Carbon Neutrality",
+        "description": "Achieve Pack actively participates in global climate action. We partner with Stripe Climate and Frontier, dedicating a portion of our revenue directly to carbon removal projects, helping reduce CO₂ emissions on Earth.",
+        "stats": {
+            "revenue": "of revenue to carbon removal",
+            "removal": "Removal projects supported"
+        },
+        "learnMore": "Learn More About Our Impact",
+        "backToAchievePack": "Back to Achieve Pack"
     }
 }
