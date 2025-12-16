@@ -344,9 +344,6 @@ ${formData.message}`
         </div>
       </section>
 
-      {/* 3D Scroll Experience */}
-      <EcoPouchScrollExperience />
-
       {/* Brief Testimonials - Avatar Row */}
       <BriefTestimonials />
 
