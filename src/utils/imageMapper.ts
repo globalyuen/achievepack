@@ -205,6 +205,12 @@ const imageMapping: ImageMapping = {
         es: '/imgs-sp/a_sustainable_packaging_banner_spanish_9446290.webp',
         zh: '/imgs-ch/a_sustainable_packaging_banner_traditional_chinese_9050358.webp',
     },
+    'climate': {
+        en: '/imgs/climate.webp',
+        fr: '/imgs/climate.webp',
+        es: '/imgs/climate.webp',
+        zh: '/imgs/climate.webp',
+    },
 };
 
 /**
