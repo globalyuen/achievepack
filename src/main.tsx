@@ -91,6 +91,7 @@ import OrganicNutsCaseStudy from './pages/case-studies/OrganicNutsCaseStudy'
 import BathProductsCaseStudy from './pages/case-studies/BathProductsCaseStudy'
 import AdaptogensCaseStudy from './pages/case-studies/AdaptogensCaseStudy'
 import OutdoorSnacksCaseStudy from './pages/case-studies/OutdoorSnacksCaseStudy'
+import ThreeDPreview from './components/ThreeDPreview'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -113,7 +114,7 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/terms" element={<TermsPage />} />
               <Route path="/admin" element={<AdminPage />} />
               <Route path="/admin/management" element={<AdminManagementPage />} />
-              
+
               {/* Industry Pages */}
               <Route path="/industry/coffee-tea" element={<CoffeeTeaPage />} />
               <Route path="/industry/snacks-food" element={<SnacksFoodPage />} />
@@ -122,7 +123,7 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/industry/baby-food" element={<BabyFoodPage />} />
               <Route path="/industry/frozen-food" element={<FrozenFoodPage />} />
               <Route path="/industry/sauces-condiments" element={<SaucesCondimentsPage />} />
-              
+
               {/* Packaging Pages */}
               <Route path="/packaging/stand-up-pouches" element={<StandUpPouchesPage />} />
               <Route path="/packaging/flat-bottom-bags" element={<FlatBottomBagsPage />} />
@@ -130,7 +131,7 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/packaging/flat-pouches" element={<FlatPouchesPage />} />
               <Route path="/packaging/side-gusset-bags" element={<SideGussetBagsPage />} />
               <Route path="/packaging/vacuum-pouches" element={<VacuumPouchesPage />} />
-              
+
               {/* Materials Pages */}
               <Route path="/materials/compostable" element={<CompostablePage />} />
               <Route path="/materials/recyclable-mono-pe" element={<RecyclableMonoPEPage />} />
@@ -139,11 +140,11 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/materials/pcr" element={<PCRPage />} />
               <Route path="/materials/home-compostable" element={<HomeCompostablePage />} />
               <Route path="/materials/industrial-compostable" element={<IndustrialCompostablePage />} />
-              
+
               {/* Printing Pages */}
               <Route path="/printing/digital-printing" element={<DigitalPrintingPage />} />
               <Route path="/printing/plate-printing" element={<PlatePrintingPage />} />
-              
+
               {/* Feature Pages */}
               <Route path="/features/reclosure-options" element={<ReclosureOptionsPage />} />
               <Route path="/features/surface-finish" element={<SurfaceFinishPage />} />
@@ -151,26 +152,26 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/features/low-barrier" element={<LowBarrierPage />} />
               <Route path="/features/medium-barrier" element={<MediumBarrierPage />} />
               <Route path="/features/high-barrier" element={<HighBarrierPage />} />
-              
+
               {/* Legal Pages */}
               <Route path="/privacy" element={<PrivacyPolicyPage />} />
               <Route path="/shipping" element={<ShippingPolicyPage />} />
-              
+
               {/* Company Pages */}
               <Route path="/company/about" element={<AboutPage />} />
               <Route path="/company/factory-tour" element={<FactoryTourPage />} />
               <Route path="/company/certificates" element={<CertificatesPage />} />
-              
+
               {/* Knowledge Pages */}
               <Route path="/knowledge/all-options" element={<AllOptionsPage />} />
               <Route path="/knowledge/size-guide" element={<SizeGuidePage />} />
               <Route path="/knowledge/printing-types" element={<PrintingTypesPage />} />
               <Route path="/knowledge/workflow" element={<WorkflowPage />} />
-              
+
               {/* Support Pages */}
               <Route path="/support/faqs" element={<FAQsPage />} />
               <Route path="/support/lead-time" element={<LeadTimePage />} />
-              
+
               {/* Case Studies Pages */}
               <Route path="/case-studies/coffee-roastery" element={<CoffeeRoasteryCaseStudy />} />
               <Route path="/case-studies/tea-brand" element={<TeaBrandCaseStudy />} />
@@ -184,6 +185,9 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/case-studies/bath-products" element={<BathProductsCaseStudy />} />
               <Route path="/case-studies/adaptogens" element={<AdaptogensCaseStudy />} />
               <Route path="/case-studies/outdoor-snacks" element={<OutdoorSnacksCaseStudy />} />
+
+              {/* Dev / Test Routes */}
+              <Route path="/3d-preview" element={<ThreeDPreview />} />
             </Routes>
           </StoreProvider>
         </BrowserRouter>

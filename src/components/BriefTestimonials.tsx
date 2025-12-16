@@ -62,7 +62,7 @@ function TiltCard({ testimonial, onClick, onHover, t }: { testimonial: Testimoni
           background: `radial-gradient(circle at ${glarePos.x}% ${glarePos.y}%, rgba(255,255,255,0.8) 0%, transparent 60%)`,
         }}
       />
-      
+
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center">
         {/* Avatar */}
@@ -79,7 +79,7 @@ function TiltCard({ testimonial, onClick, onHover, t }: { testimonial: Testimoni
             />
           </div>
         </div>
-        
+
         {/* Brand Logo in top right corner */}
         {testimonial.brandLogo && (
           <div className="absolute top-2 right-2 w-12 h-12 md:w-14 md:h-14 bg-white/90 rounded-lg p-1.5 shadow-md">
@@ -90,10 +90,10 @@ function TiltCard({ testimonial, onClick, onHover, t }: { testimonial: Testimoni
             />
           </div>
         )}
-        
+
         {/* Name */}
         <h4 className="font-semibold text-neutral-900 text-sm md:text-base">{testimonial.name}</h4>
-        
+
         {/* Short quote */}
         <p className="text-xs md:text-sm text-neutral-600 mt-1 line-clamp-2">
           "{getTestimonialText(t, testimonial.id, 'shortQuote', testimonial.shortQuote)}"
@@ -199,7 +199,7 @@ export default function BriefTestimonials() {
                   className="w-full h-auto max-h-[600px] object-contain drop-shadow-2xl"
                 />
               </div>
-              
+
               {/* Testimonial Content - Right Side */}
               <div className="flex-1 p-6">
                 {/* Close button */}
