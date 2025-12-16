@@ -121,10 +121,7 @@ export default function ThreeDPreview() {
 }
 
 // Preload models for smoother switching
-try {
-    useGLTF.preload('/3d/pouch/stand-up-pouch.glb')
-    useGLTF.preload('/3d/pouch/flat-bottom-pouch.glb')
-    useGLTF.preload('/3d/pouch/3-side-seal.glb')
-} catch (e) {
-    console.warn("Preload failed safely")
-}
+// Preloading removed to prevent auto-crash
+// useGLTF.preload('/3d/pouch/stand-up-pouch.glb')
+// useGLTF.preload('/3d/pouch/flat-bottom-pouch.glb')
+// useGLTF.preload('/3d/pouch/3-side-seal.glb')
