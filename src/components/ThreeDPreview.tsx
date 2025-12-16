@@ -1,6 +1,6 @@
 import React, { Suspense, useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { useGLTF, Stage, Html, Float } from '@react-three/drei'
+import { useGLTF, Html, Float, Environment } from '@react-three/drei'
 import { Link } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 
@@ -86,11 +86,13 @@ export default function ThreeDPreview() {
                     <ErrorBoundary>
                         <Canvas shadows dpr={[1, 2]} camera={{ fov: 45, position: [0, 0, 4] }}>
                             <Suspense fallback={<Html center><div className="flex flex-col items-center"><div className="w-8 h-8 border-4 border-primary-500 border-t-transparent rounded-full animate-spin mb-2" /><span className="text-sm text-neutral-500 font-medium">Loading 3D Assets...</span></div></Html>}>
-                                <Stage environment="city" intensity={0.5} adjustCamera={1.2}>
-                                    <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
-                                        <SpinningPouch path={models[modelIndex].path} key={models[modelIndex].path} />
-                                    </Float>
-                                </Stage>
+                                {/* Stage removed to fix 'reading S' error */}
+                                <Environment preset="city" />
+                                <ambientLight intensity={0.5} />
+                                <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} castShadow />
+                                <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
+                                    <SpinningPouch path={models[modelIndex].path} key={models[modelIndex].path} />
+                                </Float>
                             </Suspense>
                         </Canvas>
                     </ErrorBoundary>
