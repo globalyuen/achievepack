@@ -44,6 +44,7 @@ function SpinningPouch({ path }: { path: string }) {
 }
 
 export default function ThreeDPreview() {
+    const [start3D, setStart3D] = useState(false)
     const [modelIndex, setModelIndex] = useState(0)
     const models = [
         { name: 'Stand Up Pouch', path: '/3d/pouch/stand-up-pouch.glb' },
@@ -64,18 +65,36 @@ export default function ThreeDPreview() {
             </div>
 
             {/* Main Canvas Area */}
-            <div className="flex-1 relative">
-                <ErrorBoundary>
-                    <Canvas shadows dpr={[1, 2]} camera={{ fov: 45, position: [0, 0, 4] }}>
-                        <Suspense fallback={<Html center><div className="flex flex-col items-center"><div className="w-8 h-8 border-4 border-primary-500 border-t-transparent rounded-full animate-spin mb-2" /><span className="text-sm text-neutral-500 font-medium">Loading 3D Assets...</span></div></Html>}>
-                            <Stage environment="city" intensity={0.5} adjustCamera={1.2}>
-                                <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
-                                    <SpinningPouch path={models[modelIndex].path} key={models[modelIndex].path} />
-                                </Float>
-                            </Stage>
-                        </Suspense>
-                    </Canvas>
-                </ErrorBoundary>
+            <div className="flex-1 relative flex items-center justify-center bg-neutral-100">
+                {!start3D ? (
+                    <div className="text-center p-8">
+                        <div className="w-16 h-16 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span className="text-2xl font-bold">3D</span>
+                        </div>
+                        <h2 className="text-xl font-bold text-neutral-900 mb-2">Ready to Load 3D?</h2>
+                        <p className="text-neutral-500 mb-6 max-w-md mx-auto">
+                            This experience uses advanced WebGL graphics. Click below to start.
+                        </p>
+                        <button
+                            onClick={() => setStart3D(true)}
+                            className="bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105"
+                        >
+                            Launch 3D Experience
+                        </button>
+                    </div>
+                ) : (
+                    <ErrorBoundary>
+                        <Canvas shadows dpr={[1, 2]} camera={{ fov: 45, position: [0, 0, 4] }}>
+                            <Suspense fallback={<Html center><div className="flex flex-col items-center"><div className="w-8 h-8 border-4 border-primary-500 border-t-transparent rounded-full animate-spin mb-2" /><span className="text-sm text-neutral-500 font-medium">Loading 3D Assets...</span></div></Html>}>
+                                <Stage environment="city" intensity={0.5} adjustCamera={1.2}>
+                                    <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
+                                        <SpinningPouch path={models[modelIndex].path} key={models[modelIndex].path} />
+                                    </Float>
+                                </Stage>
+                            </Suspense>
+                        </Canvas>
+                    </ErrorBoundary>
+                )}
 
                 {/* Model Selector Controls */}
                 <div className="absolute bottom-10 left-0 right-0 flex justify-center gap-4 z-20 pointer-events-none">
