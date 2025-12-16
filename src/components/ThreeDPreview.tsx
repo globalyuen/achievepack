@@ -88,7 +88,9 @@ export default function ThreeDPreview() {
                             <Suspense fallback={<Html center><div className="flex flex-col items-center"><div className="w-8 h-8 border-4 border-primary-500 border-t-transparent rounded-full animate-spin mb-2" /><span className="text-sm text-neutral-500 font-medium">Loading 3D Assets...</span></div></Html>}>
                                 {/* Stage removed to fix 'reading S' error */}
                                 <Environment preset="city" />
+                                {/* @ts-ignore */}
                                 <ambientLight intensity={0.5} />
+                                {/* @ts-ignore */}
                                 <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} castShadow />
                                 <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
                                     <SpinningPouch path={models[modelIndex].path} key={models[modelIndex].path} />
