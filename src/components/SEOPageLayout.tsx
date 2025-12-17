@@ -88,9 +88,11 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
 }) => {
   const { t, i18n } = useTranslation()
 
-  // Scroll to top when navigating
+  // Scroll to top when navigating - optimized for INP
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    })
   }
 
   const languages = [

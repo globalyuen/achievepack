@@ -1351,12 +1351,12 @@ ${formData.message}`
             <div>
               <h4 className="text-sm font-semibold mb-2">{t('footer.products.title')}</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
-                <li><Link to="/packaging/stand-up-pouches" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.standUpPouches')}</Link></li>
-                <li><Link to="/packaging/flat-bottom-bags" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.flatBottomBags')}</Link></li>
-                <li><Link to="/packaging/spout-pouches" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.spoutPouches')}</Link></li>
-                <li><Link to="/packaging/vacuum-pouches" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.vacuumPouches')}</Link></li>
-                <li><Link to="/packaging/flat-pouches" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.flatPouches')}</Link></li>
-                <li><Link to="/packaging/side-gusset-bags" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.sideGussetBags')}</Link></li>
+                <li><Link to="/packaging/stand-up-pouches" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.standUpPouches')}</Link></li>
+                <li><Link to="/packaging/flat-bottom-bags" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.flatBottomBags')}</Link></li>
+                <li><Link to="/packaging/spout-pouches" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.spoutPouches')}</Link></li>
+                <li><Link to="/packaging/vacuum-pouches" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.vacuumPouches')}</Link></li>
+                <li><Link to="/packaging/flat-pouches" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.flatPouches')}</Link></li>
+                <li><Link to="/packaging/side-gusset-bags" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.sideGussetBags')}</Link></li>
               </ul>
             </div>
 
@@ -1364,12 +1364,12 @@ ${formData.message}`
             <div>
               <h4 className="text-sm font-semibold mb-2">{t('footer.materials')}</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
-                <li><Link to="/materials/home-compostable" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.homeCompostable')}</Link></li>
-                <li><Link to="/materials/industrial-compostable" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.industrialCompostable')}</Link></li>
-                <li><Link to="/materials/recyclable-mono-pe" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.recyclableMonoPE')}</Link></li>
-                <li><Link to="/materials/recyclable-mono-pp" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.recyclableMonoPP')}</Link></li>
-                <li><Link to="/materials/bio-pe" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.bioPE')}</Link></li>
-                <li><Link to="/materials/pcr" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.pcrRecycled')}</Link></li>
+                <li><Link to="/materials/home-compostable" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.homeCompostable')}</Link></li>
+                <li><Link to="/materials/industrial-compostable" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.industrialCompostable')}</Link></li>
+                <li><Link to="/materials/recyclable-mono-pe" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.recyclableMonoPE')}</Link></li>
+                <li><Link to="/materials/recyclable-mono-pp" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.recyclableMonoPP')}</Link></li>
+                <li><Link to="/materials/bio-pe" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.bioPE')}</Link></li>
+                <li><Link to="/materials/pcr" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.pcrRecycled')}</Link></li>
               </ul>
             </div>
 
@@ -1377,11 +1377,11 @@ ${formData.message}`
             <div>
               <h4 className="text-sm font-semibold mb-2">{t('footer.options')}</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
-                <li><Link to="/printing/digital-printing" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.digitalPrinting')}</Link></li>
-                <li><Link to="/printing/plate-printing" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.platePrinting')}</Link></li>
-                <li><Link to="/features/reclosure-options" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.reclosureOptions')}</Link></li>
-                <li><Link to="/features/surface-finish" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.surfaceFinishes')}</Link></li>
-                <li><Link to="/features/barrier-options" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.barrierOptions')}</Link></li>
+                <li><Link to="/printing/digital-printing" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.digitalPrinting')}</Link></li>
+                <li><Link to="/printing/plate-printing" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.platePrinting')}</Link></li>
+                <li><Link to="/features/reclosure-options" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.reclosureOptions')}</Link></li>
+                <li><Link to="/features/surface-finish" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.surfaceFinishes')}</Link></li>
+                <li><Link to="/features/barrier-options" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.barrierOptions')}</Link></li>
               </ul>
             </div>
 
@@ -1389,12 +1389,12 @@ ${formData.message}`
             <div>
               <h4 className="text-sm font-semibold mb-2">{t('footer.industries')}</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
-                <li><Link to="/industry/coffee-tea" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.coffeeTea')}</Link></li>
-                <li><Link to="/industry/snacks-food" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.snacksFood')}</Link></li>
-                <li><Link to="/industry/pet-food" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.petFood')}</Link></li>
-                <li><Link to="/industry/supplements-powders" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.supplements')}</Link></li>
-                <li><Link to="/industry/baby-food" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.babyFood')}</Link></li>
-                <li><Link to="/industry/frozen-food" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.frozenFood')}</Link></li>
+                <li><Link to="/industry/coffee-tea" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.coffeeTea')}</Link></li>
+                <li><Link to="/industry/snacks-food" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.snacksFood')}</Link></li>
+                <li><Link to="/industry/pet-food" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.petFood')}</Link></li>
+                <li><Link to="/industry/supplements-powders" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.supplements')}</Link></li>
+                <li><Link to="/industry/baby-food" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.babyFood')}</Link></li>
+                <li><Link to="/industry/frozen-food" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.frozenFood')}</Link></li>
               </ul>
             </div>
 
@@ -1402,12 +1402,12 @@ ${formData.message}`
             <div>
               <h4 className="text-sm font-semibold mb-2">{t('footer.caseStudies')}</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
-                <li><Link to="/case-studies/coffee-roastery" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.coffeeRoastery')}</Link></li>
-                <li><Link to="/case-studies/tea-brand" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.teaBrand')}</Link></li>
-                <li><Link to="/case-studies/superfood-brand" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.superfood')}</Link></li>
-                <li><Link to="/case-studies/pet-treats" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.petTreats')}</Link></li>
-                <li><Link to="/case-studies/chocolate-brand" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.chocolate')}</Link></li>
-                <li><Link to="/case-studies/bakery" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.bakery')}</Link></li>
+                <li><Link to="/case-studies/coffee-roastery" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.coffeeRoastery')}</Link></li>
+                <li><Link to="/case-studies/tea-brand" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.teaBrand')}</Link></li>
+                <li><Link to="/case-studies/superfood-brand" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.superfood')}</Link></li>
+                <li><Link to="/case-studies/pet-treats" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.petTreats')}</Link></li>
+                <li><Link to="/case-studies/chocolate-brand" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.chocolate')}</Link></li>
+                <li><Link to="/case-studies/bakery" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.bakery')}</Link></li>
               </ul>
             </div>
 
@@ -1415,12 +1415,12 @@ ${formData.message}`
             <div>
               <h4 className="text-sm font-semibold mb-2">{t('footer.support')}</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
-                <li><Link to="/support/faqs" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.faqs')}</Link></li>
-                <li><Link to="/support/lead-time" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.leadTime')}</Link></li>
-                <li><Link to="/knowledge/workflow" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.workflow')}</Link></li>
-                <li><Link to="/company/about" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.aboutUs')}</Link></li>
-                <li><Link to="/company/certificates" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.certificates')}</Link></li>
-                <li><Link to="/company/factory-tour" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-primary-500">{t('footer.links.factoryTour')}</Link></li>
+                <li><Link to="/support/faqs" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.faqs')}</Link></li>
+                <li><Link to="/support/lead-time" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.leadTime')}</Link></li>
+                <li><Link to="/knowledge/workflow" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.workflow')}</Link></li>
+                <li><Link to="/company/about" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.aboutUs')}</Link></li>
+                <li><Link to="/company/certificates" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.certificates')}</Link></li>
+                <li><Link to="/company/factory-tour" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.factoryTour')}</Link></li>
               </ul>
             </div>
 

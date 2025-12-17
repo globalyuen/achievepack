@@ -5,6 +5,7 @@ import { useStore } from '../store/StoreContext'
 import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct } from '../store/productData'
 import { calculateEcoPrice, type EcoCalculatorSelections } from '../utils/ecoDigitalCalculator'
 import { getProductImage, getSizeImage, getSurfaceImage, getAdditionalImage, type ShapeType, ClosureType, SurfaceType, EcoSizeType, AdditionalType } from '../utils/productImageMapper'
+import { TESTIMONIALS } from '../data/testimonialsData'
 
 const ProductPage: React.FC = () => {
   const { productId } = useParams<{ productId: string }>()
@@ -598,72 +599,38 @@ const ProductPage: React.FC = () => {
                   Customer Testimonials
                 </h3>
               </div>
-              <div className="px-6 pb-6 space-y-4">
-                {/* Testimonial 1 - Placeholder */}
-                <div className="bg-neutral-50 rounded-lg p-4 border-l-4 border-primary-500">
-                  <div className="flex items-start gap-3 mb-2">
-                    <div className="w-12 h-12 rounded-full bg-neutral-200 flex-shrink-0 flex items-center justify-center text-neutral-500 font-semibold">
-                      JD
+              <div className="px-6 pb-6 space-y-4 max-h-[500px] overflow-y-auto">
+                {/* Real Testimonials */}
+                {TESTIMONIALS.map((testimonial) => (
+                  <div key={testimonial.id} className="bg-neutral-50 rounded-lg p-4 border-l-4 border-primary-500">
+                    <div className="flex items-start gap-3 mb-2">
+                      <img 
+                        src={testimonial.ownerImage} 
+                        alt={testimonial.name}
+                        className="w-12 h-12 rounded-full flex-shrink-0 object-cover"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement
+                          target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name)}&background=22c55e&color=fff&size=48`
+                        }}
+                      />
+                      <div className="flex-1">
+                        <div className="font-semibold text-neutral-900">{testimonial.name}</div>
+                        <div className="text-xs text-neutral-500">
+                          {testimonial.company ? `${testimonial.role}, ${testimonial.company}` : 'Verified Buyer'}
+                        </div>
+                      </div>
+                      <div className="flex text-yellow-400">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 fill-current" />
+                        ))}
+                      </div>
                     </div>
-                    <div className="flex-1">
-                      <div className="font-semibold text-neutral-900">John Doe</div>
-                      <div className="text-xs text-neutral-500">Coffee Roaster, Verified Buyer</div>
-                    </div>
-                    <div className="flex text-yellow-400">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-current" />
-                      ))}
-                    </div>
+                    <p className="text-sm text-neutral-700 italic">
+                      "{testimonial.shortQuote}"
+                    </p>
+                    <div className="text-xs text-neutral-400 mt-2">{testimonial.extraInfo}</div>
                   </div>
-                  <p className="text-sm text-neutral-700 italic">
-                    "Outstanding quality and fast delivery! The eco-friendly materials are perfect for our brand. Highly recommended!"
-                  </p>
-                  <div className="text-xs text-neutral-400 mt-2">2 weeks ago</div>
-                </div>
-
-                {/* Testimonial 2 - Placeholder */}
-                <div className="bg-neutral-50 rounded-lg p-4 border-l-4 border-primary-500">
-                  <div className="flex items-start gap-3 mb-2">
-                    <div className="w-12 h-12 rounded-full bg-neutral-200 flex-shrink-0 flex items-center justify-center text-neutral-500 font-semibold">
-                      SM
-                    </div>
-                    <div className="flex-1">
-                      <div className="font-semibold text-neutral-900">Sarah Miller</div>
-                      <div className="text-xs text-neutral-500">Tea Shop Owner, Verified Buyer</div>
-                    </div>
-                    <div className="flex text-yellow-400">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-current" />
-                      ))}
-                    </div>
-                  </div>
-                  <p className="text-sm text-neutral-700 italic">
-                    "The packaging looks amazing! Our customers love the sustainable materials and the quality is top-notch."
-                  </p>
-                  <div className="text-xs text-neutral-400 mt-2">1 month ago</div>
-                </div>
-
-                {/* Testimonial 3 - Placeholder */}
-                <div className="bg-neutral-50 rounded-lg p-4 border-l-4 border-primary-500">
-                  <div className="flex items-start gap-3 mb-2">
-                    <div className="w-12 h-12 rounded-full bg-neutral-200 flex-shrink-0 flex items-center justify-center text-neutral-500 font-semibold">
-                      RW
-                    </div>
-                    <div className="flex-1">
-                      <div className="font-semibold text-neutral-900">Robert Wilson</div>
-                      <div className="text-xs text-neutral-500">Snack Brand, Verified Buyer</div>
-                    </div>
-                    <div className="flex text-yellow-400">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-current" />
-                      ))}
-                    </div>
-                  </div>
-                  <p className="text-sm text-neutral-700 italic">
-                    "Excellent service and product quality. The custom printing came out perfectly. Will definitely order again!"
-                  </p>
-                  <div className="text-xs text-neutral-400 mt-2">3 weeks ago</div>
-                </div>
+                ))}
               </div>
             </div>
 
@@ -1541,27 +1508,27 @@ const ProductPage: React.FC = () => {
                       <ChevronDown className="w-5 h-5 text-neutral-500" />
                     </button>
                   </div>
-                  <div className="space-y-3">
-                    <div className="bg-neutral-50 rounded-lg p-3 border-l-4 border-primary-500">
-                      <div className="flex items-center gap-2 mb-1">
-                        <div className="w-8 h-8 rounded-full bg-neutral-200 flex items-center justify-center text-xs font-semibold">JD</div>
-                        <div className="text-sm font-semibold">John Doe</div>
-                        <div className="flex text-yellow-400 ml-auto">
-                          {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}
+                  <div className="space-y-3 max-h-[300px] overflow-y-auto">
+                    {TESTIMONIALS.slice(0, 6).map((testimonial) => (
+                      <div key={testimonial.id} className="bg-neutral-50 rounded-lg p-3 border-l-4 border-primary-500">
+                        <div className="flex items-center gap-2 mb-1">
+                          <img 
+                            src={testimonial.ownerImage} 
+                            alt={testimonial.name}
+                            className="w-8 h-8 rounded-full object-cover"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement
+                              target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name)}&background=22c55e&color=fff&size=32`
+                            }}
+                          />
+                          <div className="text-sm font-semibold">{testimonial.name}</div>
+                          <div className="flex text-yellow-400 ml-auto">
+                            {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}
+                          </div>
                         </div>
+                        <p className="text-xs text-neutral-600 italic">"{testimonial.shortQuote}"</p>
                       </div>
-                      <p className="text-xs text-neutral-600 italic">"Outstanding quality and fast delivery!"</p>
-                    </div>
-                    <div className="bg-neutral-50 rounded-lg p-3 border-l-4 border-primary-500">
-                      <div className="flex items-center gap-2 mb-1">
-                        <div className="w-8 h-8 rounded-full bg-neutral-200 flex items-center justify-center text-xs font-semibold">SM</div>
-                        <div className="text-sm font-semibold">Sarah Miller</div>
-                        <div className="flex text-yellow-400 ml-auto">
-                          {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}
-                        </div>
-                      </div>
-                      <p className="text-xs text-neutral-600 italic">"The packaging looks amazing!"</p>
-                    </div>
+                    ))}
                   </div>
                 </div>
               )}

@@ -229,48 +229,50 @@ const StorePage: React.FC = () => {
         </div>
 
         <div className="flex gap-8">
-          {/* Sidebar Filters */}
+          {/* Sidebar Filters - Sticky */}
           <aside className="hidden lg:block w-72 flex-shrink-0">
-            {/* Category Filter */}
-            <div className="bg-white border border-neutral-200 rounded-xl p-5 mb-4">
-              <h3 className="font-bold text-neutral-900 mb-4">Category</h3>
-              <ul className="space-y-2">
-                {CATEGORIES.map(cat => (
-                  <li key={cat.id}>
-                    <button
-                      onClick={() => setSelectedCategory(cat.id)}
-                      className={`w-full text-left py-1.5 text-sm transition ${
-                        selectedCategory === cat.id
-                          ? 'text-primary-600 font-medium'
-                          : 'text-neutral-600 hover:text-neutral-900'
-                      }`}
-                    >
-                      {cat.label}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <div className="sticky top-[88px] max-h-[calc(100vh-100px)] overflow-y-auto">
+              {/* Category Filter */}
+              <div className="bg-white border border-neutral-200 rounded-xl p-5 mb-4">
+                <h3 className="font-bold text-neutral-900 mb-4">Category</h3>
+                <ul className="space-y-2">
+                  {CATEGORIES.map(cat => (
+                    <li key={cat.id}>
+                      <button
+                        onClick={() => setSelectedCategory(cat.id)}
+                        className={`w-full text-left py-1.5 text-sm transition ${
+                          selectedCategory === cat.id
+                            ? 'text-primary-600 font-medium'
+                            : 'text-neutral-600 hover:text-neutral-900'
+                        }`}
+                      >
+                        {cat.label}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-            {/* Shape Filter */}
-            <div className="bg-white border border-neutral-200 rounded-xl p-5 mb-4">
-              <h3 className="font-bold text-neutral-900 mb-4">Shape</h3>
-              <ul className="space-y-2">
-                {SHAPES.map(shape => (
-                  <li key={shape.id}>
-                    <button
-                      onClick={() => setSelectedShape(shape.id)}
-                      className={`w-full text-left py-1.5 text-sm transition ${
-                        selectedShape === shape.id
-                          ? 'text-primary-600 font-medium'
-                          : 'text-neutral-600 hover:text-neutral-900'
-                      }`}
-                    >
-                      {shape.label}
-                    </button>
-                  </li>
-                ))}
-              </ul>
+              {/* Shape Filter */}
+              <div className="bg-white border border-neutral-200 rounded-xl p-5 mb-4">
+                <h3 className="font-bold text-neutral-900 mb-4">Shape</h3>
+                <ul className="space-y-2">
+                  {SHAPES.map(shape => (
+                    <li key={shape.id}>
+                      <button
+                        onClick={() => setSelectedShape(shape.id)}
+                        className={`w-full text-left py-1.5 text-sm transition ${
+                          selectedShape === shape.id
+                            ? 'text-primary-600 font-medium'
+                            : 'text-neutral-600 hover:text-neutral-900'
+                        }`}
+                      >
+                        {shape.label}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </aside>
 
@@ -361,8 +363,77 @@ const StorePage: React.FC = () => {
 
       {/* Footer */}
       <footer className="bg-neutral-900 text-white py-12 mt-16">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-neutral-400">© 2024 AchievePack. All rights reserved.</p>
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-8">
+            {/* Store Info */}
+            <div className="col-span-2 md:col-span-1">
+              <Link to="/" className="flex items-center gap-2 mb-4">
+                <img src="/ap-logo-white.png" alt="Achieve Pack" className="h-8 w-auto" />
+                <span className="font-bold">Store</span>
+              </Link>
+              <p className="text-neutral-400 text-sm mb-4">Premium custom printed pouches with eco-friendly options.</p>
+              <div className="space-y-1 text-xs text-neutral-500">
+                <p>Free worldwide shipping</p>
+                <p>15-20 days turnaround</p>
+                <p>Food-grade quality</p>
+              </div>
+            </div>
+
+            {/* Products by Category */}
+            <div>
+              <h4 className="font-semibold text-sm mb-4">Categories</h4>
+              <ul className="space-y-2 text-xs text-neutral-400">
+                <li><Link to="/store" onClick={() => setSelectedCategory('sample')} className="hover:text-primary-400">Sample Packs</Link></li>
+                <li><Link to="/store" onClick={() => setSelectedCategory('conventional-digital')} className="hover:text-primary-400">Conventional Digital</Link></li>
+                <li><Link to="/store" onClick={() => setSelectedCategory('eco-digital')} className="hover:text-primary-400">Eco Digital</Link></li>
+              </ul>
+            </div>
+
+            {/* Shapes */}
+            <div>
+              <h4 className="font-semibold text-sm mb-4">Shapes</h4>
+              <ul className="space-y-2 text-xs text-neutral-400">
+                <li><Link to="/store" onClick={() => setSelectedShape('Stand Up Pouch / Doypack')} className="hover:text-primary-400">Stand Up Pouches</Link></li>
+                <li><Link to="/store" onClick={() => setSelectedShape('Flat Squared Bottom Pouch')} className="hover:text-primary-400">Flat Bottom Bags</Link></li>
+                <li><Link to="/store" onClick={() => setSelectedShape('3 Side Seal Pouch')} className="hover:text-primary-400">3 Side Seal</Link></li>
+                <li><Link to="/store" onClick={() => setSelectedShape('Side Gusset Pouch')} className="hover:text-primary-400">Side Gusset</Link></li>
+                <li><Link to="/store" onClick={() => setSelectedShape('Quad Seal Pouch')} className="hover:text-primary-400">Quad Seal</Link></li>
+              </ul>
+            </div>
+
+            {/* Support */}
+            <div>
+              <h4 className="font-semibold text-sm mb-4">Support</h4>
+              <ul className="space-y-2 text-xs text-neutral-400">
+                <li><Link to="/support/faqs" className="hover:text-primary-400">FAQs</Link></li>
+                <li><Link to="/support/lead-time" className="hover:text-primary-400">Lead Time</Link></li>
+                <li><Link to="/knowledge/workflow" className="hover:text-primary-400">Workflow</Link></li>
+                <li><a href="mailto:ryan@achievepack.com" className="hover:text-primary-400">Contact Us</a></li>
+              </ul>
+            </div>
+
+            {/* Legal */}
+            <div>
+              <h4 className="font-semibold text-sm mb-4">Legal</h4>
+              <ul className="space-y-2 text-xs text-neutral-400">
+                <li><Link to="/terms" className="hover:text-primary-400">Terms & Conditions</Link></li>
+                <li><Link to="/privacy" className="hover:text-primary-400">Privacy Policy</Link></li>
+                <li><Link to="/shipping" className="hover:text-primary-400">Shipping Policy</Link></li>
+                <li><Link to="/returns" className="hover:text-primary-400">Return Policy</Link></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Bottom Bar */}
+          <div className="border-t border-neutral-800 pt-6">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-neutral-500 text-xs">© 2025 Achieve Pack. All rights reserved.</p>
+              <div className="text-neutral-600 text-xs text-center md:text-right">
+                <p>Hong Kong Business Registration: 41007097</p>
+                <p>No.41 1/F Wo Liu Hang Tsuen, Fotan, Hong Kong</p>
+              </div>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
