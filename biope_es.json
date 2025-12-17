@@ -1,0 +1,91 @@
+{
+    "title": "Envases Bio-PE | Bolsas Sostenibles a Base de Caña de Azúcar",
+    "heroTitle": "Envases Bio-PE Basados en Plantas",
+    "heroSubtitle": "Polietileno hecho de caña de azúcar renovable. Mismo rendimiento, menor huella de carbono, totalmente reciclable.",
+    "introSummary": "El Bio-PE es polietileno hecho de caña de azúcar renovable en lugar de combustibles fósiles. Ofrece un rendimiento idéntico al PE convencional mientras captura carbono durante la producción. El Bio-PE es totalmente reciclable en flujos de PE estándar y está certificado por el programa I'm green™ de Braskem.",
+    "ctaTitle": "Cambie a Bio-PE",
+    "ctaDescription": "Solicite una muestra gratuita y una cotización para envases basados en plantas.",
+    "ctaButtonText": "Solicitar Muestra Gratis",
+    "sections": {
+        "overview": {
+            "title": "¿Qué es el Bio-PE?",
+            "intro": "El Bio-PE (polietileno de base biológica) es químicamente idéntico al PE convencional, pero está hecho de fuentes vegetales renovables como la caña de azúcar en lugar de combustibles fósiles. Ofrece el mismo rendimiento que el PE tradicional al tiempo que reduce la huella de carbono.",
+            "keyBenefits": "Beneficios Clave:",
+            "benefits": [
+                "Hecho de caña de azúcar renovable (hasta 95% de base biológica)",
+                "Producción de materia prima con carbono negativo",
+                "Mismo rendimiento que el PE convencional",
+                "Reciclable en flujos de PE existentes",
+                "Certificación I'm green™ de Braskem"
+            ]
+        },
+        "howItWorks": {
+            "title": "Cómo se Hace el Bio-PE",
+            "step1": "Cultivo de Caña de Azúcar",
+            "step1Desc": "La caña de azúcar absorbe CO2 de la atmósfera a medida que crece",
+            "step2": "Producción de Etanol",
+            "step2Desc": "La caña de azúcar fermenta para producir bioetanol",
+            "step3": "Conversión a Etileno",
+            "step3Desc": "El bioetanol se deshidrata para crear bioetileno",
+            "step4": "Polimerización",
+            "step4Desc": "El bioetileno se polimeriza en bio-PE (químicamente idéntico al PE fósil)"
+        },
+        "carbon": {
+            "title": "Beneficios de Carbono",
+            "comparisonTitle": "Comparación de Huella de Carbono:",
+            "items": [
+                "Bio-PE: Captura ~3.09 kg de CO2 por kg de PE producido",
+                "PE Fósil: Emite ~1.8 kg de CO2 por kg de PE producido",
+                "Diferencia neta: ~4.9 kg de CO2 por kg de material"
+            ],
+            "note": "Este cálculo se basa en el cultivo de caña de azúcar que absorbe CO2, el cual queda capturado en el bio-PE. Las evaluaciones del ciclo de vida confirman la naturaleza carbono-negativa de la producción de bio-PE."
+        },
+        "applications": {
+            "title": "Aplicaciones Adecuadas",
+            "intro": "El Bio-PE funciona para cualquier aplicación donde se utiliza PE convencional:",
+            "items": [
+                "Envases de alimentos",
+                "Bolsas de bebidas",
+                "Cuidado personal",
+                "Productos para el hogar",
+                "Bolsas de comida para mascotas",
+                "Envases de aperitivos",
+                "Comida congelada",
+                "Películas agrícolas",
+                "Bolsas de compras"
+            ]
+        },
+        "recycling": {
+            "title": "Reciclabilidad",
+            "distinctionTitle": "Distinción Importante:",
+            "distinction": "El Bio-PE NO es compostable. Es químicamente idéntico al PE fósil y no se descompone en condiciones de compostaje. El término \"bio\" se refiere a su origen renovable, no a su comportamiento al final de su vida útil.",
+            "info": "El Bio-PE es totalmente reciclable en flujos de reciclaje de PE estándar (#2 y #4). Se puede mezclar con PE fósil en procesos de reciclaje sin ningún problema."
+        }
+    },
+    "faq": {
+        "q1": "¿Es el Bio-PE compostable?",
+        "a1": "No, el Bio-PE no es compostable. Es químicamente idéntico al PE convencional. Lo 'bio' se refiere a su origen vegetal renovable, no a su final de vida. El Bio-PE es reciclable en flujos de reciclaje de PE estándar.",
+        "q2": "¿Cuál es el beneficio de carbono del Bio-PE?",
+        "a2": "La caña de azúcar absorbe CO2 a medida que crece, haciendo que la producción de Bio-PE sea negativa en carbono. Cada tonelada de Bio-PE captura aproximadamente 3.09 toneladas de CO2 de la atmósfera, en comparación con el PE fósil que emite ~1.8 toneladas de CO2 por tonelada producida.",
+        "q3": "¿El Bio-PE funciona igual que el PE normal?",
+        "a3": "Sí, el Bio-PE tiene propiedades idénticas al PE basado en fósiles, incluida la temperatura de sellado térmico, propiedades de barrera, flexibilidad y características de impresión. Es un reemplazo directo.",
+        "q4": "¿Cuánto cuesta el Bio-PE en comparación con el PE convencional?",
+        "a4": "El Bio-PE generalmente cuesta entre un 15 y un 30% más que el PE fósil debido a la escala de producción y los costos de materia prima. Sin embargo, los precios continúan disminuyendo a medida que aumenta la capacidad de producción.",
+        "q5": "¿Qué porcentaje de contenido de base biológica está disponible?",
+        "a5": "Podemos ofrecer bolsas de Bio-PE con hasta un 95% de contenido de base biológica. Para estructuras multicapa, el porcentaje de base biológica depende de qué capas utilicen Bio-PE. Opciones típicas son 30%, 50% o 95% de base biológica."
+    },
+    "relatedLinks": {
+        "link1": {
+            "title": "Mono-PE Reciclable",
+            "description": "Envase reciclable de un solo material"
+        },
+        "link2": {
+            "title": "Envases PCR",
+            "description": "Contenido reciclado posconsumo"
+        },
+        "link3": {
+            "title": "Compostable",
+            "description": "Opciones certificadas compostables"
+        }
+    }
+}

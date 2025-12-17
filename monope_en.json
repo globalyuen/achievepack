@@ -1,0 +1,132 @@
+{
+  "title": "Recyclable Mono-PE Packaging | 100% PE Flexible Pouches",
+  "heroTitle": "Recyclable Mono-PE Packaging",
+  "heroSubtitle": "Single-material polyethylene pouches that can be recycled in standard PE recycling streams. The practical sustainable choice.",
+  "introSummary": "Mono-PE packaging uses single-material polyethylene construction, making it compatible with PE recycling programs. Unlike multi-material laminates, mono-PE pouches can be recycled through store drop-off and growing curbside programs while maintaining good barrier properties.",
+  "ctaTitle": "Switch to Recyclable Mono-PE",
+  "ctaDescription": "Request a free sample and quote for recyclable packaging.",
+  "ctaButtonText": "Request Free Sample",
+  "sections": {
+    "overview": {
+      "title": "What is Mono-PE Packaging?",
+      "intro": "Mono-PE (mono-material polyethylene) packaging is made entirely from polyethylene, making it compatible with standard PE recycling streams. Unlike traditional multi-layer laminates, mono-PE pouches can be recycled through store drop-off programs and, increasingly, curbside recycling.",
+      "keyBenefits": "Key Benefits:",
+      "benefits": [
+        "Recyclable in PE stream (recycling code #2 or #4)",
+        "Accepted at store drop-off recycling points",
+        "Good barrier properties maintained",
+        "Heat sealable and flexible",
+        "Lower environmental footprint than multi-material"
+      ]
+    },
+    "howItWorks": {
+      "title": "How Mono-PE Achieves Barrier",
+      "intro": "Traditional pouches use different materials (PET, nylon, aluminum) for barrier. Mono-PE achieves this with PE-only solutions:",
+      "evoh": {
+        "title": "EVOH Barrier Layer",
+        "desc": "Thin EVOH layer sandwiched between PE. Provides excellent oxygen barrier while remaining recyclable in PE stream (EVOH content <5%)."
+      },
+      "pePe": {
+        "title": "PE-PE Structures",
+        "desc": "Different PE types (HDPE, MDPE, LDPE) combined for optimal stiffness, seal, and barrier without other materials."
+      },
+      "coatings": {
+        "title": "Barrier Coatings",
+        "desc": "SiOx or AlOx coatings on PE provide metallized-like barrier while maintaining recyclability."
+      },
+      "oriented": {
+        "title": "Oriented PE",
+        "desc": "Machine direction oriented PE (MDOPE) provides improved stiffness and printability typically achieved with PET."
+      }
+    },
+    "applications": {
+      "title": "Suitable Applications",
+      "intro": "Mono-PE packaging works well for many products:",
+      "items": [
+        "Frozen foods",
+        "Snacks & chips",
+        "Dry pet food",
+        "Rice & grains",
+        "Coffee (with EVOH)",
+        "Nuts & dried fruit",
+        "Granola & cereal",
+        "Bakery products",
+        "Candy & confectionery"
+      ]
+    },
+    "recycling": {
+      "title": "Recycling Information",
+      "whereTitle": "Where to Recycle:",
+      "options": [
+        "Store drop-off programs – Many major retailers accept PE flexible packaging",
+        "Curbside recycling – Growing number of municipalities accept flexible PE",
+        "Terracycle programs – Specialty recycling for brands"
+      ],
+      "note": "Note: Recycling infrastructure varies by region. We recommend checking local guidelines and communicating proper disposal instructions on packaging."
+    }
+  },
+  "table": {
+    "title": "Mono-PE vs Traditional Laminate Comparison",
+    "headers": [
+      "Property",
+      "Mono-PE",
+      "Traditional PET/PE"
+    ],
+    "rows": [
+      [
+        "Recyclability",
+        "PE stream recyclable",
+        "Generally not recyclable"
+      ],
+      [
+        "Oxygen Barrier",
+        "Good (with EVOH)",
+        "Excellent"
+      ],
+      [
+        "Moisture Barrier",
+        "Good",
+        "Excellent"
+      ],
+      [
+        "Stiffness",
+        "Good (with MDOPE)",
+        "Excellent"
+      ],
+      [
+        "Cost",
+        "+5-15%",
+        "Baseline"
+      ],
+      [
+        "Print Quality",
+        "Very good",
+        "Excellent"
+      ]
+    ]
+  },
+  "faq": {
+    "q1": "Is mono-PE truly recyclable?",
+    "a1": "Yes, mono-PE pouches are recyclable in polyethylene recycling streams. They are accepted at store drop-off points (like those at major retailers) and some curbside programs. Always check local recycling guidelines.",
+    "q2": "What is the barrier level of mono-PE?",
+    "a2": "Mono-PE offers medium barrier properties suitable for many dry goods. For products requiring higher barrier, we use EVOH-coated PE which maintains recyclability while improving oxygen barrier. MVTR typically 1-3 g/m²/24hr, OTR 10-30 cc/m²/24hr for standard PE.",
+    "q3": "How does mono-PE compare in cost?",
+    "a3": "Mono-PE pouches typically cost 5-15% more than equivalent multi-material structures due to specialized materials needed for barrier. However, the sustainability benefit often justifies the premium for eco-conscious brands.",
+    "q4": "Can mono-PE pouches be printed?",
+    "a4": "Yes, mono-PE pouches can achieve high-quality printing with up to 10 colors. We use specialized inks and coatings designed for PE surfaces. Surface treatment ensures excellent ink adhesion."
+  },
+  "relatedLinks": {
+    "link1": {
+      "title": "Recyclable Mono-PP",
+      "description": "Polypropylene alternative"
+    },
+    "link2": {
+      "title": "Bio-PE",
+      "description": "Plant-based PE option"
+    },
+    "link3": {
+      "title": "Compostable",
+      "description": "Certified compostable materials"
+    }
+  }
+}

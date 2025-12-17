@@ -1,0 +1,131 @@
+{
+  "title": "PCR Packaging | Post-Consumer Recycled Flexible Pouches",
+  "heroTitle": "PCR Recycled Content Packaging",
+  "heroSubtitle": "Flexible packaging with 30-100% post-consumer recycled content. Supporting the circular economy while maintaining quality.",
+  "introSummary": "PCR packaging incorporates plastic recycled from consumer waste, reducing virgin plastic use and supporting circular economy goals. Our PCR pouches are GRS certified, FDA approved for food contact, and available in 30%, 50%, or 100% recycled content.",
+  "ctaTitle": "Switch to PCR Packaging",
+  "ctaDescription": "Request a free sample and quote for recycled content packaging.",
+  "ctaButtonText": "Request Free Sample",
+  "sections": {
+    "overview": {
+      "title": "What is PCR Packaging?",
+      "intro": "PCR (Post-Consumer Recycled) packaging contains plastic that has been recycled from consumer waste streams. By incorporating recycled content, brands reduce virgin plastic use and support the circular economy.",
+      "keyBenefits": "Key Benefits:",
+      "benefits": [
+        "Reduces virgin plastic consumption",
+        "Supports circular economy and recycling infrastructure",
+        "Lower carbon footprint than virgin plastic",
+        "Maintains excellent packaging performance",
+        "GRS (Global Recycled Standard) certified available"
+      ]
+    },
+    "contentLevels": {
+      "title": "PCR Content Levels",
+      "intro": "We offer various PCR content levels to meet your sustainability goals:",
+      "level30": {
+        "title": "Entry Level",
+        "desc": "Good starting point for PCR adoption. Minimal impact on appearance."
+      },
+      "level50": {
+        "title": "Recommended",
+        "desc": "Balanced approach. Significant sustainability impact with good performance."
+      },
+      "level100": {
+        "title": "Maximum",
+        "desc": "For brands prioritizing maximum recycled content. Some optical variation."
+      }
+    },
+    "foodSafety": {
+      "title": "Food Safety & Quality",
+      "intro": "Our PCR materials meet stringent food safety requirements:",
+      "items": [
+        "FDA approved for food contact (21 CFR 177)",
+        "EFSA compliant for European markets",
+        "Super-cleaned PCR – Advanced decontamination process",
+        "Traceability – Known source streams, typically food-grade PET/PE",
+        "Testing – Migration testing and challenge testing performed"
+      ],
+      "note": "We use mechanical and advanced recycling technologies to ensure PCR materials meet food-contact safety requirements."
+    },
+    "certifications": {
+      "title": "Certifications",
+      "grs": {
+        "title": "GRS Certified",
+        "desc": "Global Recycled Standard certification verifies recycled content and tracks materials through the supply chain."
+      },
+      "scs": {
+        "title": "SCS Verified",
+        "desc": "SCS Global Services verification for recycled content claims and environmental impact."
+      }
+    },
+    "applications": {
+      "title": "Suitable Applications",
+      "items": [
+        "Snack foods",
+        "Pet food",
+        "Coffee & tea",
+        "Personal care",
+        "Household products",
+        "Frozen food",
+        "Dry goods",
+        "E-commerce mailers",
+        "Non-food applications"
+      ]
+    }
+  },
+  "table": {
+    "title": "PCR Content Comparison",
+    "headers": [
+      "PCR Level",
+      "Appearance Impact",
+      "Cost Premium",
+      "Carbon Reduction"
+    ],
+    "rows": [
+      [
+        "30% PCR",
+        "Minimal",
+        "+10-12%",
+        "~20-25%"
+      ],
+      [
+        "50% PCR",
+        "Slight",
+        "+15-18%",
+        "~35-40%"
+      ],
+      [
+        "100% PCR",
+        "Noticeable",
+        "+20-25%",
+        "~70-80%"
+      ]
+    ]
+  },
+  "faq": {
+    "q1": "Is PCR packaging food safe?",
+    "a1": "Yes, our PCR materials are FDA approved for food contact. The recycled content undergoes advanced decontamination (super-cleaning) and rigorous testing to meet food safety standards including migration testing.",
+    "q2": "Does PCR affect print quality?",
+    "a2": "PCR may have slightly different optical properties (slight haze or color variation) compared to virgin plastic. At 30-50% PCR content, the impact on print quality is minimal. We recommend samples to evaluate appearance for your application.",
+    "q3": "What is the source of your PCR?",
+    "a3": "Our PCR comes from established post-consumer waste streams, primarily food-grade PET bottles and PE packaging. We work with certified recyclers who provide full traceability and use advanced sorting and cleaning processes.",
+    "q4": "How much does PCR packaging cost?",
+    "a4": "PCR typically costs 10-20% more than virgin plastic, though pricing fluctuates with recycled feedstock availability. The premium supports recycling infrastructure development and reflects the additional processing required.",
+    "q5": "Can PCR pouches still be recycled?",
+    "a5": "Yes, PCR pouches can be recycled again, continuing the circular economy loop. The recyclability depends on the overall pouch structure (mono-material vs multi-layer) rather than the PCR content itself."
+  },
+  "relatedLinks": {
+    "link1": {
+      "title": "Recyclable Mono-PE",
+      "description": "Single-material recyclable option"
+    },
+    "link2": {
+      "title": "Bio-PE",
+      "description": "Plant-based alternative"
+    },
+    "link3": {
+      "title": "Compostable",
+      "description": "Certified compostable packaging"
+    }
+  }
+}

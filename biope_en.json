@@ -1,0 +1,91 @@
+{
+  "title": "Bio-PE Packaging | Sugarcane-Based Sustainable Pouches",
+  "heroTitle": "Bio-PE Plant-Based Packaging",
+  "heroSubtitle": "Polyethylene made from renewable sugarcane. Same performance, lower carbon footprint, fully recyclable.",
+  "introSummary": "Bio-PE is polyethylene made from renewable sugarcane instead of fossil fuels. It offers identical performance to conventional PE while capturing carbon during production. Bio-PE is fully recyclable in standard PE streams and certified by Braskem's I'm green™ program.",
+  "ctaTitle": "Switch to Bio-PE",
+  "ctaDescription": "Request a free sample and quote for plant-based packaging.",
+  "ctaButtonText": "Request Free Sample",
+  "sections": {
+    "overview": {
+      "title": "What is Bio-PE?",
+      "intro": "Bio-PE (bio-based polyethylene) is chemically identical to conventional PE but made from renewable plant sources like sugarcane instead of fossil fuels. It offers the same performance as traditional PE while reducing carbon footprint.",
+      "keyBenefits": "Key Benefits:",
+      "benefits": [
+        "Made from renewable sugarcane (up to 95% bio-based)",
+        "Carbon negative raw material production",
+        "Same performance as conventional PE",
+        "Recyclable in existing PE streams",
+        "I'm green™ certified by Braskem"
+      ]
+    },
+    "howItWorks": {
+      "title": "How Bio-PE is Made",
+      "step1": "Sugarcane Growth",
+      "step1Desc": "Sugarcane absorbs CO2 from the atmosphere as it grows",
+      "step2": "Ethanol Production",
+      "step2Desc": "Sugarcane is fermented to produce bio-ethanol",
+      "step3": "Ethylene Conversion",
+      "step3Desc": "Bio-ethanol is dehydrated to create bio-ethylene",
+      "step4": "Polymerization",
+      "step4Desc": "Bio-ethylene is polymerized into bio-PE (chemically identical to fossil PE)"
+    },
+    "carbon": {
+      "title": "Carbon Benefits",
+      "comparisonTitle": "Carbon Footprint Comparison:",
+      "items": [
+        "Bio-PE: Captures ~3.09 kg CO2 per kg of PE produced",
+        "Fossil PE: Emits ~1.8 kg CO2 per kg of PE produced",
+        "Net difference: ~4.9 kg CO2 per kg of material"
+      ],
+      "note": "This calculation is based on sugarcane cultivation absorbing CO2, which is captured in the bio-PE. Life cycle assessments confirm the carbon-negative nature of bio-PE production."
+    },
+    "applications": {
+      "title": "Suitable Applications",
+      "intro": "Bio-PE works for any application where conventional PE is used:",
+      "items": [
+        "Food packaging",
+        "Beverage pouches",
+        "Personal care",
+        "Household products",
+        "Pet food bags",
+        "Snack packaging",
+        "Frozen food",
+        "Agricultural films",
+        "Shopping bags"
+      ]
+    },
+    "recycling": {
+      "title": "Recyclability",
+      "distinctionTitle": "Important Distinction:",
+      "distinction": "Bio-PE is NOT compostable. It is chemically identical to fossil PE and does not break down in composting conditions. The \"bio\" refers to its renewable origin, not its end-of-life behavior.",
+      "info": "Bio-PE is fully recyclable in standard PE recycling streams (#2 and #4). It can be mixed with fossil PE in recycling processes without any issues."
+    }
+  },
+  "faq": {
+    "q1": "Is Bio-PE compostable?",
+    "a1": "No, Bio-PE is not compostable. It is chemically identical to conventional PE. The 'bio' refers to its renewable plant-based origin, not its end-of-life. Bio-PE is recyclable in standard PE recycling streams.",
+    "q2": "What is the carbon benefit of Bio-PE?",
+    "a2": "Sugarcane absorbs CO2 as it grows, making Bio-PE production carbon negative. Each ton of Bio-PE captures approximately 3.09 tons of CO2 from the atmosphere, compared to fossil PE which emits ~1.8 tons CO2 per ton produced.",
+    "q3": "Does Bio-PE perform the same as regular PE?",
+    "a3": "Yes, Bio-PE has identical properties to fossil-based PE including heat seal temperature, barrier properties, flexibility, and printing characteristics. It's a direct drop-in replacement.",
+    "q4": "How much does Bio-PE cost compared to conventional PE?",
+    "a4": "Bio-PE typically costs 15-30% more than fossil PE due to production scale and feedstock costs. However, prices continue to decrease as production capacity increases.",
+    "q5": "What percentage of bio-based content is available?",
+    "a5": "We can offer Bio-PE pouches with up to 95% bio-based content. For multi-layer structures, the bio-based percentage depends on which layers use Bio-PE. Typical options are 30%, 50%, or 95% bio-based."
+  },
+  "relatedLinks": {
+    "link1": {
+      "title": "Recyclable Mono-PE",
+      "description": "Single-material recyclable packaging"
+    },
+    "link2": {
+      "title": "PCR Packaging",
+      "description": "Post-consumer recycled content"
+    },
+    "link3": {
+      "title": "Compostable",
+      "description": "Certified compostable options"
+    }
+  }
+}

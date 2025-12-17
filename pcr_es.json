@@ -1,0 +1,131 @@
+{
+    "title": "Envases PCR | Bolsas Flexibles Recicladas Posconsumo",
+    "heroTitle": "Envases con Contenido Reciclado PCR",
+    "heroSubtitle": "Envases flexibles con 30-100% de contenido reciclado posconsumo. Apoyando la economía circular mientras se mantiene la calidad.",
+    "introSummary": "Los envases PCR incorporan plástico reciclado de residuos de consumidores, reduciendo el uso de plástico virgen y apoyando los objetivos de economía circular. Nuestras bolsas PCR tienen certificación GRS, están aprobadas por la FDA para contacto con alimentos y están disponibles con un 30%, 50% o 100% de contenido reciclado.",
+    "ctaTitle": "Cambie a Envases PCR",
+    "ctaDescription": "Solicite una muestra gratuita y una cotización para envases con contenido reciclado.",
+    "ctaButtonText": "Solicitar Muestra Gratis",
+    "sections": {
+        "overview": {
+            "title": "¿Qué es el Envase PCR?",
+            "intro": "El envase PCR (Reciclado Posconsumo) contiene plástico que ha sido reciclado de flujos de residuos de consumidores. Al incorporar contenido reciclado, las marcas reducen el uso de plástico virgen y apoyan la economía circular.",
+            "keyBenefits": "Beneficios Clave:",
+            "benefits": [
+                "Reduce el consumo de plástico virgen",
+                "Apoya la economía circular y la infraestructura de reciclaje",
+                "Menor huella de carbono que el plástico virgen",
+                "Mantiene un excelente rendimiento del envase",
+                "Certificación GRS (Estándar Global de Reciclaje) disponible"
+            ]
+        },
+        "contentLevels": {
+            "title": "Niveles de Contenido PCR",
+            "intro": "Ofrecemos varios niveles de contenido PCR para cumplir con sus objetivos de sostenibilidad:",
+            "level30": {
+                "title": "Nivel de Entrada",
+                "desc": "Buen punto de partida para la adopción de PCR. Impacto mínimo en la apariencia."
+            },
+            "level50": {
+                "title": "Recomendado",
+                "desc": "Enfoque equilibrado. Impacto significativo en la sostenibilidad con buen rendimiento."
+            },
+            "level100": {
+                "title": "Máximo",
+                "desc": "Para marcas que priorizan el máximo contenido reciclado. Alguna variación óptica."
+            }
+        },
+        "foodSafety": {
+            "title": "Seguridad Alimentaria y Calidad",
+            "intro": "Nuestros materiales PCR cumplen con estrictos requisitos de seguridad alimentaria:",
+            "items": [
+                "Aprobado por la FDA para contacto con alimentos (21 CFR 177)",
+                "Cumple con EFSA para mercados europeos",
+                "PCR súper limpio – Proceso avanzado de descontaminación",
+                "Trazabilidad – Flujos de origen conocidos, típicamente PET/PE grado alimenticio",
+                "Pruebas – Pruebas de migración y pruebas de desafío realizadas"
+            ],
+            "note": "Utilizamos tecnologías de reciclaje mecánico y avanzado para asegurar que los materiales PCR cumplan con los requisitos de seguridad para contacto con alimentos."
+        },
+        "certifications": {
+            "title": "Certificaciones",
+            "grs": {
+                "title": "Certificado GRS",
+                "desc": "La certificación del Estándar Global de Reciclaje verifica el contenido reciclado y rastrea los materiales a través de la cadena de suministro."
+            },
+            "scs": {
+                "title": "Verificado SCS",
+                "desc": "Verificación de SCS Global Services para declaraciones de contenido reciclado e impacto ambiental."
+            }
+        },
+        "applications": {
+            "title": "Aplicaciones Adecuadas",
+            "items": [
+                "Aperitivos",
+                "Alimentos para mascotas",
+                "Café y té",
+                "Cuidado personal",
+                "Productos para el hogar",
+                "Alimentos congelados",
+                "Productos secos",
+                "Sobres para comercio electrónico",
+                "Aplicaciones no alimentarias"
+            ]
+        }
+    },
+    "table": {
+        "title": "Comparación de Contenido PCR",
+        "headers": [
+            "Nivel PCR",
+            "Impacto en Apariencia",
+            "Prima de Costo",
+            "Reducción de Carbono"
+        ],
+        "rows": [
+            [
+                "30% PCR",
+                "Mínimo",
+                "+10-12%",
+                "~20-25%"
+            ],
+            [
+                "50% PCR",
+                "Leve",
+                "+15-18%",
+                "~35-40%"
+            ],
+            [
+                "100% PCR",
+                "Notable",
+                "+20-25%",
+                "~70-80%"
+            ]
+        ]
+    },
+    "faq": {
+        "q1": "¿Es seguro el envase PCR para alimentos?",
+        "a1": "Sí, nuestros materiales PCR están aprobados por la FDA para contacto con alimentos. El contenido reciclado se somete a una descontaminación avanzada (súper limpieza) y pruebas rigurosas para cumplir con los estándares de seguridad alimentaria, incluidas las pruebas de migración.",
+        "q2": "¿Afecta el PCR la calidad de impresión?",
+        "a2": "El PCR puede tener propiedades ópticas ligeramente diferentes (leve neblina o variación de color) en comparación con el plástico virgen. Con un contenido de PCR del 30-50%, el impacto en la calidad de impresión es mínimo. Recomendamos muestras para evaluar la apariencia para su aplicación.",
+        "q3": "¿Cuál es la fuente de su PCR?",
+        "a3": "Nuestro PCR proviene de flujos de residuos posconsumo establecidos, principalmente botellas de PET y envases de PE de grado alimenticio. Trabajamos con recicladores certificados que proporcionan trazabilidad completa y utilizan procesos avanzados de clasificación y limpieza.",
+        "q4": "¿Cuánto cuestan los envases PCR?",
+        "a4": "El PCR suele costar entre un 10 y un 20% más que el plástico virgen, aunque los precios fluctúan con la disponibilidad de materia prima reciclada. La prima apoya el desarrollo de la infraestructura de reciclaje y refleja el procesamiento adicional requerido.",
+        "q5": "¿Se pueden reciclar las bolsas PCR?",
+        "a5": "Sí, las bolsas PCR se pueden reciclar nuevamente, continuando el ciclo de la economía circular. La reciclabilidad depende de la estructura general de la bolsa (monomaterial vs multicapa) más que del contenido de PCR en sí."
+    },
+    "relatedLinks": {
+        "link1": {
+            "title": "Mono-PE Reciclable",
+            "description": "Opción reciclable de un solo material"
+        },
+        "link2": {
+            "title": "Bio-PE",
+            "description": "Alternativa basada en plantas"
+        },
+        "link3": {
+            "title": "Compostable",
+            "description": "Envases certificados compostables"
+        }
+    }
+}
