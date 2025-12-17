@@ -112,22 +112,22 @@ const GeoBlocker: React.FC<GeoBlockerProps> = ({ children }) => {
 
             {/* WhatsApp */}
             <a 
-              href="https://wa.me/61478879668"
+              href="https://wa.me/85269704411"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 w-full bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-lg transition-colors"
             >
               <MessageCircle className="h-5 w-5" />
-              <span>WhatsApp: +61 478 879 668</span>
+              <span>WhatsApp: +852 6970 4411</span>
             </a>
 
             {/* Phone */}
             <a 
-              href="tel:+61478879668"
+              href="tel:+85269704411"
               className="flex items-center justify-center gap-3 w-full bg-neutral-100 hover:bg-neutral-200 text-neutral-700 py-3 px-6 rounded-lg transition-colors"
             >
               <Phone className="h-5 w-5" />
-              <span>+61 478 879 668</span>
+              <span>+852 6970 4411</span>
             </a>
           </div>
 
