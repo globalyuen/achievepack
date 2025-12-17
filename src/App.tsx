@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback, useTransition } from 'react'
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom'
 import ReactGA from "react-ga4";
@@ -26,6 +26,7 @@ function App() {
   const { t, i18n } = useTranslation();
   const { cartCount, addToCart, setIsCartOpen } = useStore();
   const navigate = useNavigate();
+  const [isPending, startTransition] = useTransition();
   const [activeSection, setActiveSection] = useState('')
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -42,6 +43,19 @@ function App() {
     company: '',
     message: ''
   })
+
+  // Optimized modal close handlers for INP
+  const closeImageModal = useCallback(() => {
+    startTransition(() => {
+      setIsModalOpen(false)
+    })
+  }, [])
+
+  const closeProductModal = useCallback(() => {
+    startTransition(() => {
+      setSelectedProduct(null)
+    })
+  }, [])
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
@@ -1465,10 +1479,10 @@ ${formData.message}`
 
       {/* Image Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75" onClick={() => setIsModalOpen(false)}>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75" onClick={closeImageModal}>
           <div className="relative max-w-4xl max-h-[90vh] mx-4">
             <button
-              onClick={() => setIsModalOpen(false)}
+              onClick={closeImageModal}
               className="absolute -top-10 right-0 text-white hover:text-gray-300 transition-colors"
             >
               <X className="h-8 w-8" />
@@ -1514,7 +1528,7 @@ Please contact me to discuss custom solutions.`;
       {selectedProduct && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 p-4"
-          onClick={() => setSelectedProduct(null)}
+          onClick={closeProductModal}
         >
           <div
             className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
@@ -1528,7 +1542,7 @@ Please contact me to discuss custom solutions.`;
                 className="w-full h-64 object-contain bg-neutral-50 p-8"
               />
               <button
-                onClick={() => setSelectedProduct(null)}
+                onClick={closeProductModal}
                 className="absolute top-4 right-4 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-neutral-100 transition-colors"
               >
                 <X className="h-5 w-5 text-neutral-700" />
@@ -1610,7 +1624,7 @@ Please contact me to discuss custom solutions.`;
                       unitPrice: selectedProduct.basePrice,
                       totalPrice: selectedProduct.basePrice
                     });
-                    setSelectedProduct(null);
+                    closeProductModal();
                   }}
                   className="flex-1 flex items-center justify-center gap-2 bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-colors"
                 >
@@ -1619,7 +1633,7 @@ Please contact me to discuss custom solutions.`;
                 </button>
                 <Link
                   to="/store"
-                  onClick={() => setSelectedProduct(null)}
+                  onClick={closeProductModal}
                   className="flex items-center justify-center gap-2 border-2 border-primary-500 text-primary-600 px-6 py-3 rounded-lg font-semibold hover:bg-primary-50 transition-colors"
                 >
                   Explore More
