@@ -512,12 +512,24 @@ const ProductPage: React.FC = () => {
                   <button 
                     onClick={() => setEnlargedImage({
                       src: `/imgs/store/customer-sample/${[
+                        { name: 'Blend Coffee', img: 'a_blend_coffee_family_group_4850129.webp' },
+                        { name: 'Blend4 Coffee', img: 'a_blend4_coffee_functional_closeup_9237259.webp' },
+                        { name: 'Natures Touch', img: 'a_natures_touch_fruit_family_0232483.webp' },
+                        { name: 'Pouch Detail', img: 'a_pouch_functional_detail_closeup_8098550.webp' },
+                        { name: 'Product Family', img: 'a_product_family_group_photo_2244546.webp' },
                         { name: 'Arielle', img: 'Arielle.webp' },
                         { name: 'David', img: 'David.webp' },
                         { name: 'Holly', img: 'Holly.webp' },
                         { name: 'Leo', img: 'Leo.webp' },
                         { name: 'Nicole', img: 'Nicole.webp' },
                         { name: 'Paul', img: 'Paul.webp' },
+                        { name: 'Remi', img: 'Remi.webp' },
+                        { name: 'Richard', img: 'Richard.webp' },
+                        { name: 'Steph', img: 'Steph.webp' },
+                        { name: 'Jemma', img: 'jemma.webp' },
+                        { name: 'Michelle', img: 'michelle.webp' },
+                        { name: 'Morlife', img: 'morlife.webp' },
+                        { name: 'Ruby', img: 'ruby.webp' },
                       ][selectedMainImage]?.img || 'Arielle.webp'}`,
                       alt: 'Customer Example'
                     })}
@@ -525,12 +537,24 @@ const ProductPage: React.FC = () => {
                   >
                     <img 
                       src={`/imgs/store/customer-sample/${[
+                        { name: 'Blend Coffee', img: 'a_blend_coffee_family_group_4850129.webp' },
+                        { name: 'Blend4 Coffee', img: 'a_blend4_coffee_functional_closeup_9237259.webp' },
+                        { name: 'Natures Touch', img: 'a_natures_touch_fruit_family_0232483.webp' },
+                        { name: 'Pouch Detail', img: 'a_pouch_functional_detail_closeup_8098550.webp' },
+                        { name: 'Product Family', img: 'a_product_family_group_photo_2244546.webp' },
                         { name: 'Arielle', img: 'Arielle.webp' },
                         { name: 'David', img: 'David.webp' },
                         { name: 'Holly', img: 'Holly.webp' },
                         { name: 'Leo', img: 'Leo.webp' },
                         { name: 'Nicole', img: 'Nicole.webp' },
                         { name: 'Paul', img: 'Paul.webp' },
+                        { name: 'Remi', img: 'Remi.webp' },
+                        { name: 'Richard', img: 'Richard.webp' },
+                        { name: 'Steph', img: 'Steph.webp' },
+                        { name: 'Jemma', img: 'jemma.webp' },
+                        { name: 'Michelle', img: 'michelle.webp' },
+                        { name: 'Morlife', img: 'morlife.webp' },
+                        { name: 'Ruby', img: 'ruby.webp' },
                       ][selectedMainImage]?.img || 'Arielle.webp'}`}
                       alt="Customer Example"
                       className="w-full h-80 object-contain"
@@ -538,21 +562,33 @@ const ProductPage: React.FC = () => {
                   </button>
                 </div>
                 
-                {/* Thumbnail Gallery */}
+                {/* Thumbnail Gallery - 9 columns, 2 rows */}
                 <div className="p-3 border-t border-neutral-200">
-                  <div className="grid grid-cols-6 gap-2">
+                  <div className="grid grid-cols-9 gap-1.5">
                     {[
+                      { name: 'Blend Coffee', img: 'a_blend_coffee_family_group_4850129.webp' },
+                      { name: 'Blend4 Coffee', img: 'a_blend4_coffee_functional_closeup_9237259.webp' },
+                      { name: 'Natures Touch', img: 'a_natures_touch_fruit_family_0232483.webp' },
+                      { name: 'Pouch Detail', img: 'a_pouch_functional_detail_closeup_8098550.webp' },
+                      { name: 'Product Family', img: 'a_product_family_group_photo_2244546.webp' },
                       { name: 'Arielle', img: 'Arielle.webp' },
                       { name: 'David', img: 'David.webp' },
                       { name: 'Holly', img: 'Holly.webp' },
                       { name: 'Leo', img: 'Leo.webp' },
                       { name: 'Nicole', img: 'Nicole.webp' },
                       { name: 'Paul', img: 'Paul.webp' },
+                      { name: 'Remi', img: 'Remi.webp' },
+                      { name: 'Richard', img: 'Richard.webp' },
+                      { name: 'Steph', img: 'Steph.webp' },
+                      { name: 'Jemma', img: 'jemma.webp' },
+                      { name: 'Michelle', img: 'michelle.webp' },
+                      { name: 'Morlife', img: 'morlife.webp' },
+                      { name: 'Ruby', img: 'ruby.webp' },
                     ].map((sample, index) => (
                       <button
                         key={sample.name}
                         onClick={() => setSelectedMainImage(index)}
-                        className={`aspect-square bg-white rounded-lg border-2 overflow-hidden transition-all hover:shadow-md ${
+                        className={`aspect-square bg-white rounded-md border-2 overflow-hidden transition-all hover:shadow-md ${
                           selectedMainImage === index ? 'border-primary-600 ring-2 ring-primary-200' : 'border-neutral-200'
                         }`}
                       >
