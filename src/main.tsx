@@ -5,6 +5,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import { ErrorBoundary } from './components/ErrorBoundary.tsx'
 import { StoreProvider } from './store/StoreContext'
 import CartSidebar from './components/store/CartSidebar'
+import GeoBlocker from './components/GeoBlocker'
 import './index.css'
 import './i18n'
 import App from './App.tsx'
@@ -97,9 +98,10 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <HelmetProvider>
       <ErrorBoundary>
-        <BrowserRouter>
-          <StoreProvider>
-            <CartSidebar />
+        <GeoBlocker>
+          <BrowserRouter>
+            <StoreProvider>
+              <CartSidebar />
             <Routes>
               <Route path="/" element={<App />} />
               <Route path="/store" element={<StorePage />} />
@@ -188,7 +190,8 @@ createRoot(document.getElementById('root')!).render(
             </Routes>
           </StoreProvider>
         </BrowserRouter>
-      </ErrorBoundary>
-    </HelmetProvider>
-  </StrictMode>,
+      </GeoBlocker>
+    </ErrorBoundary>
+  </HelmetProvider>
+</StrictMode>,
 )

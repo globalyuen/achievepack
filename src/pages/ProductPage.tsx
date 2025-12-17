@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
-import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct } from '../store/productData'
+import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct, type ConventionalProduct, PRICING_DATA, POUCH_SIZES, QUANTITY_OPTIONS } from '../store/productData'
 import { calculateEcoPrice, type EcoCalculatorSelections } from '../utils/ecoDigitalCalculator'
 import { getProductImage, getSizeImage, getSurfaceImage, getAdditionalImage, type ShapeType, ClosureType, SurfaceType, EcoSizeType, AdditionalType } from '../utils/productImageMapper'
 import { TESTIMONIALS } from '../data/testimonialsData'
@@ -14,7 +14,14 @@ const ProductPage: React.FC = () => {
   
   const product = FEATURED_PRODUCTS.find(p => p.id === productId)
   const isEcoDigital = product?.category === 'eco-digital'
+  const isConventionalDigital = product?.category === 'conventional-digital'
   const ecoProduct = isEcoDigital ? (product as EcoDigitalProduct) : null
+  const conventionalProduct = isConventionalDigital ? (product as ConventionalProduct) : null
+  
+  // Conventional Digital product options
+  const [selectedConvSize, setSelectedConvSize] = useState('130x180')
+  const [selectedConvQuantity, setSelectedConvQuantity] = useState(100)
+  const [selectedMainImage, setSelectedMainImage] = useState(0)
   
   // Eco Digital product options
   const [selectedMaterial, setSelectedMaterial] = useState('Mono Recyclable Plastic')
@@ -137,6 +144,35 @@ const ProductPage: React.FC = () => {
   const totalPrice = calculationResult?.price.totalInvestment || product?.basePrice || 0
   const unitPrice = calculationResult?.price.currentUnitPrice || 0
   
+  // Conventional Digital price calculation
+  const conventionalPrice = useMemo(() => {
+    if (!isConventionalDigital || !conventionalProduct) return { total: 0, unit: 0 }
+    
+    const shapeKey = conventionalProduct.shape
+    const priceData = PRICING_DATA[shapeKey]
+    if (!priceData || !priceData[selectedConvSize]) return { total: conventionalProduct.basePrice, unit: conventionalProduct.basePrice / 100 }
+    
+    const basePrice = priceData[selectedConvSize][selectedConvQuantity] || conventionalProduct.basePrice
+    // Add shipping cost ($40 flat rate already included in display)
+    const totalWithShipping = basePrice + 40
+    return {
+      total: totalWithShipping,
+      unit: totalWithShipping / selectedConvQuantity
+    }
+  }, [isConventionalDigital, conventionalProduct, selectedConvSize, selectedConvQuantity])
+  
+  // Get available sizes for conventional product
+  const conventionalSizes = useMemo(() => {
+    if (!isConventionalDigital || !conventionalProduct) return []
+    const shapeKey = conventionalProduct.shape
+    const priceData = PRICING_DATA[shapeKey]
+    if (!priceData) return []
+    return Object.keys(priceData).map(sizeId => {
+      const sizeInfo = POUCH_SIZES.find(s => s.id === sizeId)
+      return sizeInfo || { id: sizeId, label: sizeId, dimensions: sizeId, imperial: '' }
+    })
+  }, [isConventionalDigital, conventionalProduct])
+  
   // Product image based on selections - Always show pouch shape for Eco Digital
   const productImage = useMemo(() => {
     if (isEcoDigital && ecoProduct) {
@@ -213,8 +249,231 @@ const ProductPage: React.FC = () => {
       <div className="h-[60px]"></div>
 
       <main className="max-w-7xl mx-auto px-4 py-8 lg:pt-14">
-        {/* Main Product Image for Non-Eco Digital Products - Top of Page */}
-        {!isEcoDigital && (
+        {/* Main Product Section for Conventional Digital Products */}
+        {isConventionalDigital && conventionalProduct && (
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-8">
+            {/* Left Column - Image Gallery */}
+            <div className="space-y-4">
+              {/* Main Image */}
+              <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden">
+                <button 
+                  onClick={() => setEnlargedImage({
+                    src: product.images[selectedMainImage],
+                    alt: product.name
+                  })}
+                  className="w-full bg-neutral-50 p-6 cursor-pointer hover:bg-neutral-100 transition"
+                >
+                  <img 
+                    src={product.images[selectedMainImage]}
+                    alt={product.name}
+                    className="w-full h-80 object-contain"
+                  />
+                </button>
+              </div>
+              
+              {/* Thumbnail Gallery */}
+              {product.images.length > 1 && (
+                <div className="grid grid-cols-5 gap-2">
+                  {product.images.map((img, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setSelectedMainImage(index)}
+                      className={`aspect-square bg-white rounded-lg border-2 overflow-hidden transition-all hover:shadow-md ${
+                        selectedMainImage === index ? 'border-primary-600 ring-2 ring-primary-200' : 'border-neutral-200'
+                      }`}
+                    >
+                      <img src={img} alt={`View ${index + 1}`} className="w-full h-full object-contain p-1" />
+                    </button>
+                  ))}
+                </div>
+              )}
+              
+              {/* Specifications Tab */}
+              <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden">
+                <div className="flex border-b border-neutral-200">
+                  <button
+                    onClick={() => setActiveTab('visualization')}
+                    className={`flex-1 px-4 py-3 text-sm font-medium transition ${
+                      activeTab === 'visualization'
+                        ? 'bg-primary-50 text-primary-700 border-b-2 border-primary-600'
+                        : 'text-neutral-600 hover:bg-neutral-50'
+                    }`}
+                  >
+                    📦 Product Details
+                  </button>
+                  <button
+                    onClick={() => setActiveTab('specifications')}
+                    className={`flex-1 px-4 py-3 text-sm font-medium transition ${
+                      activeTab === 'specifications'
+                        ? 'bg-primary-50 text-primary-700 border-b-2 border-primary-600'
+                        : 'text-neutral-600 hover:bg-neutral-50'
+                    }`}
+                  >
+                    📋 Specifications
+                  </button>
+                </div>
+                <div className="p-4">
+                  {activeTab === 'visualization' ? (
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <span className="text-primary-500">✓</span>
+                        <div>
+                          <div className="font-medium text-neutral-800">Digital Print Quality</div>
+                          <div className="text-sm text-neutral-500">High-resolution printing with vibrant colors</div>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <span className="text-primary-500">✓</span>
+                        <div>
+                          <div className="font-medium text-neutral-800">Fast Turnaround</div>
+                          <div className="text-sm text-neutral-500">15-20 business days production time</div>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <span className="text-primary-500">✓</span>
+                        <div>
+                          <div className="font-medium text-neutral-800">Free Shipping</div>
+                          <div className="text-sm text-neutral-500">Air freight shipping included in price</div>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <span className="text-primary-500">✓</span>
+                        <div>
+                          <div className="font-medium text-neutral-800">Low MOQ</div>
+                          <div className="text-sm text-neutral-500">Starting from just 100 pieces</div>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <dl className="grid grid-cols-1 gap-y-3 text-sm">
+                      <div className="grid grid-cols-3 gap-2">
+                        <dt className="text-neutral-500">Shape</dt>
+                        <dd className="text-neutral-900 col-span-2">{conventionalProduct.shape.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</dd>
+                      </div>
+                      <div className="grid grid-cols-3 gap-2">
+                        <dt className="text-neutral-500">Size</dt>
+                        <dd className="text-neutral-900 col-span-2">{POUCH_SIZES.find(s => s.id === selectedConvSize)?.label || selectedConvSize}</dd>
+                      </div>
+                      <div className="grid grid-cols-3 gap-2">
+                        <dt className="text-neutral-500">Quantity</dt>
+                        <dd className="text-neutral-900 col-span-2">{selectedConvQuantity.toLocaleString()} pieces</dd>
+                      </div>
+                      <div className="grid grid-cols-3 gap-2">
+                        <dt className="text-neutral-500">Material</dt>
+                        <dd className="text-neutral-900 col-span-2">{product.name.includes('Metalised') ? 'Mattopp/VMPET/LLDPE' : 'Glossy PET/LLDPE'}</dd>
+                      </div>
+                      <div className="grid grid-cols-3 gap-2">
+                        <dt className="text-neutral-500">Thickness</dt>
+                        <dd className="text-neutral-900 col-span-2">100 micron / 4 mil</dd>
+                      </div>
+                      <div className="grid grid-cols-3 gap-2">
+                        <dt className="text-neutral-500">Printing</dt>
+                        <dd className="text-neutral-900 col-span-2">Digital Print (Unlimited Colors)</dd>
+                      </div>
+                      <div className="grid grid-cols-3 gap-2">
+                        <dt className="text-neutral-500">Lead Time</dt>
+                        <dd className="text-neutral-900 col-span-2">15-20 business days</dd>
+                      </div>
+                      <div className="grid grid-cols-3 gap-2">
+                        <dt className="text-neutral-500">Shipping</dt>
+                        <dd className="text-neutral-900 col-span-2">Air Freight (Included)</dd>
+                      </div>
+                    </dl>
+                  )}
+                </div>
+              </div>
+            </div>
+            
+            {/* Right Column - Product Options */}
+            <div className="space-y-6">
+              {product.badge && <span className="inline-block bg-primary-100 text-primary-700 text-sm px-4 py-1 rounded-full font-medium">{product.badge}</span>}
+              <h1 className="text-3xl font-bold text-neutral-900">{product.name}</h1>
+              
+              <div className="flex items-center gap-2">
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className={`h-5 w-5 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-neutral-300'}`} />
+                  ))}
+                </div>
+                <span className="text-neutral-600">({product.reviews} reviews)</span>
+              </div>
+              
+              <p className="text-neutral-600">{product.description}</p>
+              
+              {/* Price Display */}
+              <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border-2 border-primary-200 p-6">
+                <div className="text-3xl font-bold text-primary-700">US${conventionalPrice.total.toLocaleString()}</div>
+                <div className="text-sm text-primary-600 mt-1">
+                  ${conventionalPrice.unit.toFixed(2)}/piece • {selectedConvQuantity.toLocaleString()} pieces
+                </div>
+                <div className="text-xs text-primary-700 mt-2 bg-white bg-opacity-40 rounded-lg p-2 text-center">
+                  ✓ $40 Air Shipping Included
+                </div>
+              </div>
+              
+              {/* Options */}
+              <div className="space-y-4 pt-4 border-t">
+                {/* Size Selector */}
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">Size (W × H + Gusset)</label>
+                  <select 
+                    value={selectedConvSize} 
+                    onChange={e => setSelectedConvSize(e.target.value)} 
+                    className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                  >
+                    {conventionalSizes.map(size => (
+                      <option key={size.id} value={size.id}>{size.label} ({size.imperial})</option>
+                    ))}
+                  </select>
+                </div>
+                
+                {/* Quantity Selector */}
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">Quantity</label>
+                  <select 
+                    value={selectedConvQuantity} 
+                    onChange={e => setSelectedConvQuantity(Number(e.target.value))} 
+                    className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                  >
+                    {QUANTITY_OPTIONS.map(qty => (
+                      <option key={qty} value={qty}>{qty.toLocaleString()} pieces</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+              
+              {/* Add to Cart */}
+              <button 
+                onClick={() => {
+                  addToCart({
+                    productId: product.id,
+                    name: product.name,
+                    image: product.images[0],
+                    variant: { shape: conventionalProduct.shape, size: selectedConvSize, material: product.name.includes('Metalised') ? 'Mattopp/VMPET/LLDPE' : 'Glossy PET/LLDPE' },
+                    quantity: 1,
+                    unitPrice: conventionalPrice.total,
+                    totalPrice: conventionalPrice.total
+                  })
+                }} 
+                className="w-full py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2"
+              >
+                <ShoppingCart className="h-5 w-5" /> Add to Cart
+              </button>
+              
+              {/* Features */}
+              <div className="grid grid-cols-2 gap-3 pt-4">
+                {product.features.map((feature, i) => (
+                  <div key={i} className="flex items-center gap-2 text-sm text-neutral-600">
+                    <Check className="h-4 w-4 text-primary-500" /> {feature}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {/* Main Product Image for Non-Eco Digital and Non-Conventional Products - Top of Page */}
+        {!isEcoDigital && !isConventionalDigital && (
           <div className="mb-8">
             <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden max-w-2xl mx-auto">
               <div className="p-6">
@@ -240,38 +499,80 @@ const ProductPage: React.FC = () => {
           </div>
         )}
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* Left Column - Package Preview (visible inline on desktop) */}
+        {/* Grid layout for sample products and eco-digital */}
+        {!isConventionalDigital && (
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+          {/* Left Column - Customer Examples + Package Preview */}
           <div className="hidden lg:block space-y-4">
-            {/* Tabs for Package Visualization and Specifications - Desktop Only */}
-            {isEcoDigital && calculationResult && (
+            {/* Customer Examples Section - Image Gallery like Conventional Digital */}
+            {isEcoDigital && (
               <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden">
-                {/* Collapsible Header with Mini Icons */}
-                <div 
-                  className="flex items-center justify-between px-3 py-2 bg-neutral-50 border-b border-neutral-200 cursor-pointer hover:bg-neutral-100 transition"
-                  onClick={() => setIsLeftCollapsed(!isLeftCollapsed)}
-                >
-                  <div className="flex items-center gap-2 min-w-0 flex-1">
-                    <span className="text-sm font-semibold text-neutral-700 whitespace-nowrap">📦 Preview</span>
-                    {isLeftCollapsed && (
-                      <div className="flex items-center gap-1 overflow-hidden">
-                        <img src={productImage} alt="" className="w-6 h-6 object-contain rounded" />
-                        <img src={getSizeImage(selectedSize as EcoSizeType)} alt="" className="w-6 h-6 object-contain rounded" />
-                        <img src={getSurfaceImage(selectedSurface)} alt="" className="w-6 h-6 object-contain rounded" />
-                      </div>
-                    )}
-                  </div>
-                  <div className="flex-shrink-0">
-                    {isLeftCollapsed ? (
-                      <ChevronDown className="w-5 h-5 text-neutral-500" />
-                    ) : (
-                      <ChevronUp className="w-5 h-5 text-neutral-500" />
-                    )}
-                  </div>
+                {/* Main Customer Example Image */}
+                <div className="bg-neutral-50 p-6">
+                  <button 
+                    onClick={() => setEnlargedImage({
+                      src: `/imgs/store/customer-sample/${[
+                        { name: 'Arielle', img: 'Arielle.webp' },
+                        { name: 'David', img: 'David.webp' },
+                        { name: 'Holly', img: 'Holly.webp' },
+                        { name: 'Leo', img: 'Leo.webp' },
+                        { name: 'Nicole', img: 'Nicole.webp' },
+                        { name: 'Paul', img: 'Paul.webp' },
+                      ][selectedMainImage]?.img || 'Arielle.webp'}`,
+                      alt: 'Customer Example'
+                    })}
+                    className="w-full cursor-pointer hover:opacity-90 transition"
+                  >
+                    <img 
+                      src={`/imgs/store/customer-sample/${[
+                        { name: 'Arielle', img: 'Arielle.webp' },
+                        { name: 'David', img: 'David.webp' },
+                        { name: 'Holly', img: 'Holly.webp' },
+                        { name: 'Leo', img: 'Leo.webp' },
+                        { name: 'Nicole', img: 'Nicole.webp' },
+                        { name: 'Paul', img: 'Paul.webp' },
+                      ][selectedMainImage]?.img || 'Arielle.webp'}`}
+                      alt="Customer Example"
+                      className="w-full h-80 object-contain"
+                    />
+                  </button>
                 </div>
                 
-                {/* Tab Headers */}
-                <div className={`flex border-b border-neutral-200 transition-all duration-300 ${isLeftCollapsed ? 'hidden' : ''}`}>
+                {/* Thumbnail Gallery */}
+                <div className="p-3 border-t border-neutral-200">
+                  <div className="grid grid-cols-6 gap-2">
+                    {[
+                      { name: 'Arielle', img: 'Arielle.webp' },
+                      { name: 'David', img: 'David.webp' },
+                      { name: 'Holly', img: 'Holly.webp' },
+                      { name: 'Leo', img: 'Leo.webp' },
+                      { name: 'Nicole', img: 'Nicole.webp' },
+                      { name: 'Paul', img: 'Paul.webp' },
+                    ].map((sample, index) => (
+                      <button
+                        key={sample.name}
+                        onClick={() => setSelectedMainImage(index)}
+                        className={`aspect-square bg-white rounded-lg border-2 overflow-hidden transition-all hover:shadow-md ${
+                          selectedMainImage === index ? 'border-primary-600 ring-2 ring-primary-200' : 'border-neutral-200'
+                        }`}
+                      >
+                        <img 
+                          src={`/imgs/store/customer-sample/${sample.img}`}
+                          alt={`${sample.name}'s Package`}
+                          className="w-full h-full object-cover"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+            
+            {/* Package Preview Section - Always Visible */}
+            {isEcoDigital && calculationResult && (
+              <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden">
+                {/* Tab Headers - Always visible */}
+                <div className="flex border-b border-neutral-200">
                   <button
                     onClick={() => setActiveTab('visualization')}
                     className={`flex-1 px-4 py-3 text-sm font-medium transition ${
@@ -294,8 +595,8 @@ const ProductPage: React.FC = () => {
                   </button>
                 </div>
                 
-                {/* Tab Content */}
-                <div className={`p-4 max-h-[600px] overflow-y-auto transition-all duration-300 ${isLeftCollapsed ? 'hidden' : ''}`}>
+                {/* Tab Content - Always visible */}
+                <div className="p-4 max-h-[600px] overflow-y-auto">
                   {activeTab === 'visualization' ? (
                     /* Package Visualization Content */
                     <div className="space-y-4">
@@ -631,58 +932,6 @@ const ProductPage: React.FC = () => {
                     <div className="text-xs text-neutral-400 mt-2">{testimonial.extraInfo}</div>
                   </div>
                 ))}
-              </div>
-            </div>
-
-            {/* Other Customer Examples Section - Desktop Only */}
-            <div className="hidden lg:block bg-white rounded-lg border border-neutral-200 p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-neutral-900 mb-4 flex items-center gap-2">
-                <span className="text-2xl">📸</span>
-                Customer Examples
-              </h3>
-              <p className="text-sm text-neutral-600 mb-4">
-                See how other customers are using our packaging
-              </p>
-              
-              {/* Photo Grid - 2 columns */}
-              <div className="grid grid-cols-2 gap-3">
-                {/* Real customer sample photos */}
-                {[
-                  { name: 'Arielle', img: 'Arielle.webp' },
-                  { name: 'David', img: 'David.webp' },
-                  { name: 'Holly', img: 'Holly.webp' },
-                  { name: 'Leo', img: 'Leo.webp' },
-                  { name: 'Nicole', img: 'Nicole.webp' },
-                  { name: 'Paul', img: 'Paul.webp' },
-                  { name: 'Remi', img: 'Remi.webp' },
-                  { name: 'Richard', img: 'Richard.webp' },
-                  { name: 'Steph', img: 'Steph.webp' },
-                  { name: 'Jemma', img: 'jemma.webp' },
-                  { name: 'Michelle', img: 'michelle.webp' },
-                  { name: 'Morlife', img: 'morlife.webp' },
-                  { name: 'Ruby', img: 'ruby.webp' },
-                ].slice(0, 6).map((sample) => (
-                  <div 
-                    key={sample.name}
-                    className="aspect-square bg-neutral-100 rounded-lg overflow-hidden cursor-pointer hover:opacity-90 hover:scale-105 transition-all border border-neutral-200 shadow-sm"
-                    onClick={() => setEnlargedImage({
-                      src: `/imgs/store/customer-sample/${sample.img}`,
-                      alt: `${sample.name}'s Package`
-                    })}
-                  >
-                    <img 
-                      src={`/imgs/store/customer-sample/${sample.img}`}
-                      alt={`${sample.name}'s Package`}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-              
-              <div className="mt-4 text-center">
-                <button className="text-sm text-primary-600 hover:text-primary-700 font-medium">
-                  View All Examples →
-                </button>
               </div>
             </div>
           </div>
@@ -1293,7 +1542,8 @@ const ProductPage: React.FC = () => {
               ))}
             </div>
           </div>
-        </div>
+          </div>
+        )}
       </main>
 
       {/* Desktop Top Fixed Bar - Similar to mobile but at top */}
