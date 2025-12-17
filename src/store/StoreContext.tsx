@@ -3,8 +3,9 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 export interface ProductVariant {
   shape: string
   size: string
-  barrier: string
-  finish: string
+  barrier?: string
+  finish?: string
+  material?: string
 }
 
 export interface CartItem {
