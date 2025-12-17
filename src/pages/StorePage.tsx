@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useCallback, useTransition } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { ShoppingCart, Search, Star, Truck, Shield, Clock, ArrowLeft, Grid3X3, List, ChevronDown } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
@@ -30,12 +30,39 @@ const SHAPES = [
 const StorePage: React.FC = () => {
   const { cartCount, setIsCartOpen } = useStore()
   const navigate = useNavigate()
+  const [isPending, startTransition] = useTransition()
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const [selectedShape, setSelectedShape] = useState<string>('all')
   const [searchQuery, setSearchQuery] = useState('')
   const [viewMode, setViewMode] = useState<ViewMode>('grid')
   const [sortBy, setSortBy] = useState<SortOption>('popularity')
   const [isSortOpen, setIsSortOpen] = useState(false)
+
+  // Debounced search handler for INP optimization
+  const handleSearchChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    startTransition(() => {
+      setSearchQuery(value)
+    })
+  }, [])
+
+  // Optimized category/shape handlers
+  const handleCategoryChange = useCallback((categoryId: string) => {
+    startTransition(() => {
+      setSelectedCategory(categoryId)
+    })
+  }, [])
+
+  const handleShapeChange = useCallback((shapeId: string) => {
+    startTransition(() => {
+      setSelectedShape(shapeId)
+    })
+  }, [])
+
+  const handleSortChange = useCallback((option: SortOption) => {
+    setSortBy(option)
+    setIsSortOpen(false)
+  }, [])
 
   // Helper function to get product image - Always show pouch shape
   const getProductDisplayImage = (product: StoreProduct): string => {
@@ -130,8 +157,8 @@ const StorePage: React.FC = () => {
               <input
                 type="text"
                 placeholder="Search products..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                defaultValue={searchQuery}
+                onChange={handleSearchChange}
                 className="pl-10 pr-4 py-2 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 w-64"
               />
             </div>
@@ -198,7 +225,7 @@ const StorePage: React.FC = () => {
                   {(['popularity', 'price-low', 'price-high', 'newest'] as SortOption[]).map(option => (
                     <button
                       key={option}
-                      onClick={() => { setSortBy(option); setIsSortOpen(false) }}
+                      onClick={() => handleSortChange(option)}
                       className={`w-full text-left px-4 py-2.5 text-sm hover:bg-neutral-50 transition ${
                         sortBy === option ? 'text-primary-600 font-medium bg-primary-50' : 'text-neutral-700'
                       }`}
@@ -239,7 +266,7 @@ const StorePage: React.FC = () => {
                   {CATEGORIES.map(cat => (
                     <li key={cat.id}>
                       <button
-                        onClick={() => setSelectedCategory(cat.id)}
+                        onClick={() => handleCategoryChange(cat.id)}
                         className={`w-full text-left py-1.5 text-sm transition ${
                           selectedCategory === cat.id
                             ? 'text-primary-600 font-medium'
@@ -260,7 +287,7 @@ const StorePage: React.FC = () => {
                   {SHAPES.map(shape => (
                     <li key={shape.id}>
                       <button
-                        onClick={() => setSelectedShape(shape.id)}
+                        onClick={() => handleShapeChange(shape.id)}
                         className={`w-full text-left py-1.5 text-sm transition ${
                           selectedShape === shape.id
                             ? 'text-primary-600 font-medium'
