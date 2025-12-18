@@ -211,6 +211,12 @@ ${formData.message}`
                   {label}
                 </button>
               ))}
+              <Link
+                to="/blog"
+                className="text-sm font-medium text-neutral-600 hover:text-neutral-900 transition-colors duration-200"
+              >
+                Blog
+              </Link>
             </div>
 
             {/* Center Logo */}
@@ -300,6 +306,12 @@ ${formData.message}`
                 className="block w-full text-left text-base font-medium text-neutral-700 hover:text-primary-500 py-2"
               >
                 {t('nav.customerCenter')}
+              </Link>
+              <Link
+                to="/blog"
+                className="block w-full text-left text-base font-medium text-neutral-700 hover:text-primary-500 py-2"
+              >
+                Blog
               </Link>
               {/* Mobile Language Options */}
               <div className="py-2 border-t border-neutral-100 my-2">
