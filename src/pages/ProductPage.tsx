@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
-import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct, type ConventionalProduct, type EcoStockProduct, PRICING_DATA, POUCH_SIZES, QUANTITY_OPTIONS } from '../store/productData'
+import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct, type ConventionalProduct, type EcoStockProduct, type EcoStockSizeVariant, PRICING_DATA, POUCH_SIZES, QUANTITY_OPTIONS } from '../store/productData'
 import { calculateEcoPrice, type EcoCalculatorSelections } from '../utils/ecoDigitalCalculator'
 import { getProductImage, getSizeImage, getSurfaceImage, getAdditionalImage, type ShapeType, ClosureType, SurfaceType, EcoSizeType, AdditionalType } from '../utils/productImageMapper'
 import { TESTIMONIALS } from '../data/testimonialsData'
@@ -27,6 +27,7 @@ const ProductPage: React.FC = () => {
   
   // Eco Stock product options
   const [selectedEcoStockQuantity, setSelectedEcoStockQuantity] = useState(500)
+  const [selectedSizeVariant, setSelectedSizeVariant] = useState<string | null>(null)
   
   // Eco Digital product options
   const [selectedMaterial, setSelectedMaterial] = useState('Mono Recyclable Plastic')
@@ -572,49 +573,123 @@ const ProductPage: React.FC = () => {
               
               <p className="text-neutral-600">{product.description}</p>
               
-              {/* Price Display - Green theme */}
-              <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl border-2 border-green-200 p-6">
-                <div className="text-3xl font-bold text-green-700">US${(selectedEcoStockQuantity * ecoStockProduct.pricePerPiece).toLocaleString()}</div>
-                <div className="text-sm text-green-600 mt-1">
-                  ${ecoStockProduct.pricePerPiece.toFixed(2)}/piece • {selectedEcoStockQuantity.toLocaleString()} pieces
+              {/* Size Variant Selector - for products with multiple sizes */}
+              {ecoStockProduct.sizeVariants && ecoStockProduct.sizeVariants.length > 0 && (
+                <div className="space-y-4 pt-4 border-t">
+                  <div>
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">Select Size</label>
+                    <div className="space-y-2">
+                      {ecoStockProduct.sizeVariants.map((variant) => (
+                        <button
+                          key={variant.id}
+                          onClick={() => setSelectedSizeVariant(variant.id)}
+                          className={`w-full p-3 border rounded-lg text-left transition flex justify-between items-center ${
+                            selectedSizeVariant === variant.id 
+                              ? 'border-green-600 bg-green-50 ring-2 ring-green-200' 
+                              : 'border-neutral-200 hover:border-green-300'
+                          }`}
+                        >
+                          <div>
+                            <div className="font-medium text-neutral-900">{variant.label}</div>
+                            <div className="text-xs text-neutral-500">{variant.dimensions} {variant.hasHole ? '• With Hole' : '• No Hole'}</div>
+                          </div>
+                          <div className="text-right">
+                            <div className="font-bold text-green-700">${variant.totalPrice.toFixed(2)}</div>
+                            <div className="text-xs text-neutral-500">${variant.unitPrice.toFixed(3)}/pc × {variant.quantity}</div>
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-                <div className="text-xs text-green-700 mt-2 bg-white bg-opacity-40 rounded-lg p-2 text-center">
-                  ✓ Air Shipping Included
-                </div>
-              </div>
+              )}
               
-              {/* Quantity Selector */}
-              <div className="space-y-4 pt-4 border-t">
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2">Quantity (multiples of {ecoStockProduct.quantityStep})</label>
-                  <select 
-                    value={selectedEcoStockQuantity} 
-                    onChange={e => setSelectedEcoStockQuantity(Number(e.target.value))} 
-                    className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
-                  >
-                    {Array.from({ length: 10 }, (_, i) => (i + 1) * ecoStockProduct.quantityStep).map(qty => (
-                      <option key={qty} value={qty}>{qty.toLocaleString()} pieces</option>
-                    ))}
-                  </select>
+              {/* Price Display - Green theme */}
+              {(() => {
+                const selectedVariant = ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)
+                const displayPrice = selectedVariant 
+                  ? selectedVariant.totalPrice 
+                  : selectedEcoStockQuantity * ecoStockProduct.pricePerPiece
+                const displayUnitPrice = selectedVariant 
+                  ? selectedVariant.unitPrice 
+                  : ecoStockProduct.pricePerPiece
+                const displayQuantity = selectedVariant 
+                  ? selectedVariant.quantity 
+                  : selectedEcoStockQuantity
+                
+                return (
+                  <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl border-2 border-green-200 p-6">
+                    <div className="text-3xl font-bold text-green-700">US${displayPrice.toLocaleString()}</div>
+                    <div className="text-sm text-green-600 mt-1">
+                      ${displayUnitPrice.toFixed(3)}/piece • {displayQuantity.toLocaleString()} pieces
+                    </div>
+                    <div className="text-xs text-green-700 mt-2 bg-white bg-opacity-40 rounded-lg p-2 text-center">
+                      ✓ Air Shipping Included
+                    </div>
+                  </div>
+                )
+              })()}
+              
+              {/* Quantity Selector - only for products without sizeVariants */}
+              {(!ecoStockProduct.sizeVariants || ecoStockProduct.sizeVariants.length === 0) && (
+                <div className="space-y-4 pt-4 border-t">
+                  <div>
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">Quantity (multiples of {ecoStockProduct.quantityStep})</label>
+                    <select 
+                      value={selectedEcoStockQuantity} 
+                      onChange={e => setSelectedEcoStockQuantity(Number(e.target.value))} 
+                      className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                    >
+                      {Array.from({ length: 10 }, (_, i) => (i + 1) * ecoStockProduct.quantityStep).map(qty => (
+                        <option key={qty} value={qty}>{qty.toLocaleString()} pieces</option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
-              </div>
+              )}
+              
+              {/* Custom Print Note - Highlighted */}
+              {ecoStockProduct.customPrintNote && (
+                <div className="bg-amber-50 border-2 border-amber-300 rounded-xl p-4">
+                  <div className="flex items-start gap-2">
+                    <span className="text-amber-600 text-lg">🎨</span>
+                    <div>
+                      <h4 className="font-semibold text-amber-800 text-sm">Custom Printing Available</h4>
+                      <p className="text-sm text-amber-700 mt-1">{ecoStockProduct.customPrintNote}</p>
+                    </div>
+                  </div>
+                </div>
+              )}
               
               {/* Add to Cart - Green button for compostable products */}
               <button 
                 onClick={() => {
+                  const selectedVariant = ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)
+                  const cartPrice = selectedVariant 
+                    ? selectedVariant.totalPrice 
+                    : selectedEcoStockQuantity * ecoStockProduct.pricePerPiece
+                  const cartSize = selectedVariant 
+                    ? `${selectedVariant.label} - ${selectedVariant.dimensions}` 
+                    : ecoStockProduct.sizeInfo
+                  
                   addToCart({
                     productId: product.id,
                     name: product.name,
                     image: product.images[0],
-                    variant: { shape: ecoStockProduct.shape, size: ecoStockProduct.sizeInfo, material: ecoStockProduct.material },
+                    variant: { shape: ecoStockProduct.shape, size: cartSize, material: ecoStockProduct.material },
                     quantity: 1,
-                    unitPrice: selectedEcoStockQuantity * ecoStockProduct.pricePerPiece,
-                    totalPrice: selectedEcoStockQuantity * ecoStockProduct.pricePerPiece
+                    unitPrice: cartPrice,
+                    totalPrice: cartPrice
                   })
                 }} 
-                className="w-full py-4 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2"
+                disabled={ecoStockProduct.sizeVariants && ecoStockProduct.sizeVariants.length > 0 && !selectedSizeVariant}
+                className={`w-full py-4 font-semibold rounded-xl transition flex items-center justify-center gap-2 ${
+                  ecoStockProduct.sizeVariants && ecoStockProduct.sizeVariants.length > 0 && !selectedSizeVariant
+                    ? 'bg-neutral-300 text-neutral-500 cursor-not-allowed'
+                    : 'bg-green-600 hover:bg-green-700 text-white'
+                }`}
               >
-                <ShoppingCart className="h-5 w-5" /> 🌱 Add Compostable Pouch to Cart
+                <ShoppingCart className="h-5 w-5" /> 🌱 Add Compostable Bag to Cart
               </button>
               
               {/* Features */}

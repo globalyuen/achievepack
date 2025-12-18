@@ -71,6 +71,17 @@ export interface EcoDigitalProduct extends BaseStoreProduct {
 
 export type StoreProduct = PouchProduct | SampleProduct | ConventionalProduct | EcoDigitalProduct | EcoStockProduct
 
+// Eco Stock size variant (for products with multiple sizes)
+export interface EcoStockSizeVariant {
+  id: string
+  label: string
+  dimensions: string
+  hasHole: boolean
+  quantity: number
+  totalPrice: number
+  unitPrice: number
+}
+
 // Eco Stock product (ready-made compostable)
 export interface EcoStockProduct extends BaseStoreProduct {
   category: 'eco-stock'
@@ -81,6 +92,9 @@ export interface EcoStockProduct extends BaseStoreProduct {
   minQuantity: number
   quantityStep: number
   sizeInfo: string
+  // For multi-size products like Header Bag
+  sizeVariants?: EcoStockSizeVariant[]
+  customPrintNote?: string
 }
 
 export interface PouchSize {
@@ -689,6 +703,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
     minQuantity: 500,
     quantityStep: 500,
     sizeInfo: '140mm x 290mm + 80mm',
+    customPrintNote: 'Custom print available for orders of 5,000+ pcs per design. Contact us for details.',
   },
   // Compostable Flat Bottom Pouch - Clear
   {
@@ -718,6 +733,44 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
     minQuantity: 500,
     quantityStep: 500,
     sizeInfo: '140mm x 290mm + 80mm',
+    customPrintNote: 'Custom print available for orders of 5,000+ pcs per design. Contact us for details.',
+  },
+  // Compostable Header Bag with Adhesive
+  {
+    id: 'eco-stock-header-adhesive',
+    name: 'Compostable Gusseted Bag with Adhesive Header',
+    category: 'eco-stock',
+    description: '100% certified compostable gusseted bag with adhesive header for secure sealing. Made from plant-based materials. Price includes air shipping. Multiple sizes available with optional hanging hole.',
+    shortDesc: 'From US$5.56 for 100 pcs',
+    features: ['100% Certified Compostable', 'Adhesive Header Closure', 'Gusseted Design', 'Air Shipping Included', 'Optional Hanging Hole'],
+    images: [
+      '/imgs/store/eco-stock/header/adhesive/1.webp',
+      '/imgs/store/eco-stock/header/adhesive/2.webp',
+      '/imgs/store/eco-stock/header/adhesive/3.webp',
+      '/imgs/store/eco-stock/header/adhesive/4.webp',
+      '/imgs/store/eco-stock/header/adhesive/5.webp'
+    ],
+    badge: '🌱 Certified Compostable',
+    rating: 4.9,
+    reviews: 89,
+    inStock: true,
+    turnaround: '5-7 days',
+    minOrder: 100,
+    shape: 'Header Bag',
+    material: 'Compostable Bio-film',
+    basePrice: 5.56,
+    pricePerPiece: 0.056,
+    minQuantity: 100,
+    quantityStep: 100,
+    sizeInfo: 'Multiple sizes available',
+    sizeVariants: [
+      { id: 'size-xl', label: 'XL (35×45cm)', dimensions: '35 × (41+4) cm, 100 micron', hasHole: true, quantity: 100, totalPrice: 35.28, unitPrice: 0.352 },
+      { id: 'size-l', label: 'L (24×38cm)', dimensions: '24 × (34+4) cm, 100 micron', hasHole: true, quantity: 100, totalPrice: 18.54, unitPrice: 0.186 },
+      { id: 'size-m', label: 'M (20×30cm)', dimensions: '20 × (26+4) cm, 100 micron', hasHole: true, quantity: 100, totalPrice: 12.02, unitPrice: 0.120 },
+      { id: 'size-s', label: 'S (17×22.5cm)', dimensions: '17 × (19.5+3) cm, 100 micron', hasHole: false, quantity: 100, totalPrice: 7.66, unitPrice: 0.076 },
+      { id: 'size-xs', label: 'XS (14×20cm)', dimensions: '14 × (17+3) cm, 100 micron', hasHole: false, quantity: 100, totalPrice: 5.56, unitPrice: 0.056 },
+    ],
+    customPrintNote: 'Custom print available for orders of 5,000+ pcs per design. Contact us for details.',
   },
 ]
 

@@ -779,10 +779,10 @@
                 "platePrinting": "版畫印刷",
                 "reclosureOptions": "重合閘選項",
                 "surfaceFinishes": "表面處理",
-                "barrierOptions": "阻隔選項",
-                "lowBarrier": "低阻隔",
-                "mediumBarrier": "中阻隔",
-                "highBarrier": "高阻隔",
+                "barrierOptions": "障礙期權",
+                "lowBarrier": "低門檻",
+                "mediumBarrier": "中等屏障",
+                "highBarrier": "高門檻",
                 "coffeeTea": "咖啡和茶",
                 "snacksFood": "零食及食品",
                 "petFood": "寵物食品和零食",
@@ -792,13 +792,13 @@
                 "saucesCondiments": "醬料和調味品",
                 "aboutUs": "關於我們",
                 "factoryTour": "虛擬工廠參觀",
-                "certificates": "認證證書",
+                "certificates": "證書",
                 "allOptions": "所有選項",
-                "sizeGuide": "尺寸指南",
+                "sizeGuide": "尺碼指南",
                 "printingTypes": "印刷類型",
                 "workflow": "工作流程",
-                "faqs": "常見問題",
-                "leadTime": "生產週期"
+                "faqs": "常見問題解答",
+                "leadTime": "交貨時間"
             }
         },
         "pages": {
@@ -896,7 +896,7 @@
                     "disposal": {
                         "title": "處置和堆肥指南",
                         "intro": "了解正確處置是實現環境效益的關鍵：",
-                        "commercialVsHome": "Commercial vs Home Composting",
+                        "commercialVsHome": "商業堆肥與家庭堆肥",
                         "commercialVsHomeDesc": "商業堆肥設施的溫度保持在 55-60°C，這會加速分解。 大多數經過認證的可堆肥包裝都需要這些條件。 家庭堆肥在較低溫度下進行，可能需要 6-12 個月才能完全分解。",
                         "instructionsTitle": "消費者處置說明：",
                         "instruction1": "去除所有不可堆肥的元素（如果不可堆肥，可能需要剪掉拉鍊）",
@@ -936,7 +936,7 @@
                     "title": "可堆肥材料比較",
                     "headers": [
                         "材料",
-                        "阻隔水平",
+                        "障礙水平",
                         "堆肥類型",
                         "最適合"
                     ],
@@ -991,1117 +991,1692 @@
                 "heroTitle": "家庭可堆肥：從袋子到花園土壤",
                 "heroSubtitle": "經過認證的包裝可在您後院的堆肥箱中分解。 無需工業設施——真正的消費者級循環。",
                 "introSummary": "經過 OK Compost HOME 和 AS 5810 認證的袋子，在環境溫度下 6-12 個月內分解。 生態意識品牌的終極可持續發展信息。",
-                "ctaTitle": "準備好體驗真正的家庭可堆肥性了嗎？",
-                "ctaDescription": "獲取經過認證的家庭可堆肥包裝，讓您的客戶可以在自家後院堆肥。",
+                "ctaTitle": "準備好實現真正的家庭可堆肥了嗎？",
+                "ctaDescription": "獲得經過認證的家用可堆肥包裝，您的客戶可以在自己的後院堆肥。",
                 "ctaButtonText": "獲取免費樣品",
                 "sections": {
                     "overview": {
                         "title": "家庭可堆肥包裝",
-                        "intro": "家庭可堆肥包裝可在您後院的堆肥箱中分解，無需工業設施。Achieve Pack 的家庭可堆肥袋符合最嚴格的標準（OK Compost HOME、AS 5810），在典型的家庭堆肥條件下 6-12 個月內分解。",
-                        "whyChoose": "為什麼選擇家庭可堆肥：",
-                        "benefit1": "消費者友好 – 適用於後院堆肥箱，無需特殊設施",
-                        "benefit2": "較低溫度 – 在 20-30°C 下分解（工業堆肥需要 58°C）",
-                        "benefit3": "真正循環 – 在消費者層面將養分歸還土壤",
-                        "benefit4": "高端定位 – 環保意識品牌的最強可持續信息",
-                        "benefit5": "認證標準 – TÜV Austria OK Compost HOME、AS 5810（澳洲）"
+                        "intro": "家庭可堆肥包裝可在後院堆肥箱中分解，無需工業設施。 Achieve Pack 的家用可堆肥袋符合最嚴格的標準（OK Compost HOME，AS 5810），在典型的家庭堆肥條件下可在 6-12 個月內分解。",
+                        "whyChoose": "為什麼選擇家用可堆肥：",
+                        "benefit1": "消費者可用——可在後院堆肥箱中使用，無需特殊設施",
+                        "benefit2": "更低的溫度 – 在 20-30°C 時分解（工業溫度為 58°C）",
+                        "benefit3": "真正的循環——在消費者層面將養分返回土壤",
+                        "benefit4": "高端定位——為生態意識品牌傳遞最強烈的可持續發展信息",
+                        "benefit5": "認證標準 – TÜV Austria OK Compost HOME，AS 5810（澳大利亞）"
                     },
                     "certifications": {
                         "title": "家庭可堆肥認證",
                         "okHome": {
-                            "title": "OK Compost HOME",
-                            "subtitle": "TÜV Austria 認證",
+                            "title": "好的堆肥之家",
+                            "subtitle": "TÜV奧地利認證",
                             "feature1": "在 20-30°C 下生物降解",
-                            "feature2": "6 個月內 90% 分解",
-                            "feature3": "無毒殘留",
-                            "feature4": "歐盟認可"
+                            "feature2": "6個月內90%崩解",
+                            "feature3": "無有毒殘留",
+                            "feature4": "獲得歐盟認可"
                         },
                         "as5810": {
                             "title": "AS 5810",
-                            "subtitle": "澳洲家庭堆肥標準",
-                            "feature1": "環境溫度下分解",
-                            "feature2": "12 個月內 90% 生物降解",
+                            "subtitle": "澳大利亞家庭堆肥標準",
+                            "feature1": "環境溫度分解",
+                            "feature2": "12 個月內生物降解率達 90%",
                             "feature3": "植物毒性測試",
-                            "feature4": "澳洲市場必需"
+                            "feature4": "澳大利亞市場所需"
                         }
                     },
                     "materials": {
                         "title": "家庭可堆肥材料",
-                        "intro": "我們的家庭可堆肥袋使用經認證的生物基材料：",
+                        "intro": "我們的家用可堆肥袋使用經過認證的生物基材料：",
                         "kraftPla": {
-                            "title": "牛皮紙 + PLA 膜",
-                            "feature1": "FSC 認證牛皮紙",
-                            "feature2": "PLA 源自玉米澱粉",
-                            "feature3": "天然、高端外觀",
-                            "feature4": "低阻隔（3-6 個月）"
+                            "title": "牛皮紙+PLA薄膜",
+                            "feature1": "FSC認證牛皮紙",
+                            "feature2": "PLA源自玉米澱粉",
+                            "feature3": "自然、優質的外觀",
+                            "feature4": "低門檻（3-6個月）"
                         },
                         "pbatPla": {
                             "title": "PBAT/PLA 混合物",
                             "feature1": "柔性薄膜結構",
                             "feature2": "透明或啞光飾面",
-                            "feature3": "中等阻隔選項",
-                            "feature4": "可用水性油墨印刷"
+                            "feature3": "中等障礙選項",
+                            "feature4": "可使用水性油墨印刷"
                         },
                         "cellulose": {
                             "title": "纖維素基",
-                            "feature1": "源自木漿",
-                            "feature2": "優異透明度",
+                            "feature1": "木漿衍生",
+                            "feature2": "優異的透明度",
                             "feature3": "低阻隔應用",
-                            "feature4": "可提供開窗袋"
+                            "feature4": "提供開窗袋"
                         },
                         "paper": {
                             "title": "紙質單一材料",
-                            "feature1": "100% 紙質構造",
+                            "feature1": "100% 紙質結構",
                             "feature2": "生物基阻隔塗層",
                             "feature3": "可熱封",
-                            "feature4": "高端手工美感"
+                            "feature4": "優質工藝美學"
                         }
                     },
                     "timeline": {
-                        "title": "堆肥時間線",
-                        "intro": "堆肥我們的家庭可堆肥袋時可預期的情況：",
+                        "title": "堆肥時間表",
+                        "intro": "堆肥我們的家用可堆肥袋時會發生什麼：",
                         "month1": "第 1 個月",
-                        "month1Desc": "袋子完好",
+                        "month1Desc": "完整的小袋",
                         "month2": "第 2-3 個月",
-                        "month2Desc": "開始軟化",
+                        "month2Desc": "軟化開始",
                         "month3": "第 4-5 個月",
                         "month3Desc": "碎片化",
                         "month4": "第 6-9 個月",
                         "month4Desc": "生物降解",
                         "month5": "第 12 個月",
-                        "month5Desc": "完成（成為土壤）",
-                        "note": "*時間線因堆肥條件（溫度、濕度、通氣）而異。定期翻堆的主動堆肥會加速分解。"
+                        "month5Desc": "完整（土）",
+                        "note": "*時間因堆肥條件（溫度、濕度、通氣）而異。 積極堆肥並定期翻動可加速分解。"
                     },
                     "applications": {
                         "title": "最佳應用",
-                        "items": ["有機茶和草本沖泡", "精品咖啡豆", "乾果和植物", "有機零食和餅乾", "特色食品禮品", "農夫市場產品", "零廢棄商店商品", "環保意識化妝品", "高端巧克力"]
+                        "items": [
+                            "有機茶和草藥浸劑",
+                            "工匠咖啡豆",
+                            "乾果和植物藥",
+                            "有機零食和餅乾",
+                            "特色食品禮品",
+                            "農貿市場產品",
+                            "零浪費商店物品",
+                            "環保化妝品",
+                            "優質巧克力"
+                        ]
                     }
                 },
                 "faq": {
                     "q1": "家庭可堆肥和工業可堆肥有什麼區別？",
-                    "a1": "家庭可堆肥包裝在環境溫度（20-30°C）下的後院堆肥箱中分解。工業可堆肥需要具有受控高溫（58°C 以上）的商業設施。家庭可堆肥對消費者更便利，但通常阻隔性能較低。",
+                    "a1": "家庭可堆肥包裝在環境溫度 (20-30°C) 下在後院堆肥箱中分解。 工業可堆肥需要具有受控高溫 (58°C+) 的商業設施。 家庭堆肥更容易被消費者接受，但通常具有較低的阻隔性能。",
                     "q2": "家庭堆肥需要多長時間？",
-                    "a2": "我們的家庭可堆肥袋通常在活躍的後院堆肥中 6-12 個月內分解。影響速度的因素包括溫度、濕度、翻堆頻率以及堆肥中現有的微生物活動。",
-                    "q3": "我可以把家庭可堆肥包裝放進綠色垃圾桶嗎？",
-                    "a3": "這取決於您當地政府的指南。許多市政綠色垃圾桶計劃只接受工業可堆肥材料。家庭可堆肥物品設計用於後院堆肥。請諮詢當地廢物管理部門。",
+                    "a2": "我們的家用可堆肥袋在後院的活性堆肥中通常會在 6-12 個月內分解。 影響速度的因素包括溫度、濕度、翻轉頻率以及堆肥中現有的微生物活動。",
+                    "q3": "我可以將家用可堆肥包裝放入我的綠色垃圾箱嗎？",
+                    "a3": "這取決於您當地議會的指導方針。 許多市政綠色垃圾箱計劃只接受工業可堆肥材料。 家庭可堆肥物品專為後院堆肥而設計。 請諮詢當地廢物處理機構。",
                     "q4": "家庭可堆肥包裝適合所有產品嗎？",
-                    "a4": "家庭可堆肥材料通常具有低至中等的阻隔性能，最適合保質期 3-6 個月的乾燥商品。對於需要高阻隔的產品（咖啡、保健品），我們建議使用工業可堆肥或可回收選項。"
+                    "a4": "家用可堆肥材料通常具有中低阻隔性能，最適合保質期為 3-6 個月的干貨。 對於需要高阻隔的產品（咖啡、補充劑），我們推薦工業可堆肥或可回收選項。"
                 },
                 "relatedLinks": {
-                    "link1": { "title": "工業可堆肥", "description": "更高阻隔的可堆肥選項" },
-                    "link2": { "title": "可堆肥材料概述", "description": "所有可堆肥選項" },
-                    "link3": { "title": "咖啡和茶包裝", "description": "熱門家庭可堆肥應用" }
+                    "link1": {
+                        "title": "工業可堆肥",
+                        "description": "更高阻隔的可堆肥選項"
+                    },
+                    "link2": {
+                        "title": "可堆肥材料概述",
+                        "description": "所有可堆肥選項"
+                    },
+                    "link3": {
+                        "title": "咖啡和茶包裝",
+                        "description": "流行的家庭可堆肥應用"
+                    }
                 }
             },
             "industrialCompostable": {
                 "title": "工業可堆肥包裝|商業堆肥袋",
-                "heroTitle": "工業可堆肥：高性能、零廢棄",
-                "heroSubtitle": "經過 EN 13432 和 ASTM D6400 認證的包裝，可在商業設施中 90-180 天內分解。 更高的阻隔性能，適合要求嚴格的應用。",
+                "heroTitle": "工業可堆肥：高性能、零浪費",
+                "heroSubtitle": "經過 EN 13432 和 ASTM D6400 認證的包裝，可在商業設施中 90-180 天內分解。 更高的阻隔性能，適合要求苛刻的應用。",
                 "introSummary": "經過全球認證（EN 13432、ASTM D6400）的可堆肥袋，具有中高阻隔選項。 在商業堆肥設施中 90-180 天分解。",
-                "ctaTitle": "準備好選擇工業可堆肥了嗎？",
-                "ctaDescription": "獲取具有您產品所需阻隔性能的認證可堆肥包裝。",
+                "ctaTitle": "準備好工業可堆肥了嗎？",
+                "ctaDescription": "獲得經過認證的可堆肥包裝，具有您的產品所需的阻隔性能。",
                 "ctaButtonText": "獲取免費樣品",
                 "sections": {
                     "overview": {
                         "title": "工業可堆肥包裝",
-                        "intro": "工業可堆肥包裝在受控高溫條件下的商業堆肥設施中分解。Achieve Pack 的 EN 13432 和 ASTM D6400 認證袋在 90-180 天內分解，提供比家庭可堆肥替代品更高的阻隔保護。",
+                        "intro": "工業可堆肥包裝在受控高溫條件下的商業堆肥設施中會分解。 Achieve Pack 的包裝袋經過 EN 13432 和 ASTM D6400 認證，可在 90-180 天內分解，比家用可堆肥替代品提供更高的屏障保護。",
                         "whyChoose": "為什麼選擇工業可堆肥：",
-                        "benefit1": "更高阻隔性能 – 更好的氧氣和濕氣保護",
-                        "benefit2": "更快分解 – 在商業設施中 90-180 天",
-                        "benefit3": "更廣泛的材料選項 – 更多結構和阻隔選擇",
-                        "benefit4": "可擴展的基礎設施 – 不斷壯大的堆肥設施網絡",
-                        "benefit5": "全球認可 – 經過 EN 13432（歐盟）、ASTM D6400（美國）認證"
+                        "benefit1": "更高的阻隔性能——更好的氧氣和濕氣防護",
+                        "benefit2": "更快的分解——商業設施中 90-180 天",
+                        "benefit3": "更廣泛的材料選擇——更多的結構和屏障選擇",
+                        "benefit4": "可擴展的基礎設施——不斷擴大的堆肥設施網絡",
+                        "benefit5": "全球認可 – EN 13432（歐盟）、ASTM D6400（美國）認證"
                     },
                     "certifications": {
                         "title": "工業可堆肥標準",
                         "en13432": {
                             "title": "EN 13432",
                             "subtitle": "歐洲標準",
-                            "features": ["在 58°C 下生物降解", "12 週內 90% 分解", "6 個月內 90% 生物降解", "重金屬限量", "植物生態毒性測試"]
+                            "features": [
+                                "58°C 下生物降解",
+                                "12 週內 90% 崩解",
+                                "6 個月內生物降解率達 90%",
+                                "重金屬限量",
+                                "植物生態毒性測試"
+                            ]
                         },
                         "astm": {
                             "title": "ASTM D6400",
                             "subtitle": "美國/北美標準",
-                            "features": ["商業堆肥條件", "180 天內 60% 生物降解", "無有害殘留", "可獲得 BPI 認證", "北美廣泛認可"]
+                            "features": [
+                                "商業堆肥條件",
+                                "180 天內生物降解 60%",
+                                "無有害殘留",
+                                "可獲得 BPI 認證",
+                                "獲得北美地區的認可"
+                            ]
                         },
                         "okIndustrial": {
-                            "title": "OK Compost INDUSTRIAL",
-                            "desc": "TÜV Austria 認證，確認符合 EN 13432。我們的袋子帶有此標誌，便於在廢物分類設施中辨認。"
+                            "title": "OK堆肥工業",
+                            "desc": "TÜV 奧地利認證確認符合 EN 13432。我們的袋子帶有此標誌，以便在廢物分類設施中輕鬆識別。"
                         }
                     },
                     "materials": {
                         "title": "工業可堆肥材料",
-                        "intro": "適用於要求嚴格應用的高性能材料："
+                        "intro": "適用於苛刻應用的更高性能材料："
                     },
                     "comparison": {
-                        "title": "家庭堆肥與工業堆肥對比"
+                        "title": "家庭堆肥與工業堆肥"
                     },
                     "order": {
                         "title": "訂單信息",
-                        "minOrder": "最低訂單量",
+                        "minOrder": "最低訂購量",
                         "daysToCompost": "堆肥天數",
-                        "shelfLife": "保質期（月）"
+                        "shelfLife": "月保質期"
                     }
                 },
                 "faq": {
-                    "q1": "消費者如何處理工業可堆肥包裝？",
-                    "a1": "工業可堆肥包裝應放入商業堆肥箱（通常標誌為\u201c可堆肥\u201d或綠色/棕色箱）。許多城市現在有有機廢物收集，送往堆肥設施。請查看當地指南。",
-                    "q2": "工業可堆肥包裝會在填埋場分解嗎？",
-                    "a2": "不會。填埋場缺乏堆肥所需的氧氣、濕度和微生物活動。工業可堆肥包裝設計用於有氧堆肥條件。如果您所在地區缺乏堆肥基礎設施，可回收包裝可能更合適。",
-                    "q3": "工業可堆肥比家庭可堆肥更貴還是更便宜？",
-                    "a3": "工業可堆肥材料通常比家庭可堆肥選項便宜 10-20%，因為認證要求不那麼嚴格，材料選項更廣泛。但兩者都比傳統塑料更貴。",
-                    "q4": "我可以用工業可堆肥包裝出口到不同國家嗎？",
-                    "a4": "EN 13432 認證在歐盟、英國和許多其他市場得到認可。ASTM D6400 是北美標準。對於澳洲，請尋找 AS 4736。我們可以幫您為目標市場選擇合適的認證。"
+                    "q1": "消費者如何處置工業可堆肥包裝？",
+                    "a1": "工業可堆肥包裝應放入商業堆肥箱（通常標有“可堆肥”或綠色/棕色箱）（如果有）。 許多城市現在都有有機廢物收集，並送往堆肥設施。 檢查您當地的指南。",
+                    "q2": "工業可堆肥包裝在垃圾填埋場會分解嗎？",
+                    "a2": "不會。垃圾填埋場缺乏堆肥所需的氧氣、水分和微生物活性。 工業可堆肥包裝專為有氧堆肥條件而設計。 如果您所在的地區缺乏堆肥基礎設施，可回收包裝可能更合適。",
+                    "q3": "工業可堆肥比家庭可堆肥貴還是便宜？",
+                    "a3": "工業可堆肥材料通常比家庭可堆肥材料便宜 10-20%，因為認證要求不太嚴格，材料選擇也更廣泛。 然而，兩者都比傳統塑料更昂貴。",
+                    "q4": "我可以使用工業可堆肥材料出口到不同的國家嗎？",
+                    "a4": "EN 13432 認證得到歐盟、英國和許多其他市場的認可。 ASTM D6400 是北美標準。 對於澳大利亞，請查找 AS 4736。我們可以幫助您選擇適合您的目標市場的認證。"
                 },
                 "relatedLinks": {
-                    "link1": { "title": "家庭可堆肥", "description": "後院堆肥選項" },
-                    "link2": { "title": "可堆肥概述", "description": "所有可堆肥解決方案" },
-                    "link3": { "title": "阻隔選項", "description": "保護等級指南" }
+                    "link1": {
+                        "title": "家庭可堆肥",
+                        "description": "後院堆肥選項"
+                    },
+                    "link2": {
+                        "title": "可堆肥概述",
+                        "description": "所有可堆肥解決方案"
+                    },
+                    "link3": {
+                        "title": "障礙期權",
+                        "description": "防護等級指南"
+                    }
                 }
             },
             "recyclableMonoPE": {
                 "title": "可回收的單一 PE 包裝 | 100% PE 軟質袋",
                 "heroTitle": "可回收的單一 PE 包裝",
                 "heroSubtitle": "單一材料聚乙烯袋，可在標準 PE 回收流中回收。 實用的可持續選擇。",
-                "introSummary": "Mono-PE 包裝採用單一材料聚乙烯結構，使其與 PE 回收計劃兼容。 與多材料層壓板不同，單一 PE 袋可以通過商店回收和不斷發展的路邊計劃進行回收，同時保持良好的阻隔性能。"
-            },
-            "recyclableMonoPP": {
-                "title": "可回收的單一 PP 包裝 |單一材料聚丙烯袋",
-                "heroTitle": "可回收的單一 PP 包裝",
-                "heroSubtitle": "單一材料聚丙烯袋具有卓越的耐熱性和透明度。 微波爐安全且可回收。",
-                "introSummary": "Mono-PP 包裝完全由聚丙烯製成，可在 PP 流中回收。 它具有比 PE 更高的耐熱性，非常適合熱灌裝和微波應用。"
-            },
-            "bioPE": {
-                "title": "生物聚乙烯包裝 |甘蔗基可持續包裝袋",
-                "heroTitle": "Bio-PE 植物基包裝",
-                "heroSubtitle": "由可再生甘蔗製成的聚乙烯。 相同的性能，更低的碳足跡，完全可回收。",
-                "introSummary": "Bio-PE 是由可再生甘蔗代替化石燃料製成的聚乙烯。 它具有與傳統 PE 相同的性能，同時在生產過程中捕獲碳。 Bio-PE 在標準 PE 流中完全可回收，並通過 Braskem 的 I'm green™ 計劃認證。"
-            },
-            "pcr": {
-                "title": "PCR 包裝 |消費後回收軟質袋",
-                "heroTitle": "PCR 回收內容包裝",
-                "heroSubtitle": "軟包裝含有 30-100% 的消費後回收成分。 在保持質量的同時支持循環經濟。",
-                "introSummary": "PCR 包裝採用從消費者廢物中回收的塑料，減少原生塑料的使用並支持循環經濟目標。 我們的 PCR 袋經過 GRS 認證、FDA 批准可用於食品接觸，並提供 30%、50% 或 100% 回收成分。"
-            },
-            "standUpPouches": {
-                "title": "自立袋 |軟包裝解決方案",
-                "heroTitle": "定制自立袋",
-                "heroSubtitle": "優質軟包裝，貨架美觀。 可提供拉鍊、滑塊、噴嘴或閥門閉合件。 可堆肥和可回收的選項。",
-                "introSummary": "自立袋 (SUP) 將軟包裝的成本效益與出色的零售貨架展示相結合。 Achieve Pack 提供定製印刷的 SUP，配有可重新密封的封口、高阻隔材料和可持續選項，包括經過認證的可堆肥和可回收結構。 最小起訂量 500 件起。",
-                "cta": {
-                    "title": "訂購自立袋",
-                    "description": "為您的自立袋專案索取免費樣品和報價。",
-                    "button": "索取免費樣品"
-                }
-            },
-            "flatBottomBags": {
-                "title": "平底袋 |盒裝袋包裝",
-                "heroTitle": "平底袋",
-                "heroSubtitle": "優質盒式袋子，具有穩定的矩形底座和 5 片品牌標識。 精品咖啡、優質食品和寵物產品的選擇。",
-                "introSummary": "平底袋（盒底袋）具有 5 個可印刷面板，可提供最大的貨架穩定性和優質外觀。 非常適合精品咖啡、寵物食品和需要優質零售展示的產品。",
-                "cta": {
-                    "title": "獲取定製平底袋",
-                    "description": "為您的優質產品索取免費樣品和報價。",
-                    "button": "索取免費樣品"
-                }
-            },
-            "spoutPouches": {
-                "title": "吸嘴袋 |液體包裝解決方案",
-                "heroTitle": "帶嘴袋",
-                "heroSubtitle": "帶傾倒嘴的軟袋，可盛裝液體、果泥、醬汁和飲料。 硬質瓶子的便捷、可持續替代品。",
-                "introSummary": "帶嘴袋將軟包裝效率與瓶子的功能結合在一起。 與硬質容器相比，它們使用的塑料少 70%，同時提供輕鬆分配和可重新封閉的便利。 非常適合嬰兒食品、醬汁、飲料和補充應用。",
-                "cta": {
-                    "title": "獲取定製吸嘴袋",
-                    "description": "為您的液體產品索取免費樣品和報價。",
-                    "button": "索取免費樣品"
-                }
-            },
-            "vacuumPouches": {
-                "title": "真空袋|延長保質期的包裝",
-                "heroTitle": "真空袋",
-                "heroSubtitle": "高阻隔真空包裝，延長保質期。 保護肉類、海鮮、奶酪和特色產品免受氧化和冷凍灼傷。",
-                "introSummary": "真空袋通過在密封前除去氧氣，將產品保質期延長 3-5 倍。 我們的高阻隔袋可防止氧化、潮濕和污染。 適用於腔室和外部真空機，包括真空低溫烹調和蒸煮應用。",
-                "cta": {
-                    "title": "獲取定製真空袋",
-                    "description": "為您的真空包裝需求索取免費樣品和報價。",
-                    "button": "索取免費樣品"
-                }
-            },
-            "flatPouches": {
-                "title": "平袋|三邊封袋",
-                "heroTitle": "平袋",
-                "heroSubtitle": "簡單、經濟高效的三邊密封袋，適合各種應用。",
-                "introSummary": "平袋是最經濟的軟包裝選擇，非常適合樣品、小袋和輕質產品。",
-                "cta": {
-                    "title": "獲取定製小袋",
-                    "description": "為您的小袋包裝需求索取免費樣品和報價。",
-                    "button": "索取免費樣品"
-                }
-            },
-            "sideGussetBags": {
-                "title": "側邊插角袋 |大批量包裝",
-                "heroTitle": "側邊插角袋",
-                "heroSubtitle": "傳統的角撐袋具有可擴展的側面，可實現高容量。 咖啡、茶和散裝產品的經典選擇。",
-                "introSummary": "側角撐板袋（四邊密封袋）具有可擴展的側板，可在緊湊的形式下提供高容量。 常用於咖啡、茶、穀物和散裝產品。 提供錫帶、拉鍊和排氣閥選項。",
-                "cta": {
-                    "title": "獲取定製側邊插角袋",
-                    "description": "為您的大批量產品索取免費樣品和報價。",
-                    "button": "索取免費樣品"
-                }
-            },
-            "coffeeTea": {
-                "title": "咖啡和茶包裝|芳香阻隔袋",
-                "heroTitle": "咖啡和茶包裝",
-                "heroSubtitle": "帶有排氣閥和高阻隔性的專業包裝，可實現最大的新鮮度。",
-                "introSummary": "我們的咖啡和茶包裝採用專門的屏障來保護香氣和新鮮度，並可選配用於新鮮烘焙咖啡的排氣閥。"
-            },
-            "snacksFood": {
-                "title": "零食和食品包裝|柔性食品袋",
-                "heroTitle": "可持續零食和食品包裝",
-                "heroSubtitle": "適用於薯片、堅果、乾果、肉乾和糖果的優質環保袋。 採用可持續材料的高阻隔保護。",
-                "introSummary": "Achieve Pack 為休閒食品行業提供經過認證的可堆肥和可回收包裝。 我們的袋子提供高阻隔保護、可重新密封的封口和充滿活力的定製印刷。 非常適合薯片、堅果、乾果、肉乾、格蘭諾拉麥片和糖果產品。"
-            },
-            "petFood": {
-                "title": "寵物食品包裝|耐用寵物零食袋",
-                "heroTitle": "可持續寵物食品和零食包裝",
-                "heroSubtitle": "優質環保袋，用於存放狗糧、貓糧、寵物零食和補充劑。 重型、可重新密封且對寵物安全的材料。",
-                "introSummary": "Achieve Pack 為寵物食品行業提供經過認證的可堆肥和可回收包裝。 我們的袋子採用重型結構，可提供緻密的粗磨食品，採用高阻隔薄膜，可保證新鮮度，並採用符合 FDA 標準的寵物安全材料。 從單份份量到 10 公斤以上散裝形式可供選擇。"
-            },
-            "supplements": {
-                "title": "補充劑包裝|粉末和維生素袋",
-                "heroTitle": "補充劑包裝",
-                "heroSubtitle": "用於補充劑、粉末和營養保健品的高阻隔包裝。",
-                "introSummary": "補充劑包裝需要出色的防潮和隔氧性能，以保持功效和產品完整性。"
-            },
-            "supplementsPowders": {
-                "title": "補充劑和粉末包裝 |蛋白質、超級食品和運動營養袋",
-                "heroTitle": "補充劑和粉末包裝",
-                "heroSubtitle": "用於蛋白質、超級食品、膠原蛋白和運動營養品的高阻隔可持續袋。 保護效力，同時支持您的可持續發展目標。",
-                "introSummary": "Achieve Pack 為補充劑行業提供優質軟包裝。 我們的高阻隔袋可保護濕敏粉末免遭降解，其選項包括經過認證的可堆肥、可回收且符合 FDA 標準的材料。 從單份棒狀包裝到 5 公斤散裝袋。"
-            },
-            "babyFood": {
-                "title": "嬰兒食品包裝|安全嬰兒營養袋",
-                "heroTitle": "嬰兒食品包裝",
-                "heroSubtitle": "兒童安全包裝，帶有噴嘴選項，方便餵養。",
-                "introSummary": "嬰兒食品包裝具有兒童安全功能和食品安全材料，符合最高安全標準。"
-            },
-            "frozenFood": {
-                "title": "冷凍食品包裝|耐冷袋",
-                "heroTitle": "冷凍食品包裝",
-                "heroSubtitle": "耐用的包裝設計可承受冰凍溫度而不破裂。",
-                "introSummary": "冷凍食品包裝在低溫下保持靈活性和密封完整性，同時防止冷凍灼傷。"
-            },
-            "saucesCondiments": {
-                "title": "醬料和調味品包裝|防液袋",
-                "heroTitle": "醬料和調味品包裝",
-                "heroSubtitle": "用於醬料、調味品、油和塗抹醬的柔性吸嘴袋、補充包和小袋。 方便、可持續且可定制。",
-                "introSummary": "Achieve Pack 為液體和半液體食品提供軟包裝解決方案。 我們的吸嘴袋提供方便的分配，而補充包與瓶子相比可減少 80% 的塑料使用量。"
-            },
-            "digitalPrinting": {
-                "title": "數碼印刷|低最小起訂量定製袋印刷",
-                "heroTitle": "數碼印刷",
-                "heroSubtitle": "高品質數字印刷，無最低訂購量和無限顏色。",
-                "introSummary": "數字印刷可以實現照片級質量的印刷品，無需製版成本，非常適合小批量和多個 SKU。"
-            },
-            "platePrinting": {
-                "title": "版材印刷 |凹印和柔印",
-                "heroTitle": "版畫印刷",
-                "heroSubtitle": "傳統的印版印刷適用於大批量訂單且質量穩定。",
-                "introSummary": "凹版印刷和柔版印刷可為大批量生產提供一致的高質量結果，並具有出色的色彩精度。",
+                "introSummary": "Mono-PE 包裝採用單一材料聚乙烯結構，使其與 PE 回收計劃兼容。 與多材料層壓板不同，單一 PE 袋可以通過商店回收和不斷發展的路邊計劃進行回收，同時保持良好的阻隔性能。",
+                "ctaTitle": "改用可回收的 Mono-PE",
+                "ctaDescription": "索取可回收包裝的免費樣品和報價。",
+                "ctaButtonText": "索取免費樣品",
                 "sections": {
-                    "overview": "適用於大批量訂單的凹版印刷",
-                    "technology": "凹版印刷技術",
-                    "applications": "最佳應用",
-                    "finishes": "高級表面處理選項",
-                    "order": "訂單信息"
-                }
-            },
-            "reclosureOptions": {
-                "title": "重合閘選項 |拉鍊和可重新密封的功能",
-                "heroTitle": "重合閘選項",
-                "heroSubtitle": "各種可重新密封的解決方案，包括拉鍊、噴嘴和按壓關閉功能。",
-                "introSummary": "重新密封選項有助於保持產品在打開後的新鮮度，並為消費者增加便利。"
-            },
-            "surfaceFinish": {
-                "title": "表面處理|啞光、光澤和特殊效果",
-                "heroTitle": "表面處理",
-                "heroSubtitle": "優質飾面，包括啞光、光澤、柔軟觸感和金屬效果。",
-                "introSummary": "表面處理增強了包裝的觸覺和視覺吸引力，創造令人難忘的拆箱體驗。"
-            },
-            "barrierOptions": {
-                "title": "阻隔選項|防潮和氧氣保護",
-                "heroTitle": "阻隔選項",
-                "heroSubtitle": "針對不同產品提供從低到最高保護的多種屏障級別。",
-                "introSummary": "阻隔性能可保護產品免受濕氣、氧氣、光線和異味的影響，以保持新鮮度並延長保質期。"
-            },
-            "about": {
-                "title": "關於 Achieve Pack | 2011年起的可持續包裝",
-                "description": "了解 Achieve Pack 讓可持續包裝變得觸手可及的使命。自2011年成立以來，我們為500多個品牌提供環保彈性包裝解決方案。",
-                "heroTitle": "關於 Achieve Pack",
-                "heroSubtitle": "自2011年起讓可持續包裝成為簡單的選擇。從香港到世界各地，我們幫助品牌在不犧牲品質的情況下減少環境影響。",
-                "introSummary": "Achieve Pack 是 pouch.eco 的母公司，成立於2011年，致力於讓各種規模的企業都能獲得可持續包裝。我們結合數十年的包裝專業知識與對環境責任的真誠承諾。",
-                "sections": {
-                    "story": {
-                        "title": "我們的故事",
-                        "p1": "Achieve Pack® 於2011年在香港成立，從一個小型包裝供應商成長為可持續彈性包裝解決方案的領先供應商。我們的旅程始於一個簡單的信念：企業不應該在品質包裝和環境責任之間做選擇。",
-                        "p2": "如今，我們服務於全球500多個品牌，從手工藝初創企業到成熟企業，幫助他們在不犧牲品質、性能或預算的情況下轉向環保包裝。",
-                        "p3": "在 pouch.eco 品牌下，我們讓各種規模的企業都能獲得可持續包裝，提供低最小訂購量和快速交貨時間，這是傳統製造商無法比擬的。"
-                    },
-                    "mission": {
-                        "title": "我們的使命",
-                        "intro": "我們的使命是讓每個企業都能輕鬆選擇可持續包裝。我們相信環境責任不應該是高級功能——而應該是標準。",
-                        "drivesUs": "驅動我們的力量：",
-                        "points": [
-                            "減少包裝行業的塑料廢物",
-                            "讓所有規模的企業都能獲得認證的環保材料",
-                            "幫助品牌講述他們的可持續發展故事",
-                            "為循環經濟創新新材料和解決方案"
+                    "overview": {
+                        "title": "什麼是 Mono-PE 包裝？",
+                        "intro": "Mono-PE (mono-material polyethylene) packaging is made entirely from polyethylene, making it compatible with standard PE recycling streams. Unlike traditional multi-layer laminates, mono-PE pouches can be recycled through store drop-off programs and, increasingly, curbside recycling.",
+                        "keyBenefits": "Key Benefits:",
+                        "benefits": [
+                            "Recyclable in PE stream (recycling code #2 or #4)",
+                            "Accepted at store drop-off recycling points",
+                            "Good barrier properties maintained",
+                            "Heat sealable and flexible",
+                            "Lower environmental footprint than multi-material"
                         ]
                     },
-                    "values": {
-                        "title": "我們的價值觀",
-                        "sustainability": {
-                            "title": "可持續性優先",
-                            "desc": "我們做的每一個決定都考慮環境影響。從材料選擇到運輸方式，可持續性指導著我們的運營。"
+                    "howItWorks": {
+                        "title": "How Mono-PE Achieves Barrier",
+                        "intro": "Traditional pouches use different materials (PET, nylon, aluminum) for barrier. Mono-PE achieves this with PE-only solutions:",
+                        "evoh": {
+                            "title": "EVOH Barrier Layer",
+                            "desc": "Thin EVOH layer sandwiched between PE. Provides excellent oxygen barrier while remaining recyclable in PE stream (EVOH content <5%)."
                         },
-                        "quality": {
-                            "title": "品質不妥協",
-                            "desc": "環保並不意味著品質較低。我們的包裝符合與傳統材料相同的嚴格標準。"
+                        "pePe": {
+                            "title": "PE-PE Structures",
+                            "desc": "Different PE types (HDPE, MDPE, LDPE) combined for optimal stiffness, seal, and barrier without other materials."
                         },
-                        "partnership": {
-                            "title": "客戶合作夥伴",
-                            "desc": "我們是合作夥伴，而不僅僅是供應商。您的成功就是我們的成功，我們致力於幫助您實現目標。"
+                        "coatings": {
+                            "title": "Barrier Coatings",
+                            "desc": "SiOx or AlOx coatings on PE provide metallized-like barrier while maintaining recyclability."
                         },
-                        "innovation": {
-                            "title": "創新與透明",
-                            "desc": "我們持續開發新材料，並誠實分享關於能力和局限性的信息。"
+                        "oriented": {
+                            "title": "Oriented PE",
+                            "desc": "Machine direction oriented PE (MDOPE) provides improved stiffness and printability typically achieved with PET."
                         }
                     },
-                    "team": {
-                        "title": "我們的團隊",
-                        "intro": "我們的團隊結合了數十年的包裝行業經驗和對可持續發展的熱情。從材料科學家到客戶支持專家，每位團隊成員都致力於您的成功。"
+                    "applications": {
+                        "title": "Suitable Applications",
+                        "intro": "Mono-PE packaging works well for many products:",
+                        "items": [
+                            "Frozen foods",
+                            "Snacks & chips",
+                            "Dry pet food",
+                            "Rice & grains",
+                            "Coffee (with EVOH)",
+                            "Nuts & dried fruit",
+                            "Granola & cereal",
+                            "Bakery products",
+                            "Candy & confectionery"
+                        ]
                     },
-                    "impact": {
-                        "title": "我們的影響",
-                        "brands": "服務品牌",
-                        "carbon": "碳減排",
-                        "pouches": "生產袋數",
-                        "countries": "配送國家",
-                        "outro": "我們生產的每一個袋子都代表著遠離傳統塑料、邁向更可持續未來的一步。加入數百個已經在產生影響的品牌。"
+                    "recycling": {
+                        "title": "Recycling Information",
+                        "whereTitle": "Where to Recycle:",
+                        "options": [
+                            "Store drop-off programs – Many major retailers accept PE flexible packaging",
+                            "Curbside recycling – Growing number of municipalities accept flexible PE",
+                            "Terracycle programs – Specialty recycling for brands"
+                        ],
+                        "note": "Note: Recycling infrastructure varies by region. We recommend checking local guidelines and communicating proper disposal instructions on packaging."
+                    }
+                },
+                "table": {
+                    "title": "Mono-PE vs Traditional Laminate Comparison",
+                    "headers": [
+                        "Property",
+                        "Mono-PE",
+                        "Traditional PET/PE"
+                    ],
+                    "rows": [
+                        [
+                            "Recyclability",
+                            "PE stream recyclable",
+                            "Generally not recyclable"
+                        ],
+                        [
+                            "Oxygen Barrier",
+                            "Good (with EVOH)",
+                            "Excellent"
+                        ],
+                        [
+                            "Moisture Barrier",
+                            "Good",
+                            "Excellent"
+                        ],
+                        [
+                            "Stiffness",
+                            "Good (with MDOPE)",
+                            "Excellent"
+                        ],
+                        [
+                            "Cost",
+                            "+5-15%",
+                            "Baseline"
+                        ],
+                        [
+                            "Print Quality",
+                            "Very good",
+                            "Excellent"
+                        ]
+                    ]
+                },
+                "faq": {
+                    "q1": "Is mono-PE truly recyclable?",
+                    "a1": "Yes, mono-PE pouches are recyclable in polyethylene recycling streams. They are accepted at store drop-off points (like those at major retailers) and some curbside programs. Always check local recycling guidelines.",
+                    "q2": "What is the barrier level of mono-PE?",
+                    "a2": "Mono-PE offers medium barrier properties suitable for many dry goods. For products requiring higher barrier, we use EVOH-coated PE which maintains recyclability while improving oxygen barrier. MVTR typically 1-3 g/m²/24hr, OTR 10-30 cc/m²/24hr for standard PE.",
+                    "q3": "How does mono-PE compare in cost?",
+                    "a3": "Mono-PE pouches typically cost 5-15% more than equivalent multi-material structures due to specialized materials needed for barrier. However, the sustainability benefit often justifies the premium for eco-conscious brands.",
+                    "q4": "Can mono-PE pouches be printed?",
+                    "a4": "Yes, mono-PE pouches can achieve high-quality printing with up to 10 colors. We use specialized inks and coatings designed for PE surfaces. Surface treatment ensures excellent ink adhesion."
+                },
+                "relatedLinks": {
+                    "link1": {
+                        "title": "Recyclable Mono-PP",
+                        "description": "Polypropylene alternative"
+                    },
+                    "link2": {
+                        "title": "Bio-PE",
+                        "description": "Plant-based PE option"
+                    },
+                    "link3": {
+                        "title": "Compostable",
+                        "description": "Certified compostable materials"
+                    }
+                }
+            },
+            "recyclableMonoPP": {
+                "title": "Recyclable Mono-PP Packaging | Single-Material Polypropylene Pouches",
+                "heroTitle": "Recyclable Mono-PP Packaging",
+                "heroSubtitle": "Single-material polypropylene pouches with superior heat resistance and clarity. Microwave safe and recyclable.",
+                "introSummary": "Mono-PP packaging is made entirely from polypropylene, enabling recycling in PP streams. It offers higher heat resistance than PE, ideal for hot-fill and microwaveable applications.",
+                "ctaTitle": "Switch to Recyclable Mono-PP",
+                "ctaDescription": "Request a free sample and quote for heat-resistant recyclable packaging.",
+                "ctaButtonText": "Request Free Sample",
+                "sections": {
+                    "overview": {
+                        "title": "What is Mono-PP Packaging?",
+                        "intro": "Mono-PP (mono-material polypropylene) packaging is made entirely from polypropylene, enabling recycling in PP recycling streams. PP offers higher heat resistance and better clarity than PE, making it ideal for specific applications.",
+                        "keyBenefits": "Key Benefits:",
+                        "benefits": [
+                            "Recyclable in PP stream (recycling code #5)",
+                            "Higher heat resistance than PE (up to 120°C)",
+                            "Better clarity and gloss",
+                            "Good stiffness and barrier properties",
+                            "Hot-fill and microwave capable"
+                        ]
+                    },
+                    "vsPe": {
+                        "title": "Mono-PP vs Mono-PE",
+                        "choosePP": "Choose Mono-PP When:",
+                        "ppReasons": [
+                            "Hot-fill applications required",
+                            "Microwave heating needed",
+                            "High clarity/gloss important",
+                            "Better stiffness required",
+                            "Higher temperature resistance"
+                        ],
+                        "choosePE": "Choose Mono-PE When:",
+                        "peReasons": [
+                            "Frozen food applications",
+                            "Better flex-crack resistance",
+                            "Lower temperature use",
+                            "Wider recycling acceptance",
+                            "Cost sensitivity"
+                        ]
+                    },
+                    "applications": {
+                        "title": "Ideal Applications",
+                        "intro": "Mono-PP is particularly suited for:",
+                        "items": [
+                            "Hot-fill sauces",
+                            "Microwaveable meals",
+                            "Snacks & chips",
+                            "Confectionery",
+                            "Ready meals",
+                            "Fresh pasta",
+                            "Deli products",
+                            "Baked goods",
+                            "Clear window packaging"
+                        ]
+                    },
+                    "specifications": {
+                        "title": "Technical Specifications",
+                        "specs": [
+                            "Temperature resistance: Up to 120°C (248°F)",
+                            "Hot-fill capable: 85°C (185°F) filling",
+                            "Microwave safe: Yes (no aluminum)",
+                            "Clarity: Higher than PE",
+                            "MVTR: 2-5 g/m²/24hr",
+                            "OTR: 1000-2000 cc/m²/24hr (improved with EVOH)"
+                        ]
                     }
                 },
                 "faq": {
-                    "q1": "Achieve Pack 位於哪裡？",
-                    "a1": "我們的總部位於香港，製造工廠位於中國。我們向全球發貨，客戶遍布北美、歐洲、亞洲和澳大利亞。",
-                    "q2": "Achieve Pack 與其他包裝供應商有什麼不同？",
-                    "a2": "我們專門從事可持續包裝，提供低最小訂購量（100件）、快速交貨（樣品2-3週）和全面的認證文檔。我們是合作夥伴，而不僅僅是供應商。",
-                    "q3": "你們與初創企業和小型企業合作嗎？",
-                    "a3": "當然！我們的低最小訂購量使各種規模的企業都能獲得可持續包裝。我們的許多客戶都是作為初創企業開始與我們合作，並在我們的支持下成長起來的。",
-                    "q4": "你們的材料有哪些認證？",
-                    "a4": "我們的材料通過各種國際標準認證，包括 EN 13432、ASTM D6400、GRS（全球回收標準）和食品安全認證（FDA、EU 10/2011）。我們隨每個訂單提供文檔。"
+                    "q1": "Is mono-PP recyclable everywhere?",
+                    "a1": "PP recycling (#5) is less widely available than PE recycling. However, PP recycling infrastructure is growing. Many store drop-off programs and an increasing number of curbside programs accept PP. Always check local guidelines.",
+                    "q2": "Can mono-PP pouches be microwaved?",
+                    "a2": "Yes, mono-PP pouches can be safely microwaved as PP is heat-resistant up to 120°C. This makes them ideal for ready meals and microwaveable products. The pouch must not contain any metallization.",
+                    "q3": "What barrier properties does mono-PP offer?",
+                    "a3": "Standard mono-PP has moderate barrier properties. For improved oxygen barrier, we use PP with EVOH barrier layer (keeping PP content >95% for recyclability) or barrier coatings.",
+                    "q4": "How does mono-PP compare in cost to mono-PE?",
+                    "a4": "Mono-PP is generally 5-10% more expensive than mono-PE due to material costs. However, the heat resistance and clarity benefits justify this for appropriate applications."
+                },
+                "relatedLinks": {
+                    "link1": {
+                        "title": "Recyclable Mono-PE",
+                        "description": "PE-based recyclable option"
+                    },
+                    "link2": {
+                        "title": "Compostable",
+                        "description": "Certified compostable materials"
+                    },
+                    "link3": {
+                        "title": "Stand-Up Pouches",
+                        "description": "Popular pouch format"
+                    }
+                }
+            },
+            "bioPE": {
+                "title": "Bio-PE Packaging | Sugarcane-Based Sustainable Pouches",
+                "heroTitle": "Bio-PE Plant-Based Packaging",
+                "heroSubtitle": "Polyethylene made from renewable sugarcane. Same performance, lower carbon footprint, fully recyclable.",
+                "introSummary": "Bio-PE is polyethylene made from renewable sugarcane instead of fossil fuels. It offers identical performance to conventional PE while capturing carbon during production. Bio-PE is fully recyclable in standard PE streams and certified by Braskem's I'm green™ program.",
+                "ctaTitle": "Switch to Bio-PE",
+                "ctaDescription": "Request a free sample and quote for plant-based packaging.",
+                "ctaButtonText": "Request Free Sample",
+                "sections": {
+                    "overview": {
+                        "title": "What is Bio-PE?",
+                        "intro": "Bio-PE (bio-based polyethylene) is chemically identical to conventional PE but made from renewable plant sources like sugarcane instead of fossil fuels. It offers the same performance as traditional PE while reducing carbon footprint.",
+                        "keyBenefits": "Key Benefits:",
+                        "benefits": [
+                            "Made from renewable sugarcane (up to 95% bio-based)",
+                            "Carbon negative raw material production",
+                            "Same performance as conventional PE",
+                            "Recyclable in existing PE streams",
+                            "I'm green™ certified by Braskem"
+                        ]
+                    },
+                    "howItWorks": {
+                        "title": "How Bio-PE is Made",
+                        "step1": "Sugarcane Growth",
+                        "step1Desc": "Sugarcane absorbs CO2 from the atmosphere as it grows",
+                        "step2": "Ethanol Production",
+                        "step2Desc": "Sugarcane is fermented to produce bio-ethanol",
+                        "step3": "Ethylene Conversion",
+                        "step3Desc": "Bio-ethanol is dehydrated to create bio-ethylene",
+                        "step4": "Polymerization",
+                        "step4Desc": "Bio-ethylene is polymerized into bio-PE (chemically identical to fossil PE)"
+                    },
+                    "carbon": {
+                        "title": "Carbon Benefits",
+                        "comparisonTitle": "Carbon Footprint Comparison:",
+                        "items": [
+                            "Bio-PE: Captures ~3.09 kg CO2 per kg of PE produced",
+                            "Fossil PE: Emits ~1.8 kg CO2 per kg of PE produced",
+                            "Net difference: ~4.9 kg CO2 per kg of material"
+                        ],
+                        "note": "This calculation is based on sugarcane cultivation absorbing CO2, which is captured in the bio-PE. Life cycle assessments confirm the carbon-negative nature of bio-PE production."
+                    },
+                    "applications": {
+                        "title": "Suitable Applications",
+                        "intro": "Bio-PE works for any application where conventional PE is used:",
+                        "items": [
+                            "Food packaging",
+                            "Beverage pouches",
+                            "Personal care",
+                            "Household products",
+                            "Pet food bags",
+                            "Snack packaging",
+                            "Frozen food",
+                            "Agricultural films",
+                            "Shopping bags"
+                        ]
+                    },
+                    "recycling": {
+                        "title": "Recyclability",
+                        "distinctionTitle": "Important Distinction:",
+                        "distinction": "Bio-PE is NOT compostable. It is chemically identical to fossil PE and does not break down in composting conditions. The \"bio\" refers to its renewable origin, not its end-of-life behavior.",
+                        "info": "Bio-PE is fully recyclable in standard PE recycling streams (#2 and #4). It can be mixed with fossil PE in recycling processes without any issues."
+                    }
+                },
+                "faq": {
+                    "q1": "Is Bio-PE compostable?",
+                    "a1": "No, Bio-PE is not compostable. It is chemically identical to conventional PE. The 'bio' refers to its renewable plant-based origin, not its end-of-life. Bio-PE is recyclable in standard PE recycling streams.",
+                    "q2": "What is the carbon benefit of Bio-PE?",
+                    "a2": "Sugarcane absorbs CO2 as it grows, making Bio-PE production carbon negative. Each ton of Bio-PE captures approximately 3.09 tons of CO2 from the atmosphere, compared to fossil PE which emits ~1.8 tons CO2 per ton produced.",
+                    "q3": "Does Bio-PE perform the same as regular PE?",
+                    "a3": "Yes, Bio-PE has identical properties to fossil-based PE including heat seal temperature, barrier properties, flexibility, and printing characteristics. It's a direct drop-in replacement.",
+                    "q4": "How much does Bio-PE cost compared to conventional PE?",
+                    "a4": "Bio-PE typically costs 15-30% more than fossil PE due to production scale and feedstock costs. However, prices continue to decrease as production capacity increases.",
+                    "q5": "What percentage of bio-based content is available?",
+                    "a5": "We can offer Bio-PE pouches with up to 95% bio-based content. For multi-layer structures, the bio-based percentage depends on which layers use Bio-PE. Typical options are 30%, 50%, or 95% bio-based."
+                },
+                "relatedLinks": {
+                    "link1": {
+                        "title": "Recyclable Mono-PE",
+                        "description": "Single-material recyclable packaging"
+                    },
+                    "link2": {
+                        "title": "PCR Packaging",
+                        "description": "Post-consumer recycled content"
+                    },
+                    "link3": {
+                        "title": "Compostable",
+                        "description": "Certified compostable options"
+                    }
+                }
+            },
+            "pcr": {
+                "title": "PCR Packaging | Post-Consumer Recycled Flexible Pouches",
+                "heroTitle": "PCR Recycled Content Packaging",
+                "heroSubtitle": "Flexible packaging with 30-100% post-consumer recycled content. Supporting the circular economy while maintaining quality.",
+                "introSummary": "PCR packaging incorporates plastic recycled from consumer waste, reducing virgin plastic use and supporting circular economy goals. Our PCR pouches are GRS certified, FDA approved for food contact, and available in 30%, 50%, or 100% recycled content.",
+                "ctaTitle": "Switch to PCR Packaging",
+                "ctaDescription": "Request a free sample and quote for recycled content packaging.",
+                "ctaButtonText": "Request Free Sample",
+                "sections": {
+                    "overview": {
+                        "title": "What is PCR Packaging?",
+                        "intro": "PCR (Post-Consumer Recycled) packaging contains plastic that has been recycled from consumer waste streams. By incorporating recycled content, brands reduce virgin plastic use and support the circular economy.",
+                        "keyBenefits": "Key Benefits:",
+                        "benefits": [
+                            "Reduces virgin plastic consumption",
+                            "Supports circular economy and recycling infrastructure",
+                            "Lower carbon footprint than virgin plastic",
+                            "Maintains excellent packaging performance",
+                            "GRS (Global Recycled Standard) certified available"
+                        ]
+                    },
+                    "contentLevels": {
+                        "title": "PCR Content Levels",
+                        "intro": "We offer various PCR content levels to meet your sustainability goals:",
+                        "level30": {
+                            "title": "Entry Level",
+                            "desc": "Good starting point for PCR adoption. Minimal impact on appearance."
+                        },
+                        "level50": {
+                            "title": "Recommended",
+                            "desc": "Balanced approach. Significant sustainability impact with good performance."
+                        },
+                        "level100": {
+                            "title": "Maximum",
+                            "desc": "For brands prioritizing maximum recycled content. Some optical variation."
+                        }
+                    },
+                    "foodSafety": {
+                        "title": "Food Safety & Quality",
+                        "intro": "Our PCR materials meet stringent food safety requirements:",
+                        "items": [
+                            "FDA approved for food contact (21 CFR 177)",
+                            "EFSA compliant for European markets",
+                            "Super-cleaned PCR – Advanced decontamination process",
+                            "Traceability – Known source streams, typically food-grade PET/PE",
+                            "Testing – Migration testing and challenge testing performed"
+                        ],
+                        "note": "We use mechanical and advanced recycling technologies to ensure PCR materials meet food-contact safety requirements."
+                    },
+                    "certifications": {
+                        "title": "Certifications",
+                        "grs": {
+                            "title": "GRS Certified",
+                            "desc": "Global Recycled Standard certification verifies recycled content and tracks materials through the supply chain."
+                        },
+                        "scs": {
+                            "title": "SCS Verified",
+                            "desc": "SCS Global Services verification for recycled content claims and environmental impact."
+                        }
+                    },
+                    "applications": {
+                        "title": "Suitable Applications",
+                        "items": [
+                            "Snack foods",
+                            "Pet food",
+                            "Coffee & tea",
+                            "Personal care",
+                            "Household products",
+                            "Frozen food",
+                            "Dry goods",
+                            "E-commerce mailers",
+                            "Non-food applications"
+                        ]
+                    }
+                },
+                "table": {
+                    "title": "PCR Content Comparison",
+                    "headers": [
+                        "PCR Level",
+                        "Appearance Impact",
+                        "Cost Premium",
+                        "Carbon Reduction"
+                    ],
+                    "rows": [
+                        [
+                            "30% PCR",
+                            "Minimal",
+                            "+10-12%",
+                            "~20-25%"
+                        ],
+                        [
+                            "50% PCR",
+                            "Slight",
+                            "+15-18%",
+                            "~35-40%"
+                        ],
+                        [
+                            "100% PCR",
+                            "Noticeable",
+                            "+20-25%",
+                            "~70-80%"
+                        ]
+                    ]
+                },
+                "faq": {
+                    "q1": "Is PCR packaging food safe?",
+                    "a1": "Yes, our PCR materials are FDA approved for food contact. The recycled content undergoes advanced decontamination (super-cleaning) and rigorous testing to meet food safety standards including migration testing.",
+                    "q2": "Does PCR affect print quality?",
+                    "a2": "PCR may have slightly different optical properties (slight haze or color variation) compared to virgin plastic. At 30-50% PCR content, the impact on print quality is minimal. We recommend samples to evaluate appearance for your application.",
+                    "q3": "What is the source of your PCR?",
+                    "a3": "Our PCR comes from established post-consumer waste streams, primarily food-grade PET bottles and PE packaging. We work with certified recyclers who provide full traceability and use advanced sorting and cleaning processes.",
+                    "q4": "How much does PCR packaging cost?",
+                    "a4": "PCR typically costs 10-20% more than virgin plastic, though pricing fluctuates with recycled feedstock availability. The premium supports recycling infrastructure development and reflects the additional processing required.",
+                    "q5": "Can PCR pouches still be recycled?",
+                    "a5": "Yes, PCR pouches can be recycled again, continuing the circular economy loop. The recyclability depends on the overall pouch structure (mono-material vs multi-layer) rather than the PCR content itself."
+                },
+                "relatedLinks": {
+                    "link1": {
+                        "title": "Recyclable Mono-PE",
+                        "description": "Single-material recyclable option"
+                    },
+                    "link2": {
+                        "title": "Bio-PE",
+                        "description": "Plant-based alternative"
+                    },
+                    "link3": {
+                        "title": "Compostable",
+                        "description": "Certified compostable packaging"
+                    }
+                }
+            },
+            "standUpPouches": {
+                "title": "Stand-Up Pouches | Flexible Packaging Solutions",
+                "heroTitle": "Custom Stand-Up Pouches",
+                "heroSubtitle": "Premium flexible packaging with excellent shelf presence. Available with zipper, slider, spout, or valve closures. Compostable and recyclable options.",
+                "introSummary": "Stand-up pouches (SUP) combine the cost efficiency of flexible packaging with excellent retail shelf presence. Achieve Pack offers custom printed SUPs with resealable closures, high-barrier materials, and sustainable options including certified compostable and recyclable structures. MOQ from 500 units.",
+                "cta": {
+                    "title": "Order Custom Stand-Up Pouches",
+                    "description": "Request a free sample and quote for your custom stand-up pouch project.",
+                    "button": "Request Free Sample"
+                }
+            },
+            "flatBottomBags": {
+                "title": "Flat Bottom Bags | Box Pouch Packaging",
+                "heroTitle": "Flat Bottom Bags",
+                "heroSubtitle": "Premium box-style pouches with stable rectangular base and 5-panel branding. The choice for specialty coffee, premium foods, and pet products.",
+                "introSummary": "Flat bottom bags (box bottom pouches) offer maximum shelf stability and premium appearance with 5 printable panels. Perfect for specialty coffee, pet food, and products requiring a premium retail presentation.",
+                "cta": {
+                    "title": "Get Custom Flat Bottom Bags",
+                    "description": "Request a free sample and quote for your premium products.",
+                    "button": "Request Free Sample"
+                }
+            },
+            "spoutPouches": {
+                "title": "Spout Pouches | Liquid Packaging Solutions",
+                "heroTitle": "Spout Pouches",
+                "heroSubtitle": "Flexible pouches with pour spouts for liquids, purées, sauces, and beverages. The convenient, sustainable alternative to rigid bottles.",
+                "introSummary": "Spout pouches combine flexible packaging efficiency with the functionality of bottles. They use 70% less plastic than rigid containers while offering easy dispensing and reclosable convenience. Perfect for baby food, sauces, beverages, and refill applications.",
+                "cta": {
+                    "title": "Get Custom Spout Pouches",
+                    "description": "Request a free sample and quote for your liquid products.",
+                    "button": "Request Free Sample"
+                }
+            },
+            "vacuumPouches": {
+                "title": "Vacuum Pouches | Extended Shelf Life Packaging",
+                "heroTitle": "Vacuum Pouches",
+                "heroSubtitle": "High-barrier vacuum packaging for extended shelf life. Protect meat, seafood, cheese, and specialty products from oxidation and freezer burn.",
+                "introSummary": "Vacuum pouches extend product shelf life 3-5x by removing oxygen before sealing. Our high-barrier pouches protect against oxidation, moisture, and contamination. Available for chamber and external vacuum machines, including sous vide and retort applications.",
+                "cta": {
+                    "title": "Get Custom Vacuum Pouches",
+                    "description": "Request a free sample and quote for your vacuum packaging needs.",
+                    "button": "Request Free Sample"
+                }
+            },
+            "flatPouches": {
+                "title": "Flat Pouches | Three-Side Sealed Bags",
+                "heroTitle": "Flat Pouches",
+                "heroSubtitle": "Simple, cost-effective three-side sealed pouches for various applications.",
+                "introSummary": "Flat pouches are the most economical flexible packaging option, ideal for samples, sachets, and lightweight products.",
+                "cta": {
+                    "title": "Get Custom Sachets",
+                    "description": "Request a free sample and quote for your sachet packaging needs.",
+                    "button": "Request Free Sample"
+                }
+            },
+            "sideGussetBags": {
+                "title": "Side Gusset Bags | High-Volume Packaging",
+                "heroTitle": "Side Gusset Bags",
+                "heroSubtitle": "Traditional gusseted bags with expandable sides for high capacity. The classic choice for coffee, tea, and bulk products.",
+                "introSummary": "Side gusset bags (quad seal bags) feature expandable side panels that provide high volume capacity in a compact format. Popular for coffee, tea, grains, and bulk products. Available with tin tie, zipper, and degassing valve options.",
+                "cta": {
+                    "title": "Get Custom Side Gusset Bags",
+                    "description": "Request a free sample and quote for your bulk products.",
+                    "button": "Request Free Sample"
+                }
+            },
+            "coffeeTea": {
+                "title": "Coffee & Tea Packaging | Aromatic Barrier Pouches",
+                "heroTitle": "Coffee & Tea Packaging",
+                "heroSubtitle": "Specialized packaging with degassing valves and high barrier for maximum freshness.",
+                "introSummary": "Our coffee and tea packaging features specialized barriers to protect aroma and freshness, with optional degassing valves for freshly roasted coffee.",
+                "cta": {
+                    "title": "Get Custom Coffee Packaging",
+                    "description": "Request a free sample and quote for your coffee or tea brand. Our packaging experts will help you choose the right materials and format.",
+                    "button": "Request Free Sample"
+                }
+            },
+            "snacksFood": {
+                "title": "Snacks & Food Packaging | Flexible Food Pouches",
+                "heroTitle": "Sustainable Snacks & Food Packaging",
+                "heroSubtitle": "Premium eco-friendly pouches for chips, nuts, dried fruits, jerky, and confectionery. High-barrier protection with sustainable materials.",
+                "introSummary": "Achieve Pack provides certified compostable and recyclable packaging for the snack food industry. Our pouches offer high-barrier protection, resealable closures, and vibrant custom printing. Perfect for chips, nuts, dried fruits, jerky, granola, and confectionery products.",
+                "cta": {
+                    "title": "Get Custom Snack Packaging",
+                    "description": "Request a free sample and quote for your snack brand. Our experts will recommend the best sustainable solution.",
+                    "button": "Request Free Sample"
+                }
+            },
+            "petFood": {
+                "title": "Pet Food Packaging | Durable Pet Treat Pouches",
+                "heroTitle": "Sustainable Pet Food & Treats Packaging",
+                "heroSubtitle": "Premium eco-friendly pouches for dog food, cat food, pet treats, and supplements. Heavy-duty, resealable, and pet-safe materials.",
+                "introSummary": "Achieve Pack provides certified compostable and recyclable packaging for the pet food industry. Our pouches feature heavy-duty construction for dense kibble, high-barrier films for freshness, and pet-safe materials with FDA compliance. Available from single-serve treats to 10kg+ bulk formats.",
+                "cta": {
+                    "title": "Get Custom Pet Food Packaging",
+                    "description": "Request a free sample and quote for your pet brand. Our packaging experts specialize in pet food solutions.",
+                    "button": "Request Free Sample"
+                }
+            },
+            "supplements": {
+                "title": "Supplements Packaging | Powder & Vitamin Pouches",
+                "heroTitle": "Supplements Packaging",
+                "heroSubtitle": "High-barrier packaging for supplements, powders, and nutraceuticals.",
+                "introSummary": "Supplements packaging requires excellent moisture and oxygen barriers to maintain potency and product integrity."
+            },
+            "supplementsPowders": {
+                "title": "Supplements & Powder Packaging | Protein, Superfood & Sports Nutrition Pouches",
+                "heroTitle": "Supplements & Powder Packaging",
+                "heroSubtitle": "High-barrier sustainable pouches for protein, superfoods, collagen, and sports nutrition. Protect potency while supporting your sustainability goals.",
+                "introSummary": "Achieve Pack provides premium flexible packaging for the supplements industry. Our high-barrier pouches protect moisture-sensitive powders from degradation, with options including certified compostable, recyclable, and FDA-compliant materials. From single-serve stick packs to 5kg bulk bags.",
+                "cta": {
+                    "title": "Get Custom Supplement Packaging",
+                    "description": "Request a free sample and quote for your supplement brand.",
+                    "button": "Request Free Sample"
+                }
+            },
+            "babyFood": {
+                "title": "Baby Food Packaging | Safe Infant Nutrition Pouches",
+                "heroTitle": "Baby Food Packaging",
+                "heroSubtitle": "Child-safe packaging with spout options for convenient feeding.",
+                "introSummary": "Baby food packaging meets the highest safety standards with child-resistant features and food-safe materials.",
+                "cta": {
+                    "title": "Get Safe Baby Food Packaging",
+                    "description": "Request a free sample and quote for your baby food brand.",
+                    "button": "Request Free Sample"
+                }
+            },
+            "frozenFood": {
+                "title": "Frozen Food Packaging | Cold-Resistant Pouches",
+                "heroTitle": "Frozen Food Packaging",
+                "heroSubtitle": "Durable packaging designed to withstand freezing temperatures without cracking.",
+                "introSummary": "Frozen food packaging maintains flexibility and seal integrity at low temperatures while protecting against freezer burn.",
+                "cta": {
+                    "title": "Get Frozen Food Packaging",
+                    "description": "Request a free sample and quote for your frozen food products.",
+                    "button": "Request Free Sample"
+                }
+            },
+            "saucesCondiments": {
+                "title": "Sauces & Condiments Packaging | Liquid-Resistant Pouches",
+                "heroTitle": "Sauces & Condiments Packaging",
+                "heroSubtitle": "Flexible spout pouches, refill packs, and sachets for sauces, condiments, oils, and spreads. Convenient, sustainable, and customizable.",
+                "introSummary": "Achieve Pack provides flexible packaging solutions for liquid and semi-liquid food products. Our spout pouches offer convenient dispensing while refill packs reduce plastic use by 80% compared to bottles.",
+                "cta": {
+                    "title": "Get Sauce & Condiment Packaging",
+                    "description": "Request a free sample and quote for your liquid products.",
+                    "button": "Request Free Sample"
+                }
+            },
+            "digitalPrinting": {
+                "title": "Digital Printing | Low MOQ Custom Pouch Printing",
+                "heroTitle": "Digital Printing",
+                "heroSubtitle": "High-quality digital printing with no minimum order and unlimited colors.",
+                "introSummary": "Digital printing allows for photographic quality prints with no plate costs, perfect for small batches and multiple SKUs.",
+                "cta": {
+                    "title": "Ready to Start Your Digital Print Project?",
+                    "description": "Get a free quote for your custom digitally printed pouches. No plate costs, low minimums, fast delivery.",
+                    "button": "Get Free Quote"
+                }
+            },
+            "platePrinting": {
+                "title": "Plate Printing | Gravure & Flexo Printing",
+                "heroTitle": "Plate Printing",
+                "heroSubtitle": "Traditional plate printing for high-volume orders with consistent quality.",
+                "introSummary": "Gravure and flexographic printing deliver consistent, high-quality results for large production runs with excellent color accuracy.",
+                "sections": {
+                    "overview": "Gravure Plate Printing for High-Volume Orders",
+                    "technology": "Rotogravure Printing Technology",
+                    "applications": "Best Applications",
+                    "finishes": "Premium Finishing Options",
+                    "order": "Order Information"
                 },
                 "cta": {
-                    "title": "與我們合作",
-                    "description": "加入500多個已經與 Achieve Pack 一起產生可持續影響的品牌。",
-                    "button": "開始您的旅程"
+                    "title": "Ready for Premium Plate Printing?",
+                    "description": "Get a detailed quote including plate costs and per-unit pricing for your high-volume order.",
+                    "button": "Get Quote"
+                }
+            },
+            "reclosureOptions": {
+                "title": "Reclosure Options | Zipper & Resealable Features",
+                "heroTitle": "Reclosure Options",
+                "heroSubtitle": "Various resealable solutions including zippers, spouts, and press-to-close features.",
+                "introSummary": "Reclosure options help maintain product freshness after opening and add convenience for consumers.",
+                "cta": {
+                    "title": "Find Your Perfect Reclosure Solution",
+                    "description": "Let our experts recommend the best closure option for your product and market requirements.",
+                    "button": "Get Free Quote"
+                }
+            },
+            "surfaceFinish": {
+                "title": "Surface Finishes | Matte, Gloss & Special Effects",
+                "heroTitle": "Surface Finishes",
+                "heroSubtitle": "Premium finishes including matte, gloss, soft-touch, and metallic effects.",
+                "introSummary": "Surface finishes enhance the tactile and visual appeal of packaging, creating memorable unboxing experiences.",
+                "cta": {
+                    "title": "Ready to Elevate Your Packaging?",
+                    "description": "Get samples of different finish options and see the premium quality difference.",
+                    "button": "Request Samples"
+                }
+            },
+            "barrierOptions": {
+                "title": "Barrier Options | Moisture & Oxygen Protection",
+                "heroTitle": "Barrier Options",
+                "heroSubtitle": "Multiple barrier levels from low to maximum protection for different products.",
+                "introSummary": "Barrier properties protect products from moisture, oxygen, light, and odors to maintain freshness and extend shelf life.",
+                "cta": {
+                    "title": "Need Help Choosing Your Barrier?",
+                    "description": "Get free shelf-life testing and expert recommendations for your product's optimal barrier level.",
+                    "button": "Get Expert Advice"
+                }
+            },
+            "about": {
+                "title": "About Achieve Pack | Sustainable Packaging Since 2011",
+                "description": "Learn about Achieve Pack's mission to make sustainable packaging accessible. Founded in 2011, we serve 500+ brands with eco-friendly flexible packaging solutions.",
+                "heroTitle": "About Achieve Pack",
+                "heroSubtitle": "Making sustainable packaging the easy choice since 2011. From Hong Kong to the world, we're helping brands reduce their environmental impact without compromising on quality.",
+                "introSummary": "Achieve Pack is the parent company behind pouch.eco, founded in 2011 with a mission to make sustainable packaging accessible to businesses of all sizes. We combine decades of packaging expertise with a genuine commitment to environmental responsibility.",
+                "sections": {
+                    "story": {
+                        "title": "Our Story",
+                        "p1": "Founded in 2011 in Hong Kong, Achieve Pack® has grown from a small packaging supplier into a leading provider of sustainable flexible packaging solutions. Our journey began with a simple belief: businesses shouldn't have to choose between quality packaging and environmental responsibility.",
+                        "p2": "Today, we serve over 500 brands worldwide, from artisan startups to established enterprises, helping them transition to eco-friendly packaging without compromising on quality, performance, or budget.",
+                        "p3": "Under the pouch.eco brand, we've made sustainable packaging accessible to businesses of all sizes, with low minimum order quantities and fast turnaround times that traditional manufacturers simply can't match."
+                    },
+                    "mission": {
+                        "title": "Our Mission",
+                        "intro": "Our mission is to make sustainable packaging the easy choice for every business. We believe that environmental responsibility shouldn't be a premium feature—it should be the standard.",
+                        "drivesUs": "What Drives Us:",
+                        "points": [
+                            "Reducing plastic waste in the packaging industry",
+                            "Making certified eco materials accessible to all business sizes",
+                            "Helping brands tell their sustainability story",
+                            "Innovating new materials and solutions for a circular economy"
+                        ]
+                    },
+                    "values": {
+                        "title": "Our Values",
+                        "sustainability": {
+                            "title": "Sustainability First",
+                            "desc": "Every decision we make considers environmental impact. From material selection to shipping methods, sustainability guides our operations."
+                        },
+                        "quality": {
+                            "title": "Quality Without Compromise",
+                            "desc": "Eco-friendly doesn't mean lower quality. Our packaging meets the same rigorous standards as conventional materials."
+                        },
+                        "partnership": {
+                            "title": "Customer Partnership",
+                            "desc": "We work as partners, not just suppliers. Your success is our success, and we're invested in helping you achieve your goals."
+                        },
+                        "innovation": {
+                            "title": "Innovation & Transparency",
+                            "desc": "We continuously develop new materials and share honest information about capabilities and limitations."
+                        }
+                    },
+                    "team": {
+                        "title": "Our Team",
+                        "intro": "Our team combines decades of packaging industry experience with a passion for sustainability. From material scientists to customer support specialists, every team member is committed to your success."
+                    },
+                    "impact": {
+                        "title": "Our Impact",
+                        "brands": "Brands Served",
+                        "carbon": "Carbon Reduction",
+                        "pouches": "Pouches Produced",
+                        "countries": "Countries Shipped",
+                        "outro": "Every pouch we produce represents a step away from conventional plastics and toward a more sustainable future. Join the hundreds of brands already making a difference."
+                    }
+                },
+                "faq": {
+                    "q1": "Where is Achieve Pack located?",
+                    "a1": "Our headquarters is in Hong Kong, with manufacturing facilities in China. We ship worldwide and have customers across North America, Europe, Asia, and Australia.",
+                    "q2": "What makes Achieve Pack different from other packaging suppliers?",
+                    "a2": "We specialize exclusively in sustainable packaging with low MOQs (100 pieces), fast turnaround (2-3 weeks for samples), and comprehensive certification documentation. We're partners, not just suppliers.",
+                    "q3": "Do you work with startups and small businesses?",
+                    "a3": "Absolutely! Our low minimum order quantities make sustainable packaging accessible to businesses of all sizes. Many of our customers started with us as startups and have grown with our support.",
+                    "q4": "What certifications do your materials have?",
+                    "a4": "Our materials are certified to various international standards including EN 13432, ASTM D6400, GRS (Global Recycled Standard), and food safety certifications (FDA, EU 10/2011). We provide documentation with every order."
+                },
+                "cta": {
+                    "title": "Partner With Us",
+                    "description": "Join 500+ brands already making a sustainable impact with Achieve Pack.",
+                    "button": "Start Your Journey"
                 }
             },
             "certificates": {
-                "title": "包裝認證 | EN 13432, GRS, FDA 合規",
-                "description": "探索 Achieve Pack 的全面認證：EN 13432、ASTM D6400、GRS、FDA、BRC 等。每個訂單都提供完整文檔。",
-                "heroTitle": "認證與合規",
-                "heroSubtitle": "第三方驗證的認證，值得信賴。從可堆肥性到食品安全，我們的認證讓您對每一項聲明充滿信心。",
-                "introSummary": "我們的包裝材料獲得世界領先的可堆肥性、可回收性和食品安全標準認證。我們為每個訂單提供完整的文檔，以支持您的合規和營銷需求。",
+                "title": "Packaging Certifications | EN 13432, GRS, FDA Compliance",
+                "description": "Explore Achieve Pack's comprehensive certifications: EN 13432, ASTM D6400, GRS, FDA, BRC, and more. Full documentation provided with every order.",
+                "heroTitle": "Certifications & Compliance",
+                "heroSubtitle": "Third-party verified certifications you can trust. From compostability to food safety, our certifications give you confidence in every claim.",
+                "introSummary": "Our packaging materials are certified to the world's leading standards for compostability, recyclability, and food safety. We provide complete documentation with every order to support your compliance and marketing needs.",
                 "sections": {
                     "overview": {
-                        "title": "我們的認證與合規",
-                        "p1": "在 Achieve Pack，我們認為認證不僅僅是徽章——它們是我們對品質、安全和可持續性承諾的證明。我們持有的每項認證都代表著嚴格的第三方測試和持續的審核。",
-                        "p2": "我們為每個訂單提供完整的文檔，讓您有信心對包裝提出聲明並滿足零售商的要求。"
+                        "title": "Our Certifications & Compliance",
+                        "p1": "At Achieve Pack, we believe that certifications are more than just badges—they're proof of our commitment to quality, safety, and sustainability. Every certification we hold represents rigorous third-party testing and ongoing audits.",
+                        "p2": "We provide full documentation with every order, giving you the confidence to make claims about your packaging and satisfy retailer requirements."
                     },
                     "compostability": {
-                        "title": "可堆肥性認證",
+                        "title": "Compostability Certifications",
                         "en13432": {
                             "name": "EN 13432",
-                            "region": "歐洲標準",
-                            "desc": "可堆肥包裝的歐洲標準。要求在12週內分解90%，並在工業堆肥條件下6個月內完全生物降解。"
+                            "region": "European Standard",
+                            "desc": "The European standard for compostable packaging. Requires 90% disintegration within 12 weeks and complete biodegradation within 6 months in industrial composting conditions."
                         },
                         "astm": {
                             "name": "ASTM D6400",
-                            "region": "美國標準",
-                            "desc": "美國針對市政/工業有氧堆肥設施設計的塑料標準。測試等同於 EN 13432，在北美廣泛認可。"
+                            "region": "US Standard",
+                            "desc": "US standard for plastics designed for municipal/industrial aerobic composting facilities. Testing equivalent to EN 13432, recognized across North America."
                         },
                         "australian": {
                             "name": "AS 4736 / AS 5810",
-                            "region": "澳洲標準",
-                            "desc": "AS 4736 用於商業可堆肥性，AS 5810 用於家庭可堆肥性。在澳大利亞和紐西蘭提出可堆肥聲明時必需。"
+                            "region": "Australian Standards",
+                            "desc": "AS 4736 for commercial compostability and AS 5810 for home compostability. Required for compostable claims in Australia and New Zealand."
                         },
                         "okcompost": {
                             "name": "OK Compost HOME",
                             "region": "TÜV Austria",
-                            "desc": "適用於在家庭堆肥條件（20-30°C）下生物降解的材料認證。消費者級可堆肥性的黃金標準。"
+                            "desc": "Certification for materials that biodegrade in home composting conditions (20-30°C). The gold standard for consumer-level compostability."
                         }
                     },
                     "recyclability": {
-                        "title": "可回收性認證",
+                        "title": "Recyclability Certifications",
                         "grs": {
-                            "name": "GRS - 全球回收標準",
-                            "desc": "我們的 PCR（消費後回收）材料獲得 GRS 認證，驗證回收成分並在供應鏈中追蹤。這項認證日益成為大型零售商的要求。"
+                            "name": "GRS - Global Recycled Standard",
+                            "desc": "Our PCR (post-consumer recycled) materials are GRS certified, verifying the recycled content and tracking it through the supply chain. This certification is increasingly required by major retailers."
                         },
                         "mono": {
-                            "title": "單一材料可回收性",
-                            "desc": "我們的單一 PE 和單一 PP 袋子專為在現有回收流中可回收而設計。結構經第三方測試驗證。"
+                            "title": "Mono-Material Recyclability",
+                            "desc": "Our mono-PE and mono-PP pouches are designed for recyclability in existing recycling streams. Structure verified by third-party testing."
                         },
                         "storeDropOff": {
-                            "title": "商店投送點相容",
-                            "desc": "我們的許多可回收袋子符合商店投送點回收計劃（如 How2Recycle 的商店投送點標籤）。"
+                            "title": "Store Drop-Off Compatible",
+                            "desc": "Many of our recyclable pouches qualify for store drop-off recycling programs (like How2Recycle's Store Drop-Off label)."
                         }
                     },
                     "foodSafety": {
-                        "title": "食品安全認證",
-                        "intro": "所有用於食品接觸的包裝材料都獲得國際食品安全標準認證。我們可以提供您目標市場合規所需的文檔。",
+                        "title": "Food Safety Certifications",
+                        "intro": "All our packaging materials intended for food contact are certified to international food safety standards. We can provide documentation for regulatory compliance in your target markets.",
                         "fda": {
                             "name": "FDA 21 CFR",
-                            "desc": "美國食品藥品監督管理局食品接觸材料合規"
+                            "desc": "US Food & Drug Administration compliance for food contact materials"
                         },
                         "eu": {
                             "name": "EU 10/2011",
-                            "desc": "歐洲食品接觸塑料材料法規"
+                            "desc": "European regulation for plastic materials in food contact"
                         },
                         "migration": {
-                            "name": "遷移測試",
-                            "desc": "第三方驗證的特定食品類型遷移測試"
+                            "name": "Migration Testing",
+                            "desc": "Third-party verified migration testing for specific food types"
                         }
                     },
                     "facility": {
-                        "title": "工廠認證",
+                        "title": "Facility Certifications",
                         "iso": {
                             "name": "ISO 9001:2015",
-                            "desc": "質量管理體系認證。證明我們對所有流程中一致的品質和持續改進的承諾。"
+                            "desc": "Quality Management System certification. Demonstrates our commitment to consistent quality and continuous improvement in all processes."
                         },
                         "brc": {
-                            "name": "BRC 包裝材料",
-                            "desc": "英國零售商協會包裝製造商認證。大型零售商經常要求食品包裝供應商具備。"
+                            "name": "BRC Packaging Materials",
+                            "desc": "British Retail Consortium certification for packaging manufacturers. Often required by major retailers for food packaging suppliers."
                         },
                         "fsc": {
-                            "name": "FSC 產销監管鏈",
-                            "desc": "對於紙基產品，我們的 FSC 認證確保紙張來自負責任管理的森林。"
+                            "name": "FSC Chain of Custody",
+                            "desc": "For paper-based products, our FSC certification ensures responsibly sourced paper from well-managed forests."
                         },
                         "sedex": {
-                            "name": "SEDEX 會員",
-                            "desc": "道德貿易審計平台。我們保持對道德、勞工和環境實踐的可見性。"
+                            "name": "SEDEX Membership",
+                            "desc": "Ethical trade audit platform. We maintain visibility into our ethical, labor, and environmental practices."
                         }
                     },
                     "documentation": {
-                        "title": "我們提供的文檔",
-                        "intro": "每個訂單，我們都可以提供您零售商合規、法規提交或營銷聲明所需的認證文件：",
+                        "title": "Documentation We Provide",
+                        "intro": "With every order, we can provide the certification documents you need for retailer compliance, regulatory submissions, or marketing claims:",
                         "items": [
-                            "合規證書 (CoC)",
-                            "材料規格",
-                            "食品安全聲明",
-                            "可堆肥性證書",
-                            "GRS 交易證書",
-                            "測試報告（阻隔、密封強度）",
-                            "REACH 合規聲明",
-                            "重金屬聲明"
+                            "Certificate of Compliance (CoC)",
+                            "Material specifications",
+                            "Food safety declarations",
+                            "Compostability certificates",
+                            "GRS transaction certificates",
+                            "Test reports (barrier, seal strength)",
+                            "REACH compliance statements",
+                            "Heavy metals declarations"
                         ]
                     }
                 },
                 "faq": {
-                    "q1": "你們會隨訂單提供認證文件嗎？",
-                    "a1": "是的，我們為每個訂單提供所有相關的認證文件。這包括合規證書、食品安全聲明以及 EN 13432 或 GRS 證書等特定認證。",
-                    "q2": "你們的可堆肥材料在我的國家有認證嗎？",
-                    "a2": "我們的可堆肥材料獲得 EN 13432（歐盟）、ASTM D6400（美國）和 AS 4736/5810（澳大利亞）認證。這些是主要的國際標準。請聯繫我們了解特定地區要求。",
-                    "q3": "我可以在營銷中使用你們的認證嗎？",
-                    "a3": "可以，懑借我們提供的適當文檔，您可以對包裝提出認證聲明。我們將就正確的用詞和標誌使用提供建議，以確保合規。",
-                    "q4": "你們的認證多久更新一次？",
-                    "a4": "大多數認證需要年度審核和更新。我們保持有效的認證，並可隨時提供最新的文檔。"
+                    "q1": "Do you provide certification documents with orders?",
+                    "a1": "Yes, we provide all relevant certification documents with every order. This includes certificates of compliance, food safety declarations, and specific certifications like EN 13432 or GRS certificates as applicable.",
+                    "q2": "Are your compostable materials certified in my country?",
+                    "a2": "Our compostable materials are certified to EN 13432 (EU), ASTM D6400 (US), and AS 4736/5810 (Australia). These are the major international standards. Contact us for specific regional requirements.",
+                    "q3": "Can I use your certifications in my marketing?",
+                    "a3": "Yes, with the proper documentation we provide, you can make certified claims about your packaging. We'll advise on correct wording and logo usage to ensure compliance.",
+                    "q4": "How often are your certifications renewed?",
+                    "a4": "Most certifications require annual audits and renewal. We maintain current certifications and can provide up-to-date documentation at any time."
                 },
                 "cta": {
-                    "title": "獲取認證包裝",
-                    "description": "訂購附有完整認證文檔的環保包裝。",
-                    "button": "獲取報價"
+                    "title": "Get Certified Packaging",
+                    "description": "Order eco-friendly packaging with full certification documentation.",
+                    "button": "Request a Quote"
                 }
             },
             "factoryTour": {
-                "title": "虛擬工廠參觀 | Achieve Pack 製造設施",
-                "description": "參加 Achieve Pack 先進可持續包裝設施的虛擬參觀。了解我們如何以精準和品質控制生產環保袋。",
-                "heroTitle": "虛擬工廠參觀",
-                "heroSubtitle": "走進我們的製造設施，可持續包裝創新與精密工程在這裡相遇。探索我們如何讓您的環保袋子栖栖如生。",
-                "introSummary": "我們的工廠將現代製造技術與嚴格的品質控制和可持續實踐相結合。從材料採購到最終檢查，每一步都旨在提供優質的環保包裝。",
+                "title": "Virtual Factory Tour | Achieve Pack Manufacturing Facility",
+                "description": "Take a virtual tour of Achieve Pack's state-of-the-art sustainable packaging facility. See how we manufacture eco-friendly pouches with precision and quality control.",
+                "heroTitle": "Virtual Factory Tour",
+                "heroSubtitle": "Step inside our manufacturing facility where sustainable packaging innovation meets precision engineering. Discover how we bring your eco-friendly pouches to life.",
+                "introSummary": "Our factory combines modern manufacturing technology with rigorous quality control and sustainable practices. From material sourcing to final inspection, every step is designed to deliver premium eco-friendly packaging.",
+                "videos": {
+                    "entrance": {
+                        "title": "Factory Entrance",
+                        "desc": "Welcome to our state-of-the-art manufacturing facility"
+                    },
+                    "digital": {
+                        "title": "Digital Printing",
+                        "desc": "High-precision digital printing with unlimited colors"
+                    },
+                    "roto": {
+                        "title": "Rotogravure Printing",
+                        "desc": "Large-scale plate printing for high-volume orders"
+                    },
+                    "laminating": {
+                        "title": "Laminating Process",
+                        "desc": "Bonding multiple material layers for barrier protection"
+                    },
+                    "slitting": {
+                        "title": "Slitting Machine",
+                        "desc": "Precision cutting of laminated films to required widths"
+                    },
+                    "bagMaking": {
+                        "title": "Bag Making",
+                        "desc": "Converting films into finished pouches and bags"
+                    }
+                },
                 "sections": {
                     "welcome": {
-                        "title": "歡迎來到我們的虛擬工廠參觀",
-                        "p1": "走進我們先進的製造設施，可持續包裝在這裡栖栖如生。我們的工廠將尖端技術與嚴格的品質控制相結合，生產符合最高國際標準的環保袋。",
-                        "p2": "雖然我們無法親自帶您到我們的設施，但這次虛擬參觀讓您了解我們如何以精確、用心和環保責任製造您的包裝。",
-                        "videoTitle": "工廠視頻參觀"
+                        "title": "Welcome to Our Virtual Factory Tour",
+                        "p1": "Step inside our state-of-the-art manufacturing facility where sustainable packaging comes to life. Our factory combines cutting-edge technology with rigorous quality control to produce eco-friendly pouches that meet the highest international standards.",
+                        "p2": "While we can't bring you physically to our facility, this virtual tour gives you insight into how we manufacture your packaging with precision, care, and environmental responsibility.",
+                        "videoTitle": "Factory Video Tour"
                     },
                     "materials": {
-                        "title": "材料採購與儲存",
-                        "standards": "我們的材料標準：",
+                        "title": "Material Sourcing & Storage",
+                        "standards": "Our Material Standards:",
                         "points": [
-                            "所有原材料來自認證供應商",
-                            "溫激控儲存保護材料完整性",
-                            "批次追蹤實現完全可追溯性",
-                            "定期對進料進行質量測試"
+                            "All raw materials sourced from certified suppliers",
+                            "Climate-controlled storage for material integrity",
+                            "Batch tracking for full traceability",
+                            "Regular quality testing of incoming materials"
                         ],
-                        "outro": "我們與全球領先的可持續材料製造商保持合作夥伴關係，包括認證可堆肥薄膜、GRS 認證回收塑料和食品安全生物基材料的供應商。"
+                        "outro": "We maintain partnerships with leading sustainable material manufacturers worldwide, including suppliers of certified compostable films, GRS-certified recycled plastics, and food-safe bio-based materials."
                     },
                     "printing": {
-                        "title": "印刷部門",
-                        "intro": "我們的印刷部門具備數字印刷和柔版（制版）印刷能力，讓我們能夠以穩定的品質處理從100件到數百萬件的訂單。",
+                        "title": "Printing Department",
+                        "intro": "Our printing department features both digital and flexographic (plate) printing capabilities, allowing us to handle orders from 100 pieces to millions with consistent quality.",
                         "digital": {
-                            "title": "數字印刷",
-                            "points": ["無限顏色無額外費用", "適合小批量（100-5,000件）", "可變數據印刷", "無製版費用"]
+                            "title": "Digital Printing",
+                            "points": [
+                                "Unlimited colors at no extra cost",
+                                "Perfect for short runs (100-5,000 pcs)",
+                                "Variable data printing available",
+                                "No plate costs"
+                            ]
                         },
                         "plate": {
-                            "title": "製版印刷",
-                            "points": ["最多10種顏色", "最適合大批量（5,000件以上）", "Pantone 色彩匹配", "規模化後單位成本更低"]
+                            "title": "Plate Printing",
+                            "points": [
+                                "Up to 10 colors",
+                                "Best for large volumes (5,000+ pcs)",
+                                "Pantone color matching",
+                                "Lower unit cost at scale"
+                            ]
                         },
-                        "outro": "所有使用的墨水都是食品安全的，符合 FDA 和歐盟法規。我們盡可能使用無溶劑和水性墨水。"
+                        "outro": "All inks used are food-safe and compliant with FDA and EU regulations. We use solvent-free and water-based inks where possible."
                     },
                     "lamination": {
-                        "title": "覆膜與材料加工",
-                        "intro": "我們的覆膜部門將多層材料粘合在一起，創造您的產品所需的阻隔性能。這裡是我們將牛皮紙與 PLA 結合，或創建可回收的單一材料結構的地方。",
-                        "capabilities": "工藝能力：",
-                        "dry": { "title": "乾式複合", "desc": "用於高阻隔多層結構" },
-                        "solventless": { "title": "無溶劑複合", "desc": "環保粘合工藝" },
-                        "extrusion": { "title": "擠出複合", "desc": "用於專用阻隔層" }
+                        "title": "Lamination & Material Processing",
+                        "intro": "Our lamination department bonds multiple material layers to create the barrier properties your product needs. This is where we combine materials like kraft paper with PLA, or create mono-material structures for recyclability.",
+                        "capabilities": "Process Capabilities:",
+                        "dry": {
+                            "title": "Dry Lamination",
+                            "desc": "For high-barrier multi-layer structures"
+                        },
+                        "solventless": {
+                            "title": "Solventless Lamination",
+                            "desc": "Eco-friendly bonding process"
+                        },
+                        "extrusion": {
+                            "title": "Extrusion Lamination",
+                            "desc": "For specialized barrier layers"
+                        }
                     },
                     "pouchMaking": {
-                        "title": "袋子製作與轉換",
-                        "intro": "我們的袋子生產線將印刷和覆膜的薄膜轉換成成品袋。我們可以生產所有主要的袋子形式，包括立式袋、平底袋、側風琴袋等。",
-                        "lines": "生產線",
-                        "width": "寬度範圍",
-                        "capacity": "日產能",
-                        "outro": "每條生產線都可以製造不同的袋子樣式，並可集成拉鏈、氣門、嘴和撒裂口等功能。"
+                        "title": "Pouch Making & Conversion",
+                        "intro": "Our pouch-making lines convert printed and laminated films into finished pouches. We can produce all major pouch formats including stand-up pouches, flat bottom bags, side gusset bags, and more.",
+                        "lines": "Production Lines",
+                        "width": "Width Range",
+                        "capacity": "Daily Capacity",
+                        "outro": "Each line is equipped for different pouch styles and can integrate features like zippers, valves, spouts, and tear notches."
                     },
                     "quality": {
-                        "title": "質量控制實驗室",
-                        "intro": "我們的內部實驗室在每個生產階段進行嚴格的測試。從進料檢查到成品測試，我們確保每個袋子都符合規格。",
-                        "capabilities": "測試能力：",
+                        "title": "Quality Control Laboratory",
+                        "intro": "Our in-house laboratory performs rigorous testing at every production stage. From incoming material inspection to final product testing, we ensure every pouch meets specifications.",
+                        "capabilities": "Testing Capabilities:",
                         "tests": [
-                            "阻隔測試（OTR、WVTR）",
-                            "密封強度測試",
-                            "拉伸強度測量",
-                            "厚度均勻性",
-                            "色彩一致性（分光光度計）",
-                            "跌落測試",
-                            "遷移測試",
-                            "尺寸精度"
+                            "Barrier testing (OTR, WVTR)",
+                            "Seal strength testing",
+                            "Tensile strength measurement",
+                            "Thickness uniformity",
+                            "Color consistency (spectrophotometer)",
+                            "Drop testing",
+                            "Migration testing",
+                            "Dimensional accuracy"
                         ]
                     },
                     "sustainability": {
-                        "title": "可持續實踐",
-                        "intro": "可持續性不僅體現在我們的產品中——還體現在我們的運營中。我們的工廠實施全面的環境管理實踐。",
+                        "title": "Sustainability Practices",
+                        "intro": "Sustainability isn't just in our products—it's in our operations. Our factory implements comprehensive environmental management practices.",
                         "waste": {
-                            "title": "廢物減量",
-                            "points": ["生產廢物回收或堆肥", "優化裁切模式減少邊料廢物", "溶劑回收系統"]
+                            "title": "Waste Reduction",
+                            "points": [
+                                "Production waste recycled or composted",
+                                "Optimized cutting patterns minimize trim waste",
+                                "Solvent recovery systems"
+                            ]
                         },
                         "energy": {
-                            "title": "能源效率",
-                            "points": ["全廠 LED 照明", "節能機械", "熱回收系統"]
+                            "title": "Energy Efficiency",
+                            "points": [
+                                "LED lighting throughout facility",
+                                "Energy-efficient machinery",
+                                "Heat recovery systems"
+                            ]
                         }
                     }
                 },
                 "faq": {
-                    "q1": "我可以親自參觀你們的工廠嗎？",
-                    "a1": "可以，我們歡迎預約參觀工廠。請聯繫我們安排參觀我們的製造設施。我們也為無法出行的客戶提供詳細的視頻參觀。",
-                    "q2": "你們的工廠有哪些質量認證？",
-                    "a2": "我們的設施獲得 ISO 9001 質量管理認證、BRC 食品包裝認證，並維持 FSC 紙張產品的產銷監管鏈認證。",
-                    "q3": "你們的生產能力是多少？",
-                    "a3": "我們的生產線每天可以生產超過100,000個袋子。對於大訂單，我們可以提前通知擴大產能。緊急訂單也可以處理。",
-                    "q4": "你們如何確保批次間的一致性？",
-                    "a4": "我們保持詳細的生產記錄，使用校準的設備，並執行統計過程控制（SPC）以確保每個批次都符合相同的標準。顏色匹配通過分光光度計驗證。"
+                    "q1": "Can I visit your factory in person?",
+                    "a1": "Yes, we welcome factory visits by appointment. Contact us to schedule a visit to our manufacturing facility. We also offer detailed video tours for customers who cannot travel.",
+                    "q2": "What quality certifications does your factory have?",
+                    "a2": "Our facility is ISO 9001 certified for quality management, BRC certified for food packaging, and maintains FSC chain of custody certification for paper-based products.",
+                    "q3": "What is your production capacity?",
+                    "a3": "We can produce over 100,000 pouches per day across our production lines. For large orders, we can scale up with advance notice. Rush orders are also possible for urgent needs.",
+                    "q4": "How do you ensure consistency across batches?",
+                    "a4": "We maintain detailed production records, use calibrated equipment, and perform statistical process control (SPC) to ensure every batch meets the same standards. Color matching is verified with spectrophotometers."
                 },
                 "cta": {
-                    "title": "親自體驗",
-                    "description": "申請個性化視頻參觀或安排親自參觀我們的設施。",
-                    "button": "安排參觀"
+                    "title": "See It For Yourself",
+                    "description": "Request a personalized video tour or schedule an in-person visit to our facility.",
+                    "button": "Schedule a Tour"
                 }
             },
             "faqs": {
-                "title": "常見問題 | 包裝 FAQ",
-                "description": "查找關於可持續包裝的常見問題解答：最低訂購量、材料、生產時間、運輸等。Achieve Pack 綜合 FAQ。",
-                "heroTitle": "常見問題",
-                "heroSubtitle": "您的包裝問題解答。查找關於訂購、材料、生產、運輸等資訊。",
-                "introSummary": "瀏覽我們的綜合 FAQ，涵蓋訂購、材料、生產、運輸和客製化。找不到答案？直接聯繫我們——我們樂意幫忙。",
+                "title": "Frequently Asked Questions | Packaging FAQs",
+                "description": "Find answers to common questions about sustainable packaging: MOQs, materials, production times, shipping, and more. Comprehensive FAQ from Achieve Pack.",
+                "heroTitle": "Frequently Asked Questions",
+                "heroSubtitle": "Answers to your packaging questions. Find information about ordering, materials, production, shipping, and more.",
+                "introSummary": "Browse our comprehensive FAQ covering ordering, materials, production, shipping, and customization. Can't find your answer? Contact us directly—we're happy to help.",
                 "faq": {
-                    "q1": "如何開始？",
-                    "a1": "只需通過我們的網站、電子郵件或 WhatsApp 聯繫我們。分享您的產品詳情和需求，我們將24-48小時內提供報價。",
-                    "q2": "可以在下單前看樣品嗎？",
-                    "a2": "當然可以！我們提供材料樣品、用於測試填充的空白袋子，並可在正式生產前按您的設計製作印刷樣品。",
-                    "q3": "你們與小型企業和初創企業合作嗎？",
-                    "a3": "是的！我們的低最小訂購量（數字印刷100件）使我們非常適合小型企業。我們的許多客戶都是從小規模開始，並與我們一起成長。",
-                    "q4": "交貨後您提供什麼支持？",
-                    "a4": "我們提供持續支持，包括複購協助、設計更新和解決任何問題。我們是長期合作夥伴，不僅僅是一次訂單。"
+                    "q1": "How do I get started?",
+                    "a1": "Simply contact us through our website, email, or WhatsApp. Share your product details and requirements, and we'll provide a quotation within 24-48 hours.",
+                    "q2": "Can I see samples before ordering?",
+                    "a2": "Absolutely! We provide material samples, blank pouches for test filling, and can produce printed samples with your design before full production.",
+                    "q3": "Do you work with small businesses and startups?",
+                    "a3": "Yes! Our low MOQs (100 pieces for digital printing) make us ideal for small businesses. Many of our customers started small and have grown with us.",
+                    "q4": "What support do you provide after delivery?",
+                    "a4": "We provide ongoing support including reorder assistance, design updates, and help resolving any issues. We're partners for the long term, not just one order."
                 },
                 "cta": {
-                    "title": "還有問題？",
-                    "description": "我們的團隊隨時準備解答這裡未涵蓋的任何問題。",
-                    "button": "聯繫我們"
+                    "title": "Still Have Questions?",
+                    "description": "Our team is ready to help with any questions not covered here.",
+                    "button": "Contact Us"
                 }
             },
             "leadTime": {
-                "title": "交期指南 | 生產與運輸時間表",
-                "description": "了解 Achieve Pack 可持續包裝的交期。生產時間表、運輸選項和計劃包裝訂單的技巧。",
-                "heroTitle": "交期指南",
-                "heroSubtitle": "自信地計劃您的包裝訂單。了解生產和運輸時間表，實現順暢的庫存管理。",
-                "introSummary": "總交期從3-4週（加急數字+快遞）到10-12週（製版印刷+海運）不等。本指南幫助您了解時間表並有效規劃。",
+                "title": "Lead Time Guide | Production & Shipping Timeline",
+                "description": "Understand Achieve Pack's lead times for sustainable packaging. Production timelines, shipping options, and tips for planning your packaging orders.",
+                "heroTitle": "Lead Time Guide",
+                "heroSubtitle": "Plan your packaging orders with confidence. Understand production and shipping timelines for smooth inventory management.",
+                "introSummary": "Total lead time ranges from 3-4 weeks (rush digital + express) to 10-12 weeks (plate printing + sea freight). This guide helps you understand timelines and plan effectively.",
                 "faq": {
-                    "q1": "您能保證交貨日期嗎？",
-                    "a1": "我們根據典型生產和運輸提供預估時間表。雖然我們努力滿足所有日期，但海關延誤或運輸中斷等因素偶爾會影響交貨。我們會全程為您更新。",
-                    "q2": "如果我需要更改交貨日期怎麼辦？",
-                    "a2": "請儘早聯繫我們。在生產開始前，我們通常可以調整。一旦生產開始，可能無法更改，但我們有時可以調整運輸速度。",
-                    "q3": "您提供加急生產嗎？",
-                    "a3": "是的，適用於數字印刷訂單。需要收取加急費，取決於當前生產負荷。請與您的截止日期聯繫我們，我們將確認是否可以加急。",
-                    "q4": "假期如何影響交期？",
-                    "a4": "春節（1月底/2月）對生產影響顯著——計劃額外2-3週。其他假期影響較小。我們會在報價時就任何時間問題提供建議。"
+                    "q1": "Can you guarantee delivery dates?",
+                    "a1": "We provide estimated timelines based on typical production and shipping. While we strive to meet all dates, factors like customs delays or shipping disruptions can occasionally affect delivery. We keep you updated throughout.",
+                    "q2": "What happens if I need to change my delivery date?",
+                    "a2": "Contact us as early as possible. Before production starts, we can usually adjust. Once production begins, changes may not be possible, but we can sometimes adjust shipping speed.",
+                    "q3": "Do you offer rush production?",
+                    "a3": "Yes, for digital printing orders. Rush fees apply and depend on current production load. Contact us with your deadline and we'll confirm if rush is possible.",
+                    "q4": "How do holidays affect lead time?",
+                    "a4": "Chinese New Year (late Jan/Feb) significantly impacts production—plan 2-3 weeks extra. Other holidays have minimal impact. We'll advise on any timing concerns during quotation."
                 },
                 "cta": {
-                    "title": "需要時間表估算？",
-                    "description": "告訴我們您的訂單情況，我們將提供具體的時間表。",
-                    "button": "獲取報價和時間表"
+                    "title": "Need a Timeline Estimate?",
+                    "description": "Tell us about your order and we'll provide a specific timeline.",
+                    "button": "Get Quote with Timeline"
                 }
             },
             "highBarrier": {
-                "title": "高阻隔包裝 | 12-24個月保質期優質袋",
-                "description": "適用於12-24個月保質期產品的高阻隔環保包裝。可回收單一材質PE搭配EVOH、單一材質PP選項。適合咖啡、保健品、嬰兒食品和敏感產品。",
-                "heroTitle": "高阻隔包裝",
-                "heroSubtitle": "12-24個月保質期的最大保護。適用於優質產品的可回收高阻隔選項。",
-                "introSummary": "高阻隔包裝為需要12-24個月保質期的產品提供最大的氧氣和水分保護。我們的可回收單一材質PE搭配EVOH結構在保持可持續性認證的同時提供優質保護。",
+                "title": "High Barrier Packaging | 12-24 Month Shelf Life Premium Pouches",
+                "description": "High barrier eco-friendly packaging for products with 12-24 month shelf life. Recyclable mono-PE with EVOH, mono-PP options. Perfect for coffee, supplements, baby food, and sensitive products.",
+                "heroTitle": "High Barrier Packaging",
+                "heroSubtitle": "Maximum protection with 12-24 month shelf life. Recyclable high barrier options for premium products.",
+                "introSummary": "High barrier packaging provides maximum oxygen and moisture protection for products requiring 12-24 month shelf life. Our recyclable mono-PE with EVOH structures offer premium protection while maintaining sustainability credentials.",
                 "faq": {
-                    "q1": "高阻隔包裝仍然可以回收嗎？",
-                    "a1": "是的！我們的單一材質PE搭配EVOH層是可回收的，因為EVOH佔總結構不到5%。我們還提供單一材質PP和金屬化單一材質PE選項，在提供出色阻隔性能的同時100%可回收。",
-                    "q2": "EVOH和鋁阻隔有什麼區別？",
-                    "a2": "EVOH是一種塑料基氧氣阻隔層，使包裝保持可回收性。鋁提供類似的阻隔但使包裝不可回收。我們的EVOH結構在保持可回收性的同時提供相當的性能。",
-                    "q3": "咖啡需要高阻隔嗎？",
-                    "a3": "對於研磨咖啡和精品全豆咖啡，是的——建議使用帶排氣閥的高阻隔包裝。對於周轉快的標準全豆咖啡，中阻隔可能就足夠了。我們提供免費測試以確定最佳選擇。",
-                    "q4": "您的高阻隔材料有哪些認證？",
-                    "a4": "我們的高阻隔材料具有食品安全認證（FDA、EU 10/2011），我們提供OTR/MVTR測試證書。PCR選項具有GRS認證。我們可以為您的質量要求提供定制測試文件。"
+                    "q1": "Can high barrier packaging still be recyclable?",
+                    "a1": "Yes! Our mono-PE with EVOH layer is recyclable because the EVOH is <5% of total structure. We also offer mono-PP and metallized mono-PE options that are 100% recyclable while providing excellent barrier properties.",
+                    "q2": "What's the difference between EVOH and aluminum barrier?",
+                    "a2": "EVOH is a plastic-based oxygen barrier that allows the packaging to remain recyclable. Aluminum provides similar barrier but makes packaging non-recyclable. Our EVOH structures offer comparable performance with recyclability.",
+                    "q3": "Do I need high barrier for coffee?",
+                    "a3": "For ground coffee and specialty whole beans, yes - high barrier with degassing valve is recommended. For standard whole bean coffee with quick turnover, medium barrier may suffice. We offer free testing to determine optimal choice.",
+                    "q4": "What certifications do your high barrier materials have?",
+                    "a4": "Our high barrier materials are food-safe certified (FDA, EU 10/2011), and we provide OTR/MVTR test certificates. PCR options are GRS certified. We can provide custom testing documentation for your quality requirements."
                 },
                 "cta": {
-                    "title": "保護您的優質產品",
-                    "description": "申請免費OTR/MVTR測試和樣品，驗證高阻隔對您產品的性能。",
-                    "button": "獲取免費樣品"
+                    "title": "Protect Your Premium Products",
+                    "description": "Request free OTR/MVTR testing and samples to validate high barrier performance for your products.",
+                    "button": "Get Free Sample"
                 }
             },
             "lowBarrier": {
-                "title": "低阻隔包裝 | 環保3-6個月保質期袋",
-                "description": "適用於3-6個月保質期產品的低阻隔環保包裝。家庭可堆肥牛皮紙+PLA、NatureFlex纖維素。適合餅乾、茶、格蘭諾拉麥片和乾貨。",
-                "heroTitle": "低阻隔包裝",
-                "heroSubtitle": "3-6個月保質期的最佳環保認證。適用於可持續品牌的家庭可堆肥和可回收選項。",
-                "introSummary": "低阻隔包裝提供3-6個月保質期保護的最佳可持續性認證。適合周轉快的產品或不需要延長保護的天然乾貨。",
+                "title": "Low Barrier Packaging | Eco-Friendly 3-6 Month Shelf Life Pouches",
+                "description": "Low barrier eco-friendly packaging for products with 3-6 month shelf life. Home compostable Kraft+PLA, NatureFlex cellulose. Perfect for cookies, tea, granola, and dry goods.",
+                "heroTitle": "Low Barrier Packaging",
+                "heroSubtitle": "Best eco-credentials with 3-6 month shelf life. Home compostable and recyclable options for sustainable brands.",
+                "introSummary": "Low barrier packaging offers the best sustainability credentials with 3-6 months shelf life protection. Perfect for products with fast turnover or naturally dry goods that don't require extended protection.",
                 "faq": {
-                    "q1": "低阻隔包裝適合我的產品嗎？",
-                    "a1": "低阻隔非常適合3-6個月內消費的乾燥產品：餅乾、茶、格蘭諾拉麥片、乾果、大米和類似的乾貨。如果您的產品對水分或氧氣敏感，請考慮中阻隔或高阻隔選項。",
-                    "q2": "低阻隔包裝可以堆肥嗎？",
-                    "a2": "是的！許多低阻隔選項如牛皮紙+PLA和NatureFlex可在家庭堆肥中分解，在6-12個月內分解。這些材料符合EN 13432和OK Home標準認證。",
-                    "q3": "與中阻隔相比價格差異是多少？",
-                    "a3": "低阻隔材料通常比中阻隔選項便宜15-25%。成本節省加上更好的環保認證使其成為您的產品不需要延長保質期時的絕佳選擇。",
-                    "q4": "如何從塑料過渡到低阻隔環保包裝？",
-                    "a4": "我們提供免費諮詢和樣品來測試兼容性。許多品牌成功地將乾貨轉換為低阻隔可堆肥包裝。我們幫助您驗證保質期並優化過渡。"
+                    "q1": "Is low barrier packaging suitable for my product?",
+                    "a1": "Low barrier is ideal for dry products consumed within 3-6 months: cookies, tea, granola, dried fruits, rice, and similar dry goods. If your product is moisture or oxygen sensitive, consider medium or high barrier options.",
+                    "q2": "Can low barrier packaging be compostable?",
+                    "a2": "Yes! Many low barrier options like Kraft+PLA and NatureFlex are home compostable, breaking down in backyard compost within 6-12 months. These are certified to EN 13432 and OK Home standards.",
+                    "q3": "What's the price difference vs medium barrier?",
+                    "a3": "Low barrier materials typically cost 15-25% less than medium barrier options. The cost savings plus better eco-credentials make it an excellent choice when your product doesn't require extended shelf life.",
+                    "q4": "How do I transition from plastic to low barrier eco-packaging?",
+                    "a4": "We offer free consultation and samples to test compatibility. Many brands successfully switch dry goods to low barrier compostable packaging. We help you validate shelf life and optimize the transition."
                 },
                 "cta": {
-                    "title": "開始您的環保之旅",
-                    "description": "申請我們家庭可堆肥低阻隔包裝的樣品。",
-                    "button": "獲取免費樣品"
+                    "title": "Start Your Eco Journey",
+                    "description": "Request samples of our home compostable low barrier packaging.",
+                    "button": "Get Free Sample"
                 }
             },
             "mediumBarrier": {
-                "title": "中阻隔包裝 | 6-12個月保質期可回收袋",
-                "description": "適用於6-12個月保質期產品的中阻隔環保包裝。可回收單一材質PE、Bio-PE、PCR選項。適合咖啡、堅果、寵物食品和蛋白粉。",
-                "heroTitle": "中阻隔包裝",
-                "heroSubtitle": "6-12個月保質期的平衡保護。適用於大多數食品的可回收選項。",
-                "introSummary": "中阻隔包裝提供6-12個月保質期的平衡保護。這是大多數食品的最佳選擇，結合了良好的阻隔性能和出色的可持續性認證。",
+                "title": "Medium Barrier Packaging | 6-12 Month Shelf Life Recyclable Pouches",
+                "description": "Medium barrier eco-friendly packaging for products with 6-12 month shelf life. Recyclable mono-PE, Bio-PE, PCR options. Perfect for coffee, nuts, pet food, and protein powders.",
+                "heroTitle": "Medium Barrier Packaging",
+                "heroSubtitle": "Balanced protection with 6-12 month shelf life. Recyclable options for most food products.",
+                "introSummary": "Medium barrier packaging provides balanced protection with 6-12 months shelf life. The sweet spot for most food products, combining good barrier properties with excellent sustainability credentials.",
                 "faq": {
-                    "q1": "哪些產品最適合中阻隔？",
-                    "a1": "中阻隔非常適合咖啡豆、堅果、寵物食品、蛋白粉、穀物和巧克力——需要6-12個月保護的產品。它是需要新鮮度和可持續性的食品最受歡迎的選擇。",
-                    "q2": "單一材質PE在哪裡都可以回收嗎？",
-                    "a2": "單一材質PE（聚乙烯）是全球最廣泛回收的塑料之一。它被大多數路邊回收項目和商店回收點接受。我們在包裝上提供消費者回收說明。",
-                    "q3": "Bio-PE與普通PE相比如何？",
-                    "a3": "Bio-PE（來自甘蔗）具有與石化PE相同的阻隔和密封性能。區別在於環境：Bio-PE在生產過程中是碳負值的，這意味著它在甘蔗生長過程中去除CO2。",
-                    "q4": "我可以用中阻隔包裝咖啡嗎？",
-                    "a4": "是的！中阻隔非常適合標準周轉的烘焙全豆咖啡。對於研磨咖啡或需要最大新鮮度的精品烘焙，請考慮我們帶排氣閥的高阻隔選項。"
+                    "q1": "What products work best with medium barrier?",
+                    "a1": "Medium barrier is ideal for coffee beans, nuts, pet food, protein powders, cereals, and chocolates - products needing 6-12 month protection. It's the most popular choice for food products requiring both freshness and sustainability.",
+                    "q2": "Is mono-PE recyclable everywhere?",
+                    "a2": "Mono-PE (polyethylene) is one of the most widely recycled plastics globally. It's accepted in most curbside recycling programs and store drop-off recycling. We provide recycling instructions for consumers on packaging.",
+                    "q3": "How does Bio-PE compare to regular PE?",
+                    "a3": "Bio-PE (from sugarcane) has identical barrier and sealing properties to fossil-based PE. The difference is environmental: Bio-PE is carbon-negative in production, meaning it removes CO2 during sugarcane growth.",
+                    "q4": "Can I use medium barrier for coffee?",
+                    "a4": "Yes! Medium barrier works well for roasted whole beans with standard turnover. For ground coffee or specialty roasts requiring maximum freshness, consider our high barrier options with degassing valves."
                 },
                 "cta": {
-                    "title": "找到您的平衡",
-                    "description": "申請樣品測試中阻隔對您產品的保護。",
-                    "button": "獲取免費樣品"
+                    "title": "Find Your Balance",
+                    "description": "Request samples to test medium barrier protection for your products.",
+                    "button": "Get Free Sample"
                 }
             },
             "allOptions": {
-                "title": "所有包裝選項 | 完整客製化指南",
-                "description": "探索所有可持續包裝選項：材料、袋型、阻隔等級、封口、印刷和表面處理。Achieve Pack 完整客製化指南。",
-                "heroTitle": "所有包裝選項",
-                "heroSubtitle": "您的可持續包裝客製化完整指南。探索所有可用選項——從材料到表面處理，從封口到印刷。",
-                "introSummary": "Achieve Pack 為環保軟包裝提供廣泛的客製化選項。本綜合指南涵蓋所有可用材料、袋型、阻隔等級、封口、印刷方式和特殊功能。",
+                "title": "All Packaging Options | Complete Customization Guide",
+                "description": "Explore all sustainable packaging options: materials, pouch styles, barrier levels, closures, printing, and finishes. Complete customization guide from Achieve Pack.",
+                "heroTitle": "All Packaging Options",
+                "heroSubtitle": "Your complete guide to sustainable packaging customization. Explore every option available—from materials to finishes, closures to printing.",
+                "introSummary": "Achieve Pack offers extensive customization options for eco-friendly flexible packaging. This comprehensive guide covers all available materials, pouch styles, barrier levels, closures, printing methods, and special features.",
                 "faq": {
-                    "q1": "如何在這麼多選項中做選擇？",
-                    "a1": "從您的產品需求開始：您要包裝什麼？需要多長保質期？有什麼可持續性目標？然後我們的團隊可以推薦最佳的材料、款式和功能組合。",
-                    "q2": "我可以混搭選項嗎？",
-                    "a2": "是的！大多數選項可以組合。例如，您可以擁有帶拉鏈、啞光表面和局部UV標誌的可堆肥立式袋。某些組合有限制——我們會在諮詢時告知。",
-                    "q3": "所有選項的最低訂購量都一樣嗎？",
-                    "a3": "最低訂購量因選項而異。數字印刷從100件起，而製版印刷通常需要5,000件以上。複雜功能可能有更高的最低要求。我們為測試提供靈活性。",
-                    "q4": "如何獲得不同選項的樣品？",
-                    "a4": "申請包含不同材料、表面處理和功能示例的樣品套件。我們也可以在正式生產前按您的具體設計製作客製樣品。"
+                    "q1": "How do I choose between so many options?",
+                    "a1": "Start with your product requirements: What are you packaging? What shelf life do you need? What sustainability goals do you have? Our team can then recommend the best combination of material, style, and features.",
+                    "q2": "Can I mix and match options?",
+                    "a2": "Yes! Most options can be combined. For example, you can have a compostable stand-up pouch with a zipper, matte finish, and spot UV logo. Some combinations have limitations—we'll advise during consultation.",
+                    "q3": "Do all options have the same MOQ?",
+                    "a3": "MOQ varies by option. Digital printing starts at 100 pieces, while plate printing typically requires 5,000+. Complex features may have higher minimums. We offer flexibility for testing.",
+                    "q4": "How do I get samples of different options?",
+                    "a4": "Request a sample kit with examples of different materials, finishes, and features. We can also produce custom samples of your specific design before full production."
                 },
                 "cta": {
-                    "title": "打造您的客製包裝",
-                    "description": "與我們的專家合作，為您的產品設計完美包裝。",
-                    "button": "開始客製化"
+                    "title": "Build Your Custom Package",
+                    "description": "Work with our specialists to design the perfect packaging for your product.",
+                    "button": "Start Customizing"
                 }
             },
             "sizeGuide": {
-                "title": "袋子尺寸指南 | 尺寸與容量參考",
-                "description": "完整的袋子尺寸指南，包含立式袋、平底袋等的尺寸和容量。找到適合您產品的完美尺寸。",
-                "heroTitle": "袋子尺寸指南",
-                "heroSubtitle": "為您的產品找到完美的袋子尺寸。完整的尺寸指南，包含容量參考和客製尺寸選項。",
-                "introSummary": "選擇正確的袋子尺寸可確保最佳的產品展示和成本效益。使用本綜合指南了解標準尺寸，找到適合您產品的完美尺寸。",
+                "title": "Pouch Size Guide | Dimensions & Capacity Reference",
+                "description": "Complete pouch size guide with dimensions and capacity for stand-up pouches, flat bottom bags, and more. Find the perfect size for your product.",
+                "heroTitle": "Pouch Size Guide",
+                "heroSubtitle": "Find the perfect pouch size for your product. Complete dimension guide with capacity references and custom size options.",
+                "introSummary": "Selecting the right pouch size ensures optimal product presentation and cost efficiency. Use this comprehensive guide to understand standard sizes and find the perfect fit for your product.",
                 "faq": {
-                    "q1": "你們有標準尺寸還是都是客製的？",
-                    "a1": "我們有一系列標準尺寸可滿足大多數需求，最低訂購量較低。客製尺寸適用於500件以上（數字）或5,000件以上（製版印刷）的訂單。",
-                    "q2": "如何知道什麼尺寸適合我的產品？",
-                    "a2": "請將您的產品詳情（重量、尺寸、密度）或樣品發送給我們。我們會推薦尺寸，並可發送空白袋子供您在訂購印刷版本前測試填充。",
-                    "q3": "尺寸是精確的還是近似的？",
-                    "a3": "尺寸是標稱尺寸，標準製造公差為±1-2mm。關鍵應用應考慮此變化。",
-                    "q4": "我可以獲得同一產品的多種尺寸嗎？",
-                    "a4": "當然可以！許多品牌以不同尺寸（試用裝、常規裝、家庭裝）提供相同產品。每種尺寸可以共享設計元素，同時使用特定尺寸的圖稿。"
+                    "q1": "Do you have standard sizes or is everything custom?",
+                    "a1": "We have a range of standard sizes that cover most needs with lower MOQs. Custom sizes are available for orders of 500+ pieces (digital) or 5,000+ pieces (plate printing).",
+                    "q2": "How do I know what size fits my product?",
+                    "a2": "Send us your product details (weight, dimensions, density) or a sample. We'll recommend sizes and can send blank pouches for you to test fill before ordering printed versions.",
+                    "q3": "Are dimensions exact or approximate?",
+                    "a3": "Dimensions are nominal with standard manufacturing tolerance of ±1-2mm. Critical applications should account for this variance.",
+                    "q4": "Can I get the same product in multiple sizes?",
+                    "a4": "Absolutely! Many brands offer the same product in different sizes (sample, regular, family size). Each size can share design elements while using size-specific artwork."
                 },
                 "cta": {
-                    "title": "需要選擇幫助？",
-                    "description": "將您的產品詳情發送給我們，我們會推薦最佳尺寸。",
-                    "button": "獲取尺寸建議"
+                    "title": "Need Help Choosing?",
+                    "description": "Send us your product details and we'll recommend the optimal size.",
+                    "button": "Get Size Recommendation"
                 }
             },
             "printingTypes": {
-                "title": "印刷類型說明 | 數字印刷 vs 製版印刷",
-                "description": "比較軟包裝的數字印刷和製版印刷。了解最低訂購量、成本、顏色選項以及哪種方法適合您的需求。",
-                "heroTitle": "印刷類型說明",
-                "heroSubtitle": "了解您的印刷選項。比較數字印刷和製版印刷，為您的包裝項目選擇正確的方法。",
-                "introSummary": "Achieve Pack 為低最低訂購量訂單提供數字印刷，為大批量生產提供製版（柔版）印刷。每種方法都有獨特的優勢——本指南幫助您選擇正確的選項。",
+                "title": "Printing Types Explained | Digital vs Plate Printing",
+                "description": "Compare digital and plate printing for flexible packaging. Understand MOQs, costs, color options, and which method suits your needs.",
+                "heroTitle": "Printing Types Explained",
+                "heroSubtitle": "Understand your printing options. Compare digital and plate printing to choose the right method for your packaging project.",
+                "introSummary": "Achieve Pack offers digital printing for low MOQ orders and plate (flexographic) printing for high-volume production. Each method has distinct advantages—this guide helps you choose the right option.",
                 "faq": {
-                    "q1": "我應該選擇哪種印刷方法？",
-                    "a1": "對於5,000件以下的訂單，數字印刷通常更具成本效益。對於5,000件以上，請比較包括製版在內的總成本。如果您需要精確的Pantone匹配或特殊墨水，則需要製版印刷。",
-                    "q2": "以後可以從數字印刷切換到製版印刷嗎？",
-                    "a2": "是的！許多客戶從數字印刷開始進行市場測試，然後在有穩定需求後切換到製版印刷。我們會幫助您順利過渡。",
-                    "q3": "數字顏色匹配有多準確？",
-                    "a3": "數字印刷使用CMYK模擬Pantone顏色，非常接近但不完全精確。對於大多數應用來說效果很好。品牌關鍵顏色（如特定標誌顏色）可能受益於製版印刷。",
-                    "q4": "製版費用包括什麼？",
-                    "a4": "製版費用涵蓋為設計中每種顏色製作印刷版的成本。一旦製作完成，版可以重複使用於複購訂單。我們免費保存版2年。"
+                    "q1": "Which printing method should I choose?",
+                    "a1": "For orders under 5,000 pieces, digital is usually more cost-effective. For 5,000+, compare total costs including plates. If you need exact Pantone matching or special inks, plate printing is required.",
+                    "q2": "Can I switch from digital to plate printing later?",
+                    "a2": "Yes! Many customers start with digital for market testing, then switch to plate printing once they have consistent demand. We'll help you transition smoothly.",
+                    "q3": "How accurate is digital color matching?",
+                    "a3": "Digital printing simulates Pantone colors using CMYK, which is very close but not exact. For most applications it's excellent. Brand-critical colors (like specific logo colors) may benefit from plate printing.",
+                    "q4": "What's included in plate costs?",
+                    "a4": "Plate costs cover the creation of printing plates for each color in your design. Once made, plates can be reused for repeat orders. We store plates for 2 years at no charge."
                 },
                 "cta": {
-                    "title": "獲取印刷報價",
-                    "description": "告訴我們您的項目，我們會推薦最佳印刷選項。",
-                    "button": "申請報價"
+                    "title": "Get a Printing Quote",
+                    "description": "Tell us about your project and we'll recommend the best printing option.",
+                    "button": "Request Quote"
                 }
             },
             "workflow": {
-                "title": "我們的工作流程 | 從報價到交付",
-                "description": "了解 Achieve Pack 的包裝生產工作流程。從初始諮詢到最終交付——每個階段的預期。",
-                "heroTitle": "我們的工作流程",
-                "heroSubtitle": "從初始諮詢到包裝交付的清晰透明流程。了解每個階段的預期。",
-                "introSummary": "我們的5步工作流程確保順暢體驗：諮詢 → 設計 → 樣品 → 生產 → 交付。從諮詢到包裝交付的典型時間表為8-12週。",
+                "title": "Our Workflow | From Quote to Delivery",
+                "description": "Understand Achieve Pack's packaging production workflow. From initial consultation to final delivery—what to expect at every stage.",
+                "heroTitle": "Our Workflow",
+                "heroSubtitle": "A clear, transparent process from initial inquiry to packaging delivery. Know what to expect at every stage.",
+                "introSummary": "Our 5-step workflow ensures a smooth experience: Consultation → Design → Sample → Production → Delivery. Typical timeline is 8-12 weeks from inquiry to delivered packaging.",
                 "faq": {
-                    "q1": "時間表可以縮短嗎？",
-                    "a1": "是的，通過快速生產和空運可以加急訂單。數字印刷比製版印刷更快。請與您的緊急時間表聯繫我們——我們會盡力配合。",
-                    "q2": "我需要預付款嗎？",
-                    "a2": "通常，我們要求50%訂金開始生產，餘款在發貨前支付。樣品訂單可能需要全額預付。我們接受銀行轉帳和主要信用卡。",
-                    "q3": "如果我需要在批准後進行更改怎麼辦？",
-                    "a3": "生產開始前的更改通常是可能的。一旦生產開始，更改可能會產生額外費用或延遲。我們總是在開始前確認最終批准。",
-                    "q4": "你們處理海關和進口關稅嗎？",
-                    "a4": "我們提供所有出口文件。對於DDP（完稅交貨），我們處理清關。對於其他條款（FOB、CIF），您或您的貨運代理處理進口程序。"
+                    "q1": "Can the timeline be shortened?",
+                    "a1": "Yes, rush orders are possible with express production and air freight. Digital printing is faster than plate printing. Contact us for urgent timelines—we'll do our best to accommodate.",
+                    "q2": "Do I need to pay upfront?",
+                    "a2": "Typically, we require 50% deposit to start production, with the balance due before shipping. Sample orders may require full payment upfront. We accept bank transfer and major credit cards.",
+                    "q3": "What if I need to make changes after approval?",
+                    "a3": "Changes before production starts are usually possible. Once production begins, changes may incur additional costs or delays. We always confirm final approval before starting.",
+                    "q4": "Do you handle customs and import duties?",
+                    "a4": "We provide all export documentation. For DDP (Delivered Duty Paid), we handle customs clearance. For other terms (FOB, CIF), you or your freight forwarder handle import procedures."
                 },
                 "cta": {
-                    "title": "開始您的項目",
-                    "description": "準備開始了嗎？聯繫我們獲取免費諮詢和報價。",
-                    "button": "開始"
+                    "title": "Start Your Project",
+                    "description": "Ready to begin? Contact us for a free consultation and quote.",
+                    "button": "Get Started"
                 }
             },
             "kraftHighBarrier": {
-                "title": "牛皮紙高阻隔包裝 | 高端長保質期袋",
-                "description": "帶鋁箔的牛皮紙高阻隔包裝，提供最大保護。12-24+個月保質期，適用於高端咖啡、藥品和凍乾食品。FDA認證。",
-                "heroTitle": "牛皮紙高阻隔包裝",
-                "heroSubtitle": "具有高端牛皮紙美學的最大保護。鋁箔阻隔層提供12-24+個月保質期。適合精品咖啡、藥品和高端食品。",
-                "introSummary": "牛皮紙高阻隔包裝具有厚鋁箔層，為對氧氣敏感的產品提供製藥級保護，提供12-24+個月保質期，同時保持牛皮紙的高端天然美學。",
+                "title": "Kraft High Barrier Packaging | Premium Long Shelf Life Pouches",
+                "description": "Kraft high barrier packaging with aluminum foil for maximum protection. 12-24+ month shelf life for premium coffee, pharmaceuticals, and freeze-dried foods. FDA certified.",
+                "heroTitle": "Kraft High Barrier Packaging",
+                "heroSubtitle": "Maximum protection with premium kraft aesthetics. Aluminum foil barrier for 12-24+ month shelf life. Perfect for specialty coffee, pharmaceuticals, and premium foods.",
+                "introSummary": "Kraft high barrier packaging features thick aluminum foil layers that provide pharmaceutical-grade protection for oxygen-sensitive products, delivering 12-24+ months shelf life while maintaining the premium natural aesthetic of kraft paper.",
                 "faq": {
-                    "q1": "產品在牛皮紙高阻隔包裝中可以保持多長時間新鮮？",
-                    "a1": "根據產品類型和儲存條件，產品可以保持12-24+個月的新鮮度。鋁箔阻隔層提供最大的氧氣、濕氣和光線保護。",
-                    "q2": "牛皮紙高阻隔包裝值得額外費用嗎？",
-                    "a2": "對於高端產品、長保質期要求或出口市場，絕對值得。延長的保質期減少浪費，允許更廣泛的分銷，並提升感知價值。",
-                    "q3": "這種包裝可以用於藥品嗎？",
-                    "a3": "是的，我們的牛皮紙高阻隔包裝符合製藥級要求。我們可以為受監管產品提供所有必要的認證和文件。",
-                    "q4": "哪種印刷選項最適合牛皮紙高阻隔？",
-                    "a4": "由於典型較高的最低訂購量（5,000-10,000件），製版印刷提供最具成本效益的解決方案。數字印刷可用於較小批量，價格較高。"
+                    "q1": "How long can products stay fresh in kraft high barrier packaging?",
+                    "a1": "Products can maintain freshness for 12-24+ months depending on the product type and storage conditions. The aluminum foil barrier provides maximum protection against oxygen, moisture, and light degradation.",
+                    "q2": "Is kraft high barrier packaging worth the extra cost?",
+                    "a2": "For premium products, long shelf life requirements, or export markets, absolutely. The extended shelf life reduces waste, allows broader distribution, and enhances perceived value.",
+                    "q3": "Can this packaging be used for pharmaceuticals?",
+                    "a3": "Yes, our kraft high barrier packaging meets pharmaceutical-grade requirements. We can provide all necessary certifications and documentation for regulated products.",
+                    "q4": "What printing options work best on kraft high barrier?",
+                    "a4": "Plate printing provides the most cost-effective solution for high barrier packaging due to typical higher MOQs (5,000-10,000 pcs). Digital printing is available for smaller runs with premium pricing."
                 },
                 "cta": {
-                    "title": "討論您的高阻隔包裝需求",
-                    "description": "讓我們為您的高價值產品創造具有最大保護的高端牛皮紙包裝。",
-                    "button": "申請報價"
+                    "title": "Discuss Your High Barrier Packaging Needs",
+                    "description": "Let's create premium kraft packaging with maximum protection for your high-value products.",
+                    "button": "Request a Quote"
                 }
             },
             "kraftMediumBarrier": {
-                "title": "牛皮紙中阻隔包裝 | 咖啡與高端食品袋",
-                "description": "帶金屬化層的牛皮紙中阻隔包裝，適用於咖啡、堅果和高端食品。6-12個月保質期。天然美學與增強保護。最低訂購量1,000件。",
-                "heroTitle": "牛皮紙中阻隔包裝",
-                "heroSubtitle": "帶金屬化阻隔層的增強牛皮紙包裝，適用於咖啡、高端零食和中度敏感產品。天然外觀與功能保護的結合。",
-                "introSummary": "牛皮紙中阻隔包裝結合了牛皮紙的鄉村魅力與金屬化或鋁阻隔層，為咖啡、堅果、乾果和特色食品提供6-12個月保質期。",
+                "title": "Kraft Medium Barrier Packaging | Coffee & Premium Food Pouches",
+                "description": "Kraft medium barrier packaging with metallized layers for coffee, nuts, and premium foods. 6-12 month shelf life. Natural aesthetic with enhanced protection. MOQ 1,000 pcs.",
+                "heroTitle": "Kraft Medium Barrier Packaging",
+                "heroSubtitle": "Enhanced kraft paper packaging with metallized barrier layers for coffee, premium snacks, and moderately sensitive products. Natural look meets functional protection.",
+                "introSummary": "Kraft medium barrier packaging combines the rustic appeal of kraft paper with metallized or aluminum barrier layers, providing 6-12 months shelf life for coffee, nuts, dried fruits, and specialty foods.",
                 "faq": {
-                    "q1": "中阻隔和高阻隔牛皮紙包裝有什麼區別？",
-                    "a1": "中阻隔使用較薄的金屬化或鋁層（12-15µm），提供6-12個月保質期，而高阻隔使用較厚的鋁（25-40µm），提供12-24+個月。",
-                    "q2": "我可以用牛皮紙中阻隔包裝咖啡嗎？",
-                    "a2": "是的！這非常適合保質期目標6-9個月的咖啡。我們可以添加排氣閥，釋放新鮮烘焙豆的CO2，同時防止氧氣進入。",
-                    "q3": "金屬化層可以回收嗎？",
-                    "a3": "牛皮紙組件可以回收，但金屬化層可能需要專業回收設施。建議檢查當地回收能力。",
-                    "q4": "有哪些印刷選項？",
-                    "a4": "數字印刷（500+最低訂購量）和製版印刷（5,000+最低訂購量）都可用。牛皮紙提供出色的墨水附著力和鮮豔色彩。"
+                    "q1": "What is the difference between medium and high barrier kraft packaging?",
+                    "a1": "Medium barrier uses thinner metallized or aluminum layers (12-15µm) providing 6-12 months shelf life, while high barrier uses thicker aluminum (25-40µm) for 12-24+ months.",
+                    "q2": "Can I use kraft medium barrier for coffee packaging?",
+                    "a2": "Yes! It's ideal for coffee with 6-9 month shelf life targets. We can add degassing valves to release CO2 from freshly roasted beans while preventing oxygen entry.",
+                    "q3": "Is the metallized layer recyclable?",
+                    "a3": "The kraft paper component can be recycled, but metallized layers may require specialized recycling facilities. We recommend checking local recycling capabilities.",
+                    "q4": "What printing options are available?",
+                    "a4": "Both digital printing (500+ MOQ) and plate printing (5,000+ MOQ) are available. Kraft paper provides excellent ink adhesion and vibrant colors."
                 },
                 "cta": {
-                    "title": "開始您的咖啡包裝項目",
-                    "description": "讓我們創造既能保護您的產品又能展示您品牌價值的高端牛皮紙包裝。",
-                    "button": "申請報價"
+                    "title": "Start Your Coffee Packaging Project",
+                    "description": "Let's create premium kraft packaging that protects your products and showcases your brand values.",
+                    "button": "Request a Quote"
                 }
             },
             "kraftLowBarrier": {
-                "title": "牛皮紙低阻隔包裝 | 環保紙袋",
-                "description": "適用於乾貨、烘焙食品和短保質期產品的牛皮紙低阻隔包裝。天然紙張外觀與基本防潮保護。最低訂購量500件。",
-                "heroTitle": "牛皮紙低阻隔包裝",
-                "heroSubtitle": "天然牛皮紙袋，為乾貨和短保質期產品提供基本保護。環保、經濟實惠且具有美麗的鄉村風格。",
-                "introSummary": "牛皮紙低阻隔包裝結合了牛皮紙的天然美學與基本的濕氣和氧氣保護，非常適合烘焙食品、乾零食和保質期3-6個月的產品。",
+                "title": "Kraft Low Barrier Packaging | Eco-Friendly Paper Pouches",
+                "description": "Kraft low barrier packaging for dry goods, bakery items, and short shelf life products. Natural paper appearance with basic moisture protection. MOQ 500 pcs.",
+                "heroTitle": "Kraft Low Barrier Packaging",
+                "heroSubtitle": "Natural kraft paper pouches with basic protection for dry goods and short shelf life products. Eco-friendly, cost-effective, and beautifully rustic.",
+                "introSummary": "Kraft low barrier packaging combines the natural aesthetic of kraft paper with basic moisture and oxygen protection, perfect for bakery items, dry snacks, and products with 3-6 month shelf life requirements.",
                 "faq": {
-                    "q1": "牛皮紙低阻隔包裝的產品保質期是多長？",
-                    "a1": "對於乾燥、低水分產品，通常為3-6個月。確切的保質期取決於產品類型、儲存條件和水分含量。",
-                    "q2": "牛皮紙低阻隔包裝可以用於咖啡嗎？",
-                    "a2": "可以，但只適合短期儲存（2-3個月）。如需更長的保質期或高端咖啡，請考慮我們帶排氣閥的牛皮紙中阻隔或高阻隔選項。",
-                    "q3": "這種包裝食品安全嗎？",
-                    "a3": "是的，我們所有的牛皮紙包裝材料都符合FDA標準且食品安全。內層PE塗層防止食品與紙纖維直接接觸。",
-                    "q4": "最低訂購量是多少？",
-                    "a4": "數字印刷：500-1,000件。製版印刷：根據尺寸和設計複雜度，5,000-10,000件。"
+                    "q1": "What is the shelf life for products in kraft low barrier packaging?",
+                    "a1": "Typically 3-6 months for dry, low-moisture products. The exact shelf life depends on the product type, storage conditions, and moisture content.",
+                    "q2": "Can kraft low barrier packaging be used for coffee?",
+                    "a2": "Yes, but only for short-term storage (2-3 months). For longer shelf life or premium coffee, consider our kraft medium or high barrier options with degassing valves.",
+                    "q3": "Is this packaging food safe?",
+                    "a3": "Yes, all our kraft packaging materials are FDA compliant and food-safe. The inner PE coating prevents direct contact between food and paper fibers.",
+                    "q4": "What is the minimum order quantity?",
+                    "a4": "For digital printing: 500-1,000 pieces. For plate printing: 5,000-10,000 pieces depending on size and design complexity."
                 },
                 "cta": {
-                    "title": "開始使用牛皮紙低阻隔包裝",
-                    "description": "讓我們創造能展示您品牌天然價值的可持續牛皮紙包裝。",
-                    "button": "申請報價"
+                    "title": "Get Started with Kraft Low Barrier Packaging",
+                    "description": "Let's create sustainable kraft paper packaging that showcases your brand's natural values.",
+                    "button": "Request a Quote"
                 }
             },
             "csCoffeeRoastery": {
-                "title": "咖啡烘焙案例 | Bean & Bole 可堆肥包裝",
-                "description": "Bean & Bole咖啡烘焙如何在保持新鮮度的同時轉向可堆肥包裝。案例展示帶排氣閥的牛皮紙+PLA袋。",
-                "heroTitle": "案例研究：Bean & Bole 咖啡烘焙",
-                "heroSubtitle": "專業咖啡烘焙商如何實現100%可堆肥包裝，同時不影響新鮮度和小批量生產方式。",
-                "introSummary": "Bean & Bole咖啡烘焙與Achieve Pack合作，從傳統塑料轉向認證可堆肥包裝。結果：環保袋既能保持咖啡新鮮，又能強化可持續發展故事。",
+                "title": "Coffee Roastery Case Study | Bean & Bole Compostable Packaging",
+                "description": "How Bean & Bole Coffee Roastery switched to compostable packaging while maintaining freshness. Case study featuring Kraft+PLA pouches with degassing valves.",
+                "heroTitle": "Case Study: Bean & Bole Coffee Roastery",
+                "heroSubtitle": "How a specialty coffee roaster achieved 100% compostable packaging without compromising freshness or their small-batch approach.",
+                "introSummary": "Bean & Bole Coffee Roastery partnered with Achieve Pack to transition from conventional plastic to certified compostable packaging. The result: eco-friendly bags that maintain coffee freshness while reinforcing their sustainability story.",
                 "faq": {
-                    "q1": "可堆肥包裝能保持咖啡新鮮嗎？",
-                    "a1": "可以！通過正確的材料組合（如帶適當阻隔層的牛皮紙+PLA），可堆肥包裝可保持咖啡新鮮3-4個月。添加排氣閥可釋放CO2同時防止氧氣進入。",
-                    "q2": "這個項目的最低訂購量是多少？",
-                    "a2": "Bean & Bole使用數字印刷，每個SKU從500個袋子開始。這讓他們可以在承諾更大數量之前先與客戶測試包裝。",
-                    "q3": "排氣閥也是可堆肥的嗎？",
-                    "a3": "我們提供兩種選擇。標準排氣閥不可堆肥，需要在堆肥前移除——我們在包裝上清楚標註。完全可堆肥的閥門選項也有提供，但成本是普通咖啡閥的2-3倍。"
+                    "q1": "Can compostable packaging maintain coffee freshness?",
+                    "a1": "Yes! With the right material combination (like Kraft + PLA with proper barrier layers), compostable packaging can maintain coffee freshness for 3-4 months. Adding a degassing valve allows CO2 release while preventing oxygen entry.",
+                    "q2": "What was the minimum order for this project?",
+                    "a2": "Bean & Bole started with 500 bags per SKU using digital printing. This allowed them to test the packaging with customers before committing to larger quantities.",
+                    "q3": "Is the degassing valve also compostable?",
+                    "a3": "We offer both options. Standard degassing valves are not compostable and need to be removed before composting—we clearly label this on the package. Fully compostable valve options are available but cost 2-3x more than standard coffee valves."
                 },
                 "cta": {
-                    "title": "準備好您的可持續包裝故事了嗎？",
-                    "description": "讓我們討論如何幫助您的咖啡品牌轉向環保包裝。",
-                    "button": "開始您的項目"
+                    "title": "Ready for Your Sustainable Packaging Story?",
+                    "description": "Let's discuss how we can help your coffee brand transition to eco-friendly packaging.",
+                    "button": "Start Your Project"
                 }
             },
             "csTeaBrand": {
-                "title": "茶葉品牌案例 | Milano Botanica 高端包裝",
-                "description": "Milano Botanica如何實現符合EU PPWR的豪華茶葉包裝與可堆肥窗口。案例展示帶NatureFlex窗口的平底袋。",
-                "heroTitle": "案例研究：Milano Botanica 茶葉",
-                "heroSubtitle": "意大利奢侈茶葉品牌如何通過帶透明窗口的精美可堆肥包裝實現歐盟合規。",
-                "introSummary": "Milano Botanica與Achieve Pack合作，創造帶透明窗口的高端可堆肥包裝。結果：既能展示茶葉又能滿足歐盟可持續發展要求的精美包裝。",
+                "title": "Tea Brand Case Study | Milano Botanica Premium Packaging",
+                "description": "How Milano Botanica achieved EU PPWR compliant luxury tea packaging with compostable windows. Case study featuring flat bottom bags with NatureFlex windows.",
+                "heroTitle": "Case Study: Milano Botanica Tea",
+                "heroSubtitle": "How a luxury Italian tea brand achieved EU compliance with stunning compostable packaging featuring clear windows.",
+                "introSummary": "Milano Botanica partnered with Achieve Pack to create premium compostable packaging with transparent windows. The result: beautiful packaging that showcases their teas while meeting EU sustainability requirements.",
                 "faq": {
-                    "q1": "窗口也是可堆肥的嗎？",
-                    "a1": "是的！我們使用NatureFlex™，這是一種經認證可堆肥的纖維素基透明薄膜。包括窗口在內的整個包裝都可以進入商業堆肥。",
-                    "q2": "這如何滿足EU PPWR要求？",
-                    "a2": "該包裝根據EN 13432認證為可堆肥，這是EU PPWR合規的途徑之一。為零售商和監管要求提供完整文件。",
-                    "q3": "茶葉在這種包裝中能達到什麼保質期？",
-                    "a3": "根據茶葉類型，這種包裝結構可提供9-12個月的保質期。NatureFlex窗口在保持良好防潮阻隔的同時允許產品可見。"
+                    "q1": "Is the window also compostable?",
+                    "a1": "Yes! We used NatureFlex™, a cellulose-based transparent film that is certified compostable. The entire package including the window can go into commercial composting.",
+                    "q2": "How does this meet EU PPWR requirements?",
+                    "a2": "The packaging is certified compostable under EN 13432, which is one pathway to EU PPWR compliance. Full documentation is provided for retailer and regulatory requirements.",
+                    "q3": "What shelf life can tea achieve in this packaging?",
+                    "a3": "Depending on the tea type, this packaging structure provides 9-12 months shelf life. The NatureFlex window maintains good moisture barrier while allowing product visibility."
                 },
                 "cta": {
-                    "title": "創造您的高端茶葉包裝",
-                    "description": "讓我們設計能精美展示您茶葉的可堆肥包裝。",
-                    "button": "開始您的項目"
+                    "title": "Create Your Premium Tea Packaging",
+                    "description": "Let's design compostable packaging that showcases your tea beautifully.",
+                    "button": "Start Your Project"
                 }
             },
             "csSuperfood": {
-                "title": "超級食品品牌案例 | VitalGreen 可回收包裝",
-                "description": "VitalGreen Superfoods如何通過GRS認證可回收袋實現B-Corp包裝目標。案例展示高阻隔單一PE包裝。",
-                "heroTitle": "案例研究：VitalGreen Superfoods",
-                "heroSubtitle": "B-Corp超級食品品牌如何實現滿足認證要求的高阻隔可回收包裝。",
-                "introSummary": "VitalGreen Superfoods與Achieve Pack合作，為其超級食品粉末開發可回收高阻隔包裝。GRS認證解決方案幫助他們獲得B-Corp積分，同時保護產品質量。",
+                "title": "Superfood Brand Case Study | VitalGreen Recyclable Packaging",
+                "description": "How VitalGreen Superfoods achieved B-Corp packaging goals with GRS certified recyclable pouches. Case study featuring high-barrier mono-PE packaging.",
+                "heroTitle": "Case Study: VitalGreen Superfoods",
+                "heroSubtitle": "How a B-Corp superfood brand achieved high-barrier recyclable packaging that met certification requirements.",
+                "introSummary": "VitalGreen Superfoods partnered with Achieve Pack to develop recyclable high-barrier packaging for their superfood powders. The GRS-certified solution helped them gain B-Corp points while protecting product quality.",
                 "faq": {
-                    "q1": "可回收包裝如何實現高阻隔？",
-                    "a1": "我們的單一PE結構包含薄EVOH層，提供優異的氧氣阻隔，同時保持在PE回收流中的可回收性。該包裝可在商店回收點回收。",
-                    "q2": "您為B-Corp報告提供什麼文件？",
-                    "a2": "我們提供GRS證書、材料規格、碳足跡估算和可回收性聲明，可用於B-Corp可持續發展報告。",
-                    "q3": "他們如何同時推出8個SKU？",
-                    "a3": "數字印刷允許無限設計而無需製版成本。每個SKU只需最低500個袋子，總初始訂單4,000個袋子——對成長中的品牌來說負擔得起。"
+                    "q1": "How can recyclable packaging achieve high barrier?",
+                    "a1": "Our mono-PE structure incorporates a thin EVOH layer that provides excellent oxygen barrier while maintaining recyclability in PE recycling streams. The package is store drop-off recyclable.",
+                    "q2": "What documentation do you provide for B-Corp reporting?",
+                    "a2": "We provide GRS certificates, material specifications, carbon footprint estimates, and recyclability statements that can be used for B-Corp sustainability reporting.",
+                    "q3": "How did they launch 8 SKUs at once?",
+                    "a3": "Digital printing allows unlimited designs without plate costs. Each SKU had just 500 bags minimum, making the total initial order 4,000 bags—affordable for a growing brand."
                 },
                 "cta": {
-                    "title": "為您的健康品牌打造包裝",
-                    "description": "讓我們創造滿足您可持續發展目標的可回收包裝。",
-                    "button": "開始您的項目"
+                    "title": "Packaging for Your Wellness Brand",
+                    "description": "Let's create recyclable packaging that meets your sustainability goals.",
+                    "button": "Start Your Project"
                 }
             },
             "csPetTreats": {
-                "title": "寵物零食案例 | Pawsome Naturals 可持續包裝",
-                "description": "Pawsome Naturals如何通過PCR含量和兒童安全封口實現可持續寵物零食包裝。",
-                "heroTitle": "案例研究：Pawsome Naturals 寵物零食",
-                "heroSubtitle": "高端寵物零食品牌如何實現30%再生含量包裝和兒童安全封口。",
-                "introSummary": "Pawsome Naturals與Achieve Pack合作，創造帶兒童安全拉鏈的PCR基包裝，滿足零售商要求同時強化可持續發展信息。",
+                "title": "Pet Treats Case Study | Pawsome Naturals Sustainable Packaging",
+                "description": "How Pawsome Naturals achieved sustainable pet treat packaging with PCR content and child-resistant closures.",
+                "heroTitle": "Case Study: Pawsome Naturals Pet Treats",
+                "heroSubtitle": "How a premium pet treat brand achieved 30% recycled content packaging with child-resistant closures.",
+                "introSummary": "Pawsome Naturals partnered with Achieve Pack to create PCR-based packaging with child-resistant zippers, meeting retailer requirements while reinforcing their sustainability message.",
                 "faq": {
-                    "q1": "兒童安全封口能防寵物嗎？",
-                    "a1": "推拉機制專為成人設計，有效防止寵物打開包裝。符合CPSC兒童安全標準。",
-                    "q2": "PCR包裝為什麼可持續？",
-                    "a2": "PCR（消費後再生）含量減少原生塑料使用。我們的30% PCR混合來自再生消費塑料，在保持性能的同時減少碳足跡。"
+                    "q1": "Is the child-resistant closure pet-proof?",
+                    "a1": "The push-and-slide mechanism is designed for human adults and effectively prevents pets from opening the package. It meets CPSC child-resistant standards.",
+                    "q2": "What makes PCR packaging sustainable?",
+                    "a2": "PCR (post-consumer recycled) content reduces virgin plastic use. Our 30% PCR blend comes from recycled consumer plastics, reducing carbon footprint while maintaining performance."
                 },
                 "cta": {
-                    "title": "寵物產品包裝",
-                    "description": "創造保護零食並吸引寵物主人的可持續包裝。",
-                    "button": "開始您的項目"
+                    "title": "Packaging for Pet Products",
+                    "description": "Create sustainable packaging that protects treats and appeals to pet parents.",
+                    "button": "Start Your Project"
                 }
             },
             "csChocolate": {
-                "title": "巧克力品牌案例 | Artisan Cocoa 奢華包裝",
-                "description": "Artisan Cocoa Emirates如何實現帶耐熱保護和高端飾面的奢華巧克力包裝。",
-                "heroTitle": "案例研究：Artisan Cocoa Emirates",
-                "heroSubtitle": "奢華巧克力品牌如何實現能承受中東高溫的高端包裝。",
-                "introSummary": "Artisan Cocoa Emirates與Achieve Pack合作，創造在極端高溫下保護巧克力的奢華包裝，同時傳達高端品牌價值。",
+                "title": "Chocolate Brand Case Study | Artisan Cocoa Luxury Packaging",
+                "description": "How Artisan Cocoa Emirates achieved luxury chocolate packaging with heat protection and premium finishes.",
+                "heroTitle": "Case Study: Artisan Cocoa Emirates",
+                "heroSubtitle": "How a luxury chocolate brand achieved premium packaging that withstands Middle East heat.",
+                "introSummary": "Artisan Cocoa Emirates partnered with Achieve Pack to create luxury packaging that protects chocolate in extreme heat while conveying premium brand values.",
                 "faq": {
-                    "q1": "軟包裝能在炎熱氣候下保護巧克力嗎？",
-                    "a1": "可以！我們的高阻隔單一PP結構配合先進阻隔技術，可抵禦高溫和濕度。經45°C測試，適用於中東配送。",
-                    "q2": "燙金是可持續的嗎？",
-                    "a2": "熱燙金添加的材料極少，基礎包裝仍可回收。我們使用負責任的應用方法。"
+                    "q1": "Can flexible packaging protect chocolate in hot climates?",
+                    "a1": "Yes! Our high-barrier mono-PP structure with advanced barrier technology protects against heat and humidity. Tested to 45°C for Middle East distribution.",
+                    "q2": "Is foil stamping sustainable?",
+                    "a2": "Hot foil stamping adds minimal material and the base package remains recyclable. We use responsible application methods."
                 },
                 "cta": {
-                    "title": "創造奢華包裝",
-                    "description": "用高端可持續包裝提升您的糖果品牌。",
-                    "button": "開始您的項目"
+                    "title": "Create Luxury Packaging",
+                    "description": "Elevate your confectionery brand with premium sustainable packaging.",
+                    "button": "Start Your Project"
                 }
             },
             "csCandle": {
-                "title": "蠟燭品牌案例 | Luminara 可持續包裝",
-                "description": "Luminara Candles如何為手工蠟燭實現帶錫扎封口的精品級可堆肥包裝。",
-                "heroTitle": "案例研究：Luminara Candles",
-                "heroSubtitle": "手工蠟燭品牌如何實現保留香氣並吸引精品零售商的可堆肥包裝。",
-                "introSummary": "Luminara Candles與Achieve Pack合作，創造帶香氣阻隔的可堆肥牛皮紙包裝，實現小批量季節性發布。",
+                "title": "Candle Brand Case Study | Luminara Sustainable Packaging",
+                "description": "How Luminara Candles achieved boutique-worthy compostable packaging for artisan candles with tin-tie closures.",
+                "heroTitle": "Case Study: Luminara Candles",
+                "heroSubtitle": "How an artisan candle brand achieved compostable packaging that preserves fragrance and appeals to boutique retailers.",
+                "introSummary": "Luminara Candles partnered with Achieve Pack to create compostable kraft packaging with aroma barriers, enabling small-batch seasonal releases.",
                 "faq": {
-                    "q1": "紙質包裝能保護蠟燭香氣嗎？",
-                    "a1": "可以！我們的牛皮紙結構包含內部阻隔層，密封精油香氣，在儲存和零售展示期間保持香味完整性。",
-                    "q2": "季節版的最低訂購量是多少？",
-                    "a2": "通過數字印刷，我們可以每個設計最少生產200個袋子——非常適合測試季節性或限量版香味。"
+                    "q1": "Can paper packaging protect candle fragrances?",
+                    "a1": "Yes! Our kraft structure includes an inner barrier layer that seals in essential oil fragrances, maintaining scent integrity during storage and retail display.",
+                    "q2": "What is the minimum for seasonal editions?",
+                    "a2": "With digital printing, we can produce as few as 200 bags per design—perfect for testing seasonal or limited edition scents."
                 },
                 "cta": {
-                    "title": "家居產品包裝",
-                    "description": "為蠟燭和家居香氛產品創造可持續包裝。",
-                    "button": "開始您的項目"
+                    "title": "Packaging for Home Products",
+                    "description": "Create sustainable packaging for candles and home fragrance products.",
+                    "button": "Start Your Project"
                 }
             },
             "csBakery": {
-                "title": "烘焙案例 | Wholesome Bakes 家庭可堆肥包裝",
-                "description": "Wholesome Bakes如何為農夫市集成功實現帶窗口的家庭可堆肥格蘭諾拉麥片包裝。",
-                "heroTitle": "案例研究：Wholesome Bakes 烘焙坊",
-                "heroSubtitle": "手工烘焙坊如何實現在農夫市集暢銷的家庭可堆肥包裝。",
-                "introSummary": "Wholesome Bakes與Achieve Pack合作，創造帶窗口的完全家庭可堆肥包裝，非常適合農夫市集銷售和環保消費者。",
+                "title": "Bakery Case Study | Wholesome Bakes Home Compostable Packaging",
+                "description": "How Wholesome Bakes achieved home compostable granola packaging with windows for farmers market success.",
+                "heroTitle": "Case Study: Wholesome Bakes Bakery",
+                "heroSubtitle": "How an artisan bakery achieved home compostable packaging that sells at farmers markets.",
+                "introSummary": "Wholesome Bakes partnered with Achieve Pack to create fully home compostable packaging with windows, perfect for farmers market sales and eco-conscious consumers.",
                 "faq": {
-                    "q1": "窗口也是家庭可堆肥的嗎？",
-                    "a1": "是的！NatureFlex由纖維素製成，經認證可家庭堆肥。包括窗口在內的整個包裝都可以放入後院堆肥。",
-                    "q2": "什麼使這對小型烘焙坊來說負擔得起？",
-                    "a2": "數字印刷消除了製版成本，我們300個袋子的最低訂購量意味著小型烘焙坊無需大量庫存即可獲得專業包裝。"
+                    "q1": "Is the window home compostable too?",
+                    "a1": "Yes! NatureFlex is made from cellulose and is certified for home composting. The entire package including the window can go into backyard compost.",
+                    "q2": "What makes this affordable for small bakeries?",
+                    "a2": "Digital printing eliminates plate costs, and our 300-bag minimum means small bakeries can access professional packaging without huge inventory."
                 },
                 "cta": {
-                    "title": "手工烘焙師包裝",
-                    "description": "創造展示您烘焙產品的家庭可堆肥包裝。",
-                    "button": "開始您的項目"
+                    "title": "Packaging for Artisan Bakers",
+                    "description": "Create home compostable packaging that showcases your baked goods.",
+                    "button": "Start Your Project"
                 }
             },
             "csWellness": {
-                "title": "健康品牌案例 | NourishNow Bio-PE包裝",
-                "description": "NourishNow Wellness如何實現帶兒童安全封口的電商就緒生物PE補充劑包裝。",
-                "heroTitle": "案例研究：NourishNow Wellness",
-                "heroSubtitle": "DTC健康品牌如何實現能承受Amazon FBA處理的生物基包裝。",
-                "introSummary": "NourishNow Wellness與Achieve Pack合作，創造針對電商優化的生物PE包裝，帶兒童安全封口和紫外線保護。",
+                "title": "Wellness Brand Case Study | NourishNow Bio-PE Packaging",
+                "description": "How NourishNow Wellness achieved e-commerce ready bio-PE supplement packaging with child-resistant closures.",
+                "heroTitle": "Case Study: NourishNow Wellness",
+                "heroSubtitle": "How a DTC wellness brand achieved bio-based packaging that survives Amazon FBA handling.",
+                "introSummary": "NourishNow Wellness partnered with Achieve Pack to create bio-PE packaging optimized for e-commerce, with child-resistant closures and UV protection.",
                 "faq": {
-                    "q1": "什麼是Bio-PE？",
-                    "a1": "Bio-PE是由甘蔗乙醇而非石油製成的聚乙烯。它與傳統PE性能相同，但來自可再生資源。",
-                    "q2": "它符合Amazon FBA要求嗎？",
-                    "a2": "符合！我們的袋子專為電商耐用性設計——能承受Amazon FBA處理、運輸和儲存而不會密封失效或穿孔。"
+                    "q1": "What is Bio-PE?",
+                    "a1": "Bio-PE is polyethylene made from sugarcane ethanol instead of petroleum. It has identical performance to conventional PE but is made from renewable resources.",
+                    "q2": "Does it meet Amazon FBA requirements?",
+                    "a2": "Yes! Our pouches are designed for e-commerce durability—they survive Amazon FBA handling, shipping, and storage without seal failure or punctures."
                 },
                 "cta": {
-                    "title": "健康品牌包裝",
-                    "description": "為補充劑和健康產品創造可持續電商包裝。",
-                    "button": "開始您的項目"
+                    "title": "Packaging for Wellness Brands",
+                    "description": "Create sustainable e-commerce packaging for supplements and wellness products.",
+                    "button": "Start Your Project"
                 }
             },
             "csOrganicNuts": {
-                "title": "有機堅果案例 | NutriVie 歐盟PPWR合規包裝",
-                "description": "NutriVie Organic如何通過統一設計系統實現12個月保質期的歐盟PPWR合規堅果包裝。",
-                "heroTitle": "案例研究：NutriVie 有機堅果",
-                "heroSubtitle": "有機堅果品牌如何在15個SKU中降低包裝成本的同時實現歐盟PPWR合規。",
-                "introSummary": "NutriVie Organic與Achieve Pack合作，創造帶統一設計系統的歐盟PPWR合規可回收包裝，降低15個SKU系列的成本。",
+                "title": "Organic Nuts Case Study | NutriVie EU PPWR Compliant Packaging",
+                "description": "How NutriVie Organic achieved EU PPWR compliant nut packaging with 12-month shelf life and unified design system.",
+                "heroTitle": "Case Study: NutriVie Organic Nuts",
+                "heroSubtitle": "How an organic nut brand achieved EU PPWR compliance while reducing packaging costs across 15 SKUs.",
+                "introSummary": "NutriVie Organic partnered with Achieve Pack to create EU PPWR-compliant recyclable packaging with a unified design system that reduced costs across their 15-SKU range.",
                 "faq": {
-                    "q1": "一套印版如何適用於15個SKU？",
-                    "a1": "我們設計了統一的品牌佈局，只有色帶和產品名稱變化。基礎印版保持不變，在生產中交換可變元素。",
-                    "q2": "這完全符合歐盟PPWR嗎？",
-                    "a2": "是的！單一PE結構符合可回收性要求。我們提供完整的合規文件，包括材料聲明和可回收性證書。"
+                    "q1": "How does one plate set work for 15 SKUs?",
+                    "a1": "We designed a unified brand layout where only the color bands and product names change. The base plate stays the same, with variable elements swapped during production.",
+                    "q2": "Is this fully EU PPWR compliant?",
+                    "a2": "Yes! The mono-PE structure meets the recyclability requirements. We provide full compliance documentation including material declarations and recyclability certificates."
                 },
                 "cta": {
-                    "title": "歐盟PPWR就緒包裝",
-                    "description": "用合規的可回收包裝解決方案領先法規。",
-                    "button": "開始您的項目"
+                    "title": "EU PPWR-Ready Packaging",
+                    "description": "Get ahead of regulations with compliant, recyclable packaging solutions.",
+                    "button": "Start Your Project"
                 }
             },
             "csBathProducts": {
-                "title": "沐浴產品案例 | Bavarian Bliss 透明包裝",
-                "description": "Bavarian Bliss如何為浴球實現帶禮品級展示的防潮透明包裝。",
-                "heroTitle": "案例研究：Bavarian Bliss Bath Co.",
-                "heroSubtitle": "浴球品牌如何實現使聖誕市集銷售翻三倍的透明防潮包裝。",
-                "introSummary": "Bavarian Bliss Bath Co.與Achieve Pack合作，創造高防潮阻隔的透明可回收包裝，非常適合在聖誕市集展示彩色浴球。",
+                "title": "Bath Products Case Study | Bavarian Bliss Clear Packaging",
+                "description": "How Bavarian Bliss achieved moisture-protected clear packaging for bath bombs with gift-worthy presentation.",
+                "heroTitle": "Case Study: Bavarian Bliss Bath Co.",
+                "heroSubtitle": "How a bath bomb brand achieved clear, moisture-protected packaging that tripled Christmas market sales.",
+                "introSummary": "Bavarian Bliss Bath Co. partnered with Achieve Pack to create clear recyclable packaging with high moisture barrier, perfect for showcasing colorful bath bombs at Christmas markets.",
                 "faq": {
-                    "q1": "如何防止浴球提前激活？",
-                    "a1": "高防潮阻隔密封結構防止濕氣接觸浴球。正確密封後，即使在潮濕條件下產品也能保鮮12+個月。",
-                    "q2": "透明袋環保嗎？",
-                    "a2": "是的！我們的透明單一PE袋可在PE回收流中回收。透明材料還減少了印刷窗口的需求，使用更少的墨水。"
+                    "q1": "How do you prevent bath bomb activation?",
+                    "a1": "The high moisture barrier seal structure prevents humidity from reaching the bath bombs. Properly sealed, products stay fresh for 12+ months even in humid conditions.",
+                    "q2": "Are clear pouches eco-friendly?",
+                    "a2": "Yes! Our clear mono-PE pouches are recyclable in PE recycling streams. The clear material also reduces need for printed windows, using less ink overall."
                 },
                 "cta": {
-                    "title": "沐浴和身體護理包裝",
-                    "description": "創造展示您沐浴和身體護理產品的保護性包裝。",
-                    "button": "開始您的項目"
+                    "title": "Packaging for Bath & Body",
+                    "description": "Create protective packaging that showcases your bath and body products.",
+                    "button": "Start Your Project"
                 }
             },
             "csAdaptogens": {
-                "title": "適應原案例 | Zen Botanics 高端包裝",
-                "description": "Zen Botanics Asia如何為熱帶氣候實現具有最大阻隔保護的高端適應原包裝。",
-                "heroTitle": "案例研究：Zen Botanics Asia",
-                "heroSubtitle": "適應原品牌如何通過抵禦熱帶濕度的啞光黑色包裝實現高端定位。",
-                "introSummary": "Zen Botanics Asia與Achieve Pack合作，創造具有最大阻隔保護的高端啞光黑色包裝，非常適合熱帶氣候中的適應原。",
+                "title": "Adaptogens Case Study | Zen Botanics Premium Packaging",
+                "description": "How Zen Botanics Asia achieved premium adaptogen packaging with maximum barrier protection for tropical climates.",
+                "heroTitle": "Case Study: Zen Botanics Asia",
+                "heroSubtitle": "How an adaptogen brand achieved premium positioning with matte black packaging that protects against tropical humidity.",
+                "introSummary": "Zen Botanics Asia partnered with Achieve Pack to create premium matte black packaging with maximum barrier protection, perfect for adaptogens in tropical climates.",
                 "faq": {
-                    "q1": "適應原能保持多長時間的效力？",
-                    "a1": "通過我們的高阻隔結構，功能性蘑菇和適應原可保持18+個月的效力。阻光啞光飾面還可防止紫外線降解。",
-                    "q2": "您能從一個設計做多種尺寸嗎？",
-                    "a2": "可以！我們創建跨尺寸擴展的統一設計系統。相同的印版作品按比例縮放，保持整個系列的品牌一致性。"
+                    "q1": "How long do adaptogens stay potent?",
+                    "a1": "With our high-barrier structure, functional mushrooms and adaptogens maintain potency for 18+ months. The light-blocking matte finish also prevents UV degradation.",
+                    "q2": "Can you do multi-size from one design?",
+                    "a2": "Yes! We create unified design systems that scale across sizes. Same plate artwork scales proportionally, maintaining brand consistency across your range."
                 },
                 "cta": {
-                    "title": "高端健康包裝",
-                    "description": "創造傳達品質並保護敏感成分的包裝。",
-                    "button": "開始您的項目"
+                    "title": "Premium Wellness Packaging",
+                    "description": "Create packaging that communicates quality and protects sensitive ingredients.",
+                    "button": "Start Your Project"
                 }
             },
             "csOutdoorSnacks": {
-                "title": "戶外零食案例 | TrailFuel 探險包裝",
-                "description": "TrailFuel如何通過抗穿刺再生含量包裝獲得REI上架。",
-                "heroTitle": "案例研究：TrailFuel Adventures",
-                "heroSubtitle": "戶外零食品牌如何通過耐用的環保認證包裝獲得REI全國上架。",
-                "introSummary": "TrailFuel Adventures與Achieve Pack合作，創造能承受戶外條件的加強PCR包裝，同時滿足REI的可持續發展要求。",
+                "title": "Outdoor Snacks Case Study | TrailFuel Adventure Packaging",
+                "description": "How TrailFuel achieved REI listing with puncture-resistant recycled content packaging for trail snacks.",
+                "heroTitle": "Case Study: TrailFuel Adventures",
+                "heroSubtitle": "How an outdoor snack brand achieved REI national listing with durable, eco-certified packaging.",
+                "introSummary": "TrailFuel Adventures partnered with Achieve Pack to create reinforced PCR packaging that survives trail conditions while meeting REI's sustainability requirements.",
                 "faq": {
-                    "q1": "包裝如何應對海拔變化？",
-                    "a1": "我們在高海拔（14,000+英尺）測試包裝，確保密封不會爆裂或失效。靈活的結構適應山區零售和戶外使用中的壓力變化。",
-                    "q2": "是什麼使它抗穿刺？",
-                    "a2": "加強的單一PE結構比標準袋更厚，專為戶外使用設計，可抵禦裝備、岩石和戶外條件可能造成的包裝損壞。"
+                    "q1": "How does the packaging handle altitude changes?",
+                    "a1": "We test packaging at high altitude (14,000+ ft) to ensure seals do not pop or fail. The flexible structure accommodates pressure changes during mountain retail and trail use.",
+                    "q2": "What makes it puncture-resistant?",
+                    "a2": "The reinforced mono-PE structure is thicker than standard pouches, designed specifically for outdoor use where gear, rocks, and trail conditions can damage packaging."
                 },
                 "cta": {
-                    "title": "活力生活方式包裝",
-                    "description": "為戶外和探險產品創造耐用的可持續包裝。",
-                    "button": "開始您的項目"
+                    "title": "Packaging for Active Lifestyles",
+                    "description": "Create durable, sustainable packaging for outdoor and adventure products.",
+                    "button": "Start Your Project"
                 }
             }
         }
