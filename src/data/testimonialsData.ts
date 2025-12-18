@@ -149,7 +149,7 @@ export const TESTIMONIALS: Testimonial[] = [
     brandLogo: '/imgs/testimonials/brand-logo/a_emu_elixir_logo_7729355.webp',
     bgColor: 'bg-green-100',
     pouchImage: '/imgs/testimonials/pouch-hover/ruby.webp',
-    videoId: 'G-1mKvEbAZg',  // YouTube Shorts video testimonial
+    videoId: 'Oy12Kb4PM54',  // YouTube Shorts video testimonial
     translations: {
       en: {
         quote: "The packaging looks and feels wonderful, matches my design almost perfectly. It's the main thing customers compliment about our products.",

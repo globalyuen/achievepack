@@ -1,11 +1,13 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { blogPosts } from '../../data/blogData';
-import { Calendar, Clock, ArrowLeft, Tag, Share2 } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, Tag, Share2, ShoppingCart } from 'lucide-react';
+import { useStore } from '../../store/StoreContext';
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const post = blogPosts.find(p => p.slug === slug);
+  const { cartCount } = useStore();
 
   if (!post) {
     return <Navigate to="/blog" replace />;
@@ -92,18 +94,39 @@ export default function BlogPostPage() {
       </Helmet>
 
       <div className="min-h-screen bg-neutral-50">
-        {/* Back Navigation */}
-        <div className="bg-white border-b">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <Link
-              to="/blog"
-              className="inline-flex items-center gap-2 text-neutral-600 hover:text-green-600 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Blog
-            </Link>
+        {/* Header */}
+        <header className="bg-green-600 text-white fixed top-0 left-0 right-0 z-50">
+          <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <Link to="/" className="flex items-center gap-3 hover:opacity-90 transition">
+                <img 
+                  src="/ap-logo-white.png" 
+                  alt="Achieve Pack" 
+                  className="h-10 w-auto"
+                />
+                <span className="text-2xl font-bold hidden sm:inline">Blog</span>
+              </Link>
+            </div>
+            <div className="flex items-center gap-4">
+              <Link to="/blog" className="flex items-center gap-2 text-white/80 hover:text-white transition">
+                <ArrowLeft className="h-4 w-4" />
+                <span className="hidden sm:inline">All Articles</span>
+              </Link>
+              <Link to="/store" className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full hover:bg-white/20 transition">
+                <ShoppingCart className="h-5 w-5" />
+                <span className="hidden sm:inline">Store</span>
+                {cartCount > 0 && (
+                  <span className="bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
+                    {cartCount}
+                  </span>
+                )}
+              </Link>
+            </div>
           </div>
-        </div>
+        </header>
+
+        {/* Spacer for fixed header */}
+        <div className="h-[72px]"></div>
 
         {/* Article Header */}
         <header className="bg-white py-12 md:py-16">
