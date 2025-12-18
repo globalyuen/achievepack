@@ -34,6 +34,8 @@ export interface BaseStoreProduct {
   inStock: boolean
   turnaround: string
   minOrder: number
+  // YouTube video URL for product demo
+  videoUrl?: string
 }
 
 // Sample product
@@ -246,6 +248,7 @@ const SAMPLE_PRODUCTS: SampleProduct[] = [
     sampleCost: 0,
     shippingCost: 40,
     basePrice: 40,
+    videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
   {
     id: 'sample-assorted-eco',
@@ -265,6 +268,7 @@ const SAMPLE_PRODUCTS: SampleProduct[] = [
     sampleCost: 0,
     shippingCost: 40,
     basePrice: 40,
+    videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
   {
     id: 'sample-top-film',
@@ -284,6 +288,7 @@ const SAMPLE_PRODUCTS: SampleProduct[] = [
     sampleCost: 20,
     shippingCost: 40,
     basePrice: 60,
+    videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
   {
     id: 'sample-hand-sealed',
@@ -303,6 +308,7 @@ const SAMPLE_PRODUCTS: SampleProduct[] = [
     sampleCost: 20,
     shippingCost: 40,
     basePrice: 60,
+    videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
 ]
 
@@ -329,6 +335,7 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     minOrder: 100,
     shape: '3-side-seal',
     basePrice: 90,
+    videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
   {
     id: 'conven-3ss-clear-zip',
@@ -350,6 +357,7 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     minOrder: 100,
     shape: 'zipper-3-side-seal',
     basePrice: 110,
+    videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
   {
     id: 'conven-3ss-met-xzip',
@@ -371,6 +379,7 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     minOrder: 100,
     shape: '3-side-seal',
     basePrice: 90,
+    videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
   {
     id: 'conven-3ss-met-zip',
@@ -392,6 +401,7 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     minOrder: 100,
     shape: 'zipper-3-side-seal',
     basePrice: 110,
+    videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
   
   // ===== Stand Up Pouches =====
@@ -416,6 +426,7 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     minOrder: 100,
     shape: 'stand-up',
     basePrice: 90,
+    videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
   {
     id: 'conven-sup-clear-zip',
@@ -438,6 +449,7 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     minOrder: 100,
     shape: 'zipper-stand-up',
     basePrice: 100,
+    videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
   {
     id: 'conven-sup-met-xzip',
@@ -460,6 +472,7 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     minOrder: 100,
     shape: 'stand-up',
     basePrice: 90,
+    videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
   {
     id: 'conven-sup-met-zip',
@@ -482,6 +495,7 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     minOrder: 100,
     shape: 'zipper-stand-up',
     basePrice: 100,
+    videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
 ]
 
@@ -514,6 +528,7 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
       defaultZipper: 'No',
       defaultShippingMethod: 'Air Freight',
     },
+    videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
 
   // Center Seal Pouch
@@ -543,6 +558,7 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
       defaultZipper: 'No',
       defaultShippingMethod: 'Air Freight',
     },
+    videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
 
   // Stand Up Pouch
@@ -572,6 +588,7 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
       defaultZipper: 'No',
       defaultShippingMethod: 'Air Freight',
     },
+    videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
 
   // Box Bottom Pouch
@@ -601,6 +618,7 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
       defaultZipper: 'No',
       defaultShippingMethod: 'Air Freight',
     },
+    videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
 
   // Flat Squared Bottom Pouch
@@ -630,6 +648,7 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
       defaultZipper: 'No',
       defaultShippingMethod: 'Air Freight',
     },
+    videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
 
   // Quad Seal Pouch
@@ -659,6 +678,7 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
       defaultZipper: 'No',
       defaultShippingMethod: 'Air Freight',
     },
+    videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
 
   // Side Gusset Pouch
@@ -688,6 +708,7 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
       defaultZipper: 'No',
       defaultShippingMethod: 'Air Freight',
     },
+    videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
 ]
 
@@ -722,6 +743,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
     quantityStep: 500,
     sizeInfo: '140mm x 290mm + 80mm',
     customPrintNote: 'Custom print available for orders of 5,000+ pcs per design. Contact us for details.',
+    videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
   // Compostable Flat Bottom Pouch - Clear
   {
@@ -752,6 +774,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
     quantityStep: 500,
     sizeInfo: '140mm x 290mm + 80mm',
     customPrintNote: 'Custom print available for orders of 5,000+ pcs per design. Contact us for details.',
+    videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
   // Compostable Header Bag with Adhesive
   {
