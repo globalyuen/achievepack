@@ -99,6 +99,12 @@ import OutdoorSnacksCaseStudy from './pages/case-studies/OutdoorSnacksCaseStudy'
 import BlogPage from './pages/blog/BlogPage'
 import BlogPostPage from './pages/blog/BlogPostPage'
 
+// USA Pages
+import USACompostableHubPage from './pages/usa/USACompostableHubPage'
+import USACoffeePage from './pages/usa/USACoffeePage'
+import USASnacksPage from './pages/usa/USASnacksPage'
+import USALabelingGuidePage from './pages/usa/USALabelingGuidePage'
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <HelmetProvider>
@@ -196,6 +202,12 @@ createRoot(document.getElementById('root')!).render(
               {/* Blog Pages */}
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/blog/:slug" element={<BlogPostPage />} />
+
+              {/* USA Pages */}
+              <Route path="/usa/compostable-packaging" element={<USACompostableHubPage />} />
+              <Route path="/usa/coffee-packaging" element={<USACoffeePage />} />
+              <Route path="/usa/snacks-packaging" element={<USASnacksPage />} />
+              <Route path="/usa/labeling-guide" element={<USALabelingGuidePage />} />
             </Routes>
               {/* Global Floating Buttons - WhatsApp & Meeting */}
               <FloatingButtons />
