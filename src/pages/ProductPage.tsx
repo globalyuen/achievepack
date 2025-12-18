@@ -2080,7 +2080,7 @@ const ProductPage: React.FC = () => {
       </main>
 
       {/* Desktop Top Fixed Bar - Similar to mobile but at top */}
-      {isEcoDigital && calculationResult && (
+      {isEcoDigital && (
         <div className="hidden lg:block fixed top-[60px] left-0 right-0 z-40">
           {/* Top Bar with icons */}
           <div className="bg-white border-b border-neutral-200 shadow-sm">
@@ -2119,7 +2119,7 @@ const ProductPage: React.FC = () => {
           </div>
           
           {/* Expandable Panel */}
-          {mobileActivePanel !== 'none' && (
+          {mobileActivePanel !== 'none' && calculationResult && (
             <div className="bg-white border-b border-neutral-200 shadow-lg max-h-[50vh] overflow-y-auto">
               <div className="max-w-7xl mx-auto px-4">
                 {mobileActivePanel === 'preview' && (

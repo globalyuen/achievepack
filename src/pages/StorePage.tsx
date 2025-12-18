@@ -418,7 +418,7 @@ const StorePage: React.FC = () => {
       {/* Footer */}
       <footer className="bg-neutral-900 text-white py-12 mt-16">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-8">
             {/* Store Info */}
             <div className="col-span-2 md:col-span-1">
               <Link to="/" className="flex items-center gap-2 mb-4">
@@ -440,40 +440,55 @@ const StorePage: React.FC = () => {
                 <li><Link to="/store" onClick={() => { setSelectedCategory('sample'); requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' })) }} className="hover:text-primary-400">Sample Packs</Link></li>
                 <li><Link to="/store" onClick={() => { setSelectedCategory('conventional-digital'); requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' })) }} className="hover:text-primary-400">Conventional Digital</Link></li>
                 <li><Link to="/store" onClick={() => { setSelectedCategory('eco-digital'); requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' })) }} className="hover:text-primary-400">Eco Digital</Link></li>
+                <li><Link to="/store" onClick={() => { setSelectedCategory('eco-stock'); requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' })) }} className="hover:text-primary-400">Eco Stock</Link></li>
               </ul>
             </div>
 
             {/* Shapes */}
             <div>
-              <h4 className="font-semibold text-sm mb-4">Shapes</h4>
+              <h4 className="font-semibold text-sm mb-4">Pouch Shapes</h4>
               <ul className="space-y-2 text-xs text-neutral-400">
-                <li><Link to="/store" onClick={() => { setSelectedShape('Stand Up Pouch / Doypack'); requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' })) }} className="hover:text-primary-400">Stand Up Pouches</Link></li>
-                <li><Link to="/store" onClick={() => { setSelectedShape('Flat Squared Bottom Pouch'); requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' })) }} className="hover:text-primary-400">Flat Bottom Bags</Link></li>
-                <li><Link to="/store" onClick={() => { setSelectedShape('3 Side Seal Pouch'); requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' })) }} className="hover:text-primary-400">3 Side Seal</Link></li>
-                <li><Link to="/store" onClick={() => { setSelectedShape('Side Gusset Pouch'); requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' })) }} className="hover:text-primary-400">Side Gusset</Link></li>
-                <li><Link to="/store" onClick={() => { setSelectedShape('Quad Seal Pouch'); requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' })) }} className="hover:text-primary-400">Quad Seal</Link></li>
+                <li><Link to="/packaging/stand-up-pouches" className="hover:text-primary-400">Stand Up Pouches</Link></li>
+                <li><Link to="/packaging/flat-bottom-bags" className="hover:text-primary-400">Flat Bottom Bags</Link></li>
+                <li><Link to="/packaging/flat-pouches" className="hover:text-primary-400">3 Side Seal</Link></li>
+                <li><Link to="/packaging/side-gusset-bags" className="hover:text-primary-400">Side Gusset</Link></li>
+                <li><Link to="/packaging/spout-pouches" className="hover:text-primary-400">Spout Pouches</Link></li>
+              </ul>
+            </div>
+
+            {/* Materials */}
+            <div>
+              <h4 className="font-semibold text-sm mb-4">Materials</h4>
+              <ul className="space-y-2 text-xs text-neutral-400">
+                <li><Link to="/materials/compostable" className="hover:text-primary-400">Compostable</Link></li>
+                <li><Link to="/materials/recyclable-mono-pe" className="hover:text-primary-400">Recyclable Mono-PE</Link></li>
+                <li><Link to="/materials/bio-pe" className="hover:text-primary-400">Bio-PE / PCR</Link></li>
+                <li><Link to="/materials/kraft-paper-pe-lining" className="hover:text-primary-400">Kraft Paper</Link></li>
+                <li><Link to="/materials/home-compostable" className="hover:text-primary-400">Home Compostable</Link></li>
+              </ul>
+            </div>
+
+            {/* Store Policies */}
+            <div>
+              <h4 className="font-semibold text-sm mb-4">Store Policies</h4>
+              <ul className="space-y-2 text-xs text-neutral-400">
+                <li><Link to="/terms" className="hover:text-primary-400">Terms & Conditions</Link></li>
+                <li><Link to="/returns" className="hover:text-primary-400">Return Policy</Link></li>
+                <li><Link to="/shipping" className="hover:text-primary-400">Shipping Info</Link></li>
+                <li><Link to="/privacy" className="hover:text-primary-400">Privacy Policy</Link></li>
+                <li><Link to="/support/lead-time" className="hover:text-primary-400">Lead Time</Link></li>
               </ul>
             </div>
 
             {/* Support */}
             <div>
-              <h4 className="font-semibold text-sm mb-4">Support</h4>
+              <h4 className="font-semibold text-sm mb-4">Help & Support</h4>
               <ul className="space-y-2 text-xs text-neutral-400">
-                <li><Link to="/support/faqs" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-400">FAQs</Link></li>
-                <li><Link to="/support/lead-time" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-400">Lead Time</Link></li>
-                <li><Link to="/knowledge/workflow" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-400">Workflow</Link></li>
+                <li><Link to="/support/faqs" className="hover:text-primary-400">FAQs</Link></li>
+                <li><Link to="/knowledge/workflow" className="hover:text-primary-400">How It Works</Link></li>
+                <li><Link to="/blog" className="hover:text-primary-400">Blog</Link></li>
                 <li><a href="mailto:ryan@achievepack.com" className="hover:text-primary-400">Contact Us</a></li>
-              </ul>
-            </div>
-
-            {/* Legal */}
-            <div>
-              <h4 className="font-semibold text-sm mb-4">Legal</h4>
-              <ul className="space-y-2 text-xs text-neutral-400">
-                <li><Link to="/terms" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-400">Terms & Conditions</Link></li>
-                <li><Link to="/privacy" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-400">Privacy Policy</Link></li>
-                <li><Link to="/shipping" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-400">Shipping Policy</Link></li>
-                <li><Link to="/returns" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-400">Return Policy</Link></li>
+                <li><Link to="/" className="hover:text-primary-400">Main Website</Link></li>
               </ul>
             </div>
           </div>

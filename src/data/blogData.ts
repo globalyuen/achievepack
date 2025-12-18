@@ -24,7 +24,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Comprehensive analysis evaluating leading eco-friendly packaging pouch manufacturers in the US market using Weighted Supplier Scorecard and SWOT Analysis framework.",
     content: `
       <figure class="my-8">
-        <img src="/imgs/blog/1/a_eco_packaging_hero_collection_4454797.webp" alt="Sustainable packaging materials showcase - eco-friendly pouches" class="w-full rounded-xl" />
+        <img src="/imgs/blog/Sustainable-packaging/a_eco_packaging_hero_collection_4454797.webp" alt="Sustainable packaging materials showcase - eco-friendly pouches" class="w-full rounded-xl" />
         <figcaption class="text-center text-sm text-neutral-500 mt-3">Sustainable packaging materials showcase</figcaption>
       </figure>
 
@@ -63,7 +63,7 @@ export const blogPosts: BlogPost[] = [
       <p>The eco-friendly packaging market reveals distinct segmentation based on business model and target customer scale. This segmentation directly impacts supplier capabilities, pricing structures, and operational approaches.</p>
 
       <figure class="my-8">
-        <img src="/imgs/blog/1/a_brand_showcase_sustainable_packaging_7993247.webp" alt="Brand showcase sustainable packaging options" class="w-full rounded-xl" />
+        <img src="/imgs/blog/Sustainable-packaging/a_brand_showcase_sustainable_packaging_7993247.webp" alt="Brand showcase sustainable packaging options" class="w-full rounded-xl" />
         <figcaption class="text-center text-sm text-neutral-500 mt-3">Leading eco-friendly packaging brands and their sustainable solutions</figcaption>
       </figure>
 
@@ -232,7 +232,7 @@ export const blogPosts: BlogPost[] = [
       <h2>Strategic Conclusions & Decision Framework</h2>
 
       <figure class="my-8">
-        <img src="/imgs/blog/1/a_packaging_decision_matrix_infographic_6353215.webp" alt="Packaging supplier decision matrix infographic" class="w-full rounded-xl" />
+        <img src="/imgs/blog/Sustainable-packaging/a_packaging_decision_matrix_infographic_6353215.webp" alt="Packaging supplier decision matrix infographic" class="w-full rounded-xl" />
         <figcaption class="text-center text-sm text-neutral-500 mt-3">Decision matrix for sustainable packaging supplier selection</figcaption>
       </figure>
 
@@ -270,10 +270,10 @@ export const blogPosts: BlogPost[] = [
       </ul>
     `,
     author: "Achieve Pack Team",
-    publishDate: "2026-01-15",
+    publishDate: "2025-10-23",
     category: "Industry Analysis",
     tags: ["sustainable packaging", "supplier analysis", "eco-friendly", "manufacturers", "SWOT analysis", "startups", "compostable pouches", "low MOQ packaging", "recyclable packaging", "small business packaging"],
-    featuredImage: "/imgs/blog/1/a_eco_packaging_hero_collection_4454797.webp",
+    featuredImage: "/imgs/blog/Sustainable-packaging/a_eco_packaging_hero_collection_4454797.webp",
     readTime: 15,
     metaDescription: "2026 comprehensive analysis comparing sustainable packaging suppliers: Pouch.eco vs EcoEnclose vs ePac. Find the best eco-friendly pouch manufacturer for your business with our Weighted Scorecard and SWOT framework. Low MOQ from 100 units."
   },
@@ -284,7 +284,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Complete guide to recyclable packaging solutions for beauty and cosmetics brands. Explore mono-PE, PCR materials, sustainability certifications, and how to choose the right eco-friendly pouch for your cosmetic products.",
     content: `
       <figure class="my-8">
-        <img src="/imgs/blog/2/a_recyclable_cosmetic_packaging_pouches_3486985.webp" alt="Recyclable cosmetic packaging pouches for beauty brands" class="w-full rounded-xl" />
+        <img src="/imgs/blog/Recyclable/a_recyclable_cosmetic_packaging_pouches_3486985.webp" alt="Recyclable cosmetic packaging pouches for beauty brands" class="w-full rounded-xl" />
         <figcaption class="text-center text-sm text-neutral-500 mt-3">Recyclable cosmetic packaging pouches - sustainable solutions for beauty brands</figcaption>
       </figure>
 
@@ -311,7 +311,7 @@ export const blogPosts: BlogPost[] = [
       <h2>Material Options for Recyclable Cosmetic Pouches</h2>
 
       <figure class="my-8">
-        <img src="/imgs/blog/2/a_packaging_materials_comparison_chart_0623698.webp" alt="Packaging materials comparison chart for cosmetics" class="w-full rounded-xl" />
+        <img src="/imgs/blog/Recyclable/a_packaging_materials_comparison_chart_0623698.webp" alt="Packaging materials comparison chart for cosmetics" class="w-full rounded-xl" />
         <figcaption class="text-center text-sm text-neutral-500 mt-3">Comparison of recyclable materials for cosmetic packaging</figcaption>
       </figure>
 
@@ -510,7 +510,7 @@ export const blogPosts: BlogPost[] = [
       <h2>Implementation Roadmap</h2>
 
       <figure class="my-8">
-        <img src="/imgs/blog/2/a_recyclable_packaging_circular_economy_9642967.webp" alt="Circular economy recyclable packaging implementation" class="w-full rounded-xl" />
+        <img src="/imgs/blog/Recyclable/a_recyclable_packaging_circular_economy_9642967.webp" alt="Circular economy recyclable packaging implementation" class="w-full rounded-xl" />
         <figcaption class="text-center text-sm text-neutral-500 mt-3">Implementing recyclable packaging as part of a circular economy strategy</figcaption>
       </figure>
 
@@ -546,10 +546,10 @@ export const blogPosts: BlogPost[] = [
       </ul>
     `,
     author: "Achieve Pack Team",
-    publishDate: "2026-01-15",
+    publishDate: "2025-11-05",
     category: "Sustainable Packaging",
     tags: ["recyclable packaging", "cosmetic packaging", "beauty packaging", "mono-PE", "PCR materials", "sustainable cosmetics", "eco-friendly beauty", "packaging certifications", "circular economy", "bio-PE"],
-    featuredImage: "/imgs/blog/2/a_recyclable_cosmetic_packaging_pouches_3486985.webp",
+    featuredImage: "/imgs/blog/Recyclable/a_recyclable_cosmetic_packaging_pouches_3486985.webp",
     readTime: 12,
     metaDescription: "2026 guide to recyclable cosmetic packaging pouches. Compare mono-PE, PCR, and Bio-PE materials for beauty brands. Low MOQ from 100 units. Certifications, costs, and implementation roadmap."
   },
@@ -754,7 +754,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
     `,
     author: "Achieve Pack Team",
-    publishDate: "2026-01-15",
+    publishDate: "2025-11-18",
     category: "Pet Food Packaging",
     tags: ["plant-based pet food", "sustainable packaging", "pet food packaging", "compostable pouches", "eco-friendly pet food", "bio-PE", "recyclable packaging", "vegan packaging", "pet treats packaging", "low MOQ"],
     featuredImage: "/imgs/blog/plant/a_plant_based_pet_food_packaging_design_0193748.webp",
@@ -1057,7 +1057,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
     `,
     author: "Achieve Pack Team",
-    publishDate: "2026-01-15",
+    publishDate: "2025-12-02",
     category: "Pet Food Packaging",
     tags: ["pet food packaging", "sustainable materials", "compostable packaging", "recyclable packaging", "mono-PE", "bio-PE", "packaging supplier", "pet treats", "eco-friendly", "material selection"],
     featuredImage: "/imgs/blog/Sustainable-pet/a_sustainable_pet_food_packaging_hero_2601845.webp",
@@ -1355,7 +1355,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
     `,
     author: "Achieve Pack Team",
-    publishDate: "2026-01-15",
+    publishDate: "2025-12-10",
     category: "Startup Resources",
     tags: ["pet treat packaging", "startup guide", "eco-friendly pouches", "low MOQ packaging", "sustainable packaging", "pet food startup", "recyclable pouches", "compostable packaging", "small business packaging", "pet treats"],
     featuredImage: "/imgs/blog/Sustainable-pet/a_pet_food_packaging_solutions_guide_9437354.webp",
@@ -1585,7 +1585,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
     `,
     author: "Achieve Pack Team",
-    publishDate: "2026-01-15",
+    publishDate: "2025-12-16",
     category: "Guides",
     tags: ["compostable pouches", "stand up pouch", "sustainable packaging", "coffee packaging", "tea packaging", "snack packaging", "pet food packaging", "supplements packaging", "low MOQ", "EN 13432", "ASTM D6400", "BPI certified", "food packaging"],
     featuredImage: "/imgs/blog/How/a_compostable_pouches_product_showcase_1649901.webp",
