@@ -1386,7 +1386,7 @@ ${formData.message}`
       {/* Footer */}
       <footer className="bg-neutral-900 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-9 gap-6">
             {/* Company Info */}
             <div className="lg:col-span-1">
               <div className="flex items-center space-x-2 mb-2">
@@ -1475,6 +1475,17 @@ ${formData.message}`
                 <li><Link to="/case-studies/pet-treats" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.petTreats')}</Link></li>
                 <li><Link to="/case-studies/chocolate-brand" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.chocolate')}</Link></li>
                 <li><Link to="/case-studies/bakery" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.bakery')}</Link></li>
+              </ul>
+            </div>
+
+            {/* USA */}
+            <div>
+              <h4 className="text-sm font-semibold mb-2">🇺🇸 USA</h4>
+              <ul className="space-y-1 text-neutral-400 text-xs">
+                <li><Link to="/usa/compostable-packaging" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">Compostable Hub</Link></li>
+                <li><Link to="/usa/coffee-packaging" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">Coffee Packaging</Link></li>
+                <li><Link to="/usa/snacks-packaging" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">Snacks Packaging</Link></li>
+                <li><Link to="/usa/labeling-guide" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">Labeling Guide</Link></li>
               </ul>
             </div>
 
