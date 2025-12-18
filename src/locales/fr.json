@@ -2690,5 +2690,28 @@
         },
         "learnMore": "En savoir plus sur notre impact",
         "backToAchievePack": "Retour à Achieve Pack"
+    },
+    "ecoVideo": {
+        "sectionTitle": "Découvrez nos matériaux écologiques en action",
+        "whyAchievepack": {
+            "title": "Pourquoi AchievePack ?",
+            "desc": "Découvrez pourquoi les marques nous choisissent"
+        },
+        "sampleAction": {
+            "title": "Échantillons en action",
+            "desc": "Regardez nos pochettes en démonstration"
+        },
+        "compostable": {
+            "title": "Compostable",
+            "desc": "Solution 100% biodégradable"
+        },
+        "recyclable": {
+            "title": "Recyclable",
+            "desc": "Mono-matériau recyclable"
+        },
+        "biope": {
+            "title": "BioPE",
+            "desc": "Plastique d'origine végétale"
+        }
     }
 }

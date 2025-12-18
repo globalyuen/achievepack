@@ -5,6 +5,8 @@ import { useStore } from '../store/StoreContext'
 import { FEATURED_PRODUCTS, type StoreProduct, type EcoDigitalProduct, type ConventionalProduct } from '../store/productData'
 import { getProductImage } from '../utils/productImageMapper'
 import type { ShapeType } from '../utils/productImageMapper'
+import RandomBanner from '../components/RandomBanner'
+import EcoVideoShowcase from '../components/EcoVideoShowcase'
 
 type ViewMode = 'grid' | 'list'
 type SortOption = 'popularity' | 'price-low' | 'price-high' | 'newest'
@@ -198,6 +200,12 @@ const StorePage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Random Banner */}
+      <RandomBanner className="" />
+
+      {/* Eco Video Showcase */}
+      <EcoVideoShowcase className="" />
 
       <main className="max-w-7xl mx-auto px-4 py-8">
         {/* Search Result Header */}

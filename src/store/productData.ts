@@ -111,6 +111,8 @@ export interface EcoStockProduct extends BaseStoreProduct {
   // For multi-size with multi-quantity products like Mailer Bag
   sizeWithQuantities?: EcoStockSizeWithQuantities[]
   customPrintNote?: string
+  // YouTube video URL for product demo
+  videoUrl?: string
 }
 
 export interface PouchSize {
@@ -894,6 +896,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       ]},
     ],
     customPrintNote: 'Custom print available for orders of 5,000+ pcs per design. Contact us for details.',
+    videoUrl: 'https://youtu.be/rqAtUbtzOuY',
   },
 ]
 

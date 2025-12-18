@@ -56,6 +56,9 @@ const ProductPage: React.FC = () => {
   // Image enlargement modal state
   const [enlargedImage, setEnlargedImage] = useState<{ src: string; alt: string } | null>(null)
   
+  // Video modal state for eco-stock products
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
+  
   // Collapsible section states
   const [isLeftCollapsed, setIsLeftCollapsed] = useState(true)
   const [isRightCollapsed, setIsRightCollapsed] = useState(true)
@@ -508,17 +511,38 @@ const ProductPage: React.FC = () => {
               {/* Thumbnail Gallery */}
               {product.images.length > 1 && (
                 <div className="grid grid-cols-5 gap-2">
-                  {product.images.map((img, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setSelectedMainImage(index)}
-                      className={`aspect-square bg-white rounded-lg border-2 overflow-hidden transition-all hover:shadow-md ${
-                        selectedMainImage === index ? 'border-green-600 ring-2 ring-green-200' : 'border-neutral-200'
-                      }`}
-                    >
-                      <img src={img} alt={`View ${index + 1}`} className="w-full h-full object-contain p-1" />
-                    </button>
-                  ))}
+                  {product.images.map((img, index) => {
+                    const isLastImage = index === product.images.length - 1
+                    const hasVideo = ecoStockProduct.videoUrl && isLastImage
+                    
+                    return (
+                      <button
+                        key={index}
+                        onClick={() => {
+                          if (hasVideo) {
+                            setIsVideoModalOpen(true)
+                          } else {
+                            setSelectedMainImage(index)
+                          }
+                        }}
+                        className={`relative aspect-square bg-white rounded-lg border-2 overflow-hidden transition-all hover:shadow-md ${
+                          selectedMainImage === index && !hasVideo ? 'border-green-600 ring-2 ring-green-200' : 'border-neutral-200'
+                        }`}
+                      >
+                        <img src={img} alt={`View ${index + 1}`} className="w-full h-full object-contain p-1" />
+                        {/* YouTube Play Icon Overlay */}
+                        {hasVideo && (
+                          <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                            <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
+                              <svg className="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                              </svg>
+                            </div>
+                          </div>
+                        )}
+                      </button>
+                    )
+                  })}
                 </div>
               )}
               
@@ -2254,6 +2278,36 @@ const ProductPage: React.FC = () => {
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
               <p className="text-white text-center font-medium">{enlargedImage.alt}</p>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* YouTube Video Modal */}
+      {isVideoModalOpen && ecoStockProduct?.videoUrl && (
+        <div 
+          className="fixed inset-0 bg-black flex items-center justify-center z-50"
+          onClick={() => setIsVideoModalOpen(false)}
+        >
+          <button
+            onClick={() => setIsVideoModalOpen(false)}
+            className="absolute top-4 right-4 bg-white/20 hover:bg-white/30 rounded-full p-2 transition z-10"
+          >
+            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <div 
+            className="w-full max-w-4xl aspect-video"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <iframe
+              src={`https://www.youtube.com/embed/${ecoStockProduct.videoUrl.split('/').pop()}?autoplay=1`}
+              title="Product Video"
+              className="w-full h-full"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
           </div>
         </div>
       )}

@@ -2690,5 +2690,28 @@
         },
         "learnMore": "瞭解更多我們的影響",
         "backToAchievePack": "返回 Achieve Pack"
+    },
+    "ecoVideo": {
+        "sectionTitle": "觀看我們的環保材料實際應用",
+        "whyAchievepack": {
+            "title": "為什麼選擇 AchievePack？",
+            "desc": "了解品牌選擇我們的原因"
+        },
+        "sampleAction": {
+            "title": "樣品展示",
+            "desc": "觀看我們袋子的表現"
+        },
+        "compostable": {
+            "title": "可堆肥",
+            "desc": "100% 可生物降解方案"
+        },
+        "recyclable": {
+            "title": "可回收",
+            "desc": "單一材料可回收"
+        },
+        "biope": {
+            "title": "生物基 PE",
+            "desc": "植物基塑料"
+        }
     }
 }

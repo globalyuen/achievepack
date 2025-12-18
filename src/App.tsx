@@ -18,6 +18,8 @@ import FloatingTestimonialVideo from './components/FloatingTestimonialVideo'
 import YouTubeShorts from './components/YouTubeShorts'
 import InstagramFeed from './components/InstagramFeed'
 import ClimateAction from './components/ClimateAction'
+import RandomBanner from './components/RandomBanner'
+import EcoVideoShowcase from './components/EcoVideoShowcase'
 import type { CalculatorResults } from './utils/calculatorUtils'
 import { useStore } from './store/StoreContext'
 import { FEATURED_PRODUCTS, type PouchProduct } from './store/productData'
@@ -359,6 +361,12 @@ ${formData.message}`
       </section>
 
       {/* 3D Eco Pouch Material Experience - Disabled */}
+
+      {/* Random Banner - Below Hero */}
+      <RandomBanner className="" />
+
+      {/* Eco Video Showcase */}
+      <EcoVideoShowcase className="" />
 
       {/* Brief Testimonials - Avatar Row */}
       <BriefTestimonials />
