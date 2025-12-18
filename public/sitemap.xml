@@ -347,4 +347,66 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+
+  <!-- Blog Pages -->
+  <url>
+    <loc>https://achievepack.com/blog</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://achievepack.com/blog/eco-friendly-packaging-pouch-manufacturers-fast-shipping-us</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://achievepack.com/blog/recyclable-packaging-pouches-cosmetics</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://achievepack.com/blog/affordable-eco-friendly-packaging-startups</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://achievepack.com/blog/plant-based-packaging-pouches-pet-food-reviews</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://achievepack.com/blog/eco-friendly-packaging-pouch-guide</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://achievepack.com/blog/top-brands-compostable-packaging-pouches</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://achievepack.com/blog/choose-sustainable-packaging-pouches-food</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://achievepack.com/blog/buy-biodegradable-packaging-pouches-online-us</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://achievepack.com/blog/best-eco-friendly-packaging-pouches-small-businesses</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

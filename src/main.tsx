@@ -94,6 +94,10 @@ import AdaptogensCaseStudy from './pages/case-studies/AdaptogensCaseStudy'
 import React, { Suspense } from 'react'
 import OutdoorSnacksCaseStudy from './pages/case-studies/OutdoorSnacksCaseStudy'
 
+// Blog Pages
+import BlogPage from './pages/blog/BlogPage'
+import BlogPostPage from './pages/blog/BlogPostPage'
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <HelmetProvider>
@@ -187,6 +191,10 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/case-studies/bath-products" element={<BathProductsCaseStudy />} />
               <Route path="/case-studies/adaptogens" element={<AdaptogensCaseStudy />} />
               <Route path="/case-studies/outdoor-snacks" element={<OutdoorSnacksCaseStudy />} />
+
+              {/* Blog Pages */}
+              <Route path="/blog" element={<BlogPage />} />
+              <Route path="/blog/:slug" element={<BlogPostPage />} />
             </Routes>
           </StoreProvider>
         </BrowserRouter>
