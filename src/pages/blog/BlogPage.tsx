@@ -42,6 +42,10 @@ export default function BlogPage() {
                   src="/ap-logo-white.png" 
                   alt="Achieve Pack" 
                   className="h-10 w-auto"
+                  loading="eager"
+                  decoding="async"
+                  width="133"
+                  height="40"
                 />
                 <span className="text-2xl font-bold hidden sm:inline">Blog</span>
               </Link>

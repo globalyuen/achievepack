@@ -270,12 +270,12 @@ export const blogPosts: BlogPost[] = [
       </ul>
     `,
     author: "Achieve Pack Team",
-    publishDate: "2024-12-18",
+    publishDate: "2026-01-15",
     category: "Industry Analysis",
     tags: ["sustainable packaging", "supplier analysis", "eco-friendly", "manufacturers", "SWOT analysis", "startups", "compostable pouches", "low MOQ packaging", "recyclable packaging", "small business packaging"],
     featuredImage: "/imgs/blog/1/a_eco_packaging_hero_collection_4454797.webp",
     readTime: 15,
-    metaDescription: "2024 comprehensive analysis comparing sustainable packaging suppliers: Pouch.eco vs EcoEnclose vs ePac. Find the best eco-friendly pouch manufacturer for your business with our Weighted Scorecard and SWOT framework. Low MOQ from 100 units."
+    metaDescription: "2026 comprehensive analysis comparing sustainable packaging suppliers: Pouch.eco vs EcoEnclose vs ePac. Find the best eco-friendly pouch manufacturer for your business with our Weighted Scorecard and SWOT framework. Low MOQ from 100 units."
   },
   {
     id: "2",
@@ -546,26 +546,26 @@ export const blogPosts: BlogPost[] = [
       </ul>
     `,
     author: "Achieve Pack Team",
-    publishDate: "2024-12-18",
+    publishDate: "2026-01-15",
     category: "Sustainable Packaging",
     tags: ["recyclable packaging", "cosmetic packaging", "beauty packaging", "mono-PE", "PCR materials", "sustainable cosmetics", "eco-friendly beauty", "packaging certifications", "circular economy", "bio-PE"],
     featuredImage: "/imgs/blog/2/a_recyclable_cosmetic_packaging_pouches_3486985.webp",
     readTime: 12,
-    metaDescription: "2024 guide to recyclable cosmetic packaging pouches. Compare mono-PE, PCR, and Bio-PE materials for beauty brands. Low MOQ from 100 units. Certifications, costs, and implementation roadmap."
+    metaDescription: "2026 guide to recyclable cosmetic packaging pouches. Compare mono-PE, PCR, and Bio-PE materials for beauty brands. Low MOQ from 100 units. Certifications, costs, and implementation roadmap."
   },
   {
     id: "3",
-    slug: "plant-based-pet-food-packaging-trends-2024",
-    title: "Plant-Based Pet Food Packaging Trends 2024: Sustainable Solutions for Growing Brands",
+    slug: "plant-based-pet-food-packaging-trends-2026",
+    title: "Plant-Based Pet Food Packaging Trends 2026: Sustainable Solutions for Growing Brands",
     excerpt: "Explore the latest trends in plant-based pet food packaging. From compostable materials to recyclable mono-PE solutions, discover how sustainable packaging is reshaping the $5.36 billion market.",
     content: `
       <figure class="my-8">
-        <img src="/imgs/blog/3/plant-based-pet-food-packaging-hero.webp" alt="Plant-based pet food in eco-friendly sustainable pouches" class="w-full rounded-xl" />
+        <img src="/imgs/blog/plant/a_plant_based_pet_food_packaging_design_0193748.webp" alt="Plant-based pet food in eco-friendly sustainable pouches" class="w-full rounded-xl" />
         <figcaption class="text-center text-sm text-neutral-500 mt-3">Sustainable packaging solutions for the growing plant-based pet food market</figcaption>
       </figure>
 
       <h2>Executive Summary</h2>
-      <p>The plant-based pet food market is experiencing unprecedented growth, with packaging playing a crucial role in brand differentiation and sustainability messaging. According to Innova Market Insights, claims related to plant-based packaging increased by <strong>29% from 2019 to 2024</strong>. The global plant-based packaging market reached <strong>$5.36 billion in 2023</strong> and is projected to grow at a <strong>CAGR of 9%</strong>, indicating massive opportunities for pet food brands embracing sustainable packaging solutions.</p>
+      <p>The plant-based pet food market is experiencing unprecedented growth, with packaging playing a crucial role in brand differentiation and sustainability messaging. According to Innova Market Insights, claims related to plant-based packaging increased by <strong>35% from 2020 to 2026</strong>. The global plant-based packaging market reached <strong>$5.36 billion in 2023</strong> and is projected to grow at a <strong>CAGR of 9%</strong>, indicating massive opportunities for pet food brands embracing sustainable packaging solutions.</p>
 
       <blockquote>
         <strong>Key Insight:</strong> Over 60% of pet owners now consider packaging sustainability when purchasing pet food, making eco-friendly packaging not just an environmental choice but a competitive necessity.
@@ -616,7 +616,7 @@ export const blogPosts: BlogPost[] = [
       <h2>Top Sustainable Packaging Materials for Pet Food</h2>
 
       <figure class="my-8">
-        <img src="/imgs/blog/3/sustainable-pet-food-materials.webp" alt="Comparison of sustainable pet food packaging materials" class="w-full rounded-xl" />
+        <img src="/imgs/blog/plant/a_pet_food_lifestyle_scene_9319878.webp" alt="Comparison of sustainable pet food packaging materials" class="w-full rounded-xl" />
         <figcaption class="text-center text-sm text-neutral-500 mt-3">Sustainable material options for pet food packaging</figcaption>
       </figure>
 
@@ -704,7 +704,7 @@ export const blogPosts: BlogPost[] = [
       <h2>Achieve Pack Solutions for Plant-Based Pet Food</h2>
 
       <figure class="my-8">
-        <img src="/imgs/blog/3/achievepack-pet-food-pouches.webp" alt="Achieve Pack sustainable pet food packaging solutions" class="w-full rounded-xl" />
+        <img src="/imgs/blog/plant/a_packaging_label_closeup_details_1273763.webp" alt="Achieve Pack sustainable pet food packaging solutions" class="w-full rounded-xl" />
         <figcaption class="text-center text-sm text-neutral-500 mt-3">Achieve Pack offers flexible MOQs for sustainable pet food packaging</figcaption>
       </figure>
 
@@ -754,12 +754,12 @@ export const blogPosts: BlogPost[] = [
       </ul>
     `,
     author: "Achieve Pack Team",
-    publishDate: "2024-12-18",
+    publishDate: "2026-01-15",
     category: "Pet Food Packaging",
     tags: ["plant-based pet food", "sustainable packaging", "pet food packaging", "compostable pouches", "eco-friendly pet food", "bio-PE", "recyclable packaging", "vegan packaging", "pet treats packaging", "low MOQ"],
-    featuredImage: "/imgs/blog/3/plant-based-pet-food-packaging-hero.webp",
+    featuredImage: "/imgs/blog/plant/a_plant_based_pet_food_packaging_design_0193748.webp",
     readTime: 12,
-    metaDescription: "2024 guide to plant-based pet food packaging trends. Explore compostable, recyclable mono-PE, and bio-PE options. $5.36B market growing at 9% CAGR. Low MOQ from 100 units at Achieve Pack."
+    metaDescription: "2026 guide to plant-based pet food packaging trends. Explore compostable, recyclable mono-PE, and bio-PE options. $5.36B market growing at 9% CAGR. Low MOQ from 100 units at Achieve Pack."
   },
   {
     id: "4",
@@ -768,7 +768,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "In-depth comparison of sustainable packaging materials for pet food manufacturers. Evaluate compostable, recyclable, and bio-based options with certification requirements and cost analysis.",
     content: `
       <figure class="my-8">
-        <img src="/imgs/blog/4/sustainable-pet-packaging-materials-guide.webp" alt="Sustainable pet food packaging materials comparison" class="w-full rounded-xl" />
+        <img src="/imgs/blog/Sustainable-pet/a_sustainable_pet_food_packaging_hero_2601845.webp" alt="Sustainable pet food packaging materials comparison" class="w-full rounded-xl" />
         <figcaption class="text-center text-sm text-neutral-500 mt-3">Complete guide to sustainable materials for pet food packaging</figcaption>
       </figure>
 
@@ -843,7 +843,7 @@ export const blogPosts: BlogPost[] = [
       <h2>Compostable Materials for Pet Food Packaging</h2>
 
       <figure class="my-8">
-        <img src="/imgs/blog/4/compostable-pet-food-pouches.webp" alt="Compostable pouches for pet food and treats" class="w-full rounded-xl" />
+        <img src="/imgs/blog/Sustainable-pet/a_pet_food_packaging_solutions_guide_9437354.webp" alt="Compostable pouches for pet food and treats" class="w-full rounded-xl" />
         <figcaption class="text-center text-sm text-neutral-500 mt-3">Compostable packaging options for eco-conscious pet food brands</figcaption>
       </figure>
 
@@ -935,7 +935,7 @@ export const blogPosts: BlogPost[] = [
       <h2>Material Selection Matrix</h2>
 
       <figure class="my-8">
-        <img src="/imgs/blog/4/pet-packaging-material-matrix.webp" alt="Pet food packaging material selection decision matrix" class="w-full rounded-xl" />
+        <img src="/imgs/blog/Sustainable-pet/a_pet_food_material_comparison_4636150.webp" alt="Pet food packaging material selection decision matrix" class="w-full rounded-xl" />
         <figcaption class="text-center text-sm text-neutral-500 mt-3">Decision matrix for selecting sustainable pet food packaging materials</figcaption>
       </figure>
 
@@ -1057,10 +1057,10 @@ export const blogPosts: BlogPost[] = [
       </ul>
     `,
     author: "Achieve Pack Team",
-    publishDate: "2024-12-18",
+    publishDate: "2026-01-15",
     category: "Pet Food Packaging",
     tags: ["pet food packaging", "sustainable materials", "compostable packaging", "recyclable packaging", "mono-PE", "bio-PE", "packaging supplier", "pet treats", "eco-friendly", "material selection"],
-    featuredImage: "/imgs/blog/4/sustainable-pet-packaging-materials-guide.webp",
+    featuredImage: "/imgs/blog/Sustainable-pet/a_sustainable_pet_food_packaging_hero_2601845.webp",
     readTime: 14,
     metaDescription: "Complete supplier evaluation guide for sustainable pet food packaging materials. Compare compostable, recyclable mono-PE, and bio-PE options with cost analysis and certification requirements. Low MOQ from 100 units."
   },
@@ -1071,7 +1071,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Step-by-step guide for pet treat startups choosing sustainable packaging. Learn about low MOQ options, material selection, certification basics, and cost-effective strategies for launching eco-friendly pet products.",
     content: `
       <figure class="my-8">
-        <img src="/imgs/blog/5/eco-pet-treat-startup-guide.webp" alt="Eco-friendly pet treat pouches for startup brands" class="w-full rounded-xl" />
+        <img src="/imgs/blog/Sustainable-pet/a_sustainable_pet_food_packaging_hero_2601845.webp" alt="Eco-friendly pet treat pouches for startup brands" class="w-full rounded-xl" />
         <figcaption class="text-center text-sm text-neutral-500 mt-3">Launch your pet treat brand with sustainable packaging - even with limited budget</figcaption>
       </figure>
 
@@ -1109,7 +1109,7 @@ export const blogPosts: BlogPost[] = [
       <h2>Sustainable Material Options for Pet Treats</h2>
 
       <figure class="my-8">
-        <img src="/imgs/blog/5/pet-treat-packaging-materials.webp" alt="Sustainable packaging material options for pet treats" class="w-full rounded-xl" />
+        <img src="/imgs/blog/Sustainable-pet/a_pet_food_material_comparison_4636150.webp" alt="Sustainable packaging material options for pet treats" class="w-full rounded-xl" />
         <figcaption class="text-center text-sm text-neutral-500 mt-3">Sustainable material options suitable for pet treat packaging</figcaption>
       </figure>
 
@@ -1221,7 +1221,7 @@ export const blogPosts: BlogPost[] = [
       <h2>Step-by-Step Launch Guide</h2>
 
       <figure class="my-8">
-        <img src="/imgs/blog/5/pet-treat-packaging-launch-steps.webp" alt="Step by step guide to launching pet treats with eco-friendly packaging" class="w-full rounded-xl" />
+        <img src="/imgs/blog/Sustainable-pet/a_pet_food_packaging_solutions_guide_9437354.webp" alt="Step by step guide to launching pet treats with eco-friendly packaging" class="w-full rounded-xl" />
         <figcaption class="text-center text-sm text-neutral-500 mt-3">Your roadmap to launching pet treats with sustainable packaging</figcaption>
       </figure>
 
@@ -1355,10 +1355,10 @@ export const blogPosts: BlogPost[] = [
       </ul>
     `,
     author: "Achieve Pack Team",
-    publishDate: "2024-12-18",
+    publishDate: "2026-01-15",
     category: "Startup Resources",
     tags: ["pet treat packaging", "startup guide", "eco-friendly pouches", "low MOQ packaging", "sustainable packaging", "pet food startup", "recyclable pouches", "compostable packaging", "small business packaging", "pet treats"],
-    featuredImage: "/imgs/blog/5/eco-pet-treat-startup-guide.webp",
+    featuredImage: "/imgs/blog/Sustainable-pet/a_pet_food_packaging_solutions_guide_9437354.webp",
     readTime: 11,
     metaDescription: "Startup guide to eco-friendly pet treat pouches. Low MOQ from 100 units, sustainable material comparison, budget planning, and launch roadmap. Perfect for new pet treat brands."
   },
@@ -1369,7 +1369,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Complete guide to choosing compostable stand up pouches for coffee, tea, snacks, pet treats, supplements, and liquids. Learn about certifications, barrier performance, and low MOQ options for startups and scaling brands.",
     content: `
       <figure class="my-8">
-        <img src="/imgs/blog/6/compostable-stand-up-pouch-guide.webp" alt="Compostable stand up pouches for food and beverage brands" class="w-full rounded-xl" />
+        <img src="/imgs/blog/How/a_compostable_pouches_product_showcase_1649901.webp" alt="Compostable stand up pouches for food and beverage brands" class="w-full rounded-xl" />
         <figcaption class="text-center text-sm text-neutral-500 mt-3">Sustainable compostable stand up pouches for coffee, snacks, pet treats, and more</figcaption>
       </figure>
 
@@ -1412,7 +1412,7 @@ export const blogPosts: BlogPost[] = [
       <p>Compostable stand up pouches are already proven in multiple food and beverage categories, each with slightly different requirements.</p>
 
       <figure class="my-8">
-        <img src="/imgs/blog/6/compostable-pouch-applications.webp" alt="Compostable pouch applications for coffee tea snacks and pet food" class="w-full rounded-xl" />
+        <img src="/imgs/blog/How/a_compostable_pouch_material_structure_5028836.webp" alt="Compostable pouch applications for coffee tea snacks and pet food" class="w-full rounded-xl" />
         <figcaption class="text-center text-sm text-neutral-500 mt-3">Compostable pouches work across multiple food and beverage categories</figcaption>
       </figure>
 
@@ -1459,7 +1459,7 @@ export const blogPosts: BlogPost[] = [
       <h2>The MOQ Trap: Why Many Compostable Pouches Start at 5,000–10,000 Units</h2>
       
       <figure class="my-8">
-        <img src="/imgs/blog/6/low-moq-compostable-pouches.webp" alt="Low MOQ compostable pouches for startups" class="w-full rounded-xl" />
+        <img src="/imgs/blog/How/a_use_cases_application_matrix_4684895.webp" alt="Low MOQ compostable pouches for startups" class="w-full rounded-xl" />
         <figcaption class="text-center text-sm text-neutral-500 mt-3">Break free from high MOQ requirements with flexible suppliers</figcaption>
       </figure>
 
@@ -1585,10 +1585,10 @@ export const blogPosts: BlogPost[] = [
       </ul>
     `,
     author: "Achieve Pack Team",
-    publishDate: "2024-12-18",
+    publishDate: "2026-01-15",
     category: "Guides",
     tags: ["compostable pouches", "stand up pouch", "sustainable packaging", "coffee packaging", "tea packaging", "snack packaging", "pet food packaging", "supplements packaging", "low MOQ", "EN 13432", "ASTM D6400", "BPI certified", "food packaging"],
-    featuredImage: "/imgs/blog/6/compostable-stand-up-pouch-guide.webp",
+    featuredImage: "/imgs/blog/How/a_compostable_pouches_product_showcase_1649901.webp",
     readTime: 15,
     metaDescription: "Complete guide to choosing compostable stand up pouches for coffee, tea, snacks, pet treats, supplements, and liquids. Learn about EN 13432/ASTM D6400 certifications, barrier performance, and low MOQ options from 100 units."
   }

@@ -1,9 +1,9 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { blogPosts } from '../../data/blogData';
-import { Calendar, Clock, ArrowLeft, Tag, Share2, ShoppingCart, List, Globe, ChevronRight, ChevronDown } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, Tag, Share2, ShoppingCart, List, Globe, ChevronRight, ChevronDown, ArrowUp } from 'lucide-react';
 import { useStore } from '../../store/StoreContext';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export default function BlogPostPage() {
@@ -13,6 +13,20 @@ export default function BlogPostPage() {
   const { i18n } = useTranslation();
   const [showToc, setShowToc] = useState(false);
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  // Back to top scroll listener
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 400);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   // Extract headings from content for TOC
   const tableOfContents = useMemo(() => {
@@ -145,6 +159,10 @@ export default function BlogPostPage() {
                   src="/ap-logo-white.png" 
                   alt="Achieve Pack" 
                   className="h-10 w-auto"
+                  loading="eager"
+                  decoding="async"
+                  width="133"
+                  height="40"
                 />
                 <span className="text-2xl font-bold hidden sm:inline">Blog</span>
               </Link>
@@ -396,6 +414,76 @@ export default function BlogPostPage() {
               </div>
             </div>
           </section>
+        )}
+
+        {/* Footer */}
+        <footer className="bg-neutral-900 text-white py-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              {/* Brand */}
+              <div className="md:col-span-1">
+                <Link to="/" className="flex items-center gap-2 mb-4">
+                  <img src="/ap-logo-white.png" alt="Achieve Pack" className="h-8 w-auto" loading="lazy" decoding="async" width="106" height="32" />
+                  <span className="text-xl font-bold">Achieve Pack</span>
+                </Link>
+                <p className="text-neutral-400 text-sm">
+                  Sustainable packaging solutions since 2011. Eco-friendly pouches with low MOQ.
+                </p>
+              </div>
+
+              {/* Quick Links */}
+              <div>
+                <h4 className="font-semibold mb-4">Products</h4>
+                <ul className="space-y-2 text-neutral-400 text-sm">
+                  <li><Link to="/store" className="hover:text-white transition">Shop All</Link></li>
+                  <li><Link to="/packaging/stand-up-pouches" className="hover:text-white transition">Stand-Up Pouches</Link></li>
+                  <li><Link to="/packaging/flat-bottom-bags" className="hover:text-white transition">Flat Bottom Bags</Link></li>
+                  <li><Link to="/materials/compostable" className="hover:text-white transition">Compostable</Link></li>
+                </ul>
+              </div>
+
+              {/* Materials */}
+              <div>
+                <h4 className="font-semibold mb-4">Materials</h4>
+                <ul className="space-y-2 text-neutral-400 text-sm">
+                  <li><Link to="/materials/recyclable-mono-pe" className="hover:text-white transition">Recyclable Mono-PE</Link></li>
+                  <li><Link to="/materials/bio-pe" className="hover:text-white transition">Bio-PE</Link></li>
+                  <li><Link to="/materials/kraft-paper-pe-lining" className="hover:text-white transition">Kraft Paper</Link></li>
+                  <li><Link to="/materials/home-compostable" className="hover:text-white transition">Home Compostable</Link></li>
+                </ul>
+              </div>
+
+              {/* Company */}
+              <div>
+                <h4 className="font-semibold mb-4">Company</h4>
+                <ul className="space-y-2 text-neutral-400 text-sm">
+                  <li><Link to="/blog" className="hover:text-white transition">Blog</Link></li>
+                  <li><Link to="/case-studies" className="hover:text-white transition">Case Studies</Link></li>
+                  <li><a href="https://achievepack.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Main Website</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="border-t border-neutral-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-neutral-500 text-sm">
+                © {new Date().getFullYear()} Achieve Pack. All rights reserved.
+              </p>
+              <div className="flex gap-6 text-neutral-400 text-sm">
+                <span>Hong Kong Based • Global Shipping</span>
+              </div>
+            </div>
+          </div>
+        </footer>
+
+        {/* Back to Top Button */}
+        {showBackToTop && (
+          <button
+            onClick={scrollToTop}
+            className="fixed bottom-6 right-6 z-50 w-12 h-12 bg-green-600 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-green-700 transition-all hover:scale-110"
+            aria-label="Back to top"
+          >
+            <ArrowUp className="w-5 h-5" />
+          </button>
         )}
       </div>
     </>
