@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Building2, AlertCircle, Lightbulb, TrendingUp, Package, CheckCircle } from 'lucide-react';
+import { Building2, AlertCircle, Lightbulb, TrendingUp, Package, CheckCircle, MessageCircle } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 
 const CoffeeRoasteryCaseStudy = () => {
@@ -35,7 +36,7 @@ const CoffeeRoasteryCaseStudy = () => {
               </div>
             </div>
           </div>
-          <p>Bean & Bole is a specialty coffee roastery focused on direct-trade relationships with farmers and sustainable practices. They needed packaging that aligned with their commitment to environmental responsibility while maintaining freshness for their premium single-origin beans.</p>
+          <p>Bean & Bole is a specialty coffee roastery focused on direct-trade relationships with farmers and sustainable practices. They needed packaging that aligned with their commitment to environmental responsibility while maintaining freshness for their premium single-origin beans. They found <Link to="/" className="text-primary-600 hover:underline">Achieve Pack</Link> through a search for eco-friendly coffee packaging suppliers.</p>
         </div>
       )
     },
@@ -78,9 +79,9 @@ const CoffeeRoasteryCaseStudy = () => {
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-5 rounded-xl border border-blue-200">
               <h4 className="font-semibold text-blue-800 mb-3 flex items-center gap-2">
                 <CheckCircle className="h-5 w-5 text-blue-600" />
-                Material Selection
+                <Link to="/materials/compostable" className="hover:underline">Material Selection</Link>
               </h4>
-              <p className="text-sm text-blue-700">Kraft paper exterior with compostable PLA inner layer, providing medium-high barrier suitable for 3-4 month shelf life. Certified EN 13432 compostable.</p>
+              <p className="text-sm text-blue-700">Kraft paper exterior with <Link to="/materials/compostable" className="underline">compostable PLA</Link> inner layer, providing medium-high barrier suitable for 3-4 month shelf life. Certified EN 13432 compostable.</p>
             </div>
             <div className="bg-gradient-to-br from-green-50 to-green-100 p-5 rounded-xl border border-green-200">
               <h4 className="font-semibold text-green-800 mb-3 flex items-center gap-2">
@@ -148,7 +149,7 @@ const CoffeeRoasteryCaseStudy = () => {
             <div className="grid md:grid-cols-2 gap-3 text-sm">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
-                <span><strong>Format:</strong> Stand-Up Pouch</span>
+                <span><strong>Format:</strong> <Link to="/packaging/stand-up-pouches" className="text-primary-600 hover:underline">Stand-Up Pouch</Link></span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
@@ -156,7 +157,7 @@ const CoffeeRoasteryCaseStudy = () => {
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
-                <span><strong>Material:</strong> Kraft + PLA (compostable)</span>
+                <span><strong>Material:</strong> <Link to="/materials/compostable" className="text-primary-600 hover:underline">Kraft + PLA (compostable)</Link></span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
@@ -190,35 +191,100 @@ const CoffeeRoasteryCaseStudy = () => {
           </div>
         </div>
       )
+    },
+    {
+      id: 'key-takeaways',
+      title: 'Key Takeaways',
+      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>What made this project successful for Bean & Bole:</p>
+          
+          <ul className="list-disc pl-6 space-y-2">
+            <li><strong>Low MOQ (500 pieces):</strong> Perfect for small-batch specialty roasters</li>
+            <li><strong>Certified compostable:</strong> EN 13432 certification for authentic sustainability claims</li>
+            <li><strong>Degassing valve compatible:</strong> Essential for freshly roasted coffee</li>
+            <li><strong>Premium finishing:</strong> Matte + spot UV for brand differentiation</li>
+          </ul>
+          
+          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mt-4">
+            <h4 className="font-semibold text-blue-800 mb-2">💡 Looking for similar solutions?</h4>
+            <ul className="text-sm text-blue-700 space-y-1">
+              <li>• <Link to="/industry/coffee-tea" className="underline">Explore our Coffee & Tea packaging options</Link></li>
+              <li>• <Link to="/materials/compostable" className="underline">Learn about compostable materials</Link></li>
+              <li>• <Link to="/store" className="underline">Shop compostable coffee pouches</Link></li>
+            </ul>
+          </div>
+          
+          <p className="mt-4">Read our in-depth guide: <Link to="/blog/sustainable-packaging-supplier-analysis" className="text-primary-600 hover:underline font-semibold">How to Choose a Sustainable Packaging Supplier →</Link></p>
+        </div>
+      )
     }
   ];
 
   const faqs = [
     {
-      question: t(`${p}.faq.q1`),
-      answer: t(`${p}.faq.a1`)
+      question: "Can compostable coffee bags have degassing valves?",
+      answer: "Yes, compostable coffee bags can include one-way degassing valves. At Achieve Pack, we integrate compatible valves into our kraft + PLA pouches. The valve allows CO2 to escape after roasting without compromising the compostable certification."
     },
     {
-      question: t(`${p}.faq.q2`),
-      answer: t(`${p}.faq.a2`)
+      question: "What is the minimum order for compostable coffee pouches?",
+      answer: "Achieve Pack offers MOQ from 100 pieces for stock pouches and 500 pieces for custom printed compostable coffee bags. This low minimum makes sustainable packaging accessible for small roasters and startup coffee brands."
     },
     {
-      question: t(`${p}.faq.q3`),
-      answer: t(`${p}.faq.a3`)
+      question: "How long is the shelf life with compostable coffee packaging?",
+      answer: "Our kraft + PLA compostable pouches provide 3-4 month shelf life for roasted coffee when properly sealed with a degassing valve. For longer shelf life requirements (12+ months), we recommend our recyclable mono-PE options."
+    },
+    {
+      question: "Are compostable coffee bags more expensive than plastic?",
+      answer: "Compostable materials typically cost 15-25% more than conventional plastics at similar volumes. However, many specialty coffee brands find the premium justifiable for brand differentiation and customer loyalty. Bean & Bole saw a 35% increase in customer satisfaction after switching."
+    },
+    {
+      question: "What certifications should compostable coffee bags have?",
+      answer: "Look for EN 13432 (European) or ASTM D6400 (US) compostability certifications. These ensure the packaging breaks down in commercial composting within 90-180 days. Achieve Pack provides certification documentation with every order."
+    }
+  ];
+
+  const relatedLinks = [
+    {
+      title: "Shop Coffee Pouches",
+      url: "/store",
+      description: "Browse compostable options - MOQ from 100 pieces"
+    },
+    {
+      title: "Coffee & Tea Packaging",
+      url: "/industry/coffee-tea",
+      description: "Full guide to coffee packaging options"
+    },
+    {
+      title: "Compostable Materials",
+      url: "/materials/compostable",
+      description: "EN 13432 certified materials"
+    },
+    {
+      title: "Stand-Up Pouches",
+      url: "/packaging/stand-up-pouches",
+      description: "Versatile format with valve options"
+    },
+    {
+      title: "Supplier Analysis Report",
+      url: "/blog/sustainable-packaging-supplier-analysis",
+      description: "Compare eco-friendly packaging suppliers"
     }
   ];
 
   return (
     <SEOPageLayout
-      title={t(`${p}.title`)}
-      description={t(`${p}.description`)}
-      keywords={['coffee packaging case study', 'compostable coffee bags', 'specialty coffee packaging', 'degassing valve compostable', 'sustainable coffee roastery']}
+      title="Coffee Roastery Case Study | Compostable Packaging with Degassing Valve"
+      description="How Bean & Bole Coffee switched to compostable packaging. EN 13432 certified kraft + PLA pouches with degassing valve. 500 piece MOQ. 35% customer satisfaction increase."
+      keywords={['coffee packaging case study', 'compostable coffee bags', 'specialty coffee packaging', 'degassing valve compostable', 'sustainable coffee roastery', 'low MOQ coffee bags', 'kraft coffee pouches']}
       heroTitle={t(`${p}.heroTitle`)}
       heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage={heroImage}
       sections={sections}
-      introSummary={t(`${p}.introSummary`)}
+      introSummary="How a specialty coffee roastery switched from plastic to certified compostable packaging while maintaining freshness and achieving 35% higher customer satisfaction."
       faqs={faqs}
+      relatedLinks={relatedLinks}
       ctaTitle={t(`${p}.cta.title`)}
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}

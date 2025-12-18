@@ -129,9 +129,11 @@ export default function BlogPage() {
                   >
                     {/* Image */}
                     <Link to={`/blog/${post.slug}`} className="block aspect-video bg-neutral-100 overflow-hidden">
-                      <div className="w-full h-full bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
-                        <span className="text-green-600 text-4xl">📦</span>
-                      </div>
+                      <img 
+                        src={post.featuredImage} 
+                        alt={post.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
                     </Link>
 
                     {/* Content */}

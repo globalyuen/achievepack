@@ -1,13 +1,55 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { blogPosts } from '../../data/blogData';
-import { Calendar, Clock, ArrowLeft, Tag, Share2, ShoppingCart } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, Tag, Share2, ShoppingCart, List, Globe, ChevronRight, ChevronDown } from 'lucide-react';
 import { useStore } from '../../store/StoreContext';
+import { useState, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const post = blogPosts.find(p => p.slug === slug);
   const { cartCount } = useStore();
+  const { i18n } = useTranslation();
+  const [showToc, setShowToc] = useState(false);
+  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
+
+  // Extract headings from content for TOC
+  const tableOfContents = useMemo(() => {
+    if (!post) return [];
+    const headingRegex = /<h2[^>]*>([^<]+)<\/h2>/gi;
+    const matches = [...post.content.matchAll(headingRegex)];
+    return matches.map((match, index) => ({
+      id: `section-${index}`,
+      title: match[1].replace(/<[^>]*>/g, ''),
+      slug: match[1].replace(/<[^>]*>/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-')
+    }));
+  }, [post]);
+
+  // Language options (same as landing page)
+  const languages = [
+    { code: 'en', label: 'English', flag: '🇺🇸' },
+    { code: 'zh-TW', label: '繁體中文', flag: '🇨🇳' },
+    { code: 'es', label: 'Español', flag: '🇪🇸' },
+    { code: 'fr', label: 'Français', flag: '🇫🇷' },
+  ];
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+    setIsLangMenuOpen(false);
+  };
+
+  // Handle scroll to section
+  const scrollToSection = (sectionSlug: string) => {
+    const headings = document.querySelectorAll('h2');
+    const targetHeading = Array.from(headings).find(h => 
+      h.textContent?.toLowerCase().replace(/[^a-z0-9]+/g, '-') === sectionSlug
+    );
+    if (targetHeading) {
+      targetHeading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    setShowToc(false);
+  };
 
   if (!post) {
     return <Navigate to="/blog" replace />;
@@ -112,6 +154,38 @@ export default function BlogPostPage() {
                 <ArrowLeft className="h-4 w-4" />
                 <span className="hidden sm:inline">All Articles</span>
               </Link>
+              
+              {/* Language Selector - Top Right */}
+              <div className="relative">
+                <button
+                  onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+                  className="flex items-center gap-2 px-3 py-2 text-white/80 hover:text-white transition rounded-lg hover:bg-white/10"
+                >
+                  <Globe className="h-5 w-5" />
+                  <span className="hidden sm:inline text-sm">
+                    {languages.find(l => l.code === i18n.language)?.label || 'English'}
+                  </span>
+                  <ChevronDown className="h-4 w-4" />
+                </button>
+                
+                {isLangMenuOpen && (
+                  <div className="absolute right-0 top-full mt-2 w-40 bg-white rounded-lg shadow-xl border border-neutral-200 py-1 z-50">
+                    {languages.map(lang => (
+                      <button
+                        key={lang.code}
+                        onClick={() => changeLanguage(lang.code)}
+                        className={`w-full text-left px-4 py-2 text-sm hover:bg-green-50 flex items-center gap-2 ${
+                          i18n.language === lang.code ? 'bg-green-50 text-green-700' : 'text-neutral-700'
+                        }`}
+                      >
+                        <span>{lang.flag}</span>
+                        <span>{lang.label}</span>
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
               <Link to="/store" className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full hover:bg-white/20 transition">
                 <ShoppingCart className="h-5 w-5" />
                 <span className="hidden sm:inline">Store</span>
@@ -173,47 +247,71 @@ export default function BlogPostPage() {
 
         {/* Article Content - AI Report Style */}
         <article className="bg-white py-12 md:py-16">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6">
-            <div 
-              className="
-                prose prose-lg max-w-none
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex gap-8">
+              
+              {/* Left Sidebar - Table of Contents (Desktop) */}
+              <aside className="hidden lg:block w-64 shrink-0">
+                <div className="sticky top-24">
+                  {/* Table of Contents */}
+                  <div className="p-4 bg-neutral-50 rounded-lg border border-neutral-200">
+                    <div className="flex items-center gap-2 text-sm font-semibold text-neutral-700 mb-4">
+                      <List className="w-4 h-4" />
+                      Contents
+                    </div>
+                    <nav className="space-y-1">
+                      {tableOfContents.map((item, index) => (
+                        <button
+                          key={index}
+                          onClick={() => scrollToSection(item.slug)}
+                          className="w-full text-left px-3 py-2 text-sm text-neutral-600 hover:text-green-600 hover:bg-green-50 rounded-md transition-colors flex items-center gap-2"
+                        >
+                          <ChevronRight className="w-3 h-3 text-neutral-400" />
+                          <span className="line-clamp-2">{item.title}</span>
+                        </button>
+                      ))}
+                    </nav>
+                  </div>
+                </div>
+              </aside>
+
+              {/* Mobile TOC Toggle */}
+              <div className="lg:hidden fixed bottom-6 left-6 z-40">
+                <button
+                  onClick={() => setShowToc(!showToc)}
+                  className="w-12 h-12 bg-green-600 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-green-700 transition-colors"
+                >
+                  <List className="w-5 h-5" />
+                </button>
                 
-                /* Headings - Clean sans-serif */
-                prose-headings:font-sans prose-headings:font-bold prose-headings:text-neutral-900
-                prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:pb-3 prose-h2:border-b prose-h2:border-neutral-200
-                prose-h3:text-xl prose-h3:md:text-2xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-neutral-800
-                prose-h4:text-lg prose-h4:mt-6 prose-h4:mb-3 prose-h4:text-neutral-700
-                
-                /* Body Text */
-                prose-p:text-neutral-700 prose-p:leading-relaxed prose-p:text-base prose-p:md:text-lg prose-p:my-4
-                
-                /* Links */
-                prose-a:text-green-600 prose-a:font-medium prose-a:no-underline hover:prose-a:underline
-                
-                /* Bold/Strong */
-                prose-strong:text-neutral-900 prose-strong:font-semibold
-                
-                /* Lists */
-                prose-ul:my-6 prose-ul:space-y-2
-                prose-ol:my-6 prose-ol:space-y-2
-                prose-li:text-neutral-700 prose-li:text-base prose-li:md:text-lg prose-li:leading-relaxed
-                prose-li:marker:text-green-500
-                
-                /* Blockquotes - Interview/Quote Style */
-                prose-blockquote:border-l-4 prose-blockquote:border-green-500
-                prose-blockquote:bg-neutral-50 prose-blockquote:rounded-r-lg
-                prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:my-8
-                prose-blockquote:not-italic prose-blockquote:text-neutral-700
-                
-                /* Table - Clean Report Style */
-                prose-table:my-8 prose-table:w-full prose-table:border-collapse
-                prose-thead:bg-neutral-100
-                prose-th:text-left prose-th:text-neutral-900 prose-th:font-semibold prose-th:text-sm prose-th:uppercase prose-th:tracking-wider prose-th:py-3 prose-th:px-4 prose-th:border-b-2 prose-th:border-neutral-300
-                prose-td:py-3 prose-td:px-4 prose-td:border-b prose-td:border-neutral-200 prose-td:text-neutral-700
-                prose-tr:even:bg-neutral-50
-              "
-              dangerouslySetInnerHTML={{ __html: post.content }}
-            />
+                {/* Mobile TOC Dropdown */}
+                {showToc && (
+                  <div className="absolute bottom-14 left-0 w-72 bg-white rounded-lg shadow-xl border border-neutral-200 p-4 max-h-[60vh] overflow-y-auto">
+                    <div className="flex items-center gap-2 text-sm font-semibold text-neutral-700 mb-3">
+                      <List className="w-4 h-4" />
+                      Contents
+                    </div>
+                    <nav className="space-y-1">
+                      {tableOfContents.map((item, index) => (
+                        <button
+                          key={index}
+                          onClick={() => scrollToSection(item.slug)}
+                          className="w-full text-left px-3 py-2 text-sm text-neutral-600 hover:text-green-600 hover:bg-green-50 rounded-md transition-colors"
+                        >
+                          {item.title}
+                        </button>
+                      ))}
+                    </nav>
+                  </div>
+                )}
+              </div>
+
+              {/* Main Content */}
+              <div className="flex-1 max-w-3xl">
+                <div 
+                  className="prose prose-lg max-w-none prose-headings:font-sans prose-headings:font-bold prose-headings:text-neutral-900 prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:pb-3 prose-h2:border-b prose-h2:border-neutral-200 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-neutral-800 prose-h4:text-lg prose-h4:mt-6 prose-h4:mb-3 prose-h4:text-neutral-700 prose-p:text-neutral-700 prose-p:leading-relaxed prose-p:my-4 prose-a:text-green-600 prose-a:font-medium prose-a:no-underline hover:prose-a:underline prose-strong:text-neutral-900 prose-strong:font-semibold prose-ul:my-6 prose-ol:my-6 prose-li:text-neutral-700 prose-li:leading-relaxed prose-li:marker:text-green-500 prose-blockquote:border-l-4 prose-blockquote:border-green-500 prose-blockquote:bg-neutral-50 prose-blockquote:rounded-r-lg prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:my-8 prose-blockquote:not-italic prose-blockquote:text-neutral-700 prose-table:my-8 prose-table:w-full prose-thead:bg-green-600 prose-thead:text-white prose-th:text-left prose-th:font-semibold prose-th:text-sm prose-th:uppercase prose-th:tracking-wider prose-th:py-3 prose-th:px-4 prose-td:py-3 prose-td:px-4 prose-td:border-b prose-td:border-neutral-200 prose-td:text-neutral-700 prose-tr:even:bg-neutral-50 prose-img:rounded-xl prose-img:w-full prose-figure:my-8 prose-figcaption:text-center prose-figcaption:text-sm prose-figcaption:text-neutral-500 prose-figcaption:mt-3"
+                  dangerouslySetInnerHTML={{ __html: post.content }}
+                />
 
             {/* Tags */}
             <div className="mt-12 pt-8 border-t border-neutral-200">
@@ -267,6 +365,8 @@ export default function BlogPostPage() {
                     Experts in sustainable packaging solutions since 2011. Helping brands make the switch to eco-friendly packaging.
                   </p>
                 </div>
+              </div>
+            </div>
               </div>
             </div>
           </div>

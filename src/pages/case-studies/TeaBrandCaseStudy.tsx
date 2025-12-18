@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Building2, AlertCircle, Lightbulb, TrendingUp, Package, CheckCircle } from 'lucide-react';
+import { Building2, AlertCircle, Lightbulb, TrendingUp, Package, CheckCircle, MessageCircle } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 
 const TeaBrandCaseStudy = () => {
@@ -35,7 +36,7 @@ const TeaBrandCaseStudy = () => {
               </div>
             </div>
           </div>
-          <p>Milano Botanica is a luxury organic tea brand known for artisanal blends and European botanical ingredients. They sought packaging that would showcase their beautiful loose-leaf teas while meeting EU sustainability regulations.</p>
+          <p>Milano Botanica is a luxury organic tea brand known for artisanal blends and European botanical ingredients. They sought packaging that would showcase their beautiful loose-leaf teas while meeting EU sustainability regulations. They partnered with <Link to="/" className="text-primary-600 hover:underline">Achieve Pack</Link> to develop a premium compostable solution.</p>
         </div>
       )
     },
@@ -92,7 +93,7 @@ const TeaBrandCaseStudy = () => {
             <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-5 rounded-xl border border-purple-200">
               <h4 className="font-semibold text-purple-800 mb-3 flex items-center gap-2">
                 <CheckCircle className="h-5 w-5 text-purple-600" />
-                Flat Bottom Format
+                <Link to="/packaging/flat-bottom-bags" className="hover:underline">Flat Bottom Format</Link>
               </h4>
               <p className="text-sm text-purple-700">Five printable panels for maximum brand storytelling. Stands beautifully on retail shelves.</p>
             </div>
@@ -148,7 +149,7 @@ const TeaBrandCaseStudy = () => {
             <div className="grid md:grid-cols-2 gap-3 text-sm">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
-                <span><strong>Format:</strong> Flat Bottom Bag with Window</span>
+                <span><strong>Format:</strong> <Link to="/packaging/flat-bottom-bags" className="text-primary-600 hover:underline">Flat Bottom Bag</Link> with Window</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
@@ -156,7 +157,7 @@ const TeaBrandCaseStudy = () => {
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
-                <span><strong>Material:</strong> White Kraft + PLA + NatureFlex window</span>
+                <span><strong>Material:</strong> <Link to="/materials/compostable" className="text-primary-600 hover:underline">White Kraft + PLA + NatureFlex window</Link></span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
@@ -190,26 +191,98 @@ const TeaBrandCaseStudy = () => {
           </div>
         </div>
       )
+    },
+    {
+      id: 'key-takeaways',
+      title: 'Key Takeaways',
+      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>What made this project successful for Milano Botanica:</p>
+          
+          <ul className="list-disc pl-6 space-y-2">
+            <li><strong>Compostable window:</strong> NatureFlex allows product visibility while staying eco-friendly</li>
+            <li><strong>EU PPWR compliant:</strong> Ready for upcoming EU packaging regulations</li>
+            <li><strong>Premium presentation:</strong> Flat bottom format with 5 printable panels</li>
+            <li><strong>12-month shelf life:</strong> Sufficient for tea distribution and retail</li>
+          </ul>
+          
+          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mt-4">
+            <h4 className="font-semibold text-blue-800 mb-2">💡 Looking for similar solutions?</h4>
+            <ul className="text-sm text-blue-700 space-y-1">
+              <li>• <Link to="/industry/coffee-tea" className="underline">Explore our Coffee & Tea packaging options</Link></li>
+              <li>• <Link to="/materials/compostable" className="underline">Learn about compostable materials</Link></li>
+              <li>• <Link to="/store" className="underline">Shop flat bottom bags with window</Link></li>
+            </ul>
+          </div>
+        </div>
+      )
     }
   ];
 
   const faqs = [
-    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
-    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) },
-    { question: t(`${p}.faq.q3`), answer: t(`${p}.faq.a3`) }
+    {
+      question: "Can compostable packaging have a clear window?",
+      answer: "Yes, we use NatureFlex™ cellulose-based films for compostable windows. These provide excellent clarity for product visibility while being certified compostable under EN 13432. Perfect for tea, coffee, and products where showcasing contents is important."
+    },
+    {
+      question: "What is EU PPWR and how does it affect tea packaging?",
+      answer: "The EU Packaging and Packaging Waste Regulation (PPWR) requires packaging to meet recyclability or compostability standards by 2030. Achieve Pack's compostable tea packaging is already fully compliant, helping brands prepare for these regulations."
+    },
+    {
+      question: "What MOQ do you offer for luxury tea packaging?",
+      answer: "We offer MOQ from 100 pieces for stock pouches and 1,000-5,000 pieces for fully custom printed flat bottom bags with windows. This allows luxury tea brands to test markets before committing to larger volumes."
+    },
+    {
+      question: "How long does tea stay fresh in compostable packaging?",
+      answer: "Our compostable tea packaging with proper sealing provides 12-18 month shelf life for loose-leaf tea. The barrier properties protect against moisture and oxygen while the tin-tie closure maintains freshness after opening."
+    },
+    {
+      question: "What finishing options are available for premium tea packaging?",
+      answer: "We offer matte and gloss finishes, soft-touch coating, spot UV, embossing, and foil stamping. Milano Botanica chose matte with soft-touch for a tactile luxury feel that complements their brand positioning."
+    }
+  ];
+
+  const relatedLinks = [
+    {
+      title: "Shop Tea Pouches",
+      url: "/store",
+      description: "Browse window packaging options"
+    },
+    {
+      title: "Coffee & Tea Packaging",
+      url: "/industry/coffee-tea",
+      description: "Full guide to tea packaging options"
+    },
+    {
+      title: "Flat Bottom Bags",
+      url: "/packaging/flat-bottom-bags",
+      description: "Premium format with 5 printable panels"
+    },
+    {
+      title: "Compostable Materials",
+      url: "/materials/compostable",
+      description: "EN 13432 certified materials"
+    },
+    {
+      title: "Supplier Analysis Report",
+      url: "/blog/sustainable-packaging-supplier-analysis",
+      description: "Compare eco-friendly packaging suppliers"
+    }
   ];
 
   return (
     <SEOPageLayout
-      title={t(`${p}.title`)}
-      description={t(`${p}.description`)}
-      keywords={['tea packaging case study', 'compostable window packaging', 'luxury tea bags', 'EU PPWR compliant packaging', 'flat bottom tea bags']}
+      title="Tea Brand Case Study | Compostable Window Packaging for Luxury Tea"
+      description="How Milano Botanica achieved EU PPWR compliance with compostable window packaging. NatureFlex window, flat bottom bags. 28% sales increase. 12-month shelf life."
+      keywords={['tea packaging case study', 'compostable window packaging', 'luxury tea bags', 'EU PPWR compliant packaging', 'flat bottom tea bags', 'NatureFlex window', 'loose leaf tea packaging']}
       heroTitle={t(`${p}.heroTitle`)}
       heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage={heroImage}
       sections={sections}
-      introSummary={t(`${p}.introSummary`)}
+      introSummary="How a luxury European tea brand achieved EU PPWR compliance with compostable window packaging while increasing sales by 28%."
       faqs={faqs}
+      relatedLinks={relatedLinks}
       ctaTitle={t(`${p}.cta.title`)}
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}

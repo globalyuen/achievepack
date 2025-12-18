@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Building2, AlertCircle, Lightbulb, TrendingUp, Package, CheckCircle } from 'lucide-react';
+import { Building2, AlertCircle, Lightbulb, TrendingUp, Package, CheckCircle, MessageCircle } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 
 const PetTreatsCaseStudy = () => {
@@ -23,7 +24,7 @@ const PetTreatsCaseStudy = () => {
               <div><p className="text-sm text-neutral-500 mb-1">Package Type</p><p className="font-semibold">Stand-Up Pouches with Child-Resistant Zipper</p></div>
             </div>
           </div>
-          <p>Pawsome Naturals creates organic, human-grade pet treats using locally sourced ingredients. Their eco-conscious customers demanded sustainable packaging that also protected treat freshness.</p>
+          <p>Pawsome Naturals creates organic, human-grade pet treats using locally sourced ingredients. Their eco-conscious customers demanded sustainable packaging that also protected treat freshness. They partnered with <Link to="/" className="text-primary-600 hover:underline">Achieve Pack</Link> to find the perfect solution.</p>
         </div>
       )
     },
@@ -52,7 +53,7 @@ const PetTreatsCaseStudy = () => {
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-5 rounded-xl border border-blue-200">
               <h4 className="font-semibold text-blue-800 mb-3 flex items-center gap-2">
                 <CheckCircle className="h-5 w-5 text-blue-600" />
-                PCR Recycled Material
+                <Link to="/materials/pcr" className="hover:underline">PCR Recycled Material</Link>
               </h4>
               <p className="text-sm text-blue-700">30% post-consumer recycled content with virgin PE blend for optimal barrier and strength.</p>
             </div>
@@ -119,9 +120,9 @@ const PetTreatsCaseStudy = () => {
       content: (
         <div className="bg-neutral-100 p-6 rounded-xl">
           <div className="grid md:grid-cols-2 gap-4 text-sm">
-            <div><strong>Format:</strong> Stand-Up Pouch</div>
+            <div><strong>Format:</strong> <Link to="/packaging/stand-up-pouches" className="text-primary-600 hover:underline">Stand-Up Pouch</Link></div>
             <div><strong>Size:</strong> 180 × 280 + 100mm (350g capacity)</div>
-            <div><strong>Material:</strong> PCR PE blend (30% recycled)</div>
+            <div><strong>Material:</strong> <Link to="/materials/pcr" className="text-primary-600 hover:underline">PCR PE blend (30% recycled)</Link></div>
             <div><strong>Barrier:</strong> High (odor blocking)</div>
             <div><strong>Closure:</strong> Child-resistant zipper</div>
             <div><strong>Printing:</strong> Digital, full color</div>
@@ -129,25 +130,98 @@ const PetTreatsCaseStudy = () => {
           </div>
         </div>
       )
+    },
+    {
+      id: 'key-takeaways',
+      title: 'Key Takeaways',
+      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>What made this project successful for Pawsome Naturals:</p>
+          
+          <ul className="list-disc pl-6 space-y-2">
+            <li><strong>Child-resistant closure:</strong> CPSC compliant for retailer requirements</li>
+            <li><strong>PCR content:</strong> 30% recycled material meets sustainability goals</li>
+            <li><strong>Odor barrier:</strong> Prevents pets from accessing treats</li>
+            <li><strong>40% more retailers:</strong> Child-resistant packaging opened new distribution channels</li>
+          </ul>
+          
+          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mt-4">
+            <h4 className="font-semibold text-blue-800 mb-2">💡 Looking for similar solutions?</h4>
+            <ul className="text-sm text-blue-700 space-y-1">
+              <li>• <Link to="/industry/pet-food" className="underline">Explore our Pet Food packaging options</Link></li>
+              <li>• <Link to="/materials/pcr" className="underline">Learn about PCR recycled materials</Link></li>
+              <li>• <Link to="/store" className="underline">Shop pet treat pouches</Link></li>
+            </ul>
+          </div>
+        </div>
+      )
     }
   ];
 
   const faqs = [
-    { question: t(`${p}.faq.q1`), answer: t(`${p}.faq.a1`) },
-    { question: t(`${p}.faq.q2`), answer: t(`${p}.faq.a2`) }
+    {
+      question: "What is child-resistant pet treat packaging?",
+      answer: "Child-resistant packaging uses specialized closures that require push-and-slide or squeeze-and-pull mechanisms that are difficult for children (and pets) to open. Our pouches are CPSC compliant and tested to ASTM D3475 standards."
+    },
+    {
+      question: "Can pet treat bags have recycled content?",
+      answer: "Yes, we offer PCR (post-consumer recycled) content from 30-50% in pet treat packaging. The material maintains food-grade safety and barrier properties while reducing environmental impact."
+    },
+    {
+      question: "What is the MOQ for pet treat pouches with child-resistant closures?",
+      answer: "MOQ for child-resistant pet treat pouches is 500 pieces for custom printed options. This low minimum allows smaller pet treat brands to access premium packaging features."
+    },
+    {
+      question: "How do you prevent treats from going stale?",
+      answer: "Our pet treat pouches use high-barrier structures with MVTR below 2.0 g/m²/24hr and excellent odor blocking. Combined with resealable closures, treats stay fresh for 9-12 months."
+    },
+    {
+      question: "Do retailers require child-resistant packaging for pet treats?",
+      answer: "Some specialty pet stores and major retailers prefer or require child-resistant packaging for certain treat types. It's becoming more common as safety regulations evolve. Pawsome Naturals gained 40% more retail distribution after adding this feature."
+    }
+  ];
+
+  const relatedLinks = [
+    {
+      title: "Shop Pet Treat Pouches",
+      url: "/store",
+      description: "Browse PCR and child-resistant options"
+    },
+    {
+      title: "Pet Food Packaging",
+      url: "/industry/pet-food",
+      description: "Full guide to pet packaging options"
+    },
+    {
+      title: "Stand-Up Pouches",
+      url: "/packaging/stand-up-pouches",
+      description: "Versatile format for pet treats"
+    },
+    {
+      title: "PCR Materials",
+      url: "/materials/pcr",
+      description: "Post-consumer recycled options"
+    },
+    {
+      title: "Supplier Analysis Report",
+      url: "/blog/sustainable-packaging-supplier-analysis",
+      description: "Compare eco-friendly packaging suppliers"
+    }
   ];
 
   return (
     <SEOPageLayout
-      title={t(`${p}.title`)}
-      description={t(`${p}.description`)}
-      keywords={['pet treat packaging', 'child-resistant packaging', 'PCR recycled pouches', 'sustainable pet food packaging']}
+      title="Pet Treats Case Study | Child-Resistant PCR Packaging for Organic Treats"
+      description="How Pawsome Naturals achieved 40% more retail distribution with child-resistant PCR packaging. 30% recycled content, odor barrier, CPSC compliant."
+      keywords={['pet treat packaging', 'child-resistant packaging', 'PCR recycled pouches', 'sustainable pet food packaging', 'odor barrier pet bags', 'CPSC compliant pet packaging']}
       heroTitle={t(`${p}.heroTitle`)}
       heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage={heroImage}
       sections={sections}
-      introSummary={t(`${p}.introSummary`)}
+      introSummary="How an organic pet treat brand gained 40% more retail distribution with child-resistant PCR packaging while meeting eco-conscious customer demands."
       faqs={faqs}
+      relatedLinks={relatedLinks}
       ctaTitle={t(`${p}.cta.title`)}
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
