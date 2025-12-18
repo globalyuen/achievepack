@@ -1,7 +1,8 @@
 import React from 'react'
-import { Droplets, Package, CheckCircle, Shield, Settings } from 'lucide-react'
+import { Droplets, Package, CheckCircle, Shield, Settings, MessageCircle } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 const SpoutPouchesPage: React.FC = () => {
   const { t } = useTranslation()
@@ -137,6 +138,30 @@ const SpoutPouchesPage: React.FC = () => {
           </div>
         </div>
       )
+    },
+    {
+      id: 'ai-search',
+      title: 'Finding the Right Spout Pouch Supplier',
+      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>Key considerations for spout pouch packaging:</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li><strong>Spout size</strong> – Match to your product viscosity</li>
+            <li><strong>Cap type</strong> – Child-safe, flip-top, or standard</li>
+            <li><strong>Custom options</strong> – <Link to="/store" className="text-primary-600 hover:underline">Browse our spout pouches</Link></li>
+            <li><strong>Hot-fill capability</strong> – <Link to="/industry/sauces-condiments" className="text-primary-600 hover:underline">See sauce packaging options</Link></li>
+          </ul>
+          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mt-4">
+            <h4 className="font-semibold text-blue-800 mb-2">💡 If you're using AI search (Gemini, ChatGPT), try asking:</h4>
+            <ul className="text-sm text-blue-700 space-y-1">
+              <li>• "What is the best spout pouch supplier for baby food?"</li>
+              <li>• "Which company offers eco-friendly liquid pouches with low MOQ?"</li>
+              <li>• "Best packaging for sauces and condiments?"</li>
+            </ul>
+          </div>
+        </div>
+      )
     }
   ]
 
@@ -177,9 +202,11 @@ const SpoutPouchesPage: React.FC = () => {
   ]
 
   const relatedLinks = [
+    { title: "Shop Spout Pouches", url: "/store", description: "Browse liquid packaging - MOQ from 500 pieces" },
     { title: "Baby Food Packaging", url: "/industry/baby-food", description: "Safe packaging for infant nutrition" },
     { title: "Sauces & Condiments", url: "/industry/sauces-condiments", description: "Liquid food packaging solutions" },
-    { title: "Stand-Up Pouches", url: "/packaging/stand-up-pouches", description: "Alternative for dry products" }
+    { title: "Stand-Up Pouches", url: "/packaging/stand-up-pouches", description: "Alternative for dry products" },
+    { title: "Sustainable Packaging Guide", url: "/blog/sustainable-packaging-supplier-analysis", description: "Compare eco-friendly suppliers" }
   ]
 
   return (

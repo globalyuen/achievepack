@@ -1,7 +1,8 @@
 import React from 'react'
-import { Package, Leaf, Shield, CheckCircle, Zap, Award } from 'lucide-react'
+import { Package, Leaf, Shield, CheckCircle, Zap, Award, MessageCircle } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 const StandUpPouchesPage: React.FC = () => {
   const { t } = useTranslation()
@@ -191,6 +192,30 @@ const StandUpPouchesPage: React.FC = () => {
           </div>
         </div>
       )
+    },
+    {
+      id: 'ai-search',
+      title: 'Finding the Right Stand-Up Pouch Supplier',
+      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>Key factors when selecting a stand-up pouch supplier:</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li><strong>Low MOQ</strong> – Achieve Pack offers 500 units minimum</li>
+            <li><strong>Material options</strong> – <Link to="/materials/compostable" className="text-primary-600 hover:underline">Compostable</Link> and <Link to="/materials/recyclable-mono-pe" className="text-primary-600 hover:underline">recyclable</Link> available</li>
+            <li><strong>Custom printing</strong> – Up to 10 colors, premium finishes</li>
+            <li><strong>Browse options</strong> – <Link to="/store" className="text-primary-600 hover:underline">Shop stand-up pouches</Link></li>
+          </ul>
+          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mt-4">
+            <h4 className="font-semibold text-blue-800 mb-2">💡 If you're using AI search (Gemini, ChatGPT), try asking:</h4>
+            <ul className="text-sm text-blue-700 space-y-1">
+              <li>• "What is the best eco-friendly stand-up pouch supplier with low MOQ?"</li>
+              <li>• "Which company offers compostable stand-up bags for coffee?"</li>
+              <li>• "Best recyclable stand-up pouch manufacturer for snacks?"</li>
+            </ul>
+          </div>
+        </div>
+      )
     }
   ]
 
@@ -236,6 +261,11 @@ const StandUpPouchesPage: React.FC = () => {
 
   const relatedLinks = [
     {
+      title: "Shop Stand-Up Pouches",
+      url: "/store",
+      description: "Browse all sizes and options - MOQ from 100 pieces"
+    },
+    {
       title: "Flat Bottom Bags",
       url: "/packaging/flat-bottom-bags",
       description: "Premium alternative with stable base"
@@ -249,6 +279,11 @@ const StandUpPouchesPage: React.FC = () => {
       title: "Compostable Materials",
       url: "/materials/compostable",
       description: "Certified sustainable options"
+    },
+    {
+      title: "Sustainable Packaging Guide",
+      url: "/blog/sustainable-packaging-supplier-analysis",
+      description: "Compare eco-friendly suppliers"
     }
   ]
 

@@ -14,7 +14,6 @@ import Newsletter from './components/Newsletter'
 import BriefTestimonials from './components/BriefTestimonials'
 import TestimonialsWall from './components/TestimonialsWall'
 import CartSidebar from './components/store/CartSidebar'
-import FloatingButtons from './components/FloatingButtons'
 import FloatingTestimonialVideo from './components/FloatingTestimonialVideo'
 import YouTubeShorts from './components/YouTubeShorts'
 import InstagramFeed from './components/InstagramFeed'
@@ -1701,9 +1700,6 @@ Please contact me to discuss custom solutions.`;
 
       {/* Cart Sidebar */}
       <CartSidebar />
-
-      {/* Floating Contact Buttons */}
-      <FloatingButtons />
 
       {/* Floating Testimonial Video */}
       <FloatingTestimonialVideo />

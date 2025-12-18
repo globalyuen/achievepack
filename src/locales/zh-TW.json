@@ -742,247 +742,204 @@
         }
     },
     "seoPages": {
-        "backToHome": "Back to Home",
-        "quickSummary": "Quick Summary",
-        "contents": "Contents",
-        "faq": "Frequently Asked Questions",
-        "relatedResources": "Related Resources",
-        "emailUs": "Email Us",
-        "bookMeeting": "Book Meeting",
-        "getQuote": "Get Free Quote",
-        "readyToStart": "Ready to Get Started?",
-        "contactExperts": "Contact our packaging experts for a free consultation and quote.",
+        "backToHome": "返回首頁",
+        "quickSummary": "快速摘要",
+        "contents": "目錄",
+        "faq": "常見問題",
+        "relatedResources": "相關資源",
+        "emailUs": "發送郵件",
+        "bookMeeting": "預約會議",
+        "getQuote": "獲取免費報價",
+        "readyToStart": "準備好開始了嗎？",
+        "contactExperts": "聯繫我們的包裝專家，獲取免費諮詢和報價。",
         "footer": {
-            "products": "Products",
-            "materials": "Materials",
-            "options": "Options",
-            "industries": "Industries",
-            "termsConditions": "Terms & Conditions",
-            "privacyPolicy": "Privacy Policy",
-            "shippingPolicy": "Shipping Policy",
-            "copyright": "All rights reserved.",
-            "tagline": "Your trusted partner for eco-friendly flexible packaging solutions.",
+            "products": "產品",
+            "materials": "材料",
+            "options": "選項",
+            "industries": "行業",
+            "termsConditions": "條款與細則",
+            "privacyPolicy": "隱私政策",
+            "shippingPolicy": "運輸政策",
+            "copyright": "版權所有。",
+            "tagline": "您可信賴的環保軟包裝解決方案合作夥伴。",
             "links": {
-                "standUpPouches": "Stand-Up Pouches",
-                "flatBottomBags": "Flat Bottom Bags",
-                "spoutPouches": "Spout Pouches",
-                "vacuumPouches": "Vacuum Pouches",
-                "flatPouches": "Flat Pouches",
-                "sideGussetBags": "Side Gusset Bags",
-                "compostable": "Compostable",
-                "homeCompostable": "Home Compostable",
-                "industrialCompostable": "Industrial Compostable",
-                "recyclableMonoPE": "Recyclable Mono-PE",
-                "bioPE": "Bio-PE",
-                "pcrRecycled": "PCR Recycled",
-                "digitalPrinting": "Digital Printing",
-                "platePrinting": "Plate Printing",
-                "reclosureOptions": "Reclosure Options",
-                "surfaceFinishes": "Surface Finishes",
-                "barrierOptions": "Barrier Options",
-                "lowBarrier": "Low Barrier",
-                "mediumBarrier": "Medium Barrier",
-                "highBarrier": "High Barrier",
-                "coffeeTea": "Coffee & Tea",
-                "snacksFood": "Snacks & Food",
-                "petFood": "Pet Food & Treats",
-                "supplements": "Supplements",
-                "babyFood": "Baby Food",
-                "frozenFood": "Frozen Food",
-                "saucesCondiments": "Sauces & Condiments",
-                "aboutUs": "About Us",
-                "factoryTour": "Virtual Factory Tour",
-                "certificates": "Certificates",
-                "allOptions": "All Options",
-                "sizeGuide": "Size Guide",
-                "printingTypes": "Printing Types",
-                "workflow": "Workflow",
-                "faqs": "FAQs",
-                "leadTime": "Lead Time"
+                "standUpPouches": "立式袋",
+                "flatBottomBags": "平底袋",
+                "spoutPouches": "嘴嘴袋",
+                "vacuumPouches": "真空袋",
+                "flatPouches": "平袋",
+                "sideGussetBags": "側風琴袋",
+                "compostable": "可堆肥",
+                "homeCompostable": "家庭可堆肥",
+                "industrialCompostable": "工業可堆肥",
+                "recyclableMonoPE": "可回收單一PE",
+                "bioPE": "生物PE",
+                "pcrRecycled": "PCR回收材料",
+                "digitalPrinting": "數碼印刷",
+                "platePrinting": "製版印刷",
+                "reclosureOptions": "重封選項",
+                "surfaceFinishes": "表面處理",
+                "barrierOptions": "阻隔選項",
+                "lowBarrier": "低阻隔",
+                "mediumBarrier": "中阻隔",
+                "highBarrier": "高阻隔",
+                "coffeeTea": "咖啡與茶",
+                "snacksFood": "零食與食品",
+                "petFood": "寵物食品與零食",
+                "supplements": "保健品",
+                "babyFood": "嬰兒食品",
+                "frozenFood": "冷凍食品",
+                "saucesCondiments": "醬料調味品",
+                "aboutUs": "關於我們",
+                "factoryTour": "虛擬工廠參觀",
+                "certificates": "認證證書",
+                "allOptions": "所有選項",
+                "sizeGuide": "尺寸指南",
+                "printingTypes": "印刷類型",
+                "workflow": "工作流程",
+                "faqs": "常見問題",
+                "leadTime": "交付時間"
             }
         },
         "pages": {
             "compostable": {
-                "title": "Compostable Packaging | Certified EN 13432 & ASTM D6400 Pouches",
-                "description": "Certified compostable flexible packaging made from kraft paper, PLA, and cellulose. EN 13432 & ASTM D6400 certified. Breaks down in 90-180 days. Food-safe, plant-based materials.",
-                "heroTitle": "Certified Compostable Packaging",
-                "heroSubtitle": "Plant-based, food-safe packaging that returns to the earth. Certified to EN 13432 and ASTM D6400 standards. The sustainable choice for eco-conscious brands.",
-                "introSummary": "Achieve Pack's certified compostable packaging is made from renewable plant-based materials including kraft paper and PLA. Our pouches break down in 90-180 days in commercial composting, leaving no microplastics or toxic residue. Certified to EN 13432 (EU) and ASTM D6400 (US) standards, with documentation provided.",
-                "ctaTitle": "Switch to Compostable Packaging",
-                "ctaDescription": "Request a free sample to see and feel our certified compostable materials.",
-                "ctaButtonText": "Get Free Sample",
+                "title": "可堆肥包裝 | EN 13432 與 ASTM D6400 認證袋子",
+                "description": "由牛皮紙、PLA和纖維素製成的認證可堆肥軟包裝。90-180天內分解。食品安全，植物基材料。",
+                "heroTitle": "認證可堆肥包裝",
+                "heroSubtitle": "植物基、食品安全的包裝，回歸大地。符合EN 13432和ASTM D6400標準。環保品牌的可持續選擇。",
+                "introSummary": "Achieve Pack的認證可堆肥包裝由可再生植物基材料製成，包括牛皮紙和PLA。我們的袋子在90-180天內在商業堆肥中分解，不留下微塑料或有毒殘留物。符合EN 13432（歐盟）和ASTM D6400（美國）標準，提供認證文件。",
+                "ctaTitle": "轉換到可堆肥包裝",
+                "ctaDescription": "索取免費樣品，親自體驗我們的認證可堆肥材料。",
+                "ctaButtonText": "獲取免費樣品",
                 "sections": {
                     "overview": {
-                        "title": "What is Compostable Packaging?",
-                        "intro": "Compostable packaging is designed to break down into natural elements in a composting environment, leaving no toxic residue. Unlike conventional plastics that persist for centuries, certified compostable materials decompose within 90-180 days in commercial composting facilities.",
-                        "keyFacts": "Key Facts About Compostable Packaging:",
-                        "fact1": "Breaks down in 90-180 days in commercial composting",
-                        "fact2": "Made from renewable, plant-based materials (PLA, cellulose)",
-                        "fact3": "Leaves no microplastics or toxic residue",
-                        "fact4": "Certified to international standards (EN 13432, ASTM D6400)",
-                        "fact5": "Suitable for food contact applications",
-                        "marketInfo": "According to the European Bioplastics Association, the global compostable packaging market is projected to reach $23.7 billion by 2030, growing at 17.4% CAGR as brands transition away from conventional plastics."
+                        "title": "什麼是可堆肥包裝？",
+                        "intro": "可堆肥包裝旨在在堆肥環境中分解為天然元素，不留有毒殘留物。與持續數百年的傳統塑料不同，認證可堆肥材料在90-180天內在商業堆肥設施中分解。",
+                        "keyFacts": "可堆肥包裝的主要事實：",
+                        "fact1": "在90-180天內在商業堆肥中分解",
+                        "fact2": "由可再生植物基材料製成（PLA、纖維素）",
+                        "fact3": "不留下微塑料或有毒殘留物",
+                        "fact4": "符合國際標準認證（EN 13432、ASTM D6400）",
+                        "fact5": "適合食品接觸應用",
+                        "marketInfo": "根據歐洲生物塑料協會，全球可堆肥包裝市場預計到2030年將達到237億美元，年複合增長率17.4%，品牌正在從傳統塑料轉型。"
                     },
                     "materials": {
-                        "title": "Compostable Material Types",
-                        "intro": "We offer several certified compostable material structures:",
+                        "title": "可堆肥材料類型",
+                        "intro": "我們提供多種認證可堆肥材料結構：",
                         "kraftPla": {
-                            "title": "Kraft Paper + PLA",
-                            "desc": "Natural kraft paper exterior with PLA (polylactic acid) inner layer. Excellent for coffee, tea, snacks, and dry goods.",
-                            "feature1": "Medium barrier properties",
-                            "feature2": "Natural, earthy appearance",
-                            "feature3": "Home compostable in some conditions"
+                            "title": "牛皮紙 + PLA",
+                            "desc": "天然牛皮紙外層配PLA（聚乳酸）內層。非常適合咖啡、茶、零食和乾貨。",
+                            "feature1": "中等阻隔性能",
+                            "feature2": "天然樸樸外觀",
+                            "feature3": "部分條件下可家庭堆肥"
                         },
                         "whiteKraftPla": {
-                            "title": "White Kraft + PLA",
-                            "desc": "Bleached kraft paper for brighter print colors and premium look, with PLA barrier.",
-                            "feature1": "Better print quality",
-                            "feature2": "Clean, modern aesthetic",
-                            "feature3": "Commercial composting required"
+                            "title": "白牛皮紙 + PLA",
+                            "desc": "漂白牛皮紙提供更鮮豔的印刷顏色和高端外觀，配PLA阻隔層。",
+                            "feature1": "更好的印刷質量",
+                            "feature2": "清潔現代的美感",
+                            "feature3": "需要商業堆肥"
                         },
                         "natureFlex": {
-                            "title": "NatureFlex™ Films",
-                            "desc": "Cellulose-based transparent film for clear packaging and windows.",
-                            "feature1": "Crystal clear transparency",
-                            "feature2": "Good moisture barrier",
-                            "feature3": "Home and commercial compostable"
+                            "title": "NatureFlex™ 薄膜",
+                            "desc": "纖維素基透明薄膜，適用於透明包裝和窗口。",
+                            "feature1": "水晶般清晰透明",
+                            "feature2": "良好的防潮阻隔",
+                            "feature3": "可家庭和商業堆肥"
                         },
                         "pbatPla": {
-                            "title": "PBAT/PLA Blends",
-                            "desc": "High-performance compostable films for demanding barrier requirements.",
-                            "feature1": "Enhanced barrier properties",
-                            "feature2": "Heat sealable",
-                            "feature3": "Commercial composting only"
+                            "title": "PBAT/PLA 混合",
+                            "desc": "高性能可堆肥薄膜，滿足要求嚴格的阻隔需求。",
+                            "feature1": "增強的阻隔性能",
+                            "feature2": "可熱封",
+                            "feature3": "僅限商業堆肥"
                         }
                     },
                     "certifications": {
-                        "title": "Compostability Certifications",
-                        "intro": "Our compostable packaging is certified to international standards:",
+                        "title": "可堆肥性認證",
+                        "intro": "我們的可堆肥包裝符合國際標準認證：",
                         "eu": {
-                            "label": "EU",
+                            "label": "歐盟",
                             "title": "EN 13432",
-                            "desc": "European standard for compostable packaging. Requires 90% disintegration within 12 weeks and complete biodegradation within 6 months in industrial composting."
+                            "desc": "可堆肥包裝的歐洲標準。要求在12週內達到90%分解，並在工業堆肥中6個月內完全生物降解。"
                         },
                         "us": {
-                            "label": "US",
+                            "label": "美國",
                             "title": "ASTM D6400",
-                            "desc": "US standard for plastics designed for municipal/industrial aerobic composting facilities. Equivalent testing to EN 13432."
+                            "desc": "美國市政/工業有氧堆肥設施塑料標準。測試與EN 13432等效。"
                         },
                         "au": {
-                            "label": "AU",
+                            "label": "澳洲",
                             "title": "AS 4736 / AS 5810",
-                            "desc": "Australian standards for commercial compostability (AS 4736) and home compostability (AS 5810)."
+                            "desc": "澳洲商業可堆肥性（AS 4736）和家庭可堆肥性（AS 5810）標準。"
                         },
-                        "note": "We provide certification documentation with every order. Our materials are tested by accredited laboratories including TÜV Austria, DIN CERTCO, and BPI."
+                        "note": "我們隨每筆訂單提供認證文件。我們的材料經TÜV Austria、DIN CERTCO和BPI等認可實驗室測試。"
                     },
                     "applications": {
-                        "title": "Product Applications",
-                        "intro": "Compostable packaging is ideal for brands committed to sustainability:",
-                        "items": [
-                            "Specialty coffee",
-                            "Organic tea",
-                            "Health food snacks",
-                            "Organic granola",
-                            "Natural pet treats",
-                            "Superfood powders",
-                            "Dried fruits",
-                            "Artisan chocolates",
-                            "Farmers market products",
-                            "Zero-waste store items",
-                            "Organic baby food",
-                            "Herbal supplements"
-                        ]
+                        "title": "產品應用",
+                        "intro": "可堆肥包裝非常適合致力於可持續發展的品牌：",
+                        "items": ["特色咖啡", "有機茶", "健康食品零食", "有機燕麥片", "天然寵物零食", "超級食品粉", "乾果", "手工巧克力", "農夫市場產品", "零廢棄商店商品", "有機嬰兒食品", "草本保健品"]
                     },
                     "disposal": {
-                        "title": "Disposal & Composting Guide",
-                        "intro": "Understanding proper disposal is key to realizing the environmental benefits:",
-                        "commercialVsHome": "Commercial vs Home Composting",
-                        "commercialVsHomeDesc": "Commercial composting facilities maintain temperatures of 55-60°C, which accelerates breakdown. Most certified compostable packaging requires these conditions. Home composting operates at lower temperatures and may take 6-12 months for complete decomposition.",
-                        "instructionsTitle": "Disposal Instructions for Consumers:",
-                        "instruction1": "Remove any non-compostable elements (zippers may need to be cut off if not compostable)",
-                        "instruction2": "Place in commercial compost bin (check local availability)",
-                        "instruction3": "Do NOT place in regular recycling - compostables can contaminate recycling streams",
-                        "instruction4": "If no commercial composting available, dispose in regular waste (will still break down faster than conventional plastic)"
+                        "title": "處理與堆肥指南",
+                        "intro": "了解正確的處理方式是實現環境效益的關鍵：",
+                        "commercialVsHome": "商業堆肥 vs 家庭堆肥",
+                        "commercialVsHomeDesc": "商業堆肥設施保持55-60°C的溫度，加速分解。大多數認證可堆肥包裝需要這些條件。家庭堆肥在較低溫度下運作，可能需要6-12個月完全分解。",
+                        "instructionsTitle": "消費者處理指南：",
+                        "instruction1": "移除任何不可堆肥的元件（如果拉鏈不可堆肥，可能需要剪掉）",
+                        "instruction2": "放入商業堆肥桶（請查詢當地是否有此服務）",
+                        "instruction3": "不要放入普通回收桶 - 可堆肥物可能汙染回收流",
+                        "instruction4": "如果沒有商業堆肥服務，放入普通垃圾（分解速度仍比傳統塑料快）"
                     },
                     "limitations": {
-                        "title": "Considerations & Limitations",
-                        "intro": "Compostable packaging is excellent for many applications, but consider these factors:",
-                        "bestFor": "Best For:",
-                        "bestFor1": "Dry products with 6-12 month shelf life",
-                        "bestFor2": "Premium, organic, natural brands",
-                        "bestFor3": "Products sold in regions with composting infrastructure",
-                        "bestFor4": "B-corp and sustainability-focused companies",
-                        "considerAlternatives": "Consider Alternatives For:",
-                        "alt1": "Products requiring 18+ month shelf life",
-                        "alt2": "High moisture/liquid products",
-                        "alt3": "Extreme temperature exposure",
-                        "alt4": "Regions without composting access",
-                        "note": "Our team can help you determine if compostable packaging is right for your product. We also offer recyclable alternatives for applications where compostables may not be optimal."
+                        "title": "考慮事項與限制",
+                        "intro": "可堆肥包裝適用於許多應用，但請考慮以下因素：",
+                        "bestFor": "最適合：",
+                        "bestFor1": "6-12個月保質期的乾貨產品",
+                        "bestFor2": "高端、有機、天然品牌",
+                        "bestFor3": "在有堆肥基礎設施地區銷售的產品",
+                        "bestFor4": "B-corp和專注可持續發展的公司",
+                        "considerAlternatives": "考慮替代方案：",
+                        "alt1": "需要18個月以上保質期的產品",
+                        "alt2": "高濕度/液體產品",
+                        "alt3": "極端溫度暴露的產品",
+                        "alt4": "沒有堆肥服務的地區",
+                        "note": "我們的團隊可以幫助您判斷可堆肥包裝是否適合您的產品。對於可堆肥可能不是最佳選擇的應用，我們也提供可回收替代方案。"
                     }
                 },
                 "faq": {
-                    "q1": "What is the difference between compostable and biodegradable?",
-                    "a1": "Compostable materials break down completely into natural elements within a specific timeframe under composting conditions, with certification to prove it (EN 13432, ASTM D6400). 'Biodegradable' is a broader, unregulated term - technically everything biodegrades eventually, even conventional plastic over centuries. Always look for certified compostable, not just biodegradable claims.",
-                    "q2": "Will compostable packaging break down in landfill?",
-                    "a2": "Compostable packaging requires oxygen and microbes to break down efficiently. Landfills are anaerobic environments (no oxygen), so decomposition is very slow. However, compostable materials will still break down faster than conventional plastics and won't leave microplastic residue.",
-                    "q3": "Can I home compost certified compostable packaging?",
-                    "a3": "Most certified compostable packaging is designed for commercial/industrial composting (55-60°C). Some materials are home compostable (certified to AS 5810 or OK Home standard). We can advise which materials suit your needs.",
-                    "q4": "Is compostable packaging food safe?",
-                    "a4": "Yes, all our compostable materials are certified for food contact under FDA 21 CFR and EU 10/2011 regulations. PLA and cellulose-based materials are derived from natural sources and are safe for direct food contact.",
-                    "q5": "How much does compostable packaging cost compared to regular plastic?",
-                    "a5": "Compostable materials typically cost 15-30% more than conventional plastic. However, as production scales and demand grows, the price gap is narrowing. Many brands find the sustainability benefits and marketing value justify the premium."
+                    "q1": "可堆肥和可生物降解有什麼區別？",
+                    "a1": "可堆肥材料在堆肥條件下於特定時間內完全分解為天然元素，並有認證證明（EN 13432、ASTM D6400）。'可生物降解'是一個更廣泛、未受監管的術語 - 技術上任何東西最終都會生物降解，包括傳統塑料需要幾百年。請始終尋找認證可堆肥，而不僅仅是可生物降解的聲明。",
+                    "q2": "可堆肥包裝會在填埋場分解嗎？",
+                    "a2": "可堆肥包裝需要氧氣和微生物才能有效分解。填埋場是無氧環境，所以分解非常緩慢。但可堆肥材料仍會比傳統塑料分解得更快，且不會留下微塑料殘留物。",
+                    "q3": "我可以在家堆肥認證可堆肥包裝嗎？",
+                    "a3": "大多數認證可堆肥包裝是為商業/工業堆肥（55-60°C）設計的。部分材料可家庭堆肥（符合AS 5810或OK Home標準）。我們可以建議哪種材料適合您的需求。",
+                    "q4": "可堆肥包裝食品安全嗎？",
+                    "a4": "是的，我們所有可堆肥材料都符合FDA 21 CFR和歐盟10/2011法規的食品接觸認證。PLA和纖維素基材料源自天然，安全用於直接食品接觸。",
+                    "q5": "可堆肥包裝與普通塑料相比成本如何？",
+                    "a5": "可堆肥材料通常比傳統塑料貴15-30%。但隨著生產規模擴大和需求增長，價格差距正在縮小。許多品牌認為可持續性優勢和行銷價值讓這筆溢價物有所值。"
                 },
                 "table": {
-                    "title": "Compostable Material Comparison",
-                    "headers": [
-                        "Material",
-                        "Barrier Level",
-                        "Composting Type",
-                        "Best For"
-                    ],
-                    "row1": [
-                        "Kraft + PLA",
-                        "Medium",
-                        "Commercial / Some Home",
-                        "Coffee, Tea, Dry Snacks"
-                    ],
-                    "row2": [
-                        "White Kraft + PLA",
-                        "Medium",
-                        "Commercial",
-                        "Premium Coffee, Powders"
-                    ],
-                    "row3": [
-                        "NatureFlex Cellulose",
-                        "Medium-High",
-                        "Home & Commercial",
-                        "Clear Windows, Tea"
-                    ],
-                    "row4": [
-                        "PBAT/PLA Blend",
-                        "High",
-                        "Commercial Only",
-                        "Moisture-Sensitive Products"
-                    ],
-                    "row5": [
-                        "Paper/Cellulose Only",
-                        "Low",
-                        "Home & Commercial",
-                        "Short Shelf Life Items"
-                    ]
+                    "title": "可堆肥材料對比",
+                    "headers": ["材料", "阻隔級別", "堆肥類型", "最適合"],
+                    "row1": ["牛皮紙 + PLA", "中等", "商業 / 部分家庭", "咖啡、茶、乾零食"],
+                    "row2": ["白牛皮紙 + PLA", "中等", "商業", "高端咖啡、粉末"],
+                    "row3": ["NatureFlex纖維素", "中高", "家庭和商業", "透明窗口、茶"],
+                    "row4": ["PBAT/PLA混合", "高", "僅限商業", "防潮產品"],
+                    "row5": ["純紙/纖素", "低", "家庭和商業", "短保質期產品"]
                 },
                 "relatedLinks": {
                     "link1": {
-                        "title": "Recyclable Materials",
-                        "description": "Mono-PE and mono-PP options"
+                        "title": "可回收材料",
+                        "description": "單一PE和單一PP選項"
                     },
                     "link2": {
-                        "title": "Coffee & Tea Packaging",
-                        "description": "Compostable coffee pouches"
+                        "title": "咖啡與茶包裝",
+                        "description": "可堆肥咖啡袋"
                     },
                     "link3": {
-                        "title": "Stand-Up Pouches",
-                        "description": "Available in compostable materials"
+                        "title": "立式袋",
+                        "description": "提供可堆肥材料"
                     }
                 }
             },

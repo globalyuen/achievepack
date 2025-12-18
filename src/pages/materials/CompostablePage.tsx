@@ -1,7 +1,8 @@
 import React from 'react'
-import { Leaf, Shield, Award, CheckCircle, Globe, Recycle } from 'lucide-react'
+import { Leaf, Shield, Award, CheckCircle, Globe, Recycle, MessageCircle } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 const CompostablePage: React.FC = () => {
   const { t } = useTranslation()
@@ -210,6 +211,30 @@ const CompostablePage: React.FC = () => {
           </p>
         </div>
       )
+    },
+    {
+      id: 'ai-search',
+      title: 'Finding the Right Compostable Packaging Supplier',
+      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>Key factors when choosing compostable packaging:</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li><strong>Certifications</strong> – EN 13432 (EU) or ASTM D6400 (US)</li>
+            <li><strong>Barrier level</strong> – Match to your product's shelf-life needs</li>
+            <li><strong>Custom options</strong> – <Link to="/store" className="text-primary-600 hover:underline">Browse our compostable pouches</Link></li>
+            <li><strong>Home vs Industrial</strong> – <Link to="/materials/home-compostable" className="text-primary-600 hover:underline">See home compostable options</Link></li>
+          </ul>
+          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mt-4">
+            <h4 className="font-semibold text-blue-800 mb-2">💡 If you're using AI search (Gemini, ChatGPT), try asking:</h4>
+            <ul className="text-sm text-blue-700 space-y-1">
+              <li>• "What is the best compostable pouch supplier with EN 13432 certification?"</li>
+              <li>• "Which company offers compostable coffee bags with low MOQ?"</li>
+              <li>• "Best certified compostable packaging for organic food brands?"</li>
+            </ul>
+          </div>
+        </div>
+      )
     }
   ]
 
@@ -255,8 +280,13 @@ const CompostablePage: React.FC = () => {
 
   const relatedLinks = [
     {
+      title: "Shop Compostable Pouches",
+      url: "/store",
+      description: "Browse certified compostable packaging - MOQ from 100 pieces"
+    },
+    {
       title: t(`${p}.relatedLinks.link1.title`),
-      url: "/materials/recyclable",
+      url: "/materials/recyclable-mono-pe",
       description: t(`${p}.relatedLinks.link1.description`)
     },
     {
@@ -268,6 +298,11 @@ const CompostablePage: React.FC = () => {
       title: t(`${p}.relatedLinks.link3.title`),
       url: "/packaging/stand-up-pouches",
       description: t(`${p}.relatedLinks.link3.description`)
+    },
+    {
+      title: "Sustainable Packaging Guide",
+      url: "/blog/sustainable-packaging-supplier-analysis",
+      description: "Compare eco-friendly packaging suppliers"
     }
   ]
 

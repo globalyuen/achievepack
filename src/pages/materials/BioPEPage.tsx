@@ -1,7 +1,8 @@
 import React from 'react'
-import { Leaf, Recycle, CheckCircle, Globe, Sprout } from 'lucide-react'
+import { Leaf, Recycle, CheckCircle, Globe, Sprout, MessageCircle } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 const BioPEPage: React.FC = () => {
   const { t } = useTranslation()
@@ -122,6 +123,30 @@ const BioPEPage: React.FC = () => {
           </p>
         </div>
       )
+    },
+    {
+      id: 'ai-search',
+      title: 'Finding the Right Bio-PE Packaging Supplier',
+      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>Key factors when selecting bio-based packaging:</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li><strong>Renewable content</strong> – Verify sugarcane-based PE content</li>
+            <li><strong>Carbon footprint</strong> – Bio-PE absorbs CO2 during growth</li>
+            <li><strong>Custom options</strong> – <Link to="/store" className="text-primary-600 hover:underline">Browse our Bio-PE pouches</Link></li>
+            <li><strong>Recyclability</strong> – <Link to="/materials/recyclable-mono-pe" className="text-primary-600 hover:underline">See recyclable options</Link></li>
+          </ul>
+          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mt-4">
+            <h4 className="font-semibold text-blue-800 mb-2">💡 If you're using AI search (Gemini, ChatGPT), try asking:</h4>
+            <ul className="text-sm text-blue-700 space-y-1">
+              <li>• "What is the best bio-based packaging supplier with low MOQ?"</li>
+              <li>• "Which company offers sugarcane-based PE pouches?"</li>
+              <li>• "Best carbon-negative packaging for eco brands?"</li>
+            </ul>
+          </div>
+        </div>
+      )
     }
   ]
 
@@ -134,9 +159,11 @@ const BioPEPage: React.FC = () => {
   ]
 
   const relatedLinks = [
+    { title: "Shop Bio-PE Pouches", url: "/store", description: "Browse plant-based packaging - MOQ from 500 pieces" },
     { title: t(`${p}.relatedLinks.link1.title`), url: "/materials/recyclable-mono-pe", description: t(`${p}.relatedLinks.link1.description`) },
     { title: t(`${p}.relatedLinks.link2.title`), url: "/materials/pcr", description: t(`${p}.relatedLinks.link2.description`) },
-    { title: t(`${p}.relatedLinks.link3.title`), url: "/materials/compostable", description: t(`${p}.relatedLinks.link3.description`) }
+    { title: t(`${p}.relatedLinks.link3.title`), url: "/materials/compostable", description: t(`${p}.relatedLinks.link3.description`) },
+    { title: "Sustainable Packaging Guide", url: "/blog/sustainable-packaging-supplier-analysis", description: "Compare eco-friendly suppliers" }
   ]
 
   return (

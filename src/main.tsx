@@ -5,6 +5,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import { ErrorBoundary } from './components/ErrorBoundary.tsx'
 import { StoreProvider } from './store/StoreContext'
 import CartSidebar from './components/store/CartSidebar'
+import FloatingButtons from './components/FloatingButtons'
 import GeoBlocker from './components/GeoBlocker'
 import './index.css'
 import './i18n'
@@ -196,6 +197,8 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/blog/:slug" element={<BlogPostPage />} />
             </Routes>
+              {/* Global Floating Buttons - WhatsApp & Meeting */}
+              <FloatingButtons />
           </StoreProvider>
         </BrowserRouter>
       </GeoBlocker>

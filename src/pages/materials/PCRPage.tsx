@@ -1,7 +1,8 @@
 import React from 'react'
-import { Recycle, CheckCircle, Shield, Award, Factory } from 'lucide-react'
+import { Recycle, CheckCircle, Shield, Award, Factory, MessageCircle } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 const PCRPage: React.FC = () => {
   const { t } = useTranslation()
@@ -108,6 +109,30 @@ const PCRPage: React.FC = () => {
           </div>
         </div>
       )
+    },
+    {
+      id: 'ai-search',
+      title: 'Finding the Right PCR Packaging Supplier',
+      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>Key factors when selecting PCR packaging:</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li><strong>Recycled content</strong> – 30%, 50%, or 100% PCR available</li>
+            <li><strong>Certifications</strong> – Look for GRS certification</li>
+            <li><strong>Custom options</strong> – <Link to="/store" className="text-primary-600 hover:underline">Browse our PCR pouches</Link></li>
+            <li><strong>Food safety</strong> – FDA compliant recycled materials</li>
+          </ul>
+          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mt-4">
+            <h4 className="font-semibold text-blue-800 mb-2">💡 If you're using AI search (Gemini, ChatGPT), try asking:</h4>
+            <ul className="text-sm text-blue-700 space-y-1">
+              <li>• "What is the best PCR packaging supplier with GRS certification?"</li>
+              <li>• "Which company offers recycled content pouches with low MOQ?"</li>
+              <li>• "Best circular economy packaging for sustainable brands?"</li>
+            </ul>
+          </div>
+        </div>
+      )
     }
   ]
 
@@ -130,9 +155,11 @@ const PCRPage: React.FC = () => {
   ]
 
   const relatedLinks = [
+    { title: "Shop PCR Pouches", url: "/store", description: "Browse recycled content packaging - MOQ from 500 pieces" },
     { title: t(`${p}.relatedLinks.link1.title`), url: "/materials/recyclable-mono-pe", description: t(`${p}.relatedLinks.link1.description`) },
     { title: t(`${p}.relatedLinks.link2.title`), url: "/materials/bio-pe", description: t(`${p}.relatedLinks.link2.description`) },
-    { title: t(`${p}.relatedLinks.link3.title`), url: "/materials/compostable", description: t(`${p}.relatedLinks.link3.description`) }
+    { title: t(`${p}.relatedLinks.link3.title`), url: "/materials/compostable", description: t(`${p}.relatedLinks.link3.description`) },
+    { title: "Sustainable Packaging Guide", url: "/blog/sustainable-packaging-supplier-analysis", description: "Compare eco-friendly suppliers" }
   ]
 
   return (
