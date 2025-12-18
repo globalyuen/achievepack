@@ -23,6 +23,11 @@ export const blogPosts: BlogPost[] = [
     title: "Sustainable Packaging Supplier Analysis: Evaluating Eco-Friendly Pouch Manufacturers",
     excerpt: "Comprehensive analysis evaluating leading eco-friendly packaging pouch manufacturers in the US market using Weighted Supplier Scorecard and SWOT Analysis framework.",
     content: `
+      <figure class="my-8">
+        <img src="/imgs/blog/1/a_eco_packaging_hero_collection_4454797.webp" alt="Sustainable packaging materials showcase - eco-friendly pouches" class="w-full rounded-xl" />
+        <figcaption class="text-center text-sm text-neutral-500 mt-3">Sustainable packaging materials showcase</figcaption>
+      </figure>
+
       <h2>Executive Summary</h2>
       <p>This comprehensive analysis evaluates leading eco-friendly packaging pouch manufacturers in the US market, employing a Weighted Supplier Scorecard and SWOT Analysis framework. The research reveals distinct market segmentation based on business scale requirements, with no single "optimal" supplier across all business contexts. Key findings indicate that supplier selection must align with specific business priorities: startups require ultra-low minimum order quantities (MOQs), scaling brands prioritize speed and agility, while established corporations focus on supply chain reliability and total cost optimization.</p>
 
@@ -56,6 +61,11 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Market Landscape & Supplier Segmentation</h2>
       <p>The eco-friendly packaging market reveals distinct segmentation based on business model and target customer scale. This segmentation directly impacts supplier capabilities, pricing structures, and operational approaches.</p>
+
+      <figure class="my-8">
+        <img src="/imgs/blog/1/a_brand_showcase_sustainable_packaging_7993247.webp" alt="Brand showcase sustainable packaging options" class="w-full rounded-xl" />
+        <figcaption class="text-center text-sm text-neutral-500 mt-3">Leading eco-friendly packaging brands and their sustainable solutions</figcaption>
+      </figure>
 
       <h3>Pouch.eco / AchievePack.com</h3>
       <p><strong>Market Position:</strong> Small business enabler with ultra-low MOQ focus</p>
@@ -103,45 +113,45 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h3>Comparison Results</h3>
-      <table style="width:100%; border-collapse: collapse; margin: 20px 0;">
+      <table>
         <thead>
-          <tr style="background: #22c55e; color: white;">
-            <th style="padding: 12px; text-align: left;">Criterion (Blended Weight)</th>
-            <th style="padding: 12px; text-align: center;">Pouch.eco / AchievePack</th>
-            <th style="padding: 12px; text-align: center;">EcoEnclose</th>
-            <th style="padding: 12px; text-align: center;">ePac Flexible</th>
+          <tr>
+            <th>Criterion (Blended Weight)</th>
+            <th>Pouch.eco / AchievePack</th>
+            <th>EcoEnclose</th>
+            <th>ePac Flexible</th>
           </tr>
         </thead>
         <tbody>
-          <tr style="border-bottom: 1px solid #e5e5e5;">
-            <td style="padding: 12px;">Sustainability Credentials (25%)</td>
-            <td style="padding: 12px; text-align: center;">4/5</td>
-            <td style="padding: 12px; text-align: center;">5/5</td>
-            <td style="padding: 12px; text-align: center;">4/5</td>
+          <tr>
+            <td>Sustainability Credentials (25%)</td>
+            <td>4/5</td>
+            <td>5/5</td>
+            <td>4/5</td>
           </tr>
-          <tr style="border-bottom: 1px solid #e5e5e5;">
-            <td style="padding: 12px;">Cost-Effectiveness (25%)</td>
-            <td style="padding: 12px; text-align: center;">4/5</td>
-            <td style="padding: 12px; text-align: center;">3/5</td>
-            <td style="padding: 12px; text-align: center;">4/5</td>
+          <tr>
+            <td>Cost-Effectiveness (25%)</td>
+            <td>4/5</td>
+            <td>3/5</td>
+            <td>4/5</td>
           </tr>
-          <tr style="border-bottom: 1px solid #e5e5e5;">
-            <td style="padding: 12px;">Production/Shipping Speed (25%)</td>
-            <td style="padding: 12px; text-align: center;">3/5</td>
-            <td style="padding: 12px; text-align: center;">5/5</td>
-            <td style="padding: 12px; text-align: center;">5/5</td>
+          <tr>
+            <td>Production/Shipping Speed (25%)</td>
+            <td>3/5</td>
+            <td>5/5</td>
+            <td>5/5</td>
           </tr>
-          <tr style="border-bottom: 1px solid #e5e5e5;">
-            <td style="padding: 12px;">Minimum Order Quantity (25%)</td>
-            <td style="padding: 12px; text-align: center;">5/5</td>
-            <td style="padding: 12px; text-align: center;">1/5</td>
-            <td style="padding: 12px; text-align: center;">3/5</td>
+          <tr>
+            <td>Minimum Order Quantity (25%)</td>
+            <td>5/5</td>
+            <td>1/5</td>
+            <td>3/5</td>
           </tr>
-          <tr style="background: #f0fdf4; font-weight: bold;">
-            <td style="padding: 12px;">Weighted Score</td>
-            <td style="padding: 12px; text-align: center; color: #22c55e;">4.0 / 5.0</td>
-            <td style="padding: 12px; text-align: center;">3.5 / 5.0</td>
-            <td style="padding: 12px; text-align: center; color: #22c55e;">4.0 / 5.0</td>
+          <tr>
+            <td><strong>Weighted Score</strong></td>
+            <td><strong>4.0 / 5.0</strong></td>
+            <td><strong>3.5 / 5.0</strong></td>
+            <td><strong>4.0 / 5.0</strong></td>
           </tr>
         </tbody>
       </table>
@@ -220,6 +230,11 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Strategic Conclusions & Decision Framework</h2>
 
+      <figure class="my-8">
+        <img src="/imgs/blog/1/a_packaging_decision_matrix_infographic_6353215.webp" alt="Packaging supplier decision matrix infographic" class="w-full rounded-xl" />
+        <figcaption class="text-center text-sm text-neutral-500 mt-3">Decision matrix for sustainable packaging supplier selection</figcaption>
+      </figure>
+
       <h3>Primary Recommendations by Business Stage</h3>
       
       <h4>For Startups & Market Testers</h4>
@@ -247,7 +262,7 @@ export const blogPosts: BlogPost[] = [
     publishDate: "2024-12-18",
     category: "Industry Analysis",
     tags: ["sustainable packaging", "supplier analysis", "eco-friendly", "manufacturers", "SWOT analysis", "startups"],
-    featuredImage: "/imgs/blog/sustainable-packaging-analysis.webp",
+    featuredImage: "/imgs/blog/1/a_eco_packaging_hero_collection_4454797.webp",
     readTime: 15,
     metaDescription: "Comprehensive analysis of sustainable packaging suppliers. Evaluating eco-friendly pouch manufacturers for strategic supplier selection with Weighted Scorecard and SWOT Analysis."
   }
