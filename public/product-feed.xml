@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
+  <channel>
+    <title>Achieve Pack - Eco-Friendly Packaging Products</title>
+    <link>https://achievepack.com/store</link>
+    <description>Sustainable packaging solutions for businesses</description>
+    
+    <!-- Sample Products -->
+    <item>
+      <g:id>sample-sizing-pack</g:id>
+      <g:title>Sizing Pack (Conventional Plastic)</g:title>
+      <g:description>Free samples in standard sizes with conventional plastic material. Perfect for testing different sizes for your products.</g:description>
+      <g:link>https://achievepack.com/store/product/sample-sizing-pack</g:link>
+      <g:image_link>https://achievepack.com/imgs/store/samples/sizing-pack.webp</g:image_link>
+      <g:price>40.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Achieve Pack</g:brand>
+      <g:product_type>Packaging > Sample Packs</g:product_type>
+      <g:google_product_category>4167</g:google_product_category>
+    </item>
+    
+    <item>
+      <g:id>sample-eco-assorted</g:id>
+      <g:title>Assorted Eco Pouches Sample</g:title>
+      <g:description>Mixed eco-friendly sample pouches including PCR/Bio, Recyclable, and Compostable materials.</g:description>
+      <g:link>https://achievepack.com/store/product/sample-eco-assorted</g:link>
+      <g:image_link>https://achievepack.com/imgs/store/samples/eco-assorted.webp</g:image_link>
+      <g:price>40.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Achieve Pack</g:brand>
+      <g:product_type>Packaging > Eco-Friendly > Sample Packs</g:product_type>
+      <g:google_product_category>4167</g:google_product_category>
+    </item>
+    
+    <!-- Conventional Digital Products -->
+    <item>
+      <g:id>conv-3-side-seal-clear</g:id>
+      <g:title>3 Side Seal Pouch - Clear, No Zipper</g:title>
+      <g:description>Crystal clear 3-side seal pouch with low barrier finish. Perfect for showcasing your products with full visibility.</g:description>
+      <g:link>https://achievepack.com/store/product/conv-3-side-seal-clear</g:link>
+      <g:image_link>https://achievepack.com/imgs/store/conventional/3-side-clear.webp</g:image_link>
+      <g:price>90.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Achieve Pack</g:brand>
+      <g:product_type>Packaging > Pouches > 3 Side Seal</g:product_type>
+      <g:google_product_category>4167</g:google_product_category>
+      <g:custom_label_0>Digital Print</g:custom_label_0>
+      <g:custom_label_1>Low MOQ</g:custom_label_1>
+    </item>
+    
+    <item>
+      <g:id>conv-3-side-seal-zipper-clear</g:id>
+      <g:title>3 Side Seal Pouch - Clear, With Zipper</g:title>
+      <g:description>Resealable clear 3-side seal pouch. Combines product visibility with convenient resealing functionality.</g:description>
+      <g:link>https://achievepack.com/store/product/conv-3-side-seal-zipper-clear</g:link>
+      <g:image_link>https://achievepack.com/imgs/store/conventional/3-side-zipper-clear.webp</g:image_link>
+      <g:price>110.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Achieve Pack</g:brand>
+      <g:product_type>Packaging > Pouches > 3 Side Seal > Resealable</g:product_type>
+      <g:google_product_category>4167</g:google_product_category>
+    </item>
+    
+    <item>
+      <g:id>conv-stand-up-clear</g:id>
+      <g:title>Stand Up Pouch - Clear, No Zipper</g:title>
+      <g:description>Clear stand-up pouch for retail display. Self-standing design with excellent product visibility.</g:description>
+      <g:link>https://achievepack.com/store/product/conv-stand-up-clear</g:link>
+      <g:image_link>https://achievepack.com/imgs/store/conventional/stand-up-clear.webp</g:image_link>
+      <g:price>90.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Achieve Pack</g:brand>
+      <g:product_type>Packaging > Pouches > Stand Up</g:product_type>
+      <g:google_product_category>4167</g:google_product_category>
+    </item>
+    
+    <item>
+      <g:id>conv-stand-up-zipper-clear</g:id>
+      <g:title>Stand Up Pouch - Clear, With Zipper</g:title>
+      <g:description>Resealable clear stand-up pouch. Self-standing with zipper closure for consumer convenience.</g:description>
+      <g:link>https://achievepack.com/store/product/conv-stand-up-zipper-clear</g:link>
+      <g:image_link>https://achievepack.com/imgs/store/conventional/stand-up-zipper-clear.webp</g:image_link>
+      <g:price>110.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Achieve Pack</g:brand>
+      <g:product_type>Packaging > Pouches > Stand Up > Resealable</g:product_type>
+      <g:google_product_category>4167</g:google_product_category>
+    </item>
+    
+    <!-- Eco Stock Products -->
+    <item>
+      <g:id>eco-stock-kraft-flat-bottom</g:id>
+      <g:title>Compostable Kraft Flat Bottom Pouch</g:title>
+      <g:description>Home compostable kraft flat bottom pouch. Premium presentation with eco-friendly materials.</g:description>
+      <g:link>https://achievepack.com/store/product/eco-stock-kraft-flat-bottom</g:link>
+      <g:image_link>https://achievepack.com/imgs/store/eco-stock/kraft-flat-bottom.webp</g:image_link>
+      <g:price>135.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Achieve Pack</g:brand>
+      <g:product_type>Packaging > Eco-Friendly > Compostable > Flat Bottom</g:product_type>
+      <g:google_product_category>4167</g:google_product_category>
+      <g:custom_label_0>Compostable</g:custom_label_0>
+      <g:custom_label_1>Eco-Friendly</g:custom_label_1>
+    </item>
+    
+    <item>
+      <g:id>eco-stock-clear-flat-bottom</g:id>
+      <g:title>Compostable Clear Flat Bottom Pouch</g:title>
+      <g:description>Home compostable clear flat bottom pouch. Showcase your products with sustainable packaging.</g:description>
+      <g:link>https://achievepack.com/store/product/eco-stock-clear-flat-bottom</g:link>
+      <g:image_link>https://achievepack.com/imgs/store/eco-stock/clear-flat-bottom.webp</g:image_link>
+      <g:price>135.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Achieve Pack</g:brand>
+      <g:product_type>Packaging > Eco-Friendly > Compostable > Flat Bottom</g:product_type>
+      <g:google_product_category>4167</g:google_product_category>
+      <g:custom_label_0>Compostable</g:custom_label_0>
+    </item>
+    
+    <item>
+      <g:id>eco-stock-header-bag</g:id>
+      <g:title>Compostable Header Bag</g:title>
+      <g:description>Home compostable header bag with hang hole. Perfect for retail display with sustainable materials.</g:description>
+      <g:link>https://achievepack.com/store/product/eco-stock-header-bag</g:link>
+      <g:image_link>https://achievepack.com/imgs/store/eco-stock/header-bag.webp</g:image_link>
+      <g:price>60.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Achieve Pack</g:brand>
+      <g:product_type>Packaging > Eco-Friendly > Compostable > Header Bags</g:product_type>
+      <g:google_product_category>4167</g:google_product_category>
+      <g:custom_label_0>Compostable</g:custom_label_0>
+    </item>
+    
+    <item>
+      <g:id>eco-stock-mailer-bag</g:id>
+      <g:title>Compostable Resealable Mailer Bag</g:title>
+      <g:description>Home compostable resealable mailer bag for e-commerce. Sustainable shipping solution.</g:description>
+      <g:link>https://achievepack.com/store/product/eco-stock-mailer-bag</g:link>
+      <g:image_link>https://achievepack.com/imgs/store/eco-stock/mailer-bag.webp</g:image_link>
+      <g:price>35.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Achieve Pack</g:brand>
+      <g:product_type>Packaging > Eco-Friendly > Compostable > Mailer Bags</g:product_type>
+      <g:google_product_category>4167</g:google_product_category>
+      <g:custom_label_0>Compostable</g:custom_label_0>
+      <g:custom_label_1>E-commerce</g:custom_label_1>
+    </item>
+    
+  </channel>
+</rss>

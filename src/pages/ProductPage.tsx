@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct, type ConventionalProduct, type EcoStockProduct, type EcoStockSizeVariant, type EcoStockSizeWithQuantities, type EcoStockQuantityOption, PRICING_DATA, POUCH_SIZES, QUANTITY_OPTIONS } from '../store/productData'
@@ -229,7 +230,76 @@ const ProductPage: React.FC = () => {
     })
   }
 
+  // Generate Product Schema for SEO
+  const productSchema = useMemo(() => {
+    if (!product) return null
+    
+    const baseUrl = 'https://achievepack.com'
+    const currentPrice = isConventionalDigital ? conventionalPrice.total : 
+                         isEcoStock ? (ecoStockProduct?.basePrice || 0) :
+                         totalPrice
+    
+    return {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": product.name,
+      "description": product.description,
+      "image": product.images.map(img => `${baseUrl}${img}`),
+      "sku": product.id,
+      "brand": {
+        "@type": "Brand",
+        "name": "Achieve Pack"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": `${baseUrl}/store/product/${product.id}`,
+        "priceCurrency": "USD",
+        "price": currentPrice,
+        "priceValidUntil": new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "Achieve Pack"
+        }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": product.rating,
+        "reviewCount": product.reviews
+      },
+      "category": "Packaging Materials"
+    }
+  }, [product, isConventionalDigital, isEcoStock, conventionalPrice.total, ecoStockProduct?.basePrice, totalPrice])
+
   return (
+    <>
+      {product && (
+        <Helmet>
+          <title>{product.name} | Achieve Pack - Eco-Friendly Packaging</title>
+          <meta name="description" content={product.description} />
+          <link rel="canonical" href={`https://achievepack.com/store/product/${product.id}`} />
+          
+          {/* Open Graph */}
+          <meta property="og:title" content={`${product.name} | Achieve Pack`} />
+          <meta property="og:description" content={product.description} />
+          <meta property="og:image" content={`https://achievepack.com${product.images[0]}`} />
+          <meta property="og:url" content={`https://achievepack.com/store/product/${product.id}`} />
+          <meta property="og:type" content="product" />
+          
+          {/* Twitter */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content={product.name} />
+          <meta name="twitter:description" content={product.description} />
+          <meta name="twitter:image" content={`https://achievepack.com${product.images[0]}`} />
+          
+          {/* Product Schema */}
+          {productSchema && (
+            <script type="application/ld+json">
+              {JSON.stringify(productSchema)}
+            </script>
+          )}
+        </Helmet>
+      )}
     <div className="min-h-screen bg-neutral-50">
       {/* Header - Fixed at top */}
       <header className="bg-white border-b fixed top-0 left-0 right-0 z-50">
@@ -2333,6 +2403,7 @@ const ProductPage: React.FC = () => {
         </div>
       )}
     </div>
+    </>
   )
 }
 
