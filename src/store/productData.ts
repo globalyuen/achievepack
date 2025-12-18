@@ -1,5 +1,5 @@
 // Store category types
-export type StoreCategory = 'sample' | 'conventional-digital' | 'eco-digital'
+export type StoreCategory = 'sample' | 'conventional-digital' | 'eco-digital' | 'eco-stock'
 
 // Legacy product interface (keeping for backward compatibility)
 export interface PouchProduct {
@@ -69,7 +69,19 @@ export interface EcoDigitalProduct extends BaseStoreProduct {
   }
 }
 
-export type StoreProduct = PouchProduct | SampleProduct | ConventionalProduct | EcoDigitalProduct
+export type StoreProduct = PouchProduct | SampleProduct | ConventionalProduct | EcoDigitalProduct | EcoStockProduct
+
+// Eco Stock product (ready-made compostable)
+export interface EcoStockProduct extends BaseStoreProduct {
+  category: 'eco-stock'
+  shape: string
+  material: string
+  basePrice: number
+  pricePerPiece: number
+  minQuantity: number
+  quantityStep: number
+  sizeInfo: string
+}
 
 export interface PouchSize {
   id: string
@@ -647,11 +659,74 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
   },
 ]
 
-// Combined products array (16 total: 5 sample + 4 conventional + 7 eco)
+// Eco Stock Products (Ready-made Compostable)
+const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
+  // Compostable Flat Bottom Pouch - Kraft
+  {
+    id: 'eco-stock-flatbottom-kraft',
+    name: 'Compostable Flat Bottom Pouch – Natural Kraft',
+    category: 'eco-stock',
+    description: '100% compostable flat bottom pouch with natural kraft finish. Made from plant-based materials that break down in industrial composting facilities. Features one-sided zipper for resealability.',
+    shortDesc: 'From US$500 for 500 pcs',
+    features: ['100% Compostable', 'Industrial Composting Certified', 'High Barrier (6-12 months)', 'One-Sided Zipper', 'Natural Kraft Finish'],
+    images: [
+      '/imgs/store/eco-stock/flat-bottom/kraft/1.webp',
+      '/imgs/store/eco-stock/flat-bottom/kraft/2.webp',
+      '/imgs/store/eco-stock/flat-bottom/kraft/3.webp',
+      '/imgs/store/eco-stock/flat-bottom/kraft/4.webp',
+      '/imgs/store/eco-stock/flat-bottom/kraft/5.webp'
+    ],
+    badge: '🌱 100% Compostable',
+    rating: 4.9,
+    reviews: 178,
+    inStock: true,
+    turnaround: '5-7 days',
+    minOrder: 500,
+    shape: 'Flat Squared Bottom Pouch',
+    material: 'Natural Kraft - High Barrier (Matte)',
+    basePrice: 500,
+    pricePerPiece: 1.00,
+    minQuantity: 500,
+    quantityStep: 500,
+    sizeInfo: '140mm x 290mm + 80mm',
+  },
+  // Compostable Flat Bottom Pouch - Clear
+  {
+    id: 'eco-stock-flatbottom-clear',
+    name: 'Compostable Flat Bottom Pouch – Milky Clear',
+    category: 'eco-stock',
+    description: '100% compostable flat bottom pouch with milky clear finish for product visibility. Made from plant-based materials with industrial composting certification. Features one-sided zipper for convenience.',
+    shortDesc: 'From US$500 for 500 pcs',
+    features: ['100% Compostable', 'Industrial Composting Certified', 'High Barrier (6-12 months)', 'One-Sided Zipper', 'Milky Clear Finish'],
+    images: [
+      '/imgs/store/eco-stock/flat-bottom/clear/1.webp',
+      '/imgs/store/eco-stock/flat-bottom/clear/2.webp',
+      '/imgs/store/eco-stock/flat-bottom/clear/3.webp',
+      '/imgs/store/eco-stock/flat-bottom/clear/4.webp',
+      '/imgs/store/eco-stock/flat-bottom/clear/5.webp'
+    ],
+    badge: '🌱 100% Compostable',
+    rating: 4.8,
+    reviews: 156,
+    inStock: true,
+    turnaround: '5-7 days',
+    minOrder: 500,
+    shape: 'Flat Squared Bottom Pouch',
+    material: 'Milky Clear - High Barrier (Glossy)',
+    basePrice: 500,
+    pricePerPiece: 1.00,
+    minQuantity: 500,
+    quantityStep: 500,
+    sizeInfo: '140mm x 290mm + 80mm',
+  },
+]
+
+// Combined products array (18 total: 4 sample + 8 conventional + 7 eco + 2 eco-stock)
 export const FEATURED_PRODUCTS: StoreProduct[] = [
   ...SAMPLE_PRODUCTS,
   ...CONVENTIONAL_PRODUCTS,
   ...ECO_DIGITAL_PRODUCTS,
+  ...ECO_STOCK_PRODUCTS,
 ]
 
 export const getPrice = (shape: string, size: string, quantity: number): number => {

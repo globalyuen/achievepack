@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
-import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct, type ConventionalProduct, PRICING_DATA, POUCH_SIZES, QUANTITY_OPTIONS } from '../store/productData'
+import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct, type ConventionalProduct, type EcoStockProduct, PRICING_DATA, POUCH_SIZES, QUANTITY_OPTIONS } from '../store/productData'
 import { calculateEcoPrice, type EcoCalculatorSelections } from '../utils/ecoDigitalCalculator'
 import { getProductImage, getSizeImage, getSurfaceImage, getAdditionalImage, type ShapeType, ClosureType, SurfaceType, EcoSizeType, AdditionalType } from '../utils/productImageMapper'
 import { TESTIMONIALS } from '../data/testimonialsData'
@@ -15,13 +15,18 @@ const ProductPage: React.FC = () => {
   const product = FEATURED_PRODUCTS.find(p => p.id === productId)
   const isEcoDigital = product?.category === 'eco-digital'
   const isConventionalDigital = product?.category === 'conventional-digital'
+  const isEcoStock = product?.category === 'eco-stock'
   const ecoProduct = isEcoDigital ? (product as EcoDigitalProduct) : null
   const conventionalProduct = isConventionalDigital ? (product as ConventionalProduct) : null
+  const ecoStockProduct = isEcoStock ? (product as EcoStockProduct) : null
   
   // Conventional Digital product options
   const [selectedConvSize, setSelectedConvSize] = useState('130x180')
   const [selectedConvQuantity, setSelectedConvQuantity] = useState(100)
   const [selectedMainImage, setSelectedMainImage] = useState(0)
+  
+  // Eco Stock product options
+  const [selectedEcoStockQuantity, setSelectedEcoStockQuantity] = useState(500)
   
   // Eco Digital product options
   const [selectedMaterial, setSelectedMaterial] = useState('Mono Recyclable Plastic')
@@ -472,8 +477,169 @@ const ProductPage: React.FC = () => {
           </div>
         )}
         
-        {/* Main Product Image for Non-Eco Digital and Non-Conventional Products - Top of Page */}
-        {!isEcoDigital && !isConventionalDigital && (
+        {/* Eco Stock Products Layout */}
+        {isEcoStock && ecoStockProduct && (
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-8">
+            {/* Left Column - Image Gallery */}
+            <div className="space-y-4">
+              {/* Main Image */}
+              <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden">
+                <button 
+                  onClick={() => setEnlargedImage({
+                    src: product.images[selectedMainImage],
+                    alt: product.name
+                  })}
+                  className="w-full bg-neutral-50 p-6 cursor-pointer hover:bg-neutral-100 transition"
+                >
+                  <img 
+                    src={product.images[selectedMainImage]}
+                    alt={product.name}
+                    className="w-full h-80 object-contain"
+                  />
+                </button>
+              </div>
+              
+              {/* Thumbnail Gallery */}
+              {product.images.length > 1 && (
+                <div className="grid grid-cols-5 gap-2">
+                  {product.images.map((img, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setSelectedMainImage(index)}
+                      className={`aspect-square bg-white rounded-lg border-2 overflow-hidden transition-all hover:shadow-md ${
+                        selectedMainImage === index ? 'border-green-600 ring-2 ring-green-200' : 'border-neutral-200'
+                      }`}
+                    >
+                      <img src={img} alt={`View ${index + 1}`} className="w-full h-full object-contain p-1" />
+                    </button>
+                  ))}
+                </div>
+              )}
+              
+              {/* Specifications */}
+              <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden">
+                <div className="bg-green-50 px-4 py-3 border-b border-neutral-200">
+                  <h3 className="font-semibold text-green-800">🌱 Product Specifications</h3>
+                </div>
+                <div className="p-4">
+                  <dl className="grid grid-cols-1 gap-y-3 text-sm">
+                    <div className="grid grid-cols-3 gap-2">
+                      <dt className="text-neutral-500">Material</dt>
+                      <dd className="text-neutral-900 col-span-2">{ecoStockProduct.material}</dd>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2">
+                      <dt className="text-neutral-500">Size</dt>
+                      <dd className="text-neutral-900 col-span-2">{ecoStockProduct.sizeInfo}</dd>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2">
+                      <dt className="text-neutral-500">Shape</dt>
+                      <dd className="text-neutral-900 col-span-2">{ecoStockProduct.shape}</dd>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2">
+                      <dt className="text-neutral-500">Certification</dt>
+                      <dd className="text-neutral-900 col-span-2">Industrial Composting Approved</dd>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2">
+                      <dt className="text-neutral-500">Shelf Life</dt>
+                      <dd className="text-neutral-900 col-span-2">6-12 months freshness</dd>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2">
+                      <dt className="text-neutral-500">Lead Time</dt>
+                      <dd className="text-neutral-900 col-span-2">{ecoStockProduct.turnaround}</dd>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2">
+                      <dt className="text-neutral-500">Shipping</dt>
+                      <dd className="text-neutral-900 col-span-2">Air Freight (Included)</dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+            </div>
+            
+            {/* Right Column - Product Options */}
+            <div className="space-y-6">
+              {product.badge && <span className="inline-block bg-green-100 text-green-700 text-sm px-4 py-1 rounded-full font-medium">{product.badge}</span>}
+              <h1 className="text-3xl font-bold text-neutral-900">{product.name}</h1>
+              
+              <div className="flex items-center gap-2">
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className={`h-5 w-5 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-neutral-300'}`} />
+                  ))}
+                </div>
+                <span className="text-neutral-600">({product.reviews} reviews)</span>
+              </div>
+              
+              <p className="text-neutral-600">{product.description}</p>
+              
+              {/* Price Display - Green theme */}
+              <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl border-2 border-green-200 p-6">
+                <div className="text-3xl font-bold text-green-700">US${(selectedEcoStockQuantity * ecoStockProduct.pricePerPiece).toLocaleString()}</div>
+                <div className="text-sm text-green-600 mt-1">
+                  ${ecoStockProduct.pricePerPiece.toFixed(2)}/piece • {selectedEcoStockQuantity.toLocaleString()} pieces
+                </div>
+                <div className="text-xs text-green-700 mt-2 bg-white bg-opacity-40 rounded-lg p-2 text-center">
+                  ✓ Air Shipping Included
+                </div>
+              </div>
+              
+              {/* Quantity Selector */}
+              <div className="space-y-4 pt-4 border-t">
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">Quantity (multiples of {ecoStockProduct.quantityStep})</label>
+                  <select 
+                    value={selectedEcoStockQuantity} 
+                    onChange={e => setSelectedEcoStockQuantity(Number(e.target.value))} 
+                    className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  >
+                    {Array.from({ length: 10 }, (_, i) => (i + 1) * ecoStockProduct.quantityStep).map(qty => (
+                      <option key={qty} value={qty}>{qty.toLocaleString()} pieces</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+              
+              {/* Add to Cart - Green button for compostable products */}
+              <button 
+                onClick={() => {
+                  addToCart({
+                    productId: product.id,
+                    name: product.name,
+                    image: product.images[0],
+                    variant: { shape: ecoStockProduct.shape, size: ecoStockProduct.sizeInfo, material: ecoStockProduct.material },
+                    quantity: 1,
+                    unitPrice: selectedEcoStockQuantity * ecoStockProduct.pricePerPiece,
+                    totalPrice: selectedEcoStockQuantity * ecoStockProduct.pricePerPiece
+                  })
+                }} 
+                className="w-full py-4 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2"
+              >
+                <ShoppingCart className="h-5 w-5" /> 🌱 Add Compostable Pouch to Cart
+              </button>
+              
+              {/* Features */}
+              <div className="grid grid-cols-2 gap-3 pt-4">
+                {product.features.map((feature, i) => (
+                  <div key={i} className="flex items-center gap-2 text-sm text-neutral-600">
+                    <Check className="h-4 w-4 text-green-500" /> {feature}
+                  </div>
+                ))}
+              </div>
+              
+              {/* Eco Info Box */}
+              <div className="bg-green-50 border border-green-200 rounded-xl p-4">
+                <h4 className="font-semibold text-green-800 mb-2">♻️ About Compostable Packaging</h4>
+                <p className="text-sm text-green-700">
+                  Our compostable pouches are made from plant-based materials that break down in industrial composting facilities. 
+                  Certified for industrial composting, these pouches provide a sustainable alternative without compromising on product protection.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {/* Main Product Image for Non-Eco Digital and Non-Conventional and Non-Eco-Stock Products - Top of Page */}
+        {!isEcoDigital && !isConventionalDigital && !isEcoStock && (
           <div className="mb-8">
             <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden max-w-2xl mx-auto">
               <div className="p-6">
@@ -500,7 +666,7 @@ const ProductPage: React.FC = () => {
         )}
 
         {/* Grid layout for sample products and eco-digital */}
-        {!isConventionalDigital && (
+        {!isConventionalDigital && !isEcoStock && (
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left Column - Customer Examples + Package Preview */}
           <div className="hidden lg:block space-y-4">

@@ -14,6 +14,7 @@ const CATEGORIES = [
   { id: 'sample', label: 'Sample' },
   { id: 'conventional-digital', label: 'Conventional Digital' },
   { id: 'eco-digital', label: 'Eco Digital' },
+  { id: 'eco-stock', label: 'Eco Stock' },
 ]
 
 const SHAPES = [
