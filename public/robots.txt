@@ -39,3 +39,27 @@ Allow: /
 
 User-agent: YandexBot
 Allow: /
+
+# AI Search Engine Bots
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Cohere-AI
+Allow: /
+
+# LLM Information File
+# https://llmstxt.org/
+# Provides structured information for AI/LLM crawlers
+LLMs-Txt: https://achievepack.com/llms.txt
