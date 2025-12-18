@@ -1,12 +1,13 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn } from 'lucide-react'
+import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn, MessageCircle } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct, type ConventionalProduct, type EcoStockProduct, type EcoStockSizeVariant, type EcoStockSizeWithQuantities, type EcoStockQuantityOption, PRICING_DATA, POUCH_SIZES, QUANTITY_OPTIONS } from '../store/productData'
 import { calculateEcoPrice, type EcoCalculatorSelections } from '../utils/ecoDigitalCalculator'
 import { getProductImage, getSizeImage, getSurfaceImage, getAdditionalImage, type ShapeType, ClosureType, SurfaceType, EcoSizeType, AdditionalType } from '../utils/productImageMapper'
 import { TESTIMONIALS } from '../data/testimonialsData'
+import { getProductFAQs, generateFAQSchema, DEFAULT_FAQS, type ProductFAQ } from '../data/productFAQData'
 
 const ProductPage: React.FC = () => {
   const { productId } = useParams<{ productId: string }>()
@@ -271,6 +272,24 @@ const ProductPage: React.FC = () => {
     }
   }, [product, isConventionalDigital, isEcoStock, conventionalPrice.total, ecoStockProduct?.basePrice, totalPrice])
 
+  // Get FAQ data for this product
+  const productFAQData = useMemo(() => {
+    if (!product) return null
+    return getProductFAQs(product.id, product.category)
+  }, [product])
+
+  // Combine default and product-specific FAQs
+  const combinedFAQs = useMemo(() => {
+    const specificFAQs = productFAQData?.faqs || []
+    return [...specificFAQs, ...DEFAULT_FAQS]
+  }, [productFAQData])
+
+  // Generate FAQ Schema
+  const faqSchema = useMemo(() => {
+    if (combinedFAQs.length === 0) return null
+    return generateFAQSchema(combinedFAQs)
+  }, [combinedFAQs])
+
   return (
     <>
       {product && (
@@ -296,6 +315,13 @@ const ProductPage: React.FC = () => {
           {productSchema && (
             <script type="application/ld+json">
               {JSON.stringify(productSchema)}
+            </script>
+          )}
+          
+          {/* FAQ Schema for GEO Optimization */}
+          {faqSchema && (
+            <script type="application/ld+json">
+              {JSON.stringify(faqSchema)}
             </script>
           )}
         </Helmet>
@@ -2344,6 +2370,88 @@ const ProductPage: React.FC = () => {
       
       {/* Add top padding for desktop to account for fixed top bar */}
       {isEcoDigital && <div className="hidden lg:block h-14"></div>}
+
+      {/* FAQ Section for GEO Optimization */}
+      {product && combinedFAQs.length > 0 && (
+        <section className="bg-white border-t border-neutral-200 py-12">
+          <div className="max-w-4xl mx-auto px-4">
+            <h2 className="text-2xl font-bold text-neutral-900 mb-8 text-center">Frequently Asked Questions</h2>
+            
+            <div className="space-y-4">
+              {combinedFAQs.slice(0, 8).map((faq, index) => (
+                <details
+                  key={index}
+                  className="group bg-neutral-50 rounded-lg border border-neutral-200 overflow-hidden"
+                >
+                  <summary className="flex items-center justify-between px-6 py-4 cursor-pointer hover:bg-neutral-100 transition">
+                    <span className="font-medium text-neutral-900 pr-4">{faq.question}</span>
+                    <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+                  </summary>
+                  <div className="px-6 pb-4 text-neutral-700">
+                    {faq.answer}
+                  </div>
+                </details>
+              ))}
+            </div>
+
+            {/* AI Query Examples Section */}
+            {productFAQData?.aiQueryExamples && productFAQData.aiQueryExamples.length > 0 && (
+              <div className="mt-10 bg-blue-50 rounded-xl p-6 border border-blue-200">
+                <div className="flex items-center gap-2 mb-4">
+                  <MessageCircle className="h-5 w-5 text-blue-600" />
+                  <h3 className="font-semibold text-blue-800">Looking for this product? Try asking AI:</h3>
+                </div>
+                <p className="text-sm text-blue-700 mb-3">If you're using Gemini, ChatGPT, or Perplexity, try these queries:</p>
+                <ul className="space-y-2">
+                  {productFAQData.aiQueryExamples.map((query, index) => (
+                    <li key={index} className="flex items-start gap-2 text-blue-700">
+                      <span className="text-blue-500">•</span>
+                      <span className="text-sm">"{query}"</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Product Use Cases */}
+            {productFAQData?.useCases && productFAQData.useCases.length > 0 && (
+              <div className="mt-8">
+                <h3 className="font-semibold text-neutral-900 mb-4">Best For:</h3>
+                <div className="flex flex-wrap gap-2">
+                  {productFAQData.useCases.map((useCase, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm"
+                    >
+                      {useCase}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Related Links */}
+            <div className="mt-10 pt-8 border-t border-neutral-200">
+              <h3 className="font-semibold text-neutral-900 mb-4">Explore More:</h3>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <Link to="/store" className="flex items-center gap-2 text-primary-600 hover:underline">
+                  <ShoppingCart className="h-4 w-4" />
+                  Browse All Products
+                </Link>
+                <Link to="/materials/compostable" className="flex items-center gap-2 text-primary-600 hover:underline">
+                  🌱 Compostable Materials Guide
+                </Link>
+                <Link to="/materials/recyclable-mono-pe" className="flex items-center gap-2 text-primary-600 hover:underline">
+                  ♻️ Recyclable Packaging Options
+                </Link>
+                <Link to="/blog" className="flex items-center gap-2 text-primary-600 hover:underline">
+                  📚 Packaging Insights Blog
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Image Enlargement Modal */}
       {enlargedImage && (
