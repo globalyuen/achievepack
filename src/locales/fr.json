@@ -2713,5 +2713,19 @@
             "title": "BioPE",
             "desc": "Plastique d'origine végétale"
         }
+    },
+    "seo": {
+        "home": {
+            "title": "Achieve Pack - Solutions d'Emballage Écologique Durable",
+            "description": "Transformez votre entreprise avec des emballages écologiques certifiés. Sachets compostables, recyclables et bio-sourcés avec MOQ bas à partir de 100 pièces. 70% moins de plastique."
+        },
+        "store": {
+            "title": "Boutique d'Emballage Écologique | Achieve Pack",
+            "description": "Parcourez notre sélection de solutions d'emballage durable. Sachets compostables, recyclables et bio-sourcés avec commandes minimales basses."
+        },
+        "materials": {
+            "title": "Matériaux d'Emballage Durable | Achieve Pack",
+            "description": "Découvrez notre gamme de matériaux d'emballage écologiques : compostables, mono-PE/PP recyclables, bio-PE et options PCR."
+        }
     }
 }

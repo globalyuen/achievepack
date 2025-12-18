@@ -1,5 +1,7 @@
 import React, { useState, useMemo, useCallback, useTransition } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
+import { useTranslation } from 'react-i18next'
 import { ShoppingCart, Search, Star, Truck, Shield, Clock, ArrowLeft, Grid3X3, List, ChevronDown } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import { FEATURED_PRODUCTS, type StoreProduct, type EcoDigitalProduct, type ConventionalProduct } from '../store/productData'
@@ -33,6 +35,7 @@ const SHAPES = [
 ]
 
 const StorePage: React.FC = () => {
+  const { t, i18n } = useTranslation()
   const { cartCount, setIsCartOpen } = useStore()
   const navigate = useNavigate()
   const [isPending, startTransition] = useTransition()
@@ -142,6 +145,15 @@ const StorePage: React.FC = () => {
   }
 
   return (
+    <>
+      <Helmet>
+        <title>{t('seo.store.title', 'Shop Eco-Friendly Packaging | Achieve Pack Store')}</title>
+        <meta name="description" content={t('seo.store.description', 'Browse our selection of sustainable packaging solutions. Compostable pouches, recyclable bags, and bio-based packaging with low minimum orders.')} />
+        <link rel="canonical" href="https://achievepack.com/store" />
+        <meta property="og:title" content={t('seo.store.title', 'Shop Eco-Friendly Packaging | Achieve Pack')} />
+        <meta property="og:description" content={t('seo.store.description', 'Sustainable packaging solutions with low MOQ.')} />
+        <meta property="og:url" content="https://achievepack.com/store" />
+      </Helmet>
     <div className="min-h-screen bg-neutral-50">
       {/* Store Header - Fixed */}
       <header className="bg-primary-600 text-white fixed top-0 left-0 right-0 z-50">
@@ -484,6 +496,7 @@ const StorePage: React.FC = () => {
         </div>
       </footer>
     </div>
+    </>
   )
 }
 

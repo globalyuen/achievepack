@@ -2713,5 +2713,19 @@
             "title": "生物基 PE",
             "desc": "植物基塑料"
         }
+    },
+    "seo": {
+        "home": {
+            "title": "Achieve Pack - 永續環保包裝解決方案",
+            "description": "以認證環保包裝轉變您的業務。可堆肥、可回收和生物基袋，低 MOQ 100 件起。減少 70% 塑料使用。"
+        },
+        "store": {
+            "title": "環保包裝商店 | Achieve Pack",
+            "description": "瀏覽我們的永續包裝產品。可堆肥袋、可回收袋和生物基包裝，低起訂量。"
+        },
+        "materials": {
+            "title": "永續包裝材料 | Achieve Pack",
+            "description": "探索我們的環保包裝材料：可堆肥、可回收單層PE/PP、生物PE和PCR選項。"
+        }
     }
 }

@@ -2713,5 +2713,19 @@
             "title": "BioPE",
             "desc": "Plástico de origen vegetal"
         }
+    },
+    "seo": {
+        "home": {
+            "title": "Achieve Pack - Soluciones de Embalaje Ecológico Sostenible",
+            "description": "Transforma tu negocio con embalaje ecológico certificado. Bolsas compostables, reciclables y de base biológica con MOQ bajo desde 100 piezas. 70% menos plástico."
+        },
+        "store": {
+            "title": "Tienda de Embalaje Ecológico | Achieve Pack",
+            "description": "Explora nuestra selección de soluciones de embalaje sostenible. Bolsas compostables, reciclables y de base biológica con pedidos mínimos bajos."
+        },
+        "materials": {
+            "title": "Materiales de Embalaje Sostenible | Achieve Pack",
+            "description": "Explora nuestra gama de materiales de embalaje ecológico: compostables, mono-PE/PP reciclable, bio-PE y opciones PCR."
+        }
     }
 }

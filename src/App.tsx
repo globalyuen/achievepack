@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useTransition } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom'
 import ReactGA from "react-ga4";
@@ -151,7 +152,40 @@ ${formData.message}`
     alert('Thank you for your message! Your email client should open with the pre-filled email.')
   }
 
+  // Get current language for hreflang
+  const currentLang = i18n.language || 'en'
+  const baseUrl = 'https://achievepack.com'
+
   return (
+    <>
+      <Helmet>
+        <html lang={currentLang} />
+        <title>{t('seo.home.title', 'Achieve Pack - Sustainable Eco-Friendly Packaging Solutions')}</title>
+        <meta name="description" content={t('seo.home.description', 'Transform your business with certified eco-friendly packaging. Compostable, recyclable, and bio-based pouches with low MOQ from 100 pieces. 70% less plastic.')} />
+        <link rel="canonical" href={baseUrl} />
+        
+        {/* hreflang for multi-language */}
+        <link rel="alternate" hrefLang="en" href={baseUrl} />
+        <link rel="alternate" hrefLang="zh-TW" href={`${baseUrl}?lang=zh-TW`} />
+        <link rel="alternate" hrefLang="es" href={`${baseUrl}?lang=es`} />
+        <link rel="alternate" hrefLang="fr" href={`${baseUrl}?lang=fr`} />
+        <link rel="alternate" hrefLang="x-default" href={baseUrl} />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content={t('seo.home.title', 'Achieve Pack - Sustainable Eco-Friendly Packaging')} />
+        <meta property="og:description" content={t('seo.home.description', 'Certified compostable & recyclable packaging with low MOQ. Trusted by 500+ brands.')} />
+        <meta property="og:url" content={baseUrl} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={`${baseUrl}/imgs/og-image.webp`} />
+        <meta property="og:locale" content={currentLang === 'zh-TW' ? 'zh_TW' : currentLang === 'es' ? 'es_ES' : currentLang === 'fr' ? 'fr_FR' : 'en_US'} />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={t('seo.home.title', 'Achieve Pack - Sustainable Packaging')} />
+        <meta name="twitter:description" content={t('seo.home.description', 'Eco-friendly packaging solutions with low MOQ.')} />
+        <meta name="twitter:image" content={`${baseUrl}/imgs/og-image.webp`} />
+      </Helmet>
+      
     <div className="min-h-screen bg-neutral-50 font-sans">
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-neutral-100' : 'bg-white border-b border-neutral-100'}`}>
@@ -1662,6 +1696,7 @@ Please contact me to discuss custom solutions.`;
       {/* Floating Testimonial Video */}
       <FloatingTestimonialVideo />
     </div>
+    </>
   )
 }
 

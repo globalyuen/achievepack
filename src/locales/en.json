@@ -2487,5 +2487,19 @@
             "title": "BioPE",
             "desc": "Plant-based plastic"
         }
+    },
+    "seo": {
+        "home": {
+            "title": "Achieve Pack - Sustainable Eco-Friendly Packaging Solutions",
+            "description": "Transform your business with certified eco-friendly packaging. Compostable, recyclable, and bio-based pouches with low MOQ from 100 pieces. 70% less plastic."
+        },
+        "store": {
+            "title": "Shop Eco-Friendly Packaging | Achieve Pack Store",
+            "description": "Browse our selection of sustainable packaging solutions. Compostable pouches, recyclable bags, and bio-based packaging with low minimum orders."
+        },
+        "materials": {
+            "title": "Sustainable Packaging Materials | Achieve Pack",
+            "description": "Explore our range of eco-friendly packaging materials: compostable, recyclable mono-PE/PP, bio-PE, and PCR options."
+        }
     }
 }
