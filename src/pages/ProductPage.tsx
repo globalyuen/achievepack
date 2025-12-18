@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
-import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct, type ConventionalProduct, type EcoStockProduct, type EcoStockSizeVariant, PRICING_DATA, POUCH_SIZES, QUANTITY_OPTIONS } from '../store/productData'
+import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct, type ConventionalProduct, type EcoStockProduct, type EcoStockSizeVariant, type EcoStockSizeWithQuantities, type EcoStockQuantityOption, PRICING_DATA, POUCH_SIZES, QUANTITY_OPTIONS } from '../store/productData'
 import { calculateEcoPrice, type EcoCalculatorSelections } from '../utils/ecoDigitalCalculator'
 import { getProductImage, getSizeImage, getSurfaceImage, getAdditionalImage, type ShapeType, ClosureType, SurfaceType, EcoSizeType, AdditionalType } from '../utils/productImageMapper'
 import { TESTIMONIALS } from '../data/testimonialsData'
@@ -28,6 +28,11 @@ const ProductPage: React.FC = () => {
   // Eco Stock product options
   const [selectedEcoStockQuantity, setSelectedEcoStockQuantity] = useState(500)
   const [selectedSizeVariant, setSelectedSizeVariant] = useState<string | null>(null)
+  // Batch count for sizeVariants products (Header Bag) - each batch = 100pcs
+  const [sizeVariantBatchCount, setSizeVariantBatchCount] = useState(1)
+  // For multi-quantity size products (Mailer Bag)
+  const [selectedSizeWithQty, setSelectedSizeWithQty] = useState<string | null>(null)
+  const [selectedQtyOption, setSelectedQtyOption] = useState<number | null>(null)
   
   // Eco Digital product options
   const [selectedMaterial, setSelectedMaterial] = useState('Mono Recyclable Plastic')
@@ -594,34 +599,123 @@ const ProductPage: React.FC = () => {
                             <div className="text-xs text-neutral-500">{variant.dimensions} {variant.hasHole ? '• With Hole' : '• No Hole'}</div>
                           </div>
                           <div className="text-right">
-                            <div className="font-bold text-green-700">${variant.totalPrice.toFixed(2)}</div>
-                            <div className="text-xs text-neutral-500">${variant.unitPrice.toFixed(3)}/pc × {variant.quantity}</div>
+                            <div className="font-bold text-green-700">${variant.totalPrice.toFixed(2)}/100pcs</div>
+                            <div className="text-xs text-neutral-500">${variant.unitPrice.toFixed(3)}/pc</div>
                           </div>
                         </button>
                       ))}
                     </div>
                   </div>
+                  
+                  {/* Batch Quantity Selector - 100pcs per batch */}
+                  {selectedSizeVariant && (
+                    <div>
+                      <label className="block text-sm font-medium text-neutral-700 mb-2">Quantity (batches of 100 pcs)</label>
+                      <div className="flex items-center gap-3">
+                        <button 
+                          onClick={() => setSizeVariantBatchCount(Math.max(1, sizeVariantBatchCount - 1))}
+                          className="w-10 h-10 rounded-lg border border-neutral-300 flex items-center justify-center text-lg font-bold hover:bg-neutral-100"
+                        >−</button>
+                        <div className="flex-1 text-center">
+                          <div className="text-2xl font-bold text-green-700">{sizeVariantBatchCount}</div>
+                          <div className="text-xs text-neutral-500">{(sizeVariantBatchCount * 100).toLocaleString()} pcs total</div>
+                        </div>
+                        <button 
+                          onClick={() => setSizeVariantBatchCount(sizeVariantBatchCount + 1)}
+                          className="w-10 h-10 rounded-lg border border-neutral-300 flex items-center justify-center text-lg font-bold hover:bg-neutral-100"
+                        >+</button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+              
+              {/* Size + Quantity Selector - for products with multiple sizes and quantities (Mailer Bag) */}
+              {ecoStockProduct.sizeWithQuantities && ecoStockProduct.sizeWithQuantities.length > 0 && (
+                <div className="space-y-4 pt-4 border-t">
+                  {/* Step 1: Select Size */}
+                  <div>
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">1. Select Size</label>
+                    <div className="grid grid-cols-3 gap-2">
+                      {ecoStockProduct.sizeWithQuantities.map((size) => (
+                        <button
+                          key={size.id}
+                          onClick={() => { setSelectedSizeWithQty(size.id); setSelectedQtyOption(null); }}
+                          className={`p-2 border rounded-lg text-center transition ${
+                            selectedSizeWithQty === size.id 
+                              ? 'border-green-600 bg-green-50 ring-2 ring-green-200' 
+                              : 'border-neutral-200 hover:border-green-300'
+                          }`}
+                        >
+                          <div className="font-medium text-neutral-900 text-sm">{size.label}</div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* Step 2: Select Quantity - only show when size is selected */}
+                  {selectedSizeWithQty && (
+                    <div>
+                      <label className="block text-sm font-medium text-neutral-700 mb-2">2. Select Quantity</label>
+                      <div className="space-y-2">
+                        {ecoStockProduct.sizeWithQuantities
+                          .find(s => s.id === selectedSizeWithQty)
+                          ?.quantityOptions.map((option) => (
+                            <button
+                              key={option.quantity}
+                              onClick={() => setSelectedQtyOption(option.quantity)}
+                              className={`w-full p-3 border rounded-lg text-left transition flex justify-between items-center ${
+                                selectedQtyOption === option.quantity 
+                                  ? 'border-green-600 bg-green-50 ring-2 ring-green-200' 
+                                  : 'border-neutral-200 hover:border-green-300'
+                              }`}
+                            >
+                              <div>
+                                <div className="font-medium text-neutral-900">{option.quantity.toLocaleString()} pcs</div>
+                                <div className="text-xs text-neutral-500">${option.unitPrice.toFixed(4)}/pc</div>
+                              </div>
+                              <div className="text-right">
+                                <div className="font-bold text-green-700">${option.totalPrice.toFixed(2)}</div>
+                              </div>
+                            </button>
+                          ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
               
               {/* Price Display - Green theme */}
               {(() => {
                 const selectedVariant = ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)
-                const displayPrice = selectedVariant 
-                  ? selectedVariant.totalPrice 
-                  : selectedEcoStockQuantity * ecoStockProduct.pricePerPiece
-                const displayUnitPrice = selectedVariant 
-                  ? selectedVariant.unitPrice 
-                  : ecoStockProduct.pricePerPiece
-                const displayQuantity = selectedVariant 
-                  ? selectedVariant.quantity 
-                  : selectedEcoStockQuantity
+                const selectedSizeData = ecoStockProduct.sizeWithQuantities?.find(s => s.id === selectedSizeWithQty)
+                const selectedQtyData = selectedSizeData?.quantityOptions.find(o => o.quantity === selectedQtyOption)
+                
+                // Priority: sizeWithQuantities > sizeVariants > default
+                let displayPrice: number
+                let displayUnitPrice: number
+                let displayQuantity: number
+                
+                if (selectedQtyData) {
+                  displayPrice = selectedQtyData.totalPrice
+                  displayUnitPrice = selectedQtyData.unitPrice
+                  displayQuantity = selectedQtyData.quantity
+                } else if (selectedVariant) {
+                  // Multiply by batch count for sizeVariants
+                  displayPrice = selectedVariant.totalPrice * sizeVariantBatchCount
+                  displayUnitPrice = selectedVariant.unitPrice
+                  displayQuantity = selectedVariant.quantity * sizeVariantBatchCount
+                } else {
+                  displayPrice = selectedEcoStockQuantity * ecoStockProduct.pricePerPiece
+                  displayUnitPrice = ecoStockProduct.pricePerPiece
+                  displayQuantity = selectedEcoStockQuantity
+                }
                 
                 return (
                   <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl border-2 border-green-200 p-6">
                     <div className="text-3xl font-bold text-green-700">US${displayPrice.toLocaleString()}</div>
                     <div className="text-sm text-green-600 mt-1">
-                      ${displayUnitPrice.toFixed(3)}/piece • {displayQuantity.toLocaleString()} pieces
+                      ${displayUnitPrice.toFixed(4)}/piece • {displayQuantity.toLocaleString()} pieces
                     </div>
                     <div className="text-xs text-green-700 mt-2 bg-white bg-opacity-40 rounded-lg p-2 text-center">
                       ✓ Air Shipping Included
@@ -630,8 +724,9 @@ const ProductPage: React.FC = () => {
                 )
               })()}
               
-              {/* Quantity Selector - only for products without sizeVariants */}
-              {(!ecoStockProduct.sizeVariants || ecoStockProduct.sizeVariants.length === 0) && (
+              {/* Quantity Selector - only for products without sizeVariants and without sizeWithQuantities */}
+              {(!ecoStockProduct.sizeVariants || ecoStockProduct.sizeVariants.length === 0) && 
+               (!ecoStockProduct.sizeWithQuantities || ecoStockProduct.sizeWithQuantities.length === 0) && (
                 <div className="space-y-4 pt-4 border-t">
                   <div>
                     <label className="block text-sm font-medium text-neutral-700 mb-2">Quantity (multiples of {ecoStockProduct.quantityStep})</label>
@@ -665,12 +760,24 @@ const ProductPage: React.FC = () => {
               <button 
                 onClick={() => {
                   const selectedVariant = ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)
-                  const cartPrice = selectedVariant 
-                    ? selectedVariant.totalPrice 
-                    : selectedEcoStockQuantity * ecoStockProduct.pricePerPiece
-                  const cartSize = selectedVariant 
-                    ? `${selectedVariant.label} - ${selectedVariant.dimensions}` 
-                    : ecoStockProduct.sizeInfo
+                  const selectedSizeData = ecoStockProduct.sizeWithQuantities?.find(s => s.id === selectedSizeWithQty)
+                  const selectedQtyData = selectedSizeData?.quantityOptions.find(o => o.quantity === selectedQtyOption)
+                  
+                  let cartPrice: number
+                  let cartSize: string
+                  
+                  if (selectedQtyData && selectedSizeData) {
+                    cartPrice = selectedQtyData.totalPrice
+                    cartSize = `${selectedSizeData.label} - ${selectedSizeData.dimensions} (${selectedQtyData.quantity} pcs)`
+                  } else if (selectedVariant) {
+                    // Multiply by batch count for sizeVariants
+                    cartPrice = selectedVariant.totalPrice * sizeVariantBatchCount
+                    const totalPcs = selectedVariant.quantity * sizeVariantBatchCount
+                    cartSize = `${selectedVariant.label} - ${selectedVariant.dimensions} (${totalPcs} pcs)`
+                  } else {
+                    cartPrice = selectedEcoStockQuantity * ecoStockProduct.pricePerPiece
+                    cartSize = ecoStockProduct.sizeInfo
+                  }
                   
                   addToCart({
                     productId: product.id,
@@ -682,9 +789,13 @@ const ProductPage: React.FC = () => {
                     totalPrice: cartPrice
                   })
                 }} 
-                disabled={ecoStockProduct.sizeVariants && ecoStockProduct.sizeVariants.length > 0 && !selectedSizeVariant}
+                disabled={
+                  (ecoStockProduct.sizeVariants && ecoStockProduct.sizeVariants.length > 0 && !selectedSizeVariant) ||
+                  (ecoStockProduct.sizeWithQuantities && ecoStockProduct.sizeWithQuantities.length > 0 && (!selectedSizeWithQty || !selectedQtyOption))
+                }
                 className={`w-full py-4 font-semibold rounded-xl transition flex items-center justify-center gap-2 ${
-                  ecoStockProduct.sizeVariants && ecoStockProduct.sizeVariants.length > 0 && !selectedSizeVariant
+                  (ecoStockProduct.sizeVariants && ecoStockProduct.sizeVariants.length > 0 && !selectedSizeVariant) ||
+                  (ecoStockProduct.sizeWithQuantities && ecoStockProduct.sizeWithQuantities.length > 0 && (!selectedSizeWithQty || !selectedQtyOption))
                     ? 'bg-neutral-300 text-neutral-500 cursor-not-allowed'
                     : 'bg-green-600 hover:bg-green-700 text-white'
                 }`}

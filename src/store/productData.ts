@@ -82,6 +82,20 @@ export interface EcoStockSizeVariant {
   unitPrice: number
 }
 
+// Eco Stock size with multiple quantity options (for mailer bags)
+export interface EcoStockQuantityOption {
+  quantity: number
+  totalPrice: number
+  unitPrice: number
+}
+
+export interface EcoStockSizeWithQuantities {
+  id: string
+  label: string
+  dimensions: string
+  quantityOptions: EcoStockQuantityOption[]
+}
+
 // Eco Stock product (ready-made compostable)
 export interface EcoStockProduct extends BaseStoreProduct {
   category: 'eco-stock'
@@ -94,6 +108,8 @@ export interface EcoStockProduct extends BaseStoreProduct {
   sizeInfo: string
   // For multi-size products like Header Bag
   sizeVariants?: EcoStockSizeVariant[]
+  // For multi-size with multi-quantity products like Mailer Bag
+  sizeWithQuantities?: EcoStockSizeWithQuantities[]
   customPrintNote?: string
 }
 
@@ -769,6 +785,113 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       { id: 'size-m', label: 'M (20×30cm)', dimensions: '20 × (26+4) cm, 100 micron', hasHole: true, quantity: 100, totalPrice: 12.02, unitPrice: 0.120 },
       { id: 'size-s', label: 'S (17×22.5cm)', dimensions: '17 × (19.5+3) cm, 100 micron', hasHole: false, quantity: 100, totalPrice: 7.66, unitPrice: 0.076 },
       { id: 'size-xs', label: 'XS (14×20cm)', dimensions: '14 × (17+3) cm, 100 micron', hasHole: false, quantity: 100, totalPrice: 5.56, unitPrice: 0.056 },
+    ],
+    customPrintNote: 'Custom print available for orders of 5,000+ pcs per design. Contact us for details.',
+  },
+  // Compostable Resealable Mailer Bag
+  {
+    id: 'eco-stock-mailer-zipbag',
+    name: 'Compostable Resealable Mailer Bag',
+    category: 'eco-stock',
+    description: '100% biodegradable resealable mailer bag made from PLA+PBAT. Features durable zip-lock closure for multiple uses, moisture and dust protection. Certified compostable - decomposes in 3 months (industrial) or 1-2 years (natural conditions).',
+    shortDesc: 'From US$5.83 for 400 pcs',
+    features: ['100% Biodegradable (PLA+PBAT)', 'Resealable Zip-Lock', 'Moisture & Dust Protection', 'Reusable Design', 'GB/T35795-2017 Certified'],
+    images: [
+      '/imgs/store/eco-stock/mailer/zip bag/1.webp',
+      '/imgs/store/eco-stock/mailer/zip bag/2.webp',
+      '/imgs/store/eco-stock/mailer/zip bag/3.webp',
+      '/imgs/store/eco-stock/mailer/zip bag/4.webp',
+      '/imgs/store/eco-stock/mailer/zip bag/5.webp'
+    ],
+    badge: '🌱 Fully Biodegradable',
+    rating: 4.9,
+    reviews: 124,
+    inStock: true,
+    turnaround: '5-7 days',
+    minOrder: 400,
+    shape: 'Mailer Bag',
+    material: 'PLA+PBAT (Fully Biodegradable), 140 micron',
+    basePrice: 5.83,
+    pricePerPiece: 0.0146,
+    minQuantity: 400,
+    quantityStep: 400,
+    sizeInfo: 'Multiple sizes available (7cm - 35cm)',
+    sizeWithQuantities: [
+      { id: 'size-7x10', label: '7×10cm', dimensions: '7×10cm, 140 micron', quantityOptions: [
+        { quantity: 400, totalPrice: 5.83, unitPrice: 0.0146 },
+        { quantity: 2000, totalPrice: 26.83, unitPrice: 0.0134 },
+        { quantity: 4000, totalPrice: 49.61, unitPrice: 0.0124 }
+      ]},
+      { id: 'size-8x12', label: '8×12cm', dimensions: '8×12cm, 140 micron', quantityOptions: [
+        { quantity: 400, totalPrice: 6.94, unitPrice: 0.0174 },
+        { quantity: 2000, totalPrice: 31.94, unitPrice: 0.0160 },
+        { quantity: 4000, totalPrice: 59.06, unitPrice: 0.0148 }
+      ]},
+      { id: 'size-9x13', label: '9×13cm', dimensions: '9×13cm, 140 micron', quantityOptions: [
+        { quantity: 400, totalPrice: 8.33, unitPrice: 0.0208 },
+        { quantity: 2000, totalPrice: 38.33, unitPrice: 0.0192 },
+        { quantity: 4000, totalPrice: 70.83, unitPrice: 0.0177 }
+      ]},
+      { id: 'size-10x15', label: '10×15cm', dimensions: '10×15cm, 140 micron', quantityOptions: [
+        { quantity: 400, totalPrice: 10.00, unitPrice: 0.0250 },
+        { quantity: 2000, totalPrice: 46.00, unitPrice: 0.0230 },
+        { quantity: 4000, totalPrice: 85.00, unitPrice: 0.0213 }
+      ]},
+      { id: 'size-11x16', label: '11×16cm', dimensions: '11×16cm, 140 micron', quantityOptions: [
+        { quantity: 400, totalPrice: 12.78, unitPrice: 0.0319 },
+        { quantity: 2000, totalPrice: 62.22, unitPrice: 0.0311 },
+        { quantity: 4000, totalPrice: 120.44, unitPrice: 0.0301 }
+      ]},
+      { id: 'size-12x17', label: '12×17cm', dimensions: '12×17cm, 140 micron', quantityOptions: [
+        { quantity: 400, totalPrice: 13.89, unitPrice: 0.0347 },
+        { quantity: 2000, totalPrice: 68.78, unitPrice: 0.0344 },
+        { quantity: 4000, totalPrice: 127.06, unitPrice: 0.0318 }
+      ]},
+      { id: 'size-13x19', label: '13×19cm', dimensions: '13×19cm, 140 micron', quantityOptions: [
+        { quantity: 400, totalPrice: 14.44, unitPrice: 0.0361 },
+        { quantity: 2000, totalPrice: 71.11, unitPrice: 0.0356 },
+        { quantity: 4000, totalPrice: 132.22, unitPrice: 0.0331 }
+      ]},
+      { id: 'size-14x20', label: '14×20cm', dimensions: '14×20cm, 140 micron', quantityOptions: [
+        { quantity: 400, totalPrice: 15.56, unitPrice: 0.0389 },
+        { quantity: 2000, totalPrice: 75.00, unitPrice: 0.0375 },
+        { quantity: 4000, totalPrice: 139.33, unitPrice: 0.0348 }
+      ]},
+      { id: 'size-15x22', label: '15×22cm', dimensions: '15×22cm, 140 micron', quantityOptions: [
+        { quantity: 400, totalPrice: 18.33, unitPrice: 0.0458 },
+        { quantity: 2000, totalPrice: 90.00, unitPrice: 0.0450 },
+        { quantity: 4000, totalPrice: 167.64, unitPrice: 0.0419 }
+      ]},
+      { id: 'size-16x24', label: '16×24cm', dimensions: '16×24cm, 140 micron', quantityOptions: [
+        { quantity: 400, totalPrice: 20.00, unitPrice: 0.0500 },
+        { quantity: 2000, totalPrice: 96.11, unitPrice: 0.0481 },
+        { quantity: 4000, totalPrice: 179.44, unitPrice: 0.0449 }
+      ]},
+      { id: 'size-17x25', label: '17×25cm', dimensions: '17×25cm, 140 micron', quantityOptions: [
+        { quantity: 400, totalPrice: 22.22, unitPrice: 0.0556 },
+        { quantity: 2000, totalPrice: 108.89, unitPrice: 0.0544 },
+        { quantity: 4000, totalPrice: 203.06, unitPrice: 0.0508 }
+      ]},
+      { id: 'size-18x26', label: '18×26cm', dimensions: '18×26cm, 140 micron', quantityOptions: [
+        { quantity: 400, totalPrice: 25.00, unitPrice: 0.0625 },
+        { quantity: 2000, totalPrice: 124.44, unitPrice: 0.0622 },
+        { quantity: 4000, totalPrice: 231.39, unitPrice: 0.0578 }
+      ]},
+      { id: 'size-20x28', label: '20×28cm', dimensions: '20×28cm, 140 micron', quantityOptions: [
+        { quantity: 400, totalPrice: 28.33, unitPrice: 0.0708 },
+        { quantity: 2000, totalPrice: 141.67, unitPrice: 0.0708 },
+        { quantity: 4000, totalPrice: 264.44, unitPrice: 0.0661 }
+      ]},
+      { id: 'size-22x32', label: '22×32cm', dimensions: '22×32cm, 140 micron', quantityOptions: [
+        { quantity: 400, totalPrice: 35.56, unitPrice: 0.0889 },
+        { quantity: 2000, totalPrice: 176.67, unitPrice: 0.0883 },
+        { quantity: 4000, totalPrice: 328.19, unitPrice: 0.0820 }
+      ]},
+      { id: 'size-24x35', label: '24×35cm', dimensions: '24×35cm, 140 micron', quantityOptions: [
+        { quantity: 400, totalPrice: 42.22, unitPrice: 0.1056 },
+        { quantity: 2000, totalPrice: 210.00, unitPrice: 0.1050 },
+        { quantity: 4000, totalPrice: 391.94, unitPrice: 0.0980 }
+      ]},
     ],
     customPrintNote: 'Custom print available for orders of 5,000+ pcs per design. Contact us for details.',
   },

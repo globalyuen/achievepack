@@ -27,6 +27,7 @@ const SHAPES = [
   { id: 'Quad Seal Pouch', label: 'Quad Seal' },
   { id: 'Side Gusset Pouch', label: 'Side Gusset' },
   { id: 'Header Bag', label: 'Header Bag' },
+  { id: 'Mailer Bag', label: 'Mailer Bag' },
 ]
 
 const StorePage: React.FC = () => {
