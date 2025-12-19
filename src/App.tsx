@@ -39,6 +39,7 @@ function App() {
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false)
   const [calculatorResults, setCalculatorResults] = useState<CalculatorResults | null>(null)
   const [selectedProduct, setSelectedProduct] = useState<PouchProduct | null>(null)
+  const [isRyanProfileOpen, setIsRyanProfileOpen] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -56,6 +57,12 @@ function App() {
   const closeProductModal = useCallback(() => {
     startTransition(() => {
       setSelectedProduct(null)
+    })
+  }, [])
+
+  const closeRyanProfile = useCallback(() => {
+    startTransition(() => {
+      setIsRyanProfileOpen(false)
     })
   }, [])
 
@@ -1189,13 +1196,13 @@ ${formData.message}`
                   {/* Hover Icons */}
                   <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
                     {member.profilePage && (
-                      <Link
-                        to={member.profilePage}
+                      <button
+                        onClick={() => setIsRyanProfileOpen(true)}
                         className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-neutral-100 transition-colors"
                         title="View Profile"
                       >
                         <User className="h-5 w-5 text-primary-600" />
-                      </Link>
+                      </button>
                     )}
                     {member.linkedin && (
                       <a
@@ -1735,6 +1742,147 @@ Please contact me to discuss custom solutions.`;
                   className="flex items-center justify-center gap-2 border-2 border-primary-500 text-primary-600 px-6 py-3 rounded-lg font-semibold hover:bg-primary-50 transition-colors"
                 >
                   Explore More
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Ryan Wong Profile Modal */}
+      {isRyanProfileOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" onClick={closeRyanProfile}>
+          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            {/* Close Button */}
+            <button
+              onClick={closeRyanProfile}
+              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow-lg transition-colors"
+            >
+              <X className="h-6 w-6 text-neutral-600" />
+            </button>
+
+            {/* Header Section */}
+            <div className="bg-gradient-to-br from-primary-700 to-primary-900 text-white p-8 rounded-t-2xl">
+              <div className="flex flex-col md:flex-row gap-6 items-center">
+                <img 
+                  src="/imgs/team/Ryan Wong - Packaging Specialist.png" 
+                  alt="Ryan Wong" 
+                  className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-xl"
+                />
+                <div className="text-center md:text-left">
+                  <h2 className="text-3xl font-bold mb-2">Ryan Wong</h2>
+                  <p className="text-xl text-primary-100 mb-2">Packaging Development Specialist</p>
+                  <p className="text-sm text-primary-200">
+                    14 years experience | 8 countries | Fortune 500 & DTC startups
+                  </p>
+                  <p className="text-sm text-primary-300 mt-2">
+                    🎓 The Hong Kong Polytechnic University (Honor Degree)
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Content Section */}
+            <div className="p-8">
+              {/* Exhibition Photo */}
+              <div className="mb-6">
+                <img 
+                  src="/imgs/team/ryan-in-exhib.webp" 
+                  alt="Ryan Wong at Packaging Exhibition" 
+                  className="w-full rounded-lg shadow-md"
+                />
+                <p className="text-sm text-neutral-500 mt-2 text-center italic">Ryan at international packaging exhibition</p>
+              </div>
+
+              {/* About */}
+              <div className="mb-6">
+                <h3 className="text-2xl font-bold text-neutral-900 mb-4">About Ryan</h3>
+                <div className="space-y-3 text-neutral-700">
+                  <p>
+                    With <strong>14 years of dedicated experience</strong> in the packaging industry, Ryan Wong has built expertise cooperating with multinational and Fortune 500 companies to achieve mutual beneficial and long-lasting business relationships.
+                  </p>
+                  <p>
+                    Ryan's packaging experience and business relationships span <strong>8 countries</strong>: Australia, Canada, China, Germany, South Africa, Philippines, UK and USA. As a <strong>Hong Kong Polytechnic University Honor Degree</strong> graduate in Global Supply Chain and Business Administration, he combines academic excellence with practical expertise.
+                  </p>
+                  <p>
+                    At Achieve Pack, Ryan specializes in <strong>100% compostable digital print solutions</strong> with industry-leading low MOQ (100-500 pieces), making sustainable packaging accessible to DTC startups and established brands alike.
+                  </p>
+                </div>
+              </div>
+
+              {/* Core Expertise */}
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-neutral-900 mb-3">Core Expertise</h3>
+                <div className="grid sm:grid-cols-2 gap-2">
+                  {[
+                    'Compostable coffee pouches for DTC brands',
+                    'Chocolate & confectionery packaging',
+                    'Tea packaging (loose leaf & sachets)',
+                    'EN 13432 & ASTM D6400 compliance',
+                    'Low MOQ sustainable solutions',
+                    'Barrier technology for food products'
+                  ].map((skill, idx) => (
+                    <div key={idx} className="flex items-start gap-2 text-sm">
+                      <span className="text-primary-600 mt-0.5">✓</span>
+                      <span className="text-neutral-700">{skill}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Quick Facts */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                <div className="bg-primary-50 rounded-lg p-4 text-center">
+                  <div className="text-3xl font-bold text-primary-700">14</div>
+                  <div className="text-xs text-neutral-600">Years Experience</div>
+                </div>
+                <div className="bg-primary-50 rounded-lg p-4 text-center">
+                  <div className="text-3xl font-bold text-primary-700">8</div>
+                  <div className="text-xs text-neutral-600">Countries Served</div>
+                </div>
+                <div className="bg-primary-50 rounded-lg p-4 text-center">
+                  <div className="text-3xl font-bold text-primary-700">100</div>
+                  <div className="text-xs text-neutral-600">Minimum Order</div>
+                </div>
+                <div className="bg-primary-50 rounded-lg p-4 text-center">
+                  <div className="text-3xl font-bold text-primary-700">4</div>
+                  <div className="text-xs text-neutral-600">Days Rush</div>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex gap-3 flex-wrap">
+                <a 
+                  href="https://www.linkedin.com/in/ryanwwc/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition shadow-lg"
+                >
+                  <Linkedin className="h-5 w-5" />
+                  LinkedIn Profile
+                </a>
+                <a 
+                  href="mailto:ryan@achievepack.com"
+                  className="inline-flex items-center gap-2 bg-white border-2 border-primary-600 text-primary-700 px-6 py-3 rounded-lg font-semibold hover:bg-primary-50 transition"
+                >
+                  <Mail className="h-5 w-5" />
+                  Contact
+                </a>
+                <a 
+                  href="https://calendly.com/30-min-free-packaging-consultancy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-accent-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-accent-700 transition"
+                >
+                  <Calendar className="h-5 w-5" />
+                  Schedule Meeting
+                </a>
+                <Link
+                  to="/team/ryan-wong"
+                  className="inline-flex items-center gap-2 bg-neutral-100 text-neutral-700 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-200 transition"
+                >
+                  View Full Profile
                   <ArrowRight className="h-5 w-5" />
                 </Link>
               </div>
