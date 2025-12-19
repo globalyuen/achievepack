@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import ClickableImage from '../../components/ClickableImage'
 
 const PcrKraftDuplexLowPage: React.FC = () => {
-  const structureName = 'Kraft Paper 50gsm / 30% PCR-PE or 50% Bio-PE80 (Kraft Paper Duplex)'
+  const structureName = 'Kraft Paper 50gsm / 30% PCR-PE (Kraft Paper Duplex)'
   const thickness = '120 micron or 4.7 mil'
   const otr = '<400'
   const wvtr = '<20'
@@ -68,7 +68,7 @@ const PcrKraftDuplexLowPage: React.FC = () => {
             <div className="flex items-start gap-4 p-4 bg-green-50 rounded-lg">
               <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
               <div>
-                <p className="font-semibold text-green-800">30% PCR-PE or 50% Bio-PE80 (Inner Layer)</p>
+                <p className="font-semibold text-green-800">30% PCR-PE (Inner Layer)</p>
                 <p className="text-sm text-green-700">Sustainable polyethylene sealant provides moisture resistance, grease barrier, and reliable heat sealing.</p>
               </div>
             </div>
@@ -196,9 +196,9 @@ const PcrKraftDuplexLowPage: React.FC = () => {
   return (
     <SEOPageLayout
       title="Kraft Paper Duplex Low Barrier | Natural Eco-Friendly Packaging"
-      description="Kraft Paper Duplex: Kraft 50gsm / PCR-PE or Bio-PE. Simple two-layer natural structure. Low barrier for short shelf life products. 120 micron. Ideal for artisan foods, farmers market."
+      description="Kraft Paper Duplex: Kraft 50gsm / PCR-PE. Simple two-layer natural structure. Low barrier for short shelf life products. 120 micron. Ideal for artisan foods, farmers market."
       heroTitle="Kraft Paper Duplex Low Barrier Structure"
-      heroSubtitle="Kraft 50gsm / PCR-PE or Bio-PE - Natural & Cost-Effective"
+      heroSubtitle="Kraft 50gsm / PCR-PE - Natural & Cost-Effective"
       heroLogo="/eco-logo/white-bkg/eco-logo-pcr.png"
       heroLogoAlt="PCR Recycled Content"
       introSummary="A simple two-layer kraft structure offering authentic natural appearance with basic protection. Perfect for fast-moving artisan products at farmers markets and local retail with 3-6 month shelf life."

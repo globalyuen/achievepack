@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import ClickableImage from '../../components/ClickableImage'
 
 const PcrPpDuplexNoWindowPage: React.FC = () => {
-  const structureName = 'OPP20 / 30% PCR-PE or 50% Bio-PE80 (PP Duplex)'
+  const structureName = 'OPP20 / 30% PCR-PE (PP Duplex)'
   const thickness = '100 micron or 4 mil'
   const otr = '<250'
   const wvtr = '<8'
@@ -68,7 +68,7 @@ const PcrPpDuplexNoWindowPage: React.FC = () => {
             <div className="flex items-start gap-4 p-4 bg-green-50 rounded-lg">
               <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
               <div>
-                <p className="font-semibold text-green-800">30% PCR-PE or 50% Bio-PE80 (Inner Layer)</p>
+                <p className="font-semibold text-green-800">30% PCR-PE (Inner Layer)</p>
                 <p className="text-sm text-green-700">Sustainable polyethylene heat-seal layer with recycled or bio-based content.</p>
               </div>
             </div>
@@ -188,9 +188,9 @@ const PcrPpDuplexNoWindowPage: React.FC = () => {
   return (
     <SEOPageLayout
       title="PCR PP Duplex No Window | Low-Barrier Moisture-Resistant Eco Packaging"
-      description="PCR PP Duplex No Window: OPP20 / PCR-PE or Bio-PE. Best moisture barrier in low-barrier category (WVTR <8). 100 micron. Cost-effective for crackers, candy, dry goods."
+      description="PCR PP Duplex No Window: OPP20 / PCR-PE. Best moisture barrier in low-barrier category (WVTR <8). 100 micron. Cost-effective for crackers, candy, dry goods."
       heroTitle="PCR PP Duplex No Window Structure"
-      heroSubtitle="OPP20 / 30% PCR-PE or 50% Bio-PE80 - Best Low-Barrier Moisture"
+      heroSubtitle="OPP20 / 30% PCR-PE - Best Low-Barrier Moisture"
       heroLogo="/eco-logo/white-bkg/eco-logo-pcr.png"
       heroLogoAlt="PCR Recycled Content"
       introSummary="The best moisture barrier in the low-barrier sustainable category. OPP's inherent moisture resistance provides WVTR <8, making it ideal for crackers, candy, and moisture-sensitive products with shorter shelf life."

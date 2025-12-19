@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Building2, AlertCircle, Lightbulb, TrendingUp, Package, CheckCircle } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
@@ -121,10 +122,18 @@ const ChocolateBrandCaseStudy = () => {
           <div className="grid md:grid-cols-2 gap-4 text-sm">
             <div><strong>Format:</strong> Flat Bottom Bag</div>
             <div><strong>Size:</strong> 100 × 200 × 60mm (150g)</div>
-            <div><strong>Material:</strong> Mono-PP high barrier</div>
+            <div><strong>Material:</strong> <Link to="/spec/mono-pp-duplex-clear" className="text-primary-600 hover:underline">Mono-PP duplex high barrier (recyclable)</Link></div>
             <div><strong>Finish:</strong> Matte black + soft-touch + gold foil</div>
             <div><strong>Closure:</strong> Resealable zipper</div>
             <div><strong>Printing:</strong> Plate, 4 colors + foil</div>
+          </div>
+          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mt-4">
+            <h4 className="font-semibold text-blue-800 mb-2">💡 Related Structures:</h4>
+            <ul className="text-sm text-blue-700 space-y-1">
+              <li>• <Link to="/spec/mono-pp-duplex-clear" className="underline">Mono-PP Duplex - Best moisture barrier</Link></li>
+              <li>• <Link to="/spec/pcr-pp-duplex-clear" className="underline">PCR-PP Duplex - With recycled content</Link></li>
+              <li>• <Link to="/materials/recyclable-mono-pp" className="underline">Learn about Mono-PP materials</Link></li>
+            </ul>
           </div>
         </div>
       )

@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react'
+import React, { useState, useMemo, useEffect, useTransition, useCallback } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn, MessageCircle } from 'lucide-react'
@@ -13,6 +13,15 @@ const ProductPage: React.FC = () => {
   const { productId } = useParams<{ productId: string }>()
   const { addToCart, cartCount, setIsCartOpen } = useStore()
   const navigate = useNavigate()
+  const [isPending, startTransition] = useTransition()
+  
+  // Optimized navigation handler for better INP
+  const handleNavigation = useCallback((to: string) => (e: React.MouseEvent) => {
+    e.preventDefault()
+    startTransition(() => {
+      navigate(to)
+    })
+  }, [navigate])
   
   const product = FEATURED_PRODUCTS.find(p => p.id === productId)
   const isEcoDigital = product?.category === 'eco-digital'
@@ -331,7 +340,11 @@ const ProductPage: React.FC = () => {
       <header className="bg-white border-b fixed top-0 left-0 right-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition">
+            <a 
+              href="/" 
+              onClick={handleNavigation('/')}
+              className="flex items-center gap-2 hover:opacity-80 transition"
+            >
               <img 
                 src="/achieve-pack-logo.png" 
                 alt="Achieve Pack" 
@@ -341,10 +354,14 @@ const ProductPage: React.FC = () => {
                 width="120"
                 height="36"
               />
-            </Link>
-            <Link to="/store" className="flex items-center gap-1 text-sm text-neutral-500 hover:text-primary-600 transition">
+            </a>
+            <a 
+              href="/store" 
+              onClick={handleNavigation('/store')}
+              className="flex items-center gap-1 text-sm text-neutral-500 hover:text-primary-600 transition"
+            >
               <ArrowLeft className="h-4 w-4" /> Back to Store
-            </Link>
+            </a>
           </div>
           <button onClick={() => {
             if (cartCount === 0) {
@@ -2544,59 +2561,100 @@ const ProductPage: React.FC = () => {
       )}
 
       {/* Footer */}
-      <footer className="bg-neutral-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* Brand */}
-            <div className="md:col-span-1">
+      <footer className="bg-neutral-900 text-white py-12 mt-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-8">
+            {/* Store Info */}
+            <div className="col-span-2 md:col-span-1">
               <Link to="/" className="flex items-center gap-2 mb-4">
                 <img src="/ap-logo-white.png" alt="Achieve Pack" className="h-8 w-auto" loading="lazy" decoding="async" width="106" height="32" />
-                <span className="text-xl font-bold">Achieve Pack</span>
+                <span className="font-bold">Store</span>
               </Link>
-              <p className="text-neutral-400 text-sm">
-                Sustainable packaging solutions since 2011. Eco-friendly pouches with low MOQ.
-              </p>
+              <p className="text-neutral-400 text-sm mb-4">Premium custom printed pouches with eco-friendly options.</p>
+              <div className="space-y-1 text-xs text-neutral-500">
+                <p>Free worldwide shipping</p>
+                <p>15-20 days turnaround</p>
+                <p>Food-grade quality</p>
+              </div>
             </div>
 
-            {/* Quick Links */}
+            {/* Products by Category */}
             <div>
-              <h4 className="font-semibold mb-4">Products</h4>
-              <ul className="space-y-2 text-neutral-400 text-sm">
-                <li><Link to="/store" className="hover:text-white transition">Shop All</Link></li>
-                <li><Link to="/packaging/stand-up-pouches" className="hover:text-white transition">Stand-Up Pouches</Link></li>
-                <li><Link to="/packaging/flat-bottom-bags" className="hover:text-white transition">Flat Bottom Bags</Link></li>
-                <li><Link to="/materials/compostable" className="hover:text-white transition">Compostable</Link></li>
+              <h4 className="font-semibold text-sm mb-4">Categories</h4>
+              <ul className="space-y-2 text-xs text-neutral-400">
+                <li><Link to="/store" className="hover:text-primary-400">Sample Packs</Link></li>
+                <li><Link to="/store" className="hover:text-primary-400">Conventional Digital</Link></li>
+                <li><Link to="/store" className="hover:text-primary-400">Eco Digital</Link></li>
+                <li><Link to="/store" className="hover:text-primary-400">Eco Stock</Link></li>
+              </ul>
+            </div>
+
+            {/* Shapes */}
+            <div>
+              <h4 className="font-semibold text-sm mb-4">Pouch Shapes</h4>
+              <ul className="space-y-2 text-xs text-neutral-400">
+                <li><Link to="/packaging/stand-up-pouches" className="hover:text-primary-400">Stand Up Pouches</Link></li>
+                <li><Link to="/packaging/flat-bottom-bags" className="hover:text-primary-400">Flat Bottom Bags</Link></li>
+                <li><Link to="/packaging/flat-pouches" className="hover:text-primary-400">3 Side Seal</Link></li>
+                <li><Link to="/packaging/side-gusset-bags" className="hover:text-primary-400">Side Gusset</Link></li>
+                <li><Link to="/packaging/spout-pouches" className="hover:text-primary-400">Spout Pouches</Link></li>
               </ul>
             </div>
 
             {/* Materials */}
             <div>
-              <h4 className="font-semibold mb-4">Materials</h4>
-              <ul className="space-y-2 text-neutral-400 text-sm">
-                <li><Link to="/materials/recyclable-mono-pe" className="hover:text-white transition">Recyclable Mono-PE</Link></li>
-                <li><Link to="/materials/bio-pe" className="hover:text-white transition">Bio-PE</Link></li>
-                <li><Link to="/materials/kraft-paper-pe-lining" className="hover:text-white transition">Kraft Paper</Link></li>
-                <li><Link to="/materials/home-compostable" className="hover:text-white transition">Home Compostable</Link></li>
+              <h4 className="font-semibold text-sm mb-4">Materials</h4>
+              <ul className="space-y-2 text-xs text-neutral-400">
+                <li><Link to="/materials/compostable" className="hover:text-primary-400">Compostable</Link></li>
+                <li><Link to="/materials/recyclable-mono-pe" className="hover:text-primary-400">Recyclable Mono-PE</Link></li>
+                <li><Link to="/materials/bio-pe" className="hover:text-primary-400">Bio-PE / PCR</Link></li>
+                <li><Link to="/materials/kraft-paper-pe-lining" className="hover:text-primary-400">Kraft Paper</Link></li>
+                <li><Link to="/materials/home-compostable" className="hover:text-primary-400">Home Compostable</Link></li>
               </ul>
             </div>
 
-            {/* Company */}
+            {/* Store Policies */}
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-neutral-400 text-sm">
-                <li><Link to="/blog" className="hover:text-white transition">Blog</Link></li>
-                <li><Link to="/case-studies" className="hover:text-white transition">Case Studies</Link></li>
-                <li><a href="https://achievepack.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Main Website</a></li>
+              <h4 className="font-semibold text-sm mb-4">Store Policies</h4>
+              <ul className="space-y-2 text-xs text-neutral-400">
+                <li><Link to="/terms" className="hover:text-primary-400">Terms & Conditions</Link></li>
+                <li><Link to="/returns" className="hover:text-primary-400">Return Policy</Link></li>
+                <li><Link to="/shipping" className="hover:text-primary-400">Shipping Info</Link></li>
+                <li><Link to="/privacy" className="hover:text-primary-400">Privacy Policy</Link></li>
+                <li><Link to="/support/lead-time" className="hover:text-primary-400">Lead Time</Link></li>
+              </ul>
+            </div>
+
+            {/* Support */}
+            <div>
+              <h4 className="font-semibold text-sm mb-4">Help & Support</h4>
+              <ul className="space-y-2 text-xs text-neutral-400">
+                <li><Link to="/support/faqs" className="hover:text-primary-400">FAQs</Link></li>
+                <li><Link to="/knowledge/workflow" className="hover:text-primary-400">How It Works</Link></li>
+                <li><Link to="/blog" className="hover:text-primary-400">Blog</Link></li>
+                <li><a href="mailto:ryan@achievepack.com" className="hover:text-primary-400">Contact Us</a></li>
+                <li><Link to="/" className="hover:text-primary-400">Main Website</Link></li>
               </ul>
             </div>
           </div>
 
-          <div className="border-t border-neutral-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-neutral-500 text-sm">
-              © {new Date().getFullYear()} Achieve Pack. All rights reserved.
-            </p>
-            <div className="flex gap-6 text-neutral-400 text-sm">
-              <span>Hong Kong Based • Global Shipping</span>
+          {/* Bottom Bar */}
+          <div className="border-t border-neutral-800 pt-6">
+            {/* Payment Methods */}
+            <div className="flex flex-wrap justify-center gap-4 mb-6">
+              <img src="/imgs/store/payment-logo/a_visa_logo_grey_5781158.webp" alt="Visa" className="h-8 w-auto" />
+              <img src="/imgs/store/payment-logo/a_mastercard_logo_grey_4350426.webp" alt="Mastercard" className="h-8 w-auto" />
+              <img src="/imgs/store/payment-logo/a_amex_logo_grey_3038228.webp" alt="American Express" className="h-8 w-auto" />
+              <img src="/imgs/store/payment-logo/a_paypal_logo_grey_3236525.webp" alt="PayPal" className="h-8 w-auto" />
+              <img src="/imgs/store/payment-logo/a_stripe_logo_grey_3625928.webp" alt="Stripe" className="h-8 w-auto" />
+            </div>
+
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-neutral-500 text-xs">© 2025 Achieve Pack. All rights reserved.</p>
+              <div className="text-neutral-600 text-xs text-center md:text-right">
+                <p>Hong Kong Business Registration: 41007097</p>
+                <p>No.41 1/F Wo Liu Hang Tsuen, Fotan, Hong Kong</p>
+              </div>
             </div>
           </div>
         </div>

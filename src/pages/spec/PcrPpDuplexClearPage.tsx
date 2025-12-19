@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import ClickableImage from '../../components/ClickableImage'
 
 const PcrPpDuplexClearPage: React.FC = () => {
-  const structureName = 'KOPP20 / 30% PCR-PE or 50% Bio-PE80 (PP Duplex)'
+  const structureName = 'KOPP20 / 30% PCR-PE (PP Duplex)'
   const thickness = '100 micron or 4 mil'
   const otr = '<10'
   const wvtr = '<6'
@@ -23,7 +23,7 @@ const PcrPpDuplexClearPage: React.FC = () => {
           <div className="bg-green-50 p-6 rounded-lg border border-green-200">
             <ClickableImage
               src="/imgs/spec/pcr-pp-duplex-clear.webp"
-              alt="PCR PP Duplex Clear Structure - KOPP20 / 30% PCR-PE or 50% Bio-PE80"
+              alt="PCR PP Duplex Clear Structure - KOPP20 / 30% PCR-PE"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="PCR PP Duplex Clear Structure"
             />
@@ -67,7 +67,7 @@ const PcrPpDuplexClearPage: React.FC = () => {
             <div className="flex items-start gap-4 p-4 bg-green-50 rounded-lg">
               <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
               <div>
-                <p className="font-semibold text-green-800">30% PCR-PE or 50% Bio-PE80 (Inner/Sealant Layer)</p>
+                <p className="font-semibold text-green-800">30% PCR-PE (Inner/Sealant Layer)</p>
                 <p className="text-sm text-green-700">Sustainable polyethylene containing either recycled or bio-based content. Provides reliable heat-seal performance and moisture protection.</p>
               </div>
             </div>
@@ -187,9 +187,9 @@ const PcrPpDuplexClearPage: React.FC = () => {
   return (
     <SEOPageLayout
       title="PCR PP Duplex Clear Structure | KOPP20 / Bio-PE Sustainable Packaging"
-      description="PCR PP Duplex Clear structure: KOPP20 / 30% PCR-PE or 50% Bio-PE80. Superior moisture barrier, optional window, 100 micron. Ideal for moisture-sensitive foods. OTR <10, WVTR <6."
+      description="PCR PP Duplex Clear structure: KOPP20 / 30% PCR-PE. Superior moisture barrier, optional window, 100 micron. Ideal for moisture-sensitive foods. OTR <10, WVTR <6."
       heroTitle="PCR PP Duplex Clear Structure"
-      heroSubtitle="KOPP20 / 30% PCR-PE or 50% Bio-PE80 - Superior Moisture Barrier"
+      heroSubtitle="KOPP20 / 30% PCR-PE - Superior Moisture Barrier"
       heroLogo="/eco-logo/white-bkg/eco-logo-pcr.png"
       heroLogoAlt="PCR Recycled Content"
       introSummary="A PP-based sustainable structure offering excellent moisture barrier (WVTR <6) with optional window capability. Perfect for moisture-sensitive products like crackers, cookies, and powdered goods."

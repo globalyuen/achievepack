@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import ClickableImage from '../../components/ClickableImage'
 
 const PcrPetKraftQuadlexAluminumPage: React.FC = () => {
-  const structureName = 'PET12 / Kraft Paper 50gsm / AL7 / 30% PCR-PE or 50% Bio-PE80 (PET Kraft Paper Quad-lex)'
+  const structureName = 'PET12 / Kraft Paper 50gsm / AL7 / 30% PCR-PE (PET Kraft Paper Quad-lex)'
   const thickness = '150 micron or 6 mil'
   const otr = '<0.5'
   const wvtr = '<0.5'
@@ -82,7 +82,7 @@ const PcrPetKraftQuadlexAluminumPage: React.FC = () => {
             <div className="flex items-start gap-4 p-4 bg-green-50 rounded-lg">
               <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">4</div>
               <div>
-                <p className="font-semibold text-green-800">30% PCR-PE or 50% Bio-PE80 (Inner Layer)</p>
+                <p className="font-semibold text-green-800">30% PCR-PE (Inner Layer)</p>
                 <p className="text-sm text-green-700">Sustainable polyethylene sealant with recycled or bio-based content.</p>
               </div>
             </div>

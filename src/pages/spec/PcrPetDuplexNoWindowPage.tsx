@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import ClickableImage from '../../components/ClickableImage'
 
 const PcrPetDuplexNoWindowPage: React.FC = () => {
-  const structureName = 'PET12 / 30% PCR-PE or 50% Bio-PE80 (PET Duplex)'
+  const structureName = 'PET12 / 30% PCR-PE (PET Duplex)'
   const thickness = '90 micron or 3.5 mil'
   const otr = '<200'
   const wvtr = '<15'
@@ -68,7 +68,7 @@ const PcrPetDuplexNoWindowPage: React.FC = () => {
             <div className="flex items-start gap-4 p-4 bg-green-50 rounded-lg">
               <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
               <div>
-                <p className="font-semibold text-green-800">30% PCR-PE or 50% Bio-PE80 (Inner Layer)</p>
+                <p className="font-semibold text-green-800">30% PCR-PE (Inner Layer)</p>
                 <p className="text-sm text-green-700">Sustainable polyethylene sealant layer with recycled or bio-based content.</p>
               </div>
             </div>
@@ -188,9 +188,9 @@ const PcrPetDuplexNoWindowPage: React.FC = () => {
   return (
     <SEOPageLayout
       title="PCR PET Duplex No Window | Low Barrier Sustainable Packaging"
-      description="PCR PET Duplex No Window: PET12 / PCR-PE or Bio-PE. Low barrier, 90 micron, full print coverage. Cost-effective eco packaging for short shelf life products. OTR <200."
+      description="PCR PET Duplex No Window: PET12 / PCR-PE. Low barrier, 90 micron, full print coverage. Cost-effective eco packaging for short shelf life products. OTR <200."
       heroTitle="PCR PET Duplex No Window Structure"
-      heroSubtitle="PET12 / 30% PCR-PE or 50% Bio-PE80 - Low Barrier Full Print"
+      heroSubtitle="PET12 / 30% PCR-PE - Low Barrier Full Print"
       heroLogo="/eco-logo/white-bkg/eco-logo-pcr.png"
       heroLogoAlt="PCR Recycled Content"
       introSummary="A cost-effective duplex structure without barrier coating, ideal for products with shorter shelf life requirements. Provides 100% printable surface for maximum branding impact."

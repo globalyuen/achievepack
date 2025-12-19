@@ -157,7 +157,7 @@ const TeaBrandCaseStudy = () => {
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
-                <span><strong>Material:</strong> <Link to="/materials/compostable" className="text-primary-600 hover:underline">White Kraft + PLA + NatureFlex window</Link></span>
+                <span><strong>Material:</strong> <Link to="/spec/bio-cello-duplex-clear" className="text-primary-600 hover:underline">Cellophane 40micron + PBAT (compostable duplex with window)</Link></span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
@@ -212,6 +212,8 @@ const TeaBrandCaseStudy = () => {
             <ul className="text-sm text-blue-700 space-y-1">
               <li>• <Link to="/industry/coffee-tea" className="underline">Explore our Coffee & Tea packaging options</Link></li>
               <li>• <Link to="/materials/compostable" className="underline">Learn about compostable materials</Link></li>
+              <li>• <Link to="/spec/bio-cello-duplex-clear" className="underline">View complete spec - Cellophane + PBAT structure</Link></li>
+              <li>• <Link to="/spec/bio-cello-triplex-metalised" className="underline">High barrier compostable - Cellophane Triplex</Link></li>
               <li>• <Link to="/store" className="underline">Shop flat bottom bags with window</Link></li>
             </ul>
           </div>

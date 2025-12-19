@@ -124,7 +124,7 @@ const SuperfoodBrandCaseStudy = () => {
           <div className="grid md:grid-cols-2 gap-4 text-sm">
             <div><strong>Format:</strong> <Link to="/packaging/stand-up-pouches" className="text-primary-600 hover:underline">Stand-Up Pouch</Link></div>
             <div><strong>Size:</strong> 160 × 240 + 90mm (250g capacity)</div>
-            <div><strong>Material:</strong> <Link to="/materials/recyclable-mono-pe" className="text-primary-600 hover:underline">Mono-PE with EVOH barrier</Link></div>
+            <div><strong>Material:</strong> <Link to="/spec/mono-pe-duplex-clear" className="text-primary-600 hover:underline">Mono-PE duplex with EVOH barrier (recyclable structure)</Link></div>
             <div><strong>Barrier:</strong> High (OTR &lt; 1.0)</div>
             <div><strong>Closure:</strong> Pocket zipper</div>
             <div><strong>Features:</strong> Rounded corners, tear notch</div>
@@ -156,6 +156,8 @@ const SuperfoodBrandCaseStudy = () => {
             <ul className="text-sm text-blue-700 space-y-1">
               <li>• <Link to="/industry/supplements-powders" className="underline">Explore our Supplements & Powders packaging</Link></li>
               <li>• <Link to="/materials/recyclable-mono-pe" className="underline">Learn about recyclable mono-PE</Link></li>
+              <li>• <Link to="/spec/mono-pe-duplex-clear" className="underline">View complete spec - Mono-PE duplex structure</Link></li>
+              <li>• <Link to="/spec/mono-pp-duplex-clear" className="underline">Mono-PP option - best moisture barrier</Link></li>
               <li>• <Link to="/store" className="underline">Shop superfood pouches</Link></li>
             </ul>
           </div>

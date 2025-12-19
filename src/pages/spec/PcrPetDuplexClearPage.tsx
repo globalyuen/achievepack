@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import ClickableImage from '../../components/ClickableImage'
 
 const PcrPetDuplexClearPage: React.FC = () => {
-  const structureName = 'KPET12 / 30% PCR-PE or 50% Bio-PE80 (PET Duplex)'
+  const structureName = 'KPET12 / 30% PCR-PE (PET Duplex)'
   const thickness = '100 micron or 4 mil'
   const otr = '<8'
   const wvtr = '<12'
@@ -69,7 +69,7 @@ const PcrPetDuplexClearPage: React.FC = () => {
           <div className="bg-green-50 p-6 rounded-lg border border-green-200">
             <ClickableImage
               src="/imgs/spec/pcr-pet-duplex-clear.webp"
-              alt="PCR PET Duplex Clear Structure - KPET12 / 30% PCR-PE or 50% Bio-PE80"
+              alt="PCR PET Duplex Clear Structure - KPET12 / 30% PCR-PE"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="PCR PET Duplex Clear Structure"
             />
@@ -113,7 +113,7 @@ const PcrPetDuplexClearPage: React.FC = () => {
             <div className="flex items-start gap-4 p-4 bg-green-50 rounded-lg">
               <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
               <div>
-                <p className="font-semibold text-green-800">30% PCR-PE or 50% Bio-PE80 (Inner/Sealant Layer)</p>
+                <p className="font-semibold text-green-800">30% PCR-PE (Inner/Sealant Layer)</p>
                 <p className="text-sm text-green-700">Sustainable polyethylene made from either 30% post-consumer recycled content or 50% bio-based sugarcane sources. Provides excellent heat-seal properties and moisture barrier.</p>
               </div>
             </div>
@@ -346,7 +346,7 @@ const PcrPetDuplexClearPage: React.FC = () => {
   const faqs = [
     { question: 'What does KPET12 mean?', answer: 'KPET12 refers to a 12-micron polyester (PET) film with a K-coating (PVDC barrier coating) that enhances oxygen barrier properties while maintaining clarity.' },
     { question: 'Can I get this structure with a clear window?', answer: 'Yes, this mid-clear barrier structure is specifically designed to support window panels, allowing product visibility while maintaining protection.' },
-    { question: 'What is the difference between PCR-PE and Bio-PE?', answer: 'PCR-PE uses 30% post-consumer recycled polyethylene, while Bio-PE is made from 50% bio-based (sugarcane-derived) polyethylene. Both reduce environmental impact but through different approaches.' },
+    { question: 'What does 30% PCR-PE mean?', answer: 'PCR-PE uses 30% post-consumer recycled polyethylene, reducing plastic waste by incorporating recycled content while maintaining packaging performance and food safety compliance.' },
     { question: 'What shelf life can I expect with this structure?', answer: 'With proper sealing and storage conditions, products can typically achieve 6-12 months shelf life depending on the specific food product and storage environment.' },
     { question: 'Is this structure food-safe?', answer: 'Yes, all materials meet FDA and EU food contact regulations for direct food packaging applications.' }
   ]
@@ -361,9 +361,9 @@ const PcrPetDuplexClearPage: React.FC = () => {
   return (
     <SEOPageLayout
       title="PCR PET Duplex Clear Structure | KPET12 / PCR-PE Sustainable Packaging"
-      description="PCR PET Duplex Clear packaging structure: KPET12 / 30% PCR-PE or 50% Bio-PE80. Mid barrier, optional window, 100 micron thickness. Ideal for coffee, snacks, dried foods. OTR <8, WVTR <12."
+      description="PCR PET Duplex Clear packaging structure: KPET12 / 30% PCR-PE. Mid barrier, optional window, 100 micron thickness. Ideal for coffee, snacks, dried foods. OTR <8, WVTR <12."
       heroTitle="PCR PET Duplex Clear Structure"
-      heroSubtitle="KPET12 / 30% PCR-PE or 50% Bio-PE80 - Mid Barrier with Optional Window"
+      heroSubtitle="KPET12 / 30% PCR-PE - Mid Barrier with Optional Window"
       heroLogo="/eco-logo/white-bkg/eco-logo-pcr.png"
       heroLogoAlt="PCR Recycled Content"
       introSummary="A sustainable duplex structure combining K-coated PET for oxygen barrier with recycled or bio-based PE sealant. Ideal for coffee, snacks, and dried foods requiring mid-level barrier protection with window visibility option."
