@@ -1778,12 +1778,12 @@ Please contact me to discuss custom solutions.`;
                   className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-xl"
                 />
                 <div className="text-center md:text-left">
-                  <h2 className="text-3xl font-bold mb-2 text-white">Ryan Wong</h2>
-                  <p className="text-xl text-white mb-2">Packaging Development Specialist</p>
-                  <p className="text-sm text-white">
+                  <h2 className="text-3xl font-bold mb-2" style={{color: '#ffffff'}}>Ryan Wong</h2>
+                  <p className="text-xl mb-2" style={{color: '#ffffff'}}>Packaging Development Specialist</p>
+                  <p className="text-sm" style={{color: '#ffffff'}}>
                     14 years experience | 8 countries | Fortune 500 & DTC startups
                   </p>
-                  <p className="text-sm text-white mt-2">
+                  <p className="text-sm mt-2" style={{color: '#ffffff'}}>
                     🎓 The Hong Kong Polytechnic University (Honor Degree)
                   </p>
                 </div>
@@ -1864,33 +1864,37 @@ Please contact me to discuss custom solutions.`;
                   href="https://www.linkedin.com/in/ryanwwc/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition shadow-lg"
+                  className="inline-flex items-center gap-2 bg-primary-600 px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition shadow-lg"
+                  style={{color: '#ffffff'}}
                 >
-                  <Linkedin className="h-5 w-5 text-white" />
-                  <span className="text-white">LinkedIn Profile</span>
+                  <Linkedin className="h-5 w-5" style={{color: '#ffffff'}} />
+                  <span style={{color: '#ffffff'}}>LinkedIn Profile</span>
                 </a>
                 <a 
                   href="mailto:ryan@achievepack.com"
-                  className="inline-flex items-center gap-2 bg-white border-2 border-primary-600 text-primary-700 px-6 py-3 rounded-lg font-semibold hover:bg-primary-50 transition"
+                  className="inline-flex items-center gap-2 bg-white border-2 border-primary-600 px-6 py-3 rounded-lg font-semibold hover:bg-primary-50 transition"
+                  style={{color: '#16a34a'}}
                 >
-                  <Mail className="h-5 w-5 text-primary-700" />
-                  <span className="text-primary-700">Contact</span>
+                  <Mail className="h-5 w-5" style={{color: '#16a34a'}} />
+                  <span style={{color: '#16a34a'}}>Contact</span>
                 </a>
                 <a 
                   href="https://calendly.com/30-min-free-packaging-consultancy"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-accent-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-accent-700 transition"
+                  className="inline-flex items-center gap-2 bg-accent-600 px-6 py-3 rounded-lg font-semibold hover:bg-accent-700 transition"
+                  style={{color: '#ffffff'}}
                 >
-                  <Calendar className="h-5 w-5 text-white" />
-                  <span className="text-white">Schedule Meeting</span>
+                  <Calendar className="h-5 w-5" style={{color: '#ffffff'}} />
+                  <span style={{color: '#ffffff'}}>Schedule Meeting</span>
                 </a>
                 <Link
                   to="/team/ryan-wong"
-                  className="inline-flex items-center gap-2 bg-neutral-100 text-neutral-800 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-200 transition"
+                  className="inline-flex items-center gap-2 bg-neutral-100 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-200 transition"
+                  style={{color: '#1f2937'}}
                 >
-                  <span className="text-neutral-800">View Full Profile</span>
-                  <ArrowRight className="h-5 w-5 text-neutral-800" />
+                  <span style={{color: '#1f2937'}}>View Full Profile</span>
+                  <ArrowRight className="h-5 w-5" style={{color: '#1f2937'}} />
                 </Link>
               </div>
             </div>
