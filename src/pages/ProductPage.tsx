@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async'
 import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn, MessageCircle } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct, type ConventionalProduct, type EcoStockProduct, type EcoStockSizeVariant, type EcoStockSizeWithQuantities, type EcoStockQuantityOption, PRICING_DATA, POUCH_SIZES, QUANTITY_OPTIONS } from '../store/productData'
-import { calculateEcoPrice, type EcoCalculatorSelections } from '../utils/ecoDigitalCalculator'
+import { calculateEcoPrice, type EcoCalculatorSelections, getMaterialStructureInfo } from '../utils/ecoDigitalCalculator'
 import { getProductImage, getSizeImage, getSurfaceImage, getAdditionalImage, type ShapeType, ClosureType, SurfaceType, EcoSizeType, AdditionalType } from '../utils/productImageMapper'
 import { TESTIMONIALS } from '../data/testimonialsData'
 import { getProductFAQs, generateFAQSchema, DEFAULT_FAQS, type ProductFAQ } from '../data/productFAQData'
@@ -1360,28 +1360,56 @@ const ProductPage: React.FC = () => {
                       <div className="grid grid-cols-3 gap-2">
                         <dt className="text-neutral-500 col-span-1">Structure</dt>
                         <dd className="text-neutral-900 col-span-2">
-                          {calculationResult.package.materialStructure}
+                          {(() => {
+                            const structureInfo = getMaterialStructureInfo(
+                              selectedMaterial as any,
+                              selectedBarrier,
+                              selectedStiffness
+                            )
+                            return structureInfo?.structure || calculationResult.package.materialStructure
+                          })()}
                         </dd>
                       </div>
 
                       <div className="grid grid-cols-3 gap-2">
                         <dt className="text-neutral-500 col-span-1">Thickness</dt>
                         <dd className="text-neutral-900 col-span-2">
-                          100 micron or 4 mil
+                          {(() => {
+                            const structureInfo = getMaterialStructureInfo(
+                              selectedMaterial as any,
+                              selectedBarrier,
+                              selectedStiffness
+                            )
+                            return structureInfo?.thickness || '100 micron or 4 mil'
+                          })()}
                         </dd>
                       </div>
 
                       <div className="grid grid-cols-3 gap-2">
                         <dt className="text-neutral-500 col-span-1">OTR</dt>
                         <dd className="text-neutral-900 col-span-2">
-                          {calculationResult.package.barrierProperties.otr}
+                          {(() => {
+                            const structureInfo = getMaterialStructureInfo(
+                              selectedMaterial as any,
+                              selectedBarrier,
+                              selectedStiffness
+                            )
+                            return structureInfo?.otr || calculationResult.package.barrierProperties.otr
+                          })()}
                         </dd>
                       </div>
 
                       <div className="grid grid-cols-3 gap-2">
                         <dt className="text-neutral-500 col-span-1">WVTR</dt>
                         <dd className="text-neutral-900 col-span-2">
-                          {calculationResult.package.barrierProperties.wvtr}
+                          {(() => {
+                            const structureInfo = getMaterialStructureInfo(
+                              selectedMaterial as any,
+                              selectedBarrier,
+                              selectedStiffness
+                            )
+                            return structureInfo?.wvtr || calculationResult.package.barrierProperties.wvtr
+                          })()}
                         </dd>
                       </div>
 

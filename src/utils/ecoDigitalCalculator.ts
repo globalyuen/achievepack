@@ -335,19 +335,198 @@ export function calculateEcoPrice(selections: EcoCalculatorSelections): EcoCalcu
   }
 }
 
+// Complete Material Structures Data (from Python material_structures.py)
+const MATERIAL_STRUCTURES: Record<string, Record<string, Record<string, {
+  options: Array<{ structure: string; thickness: string; otr: string; wvtr: string }>;
+  food_types: string;
+}>>> = {
+  'PCR or Bio Plastic': {
+    'mid clear mid barrier (Optional Window)': {
+      'Without Paper Lining (Softer)': {
+        options: [
+          { structure: 'KPET12 / 30% PCR-PE or 50% Bio-PE80 (PET Duplex)', thickness: '100 micron or 4 mil', otr: '<8', wvtr: '<12' },
+          { structure: 'KOPP20 / 30% PCR-PE or 50% Bio-PE80 (PP Duplex)', thickness: '100 micron or 4 mil', otr: '<10', wvtr: '<4' }
+        ],
+        food_types: 'Dry foods, snacks, cookies, confectionery, nuts, tea, coffee, dried fruits, powdered products'
+      },
+      'With Paper Lining (stiffer)': {
+        options: [
+          { structure: 'KPET12 / Kraft Paper 50gsm / 30% PCR-PE or 50% Bio-PE80 (PET Kraft Paper Triplex)', thickness: '150 micron or 6 mil', otr: '<6', wvtr: '<10' },
+          { structure: 'KOPP20 / Kraft Paper 50gsm / 30% PCR-PE or 50% Bio-PE80 (PP Kraft Paper Triplex)', thickness: '150 micron or 6 mil', otr: '<8', wvtr: '<3' }
+        ],
+        food_types: 'Dry foods, snacks, cookies, confectionery, nuts, tea, coffee, dried fruits, powdered products (with enhanced protection and premium feel)'
+      }
+    },
+    'mid clear mid barrier (No Window)': {
+      'Without Paper Lining (Softer)': {
+        options: [
+          { structure: 'PET12 / 30% PCR-PE or 50% Bio-PE80 (PET Duplex)', thickness: '100 micron or 4 mil', otr: '<8', wvtr: '<12' },
+          { structure: 'OPP20 / 30% PCR-PE or 50% Bio-PE80 (PP Duplex)', thickness: '100 micron or 4 mil', otr: '<10', wvtr: '<4' }
+        ],
+        food_types: 'Dry foods, snacks, cookies, confectionery, nuts, tea, coffee, dried fruits, powdered products'
+      }
+    },
+    'metalised high barrier (No Window)': {
+      'Without Paper Lining (Softer)': {
+        options: [
+          { structure: 'PET12 / Metalised PET12 / 30% PCR-PE or 50% Bio-PE80 (PET Triplex)', thickness: '100 micron or 4 mil', otr: '<2', wvtr: '<2' },
+          { structure: 'OPP20 / Metalised PET12 / 30% PCR-PE or 50% Bio-PE80 (PP Triplex)', thickness: '100 micron or 4 mil', otr: '<2', wvtr: '<2' }
+        ],
+        food_types: 'Coffee, high-fat snacks, confectionery with nuts, food with medium shelf life requirements, dried fruits, herbs, spices'
+      },
+      'With Paper Lining (stiffer)': {
+        options: [
+          { structure: 'Kraft Paper 50gsm / VMPET12 / PCR or Bio PE 80', thickness: '150 micron or 6 mils', otr: '<2', wvtr: '<2' }
+        ],
+        food_types: 'Premium coffee, high-fat snacks, confectionery with nuts, food with extended shelf life requirements, dried fruits, herbs, spices'
+      }
+    },
+    'Aluminum highest barrier (No Window)': {
+      'Without Paper Lining (Softer)': {
+        options: [
+          { structure: 'PET12 / AL7 / 30% PCR-PE or 50% Bio-PE80 (PET Triplex)', thickness: '100 micron or 4 mil', otr: '<1', wvtr: '<1.1' },
+          { structure: 'OPP20 / AL7 / 30% PCR-PE or 50% Bio-PE80 (PP Triplex)', thickness: '100 micron or 4 mil', otr: '<1', wvtr: '<1.1' }
+        ],
+        food_types: 'Products requiring extended shelf life, coffee, high-fat content foods, oxygen-sensitive products, processed meats, prepared meals, sauces'
+      },
+      'With Paper Lining (stiffer)': {
+        options: [
+          { structure: 'PET12 / Kraft Paper 50gsm / AL7 / 30% PCR-PE or 50% Bio-PE80 (PET Kraft Paper Quad-lex)', thickness: '150 micron or 6 mil', otr: '<0.8', wvtr: '<0.9' },
+          { structure: 'OPP20 / Kraft Paper 50gsm / AL7 / 30% PCR-PE or 50% Bio-PE80 (PP Kraft Paper Quad-lex)', thickness: '150 micron or 6 mil', otr: '<0.8', wvtr: '<0.9' }
+        ],
+        food_types: 'Premium products requiring maximum shelf life, specialty coffee, high-fat content foods'
+      }
+    },
+    'Low barrier (No window)': {
+      'With Paper Lining (stiffer)': {
+        options: [
+          { structure: 'Kraft Paper 50gsm / 30% PCR-PE or 50% Bio-PE80 (Kraft Paper Duplex)', thickness: '125 micron or 5 mil', otr: '>5000', wvtr: '>18' }
+        ],
+        food_types: 'Short shelf-life dry goods, artisanal products, bakery items, fresh bread, coffee beans (consume within 2-4 weeks)'
+      }
+    }
+  },
+  'Mono Recyclable Plastic': {
+    'mid clear mid barrier (Optional Window)': {
+      'Without Paper Lining (Softer)': {
+        options: [
+          { structure: 'PE60 / PE60 (PE Duplex)', thickness: '125 micron or 5 mil', otr: '<5000', wvtr: '<18' },
+          { structure: 'OPP30 / CPP60 (PP Duplex)', thickness: '100 micron or 4 mil', otr: '<1000', wvtr: '<5' }
+        ],
+        food_types: 'Dry foods with short shelf life requirements, snacks, cookies, pasta, candy, granola, cereals, pet food'
+      }
+    },
+    'mid clear mid barrier (No Window)': {
+      'Without Paper Lining (Softer)': {
+        options: [
+          { structure: 'PE60 / PE60 (PE Duplex)', thickness: '120 micron', otr: '<5000', wvtr: '<18' },
+          { structure: 'OPP30 / CPP60 (PP Duplex)', thickness: '100 micron or 4 mil', otr: '<1000', wvtr: '<5' }
+        ],
+        food_types: 'Dry foods with short shelf life requirements, snacks, cookies, pasta, candy, granola, cereals, pet food'
+      }
+    }
+  },
+  'Biodegradable and Compostable': {
+    'mid clear mid barrier (Optional Window)': {
+      'Without Paper Lining (Softer)': {
+        options: [
+          { structure: 'High Barrier Cellulose or PLA 25gsm / PBAT60 (Cello Duplex)', thickness: '100 micron or 4 mil', otr: '<5', wvtr: '<5' }
+        ],
+        food_types: 'Organic foods, eco-friendly snacks, premium dried foods, coffee, tea, spices, healthy snacks'
+      }
+    },
+    'barrier coating + metalised highest barrier (no window)': {
+      'Without Paper Lining (Softer)': {
+        options: [
+          { structure: 'High Barrier Cellulose or PLA 25gsm / Metalised Cellulose or PLA 15 / PBAT60 (Cellulose Triplex)', thickness: '100 micron or 4 mil', otr: '<2', wvtr: '<2' }
+        ],
+        food_types: 'Organic foods requiring extended shelf life, premium coffee, high-fat organic snacks, specialty organic products'
+      }
+    },
+    'metalised high barrier (No Window)': {
+      'Without Paper Lining (Softer)': {
+        options: [
+          { structure: 'Cellulose or PLA 25gsm / Metalised Cellulose or PLA / PBAT60 (Cellulose Triplex)', thickness: '100 micron or 4 mil', otr: '<5', wvtr: '<5' }
+        ],
+        food_types: 'Organic foods, premium coffee, tea, nuts, dried fruits, specialty snacks with medium shelf life requirements'
+      },
+      'With Paper Lining (stiffer)': {
+        options: [
+          { structure: 'Kraft Paper 50gsm / VM cellulose or PLA15 / PBAT60', thickness: '125 micron or 5 mils', otr: '<5', wvtr: '<5' }
+        ],
+        food_types: 'Premium organic foods requiring enhanced protection, specialty coffee, tea, nuts, dried fruits with extended shelf life requirements'
+      }
+    },
+    'Low barrier (No window)': {
+      'With Paper Lining (stiffer)': {
+        options: [
+          { structure: 'Kraft Paper 50gsm / PBAT60 (Kraft Paper Duplex)', thickness: '120 micron or 5 mil', otr: '>1000', wvtr: '>100' }
+        ],
+        food_types: 'Short shelf-life organic products, artisanal foods, fresh organic bakery items, specialty items for immediate consumption'
+      }
+    }
+  }
+}
+
 /**
- * Get material structure description (simplified)
+ * Get material structure info based on material, barrier, and stiffness
+ * Returns the first structure option from MATERIAL_STRUCTURES
+ */
+export function getMaterialStructureInfo(material: EcoMaterial, barrier: string, stiffness: string): {
+  structure: string;
+  thickness: string;
+  otr: string;
+  wvtr: string;
+} | null {
+  const materialData = MATERIAL_STRUCTURES[material]
+  if (!materialData) return null
+  
+  // Try exact match first
+  let barrierData = materialData[barrier]
+  
+  // Try case-insensitive match if exact match fails
+  if (!barrierData) {
+    const barrierLower = barrier.toLowerCase()
+    for (const barrierKey of Object.keys(materialData)) {
+      if (barrierKey.toLowerCase() === barrierLower) {
+        barrierData = materialData[barrierKey]
+        break
+      }
+    }
+  }
+  
+  if (!barrierData) return null
+  
+  const stiffnessData = barrierData[stiffness]
+  if (!stiffnessData || !stiffnessData.options || stiffnessData.options.length === 0) {
+    // Try fallback: if requesting paper lining but only softer exists
+    if (stiffness === 'With Paper Lining (stiffer)' && barrierData['Without Paper Lining (Softer)']) {
+      const baseData = barrierData['Without Paper Lining (Softer)']
+      if (baseData && baseData.options && baseData.options.length > 0) {
+        // Return modified structure with kraft paper added
+        const base = baseData.options[0]
+        const parts = base.structure.split(' / ')
+        const modifiedStructure = `${parts[0]} / Kraft Paper 50gsm / ${parts.slice(1).join(' / ')}`
+        return {
+          structure: modifiedStructure,
+          thickness: '150 micron or 6 mil',
+          otr: base.otr,
+          wvtr: base.wvtr
+        }
+      }
+    }
+    return null
+  }
+  
+  return stiffnessData.options[0]
+}
+
+/**
+ * Get material structure description
  */
 function getMaterialStructure(material: EcoMaterial, barrier: string, stiffness: string): string {
-  // Simplified material structure mapping
-  const structures: Record<string, string> = {
-    'PCR or Bio Plastic_mid clear mid barrier (Optional Window)_Without Paper Lining (Softer)': 'KPET12 / 30% PCR-PE or 50% Bio-PE80 (PET Duplex)',
-    'Mono Recyclable Plastic_metalised high barrier (No Window)_With Paper Lining (stiffer)': 'MPE12 / Paper / MPE80 (Mono PE)',
-    'Biodegradable and Compostable_Aluminum highest barrier (No Window)_With Paper Lining (stiffer)': 'Kraft Paper / PLA / Aluminum Foil / PLA',
-  }
-
-  const key = `${material}_${barrier}_${stiffness}`
-  return structures[key] || 'Multi-layer structure'
+  const info = getMaterialStructureInfo(material, barrier, stiffness)
+  return info ? info.structure : 'Multi-layer structure'
 }
 
 /**
