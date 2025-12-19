@@ -1770,7 +1770,7 @@ Please contact me to discuss custom solutions.`;
             </button>
 
             {/* Header Section */}
-            <div className="bg-gradient-to-br from-primary-700 to-primary-900 text-white p-8 rounded-t-2xl">
+            <div className="bg-gradient-to-br from-primary-700 to-primary-900 text-white p-8 rounded-t-2xl" style={{backgroundColor: '#15803d', backgroundImage: 'linear-gradient(to bottom right, #15803d, #065f46)'}}>
               <div className="flex flex-col md:flex-row gap-6 items-center">
                 <img 
                   src="/imgs/team/Ryan Wong - Packaging Specialist.png" 
