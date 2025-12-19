@@ -1,11 +1,40 @@
 import React from 'react'
-import { Shield, Thermometer, Package, CheckCircle, Clock } from 'lucide-react'
+import { Shield, Thermometer, Package, CheckCircle, Clock, Target, Calendar, Mail, Download } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
+import { useCalendly } from '../../contexts/CalendlyContext'
 
 const BarrierOptionsPage: React.FC = () => {
   const { t } = useTranslation()
+  const { openCalendly } = useCalendly()
   const sections = [
+    {
+      id: 'scenario-trigger',
+      title: 'Is This Page For You?',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border border-blue-200">
+          <p className="text-lg font-medium text-neutral-900 mb-4">
+            If you need to <strong>protect your product from oxygen, moisture, or light</strong> while maintaining eco-friendly credentials—you're in the right place.
+          </p>
+          <div className="grid md:grid-cols-3 gap-4 mt-4">
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">Food & Beverage</h4>
+              <p className="text-sm text-neutral-600 mt-1">Coffee, snacks, pet food shelf life</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">Supplements</h4>
+              <p className="text-sm text-neutral-600 mt-1">Protein, vitamins, powders protection</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">Unsure of Barrier</h4>
+              <p className="text-sm text-neutral-600 mt-1">Free shelf-life testing available</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
     {
       id: 'overview',
       title: 'Barrier Options for Eco-Friendly Packaging',
@@ -163,6 +192,85 @@ const BarrierOptionsPage: React.FC = () => {
           <p className="text-sm text-neutral-500 mt-4">
             Not sure which barrier level you need? We offer free shelf-life testing to determine the optimal barrier for your product.
           </p>
+        </div>
+      )
+    },
+    {
+      id: 'risk-hedge',
+      title: 'Still Not Sure? We Have Answers',
+      icon: <Shield className="h-5 w-5 text-amber-600" />,
+      content: (
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border border-blue-200">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">"Not sure which barrier I need?"</h4>
+                  <p className="text-sm text-neutral-600">Free shelf-life testing to determine optimal barrier</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">"Is high-barrier still eco-friendly?"</h4>
+                  <p className="text-sm text-neutral-600">Yes, mono-PE with EVOH ({'<'}5%) is recyclable</p>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">"Can I get samples?"</h4>
+                  <p className="text-sm text-neutral-600">Free material samples for testing</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">"What's the minimum order?"</h4>
+                  <p className="text-sm text-neutral-600">500 units for all barrier levels</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'decision-cta',
+      title: 'Ready to Get Started?',
+      icon: <Shield className="h-5 w-5 text-white" />,
+      content: (
+        <div className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white p-8 rounded-xl">
+          <h3 className="text-2xl font-bold mb-6 text-center">Choose How You'd Like to Connect</h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
+              <Calendar className="h-8 w-8 mx-auto mb-3" />
+              <h4 className="font-semibold mb-2">Book a Call</h4>
+              <p className="text-sm text-white/80 mb-4">30-min free consultation</p>
+              <button onClick={openCalendly} className="w-full bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition cursor-pointer">
+                Schedule Now
+              </button>
+            </div>
+            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
+              <Mail className="h-8 w-8 mx-auto mb-3" />
+              <h4 className="font-semibold mb-2">Email Quote</h4>
+              <p className="text-sm text-white/80 mb-4">Get response within 24hrs</p>
+              <a href="mailto:ryan@achievepack.com?subject=Barrier Options Quote" className="block w-full bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition">
+                Send Email
+              </a>
+            </div>
+            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
+              <Download className="h-8 w-8 mx-auto mb-3" />
+              <h4 className="font-semibold mb-2">Free Testing</h4>
+              <p className="text-sm text-white/80 mb-4">Shelf-life testing</p>
+              <Link to="/contact" className="block w-full bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition">
+                Request Testing
+              </Link>
+            </div>
+          </div>
         </div>
       )
     }
