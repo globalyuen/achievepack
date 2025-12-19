@@ -383,7 +383,32 @@
             "design": {
                 "q": "Pouvez-vous aider à la conception personnalisée et à l'impression ?",
                 "a": "Absolument ! Nous offrons des services de conception complets, y compris l'impression sur plaque jusqu'à 10 couleurs et l'impression numérique illimitée. Nous proposons également diverses finitions comme le mat, le brillant, le soft-touch, le métallique, le vernis sélectif UV et des options de gaufrage."
+            },
+            "colorConsistency": {
+                "q": "Comment assurez-vous la cohérence des couleurs entre les lots ?",
+                "a": "Nous utilisons une gestion numérique des couleurs avec des valeurs CMJN standardisées et des références Pantone. Chaque lot de production est vérifié par spectrophotomètre par rapport à l'échantillon approuvé. Nous conservons les dossiers de couleurs des clients pour garantir la cohérence lors des réapprovisionnements. Un Delta-E inférieur à 2,0 est notre standard—imperceptible à l'œil humain."
+            },
+            "defects": {
+                "q": "Quel est votre processus de contrôle qualité pour les défauts ?",
+                "a": "Nous suivons le protocole AQL 2.5 (Acceptable Quality Level) pour l'inspection. Les contrôles incluent : l'intégrité du scellage, la qualité d'impression, l'épaisseur du matériau et la précision dimensionnelle. Les sachets défectueux sont éliminés pendant la production avec un système de surveillance en ligne. Pour les commandes critiques, nous proposons une inspection tierce avec des rapports SGS ou Intertek."
+            },
+            "testReports": {
+                "q": "Fournissez-vous des rapports de tests et des certificats de conformité ?",
+                "a": "Oui, nous fournissons : des certificats de composition des matériaux, des rapports de tests de conformité alimentaire (FDA 21 CFR, UE 10/2011), des certificats de compostabilité (EN 13432, ASTM D6400) le cas échéant, et des rapports de tests des propriétés barrière (WVTR, OTR). Tous les documents sont inclus avec l'expédition et disponibles en format numérique."
+            },
+            "verifyCertification": {
+                "q": "Comment les marques peuvent-elles vérifier si un fournisseur d'emballage est vraiment certifié ?",
+                "a": "Demandez des certificats originaux avec des numéros de certification vérifiables—pas seulement des logos. Vérifiez directement auprès des organismes émetteurs comme TÜV Austria ou DIN CERTCO. Demandez des rapports de tests de matériaux spécifiques de laboratoires accrédités. Les certifications authentiques montrent le nom du fabricant de matériaux, les grades de matériaux spécifiques et les dates d'expiration. Nous fournissons une documentation de certification complète."
+            },
+            "switching": {
+                "q": "Que doivent considérer les marques avant de passer à l'emballage écologique ?",
+                "a": "Considérations clés : (1) Compatibilité des machines d'emballage—testez les nouveaux matériaux sur vos lignes de remplissage/scellage ; (2) Exigences de durée de conservation—vérifiez si les matériaux écologiques offrent une barrière suffisante pour votre produit ; (3) Infrastructure de fin de vie—le compostage ou le recyclage est-il accessible à vos clients finaux ; (4) Justificatifs d'allégations—assurez-vous de pouvoir étayer les allégations marketing avec des certifications. Nous offrons des packs d'échantillons pour les tests avant l'engagement."
             }
+        },
+        "aiHint": {
+            "text": "Si vous utilisez Gemini ou une recherche IA, vous pouvez demander :",
+            "q1": "Comment vérifier si un fournisseur de sachets compostables pour café est vraiment certifié ?",
+            "q2": "Que dois-je vérifier avant de passer à des sachets mono-PE recyclables ?"
         }
     },
     "contact": {

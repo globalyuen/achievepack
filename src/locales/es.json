@@ -358,31 +358,56 @@
     },
     "faq": {
         "title": "Preguntas frecuentes",
-        "description": "Obtenga respuestas a preguntas comunes sobre nuestras soluciones de embalaje sostenible.",
+        "description": "Obtenga respuestas detalladas a preguntas comunes sobre nuestras soluciones de embalaje sostenible, certificaciones, plazos de producción y estándares de calidad.",
+        "aiHint": {
+            "text": "Si está usando Gemini o búsqueda con IA, puede preguntar:",
+            "q1": "¿Cómo verificar si un proveedor de bolsas compostables para café está verdaderamente certificado?",
+            "q2": "¿Qué debo verificar antes de cambiar a bolsas mono-PE reciclables?"
+        },
         "items": {
             "certs": {
                 "q": "¿Qué certificaciones tienen sus materiales de embalaje?",
-                "a": "Nuestros materiales compostables están certificados según las normas EN13432 y ASTM D6400, mientras que nuestras opciones reciclables cuentan con la certificación GRS (Estándar Global de Reciclaje). Todos los materiales cumplen con las normas internacionales de seguridad y medio ambiente."
+                "a": "Nuestros materiales de embalaje compostables están certificados según EN13432 (estándar europeo) y ASTM D6400 (estándar estadounidense), garantizando que se descomponen correctamente en instalaciones de compostaje comercial. Para opciones reciclables, tenemos certificación GRS (Global Recycled Standard) para materiales PCR. También contamos con certificación BPI para productos vendidos en EE.UU. Puede verificar nuestros números de certificación con TÜV Austria, DIN CERTCO o BPI."
             },
             "moq": {
-                "q": "¿Cuál es la cantidad mínima de pedido?",
-                "a": "Ofrecemos uno de los MOQ más bajos de la industria con solo 100 piezas, lo que hace que el embalaje sostenible sea accesible para nuevas empresas y pequeños negocios. Esto es significativamente menor que los mínimos de 5,000-10,000 piezas que generalmente se requieren en otros lugares."
+                "q": "¿Cuál es la cantidad mínima de pedido para bolsas personalizadas?",
+                "a": "Para pedidos de muestras y pruebas pequeñas, nuestro MOQ comienza en solo 100-1,000 piezas dependiendo del tipo de bolsa y nivel de personalización. Ideal para startups, marcas DTC y empresas probando nuevos productos. Para producción masiva, recomendamos 5,000+ piezas para mejor economía unitaria."
             },
             "time": {
-                "q": "¿Cuánto tiempo lleva la producción?",
-                "a": "La producción de muestras tarda de 2 a 3 semanas, y la producción completa de 6 a 8 semanas desde la aprobación. Este plazo nos permite garantizar la calidad mientras cumplimos con sus requisitos de lanzamiento."
+                "q": "¿Cuánto tiempo toma la producción desde la aprobación del arte?",
+                "a": "Nuestra línea de tiempo se estructura en dos fases: La producción de muestras toma 2-3 semanas desde la aprobación del arte. La producción masiva toma 6-8 semanas desde la aprobación de muestras. El envío aéreo a EE.UU. toma 7-10 días, el marítimo 25-35 días. Los tiempos para EU y UK son similares. Pedidos urgentes con muestreo de 4 días están disponibles."
             },
             "cost": {
-                "q": "¿Son sus materiales de embalaje rentables en comparación con el plástico tradicional?",
-                "a": "¡Sí! Si bien el costo del material puede ser ligeramente mayor, generalmente ahorra entre un 15 y un 22% en costos de envío debido al peso reducido y un 70% en espacio de almacén. Muchos clientes encuentran que el costo total de propiedad es competitivo o mejor que las opciones tradicionales."
+                "q": "¿Son sus materiales ecológicos rentables comparados con el plástico tradicional?",
+                "a": "Aunque los materiales ecológicos pueden tener un costo 10-20% mayor, el costo total de propiedad suele ser igual o menor considerando: 15-22% de ahorro en envío por menor peso (70% más ligero); 70% de reducción de espacio de almacén; posibilidad de incentivos de sostenibilidad; posicionamiento premium que permite precios minoristas más altos."
             },
             "barrier": {
-                "q": "¿Qué opciones de barrera están disponibles para diferentes productos?",
-                "a": "Ofrecemos 8 niveles de barrera diferentes, desde barrera baja para productos secos hasta barrera máxima para productos que requieren una vida útil prolongada. Nuestro equipo recomendará la barrera óptima según los requisitos específicos de su producto."
+                "q": "¿Qué opciones de barrera ofrecen para café, snacks, golosinas para mascotas y polvos?",
+                "a": "Ofrecemos soluciones de barrera adaptadas: BARRERA BAJA (transparente o kraft): Para productos secos con vida útil de 3-6 meses. BARRERA MEDIA (metalizado o EVOH): Ideal para snacks y café con 6-12 meses. BARRERA ALTA (capa de aluminio): Para café especializado y productos que necesitan 12-18 meses. BARRERA MÁXIMA (aluminio + multicapa): Para productos sensibles con 18-24 meses de vida útil."
             },
             "design": {
-                "q": "¿Pueden ayudar con el diseño personalizado y la impresión?",
-                "a": "¡Absolutamente! Ofrecemos servicios completos de diseño, incluida la impresión de placas de hasta 10 colores y la impresión digital ilimitada. También ofrecemos varios acabados como mate, brillo, tacto suave, metálico, UV localizado y opciones de relieve."
+                "q": "¿Pueden ayudar con el arte y diseño de embalaje?",
+                "a": "Sí, proporcionamos soporte de diseño integral: Plantillas de troquel en formato AI, PDF o PSD. Pruebas de impresión incluyendo mockups digitales y muestras impresas físicas. Soportamos impresión digital (colores ilimitados) e impresión de placa (hasta 10 colores Pantone). Asesoramos sobre acabados mate, brillo, soft-touch, UV localizado, tintas metálicas y relieve."
+            },
+            "colorConsistency": {
+                "q": "¿Cómo aseguran colores de impresión y calidad consistentes en reordenes?",
+                "a": "La consistencia del color es crítica para la identidad de marca. Mantenemos archivos de referencia de color digitales y muestras físicas de cada producción. Usamos coincidencia de color Pantone con códigos documentados. Antes de cada reorden, comparamos con muestras anteriores y proporcionamos pruebas pre-producción. Nuestro equipo de QC realiza inspecciones en múltiples etapas y usa espectrofotómetros calibrados para medir la desviación del color dentro de tolerancias Delta E aceptables."
+            },
+            "defects": {
+                "q": "¿Cómo controlan defectos como fallas de cremallera, problemas de sellado o delaminación?",
+                "a": "El control de calidad está integrado en cada etapa: Inspección de materias primas al recibir. Durante producción, probamos fuerza de sellado, ciclos de apertura/cierre de cremallera y presión de rotura. Las bolsas terminadas pasan inspección de muestreo según estándares AQL. Defectos comunes se detectan antes del envío. Tenemos política clara de devoluciones y proporcionamos informes de QC."
+            },
+            "testReports": {
+                "q": "¿Pueden proporcionar informes de prueba para seguridad alimentaria y rendimiento de vida útil?",
+                "a": "Sí, proporcionamos documentación completa: Certificados de seguridad alimentaria confirmando cumplimiento con FDA (EE.UU.) y EU 10/2011 (Europa). Informes de pruebas de migración. Datos de OTR y WVTR para cada estructura de material. Certificados de compostabilidad con resultados de laboratorios acreditados. Toda la documentación disponible en PDF."
+            },
+            "verifyCertification": {
+                "q": "¿Cómo puedo verificar si un proveedor de embalaje ecológico está verdaderamente certificado?",
+                "a": "Al evaluar proveedores, verifique: Solicite números de certificación reales, no solo logos. Los certificados genuinos EN13432 o ASTM D6400 incluyen números verificables con el organismo emisor (TÜV Austria, DIN CERTCO, BPI). Solicite informes de laboratorios acreditados. Verifique que el certificado aplica al material exacto que está ordenando. En Achieve Pack, proporcionamos todos los documentos por adelantado y damos la bienvenida a solicitudes de verificación."
+            },
+            "switching": {
+                "q": "¿Qué debo verificar antes de cambiar a bolsas mono-PE o mono-PP reciclables?",
+                "a": "Antes de cambiar, considere: Rendimiento de barrera - mono-PE y mono-PP típicamente ofrecen menor barrera que estructuras multicapa, confirme que cumplen sus requisitos de vida útil. Infraestructura de reciclaje - verifique que sus mercados objetivo tienen flujos de reciclaje que aceptan película flexible. Comunicación al consumidor - planifique cuidadosamente las instrucciones de reciclaje en el empaque. Declaraciones regulatorias - asegure que cualquier claim de 'reciclable' cumpla con FTC Green Guides o regulaciones equivalentes. Le ayudamos a navegar estas consideraciones."
             }
         }
     },
