@@ -85,22 +85,22 @@ const RyanWongPage = () => {
                 <p className="text-md text-primary-300 mb-6">
                   🎓 The Hong Kong Polytechnic University (Honor Degree)
                 </p>
-                <div className="flex gap-4 justify-center md:justify-start">
+                <div className="flex gap-4 justify-center md:justify-start flex-wrap">
                   <a 
                     href="https://www.linkedin.com/in/ryanwwc/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-white text-primary-700 px-6 py-3 rounded-lg font-semibold hover:bg-primary-50 transition"
+                    className="inline-flex items-center gap-2 bg-white text-primary-700 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition shadow-lg"
                   >
                     <Linkedin className="h-5 w-5" />
-                    LinkedIn Profile
+                    <span className="text-primary-700">LinkedIn Profile</span>
                   </a>
                   <a 
                     href="mailto:ryan@achievepack.com"
-                    className="inline-flex items-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-500 transition"
+                    className="inline-flex items-center gap-2 bg-white text-primary-700 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition shadow-lg border-2 border-white"
                   >
                     <Mail className="h-5 w-5" />
-                    Contact
+                    <span className="text-primary-700">Contact</span>
                   </a>
                 </div>
               </div>
@@ -268,18 +268,18 @@ const RyanWongPage = () => {
               </div>
 
               {/* CTA */}
-              <div className="bg-gradient-to-br from-primary-600 to-primary-700 text-white rounded-xl p-6">
-                <h3 className="font-bold text-xl mb-3">Ready to Go Sustainable?</h3>
-                <p className="text-primary-100 text-sm mb-4">
+              <div className="bg-gradient-to-br from-primary-600 to-primary-700 text-white rounded-xl p-6 shadow-lg">
+                <h3 className="font-bold text-xl mb-3 text-white">Ready to Go Sustainable?</h3>
+                <p className="text-white text-sm mb-4">
                   Book a free 30-minute consultation to discuss your packaging needs.
                 </p>
                 <a 
                   href="https://calendly.com/30-min-free-packaging-consultancy"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full bg-white text-primary-700 text-center px-4 py-3 rounded-lg font-semibold hover:bg-primary-50 transition"
+                  className="block w-full bg-white text-primary-700 text-center px-4 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition shadow-md"
                 >
-                  Schedule Meeting
+                  <span className="text-primary-700 font-bold">Schedule Meeting</span>
                 </a>
               </div>
             </div>
