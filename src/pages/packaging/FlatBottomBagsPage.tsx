@@ -1,12 +1,41 @@
 import React from 'react'
-import { Package, Leaf, CheckCircle, Award, BoxSelect } from 'lucide-react'
+import { Package, Leaf, CheckCircle, Award, BoxSelect, Target, Shield, Calendar, Phone, Download, Mail, MessageCircle } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 const FlatBottomBagsPage: React.FC = () => {
   const { t } = useTranslation()
   const p = 'seoPages.pages.flatBottomBags'
   const sections = [
+    {
+      id: 'scenario-trigger',
+      title: 'Is This Page For You?',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-lg border border-amber-200">
+            <p className="text-lg font-medium text-neutral-900 mb-4">
+              If you are a <strong>specialty coffee roaster</strong>, <strong>premium pet food brand</strong>, or <strong>artisan food producer</strong> looking for packaging that stands out on retail shelves with maximum branding real estate—flat bottom bags deliver premium presence.
+            </p>
+            <div className="grid md:grid-cols-3 gap-4 mt-4">
+              <div className="bg-white p-3 rounded-lg">
+                <p className="font-semibold text-amber-800">Coffee Roasters</p>
+                <p className="text-sm text-neutral-600">5-panel branding + degassing valve</p>
+              </div>
+              <div className="bg-white p-3 rounded-lg">
+                <p className="font-semibold text-amber-800">Pet Food Brands</p>
+                <p className="text-sm text-neutral-600">Stable base for heavy products</p>
+              </div>
+              <div className="bg-white p-3 rounded-lg">
+                <p className="font-semibold text-amber-800">Premium Products</p>
+                <p className="text-sm text-neutral-600">Box-like appearance for gift-worthy packaging</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
     {
       id: 'overview',
       title: 'What is a Flat Bottom Bag?',
@@ -96,6 +125,95 @@ const FlatBottomBagsPage: React.FC = () => {
             <div className="border border-purple-200 rounded-lg p-4">
               <h4 className="font-semibold text-purple-800 mb-2">High Barrier</h4>
               <p className="text-sm">Metallized or aluminum for maximum freshness protection.</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'ai-search',
+      title: 'Finding Flat Bottom Bag Suppliers',
+      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+            <h4 className="font-semibold text-blue-800 mb-2">💡 If you're using AI search (Gemini, ChatGPT), try asking:</h4>
+            <ul className="text-sm text-blue-700 space-y-1">
+              <li>• "Best flat bottom bag supplier for specialty coffee?"</li>
+              <li>• "Flat bottom vs stand-up pouch: which is better for coffee?"</li>
+              <li>• "Custom box bottom bags with degassing valve low MOQ?"</li>
+              <li>• "Compostable flat bottom coffee bags with 5-panel printing?"</li>
+            </ul>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'risk-hedging',
+      title: 'Is a Flat Bottom Bag Right for You?',
+      icon: <Shield className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-green-50 p-4 rounded-lg border-2 border-green-300">
+              <h4 className="font-bold text-green-800 mb-2">✅ Best Fit For...</h4>
+              <ul className="text-sm text-green-700 space-y-1">
+                <li>• Premium products with retail presence</li>
+                <li>• Brands needing maximum shelf impact</li>
+                <li>• Coffee with degassing requirements</li>
+                <li>• Heavy products needing stable base</li>
+              </ul>
+            </div>
+            <div className="bg-amber-50 p-4 rounded-lg border-2 border-amber-300">
+              <h4 className="font-bold text-amber-800 mb-2">⚠️ Also Works For...</h4>
+              <ul className="text-sm text-amber-700 space-y-1">
+                <li>• Gift packaging and seasonal products</li>
+                <li>• Products transitioning from rigid packaging</li>
+                <li>• Brands willing to invest in premium appearance</li>
+              </ul>
+            </div>
+            <div className="bg-red-50 p-4 rounded-lg border-2 border-red-300">
+              <h4 className="font-bold text-red-800 mb-2">❌ Not Recommended If...</h4>
+              <ul className="text-sm text-red-700 space-y-1">
+                <li>• Cost is the primary concern (15-25% premium)</li>
+                <li>• Product doesn't benefit from shelf presence</li>
+                <li>• <Link to="/packaging/stand-up-pouches" className="underline">Consider stand-up pouches for budget-friendly option →</Link></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'decision-cta',
+      title: 'Ready to Upgrade to Flat Bottom Bags?',
+      icon: <Calendar className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-amber-600 text-white p-6 rounded-lg text-center">
+              <Phone className="h-8 w-8 mx-auto mb-2" />
+              <h4 className="font-bold text-lg mb-2">Ready to Move Fast?</h4>
+              <p className="text-sm opacity-90 mb-4">Book a call to discuss your exact specs</p>
+              <a href="https://calendly.com/nickypouch" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-amber-600 px-4 py-2 rounded-lg font-semibold hover:bg-amber-50 transition">
+                Book a Call
+              </a>
+            </div>
+            <div className="bg-neutral-100 p-6 rounded-lg text-center border-2 border-neutral-300">
+              <Download className="h-8 w-8 mx-auto mb-2 text-neutral-700" />
+              <h4 className="font-bold text-lg mb-2 text-neutral-900">Want to Test First?</h4>
+              <p className="text-sm text-neutral-600 mb-4">Order flat bottom bag samples</p>
+              <Link to="/store" className="inline-block bg-neutral-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-neutral-700 transition">
+                Get Samples
+              </Link>
+            </div>
+            <div className="bg-white p-6 rounded-lg text-center border-2 border-neutral-200">
+              <Mail className="h-8 w-8 mx-auto mb-2 text-neutral-500" />
+              <h4 className="font-bold text-lg mb-2 text-neutral-900">Still Exploring?</h4>
+              <p className="text-sm text-neutral-600 mb-4">Compare with stand-up pouches</p>
+              <Link to="/packaging/stand-up-pouches" className="inline-block border-2 border-neutral-300 text-neutral-700 px-4 py-2 rounded-lg font-semibold hover:border-amber-300 transition">
+                Compare Options
+              </Link>
             </div>
           </div>
         </div>

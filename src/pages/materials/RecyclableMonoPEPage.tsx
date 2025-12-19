@@ -1,7 +1,8 @@
 import React from 'react'
-import { Recycle, Leaf, Shield, CheckCircle, Factory } from 'lucide-react'
+import { Recycle, Leaf, Shield, CheckCircle, Factory, MessageCircle, BookOpen, Building2 } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 import ClickableImage from '../../components/ClickableImage'
 
 const RecyclableMonoPEPage: React.FC = () => {
@@ -105,6 +106,95 @@ const RecyclableMonoPEPage: React.FC = () => {
           
           <p className="text-sm text-neutral-600 mt-4">
             {t(`${p}.sections.recycling.note`)}
+          </p>
+        </div>
+      )
+    },
+    {
+      id: 'ai-search',
+      title: 'Finding the Right Recyclable Packaging Solution',
+      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>Key factors when choosing recyclable mono-PE packaging:</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li><strong>Recycling compatibility</strong> – Ensure the structure is accepted in your target market's recycling streams</li>
+            <li><strong>Barrier requirements</strong> – Mono-PE with EVOH can achieve medium-high barrier for most products</li>
+            <li><strong>Brand messaging</strong> – <Link to="/store" className="text-primary-600 hover:underline">Browse our recyclable pouches</Link></li>
+            <li><strong>Alternative options</strong> – <Link to="/materials/compostable" className="text-primary-600 hover:underline">Compare with compostable materials</Link></li>
+          </ul>
+          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mt-4">
+            <h4 className="font-semibold text-blue-800 mb-2">💡 If you're using AI search (Gemini, ChatGPT), try asking:</h4>
+            <ul className="text-sm text-blue-700 space-y-1">
+              <li>• "Best mono-PE recyclable pouch supplier for food packaging"</li>
+              <li>• "How does mono-PE compare to traditional multi-layer laminates?"</li>
+              <li>• "Recyclable stand-up pouch manufacturers with low MOQ"</li>
+              <li>• "What barrier levels can mono-PE packaging achieve?"</li>
+              <li>• "Is mono-PE packaging accepted in curbside recycling programs?"</li>
+            </ul>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'buyer-guide',
+      title: 'Buyer Guide: Switching to Recyclable Mono-PE Packaging',
+      icon: <BookOpen className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>
+            <strong>Mono-PE (single-material polyethylene) packaging represents the circular economy approach to flexible packaging.</strong> Unlike traditional multi-layer laminates that cannot be recycled, mono-PE structures use only PE materials throughout, making them compatible with existing PE recycling infrastructure. This matters because approximately 95% of flexible packaging historically ends up in landfill due to recycling incompatibility.
+          </p>
+          
+          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+            <h4 className="font-semibold text-amber-800 mb-2">⚠️ Trade-offs to Understand</h4>
+            <ul className="text-sm text-amber-700 space-y-1">
+              <li>• <strong>Recyclable vs Compostable:</strong> Recyclable mono-PE keeps materials in the economy (circular); compostable returns to earth. Choose based on your customer's disposal options.</li>
+              <li>• <strong>Barrier limitations:</strong> Pure mono-PE has lower barrier than traditional laminates. Adding EVOH or specialized coatings improves barrier while maintaining recyclability.</li>
+              <li>• <strong>Regional recycling access:</strong> PE recycling is widely available in the US and EU but varies by locality—check How2Recycle guidelines for your market.</li>
+            </ul>
+          </div>
+          
+          <h4 className="font-semibold text-neutral-900 mt-4">Checklist Before Ordering:</h4>
+          <ol className="list-decimal pl-6 space-y-2 text-sm">
+            <li><strong>Confirm shelf-life requirements</strong> – mono-PE with EVOH typically supports 6–12 months for dry products</li>
+            <li><strong>Request barrier test reports</strong> – WVTR and OTR values for your specific product</li>
+            <li><strong>Verify recycling claims</strong> – ask if the structure meets How2Recycle or local recycling standards</li>
+            <li><strong>Test on your filling line</strong> – mono-PE may require heat-seal adjustments</li>
+            <li><strong>Order samples first</strong> – we offer sample packs from 100 pieces</li>
+          </ol>
+          
+          <div className="bg-green-50 border border-green-200 rounded-lg p-4 mt-4">
+            <p className="text-sm text-green-800">
+              <strong>Why Achieve Pack?</strong> 13+ years of sustainable packaging expertise. Our mono-PE structures are designed for real-world recyclability, not just marketing claims. MOQ from 500 pieces for mono-PE. <Link to="/case-studies/snack-brand" className="text-green-600 hover:underline">See how snack brands transitioned to our recyclable pouches →</Link>
+            </p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'case-studies',
+      title: 'Success Stories: Brands Using Recyclable Mono-PE',
+      icon: <Building2 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>See how brands have successfully switched to recyclable mono-PE packaging:</p>
+          
+          <div className="grid md:grid-cols-2 gap-4">
+            <Link to="/industry/snacks-food" className="block p-4 bg-neutral-50 rounded-lg border border-neutral-200 hover:border-primary-300 hover:shadow-md transition">
+              <h4 className="font-semibold text-neutral-900">Healthy Snack Brand</h4>
+              <p className="text-sm text-neutral-600 mt-1">Transitioned from traditional multi-layer laminate to mono-PE with EVOH. Achieved 100% recyclable packaging while maintaining 9-month shelf life.</p>
+              <span className="text-xs text-primary-600 mt-2 inline-block">Learn more →</span>
+            </Link>
+            <Link to="/industry/pet-food" className="block p-4 bg-neutral-50 rounded-lg border border-neutral-200 hover:border-primary-300 hover:shadow-md transition">
+              <h4 className="font-semibold text-neutral-900">Premium Pet Treats Company</h4>
+              <p className="text-sm text-neutral-600 mt-1">Switched to recyclable mono-PE for their treat line. Added "Widely Recyclable" claim to packaging, improving shelf appeal.</p>
+              <span className="text-xs text-primary-600 mt-2 inline-block">Learn more →</span>
+            </Link>
+          </div>
+          
+          <p className="text-sm text-neutral-600 mt-4">
+            Ready to make the switch? <Link to="/store" className="text-primary-600 hover:underline">Order recyclable mono-PE samples</Link> or <a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">book a free consultation</a> with our packaging experts.
           </p>
         </div>
       )

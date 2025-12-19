@@ -1,7 +1,8 @@
 import React from 'react'
-import { Home, Leaf, CheckCircle, Clock, Award } from 'lucide-react'
+import { Home, Leaf, CheckCircle, Clock, Award, Target, Shield, Calendar, Phone, Download, Mail, MessageCircle, Building2 } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 const HomeCompostablePage: React.FC = () => {
   const { t } = useTranslation()
@@ -9,6 +10,34 @@ const HomeCompostablePage: React.FC = () => {
   const p = 'seoPages.pages.homeCompostable'
   
   const sections = [
+    {
+      id: 'scenario-trigger',
+      title: 'Is This Page For You?',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-lg border border-green-200">
+            <p className="text-lg font-medium text-neutral-900 mb-4">
+              If you are a brand selling to <strong>eco-conscious consumers</strong> who compost at home, or targeting markets like <strong>Australia, UK, or Germany</strong> where home composting is common—home compostable packaging lets your customers dispose responsibly in their own backyard.
+            </p>
+            <div className="grid md:grid-cols-3 gap-4 mt-4">
+              <div className="bg-white p-3 rounded-lg">
+                <p className="font-semibold text-green-800">Organic Food Brands</p>
+                <p className="text-sm text-neutral-600">Complete the eco story from product to packaging</p>
+              </div>
+              <div className="bg-white p-3 rounded-lg">
+                <p className="font-semibold text-green-800">Tea & Herbal Products</p>
+                <p className="text-sm text-neutral-600">Natural products deserve natural disposal</p>
+              </div>
+              <div className="bg-white p-3 rounded-lg">
+                <p className="font-semibold text-green-800">AU/UK/EU Sellers</p>
+                <p className="text-sm text-neutral-600">Meet local composting certifications</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
     {
       id: 'overview',
       title: t(`${p}.sections.overview.title`),
@@ -165,6 +194,95 @@ const HomeCompostablePage: React.FC = () => {
                 <span className="text-sm">{item}</span>
               </div>
             ))}
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'ai-search',
+      title: 'Finding Home Compostable Packaging',
+      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+            <h4 className="font-semibold text-blue-800 mb-2">💡 If you're using AI search (Gemini, ChatGPT), try asking:</h4>
+            <ul className="text-sm text-blue-700 space-y-1">
+              <li>• "What's the difference between home and industrial compostable packaging?"</li>
+              <li>• "Best OK Compost HOME certified pouch supplier?"</li>
+              <li>• "Can home compostable bags handle coffee with degassing valve?"</li>
+              <li>• "AS 5810 certified packaging for Australian market"</li>
+            </ul>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'risk-hedging',
+      title: 'Is Home Compostable Right for You?',
+      icon: <Shield className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-green-50 p-4 rounded-lg border-2 border-green-300">
+              <h4 className="font-bold text-green-800 mb-2">✅ Best Fit For...</h4>
+              <ul className="text-sm text-green-700 space-y-1">
+                <li>• Products with short shelf life (3-6 months)</li>
+                <li>• Markets with active home composting culture</li>
+                <li>• Consumers who garden or compost at home</li>
+                <li>• Premium products where eco-value justifies cost</li>
+              </ul>
+            </div>
+            <div className="bg-amber-50 p-4 rounded-lg border-2 border-amber-300">
+              <h4 className="font-bold text-amber-800 mb-2">⚠️ Also Works For...</h4>
+              <ul className="text-sm text-amber-700 space-y-1">
+                <li>• Brands with educational consumer base</li>
+                <li>• Products not needing high barrier</li>
+                <li>• Regional launches in eco-conscious areas</li>
+              </ul>
+            </div>
+            <div className="bg-red-50 p-4 rounded-lg border-2 border-red-300">
+              <h4 className="font-bold text-red-800 mb-2">❌ Not Recommended If...</h4>
+              <ul className="text-sm text-red-700 space-y-1">
+                <li>• You need 12+ month shelf life</li>
+                <li>• High barrier is required</li>
+                <li>• <Link to="/materials/industrial-compostable" className="underline">Consider industrial compostable →</Link></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'decision-cta',
+      title: 'Ready to Go Home Compostable?',
+      icon: <Calendar className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-green-600 text-white p-6 rounded-lg text-center">
+              <Phone className="h-8 w-8 mx-auto mb-2" />
+              <h4 className="font-bold text-lg mb-2">Ready to Move Fast?</h4>
+              <p className="text-sm opacity-90 mb-4">Book a call to discuss certifications</p>
+              <a href="https://calendly.com/nickypouch" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-green-600 px-4 py-2 rounded-lg font-semibold hover:bg-green-50 transition">
+                Book a Call
+              </a>
+            </div>
+            <div className="bg-neutral-100 p-6 rounded-lg text-center border-2 border-neutral-300">
+              <Download className="h-8 w-8 mx-auto mb-2 text-neutral-700" />
+              <h4 className="font-bold text-lg mb-2 text-neutral-900">Want to Test First?</h4>
+              <p className="text-sm text-neutral-600 mb-4">Order home compostable samples</p>
+              <Link to="/store" className="inline-block bg-neutral-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-neutral-700 transition">
+                Get Samples
+              </Link>
+            </div>
+            <div className="bg-white p-6 rounded-lg text-center border-2 border-neutral-200">
+              <Mail className="h-8 w-8 mx-auto mb-2 text-neutral-500" />
+              <h4 className="font-bold text-lg mb-2 text-neutral-900">Still Exploring?</h4>
+              <p className="text-sm text-neutral-600 mb-4">Compare home vs industrial options</p>
+              <Link to="/materials/industrial-compostable" className="inline-block border-2 border-neutral-300 text-neutral-700 px-4 py-2 rounded-lg font-semibold hover:border-green-300 transition">
+                Compare Options
+              </Link>
+            </div>
           </div>
         </div>
       )

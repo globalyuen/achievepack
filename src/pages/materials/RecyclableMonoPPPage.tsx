@@ -1,12 +1,41 @@
 import React from 'react'
-import { Recycle, Leaf, Shield, CheckCircle, Thermometer } from 'lucide-react'
+import { Recycle, Leaf, Shield, CheckCircle, Thermometer, Target, Calendar, Phone, Download, Mail, MessageCircle } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 const RecyclableMonoPPPage: React.FC = () => {
   const { t } = useTranslation()
   const p = 'seoPages.pages.recyclableMonoPP'
   const sections = [
+    {
+      id: 'scenario-trigger',
+      title: 'Is This Page For You?',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="bg-gradient-to-r from-purple-50 to-violet-50 p-6 rounded-lg border border-purple-200">
+            <p className="text-lg font-medium text-neutral-900 mb-4">
+              If you need packaging that can withstand <strong>hot-fill processes</strong>, <strong>microwave reheating</strong>, or require <strong>higher heat resistance</strong> than PE—mono-PP recyclable pouches are your solution.
+            </p>
+            <div className="grid md:grid-cols-3 gap-4 mt-4">
+              <div className="bg-white p-3 rounded-lg">
+                <p className="font-semibold text-purple-800">Hot-Fill Products</p>
+                <p className="text-sm text-neutral-600">Soups, sauces, ready meals</p>
+              </div>
+              <div className="bg-white p-3 rounded-lg">
+                <p className="font-semibold text-purple-800">Microwaveable Foods</p>
+                <p className="text-sm text-neutral-600">Convenience meals, frozen products</p>
+              </div>
+              <div className="bg-white p-3 rounded-lg">
+                <p className="font-semibold text-purple-800">High-Clarity Needs</p>
+                <p className="text-sm text-neutral-600">PP offers better transparency than PE</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
     {
       id: 'overview',
       title: t(`${p}.sections.overview.title`),
@@ -77,6 +106,95 @@ const RecyclableMonoPPPage: React.FC = () => {
             <ul className="space-y-2 text-sm">
               {(t(`${p}.sections.specifications.specs`, { returnObjects: true }) as string[]).map((s, i) => <li key={i}>✓ {s}</li>)}
             </ul>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'ai-search',
+      title: 'Finding Mono-PP Recyclable Packaging',
+      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+            <h4 className="font-semibold text-blue-800 mb-2">💡 If you're using AI search (Gemini, ChatGPT), try asking:</h4>
+            <ul className="text-sm text-blue-700 space-y-1">
+              <li>• "Mono-PP vs Mono-PE: which should I choose for hot-fill?"</li>
+              <li>• "Best recyclable pouch for microwave-safe food packaging?"</li>
+              <li>• "PP recyclable flexible packaging supplier with low MOQ?"</li>
+              <li>• "What temperature can mono-PP pouches withstand?"</li>
+            </ul>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'risk-hedging',
+      title: 'Is Mono-PP Right for You?',
+      icon: <Shield className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-green-50 p-4 rounded-lg border-2 border-green-300">
+              <h4 className="font-bold text-green-800 mb-2">✅ Best Fit For...</h4>
+              <ul className="text-sm text-green-700 space-y-1">
+                <li>• Hot-fill applications (85°C+)</li>
+                <li>• Microwave-safe packaging needs</li>
+                <li>• Products requiring high clarity</li>
+                <li>• Markets with PP recycling streams</li>
+              </ul>
+            </div>
+            <div className="bg-amber-50 p-4 rounded-lg border-2 border-amber-300">
+              <h4 className="font-bold text-amber-800 mb-2">⚠️ Also Works For...</h4>
+              <ul className="text-sm text-amber-700 space-y-1">
+                <li>• Products with grease/oil content</li>
+                <li>• Premium applications needing stiffness</li>
+                <li>• Retort-adjacent applications</li>
+              </ul>
+            </div>
+            <div className="bg-red-50 p-4 rounded-lg border-2 border-red-300">
+              <h4 className="font-bold text-red-800 mb-2">❌ Not Recommended If...</h4>
+              <ul className="text-sm text-red-700 space-y-1">
+                <li>• PE recycling is more accessible in your market</li>
+                <li>• Lower cost is the priority</li>
+                <li>• <Link to="/materials/recyclable-mono-pe" className="underline">Consider Mono-PE instead →</Link></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'decision-cta',
+      title: 'Ready to Go Mono-PP Recyclable?',
+      icon: <Calendar className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-purple-600 text-white p-6 rounded-lg text-center">
+              <Phone className="h-8 w-8 mx-auto mb-2" />
+              <h4 className="font-bold text-lg mb-2">Ready to Move Fast?</h4>
+              <p className="text-sm opacity-90 mb-4">Book a call to discuss hot-fill specs</p>
+              <a href="https://calendly.com/nickypouch" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-purple-600 px-4 py-2 rounded-lg font-semibold hover:bg-purple-50 transition">
+                Book a Call
+              </a>
+            </div>
+            <div className="bg-neutral-100 p-6 rounded-lg text-center border-2 border-neutral-300">
+              <Download className="h-8 w-8 mx-auto mb-2 text-neutral-700" />
+              <h4 className="font-bold text-lg mb-2 text-neutral-900">Want to Test First?</h4>
+              <p className="text-sm text-neutral-600 mb-4">Order mono-PP samples for testing</p>
+              <Link to="/store" className="inline-block bg-neutral-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-neutral-700 transition">
+                Get Samples
+              </Link>
+            </div>
+            <div className="bg-white p-6 rounded-lg text-center border-2 border-neutral-200">
+              <Mail className="h-8 w-8 mx-auto mb-2 text-neutral-500" />
+              <h4 className="font-bold text-lg mb-2 text-neutral-900">Still Exploring?</h4>
+              <p className="text-sm text-neutral-600 mb-4">Compare PP vs PE recyclable options</p>
+              <Link to="/materials/recyclable-mono-pe" className="inline-block border-2 border-neutral-300 text-neutral-700 px-4 py-2 rounded-lg font-semibold hover:border-purple-300 transition">
+                Compare Materials
+              </Link>
+            </div>
           </div>
         </div>
       )

@@ -1,12 +1,41 @@
 import React from 'react'
-import { Factory, Leaf, CheckCircle, Clock, Award } from 'lucide-react'
+import { Factory, Leaf, CheckCircle, Clock, Award, Target, Shield, Calendar, Phone, Download, Mail, MessageCircle } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 const IndustrialCompostablePage: React.FC = () => {
   const { t } = useTranslation()
   const p = 'seoPages.pages.industrialCompostable'
   const sections = [
+    {
+      id: 'scenario-trigger',
+      title: 'Is This Page For You?',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="bg-gradient-to-r from-primary-50 to-blue-50 p-6 rounded-lg border border-primary-200">
+            <p className="text-lg font-medium text-neutral-900 mb-4">
+              If you are a <strong>US specialty coffee roaster</strong>, <strong>EU food brand</strong>, or <strong>organic snack company</strong> looking for certified compostable packaging with better barrier protection than home compostable options—industrial compostable is your solution.
+            </p>
+            <div className="grid md:grid-cols-3 gap-4 mt-4">
+              <div className="bg-white p-3 rounded-lg">
+                <p className="font-semibold text-primary-800">Coffee & Tea Brands</p>
+                <p className="text-sm text-neutral-600">Higher barrier for freshness + BPI/EN13432 certified</p>
+              </div>
+              <div className="bg-white p-3 rounded-lg">
+                <p className="font-semibold text-primary-800">Organic Food Companies</p>
+                <p className="text-sm text-neutral-600">Meet sustainability claims with real certifications</p>
+              </div>
+              <div className="bg-white p-3 rounded-lg">
+                <p className="font-semibold text-primary-800">EU Market Sellers</p>
+                <p className="text-sm text-neutral-600">EN 13432 required for many EU countries</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
     {
       id: 'overview',
       title: t(`${p}.sections.overview.title`),
@@ -132,6 +161,95 @@ const IndustrialCompostablePage: React.FC = () => {
             <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
               <div className="text-3xl font-bold text-primary-600 mb-2">12+</div>
               <div className="text-sm text-neutral-600">{t(`${p}.sections.order.shelfLife`)}</div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'ai-search',
+      title: 'Finding Industrial Compostable Packaging',
+      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+            <h4 className="font-semibold text-blue-800 mb-2">💡 If you're using AI search (Gemini, ChatGPT), try asking:</h4>
+            <ul className="text-sm text-blue-700 space-y-1">
+              <li>• "EN 13432 vs ASTM D6400: which certification do I need?"</li>
+              <li>• "Best BPI certified compostable pouch supplier for coffee?"</li>
+              <li>• "Industrial compostable packaging with high barrier for snacks"</li>
+              <li>• "How long does industrial compostable packaging take to break down?"</li>
+            </ul>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'risk-hedging',
+      title: 'Is Industrial Compostable Right for You?',
+      icon: <Shield className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-green-50 p-4 rounded-lg border-2 border-green-300">
+              <h4 className="font-bold text-green-800 mb-2">✅ Best Fit For...</h4>
+              <ul className="text-sm text-green-700 space-y-1">
+                <li>• Products needing 9-12+ month shelf life</li>
+                <li>• Coffee, tea, snacks requiring good barrier</li>
+                <li>• Markets with commercial composting (CA, WA, EU)</li>
+                <li>• B2B products where buyers have facility access</li>
+              </ul>
+            </div>
+            <div className="bg-amber-50 p-4 rounded-lg border-2 border-amber-300">
+              <h4 className="font-bold text-amber-800 mb-2">⚠️ Also Works For...</h4>
+              <ul className="text-sm text-amber-700 space-y-1">
+                <li>• Brands educating consumers on composting</li>
+                <li>• Products with moderate barrier needs</li>
+                <li>• Companies building sustainability credentials</li>
+              </ul>
+            </div>
+            <div className="bg-red-50 p-4 rounded-lg border-2 border-red-300">
+              <h4 className="font-bold text-red-800 mb-2">❌ Not Recommended If...</h4>
+              <ul className="text-sm text-red-700 space-y-1">
+                <li>• Customers lack composting access</li>
+                <li>• You need ultra-high barrier (18+ months)</li>
+                <li>• <Link to="/materials/home-compostable" className="underline">Consider home compostable for direct consumers →</Link></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'decision-cta',
+      title: 'Ready to Go Industrial Compostable?',
+      icon: <Calendar className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-primary-600 text-white p-6 rounded-lg text-center">
+              <Phone className="h-8 w-8 mx-auto mb-2" />
+              <h4 className="font-bold text-lg mb-2">Ready to Move Fast?</h4>
+              <p className="text-sm opacity-90 mb-4">Book a call to discuss your certification needs</p>
+              <a href="https://calendly.com/nickypouch" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-primary-600 px-4 py-2 rounded-lg font-semibold hover:bg-primary-50 transition">
+                Book a Call
+              </a>
+            </div>
+            <div className="bg-neutral-100 p-6 rounded-lg text-center border-2 border-neutral-300">
+              <Download className="h-8 w-8 mx-auto mb-2 text-neutral-700" />
+              <h4 className="font-bold text-lg mb-2 text-neutral-900">Want to Test First?</h4>
+              <p className="text-sm text-neutral-600 mb-4">Order industrial compostable samples</p>
+              <Link to="/store" className="inline-block bg-neutral-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-neutral-700 transition">
+                Get Samples
+              </Link>
+            </div>
+            <div className="bg-white p-6 rounded-lg text-center border-2 border-neutral-200">
+              <Mail className="h-8 w-8 mx-auto mb-2 text-neutral-500" />
+              <h4 className="font-bold text-lg mb-2 text-neutral-900">Still Exploring?</h4>
+              <p className="text-sm text-neutral-600 mb-4">Compare with home compostable or recyclable</p>
+              <Link to="/materials/compostable" className="inline-block border-2 border-neutral-300 text-neutral-700 px-4 py-2 rounded-lg font-semibold hover:border-primary-300 transition">
+                Compare Options
+              </Link>
             </div>
           </div>
         </div>

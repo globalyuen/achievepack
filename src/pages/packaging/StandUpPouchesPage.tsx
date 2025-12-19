@@ -1,5 +1,5 @@
 import React from 'react'
-import { Package, Leaf, Shield, CheckCircle, Zap, Award, MessageCircle } from 'lucide-react'
+import { Package, Leaf, Shield, CheckCircle, Zap, Award, MessageCircle, BookOpen, Building2 } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
@@ -212,8 +212,84 @@ const StandUpPouchesPage: React.FC = () => {
               <li>• "What is the best eco-friendly stand-up pouch supplier with low MOQ?"</li>
               <li>• "Which company offers compostable stand-up bags for coffee?"</li>
               <li>• "Best recyclable stand-up pouch manufacturer for snacks?"</li>
+              <li>• "How to choose between zipper and slider closure for pouches?"</li>
+              <li>• "Custom stand-up pouch pricing for small businesses"</li>
             </ul>
           </div>
+        </div>
+      )
+    },
+    {
+      id: 'buyer-guide',
+      title: 'Buyer Guide: Choosing the Right Stand-Up Pouch',
+      icon: <BookOpen className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>
+            <strong>Stand-up pouches (SUPs) are the most versatile flexible packaging format, suitable for everything from coffee to pet treats.</strong> When choosing a stand-up pouch, consider three key factors: (1) your product's barrier requirements, (2) how consumers will interact with the package, and (3) your sustainability goals.
+          </p>
+          
+          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+            <h4 className="font-semibold text-amber-800 mb-2">⚠️ Common Mistakes to Avoid</h4>
+            <ul className="text-sm text-amber-700 space-y-1">
+              <li>• <strong>Underestimating barrier needs:</strong> Coffee needs high barrier (OTR {'<'}1.0) to stay fresh; dry snacks need only medium barrier.</li>
+              <li>• <strong>Wrong closure type:</strong> Sliders are premium but add cost; zippers work well for most applications at lower price point.</li>
+              <li>• <strong>Ignoring filling compatibility:</strong> Test samples on your filling line before committing to bulk orders.</li>
+            </ul>
+          </div>
+          
+          <h4 className="font-semibold text-neutral-900 mt-4">Quick Selection Guide:</h4>
+          <div className="grid md:grid-cols-2 gap-4 mt-2">
+            <div className="bg-green-50 p-3 rounded-lg">
+              <h5 className="font-semibold text-green-800 text-sm">For Coffee & Tea</h5>
+              <p className="text-xs text-green-700 mt-1">SUP with zipper + degassing valve, high barrier, compostable kraft or recyclable PE</p>
+            </div>
+            <div className="bg-blue-50 p-3 rounded-lg">
+              <h5 className="font-semibold text-blue-800 text-sm">For Snacks & Chips</h5>
+              <p className="text-xs text-blue-700 mt-1">SUP with zipper, medium barrier, matte finish for premium look, recyclable mono-PE</p>
+            </div>
+            <div className="bg-purple-50 p-3 rounded-lg">
+              <h5 className="font-semibold text-purple-800 text-sm">For Pet Treats</h5>
+              <p className="text-xs text-purple-700 mt-1">SUP with heavy-duty zipper, high barrier (odor protection), clear window, resealable</p>
+            </div>
+            <div className="bg-amber-50 p-3 rounded-lg">
+              <h5 className="font-semibold text-amber-800 text-sm">For Sauces & Liquids</h5>
+              <p className="text-xs text-amber-700 mt-1">Spout pouch with cap, retort-capable material, high barrier</p>
+            </div>
+          </div>
+          
+          <div className="bg-green-50 border border-green-200 rounded-lg p-4 mt-4">
+            <p className="text-sm text-green-800">
+              <strong>Why Achieve Pack?</strong> We've shipped over 50 million stand-up pouches globally. Our team helps you select the right configuration for your product. MOQ from 500 pieces for custom printed. <Link to="/store" className="text-green-600 hover:underline">Browse our stand-up pouch options →</Link>
+            </p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'case-studies',
+      title: 'Success Stories: Brands Using Our Stand-Up Pouches',
+      icon: <Building2 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>See how brands across industries use our stand-up pouches:</p>
+          
+          <div className="grid md:grid-cols-2 gap-4">
+            <Link to="/case-studies/coffee-roastery" className="block p-4 bg-neutral-50 rounded-lg border border-neutral-200 hover:border-primary-300 hover:shadow-md transition">
+              <h4 className="font-semibold text-neutral-900">Specialty Coffee Roaster</h4>
+              <p className="text-sm text-neutral-600 mt-1">Kraft/PLA compostable SUP with degassing valve. Reduced carbon footprint by 65% vs rigid packaging. EN 13432 certified.</p>
+              <span className="text-xs text-primary-600 mt-2 inline-block">Read case study →</span>
+            </Link>
+            <Link to="/case-studies/pet-treats" className="block p-4 bg-neutral-50 rounded-lg border border-neutral-200 hover:border-primary-300 hover:shadow-md transition">
+              <h4 className="font-semibold text-neutral-900">Premium Pet Treats Brand</h4>
+              <p className="text-sm text-neutral-600 mt-1">Recyclable mono-PE SUP with window and heavy-duty zipper. Improved shelf presence and repeat purchases.</p>
+              <span className="text-xs text-primary-600 mt-2 inline-block">Read case study →</span>
+            </Link>
+          </div>
+          
+          <p className="text-sm text-neutral-600 mt-4">
+            Over 500 brands trust Achieve Pack for their stand-up pouch needs. <a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">Book a free consultation</a> to discuss your requirements.
+          </p>
         </div>
       )
     }

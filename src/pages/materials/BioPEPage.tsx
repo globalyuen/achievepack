@@ -1,5 +1,5 @@
 import React from 'react'
-import { Leaf, Recycle, CheckCircle, Globe, Sprout, MessageCircle, Award } from 'lucide-react'
+import { Leaf, Recycle, CheckCircle, Globe, Sprout, MessageCircle, Award, Target, Shield, Calendar, Phone, Download, Mail, BookOpen, Building2 } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
@@ -9,6 +9,34 @@ const BioPEPage: React.FC = () => {
   const { t } = useTranslation()
   const p = 'seoPages.pages.bioPE'
   const sections = [
+    {
+      id: 'scenario-trigger',
+      title: 'Is This Page For You?',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-lg border border-green-200">
+            <p className="text-lg font-medium text-neutral-900 mb-4">
+              If you are a <strong>sustainability-focused brand</strong> looking for packaging that reduces your carbon footprint while maintaining the same performance as conventional plastic—Bio-PE is your answer.
+            </p>
+            <div className="grid md:grid-cols-3 gap-4 mt-4">
+              <div className="bg-white p-3 rounded-lg">
+                <p className="font-semibold text-green-800">Carbon-Conscious Brands</p>
+                <p className="text-sm text-neutral-600">Reduce CO2 footprint with plant-based materials</p>
+              </div>
+              <div className="bg-white p-3 rounded-lg">
+                <p className="font-semibold text-green-800">Recyclability Priority</p>
+                <p className="text-sm text-neutral-600">Same recyclability as conventional PE</p>
+              </div>
+              <div className="bg-white p-3 rounded-lg">
+                <p className="font-semibold text-green-800">Performance Needs</p>
+                <p className="text-sm text-neutral-600">Identical barrier and sealing properties</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
     {
       id: 'overview',
       title: t(`${p}.sections.overview.title`),
@@ -160,7 +188,82 @@ const BioPEPage: React.FC = () => {
               <li>• "What is the best bio-based packaging supplier with low MOQ?"</li>
               <li>• "Which company offers sugarcane-based PE pouches?"</li>
               <li>• "Best carbon-negative packaging for eco brands?"</li>
+              <li>• "Bio-PE vs recycled PE: which is more sustainable?"</li>
+              <li>• "How to verify I'm Green Bio-PE certification?"</li>
             </ul>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'risk-hedging',
+      title: 'Is Bio-PE Right for Your Brand?',
+      icon: <Shield className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-green-50 p-4 rounded-lg border-2 border-green-300">
+              <h4 className="font-bold text-green-800 mb-2">✅ Best Fit For...</h4>
+              <ul className="text-sm text-green-700 space-y-1">
+                <li>• Brands prioritizing carbon footprint reduction</li>
+                <li>• Products needing conventional PE performance</li>
+                <li>• Markets with strong recycling infrastructure</li>
+                <li>• Companies seeking I'm Green™ certification</li>
+              </ul>
+            </div>
+            <div className="bg-amber-50 p-4 rounded-lg border-2 border-amber-300">
+              <h4 className="font-bold text-amber-800 mb-2">⚠️ Also Works For...</h4>
+              <ul className="text-sm text-amber-700 space-y-1">
+                <li>• Brands transitioning gradually to sustainable packaging</li>
+                <li>• Products requiring high barrier protection</li>
+                <li>• Companies needing recyclable but renewable options</li>
+              </ul>
+            </div>
+            <div className="bg-red-50 p-4 rounded-lg border-2 border-red-300">
+              <h4 className="font-bold text-red-800 mb-2">❌ Not Recommended If...</h4>
+              <ul className="text-sm text-red-700 space-y-1">
+                <li>• You need compostable end-of-life</li>
+                <li>• Your customers expect "biodegradable" packaging</li>
+                <li>• <Link to="/materials/compostable" className="underline">Consider compostable instead →</Link></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'decision-cta',
+      title: 'Ready to Switch to Bio-PE?',
+      icon: <Calendar className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p className="text-lg">Start small with a test run. No need to overhaul your entire packaging line:</p>
+          
+          <div className="grid md:grid-cols-3 gap-4 mt-4">
+            <div className="bg-green-600 text-white p-6 rounded-lg text-center">
+              <Phone className="h-8 w-8 mx-auto mb-2" />
+              <h4 className="font-bold text-lg mb-2">Ready to Move Fast?</h4>
+              <p className="text-sm opacity-90 mb-4">Book a 30-min call to discuss your exact needs</p>
+              <a href="https://calendly.com/nickypouch" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-green-600 px-4 py-2 rounded-lg font-semibold hover:bg-green-50 transition">
+                Book a Call
+              </a>
+            </div>
+            <div className="bg-neutral-100 p-6 rounded-lg text-center border-2 border-neutral-300">
+              <Download className="h-8 w-8 mx-auto mb-2 text-neutral-700" />
+              <h4 className="font-bold text-lg mb-2 text-neutral-900">Want to Test First?</h4>
+              <p className="text-sm text-neutral-600 mb-4">Order Bio-PE sample kit (MOQ 500 pcs)</p>
+              <Link to="/store" className="inline-block bg-neutral-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-neutral-700 transition">
+                Get Samples
+              </Link>
+            </div>
+            <div className="bg-white p-6 rounded-lg text-center border-2 border-neutral-200">
+              <Mail className="h-8 w-8 mx-auto mb-2 text-neutral-500" />
+              <h4 className="font-bold text-lg mb-2 text-neutral-900">Still Exploring?</h4>
+              <p className="text-sm text-neutral-600 mb-4">Compare Bio-PE with other sustainable options</p>
+              <Link to="/materials/compostable" className="inline-block border-2 border-neutral-300 text-neutral-700 px-4 py-2 rounded-lg font-semibold hover:border-green-300 transition">
+                Compare Materials
+              </Link>
+            </div>
           </div>
         </div>
       )

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Package, Leaf, Shield, Clock, CheckCircle, MessageCircle } from 'lucide-react'
+import { Package, Leaf, Shield, Clock, CheckCircle, MessageCircle, Target, Calendar, Phone, Download, Mail } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 
@@ -8,6 +8,34 @@ const CoffeeTeaPage: React.FC = () => {
   const { t } = useTranslation()
   const p = 'seoPages.pages.coffeeTea'
   const sections = [
+    {
+      id: 'scenario-trigger',
+      title: 'Is This Page For You?',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-lg border border-amber-200">
+            <p className="text-lg font-medium text-neutral-900 mb-4">
+              If you are a <strong>US specialty coffee roaster</strong>, a <strong>growing tea brand on Amazon</strong>, or a <strong>cafe looking to launch retail packaging</strong>—and you want truly eco-friendly pouches without sacrificing freshness or blowing your budget, this page is for you.
+            </p>
+            <div className="grid md:grid-cols-3 gap-4 mt-4">
+              <div className="bg-white p-3 rounded-lg">
+                <p className="font-semibold text-amber-800">Specialty Roasters</p>
+                <p className="text-sm text-neutral-600">Degassing valves + premium branding from 100 pcs</p>
+              </div>
+              <div className="bg-white p-3 rounded-lg">
+                <p className="font-semibold text-amber-800">Tea Brands</p>
+                <p className="text-sm text-neutral-600">Resealable pouches for loose-leaf and sachets</p>
+              </div>
+              <div className="bg-white p-3 rounded-lg">
+                <p className="font-semibold text-amber-800">Cafes & Startups</p>
+                <p className="text-sm text-neutral-600">Low MOQ lets you test before committing</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
     {
       id: 'overview',
       title: 'Coffee & Tea Packaging Solutions',
@@ -184,6 +212,80 @@ const CoffeeTeaPage: React.FC = () => {
           </div>
           
           <p className="mt-4">Read our in-depth analysis: <Link to="/blog/sustainable-packaging-supplier-analysis" className="text-primary-600 hover:underline font-semibold">Sustainable Packaging Supplier Analysis →</Link></p>
+        </div>
+      )
+    },
+    {
+      id: 'risk-hedging',
+      title: 'Compostable vs Recyclable: Which is Right for Your Coffee Brand?',
+      icon: <Shield className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-green-50 p-4 rounded-lg border-2 border-green-300">
+              <h4 className="font-bold text-green-800 mb-2">✅ Choose Compostable If...</h4>
+              <ul className="text-sm text-green-700 space-y-1">
+                <li>• Your brand emphasizes "return to earth" sustainability</li>
+                <li>• You sell in markets with composting access (CA, WA, EU)</li>
+                <li>• Premium positioning justifies material cost</li>
+                <li>• Shelf life of 6-12 months is sufficient</li>
+              </ul>
+            </div>
+            <div className="bg-blue-50 p-4 rounded-lg border-2 border-blue-300">
+              <h4 className="font-bold text-blue-800 mb-2">♻️ Choose Recyclable If...</h4>
+              <ul className="text-sm text-blue-700 space-y-1">
+                <li>• Higher barrier for 12+ month shelf life is needed</li>
+                <li>• Your customers lack composting access</li>
+                <li>• Cost-effectiveness is a priority</li>
+                <li>• You want clear window options</li>
+              </ul>
+            </div>
+            <div className="bg-amber-50 p-4 rounded-lg border-2 border-amber-300">
+              <h4 className="font-bold text-amber-800 mb-2">⚠️ Start with Test Run If...</h4>
+              <ul className="text-sm text-amber-700 space-y-1">
+                <li>• You're unsure which material suits your coffee</li>
+                <li>• You want to test consumer response first</li>
+                <li>• <Link to="/store" className="underline">Order sample kit (100 pcs) →</Link></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'decision-cta',
+      title: 'Ready to Upgrade Your Coffee Packaging?',
+      icon: <Calendar className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p className="text-lg">We don't ask you to change your entire packaging line on day one. Start small and test:</p>
+          
+          <div className="grid md:grid-cols-3 gap-4 mt-4">
+            <div className="bg-amber-600 text-white p-6 rounded-lg text-center">
+              <Phone className="h-8 w-8 mx-auto mb-2" />
+              <h4 className="font-bold text-lg mb-2">Ready to Move Fast?</h4>
+              <p className="text-sm opacity-90 mb-4">Book a 30-min call to discuss your exact needs</p>
+              <a href="https://calendly.com/nickypouch" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-amber-600 px-4 py-2 rounded-lg font-semibold hover:bg-amber-50 transition">
+                Book a Call
+              </a>
+            </div>
+            <div className="bg-neutral-100 p-6 rounded-lg text-center border-2 border-neutral-300">
+              <Download className="h-8 w-8 mx-auto mb-2 text-neutral-700" />
+              <h4 className="font-bold text-lg mb-2 text-neutral-900">Want to Test First?</h4>
+              <p className="text-sm text-neutral-600 mb-4">Order a sample kit from 100-500 units</p>
+              <Link to="/store" className="inline-block bg-neutral-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-neutral-700 transition">
+                Get Sample Kit
+              </Link>
+            </div>
+            <div className="bg-white p-6 rounded-lg text-center border-2 border-neutral-200">
+              <Mail className="h-8 w-8 mx-auto mb-2 text-neutral-500" />
+              <h4 className="font-bold text-lg mb-2 text-neutral-900">Still Exploring?</h4>
+              <p className="text-sm text-neutral-600 mb-4">See how other roasters made the switch</p>
+              <Link to="/case-studies/coffee-roastery" className="inline-block border-2 border-neutral-300 text-neutral-700 px-4 py-2 rounded-lg font-semibold hover:border-amber-300 transition">
+                Read Case Studies
+              </Link>
+            </div>
+          </div>
         </div>
       )
     }

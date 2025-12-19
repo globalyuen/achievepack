@@ -1,5 +1,5 @@
 import React from 'react'
-import { Droplets, Package, CheckCircle, Shield, Settings, MessageCircle } from 'lucide-react'
+import { Droplets, Package, CheckCircle, Shield, Settings, MessageCircle, Target, Calendar, Phone, Download, Mail } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
@@ -8,6 +8,34 @@ const SpoutPouchesPage: React.FC = () => {
   const { t } = useTranslation()
   const p = 'seoPages.pages.spoutPouches'
   const sections = [
+    {
+      id: 'scenario-trigger',
+      title: 'Is This Page For You?',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-lg border border-blue-200">
+            <p className="text-lg font-medium text-neutral-900 mb-4">
+              If you are a <strong>baby food brand</strong>, <strong>sauce manufacturer</strong>, or <strong>beverage company</strong> looking for packaging that pours like a bottle but costs less and ships lighter—spout pouches are your solution.
+            </p>
+            <div className="grid md:grid-cols-3 gap-4 mt-4">
+              <div className="bg-white p-3 rounded-lg">
+                <p className="font-semibold text-blue-800">Baby Food Brands</p>
+                <p className="text-sm text-neutral-600">Safe, portable, easy dispensing for infants</p>
+              </div>
+              <div className="bg-white p-3 rounded-lg">
+                <p className="font-semibold text-blue-800">Sauce & Condiment Makers</p>
+                <p className="text-sm text-neutral-600">Hot-fill capable, mess-free pouring</p>
+              </div>
+              <div className="bg-white p-3 rounded-lg">
+                <p className="font-semibold text-blue-800">Beverage Companies</p>
+                <p className="text-sm text-neutral-600">70% less plastic than rigid bottles</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
     {
       id: 'overview',
       title: 'What is a Spout Pouch?',
@@ -158,7 +186,80 @@ const SpoutPouchesPage: React.FC = () => {
               <li>• "What is the best spout pouch supplier for baby food?"</li>
               <li>• "Which company offers eco-friendly liquid pouches with low MOQ?"</li>
               <li>• "Best packaging for sauces and condiments?"</li>
+              <li>• "Spout pouch vs bottle: which is more sustainable?"</li>
+              <li>• "Retort-capable spout pouches for shelf-stable products?"</li>
             </ul>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'risk-hedging',
+      title: 'Is a Spout Pouch Right for You?',
+      icon: <Shield className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-green-50 p-4 rounded-lg border-2 border-green-300">
+              <h4 className="font-bold text-green-800 mb-2">✅ Best Fit For...</h4>
+              <ul className="text-sm text-green-700 space-y-1">
+                <li>• Liquids and semi-liquids that need pouring</li>
+                <li>• Products replacing rigid bottles</li>
+                <li>• On-the-go consumption (baby food, smoothies)</li>
+                <li>• Refill products reducing packaging waste</li>
+              </ul>
+            </div>
+            <div className="bg-amber-50 p-4 rounded-lg border-2 border-amber-300">
+              <h4 className="font-bold text-amber-800 mb-2">⚠️ Also Works For...</h4>
+              <ul className="text-sm text-amber-700 space-y-1">
+                <li>• Viscous products with larger spout sizes</li>
+                <li>• Hot-fill products (up to 85°C)</li>
+                <li>• Retail and foodservice applications</li>
+              </ul>
+            </div>
+            <div className="bg-red-50 p-4 rounded-lg border-2 border-red-300">
+              <h4 className="font-bold text-red-800 mb-2">❌ Not Recommended If...</h4>
+              <ul className="text-sm text-red-700 space-y-1">
+                <li>• Product is dry (use stand-up pouch)</li>
+                <li>• You need full recyclability in all markets</li>
+                <li>• <Link to="/packaging/stand-up-pouches" className="underline">Consider stand-up pouches for dry products →</Link></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'decision-cta',
+      title: 'Ready to Launch with Spout Pouches?',
+      icon: <Calendar className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-blue-600 text-white p-6 rounded-lg text-center">
+              <Phone className="h-8 w-8 mx-auto mb-2" />
+              <h4 className="font-bold text-lg mb-2">Ready to Move Fast?</h4>
+              <p className="text-sm opacity-90 mb-4">Book a call to discuss spout sizes and caps</p>
+              <a href="https://calendly.com/nickypouch" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition">
+                Book a Call
+              </a>
+            </div>
+            <div className="bg-neutral-100 p-6 rounded-lg text-center border-2 border-neutral-300">
+              <Download className="h-8 w-8 mx-auto mb-2 text-neutral-700" />
+              <h4 className="font-bold text-lg mb-2 text-neutral-900">Want to Test First?</h4>
+              <p className="text-sm text-neutral-600 mb-4">Order spout pouch samples (MOQ 500)</p>
+              <Link to="/store" className="inline-block bg-neutral-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-neutral-700 transition">
+                Get Samples
+              </Link>
+            </div>
+            <div className="bg-white p-6 rounded-lg text-center border-2 border-neutral-200">
+              <Mail className="h-8 w-8 mx-auto mb-2 text-neutral-500" />
+              <h4 className="font-bold text-lg mb-2 text-neutral-900">Still Exploring?</h4>
+              <p className="text-sm text-neutral-600 mb-4">See baby food or sauce packaging guides</p>
+              <Link to="/industry/baby-food" className="inline-block border-2 border-neutral-300 text-neutral-700 px-4 py-2 rounded-lg font-semibold hover:border-blue-300 transition">
+                View Industry Pages
+              </Link>
+            </div>
           </div>
         </div>
       )

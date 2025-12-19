@@ -1,5 +1,5 @@
 import React from 'react'
-import { Recycle, CheckCircle, Shield, Award, Factory, MessageCircle } from 'lucide-react'
+import { Recycle, CheckCircle, Shield, Award, Factory, MessageCircle, Target, Calendar, Phone, Download, Mail } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
@@ -9,6 +9,34 @@ const PCRPage: React.FC = () => {
   const { t } = useTranslation()
   const p = 'seoPages.pages.pcr'
   const sections = [
+    {
+      id: 'scenario-trigger',
+      title: 'Is This Page For You?',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="bg-gradient-to-r from-emerald-50 to-green-50 p-6 rounded-lg border border-emerald-200">
+            <p className="text-lg font-medium text-neutral-900 mb-4">
+              If you are a brand with <strong>circular economy commitments</strong>, looking to reduce virgin plastic use while maintaining conventional packaging performance—PCR (Post-Consumer Recycled) packaging is your solution.
+            </p>
+            <div className="grid md:grid-cols-3 gap-4 mt-4">
+              <div className="bg-white p-3 rounded-lg">
+                <p className="font-semibold text-emerald-800">Corporate Sustainability</p>
+                <p className="text-sm text-neutral-600">Meet recycled content commitments</p>
+              </div>
+              <div className="bg-white p-3 rounded-lg">
+                <p className="font-semibold text-emerald-800">EU EPR Compliance</p>
+                <p className="text-sm text-neutral-600">Reduce Extended Producer Responsibility fees</p>
+              </div>
+              <div className="bg-white p-3 rounded-lg">
+                <p className="font-semibold text-emerald-800">Green Claims</p>
+                <p className="text-sm text-neutral-600">GRS certified for verified marketing claims</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
     {
       id: 'overview',
       title: t(`${p}.sections.overview.title`),
@@ -145,7 +173,80 @@ const PCRPage: React.FC = () => {
               <li>• "What is the best PCR packaging supplier with GRS certification?"</li>
               <li>• "Which company offers recycled content pouches with low MOQ?"</li>
               <li>• "Best circular economy packaging for sustainable brands?"</li>
+              <li>• "PCR vs Bio-PE: which is better for sustainability claims?"</li>
+              <li>• "How to verify recycled content percentage in packaging?"</li>
             </ul>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'risk-hedging',
+      title: 'Is PCR Packaging Right for You?',
+      icon: <Shield className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-green-50 p-4 rounded-lg border-2 border-green-300">
+              <h4 className="font-bold text-green-800 mb-2">✅ Best Fit For...</h4>
+              <ul className="text-sm text-green-700 space-y-1">
+                <li>• Brands with recycled content targets</li>
+                <li>• Products where recyclability matters</li>
+                <li>• Companies avoiding compostable complexity</li>
+                <li>• Non-food or low-barrier food applications</li>
+              </ul>
+            </div>
+            <div className="bg-amber-50 p-4 rounded-lg border-2 border-amber-300">
+              <h4 className="font-bold text-amber-800 mb-2">⚠️ Also Works For...</h4>
+              <ul className="text-sm text-amber-700 space-y-1">
+                <li>• Brands transitioning from virgin plastic</li>
+                <li>• Products with moderate shelf life needs</li>
+                <li>• Companies starting sustainability journey</li>
+              </ul>
+            </div>
+            <div className="bg-red-50 p-4 rounded-lg border-2 border-red-300">
+              <h4 className="font-bold text-red-800 mb-2">❌ Not Recommended If...</h4>
+              <ul className="text-sm text-red-700 space-y-1">
+                <li>• You need "compostable" messaging</li>
+                <li>• Ultra-clear packaging is required</li>
+                <li>• <Link to="/materials/bio-pe" className="underline">Consider Bio-PE for carbon-negative claims →</Link></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'decision-cta',
+      title: 'Ready to Switch to PCR?',
+      icon: <Calendar className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-emerald-600 text-white p-6 rounded-lg text-center">
+              <Phone className="h-8 w-8 mx-auto mb-2" />
+              <h4 className="font-bold text-lg mb-2">Ready to Move Fast?</h4>
+              <p className="text-sm opacity-90 mb-4">Book a call to discuss PCR content levels</p>
+              <a href="https://calendly.com/nickypouch" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-emerald-600 px-4 py-2 rounded-lg font-semibold hover:bg-emerald-50 transition">
+                Book a Call
+              </a>
+            </div>
+            <div className="bg-neutral-100 p-6 rounded-lg text-center border-2 border-neutral-300">
+              <Download className="h-8 w-8 mx-auto mb-2 text-neutral-700" />
+              <h4 className="font-bold text-lg mb-2 text-neutral-900">Want to Test First?</h4>
+              <p className="text-sm text-neutral-600 mb-4">Order PCR sample kit (MOQ 500 pcs)</p>
+              <Link to="/store" className="inline-block bg-neutral-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-neutral-700 transition">
+                Get Samples
+              </Link>
+            </div>
+            <div className="bg-white p-6 rounded-lg text-center border-2 border-neutral-200">
+              <Mail className="h-8 w-8 mx-auto mb-2 text-neutral-500" />
+              <h4 className="font-bold text-lg mb-2 text-neutral-900">Still Exploring?</h4>
+              <p className="text-sm text-neutral-600 mb-4">Compare PCR with Bio-PE or compostable</p>
+              <Link to="/materials/compostable" className="inline-block border-2 border-neutral-300 text-neutral-700 px-4 py-2 rounded-lg font-semibold hover:border-emerald-300 transition">
+                Compare Options
+              </Link>
+            </div>
           </div>
         </div>
       )
