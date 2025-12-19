@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useTransition } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { ArrowLeft, Leaf, Mail, Phone, Calendar, Globe, X } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
@@ -87,6 +87,8 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   ctaButtonUrl = '/#contact'
 }) => {
   const { t, i18n } = useTranslation()
+  const navigate = useNavigate()
+  const [isPending, startTransition] = useTransition()
   
   // Lightbox state
   const [lightboxOpen, setLightboxOpen] = useState(false)
@@ -109,6 +111,14 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   const scrollToTop = () => {
     requestAnimationFrame(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' })
+    })
+  }
+
+  // Optimized navigation handler for better INP
+  const handleNavigation = (to: string) => (e: React.MouseEvent) => {
+    e.preventDefault()
+    startTransition(() => {
+      navigate(to)
     })
   }
 
@@ -195,9 +205,13 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         {/* Header */}
         <header className="bg-white border-b sticky top-0 z-50">
           <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-            <Link to="/" className="flex items-center gap-2 text-neutral-600 hover:text-primary-600 transition">
+            <a 
+              href="/" 
+              onClick={handleNavigation('/')}
+              className="flex items-center gap-2 text-neutral-600 hover:text-primary-600 transition-colors"
+            >
               <ArrowLeft className="h-5 w-5" /> {t('seoPages.backToHome')}
-            </Link>
+            </a>
             <div className="flex items-center gap-4">
               {/* Language Switcher */}
               <div className="relative group">
