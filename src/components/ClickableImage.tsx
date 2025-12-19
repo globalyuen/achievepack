@@ -22,7 +22,7 @@ const ClickableImage: React.FC<ClickableImageProps> = ({
 
   return (
     <>
-      <figure className="cursor-pointer group">
+      <figure className="cursor-pointer group relative">
         <img
           src={src}
           alt={alt}
