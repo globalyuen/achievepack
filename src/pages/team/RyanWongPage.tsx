@@ -12,26 +12,31 @@ const RyanWongPage = () => {
     "@context": "https://schema.org",
     "@type": "Person",
     ...ryanEntity,
-    "alumniOf": {
-      "@type": "EducationalOrganization",
-      "name": "Business Management"
-    },
     "award": [
-      "Sustainable Packaging Innovation Award 2023",
-      "DTC Brand Partner of Excellence"
+      "Supply Chain Excellence Award",
+      "Sustainable Packaging Innovation Leader"
     ],
     "hasOccupation": {
       "@type": "Occupation",
-      "name": "Sustainable Packaging Consultant",
-      "occupationLocation": {
-        "@type": "City",
-        "name": "Shenzhen"
-      },
+      "name": "Packaging Development Specialist",
+      "occupationLocation": [
+        { "@type": "City", "name": "Hong Kong" },
+        { "@type": "City", "name": "Shenzhen" }
+      ],
       "responsibilities": [
         "Consulting DTC brands on sustainable packaging transitions",
-        "Designing compostable and recyclable pouch solutions",
-        "Managing low MOQ production for startups",
+        "Designing 100% compostable digital print solutions",
+        "Managing low MOQ production (100-500 pieces) for startups",
+        "Supply chain architecture from upstream to downstream",
+        "International business development across 8 countries",
         "Ensuring EN 13432 and ASTM D6400 compliance"
+      ],
+      "skills": [
+        "Adobe Photoshop",
+        "Adobe Illustrator",
+        "Supply Chain Management",
+        "Digital Printing Technology",
+        "Compostable Materials Expertise"
       ]
     }
   }
@@ -39,9 +44,9 @@ const RyanWongPage = () => {
   return (
     <>
       <Helmet>
-        <title>Ryan Wong - Sustainable Packaging Expert | Achieve Pack</title>
-        <meta name="description" content="Ryan Wong, founder of Achieve Pack. 10+ years helping DTC coffee, chocolate & tea brands transition to compostable packaging. Expert in EN 13432, ASTM D6400, low MOQ solutions." />
-        <meta name="keywords" content="Ryan Wong, sustainable packaging expert, compostable packaging consultant, DTC packaging, coffee packaging specialist" />
+        <title>Ryan Wong - Packaging Development Specialist | Achieve Pack</title>
+        <meta name="description" content="Ryan Wong, Packaging Development Specialist at Achieve Pack. 14+ years helping DTC coffee, chocolate & tea brands with compostable packaging. Hong Kong Polytechnic University Honor Degree. Expert across 8 countries." />
+        <meta name="keywords" content="Ryan Wong, packaging development specialist, compostable packaging expert, DTC packaging, coffee packaging, Hong Kong Polytechnic University, supply chain architect" />
         <link rel="canonical" href="https://achievepack.com/team/ryan-wong" />
         
         <script type="application/ld+json">
@@ -71,9 +76,12 @@ const RyanWongPage = () => {
               </div>
               <div className="flex-1 text-center md:text-left">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">Ryan Wong</h1>
-                <p className="text-2xl text-primary-100 mb-4">Founder & Sustainable Packaging Expert</p>
-                <p className="text-lg text-primary-200 mb-6">
-                  Helping DTC coffee, chocolate & tea brands transition to compostable packaging
+                <p className="text-2xl text-primary-100 mb-4">Packaging Development Specialist</p>
+                <p className="text-lg text-primary-200 mb-2">
+                  14 years experience | 8 countries | Fortune 500 & DTC startups
+                </p>
+                <p className="text-md text-primary-300 mb-6">
+                  🎓 The Hong Kong Polytechnic University (Honor Degree)
                 </p>
                 <div className="flex gap-4 justify-center md:justify-start">
                   <a 
@@ -108,13 +116,16 @@ const RyanWongPage = () => {
                 <h2 className="text-3xl font-bold text-neutral-900 mb-6">About Ryan</h2>
                 <div className="prose prose-neutral max-w-none">
                   <p className="text-lg text-neutral-700 leading-relaxed mb-4">
-                    With over 10 years of experience in sustainable flexible packaging and B2B e-commerce, Ryan Wong has become a trusted advisor for DTC brands looking to make the switch from conventional plastic to eco-friendly packaging solutions.
+                    With <strong>14 years of dedicated experience</strong> in the packaging industry, Ryan Wong has built expertise cooperating with multinational and Fortune 500 companies to achieve mutual beneficial and long-lasting business relationships.
                   </p>
                   <p className="text-lg text-neutral-700 leading-relaxed mb-4">
-                    As the founder of <Link to="/" className="text-primary-600 hover:underline font-semibold">Achieve Pack</Link>, Ryan specializes in helping coffee roasters, chocolate makers, and tea brands navigate the complex world of compostable and recyclable packaging. His expertise in low MOQ solutions makes sustainable packaging accessible even to small startups and subscription box businesses.
+                    Ryan's packaging experience and business relationships span <strong>8 countries</strong>: Australia, Canada, China, Germany, South Africa, Philippines, UK and USA. As a <strong>Hong Kong Polytechnic University Honor Degree</strong> graduate in Global Supply Chain and Business Administration, he combines academic excellence with practical expertise.
+                  </p>
+                  <p className="text-lg text-neutral-700 leading-relaxed mb-4">
+                    His objective is to be a <strong>supply chain architect</strong> — with packaging knowledge, IT skills and passion to create irreplaceable values and synergy for all parties throughout the whole supply chain from upstream to downstream.
                   </p>
                   <p className="text-lg text-neutral-700 leading-relaxed">
-                    Ryan's hands-on approach combines technical knowledge of materials science with practical business acumen, ensuring clients not only get compliant packaging but also packaging that enhances their brand and fits their budget.
+                    At <Link to="/" className="text-primary-600 hover:underline font-semibold">Achieve Pack</Link>, Ryan specializes in <strong>100% compostable digital print solutions</strong> with industry-leading low MOQ (100-500 pieces), making sustainable packaging accessible to DTC startups and established brands alike. His expertise in <strong>HP Indigo 20000 digital printing</strong> enables 4-day turnaround for urgent orders.
                   </p>
                 </div>
               </section>
@@ -187,16 +198,20 @@ const RyanWongPage = () => {
                 <h3 className="font-bold text-neutral-900 mb-4">Quick Facts</h3>
                 <div className="space-y-4">
                   <div>
-                    <div className="text-3xl font-bold text-primary-700">10+</div>
+                    <div className="text-3xl font-bold text-primary-700">14</div>
                     <div className="text-sm text-neutral-600">Years Experience</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-primary-700">500+</div>
-                    <div className="text-sm text-neutral-600">DTC Brands Helped</div>
+                    <div className="text-3xl font-bold text-primary-700">8</div>
+                    <div className="text-sm text-neutral-600">Countries Served</div>
                   </div>
                   <div>
                     <div className="text-3xl font-bold text-primary-700">100</div>
                     <div className="text-sm text-neutral-600">Minimum Order Qty</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-primary-700">4</div>
+                    <div className="text-sm text-neutral-600">Days Rush Production</div>
                   </div>
                 </div>
               </div>
@@ -219,15 +234,23 @@ const RyanWongPage = () => {
               {/* Certifications */}
               <div className="bg-white rounded-xl p-6 shadow-sm border border-neutral-100">
                 <div className="flex items-center gap-2 mb-4">
-                  <Award className="h-5 w-5 text-primary-600" />
-                  <h3 className="font-bold text-neutral-900">Certifications</h3>
+                  <GraduationCap className="h-5 w-5 text-primary-600" />
+                  <h3 className="font-bold text-neutral-900">Education & Skills</h3>
                 </div>
-                <div className="space-y-2 text-sm text-neutral-700">
-                  <div>✓ EN 13432 Compliance Expert</div>
-                  <div>✓ ASTM D6400 Certified</div>
-                  <div>✓ BPI Compostable Standards</div>
-                  <div>✓ FDA Food Contact Approved</div>
-                  <div>✓ EU PPWR Compliance</div>
+                <div className="space-y-3">
+                  <div>
+                    <div className="font-semibold text-neutral-900">The Hong Kong Polytechnic University</div>
+                    <div className="text-sm text-neutral-600">Honor Degree (1999-2003)</div>
+                    <div className="text-sm text-neutral-500">Global Supply Chain, Business Administration</div>
+                  </div>
+                  <div className="pt-3 border-t">
+                    <div className="text-sm font-semibold text-neutral-700 mb-2">Technical Skills:</div>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="bg-neutral-100 px-2 py-1 rounded text-xs">Adobe Photoshop</span>
+                      <span className="bg-neutral-100 px-2 py-1 rounded text-xs">Adobe Illustrator</span>
+                      <span className="bg-neutral-100 px-2 py-1 rounded text-xs">HP Indigo 20000</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 

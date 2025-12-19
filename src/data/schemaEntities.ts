@@ -67,9 +67,20 @@ export const authorEntities = {
     "@type": "Person",
     "@id": "https://achievepack.com/team/ryan-wong#person",
     "name": "Ryan Wong",
-    "jobTitle": "Founder & Sustainable Packaging Expert",
-    "description": "Eco packaging specialist helping DTC coffee, chocolate and tea startups switch from plastic to certified compostable and recyclable pouches with low MOQ. 10+ years in sustainable flexible packaging and B2B e-commerce.",
+    "jobTitle": "Packaging Development Specialist",
+    "description": "14+ years helping DTC coffee, chocolate and tea brands transition to compostable packaging. Expert in supply chain architecture with packaging experience across Australia, Canada, China, Germany, South Africa, Philippines, UK and USA. Specialized in 100% compostable digital print solutions with low MOQ for startups and Fortune 500 companies.",
     "worksFor": { "@id": "https://achievepack.com/#organization" },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "The Hong Kong Polytechnic University",
+      "sameAs": "https://www.polyu.edu.hk/"
+    },
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Bachelor's Degree",
+      "educationalLevel": "Honor Degree",
+      "about": "Global Supply Chain, Business Administration and Management"
+    },
     "knowsAbout": [
       {
         "@type": "Thing",
