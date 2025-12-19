@@ -283,6 +283,8 @@ const CoffeeRoasteryCaseStudy = () => {
       heroTitle={t(`${p}.heroTitle`)}
       heroSubtitle={t(`${p}.heroSubtitle`)}
       heroImage={heroImage}
+      contentCategory="compostable"
+      schemaType="Article"
       sections={sections}
       introSummary="How a specialty coffee roastery switched from plastic to certified compostable packaging while maintaining freshness and achieving 35% higher customer satisfaction."
       faqs={faqs}

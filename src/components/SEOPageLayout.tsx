@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { ArrowLeft, Leaf, Mail, Phone, Calendar, Globe, X } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
+import { organizationEntity, getAuthorByContentType, generateBreadcrumb } from '../data/schemaEntities'
 
 interface FAQ {
   question: string
@@ -52,6 +53,7 @@ interface SEOPageLayoutProps {
   
   // Schema Type
   schemaType?: 'Article' | 'Product' | 'FAQPage' | 'WebPage'
+  contentCategory?: string // 用於選擇合適的作者實體
   
   // Related Links
   relatedLinks?: {
@@ -84,6 +86,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   faqs,
   tables,
   schemaType = 'WebPage',
+  contentCategory,
   relatedLinks,
   ctaTitle = 'Ready to Get Started?',
   ctaDescription = 'Contact our packaging experts for a free consultation and quote.',
@@ -151,28 +154,53 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
     }))
   } : null
 
-  // Generate Article/WebPage Schema
-  const pageSchema = {
+  // 選擇適合的作者實體
+  const authorEntity = getAuthorByContentType(contentCategory || title)
+
+  // Generate Breadcrumb
+  const breadcrumbItems = [
+    { name: 'Home', url: 'https://achievepack.com/' },
+    { name: title, url: canonicalUrl || window.location.href }
+  ]
+
+  // 使用 @graph 結構整合所有實體 - E-E-A-T 優化
+  const enhancedSchema = {
     "@context": "https://schema.org",
-    "@type": schemaType,
-    "headline": title,
-    "description": description,
-    "image": heroImage || ogImage,
-    "author": {
-      "@type": "Organization",
-      "name": "Achieve Pack",
-      "url": "https://achievepack.com"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Achieve Pack",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://achievepack.com/imgs/logo.webp"
-      }
-    },
-    "datePublished": "2025-01-01",
-    "dateModified": new Date().toISOString().split('T')[0]
+    "@graph": [
+      // Organization Entity (全站共用)
+      organizationEntity,
+      
+      // Author Entity (專家作者)
+      authorEntity,
+      
+      // Main Content Entity (Article/WebPage)
+      {
+        "@type": schemaType,
+        "@id": canonicalUrl || `https://achievepack.com${window.location.pathname}#article`,
+        "headline": title,
+        "description": description,
+        "image": heroImage || ogImage,
+        "author": { "@id": authorEntity['@id'] },
+        "publisher": { "@id": "https://achievepack.com/#organization" },
+        "datePublished": "2025-01-01",
+        "dateModified": new Date().toISOString().split('T')[0],
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": canonicalUrl || window.location.href
+        },
+        "about": keywords.slice(0, 5), // 主題關鍵字
+        "mentions": keywords.slice(5, 10), // 提及的相關主題
+        "inLanguage": "en-US",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://achievepack.com/#website",
+          "name": "Achieve Pack"
+        }
+      },
+      
+      // Breadcrumb
+      generateBreadcrumb(breadcrumbItems)
+    ]
   }
 
   return (
@@ -194,9 +222,9 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         
-        {/* Schema.org JSON-LD */}
+        {/* Enhanced Schema.org JSON-LD with E-E-A-T Optimization */}
         <script type="application/ld+json">
-          {JSON.stringify(pageSchema)}
+          {JSON.stringify(enhancedSchema)}
         </script>
         {faqSchema && (
           <script type="application/ld+json">

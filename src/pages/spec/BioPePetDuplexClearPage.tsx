@@ -370,7 +370,7 @@ const BioPePetDuplexClearPage: React.FC = () => {
       title="Bio-PE PET Duplex Clear | Plant-Based Sustainable Packaging"
       description="Bio-PE PET Duplex: KPET12 / 100% Bio-PE80 (100 micron). Plant-based sugarcane PE, I'm Green certified. Carbon negative. Mid barrier with window. Ideal for coffee, snacks, organic products."
       heroTitle="Bio-PE PET Duplex Clear Structure"
-      heroSubtitle="KPET12 / 100% Bio-PE80 - Plant-Based I'm Green™ Certified"
+      heroSubtitle="KPET12 / 100% Bio-PE80 - Plant-Based I's Green™ Certified"
       heroLogo="/eco-logo/white-bkg/eco-logo-biope.png"
       heroLogoAlt="I'm Green™ Bio-PE Certified"
       introSummary="A sustainable duplex structure featuring 100% plant-based Bio-PE from Brazilian sugarcane. Carbon-negative production reduces greenhouse gas emissions by up to 70% while delivering identical performance to fossil-based PE."
@@ -385,6 +385,8 @@ const BioPePetDuplexClearPage: React.FC = () => {
         'bio-based flexible packaging'
       ]}
       canonicalUrl="https://achievepack.com/spec/biope-pet-duplex-clear"
+      contentCategory="bio-pe"
+      schemaType="Article"
       sections={sections}
       faqs={faqs}
       relatedLinks={relatedLinks}
