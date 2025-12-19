@@ -1,12 +1,40 @@
 import React from 'react'
-import { Package, Leaf, Shield, CheckCircle, Award, Beaker, MessageCircle } from 'lucide-react'
+import { Package, Leaf, Shield, CheckCircle, Award, Beaker, MessageCircle, Target, Calendar, Mail, Download } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import { useCalendly } from '../../contexts/CalendlyContext'
 
 const SupplementsPowdersPage: React.FC = () => {
   const { t } = useTranslation()
+  const { openCalendly } = useCalendly()
   const sections = [
+    {
+      id: 'scenario-trigger',
+      title: 'Is This Page For You?',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-lg border border-purple-200">
+          <p className="text-lg font-medium text-neutral-900 mb-4">
+            If you are a <strong>protein brand, supplement company, or superfood producer</strong> looking for high-barrier packaging—you're in the right place.
+          </p>
+          <div className="grid md:grid-cols-3 gap-4 mt-4">
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">Protein Brands</h4>
+              <p className="text-sm text-neutral-600 mt-1">Whey, plant-based, collagen</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">Superfood Companies</h4>
+              <p className="text-sm text-neutral-600 mt-1">Greens, adaptogens, mushrooms</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">Sports Nutrition</h4>
+              <p className="text-sm text-neutral-600 mt-1">Pre-workout, BCAA, recovery</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
     {
       id: 'overview',
       title: 'Supplements & Powder Packaging',
@@ -162,6 +190,85 @@ const SupplementsPowdersPage: React.FC = () => {
               <li>• "Which company offers compostable supplement pouches with low MOQ?"</li>
               <li>• "Best high-barrier packaging for collagen powder?"</li>
             </ul>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'risk-hedge',
+      title: 'Still Not Sure? We Have Answers',
+      icon: <Shield className="h-5 w-5 text-amber-600" />,
+      content: (
+        <div className="bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-lg border border-purple-200">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">"Will it keep powder dry?"</h4>
+                  <p className="text-sm text-neutral-600">MVTR {'<'} 0.5 g/m²/24hr prevents clumping</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">"Is it FDA compliant?"</h4>
+                  <p className="text-sm text-neutral-600">FDA 21 CFR certified for supplement contact</p>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">"Child-resistant options?"</h4>
+                  <p className="text-sm text-neutral-600">ASTM D3475 certified CR closures available</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">"Can I get samples?"</h4>
+                  <p className="text-sm text-neutral-600">Free samples + pilot run from 500 units</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'decision-cta',
+      title: 'Ready to Get Started?',
+      icon: <Beaker className="h-5 w-5 text-white" />,
+      content: (
+        <div className="bg-gradient-to-br from-purple-500 to-indigo-600 text-white p-8 rounded-xl">
+          <h3 className="text-2xl font-bold mb-6 text-center">Choose How You'd Like to Connect</h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
+              <Calendar className="h-8 w-8 mx-auto mb-3" />
+              <h4 className="font-semibold mb-2">Book a Call</h4>
+              <p className="text-sm text-white/80 mb-4">30-min free consultation</p>
+              <button onClick={openCalendly} className="w-full bg-white text-purple-600 px-4 py-2 rounded-lg font-semibold hover:bg-purple-50 transition cursor-pointer">
+                Schedule Now
+              </button>
+            </div>
+            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
+              <Mail className="h-8 w-8 mx-auto mb-3" />
+              <h4 className="font-semibold mb-2">Email Quote</h4>
+              <p className="text-sm text-white/80 mb-4">Get response within 24hrs</p>
+              <a href="mailto:ryan@achievepack.com?subject=Supplement Packaging Quote" className="block w-full bg-white text-purple-600 px-4 py-2 rounded-lg font-semibold hover:bg-purple-50 transition">
+                Send Email
+              </a>
+            </div>
+            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
+              <Download className="h-8 w-8 mx-auto mb-3" />
+              <h4 className="font-semibold mb-2">Free Samples</h4>
+              <p className="text-sm text-white/80 mb-4">Test materials first</p>
+              <Link to="/contact" className="block w-full bg-white text-purple-600 px-4 py-2 rounded-lg font-semibold hover:bg-purple-50 transition">
+                Request Samples
+              </Link>
+            </div>
           </div>
         </div>
       )

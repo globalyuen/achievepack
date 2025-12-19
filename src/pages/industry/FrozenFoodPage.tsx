@@ -1,12 +1,40 @@
 import React from 'react'
-import { Package, Snowflake, Truck, CheckCircle, ThermometerSnowflake, MessageCircle } from 'lucide-react'
+import { Package, Snowflake, Truck, CheckCircle, ThermometerSnowflake, MessageCircle, Target, Shield, Calendar, Mail, Download } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import { useCalendly } from '../../contexts/CalendlyContext'
 
 const FrozenFoodPage: React.FC = () => {
   const { t } = useTranslation()
+  const { openCalendly } = useCalendly()
   const sections = [
+    {
+      id: 'scenario-trigger',
+      title: 'Is This Page For You?',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-lg border border-blue-200">
+          <p className="text-lg font-medium text-neutral-900 mb-4">
+            If you are a <strong>frozen food brand, meal prep company, or ice cream producer</strong> looking for cold-resistant packaging—you're in the right place.
+          </p>
+          <div className="grid md:grid-cols-3 gap-4 mt-4">
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">Frozen Snack Brands</h4>
+              <p className="text-sm text-neutral-600 mt-1">Dumplings, nuggets, appetizers</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">Meal Prep Companies</h4>
+              <p className="text-sm text-neutral-600 mt-1">Microwave-safe options available</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">Frozen Desserts</h4>
+              <p className="text-sm text-neutral-600 mt-1">Ice cream, mochi, frozen treats</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
     {
       id: 'overview',
       title: 'Frozen Food Packaging Solutions',
@@ -103,6 +131,85 @@ const FrozenFoodPage: React.FC = () => {
               <li>• "Which company offers recyclable frozen food pouches?"</li>
               <li>• "Best cold-resistant packaging for frozen dumplings?"</li>
             </ul>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'risk-hedge',
+      title: 'Still Not Sure? We Have Answers',
+      icon: <Shield className="h-5 w-5 text-amber-600" />,
+      content: (
+        <div className="bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-lg border border-blue-200">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">"Will it crack at -40°C?"</h4>
+                  <p className="text-sm text-neutral-600">Cold-crack resistant materials tested to -40°C/-40°F</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">"Will it prevent freezer burn?"</h4>
+                  <p className="text-sm text-neutral-600">High moisture barrier (MVTR {'<'} 1.0 g/m²/24hr)</p>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">"Is it microwave-safe?"</h4>
+                  <p className="text-sm text-neutral-600">Steam-release options available for frozen-to-table</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">"Can I get samples?"</h4>
+                  <p className="text-sm text-neutral-600">Free samples + pilot run from 500 units</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'decision-cta',
+      title: 'Ready to Get Started?',
+      icon: <Snowflake className="h-5 w-5 text-white" />,
+      content: (
+        <div className="bg-gradient-to-br from-blue-500 to-cyan-600 text-white p-8 rounded-xl">
+          <h3 className="text-2xl font-bold mb-6 text-center">Choose How You'd Like to Connect</h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
+              <Calendar className="h-8 w-8 mx-auto mb-3" />
+              <h4 className="font-semibold mb-2">Book a Call</h4>
+              <p className="text-sm text-white/80 mb-4">30-min free consultation</p>
+              <button onClick={openCalendly} className="w-full bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition cursor-pointer">
+                Schedule Now
+              </button>
+            </div>
+            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
+              <Mail className="h-8 w-8 mx-auto mb-3" />
+              <h4 className="font-semibold mb-2">Email Quote</h4>
+              <p className="text-sm text-white/80 mb-4">Get response within 24hrs</p>
+              <a href="mailto:ryan@achievepack.com?subject=Frozen Food Packaging Quote" className="block w-full bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition">
+                Send Email
+              </a>
+            </div>
+            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
+              <Download className="h-8 w-8 mx-auto mb-3" />
+              <h4 className="font-semibold mb-2">Free Samples</h4>
+              <p className="text-sm text-white/80 mb-4">Test materials first</p>
+              <Link to="/contact" className="block w-full bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition">
+                Request Samples
+              </Link>
+            </div>
           </div>
         </div>
       )
