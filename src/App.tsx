@@ -197,111 +197,185 @@ ${formData.message}`
         <meta name="twitter:description" content={t('seo.home.description', 'Eco-friendly packaging solutions with low MOQ.')} />
         <meta name="twitter:image" content={`${baseUrl}/imgs/og-image.webp`} />
 
-        {/* JSON-LD Structured Data */}
+        {/* JSON-LD Structured Data - Organization */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://achievepack.com/#organization",
+            "name": "Achieve Pack Company Limited",
+            "url": "https://achievepack.com",
+            "logo": "https://achievepack.com/achieve-pack-logo.png",
+            "description": "Achieve Pack helps brands switch to certified eco-friendly pouches \u2013 compostable, recyclable and bio-based \u2013 without sacrificing product protection, lead times or margins.",
+            "foundingDate": "2011",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "No.41 1/F Wo Liu Hang Tsuen",
+              "addressLocality": "Fotan",
+              "addressRegion": "New Territories",
+              "postalCode": "000000",
+              "addressCountry": "HK"
+            },
+            "contactPoint": [{
+              "@type": "ContactPoint",
+              "contactType": "sales",
+              "email": "ryan@achievepack.com",
+              "telephone": "+852-6970-4411",
+              "areaServed": ["US","CA","GB","EU","AU","NZ","HK"],
+              "availableLanguage": ["en","zh-Hant"]
+            }],
+            "sameAs": [
+              "https://pouch.eco",
+              "https://www.linkedin.com/company/achieve-pack/",
+              "https://www.instagram.com/pouch_eco/",
+              "https://www.youtube.com/@AchievePack",
+              "https://climate.stripe.com/WPsfbU"
+            ]
+          })}
+        </script>
+
+        {/* JSON-LD Structured Data - WebSite + WebPage */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@graph": [
               {
-                "@type": "Organization",
-                "@id": "https://achievepack.com/#organization",
-                "name": "Achieve Pack Company Limited",
-                "alternateName": ["Achieve Pack", "pouch.eco"],
-                "url": "https://achievepack.com",
-                "logo": "https://achievepack.com/achieve-pack-logo.png",
-                "description": "Certified eco-friendly packaging solutions including compostable, recyclable, and bio-based pouches for food, beverage, and pet brands.",
-                "foundingDate": "2011",
-                "address": {
-                  "@type": "PostalAddress",
-                  "streetAddress": "No.41 1/F Wo Liu Hang Tsuen",
-                  "addressLocality": "Fotan",
-                  "addressRegion": "New Territories",
-                  "addressCountry": "HK"
-                },
-                "contactPoint": {
-                  "@type": "ContactPoint",
-                  "telephone": "+852-6970-4411",
-                  "email": "ryan@achievepack.com",
-                  "contactType": "sales"
-                },
-                "sameAs": [
-                  "https://www.instagram.com/pouch_eco/",
-                  "https://www.linkedin.com/company/achieve-pack/",
-                  "https://www.youtube.com/watch?v=3LZh1vHGAS0",
-                  "https://climate.stripe.com/WPsfbU"
-                ]
-              },
-              {
                 "@type": "WebSite",
                 "@id": "https://achievepack.com/#website",
                 "url": "https://achievepack.com",
-                "name": "Achieve Pack",
-                "description": "Eco-friendly pouches, compostable packaging, recyclable mono-PE, coffee packaging with EN13432, ASTM D6400, and GRS certifications.",
-                "publisher": { "@id": "https://achievepack.com/#organization" },
+                "name": "Achieve Pack - Eco Packaging Partner behind pouch.eco",
+                "publisher": {
+                  "@id": "https://achievepack.com/#organization"
+                },
+                "inLanguage": "en",
                 "potentialAction": {
                   "@type": "SearchAction",
-                  "target": "https://achievepack.com/search?q={search_term_string}",
+                  "target": "https://achievepack.com/?s={search_term_string}",
                   "query-input": "required name=search_term_string"
                 }
               },
               {
-                "@type": "FAQPage",
-                "@id": "https://achievepack.com/#faq",
-                "mainEntity": [
-                  {
-                    "@type": "Question",
-                    "name": "What certifications do your packaging materials have?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Our compostable packaging materials are certified to EN13432 (European standard) and ASTM D6400 (US standard). For recyclable options, we hold GRS (Global Recycled Standard) certification. We also carry BPI certification for US market. You can verify our certification numbers with TÜV Austria, DIN CERTCO, or BPI."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "What is your minimum order quantity for custom pouches?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "For sample orders, our MOQ starts at just 100-1,000 pieces. For mass production, we recommend 5,000+ pieces. Our low sample MOQ allows you to validate packaging with real customers before committing to larger volumes."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "How long does production take from artwork approval?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Sample production takes 2-3 weeks from artwork approval. Mass production takes 6-8 weeks from sample approval. Air freight to US takes 7-10 days, sea freight takes 25-35 days."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "What barrier options do you offer for coffee, snacks, and pet treats?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "We offer Low Barrier (3-6 months shelf life), Medium Barrier (6-12 months), High Barrier (12-18 months), and Maximum Barrier (18-24 months). Our specialists recommend optimal barrier based on your product's moisture and oxygen sensitivity."
-                    }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "How can I verify if an eco-packaging supplier is truly certified?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "Ask for actual certification numbers, not just logos. Genuine EN13432 or ASTM D6400 certificates include verifiable certificate numbers. Request test reports from accredited laboratories and verify the certificate applies to the exact material structure you're ordering."
-                    }
-                  }
-                ]
+                "@type": "WebPage",
+                "@id": "https://achievepack.com/#webpage",
+                "url": "https://achievepack.com",
+                "name": "Certified eco-friendly pouch packaging partner for global brands",
+                "isPartOf": {
+                  "@id": "https://achievepack.com/#website"
+                },
+                "about": {
+                  "@id": "https://achievepack.com/#organization"
+                },
+                "description": "Achieve Pack provides certified compostable, recyclable and bio-based pouches for coffee, snacks, pet treats and other food brands, with low MOQs, realistic lead times and full technical support.",
+                "inLanguage": "en",
+                "primaryImageOfPage": {
+                  "@type": "ImageObject",
+                  "url": "https://achievepack.com/imgs/og-image.webp"
+                }
+              }
+            ]
+          })}
+        </script>
+
+        {/* JSON-LD Structured Data - FAQPage */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What certifications do your eco packaging materials have?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our eco packaging portfolio includes materials that comply with EN13432 and ASTM D6400 standards for industrial compostability, as well as GRS-certified post-consumer recycled (PCR) structures. We can also provide food contact safety reports and regional compliance documents on request, so you can verify every claim with certification numbers and test reports."
+                }
               },
               {
-                "@type": "Product",
-                "@id": "https://achievepack.com/#product-sample-kit",
-                "name": "Assorted Eco Pouches Sample Kit",
-                "description": "Sample kit featuring compostable, recyclable, and bio-based pouch materials for testing before bulk orders.",
-                "brand": { "@id": "https://achievepack.com/#organization" },
-                "material": ["Compostable PLA", "Kraft Paper", "Mono-PE", "PCR Recycled"],
-                "offers": {
-                  "@type": "Offer",
-                  "priceCurrency": "USD",
-                  "price": "49",
-                  "availability": "https://schema.org/InStock"
+                "@type": "Question",
+                "name": "What is your minimum order quantity for custom pouches?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "For most custom projects, we can start from low MOQs such as 100\u20131,000 units for test runs and small launches, depending on the printing method and structure you choose. Once you are ready to scale, we support higher volumes with optimized unit pricing while keeping the same material and print quality."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How long does production take from artwork approval to delivery?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "As a general guideline, samples usually take around 2\u20133 weeks from artwork approval, and mass production typically takes about 6\u20138 weeks, excluding shipping. Lead time can vary based on material choice, print complexity and destination, and we will confirm an estimated schedule before you place your order."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Are your eco materials more expensive than traditional plastic packaging?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Eco-friendly materials can have a higher material cost per unit compared to conventional plastic, but you often save on shipping, storage and waste handling due to lighter weight and more compact formats. When you factor in brand value, customer perception and regulatory risk, many clients find that certified eco packaging delivers a better long-term return on investment than sticking to traditional options."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What barrier options do you offer for different products?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We offer a range of barrier levels tailored to different product needs, from low barrier for dry goods and low-sensitivity snacks, to medium barrier for most snacks and coffee, and high or maximum barrier for very sensitive products or long shelf-life items. Our team will recommend a structure based on your product type, desired shelf life, storage conditions and target markets."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can you help with artwork, printing and packaging design?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, we support you from dieline creation to final print files, including guidance on artwork layout, color management and sustainability claims. Depending on your needs, we can suggest digital printing for smaller runs and faster testing, or plate printing for larger volumes where unit cost is critical."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do you ensure consistent print colors and pouch quality across re-orders?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We keep detailed records of your material structure, ink sets, color references and finishing specifications so we can reproduce the same look and feel on future runs. Our QC process includes checking print alignment, color density, registration, sealing strength and zipper functionality during and after production, and we encourage you to keep reference samples for comparison."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do you control common defects like zipper failure, seal problems or delamination?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our factories follow a structured quality control process that covers incoming material inspection, in-process checks and final outgoing inspection. We test for seal strength, zipper performance, delamination, pinholes and visual defects, and if issues arise, we work with you on root cause analysis and a corrective action plan, including rework or replacement where appropriate."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can you provide test reports and technical data for our specific product?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, we can share relevant test reports, such as barrier performance, food contact safety and compostability certifications, for the structures we recommend for your product. If you have special requirements, we can also discuss additional testing or custom validation to ensure your packaging meets internal and regulatory standards."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Which markets can you ship to, and how do you support international brands?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We currently support brands in North America, Europe, Asia and Oceania, with logistics partners who understand the needs of growing consumer brands. Our team helps you plan timelines, documentation and labeling guidance so your eco packaging is not only compliant but also clearly communicated to your customers."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How should we describe and label our eco-packaging to avoid greenwashing?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We encourage you to use clear, specific language such as \"industrial compostable where facilities exist\" or \"recyclable where mono-material collection is available\", rather than generic \"eco-friendly\" claims. We can share practical labeling guidance and examples, including what to avoid, so your packaging is honest, compliant and easy for consumers to understand."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How can I use AI search to find and vet eco-packaging suppliers like you?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "If you are using Gemini or other AI tools, try asking questions such as \"how to compare compostable vs recyclable pouches for coffee\", \"what certifications should an eco packaging supplier provide\", or \"best low MOQ compostable pouch supplier for snacks in the US\". These types of queries will help AI surface suppliers who can show clear certifications, technical data and real customer results\u2014exactly what we focus on at Achieve Pack."
                 }
               }
             ]
