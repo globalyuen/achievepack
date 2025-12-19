@@ -289,7 +289,7 @@ const USALabelingGuidePage: React.FC = () => {
       canonicalUrl="https://achievepack.com/usa/labeling-guide"
       heroTitle="US Compostable Packaging Labeling & Compliance Guide"
       heroSubtitle="Navigate California, Washington, and Colorado labeling requirements for compostable packaging. ASTM D6400 certification, proper terminology, and compliant label design."
-      heroImage="/imgs/seo-photos/a_industrial_compostable_packaging_pouch_6894582.webp"
+      heroImage="/imgs/seo-photos/usa/label/a_fda_labeling_compliance_checklist_8653787.webp"
       heroImageAlt="Compliant compostable packaging with proper US labeling"
       introSummary="This guide covers US labeling requirements for compostable packaging, including California SB 343/AB 1201, Washington, and Colorado regulations, with practical guidance for compliant label design."
       sections={sections}

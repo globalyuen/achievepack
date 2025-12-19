@@ -306,7 +306,7 @@ const USACompostableHubPage: React.FC = () => {
       canonicalUrl="https://achievepack.com/usa/compostable-packaging"
       heroTitle="Certified Compostable Packaging for US Brands"
       heroSubtitle="ASTM D6400 & BPI certified pouches that meet California, Washington, and Colorado labeling requirements. Low MOQ from 100 pieces with fast shipping to the USA."
-      heroImage="/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp"
+      heroImage="/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp"
       heroImageAlt="ASTM D6400 certified compostable packaging pouches for US brands"
       introSummary="Achieve Pack provides certified compostable packaging solutions specifically designed for the US market, meeting ASTM D6400, BPI, and state-level labeling requirements."
       sections={sections}

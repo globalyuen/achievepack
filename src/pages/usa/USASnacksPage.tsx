@@ -288,7 +288,7 @@ const USASnacksPage: React.FC = () => {
       canonicalUrl="https://achievepack.com/usa/snacks-packaging"
       heroTitle="Compostable Snack Packaging for US Brands"
       heroSubtitle="ASTM D6400 certified stand-up pouches with resealable zippers. Perfect for chips, granola, nuts, and organic snacks targeting natural food retailers."
-      heroImage="/imgs/seo-photos/a_sustainable_snack_food_packaging_5628405.webp"
+      heroImage="/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp"
       heroImageAlt="Compostable snack packaging pouches for US natural food brands"
       introSummary="Achieve Pack provides certified compostable snack packaging designed specifically for US natural food brands, with low MOQ, fast shipping, and full compliance with state regulations."
       sections={sections}

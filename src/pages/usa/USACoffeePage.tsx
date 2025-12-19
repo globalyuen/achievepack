@@ -260,7 +260,7 @@ const USACoffeePage: React.FC = () => {
       canonicalUrl="https://achievepack.com/usa/coffee-packaging"
       heroTitle="Compostable Coffee Packaging for US Roasters"
       heroSubtitle="ASTM D6400 certified kraft paper pouches with compostable degassing valves. Perfect for specialty roasters who want sustainable packaging without compromising freshness."
-      heroImage="/imgs/seo-photos/a_coffee_tea_packaging_3625836.webp"
+      heroImage="/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp"
       heroImageAlt="Compostable coffee packaging pouches with degassing valves for US specialty roasters"
       introSummary="Achieve Pack provides certified compostable coffee packaging designed specifically for US specialty roasters, with low MOQ, fast shipping, and full compliance with state regulations."
       sections={sections}
