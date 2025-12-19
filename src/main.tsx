@@ -21,6 +21,7 @@ import ForgotPasswordPage from './pages/ForgotPasswordPage'
 import ResetPasswordPage from './pages/ResetPasswordPage'
 import DashboardPage from './pages/DashboardPage'
 import TermsPage from './pages/TermsPage'
+import ContactPage from './pages/ContactPage'
 import AdminPage from './pages/AdminPage'
 import AdminManagementPage from './pages/AdminManagementPage'
 
@@ -174,6 +175,7 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/reset-password" element={<ResetPasswordPage />} />
               <Route path="/dashboard" element={<DashboardPage />} />
               <Route path="/terms" element={<TermsPage />} />
+              <Route path="/contact" element={<ContactPage />} />
               <Route path="/admin" element={<AdminPage />} />
               <Route path="/admin/management" element={<AdminManagementPage />} />
 

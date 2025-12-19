@@ -1,0 +1,356 @@
+import React, { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
+import { Link, useNavigate } from 'react-router-dom'
+import { Mail, Phone, MapPin, Clock, MessageCircle, Calendar, Send, ArrowLeft, CheckCircle, Building2, Globe } from 'lucide-react'
+import { useCalendly } from '../contexts/CalendlyContext'
+
+const ContactPage: React.FC = () => {
+  const { openCalendly } = useCalendly()
+  const navigate = useNavigate()
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    phone: '',
+    subject: '',
+    message: '',
+    inquiryType: 'quote'
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    
+    // Create mailto link with form data
+    const subject = encodeURIComponent(`[${formData.inquiryType.toUpperCase()}] ${formData.subject || 'Packaging Inquiry'}`)
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\n` +
+      `Email: ${formData.email}\n` +
+      `Company: ${formData.company || 'N/A'}\n` +
+      `Phone: ${formData.phone || 'N/A'}\n` +
+      `Inquiry Type: ${formData.inquiryType}\n\n` +
+      `Message:\n${formData.message}`
+    )
+    
+    window.location.href = `mailto:ryan@achievepack.com?subject=${subject}&body=${body}`
+    
+    setTimeout(() => {
+      setIsSubmitting(false)
+      setIsSubmitted(true)
+    }, 1000)
+  }
+
+  return (
+    <>
+      <Helmet>
+        <title>Contact Us | Achieve Pack - Sustainable Packaging Solutions</title>
+        <meta name="description" content="Contact Achieve Pack for custom sustainable packaging quotes, samples, and inquiries. Email, WhatsApp, or book a free 30-min consultation call." />
+        <link rel="canonical" href="https://achievepack.com/contact" />
+      </Helmet>
+
+      <div className="min-h-screen bg-neutral-50">
+        {/* Header */}
+        <header className="bg-white border-b sticky top-0 z-50">
+          <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <Link to="/" className="flex items-center gap-2">
+              <img src="/achieve-pack-logo.png" alt="Achieve Pack" className="h-9 w-auto" />
+            </Link>
+            <button onClick={() => navigate(-1)} className="flex items-center gap-1 text-sm text-neutral-500 hover:text-primary-600 transition">
+              <ArrowLeft className="h-4 w-4" /> Back
+            </button>
+          </div>
+        </header>
+
+        {/* Hero Section */}
+        <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-16">
+          <div className="max-w-7xl mx-auto px-4 text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
+            <p className="text-xl text-white/90 max-w-2xl mx-auto">
+              Have questions about sustainable packaging? Need a quote? We're here to help. Our team responds within 24 hours.
+            </p>
+          </div>
+        </section>
+
+        {/* Main Content */}
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          <div className="grid lg:grid-cols-3 gap-8">
+            
+            {/* Contact Methods */}
+            <div className="lg:col-span-1 space-y-6">
+              <h2 className="text-2xl font-bold text-neutral-900">Contact Methods</h2>
+              
+              {/* Quick Actions */}
+              <div className="space-y-4">
+                <button
+                  onClick={openCalendly}
+                  className="w-full flex items-center gap-4 p-4 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition cursor-pointer"
+                >
+                  <Calendar className="h-6 w-6" />
+                  <div className="text-left">
+                    <div className="font-semibold">Book a Free Call</div>
+                    <div className="text-sm text-white/80">30-min packaging consultation</div>
+                  </div>
+                </button>
+                
+                <a
+                  href="https://wa.me/85264886989?text=Hi%2C%20I%27m%20interested%20in%20sustainable%20packaging"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center gap-4 p-4 bg-green-600 text-white rounded-xl hover:bg-green-700 transition"
+                >
+                  <MessageCircle className="h-6 w-6" />
+                  <div className="text-left">
+                    <div className="font-semibold">WhatsApp</div>
+                    <div className="text-sm text-white/80">+852 6488 6989</div>
+                  </div>
+                </a>
+                
+                <a
+                  href="mailto:ryan@achievepack.com"
+                  className="w-full flex items-center gap-4 p-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition"
+                >
+                  <Mail className="h-6 w-6" />
+                  <div className="text-left">
+                    <div className="font-semibold">Email Us</div>
+                    <div className="text-sm text-white/80">ryan@achievepack.com</div>
+                  </div>
+                </a>
+              </div>
+
+              {/* Contact Info Cards */}
+              <div className="bg-white rounded-xl border border-neutral-200 p-6 space-y-4">
+                <h3 className="font-semibold text-neutral-900">Contact Information</h3>
+                
+                <div className="flex items-start gap-3">
+                  <MapPin className="h-5 w-5 text-primary-600 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <div className="font-medium text-neutral-800">Hong Kong Office</div>
+                    <div className="text-sm text-neutral-600">Unit 1003, 10/F, Tower A<br />New Mandarin Plaza<br />Tsim Sha Tsui, Hong Kong</div>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-3">
+                  <Building2 className="h-5 w-5 text-primary-600 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <div className="font-medium text-neutral-800">Factory Location</div>
+                    <div className="text-sm text-neutral-600">Shenzhen, China<br />ISO 9001 & BRCGS Certified</div>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-3">
+                  <Clock className="h-5 w-5 text-primary-600 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <div className="font-medium text-neutral-800">Business Hours</div>
+                    <div className="text-sm text-neutral-600">Monday - Friday: 9:00 AM - 6:00 PM (HKT)<br />Saturday: 10:00 AM - 2:00 PM</div>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-3">
+                  <Globe className="h-5 w-5 text-primary-600 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <div className="font-medium text-neutral-800">Time Zone</div>
+                    <div className="text-sm text-neutral-600">Hong Kong Time (GMT+8)</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Why Contact Us */}
+              <div className="bg-gradient-to-br from-primary-50 to-green-50 rounded-xl border border-primary-200 p-6">
+                <h3 className="font-semibold text-primary-800 mb-3">Why Contact Achieve Pack?</h3>
+                <ul className="space-y-2 text-sm text-primary-700">
+                  <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 flex-shrink-0" /> Free packaging consultation</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 flex-shrink-0" /> Custom quotes within 24 hours</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 flex-shrink-0" /> Free samples for qualified inquiries</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 flex-shrink-0" /> MOQ from 100 pieces</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 flex-shrink-0" /> Worldwide shipping</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Contact Form */}
+            <div className="lg:col-span-2">
+              <div className="bg-white rounded-xl border border-neutral-200 p-6 md:p-8">
+                <h2 className="text-2xl font-bold text-neutral-900 mb-6">Send Us a Message</h2>
+                
+                {isSubmitted ? (
+                  <div className="text-center py-12">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <CheckCircle className="h-8 w-8 text-green-600" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-neutral-900 mb-2">Message Ready to Send!</h3>
+                    <p className="text-neutral-600 mb-6">Your email client should open with your message. If not, please email us directly at ryan@achievepack.com</p>
+                    <button
+                      onClick={() => setIsSubmitted(false)}
+                      className="text-primary-600 hover:underline"
+                    >
+                      Send another message
+                    </button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Inquiry Type */}
+                    <div>
+                      <label className="block text-sm font-medium text-neutral-700 mb-2">Inquiry Type</label>
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        {[
+                          { value: 'quote', label: 'Quote Request' },
+                          { value: 'sample', label: 'Sample Request' },
+                          { value: 'support', label: 'Support' },
+                          { value: 'other', label: 'Other' }
+                        ].map(type => (
+                          <button
+                            key={type.value}
+                            type="button"
+                            onClick={() => setFormData({ ...formData, inquiryType: type.value })}
+                            className={`py-2 px-4 rounded-lg border text-sm font-medium transition ${
+                              formData.inquiryType === type.value
+                                ? 'bg-primary-600 text-white border-primary-600'
+                                : 'bg-white text-neutral-700 border-neutral-300 hover:border-primary-400'
+                            }`}
+                          >
+                            {type.label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Name & Email */}
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="name" className="block text-sm font-medium text-neutral-700 mb-1">Name *</label>
+                        <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          required
+                          value={formData.name}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                          placeholder="Your name"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-1">Email *</label>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          required
+                          value={formData.email}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                          placeholder="your@email.com"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Company & Phone */}
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="company" className="block text-sm font-medium text-neutral-700 mb-1">Company</label>
+                        <input
+                          type="text"
+                          id="company"
+                          name="company"
+                          value={formData.company}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                          placeholder="Your company name"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="phone" className="block text-sm font-medium text-neutral-700 mb-1">Phone</label>
+                        <input
+                          type="tel"
+                          id="phone"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                          placeholder="+1 234 567 8900"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Subject */}
+                    <div>
+                      <label htmlFor="subject" className="block text-sm font-medium text-neutral-700 mb-1">Subject</label>
+                      <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                        placeholder="e.g., Quote for 1000 compostable coffee bags"
+                      />
+                    </div>
+
+                    {/* Message */}
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-neutral-700 mb-1">Message *</label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        required
+                        rows={5}
+                        value={formData.message}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-none"
+                        placeholder="Tell us about your packaging needs, quantities, timeline..."
+                      />
+                    </div>
+
+                    {/* Submit Button */}
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full flex items-center justify-center gap-2 py-4 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? (
+                        <>Processing...</>
+                      ) : (
+                        <>
+                          <Send className="h-5 w-5" />
+                          Send Message
+                        </>
+                      )}
+                    </button>
+
+                    <p className="text-xs text-neutral-500 text-center">
+                      By sending a message, you agree to our <Link to="/legal/privacy-policy" className="text-primary-600 hover:underline">Privacy Policy</Link>.
+                    </p>
+                  </form>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer CTA */}
+        <section className="bg-neutral-900 text-white py-12">
+          <div className="max-w-7xl mx-auto px-4 text-center">
+            <h2 className="text-2xl font-bold mb-4">Prefer to Shop Directly?</h2>
+            <p className="text-neutral-400 mb-6">Browse our sustainable packaging products and order samples online.</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/store" className="px-6 py-3 bg-primary-600 text-white rounded-lg font-semibold hover:bg-primary-700 transition">
+                Visit Our Store
+              </Link>
+              <Link to="/about" className="px-6 py-3 bg-white/10 text-white rounded-lg font-semibold hover:bg-white/20 transition">
+                Learn About Us
+              </Link>
+            </div>
+          </div>
+        </section>
+      </div>
+    </>
+  )
+}
+
+export default ContactPage
