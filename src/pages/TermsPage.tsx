@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { ArrowLeft, FileText, Truck, CreditCard, Package, Shield, AlertCircle, Scale, Palette, CheckCircle, Globe } from 'lucide-react'
 
 const TermsPage: React.FC = () => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const [activeSection, setActiveSection] = useState('production')
 
   const sections = [
@@ -46,10 +46,6 @@ const TermsPage: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng)
-  }
-
   return (
     <div className="min-h-screen bg-neutral-50">
       {/* Header */}
@@ -59,12 +55,6 @@ const TermsPage: React.FC = () => {
             <ArrowLeft className="h-5 w-5" /> {t('terms.backToHome')}
           </Link>
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-1 bg-neutral-100 rounded-lg p-1">
-              <button onClick={() => changeLanguage('en')} className={`px-2 py-1 text-xs rounded ${i18n.language === 'en' ? 'bg-white shadow text-primary-600 font-semibold' : 'text-neutral-600 hover:text-neutral-900'}`}>EN</button>
-              <button onClick={() => changeLanguage('zh-TW')} className={`px-2 py-1 text-xs rounded ${i18n.language === 'zh-TW' ? 'bg-white shadow text-primary-600 font-semibold' : 'text-neutral-600 hover:text-neutral-900'}`}>中文</button>
-              <button onClick={() => changeLanguage('fr')} className={`px-2 py-1 text-xs rounded ${i18n.language === 'fr' ? 'bg-white shadow text-primary-600 font-semibold' : 'text-neutral-600 hover:text-neutral-900'}`}>FR</button>
-              <button onClick={() => changeLanguage('es')} className={`px-2 py-1 text-xs rounded ${i18n.language === 'es' ? 'bg-white shadow text-primary-600 font-semibold' : 'text-neutral-600 hover:text-neutral-900'}`}>ES</button>
-            </div>
             <span className="text-xl font-bold text-primary-600">AchievePack</span>
           </div>
         </div>

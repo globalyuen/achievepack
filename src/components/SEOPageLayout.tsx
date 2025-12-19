@@ -1,6 +1,6 @@
 import React, { useState, useTransition } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { ArrowLeft, Leaf, Mail, Phone, Calendar, Globe, X } from 'lucide-react'
+import { ArrowLeft, Leaf, Mail, Phone, Calendar, X } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { organizationEntity, getAuthorByContentType, generateBreadcrumb } from '../data/schemaEntities'
@@ -93,7 +93,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   ctaButtonText = 'Get Free Quote',
   ctaButtonUrl = '/#contact'
 }) => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const [isPending, startTransition] = useTransition()
   
@@ -127,17 +127,6 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
     startTransition(() => {
       navigate(to)
     })
-  }
-
-  const languages = [
-    { code: 'en', name: 'English', flag: '🇺🇸' },
-    { code: 'fr', name: 'Français', flag: '🇫🇷' },
-    { code: 'es', name: 'Español', flag: '🇪🇸' },
-    { code: 'zh-TW', name: '繁體中文', flag: '🇨🇳' }
-  ]
-
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng)
   }
 
   // Generate FAQ Schema
@@ -245,26 +234,6 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
               <ArrowLeft className="h-5 w-5" /> {t('seoPages.backToHome')}
             </a>
             <div className="flex items-center gap-4">
-              {/* Language Switcher */}
-              <div className="relative group">
-                <button className="flex items-center gap-2 px-3 py-2 text-sm text-neutral-600 hover:text-primary-600 transition rounded-lg hover:bg-neutral-50">
-                  <Globe className="h-4 w-4" />
-                  <span className="hidden sm:inline">{languages.find(l => l.code === i18n.language)?.name || 'English'}</span>
-                  <span className="sm:hidden">{languages.find(l => l.code === i18n.language)?.flag || '🇺🇸'}</span>
-                </button>
-                <div className="absolute right-0 mt-1 w-40 bg-white rounded-lg shadow-lg border border-neutral-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                  {languages.map((lang) => (
-                    <button
-                      key={lang.code}
-                      onClick={() => changeLanguage(lang.code)}
-                      className={`w-full text-left px-4 py-2 text-sm hover:bg-primary-50 flex items-center gap-2 first:rounded-t-lg last:rounded-b-lg ${i18n.language === lang.code ? 'bg-primary-50 text-primary-700' : 'text-neutral-700'}`}
-                    >
-                      <span>{lang.flag}</span>
-                      <span>{lang.name}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
               <Link to="/" className="flex items-center gap-2">
                 <img src="/achieve-pack-logo.png" alt="Achieve Pack" className="h-10 w-auto" />
               </Link>

@@ -1,18 +1,15 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { blogPosts } from '../../data/blogData';
-import { Calendar, Clock, ArrowLeft, Tag, Share2, ShoppingCart, List, Globe, ChevronRight, ChevronDown, ArrowUp } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, Tag, Share2, ShoppingCart, List, ChevronRight, ArrowUp } from 'lucide-react';
 import { useStore } from '../../store/StoreContext';
 import { useState, useMemo, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const post = blogPosts.find(p => p.slug === slug);
   const { cartCount } = useStore();
-  const { i18n } = useTranslation();
   const [showToc, setShowToc] = useState(false);
-  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   // Back to top scroll listener
@@ -39,19 +36,6 @@ export default function BlogPostPage() {
       slug: match[1].replace(/<[^>]*>/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-')
     }));
   }, [post]);
-
-  // Language options (same as landing page)
-  const languages = [
-    { code: 'en', label: 'English', flag: '🇺🇸' },
-    { code: 'zh-TW', label: '繁體中文', flag: '🇨🇳' },
-    { code: 'es', label: 'Español', flag: '🇪🇸' },
-    { code: 'fr', label: 'Français', flag: '🇫🇷' },
-  ];
-
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
-    setIsLangMenuOpen(false);
-  };
 
   // Handle scroll to section
   const scrollToSection = (sectionSlug: string) => {
@@ -172,37 +156,6 @@ export default function BlogPostPage() {
                 <ArrowLeft className="h-4 w-4" />
                 <span className="hidden sm:inline">All Articles</span>
               </Link>
-              
-              {/* Language Selector - Top Right */}
-              <div className="relative">
-                <button
-                  onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                  className="flex items-center gap-2 px-3 py-2 text-white/80 hover:text-white transition rounded-lg hover:bg-white/10"
-                >
-                  <Globe className="h-5 w-5" />
-                  <span className="hidden sm:inline text-sm">
-                    {languages.find(l => l.code === i18n.language)?.label || 'English'}
-                  </span>
-                  <ChevronDown className="h-4 w-4" />
-                </button>
-                
-                {isLangMenuOpen && (
-                  <div className="absolute right-0 top-full mt-2 w-40 bg-white rounded-lg shadow-xl border border-neutral-200 py-1 z-50">
-                    {languages.map(lang => (
-                      <button
-                        key={lang.code}
-                        onClick={() => changeLanguage(lang.code)}
-                        className={`w-full text-left px-4 py-2 text-sm hover:bg-green-50 flex items-center gap-2 ${
-                          i18n.language === lang.code ? 'bg-green-50 text-green-700' : 'text-neutral-700'
-                        }`}
-                      >
-                        <span>{lang.flag}</span>
-                        <span>{lang.label}</span>
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
 
               <Link to="/store" className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full hover:bg-white/20 transition">
                 <ShoppingCart className="h-5 w-5" />
