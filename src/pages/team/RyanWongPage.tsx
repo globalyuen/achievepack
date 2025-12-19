@@ -70,9 +70,11 @@ const RyanWongPage = () => {
           <div className="max-w-5xl mx-auto px-4">
             <div className="flex flex-col md:flex-row gap-8 items-center">
               <div className="flex-shrink-0">
-                <div className="w-48 h-48 bg-white rounded-full flex items-center justify-center text-6xl font-bold text-primary-700">
-                  RW
-                </div>
+                <img 
+                  src="/imgs/team/Ryan Wong - Packaging Specialist.png" 
+                  alt="Ryan Wong - Packaging Development Specialist" 
+                  className="w-48 h-48 rounded-full object-cover border-4 border-white shadow-xl"
+                />
               </div>
               <div className="flex-1 text-center md:text-left">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">Ryan Wong</h1>
@@ -115,16 +117,16 @@ const RyanWongPage = () => {
               <section className="bg-white rounded-xl p-8 shadow-sm border border-neutral-100">
                 <h2 className="text-3xl font-bold text-neutral-900 mb-6">About Ryan</h2>
                 <div className="prose prose-neutral max-w-none">
-                  <p className="text-lg text-neutral-700 leading-relaxed mb-4">
+                  <p className="text-lg text-neutral-800 leading-relaxed mb-4">
                     With <strong>14 years of dedicated experience</strong> in the packaging industry, Ryan Wong has built expertise cooperating with multinational and Fortune 500 companies to achieve mutual beneficial and long-lasting business relationships.
                   </p>
-                  <p className="text-lg text-neutral-700 leading-relaxed mb-4">
+                  <p className="text-lg text-neutral-800 leading-relaxed mb-4">
                     Ryan's packaging experience and business relationships span <strong>8 countries</strong>: Australia, Canada, China, Germany, South Africa, Philippines, UK and USA. As a <strong>Hong Kong Polytechnic University Honor Degree</strong> graduate in Global Supply Chain and Business Administration, he combines academic excellence with practical expertise.
                   </p>
-                  <p className="text-lg text-neutral-700 leading-relaxed mb-4">
+                  <p className="text-lg text-neutral-800 leading-relaxed mb-4">
                     His objective is to be a <strong>supply chain architect</strong> — with packaging knowledge, IT skills and passion to create irreplaceable values and synergy for all parties throughout the whole supply chain from upstream to downstream.
                   </p>
-                  <p className="text-lg text-neutral-700 leading-relaxed">
+                  <p className="text-lg text-neutral-800 leading-relaxed">
                     At <Link to="/" className="text-primary-600 hover:underline font-semibold">Achieve Pack</Link>, Ryan specializes in <strong>100% compostable digital print solutions</strong> with industry-leading low MOQ (100-500 pieces), making sustainable packaging accessible to DTC startups and established brands alike. His expertise in <strong>HP Indigo 20000 digital printing</strong> enables 4-day turnaround for urgent orders.
                   </p>
                 </div>
@@ -153,7 +155,7 @@ const RyanWongPage = () => {
                   ].map((skill, idx) => (
                     <div key={idx} className="flex items-start gap-2">
                       <span className="text-primary-600 mt-1">✓</span>
-                      <span className="text-neutral-700">{skill}</span>
+                      <span className="text-neutral-800">{skill}</span>
                     </div>
                   ))}
                 </div>
@@ -169,7 +171,7 @@ const RyanWongPage = () => {
                         Bean & Bole Coffee Roastery
                       </Link>
                     </h3>
-                    <p className="text-neutral-600">Helped Portland-based specialty roaster switch to EN 13432 certified compostable pouches with degassing valves. Achieved 35% increase in customer satisfaction.</p>
+                    <p className="text-neutral-700">Helped Portland-based specialty roaster switch to EN 13432 certified compostable pouches with degassing valves. Achieved 35% increase in customer satisfaction.</p>
                   </div>
                   <div className="border-l-4 border-primary-500 pl-4">
                     <h3 className="font-semibold text-lg text-neutral-900 mb-2">
@@ -177,7 +179,7 @@ const RyanWongPage = () => {
                         Milano Botanica Tea
                       </Link>
                     </h3>
-                    <p className="text-neutral-600">Developed compostable window packaging for luxury tea brand. EU PPWR compliant solution increased sales by 28%.</p>
+                    <p className="text-neutral-700">Developed compostable window packaging for luxury tea brand. EU PPWR compliant solution increased sales by 28%.</p>
                   </div>
                   <div className="border-l-4 border-primary-500 pl-4">
                     <h3 className="font-semibold text-lg text-neutral-900 mb-2">
@@ -185,7 +187,7 @@ const RyanWongPage = () => {
                         Artisan Cocoa Emirates
                       </Link>
                     </h3>
-                    <p className="text-neutral-600">Created heat-resistant recyclable mono-PP pouches for UAE chocolate brand. Gift sales up 55%.</p>
+                    <p className="text-neutral-700">Created heat-resistant recyclable mono-PP pouches for UAE chocolate brand. Gift sales up 55%.</p>
                   </div>
                 </div>
               </section>

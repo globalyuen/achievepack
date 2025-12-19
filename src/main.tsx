@@ -149,6 +149,9 @@ import BioPeKraftDuplexLowPage from './pages/spec/BioPeKraftDuplexLowPage'
 // Team Pages
 import RyanWongPage from './pages/team/RyanWongPage'
 
+// 404 Page
+import NotFoundPage from './pages/NotFoundPage'
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <HelmetProvider>
@@ -296,6 +299,9 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/spec/biope-pet-kraft-quadlex-aluminum" element={<BioPePetKraftQuadlexAluminumPage />} />
               <Route path="/spec/biope-pp-kraft-quadlex-aluminum" element={<BioPePpKraftQuadlexAluminumPage />} />
               <Route path="/spec/biope-kraft-duplex-low" element={<BioPeKraftDuplexLowPage />} />
+              
+              {/* 404 - Catch All Route */}
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
               {/* Global Floating Buttons - WhatsApp & Meeting */}
               <FloatingButtons />
