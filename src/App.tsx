@@ -197,7 +197,7 @@ ${formData.message}`
         <meta name="twitter:description" content={t('seo.home.description', 'Eco-friendly packaging solutions with low MOQ.')} />
         <meta name="twitter:image" content={`${baseUrl}/imgs/og-image.webp`} />
 
-        {/* JSON-LD Structured Data - Organization */}
+        {/* JSON-LD Structured Data - Organization (固定英文) */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -206,7 +206,7 @@ ${formData.message}`
             "name": "Achieve Pack Company Limited",
             "url": "https://achievepack.com",
             "logo": "https://achievepack.com/achieve-pack-logo.png",
-            "description": "Achieve Pack helps brands switch to certified eco-friendly pouches \u2013 compostable, recyclable and bio-based \u2013 without sacrificing product protection, lead times or margins.",
+            "description": "Achieve Pack helps brands switch to certified eco-friendly pouches – compostable, recyclable and bio-based – without sacrificing product protection, lead times or margins.",
             "foundingDate": "2011",
             "address": {
               "@type": "PostalAddress",
@@ -222,7 +222,7 @@ ${formData.message}`
               "email": "ryan@achievepack.com",
               "telephone": "+852-6970-4411",
               "areaServed": ["US","CA","GB","EU","AU","NZ","HK"],
-              "availableLanguage": ["en","zh-Hant"]
+              "availableLanguage": ["en","zh-Hant","es","fr"]
             }],
             "sameAs": [
               "https://pouch.eco",
@@ -234,7 +234,7 @@ ${formData.message}`
           })}
         </script>
 
-        {/* JSON-LD Structured Data - WebSite + WebPage */}
+        {/* JSON-LD Structured Data - WebSite + WebPage (动态语言) */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -247,7 +247,7 @@ ${formData.message}`
                 "publisher": {
                   "@id": "https://achievepack.com/#organization"
                 },
-                "inLanguage": "en",
+                "inLanguage": currentLang === 'zh-TW' ? 'zh-Hant' : currentLang,
                 "potentialAction": {
                   "@type": "SearchAction",
                   "target": "https://achievepack.com/?s={search_term_string}",
@@ -258,15 +258,15 @@ ${formData.message}`
                 "@type": "WebPage",
                 "@id": "https://achievepack.com/#webpage",
                 "url": "https://achievepack.com",
-                "name": "Certified eco-friendly pouch packaging partner for global brands",
+                "name": t('schema.webpage.name', 'Certified eco-friendly pouch packaging partner for global brands'),
                 "isPartOf": {
                   "@id": "https://achievepack.com/#website"
                 },
                 "about": {
                   "@id": "https://achievepack.com/#organization"
                 },
-                "description": "Achieve Pack provides certified compostable, recyclable and bio-based pouches for coffee, snacks, pet treats and other food brands, with low MOQs, realistic lead times and full technical support.",
-                "inLanguage": "en",
+                "description": t('schema.webpage.description', 'Achieve Pack provides certified compostable, recyclable and bio-based pouches for coffee, snacks, pet treats and other food brands, with low MOQs, realistic lead times and full technical support.'),
+                "inLanguage": currentLang === 'zh-TW' ? 'zh-Hant' : currentLang,
                 "primaryImageOfPage": {
                   "@type": "ImageObject",
                   "url": "https://achievepack.com/imgs/og-image.webp"
@@ -276,109 +276,22 @@ ${formData.message}`
           })}
         </script>
 
-        {/* JSON-LD Structured Data - FAQPage */}
+        {/* JSON-LD Structured Data - FAQPage (动态翻译) */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
             "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "What certifications do your eco packaging materials have?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Our eco packaging portfolio includes materials that comply with EN13432 and ASTM D6400 standards for industrial compostability, as well as GRS-certified post-consumer recycled (PCR) structures. We can also provide food contact safety reports and regional compliance documents on request, so you can verify every claim with certification numbers and test reports."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What is your minimum order quantity for custom pouches?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "For most custom projects, we can start from low MOQs such as 100\u20131,000 units for test runs and small launches, depending on the printing method and structure you choose. Once you are ready to scale, we support higher volumes with optimized unit pricing while keeping the same material and print quality."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How long does production take from artwork approval to delivery?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "As a general guideline, samples usually take around 2\u20133 weeks from artwork approval, and mass production typically takes about 6\u20138 weeks, excluding shipping. Lead time can vary based on material choice, print complexity and destination, and we will confirm an estimated schedule before you place your order."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Are your eco materials more expensive than traditional plastic packaging?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Eco-friendly materials can have a higher material cost per unit compared to conventional plastic, but you often save on shipping, storage and waste handling due to lighter weight and more compact formats. When you factor in brand value, customer perception and regulatory risk, many clients find that certified eco packaging delivers a better long-term return on investment than sticking to traditional options."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What barrier options do you offer for different products?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "We offer a range of barrier levels tailored to different product needs, from low barrier for dry goods and low-sensitivity snacks, to medium barrier for most snacks and coffee, and high or maximum barrier for very sensitive products or long shelf-life items. Our team will recommend a structure based on your product type, desired shelf life, storage conditions and target markets."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Can you help with artwork, printing and packaging design?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes, we support you from dieline creation to final print files, including guidance on artwork layout, color management and sustainability claims. Depending on your needs, we can suggest digital printing for smaller runs and faster testing, or plate printing for larger volumes where unit cost is critical."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How do you ensure consistent print colors and pouch quality across re-orders?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "We keep detailed records of your material structure, ink sets, color references and finishing specifications so we can reproduce the same look and feel on future runs. Our QC process includes checking print alignment, color density, registration, sealing strength and zipper functionality during and after production, and we encourage you to keep reference samples for comparison."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How do you control common defects like zipper failure, seal problems or delamination?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Our factories follow a structured quality control process that covers incoming material inspection, in-process checks and final outgoing inspection. We test for seal strength, zipper performance, delamination, pinholes and visual defects, and if issues arise, we work with you on root cause analysis and a corrective action plan, including rework or replacement where appropriate."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Can you provide test reports and technical data for our specific product?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes, we can share relevant test reports, such as barrier performance, food contact safety and compostability certifications, for the structures we recommend for your product. If you have special requirements, we can also discuss additional testing or custom validation to ensure your packaging meets internal and regulatory standards."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Which markets can you ship to, and how do you support international brands?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "We currently support brands in North America, Europe, Asia and Oceania, with logistics partners who understand the needs of growing consumer brands. Our team helps you plan timelines, documentation and labeling guidance so your eco packaging is not only compliant but also clearly communicated to your customers."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How should we describe and label our eco-packaging to avoid greenwashing?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "We encourage you to use clear, specific language such as \"industrial compostable where facilities exist\" or \"recyclable where mono-material collection is available\", rather than generic \"eco-friendly\" claims. We can share practical labeling guidance and examples, including what to avoid, so your packaging is honest, compliant and easy for consumers to understand."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How can I use AI search to find and vet eco-packaging suppliers like you?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "If you are using Gemini or other AI tools, try asking questions such as \"how to compare compostable vs recyclable pouches for coffee\", \"what certifications should an eco packaging supplier provide\", or \"best low MOQ compostable pouch supplier for snacks in the US\". These types of queries will help AI surface suppliers who can show clear certifications, technical data and real customer results\u2014exactly what we focus on at Achieve Pack."
-                }
+              'certs', 'moq', 'time', 'cost', 'barrier', 'design',
+              'colorConsistency', 'defects', 'testReports', 'verifyCertification', 'switching'
+            ].map(key => ({
+              "@type": "Question",
+              "name": t(`faq.items.${key}.q`),
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": t(`faq.items.${key}.a`)
               }
-            ]
+            }))
           })}
         </script>
       </Helmet>

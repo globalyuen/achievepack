@@ -1,4 +1,10 @@
 {
+    "schema": {
+        "webpage": {
+            "name": "Certified eco-friendly pouch packaging partner for global brands",
+            "description": "Achieve Pack provides certified compostable, recyclable and bio-based pouches for coffee, snacks, pet treats and other food brands, with low MOQs, realistic lead times and full technical support."
+        }
+    },
     "newsletter": {
         "subtitle": "Join other 3200+ Eco Packers now",
         "title": "Weekly eco packaging tips directly on your inbox",

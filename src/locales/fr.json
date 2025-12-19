@@ -1,4 +1,10 @@
 {
+    "schema": {
+        "webpage": {
+            "name": "Partenaire certifié d'emballage écologique pour les marques mondiales",
+            "description": "Achieve Pack fournit des pochettes compostables, recyclables et biosourcées pour le café, les snacks, les friandises pour animaux et autres marques alimentaires, avec des MOQ faibles, des délais réalistes et un support technique complet."
+        }
+    },
     "newsletter": {
         "subtitle": "Rejoignez plus de 3200+ Eco Packers maintenant",
         "title": "Conseils hebdomadaires sur l'emballage écologique directement dans votre boîte mail",
