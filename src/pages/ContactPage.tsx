@@ -88,11 +88,34 @@ const ContactPage: React.FC = () => {
         <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-16">
           <div className="max-w-7xl mx-auto px-4 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
-            <p className="text-xl text-white/90 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 max-w-2xl mx-auto mb-8">
               Have questions about sustainable packaging? Need a quote? We're here to help. Our team responds within 24 hours.
             </p>
+            <button
+              onClick={openCalendly}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-green-500 text-white font-semibold rounded-xl hover:bg-green-600 transition-all cursor-pointer shadow-lg animate-pulse-glow"
+              style={{
+                boxShadow: '0 0 20px rgba(34, 197, 94, 0.5), 0 0 40px rgba(34, 197, 94, 0.3), 0 0 60px rgba(34, 197, 94, 0.2)',
+                animation: 'pulse-glow 2s ease-in-out infinite'
+              }}
+            >
+              <Calendar className="h-5 w-5" />
+              Book Free Consultation
+            </button>
           </div>
         </section>
+
+        {/* Green glow animation style */}
+        <style>{`
+          @keyframes pulse-glow {
+            0%, 100% {
+              box-shadow: 0 0 20px rgba(34, 197, 94, 0.5), 0 0 40px rgba(34, 197, 94, 0.3), 0 0 60px rgba(34, 197, 94, 0.2);
+            }
+            50% {
+              box-shadow: 0 0 30px rgba(34, 197, 94, 0.7), 0 0 60px rgba(34, 197, 94, 0.5), 0 0 90px rgba(34, 197, 94, 0.3);
+            }
+          }
+        `}</style>
 
         {/* Main Content */}
         <div className="max-w-7xl mx-auto px-4 py-12">
