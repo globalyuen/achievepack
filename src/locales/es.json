@@ -2728,5 +2728,104 @@
             "title": "Materiales de Embalaje Sostenible | Achieve Pack",
             "description": "Explora nuestra gama de materiales de embalaje ecológico: compostables, mono-PE/PP reciclable, bio-PE y opciones PCR."
         }
+    },
+    "spec": {
+        "pcrPetKraftQuadlexAluminum": {
+            "title": "PET Kraft Quadlex Aluminio | Embalaje Premium Natural Máxima Barrera",
+            "description": "PET Kraft Quadlex Aluminio: PET12 / Papel Kraft 50gsm / AL7 / PCR-PE. Estructura premium de 4 capas con máxima barrera (OTR <0.5, WVTR <0.5). 150 micras. Ideal para café especial, alimentos de lujo.",
+            "heroTitle": "Estructura PET Kraft Quadlex Aluminio",
+            "heroSubtitle": "PET12 / Papel Kraft 50gsm / AL7 / PCR-PE - Premium Natural Máxima Barrera",
+            "introSummary": "Una estructura premium de cuatro capas que combina la estética del papel kraft natural con la barrera absoluta del aluminio. La elección definitiva para productos de lujo que requieren apariencia natural y máxima protección.",
+            "structureName": "PET12 / Papel Kraft 50gsm / AL7 / 30% PCR-PE (PET Papel Kraft Quad-lex)",
+            "thickness": "150 micras o 6 mil",
+            "sections": {
+                "structureOverview": {
+                    "title": "Resumen de Estructura del Material",
+                    "badge": "Kraft Premium + Máxima Barrera",
+                    "thickness": "Espesor",
+                    "otr": "OTR",
+                    "wvtr": "WVTR",
+                    "layers": "Capas",
+                    "layersValue": "Quad-lex de 4 Capas"
+                },
+                "layerBreakdown": {
+                    "title": "Desglose Capa por Capa",
+                    "layer1": {
+                        "name": "PET12 (Capa Exterior)",
+                        "desc": "PET transparente de 12 micras proporciona excelente imprimibilidad, brillo y protege el papel kraft de la humedad y abrasión."
+                    },
+                    "layer2": {
+                        "name": "Papel Kraft 50gsm (Segunda Capa)",
+                        "desc": "El papel kraft natural proporciona tacto premium, excelente rigidez y apariencia ecológica natural."
+                    },
+                    "layer3": {
+                        "name": "AL7 (Tercera Capa)",
+                        "desc": "Papel de aluminio de 7 micras proporciona barrera absoluta al oxígeno, humedad y luz."
+                    },
+                    "layer4": {
+                        "name": "30% PCR-PE (Capa Interior)",
+                        "desc": "Sellador de polietileno sostenible con contenido reciclado o de base biológica."
+                    }
+                },
+                "barrierProperties": {
+                    "title": "Propiedades de Barrera y Rendimiento",
+                    "intro": "Esta estructura premium de cuatro capas combina la estética kraft natural con protección de barrera definitiva.",
+                    "oxygenBarrier": "Barrera de Oxígeno",
+                    "oxygenNote": "Máxima - exclusión completa de oxígeno.",
+                    "moistureBarrier": "Barrera de Humedad",
+                    "moistureNote": "Protección completa contra la humedad a pesar de la capa de papel.",
+                    "premiumShelf": "Presencia Premium en Estante",
+                    "premiumShelfDesc": "El espesor de 150 micras y la capa de papel kraft crean una sensación sustancial y premium que destaca en el estante. La rigidez asegura un excelente rendimiento vertical."
+                },
+                "sustainability": {
+                    "title": "Características de Sostenibilidad",
+                    "heading": "Elementos Ecológicos",
+                    "fscKraft": "FSC Kraft:",
+                    "fscKraftDesc": "Opción de papel de origen sostenible disponible",
+                    "pcrBioPe": "PCR/Bio-PE:",
+                    "pcrBioPeDesc": "Capa de sellado sostenible",
+                    "consumerAppeal": "Atractivo al Consumidor:",
+                    "consumerAppealDesc": "El kraft natural transmite conciencia ecológica",
+                    "foodWaste": "Desperdicio de Alimentos:",
+                    "foodWasteDesc": "Máxima protección = mínimo desperdicio"
+                },
+                "applications": {
+                    "title": "Aplicaciones Ideales",
+                    "intro": "Perfecto para productos premium que requieren estética natural y máxima protección:",
+                    "items": ["Café de origen único especial", "Té de hojas sueltas premium", "Chocolate artesanal", "Frutas secas de lujo", "Especias gourmet", "Frutos secos premium", "Snacks premium para mascotas", "Polvos especiales", "Embalaje para regalo"]
+                },
+                "aiSearch": {
+                    "title": "Encontrar Embalaje Kraft Premium con Aluminio",
+                    "point1": "Natural + máxima barrera",
+                    "point1Desc": "Lo mejor de ambos mundos",
+                    "point2": "Presencia premium en estante",
+                    "point2Desc": "Sensación rígida y sustancial",
+                    "shopNow": "Comprar ahora",
+                    "browseLink": "Ver bolsas kraft con aluminio",
+                    "aiSuggestions": "Sugerencias de Búsqueda AI:",
+                    "suggestion1": "Bolsa de café kraft con barrera de aluminio",
+                    "suggestion2": "Embalaje natural premium con máxima vida útil",
+                    "suggestion3": "Embalaje ecológico de lujo para alimentos especiales"
+                }
+            },
+            "faqs": {
+                "q1": "¿Por qué 4 capas en lugar de 3?",
+                "a1": "El papel kraft añade estética premium y rigidez, mientras que el PET exterior protege el papel de la humedad y proporciona una superficie imprimible/brillante. El AL7 maneja las funciones de barrera.",
+                "q2": "¿Puedo imprimir directamente sobre el kraft?",
+                "a2": "Sí, puede elegir imprimir sobre el papel kraft (visible a través del PET transparente) o imprimir en la superficie interior del PET para un aspecto más vibrante con la textura kraft visible.",
+                "q3": "¿Qué vida útil puedo esperar?",
+                "a3": "Con barrera de aluminio, espere 24-36 meses de vida útil dependiendo de la sensibilidad del producto y las condiciones de almacenamiento.",
+                "q4": "¿Es muy cara esta estructura?",
+                "a4": "La estructura de 4 capas tiene precio premium pero es competitiva para productos de lujo. El valor percibido y el impacto en estante a menudo justifican el costo para marcas premium.",
+                "q5": "¿Puedo añadir una ventana?",
+                "a5": "Sí, se pueden incorporar paneles de ventana transparente en el área kraft. La sección de ventana usa material PET/sin aluminio transparente para visibilidad."
+            },
+            "relatedLinks": {
+                "link1": { "title": "Comprar Bolsas Kraft", "description": "Ver embalaje de papel kraft" },
+                "link2": { "title": "PP Kraft Quadlex", "description": "Mejor barrera de humedad" },
+                "link3": { "title": "Kraft VMPET", "description": "Alternativa metalizada" },
+                "link4": { "title": "Guía de Barrera", "description": "Comparar opciones de barrera" }
+            }
+        }
     }
 }

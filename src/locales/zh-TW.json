@@ -2685,5 +2685,104 @@
             "title": "永續包裝材料 | Achieve Pack",
             "description": "探索我們的環保包裝材料：可堆肥、可回收單層PE/PP、生物PE和PCR選項。"
         }
+    },
+    "spec": {
+        "pcrPetKraftQuadlexAluminum": {
+            "title": "PET 牛皮紙四層鋁箔 | 高端天然最高阻隔包裝",
+            "description": "PET 牛皮紙四層鋁箔結構：PET12 / 牛皮紙 50gsm / AL7 / PCR-PE。高端四層結構，最高阻隔 (OTR <0.5, WVTR <0.5)。150 微米。適用於精品咖啡、高端食品。",
+            "heroTitle": "PET 牛皮紙四層鋁箔結構",
+            "heroSubtitle": "PET12 / 牛皮紙 50gsm / AL7 / PCR-PE - 高端天然最高阻隔",
+            "introSummary": "高端四層結構，結合天然牛皮紙美感與鋁箔的絕對阻隔。追求天然外觀與最長保質期保護的奢侈品最佳選擇。",
+            "structureName": "PET12 / 牛皮紙 50gsm / AL7 / 30% PCR-PE（PET 牛皮紙四層）",
+            "thickness": "150 微米或 6 mil",
+            "sections": {
+                "structureOverview": {
+                    "title": "材料結構概述",
+                    "badge": "高端牛皮 + 最高阻隔",
+                    "thickness": "厚度",
+                    "otr": "OTR",
+                    "wvtr": "WVTR",
+                    "layers": "層數",
+                    "layersValue": "4 層四重複合"
+                },
+                "layerBreakdown": {
+                    "title": "逐層分解",
+                    "layer1": {
+                        "name": "PET12（外層）",
+                        "desc": "12 微米透明 PET 提供優異的印刷性、光澤度，並保護牛皮紙免受水氣和磨損。"
+                    },
+                    "layer2": {
+                        "name": "牛皮紙 50gsm（第二層）",
+                        "desc": "天然牛皮紙提供高端觸感、優異的挺度和天然環保外觀。"
+                    },
+                    "layer3": {
+                        "name": "AL7（第三層）",
+                        "desc": "7 微米鋁箔提供對氧氣、水氣和光線的絕對阻隔。"
+                    },
+                    "layer4": {
+                        "name": "30% PCR-PE（內層）",
+                        "desc": "含回收或生物基成分的可持續聚乙烯密封層。"
+                    }
+                },
+                "barrierProperties": {
+                    "title": "阻隔性能與表現",
+                    "intro": "這款高端四層結構結合天然牛皮美感與終極阻隔保護。",
+                    "oxygenBarrier": "氧氣阻隔",
+                    "oxygenNote": "最高級 - 完全阻絕氧氣。",
+                    "moistureBarrier": "水氣阻隔",
+                    "moistureNote": "儘管含紙層，仍能完全防潮。",
+                    "premiumShelf": "高端貨架表現",
+                    "premiumShelfDesc": "150 微米厚度和牛皮紙層創造厚實高端的手感，在貨架上脫穎而出。挺度確保優異的直立性能。"
+                },
+                "sustainability": {
+                    "title": "可持續特性",
+                    "heading": "環保元素",
+                    "fscKraft": "FSC 牛皮：",
+                    "fscKraftDesc": "可選用可持續來源紙張",
+                    "pcrBioPe": "PCR/Bio-PE：",
+                    "pcrBioPeDesc": "可持續密封層",
+                    "consumerAppeal": "消費者吸引力：",
+                    "consumerAppealDesc": "天然牛皮傳遞環保意識",
+                    "foodWaste": "食物浪費：",
+                    "foodWasteDesc": "最大保護 = 最小浪費"
+                },
+                "applications": {
+                    "title": "理想應用",
+                    "intro": "適合需要天然美感和最大保護的高端產品：",
+                    "items": ["精品單品咖啡", "高級散葉茶", "手工巧克力", "奢華乾果", "美食香料", "優質堅果", "高端寵物零食", "特色粉末", "禮品包裝"]
+                },
+                "aiSearch": {
+                    "title": "尋找高端牛皮鋁箔包裝",
+                    "point1": "天然 + 最高阻隔",
+                    "point1Desc": "兩全其美",
+                    "point2": "高端貨架表現",
+                    "point2Desc": "挺實厚重的手感",
+                    "shopNow": "立即選購",
+                    "browseLink": "瀏覽牛皮鋁箔袋",
+                    "aiSuggestions": "AI 搜索建議：",
+                    "suggestion1": "帶鋁箔阻隔的牛皮紙咖啡袋",
+                    "suggestion2": "最長保質期的高端天然包裝",
+                    "suggestion3": "特色食品的奢華環保包裝"
+                }
+            },
+            "faqs": {
+                "q1": "為什麼是 4 層而不是 3 層？",
+                "a1": "牛皮紙增添高端美感和挺度，PET 外層保護紙張免受水氣並提供可印刷/光澤表面。AL7 負責阻隔功能。",
+                "q2": "可以直接在牛皮紙上印刷嗎？",
+                "a2": "可以，您可以選擇在牛皮紙上印刷（透過透明 PET 可見）或在 PET 內表面印刷，呈現更鮮豔的效果同時可見牛皮紋理。",
+                "q3": "預期保質期是多久？",
+                "a3": "有鋁箔阻隔，根據產品敏感性和儲存條件，預期保質期為 24-36 個月。",
+                "q4": "這種結構很貴嗎？",
+                "a4": "四層結構屬於高端定價，但對奢侈品具有競爭力。感知價值和貨架影響力通常使高端品牌的成本合理。",
+                "q5": "可以加開窗嗎？",
+                "a5": "可以，透明開窗可以嵌入牛皮區域。開窗部分使用透明 PET/無鋁材料以確保可見性。"
+            },
+            "relatedLinks": {
+                "link1": { "title": "選購牛皮袋", "description": "瀏覽牛皮紙包裝" },
+                "link2": { "title": "PP 牛皮四層", "description": "更佳防潮阻隔" },
+                "link3": { "title": "牛皮 VMPET", "description": "金屬化替代方案" },
+                "link4": { "title": "阻隔指南", "description": "比較阻隔選項" }
+            }
+        }
     }
 }

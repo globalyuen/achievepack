@@ -2502,5 +2502,104 @@
             "title": "Sustainable Packaging Materials | Achieve Pack",
             "description": "Explore our range of eco-friendly packaging materials: compostable, recyclable mono-PE/PP, bio-PE, and PCR options."
         }
+    },
+    "spec": {
+        "pcrPetKraftQuadlexAluminum": {
+            "title": "PET Kraft Quadlex Aluminum | Premium Natural Maximum Barrier Packaging",
+            "description": "PET Kraft Quadlex Aluminum: PET12 / Kraft Paper 50gsm / AL7 / PCR-PE. Premium 4-layer structure with maximum barrier (OTR <0.5, WVTR <0.5). 150 micron. Ideal for specialty coffee, luxury foods.",
+            "heroTitle": "PET Kraft Quadlex Aluminum Structure",
+            "heroSubtitle": "PET12 / Kraft Paper 50gsm / AL7 / PCR-PE - Premium Natural Maximum Barrier",
+            "introSummary": "A premium four-layer structure combining natural kraft paper aesthetics with aluminum foil's absolute barrier. The ultimate choice for luxury products requiring both natural appeal and maximum shelf life protection.",
+            "structureName": "PET12 / Kraft Paper 50gsm / AL7 / 30% PCR-PE (PET Kraft Paper Quad-lex)",
+            "thickness": "150 micron or 6 mil",
+            "sections": {
+                "structureOverview": {
+                    "title": "Material Structure Overview",
+                    "badge": "Premium Kraft + Maximum Barrier",
+                    "thickness": "Thickness",
+                    "otr": "OTR",
+                    "wvtr": "WVTR",
+                    "layers": "Layers",
+                    "layersValue": "4-Layer Quad-lex"
+                },
+                "layerBreakdown": {
+                    "title": "Layer-by-Layer Breakdown",
+                    "layer1": {
+                        "name": "PET12 (Outer Layer)",
+                        "desc": "12-micron clear PET provides excellent printability, gloss, and protects the kraft paper from moisture and abrasion."
+                    },
+                    "layer2": {
+                        "name": "Kraft Paper 50gsm (Second Layer)",
+                        "desc": "Natural kraft paper provides premium tactile feel, excellent stiffness, and natural eco-friendly appearance."
+                    },
+                    "layer3": {
+                        "name": "AL7 (Third Layer)",
+                        "desc": "7-micron aluminum foil provides absolute barrier to oxygen, moisture, and light."
+                    },
+                    "layer4": {
+                        "name": "30% PCR-PE (Inner Layer)",
+                        "desc": "Sustainable polyethylene sealant with recycled or bio-based content."
+                    }
+                },
+                "barrierProperties": {
+                    "title": "Barrier Properties & Performance",
+                    "intro": "This premium quad-layer structure combines natural kraft aesthetics with ultimate barrier protection.",
+                    "oxygenBarrier": "Oxygen Barrier",
+                    "oxygenNote": "Maximum - complete oxygen exclusion.",
+                    "moistureBarrier": "Moisture Barrier",
+                    "moistureNote": "Complete moisture protection despite paper layer.",
+                    "premiumShelf": "Premium Shelf Presence",
+                    "premiumShelfDesc": "The 150 micron thickness and kraft paper layer create a substantial, premium feel that stands out on shelf. The stiffness ensures excellent stand-up performance."
+                },
+                "sustainability": {
+                    "title": "Sustainability Features",
+                    "heading": "Eco-Friendly Elements",
+                    "fscKraft": "FSC Kraft:",
+                    "fscKraftDesc": "Sustainably sourced paper option available",
+                    "pcrBioPe": "PCR/Bio-PE:",
+                    "pcrBioPeDesc": "Sustainable sealant layer",
+                    "consumerAppeal": "Consumer Appeal:",
+                    "consumerAppealDesc": "Natural kraft signals eco-consciousness",
+                    "foodWaste": "Food Waste:",
+                    "foodWasteDesc": "Maximum protection = minimum waste"
+                },
+                "applications": {
+                    "title": "Ideal Applications",
+                    "intro": "Perfect for premium products requiring natural aesthetics and maximum protection:",
+                    "items": ["Specialty single-origin coffee", "Premium loose leaf tea", "Artisan chocolate", "Luxury dried fruits", "Gourmet spices", "Premium nuts", "High-end pet treats", "Specialty powders", "Gift packaging"]
+                },
+                "aiSearch": {
+                    "title": "Finding Premium Kraft Foil Packaging",
+                    "point1": "Natural + maximum barrier",
+                    "point1Desc": "Best of both worlds",
+                    "point2": "Premium shelf presence",
+                    "point2Desc": "Stiff, substantial feel",
+                    "shopNow": "Shop now",
+                    "browseLink": "Browse kraft foil pouches",
+                    "aiSuggestions": "AI Search Suggestions:",
+                    "suggestion1": "Kraft paper coffee bag with aluminum foil barrier",
+                    "suggestion2": "Premium natural packaging with maximum shelf life",
+                    "suggestion3": "Luxury eco packaging for specialty foods"
+                }
+            },
+            "faqs": {
+                "q1": "Why 4 layers instead of 3?",
+                "a1": "The kraft paper adds premium aesthetics and stiffness, while the PET outer protects the paper from moisture and provides a printable/glossy surface. The AL7 handles barrier duties.",
+                "q2": "Can I print directly on the kraft?",
+                "a2": "Yes, you can choose to print on the kraft paper (showing through clear PET) or print on the inner surface of the PET for a more vibrant look with kraft texture visible.",
+                "q3": "What shelf life can I expect?",
+                "a3": "With aluminum foil barrier, expect 24-36 months shelf life depending on product sensitivity and storage conditions.",
+                "q4": "Is this structure very expensive?",
+                "a4": "The 4-layer structure is premium-priced but competitive for luxury products. The perceived value and shelf impact often justify the cost for premium brands.",
+                "q5": "Can I add a window?",
+                "a5": "Yes, clear window panels can be incorporated in the kraft area. The window section uses clear PET/aluminum-free material for visibility."
+            },
+            "relatedLinks": {
+                "link1": { "title": "Shop Kraft Pouches", "description": "Browse kraft paper packaging" },
+                "link2": { "title": "PP Kraft Quadlex", "description": "Better moisture barrier" },
+                "link3": { "title": "Kraft VMPET", "description": "Metalised alternative" },
+                "link4": { "title": "Barrier Guide", "description": "Compare barrier options" }
+            }
+        }
     }
 }
