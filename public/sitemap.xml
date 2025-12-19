@@ -214,6 +214,14 @@
     <priority>0.6</priority>
   </url>
 
+  <!-- Team Pages -->
+  <url>
+    <loc>https://achievepack.com/team/ryan-wong</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Knowledge Pages -->
   <url>
     <loc>https://achievepack.com/knowledge/all-options</loc>

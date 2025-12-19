@@ -146,6 +146,9 @@ import BioPePetKraftQuadlexAluminumPage from './pages/spec/BioPePetKraftQuadlexA
 import BioPePpKraftQuadlexAluminumPage from './pages/spec/BioPePpKraftQuadlexAluminumPage'
 import BioPeKraftDuplexLowPage from './pages/spec/BioPeKraftDuplexLowPage'
 
+// Team Pages
+import RyanWongPage from './pages/team/RyanWongPage'
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <HelmetProvider>
@@ -215,6 +218,9 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/company/about" element={<AboutPage />} />
               <Route path="/company/factory-tour" element={<FactoryTourPage />} />
               <Route path="/company/certificates" element={<CertificatesPage />} />
+              
+              {/* Team Pages */}
+              <Route path="/team/ryan-wong" element={<RyanWongPage />} />
 
               {/* Knowledge Pages */}
               <Route path="/knowledge/all-options" element={<AllOptionsPage />} />

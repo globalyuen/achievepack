@@ -63,6 +63,56 @@ export const organizationEntity = {
 
 // Author Entities - 專家作者實體
 export const authorEntities = {
+  "founder-ryan": {
+    "@type": "Person",
+    "@id": "https://achievepack.com/team/ryan-wong#person",
+    "name": "Ryan Wong",
+    "jobTitle": "Founder & Sustainable Packaging Expert",
+    "description": "Eco packaging specialist helping DTC coffee, chocolate and tea startups switch from plastic to certified compostable and recyclable pouches with low MOQ. 10+ years in sustainable flexible packaging and B2B e-commerce.",
+    "worksFor": { "@id": "https://achievepack.com/#organization" },
+    "knowsAbout": [
+      {
+        "@type": "Thing",
+        "name": "Sustainable packaging",
+        "sameAs": ["https://en.wikipedia.org/wiki/Sustainable_packaging"]
+      },
+      {
+        "@type": "Thing",
+        "name": "Flexible packaging",
+        "sameAs": ["https://en.wikipedia.org/wiki/Flexible_packaging"]
+      },
+      {
+        "@type": "Thing",
+        "name": "Coffee packaging",
+        "sameAs": ["https://en.wikipedia.org/wiki/Coffee_packaging"]
+      },
+      {
+        "@type": "Thing",
+        "name": "Biodegradable plastic",
+        "sameAs": ["https://en.wikipedia.org/wiki/Biodegradable_plastic"]
+      },
+      {
+        "@type": "Thing",
+        "name": "Food packaging",
+        "sameAs": ["https://en.wikipedia.org/wiki/Food_packaging"]
+      },
+      "compostable coffee pouches for DTC brands",
+      "compostable packaging for chocolate and confectionery",
+      "tea packaging using compostable and recyclable films",
+      "transition from plastic to compostable packaging for startups",
+      "flexible pouch design for e-commerce and subscription boxes",
+      "EU and US compostable packaging standards",
+      "food-contact safe compostable films",
+      "EN 13432 certified packaging",
+      "ASTM D6400 compostable standards",
+      "BPI certification for compostable packaging",
+      "low MOQ sustainable packaging solutions"
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/in/ryanwwc/",
+      "https://achievepack.com/team/ryan-wong"
+    ]
+  },
   "packaging-engineer": {
     "@type": "Person",
     "@id": "https://achievepack.com/team/packaging-engineer#person",
@@ -120,7 +170,13 @@ export const authorEntities = {
 // 根據內容類型選擇最適合的作者
 export const getAuthorByContentType = (contentType: string) => {
   const authorMap: Record<string, typeof authorEntities[keyof typeof authorEntities]> = {
-    'compostable': authorEntities['packaging-engineer'],
+    'founder': authorEntities['founder-ryan'],
+    'ryan': authorEntities['founder-ryan'],
+    'dtc': authorEntities['founder-ryan'],
+    'coffee': authorEntities['founder-ryan'],
+    'chocolate': authorEntities['founder-ryan'],
+    'tea': authorEntities['founder-ryan'],
+    'compostable': authorEntities['founder-ryan'],
     'bio-pe': authorEntities['packaging-engineer'],
     'recyclable': authorEntities['sustainability-specialist'],
     'mono-pe': authorEntities['sustainability-specialist'],
@@ -129,7 +185,7 @@ export const getAuthorByContentType = (contentType: string) => {
     'quality': authorEntities['quality-director'],
     'certification': authorEntities['quality-director'],
     'fda': authorEntities['quality-director'],
-    'default': authorEntities['packaging-engineer']
+    'default': authorEntities['founder-ryan']
   }
 
   // 匹配關鍵字
