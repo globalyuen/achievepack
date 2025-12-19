@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback, useTransition } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link, useNavigate } from 'react-router-dom'
 import { Mail, Phone, MapPin, Clock, MessageCircle, Calendar, Send, ArrowLeft, CheckCircle, Building2, Globe } from 'lucide-react'
@@ -7,6 +7,7 @@ import { useCalendly } from '../contexts/CalendlyContext'
 const ContactPage: React.FC = () => {
   const { openCalendly } = useCalendly()
   const navigate = useNavigate()
+  const [isPending, startTransition] = useTransition()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,7 +20,15 @@ const ContactPage: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  // Optimized navigation handler for better INP
+    const handleNavigation = useCallback((to: string) => (e: React.MouseEvent) => {
+      e.preventDefault()
+      startTransition(() => {
+        navigate(to)
+      })
+    }, [navigate])
+  
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
@@ -58,9 +67,17 @@ const ContactPage: React.FC = () => {
         {/* Header */}
         <header className="bg-white border-b sticky top-0 z-50">
           <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-            <Link to="/" className="flex items-center gap-2">
-              <img src="/achieve-pack-logo.png" alt="Achieve Pack" className="h-9 w-auto" />
-            </Link>
+            <a href="/" onClick={handleNavigation('/')} className="flex items-center gap-2">
+              <img 
+                src="/achieve-pack-logo.png" 
+                alt="Achieve Pack" 
+                className="h-9 w-auto"
+                loading="eager"
+                decoding="async"
+                width="120"
+                height="36"
+              />
+            </a>
             <button onClick={() => navigate(-1)} className="flex items-center gap-1 text-sm text-neutral-500 hover:text-primary-600 transition">
               <ArrowLeft className="h-4 w-4" /> Back
             </button>
@@ -99,7 +116,7 @@ const ContactPage: React.FC = () => {
                 </button>
                 
                 <a
-                  href="https://wa.me/85264886989?text=Hi%2C%20I%27m%20interested%20in%20sustainable%20packaging"
+                  href="https://wa.me/85269704411?text=Hi%2C%20I%27m%20interested%20in%20sustainable%20packaging"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full flex items-center gap-4 p-4 bg-green-600 text-white rounded-xl hover:bg-green-700 transition"
@@ -107,7 +124,7 @@ const ContactPage: React.FC = () => {
                   <MessageCircle className="h-6 w-6" />
                   <div className="text-left">
                     <div className="font-semibold">WhatsApp</div>
-                    <div className="text-sm text-white/80">+852 6488 6989</div>
+                    <div className="text-sm text-white/80">+852 6970 4411</div>
                   </div>
                 </a>
                 
