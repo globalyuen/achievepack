@@ -1139,7 +1139,8 @@ ${formData.message}`
                 roleKey: 'packagingSpecialist',
                 image: '/imgs/team/Ryan Wong - Packaging Specialist.png',
                 linkedin: 'https://www.linkedin.com/in/ryanwwc/',
-                email: 'ryan@achievepack.com'
+                email: 'ryan@achievepack.com',
+                profilePage: '/team/ryan-wong'
               },
               {
                 name: 'Jericha Kwok',
@@ -1187,6 +1188,15 @@ ${formData.message}`
                   />
                   {/* Hover Icons */}
                   <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                    {member.profilePage && (
+                      <Link
+                        to={member.profilePage}
+                        className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-neutral-100 transition-colors"
+                        title="View Profile"
+                      >
+                        <User className="h-5 w-5 text-primary-600" />
+                      </Link>
+                    )}
                     {member.linkedin && (
                       <a
                         href={member.linkedin}

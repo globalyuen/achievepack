@@ -116,6 +116,17 @@ const RyanWongPage = () => {
               {/* About */}
               <section className="bg-white rounded-xl p-8 shadow-sm border border-neutral-100">
                 <h2 className="text-3xl font-bold text-neutral-900 mb-6">About Ryan</h2>
+                
+                {/* Exhibition Photo */}
+                <div className="mb-6">
+                  <img 
+                    src="/imgs/team/ryan-in-exhib.webp" 
+                    alt="Ryan Wong at Packaging Exhibition" 
+                    className="w-full rounded-lg shadow-md"
+                  />
+                  <p className="text-sm text-neutral-500 mt-2 text-center italic">Ryan at international packaging exhibition</p>
+                </div>
+
                 <div className="prose prose-neutral max-w-none">
                   <p className="text-lg text-neutral-800 leading-relaxed mb-4">
                     With <strong>14 years of dedicated experience</strong> in the packaging industry, Ryan Wong has built expertise cooperating with multinational and Fortune 500 companies to achieve mutual beneficial and long-lasting business relationships.
