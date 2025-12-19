@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useTransition } from 'react'
+import { useState, useEffect, useCallback, useTransition, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom'
@@ -163,6 +163,16 @@ ${formData.message}`
 
     alert('Thank you for your message! Your email client should open with the pre-filled email.')
   }
+
+  // Memoize FAQ items to prevent unnecessary re-renders and improve INP
+  const faqItems = useMemo(() => {
+    const keys = ['certs', 'moq', 'time', 'cost', 'barrier', 'design', 'colorConsistency', 'defects', 'testReports', 'verifyCertification', 'switching']
+    return keys.map(key => ({
+      key,
+      question: t(`faq.items.${key}.q`),
+      answer: t(`faq.items.${key}.a`)
+    }))
+  }, [t])
 
   // Get current language for hreflang
   const currentLang = i18n.language || 'en'
@@ -1360,13 +1370,13 @@ ${formData.message}`
 
           {/* FAQ Grid with Scroll - 2 columns on desktop */}
           <div className="grid md:grid-cols-2 gap-4 max-h-[800px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-primary-200 scrollbar-track-neutral-100">
-            {['certs', 'moq', 'time', 'cost', 'barrier', 'design', 'colorConsistency', 'defects', 'testReports', 'verifyCertification', 'switching'].map((key) => (
+            {faqItems.map(({ key, question, answer }) => (
               <details key={key} className="bg-neutral-50 rounded-lg p-5 border border-neutral-200 hover:border-primary-300 transition-colors">
-                <summary className="flex items-center justify-between cursor-pointer">
-                  <span className="text-base font-semibold text-neutral-900 pr-4">{t(`faq.items.${key}.q`)}</span>
-                  <ChevronDown className="h-5 w-5 text-neutral-500 transition-transform duration-200 flex-shrink-0" />
+                <summary className="flex items-center justify-between cursor-pointer list-none">
+                  <span className="text-base font-semibold text-neutral-900 pr-4">{question}</span>
+                  <ChevronDown className="h-5 w-5 text-neutral-500 transition-transform duration-200 flex-shrink-0 details-chevron" />
                 </summary>
-                <div className="mt-4 text-sm text-neutral-700 leading-relaxed">{t(`faq.items.${key}.a`)}</div>
+                <div className="mt-4 text-sm text-neutral-700 leading-relaxed">{answer}</div>
               </details>
             ))}
           </div>

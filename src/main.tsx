@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { ErrorBoundary } from './components/ErrorBoundary.tsx'
 import { StoreProvider } from './store/StoreContext'
+import { CalendlyProvider } from './contexts/CalendlyContext'
 import CartSidebar from './components/store/CartSidebar'
 import FloatingButtons from './components/FloatingButtons'
 import GeoBlocker from './components/GeoBlocker'
@@ -159,6 +160,7 @@ createRoot(document.getElementById('root')!).render(
         <GeoBlocker>
           <BrowserRouter>
             <StoreProvider>
+              <CalendlyProvider>
               <CartSidebar />
             <Routes>
               <Route path="/" element={<App />} />
@@ -305,6 +307,7 @@ createRoot(document.getElementById('root')!).render(
             </Routes>
               {/* Global Floating Buttons - WhatsApp & Meeting */}
               <FloatingButtons />
+              </CalendlyProvider>
           </StoreProvider>
         </BrowserRouter>
       </GeoBlocker>

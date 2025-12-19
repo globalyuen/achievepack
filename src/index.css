@@ -58,3 +58,25 @@ img {
 .animate-fadeIn {
   animation: fadeIn 0.3s ease-out;
 }
+
+/* Optimize details/summary for INP */
+details {
+  contain: layout style;
+}
+
+details summary {
+  list-style: none;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] .details-chevron {
+  transform: rotate(180deg);
+}
+
+/* Use CSS containment for better rendering performance */
+.faq-container {
+  contain: content;
+}

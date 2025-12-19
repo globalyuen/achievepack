@@ -1,13 +1,41 @@
 import React from 'react'
-import { Package, Leaf, Shield, CheckCircle, Zap, Award, MessageCircle, BookOpen, Building2 } from 'lucide-react'
+import { Package, Leaf, Shield, CheckCircle, Zap, Award, MessageCircle, BookOpen, Building2, Target, Calendar, Phone, Download, Mail } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import { useCalendly } from '../../contexts/CalendlyContext'
 
 const StandUpPouchesPage: React.FC = () => {
   const { t } = useTranslation()
+  const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.standUpPouches'
   const sections = [
+    {
+      id: 'scenario-trigger',
+      title: 'Is This Page For You?',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-gradient-to-r from-primary-50 to-green-50 p-6 rounded-lg border border-primary-200">
+          <p className="text-lg font-medium text-neutral-900 mb-4">
+            If you are a <strong>food brand, snack company, coffee roaster, or pet treat maker</strong> looking for flexible packaging that stands out on shelves—you're in the right place.
+          </p>
+          <div className="grid md:grid-cols-3 gap-4 mt-4">
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">Retail & DTC Brands</h4>
+              <p className="text-sm text-neutral-600 mt-1">Need eye-catching shelf presence with premium finishes and resealable closures</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">E-commerce Sellers</h4>
+              <p className="text-sm text-neutral-600 mt-1">Want lightweight, durable pouches that reduce shipping costs and damage</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">Small Batch Producers</h4>
+              <p className="text-sm text-neutral-600 mt-1">Need low MOQ (500 pieces) with custom printing and quick turnaround</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
     {
       id: 'overview',
       title: 'What is a Stand-Up Pouch?',
@@ -262,6 +290,69 @@ const StandUpPouchesPage: React.FC = () => {
             <p className="text-sm text-green-800">
               <strong>Why Achieve Pack?</strong> We've shipped over 50 million stand-up pouches globally. Our team helps you select the right configuration for your product. MOQ from 500 pieces for custom printed. <Link to="/store" className="text-green-600 hover:underline">Browse our stand-up pouch options →</Link>
             </p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'risk-hedging',
+      title: 'Is a Stand-Up Pouch Right for Your Product?',
+      icon: <Shield className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="grid md:grid-cols-3 gap-4">
+          <div className="bg-green-50 p-4 rounded-lg border-2 border-green-300">
+            <h4 className="font-bold text-green-800 mb-2">✅ Best Fit For...</h4>
+            <ul className="text-sm text-green-700 space-y-1">
+              <li>• Coffee, tea, and dry food products</li>
+              <li>• Snacks, chips, nuts, and granola</li>
+              <li>• Pet treats and small kibble bags</li>
+              <li>• Retail shelf display (self-standing)</li>
+              <li>• Products needing resealable closure</li>
+            </ul>
+          </div>
+          <div className="bg-amber-50 p-4 rounded-lg border-2 border-amber-300">
+            <h4 className="font-bold text-amber-800 mb-2">⚠️ Also Works For...</h4>
+            <ul className="text-sm text-amber-700 space-y-1">
+              <li>• Powders and supplements (with zipper)</li>
+              <li>• Candy and confectionery</li>
+              <li>• Cannabis products (child-resistant)</li>
+              <li>• Sample sachets (smaller SUPs)</li>
+            </ul>
+          </div>
+          <div className="bg-red-50 p-4 rounded-lg border-2 border-red-300">
+            <h4 className="font-bold text-red-800 mb-2">❌ Not Recommended If...</h4>
+            <ul className="text-sm text-red-700 space-y-1">
+              <li>• You need liquid-tight packaging → <Link to="/packaging/spout-pouches" className="underline">Try spout pouches</Link></li>
+              <li>• Premium coffee brand → <Link to="/packaging/flat-bottom-bags" className="underline">Consider flat bottom bags</Link></li>
+              <li>• Bulk 5kg+ products → <Link to="/packaging/side-gusset-bags" className="underline">Side gusset better</Link></li>
+            </ul>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'decision-cta',
+      title: 'Ready to Take the Next Step?',
+      icon: <Calendar className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="grid md:grid-cols-3 gap-4 mt-4">
+          <div className="bg-primary-600 text-white p-6 rounded-lg text-center">
+            <Phone className="h-8 w-8 mx-auto mb-2" />
+            <h4 className="font-bold text-lg">Ready to Move Fast?</h4>
+            <p className="text-sm opacity-90 mt-1">Book a 30-min packaging consult</p>
+            <button onClick={openCalendly} className="inline-block mt-3 px-4 py-2 bg-white text-primary-600 rounded-lg font-semibold hover:bg-neutral-100 transition cursor-pointer">Book a Call</button>
+          </div>
+          <div className="bg-neutral-100 p-6 rounded-lg text-center">
+            <Download className="h-8 w-8 mx-auto mb-2 text-neutral-700" />
+            <h4 className="font-bold text-lg text-neutral-900">Want to Test First?</h4>
+            <p className="text-sm text-neutral-600 mt-1">Get sample pouches shipped to you</p>
+            <Link to="/store" className="inline-block mt-3 px-4 py-2 bg-primary-600 text-white rounded-lg font-semibold hover:bg-primary-700 transition">Order Samples</Link>
+          </div>
+          <div className="bg-white border border-neutral-200 p-6 rounded-lg text-center">
+            <Mail className="h-8 w-8 mx-auto mb-2 text-neutral-500" />
+            <h4 className="font-bold text-lg text-neutral-900">Still Exploring?</h4>
+            <p className="text-sm text-neutral-600 mt-1">See how other brands solved it</p>
+            <Link to="/case-studies" className="inline-block mt-3 px-4 py-2 border border-primary-600 text-primary-600 rounded-lg font-semibold hover:bg-primary-50 transition">View Case Studies</Link>
           </div>
         </div>
       )

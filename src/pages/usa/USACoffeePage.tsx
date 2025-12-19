@@ -1,11 +1,39 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Coffee, Leaf, Shield, CheckCircle, Clock, TrendingUp, MessageCircle, Award } from 'lucide-react'
+import { Coffee, Leaf, Shield, CheckCircle, Clock, TrendingUp, MessageCircle, Award, Target, Calendar, Phone, Download, Mail } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
+import { useCalendly } from '../../contexts/CalendlyContext'
 
 const USACoffeePage: React.FC = () => {
+  const { openCalendly } = useCalendly()
   const sections = [
+    {
+      id: 'scenario-trigger',
+      title: 'Is This Page For You?',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-gradient-to-r from-amber-50 to-green-50 p-6 rounded-lg border border-amber-200">
+          <p className="text-lg font-medium text-neutral-900 mb-4">
+            If you are a <strong>US specialty coffee roaster</strong> looking for compostable packaging that meets ASTM D6400 certification—you're in the right place.
+          </p>
+          <div className="grid md:grid-cols-3 gap-4 mt-4">
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">Small Batch Roasters</h4>
+              <p className="text-sm text-neutral-600 mt-1">100+ piece MOQ, perfect for testing or farmers market sales</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">DTC & Amazon Sellers</h4>
+              <p className="text-sm text-neutral-600 mt-1">Sustainable packaging that resonates with eco-conscious consumers</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">Retail Coffee Brands</h4>
+              <p className="text-sm text-neutral-600 mt-1">Meet Whole Foods, Sprouts, and Natural Grocers sustainability requirements</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
     {
       id: 'overview',
       title: 'Compostable Coffee Packaging for US Roasters',
@@ -235,6 +263,69 @@ const USACoffeePage: React.FC = () => {
             <Link to="/store" className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg font-semibold hover:bg-primary-700 transition">
               Shop Compostable Coffee Pouches →
             </Link>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'risk-hedging',
+      title: 'Is Compostable Coffee Packaging Right for You?',
+      icon: <Shield className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="grid md:grid-cols-3 gap-4">
+          <div className="bg-green-50 p-4 rounded-lg border-2 border-green-300">
+            <h4 className="font-bold text-green-800 mb-2">✅ Best Fit For...</h4>
+            <ul className="text-sm text-green-700 space-y-1">
+              <li>• Specialty roasters selling premium beans</li>
+              <li>• Brands selling in natural grocery channels</li>
+              <li>• California/Washington-based companies</li>
+              <li>• DTC brands marketing sustainability</li>
+              <li>• Farmers market vendors</li>
+            </ul>
+          </div>
+          <div className="bg-amber-50 p-4 rounded-lg border-2 border-amber-300">
+            <h4 className="font-bold text-amber-800 mb-2">⚠️ Also Works For...</h4>
+            <ul className="text-sm text-amber-700 space-y-1">
+              <li>• Tea companies (same material works)</li>
+              <li>• Roasted nuts and dried fruits</li>
+              <li>• Granola and breakfast foods</li>
+              <li>• Gift sets and subscription boxes</li>
+            </ul>
+          </div>
+          <div className="bg-red-50 p-4 rounded-lg border-2 border-red-300">
+            <h4 className="font-bold text-red-800 mb-2">❌ Not Recommended If...</h4>
+            <ul className="text-sm text-red-700 space-y-1">
+              <li>• Need 18+ month shelf life → <Link to="/materials/recyclable-mono-pe" className="underline">Consider recyclable PE</Link></li>
+              <li>• Selling commodity coffee → cost may not justify</li>
+              <li>• No composting facilities nearby → recyclable better</li>
+            </ul>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'decision-cta',
+      title: 'Ready to Take the Next Step?',
+      icon: <Calendar className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="grid md:grid-cols-3 gap-4 mt-4">
+          <div className="bg-primary-600 text-white p-6 rounded-lg text-center">
+            <Phone className="h-8 w-8 mx-auto mb-2" />
+            <h4 className="font-bold text-lg">Ready to Move Fast?</h4>
+            <p className="text-sm opacity-90 mt-1">Book a 30-min packaging consult</p>
+            <button onClick={openCalendly} className="inline-block mt-3 px-4 py-2 bg-white text-primary-600 rounded-lg font-semibold hover:bg-neutral-100 transition cursor-pointer">Book a Call</button>
+          </div>
+          <div className="bg-neutral-100 p-6 rounded-lg text-center">
+            <Download className="h-8 w-8 mx-auto mb-2 text-neutral-700" />
+            <h4 className="font-bold text-lg text-neutral-900">Want to Test First?</h4>
+            <p className="text-sm text-neutral-600 mt-1">Get sample pouches shipped to your roastery</p>
+            <Link to="/store" className="inline-block mt-3 px-4 py-2 bg-primary-600 text-white rounded-lg font-semibold hover:bg-primary-700 transition">Order Samples</Link>
+          </div>
+          <div className="bg-white border border-neutral-200 p-6 rounded-lg text-center">
+            <Mail className="h-8 w-8 mx-auto mb-2 text-neutral-500" />
+            <h4 className="font-bold text-lg text-neutral-900">Still Exploring?</h4>
+            <p className="text-sm text-neutral-600 mt-1">See how other roasters switched</p>
+            <Link to="/case-studies/coffee-roastery" className="inline-block mt-3 px-4 py-2 border border-primary-600 text-primary-600 rounded-lg font-semibold hover:bg-primary-50 transition">View Case Study</Link>
           </div>
         </div>
       )

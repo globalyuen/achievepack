@@ -1,13 +1,41 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Package, Leaf, Shield, CheckCircle, Heart, MessageCircle } from 'lucide-react'
+import { Package, Leaf, Shield, CheckCircle, Heart, MessageCircle, Target, Calendar, Phone, Download, Mail } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
+import { useCalendly } from '../../contexts/CalendlyContext'
 
 const PetFoodPage: React.FC = () => {
   const { t } = useTranslation()
+  const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.petFood'
   const sections = [
+    {
+      id: 'scenario-trigger',
+      title: 'Is This Page For You?',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-gradient-to-r from-purple-50 to-green-50 p-6 rounded-lg border border-purple-200">
+          <p className="text-lg font-medium text-neutral-900 mb-4">
+            If you are a <strong>pet food brand, dog treat maker, or pet supplement company</strong> looking for sustainable packaging that protects your products—you're in the right place.
+          </p>
+          <div className="grid md:grid-cols-3 gap-4 mt-4">
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">Indie Pet Brands</h4>
+              <p className="text-sm text-neutral-600 mt-1">Low MOQ (100 pieces) for testing new products or small batch production</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">Premium Pet Food Companies</h4>
+              <p className="text-sm text-neutral-600 mt-1">Heavy-duty construction for dense kibble and freeze-dried products</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">Pet Treat E-commerce Sellers</h4>
+              <p className="text-sm text-neutral-600 mt-1">Resealable closures and clear windows for online product presentation</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
     {
       id: 'overview',
       title: 'Pet Food & Treats Packaging',
@@ -136,6 +164,69 @@ const PetFoodPage: React.FC = () => {
           <p className="text-sm text-neutral-600 mt-4">
             We provide full material safety documentation, including COA (Certificate of Analysis) and SDS (Safety Data Sheets) for regulatory compliance.
           </p>
+        </div>
+      )
+    },
+    {
+      id: 'risk-hedging',
+      title: 'Is This Packaging Right for Your Pet Products?',
+      icon: <Shield className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="grid md:grid-cols-3 gap-4">
+          <div className="bg-green-50 p-4 rounded-lg border-2 border-green-300">
+            <h4 className="font-bold text-green-800 mb-2">✅ Best Fit For...</h4>
+            <ul className="text-sm text-green-700 space-y-1">
+              <li>• Dry pet food and kibble (2-10kg bags)</li>
+              <li>• Dog and cat treats (all sizes)</li>
+              <li>• Freeze-dried raw pet food</li>
+              <li>• Pet supplements and vitamins</li>
+              <li>• Premium/natural pet brands</li>
+            </ul>
+          </div>
+          <div className="bg-amber-50 p-4 rounded-lg border-2 border-amber-300">
+            <h4 className="font-bold text-amber-800 mb-2">⚠️ Also Works For...</h4>
+            <ul className="text-sm text-amber-700 space-y-1">
+              <li>• Bird seed and small animal food</li>
+              <li>• Dental chews and rawhide</li>
+              <li>• CBD pet products</li>
+              <li>• Meal toppers and bone broth powder</li>
+            </ul>
+          </div>
+          <div className="bg-red-50 p-4 rounded-lg border-2 border-red-300">
+            <h4 className="font-bold text-red-800 mb-2">❌ Not Recommended If...</h4>
+            <ul className="text-sm text-red-700 space-y-1">
+              <li>• Wet/moist pet food → <Link to="/packaging/spout-pouches" className="underline">Try spout pouches</Link></li>
+              <li>• Need retort processing → special materials needed</li>
+              <li>• Bulk 20kg+ bags → contact us for custom solutions</li>
+            </ul>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'decision-cta',
+      title: 'Ready to Take the Next Step?',
+      icon: <Calendar className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="grid md:grid-cols-3 gap-4 mt-4">
+          <div className="bg-primary-600 text-white p-6 rounded-lg text-center">
+            <Phone className="h-8 w-8 mx-auto mb-2" />
+            <h4 className="font-bold text-lg">Ready to Move Fast?</h4>
+            <p className="text-sm opacity-90 mt-1">Book a 30-min packaging consult</p>
+            <button onClick={openCalendly} className="inline-block mt-3 px-4 py-2 bg-white text-primary-600 rounded-lg font-semibold hover:bg-neutral-100 transition cursor-pointer">Book a Call</button>
+          </div>
+          <div className="bg-neutral-100 p-6 rounded-lg text-center">
+            <Download className="h-8 w-8 mx-auto mb-2 text-neutral-700" />
+            <h4 className="font-bold text-lg text-neutral-900">Want to Test First?</h4>
+            <p className="text-sm text-neutral-600 mt-1">Get sample pouches to test with your products</p>
+            <Link to="/store" className="inline-block mt-3 px-4 py-2 bg-primary-600 text-white rounded-lg font-semibold hover:bg-primary-700 transition">Order Samples</Link>
+          </div>
+          <div className="bg-white border border-neutral-200 p-6 rounded-lg text-center">
+            <Mail className="h-8 w-8 mx-auto mb-2 text-neutral-500" />
+            <h4 className="font-bold text-lg text-neutral-900">Still Exploring?</h4>
+            <p className="text-sm text-neutral-600 mt-1">See how pet brands solved packaging</p>
+            <Link to="/case-studies/pet-treats" className="inline-block mt-3 px-4 py-2 border border-primary-600 text-primary-600 rounded-lg font-semibold hover:bg-primary-50 transition">View Case Study</Link>
+          </div>
         </div>
       )
     },

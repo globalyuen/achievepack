@@ -3,9 +3,11 @@ import { Recycle, Leaf, Shield, CheckCircle, Thermometer, Target, Calendar, Phon
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import { useCalendly } from '../../contexts/CalendlyContext'
 
 const RecyclableMonoPPPage: React.FC = () => {
   const { t } = useTranslation()
+  const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.recyclableMonoPP'
   const sections = [
     {
@@ -175,9 +177,9 @@ const RecyclableMonoPPPage: React.FC = () => {
               <Phone className="h-8 w-8 mx-auto mb-2" />
               <h4 className="font-bold text-lg mb-2">Ready to Move Fast?</h4>
               <p className="text-sm opacity-90 mb-4">Book a call to discuss hot-fill specs</p>
-              <a href="https://calendly.com/nickypouch" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-purple-600 px-4 py-2 rounded-lg font-semibold hover:bg-purple-50 transition">
+              <button onClick={openCalendly} className="inline-block bg-white text-purple-600 px-4 py-2 rounded-lg font-semibold hover:bg-purple-50 transition cursor-pointer">
                 Book a Call
-              </a>
+              </button>
             </div>
             <div className="bg-neutral-100 p-6 rounded-lg text-center border-2 border-neutral-300">
               <Download className="h-8 w-8 mx-auto mb-2 text-neutral-700" />
