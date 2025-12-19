@@ -66,6 +66,12 @@ function App() {
     })
   }, [])
 
+  const openRyanProfile = useCallback(() => {
+    startTransition(() => {
+      setIsRyanProfileOpen(true)
+    })
+  }, [])
+
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
     setIsLangMenuOpen(false);
@@ -1197,9 +1203,10 @@ ${formData.message}`
                   <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
                     {member.profilePage && (
                       <button
-                        onClick={() => setIsRyanProfileOpen(true)}
+                        onClick={openRyanProfile}
                         className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-neutral-100 transition-colors"
                         title="View Profile"
+                        aria-label="View Ryan Wong's Profile"
                       >
                         <User className="h-5 w-5 text-primary-600" />
                       </button>
@@ -1771,12 +1778,12 @@ Please contact me to discuss custom solutions.`;
                   className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-xl"
                 />
                 <div className="text-center md:text-left">
-                  <h2 className="text-3xl font-bold mb-2">Ryan Wong</h2>
-                  <p className="text-xl text-primary-100 mb-2">Packaging Development Specialist</p>
-                  <p className="text-sm text-primary-200">
+                  <h2 className="text-3xl font-bold mb-2 text-white">Ryan Wong</h2>
+                  <p className="text-xl text-white mb-2">Packaging Development Specialist</p>
+                  <p className="text-sm text-white">
                     14 years experience | 8 countries | Fortune 500 & DTC startups
                   </p>
-                  <p className="text-sm text-primary-300 mt-2">
+                  <p className="text-sm text-white mt-2">
                     🎓 The Hong Kong Polytechnic University (Honor Degree)
                   </p>
                 </div>
@@ -1859,15 +1866,15 @@ Please contact me to discuss custom solutions.`;
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition shadow-lg"
                 >
-                  <Linkedin className="h-5 w-5" />
-                  LinkedIn Profile
+                  <Linkedin className="h-5 w-5 text-white" />
+                  <span className="text-white">LinkedIn Profile</span>
                 </a>
                 <a 
                   href="mailto:ryan@achievepack.com"
                   className="inline-flex items-center gap-2 bg-white border-2 border-primary-600 text-primary-700 px-6 py-3 rounded-lg font-semibold hover:bg-primary-50 transition"
                 >
-                  <Mail className="h-5 w-5" />
-                  Contact
+                  <Mail className="h-5 w-5 text-primary-700" />
+                  <span className="text-primary-700">Contact</span>
                 </a>
                 <a 
                   href="https://calendly.com/30-min-free-packaging-consultancy"
@@ -1875,15 +1882,15 @@ Please contact me to discuss custom solutions.`;
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-accent-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-accent-700 transition"
                 >
-                  <Calendar className="h-5 w-5" />
-                  Schedule Meeting
+                  <Calendar className="h-5 w-5 text-white" />
+                  <span className="text-white">Schedule Meeting</span>
                 </a>
                 <Link
                   to="/team/ryan-wong"
-                  className="inline-flex items-center gap-2 bg-neutral-100 text-neutral-700 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-200 transition"
+                  className="inline-flex items-center gap-2 bg-neutral-100 text-neutral-800 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-200 transition"
                 >
-                  View Full Profile
-                  <ArrowRight className="h-5 w-5" />
+                  <span className="text-neutral-800">View Full Profile</span>
+                  <ArrowRight className="h-5 w-5 text-neutral-800" />
                 </Link>
               </div>
             </div>
