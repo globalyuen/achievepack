@@ -773,6 +773,7 @@
                 "homeCompostable": "家庭可堆肥",
                 "industrialCompostable": "工業可堆肥",
                 "recyclableMonoPE": "可回收單一PE",
+                "recyclableMonoPP": "可回收單一PP",
                 "bioPE": "生物PE",
                 "pcrRecycled": "PCR回收材料",
                 "digitalPrinting": "數碼印刷",
