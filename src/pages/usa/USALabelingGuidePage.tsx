@@ -1,11 +1,39 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { FileCheck, AlertTriangle, CheckCircle, Shield, MapPin, MessageCircle, BookOpen, Scale } from 'lucide-react'
+import { FileCheck, AlertTriangle, CheckCircle, Shield, MapPin, MessageCircle, BookOpen, Scale, Target, Calendar, Phone, Download, Mail } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
+import { useCalendly } from '../../contexts/CalendlyContext'
 
 const USALabelingGuidePage: React.FC = () => {
+  const { openCalendly } = useCalendly()
   const sections = [
+    {
+      id: 'scenario-trigger',
+      title: 'Is This Guide For You?',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border border-blue-200">
+          <p className="text-lg font-medium text-neutral-900 mb-4">
+            If you are a <strong>US food brand selling in California, Washington, or Colorado</strong> and need guidance on compostable packaging labels—you're in the right place.
+          </p>
+          <div className="grid md:grid-cols-3 gap-4 mt-4">
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">California Sellers</h4>
+              <p className="text-sm text-neutral-600 mt-1">AB 1201 & SB 343 compliance requirements</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">Multi-State Brands</h4>
+              <p className="text-sm text-neutral-600 mt-1">Single label design for nationwide compliance</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">Natural Food Brands</h4>
+              <p className="text-sm text-neutral-600 mt-1">Whole Foods, Sprouts retailer requirements</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
     {
       id: 'overview',
       title: 'US Compostable Packaging Labeling Requirements',
@@ -290,6 +318,85 @@ const USALabelingGuidePage: React.FC = () => {
               <li>• "How to label compostable packaging for California AB 1201"</li>
               <li>• "BPI certified compostable bags for US food brands"</li>
             </ul>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'risk-hedge',
+      title: 'Still Have Labeling Questions?',
+      icon: <Shield className="h-5 w-5 text-amber-600" />,
+      content: (
+        <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-lg border border-amber-200">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">"Will my label pass California review?"</h4>
+                  <p className="text-sm text-neutral-600">Free artwork review before production</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">"What logo should I use?"</h4>
+                  <p className="text-sm text-neutral-600">We provide BPI & ASTM certification marks</p>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">"Can I use same label for all states?"</h4>
+                  <p className="text-sm text-neutral-600">We design for multi-state compliance</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">"What color should the bag be?"</h4>
+                  <p className="text-sm text-neutral-600">Natural kraft meets brown requirement</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'decision-cta',
+      title: 'Ready for Compliant Packaging?',
+      icon: <FileCheck className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white p-8 rounded-xl">
+          <h3 className="text-2xl font-bold mb-6 text-center">Get Expert Help with US Labeling Compliance</h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
+              <Calendar className="h-8 w-8 mx-auto mb-3" />
+              <h4 className="font-semibold mb-2">Book a Call</h4>
+              <p className="text-sm text-white/80 mb-4">30-min labeling consultation</p>
+              <button onClick={openCalendly} className="w-full bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition cursor-pointer">
+                Schedule Now
+              </button>
+            </div>
+            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
+              <Mail className="h-8 w-8 mx-auto mb-3" />
+              <h4 className="font-semibold mb-2">Email Your Artwork</h4>
+              <p className="text-sm text-white/80 mb-4">Free compliance review</p>
+              <a href="mailto:ryan@achievepack.com?subject=Labeling Compliance Review" className="block w-full bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition">
+                Send Artwork
+              </a>
+            </div>
+            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
+              <Download className="h-8 w-8 mx-auto mb-3" />
+              <h4 className="font-semibold mb-2">Free Samples</h4>
+              <p className="text-sm text-white/80 mb-4">See compliant labels in action</p>
+              <Link to="/contact" className="block w-full bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition">
+                Request Samples
+              </Link>
+            </div>
           </div>
         </div>
       )
