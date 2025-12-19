@@ -196,6 +196,117 @@ ${formData.message}`
         <meta name="twitter:title" content={t('seo.home.title', 'Achieve Pack - Sustainable Packaging')} />
         <meta name="twitter:description" content={t('seo.home.description', 'Eco-friendly packaging solutions with low MOQ.')} />
         <meta name="twitter:image" content={`${baseUrl}/imgs/og-image.webp`} />
+
+        {/* JSON-LD Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": "https://achievepack.com/#organization",
+                "name": "Achieve Pack Company Limited",
+                "alternateName": ["Achieve Pack", "pouch.eco"],
+                "url": "https://achievepack.com",
+                "logo": "https://achievepack.com/achieve-pack-logo.png",
+                "description": "Certified eco-friendly packaging solutions including compostable, recyclable, and bio-based pouches for food, beverage, and pet brands.",
+                "foundingDate": "2011",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "No.41 1/F Wo Liu Hang Tsuen",
+                  "addressLocality": "Fotan",
+                  "addressRegion": "New Territories",
+                  "addressCountry": "HK"
+                },
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "telephone": "+852-6970-4411",
+                  "email": "ryan@achievepack.com",
+                  "contactType": "sales"
+                },
+                "sameAs": [
+                  "https://www.instagram.com/pouch_eco/",
+                  "https://www.linkedin.com/company/achieve-pack/",
+                  "https://www.youtube.com/watch?v=3LZh1vHGAS0",
+                  "https://climate.stripe.com/WPsfbU"
+                ]
+              },
+              {
+                "@type": "WebSite",
+                "@id": "https://achievepack.com/#website",
+                "url": "https://achievepack.com",
+                "name": "Achieve Pack",
+                "description": "Eco-friendly pouches, compostable packaging, recyclable mono-PE, coffee packaging with EN13432, ASTM D6400, and GRS certifications.",
+                "publisher": { "@id": "https://achievepack.com/#organization" },
+                "potentialAction": {
+                  "@type": "SearchAction",
+                  "target": "https://achievepack.com/search?q={search_term_string}",
+                  "query-input": "required name=search_term_string"
+                }
+              },
+              {
+                "@type": "FAQPage",
+                "@id": "https://achievepack.com/#faq",
+                "mainEntity": [
+                  {
+                    "@type": "Question",
+                    "name": "What certifications do your packaging materials have?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Our compostable packaging materials are certified to EN13432 (European standard) and ASTM D6400 (US standard). For recyclable options, we hold GRS (Global Recycled Standard) certification. We also carry BPI certification for US market. You can verify our certification numbers with TÜV Austria, DIN CERTCO, or BPI."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "What is your minimum order quantity for custom pouches?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "For sample orders, our MOQ starts at just 100-1,000 pieces. For mass production, we recommend 5,000+ pieces. Our low sample MOQ allows you to validate packaging with real customers before committing to larger volumes."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "How long does production take from artwork approval?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Sample production takes 2-3 weeks from artwork approval. Mass production takes 6-8 weeks from sample approval. Air freight to US takes 7-10 days, sea freight takes 25-35 days."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "What barrier options do you offer for coffee, snacks, and pet treats?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "We offer Low Barrier (3-6 months shelf life), Medium Barrier (6-12 months), High Barrier (12-18 months), and Maximum Barrier (18-24 months). Our specialists recommend optimal barrier based on your product's moisture and oxygen sensitivity."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "How can I verify if an eco-packaging supplier is truly certified?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Ask for actual certification numbers, not just logos. Genuine EN13432 or ASTM D6400 certificates include verifiable certificate numbers. Request test reports from accredited laboratories and verify the certificate applies to the exact material structure you're ordering."
+                    }
+                  }
+                ]
+              },
+              {
+                "@type": "Product",
+                "@id": "https://achievepack.com/#product-sample-kit",
+                "name": "Assorted Eco Pouches Sample Kit",
+                "description": "Sample kit featuring compostable, recyclable, and bio-based pouch materials for testing before bulk orders.",
+                "brand": { "@id": "https://achievepack.com/#organization" },
+                "material": ["Compostable PLA", "Kraft Paper", "Mono-PE", "PCR Recycled"],
+                "offers": {
+                  "@type": "Offer",
+                  "priceCurrency": "USD",
+                  "price": "49",
+                  "availability": "https://schema.org/InStock"
+                }
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       
     <div className="min-h-screen bg-neutral-50 font-sans">
@@ -1143,6 +1254,10 @@ ${formData.message}`
             <p className="text-lg text-neutral-700 max-w-3xl mx-auto">
               {t('team.description')}
             </p>
+            {/* E-E-A-T Trust Signal */}
+            <p className="text-base text-primary-600 font-medium mt-4 bg-primary-50 py-3 px-6 rounded-full inline-block">
+              Our team has supported over 500+ brands in US, EU, NZ and Asia since 2011, across coffee, snacks, pet treats and supplements categories.
+            </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
@@ -1240,26 +1355,41 @@ ${formData.message}`
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* FAQ Section - Enhanced with AI Hints and Carousel */}
       <section id="faq" className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-neutral-900 mb-4">{t('faq.title')}</h2>
-            <p className="text-lg text-neutral-700">
+            <p className="text-lg text-neutral-700 mb-6">
               {t('faq.description')}
             </p>
+            {/* AI Search Hint Box */}
+            <div className="bg-neutral-100 rounded-lg p-4 text-sm text-neutral-600 max-w-2xl mx-auto">
+              <p className="font-medium text-neutral-700 mb-2">{t('faq.aiHint.text')}</p>
+              <p className="italic">"{t('faq.aiHint.q1')}"</p>
+              <p className="italic">"{t('faq.aiHint.q2')}"</p>
+            </div>
           </div>
 
-          <div className="space-y-4">
-            {['certs', 'moq', 'time', 'cost', 'barrier', 'design'].map((key) => (
-              <details key={key} className="bg-neutral-50 rounded-lg p-6">
+          {/* FAQ Grid with Scroll - 2 columns on desktop */}
+          <div className="grid md:grid-cols-2 gap-4 max-h-[800px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-primary-200 scrollbar-track-neutral-100">
+            {['certs', 'moq', 'time', 'cost', 'barrier', 'design', 'colorConsistency', 'defects', 'testReports', 'verifyCertification', 'switching'].map((key) => (
+              <details key={key} className="bg-neutral-50 rounded-lg p-5 border border-neutral-200 hover:border-primary-300 transition-colors">
                 <summary className="flex items-center justify-between cursor-pointer">
-                  <span className="text-lg font-semibold text-neutral-900">{t(`faq.items.${key}.q`)}</span>
-                  <ChevronDown className="h-5 w-5 text-neutral-500 transition-transform duration-200" />
+                  <span className="text-base font-semibold text-neutral-900 pr-4">{t(`faq.items.${key}.q`)}</span>
+                  <ChevronDown className="h-5 w-5 text-neutral-500 transition-transform duration-200 flex-shrink-0" />
                 </summary>
-                <div className="mt-4 text-neutral-700 leading-relaxed">{t(`faq.items.${key}.a`)}</div>
+                <div className="mt-4 text-sm text-neutral-700 leading-relaxed">{t(`faq.items.${key}.a`)}</div>
               </details>
             ))}
+          </div>
+
+          {/* Scroll indicator */}
+          <div className="text-center mt-4 text-sm text-neutral-500">
+            <span className="inline-flex items-center gap-1">
+              <ChevronDown className="h-4 w-4 animate-bounce" />
+              Scroll for more FAQs
+            </span>
           </div>
         </div>
       </section>

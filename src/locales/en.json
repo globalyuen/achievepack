@@ -352,31 +352,56 @@
     },
     "faq": {
         "title": "Frequently Asked Questions",
-        "description": "Get answers to common questions about our sustainable packaging solutions.",
+        "description": "Get detailed answers to common questions about our sustainable packaging solutions, certifications, production timelines, and quality standards.",
+        "aiHint": {
+            "text": "If you are using Gemini or AI search, you can ask:",
+            "q1": "How to verify if a compostable coffee pouch supplier is truly certified?",
+            "q2": "What should I check before switching to recyclable mono-PE pouches?"
+        },
         "items": {
             "certs": {
                 "q": "What certifications do your packaging materials have?",
-                "a": "Our compostable materials are certified to EN13432 and ASTM D6400 standards, while our recyclable options carry GRS (Global Recycled Standard) certification. All materials meet international safety and environmental standards."
+                "a": "Our compostable packaging materials are certified to EN13432 (European standard) and ASTM D6400 (US standard), ensuring they break down properly in commercial composting facilities. For recyclable options, we hold GRS (Global Recycled Standard) certification for our PCR (post-consumer recycled) materials. We also carry BPI (Biodegradable Products Institute) certification for products sold in the US market. You can verify our certification numbers directly with the issuing bodies such as TÜV Austria, DIN CERTCO, or BPI. These certifications apply to markets including the US, EU, UK, Australia, and New Zealand. Full certification documents and test reports are available upon request."
             },
             "moq": {
-                "q": "What is the minimum order quantity?",
-                "a": "We offer one of the lowest MOQs in the industry at just 100 pieces, making sustainable packaging accessible to startups and small businesses. This is significantly lower than the 5,000-10,000 piece minimums typically required elsewhere."
+                "q": "What is your minimum order quantity for custom pouches?",
+                "a": "For sample orders and small test runs, our MOQ starts at just 100-1,000 pieces depending on the pouch type and customization level. This is ideal for startups, DTC brands, and businesses testing new products or markets. For mass production orders, we typically recommend 5,000+ pieces to achieve better unit economics. Our low sample MOQ allows you to validate your packaging with real customers before committing to larger volumes, reducing risk and upfront investment. Many successful brands started with us at 100 pieces and now order 50,000+ pieces per run."
             },
             "time": {
-                "q": "How long does production take?",
-                "a": "Sample production takes 2-3 weeks, and full production takes 6-8 weeks from approval. This timeline allows us to ensure quality while meeting your launch requirements."
+                "q": "How long does production take from artwork approval?",
+                "a": "Our production timeline is structured in two phases: Sample production takes 2-3 weeks from artwork approval, allowing you to see and test the actual printed pouch before committing to mass production. Mass production takes 6-8 weeks from sample approval. For shipping, air freight to the US takes approximately 7-10 days, while sea freight takes 25-35 days. EU and UK delivery times are similar. We provide tracking information and proactive updates throughout the process. Rush orders with 4-day sampling are available for urgent projects at additional cost."
             },
             "cost": {
-                "q": "Are your packaging materials cost-effective compared to traditional plastic?",
-                "a": "Yes! While the material cost may be slightly higher, you typically save 15-22% on shipping costs due to reduced weight, and 70% on warehouse space. Many clients find the total cost of ownership is competitive or better than traditional options."
+                "q": "Are your eco materials cost-effective compared to traditional plastic?",
+                "a": "While eco-friendly materials may have a 10-20% higher material cost compared to conventional plastic, the total cost of ownership is often equal or lower when you factor in: 15-22% shipping cost savings due to lighter weight (flexible pouches weigh 70% less than rigid containers), 70% warehouse space reduction because pouches are shipped flat and take up less storage, reduced CO2 emissions which can qualify your brand for sustainability incentives or certifications, and premium positioning that allows for higher retail pricing. Many of our clients report that the switch to sustainable packaging was cost-neutral or even cost-positive when considering the complete supply chain."
             },
             "barrier": {
-                "q": "What barrier options are available for different products?",
-                "a": "We offer 8 different barrier levels ranging from low barrier for dry goods to maximum barrier for products requiring extended shelf life. Our team will recommend the optimal barrier based on your specific product requirements."
+                "q": "What barrier options do you offer for coffee, snacks, pet treats and powders?",
+                "a": "We offer barrier solutions matched to specific product requirements: LOW BARRIER (clear or kraft paper): Best for dry goods like cookies, granola, or products with short shelf life (3-6 months). MEDIUM BARRIER (metalized or EVOH layer): Ideal for snacks, nuts, and standard coffee with 6-12 month shelf life. HIGH BARRIER (aluminum foil layer): Perfect for specialty coffee, pet treats, and products needing 12-18 month protection. MAXIMUM BARRIER (aluminum + multi-layer): Designed for sensitive products like freeze-dried foods, supplements, or products requiring 18-24 month shelf life. Our packaging specialists will recommend the optimal barrier based on your product's moisture sensitivity, oxygen requirements, and target shelf life. Technical spec sheets with OTR and WVTR data are provided for each material structure."
             },
             "design": {
-                "q": "Can you help with custom design and printing?",
-                "a": "Absolutely! We offer comprehensive design services including up to 10-color plate printing and unlimited digital printing. We also provide various finishes like matte, gloss, soft-touch, metallic, spot UV, and embossing options."
+                "q": "Can you help with artwork and packaging design?",
+                "a": "Yes, we provide comprehensive design support at every stage: Die-line templates in AI, PDF, or PSD format with correct dimensions and bleed areas for your specific pouch size and style. Print proofs including digital mockups and physical printed samples for color matching before mass production. We support both digital printing (unlimited colors, ideal for small runs and photographic designs) and plate/gravure printing (up to 10 Pantone colors, cost-effective for larger volumes). Our team also advises on finish options including matte, gloss, soft-touch, spot UV, metallic inks, and embossing to elevate your brand presentation."
+            },
+            "colorConsistency": {
+                "q": "How do you ensure consistent print colors and pouch quality across re-orders?",
+                "a": "Color consistency is critical for brand identity, and we maintain strict quality control processes: We keep digital color reference files and physical retain samples from every production run. Pantone color matching is used for plate printing with documented color codes. Before each re-order, we compare against previous samples and provide pre-production proofs for approval. Our QC team performs visual inspection and measurement checks at multiple stages: film inspection, printing, lamination, and finished pouch. We also use calibrated spectrophotometers to measure color deviation and ensure it stays within acceptable Delta E tolerance levels."
+            },
+            "defects": {
+                "q": "How do you control defects like zipper failure, seal issues or delamination?",
+                "a": "Quality control is built into every production stage: Raw materials are inspected upon receipt for thickness, clarity, and barrier properties. During production, we test heat seal strength, zipper open/close cycles, and burst pressure. Finished pouches undergo random sampling inspection based on AQL (Acceptable Quality Level) standards. Common defects like weak seals, zipper misalignment, or delamination are caught before shipping. If any issues occur post-delivery, we have a clear returns and replacement policy with documentation. We also provide QC reports and photos upon request so you have full visibility into your order quality."
+            },
+            "testReports": {
+                "q": "Can you provide test reports for food contact safety and shelf-life performance?",
+                "a": "Yes, we provide comprehensive documentation for compliance and peace of mind: Food contact safety certificates confirming materials meet FDA (US), EU 10/2011 (Europe), and other regional food-grade requirements. Migration testing reports showing that no harmful substances transfer from packaging to food. OTR (Oxygen Transmission Rate) and WVTR (Water Vapor Transmission Rate) data for each material structure, essential for predicting shelf life. Compostability certificates with test results from accredited labs for EN13432, ASTM D6400, and home compostability standards where applicable. All documentation is available in PDF format and can be shared with your compliance team, retail partners, or certifying bodies."
+            },
+            "verifyCertification": {
+                "q": "How can I verify if an eco-packaging supplier is truly certified?",
+                "a": "When evaluating any eco-packaging supplier, including us, here's what you should check: Ask for actual certification numbers, not just logos. Genuine EN13432 or ASTM D6400 certificates include a certificate number that can be verified with the issuing body (TÜV Austria, DIN CERTCO, BPI). Request test reports from accredited laboratories showing the specific material structure tested. Verify the certificate applies to the exact material you're ordering, not just a similar product. Check if the certification covers the complete pouch (including zipper and valve if applicable) or only the film. At Achieve Pack, we provide all certification documents upfront and welcome verification requests. If you are using Gemini or AI search, try asking: 'How to verify if a compostable coffee pouch supplier is truly certified?'"
+            },
+            "switching": {
+                "q": "What should I check before switching to recyclable mono-PE or mono-PP pouches?",
+                "a": "Before switching to recyclable mono-material pouches, consider these factors: Barrier performance - mono-PE and mono-PP typically offer lower barrier than multi-layer structures, so confirm they meet your product's shelf-life requirements. Recycling infrastructure - verify that your target markets (US states, EU countries) have recycling streams that accept flexible film. Consumer communication - plan your on-pack recycling instructions carefully, as guidelines vary by region (e.g., store drop-off in US, kerbside collection in some EU areas). Regulatory claims - ensure any 'recyclable' claims comply with FTC Green Guides (US) or equivalent regulations in your market. We help clients navigate these considerations and can provide alternative structures (like PCR blends) if full recyclability isn't achievable yet. If you're searching with AI, try asking: 'What should I check before switching to recyclable mono-PE pouches?'"
             }
         }
     },
