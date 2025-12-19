@@ -2,6 +2,7 @@ import React from 'react'
 import { Recycle, Leaf, Shield, CheckCircle, Factory } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
+import ClickableImage from '../../components/ClickableImage'
 
 const RecyclableMonoPEPage: React.FC = () => {
   const { t } = useTranslation()
@@ -16,6 +17,22 @@ const RecyclableMonoPEPage: React.FC = () => {
           <p>
             <strong>{t(`${p}.sections.overview.intro`)}</strong>
           </p>
+          
+          {/* Recycling Symbol Section */}
+          <div className="flex items-center gap-6 bg-blue-50 p-4 rounded-lg border border-blue-200 my-4">
+            <ClickableImage 
+              src="/imgs/cert/logo-recycle-number-4-and-5.png" 
+              alt="Recyclable Symbol #4 LDPE and #5 PP" 
+              className="h-20 w-auto"
+              caption="Recycling Code #4 & #5"
+            />
+            <div>
+              <h4 className="font-semibold text-blue-800 mb-1">Recycling Code #4 (LDPE) / #5 (PP)</h4>
+              <p className="text-sm text-blue-700">Our mono-PE pouches are made from single-material polyethylene, accepted in most curbside and store drop-off recycling programs. The resin code can be printed on your packaging.</p>
+              <p className="text-xs text-blue-600 mt-2"><strong>Artwork Usage:</strong> You can include the recycling symbol on your pouch design to communicate recyclability to consumers.</p>
+            </div>
+          </div>
+          
           <div className="bg-blue-50 p-4 rounded-lg mt-4">
             <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.overview.keyBenefits`)}</h4>
             <ul className="space-y-1 text-sm text-blue-700">

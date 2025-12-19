@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowLeft, Leaf, Mail, Phone, Calendar, Globe } from 'lucide-react'
+import { ArrowLeft, Leaf, Mail, Phone, Calendar, Globe, X } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 
@@ -87,6 +87,23 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   ctaButtonUrl = '/#contact'
 }) => {
   const { t, i18n } = useTranslation()
+  
+  // Lightbox state
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const [lightboxImage, setLightboxImage] = useState('')
+  const [lightboxAlt, setLightboxAlt] = useState('')
+
+  const openLightbox = (src: string, alt: string) => {
+    setLightboxImage(src)
+    setLightboxAlt(alt)
+    setLightboxOpen(true)
+  }
+
+  const closeLightbox = () => {
+    setLightboxOpen(false)
+    setLightboxImage('')
+    setLightboxAlt('')
+  }
 
   // Scroll to top when navigating - optimized for INP
   const scrollToTop = () => {
@@ -586,6 +603,32 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
             </div>
           </div>
         </footer>
+
+        {/* Lightbox Modal */}
+        {lightboxOpen && (
+          <div 
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90" 
+            onClick={closeLightbox}
+          >
+            <button
+              onClick={closeLightbox}
+              className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-50"
+            >
+              <X className="h-8 w-8" />
+            </button>
+            <img
+              src={lightboxImage}
+              alt={lightboxAlt}
+              className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+            />
+            {lightboxAlt && (
+              <p className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-center bg-black bg-opacity-50 px-4 py-2 rounded-lg">
+                {lightboxAlt}
+              </p>
+            )}
+          </div>
+        )}
       </div>
     </>
   )

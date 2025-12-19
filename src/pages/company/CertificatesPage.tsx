@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Shield, Award, Leaf, Utensils, Building2, FileText, CheckCircle, Recycle } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
+import ClickableImage from '../../components/ClickableImage';
 
 const CertificatesPage = () => {
   const { t } = useTranslation();
@@ -26,7 +27,57 @@ const CertificatesPage = () => {
       title: t(`${p}.sections.compostability.title`),
       icon: <Leaf className="h-5 w-5 text-green-600" />,
       content: (
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="space-y-6">
+          {/* Certification Logos Overview */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 flex flex-col items-center">
+              <ClickableImage 
+                src="/imgs/cert/logo-compostable-seed.png" 
+                alt="Seedling Logo - OK Compost Certified" 
+                className="h-16 w-auto mb-2"
+                caption="EU Seedling"
+              />
+              <span className="text-xs text-center text-neutral-600">EU Seedling</span>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 flex flex-col items-center">
+              <ClickableImage 
+                src="/imgs/cert/logo-achievepack-BPI.jpg" 
+                alt="BPI Certified Compostable" 
+                className="h-16 w-auto mb-2"
+                caption="BPI Certified"
+              />
+              <span className="text-xs text-center text-neutral-600">US BPI</span>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 flex flex-col items-center">
+              <ClickableImage 
+                src="/imgs/cert/cert-din-home-compost.png" 
+                alt="DIN Home Compostable Certification" 
+                className="h-16 w-auto mb-2"
+                caption="Home Compostable"
+              />
+              <span className="text-xs text-center text-neutral-600">Home Compost</span>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 flex flex-col items-center">
+              <ClickableImage 
+                src="/imgs/cert/cert-ABA-as5810.png" 
+                alt="ABA AS5810 Australian Certification" 
+                className="h-16 w-auto mb-2"
+                caption="AS5810 Australia"
+              />
+              <span className="text-xs text-center text-neutral-600">AU AS5810</span>
+            </div>
+          </div>
+          
+          {/* BPI Sub-license Notice */}
+          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mb-4">
+            <h4 className="font-semibold text-blue-800 mb-2">⚠️ BPI Logo Sub-License Information</h4>
+            <p className="text-sm text-blue-700">The BPI Certification belongs to Achieve Pack as the certified manufacturer. Brand owners wishing to display the BPI logo on their packaging must apply for a sub-license through BPI.</p>
+            <a href="https://products.bpiworld.org/companies/achieve-pack-company" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm text-blue-600 hover:underline mt-2 font-medium">
+              → View Achieve Pack BPI Certification
+            </a>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl border-2 border-green-200">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-12 h-12 bg-green-200 rounded-full flex items-center justify-center text-green-700 font-bold">EU</div>
@@ -68,6 +119,7 @@ const CertificatesPage = () => {
             <p className="text-purple-700 text-sm">{t(`${p}.sections.compostability.okcompost.desc`)}</p>
           </div>
         </div>
+        </div>
       )
     },
     {
@@ -76,6 +128,37 @@ const CertificatesPage = () => {
       icon: <Recycle className="h-5 w-5 text-blue-600" />,
       content: (
         <div className="space-y-6">
+          {/* Recycling & Bio Logos */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 flex flex-col items-center">
+              <ClickableImage 
+                src="/imgs/cert/cert-pcr-grs.webp" 
+                alt="GRS Global Recycled Standard Certification" 
+                className="h-16 w-auto mb-2"
+                caption="GRS Certified"
+              />
+              <span className="text-xs text-center text-neutral-600">GRS Certified</span>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 flex flex-col items-center">
+              <ClickableImage 
+                src="/imgs/cert/logo-imgreen-biope.png" 
+                alt="I'm Green Bio-based Polyethylene" 
+                className="h-16 w-auto mb-2"
+                caption="I'm Green Bio-PE"
+              />
+              <span className="text-xs text-center text-neutral-600">Bio-PE (I'm Green)</span>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 flex flex-col items-center">
+              <ClickableImage 
+                src="/imgs/cert/logo-recycle-number-4-and-5.png" 
+                alt="Recyclable Symbol #4 LDPE and #5 PP" 
+                className="h-16 w-auto mb-2"
+                caption="Recycling Code #4 & #5"
+              />
+              <span className="text-xs text-center text-neutral-600">PE/PP Recyclable</span>
+            </div>
+          </div>
+          
           <div className="bg-gradient-to-br from-primary-50 to-green-100 p-6 rounded-xl border border-primary-200">
             <div className="flex items-center gap-4 mb-4">
               <img src="/imgs/pcr-grs-cert-1.webp" alt="GRS Certification" className="w-20 h-20 object-contain" />
@@ -136,7 +219,48 @@ const CertificatesPage = () => {
       title: t(`${p}.sections.facility.title`),
       icon: <Building2 className="h-5 w-5 text-primary-600" />,
       content: (
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="space-y-6">
+          {/* Facility Certification Logos */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 flex flex-col items-center">
+              <ClickableImage 
+                src="/imgs/cert/cert-ISO9001.webp" 
+                alt="ISO 9001 Quality Management Certification" 
+                className="h-16 w-auto mb-2"
+                caption="ISO 9001"
+              />
+              <span className="text-xs text-center text-neutral-600">ISO 9001</span>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 flex flex-col items-center">
+              <ClickableImage 
+                src="/imgs/cert/cert-ISO14001-cert.webp" 
+                alt="ISO 14001 Environmental Management Certification" 
+                className="h-16 w-auto mb-2"
+                caption="ISO 14001"
+              />
+              <span className="text-xs text-center text-neutral-600">ISO 14001</span>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 flex flex-col items-center">
+              <ClickableImage 
+                src="/imgs/cert/cert-brc.webp" 
+                alt="BRC Packaging Certification" 
+                className="h-16 w-auto mb-2"
+                caption="BRC Packaging"
+              />
+              <span className="text-xs text-center text-neutral-600">BRC Packaging</span>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 flex flex-col items-center">
+              <ClickableImage 
+                src="/imgs/cert/cert-fsc.png" 
+                alt="FSC Forest Stewardship Council Certification" 
+                className="h-16 w-auto mb-2"
+                caption="FSC Certified"
+              />
+              <span className="text-xs text-center text-neutral-600">FSC</span>
+            </div>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-white p-6 rounded-xl border border-neutral-200 hover:shadow-md transition-shadow">
             <h4 className="font-semibold text-lg mb-2 text-primary-700 flex items-center gap-2">
               <Award className="h-5 w-5 text-primary-600" />
@@ -165,6 +289,7 @@ const CertificatesPage = () => {
             </h4>
             <p className="text-neutral-600">{t(`${p}.sections.facility.sedex.desc`)}</p>
           </div>
+        </div>
         </div>
       )
     },

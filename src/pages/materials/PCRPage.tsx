@@ -3,6 +3,7 @@ import { Recycle, CheckCircle, Shield, Award, Factory, MessageCircle } from 'luc
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import ClickableImage from '../../components/ClickableImage'
 
 const PCRPage: React.FC = () => {
   const { t } = useTranslation()
@@ -80,6 +81,21 @@ const PCRPage: React.FC = () => {
       icon: <Award className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
+          {/* GRS Certification Logo */}
+          <div className="flex items-center gap-6 bg-emerald-50 p-4 rounded-lg border border-emerald-200 mb-4">
+            <ClickableImage 
+              src="/imgs/cert/cert-pcr-grs.webp" 
+              alt="GRS Global Recycled Standard Certification" 
+              className="h-24 w-auto"
+              caption="GRS Certified"
+            />
+            <div>
+              <h4 className="font-semibold text-emerald-800 mb-1">Global Recycled Standard (GRS)</h4>
+              <p className="text-sm text-emerald-700">Our PCR materials are GRS certified, ensuring traceability of recycled content throughout the supply chain. This certification verifies the recycled content percentage and responsible production practices.</p>
+              <p className="text-xs text-emerald-600 mt-2"><strong>Brand Usage:</strong> GRS certification enables brands to make verified recycled content claims on their packaging and marketing materials.</p>
+            </div>
+          </div>
+          
           <div className="grid md:grid-cols-2 gap-4">
             <div className="border border-blue-200 rounded-lg p-4">
               <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.certifications.grs.title`)}</h4>

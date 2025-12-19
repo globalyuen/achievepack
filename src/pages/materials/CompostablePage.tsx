@@ -3,6 +3,7 @@ import { Leaf, Shield, Award, CheckCircle, Globe, Recycle, MessageCircle } from 
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import ClickableImage from '../../components/ClickableImage'
 
 const CompostablePage: React.FC = () => {
   const { t } = useTranslation()
@@ -92,31 +93,78 @@ const CompostablePage: React.FC = () => {
       title: t(`${p}.sections.certifications.title`),
       icon: <Award className="h-5 w-5 text-primary-600" />,
       content: (
-        <div className="space-y-4 text-neutral-700">
+        <div className="space-y-6 text-neutral-700">
           <p>{t(`${p}.sections.certifications.intro`)}</p>
+          
+          {/* Certification Logos Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 my-6">
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 flex flex-col items-center">
+              <ClickableImage 
+                src="/imgs/cert/logo-compostable-seed.png" 
+                alt="Seedling Logo - OK Compost Certified" 
+                className="h-20 w-auto mb-2"
+                caption="Seedling Logo"
+              />
+              <span className="text-xs text-center text-neutral-600">EU Seedling</span>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 flex flex-col items-center">
+              <ClickableImage 
+                src="/imgs/cert/logo-achievepack-BPI.jpg" 
+                alt="BPI Certified Compostable - Achieve Pack" 
+                className="h-20 w-auto mb-2"
+                caption="BPI Certified"
+              />
+              <span className="text-xs text-center text-neutral-600">US BPI</span>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 flex flex-col items-center">
+              <ClickableImage 
+                src="/imgs/cert/cert-din-home-compost.png" 
+                alt="DIN CERTCO Home Compostable Certification" 
+                className="h-20 w-auto mb-2"
+                caption="Home Compostable"
+              />
+              <span className="text-xs text-center text-neutral-600">Home Compost</span>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 flex flex-col items-center">
+              <ClickableImage 
+                src="/imgs/cert/cert-ABA-as5810.png" 
+                alt="ABA AS5810 Australian Biodegradable Certification" 
+                className="h-20 w-auto mb-2"
+                caption="AS5810 Australia"
+              />
+              <span className="text-xs text-center text-neutral-600">AU AS5810</span>
+            </div>
+          </div>
           
           <div className="space-y-4 mt-4">
             <div className="flex items-start gap-4 bg-neutral-50 p-4 rounded-lg">
               <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center border border-neutral-200 flex-shrink-0">
-                <span className="text-2xl font-bold text-primary-600">{t(`${p}.sections.certifications.eu.label`)}</span>
+                <img src="/imgs/cert/logo-compostable-seed.png" alt="Seedling Logo" className="h-12 w-auto" />
               </div>
               <div>
                 <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.certifications.eu.title`)}</h4>
                 <p className="text-sm">{t(`${p}.sections.certifications.eu.desc`)}</p>
+                <p className="text-xs text-primary-600 mt-1"><strong>Artwork Usage:</strong> Brands using our compostable materials can display the Seedling logo on their packaging to communicate eco-credentials to consumers.</p>
               </div>
             </div>
-            <div className="flex items-start gap-4 bg-neutral-50 p-4 rounded-lg">
+            <div className="flex items-start gap-4 bg-blue-50 p-4 rounded-lg border border-blue-200">
               <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center border border-neutral-200 flex-shrink-0">
-                <span className="text-2xl font-bold text-blue-600">{t(`${p}.sections.certifications.us.label`)}</span>
+                <img src="/imgs/cert/logo-achievepack-BPI.jpg" alt="BPI Certified" className="h-12 w-auto" />
               </div>
               <div>
                 <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.certifications.us.title`)}</h4>
                 <p className="text-sm">{t(`${p}.sections.certifications.us.desc`)}</p>
+                <div className="mt-2 p-3 bg-white rounded-lg border border-blue-100">
+                  <p className="text-xs text-blue-800"><strong>⚠️ BPI Logo Usage:</strong> The BPI logo is granted to Achieve Pack as the certified manufacturer. If your brand wants to display the BPI logo on your packaging, you must <strong>apply for a sub-license</strong> through BPI.</p>
+                  <a href="https://products.bpiworld.org/companies/achieve-pack-company" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-blue-600 hover:underline mt-2">
+                    → View Achieve Pack BPI Certification Online
+                  </a>
+                </div>
               </div>
             </div>
             <div className="flex items-start gap-4 bg-neutral-50 p-4 rounded-lg">
               <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center border border-neutral-200 flex-shrink-0">
-                <span className="text-2xl font-bold text-emerald-600">{t(`${p}.sections.certifications.au.label`)}</span>
+                <img src="/imgs/cert/cert-ABA-as5810.png" alt="AS5810 Certified" className="h-12 w-auto" />
               </div>
               <div>
                 <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.certifications.au.title`)}</h4>

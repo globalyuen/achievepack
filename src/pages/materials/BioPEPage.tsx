@@ -1,8 +1,9 @@
 import React from 'react'
-import { Leaf, Recycle, CheckCircle, Globe, Sprout, MessageCircle } from 'lucide-react'
+import { Leaf, Recycle, CheckCircle, Globe, Sprout, MessageCircle, Award } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import ClickableImage from '../../components/ClickableImage'
 
 const BioPEPage: React.FC = () => {
   const { t } = useTranslation()
@@ -17,6 +18,22 @@ const BioPEPage: React.FC = () => {
           <p>
             <strong>{t(`${p}.sections.overview.intro`)}</strong>
           </p>
+          
+          {/* I'm Green Logo Section */}
+          <div className="flex items-center gap-6 bg-green-50 p-4 rounded-lg border border-green-200 my-4">
+            <ClickableImage 
+              src="/imgs/cert/logo-imgreen-biope.png" 
+              alt="I'm Green Bio-based Polyethylene Logo by Braskem" 
+              className="h-24 w-auto"
+              caption="I'm Green™ by Braskem"
+            />
+            <div>
+              <h4 className="font-semibold text-green-800 mb-1">I'm Green™ Bio-based Polyethylene</h4>
+              <p className="text-sm text-green-700">Our Bio-PE is sourced from Braskem's I'm Green™ sugarcane-based polyethylene. This logo can be displayed on your packaging to communicate sustainable sourcing to consumers.</p>
+              <p className="text-xs text-green-600 mt-2"><strong>Artwork Usage:</strong> Brands using our Bio-PE materials can display the I'm Green logo on their packaging upon verification of material sourcing.</p>
+            </div>
+          </div>
+          
           <div className="bg-green-50 p-4 rounded-lg mt-4">
             <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sections.overview.keyBenefits`)}</h4>
             <ul className="space-y-1 text-sm text-green-700">
