@@ -1493,6 +1493,17 @@ ${formData.message}`
               </ul>
             </div>
 
+            {/* Structure Specs */}
+            <div>
+              <h4 className="text-sm font-semibold mb-2">Structure Specs</h4>
+              <ul className="space-y-1 text-neutral-400 text-xs">
+                <li><Link to="/spec/pcr-pet-duplex-clear" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">PCR Structures</Link></li>
+                <li><Link to="/spec/mono-pe-duplex-clear" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">Mono PE/PP</Link></li>
+                <li><Link to="/spec/bio-cello-duplex-clear" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">Compostable Bio</Link></li>
+                <li><Link to="/spec/biope-pet-duplex-clear" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">Bio-PE Structures</Link></li>
+              </ul>
+            </div>
+
             {/* Support */}
             <div>
               <h4 className="text-sm font-semibold mb-2">{t('footer.support')}</h4>

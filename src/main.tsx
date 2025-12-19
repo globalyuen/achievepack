@@ -105,6 +105,47 @@ import USACoffeePage from './pages/usa/USACoffeePage'
 import USASnacksPage from './pages/usa/USASnacksPage'
 import USALabelingGuidePage from './pages/usa/USALabelingGuidePage'
 
+// Spec Pages - Material Structures
+import PcrPetDuplexClearPage from './pages/spec/PcrPetDuplexClearPage'
+import PcrPpDuplexClearPage from './pages/spec/PcrPpDuplexClearPage'
+import PcrPetKraftTriplexClearPage from './pages/spec/PcrPetKraftTriplexClearPage'
+import PcrPpKraftTriplexClearPage from './pages/spec/PcrPpKraftTriplexClearPage'
+import PcrPetDuplexNoWindowPage from './pages/spec/PcrPetDuplexNoWindowPage'
+import PcrPpDuplexNoWindowPage from './pages/spec/PcrPpDuplexNoWindowPage'
+import PcrPetTriplexMetalisedPage from './pages/spec/PcrPetTriplexMetalisedPage'
+import PcrPpTriplexMetalisedPage from './pages/spec/PcrPpTriplexMetalisedPage'
+import PcrKraftVmpetPage from './pages/spec/PcrKraftVmpetPage'
+import PcrPetTriplexAluminumPage from './pages/spec/PcrPetTriplexAluminumPage'
+import PcrPpTriplexAluminumPage from './pages/spec/PcrPpTriplexAluminumPage'
+import PcrPetKraftQuadlexAluminumPage from './pages/spec/PcrPetKraftQuadlexAluminumPage'
+import PcrPpKraftQuadlexAluminumPage from './pages/spec/PcrPpKraftQuadlexAluminumPage'
+import PcrKraftDuplexLowPage from './pages/spec/PcrKraftDuplexLowPage'
+import MonoPeDuplexClearPage from './pages/spec/MonoPeDuplexClearPage'
+import MonoPpDuplexClearPage from './pages/spec/MonoPpDuplexClearPage'
+import MonoPeDuplexNoWindowPage from './pages/spec/MonoPeDuplexNoWindowPage'
+import MonoPpDuplexNoWindowPage from './pages/spec/MonoPpDuplexNoWindowPage'
+import BioCelloDuplexClearPage from './pages/spec/BioCelloDuplexClearPage'
+import BioCelloTriplexHighestPage from './pages/spec/BioCelloTriplexHighestPage'
+import BioCelloTriplexMetalisedPage from './pages/spec/BioCelloTriplexMetalisedPage'
+import BioKraftVmCelloPage from './pages/spec/BioKraftVmCelloPage'
+import BioKraftPbatLowPage from './pages/spec/BioKraftPbatLowPage'
+
+// BioPE Spec Pages - Plant-Based Bio-PE Structures
+import BioPePetDuplexClearPage from './pages/spec/BioPePetDuplexClearPage'
+import BioPePpDuplexClearPage from './pages/spec/BioPePpDuplexClearPage'
+import BioPePetKraftTriplexClearPage from './pages/spec/BioPePetKraftTriplexClearPage'
+import BioPePpKraftTriplexClearPage from './pages/spec/BioPePpKraftTriplexClearPage'
+import BioPePetDuplexNoWindowPage from './pages/spec/BioPePetDuplexNoWindowPage'
+import BioPePpDuplexNoWindowPage from './pages/spec/BioPePpDuplexNoWindowPage'
+import BioPePetTriplexMetalisedPage from './pages/spec/BioPePetTriplexMetalisedPage'
+import BioPePpTriplexMetalisedPage from './pages/spec/BioPePpTriplexMetalisedPage'
+import BioPeKraftVmpetPage from './pages/spec/BioPeKraftVmpetPage'
+import BioPePetTriplexAluminumPage from './pages/spec/BioPePetTriplexAluminumPage'
+import BioPePpTriplexAluminumPage from './pages/spec/BioPePpTriplexAluminumPage'
+import BioPePetKraftQuadlexAluminumPage from './pages/spec/BioPePetKraftQuadlexAluminumPage'
+import BioPePpKraftQuadlexAluminumPage from './pages/spec/BioPePpKraftQuadlexAluminumPage'
+import BioPeKraftDuplexLowPage from './pages/spec/BioPeKraftDuplexLowPage'
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <HelmetProvider>
@@ -208,6 +249,47 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/usa/coffee-packaging" element={<USACoffeePage />} />
               <Route path="/usa/snacks-packaging" element={<USASnacksPage />} />
               <Route path="/usa/labeling-guide" element={<USALabelingGuidePage />} />
+
+              {/* Spec Pages - Material Structures */}
+              <Route path="/spec/pcr-pet-duplex-clear" element={<PcrPetDuplexClearPage />} />
+              <Route path="/spec/pcr-pp-duplex-clear" element={<PcrPpDuplexClearPage />} />
+              <Route path="/spec/pcr-pet-kraft-triplex-clear" element={<PcrPetKraftTriplexClearPage />} />
+              <Route path="/spec/pcr-pp-kraft-triplex-clear" element={<PcrPpKraftTriplexClearPage />} />
+              <Route path="/spec/pcr-pet-duplex-nowindow" element={<PcrPetDuplexNoWindowPage />} />
+              <Route path="/spec/pcr-pp-duplex-nowindow" element={<PcrPpDuplexNoWindowPage />} />
+              <Route path="/spec/pcr-pet-triplex-metalised" element={<PcrPetTriplexMetalisedPage />} />
+              <Route path="/spec/pcr-pp-triplex-metalised" element={<PcrPpTriplexMetalisedPage />} />
+              <Route path="/spec/pcr-kraft-vmpet" element={<PcrKraftVmpetPage />} />
+              <Route path="/spec/pcr-pet-triplex-aluminum" element={<PcrPetTriplexAluminumPage />} />
+              <Route path="/spec/pcr-pp-triplex-aluminum" element={<PcrPpTriplexAluminumPage />} />
+              <Route path="/spec/pcr-pet-kraft-quadlex-aluminum" element={<PcrPetKraftQuadlexAluminumPage />} />
+              <Route path="/spec/pcr-pp-kraft-quadlex-aluminum" element={<PcrPpKraftQuadlexAluminumPage />} />
+              <Route path="/spec/pcr-kraft-duplex-low" element={<PcrKraftDuplexLowPage />} />
+              <Route path="/spec/mono-pe-duplex-clear" element={<MonoPeDuplexClearPage />} />
+              <Route path="/spec/mono-pp-duplex-clear" element={<MonoPpDuplexClearPage />} />
+              <Route path="/spec/mono-pe-duplex-nowindow" element={<MonoPeDuplexNoWindowPage />} />
+              <Route path="/spec/mono-pp-duplex-nowindow" element={<MonoPpDuplexNoWindowPage />} />
+              <Route path="/spec/bio-cello-duplex-clear" element={<BioCelloDuplexClearPage />} />
+              <Route path="/spec/bio-cello-triplex-highest" element={<BioCelloTriplexHighestPage />} />
+              <Route path="/spec/bio-cello-triplex-metalised" element={<BioCelloTriplexMetalisedPage />} />
+              <Route path="/spec/bio-kraft-vm-cello" element={<BioKraftVmCelloPage />} />
+              <Route path="/spec/bio-kraft-pbat-low" element={<BioKraftPbatLowPage />} />
+
+              {/* BioPE Spec Pages - Plant-Based Bio-PE Structures */}
+              <Route path="/spec/biope-pet-duplex-clear" element={<BioPePetDuplexClearPage />} />
+              <Route path="/spec/biope-pp-duplex-clear" element={<BioPePpDuplexClearPage />} />
+              <Route path="/spec/biope-pet-kraft-triplex-clear" element={<BioPePetKraftTriplexClearPage />} />
+              <Route path="/spec/biope-pp-kraft-triplex-clear" element={<BioPePpKraftTriplexClearPage />} />
+              <Route path="/spec/biope-pet-duplex-nowindow" element={<BioPePetDuplexNoWindowPage />} />
+              <Route path="/spec/biope-pp-duplex-nowindow" element={<BioPePpDuplexNoWindowPage />} />
+              <Route path="/spec/biope-pet-triplex-metalised" element={<BioPePetTriplexMetalisedPage />} />
+              <Route path="/spec/biope-pp-triplex-metalised" element={<BioPePpTriplexMetalisedPage />} />
+              <Route path="/spec/biope-kraft-vmpet" element={<BioPeKraftVmpetPage />} />
+              <Route path="/spec/biope-pet-triplex-aluminum" element={<BioPePetTriplexAluminumPage />} />
+              <Route path="/spec/biope-pp-triplex-aluminum" element={<BioPePpTriplexAluminumPage />} />
+              <Route path="/spec/biope-pet-kraft-quadlex-aluminum" element={<BioPePetKraftQuadlexAluminumPage />} />
+              <Route path="/spec/biope-pp-kraft-quadlex-aluminum" element={<BioPePpKraftQuadlexAluminumPage />} />
+              <Route path="/spec/biope-kraft-duplex-low" element={<BioPeKraftDuplexLowPage />} />
             </Routes>
               {/* Global Floating Buttons - WhatsApp & Meeting */}
               <FloatingButtons />

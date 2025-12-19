@@ -27,6 +27,8 @@ interface SEOPageLayoutProps {
   heroSubtitle: string
   heroImage?: string
   heroImageAlt?: string
+  heroLogo?: string
+  heroLogoAlt?: string
   
   // Intro/Summary (Answer-first approach)
   introSummary: string
@@ -75,6 +77,8 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   heroSubtitle,
   heroImage,
   heroImageAlt,
+  heroLogo,
+  heroLogoAlt,
   introSummary,
   sections,
   faqs,
@@ -247,6 +251,15 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
               {/* Hero Content - Left */}
               <div className="md:py-16">
                 <div className="rounded-xl p-6 md:p-8" style={{ backgroundColor: 'rgba(21, 128, 61, 0.85)', backdropFilter: 'blur(8px)' }}>
+                  {heroLogo && (
+                    <div className="mb-4">
+                      <img 
+                        src={heroLogo} 
+                        alt={heroLogoAlt || 'Eco Certification'} 
+                        className="h-16 w-auto bg-white rounded-lg p-2 shadow-md"
+                      />
+                    </div>
+                  )}
                   <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
                     {heroTitle}
                   </h1>
@@ -548,6 +561,17 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                   <li><Link to="/usa/coffee-packaging" onClick={scrollToTop} className="hover:text-primary-400">Coffee Packaging</Link></li>
                   <li><Link to="/usa/snacks-packaging" onClick={scrollToTop} className="hover:text-primary-400">Snacks Packaging</Link></li>
                   <li><Link to="/usa/labeling-guide" onClick={scrollToTop} className="hover:text-primary-400">Labeling Guide</Link></li>
+                </ul>
+              </div>
+
+              {/* Structure Specs */}
+              <div>
+                <h4 className="font-semibold text-sm mb-2">Structure Specs</h4>
+                <ul className="space-y-1 text-xs text-neutral-400">
+                  <li><Link to="/spec/pcr-pet-duplex-clear" onClick={scrollToTop} className="hover:text-primary-400">PCR Structures</Link></li>
+                  <li><Link to="/spec/mono-pe-duplex-clear" onClick={scrollToTop} className="hover:text-primary-400">Mono PE/PP</Link></li>
+                  <li><Link to="/spec/bio-cello-duplex-clear" onClick={scrollToTop} className="hover:text-primary-400">Compostable Bio</Link></li>
+                  <li><Link to="/spec/biope-pet-duplex-clear" onClick={scrollToTop} className="hover:text-primary-400">Bio-PE Structures</Link></li>
                 </ul>
               </div>
               
