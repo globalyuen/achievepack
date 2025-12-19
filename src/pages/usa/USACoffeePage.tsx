@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Coffee, Leaf, Shield, CheckCircle, Clock, TrendingUp, MessageCircle, Award } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
+import ClickableImage from '../../components/ClickableImage'
 
 const USACoffeePage: React.FC = () => {
   const sections = [
@@ -28,6 +29,16 @@ const USACoffeePage: React.FC = () => {
           <p className="mt-4">
             <Link to="/" className="text-primary-600 hover:underline">Achieve Pack</Link> offers ASTM D6400 certified compostable coffee pouches with degassing valves, perfect for US specialty roasters who want to lead on sustainability without compromising on product protection.
           </p>
+          
+          {/* Inline Image */}
+          <div className="mt-6">
+            <ClickableImage 
+              src="/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp" 
+              alt="Specialty coffee packaging pouches for US roasters" 
+              className="w-full rounded-lg shadow-md"
+              caption="Premium compostable coffee packaging designed for US specialty roasters"
+            />
+          </div>
         </div>
       )
     },
@@ -67,6 +78,16 @@ const USACoffeePage: React.FC = () => {
           <p className="text-sm mt-4">
             <strong>Need high barrier for extended shelf life?</strong> Consider our <Link to="/materials/recyclable-mono-pe" className="text-primary-600 hover:underline">recyclable mono-PE pouches</Link> as an alternative.
           </p>
+          
+          {/* Technical Specs Image */}
+          <div className="mt-6">
+            <ClickableImage 
+              src="/imgs/seo-photos/usa/coffee/a_coffee_pouch_technical_specs_5693348.webp" 
+              alt="Coffee pouch technical specifications and barrier properties" 
+              className="w-full rounded-lg shadow-md"
+              caption="Technical specifications for compostable coffee pouches"
+            />
+          </div>
         </div>
       )
     },
@@ -136,6 +157,16 @@ const USACoffeePage: React.FC = () => {
           <p className="text-sm mt-4">
             <Link to="/case-studies/coffee-roastery" className="text-primary-600 hover:underline font-semibold">Read the full case study →</Link>
           </p>
+          
+          {/* Sustainability Guide Image */}
+          <div className="mt-6">
+            <ClickableImage 
+              src="/imgs/seo-photos/usa/coffee/a_coffee_sustainability_roaster_guide_0801372.webp" 
+              alt="Sustainability guide for coffee roasters" 
+              className="w-full rounded-lg shadow-md"
+              caption="Complete sustainability guide for US coffee roasters"
+            />
+          </div>
         </div>
       )
     },

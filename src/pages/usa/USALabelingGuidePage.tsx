@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { FileCheck, AlertTriangle, CheckCircle, Shield, MapPin, MessageCircle, BookOpen, Scale } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
+import ClickableImage from '../../components/ClickableImage'
 
 const USALabelingGuidePage: React.FC = () => {
   const sections = [
@@ -28,6 +29,16 @@ const USALabelingGuidePage: React.FC = () => {
           <p className="mt-4">
             <Link to="/" className="text-primary-600 hover:underline">Achieve Pack</Link> provides compliant compostable packaging and design guidance to help your brand meet all US labeling requirements.
           </p>
+          
+          {/* FDA Labeling Checklist Image */}
+          <div className="mt-6">
+            <ClickableImage 
+              src="/imgs/seo-photos/usa/label/a_fda_labeling_compliance_checklist_8653787.webp" 
+              alt="FDA labeling compliance checklist for compostable packaging" 
+              className="w-full rounded-lg shadow-md"
+              caption="FDA labeling compliance checklist for US compostable packaging"
+            />
+          </div>
         </div>
       )
     },
@@ -67,6 +78,16 @@ const USALabelingGuidePage: React.FC = () => {
               <li>✓ BPI Certified Compostable logo (recommended)</li>
               <li>✓ Green or brown tint (if not using "Compostable" text prominently)</li>
             </ul>
+          </div>
+          
+          {/* Digital Labeling Strategy Image */}
+          <div className="mt-6">
+            <ClickableImage 
+              src="/imgs/seo-photos/usa/label/a_digital_labeling_strategy_0282148.webp" 
+              alt="Digital labeling strategy for sustainable packaging" 
+              className="w-full rounded-lg shadow-md"
+              caption="Digital labeling strategy for California compliant packaging"
+            />
           </div>
         </div>
       )
@@ -196,6 +217,16 @@ const USALabelingGuidePage: React.FC = () => {
             <p className="text-sm">
               <strong>Need help with your label design?</strong> Achieve Pack's team can review your artwork and provide guidance to ensure compliance with US labeling requirements. <Link to="/store" className="text-primary-600 hover:underline font-semibold">Contact us →</Link>
             </p>
+          </div>
+          
+          {/* Label Design Best Practices Image */}
+          <div className="mt-6">
+            <ClickableImage 
+              src="/imgs/seo-photos/usa/label/a_labeling_design_best_practices_0279886.webp" 
+              alt="Labeling design best practices for compostable packaging" 
+              className="w-full rounded-lg shadow-md"
+              caption="Best practices for designing compliant compostable packaging labels"
+            />
           </div>
         </div>
       )

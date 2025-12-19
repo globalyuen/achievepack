@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Leaf, Shield, Award, CheckCircle, Globe, MapPin, FileCheck, AlertTriangle, MessageCircle, Package, Coffee, Cookie } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
+import ClickableImage from '../../components/ClickableImage'
 
 const USACompostableHubPage: React.FC = () => {
   const sections = [
@@ -29,6 +30,16 @@ const USACompostableHubPage: React.FC = () => {
           <p className="mt-4">
             With growing consumer demand and new state regulations on plastic packaging, compostable pouches offer US food and beverage brands a genuine path to sustainability that resonates with eco-conscious consumers.
           </p>
+          
+          {/* Inline Image */}
+          <div className="mt-6">
+            <ClickableImage 
+              src="/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp" 
+              alt="Certified compostable packaging showcase for US brands" 
+              className="w-full rounded-lg shadow-md"
+              caption="ASTM D6400 certified compostable packaging solutions for US market"
+            />
+          </div>
         </div>
       )
     },
@@ -72,6 +83,16 @@ const USACompostableHubPage: React.FC = () => {
           <p className="text-sm mt-4">
             <strong>Not sure which type?</strong> <Link to="/blog/compostable-stand-up-pouch-guide-food-beverage" className="text-primary-600 hover:underline">Read our complete guide to choosing compostable pouches →</Link>
           </p>
+          
+          {/* Sustainability Guide Image */}
+          <div className="mt-6">
+            <ClickableImage 
+              src="/imgs/seo-photos/usa/hub/a_sustainability_labeling_guide_7131825.webp" 
+              alt="Sustainability labeling guide for compostable packaging" 
+              className="w-full rounded-lg shadow-md"
+              caption="Complete sustainability labeling guide for US compostable packaging"
+            />
+          </div>
         </div>
       )
     },
@@ -150,6 +171,16 @@ const USACompostableHubPage: React.FC = () => {
           <p className="text-sm mt-4">
             <strong>Alternative:</strong> If composting infrastructure is limited in your market, consider our <Link to="/materials/recyclable-mono-pe" className="text-primary-600 hover:underline">recyclable mono-PE pouches</Link> which work with existing recycling systems.
           </p>
+          
+          {/* Compliance Requirements Image */}
+          <div className="mt-6">
+            <ClickableImage 
+              src="/imgs/seo-photos/usa/hub/a_label_compliance_requirements_0902238.webp" 
+              alt="US label compliance requirements for compostable packaging" 
+              className="w-full rounded-lg shadow-md"
+              caption="Label compliance requirements for US compostable packaging"
+            />
+          </div>
         </div>
       )
     },

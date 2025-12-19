@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Cookie, Leaf, Shield, CheckCircle, Clock, TrendingUp, MessageCircle, Award, ShoppingBag } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
+import ClickableImage from '../../components/ClickableImage'
 
 const USASnacksPage: React.FC = () => {
   const sections = [
@@ -28,6 +29,16 @@ const USASnacksPage: React.FC = () => {
           <p className="mt-4">
             <Link to="/" className="text-primary-600 hover:underline">Achieve Pack</Link> offers ASTM D6400 certified compostable snack pouches with resealable zippers, ideal for organic and natural snack brands targeting the US market.
           </p>
+          
+          {/* Hero Snacks Image */}
+          <div className="mt-6">
+            <ClickableImage 
+              src="/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp" 
+              alt="Sustainable snacks packaging for US brands" 
+              className="w-full rounded-lg shadow-md"
+              caption="Compostable snack packaging designed for US natural food brands"
+            />
+          </div>
         </div>
       )
     },
@@ -99,6 +110,16 @@ const USASnacksPage: React.FC = () => {
           <p className="text-sm mt-4">
             <strong>Need a clear window?</strong> Our <Link to="/materials/home-compostable" className="text-primary-600 hover:underline">NatureFlex™ home compostable film</Link> offers product visibility while remaining fully compostable.
           </p>
+          
+          {/* Pouch Format Comparison Image */}
+          <div className="mt-6">
+            <ClickableImage 
+              src="/imgs/seo-photos/usa/snack/a_snacks_pouch_format_comparison_8281669.webp" 
+              alt="Snacks pouch format comparison chart" 
+              className="w-full rounded-lg shadow-md"
+              caption="Compare different pouch formats for snack packaging"
+            />
+          </div>
         </div>
       )
     },
@@ -166,6 +187,16 @@ const USASnacksPage: React.FC = () => {
           <p className="text-sm mt-4">
             <Link to="/case-studies/natural-snacks-brand" className="text-primary-600 hover:underline font-semibold">Read the full case study →</Link>
           </p>
+          
+          {/* Sustainability Guide Image */}
+          <div className="mt-6">
+            <ClickableImage 
+              src="/imgs/seo-photos/usa/snack/a_snacks_brand_sustainability_guide_7868632.webp" 
+              alt="Sustainability guide for snack brands" 
+              className="w-full rounded-lg shadow-md"
+              caption="Complete sustainability guide for US snack brands"
+            />
+          </div>
         </div>
       )
     },

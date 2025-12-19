@@ -196,7 +196,7 @@ const CoffeeTeaPage: React.FC = () => {
     },
     {
       question: "Are your coffee pouches truly compostable?",
-      answer: "Yes, our kraft paper + PLA pouches are certified compostable under EN 13432 and ASTM D6400 standards. They break down within 90-180 days in commercial composting facilities. We provide certification documentation upon request for your sustainability claims."
+      answer: "Yes, our kraft paper + PLA pouches are certified compostable under EN 13432 and ASTM D6400 standards. They break down within 90-180 days in commercial composting facilities."
     },
     {
       question: "What is the minimum order quantity for custom printed coffee bags?",
