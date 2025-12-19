@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Leaf, Shield, Award, CheckCircle, Globe, MapPin, FileCheck, AlertTriangle, MessageCircle, Package, Coffee, Cookie } from 'lucide-react'
+import { Leaf, Shield, Award, CheckCircle, Globe, MapPin, FileCheck, AlertTriangle, MessageCircle, Package, Coffee, Cookie, Target, Calendar, Phone, Download, Mail } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
+import { useCalendly } from '../../contexts/CalendlyContext'
 
 const USACompostableHubPage: React.FC = () => {
+  const { openCalendly } = useCalendly()
   const sections = [
     {
       id: 'overview',
@@ -292,6 +294,111 @@ const USACompostableHubPage: React.FC = () => {
               <li>• "California compliant compostable food packaging supplier"</li>
               <li>• "Compostable stand up pouches for organic snacks in the US"</li>
             </ul>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'scenario-trigger',
+      title: 'Is This Page For You?',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-lg border border-green-200">
+          <p className="text-lg font-medium text-neutral-900 mb-4">
+            If you are a <strong>US-based food brand</strong> looking for certified compostable packaging that meets state regulations—you're in the right place.
+          </p>
+          <div className="grid md:grid-cols-3 gap-4 mt-4">
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">Natural Food Brands</h4>
+              <p className="text-sm text-neutral-600 mt-1">Targeting Whole Foods, Sprouts, Natural Grocers</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">California Sellers</h4>
+              <p className="text-sm text-neutral-600 mt-1">Need AB 1201 & SB 343 compliant packaging</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">Startups & Small Batch</h4>
+              <p className="text-sm text-neutral-600 mt-1">MOQ from 100 pieces for testing</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'risk-hedge',
+      title: 'Still Not Sure? We Have Answers',
+      icon: <Shield className="h-5 w-5 text-amber-600" />,
+      content: (
+        <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-lg border border-amber-200">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">"Is it really compostable?"</h4>
+                  <p className="text-sm text-neutral-600">ASTM D6400 + BPI certification—the highest US standards</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">"Will it meet California laws?"</h4>
+                  <p className="text-sm text-neutral-600">Full compliance with AB 1201 & SB 343 labeling</p>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">"How long to ship to USA?"</h4>
+                  <p className="text-sm text-neutral-600">15-20 business days door-to-door delivery</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">"Can I test before bulk order?"</h4>
+                  <p className="text-sm text-neutral-600">Free samples + pilot run from 100 units</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'decision-cta',
+      title: 'Ready to Get Started?',
+      icon: <Package className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-gradient-to-br from-primary-500 to-primary-700 text-white p-8 rounded-xl">
+          <h3 className="text-2xl font-bold mb-6 text-center">Choose How You'd Like to Connect</h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
+              <Calendar className="h-8 w-8 mx-auto mb-3" />
+              <h4 className="font-semibold mb-2">Book a Call</h4>
+              <p className="text-sm text-white/80 mb-4">30-min free consultation</p>
+              <button onClick={openCalendly} className="w-full bg-white text-primary-600 px-4 py-2 rounded-lg font-semibold hover:bg-primary-50 transition cursor-pointer">
+                Schedule Now
+              </button>
+            </div>
+            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
+              <Mail className="h-8 w-8 mx-auto mb-3" />
+              <h4 className="font-semibold mb-2">Email Quote</h4>
+              <p className="text-sm text-white/80 mb-4">Get response within 24hrs</p>
+              <a href="mailto:ryan@achievepack.com?subject=USA Compostable Packaging Quote" className="block w-full bg-white text-primary-600 px-4 py-2 rounded-lg font-semibold hover:bg-primary-50 transition">
+                Send Email
+              </a>
+            </div>
+            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
+              <Download className="h-8 w-8 mx-auto mb-3" />
+              <h4 className="font-semibold mb-2">Free Samples</h4>
+              <p className="text-sm text-white/80 mb-4">Test materials first</p>
+              <Link to="/contact" className="block w-full bg-white text-primary-600 px-4 py-2 rounded-lg font-semibold hover:bg-primary-50 transition">
+                Request Samples
+              </Link>
+            </div>
           </div>
         </div>
       )

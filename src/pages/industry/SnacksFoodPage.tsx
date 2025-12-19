@@ -1,13 +1,41 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Package, Leaf, Shield, CheckCircle, Zap, MessageCircle } from 'lucide-react'
+import { Package, Leaf, Shield, CheckCircle, Zap, MessageCircle, Target, Calendar, Phone, Download, Mail } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
+import { useCalendly } from '../../contexts/CalendlyContext'
 
 const SnacksFoodPage: React.FC = () => {
   const { t } = useTranslation()
+  const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.snacksFood'
   const sections = [
+    {
+      id: 'scenario-trigger',
+      title: 'Is This Page For You?',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-gradient-to-r from-orange-50 to-amber-50 p-6 rounded-lg border border-orange-200">
+          <p className="text-lg font-medium text-neutral-900 mb-4">
+            If you are a <strong>snack brand, confectionery maker, or dried food producer</strong> looking for sustainable packaging that keeps products fresh—you're in the right place.
+          </p>
+          <div className="grid md:grid-cols-3 gap-4 mt-4">
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">Chips & Snacks Brands</h4>
+              <p className="text-sm text-neutral-600 mt-1">Grease-resistant, high-barrier pouches for crunchy products</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">Granola & Cereal Makers</h4>
+              <p className="text-sm text-neutral-600 mt-1">Resealable stand-up pouches with clear windows</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-neutral-900">Dried Fruit & Nuts</h4>
+              <p className="text-sm text-neutral-600 mt-1">High-barrier protection against moisture and oxidation</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
     {
       id: 'overview',
       title: 'Snacks & Food Packaging Solutions',
@@ -215,6 +243,85 @@ const SnacksFoodPage: React.FC = () => {
           </div>
           
           <p className="mt-4">Learn from other snack brands: <Link to="/case-studies/organic-nuts" className="text-primary-600 hover:underline font-semibold">Organic Nuts Case Study →</Link></p>
+        </div>
+      )
+    },
+    {
+      id: 'risk-hedge',
+      title: 'Still Not Sure? We Have Answers',
+      icon: <Shield className="h-5 w-5 text-amber-600" />,
+      content: (
+        <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-lg border border-amber-200">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">"Can I test before bulk order?"</h4>
+                  <p className="text-sm text-neutral-600">Free samples + pilot run from 100 units for testing</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">"Will it keep snacks fresh?"</h4>
+                  <p className="text-sm text-neutral-600">High-barrier films (OTR {'<'} 1.0) with 6-12 month shelf life</p>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">"Do you ship to USA?"</h4>
+                  <p className="text-sm text-neutral-600">DDP shipping with 20-25 day delivery door-to-door</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-neutral-900">"What if I need food safety docs?"</h4>
+                  <p className="text-sm text-neutral-600">FDA, EU 10/2011, BRC certificates provided with every order</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'decision-cta',
+      title: 'Ready to Get Started?',
+      icon: <Package className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-gradient-to-br from-primary-500 to-primary-700 text-white p-8 rounded-xl">
+          <h3 className="text-2xl font-bold mb-6 text-center">Choose How You'd Like to Connect</h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
+              <Calendar className="h-8 w-8 mx-auto mb-3" />
+              <h4 className="font-semibold mb-2">Book a Call</h4>
+              <p className="text-sm text-white/80 mb-4">30-min free consultation</p>
+              <button onClick={openCalendly} className="w-full bg-white text-primary-600 px-4 py-2 rounded-lg font-semibold hover:bg-primary-50 transition cursor-pointer">
+                Schedule Now
+              </button>
+            </div>
+            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
+              <Mail className="h-8 w-8 mx-auto mb-3" />
+              <h4 className="font-semibold mb-2">Email Quote</h4>
+              <p className="text-sm text-white/80 mb-4">Get response within 24hrs</p>
+              <a href="mailto:ryan@achievepack.com?subject=Snack Packaging Quote Request" className="block w-full bg-white text-primary-600 px-4 py-2 rounded-lg font-semibold hover:bg-primary-50 transition">
+                Send Email
+              </a>
+            </div>
+            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
+              <Download className="h-8 w-8 mx-auto mb-3" />
+              <h4 className="font-semibold mb-2">Free Samples</h4>
+              <p className="text-sm text-white/80 mb-4">Test materials first</p>
+              <Link to="/contact" className="block w-full bg-white text-primary-600 px-4 py-2 rounded-lg font-semibold hover:bg-primary-50 transition">
+                Request Samples
+              </Link>
+            </div>
+          </div>
         </div>
       )
     }
