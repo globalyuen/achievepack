@@ -93,9 +93,20 @@ const PackagingAssistantWidget: React.FC = () => {
   }
 
   const quickQuestions = [
+    // Pricing & MOQ
     "What's the MOQ?",
+    "How much for 500 pouches?",
+    // Product Types
     "Coffee pouch options?",
+    "Stand up pouch sizes?",
+    "Flat bottom bag for coffee?",
+    // Materials
     "Compostable materials?",
+    "High barrier options?",
+    "Eco-friendly pouches?",
+    // Samples
+    "How to order samples?",
+    "Sample pack price?",
   ]
 
   const handleQuickQuestion = (q: string) => {
@@ -207,14 +218,14 @@ const PackagingAssistantWidget: React.FC = () => {
 
           {/* Quick Questions (show only at start) */}
           {messages.length <= 1 && (
-            <div className="px-4 py-2 bg-neutral-50 border-t border-neutral-100 flex-shrink-0">
-              <p className="text-[10px] text-neutral-400 mb-2">Quick questions:</p>
+            <div className="px-4 py-3 bg-neutral-50 border-t border-neutral-100 flex-shrink-0 max-h-32 overflow-y-auto">
+              <p className="text-[10px] text-neutral-500 mb-2 font-medium">💡 Popular questions:</p>
               <div className="flex flex-wrap gap-1.5">
                 {quickQuestions.map((q) => (
                   <button
                     key={q}
                     onClick={() => handleQuickQuestion(q)}
-                    className="text-[11px] bg-white border border-neutral-200 text-neutral-700 px-2.5 py-1 rounded-full hover:bg-blue-50 hover:border-blue-200 hover:text-blue-700 transition"
+                    className="text-[11px] bg-white border border-neutral-200 text-neutral-700 px-2.5 py-1.5 rounded-full hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700 transition-all shadow-sm hover:shadow"
                   >
                     {q}
                   </button>
