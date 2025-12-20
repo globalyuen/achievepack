@@ -3,6 +3,7 @@ import { Layers, Shield, Leaf, CheckCircle, MessageCircle, Package, Recycle, Eye
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import ClickableImage from '../../components/ClickableImage'
+import SortableMaterialStructuresTable, { MONO_PE_PP_STRUCTURES } from '../../components/SortableMaterialStructuresTable'
 
 const MonoPeDuplexClearPage: React.FC = () => {
   const structureName = 'PE60 / PE60 (PE Duplex)'
@@ -16,36 +17,11 @@ const MonoPeDuplexClearPage: React.FC = () => {
       title: 'All Mono-Material Structures at a Glance',
       icon: <Layers className="h-5 w-5 text-primary-600" />,
       content: (
-        <div className="space-y-6 text-neutral-700">
-          <p className="text-sm text-neutral-600">Compare all 4 recyclable mono-material structures with images and key characteristics:</p>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {[
-              { name: 'Mono PE Clear', img: '/imgs/spec/mono-pe-duplex-clear.webp', url: '/spec/mono-pe-duplex-clear', otr: '<300', wvtr: '<10', feature: 'PE Recyclable', material: 'PE60/PE60' },
-              { name: 'Mono PE Opaque', img: '/imgs/spec/mono-pe-duplex-nowindow.webp', url: '/spec/mono-pe-duplex-nowindow', otr: '<300', wvtr: '<10', feature: 'Opaque PE', material: 'PE60/PE60' },
-              { name: 'Mono PP Clear', img: '/imgs/spec/mono-pp-duplex-clear.webp', url: '/spec/mono-pp-duplex-clear', otr: '<1500', wvtr: '<5', feature: 'PP Recyclable', material: 'PP60/PP60' },
-              { name: 'Mono PP Opaque', img: '/imgs/spec/mono-pp-duplex-nowindow.webp', url: '/spec/mono-pp-duplex-nowindow', otr: '<1500', wvtr: '<5', feature: 'Opaque PP', material: 'PP60/PP60' }
-            ].map((item, idx) => (
-              <Link key={idx} to={item.url} className="group bg-white border-2 border-blue-200 rounded-lg p-3 hover:border-blue-400 hover:shadow-lg transition-all">
-                <img src={item.img} alt={item.name} className="w-full h-24 object-cover rounded mb-3" />
-                <p className="text-sm font-semibold text-blue-800 group-hover:text-blue-600">{item.name}</p>
-                <p className="text-[10px] text-neutral-500 mb-2">{item.material}</p>
-                <div className="flex justify-between text-xs text-neutral-600 mb-2">
-                  <span>OTR: {item.otr}</span>
-                  <span>WVTR: {item.wvtr}</span>
-                </div>
-                <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded inline-block">{item.feature}</span>
-              </Link>
-            ))}
-          </div>
-          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-            <h4 className="font-semibold text-blue-800 mb-2">Why Choose Mono-Material?</h4>
-            <div className="grid sm:grid-cols-3 gap-3 text-sm">
-              <div className="bg-white p-2 rounded flex items-center gap-2"><Recycle className="h-4 w-4 text-blue-500" /><span>100% Recyclable</span></div>
-              <div className="bg-white p-2 rounded flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /><span>How2Recycle Eligible</span></div>
-              <div className="bg-white p-2 rounded flex items-center gap-2"><Eye className="h-4 w-4 text-blue-500" /><span>Window Capable</span></div>
-            </div>
-          </div>
-        </div>
+        <SortableMaterialStructuresTable
+          structures={MONO_PE_PP_STRUCTURES}
+          title="All Mono PE/PP Structures - Sortable & Filterable"
+          categoryColor="green"
+        />
       )
     },
     {

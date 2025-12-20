@@ -1703,6 +1703,17 @@ ${formData.message}`
                 <li><Link to="/store" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">Online Store</Link></li>
               </ul>
             </div>
+
+            {/* Knowledge */}
+            <div>
+              <h4 className="text-sm font-semibold mb-2">Knowledge</h4>
+              <ul className="space-y-1 text-neutral-400 text-xs">
+                <li><Link to="/knowledge/pouch-sizing" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">Pouch Sizing Guide</Link></li>
+                <li><Link to="/knowledge/size-guide" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">Size Reference</Link></li>
+                <li><Link to="/knowledge/all-options" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">All Options</Link></li>
+                <li><Link to="/knowledge/printing-types" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">Printing Types</Link></li>
+              </ul>
+            </div>
           </div>
 
           <div className="border-t border-neutral-800 mt-6 pt-4 flex flex-col md:flex-row justify-between items-center gap-2">

@@ -3,6 +3,7 @@ import { Layers, Shield, Leaf, CheckCircle, MessageCircle, Package, Sprout, Eye 
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import ClickableImage from '../../components/ClickableImage'
+import SortableMaterialStructuresTable, { COMPOSTABLE_STRUCTURES } from '../../components/SortableMaterialStructuresTable'
 
 const BioCelloDuplexClearPage: React.FC = () => {
   const structureName = 'High Barrier Cellulose or PLA 25gsm / PBAT60 (Cello Duplex)'
@@ -16,39 +17,11 @@ const BioCelloDuplexClearPage: React.FC = () => {
       title: 'All Compostable Structures at a Glance',
       icon: <Layers className="h-5 w-5 text-primary-600" />,
       content: (
-        <div className="space-y-6 text-neutral-700">
-          <p className="text-sm text-neutral-600">Compare all 5 certified compostable structures with images and key characteristics:</p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-            {[
-              { name: 'Cello Duplex Clear', img: '/imgs/spec/bio-cello-duplex-clear.webp', url: '/spec/bio-cello-duplex-clear', otr: '<5', wvtr: '<10', feature: 'Window', cert: 'TUV/BPI' },
-              { name: 'Kraft PBAT Low', img: '/imgs/spec/bio-kraft-pbat-low.webp', url: '/spec/bio-kraft-pbat-low', otr: '<20', wvtr: '<25', feature: 'Natural', cert: 'TUV/BPI' },
-              { name: 'Cello Triplex High', img: '/imgs/spec/bio-cello-triplex-highest.webp', url: '/spec/bio-cello-triplex-highest', otr: '<1', wvtr: '<5', feature: 'High Barrier', cert: 'TUV/BPI' },
-              { name: 'Cello Metalised', img: '/imgs/spec/bio-cello-triplex-metalised.webp', url: '/spec/bio-cello-triplex-metalised', otr: '<1', wvtr: '<1', feature: 'Metalised', cert: 'TUV/BPI' },
-              { name: 'Kraft VM Cello', img: '/imgs/spec/bio-kraft-vm-cello.webp', url: '/spec/bio-kraft-vm-cello', otr: '<1', wvtr: '<3', feature: 'Kraft+High', cert: 'TUV/BPI' }
-            ].map((item, idx) => (
-              <Link key={idx} to={item.url} className="group bg-white border-2 border-green-200 rounded-lg p-2 hover:border-green-400 hover:shadow-lg transition-all">
-                <img src={item.img} alt={item.name} className="w-full h-20 object-cover rounded mb-2" />
-                <p className="text-xs font-semibold text-green-800 group-hover:text-green-600">{item.name}</p>
-                <div className="flex justify-between text-[10px] text-neutral-500 mt-1">
-                  <span>OTR: {item.otr}</span>
-                  <span>WVTR: {item.wvtr}</span>
-                </div>
-                <div className="flex gap-1 mt-1">
-                  <span className="text-[10px] bg-green-100 text-green-700 px-1 rounded">{item.feature}</span>
-                  <span className="text-[10px] bg-amber-100 text-amber-700 px-1 rounded">{item.cert}</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-          <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-            <h4 className="font-semibold text-green-800 mb-2">Compostable Quick Guide</h4>
-            <div className="grid sm:grid-cols-3 gap-3 text-sm">
-              <div className="bg-white p-2 rounded flex items-center gap-2"><Sprout className="h-4 w-4 text-green-500" /><span>Industrial Compost</span></div>
-              <div className="bg-white p-2 rounded flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /><span>TUV/BPI Certified</span></div>
-              <div className="bg-white p-2 rounded flex items-center gap-2"><Eye className="h-4 w-4 text-green-500" /><span>Window Options</span></div>
-            </div>
-          </div>
-        </div>
+        <SortableMaterialStructuresTable
+          structures={COMPOSTABLE_STRUCTURES}
+          title="All Compostable Structures - Sortable & Filterable"
+          categoryColor="green"
+        />
       )
     },
     {

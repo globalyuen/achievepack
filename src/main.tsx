@@ -76,6 +76,7 @@ import CertificatesPage from './pages/company/CertificatesPage'
 // Knowledge Pages
 import AllOptionsPage from './pages/knowledge/AllOptionsPage'
 import SizeGuidePage from './pages/knowledge/SizeGuidePage'
+import PouchSizingPage from './pages/knowledge/PouchSizingPage'
 import PrintingTypesPage from './pages/knowledge/PrintingTypesPage'
 import WorkflowPage from './pages/knowledge/WorkflowPage'
 
@@ -233,6 +234,7 @@ createRoot(document.getElementById('root')!).render(
               {/* Knowledge Pages */}
               <Route path="/knowledge/all-options" element={<AllOptionsPage />} />
               <Route path="/knowledge/size-guide" element={<SizeGuidePage />} />
+              <Route path="/knowledge/pouch-sizing" element={<PouchSizingPage />} />
               <Route path="/knowledge/printing-types" element={<PrintingTypesPage />} />
               <Route path="/knowledge/workflow" element={<WorkflowPage />} />
 

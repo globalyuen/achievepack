@@ -3,6 +3,7 @@ import { Layers, Shield, Recycle, Leaf, CheckCircle, MessageCircle, Package } fr
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import ClickableImage from '../../components/ClickableImage'
+import SortableMaterialStructuresTable, { PCR_STRUCTURES } from '../../components/SortableMaterialStructuresTable'
 
 const PcrPetDuplexClearPage: React.FC = () => {
   const structureName = 'KPET12 / 30% PCR-PE (PET Duplex)'
@@ -19,45 +20,11 @@ const PcrPetDuplexClearPage: React.FC = () => {
       title: 'All PCR Structures at a Glance',
       icon: <Layers className="h-5 w-5 text-primary-600" />,
       content: (
-        <div className="space-y-6 text-neutral-700">
-          <p className="text-sm text-neutral-600">Compare all 14 PCR structures with images, barrier levels, and key characteristics:</p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-            {[
-              { name: 'PET Duplex Clear', img: '/imgs/spec/pcr-pet-duplex-clear.webp', url: '/spec/pcr-pet-duplex-clear', otr: '<8', wvtr: '<12', feature: 'Window' },
-              { name: 'PP Duplex Clear', img: '/imgs/spec/pcr-pp-duplex-clear.webp', url: '/spec/pcr-pp-duplex-clear', otr: '<1500', wvtr: '<5', feature: 'Best Moisture' },
-              { name: 'PET Kraft Triplex', img: '/imgs/spec/pcr-pet-kraft-triplex-clear.webp', url: '/spec/pcr-pet-kraft-triplex-clear', otr: '<8', wvtr: '<10', feature: 'Natural+Window' },
-              { name: 'PP Kraft Triplex', img: '/imgs/spec/pcr-pp-kraft-triplex-clear.webp', url: '/spec/pcr-pp-kraft-triplex-clear', otr: '<1500', wvtr: '<4', feature: 'Kraft+Moisture' },
-              { name: 'PET No Window', img: '/imgs/spec/pcr-pet-duplex-nowindow.webp', url: '/spec/pcr-pet-duplex-nowindow', otr: '<8', wvtr: '<12', feature: 'Light Barrier' },
-              { name: 'PP No Window', img: '/imgs/spec/pcr-pp-duplex-nowindow.webp', url: '/spec/pcr-pp-duplex-nowindow', otr: '<1500', wvtr: '<5', feature: 'Moisture+Light' },
-              { name: 'PET Metalised', img: '/imgs/spec/pcr-pet-triplex-metalised.webp', url: '/spec/pcr-pet-triplex-metalised', otr: '<1', wvtr: '<1', feature: 'High Barrier' },
-              { name: 'PP Metalised', img: '/imgs/spec/pcr-pp-triplex-metalised.webp', url: '/spec/pcr-pp-triplex-metalised', otr: '<1', wvtr: '<0.5', feature: 'Best Moist+High' },
-              { name: 'Kraft VMPET', img: '/imgs/spec/pcr-kraft-vmpet.webp', url: '/spec/pcr-kraft-vmpet', otr: '<1', wvtr: '<1', feature: 'Natural+High' },
-              { name: 'PET Aluminum', img: '/imgs/spec/pcr-pet-triplex-aluminum.webp', url: '/spec/pcr-pet-triplex-aluminum', otr: '<0.5', wvtr: '<0.5', feature: 'Ultimate' },
-              { name: 'PP Aluminum', img: '/imgs/spec/pcr-pp-triplex-aluminum.webp', url: '/spec/pcr-pp-triplex-aluminum', otr: '<0.5', wvtr: '<0.3', feature: 'Ultimate+Moist' },
-              { name: 'PET Kraft Quadlex', img: '/imgs/spec/pcr-pet-kraft-quadlex-aluminum.webp', url: '/spec/pcr-pet-kraft-quadlex-aluminum', otr: '<0.5', wvtr: '<0.5', feature: 'Premium Natural' },
-              { name: 'PP Kraft Quadlex', img: '/imgs/spec/pcr-pp-kraft-quadlex-aluminum.webp', url: '/spec/pcr-pp-kraft-quadlex-aluminum', otr: '<0.5', wvtr: '<0.3', feature: 'Ultimate Natural' },
-              { name: 'Kraft Duplex Low', img: '/imgs/spec/pcr-kraft-duplex-low.webp', url: '/spec/pcr-kraft-duplex-low', otr: '<2000', wvtr: '<15', feature: 'Budget Kraft' }
-            ].map((item, idx) => (
-              <Link key={idx} to={item.url} className="group bg-white border rounded-lg p-2 hover:border-blue-400 hover:shadow-md transition-all">
-                <img src={item.img} alt={item.name} className="w-full h-20 object-cover rounded mb-2" />
-                <p className="text-xs font-semibold text-blue-800 group-hover:text-blue-600 truncate">{item.name}</p>
-                <div className="flex justify-between text-[10px] text-neutral-500 mt-1">
-                  <span>OTR: {item.otr}</span>
-                  <span>WVTR: {item.wvtr}</span>
-                </div>
-                <span className="text-[10px] bg-blue-100 text-blue-700 px-1 rounded mt-1 inline-block">{item.feature}</span>
-              </Link>
-            ))}
-          </div>
-          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-            <h4 className="font-semibold text-blue-800 mb-2">Quick Selection Guide</h4>
-            <div className="grid sm:grid-cols-3 gap-3 text-sm">
-              <div className="bg-white p-2 rounded"><strong>Need Window?</strong> PET/PP Duplex Clear</div>
-              <div className="bg-white p-2 rounded"><strong>Best Moisture?</strong> PP structures</div>
-              <div className="bg-white p-2 rounded"><strong>Max Barrier?</strong> Aluminum options</div>
-            </div>
-          </div>
-        </div>
+        <SortableMaterialStructuresTable
+          structures={PCR_STRUCTURES}
+          title="All 14 PCR Structures - Sortable & Filterable"
+          categoryColor="blue"
+        />
       )
     },
     {
