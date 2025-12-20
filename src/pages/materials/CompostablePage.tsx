@@ -169,7 +169,7 @@ const CompostablePage: React.FC = () => {
           <div className="space-y-4 mt-4">
             <div className="flex items-start gap-4 bg-neutral-50 p-4 rounded-lg">
               <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center border border-neutral-200 flex-shrink-0">
-                <img src="/imgs/cert/logo-compostable-seed.png" alt="Seedling Logo" className="h-12 w-auto" />
+                <ClickableImage src="/imgs/cert/logo-compostable-seed.png" alt="Seedling Logo" className="h-12 w-auto" caption="EU Seedling Logo" />
               </div>
               <div>
                 <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.certifications.eu.title`)}</h4>
@@ -179,7 +179,7 @@ const CompostablePage: React.FC = () => {
             </div>
             <div className="flex items-start gap-4 bg-blue-50 p-4 rounded-lg border border-blue-200">
               <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center border border-neutral-200 flex-shrink-0">
-                <img src="/imgs/cert/logo-achievepack-BPI.jpg" alt="BPI Certified" className="h-12 w-auto" />
+                <ClickableImage src="/imgs/cert/logo-achievepack-BPI.jpg" alt="BPI Certified" className="h-12 w-auto" caption="BPI Certification" />
               </div>
               <div>
                 <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.certifications.us.title`)}</h4>
@@ -194,7 +194,7 @@ const CompostablePage: React.FC = () => {
             </div>
             <div className="flex items-start gap-4 bg-neutral-50 p-4 rounded-lg">
               <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center border border-neutral-200 flex-shrink-0">
-                <img src="/imgs/cert/cert-ABA-as5810.png" alt="AS5810 Certified" className="h-12 w-auto" />
+                <ClickableImage src="/imgs/cert/cert-ABA-as5810.png" alt="AS5810 Certified" className="h-12 w-auto" caption="AS5810 Australian Certification" />
               </div>
               <div>
                 <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.certifications.au.title`)}</h4>
