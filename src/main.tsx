@@ -7,6 +7,7 @@ import { StoreProvider } from './store/StoreContext'
 import { CalendlyProvider } from './contexts/CalendlyContext'
 import CartSidebar from './components/store/CartSidebar'
 import FloatingButtons from './components/FloatingButtons'
+import PackagingAssistantWidget from './components/PackagingAssistantWidget'
 import GeoBlocker from './components/GeoBlocker'
 import './index.css'
 import './i18n'
@@ -309,6 +310,8 @@ createRoot(document.getElementById('root')!).render(
             </Routes>
               {/* Global Floating Buttons - WhatsApp & Meeting */}
               <FloatingButtons />
+              {/* AI Packaging Assistant Chat Widget */}
+              <PackagingAssistantWidget />
               </CalendlyProvider>
           </StoreProvider>
         </BrowserRouter>
