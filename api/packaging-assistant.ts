@@ -1,28 +1,36 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 
 // ============ PRODUCT CATALOG ============
+// Synced with productData.ts - Use correct product IDs
 const PRODUCT_CATALOG = [
-  // Sample Products
-  { id: 'sample-eco-mixed', name: 'Eco Material Sample Pack', category: 'sample', basePrice: 25, moq: 1, description: 'Mixed eco-friendly materials: Kraft, Mono PE, BioPE, Compostable', materials: ['Kraft', 'Mono PE', 'BioPE', 'Compostable'] },
-  { id: 'sample-compostable', name: 'Compostable Sample Pack', category: 'sample', basePrice: 25, moq: 1, description: 'Home and industrial compostable options' },
-  { id: 'sample-conventional', name: 'Conventional Sample Pack', category: 'sample', basePrice: 15, moq: 1, description: 'Standard pouch samples with different finishes' },
+  // Sample Products (from productData.ts)
+  { id: 'sample-sizing-pack', name: 'Sizing Pack', category: 'sample', basePrice: 40, moq: 1, description: '7 different pouch sizes to test before ordering. Perfect for finding the right fit.', materials: ['Mono PE'], bestFor: ['testing', 'sizing'] },
+  { id: 'sample-assorted-eco', name: 'Assorted Eco Pouches Sample', category: 'sample', basePrice: 40, moq: 1, description: 'Explore our eco-friendly materials: PCR, Bio-based, Recyclable, Compostable pouches.', materials: ['PCR', 'BioPE', 'Mono PE', 'Compostable'], bestFor: ['eco', 'sustainable'] },
+  { id: 'sample-top-film', name: 'Custom Digital Printed Top Film', category: 'sample', basePrice: 60, moq: 1, description: 'Sample of custom printed top sealing film for trays.', materials: ['PET/PE'], bestFor: ['lidding', 'trays'] },
+  { id: 'sample-hand-sealed', name: 'Custom Digital Printed Hand Sealed Pouches', category: 'sample', basePrice: 60, moq: 1, description: 'Sample of custom printed heat-sealed pouches.', materials: ['Various'], bestFor: ['sachets', 'samples'] },
   
-  // Conventional Digital Products
-  { id: 'conven-3ss-clear-xzip', name: '3 Side Seal Pouch – Clear', category: 'conventional-digital', basePrice: 90, moq: 100, description: 'Flat pouch ideal for samples and sachets', shape: '3-side-seal', turnaround: '2-3 weeks' },
-  { id: 'conven-3ss-clear-zip', name: 'Zipper 3 Side Seal Pouch – Clear', category: 'conventional-digital', basePrice: 100, moq: 100, description: 'Flat resealable pouch', shape: 'zipper-3-side-seal', turnaround: '2-3 weeks' },
-  { id: 'conven-sup-clear-xzip', name: 'Stand Up Pouch – Clear', category: 'conventional-digital', basePrice: 90, moq: 100, description: 'Clear stand-up pouch with shelf presence', shape: 'stand-up', turnaround: '2-3 weeks' },
-  { id: 'conven-sup-clear-zip', name: 'Stand Up Pouch – Clear, With Zipper', category: 'conventional-digital', basePrice: 100, moq: 100, description: 'Resealable clear stand-up pouch. Best seller.', shape: 'zipper-stand-up', turnaround: '2-3 weeks' },
-  { id: 'conven-sup-met-zip', name: 'Stand Up Pouch – Metalised, With Zipper', category: 'conventional-digital', basePrice: 100, moq: 100, description: 'Premium metalised stand-up pouch with high barrier. Best for coffee.', shape: 'zipper-stand-up', turnaround: '2-3 weeks' },
+  // Conventional Digital Products (correct IDs from productData.ts)
+  { id: 'conven-3ss-clear-xzip', name: '3 Side Seal Pouch – Clear', category: 'conventional-digital', basePrice: 90, moq: 100, description: 'Clear flat pouch for samples and sachets. Low barrier.', shape: '3-side-seal', turnaround: '2-3 weeks', barrier: 'low', bestFor: ['samples', 'sachets', 'dry goods'] },
+  { id: 'conven-3ss-clear-zip', name: '3 Side Seal Pouch – Clear, With Zipper', category: 'conventional-digital', basePrice: 100, moq: 100, description: 'Clear flat resealable pouch. Low barrier.', shape: '3-side-seal', turnaround: '2-3 weeks', barrier: 'low', bestFor: ['samples', 'sachets'] },
+  { id: 'conven-3ss-met-xzip', name: '3 Side Seal Pouch – Metalised', category: 'conventional-digital', basePrice: 95, moq: 100, description: 'Metalised flat pouch with high barrier for moisture/oxygen sensitive products.', shape: '3-side-seal', turnaround: '2-3 weeks', barrier: 'high', bestFor: ['coffee', 'tea', 'snacks'] },
+  { id: 'conven-3ss-met-zip', name: '3 Side Seal Pouch – Metalised, With Zipper', category: 'conventional-digital', basePrice: 105, moq: 100, description: 'Metalised resealable flat pouch with high barrier.', shape: '3-side-seal', turnaround: '2-3 weeks', barrier: 'high', bestFor: ['coffee', 'tea', 'snacks'] },
+  { id: 'conven-sup-clear-xzip', name: 'Stand Up Pouch – Clear', category: 'conventional-digital', basePrice: 90, moq: 100, description: 'Clear stand-up pouch with excellent shelf presence.', shape: 'stand-up', turnaround: '2-3 weeks', barrier: 'low', bestFor: ['snacks', 'candy', 'dry goods'] },
+  { id: 'conven-sup-clear-zip', name: 'Stand Up Pouch – Clear, With Zipper', category: 'conventional-digital', basePrice: 100, moq: 100, description: 'Resealable clear stand-up pouch. Best seller for snacks.', shape: 'stand-up', turnaround: '2-3 weeks', barrier: 'low', bestFor: ['snacks', 'candy', 'granola'] },
+  { id: 'conven-sup-met-xzip', name: 'Stand Up Pouch – Metalised', category: 'conventional-digital', basePrice: 95, moq: 100, description: 'Metalised stand-up pouch with high barrier protection.', shape: 'stand-up', turnaround: '2-3 weeks', barrier: 'high', bestFor: ['coffee', 'tea', 'nuts'] },
+  { id: 'conven-sup-met-zip', name: 'Stand Up Pouch – Metalised, With Zipper', category: 'conventional-digital', basePrice: 100, moq: 100, description: 'Premium metalised stand-up pouch with zipper. HIGH BARRIER - Best for coffee, tea, and moisture-sensitive products.', shape: 'stand-up', turnaround: '2-3 weeks', barrier: 'high', bestFor: ['coffee', 'tea', 'snacks', 'nuts', 'dried fruit'] },
   
-  // Eco Digital Products
-  { id: 'eco-3side', name: 'Eco Digital – 3 Side Seal Pouch', category: 'eco-digital', basePrice: 100, moq: 1000, description: 'Eco-friendly 3-side seal. PCR/Bio Plastic, Mono Recyclable, or Compostable materials.', materials: ['Mono PE', 'PCR', 'BioPE', 'Compostable'], turnaround: '3-4 weeks' },
-  { id: 'eco-standup', name: 'Eco Digital – Stand Up Pouch', category: 'eco-digital', basePrice: 120, moq: 1000, description: 'Premium eco stand-up pouch. Most popular eco option.', materials: ['Mono PE', 'PCR', 'BioPE', 'Compostable'], turnaround: '3-4 weeks' },
-  { id: 'eco-flatbottom', name: 'Eco Digital – Flat Bottom Pouch', category: 'eco-digital', basePrice: 170, moq: 1000, description: 'Eco flat bottom with excellent shelf stability. Great for coffee.', materials: ['Kraft Paper', 'Mono PE', 'Compostable'], turnaround: '3-4 weeks' },
-  { id: 'eco-sidegusset', name: 'Eco Digital – Side Gusset Pouch', category: 'eco-digital', basePrice: 150, moq: 1000, description: 'Traditional coffee bag style with eco materials.', materials: ['Kraft Paper', 'Mono PE', 'Compostable'], turnaround: '3-4 weeks' },
+  // Eco Digital Products (correct IDs from productData.ts)
+  { id: 'eco-3side', name: 'Eco Digital – 3 Side Seal Pouch', category: 'eco-digital', basePrice: 100, moq: 1000, description: 'Eco-friendly 3-side seal flat pouch. Available in PCR, BioPE, Mono PE, Compostable.', materials: ['Mono PE', 'PCR', 'BioPE', 'Compostable'], turnaround: '3-4 weeks', bestFor: ['samples', 'sachets'] },
+  { id: 'eco-centerseal', name: 'Eco Digital – Center Seal Pouch', category: 'eco-digital', basePrice: 110, moq: 1000, description: 'Traditional pillow-style eco pouch. Center seal design.', materials: ['Mono PE', 'PCR', 'BioPE'], turnaround: '3-4 weeks', bestFor: ['snacks', 'candy'] },
+  { id: 'eco-standup', name: 'Eco Digital – Stand Up Pouch', category: 'eco-digital', basePrice: 120, moq: 1000, description: 'Premium eco stand-up pouch. Most popular eco option for retail.', materials: ['Mono PE', 'PCR', 'BioPE', 'Compostable'], turnaround: '3-4 weeks', bestFor: ['snacks', 'granola', 'pet treats'] },
+  { id: 'eco-boxbottom', name: 'Eco Digital – Box Bottom Pouch', category: 'eco-digital', basePrice: 160, moq: 1000, description: 'Square bottom eco pouch with premium shelf presence. Great for coffee.', materials: ['Kraft Paper', 'Mono PE', 'Compostable'], turnaround: '3-4 weeks', barrier: 'high', bestFor: ['coffee', 'tea', 'premium products'] },
+  { id: 'eco-flatbottom', name: 'Eco Digital – Flat Bottom Pouch', category: 'eco-digital', basePrice: 170, moq: 1000, description: 'Eco flat bottom bag with excellent shelf stability. Premium look for coffee and tea.', materials: ['Kraft Paper', 'Mono PE', 'Compostable'], turnaround: '3-4 weeks', barrier: 'high', bestFor: ['coffee', 'tea', 'granola', 'premium snacks'] },
+  { id: 'eco-sidegusset', name: 'Eco Digital – Side Gusset Pouch', category: 'eco-digital', basePrice: 150, moq: 1000, description: 'Classic coffee bag style with eco materials. Traditional look.', materials: ['Kraft Paper', 'Mono PE', 'Compostable'], turnaround: '3-4 weeks', barrier: 'high', bestFor: ['coffee', 'tea', 'beans', 'rice'] },
+  { id: 'eco-quad', name: 'Eco Digital – Quad Seal Pouch', category: 'eco-digital', basePrice: 155, moq: 1000, description: 'Four-corner sealed eco pouch for maximum shelf impact.', materials: ['Kraft Paper', 'Mono PE'], turnaround: '3-4 weeks', bestFor: ['pet food', 'bulk products'] },
   
-  // Eco Stock Products
-  { id: 'eco-stock-header', name: 'Stock Compostable Header Bag', category: 'eco-stock', basePrice: 42, moq: 400, description: 'Ready-made compostable with hang hole. Ships in 3-5 days.', materials: ['Compostable'], inStock: true },
-  { id: 'eco-stock-mailer', name: 'Stock Compostable Mailer Bag', category: 'eco-stock', basePrice: 42, moq: 400, description: 'Compostable shipping mailer. Ships in 3-5 days.', materials: ['Compostable'], inStock: true },
+  // Eco Stock Products (correct IDs from productData.ts)
+  { id: 'eco-stock-header', name: 'Stock Compostable Header Bag', category: 'eco-stock', basePrice: 42, moq: 100, description: 'Ready-made compostable bag with hang hole. Ships in 3-5 days. Perfect for retail display.', materials: ['Compostable'], inStock: true, turnaround: '3-5 days', bestFor: ['retail', 'display', 'quick ship'] },
+  { id: 'eco-stock-mailer', name: 'Stock Compostable Mailer Bag', category: 'eco-stock', basePrice: 42, moq: 100, description: 'Compostable shipping mailer for eco-conscious e-commerce. Ships in 3-5 days.', materials: ['Compostable'], inStock: true, turnaround: '3-5 days', bestFor: ['shipping', 'e-commerce', 'mailers'] },
 ]
 
 // FAQ Knowledge Base
@@ -42,12 +50,54 @@ const FAQ_KNOWLEDGE = [
 // ============ RETRIEVAL LAYER ============
 function findRelevantProducts(question: string): typeof PRODUCT_CATALOG {
   const q = question.toLowerCase()
+  
+  // Special handling for coffee/high barrier queries - prioritize best matches
+  if (q.includes('coffee') || q.includes('roast') || q.includes('bean') || 
+      q.includes('high barrier') || q.includes('moisture') || q.includes('freshness')) {
+    const coffeeProducts = PRODUCT_CATALOG.filter(p => 
+      (p as any).bestFor?.some((b: string) => ['coffee', 'tea'].includes(b)) ||
+      (p as any).barrier === 'high' ||
+      p.description.toLowerCase().includes('coffee')
+    )
+    if (coffeeProducts.length > 0) return coffeeProducts.slice(0, 5)
+  }
+  
+  // Special handling for eco/compostable queries
+  if (q.includes('eco') || q.includes('sustainable') || q.includes('compostable') || 
+      q.includes('recyclable') || q.includes('green') || q.includes('biodegradable')) {
+    const ecoProducts = PRODUCT_CATALOG.filter(p => 
+      p.category.includes('eco') ||
+      (p as any).materials?.some((m: string) => 
+        ['Compostable', 'BioPE', 'PCR', 'Mono PE'].includes(m)
+      )
+    )
+    if (ecoProducts.length > 0) return ecoProducts.slice(0, 5)
+  }
+  
+  // Special handling for sample queries
+  if (q.includes('sample') || q.includes('test') || q.includes('try')) {
+    return PRODUCT_CATALOG.filter(p => p.category === 'sample').slice(0, 4)
+  }
+  
+  // General keyword matching with scoring
   const keywords = q.split(/\s+/).filter(w => w.length > 2)
   
-  return PRODUCT_CATALOG.filter(product => {
-    const searchText = `${product.name} ${product.description} ${product.category} ${(product as any).materials?.join(' ') || ''} ${(product as any).shape || ''}`.toLowerCase()
-    return keywords.some(kw => searchText.includes(kw))
-  }).slice(0, 5)
+  const scored = PRODUCT_CATALOG.map(product => {
+    const searchText = `${product.name} ${product.description} ${product.category} ${(product as any).materials?.join(' ') || ''} ${(product as any).shape || ''} ${(product as any).bestFor?.join(' ') || ''}`.toLowerCase()
+    let score = 0
+    keywords.forEach(kw => {
+      if (searchText.includes(kw)) score += 1
+      if (product.name.toLowerCase().includes(kw)) score += 2
+      if ((product as any).bestFor?.some((b: string) => b.includes(kw))) score += 3
+    })
+    return { product, score }
+  })
+  
+  return scored
+    .filter(s => s.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 5)
+    .map(s => s.product)
 }
 
 function findRelevantFAQs(question: string): string[] {

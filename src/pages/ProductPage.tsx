@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect, useTransition, useCallback } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn, MessageCircle } from 'lucide-react'
+import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn, MessageCircle, Package, Home } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct, type ConventionalProduct, type EcoStockProduct, type EcoStockSizeVariant, type EcoStockSizeWithQuantities, type EcoStockQuantityOption, PRICING_DATA, POUCH_SIZES, QUANTITY_OPTIONS } from '../store/productData'
 import { calculateEcoPrice, type EcoCalculatorSelections, getMaterialStructureInfo } from '../utils/ecoDigitalCalculator'
@@ -214,11 +214,79 @@ const ProductPage: React.FC = () => {
   }, [isEcoDigital, ecoProduct, selectedClosure, selectedSurface, selectedSize, product])
 
   if (!product) {
+    // Random banner for Product not found page
+    const BANNER_IMAGES = [
+      '/imgs/banner/a_achievepack_hero_3d_depth_5416790.webp',
+      '/imgs/banner/a_achievepack_hero_eco_nature_7180632.webp',
+      '/imgs/banner/a_achievepack_hero_flatlay_5941661.webp',
+      '/imgs/banner/a_achievepack_hero_gradient_eco_9331347.webp',
+      '/imgs/banner/a_achievepack_hero_shot_1_white_background_2665361.webp',
+    ]
+    const randomBanner = BANNER_IMAGES[Math.floor(Math.random() * BANNER_IMAGES.length)]
+    
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center">
-        <p className="text-xl mb-4">Product not found</p>
-        <Link to="/store" className="text-primary-600 hover:underline">Back to Store</Link>
-      </div>
+      <>
+        <Helmet>
+          <title>Product Not Found | Achieve Pack</title>
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
+        <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-neutral-100">
+          {/* Hero Banner */}
+          <div className="w-full h-48 md:h-64 overflow-hidden relative">
+            <img 
+              src={randomBanner} 
+              alt="Achieve Pack Eco Packaging" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-neutral-100/80"></div>
+          </div>
+          
+          {/* Content Card */}
+          <div className="max-w-2xl mx-auto px-4 -mt-16 relative z-10 pb-12">
+            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 text-center">
+              <div className="w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Package className="h-10 w-10 text-amber-600" />
+              </div>
+              <h1 className="text-3xl font-bold text-neutral-900 mb-4">Product Not Found</h1>
+              <p className="text-lg text-neutral-600 mb-8">
+                Sorry, this product doesn't exist or may have been moved to a new location.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                <Link 
+                  to="/store" 
+                  className="inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition"
+                >
+                  <ShoppingCart className="h-5 w-5" /> Browse Products
+                </Link>
+                <Link 
+                  to="/" 
+                  className="inline-flex items-center justify-center gap-2 bg-neutral-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-neutral-700 transition"
+                >
+                  <Home className="h-5 w-5" /> Back Home
+                </Link>
+              </div>
+              
+              {/* Popular Links */}
+              <div className="border-t border-neutral-200 pt-6">
+                <p className="text-sm text-neutral-500 mb-4">Popular Categories:</p>
+                <div className="flex flex-wrap gap-3 justify-center">
+                  <Link to="/materials/compostable" className="text-sm text-primary-600 hover:underline">
+                    Compostable Bags
+                  </Link>
+                  <span className="text-neutral-300">•</span>
+                  <Link to="/industry/coffee-tea" className="text-sm text-primary-600 hover:underline">
+                    Coffee Packaging
+                  </Link>
+                  <span className="text-neutral-300">•</span>
+                  <Link to="/packaging/stand-up-pouches" className="text-sm text-primary-600 hover:underline">
+                    Stand-Up Pouches
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
     )
   }
 
