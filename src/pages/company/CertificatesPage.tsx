@@ -161,7 +161,12 @@ const CertificatesPage = () => {
           
           <div className="bg-gradient-to-br from-primary-50 to-green-100 p-6 rounded-xl border border-primary-200">
             <div className="flex items-center gap-4 mb-4">
-              <img src="/imgs/pcr-grs-cert-1.webp" alt="GRS Certification" className="w-20 h-20 object-contain" />
+              <ClickableImage 
+                src="/imgs/pcr-grs-cert-1.webp" 
+                alt="GRS Certification" 
+                className="w-20 h-20 object-contain"
+                caption="GRS Certificate"
+              />
               <div>
                 <h4 className="font-semibold text-lg text-primary-800">{t(`${p}.sections.recyclability.grs.name`)}</h4>
                 <p className="text-primary-700">{t(`${p}.sections.recyclability.grs.desc`)}</p>
