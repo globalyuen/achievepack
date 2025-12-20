@@ -1018,7 +1018,7 @@ const ProductPage: React.FC = () => {
                   </div>
                   {selectedSizeVariant && (
                     <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
-                      <span className="font-medium">📐 Size: {ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)?.name || 'Standard'}</span>
+                      <span className="font-medium">📐 Size: {ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)?.label || 'Standard'}</span>
                     </div>
                   )}
                 </div>
