@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
-import { Package, Leaf, Recycle, Box, Shield, Layers, Printer, Star, Lock, Eye, Wrench, CheckCircle } from 'lucide-react';
+import { Package, Leaf, Recycle, Box, Shield, Printer, Star, Lock, Eye, Wrench, CheckCircle } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
+import { SortableOptionsTable, CLOSURE_OPTIONS, SURFACE_OPTIONS, ADDITIONAL_FEATURES, BARRIER_OPTIONS } from '../../components/SortableOptionsTable';
 
 const AllOptionsPage = () => {
   const { t } = useTranslation();
@@ -162,51 +163,12 @@ const AllOptionsPage = () => {
         <div className="space-y-4 text-neutral-700">
           <p>Choose barrier level based on your <strong>shelf life requirements</strong>:</p>
           
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
-            <div className="bg-gradient-to-b from-green-50 to-green-100 p-4 rounded-xl border border-green-200">
-              <div className="text-center">
-                <div className="w-12 h-12 bg-green-200 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <span className="text-green-700 font-bold">L</span>
-                </div>
-                <h4 className="font-semibold text-green-800">Low Barrier</h4>
-                <div className="text-2xl font-bold text-green-600 my-1">3-6 mo</div>
-                <p className="text-xs text-neutral-600">Dry goods, grains, paper-based</p>
-              </div>
-            </div>
-            
-            <div className="bg-gradient-to-b from-blue-50 to-blue-100 p-4 rounded-xl border border-blue-200">
-              <div className="text-center">
-                <div className="w-12 h-12 bg-blue-200 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <span className="text-blue-700 font-bold">M</span>
-                </div>
-                <h4 className="font-semibold text-blue-800">Medium Barrier</h4>
-                <div className="text-2xl font-bold text-blue-600 my-1">6-12 mo</div>
-                <p className="text-xs text-neutral-600">Snacks, nuts, dried fruits</p>
-              </div>
-            </div>
-            
-            <div className="bg-gradient-to-b from-purple-50 to-purple-100 p-4 rounded-xl border border-purple-200">
-              <div className="text-center">
-                <div className="w-12 h-12 bg-purple-200 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <span className="text-purple-700 font-bold">H</span>
-                </div>
-                <h4 className="font-semibold text-purple-800">High Barrier</h4>
-                <div className="text-2xl font-bold text-purple-600 my-1">12-24 mo</div>
-                <p className="text-xs text-neutral-600">Coffee, tea, sensitive products</p>
-              </div>
-            </div>
-            
-            <div className="bg-gradient-to-b from-orange-50 to-orange-100 p-4 rounded-xl border border-orange-200">
-              <div className="text-center">
-                <div className="w-12 h-12 bg-orange-200 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <span className="text-orange-700 font-bold">MAX</span>
-                </div>
-                <h4 className="font-semibold text-orange-800">Maximum</h4>
-                <div className="text-2xl font-bold text-orange-600 my-1">24+ mo</div>
-                <p className="text-xs text-neutral-600">Pharma, oxygen-sensitive</p>
-              </div>
-            </div>
-          </div>
+          <SortableOptionsTable
+            options={BARRIER_OPTIONS}
+            title="All Barrier Options - Sortable & Filterable"
+            categoryColor="purple"
+            type="barrier"
+          />
         </div>
       )
     },
@@ -218,63 +180,31 @@ const AllOptionsPage = () => {
         <div className="space-y-4 text-neutral-700">
           <p>Keep products fresh with the right closure:</p>
           
-          <div className="grid md:grid-cols-2 gap-4 mt-4">
-            <div className="bg-primary-50 p-5 rounded-xl border border-primary-200">
-              <h4 className="font-semibold text-primary-800 mb-3">Zipper Types</h4>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 bg-white px-3 py-2 rounded-lg">
-                  <CheckCircle className="h-4 w-4 text-primary-600" />
-                  <span className="text-sm">Standard press-to-close</span>
-                </div>
-                <div className="flex items-center gap-2 bg-white px-3 py-2 rounded-lg">
-                  <CheckCircle className="h-4 w-4 text-primary-600" />
-                  <span className="text-sm">Child-resistant zipper</span>
-                </div>
-                <div className="flex items-center gap-2 bg-white px-3 py-2 rounded-lg">
-                  <CheckCircle className="h-4 w-4 text-primary-600" />
-                  <span className="text-sm">Slider zipper (easy open)</span>
-                </div>
-                <div className="flex items-center gap-2 bg-white px-3 py-2 rounded-lg">
-                  <CheckCircle className="h-4 w-4 text-primary-600" />
-                  <span className="text-sm">Pocket zipper (below seal)</span>
-                </div>
-              </div>
-            </div>
-            
-            <div className="bg-neutral-50 p-5 rounded-xl border border-neutral-200">
-              <h4 className="font-semibold text-neutral-800 mb-3">Other Closures</h4>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 bg-white px-3 py-2 rounded-lg">
-                  <CheckCircle className="h-4 w-4 text-neutral-600" />
-                  <span className="text-sm">Tin-tie (wire closure)</span>
-                </div>
-                <div className="flex items-center gap-2 bg-white px-3 py-2 rounded-lg">
-                  <CheckCircle className="h-4 w-4 text-neutral-600" />
-                  <span className="text-sm">Spout caps (various sizes)</span>
-                </div>
-                <div className="flex items-center gap-2 bg-white px-3 py-2 rounded-lg">
-                  <CheckCircle className="h-4 w-4 text-neutral-600" />
-                  <span className="text-sm">Velcro-style closure</span>
-                </div>
-                <div className="flex items-center gap-2 bg-white px-3 py-2 rounded-lg">
-                  <CheckCircle className="h-4 w-4 text-neutral-600" />
-                  <span className="text-sm">Tear notch (non-reclosable)</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <SortableOptionsTable
+            options={CLOSURE_OPTIONS}
+            title="All Closure Options - Sortable & Filterable"
+            categoryColor="blue"
+            type="closure"
+          />
         </div>
       )
     },
     {
       id: 'printing',
-      title: 'Printing & Finishing',
+      title: 'Printing & Surface Finishes',
       icon: <Printer className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Make your packaging stand out:</p>
+          <p>Make your packaging stand out with premium finishes:</p>
           
-          <div className="grid md:grid-cols-2 gap-4 mt-4">
+          <SortableOptionsTable
+            options={SURFACE_OPTIONS}
+            title="All Surface Finishes - Sortable & Filterable"
+            categoryColor="amber"
+            type="surface"
+          />
+          
+          <div className="grid md:grid-cols-2 gap-4 mt-6">
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-5 rounded-xl border border-blue-200">
               <h4 className="font-semibold text-blue-800 mb-3">Printing Methods</h4>
               <div className="space-y-3 text-sm">
@@ -289,28 +219,16 @@ const AllOptionsPage = () => {
               </div>
             </div>
             
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-5 rounded-xl border border-purple-200">
-              <h4 className="font-semibold text-purple-800 mb-3">Surface Finishes</h4>
-              <div className="grid grid-cols-2 gap-2 text-sm">
-                <div className="bg-white px-3 py-1.5 rounded text-center">Matte</div>
-                <div className="bg-white px-3 py-1.5 rounded text-center">Gloss</div>
-                <div className="bg-white px-3 py-1.5 rounded text-center">Soft-touch</div>
-                <div className="bg-white px-3 py-1.5 rounded text-center">Natural Kraft</div>
+            <div className="bg-neutral-100 p-5 rounded-xl">
+              <h4 className="font-semibold text-neutral-800 mb-3">Special Effects Available</h4>
+              <div className="flex flex-wrap gap-2">
+                <span className="bg-white px-3 py-1 rounded-full text-xs border">Spot UV</span>
+                <span className="bg-white px-3 py-1 rounded-full text-xs border">Embossing</span>
+                <span className="bg-white px-3 py-1 rounded-full text-xs border">Foil Stamping</span>
+                <span className="bg-white px-3 py-1 rounded-full text-xs border">Holographic</span>
+                <span className="bg-white px-3 py-1 rounded-full text-xs border">Metallic Inks</span>
+                <span className="bg-white px-3 py-1 rounded-full text-xs border">Window Patches</span>
               </div>
-            </div>
-          </div>
-          
-          <div className="bg-neutral-100 p-4 rounded-xl mt-4">
-            <h4 className="font-semibold text-neutral-800 mb-3">Special Effects Available</h4>
-            <div className="flex flex-wrap gap-2">
-              <span className="bg-white px-3 py-1 rounded-full text-xs border">Spot UV</span>
-              <span className="bg-white px-3 py-1 rounded-full text-xs border">Embossing</span>
-              <span className="bg-white px-3 py-1 rounded-full text-xs border">Foil Stamping</span>
-              <span className="bg-white px-3 py-1 rounded-full text-xs border">Holographic</span>
-              <span className="bg-white px-3 py-1 rounded-full text-xs border">Metallic Inks</span>
-              <span className="bg-white px-3 py-1 rounded-full text-xs border">Window Patches</span>
-              <span className="bg-white px-3 py-1 rounded-full text-xs border">Tactile Varnish</span>
-              <span className="bg-white px-3 py-1 rounded-full text-xs border">QR Codes</span>
             </div>
           </div>
         </div>
@@ -324,7 +242,14 @@ const AllOptionsPage = () => {
         <div className="space-y-4 text-neutral-700">
           <p>Enhance functionality with these add-ons:</p>
           
-          <div className="grid sm:grid-cols-3 gap-4 mt-4">
+          <SortableOptionsTable
+            options={ADDITIONAL_FEATURES}
+            title="Additional Features - with Images"
+            categoryColor="green"
+            type="additional"
+          />
+          
+          <div className="grid sm:grid-cols-3 gap-4 mt-6">
             <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-4 rounded-xl border border-amber-200">
               <div className="flex items-center gap-2 mb-2">
                 <Wrench className="h-4 w-4 text-amber-600" />
@@ -333,8 +258,6 @@ const AllOptionsPage = () => {
               <ul className="text-xs space-y-1 text-neutral-700">
                 <li>• Degassing valves</li>
                 <li>• Pour spouts</li>
-                <li>• Hang holes</li>
-                <li>• Easy-tear lines</li>
                 <li>• Handle holes</li>
               </ul>
             </div>
@@ -348,7 +271,6 @@ const AllOptionsPage = () => {
                 <li>• Clear windows</li>
                 <li>• Frosted windows</li>
                 <li>• Full clear body</li>
-                <li>• Product cutouts</li>
               </ul>
             </div>
             
@@ -360,7 +282,6 @@ const AllOptionsPage = () => {
               <ul className="text-xs space-y-1 text-neutral-700">
                 <li>• Tamper-evident seals</li>
                 <li>• Child-resistant closures</li>
-                <li>• Heat-shrink bands</li>
                 <li>• QR traceability</li>
               </ul>
             </div>
