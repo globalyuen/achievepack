@@ -9,6 +9,126 @@ import { getProductImage, getSizeImage, getSurfaceImage, getAdditionalImage, typ
 import { TESTIMONIALS } from '../data/testimonialsData'
 import { getProductFAQs, generateFAQSchema, DEFAULT_FAQS, type ProductFAQ } from '../data/productFAQData'
 
+// SKU-based Dynamic Product Descriptions (Problem → Solution → Features logic)
+const SKU_DESCRIPTIONS: Record<string, {
+  problem: string;
+  solution: string;
+  features: string[];
+  certifications: string;
+}> = {
+  'snack': {
+    problem: 'Plastic snack bags are hard to recycle and stay in landfills for decades, but you can\'t sacrifice crunch or shelf appeal.',
+    solution: 'This compostable stand-up pouch is designed for nuts, dried fruits, granola bars, and snacks—keeping products fresh while turning packaging into nutrients.',
+    features: ['Entire bag (incl. zipper & ink) 90%+ breakdown in 180 days', 'Significantly lighter than rigid packaging', 'Clear/frosted window shows real product', 'Easy-tear + resealable zipper'],
+    certifications: 'EN 13432 / ASTM D6400 Certified Compostable'
+  },
+  'coffee': {
+    problem: 'Coffee roasters need packaging that preserves flavor while telling a credible sustainability story.',
+    solution: 'This compostable coffee pouch with degassing valve is designed for freshly roasted beans and drip bags—no compromises from roastery to cup.',
+    features: ['High-barrier blocks oxygen & moisture', 'One-way valve releases CO₂, blocks air', 'Bag + valve both compostable', 'Kraft or full-color print options'],
+    certifications: 'EN 13432 / ASTM D6400 Certified Compostable'
+  },
+  'tea': {
+    problem: 'Premium tea deserves stable aroma and ritual feel—not another layer of plastic burden.',
+    solution: 'This compostable flat-bottom bag for loose-leaf, herbal, and blended teas stands like a mini box on shelf with a lighter footprint.',
+    features: ['Flat bottom maintains 3D shape', '4-5 printable faces for brand story', 'Renewable compostable film + paper', 'Zipper keeps dry & aromatic'],
+    certifications: 'Industrial/Home Compostable Certified'
+  },
+  'powder': {
+    problem: 'Powders and supplements need high barrier and pro image, but often end up in heavy, hard-to-recycle multi-layer plastics.',
+    solution: 'This compostable powder pouch is made for protein, superfood blends, and meal replacements—balancing formula science with sustainability.',
+    features: ['Multi-layer high-barrier compostable film', 'Moisture & oxygen protection, no clumping', 'Large front/back branding space', 'Glossy or matte finish options'],
+    certifications: '90%+ breakdown in 180 days'
+  },
+  'liquid': {
+    problem: 'Liquids and semi-fluids (sauces, concentrates, refills) traditionally rely on plastic bottles or non-recyclable pouches.',
+    solution: 'This compostable spouted pouch brings truly compostable flexible packaging to liquid products.',
+    features: ['Compostable spout design', 'Stable fill, pour, and seal', 'Much lighter than bottles/jars', 'Easy grip, precise pouring'],
+    certifications: 'Industrial/Home Compostable'
+  },
+  'sample': {
+    problem: 'Sample packs and single-serves are often the biggest plastic waste source—yet critical for customer acquisition.',
+    solution: 'This compostable sample/single-serve sachet is designed for samples, subscription refills, and on-the-go portions—sustainable from first touch.',
+    features: ['Clear/translucent compostable film', 'Excellent moisture & oxygen barrier', 'Lightweight, compact for mailing', 'Compostable with food waste'],
+    certifications: 'EN 13432 / ASTM D6400 Standard'
+  }
+};
+
+// Material-specific descriptions
+const MATERIAL_DESCRIPTIONS: Record<string, { eco: string; benefits: string[]; idealFor: string }> = {
+  'PCR or Bio Plastic': {
+    eco: 'Made with 30% post-consumer recycled content or 50% sugarcane-based bio-PE, reducing carbon footprint by up to 30%.',
+    benefits: ['Recyclable in existing streams', 'Drop-in replacement for conventional', 'Reduced oil dependency'],
+    idealFor: 'Sustainability-focused CPG brands, coffee roasters, specialty food producers'
+  },
+  'Mono Recyclable Plastic': {
+    eco: 'Single-material construction (mono-PE or mono-PP) designed for maximum recyclability in curbside recycling.',
+    benefits: ['95% recyclable', 'Easy sortation single-material', 'OPRL "Recycle" ready'],
+    idealFor: 'Brands targeting EU/UK markets, PPWR compliance needs'
+  },
+  'Biodegradable and Compostable': {
+    eco: 'Certified compostable materials breaking down within 180 days in industrial composting, returning nutrients to soil.',
+    benefits: ['Zero microplastics', 'OK Compost Industrial certified', 'BPI/EN 13432 compliant'],
+    idealFor: 'Organic foods, eco-conscious brands, farmers markets, health food stores'
+  }
+};
+
+// Size capacity descriptions
+const SIZE_CAPACITIES: Record<string, { capacity: string; useCase: string }> = {
+  'XXXS': { capacity: '10-30g / 0.35-1oz', useCase: 'Samples, single-serve' },
+  'XXS': { capacity: '30-50g / 1-1.75oz', useCase: 'Trial sizes, premium samples' },
+  'XS': { capacity: '50-100g / 1.75-3.5oz', useCase: 'Specialty foods, premium snacks' },
+  'S': { capacity: '100-200g / 3.5-7oz', useCase: 'Standard retail coffee, tea, snacks' },
+  'M': { capacity: '200-350g / 7-12oz', useCase: 'Family-size snacks, coffee bags' },
+  'L': { capacity: '350-500g / 12-17.5oz', useCase: 'Large retail, bulk snacks' },
+  'XL': { capacity: '500-1000g / 17.5-35oz', useCase: 'Bulk packaging, value packs' },
+  'XXL': { capacity: '1000-2000g / 35-70oz', useCase: 'Commercial, wholesale' }
+};
+
+// Closure descriptions
+const CLOSURE_DESCRIPTIONS: Record<string, string> = {
+  'No': 'Heat-sealed for single-use',
+  'Regular Zipper': 'Resealable press-to-close zipper',
+  'One-Sided Zipper': 'Front-opening for easy pour',
+  'Child Resistant Zipper': 'Child-safety certified zipper',
+  'Slider': 'Premium smooth-glide slider',
+  'Tin Tie': 'Classic wire tie for coffee/tea',
+  'Spout': 'Pour spout for liquids',
+  'Adhesive Tape': 'Peel-and-seal adhesive'
+};
+
+// Generate dynamic description based on selections
+const generateDynamicDescription = (options: {
+  shape?: string; material?: string; size?: string; closure?: string;
+  surface?: string; barrier?: string; stiffness?: string; productName?: string;
+}): { skuType: string; problem: string; solution: string; features: string[];
+  materialInfo: string; sizeInfo: string; closureInfo: string; certifications: string; idealFor: string;
+} => {
+  const { shape, material, size, closure, productName } = options;
+  let skuType = 'snack';
+  const nameLC = (productName || '').toLowerCase();
+  const shapeLC = (shape || '').toLowerCase();
+  
+  if (nameLC.includes('coffee') || shapeLC.includes('coffee')) skuType = 'coffee';
+  else if (nameLC.includes('tea') || shapeLC.includes('tea')) skuType = 'tea';
+  else if (nameLC.includes('powder') || nameLC.includes('supplement') || nameLC.includes('protein')) skuType = 'powder';
+  else if (nameLC.includes('liquid') || nameLC.includes('spout') || closure === 'Spout') skuType = 'liquid';
+  else if (nameLC.includes('sample') || size === 'XXXS' || size === 'XXS') skuType = 'sample';
+  else if (shapeLC.includes('flat') || shapeLC.includes('box bottom')) skuType = 'tea';
+  
+  const skuDesc = SKU_DESCRIPTIONS[skuType];
+  const matDesc = MATERIAL_DESCRIPTIONS[material || 'PCR or Bio Plastic'];
+  const sizeDesc = SIZE_CAPACITIES[size || 'M'];
+  const closureDesc = CLOSURE_DESCRIPTIONS[closure || 'No'];
+  
+  return {
+    skuType, problem: skuDesc.problem, solution: skuDesc.solution,
+    features: [...skuDesc.features, ...matDesc.benefits.slice(0, 2)],
+    materialInfo: matDesc.eco, sizeInfo: `${sizeDesc.capacity} — ${sizeDesc.useCase}`,
+    closureInfo: closureDesc, certifications: skuDesc.certifications, idealFor: matDesc.idealFor
+  };
+};
+
 const ProductPage: React.FC = () => {
   const { productId } = useParams<{ productId: string }>()
   const { addToCart, cartCount, setIsCartOpen } = useStore()
@@ -620,6 +740,59 @@ const ProductPage: React.FC = () => {
               
               <p className="text-neutral-600">{product.description}</p>
               
+              {/* Dynamic Description for Conventional Digital */}
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-xl overflow-hidden">
+                <div className="px-5 pt-5 pb-3">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-amber-600 text-sm">❓</span>
+                    </div>
+                    <p className="text-sm text-neutral-700 leading-relaxed">
+                      Custom packaging often means high MOQs and long lead times, making it hard for new brands and trial products to get to market quickly.
+                    </p>
+                  </div>
+                </div>
+                <div className="px-5 pb-3">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-blue-600 text-sm">✓</span>
+                    </div>
+                    <p className="text-sm text-blue-800 leading-relaxed font-medium">
+                      {conventionalProduct?.shape.includes('stand-up') 
+                        ? 'This stand-up pouch uses digital printing—MOQ from 100pcs, 15-20 day delivery, get your product on shelf fast.'
+                        : 'This 3-side seal flat pouch uses digital printing—no plate fees, MOQ from 100pcs, perfect for lightweight products and trial runs.'}
+                    </p>
+                  </div>
+                </div>
+                <div className="px-5 pb-3 space-y-2">
+                  <div className="bg-white/60 rounded-lg p-3 text-xs text-neutral-700">
+                    <span className="font-semibold text-blue-700">Structure:</span> 
+                    {product.name.includes('Metalised') 
+                      ? ' Mattopp/VMPET/LLDPE — Metalised high-barrier, extended shelf life, blocks light & oxygen'
+                      : ' Glossy PET/LLDPE — Clear glossy finish, perfect product visibility'}
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
+                      <span className="font-medium">📐 Size: {selectedConvSize}mm</span>
+                    </div>
+                    <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
+                      <span className="font-medium">📦 Qty: {selectedConvQuantity} pcs</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="px-5 pb-4">
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="flex items-center gap-1.5 text-xs text-blue-700"><Check className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" /><span>Food-grade certified</span></div>
+                    <div className="flex items-center gap-1.5 text-xs text-blue-700"><Check className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" /><span>Full-color digital print</span></div>
+                    <div className="flex items-center gap-1.5 text-xs text-blue-700"><Check className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" /><span>MOQ from 100pcs, no plate fees</span></div>
+                    <div className="flex items-center gap-1.5 text-xs text-blue-700"><Check className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" /><span>15-20 days incl. shipping</span></div>
+                  </div>
+                </div>
+                <div className="bg-blue-100/50 px-5 py-3 border-t border-blue-200">
+                  <p className="text-xs text-blue-700"><span className="font-medium">Ideal for:</span> New brand trials, limited editions, seasonal packaging, small-batch ecommerce sellers</p>
+                </div>
+              </div>
+              
               {/* Price Display */}
               <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border-2 border-primary-200 p-6">
                 <div className="text-3xl font-bold text-primary-700">US${conventionalPrice.total.toLocaleString()}</div>
@@ -807,6 +980,63 @@ const ProductPage: React.FC = () => {
               </div>
               
               <p className="text-neutral-600">{product.description}</p>
+              
+              {/* Dynamic Description for Eco Stock */}
+              <div className="bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-xl overflow-hidden">
+                <div className="px-5 pt-5 pb-3">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-amber-600 text-sm">❓</span>
+                    </div>
+                    <p className="text-sm text-neutral-700 leading-relaxed">
+                      {ecoStockProduct.name.includes('Compostable') || ecoStockProduct.name.includes('compostable')
+                        ? 'Want compostable packaging but worried about long lead times and high MOQs to test market response?'
+                        : 'Need eco packaging but budget-limited, don\'t want to pay high custom costs for small quantities?'}
+                    </p>
+                  </div>
+                </div>
+                <div className="px-5 pb-3">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-emerald-600 text-sm">✓</span>
+                    </div>
+                    <p className="text-sm text-emerald-800 leading-relaxed font-medium">
+                      {ecoStockProduct.name.includes('Compostable')
+                        ? 'This stock compostable pouch ships in 3-5 days—no custom wait, give your product truly sustainable packaging immediately.'
+                        : 'This pre-made eco pouch uses sustainable materials, ships from stock, no MOQ—perfect for quick start and small batches.'}
+                    </p>
+                  </div>
+                </div>
+                <div className="px-5 pb-3 space-y-2">
+                  <div className="bg-white/60 rounded-lg p-3 text-xs text-neutral-700">
+                    <span className="font-semibold text-emerald-700">Material:</span> 
+                    {ecoStockProduct.name.includes('Compostable')
+                      ? ' Certified compostable, breaks down within 180 days in industrial composting, zero microplastics'
+                      : ecoStockProduct.name.includes('Kraft')
+                      ? ' Natural kraft paper composite, organic feel, perfect for artisanal products'
+                      : ' Eco-sustainable materials, reduced plastic use and carbon footprint'}
+                  </div>
+                  {selectedSizeVariant && (
+                    <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
+                      <span className="font-medium">📐 Size: {ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)?.name || 'Standard'}</span>
+                    </div>
+                  )}
+                </div>
+                <div className="px-5 pb-4">
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Ships in 3-5 days</span></div>
+                    <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>No minimum order</span></div>
+                    <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Eco-certified materials</span></div>
+                    <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Custom print available</span></div>
+                  </div>
+                </div>
+                <div className="bg-emerald-100/50 px-5 py-3 border-t border-emerald-200">
+                  <p className="text-xs text-emerald-700"><span className="font-medium">Ideal for:</span> Farmers markets, artisan foods, organic brands, small bakeries, ecommerce startups</p>
+                  {ecoStockProduct.customPrintNote && (
+                    <p className="text-xs text-emerald-600 mt-1"><span className="font-medium">💡</span> {ecoStockProduct.customPrintNote}</p>
+                  )}
+                </div>
+              </div>
               
               {/* Size Variant Selector - for products with multiple sizes */}
               {ecoStockProduct.sizeVariants && ecoStockProduct.sizeVariants.length > 0 && (
@@ -1650,6 +1880,73 @@ const ProductPage: React.FC = () => {
             </div>
 
             <p className="text-neutral-600">{product.description}</p>
+
+            {/* Dynamic Product Description - Problem → Solution → Features */}
+            {isEcoDigital && ecoProduct && (
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-xl overflow-hidden">
+                {(() => {
+                  const dynamicInfo = generateDynamicDescription({
+                    shape: ecoProduct.shape, material: selectedMaterial, size: selectedSize,
+                    closure: selectedClosure, surface: selectedSurface, barrier: selectedBarrier,
+                    stiffness: selectedStiffness, productName: product.name
+                  });
+                  return (
+                    <>
+                      {/* Problem */}
+                      <div className="px-5 pt-5 pb-3">
+                        <div className="flex items-start gap-3">
+                          <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span className="text-amber-600 text-sm">❓</span>
+                          </div>
+                          <p className="text-sm text-neutral-700 leading-relaxed">{dynamicInfo.problem}</p>
+                        </div>
+                      </div>
+                      {/* Solution */}
+                      <div className="px-5 pb-3">
+                        <div className="flex items-start gap-3">
+                          <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span className="text-green-600 text-sm">✓</span>
+                          </div>
+                          <p className="text-sm text-green-800 leading-relaxed font-medium">{dynamicInfo.solution}</p>
+                        </div>
+                      </div>
+                      {/* Material & Size */}
+                      <div className="px-5 pb-3 space-y-2">
+                        <div className="bg-white/60 rounded-lg p-3 text-xs text-neutral-700">
+                          <span className="font-semibold text-green-700">Material:</span> {dynamicInfo.materialInfo}
+                        </div>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
+                            <span className="font-medium">📐 {dynamicInfo.sizeInfo}</span>
+                          </div>
+                          <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
+                            <span className="font-medium">🔒 {dynamicInfo.closureInfo}</span>
+                          </div>
+                        </div>
+                      </div>
+                      {/* Features */}
+                      <div className="px-5 pb-4">
+                        <div className="grid grid-cols-2 gap-2">
+                          {dynamicInfo.features.slice(0, 6).map((feature, i) => (
+                            <div key={i} className="flex items-center gap-1.5 text-xs text-green-700">
+                              <Check className="w-3.5 h-3.5 text-green-600 flex-shrink-0" />
+                              <span>{feature}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      {/* Footer */}
+                      <div className="bg-green-100/50 px-5 py-3 border-t border-green-200">
+                        <div className="flex flex-wrap items-center gap-2 text-xs">
+                          <span className="bg-green-600 text-white px-2 py-0.5 rounded-full font-medium">{dynamicInfo.certifications}</span>
+                          <span className="text-green-700"><span className="font-medium">Ideal for:</span> {dynamicInfo.idealFor}</span>
+                        </div>
+                      </div>
+                    </>
+                  );
+                })()}
+              </div>
+            )}
 
             {/* Options */}
             {isEcoDigital && ecoProduct && (
