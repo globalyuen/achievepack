@@ -214,15 +214,15 @@ const ProductPage: React.FC = () => {
   }, [isEcoDigital, ecoProduct, selectedClosure, selectedSurface, selectedSize, product])
 
   if (!product) {
-    // Random banner for Product not found page
-    const BANNER_IMAGES = [
+    // Random full-page background for Product not found page
+    const HERO_IMAGES = [
       '/imgs/banner/a_achievepack_hero_3d_depth_5416790.webp',
       '/imgs/banner/a_achievepack_hero_eco_nature_7180632.webp',
       '/imgs/banner/a_achievepack_hero_flatlay_5941661.webp',
       '/imgs/banner/a_achievepack_hero_gradient_eco_9331347.webp',
       '/imgs/banner/a_achievepack_hero_shot_1_white_background_2665361.webp',
     ]
-    const randomBanner = BANNER_IMAGES[Math.floor(Math.random() * BANNER_IMAGES.length)]
+    const randomHero = HERO_IMAGES[Math.floor(Math.random() * HERO_IMAGES.length)]
     
     return (
       <>
@@ -230,26 +230,26 @@ const ProductPage: React.FC = () => {
           <title>Product Not Found | Achieve Pack</title>
           <meta name="robots" content="noindex, nofollow" />
         </Helmet>
-        <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-neutral-100">
-          {/* Hero Banner */}
-          <div className="w-full h-48 md:h-64 overflow-hidden relative">
+        <div className="min-h-screen relative">
+          {/* Full Page Background Image */}
+          <div className="absolute inset-0">
             <img 
-              src={randomBanner} 
+              src={randomHero} 
               alt="Achieve Pack Eco Packaging" 
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-neutral-100/80"></div>
+            <div className="absolute inset-0 bg-black/40"></div>
           </div>
           
-          {/* Content Card */}
-          <div className="max-w-2xl mx-auto px-4 -mt-16 relative z-10 pb-12">
-            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 text-center">
+          {/* Content Card - Centered */}
+          <div className="relative z-10 min-h-screen flex items-center justify-center px-4 py-12">
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-8 md:p-12 text-center max-w-lg w-full">
               <div className="w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Package className="h-10 w-10 text-amber-600" />
               </div>
               <h1 className="text-3xl font-bold text-neutral-900 mb-4">Product Not Found</h1>
               <p className="text-lg text-neutral-600 mb-8">
-                Sorry, this product doesn't exist or may have been moved to a new location.
+                Sorry, this product doesn't exist or may have been moved.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                 <Link 
