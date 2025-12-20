@@ -1599,7 +1599,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "How CPG startups in the US and Canada can get sustainable packaging with 30-45 day lead times, low MOQs from 100 units, and proper certifications to avoid greenwashing claims.",
     content: `
       <figure class="my-8">
-        <img src="/imgs/blog/geo/us-canada-cpg-startup-packaging.webp" alt="CPG startup sustainable packaging US Canada" class="w-full rounded-xl" />
+        <img src="/imgs/seo-photos/a_roast_ritual_nyc_coffee_urban_2153150.webp" alt="CPG startup sustainable packaging US Canada" class="w-full rounded-xl" />
         <figcaption class="text-center text-sm text-neutral-500 mt-3">Sustainable flexible packaging solutions for North American CPG startups</figcaption>
       </figure>
 
@@ -1738,7 +1738,7 @@ export const blogPosts: BlogPost[] = [
     publishDate: "2025-12-20",
     category: "Regional Guides",
     tags: ["US packaging", "Canada packaging", "CPG startup", "low MOQ", "fast lead time", "ASTM D6400", "BPI certified", "sustainable packaging", "compostable pouches", "coffee packaging", "snack packaging", "FTC Green Guides"],
-    featuredImage: "/imgs/blog/geo/us-canada-cpg-startup-packaging.webp",
+    featuredImage: "/imgs/seo-photos/a_roast_ritual_nyc_coffee_urban_2153150.webp",
     readTime: 10,
     metaDescription: "How CPG startups in the US & Canada can source sustainable packaging with 30-45 day lead times and MOQs from 100 units. ASTM D6400 & BPI certified compostable and recyclable options."
   },
@@ -1749,7 +1749,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Navigate EU PPWR regulations and UK packaging requirements with mono-material recyclable and EN 13432 compostable pouches designed for 2030 compliance.",
     content: `
       <figure class="my-8">
-        <img src="/imgs/blog/geo/europe-uk-sustainable-packaging.webp" alt="Sustainable packaging for European food brands" class="w-full rounded-xl" />
+        <img src="/imgs/blog/geo/a_european_organic_products_retail_8280108.webp" alt="Sustainable packaging for European food brands" class="w-full rounded-xl" />
         <figcaption class="text-center text-sm text-neutral-500 mt-3">EU PPWR-compliant sustainable packaging solutions</figcaption>
       </figure>
 
@@ -1890,7 +1890,7 @@ export const blogPosts: BlogPost[] = [
     publishDate: "2025-12-20",
     category: "Regional Guides",
     tags: ["EU packaging", "UK packaging", "PPWR", "EN 13432", "recyclable packaging", "mono-PE", "mono-PP", "compostable packaging", "food packaging", "OPRL", "design for recycling", "2030 compliance"],
-    featuredImage: "/imgs/blog/geo/europe-uk-sustainable-packaging.webp",
+    featuredImage: "/imgs/blog/geo/a_european_organic_products_retail_8280108.webp",
     readTime: 12,
     metaDescription: "How food brands in Europe & UK can navigate PPWR regulations with mono-material recyclable and EN 13432 compostable packaging. Prepare for 2030 design-for-recycling requirements now."
   },
@@ -1901,7 +1901,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Meet APCO 2025 targets and ARL labelling requirements with recyclable and home-compostable pouches designed for the ANZ market's sustainability expectations.",
     content: `
       <figure class="my-8">
-        <img src="/imgs/blog/geo/australia-nz-sustainable-packaging.webp" alt="Sustainable packaging for Australian and New Zealand brands" class="w-full rounded-xl" />
+        <img src="/imgs/blog/geo/a_anz_specialty_food_retail_3052167.webp" alt="Sustainable packaging for Australian and New Zealand brands" class="w-full rounded-xl" />
         <figcaption class="text-center text-sm text-neutral-500 mt-3">APCO-aligned sustainable packaging for ANZ food and CPG brands</figcaption>
       </figure>
 
@@ -2045,7 +2045,7 @@ export const blogPosts: BlogPost[] = [
     publishDate: "2025-12-20",
     category: "Regional Guides",
     tags: ["Australia packaging", "New Zealand packaging", "APCO", "ARL", "AS 5810", "home compostable", "recyclable packaging", "mono-PE", "coffee packaging", "sustainable packaging", "zero waste", "low MOQ"],
-    featuredImage: "/imgs/blog/geo/australia-nz-sustainable-packaging.webp",
+    featuredImage: "/imgs/blog/geo/a_anz_specialty_food_retail_3052167.webp",
     readTime: 11,
     metaDescription: "How food and CPG brands in Australia & New Zealand can meet APCO 2025 targets with ARL-compatible recyclable and AS 5810 home compostable packaging. Low MOQ from 100 units."
   }
