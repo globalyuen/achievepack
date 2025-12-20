@@ -616,12 +616,23 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                 </a>
               </div>
 
-              {/* Blog */}
+              {/* Blog & Store */}
               <div>
-                <h4 className="font-semibold text-sm mb-2">Blog</h4>
+                <h4 className="font-semibold text-sm mb-2">Blog & Store</h4>
                 <ul className="space-y-1 text-xs text-neutral-400">
                   <li><Link to="/blog" onClick={scrollToTop} className="hover:text-primary-400">All Articles</Link></li>
                   <li><Link to="/store" onClick={scrollToTop} className="hover:text-primary-400">Online Store</Link></li>
+                </ul>
+              </div>
+
+              {/* Knowledge */}
+              <div>
+                <h4 className="font-semibold text-sm mb-2">Knowledge</h4>
+                <ul className="space-y-1 text-xs text-neutral-400">
+                  <li><Link to="/knowledge/pouch-sizing" onClick={scrollToTop} className="hover:text-primary-400">Pouch Sizing Guide</Link></li>
+                  <li><Link to="/knowledge/size-guide" onClick={scrollToTop} className="hover:text-primary-400">Size Reference</Link></li>
+                  <li><Link to="/knowledge/all-options" onClick={scrollToTop} className="hover:text-primary-400">All Options</Link></li>
+                  <li><Link to="/knowledge/printing-types" onClick={scrollToTop} className="hover:text-primary-400">Printing Types</Link></li>
                 </ul>
               </div>
             </div>
