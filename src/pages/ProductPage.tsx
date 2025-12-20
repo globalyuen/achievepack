@@ -10,47 +10,132 @@ import { TESTIMONIALS } from '../data/testimonialsData'
 import { getProductFAQs, generateFAQSchema, DEFAULT_FAQS, type ProductFAQ } from '../data/productFAQData'
 
 // SKU-based Dynamic Product Descriptions (Problem → Solution → Features logic)
-const SKU_DESCRIPTIONS: Record<string, {
+// Organized by material type: pcr (PCR/Bio), mono (Mono Recyclable), compost (Biodegradable)
+const SKU_DESCRIPTIONS: Record<string, Record<string, {
   problem: string;
   solution: string;
   features: string[];
   certifications: string;
-}> = {
+}>> = {
   'snack': {
-    problem: 'Plastic snack bags are hard to recycle and stay in landfills for decades, but you can\'t sacrifice crunch or shelf appeal.',
-    solution: 'This compostable stand-up pouch is designed for nuts, dried fruits, granola bars, and snacks—keeping products fresh while turning packaging into nutrients.',
-    features: ['Entire bag (incl. zipper & ink) 90%+ breakdown in 180 days', 'Significantly lighter than rigid packaging', 'Clear/frosted window shows real product', 'Easy-tear + resealable zipper'],
-    certifications: 'EN 13432 / ASTM D6400 Certified Compostable'
+    'pcr': {
+      problem: 'Conventional snack bags use virgin plastics and are hard to recycle, increasing your carbon footprint.',
+      solution: 'This PCR/Bio-PE stand-up pouch uses 30% recycled or 50% plant-based materials—same performance, 30% lower carbon footprint.',
+      features: ['30% post-consumer recycled or 50% bio-based PE', 'Recyclable in existing streams', 'Drop-in replacement for conventional', 'Clear/frosted window available'],
+      certifications: 'Recyclable • 30% Lower Carbon'
+    },
+    'mono': {
+      problem: 'Multi-layer snack bags can\'t be recycled—they end up in landfills even when consumers try to recycle.',
+      solution: 'This mono-material recyclable pouch is made from single-material PE/PP—95% recyclable in curbside programs.',
+      features: ['Single-material mono-PE or mono-PP', '95% recyclable curbside', 'OPRL "Recycle" ready', 'EU PPWR 2030 compliant'],
+      certifications: '95% Recyclable • Mono-Material'
+    },
+    'compost': {
+      problem: 'Plastic snack bags stay in landfills for decades, but you can\'t sacrifice crunch or shelf appeal.',
+      solution: 'This compostable stand-up pouch breaks down in 180 days—turning packaging into soil nutrients.',
+      features: ['90%+ breakdown in 180 days', 'Bag + zipper + ink all compostable', 'Zero microplastics', 'Clear/frosted window available'],
+      certifications: 'EN 13432 / ASTM D6400 Compostable'
+    }
   },
   'coffee': {
-    problem: 'Coffee roasters need packaging that preserves flavor while telling a credible sustainability story.',
-    solution: 'This compostable coffee pouch with degassing valve is designed for freshly roasted beans and drip bags—no compromises from roastery to cup.',
-    features: ['High-barrier blocks oxygen & moisture', 'One-way valve releases CO₂, blocks air', 'Bag + valve both compostable', 'Kraft or full-color print options'],
-    certifications: 'EN 13432 / ASTM D6400 Certified Compostable'
+    'pcr': {
+      problem: 'Coffee packaging needs high barrier but virgin plastics increase environmental impact.',
+      solution: 'This PCR/Bio-PE coffee pouch with valve uses recycled or plant-based materials while maintaining freshness.',
+      features: ['30% PCR or 50% bio-based PE', 'High-barrier blocks oxygen & moisture', 'One-way degassing valve', 'Recyclable after use'],
+      certifications: 'Recyclable • 30% Lower Carbon'
+    },
+    'mono': {
+      problem: 'Traditional coffee bags are multi-layer and can\'t be recycled—a problem for eco-conscious roasters.',
+      solution: 'This mono-material recyclable coffee pouch delivers barrier performance in a 95% recyclable format.',
+      features: ['Single-material mono-PE or mono-PP', 'Integrated degassing valve', '95% recyclable curbside', 'PPWR 2030 compliant'],
+      certifications: '95% Recyclable • Mono-Material'
+    },
+    'compost': {
+      problem: 'Coffee roasters want packaging that preserves flavor while telling a credible sustainability story.',
+      solution: 'This compostable coffee pouch with valve breaks down completely—bag, valve, and ink all return to soil.',
+      features: ['High-barrier compostable structure', 'Compostable degassing valve', 'Zero microplastics', 'Kraft or full-color print'],
+      certifications: 'EN 13432 / ASTM D6400 Compostable'
+    }
   },
   'tea': {
-    problem: 'Premium tea deserves stable aroma and ritual feel—not another layer of plastic burden.',
-    solution: 'This compostable flat-bottom bag for loose-leaf, herbal, and blended teas stands like a mini box on shelf with a lighter footprint.',
-    features: ['Flat bottom maintains 3D shape', '4-5 printable faces for brand story', 'Renewable compostable film + paper', 'Zipper keeps dry & aromatic'],
-    certifications: 'Industrial/Home Compostable Certified'
+    'pcr': {
+      problem: 'Tea packaging often uses virgin plastics that increase carbon footprint unnecessarily.',
+      solution: 'This PCR/Bio-PE flat-bottom bag uses recycled or plant-based materials for premium tea presentation.',
+      features: ['30% PCR or 50% bio-based PE', 'Flat bottom stands on shelf', 'Multiple printable faces', 'Recyclable after use'],
+      certifications: 'Recyclable • 30% Lower Carbon'
+    },
+    'mono': {
+      problem: 'Premium tea bags are typically multi-layer and end up in landfills despite recycling efforts.',
+      solution: 'This mono-material recyclable tea bag stands beautifully on shelf and recycles easily.',
+      features: ['Single-material construction', 'Flat bottom 3D shape', '95% recyclable curbside', 'PPWR 2030 compliant'],
+      certifications: '95% Recyclable • Mono-Material'
+    },
+    'compost': {
+      problem: 'Premium tea deserves stable aroma and ritual feel—not another layer of plastic burden.',
+      solution: 'This compostable flat-bottom bag breaks down naturally while keeping tea fresh.',
+      features: ['Compostable film + paper', 'Flat bottom shape', 'Zipper keeps dry & aromatic', 'Zero microplastics'],
+      certifications: 'Industrial/Home Compostable'
+    }
   },
   'powder': {
-    problem: 'Powders and supplements need high barrier and pro image, but often end up in heavy, hard-to-recycle multi-layer plastics.',
-    solution: 'This compostable powder pouch is made for protein, superfood blends, and meal replacements—balancing formula science with sustainability.',
-    features: ['Multi-layer high-barrier compostable film', 'Moisture & oxygen protection, no clumping', 'Large front/back branding space', 'Glossy or matte finish options'],
-    certifications: '90%+ breakdown in 180 days'
+    'pcr': {
+      problem: 'Powder packaging needs high barrier but virgin plastic multi-layers harm the environment.',
+      solution: 'This PCR/Bio-PE powder pouch reduces carbon footprint by 30% while protecting formula integrity.',
+      features: ['30% PCR or 50% bio-based PE', 'High-barrier protection', 'Prevents clumping', 'Recyclable after use'],
+      certifications: 'Recyclable • 30% Lower Carbon'
+    },
+    'mono': {
+      problem: 'Supplement and powder pouches are typically unrecyclable multi-layer constructions.',
+      solution: 'This mono-material recyclable powder pouch delivers protection in a 95% recyclable format.',
+      features: ['Single-material mono-PE/PP', 'Moisture & oxygen barrier', '95% recyclable curbside', 'PPWR 2030 compliant'],
+      certifications: '95% Recyclable • Mono-Material'
+    },
+    'compost': {
+      problem: 'Powder packaging often uses heavy multi-layer plastics that can\'t be recycled.',
+      solution: 'This compostable powder pouch balances formula protection with complete biodegradability.',
+      features: ['High-barrier compostable film', 'Moisture & oxygen protection', '90%+ breakdown in 180 days', 'Zero microplastics'],
+      certifications: '90%+ Breakdown in 180 Days'
+    }
   },
   'liquid': {
-    problem: 'Liquids and semi-fluids (sauces, concentrates, refills) traditionally rely on plastic bottles or non-recyclable pouches.',
-    solution: 'This compostable spouted pouch brings truly compostable flexible packaging to liquid products.',
-    features: ['Compostable spout design', 'Stable fill, pour, and seal', 'Much lighter than bottles/jars', 'Easy grip, precise pouring'],
-    certifications: 'Industrial/Home Compostable'
+    'pcr': {
+      problem: 'Liquid pouches traditionally use virgin plastics with high environmental impact.',
+      solution: 'This PCR/Bio-PE spouted pouch uses recycled or plant-based materials for liquid products.',
+      features: ['30% PCR or 50% bio-based PE', 'Integrated spout design', 'Lighter than bottles', 'Recyclable after use'],
+      certifications: 'Recyclable • 30% Lower Carbon'
+    },
+    'mono': {
+      problem: 'Liquid pouches are complex multi-layer structures that can\'t enter recycling streams.',
+      solution: 'This mono-material recyclable spouted pouch brings recyclability to liquid packaging.',
+      features: ['Single-material construction', 'Stable fill, pour, seal', '95% recyclable', 'PPWR 2030 compliant'],
+      certifications: '95% Recyclable • Mono-Material'
+    },
+    'compost': {
+      problem: 'Liquid packaging traditionally relies on plastic bottles or non-recyclable pouches.',
+      solution: 'This compostable spouted pouch brings truly compostable flexible packaging to liquids.',
+      features: ['Compostable spout design', 'Stable fill, pour, seal', 'Much lighter than bottles', 'Zero microplastics'],
+      certifications: 'Industrial/Home Compostable'
+    }
   },
   'sample': {
-    problem: 'Sample packs and single-serves are often the biggest plastic waste source—yet critical for customer acquisition.',
-    solution: 'This compostable sample/single-serve sachet is designed for samples, subscription refills, and on-the-go portions—sustainable from first touch.',
-    features: ['Clear/translucent compostable film', 'Excellent moisture & oxygen barrier', 'Lightweight, compact for mailing', 'Compostable with food waste'],
-    certifications: 'EN 13432 / ASTM D6400 Standard'
+    'pcr': {
+      problem: 'Sample packs use virgin plastics and are often too small to recycle properly.',
+      solution: 'This PCR/Bio-PE sample sachet reduces carbon footprint even in small-format packaging.',
+      features: ['30% PCR or 50% bio-based PE', 'Compact for mailing', 'Good barrier properties', 'Recyclable after use'],
+      certifications: 'Recyclable • 30% Lower Carbon'
+    },
+    'mono': {
+      problem: 'Sample packs are the biggest plastic waste source and can\'t be recycled.',
+      solution: 'This mono-material recyclable sachet makes even trial packaging recyclable.',
+      features: ['Single-material mono-PE/PP', 'Lightweight & compact', '95% recyclable', 'PPWR compliant'],
+      certifications: '95% Recyclable • Mono-Material'
+    },
+    'compost': {
+      problem: 'Sample packs and single-serves are often the biggest plastic waste source.',
+      solution: 'This compostable sachet is sustainable from first customer touch—compostable with food waste.',
+      features: ['Clear/translucent compostable film', 'Excellent barrier properties', 'Lightweight for mailing', 'Compostable with food waste'],
+      certifications: 'EN 13432 / ASTM D6400 Standard'
+    }
   }
 };
 
@@ -101,7 +186,7 @@ const CLOSURE_DESCRIPTIONS: Record<string, string> = {
 const generateDynamicDescription = (options: {
   shape?: string; material?: string; size?: string; closure?: string;
   surface?: string; barrier?: string; stiffness?: string; productName?: string;
-}): { skuType: string; problem: string; solution: string; features: string[];
+}): { skuType: string; materialType: string; problem: string; solution: string; features: string[];
   materialInfo: string; sizeInfo: string; closureInfo: string; certifications: string; idealFor: string;
 } => {
   const { shape, material, size, closure, productName } = options;
@@ -109,6 +194,7 @@ const generateDynamicDescription = (options: {
   const nameLC = (productName || '').toLowerCase();
   const shapeLC = (shape || '').toLowerCase();
   
+  // Detect SKU type
   if (nameLC.includes('coffee') || shapeLC.includes('coffee')) skuType = 'coffee';
   else if (nameLC.includes('tea') || shapeLC.includes('tea')) skuType = 'tea';
   else if (nameLC.includes('powder') || nameLC.includes('supplement') || nameLC.includes('protein')) skuType = 'powder';
@@ -116,14 +202,20 @@ const generateDynamicDescription = (options: {
   else if (nameLC.includes('sample') || size === 'XXXS' || size === 'XXS') skuType = 'sample';
   else if (shapeLC.includes('flat') || shapeLC.includes('box bottom')) skuType = 'tea';
   
-  const skuDesc = SKU_DESCRIPTIONS[skuType];
-  const matDesc = MATERIAL_DESCRIPTIONS[material || 'PCR or Bio Plastic'];
+  // Map material to type key
+  let materialType = 'mono'; // default
+  if (material === 'PCR or Bio Plastic') materialType = 'pcr';
+  else if (material === 'Mono Recyclable Plastic') materialType = 'mono';
+  else if (material === 'Biodegradable and Compostable') materialType = 'compost';
+  
+  const skuDesc = SKU_DESCRIPTIONS[skuType]?.[materialType] || SKU_DESCRIPTIONS['snack']['mono'];
+  const matDesc = MATERIAL_DESCRIPTIONS[material || 'Mono Recyclable Plastic'];
   const sizeDesc = SIZE_CAPACITIES[size || 'M'];
   const closureDesc = CLOSURE_DESCRIPTIONS[closure || 'No'];
   
   return {
-    skuType, problem: skuDesc.problem, solution: skuDesc.solution,
-    features: [...skuDesc.features, ...matDesc.benefits.slice(0, 2)],
+    skuType, materialType, problem: skuDesc.problem, solution: skuDesc.solution,
+    features: skuDesc.features,
     materialInfo: matDesc.eco, sizeInfo: `${sizeDesc.capacity} — ${sizeDesc.useCase}`,
     closureInfo: closureDesc, certifications: skuDesc.certifications, idealFor: matDesc.idealFor
   };
