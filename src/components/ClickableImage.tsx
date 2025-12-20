@@ -34,7 +34,7 @@ const ClickableImage: React.FC<ClickableImageProps> = ({
         {caption && (
           <figcaption className="text-xs text-neutral-500 mt-1 text-center">{caption}</figcaption>
         )}
-        <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+        <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none">
           <span className="text-white text-xs bg-black bg-opacity-50 px-2 py-1 rounded">Click to enlarge</span>
         </div>
       </figure>
