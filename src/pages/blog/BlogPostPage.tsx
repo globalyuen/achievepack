@@ -355,8 +355,12 @@ export default function BlogPostPage() {
                     to={`/blog/${relatedPost.slug}`}
                     className="group"
                   >
-                    <div className="aspect-video bg-gradient-to-br from-green-100 to-green-200 rounded-lg mb-4 flex items-center justify-center">
-                      <span className="text-green-600 text-3xl">📦</span>
+                    <div className="aspect-video bg-neutral-100 rounded-lg mb-4 overflow-hidden">
+                      <img 
+                        src={relatedPost.featuredImage} 
+                        alt={relatedPost.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
                     </div>
                     <span className="text-sm text-green-600 font-medium">{relatedPost.category}</span>
                     <h3 className="text-lg font-bold text-neutral-900 group-hover:text-green-600 transition-colors line-clamp-2 mt-1">
