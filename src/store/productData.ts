@@ -91,6 +91,14 @@ export interface EcoStockQuantityOption {
   unitPrice: number
 }
 
+// Custom print quantity option with discount
+export interface CustomPrintQuantityOption {
+  quantity: number
+  unitPrice: number
+  totalPrice: number
+  discount: string
+}
+
 export interface EcoStockSizeWithQuantities {
   id: string
   label: string
@@ -115,6 +123,12 @@ export interface EcoStockProduct extends BaseStoreProduct {
   customPrintNote?: string
   // YouTube video URL for product demo
   videoUrl?: string
+  // Link to custom print version
+  customPrintProductId?: string
+  // Link back to stock version (for custom print products)
+  stockProductId?: string
+  // Custom print quantity pricing tiers
+  customPrintQuantities?: CustomPrintQuantityOption[]
 }
 
 export interface PouchSize {
@@ -820,6 +834,63 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       { id: 'size-xs', label: 'XS (14×20cm)', dimensions: '14 × (17+3) cm, 100 micron', hasHole: false, quantity: 100, totalPrice: 5.56, unitPrice: 0.056 },
     ],
     customPrintNote: 'Custom print available for orders of 5,000+ pcs per design. Contact us for details.',
+    // Link to custom print version
+    customPrintProductId: 'eco-stock-header-adhesive-custom',
+  },
+  // Custom Printed Compostable Header Bag with Adhesive
+  {
+    id: 'eco-stock-header-adhesive-custom',
+    name: 'Custom Printed Compostable Gusseted Bag with Adhesive Header',
+    category: 'eco-stock',
+    description: 'Custom printed 100% certified compostable gusseted bag with adhesive header. Full-color digital printing available. MOQ 5,000 pcs per design. Volume discounts available up to 50,000 pcs.',
+    shortDesc: 'From US$0.12/pc for 5,000 pcs',
+    features: ['Full Color Digital Printing', '100% Certified Compostable', 'Adhesive Header Closure', 'Volume Discounts Available', 'Free Design Support'],
+    images: [
+      '/imgs/store/eco-stock/header/adhesive/custom print/a_hero_kv_compost_mailer_transparent_5939909.webp',
+      '/imgs/store/eco-stock/header/adhesive/custom print/a_custom_printing_showcase_transparent_0406760.webp',
+      '/imgs/store/eco-stock/header/adhesive/custom print/a_comparison_compostable_transparent_7910662.webp',
+      '/imgs/store/eco-stock/header/adhesive/custom print/a_seal_detail_closeup_3236876.webp',
+      '/imgs/store/eco-stock/header/adhesive/custom print/a_durability_test_material_pull_6142959.webp',
+      '/imgs/store/eco-stock/header/adhesive/custom print/a_unboxing_scene_transparent_mailer_7400547.webp',
+      '/imgs/store/eco-stock/header/adhesive/custom print/a_ecommerce_packing_scene_transparent_8524468.webp',
+      '/imgs/store/eco-stock/header/adhesive/custom print/a_disposal_instructions_transparent_mailer_4494569.webp',
+      '/imgs/store/eco-stock/header/adhesive/custom print/a_brand_closing_earth_return_transparent_9888178.webp'
+    ],
+    badge: '🎨 Custom Print',
+    rating: 4.9,
+    reviews: 67,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 5000,
+    shape: 'Header Bag',
+    material: 'Compostable Bio-film',
+    basePrice: 600,
+    pricePerPiece: 0.12,
+    minQuantity: 5000,
+    quantityStep: 5000,
+    sizeInfo: 'Multiple sizes available',
+    // Custom print quantity pricing: 10% discount per additional 5000 pcs, up to 50000
+    customPrintQuantities: [
+      { quantity: 5000, unitPrice: 0.120, totalPrice: 600, discount: '0%' },
+      { quantity: 10000, unitPrice: 0.108, totalPrice: 1080, discount: '10%' },
+      { quantity: 15000, unitPrice: 0.097, totalPrice: 1458, discount: '19%' },
+      { quantity: 20000, unitPrice: 0.087, totalPrice: 1749, discount: '27%' },
+      { quantity: 25000, unitPrice: 0.079, totalPrice: 1966, discount: '34%' },
+      { quantity: 30000, unitPrice: 0.071, totalPrice: 2125, discount: '41%' },
+      { quantity: 35000, unitPrice: 0.064, totalPrice: 2234, discount: '47%' },
+      { quantity: 40000, unitPrice: 0.057, totalPrice: 2299, discount: '52%' },
+      { quantity: 45000, unitPrice: 0.052, totalPrice: 2326, discount: '57%' },
+      { quantity: 50000, unitPrice: 0.046, totalPrice: 2322, discount: '61%' }
+    ],
+    sizeVariants: [
+      { id: 'size-xl', label: 'XL (35×45cm)', dimensions: '35 × (41+4) cm, 100 micron', hasHole: true, quantity: 5000, totalPrice: 600, unitPrice: 0.120 },
+      { id: 'size-l', label: 'L (24×38cm)', dimensions: '24 × (34+4) cm, 100 micron', hasHole: true, quantity: 5000, totalPrice: 500, unitPrice: 0.100 },
+      { id: 'size-m', label: 'M (20×30cm)', dimensions: '20 × (26+4) cm, 100 micron', hasHole: true, quantity: 5000, totalPrice: 400, unitPrice: 0.080 },
+      { id: 'size-s', label: 'S (17×22.5cm)', dimensions: '17 × (19.5+3) cm, 100 micron', hasHole: false, quantity: 5000, totalPrice: 350, unitPrice: 0.070 },
+      { id: 'size-xs', label: 'XS (14×20cm)', dimensions: '14 × (17+3) cm, 100 micron', hasHole: false, quantity: 5000, totalPrice: 300, unitPrice: 0.060 },
+    ],
+    // Link back to stock version
+    stockProductId: 'eco-stock-header-adhesive',
   },
   // Compostable Resealable Mailer Bag
   {

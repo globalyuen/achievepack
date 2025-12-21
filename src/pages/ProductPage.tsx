@@ -1242,13 +1242,20 @@ const ProductPage: React.FC = () => {
                 const selectedVariant = ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)
                 const selectedSizeData = ecoStockProduct.sizeWithQuantities?.find(s => s.id === selectedSizeWithQty)
                 const selectedQtyData = selectedSizeData?.quantityOptions.find(o => o.quantity === selectedQtyOption)
+                const customPrintQtyData = ecoStockProduct.customPrintQuantities?.find(o => o.quantity === selectedQtyOption)
                 
-                // Priority: sizeWithQuantities > sizeVariants > default
+                // Priority: customPrintQuantities > sizeWithQuantities > sizeVariants > default
                 let displayPrice: number
                 let displayUnitPrice: number
                 let displayQuantity: number
+                let discountText = ''
                 
-                if (selectedQtyData) {
+                if (customPrintQtyData) {
+                  displayPrice = customPrintQtyData.totalPrice
+                  displayUnitPrice = customPrintQtyData.unitPrice
+                  displayQuantity = customPrintQtyData.quantity
+                  discountText = customPrintQtyData.discount
+                } else if (selectedQtyData) {
                   displayPrice = selectedQtyData.totalPrice
                   displayUnitPrice = selectedQtyData.unitPrice
                   displayQuantity = selectedQtyData.quantity
@@ -1269,8 +1276,11 @@ const ProductPage: React.FC = () => {
                     <div className="text-sm text-green-600 mt-1">
                       ${displayUnitPrice.toFixed(4)}/piece • {displayQuantity.toLocaleString()} pieces
                     </div>
+                    {discountText && discountText !== '0%' && (
+                      <div className="text-sm text-red-500 font-medium mt-1">Volume Discount: {discountText}</div>
+                    )}
                     <div className="text-xs text-green-700 mt-2 bg-white bg-opacity-40 rounded-lg p-2 text-center">
-                      ✓ Air Shipping Included
+                      ✓ {ecoStockProduct.customPrintQuantities ? '15-20 Days Production' : 'Air Shipping Included'}
                     </div>
                   </div>
                 )
@@ -1295,8 +1305,27 @@ const ProductPage: React.FC = () => {
                 </div>
               )}
               
-              {/* Custom Print Note - Highlighted */}
-              {ecoStockProduct.customPrintNote && (
+              {/* Custom Print Note - Highlighted with CTA button */}
+              {ecoStockProduct.customPrintNote && ecoStockProduct.customPrintProductId && (
+                <div className="bg-amber-50 border-2 border-amber-300 rounded-xl p-4">
+                  <div className="flex items-start gap-2">
+                    <span className="text-amber-600 text-lg">🎨</span>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-amber-800 text-sm">Custom Printing Available</h4>
+                      <p className="text-sm text-amber-700 mt-1">{ecoStockProduct.customPrintNote}</p>
+                      <Link
+                        to={`/store/product/${ecoStockProduct.customPrintProductId}`}
+                        className="inline-flex items-center gap-2 mt-3 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-lg text-sm transition"
+                      >
+                        <span>🎨</span> View Custom Print Options
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              )}
+              
+              {/* Custom Print Note without CTA (no linked product) */}
+              {ecoStockProduct.customPrintNote && !ecoStockProduct.customPrintProductId && (
                 <div className="bg-amber-50 border-2 border-amber-300 rounded-xl p-4">
                   <div className="flex items-start gap-2">
                     <span className="text-amber-600 text-lg">🎨</span>
@@ -1308,17 +1337,72 @@ const ProductPage: React.FC = () => {
                 </div>
               )}
               
+              {/* Back to Stock Version Link (for custom print products) */}
+              {ecoStockProduct.stockProductId && (
+                <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                  <div className="flex items-center gap-2">
+                    <span className="text-blue-600">📦</span>
+                    <div className="flex-1">
+                      <p className="text-sm text-blue-700">Looking for smaller quantities without custom print?</p>
+                    </div>
+                    <Link
+                      to={`/store/product/${ecoStockProduct.stockProductId}`}
+                      className="text-sm text-blue-600 hover:text-blue-800 font-medium underline"
+                    >
+                      View Stock Version →
+                    </Link>
+                  </div>
+                </div>
+              )}
+              
+              {/* Custom Print Quantity Selector */}
+              {ecoStockProduct.customPrintQuantities && ecoStockProduct.customPrintQuantities.length > 0 && (
+                <div className="space-y-4 pt-4 border-t">
+                  <div>
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">Select Quantity (Volume Discounts)</label>
+                    <div className="space-y-2 max-h-64 overflow-y-auto">
+                      {ecoStockProduct.customPrintQuantities.map((option) => (
+                        <button
+                          key={option.quantity}
+                          onClick={() => setSelectedQtyOption(option.quantity)}
+                          className={`w-full p-3 border rounded-lg text-left transition flex justify-between items-center ${
+                            selectedQtyOption === option.quantity 
+                              ? 'border-green-600 bg-green-50 ring-2 ring-green-200' 
+                              : 'border-neutral-200 hover:border-green-300'
+                          }`}
+                        >
+                          <div>
+                            <div className="font-medium text-neutral-900">{option.quantity.toLocaleString()} pcs</div>
+                            <div className="text-xs text-neutral-500">${option.unitPrice.toFixed(3)}/pc</div>
+                          </div>
+                          <div className="text-right">
+                            <div className="font-bold text-green-700">${option.totalPrice.toLocaleString()}</div>
+                            {option.discount !== '0%' && (
+                              <div className="text-xs text-red-500 font-medium">Save {option.discount}</div>
+                            )}
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+              
               {/* Add to Cart - Green button for compostable products */}
               <button 
                 onClick={() => {
                   const selectedVariant = ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)
                   const selectedSizeData = ecoStockProduct.sizeWithQuantities?.find(s => s.id === selectedSizeWithQty)
                   const selectedQtyData = selectedSizeData?.quantityOptions.find(o => o.quantity === selectedQtyOption)
+                  const customPrintQtyData = ecoStockProduct.customPrintQuantities?.find(o => o.quantity === selectedQtyOption)
                   
                   let cartPrice: number
                   let cartSize: string
                   
-                  if (selectedQtyData && selectedSizeData) {
+                  if (customPrintQtyData) {
+                    cartPrice = customPrintQtyData.totalPrice
+                    cartSize = `Custom Print (${customPrintQtyData.quantity.toLocaleString()} pcs)`
+                  } else if (selectedQtyData && selectedSizeData) {
                     cartPrice = selectedQtyData.totalPrice
                     cartSize = `${selectedSizeData.label} - ${selectedSizeData.dimensions} (${selectedQtyData.quantity} pcs)`
                   } else if (selectedVariant) {
@@ -1342,17 +1426,19 @@ const ProductPage: React.FC = () => {
                   })
                 }} 
                 disabled={
-                  (ecoStockProduct.sizeVariants && ecoStockProduct.sizeVariants.length > 0 && !selectedSizeVariant) ||
-                  (ecoStockProduct.sizeWithQuantities && ecoStockProduct.sizeWithQuantities.length > 0 && (!selectedSizeWithQty || !selectedQtyOption))
+                  (ecoStockProduct.sizeVariants && ecoStockProduct.sizeVariants.length > 0 && !ecoStockProduct.customPrintQuantities && !selectedSizeVariant) ||
+                  (ecoStockProduct.sizeWithQuantities && ecoStockProduct.sizeWithQuantities.length > 0 && (!selectedSizeWithQty || !selectedQtyOption)) ||
+                  (ecoStockProduct.customPrintQuantities && ecoStockProduct.customPrintQuantities.length > 0 && !selectedQtyOption)
                 }
                 className={`w-full py-4 font-semibold rounded-xl transition flex items-center justify-center gap-2 ${
-                  (ecoStockProduct.sizeVariants && ecoStockProduct.sizeVariants.length > 0 && !selectedSizeVariant) ||
-                  (ecoStockProduct.sizeWithQuantities && ecoStockProduct.sizeWithQuantities.length > 0 && (!selectedSizeWithQty || !selectedQtyOption))
+                  (ecoStockProduct.sizeVariants && ecoStockProduct.sizeVariants.length > 0 && !ecoStockProduct.customPrintQuantities && !selectedSizeVariant) ||
+                  (ecoStockProduct.sizeWithQuantities && ecoStockProduct.sizeWithQuantities.length > 0 && (!selectedSizeWithQty || !selectedQtyOption)) ||
+                  (ecoStockProduct.customPrintQuantities && ecoStockProduct.customPrintQuantities.length > 0 && !selectedQtyOption)
                     ? 'bg-neutral-300 text-neutral-500 cursor-not-allowed'
                     : 'bg-green-600 hover:bg-green-700 text-white'
                 }`}
               >
-                <ShoppingCart className="h-5 w-5" /> 🌱 Add Compostable Bag to Cart
+                <ShoppingCart className="h-5 w-5" /> {ecoStockProduct.customPrintQuantities ? '🎨 Add Custom Print Order' : '🌱 Add Compostable Bag to Cart'}
               </button>
               
               {/* Features */}
@@ -2959,31 +3045,43 @@ const ProductPage: React.FC = () => {
         </section>
       )}
 
-      {/* Image Enlargement Modal */}
+      {/* Image Enlargement Modal - Fit screen height, mobile responsive */}
       {enlargedImage && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
           onClick={() => setEnlargedImage(null)}
         >
-          <div className="relative max-w-4xl max-h-[90vh] bg-white rounded-lg overflow-hidden">
-            <button
-              onClick={() => setEnlargedImage(null)}
-              className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg hover:bg-neutral-100 transition z-10"
-            >
-              <svg className="w-6 h-6 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
+          {/* Close button - positioned at top right */}
+          <button
+            onClick={() => setEnlargedImage(null)}
+            className="absolute top-4 right-4 bg-white/20 hover:bg-white/30 rounded-full p-3 transition z-20"
+          >
+            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          
+          {/* Image container - fit screen height on all devices */}
+          <div 
+            className="flex flex-col items-center justify-center w-full h-full p-4 sm:p-6 md:p-8"
+            onClick={(e) => e.stopPropagation()}
+          >
             <img 
               src={enlargedImage.src}
               alt={enlargedImage.alt}
-              className="w-full h-full object-contain"
+              className="max-w-full max-h-[calc(100vh-120px)] sm:max-h-[calc(100vh-100px)] object-contain rounded-lg shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
-              <p className="text-white text-center font-medium">{enlargedImage.alt}</p>
+            {/* Caption - below image */}
+            <div className="mt-4 px-4">
+              <p className="text-white text-center font-medium text-sm sm:text-base">{enlargedImage.alt}</p>
             </div>
           </div>
+          
+          {/* Tap anywhere hint - mobile only */}
+          <p className="absolute bottom-4 left-0 right-0 text-center text-white/50 text-xs sm:hidden">
+            Tap anywhere to close
+          </p>
         </div>
       )}
 
