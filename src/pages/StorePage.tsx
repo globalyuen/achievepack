@@ -159,7 +159,11 @@ const StorePage: React.FC = () => {
       <header className="bg-primary-600 text-white fixed top-0 left-0 right-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <Link to="/" className="flex items-center gap-3 hover:opacity-90 transition">
+            <a 
+              href="/" 
+              onClick={(e) => { e.preventDefault(); startTransition(() => navigate('/')); }}
+              className="flex items-center gap-3 hover:opacity-90 transition cursor-pointer"
+            >
               <img 
                 src="/ap-logo-white.png" 
                 alt="Achieve Pack" 
@@ -170,7 +174,7 @@ const StorePage: React.FC = () => {
                 height="40"
               />
               <span className="text-2xl font-bold hidden sm:inline">Store</span>
-            </Link>
+            </a>
           </div>
           <div className="flex items-center gap-4">
             <div className="relative hidden md:block">

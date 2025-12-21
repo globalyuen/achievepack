@@ -1,5 +1,5 @@
-import { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useMemo, useTransition, useCallback } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { blogPosts, blogCategories } from '../../data/blogData';
 import { Calendar, Clock, ArrowRight, Search, ShoppingCart, ArrowLeft } from 'lucide-react';
@@ -9,6 +9,16 @@ export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const { cartCount, setIsCartOpen } = useStore();
+  const navigate = useNavigate();
+  const [, startTransition] = useTransition();
+
+  // Optimized navigation for INP
+  const handleNavigation = useCallback((to: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    startTransition(() => {
+      navigate(to);
+    });
+  }, [navigate]);
 
   const filteredPosts = useMemo(() => {
     return blogPosts.filter(post => {
@@ -37,7 +47,7 @@ export default function BlogPage() {
         <header className="bg-green-600 text-white fixed top-0 left-0 right-0 z-50">
           <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <Link to="/" className="flex items-center gap-3 hover:opacity-90 transition">
+              <a href="/" onClick={handleNavigation('/')} className="flex items-center gap-3 hover:opacity-90 transition cursor-pointer">
                 <img 
                   src="/ap-logo-white.png" 
                   alt="Achieve Pack" 
@@ -48,7 +58,7 @@ export default function BlogPage() {
                   height="40"
                 />
                 <span className="text-2xl font-bold hidden sm:inline">Blog</span>
-              </Link>
+              </a>
             </div>
             <div className="flex items-center gap-4">
               <Link to="/store" className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full hover:bg-white/20 transition">

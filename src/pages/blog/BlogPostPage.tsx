@@ -1,9 +1,9 @@
-import { useParams, Link, Navigate } from 'react-router-dom';
+import { useParams, Link, Navigate, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { blogPosts } from '../../data/blogData';
 import { Calendar, Clock, ArrowLeft, Tag, Share2, ShoppingCart, List, ChevronRight, ArrowUp } from 'lucide-react';
 import { useStore } from '../../store/StoreContext';
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useTransition, useCallback } from 'react';
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -11,6 +11,16 @@ export default function BlogPostPage() {
   const { cartCount } = useStore();
   const [showToc, setShowToc] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const navigate = useNavigate();
+  const [, startTransition] = useTransition();
+
+  // Optimized navigation for INP
+  const handleNavigation = useCallback((to: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    startTransition(() => {
+      navigate(to);
+    });
+  }, [navigate]);
 
   // Back to top scroll listener
   useEffect(() => {
@@ -138,7 +148,7 @@ export default function BlogPostPage() {
         <header className="bg-green-600 text-white fixed top-0 left-0 right-0 z-50">
           <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <Link to="/" className="flex items-center gap-3 hover:opacity-90 transition">
+              <a href="/" onClick={handleNavigation('/')} className="flex items-center gap-3 hover:opacity-90 transition cursor-pointer">
                 <img 
                   src="/ap-logo-white.png" 
                   alt="Achieve Pack" 
@@ -149,7 +159,7 @@ export default function BlogPostPage() {
                   height="40"
                 />
                 <span className="text-2xl font-bold hidden sm:inline">Blog</span>
-              </Link>
+              </a>
             </div>
             <div className="flex items-center gap-4">
               <Link to="/blog" className="flex items-center gap-2 text-white/80 hover:text-white transition">
