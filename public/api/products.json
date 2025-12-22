@@ -1,0 +1,284 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Achieve Pack Product Catalog",
+  "description": "Complete catalog of eco-friendly packaging products including compostable, recyclable, and bio-based pouches",
+  "url": "https://achievepack.com/store",
+  "numberOfItems": 18,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "Product",
+        "name": "Sizing Pack Sample",
+        "description": "7 different pouch sizes to test before ordering. Perfect for finding the right fit for your product.",
+        "url": "https://achievepack.com/store/product/sample-sizing-pack",
+        "sku": "sample-sizing-pack",
+        "category": "Sample Packs",
+        "offers": {
+          "@type": "Offer",
+          "price": 40,
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [
+          {"@type": "PropertyValue", "name": "Lead Time", "value": "3-5 days"},
+          {"@type": "PropertyValue", "name": "MOQ", "value": "1 pack"}
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "Product",
+        "name": "Eco Material Sample Pack",
+        "description": "Sample pack of eco-friendly materials including compostable, recyclable mono-PE, and bio-PE options.",
+        "url": "https://achievepack.com/store/product/sample-eco-material",
+        "sku": "sample-eco-material",
+        "category": "Sample Packs",
+        "offers": {
+          "@type": "Offer",
+          "price": 40,
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "Product",
+        "name": "Conventional Digital – Zipper Stand Up Pouch (Metalised)",
+        "description": "Premium metalised stand-up pouch with zipper. High barrier for coffee, snacks, and dry goods. Digital printing from 100 pieces.",
+        "url": "https://achievepack.com/store/product/con-sup-met-zip",
+        "sku": "con-sup-met-zip",
+        "category": "Custom Printed Packaging",
+        "offers": {
+          "@type": "AggregateOffer",
+          "lowPrice": 100,
+          "highPrice": 8240,
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [
+          {"@type": "PropertyValue", "name": "Material", "value": "PET/VMPET/PE (Metalised High Barrier)"},
+          {"@type": "PropertyValue", "name": "Bag Type", "value": "Zipper Stand Up Pouch"},
+          {"@type": "PropertyValue", "name": "Lead Time", "value": "15-20 days"},
+          {"@type": "PropertyValue", "name": "MOQ", "value": "100 pieces"},
+          {"@type": "PropertyValue", "name": "Sizes", "value": "90×130mm to 260×350mm"}
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@type": "Product",
+        "name": "Eco Digital – Stand Up Pouch / Doypack",
+        "description": "Premium eco stand-up pouch with sustainable material options: PCR/Bio-PE, Mono Recyclable, or Compostable.",
+        "url": "https://achievepack.com/store/product/eco-standup",
+        "sku": "eco-standup",
+        "category": "Sustainable Digital Print Packaging",
+        "offers": {
+          "@type": "Offer",
+          "price": 120,
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [
+          {"@type": "PropertyValue", "name": "Material Options", "value": "PCR/Bio-PE, Mono Recyclable PE/PP, Biodegradable Compostable"},
+          {"@type": "PropertyValue", "name": "Bag Type", "value": "Stand Up Pouch / Doypack"},
+          {"@type": "PropertyValue", "name": "Lead Time", "value": "20-30 days"},
+          {"@type": "PropertyValue", "name": "MOQ", "value": "1000 pieces"},
+          {"@type": "PropertyValue", "name": "Eco Benefit", "value": "30% lower carbon footprint or 100% compostable"}
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@type": "Product",
+        "name": "Eco Digital – Flat Squared Bottom Pouch",
+        "description": "Eco flat bottom pouch with premium shelf presence. Available in PCR, Mono PE, or Compostable materials.",
+        "url": "https://achievepack.com/store/product/eco-flatbottom",
+        "sku": "eco-flatbottom",
+        "category": "Sustainable Digital Print Packaging",
+        "offers": {
+          "@type": "Offer",
+          "price": 190,
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [
+          {"@type": "PropertyValue", "name": "Bag Type", "value": "Flat Squared Bottom Pouch"},
+          {"@type": "PropertyValue", "name": "Lead Time", "value": "25-35 days"},
+          {"@type": "PropertyValue", "name": "MOQ", "value": "1000 pieces"}
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "item": {
+        "@type": "Product",
+        "name": "Eco Digital – Box Bottom Pouch",
+        "description": "Eco box bottom pouch with maximum stability and capacity. Premium appearance with sustainable materials.",
+        "url": "https://achievepack.com/store/product/eco-boxbottom",
+        "sku": "eco-boxbottom",
+        "category": "Sustainable Digital Print Packaging",
+        "offers": {
+          "@type": "Offer",
+          "price": 170,
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "item": {
+        "@type": "Product",
+        "name": "Eco Digital – Side Gusset Pouch",
+        "description": "Classic coffee bag style with sustainable materials. Ideal for specialty coffee and tea brands.",
+        "url": "https://achievepack.com/store/product/eco-sidegusset",
+        "sku": "eco-sidegusset",
+        "category": "Sustainable Digital Print Packaging",
+        "offers": {
+          "@type": "Offer",
+          "price": 140,
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "item": {
+        "@type": "Product",
+        "name": "Compostable Flat Bottom Pouch – Natural Kraft",
+        "description": "100% compostable flat bottom pouch with natural kraft finish. Made from plant-based materials. Industrial composting certified with high barrier for 6-12 months shelf life.",
+        "url": "https://achievepack.com/store/product/eco-stock-flatbottom-kraft",
+        "sku": "eco-stock-flatbottom-kraft",
+        "category": "Eco-Friendly Compostable Packaging",
+        "offers": {
+          "@type": "Offer",
+          "price": 500,
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [
+          {"@type": "PropertyValue", "name": "Material", "value": "Natural Kraft - High Barrier (Matte), 100% Compostable"},
+          {"@type": "PropertyValue", "name": "Bag Type", "value": "Flat Squared Bottom Pouch"},
+          {"@type": "PropertyValue", "name": "Lead Time", "value": "5-7 days"},
+          {"@type": "PropertyValue", "name": "MOQ", "value": "500 pieces"},
+          {"@type": "PropertyValue", "name": "Size", "value": "140mm x 290mm + 80mm"},
+          {"@type": "PropertyValue", "name": "Key Features", "value": "100% Compostable, Industrial Composting Certified, High Barrier (6-12 months), One-Sided Zipper, Natural Kraft Finish"}
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "item": {
+        "@type": "Product",
+        "name": "Compostable Gusseted Bag with Adhesive Header",
+        "description": "100% certified compostable gusseted bag with adhesive header for secure sealing. Made from plant-based materials. Multiple sizes available with optional hanging hole. Air shipping included.",
+        "url": "https://achievepack.com/store/product/eco-stock-header-adhesive",
+        "sku": "eco-stock-header-adhesive",
+        "category": "Eco-Friendly Compostable Packaging",
+        "offers": {
+          "@type": "AggregateOffer",
+          "lowPrice": 5.56,
+          "highPrice": 220,
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [
+          {"@type": "PropertyValue", "name": "Material", "value": "PLA+PBAT (100% Certified Compostable)"},
+          {"@type": "PropertyValue", "name": "Lead Time", "value": "5-7 days"},
+          {"@type": "PropertyValue", "name": "MOQ", "value": "100 pieces"},
+          {"@type": "PropertyValue", "name": "Sizes", "value": "XS (14×20cm) to XL (35×45cm)"},
+          {"@type": "PropertyValue", "name": "Key Features", "value": "100% Certified Compostable, Adhesive Header Closure, Gusseted Design, Air Shipping Included, Optional Hanging Hole"}
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "item": {
+        "@type": "Product",
+        "name": "Compostable Resealable Mailer Bag",
+        "description": "100% biodegradable resealable mailer bag made from PLA+PBAT. Features durable zip-lock closure for multiple uses. Certified compostable - decomposes in 3 months (industrial) or 1-2 years (natural conditions). Ideal for e-commerce and shipping.",
+        "url": "https://achievepack.com/store/product/eco-stock-mailer-zipbag",
+        "sku": "eco-stock-mailer-zipbag",
+        "category": "Eco-Friendly Compostable Packaging",
+        "offers": {
+          "@type": "AggregateOffer",
+          "lowPrice": 5.83,
+          "highPrice": 391.94,
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [
+          {"@type": "PropertyValue", "name": "Material", "value": "PLA+PBAT (Fully Biodegradable), 140 micron"},
+          {"@type": "PropertyValue", "name": "Bag Type", "value": "Mailer Bag"},
+          {"@type": "PropertyValue", "name": "Lead Time", "value": "5-7 days"},
+          {"@type": "PropertyValue", "name": "MOQ", "value": "400 pieces"},
+          {"@type": "PropertyValue", "name": "Sizes", "value": "7×10cm, 8×12cm, 9×13cm, 10×15cm, 11×16cm, 12×17cm, 13×19cm, 14×20cm, 15×22cm, 16×24cm, 17×25cm, 18×26cm, 20×28cm, 22×32cm, 24×35cm"},
+          {"@type": "PropertyValue", "name": "Key Features", "value": "100% Biodegradable (PLA+PBAT), Resealable Zip-Lock, Moisture & Dust Protection, Reusable Design, GB/T35795-2017 Certified"},
+          {"@type": "PropertyValue", "name": "Decomposition Time", "value": "3 months (industrial composting) or 1-2 years (natural conditions)"}
+        ],
+        "priceSpecification": [
+          {"@type": "UnitPriceSpecification", "name": "7×10cm - 400pcs", "price": 0.0146, "priceCurrency": "USD", "unitText": "piece"},
+          {"@type": "UnitPriceSpecification", "name": "10×15cm - 400pcs", "price": 0.0250, "priceCurrency": "USD", "unitText": "piece"},
+          {"@type": "UnitPriceSpecification", "name": "14×20cm - 400pcs", "price": 0.0389, "priceCurrency": "USD", "unitText": "piece"},
+          {"@type": "UnitPriceSpecification", "name": "20×28cm - 400pcs", "price": 0.0708, "priceCurrency": "USD", "unitText": "piece"},
+          {"@type": "UnitPriceSpecification", "name": "24×35cm - 400pcs", "price": 0.1056, "priceCurrency": "USD", "unitText": "piece"}
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 11,
+      "item": {
+        "@type": "Product",
+        "name": "Custom Printed Compostable Gusseted Bag with Adhesive Header",
+        "description": "Custom printed version of compostable gusseted bag. Minimum 5000 pieces per size. Full-color digital printing on 100% compostable material.",
+        "url": "https://achievepack.com/store/product/eco-stock-header-adhesive-custom",
+        "sku": "eco-stock-header-adhesive-custom",
+        "category": "Eco-Friendly Compostable Packaging",
+        "offers": {
+          "@type": "AggregateOffer",
+          "lowPrice": 560,
+          "highPrice": 17600,
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [
+          {"@type": "PropertyValue", "name": "MOQ", "value": "5000 pieces per size"},
+          {"@type": "PropertyValue", "name": "Printing", "value": "Full-color digital printing"},
+          {"@type": "PropertyValue", "name": "Volume Discount", "value": "10% discount per additional 5000 pcs up to 50000 pcs"}
+        ]
+      }
+    }
+  ],
+  "seller": {
+    "@type": "Organization",
+    "name": "Achieve Pack",
+    "url": "https://achievepack.com",
+    "email": "ryan@achievepack.com",
+    "telephone": "+852-6970-4411",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "No.41 1/F Wo Liu Hang Tsuen",
+      "addressLocality": "Fotan",
+      "addressCountry": "Hong Kong"
+    }
+  }
+}

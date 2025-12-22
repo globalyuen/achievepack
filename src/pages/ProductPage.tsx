@@ -530,7 +530,7 @@ const ProductPage: React.FC = () => {
     })
   }
 
-  // Generate Product Schema for SEO
+  // Generate Product Schema for SEO with full specifications for AI crawlers
   const productSchema = useMemo(() => {
     if (!product) return null
     
@@ -539,6 +539,107 @@ const ProductPage: React.FC = () => {
                          isEcoStock ? (ecoStockProduct?.basePrice || 0) :
                          totalPrice
     
+    // Build detailed specifications for AI understanding
+    const additionalProperties = []
+    
+    // Add material info
+    if (ecoStockProduct?.material) {
+      additionalProperties.push({
+        "@type": "PropertyValue",
+        "name": "Material",
+        "value": ecoStockProduct.material
+      })
+    }
+    
+    // Add shape info
+    if ('shape' in product && product.shape) {
+      additionalProperties.push({
+        "@type": "PropertyValue",
+        "name": "Bag Type",
+        "value": product.shape
+      })
+    }
+    
+    // Add turnaround time
+    if (product.turnaround) {
+      additionalProperties.push({
+        "@type": "PropertyValue",
+        "name": "Lead Time",
+        "value": product.turnaround
+      })
+    }
+    
+    // Add MOQ
+    if (product.minOrder) {
+      additionalProperties.push({
+        "@type": "PropertyValue",
+        "name": "Minimum Order Quantity",
+        "value": `${product.minOrder} pieces`
+      })
+    }
+    
+    // Add size info for eco-stock
+    if (ecoStockProduct?.sizeInfo) {
+      additionalProperties.push({
+        "@type": "PropertyValue",
+        "name": "Available Sizes",
+        "value": ecoStockProduct.sizeInfo
+      })
+    }
+    
+    // Add features as additional properties
+    if (product.features && product.features.length > 0) {
+      additionalProperties.push({
+        "@type": "PropertyValue",
+        "name": "Key Features",
+        "value": product.features.join(', ')
+      })
+    }
+    
+    // Build size/quantity offers for eco-stock products
+    const offers: any[] = []
+    
+    if (ecoStockProduct?.sizeWithQuantities && ecoStockProduct.sizeWithQuantities.length > 0) {
+      // Create individual offers for each size/quantity combination
+      ecoStockProduct.sizeWithQuantities.slice(0, 5).forEach((size, idx) => {
+        if (size.quantityOptions && size.quantityOptions.length > 0) {
+          const firstOption = size.quantityOptions[0]
+          offers.push({
+            "@type": "Offer",
+            "name": `${size.label} - ${firstOption.quantity} pcs`,
+            "url": `${baseUrl}/store/product/${product.id}`,
+            "priceCurrency": "USD",
+            "price": firstOption.totalPrice,
+            "availability": "https://schema.org/InStock",
+            "itemCondition": "https://schema.org/NewCondition",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": firstOption.unitPrice,
+              "priceCurrency": "USD",
+              "unitText": "piece"
+            }
+          })
+        }
+      })
+    }
+    
+    // Default offer if no size variants
+    if (offers.length === 0) {
+      offers.push({
+        "@type": "Offer",
+        "url": `${baseUrl}/store/product/${product.id}`,
+        "priceCurrency": "USD",
+        "price": currentPrice,
+        "priceValidUntil": new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "seller": {
+          "@type": "Organization",
+          "name": "Achieve Pack"
+        }
+      })
+    }
+    
     return {
       "@context": "https://schema.org",
       "@type": "Product",
@@ -546,30 +647,43 @@ const ProductPage: React.FC = () => {
       "description": product.description,
       "image": product.images.map(img => `${baseUrl}${img}`),
       "sku": product.id,
+      "mpn": product.id,
       "brand": {
         "@type": "Brand",
-        "name": "Achieve Pack"
+        "name": "Achieve Pack",
+        "url": baseUrl
       },
-      "offers": {
-        "@type": "Offer",
-        "url": `${baseUrl}/store/product/${product.id}`,
+      "manufacturer": {
+        "@type": "Organization",
+        "name": "Achieve Pack",
+        "url": baseUrl
+      },
+      "offers": offers.length === 1 ? offers[0] : {
+        "@type": "AggregateOffer",
+        "lowPrice": Math.min(...offers.map((o: any) => o.price)),
+        "highPrice": Math.max(...offers.map((o: any) => o.price)),
         "priceCurrency": "USD",
-        "price": currentPrice,
-        "priceValidUntil": new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Achieve Pack"
-        }
+        "offerCount": offers.length,
+        "offers": offers
       },
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": product.rating,
-        "reviewCount": product.reviews
+        "reviewCount": product.reviews,
+        "bestRating": 5,
+        "worstRating": 1
       },
-      "category": "Packaging Materials"
+      "category": product.category === 'eco-stock' ? 'Eco-Friendly Compostable Packaging' :
+                  product.category === 'eco-digital' ? 'Sustainable Digital Print Packaging' :
+                  product.category === 'conventional-digital' ? 'Custom Printed Packaging' :
+                  product.category === 'sample' ? 'Sample Packs' : 'Packaging Materials',
+      "additionalProperty": additionalProperties,
+      "isRelatedTo": [
+        { "@type": "WebPage", "name": "Materials Guide", "url": `${baseUrl}/materials` },
+        { "@type": "WebPage", "name": "FAQs", "url": `${baseUrl}/support/faqs` }
+      ]
     }
-  }, [product, isConventionalDigital, isEcoStock, conventionalPrice.total, ecoStockProduct?.basePrice, totalPrice])
+  }, [product, isConventionalDigital, isEcoStock, conventionalPrice.total, ecoStockProduct, totalPrice])
 
   // Get FAQ data for this product
   const productFAQData = useMemo(() => {
