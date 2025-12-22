@@ -180,68 +180,6 @@
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
-  
-  <!-- Content Protection Script - Optimized for INP -->
-  <script>
-    // Use requestIdleCallback or setTimeout for non-critical protection
-    const initProtection = () => {
-      // Disable right-click context menu - passive: false required for preventDefault
-      document.addEventListener('contextmenu', e => e.preventDefault(), { passive: false });
-      
-      // Disable copy/cut - only block non-input elements
-      const blockCopyHandler = e => {
-        const tag = document.activeElement?.tagName;
-        if (tag !== 'INPUT' && tag !== 'TEXTAREA') e.preventDefault();
-      };
-      document.addEventListener('copy', blockCopyHandler, { passive: false });
-      document.addEventListener('cut', blockCopyHandler, { passive: false });
-      
-      // Disable image dragging
-      document.addEventListener('dragstart', e => {
-        if (e.target?.tagName === 'IMG') e.preventDefault();
-      }, { passive: false });
-      
-      // Disable keyboard shortcuts - Ctrl+S/P/U
-      document.addEventListener('keydown', e => {
-        if ((e.ctrlKey || e.metaKey) && /^[spu]$/i.test(e.key)) e.preventDefault();
-      }, { passive: false });
-    };
-    
-    // Defer protection init to avoid blocking first paint
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(initProtection, { timeout: 2000 });
-    } else {
-      setTimeout(initProtection, 100);
-    }
-  </script>
-  
-  <style>
-    /* Disable text selection globally except inputs */
-    body {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-    
-    /* Allow text selection in form inputs */
-    input, textarea, [contenteditable="true"] {
-      -webkit-user-select: text;
-      -moz-user-select: text;
-      -ms-user-select: text;
-      user-select: text;
-    }
-    
-    /* Disable image dragging */
-    img {
-      -webkit-user-drag: none;
-      -khtml-user-drag: none;
-      -moz-user-drag: none;
-      -o-user-drag: none;
-      user-drag: none;
-      pointer-events: auto;
-    }
-  </style>
 </body>
 
 </html>
