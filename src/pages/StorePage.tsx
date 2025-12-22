@@ -427,7 +427,6 @@ const StorePage: React.FC = () => {
             <div className="col-span-2 md:col-span-1">
               <Link to="/" className="flex items-center gap-2 mb-4">
                 <img src="/ap-logo-white.png" alt="Achieve Pack" className="h-8 w-auto" loading="lazy" decoding="async" width="106" height="32" />
-                <span className="font-bold">Store</span>
               </Link>
               <p className="text-neutral-400 text-sm mb-4">Premium custom printed pouches with eco-friendly options.</p>
               <div className="space-y-1 text-xs text-neutral-500">
