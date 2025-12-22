@@ -1,5 +1,5 @@
 import React from 'react'
-import { Recycle, CheckCircle, Shield, Award, Factory, MessageCircle, Target, Calendar, Phone, Download, Mail } from 'lucide-react'
+import { Recycle, CheckCircle, Shield, Award, Factory, MessageCircle, Target, Calendar, Phone, Download, Mail, Image } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
@@ -11,6 +11,24 @@ const PCRPage: React.FC = () => {
   const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.pcr'
   const sections = [
+    {
+      id: 'infographic',
+      title: 'PCR Packaging Infographic',
+      icon: <Image className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p className="text-sm text-neutral-600">Click the infographic below to view in full size:</p>
+          <div className="flex justify-center">
+            <ClickableImage 
+              src="/imgs/4-infograhic/PCR.webp" 
+              alt="PCR Packaging Infographic - Post-Consumer Recycled materials guide" 
+              className="max-w-full md:max-w-2xl rounded-lg shadow-lg border border-neutral-200 cursor-pointer hover:shadow-xl transition"
+              caption="PCR Packaging Infographic"
+            />
+          </div>
+        </div>
+      )
+    },
     {
       id: 'scenario-trigger',
       title: 'Is This Page For You?',
