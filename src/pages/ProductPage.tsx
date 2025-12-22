@@ -1764,46 +1764,46 @@ const ProductPage: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left Column - Customer Examples + Package Preview */}
           <div className="hidden lg:block space-y-4">
-            {/* Customer Examples Section - Image Gallery like Conventional Digital */}
+            {/* Product Images Section - All eco-digital photos */}
             {isEcoDigital && (
               <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden">
-                {/* Main Customer Example Image */}
+                {/* Main Product Image */}
                 <div className="bg-neutral-50 p-6">
                   {(() => {
-                    const customerSamples = [
-                      { name: 'Blend Coffee', img: 'a_blend_coffee_family_group_4850129.webp' },
-                      { name: 'Blend4 Coffee', img: 'a_blend4_coffee_functional_closeup_9237259.webp' },
-                      { name: 'Natures Touch', img: 'a_natures_touch_fruit_family_0232483.webp' },
-                      { name: 'Pouch Detail', img: 'a_pouch_functional_detail_closeup_8098550.webp' },
-                      { name: 'Product Family', img: 'a_product_family_group_photo_2244546.webp' },
-                      { name: 'Arielle', img: 'Arielle.webp' },
-                      { name: 'David', img: 'David.webp' },
-                      { name: 'Holly', img: 'Holly.webp' },
-                      { name: 'Leo', img: 'Leo.webp' },
-                      { name: 'Nicole', img: 'Nicole.webp' },
-                      { name: 'Paul', img: 'Paul.webp' },
-                      { name: 'Remi', img: 'Remi.webp' },
-                      { name: 'Richard', img: 'Richard.webp' },
-                      { name: 'Steph', img: 'Steph.webp' },
-                      { name: 'Jemma', img: 'jemma.webp' },
-                      { name: 'Michelle', img: 'michelle.webp' },
-                      { name: 'Morlife', img: 'morlife.webp' },
-                      { name: 'Ruby', img: 'ruby.webp' },
+                    // All eco-digital images for main showcase
+                    const allEcoDigitalImages = [
+                      '/imgs/store/eco-digital/0eQiBArdHVo_uyy12vmVid9Vc-hB8Msln4h0Oddu4dQ=.webp',
+                      '/imgs/store/eco-digital/1k3ig0ezuHcds_30mxxPOgFL-qeSwHc8uuzElo2-GP4=.webp',
+                      '/imgs/store/eco-digital/7CWxuO-mB4GevbYtCFnSFfzuCLECtUQ8AjuleiT4vAk=.webp',
+                      '/imgs/store/eco-digital/AvEbY4SX8gwP2SzENbSen8dnT_kTrrk8VN6siqp1B2I=.webp',
+                      '/imgs/store/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp',
+                      '/imgs/store/eco-digital/LQ5WGOrIkQPzbXSfWupAIFvVrlyL9lvZoMKc35bbHPw=.webp',
+                      '/imgs/store/eco-digital/MPRxOw-bWF57OrAxie9J1CXjpM4HKHUUkoMKHeflN6E=.webp',
+                      '/imgs/store/eco-digital/TKAqlW4KL2xV9glNA91iuD_sYEvp2G29eWT4819Ne1g=.webp',
+                      '/imgs/store/eco-digital/X5RkmCe76z3hyMvMr6Yvb5RjclkrdDjh2rNvGIRqgWU=.webp',
+                      '/imgs/store/eco-digital/YoIBVbbSdfCfRc5654ldAbT_L3N5rKcJk__lYon7YmU=.webp',
+                      '/imgs/store/eco-digital/bUr_Wdvkcyq2aH95-oFtusPsS5YMJ2jZ6tjm74mHEr4=.webp',
+                      '/imgs/store/eco-digital/ghEYoZQN4q_bq5SzDz94a_q95YbMZS933hJEnuImpmc=.webp',
+                      '/imgs/store/eco-digital/hAGC60SxXYmSdiBTJD3XPhMZBocRVBXZyuV-dvt3r7c=.webp',
+                      '/imgs/store/eco-digital/os9CHhTSQoGASvA8lsfm-iHYfG4kddPoZP2wYMh47fs=.webp',
+                      '/imgs/store/eco-digital/vxuLNp13OWRZXhe-qkwn3UgHCWirk5TzBLhB7q8JJ30=.webp',
+                      '/imgs/store/eco-digital/wXqLssPqdR9J0iDhIyQ-NGTDDFm-3DgFKlyQD4ipsEw=.webp',
+                      '/imgs/store/eco-digital/zwwZAmSiOHouQPEkkT_Wwz5rhX13CtgkT8LqvNnoJ5w=.webp'
                     ]
-                    const customerImages = customerSamples.map(s => `/imgs/store/customer-sample/${s.img}`)
+                    const currentImg = allEcoDigitalImages[selectedMainImage] || allEcoDigitalImages[0]
                     return (
                       <button 
                         onClick={() => setEnlargedImage({
-                          src: customerImages[selectedMainImage] || customerImages[0],
-                          alt: customerSamples[selectedMainImage]?.name || 'Customer Example',
+                          src: currentImg,
+                          alt: product.name,
                           index: selectedMainImage,
-                          images: customerImages
+                          images: allEcoDigitalImages
                         })}
                         className="w-full cursor-pointer hover:opacity-90 transition"
                       >
                         <img 
-                          src={customerImages[selectedMainImage] || customerImages[0]}
-                          alt="Customer Example"
+                          src={currentImg}
+                          alt={product.name}
                           className="w-full h-80 object-contain"
                         />
                       </button>
@@ -1811,40 +1811,39 @@ const ProductPage: React.FC = () => {
                   })()}
                 </div>
                 
-                {/* Thumbnail Gallery - 9 columns, 2 rows */}
+                {/* Thumbnail Gallery - 2 rows */}
                 <div className="p-3 border-t border-neutral-200">
                   <div className="grid grid-cols-9 gap-1.5">
                     {[
-                      { name: 'Blend Coffee', img: 'a_blend_coffee_family_group_4850129.webp' },
-                      { name: 'Blend4 Coffee', img: 'a_blend4_coffee_functional_closeup_9237259.webp' },
-                      { name: 'Natures Touch', img: 'a_natures_touch_fruit_family_0232483.webp' },
-                      { name: 'Pouch Detail', img: 'a_pouch_functional_detail_closeup_8098550.webp' },
-                      { name: 'Product Family', img: 'a_product_family_group_photo_2244546.webp' },
-                      { name: 'Arielle', img: 'Arielle.webp' },
-                      { name: 'David', img: 'David.webp' },
-                      { name: 'Holly', img: 'Holly.webp' },
-                      { name: 'Leo', img: 'Leo.webp' },
-                      { name: 'Nicole', img: 'Nicole.webp' },
-                      { name: 'Paul', img: 'Paul.webp' },
-                      { name: 'Remi', img: 'Remi.webp' },
-                      { name: 'Richard', img: 'Richard.webp' },
-                      { name: 'Steph', img: 'Steph.webp' },
-                      { name: 'Jemma', img: 'jemma.webp' },
-                      { name: 'Michelle', img: 'michelle.webp' },
-                      { name: 'Morlife', img: 'morlife.webp' },
-                      { name: 'Ruby', img: 'ruby.webp' },
-                    ].map((sample, index) => (
+                      '/imgs/store/eco-digital/0eQiBArdHVo_uyy12vmVid9Vc-hB8Msln4h0Oddu4dQ=.webp',
+                      '/imgs/store/eco-digital/1k3ig0ezuHcds_30mxxPOgFL-qeSwHc8uuzElo2-GP4=.webp',
+                      '/imgs/store/eco-digital/7CWxuO-mB4GevbYtCFnSFfzuCLECtUQ8AjuleiT4vAk=.webp',
+                      '/imgs/store/eco-digital/AvEbY4SX8gwP2SzENbSen8dnT_kTrrk8VN6siqp1B2I=.webp',
+                      '/imgs/store/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp',
+                      '/imgs/store/eco-digital/LQ5WGOrIkQPzbXSfWupAIFvVrlyL9lvZoMKc35bbHPw=.webp',
+                      '/imgs/store/eco-digital/MPRxOw-bWF57OrAxie9J1CXjpM4HKHUUkoMKHeflN6E=.webp',
+                      '/imgs/store/eco-digital/TKAqlW4KL2xV9glNA91iuD_sYEvp2G29eWT4819Ne1g=.webp',
+                      '/imgs/store/eco-digital/X5RkmCe76z3hyMvMr6Yvb5RjclkrdDjh2rNvGIRqgWU=.webp',
+                      '/imgs/store/eco-digital/YoIBVbbSdfCfRc5654ldAbT_L3N5rKcJk__lYon7YmU=.webp',
+                      '/imgs/store/eco-digital/bUr_Wdvkcyq2aH95-oFtusPsS5YMJ2jZ6tjm74mHEr4=.webp',
+                      '/imgs/store/eco-digital/ghEYoZQN4q_bq5SzDz94a_q95YbMZS933hJEnuImpmc=.webp',
+                      '/imgs/store/eco-digital/hAGC60SxXYmSdiBTJD3XPhMZBocRVBXZyuV-dvt3r7c=.webp',
+                      '/imgs/store/eco-digital/os9CHhTSQoGASvA8lsfm-iHYfG4kddPoZP2wYMh47fs=.webp',
+                      '/imgs/store/eco-digital/vxuLNp13OWRZXhe-qkwn3UgHCWirk5TzBLhB7q8JJ30=.webp',
+                      '/imgs/store/eco-digital/wXqLssPqdR9J0iDhIyQ-NGTDDFm-3DgFKlyQD4ipsEw=.webp',
+                      '/imgs/store/eco-digital/zwwZAmSiOHouQPEkkT_Wwz5rhX13CtgkT8LqvNnoJ5w=.webp'
+                    ].map((img, index) => (
                       <button
-                        key={sample.name}
+                        key={index}
                         onClick={() => setSelectedMainImage(index)}
                         className={`aspect-square bg-white rounded-md border-2 overflow-hidden transition-all hover:shadow-md ${
                           selectedMainImage === index ? 'border-primary-600 ring-2 ring-primary-200' : 'border-neutral-200'
                         }`}
                       >
                         <img 
-                          src={`/imgs/store/customer-sample/${sample.img}`}
-                          alt={`${sample.name}'s Package`}
-                          className="w-full h-full object-cover"
+                          src={img}
+                          alt={`Product view ${index + 1}`}
+                          className="w-full h-full object-contain p-0.5"
                         />
                       </button>
                     ))}
@@ -2247,6 +2246,66 @@ const ProductPage: React.FC = () => {
                 ))}
               </div>
             </div>
+            
+            {/* Customer Samples & Shape Reference - Below Testimonials for Eco Digital */}
+            {isEcoDigital && (
+              <div className="hidden lg:block space-y-4">
+                {/* Pouch Shape Reference */}
+                {product.images.filter(img => img.includes('pouch shape')).length > 0 && (
+                  <div className="bg-white rounded-lg border border-neutral-200 shadow-sm overflow-hidden">
+                    <div className="p-4">
+                      <h3 className="text-sm font-semibold text-neutral-700 flex items-center gap-2">
+                        <span className="text-lg">📐</span>
+                        Pouch Shape Reference
+                      </h3>
+                    </div>
+                    <div className="px-4 pb-4">
+                      <div className="grid grid-cols-1 gap-2">
+                        {product.images.filter(img => img.includes('pouch shape')).map((img, index) => (
+                          <button
+                            key={index}
+                            onClick={() => setEnlargedImage({ src: img, alt: 'Pouch Shape Reference' })}
+                            className="bg-neutral-50 rounded-lg p-3 hover:bg-neutral-100 transition cursor-pointer"
+                          >
+                            <img src={img} alt="Pouch Shape" className="w-full h-24 object-contain" />
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+                
+                {/* Customer Samples Gallery */}
+                <div className="bg-white rounded-lg border border-neutral-200 shadow-sm overflow-hidden">
+                  <div className="p-4">
+                    <h3 className="text-sm font-semibold text-neutral-700 flex items-center gap-2">
+                      <span className="text-lg">📸</span>
+                      Customer Samples
+                    </h3>
+                  </div>
+                  <div className="px-4 pb-4">
+                    <div className="grid grid-cols-6 gap-1.5">
+                      {[
+                        'a_blend_coffee_family_group_4850129.webp',
+                        'a_blend4_coffee_functional_closeup_9237259.webp',
+                        'a_natures_touch_fruit_family_0232483.webp',
+                        'Arielle.webp', 'David.webp', 'Holly.webp',
+                        'Leo.webp', 'Nicole.webp', 'Paul.webp',
+                        'Remi.webp', 'Richard.webp', 'Steph.webp'
+                      ].map((img, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setEnlargedImage({ src: `/imgs/store/customer-sample/${img}`, alt: 'Customer Sample' })}
+                          className="aspect-square bg-neutral-50 rounded-md overflow-hidden hover:opacity-80 transition cursor-pointer"
+                        >
+                          <img src={`/imgs/store/customer-sample/${img}`} alt="Customer Sample" className="w-full h-full object-cover" />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Right Column - Product Options */}
