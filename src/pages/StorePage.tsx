@@ -289,7 +289,7 @@ const StorePage: React.FC = () => {
         <div className="flex gap-8">
           {/* Sidebar Filters - Sticky */}
           <aside className="hidden lg:block w-72 flex-shrink-0">
-            <div className="sticky top-[88px] max-h-[calc(100vh-100px)] overflow-y-auto">
+            <div className="sticky top-[88px]">
               {/* Category Filter */}
               <div className="bg-white border border-neutral-200 rounded-xl p-5 mb-4">
                 <h3 className="font-bold text-neutral-900 mb-4">Category</h3>
