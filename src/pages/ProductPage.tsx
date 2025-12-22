@@ -1536,10 +1536,17 @@ const ProductPage: React.FC = () => {
                   displayPrice = selectedVariant.totalPrice * sizeVariantBatchCount
                   displayUnitPrice = selectedVariant.unitPrice
                   displayQuantity = selectedVariant.quantity * sizeVariantBatchCount
-                } else {
+                } else if (ecoStockProduct.pricePerPiece) {
                   displayPrice = selectedEcoStockQuantity * ecoStockProduct.pricePerPiece
                   displayUnitPrice = ecoStockProduct.pricePerPiece
                   displayQuantity = selectedEcoStockQuantity
+                } else {
+                  // Fallback for products with sizeWithQuantities but no selection yet
+                  const firstSize = ecoStockProduct.sizeWithQuantities?.[0]
+                  const firstOption = firstSize?.quantityOptions?.[0]
+                  displayPrice = firstOption?.totalPrice || ecoStockProduct.basePrice || 0
+                  displayUnitPrice = firstOption?.unitPrice || 0
+                  displayQuantity = firstOption?.quantity || ecoStockProduct.minQuantity || 200
                 }
                 
                 return (
