@@ -1073,6 +1073,204 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
     ],
     customPrintNote: 'Custom print available for orders of 5,000+ pcs per design. Contact us for details.',
     videoUrl: 'https://youtu.be/rqAtUbtzOuY',
+    customPrintProductId: 'eco-stock-mailer-zipbag-custom',
+  },
+  // Compostable Resealable Mailer Bag - Custom Print Version
+  {
+    id: 'eco-stock-mailer-zipbag-custom',
+    name: 'Custom Printed Compostable Mailer Bag',
+    category: 'eco-stock',
+    description: 'Custom printed 100% biodegradable resealable mailer bag made from PLA+PBAT. Full-color printing with your brand logo and design. Features durable zip-lock closure for multiple uses, moisture and dust protection. Certified compostable.',
+    shortDesc: 'From US$124 for 5,000 pcs',
+    features: ['Full-Color Custom Printing', '100% Biodegradable (PLA+PBAT)', 'Resealable Zip-Lock', 'Moisture & Dust Protection', 'MOQ 5,000 pcs per size'],
+    images: [
+      '/imgs/store/eco-stock/mailer/custom-print/a_custom_printing_showcase_transparent_0406760.webp',
+      '/imgs/store/eco-stock/mailer/custom-print/a_comparison_compostable_transparent_7910662.webp',
+      '/imgs/store/eco-stock/mailer/custom-print/a_durability_test_material_pull_6142959.webp',
+      '/imgs/store/eco-stock/mailer/custom-print/944af2cf-100b-4861-868e-be855852b5f7_upscayl_3x_upscayl-standard-4x.webp',
+      '/imgs/store/eco-stock/mailer/custom-print/447849b2-65ea-49fb-86de-1278a636c795_upscayl_3x_upscayl-standard-4x.webp'
+    ],
+    badge: '🎨 Custom Print',
+    rating: 4.9,
+    reviews: 87,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 5000,
+    shape: 'Mailer Bag',
+    material: 'PLA+PBAT (Fully Biodegradable), 140 micron',
+    basePrice: 124.00,
+    pricePerPiece: 0.0248,
+    minQuantity: 5000,
+    quantityStep: 5000,
+    sizeInfo: 'Multiple sizes available (7cm - 35cm)',
+    sizeWithQuantities: [
+      // 7×10cm: base unit price = 0.0124 * 2 = 0.0248
+      { id: 'size-7x10', label: '7×10cm', dimensions: '7×10cm, 140 micron', quantityOptions: [
+        { quantity: 5000, totalPrice: 124.00, unitPrice: 0.0248 },
+        { quantity: 10000, totalPrice: 223.20, unitPrice: 0.0223 },
+        { quantity: 15000, totalPrice: 297.60, unitPrice: 0.0198 },
+        { quantity: 20000, totalPrice: 347.20, unitPrice: 0.0174 },
+        { quantity: 25000, totalPrice: 372.00, unitPrice: 0.0149 },
+        { quantity: 30000, totalPrice: 372.00, unitPrice: 0.0124 },
+        { quantity: 40000, totalPrice: 496.00, unitPrice: 0.0124 },
+        { quantity: 50000, totalPrice: 620.00, unitPrice: 0.0124 }
+      ]},
+      // 8×12cm: base unit price = 0.0148 * 2 = 0.0296
+      { id: 'size-8x12', label: '8×12cm', dimensions: '8×12cm, 140 micron', quantityOptions: [
+        { quantity: 5000, totalPrice: 148.00, unitPrice: 0.0296 },
+        { quantity: 10000, totalPrice: 266.40, unitPrice: 0.0266 },
+        { quantity: 15000, totalPrice: 355.20, unitPrice: 0.0237 },
+        { quantity: 20000, totalPrice: 414.40, unitPrice: 0.0207 },
+        { quantity: 25000, totalPrice: 444.00, unitPrice: 0.0178 },
+        { quantity: 30000, totalPrice: 444.00, unitPrice: 0.0148 },
+        { quantity: 40000, totalPrice: 592.00, unitPrice: 0.0148 },
+        { quantity: 50000, totalPrice: 740.00, unitPrice: 0.0148 }
+      ]},
+      // 9×13cm: base unit price = 0.0177 * 2 = 0.0354
+      { id: 'size-9x13', label: '9×13cm', dimensions: '9×13cm, 140 micron', quantityOptions: [
+        { quantity: 5000, totalPrice: 177.00, unitPrice: 0.0354 },
+        { quantity: 10000, totalPrice: 318.60, unitPrice: 0.0319 },
+        { quantity: 15000, totalPrice: 424.80, unitPrice: 0.0283 },
+        { quantity: 20000, totalPrice: 495.60, unitPrice: 0.0248 },
+        { quantity: 25000, totalPrice: 531.00, unitPrice: 0.0212 },
+        { quantity: 30000, totalPrice: 531.00, unitPrice: 0.0177 },
+        { quantity: 40000, totalPrice: 708.00, unitPrice: 0.0177 },
+        { quantity: 50000, totalPrice: 885.00, unitPrice: 0.0177 }
+      ]},
+      // 10×15cm: base unit price = 0.0213 * 2 = 0.0426
+      { id: 'size-10x15', label: '10×15cm', dimensions: '10×15cm, 140 micron', quantityOptions: [
+        { quantity: 5000, totalPrice: 213.00, unitPrice: 0.0426 },
+        { quantity: 10000, totalPrice: 383.40, unitPrice: 0.0383 },
+        { quantity: 15000, totalPrice: 511.20, unitPrice: 0.0341 },
+        { quantity: 20000, totalPrice: 596.40, unitPrice: 0.0298 },
+        { quantity: 25000, totalPrice: 639.00, unitPrice: 0.0256 },
+        { quantity: 30000, totalPrice: 639.00, unitPrice: 0.0213 },
+        { quantity: 40000, totalPrice: 852.00, unitPrice: 0.0213 },
+        { quantity: 50000, totalPrice: 1065.00, unitPrice: 0.0213 }
+      ]},
+      // 11×16cm: base unit price = 0.0301 * 2 = 0.0602
+      { id: 'size-11x16', label: '11×16cm', dimensions: '11×16cm, 140 micron', quantityOptions: [
+        { quantity: 5000, totalPrice: 301.00, unitPrice: 0.0602 },
+        { quantity: 10000, totalPrice: 541.80, unitPrice: 0.0542 },
+        { quantity: 15000, totalPrice: 722.40, unitPrice: 0.0482 },
+        { quantity: 20000, totalPrice: 842.80, unitPrice: 0.0421 },
+        { quantity: 25000, totalPrice: 903.00, unitPrice: 0.0361 },
+        { quantity: 30000, totalPrice: 903.00, unitPrice: 0.0301 },
+        { quantity: 40000, totalPrice: 1204.00, unitPrice: 0.0301 },
+        { quantity: 50000, totalPrice: 1505.00, unitPrice: 0.0301 }
+      ]},
+      // 12×17cm: base unit price = 0.0318 * 2 = 0.0636
+      { id: 'size-12x17', label: '12×17cm', dimensions: '12×17cm, 140 micron', quantityOptions: [
+        { quantity: 5000, totalPrice: 318.00, unitPrice: 0.0636 },
+        { quantity: 10000, totalPrice: 572.40, unitPrice: 0.0572 },
+        { quantity: 15000, totalPrice: 763.20, unitPrice: 0.0509 },
+        { quantity: 20000, totalPrice: 890.40, unitPrice: 0.0445 },
+        { quantity: 25000, totalPrice: 954.00, unitPrice: 0.0382 },
+        { quantity: 30000, totalPrice: 954.00, unitPrice: 0.0318 },
+        { quantity: 40000, totalPrice: 1272.00, unitPrice: 0.0318 },
+        { quantity: 50000, totalPrice: 1590.00, unitPrice: 0.0318 }
+      ]},
+      // 13×19cm: base unit price = 0.0331 * 2 = 0.0662
+      { id: 'size-13x19', label: '13×19cm', dimensions: '13×19cm, 140 micron', quantityOptions: [
+        { quantity: 5000, totalPrice: 331.00, unitPrice: 0.0662 },
+        { quantity: 10000, totalPrice: 595.80, unitPrice: 0.0596 },
+        { quantity: 15000, totalPrice: 794.40, unitPrice: 0.0530 },
+        { quantity: 20000, totalPrice: 926.80, unitPrice: 0.0463 },
+        { quantity: 25000, totalPrice: 993.00, unitPrice: 0.0397 },
+        { quantity: 30000, totalPrice: 993.00, unitPrice: 0.0331 },
+        { quantity: 40000, totalPrice: 1324.00, unitPrice: 0.0331 },
+        { quantity: 50000, totalPrice: 1655.00, unitPrice: 0.0331 }
+      ]},
+      // 14×20cm: base unit price = 0.0348 * 2 = 0.0696
+      { id: 'size-14x20', label: '14×20cm', dimensions: '14×20cm, 140 micron', quantityOptions: [
+        { quantity: 5000, totalPrice: 348.00, unitPrice: 0.0696 },
+        { quantity: 10000, totalPrice: 626.40, unitPrice: 0.0626 },
+        { quantity: 15000, totalPrice: 835.20, unitPrice: 0.0557 },
+        { quantity: 20000, totalPrice: 974.40, unitPrice: 0.0487 },
+        { quantity: 25000, totalPrice: 1044.00, unitPrice: 0.0418 },
+        { quantity: 30000, totalPrice: 1044.00, unitPrice: 0.0348 },
+        { quantity: 40000, totalPrice: 1392.00, unitPrice: 0.0348 },
+        { quantity: 50000, totalPrice: 1740.00, unitPrice: 0.0348 }
+      ]},
+      // 15×22cm: base unit price = 0.0419 * 2 = 0.0838
+      { id: 'size-15x22', label: '15×22cm', dimensions: '15×22cm, 140 micron', quantityOptions: [
+        { quantity: 5000, totalPrice: 419.00, unitPrice: 0.0838 },
+        { quantity: 10000, totalPrice: 754.20, unitPrice: 0.0754 },
+        { quantity: 15000, totalPrice: 1005.60, unitPrice: 0.0670 },
+        { quantity: 20000, totalPrice: 1173.20, unitPrice: 0.0587 },
+        { quantity: 25000, totalPrice: 1257.00, unitPrice: 0.0503 },
+        { quantity: 30000, totalPrice: 1257.00, unitPrice: 0.0419 },
+        { quantity: 40000, totalPrice: 1676.00, unitPrice: 0.0419 },
+        { quantity: 50000, totalPrice: 2095.00, unitPrice: 0.0419 }
+      ]},
+      // 16×24cm: base unit price = 0.0449 * 2 = 0.0898
+      { id: 'size-16x24', label: '16×24cm', dimensions: '16×24cm, 140 micron', quantityOptions: [
+        { quantity: 5000, totalPrice: 449.00, unitPrice: 0.0898 },
+        { quantity: 10000, totalPrice: 808.20, unitPrice: 0.0808 },
+        { quantity: 15000, totalPrice: 1077.60, unitPrice: 0.0718 },
+        { quantity: 20000, totalPrice: 1257.20, unitPrice: 0.0629 },
+        { quantity: 25000, totalPrice: 1347.00, unitPrice: 0.0539 },
+        { quantity: 30000, totalPrice: 1347.00, unitPrice: 0.0449 },
+        { quantity: 40000, totalPrice: 1796.00, unitPrice: 0.0449 },
+        { quantity: 50000, totalPrice: 2245.00, unitPrice: 0.0449 }
+      ]},
+      // 17×25cm: base unit price = 0.0508 * 2 = 0.1016
+      { id: 'size-17x25', label: '17×25cm', dimensions: '17×25cm, 140 micron', quantityOptions: [
+        { quantity: 5000, totalPrice: 508.00, unitPrice: 0.1016 },
+        { quantity: 10000, totalPrice: 914.40, unitPrice: 0.0914 },
+        { quantity: 15000, totalPrice: 1219.20, unitPrice: 0.0813 },
+        { quantity: 20000, totalPrice: 1422.40, unitPrice: 0.0711 },
+        { quantity: 25000, totalPrice: 1524.00, unitPrice: 0.0610 },
+        { quantity: 30000, totalPrice: 1524.00, unitPrice: 0.0508 },
+        { quantity: 40000, totalPrice: 2032.00, unitPrice: 0.0508 },
+        { quantity: 50000, totalPrice: 2540.00, unitPrice: 0.0508 }
+      ]},
+      // 18×26cm: base unit price = 0.0578 * 2 = 0.1156
+      { id: 'size-18x26', label: '18×26cm', dimensions: '18×26cm, 140 micron', quantityOptions: [
+        { quantity: 5000, totalPrice: 578.00, unitPrice: 0.1156 },
+        { quantity: 10000, totalPrice: 1040.40, unitPrice: 0.1040 },
+        { quantity: 15000, totalPrice: 1387.20, unitPrice: 0.0925 },
+        { quantity: 20000, totalPrice: 1618.40, unitPrice: 0.0809 },
+        { quantity: 25000, totalPrice: 1734.00, unitPrice: 0.0694 },
+        { quantity: 30000, totalPrice: 1734.00, unitPrice: 0.0578 },
+        { quantity: 40000, totalPrice: 2312.00, unitPrice: 0.0578 },
+        { quantity: 50000, totalPrice: 2890.00, unitPrice: 0.0578 }
+      ]},
+      // 20×28cm: base unit price = 0.0661 * 2 = 0.1322
+      { id: 'size-20x28', label: '20×28cm', dimensions: '20×28cm, 140 micron', quantityOptions: [
+        { quantity: 5000, totalPrice: 661.00, unitPrice: 0.1322 },
+        { quantity: 10000, totalPrice: 1189.80, unitPrice: 0.1190 },
+        { quantity: 15000, totalPrice: 1586.40, unitPrice: 0.1058 },
+        { quantity: 20000, totalPrice: 1850.80, unitPrice: 0.0925 },
+        { quantity: 25000, totalPrice: 1983.00, unitPrice: 0.0793 },
+        { quantity: 30000, totalPrice: 1983.00, unitPrice: 0.0661 },
+        { quantity: 40000, totalPrice: 2644.00, unitPrice: 0.0661 },
+        { quantity: 50000, totalPrice: 3305.00, unitPrice: 0.0661 }
+      ]},
+      // 22×32cm: base unit price = 0.0820 * 2 = 0.1640
+      { id: 'size-22x32', label: '22×32cm', dimensions: '22×32cm, 140 micron', quantityOptions: [
+        { quantity: 5000, totalPrice: 820.00, unitPrice: 0.1640 },
+        { quantity: 10000, totalPrice: 1476.00, unitPrice: 0.1476 },
+        { quantity: 15000, totalPrice: 1968.00, unitPrice: 0.1312 },
+        { quantity: 20000, totalPrice: 2296.00, unitPrice: 0.1148 },
+        { quantity: 25000, totalPrice: 2460.00, unitPrice: 0.0984 },
+        { quantity: 30000, totalPrice: 2460.00, unitPrice: 0.0820 },
+        { quantity: 40000, totalPrice: 3280.00, unitPrice: 0.0820 },
+        { quantity: 50000, totalPrice: 4100.00, unitPrice: 0.0820 }
+      ]},
+      // 24×35cm: base unit price = 0.0980 * 2 = 0.1960
+      { id: 'size-24x35', label: '24×35cm', dimensions: '24×35cm, 140 micron', quantityOptions: [
+        { quantity: 5000, totalPrice: 980.00, unitPrice: 0.1960 },
+        { quantity: 10000, totalPrice: 1764.00, unitPrice: 0.1764 },
+        { quantity: 15000, totalPrice: 2352.00, unitPrice: 0.1568 },
+        { quantity: 20000, totalPrice: 2744.00, unitPrice: 0.1372 },
+        { quantity: 25000, totalPrice: 2940.00, unitPrice: 0.1176 },
+        { quantity: 30000, totalPrice: 2940.00, unitPrice: 0.0980 },
+        { quantity: 40000, totalPrice: 3920.00, unitPrice: 0.0980 },
+        { quantity: 50000, totalPrice: 4900.00, unitPrice: 0.0980 }
+      ]},
+    ],
+    stockProductId: 'eco-stock-mailer-zipbag',
   },
 ]
 

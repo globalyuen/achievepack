@@ -28,10 +28,10 @@ export const FloatingInfoGraphics: React.FC<FloatingInfoGraphicsProps> = ({ clas
   // Generate random positions for floating icons - memoized to be stable
   const floatingIcons = useMemo<FloatingIcon[]>(() => {
     return [
-      { id: 0, x: 5, y: 15, size: 56, delay: 0, infographicIndex: 0 },
-      { id: 1, x: 85, y: 25, size: 52, delay: 0.5, infographicIndex: 1 },
-      { id: 2, x: 15, y: 70, size: 48, delay: 1, infographicIndex: 2 },
-      { id: 3, x: 75, y: 65, size: 54, delay: 1.5, infographicIndex: 3 },
+      { id: 0, x: 12, y: 50, size: 72, delay: 0, infographicIndex: 0 },
+      { id: 1, x: 35, y: 50, size: 68, delay: 0.3, infographicIndex: 1 },
+      { id: 2, x: 65, y: 50, size: 70, delay: 0.6, infographicIndex: 2 },
+      { id: 3, x: 88, y: 50, size: 72, delay: 0.9, infographicIndex: 3 },
     ]
   }, [])
 
@@ -73,7 +73,7 @@ export const FloatingInfoGraphics: React.FC<FloatingInfoGraphicsProps> = ({ clas
   return (
     <>
       {/* Floating Icons Container */}
-      <div className={`relative h-24 bg-gradient-to-r from-emerald-50 via-white to-teal-50 overflow-hidden ${className}`}>
+      <div className={`relative h-32 bg-gradient-to-r from-emerald-50 via-white to-teal-50 overflow-visible ${className}`}>
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -82,9 +82,9 @@ export const FloatingInfoGraphics: React.FC<FloatingInfoGraphicsProps> = ({ clas
         </div>
 
         {/* Center text */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <p className="text-sm text-emerald-700 font-medium opacity-80">
-            Click the icons to explore our eco materials →
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <p className="text-base text-emerald-700 font-semibold">
+            🌿 Click any icon to explore eco materials
           </p>
         </div>
 
