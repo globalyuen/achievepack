@@ -145,8 +145,8 @@ export const AI_SELLING_POINTS: Record<string, AISellingPoint> = {
   },
 
   // ========== CONVENTIONAL DIGITAL PRODUCTS ==========
-  'con-sup-met-zip': {
-    productId: 'con-sup-met-zip',
+  'conven-sup-met-zip': {
+    productId: 'conven-sup-met-zip',
     headline: 'Metalised Stand-Up Pouch — Maximum Shelf Impact',
     targetAudience: ['Food brands', 'Coffee companies', 'Snack producers', 'Pet food makers'],
     keyBenefits: [
@@ -170,8 +170,8 @@ export const AI_SELLING_POINTS: Record<string, AISellingPoint> = {
     callToAction: 'Custom packaging from $100 — perfect for new brands and test markets.'
   },
 
-  'con-sup-clear-zip': {
-    productId: 'con-sup-clear-zip',
+  'conven-sup-clear-zip': {
+    productId: 'conven-sup-clear-zip',
     headline: 'Clear Stand-Up Pouch — Show Off Your Product',
     targetAudience: ['Visual products', 'Snack brands', 'Candy makers', 'Food producers'],
     keyBenefits: [
@@ -194,8 +194,8 @@ export const AI_SELLING_POINTS: Record<string, AISellingPoint> = {
     callToAction: 'From $100 for 100 bags — let your product speak for itself.'
   },
 
-  'con-3side-met-no': {
-    productId: 'con-3side-met-no',
+  'conven-3ss-met-xzip': {
+    productId: 'conven-3ss-met-xzip',
     headline: 'Flat Metalised Pouch — Cost-Effective & Premium',
     targetAudience: ['Sample products', 'Single-serve items', 'Lightweight products', 'Budget-conscious brands'],
     keyBenefits: [
