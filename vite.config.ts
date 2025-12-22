@@ -4,6 +4,7 @@ import { defineConfig } from "vite"
 import sourceIdentifierPlugin from 'vite-plugin-source-identifier'
 
 const isProd = process.env.BUILD_MODE === 'prod'
+
 export default defineConfig({
   plugins: [
     react(), 
@@ -11,7 +12,7 @@ export default defineConfig({
       enabled: !isProd,
       attributePrefix: 'data-matrix',
       includeProps: true,
-    })
+    }),
   ],
   resolve: {
     alias: {
