@@ -614,6 +614,55 @@ export const AI_SELLING_POINTS: Record<string, AISellingPoint> = {
     certifications: ['Recyclable', 'Compostable Options'],
     comparisonAdvantage: 'The most stable pouch design now in sustainable materials.',
     callToAction: 'From $160 for 1,000 bags — premium eco quad seal.'
+  },
+
+  // ========== BOXES PRODUCTS ==========
+  'box-corrugated-custom': {
+    productId: 'box-corrugated-custom',
+    headline: 'Premium Corrugated Mailer Box — FSC Recycled, Luxury Finish',
+    targetAudience: ['Coffee roasters', 'Tea brands', 'Chocolate makers', 'Artisan food producers', 'Gift box brands'],
+    keyBenefits: [
+      { icon: '🎯', title: 'CMYK Printing', description: 'Full-color custom printing.' },
+      { icon: '✨', title: 'Matte + Foil', description: 'Matte lamination with gold foil option.' },
+      { icon: '🌱', title: 'FSC Certified', description: 'Recycled paper, fully recyclable.' },
+      { icon: '📦', title: 'Rigid Structure', description: '2.0mm grayboard for premium feel.' },
+      { icon: '💰', title: '2 Sizes', description: '500g and 1kg options available.' },
+      { icon: '🚢', title: 'Sea Freight', description: 'Shipping included (40-60 days).' }
+    ],
+    specifications: [
+      { label: 'Material', value: '157g art paper + 2.0mm grayboard' },
+      { label: 'Sizes', value: '500g (130×85×35mm), 1kg (270×85×35mm)' },
+      { label: 'MOQ', value: '200 pieces' },
+      { label: 'Lead Time', value: '30 days production + 40-60 days shipping' }
+    ],
+    useCases: ['Coffee gift boxes', 'Premium tea packaging', 'Chocolate bars', 'Artisan food gifts', 'Subscription boxes'],
+    certifications: ['FSC Certified', 'Recyclable', 'Food Safe'],
+    comparisonAdvantage: 'Premium rigid boxes with gold foil and embossing at low MOQ. Perfect for brands that want luxury without 5,000+ piece minimums.',
+    callToAction: 'From $514.50 for 200 boxes — start your premium packaging today.'
+  },
+
+  'box-tuck-custom': {
+    productId: 'box-tuck-custom',
+    headline: 'Custom Tuck Box — Gold Foil & Embossing for Premium Products',
+    targetAudience: ['Chocolate brands', 'Tea companies', 'Confectionery makers', 'Premium snack brands', 'Gift retailers'],
+    keyBenefits: [
+      { icon: '✨', title: 'Gold Foil', description: 'Luxurious gold foil stamping.' },
+      { icon: '💎', title: 'Embossed', description: 'Tactile embossed details.' },
+      { icon: '🎨', title: 'Matte Finish', description: 'Elegant matte lamination.' },
+      { icon: '🌱', title: 'FSC Paper', description: '250g white card, recyclable.' },
+      { icon: '📦', title: 'Tuck Closure', description: 'Easy tuck-end opening.' },
+      { icon: '🚢', title: 'Sea Freight', description: 'Shipping included in price.' }
+    ],
+    specifications: [
+      { label: 'Material', value: '250g White Card' },
+      { label: 'Size', value: '100g Box: 81(W) × 162(L) × 15(H) mm' },
+      { label: 'MOQ', value: '200 pieces' },
+      { label: 'Lead Time', value: '30 days + 40-60 days shipping' }
+    ],
+    useCases: ['Chocolate bars', 'Tea sachets', 'Small confectionery', 'Premium cookies', 'Gift cards'],
+    certifications: ['FSC Certified', 'Recyclable', 'Food Safe'],
+    comparisonAdvantage: 'Luxury tuck boxes with gold foil and embossing from just 200 pieces. Compete with premium brands without massive inventory.',
+    callToAction: 'From $1,105.50 for 200 boxes — luxury packaging made accessible.'
   }
 };
 

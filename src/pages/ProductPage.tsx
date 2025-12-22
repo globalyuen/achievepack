@@ -1717,7 +1717,7 @@ const ProductPage: React.FC = () => {
                     : 'bg-green-600 hover:bg-green-700 text-white'
                 }`}
               >
-                <ShoppingCart className="h-5 w-5" /> {ecoStockProduct.customPrintQuantities ? '🎨 Add Custom Print Order' : '🌱 Add Compostable Bag to Cart'}
+                <ShoppingCart className="h-5 w-5" /> {ecoStockProduct.customPrintQuantities ? '🎨 Add Custom Print Order' : isBoxes ? 'Add to Cart' : '🌱 Add Compostable Bag to Cart'}
               </button>
               
               {/* Features */}
@@ -1729,14 +1729,16 @@ const ProductPage: React.FC = () => {
                 ))}
               </div>
               
-              {/* Eco Info Box */}
-              <div className="bg-green-50 border border-green-200 rounded-xl p-4">
-                <h4 className="font-semibold text-green-800 mb-2">♻️ About Compostable Packaging</h4>
-                <p className="text-sm text-green-700">
-                  Our compostable pouches are made from plant-based materials that break down in industrial composting facilities. 
-                  Certified for industrial composting, these pouches provide a sustainable alternative without compromising on product protection.
-                </p>
-              </div>
+              {/* Eco Info Box - Only show for eco-stock, not for boxes */}
+              {!isBoxes && (
+                <div className="bg-green-50 border border-green-200 rounded-xl p-4">
+                  <h4 className="font-semibold text-green-800 mb-2">♻️ About Compostable Packaging</h4>
+                  <p className="text-sm text-green-700">
+                    Our compostable pouches are made from plant-based materials that break down in industrial composting facilities. 
+                    Certified for industrial composting, these pouches provide a sustainable alternative without compromising on product protection.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         )}

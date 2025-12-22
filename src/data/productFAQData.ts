@@ -41,6 +41,30 @@ export const DEFAULT_FAQS: ProductFAQ[] = [
   }
 ];
 
+// Default FAQs for box products
+export const DEFAULT_BOXES_FAQS: ProductFAQ[] = [
+  {
+    question: "What is the minimum order quantity for custom boxes?",
+    answer: "Our minimum order quantity for custom printed boxes is 200 pieces. Volume discounts are available for larger orders of 1,000, 5,000, and 10,000+ pieces."
+  },
+  {
+    question: "What is the production and shipping time for boxes?",
+    answer: "Production takes approximately 30 days. Sea freight shipping takes 40-60 days and is included in the price. For urgent orders, air freight options are available at additional cost."
+  },
+  {
+    question: "What printing options are available for boxes?",
+    answer: "We offer CMYK full-color printing with matte lamination finish. Premium options include gold/silver foil stamping and embossing for a luxury look."
+  },
+  {
+    question: "Are your boxes eco-friendly?",
+    answer: "Yes! Our corrugated and tuck boxes use FSC certified recycled paper and grayboard, making them fully recyclable and sustainable."
+  },
+  {
+    question: "Can I get custom sizes for boxes?",
+    answer: "Yes, we offer custom sizing. For quantities over 10,000 pieces or custom dimensions, please contact us for a custom quote."
+  }
+];
+
 // Category-specific FAQ data
 export const PRODUCT_FAQ_DATA: Record<string, ProductFAQCategory> = {
   // Conventional Digital Stand Up Pouches
@@ -206,11 +230,57 @@ export const PRODUCT_FAQ_DATA: Record<string, ProductFAQCategory> = {
     useCases: ["Pre-Production Testing", "Material Evaluation", "Client Presentations", "Packaging Decisions"],
     materialInfo: "Same materials as production: Various options available for testing",
     certifications: ["FDA Compliant", "Food Safe"]
+  },
+
+  // Custom Printed Boxes
+  'boxes': {
+    categoryId: 'boxes',
+    faqs: [
+      {
+        question: "What types of custom boxes do you offer?",
+        answer: "We offer corrugated mailer boxes and tuck boxes (cartons). Both feature full CMYK printing with matte lamination, and optional gold foil and embossing finishes."
+      },
+      {
+        question: "What is the MOQ for custom printed boxes?",
+        answer: "Our minimum order quantity is 200 pieces. Volume discounts are available at 1,000, 5,000, and 10,000+ pieces. For larger quantities, contact us for custom pricing."
+      },
+      {
+        question: "How long does production and delivery take?",
+        answer: "Production takes 30 days. Sea freight shipping (40-60 days) is included in the price. Air freight is available for urgent orders at additional cost."
+      },
+      {
+        question: "Are your boxes environmentally friendly?",
+        answer: "Yes! Our boxes use FSC certified recycled paper and are fully recyclable. Perfect for brands with sustainability commitments."
+      },
+      {
+        question: "What products are these boxes suitable for?",
+        answer: "Our boxes are ideal for coffee, tea, chocolate, artisan foods, and premium products. The rigid construction and premium finishes create a luxury unboxing experience."
+      },
+      {
+        question: "Can I add special finishes to my boxes?",
+        answer: "Yes! We offer gold foil stamping, silver foil, embossing, and debossing. Matte lamination is included as standard. Contact us for spot UV or other special finishes."
+      }
+    ],
+    aiQueryExamples: [
+      "Custom printed boxes for coffee packaging",
+      "FSC certified recyclable boxes low MOQ",
+      "Premium gift boxes with gold foil",
+      "Custom chocolate box packaging supplier"
+    ],
+    seoKeywords: ["custom boxes", "corrugated mailer box", "tuck box", "carton box", "gift box packaging", "FSC certified boxes", "luxury packaging boxes"],
+    detailedDescription: "Premium custom printed boxes featuring CMYK printing with matte lamination. Available in corrugated mailer and tuck box formats with optional gold foil and embossing. Made from FSC certified recycled materials for eco-conscious brands.",
+    useCases: ["Coffee Packaging", "Tea Packaging", "Chocolate Boxes", "Gift Sets", "Artisan Foods", "Premium Products", "E-commerce Mailers"],
+    materialInfo: "157g coated art paper, matte lamination, 2.0mm grayboard. FSC certified recycled materials.",
+    certifications: ["FSC Certified", "Recyclable", "Food Safe"]
   }
 };
 
 // Helper function to get FAQ data for a product
 export function getProductFAQs(productId: string, categoryType: string): ProductFAQCategory | null {
+  // Check for boxes category first
+  if (categoryType === 'boxes' || productId.includes('box-')) {
+    return PRODUCT_FAQ_DATA['boxes'];
+  }
   // Map product IDs to FAQ categories
   if (productId.includes('standup') || productId.includes('sup')) {
     if (productId.includes('eco')) {

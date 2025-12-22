@@ -35,6 +35,7 @@ const SHAPES = [
   { id: 'Header Bag', label: 'Header Bag' },
   { id: 'Mailer Bag', label: 'Mailer Bag' },
   { id: 'Corrugated Box', label: 'Corrugated Box' },
+  { id: 'Tuck Box', label: 'Tuck Box' },
 ]
 
 const StorePage: React.FC = () => {

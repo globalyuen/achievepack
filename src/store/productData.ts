@@ -1372,6 +1372,53 @@ export const BOXES_PRODUCTS: BoxProduct[] = [
     customQuoteNote: 'For quantities over 10,000 pcs or custom sizes, please request a custom quote.',
     videoUrl: 'https://youtube.com/shorts/nRWIQg9rCiQ',
   },
+  {
+    id: 'box-tuck-custom',
+    name: 'Custom Printed Tuck Boxes',
+    category: 'boxes',
+    shape: 'Tuck Box',
+    material: '250g White Card • Matte Finish • Gold Foil • Embossed',
+    description: 'Premium custom printed tuck boxes (cartons) with elegant matte finish, gold foil stamping, and embossed details. Perfect for chocolate bars, tea sachets, small confectionery, and artisan products requiring a sophisticated presentation. Made from FSC certified paper for eco-conscious brands.',
+    shortDesc: 'Premium tuck box with gold foil & embossing',
+    features: [
+      '250g White Card',
+      'Matte Finish',
+      'Gold Foil Stamping',
+      'Embossed Details',
+      'FSC Certified Paper',
+      'Tuck End Closure'
+    ],
+    images: [
+      '/imgs/store/box/tuck-box/8a2918bb-a48c-44a3-875d-6e766e5f305f.webp',
+      '/imgs/store/box/tuck-box/247e2fdf-3274-4be8-b656-03d7e20b5a0f.webp',
+    ],
+    badge: 'Premium Finish',
+    rating: 4.8,
+    reviews: 45,
+    inStock: true,
+    turnaround: '30 days + 40-60 days sea freight',
+    minOrder: 200,
+    minQuantity: 200,
+    basePrice: 1105.50,
+    additionalFeatures: [
+      'Gold Foil Stamping',
+      'Embossed',
+      'Matte Finish',
+      'FSC certified paper',
+      'Sea Freight Included (40-60 days)'
+    ],
+    sizeWithQuantities: [
+      // 100g Tuck Box: 81(W)×162(L)×15(H)mm
+      { id: 'size-100g', label: '100g Tuck Box', dimensions: '81(W) × 162(L) × 15(H) mm', quantityOptions: [
+        { quantity: 200, totalPrice: 1105.50, unitPrice: 5.5275 },
+        { quantity: 1000, totalPrice: 1381.50, unitPrice: 1.3815 },
+        { quantity: 5000, totalPrice: 2761.50, unitPrice: 0.5523 },
+        { quantity: 10000, totalPrice: 4486.50, unitPrice: 0.4487 },
+      ]},
+    ],
+    customQuoteNote: 'For larger quantities, please contact us for a custom free quote.',
+    videoUrl: 'https://youtube.com/shorts/nRWIQg9rCiQ',
+  },
 ]
 
 // Combined products array
