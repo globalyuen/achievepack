@@ -1586,6 +1586,7 @@ ${formData.message}`
                 <li><Link to="/packaging/vacuum-pouches" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.vacuumPouches')}</Link></li>
                 <li><Link to="/packaging/flat-pouches" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.flatPouches')}</Link></li>
                 <li><Link to="/packaging/side-gusset-bags" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">{t('footer.links.sideGussetBags')}</Link></li>
+                <li><Link to="/packaging/custom-boxes" onClick={() => requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))} className="hover:text-primary-500">Custom Boxes</Link></li>
               </ul>
             </div>
 

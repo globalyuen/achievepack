@@ -493,6 +493,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                   <li><Link to="/packaging/vacuum-pouches" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.vacuumPouches')}</Link></li>
                   <li><Link to="/packaging/flat-pouches" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.flatPouches')}</Link></li>
                   <li><Link to="/packaging/side-gusset-bags" onClick={scrollToTop} className="hover:text-primary-400">{t('seoPages.footer.links.sideGussetBags')}</Link></li>
+                  <li><Link to="/packaging/custom-boxes" onClick={scrollToTop} className="hover:text-primary-400">Custom Boxes</Link></li>
                 </ul>
               </div>
               

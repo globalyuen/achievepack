@@ -42,6 +42,7 @@ import SpoutPouchesPage from './pages/packaging/SpoutPouchesPage'
 import FlatPouchesPage from './pages/packaging/FlatPouchesPage'
 import SideGussetBagsPage from './pages/packaging/SideGussetBagsPage'
 import VacuumPouchesPage from './pages/packaging/VacuumPouchesPage'
+import CustomBoxesPage from './pages/packaging/CustomBoxesPage'
 
 // Materials Pages
 import CompostablePage from './pages/materials/CompostablePage'
@@ -197,6 +198,7 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/packaging/flat-pouches" element={<FlatPouchesPage />} />
               <Route path="/packaging/side-gusset-bags" element={<SideGussetBagsPage />} />
               <Route path="/packaging/vacuum-pouches" element={<VacuumPouchesPage />} />
+              <Route path="/packaging/custom-boxes" element={<CustomBoxesPage />} />
 
               {/* Materials Pages */}
               <Route path="/materials/compostable" element={<CompostablePage />} />

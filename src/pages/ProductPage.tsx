@@ -3509,6 +3509,7 @@ const ProductPage: React.FC = () => {
                 <li><Link to="/store" className="hover:text-primary-400">Conventional Digital</Link></li>
                 <li><Link to="/store" className="hover:text-primary-400">Eco Digital</Link></li>
                 <li><Link to="/store" className="hover:text-primary-400">Eco Stock</Link></li>
+                <li><Link to="/store?category=boxes" className="hover:text-primary-400">Custom Boxes</Link></li>
               </ul>
             </div>
 
@@ -3521,6 +3522,7 @@ const ProductPage: React.FC = () => {
                 <li><Link to="/packaging/flat-pouches" className="hover:text-primary-400">3 Side Seal</Link></li>
                 <li><Link to="/packaging/side-gusset-bags" className="hover:text-primary-400">Side Gusset</Link></li>
                 <li><Link to="/packaging/spout-pouches" className="hover:text-primary-400">Spout Pouches</Link></li>
+                <li><Link to="/packaging/custom-boxes" className="hover:text-primary-400">Custom Boxes</Link></li>
               </ul>
             </div>
 
