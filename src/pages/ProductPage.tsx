@@ -276,8 +276,18 @@ const ProductPage: React.FC = () => {
   // Tab state for Package Visualization / Specifications
   const [activeTab, setActiveTab] = useState<'visualization' | 'specifications'>('visualization')
   
-  // Image enlargement modal state
-  const [enlargedImage, setEnlargedImage] = useState<{ src: string; alt: string } | null>(null)
+  // Image enlargement modal state with gallery navigation
+  const [enlargedImage, setEnlargedImage] = useState<{ src: string; alt: string; index?: number; images?: string[] } | null>(null)
+  
+  // Navigate to previous/next image in gallery
+  const navigateImage = (direction: 'prev' | 'next') => {
+    if (!enlargedImage?.images || enlargedImage.index === undefined) return
+    const { images, index, alt } = enlargedImage
+    let newIndex = direction === 'prev' ? index - 1 : index + 1
+    if (newIndex < 0) newIndex = images.length - 1
+    if (newIndex >= images.length) newIndex = 0
+    setEnlargedImage({ src: images[newIndex], alt, index: newIndex, images })
+  }
   
   // Video modal state for eco-stock products
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
@@ -670,7 +680,9 @@ const ProductPage: React.FC = () => {
                 <button 
                   onClick={() => setEnlargedImage({
                     src: product.images[selectedMainImage],
-                    alt: product.name
+                    alt: product.name,
+                    index: selectedMainImage,
+                    images: product.images
                   })}
                   className="w-full bg-neutral-50 p-6 cursor-pointer hover:bg-neutral-100 transition"
                 >
@@ -967,7 +979,9 @@ const ProductPage: React.FC = () => {
                 <button 
                   onClick={() => setEnlargedImage({
                     src: product.images[selectedMainImage],
-                    alt: product.name
+                    alt: product.name,
+                    index: selectedMainImage,
+                    images: product.images
                   })}
                   className="w-full bg-neutral-50 p-6 cursor-pointer hover:bg-neutral-100 transition"
                 >
@@ -1499,57 +1513,46 @@ const ProductPage: React.FC = () => {
               <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden">
                 {/* Main Customer Example Image */}
                 <div className="bg-neutral-50 p-6">
-                  <button 
-                    onClick={() => setEnlargedImage({
-                      src: `/imgs/store/customer-sample/${[
-                        { name: 'Blend Coffee', img: 'a_blend_coffee_family_group_4850129.webp' },
-                        { name: 'Blend4 Coffee', img: 'a_blend4_coffee_functional_closeup_9237259.webp' },
-                        { name: 'Natures Touch', img: 'a_natures_touch_fruit_family_0232483.webp' },
-                        { name: 'Pouch Detail', img: 'a_pouch_functional_detail_closeup_8098550.webp' },
-                        { name: 'Product Family', img: 'a_product_family_group_photo_2244546.webp' },
-                        { name: 'Arielle', img: 'Arielle.webp' },
-                        { name: 'David', img: 'David.webp' },
-                        { name: 'Holly', img: 'Holly.webp' },
-                        { name: 'Leo', img: 'Leo.webp' },
-                        { name: 'Nicole', img: 'Nicole.webp' },
-                        { name: 'Paul', img: 'Paul.webp' },
-                        { name: 'Remi', img: 'Remi.webp' },
-                        { name: 'Richard', img: 'Richard.webp' },
-                        { name: 'Steph', img: 'Steph.webp' },
-                        { name: 'Jemma', img: 'jemma.webp' },
-                        { name: 'Michelle', img: 'michelle.webp' },
-                        { name: 'Morlife', img: 'morlife.webp' },
-                        { name: 'Ruby', img: 'ruby.webp' },
-                      ][selectedMainImage]?.img || 'Arielle.webp'}`,
-                      alt: 'Customer Example'
-                    })}
-                    className="w-full cursor-pointer hover:opacity-90 transition"
-                  >
-                    <img 
-                      src={`/imgs/store/customer-sample/${[
-                        { name: 'Blend Coffee', img: 'a_blend_coffee_family_group_4850129.webp' },
-                        { name: 'Blend4 Coffee', img: 'a_blend4_coffee_functional_closeup_9237259.webp' },
-                        { name: 'Natures Touch', img: 'a_natures_touch_fruit_family_0232483.webp' },
-                        { name: 'Pouch Detail', img: 'a_pouch_functional_detail_closeup_8098550.webp' },
-                        { name: 'Product Family', img: 'a_product_family_group_photo_2244546.webp' },
-                        { name: 'Arielle', img: 'Arielle.webp' },
-                        { name: 'David', img: 'David.webp' },
-                        { name: 'Holly', img: 'Holly.webp' },
-                        { name: 'Leo', img: 'Leo.webp' },
-                        { name: 'Nicole', img: 'Nicole.webp' },
-                        { name: 'Paul', img: 'Paul.webp' },
-                        { name: 'Remi', img: 'Remi.webp' },
-                        { name: 'Richard', img: 'Richard.webp' },
-                        { name: 'Steph', img: 'Steph.webp' },
-                        { name: 'Jemma', img: 'jemma.webp' },
-                        { name: 'Michelle', img: 'michelle.webp' },
-                        { name: 'Morlife', img: 'morlife.webp' },
-                        { name: 'Ruby', img: 'ruby.webp' },
-                      ][selectedMainImage]?.img || 'Arielle.webp'}`}
-                      alt="Customer Example"
-                      className="w-full h-80 object-contain"
-                    />
-                  </button>
+                  {(() => {
+                    const customerSamples = [
+                      { name: 'Blend Coffee', img: 'a_blend_coffee_family_group_4850129.webp' },
+                      { name: 'Blend4 Coffee', img: 'a_blend4_coffee_functional_closeup_9237259.webp' },
+                      { name: 'Natures Touch', img: 'a_natures_touch_fruit_family_0232483.webp' },
+                      { name: 'Pouch Detail', img: 'a_pouch_functional_detail_closeup_8098550.webp' },
+                      { name: 'Product Family', img: 'a_product_family_group_photo_2244546.webp' },
+                      { name: 'Arielle', img: 'Arielle.webp' },
+                      { name: 'David', img: 'David.webp' },
+                      { name: 'Holly', img: 'Holly.webp' },
+                      { name: 'Leo', img: 'Leo.webp' },
+                      { name: 'Nicole', img: 'Nicole.webp' },
+                      { name: 'Paul', img: 'Paul.webp' },
+                      { name: 'Remi', img: 'Remi.webp' },
+                      { name: 'Richard', img: 'Richard.webp' },
+                      { name: 'Steph', img: 'Steph.webp' },
+                      { name: 'Jemma', img: 'jemma.webp' },
+                      { name: 'Michelle', img: 'michelle.webp' },
+                      { name: 'Morlife', img: 'morlife.webp' },
+                      { name: 'Ruby', img: 'ruby.webp' },
+                    ]
+                    const customerImages = customerSamples.map(s => `/imgs/store/customer-sample/${s.img}`)
+                    return (
+                      <button 
+                        onClick={() => setEnlargedImage({
+                          src: customerImages[selectedMainImage] || customerImages[0],
+                          alt: customerSamples[selectedMainImage]?.name || 'Customer Example',
+                          index: selectedMainImage,
+                          images: customerImages
+                        })}
+                        className="w-full cursor-pointer hover:opacity-90 transition"
+                      >
+                        <img 
+                          src={customerImages[selectedMainImage] || customerImages[0]}
+                          alt="Customer Example"
+                          className="w-full h-80 object-contain"
+                        />
+                      </button>
+                    )
+                  })()}
                 </div>
                 
                 {/* Thumbnail Gallery - 9 columns, 2 rows */}
@@ -3045,42 +3048,81 @@ const ProductPage: React.FC = () => {
         </section>
       )}
 
-      {/* Image Enlargement Modal - Fit screen height, mobile responsive */}
+      {/* Image Enlargement Modal - Fit screen height, mobile responsive, with gallery navigation */}
       {enlargedImage && (
         <div 
           className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
           onClick={() => setEnlargedImage(null)}
+          onKeyDown={(e) => {
+            if (e.key === 'Escape') setEnlargedImage(null)
+            if (e.key === 'ArrowLeft') navigateImage('prev')
+            if (e.key === 'ArrowRight') navigateImage('next')
+          }}
+          tabIndex={0}
+          role="dialog"
+          aria-modal="true"
         >
           {/* Close button - positioned at top right */}
           <button
-            onClick={() => setEnlargedImage(null)}
+            onClick={(e) => { e.stopPropagation(); setEnlargedImage(null); }}
             className="absolute top-4 right-4 bg-white/20 hover:bg-white/30 rounded-full p-3 transition z-20"
+            aria-label="Close"
           >
             <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
           
+          {/* Left Arrow - Previous Image */}
+          {enlargedImage.images && enlargedImage.images.length > 1 && (
+            <button
+              onClick={(e) => { e.stopPropagation(); navigateImage('prev'); }}
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 rounded-full p-2 sm:p-3 transition z-20"
+              aria-label="Previous image"
+            >
+              <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+          )}
+          
+          {/* Right Arrow - Next Image */}
+          {enlargedImage.images && enlargedImage.images.length > 1 && (
+            <button
+              onClick={(e) => { e.stopPropagation(); navigateImage('next'); }}
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 rounded-full p-2 sm:p-3 transition z-20"
+              aria-label="Next image"
+            >
+              <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          )}
+          
           {/* Image container - fit screen height on all devices */}
           <div 
             className="flex flex-col items-center justify-center w-full h-full p-4 sm:p-6 md:p-8"
-            onClick={(e) => e.stopPropagation()}
           >
             <img 
               src={enlargedImage.src}
               alt={enlargedImage.alt}
-              className="max-w-full max-h-[calc(100vh-120px)] sm:max-h-[calc(100vh-100px)] object-contain rounded-lg shadow-2xl"
+              className="max-w-full max-h-[calc(100vh-140px)] sm:max-h-[calc(100vh-120px)] object-contain rounded-lg shadow-2xl cursor-default"
               onClick={(e) => e.stopPropagation()}
             />
-            {/* Caption - below image */}
-            <div className="mt-4 px-4">
-              <p className="text-white text-center font-medium text-sm sm:text-base">{enlargedImage.alt}</p>
+            {/* Caption and counter - below image */}
+            <div className="mt-4 px-4 text-center">
+              <p className="text-white font-medium text-sm sm:text-base">{enlargedImage.alt}</p>
+              {enlargedImage.images && enlargedImage.images.length > 1 && enlargedImage.index !== undefined && (
+                <p className="text-white/60 text-xs mt-1">
+                  {enlargedImage.index + 1} / {enlargedImage.images.length}
+                </p>
+              )}
             </div>
           </div>
           
-          {/* Tap anywhere hint - mobile only */}
+          {/* Tap/click hint - mobile only */}
           <p className="absolute bottom-4 left-0 right-0 text-center text-white/50 text-xs sm:hidden">
-            Tap anywhere to close
+            Tap outside image to close • Swipe arrows to navigate
           </p>
         </div>
       )}
