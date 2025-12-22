@@ -277,8 +277,8 @@ const ProductPage: React.FC = () => {
   // Tab state for Package Visualization / Specifications
   const [activeTab, setActiveTab] = useState<'visualization' | 'specifications'>('visualization')
   
-  // Tab state for Specifications / AI Insights
-  const [specTab, setSpecTab] = useState<'specs' | 'aiInsights'>('specs')
+  // Tab state for Specifications / Insights
+  const [specTab, setSpecTab] = useState<'specs' | 'insights'>('specs')
   
   // Image enlargement modal state with gallery navigation
   const [enlargedImage, setEnlargedImage] = useState<{ src: string; alt: string; index?: number; images?: string[] } | null>(null)
@@ -862,7 +862,7 @@ const ProductPage: React.FC = () => {
                   <button
                     onClick={() => { setActiveTab('visualization'); setSpecTab('specs'); }}
                     className={`flex-1 px-3 py-3 text-sm font-medium transition ${
-                      activeTab === 'visualization' && specTab !== 'aiInsights'
+                      activeTab === 'visualization' && specTab !== 'insights'
                         ? 'bg-primary-50 text-primary-700 border-b-2 border-primary-600'
                         : 'text-neutral-600 hover:bg-neutral-50'
                     }`}
@@ -872,7 +872,7 @@ const ProductPage: React.FC = () => {
                   <button
                     onClick={() => { setActiveTab('specifications'); setSpecTab('specs'); }}
                     className={`flex-1 px-3 py-3 text-sm font-medium transition ${
-                      activeTab === 'specifications' && specTab !== 'aiInsights'
+                      activeTab === 'specifications' && specTab !== 'insights'
                         ? 'bg-primary-50 text-primary-700 border-b-2 border-primary-600'
                         : 'text-neutral-600 hover:bg-neutral-50'
                     }`}
@@ -881,19 +881,19 @@ const ProductPage: React.FC = () => {
                   </button>
                   {aiSellingPoints && (
                     <button
-                      onClick={() => setSpecTab('aiInsights')}
+                      onClick={() => setSpecTab('insights')}
                       className={`flex-1 px-3 py-3 text-sm font-medium transition ${
-                        specTab === 'aiInsights'
+                        specTab === 'insights'
                           ? 'bg-primary-50 text-primary-700 border-b-2 border-primary-600'
                           : 'text-neutral-600 hover:bg-neutral-50'
                       }`}
                     >
-                      ✨ AI Insights
+                      ✨ Insights
                     </button>
                   )}
                 </div>
                 <div className="p-4">
-                  {specTab === 'aiInsights' && aiSellingPoints ? (
+                  {specTab === 'insights' && aiSellingPoints ? (
                     <div className="space-y-4">
                       {/* Headline */}
                       <div className="text-sm font-semibold text-primary-700 leading-tight">
@@ -1210,7 +1210,7 @@ const ProductPage: React.FC = () => {
                 </div>
               )}
               
-              {/* Specifications with AI Insights Tab */}
+              {/* Specifications with Insights Tab */}
               <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden">
                 <div className="flex border-b border-neutral-200">
                   <button
@@ -1225,14 +1225,14 @@ const ProductPage: React.FC = () => {
                   </button>
                   {aiSellingPoints && (
                     <button
-                      onClick={() => setSpecTab('aiInsights')}
+                      onClick={() => setSpecTab('insights')}
                       className={`flex-1 px-4 py-3 text-sm font-medium transition ${
-                        specTab === 'aiInsights'
+                        specTab === 'insights'
                           ? 'bg-green-50 text-green-700 border-b-2 border-green-600'
                           : 'text-neutral-600 hover:bg-neutral-50'
                       }`}
                     >
-                      ✨ AI Insights
+                      ✨ Insights
                     </button>
                   )}
                 </div>
