@@ -1317,12 +1317,12 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
 export const BOXES_PRODUCTS: BoxProduct[] = [
   {
     id: 'box-corrugated-custom',
-    name: 'Custom Printed Corrugated Boxes',
+    name: 'Custom Printed Corrugated Mailer Boxes',
     category: 'boxes',
     shape: 'Corrugated Box',
     material: '157g coated gloss/matt art paper, CMYK printing, matt lamination, 2.0mm grayboard (rigid box construction)',
-    description: 'Premium custom printed corrugated boxes perfect for chocolate bars, confectionery, and small products. Features four-color CMYK printing with matte finish, gold foil, and embossing options. Made with FSC certified recycled paper for eco-conscious brands.',
-    shortDesc: 'Rigid box with premium finishes - FSC certified',
+    description: 'Premium custom printed corrugated mailer boxes ideal for coffee, tea, chocolate, and artisan food products. Features four-color CMYK printing with matte finish, optional gold foil and embossing. Made with FSC certified recycled paper—perfect for eco-conscious brands seeking sustainable premium packaging.',
+    shortDesc: 'FSC recycled rigid mailer box with premium finishes',
     features: [
       'Matte Finish',
       'Gold Foil Available',
@@ -1338,11 +1338,11 @@ export const BOXES_PRODUCTS: BoxProduct[] = [
       '/imgs/store/box/corrugated-box/a_mockup_premium_layflat_applied_2105634.webp',
       '/imgs/store/box/corrugated-box/8ffb866f-c5a2-4d0c-abdd-7398c6fe1387.webp',
     ],
-    badge: 'FSC Certified',
+    badge: 'FSC Recycled',
     rating: 4.9,
     reviews: 79,
     inStock: true,
-    turnaround: '15-20 days',
+    turnaround: '30 days + 40-60 days sea freight',
     minOrder: 200,
     minQuantity: 200,
     basePrice: 514.50,
@@ -1351,18 +1351,18 @@ export const BOXES_PRODUCTS: BoxProduct[] = [
       'Gold Foil',
       'Embossed',
       'FSC certified recycled paper',
-      'Four color custom printed'
+      'Sea Freight Included (40-60 days)'
     ],
     sizeWithQuantities: [
-      // Choc Bar Size: 75(W) × 115(L) × 30(H) mm
-      { id: 'size-chocbar', label: 'Choc Bar Size', dimensions: '75(W) × 115(L) × 30(H) mm', quantityOptions: [
+      // 500g Corrugated Mailer Box: 130×85×35mm
+      { id: 'size-500g', label: '500g Corrugated Mailer Box', dimensions: '130(L) × 85(W) × 35(H) mm', quantityOptions: [
         { quantity: 200, totalPrice: 514.50, unitPrice: 2.5725 },
         { quantity: 1000, totalPrice: 771.75, unitPrice: 0.7718 },
         { quantity: 5000, totalPrice: 2054.25, unitPrice: 0.4109 },
         { quantity: 10000, totalPrice: 3657.38, unitPrice: 0.3657 },
       ]},
-      // 1000g Mailer Size: 85(W) × 270(L) × 35(H) mm
-      { id: 'size-1000g', label: '1000g Mailer Size', dimensions: '85(W) × 270(L) × 35(H) mm', quantityOptions: [
+      // 1kg Corrugated Mailer Box: 270×85×35mm
+      { id: 'size-1kg', label: '1kg Corrugated Mailer Box', dimensions: '270(L) × 85(W) × 35(H) mm', quantityOptions: [
         { quantity: 200, totalPrice: 1285.50, unitPrice: 6.4275 },
         { quantity: 1000, totalPrice: 1714.50, unitPrice: 1.7145 },
         { quantity: 5000, totalPrice: 3859.50, unitPrice: 0.7719 },
