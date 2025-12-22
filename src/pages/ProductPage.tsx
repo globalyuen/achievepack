@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn, MessageCircle, Package, Home } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
-import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct, type ConventionalProduct, type EcoStockProduct, type EcoStockSizeVariant, type EcoStockSizeWithQuantities, type EcoStockQuantityOption, PRICING_DATA, POUCH_SIZES, QUANTITY_OPTIONS } from '../store/productData'
+import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct, type ConventionalProduct, type EcoStockProduct, type BoxProduct, type EcoStockSizeVariant, type EcoStockSizeWithQuantities, type EcoStockQuantityOption, PRICING_DATA, POUCH_SIZES, QUANTITY_OPTIONS } from '../store/productData'
 import { calculateEcoPrice, type EcoCalculatorSelections, getMaterialStructureInfo } from '../utils/ecoDigitalCalculator'
 import { getProductImage, getSizeImage, getSurfaceImage, getAdditionalImage, type ShapeType, ClosureType, SurfaceType, EcoSizeType, AdditionalType } from '../utils/productImageMapper'
 import { TESTIMONIALS } from '../data/testimonialsData'
@@ -240,9 +240,10 @@ const ProductPage: React.FC = () => {
   const isEcoDigital = product?.category === 'eco-digital'
   const isConventionalDigital = product?.category === 'conventional-digital'
   const isEcoStock = product?.category === 'eco-stock'
+  const isBoxes = product?.category === 'boxes'
   const ecoProduct = isEcoDigital ? (product as EcoDigitalProduct) : null
   const conventionalProduct = isConventionalDigital ? (product as ConventionalProduct) : null
-  const ecoStockProduct = isEcoStock ? (product as EcoStockProduct) : null
+  const ecoStockProduct = (isEcoStock || isBoxes) ? (product as EcoStockProduct | BoxProduct) : null
   
   // Conventional Digital product options
   const [selectedConvSize, setSelectedConvSize] = useState('130x180')
@@ -680,14 +681,15 @@ const ProductPage: React.FC = () => {
       "category": product.category === 'eco-stock' ? 'Eco-Friendly Compostable Packaging' :
                   product.category === 'eco-digital' ? 'Sustainable Digital Print Packaging' :
                   product.category === 'conventional-digital' ? 'Custom Printed Packaging' :
-                  product.category === 'sample' ? 'Sample Packs' : 'Packaging Materials',
+                  product.category === 'sample' ? 'Sample Packs' :
+                  product.category === 'boxes' ? 'Custom Printed Corrugated Boxes' : 'Packaging Materials',
       "additionalProperty": additionalProperties,
       "isRelatedTo": [
         { "@type": "WebPage", "name": "Materials Guide", "url": `${baseUrl}/materials` },
         { "@type": "WebPage", "name": "FAQs", "url": `${baseUrl}/support/faqs` }
       ]
     }
-  }, [product, isConventionalDigital, isEcoStock, conventionalPrice.total, ecoStockProduct, totalPrice])
+  }, [product, isConventionalDigital, isEcoStock, isBoxes, conventionalPrice.total, ecoStockProduct, totalPrice])
 
   // Get FAQ data for this product
   const productFAQData = useMemo(() => {
@@ -1149,7 +1151,7 @@ const ProductPage: React.FC = () => {
         )}
         
         {/* Eco Stock Products Layout */}
-        {isEcoStock && ecoStockProduct && (
+        {(isEcoStock || isBoxes) && ecoStockProduct && (
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-8">
             {/* Left Column - Image Gallery */}
             <div className="space-y-4">

@@ -138,6 +138,14 @@ export interface BoxQuantityOption {
   unitPrice: number
 }
 
+// Box size with multiple quantity options
+export interface BoxSizeWithQuantities {
+  id: string
+  label: string
+  dimensions: string
+  quantityOptions: BoxQuantityOption[]
+}
+
 // Box product (corrugated boxes)
 export interface BoxProduct extends BaseStoreProduct {
   category: 'boxes'
@@ -145,11 +153,21 @@ export interface BoxProduct extends BaseStoreProduct {
   material: string
   basePrice: number
   minQuantity: number
-  insideDimensions: string
+  insideDimensions?: string
   additionalFeatures: string[]
-  quantityOptions: BoxQuantityOption[]
+  quantityOptions?: BoxQuantityOption[]
+  sizeWithQuantities?: BoxSizeWithQuantities[]
   customQuoteNote?: string
   videoUrl?: string
+  // Compatibility with EcoStockProduct rendering
+  sizeVariants?: never
+  customPrintQuantities?: never
+  pricePerPiece?: number
+  sizeInfo?: string
+  quantityStep?: number
+  customPrintNote?: string
+  customPrintProductId?: never
+  stockProductId?: never
 }
 
 export interface PouchSize {
@@ -1298,13 +1316,13 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
 // Custom Printed Boxes Products
 export const BOXES_PRODUCTS: BoxProduct[] = [
   {
-    id: 'box-corrugated-chocbar',
-    name: 'Custom Printed Corrugated Box - Choc Bar Size',
+    id: 'box-corrugated-custom',
+    name: 'Custom Printed Corrugated Boxes',
     category: 'boxes',
     shape: 'Corrugated Box',
-    material: '157g coated gloss/matt art paper, CMYK printing, matt lamination, 2.0mm grayboard',
-    description: 'Premium custom printed corrugated box perfect for chocolate bars and small products. Features four-color CMYK printing with matte finish, gold foil, and embossing options. Made with FSC certified recycled paper for eco-conscious brands.',
-    shortDesc: 'Rigid box for chocolate bars with premium finishes',
+    material: '157g coated gloss/matt art paper, CMYK printing, matt lamination, 2.0mm grayboard (rigid box construction)',
+    description: 'Premium custom printed corrugated boxes perfect for chocolate bars, confectionery, and small products. Features four-color CMYK printing with matte finish, gold foil, and embossing options. Made with FSC certified recycled paper for eco-conscious brands.',
+    shortDesc: 'Rigid box with premium finishes - FSC certified',
     features: [
       'Matte Finish',
       'Gold Foil Available',
@@ -1314,18 +1332,19 @@ export const BOXES_PRODUCTS: BoxProduct[] = [
       'Rigid Box Construction'
     ],
     images: [
-      '/imgs/store/box/corrugated box/90f309ab-e30c-49e3-891c-83b47a7fe7a6.png',
-      '/imgs/store/box/corrugated box/a_half_open_box_3d_perspective_7357116.png',
+      '/imgs/store/box/corrugated-box/90f309ab-e30c-49e3-891c-83b47a7fe7a6.webp',
+      '/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp',
+      '/imgs/store/box/corrugated-box/a_mockup_premium_layflat_applied_2105634.webp',
+      '/imgs/store/box/corrugated-box/8ffb866f-c5a2-4d0c-abdd-7398c6fe1387.webp',
     ],
     badge: 'FSC Certified',
     rating: 4.9,
-    reviews: 47,
+    reviews: 79,
     inStock: true,
     turnaround: '15-20 days',
     minOrder: 200,
     minQuantity: 200,
     basePrice: 514.50,
-    insideDimensions: '75(W) × 115(L) × 30(H) mm',
     additionalFeatures: [
       'Matte Finish',
       'Gold Foil',
@@ -1333,58 +1352,23 @@ export const BOXES_PRODUCTS: BoxProduct[] = [
       'FSC certified recycled paper',
       'Four color custom printed'
     ],
-    quantityOptions: [
-      { quantity: 200, totalPrice: 514.50, unitPrice: 2.5725 },
-      { quantity: 1000, totalPrice: 771.75, unitPrice: 0.7718 },
-      { quantity: 5000, totalPrice: 2054.25, unitPrice: 0.4109 },
-      { quantity: 10000, totalPrice: 3657.38, unitPrice: 0.3657 },
+    sizeWithQuantities: [
+      // Choc Bar Size: 75(W) × 115(L) × 30(H) mm
+      { id: 'size-chocbar', label: 'Choc Bar Size', dimensions: '75(W) × 115(L) × 30(H) mm', quantityOptions: [
+        { quantity: 200, totalPrice: 514.50, unitPrice: 2.5725 },
+        { quantity: 1000, totalPrice: 771.75, unitPrice: 0.7718 },
+        { quantity: 5000, totalPrice: 2054.25, unitPrice: 0.4109 },
+        { quantity: 10000, totalPrice: 3657.38, unitPrice: 0.3657 },
+      ]},
+      // 1000g Mailer Size: 85(W) × 270(L) × 35(H) mm
+      { id: 'size-1000g', label: '1000g Mailer Size', dimensions: '85(W) × 270(L) × 35(H) mm', quantityOptions: [
+        { quantity: 200, totalPrice: 1285.50, unitPrice: 6.4275 },
+        { quantity: 1000, totalPrice: 1714.50, unitPrice: 1.7145 },
+        { quantity: 5000, totalPrice: 3859.50, unitPrice: 0.7719 },
+        { quantity: 10000, totalPrice: 5040.75, unitPrice: 0.5041 },
+      ]},
     ],
-    customQuoteNote: 'For quantities over 10,000 pcs, please request a custom quote.',
-    videoUrl: 'https://youtube.com/shorts/nRWIQg9rCiQ',
-  },
-  {
-    id: 'box-corrugated-1000g',
-    name: 'Custom Printed Corrugated Box - 1000g Mailer Size',
-    category: 'boxes',
-    shape: 'Corrugated Box',
-    material: '157g coated gloss/matt art paper, CMYK printing, matt lamination, 2.0mm grayboard',
-    description: 'Large format custom printed corrugated mailer box ideal for 1kg products. Features premium four-color CMYK printing with matte finish, gold foil, and embossing options. Made with FSC certified recycled paper.',
-    shortDesc: 'Rigid mailer box for 1000g products',
-    features: [
-      'Matte Finish',
-      'Gold Foil Available',
-      'Embossed Details',
-      'FSC Certified Recycled Paper',
-      'Four Color Custom Printed (CMYK)',
-      'Rigid Box Construction'
-    ],
-    images: [
-      '/imgs/store/box/corrugated box/a_half_open_box_3d_perspective_7357116.png',
-      '/imgs/store/box/corrugated box/90f309ab-e30c-49e3-891c-83b47a7fe7a6.png',
-    ],
-    badge: 'FSC Certified',
-    rating: 4.8,
-    reviews: 32,
-    inStock: true,
-    turnaround: '15-20 days',
-    minOrder: 200,
-    minQuantity: 200,
-    basePrice: 1285.50,
-    insideDimensions: '85(W) × 270(L) × 35(H) mm',
-    additionalFeatures: [
-      'Matte Finish',
-      'Gold Foil',
-      'Embossed',
-      'FSC certified recycled paper',
-      'Four color custom printed'
-    ],
-    quantityOptions: [
-      { quantity: 200, totalPrice: 1285.50, unitPrice: 6.4275 },
-      { quantity: 1000, totalPrice: 1714.50, unitPrice: 1.7145 },
-      { quantity: 5000, totalPrice: 3859.50, unitPrice: 0.7719 },
-      { quantity: 10000, totalPrice: 5040.75, unitPrice: 0.5041 },
-    ],
-    customQuoteNote: 'For quantities over 10,000 pcs, please request a custom quote.',
+    customQuoteNote: 'For quantities over 10,000 pcs or custom sizes, please request a custom quote.',
     videoUrl: 'https://youtube.com/shorts/nRWIQg9rCiQ',
   },
 ]
