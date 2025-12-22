@@ -20,6 +20,7 @@ import InstagramFeed from './components/InstagramFeed'
 import ClimateAction from './components/ClimateAction'
 import RandomBanner from './components/RandomBanner'
 import EcoVideoShowcase from './components/EcoVideoShowcase'
+import FloatingInfoGraphics from './components/FloatingInfoGraphics'
 import type { CalculatorResults } from './utils/calculatorUtils'
 import { useStore } from './store/StoreContext'
 import { FEATURED_PRODUCTS, type PouchProduct } from './store/productData'
@@ -528,8 +529,11 @@ ${formData.message}`
 
       {/* 3D Eco Pouch Material Experience - Disabled */}
 
-      {/* Random Banner - Below Hero */}
-      <RandomBanner className="" />
+      {/* Random Banner with Floating Infographic Icons - Below Hero */}
+      <div className="relative">
+        <RandomBanner className="" />
+        <FloatingInfoGraphics />
+      </div>
 
       {/* Eco Video Showcase */}
       <EcoVideoShowcase className="" />

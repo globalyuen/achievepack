@@ -222,11 +222,11 @@ const StorePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Floating Infographic Icons */}
-      <FloatingInfoGraphics />
-
-      {/* Random Banner */}
-      <RandomBanner className="" />
+      {/* Random Banner with Floating Infographic Icons */}
+      <div className="relative">
+        <RandomBanner className="" />
+        <FloatingInfoGraphics />
+      </div>
 
       {/* Eco Video Showcase */}
       <EcoVideoShowcase className="" />

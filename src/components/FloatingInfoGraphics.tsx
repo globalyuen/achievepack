@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useMemo } from 'react'
-import { Image, X, ChevronLeft, ChevronRight } from 'lucide-react'
+import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 
 const INFOGRAPHIC_IMAGES = [
-  { src: '/imgs/4-infograhic/compost.webp', alt: 'Compostable Materials Infographic', title: 'Compostable' },
-  { src: '/imgs/4-infograhic/recyclable.webp', alt: 'Recyclable Materials Infographic', title: 'Recyclable' },
-  { src: '/imgs/4-infograhic/PCR.webp', alt: 'PCR Materials Infographic', title: 'PCR' },
-  { src: '/imgs/4-infograhic/Bio-PE.webp', alt: 'Bio-PE Materials Infographic', title: 'Bio-PE' },
+  { src: '/imgs/4-infograhic/compost.webp', alt: 'Compostable Materials Infographic', title: 'Compostable', logo: '/eco-logo/transparent-bkg/compost.png' },
+  { src: '/imgs/4-infograhic/recyclable.webp', alt: 'Recyclable Materials Infographic', title: 'Recyclable', logo: '/eco-logo/transparent-bkg/recycle.png' },
+  { src: '/imgs/4-infograhic/PCR.webp', alt: 'PCR Materials Infographic', title: 'PCR', logo: '/eco-logo/transparent-bkg/pcr.png' },
+  { src: '/imgs/4-infograhic/Bio-PE.webp', alt: 'Bio-PE Materials Infographic', title: 'Bio-PE', logo: '/eco-logo/transparent-bkg/biope.png' },
 ]
 
 interface FloatingIcon {
@@ -25,13 +25,13 @@ export const FloatingInfoGraphics: React.FC<FloatingInfoGraphicsProps> = ({ clas
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  // Generate random positions for floating icons - memoized to be stable
+  // Generate positions for floating icons - positioned for overlay on banner
   const floatingIcons = useMemo<FloatingIcon[]>(() => {
     return [
-      { id: 0, x: 12, y: 50, size: 72, delay: 0, infographicIndex: 0 },
-      { id: 1, x: 35, y: 50, size: 68, delay: 0.3, infographicIndex: 1 },
-      { id: 2, x: 65, y: 50, size: 70, delay: 0.6, infographicIndex: 2 },
-      { id: 3, x: 88, y: 50, size: 72, delay: 0.9, infographicIndex: 3 },
+      { id: 0, x: 8, y: 50, size: 80, delay: 0, infographicIndex: 0 },
+      { id: 1, x: 30, y: 30, size: 75, delay: 0.4, infographicIndex: 1 },
+      { id: 2, x: 70, y: 35, size: 78, delay: 0.8, infographicIndex: 2 },
+      { id: 3, x: 92, y: 55, size: 80, delay: 1.2, infographicIndex: 3 },
     ]
   }, [])
 
@@ -72,28 +72,14 @@ export const FloatingInfoGraphics: React.FC<FloatingInfoGraphicsProps> = ({ clas
 
   return (
     <>
-      {/* Floating Icons Container */}
-      <div className={`relative h-32 bg-gradient-to-r from-emerald-50 via-white to-teal-50 overflow-visible ${className}`}>
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2310b981' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }} />
-        </div>
-
-        {/* Center text */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <p className="text-base text-emerald-700 font-semibold">
-            🌿 Click any icon to explore eco materials
-          </p>
-        </div>
-
+      {/* Floating Icons - Absolute positioned to overlay on parent */}
+      <div className={`absolute inset-0 pointer-events-none z-20 ${className}`}>
         {/* Floating Icons */}
         {floatingIcons.map((icon) => (
           <button
             key={icon.id}
             onClick={() => handleIconClick(icon.infographicIndex)}
-            className="absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 hover:scale-125 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 rounded-full group"
+            className="absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 rounded-full group pointer-events-auto"
             style={{
               left: `${icon.x}%`,
               top: `${icon.y}%`,
@@ -103,12 +89,16 @@ export const FloatingInfoGraphics: React.FC<FloatingInfoGraphicsProps> = ({ clas
             title={`View ${INFOGRAPHIC_IMAGES[icon.infographicIndex].title} Infographic`}
           >
             <div 
-              className="bg-white rounded-full shadow-lg border-2 border-emerald-400 flex items-center justify-center group-hover:border-emerald-600 group-hover:shadow-xl transition-all"
+              className="bg-white/90 backdrop-blur-sm rounded-full shadow-xl border-2 border-white/50 flex items-center justify-center group-hover:bg-white group-hover:shadow-2xl transition-all overflow-hidden"
               style={{ width: icon.size, height: icon.size }}
             >
-              <Image className="text-emerald-600 group-hover:text-emerald-700" style={{ width: icon.size * 0.5, height: icon.size * 0.5 }} />
+              <img 
+                src={INFOGRAPHIC_IMAGES[icon.infographicIndex].logo} 
+                alt={INFOGRAPHIC_IMAGES[icon.infographicIndex].title}
+                className="w-full h-full object-contain p-1"
+              />
             </div>
-            <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-xs text-emerald-700 font-medium opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
+            <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs text-white font-semibold opacity-0 group-hover:opacity-100 transition whitespace-nowrap bg-black/60 px-2 py-1 rounded">
               {INFOGRAPHIC_IMAGES[icon.infographicIndex].title}
             </span>
           </button>
@@ -118,7 +108,7 @@ export const FloatingInfoGraphics: React.FC<FloatingInfoGraphicsProps> = ({ clas
         <style>{`
           @keyframes float {
             0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
-            50% { transform: translate(-50%, -50%) translateY(-8px); }
+            50% { transform: translate(-50%, -50%) translateY(-12px); }
           }
         `}</style>
       </div>
