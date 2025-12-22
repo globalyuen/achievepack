@@ -356,6 +356,264 @@ export const AI_SELLING_POINTS: Record<string, AISellingPoint> = {
     certifications: [],
     comparisonAdvantage: 'See and feel the eco difference before committing. Make informed sustainable choices.',
     callToAction: 'Order your eco sample pack — touch sustainability before you commit.'
+  },
+
+  // ========== MISSING SAMPLE PRODUCTS ==========
+  'sample-assorted-eco': {
+    productId: 'sample-assorted-eco',
+    headline: 'Assorted Eco Pouches — Touch All Sustainable Options',
+    targetAudience: ['Sustainability-focused brands', 'Product developers', 'Marketing teams', 'Eco-conscious startups'],
+    keyBenefits: [
+      { icon: '🌱', title: 'Variety Pack', description: 'PCR/Bio, Recyclable, and Compostable materials included.' },
+      { icon: '👆', title: 'Touch & Compare', description: 'Feel the difference between eco options.' },
+      { icon: '💰', title: 'Free Samples', description: 'Just pay $40 shipping.' },
+      { icon: '⚡', title: 'Quick Delivery', description: 'Ships in 3-5 business days.' },
+      { icon: '📋', title: 'Material Info', description: 'Specs and certifications included.' },
+      { icon: '✅', title: 'Informed Decision', description: 'Choose the right eco path for your brand.' }
+    ],
+    specifications: [
+      { label: 'Contents', value: 'Mixed eco-friendly pouch samples' },
+      { label: 'Price', value: 'Free + $40 shipping' },
+      { label: 'Lead Time', value: '3-5 days' }
+    ],
+    useCases: ['Material testing', 'Sustainability planning', 'Client presentations', 'Brand decisions'],
+    certifications: [],
+    comparisonAdvantage: 'Try before you commit. Feel the quality of all eco materials before placing your order.',
+    callToAction: 'Get your eco sample pack — free samples, just $40 shipping.'
+  },
+
+  'sample-top-film': {
+    productId: 'sample-top-film',
+    headline: 'Print Quality Sample — See Your Design in Full Scale',
+    targetAudience: ['Design teams', 'Brand managers', 'Quality-focused brands', 'Packaging developers'],
+    keyBenefits: [
+      { icon: '🎨', title: 'Full Print Preview', description: 'See exact colors and quality before production.' },
+      { icon: '📐', title: 'Large Format', description: '760mm x 1000mm printed film sample.' },
+      { icon: '✅', title: 'Color Accuracy', description: 'Test your design colors in real conditions.' },
+      { icon: '⚡', title: 'Fast Turnaround', description: '5-7 days delivery.' },
+      { icon: '💰', title: 'Affordable', description: 'Just $20 + $40 shipping.' },
+      { icon: '🔍', title: 'Detail Check', description: 'Inspect print quality up close.' }
+    ],
+    specifications: [
+      { label: 'Size', value: '760mm x 1000mm' },
+      { label: 'Type', value: 'Digital printed film' },
+      { label: 'Price', value: '$20 + $40 shipping' },
+      { label: 'Lead Time', value: '5-7 days' }
+    ],
+    useCases: ['Design approval', 'Color matching', 'Client presentations', 'Quality verification'],
+    certifications: [],
+    comparisonAdvantage: 'Never guess how your design will look. See the exact print quality before committing to bulk.',
+    callToAction: 'Order your print sample — $60 to see exactly what you will get.'
+  },
+
+  'sample-hand-sealed': {
+    productId: 'sample-hand-sealed',
+    headline: 'Custom Size Sample — Test Your Exact Specifications',
+    targetAudience: ['Custom product brands', 'Unique size requirements', 'Product developers', 'Quality-focused companies'],
+    keyBenefits: [
+      { icon: '✂️', title: 'Custom Sizes', description: 'Get samples in your exact dimensions.' },
+      { icon: '🎨', title: 'Digital Printed', description: 'See your design on the actual pouch.' },
+      { icon: '🔧', title: 'Hand Sealed', description: 'Precision sealed to your specifications.' },
+      { icon: '⚡', title: 'Quick Production', description: '7-10 days delivery.' },
+      { icon: '💰', title: 'Low Cost', description: 'Just $20 + $40 shipping.' },
+      { icon: '✅', title: 'Full Customization', description: 'Exactly what your bulk order will be.' }
+    ],
+    specifications: [
+      { label: 'Size', value: 'Custom to your specs' },
+      { label: 'Type', value: 'Hand-sealed pouches' },
+      { label: 'Price', value: '$20 + $40 shipping' },
+      { label: 'Lead Time', value: '7-10 days' }
+    ],
+    useCases: ['Size verification', 'Fit testing', 'Client approval', 'Production planning'],
+    certifications: [],
+    comparisonAdvantage: 'Non-standard product? Get a sample in your exact size before committing to bulk.',
+    callToAction: 'Order your custom sample — $60 to test your perfect fit.'
+  },
+
+  // ========== MISSING CONVENTIONAL PRODUCTS ==========
+  'conven-3ss-clear-xzip': {
+    productId: 'conven-3ss-clear-xzip',
+    headline: 'Clear Flat Pouch — Maximum Product Visibility',
+    targetAudience: ['Visual products', 'Sample sachets', 'Beauty brands', 'Food samples'],
+    keyBenefits: [
+      { icon: '👁️', title: 'Crystal Clear', description: 'Full product visibility for visual impact.' },
+      { icon: '💰', title: 'Cost Effective', description: 'Flat design means lower cost.' },
+      { icon: '🎨', title: 'Digital Print', description: 'Unlimited colors, no plate fees.' },
+      { icon: '📦', title: 'Low MOQ', description: 'Start from just 100 pieces.' },
+      { icon: '⚡', title: 'Fast Production', description: '15-20 days turnaround.' },
+      { icon: '✈️', title: 'Free Shipping', description: 'Air freight included.' }
+    ],
+    specifications: [
+      { label: 'Material', value: 'Glossy PET/LLDPE' },
+      { label: 'MOQ', value: '100 pieces' },
+      { label: 'Lead Time', value: '15-20 days' }
+    ],
+    useCases: ['Samples', 'Face masks', 'Sachets', 'Single-serve items', 'Promotional products'],
+    certifications: ['Food Safe'],
+    comparisonAdvantage: 'The most affordable way to showcase your product. Clear visibility at the lowest cost.',
+    callToAction: 'From $90 for 100 bags — affordable transparency.'
+  },
+
+  'conven-3ss-clear-zip': {
+    productId: 'conven-3ss-clear-zip',
+    headline: 'Clear Flat Pouch with Zipper — Resealable Visibility',
+    targetAudience: ['Snack brands', 'Candy makers', 'Sample products', 'Reusable packaging needs'],
+    keyBenefits: [
+      { icon: '👁️', title: 'Clear Visibility', description: 'Showcase your products perfectly.' },
+      { icon: '🔒', title: 'Resealable', description: 'Zipper for repeated opening.' },
+      { icon: '🎨', title: 'Digital Print', description: 'Unlimited colors available.' },
+      { icon: '📦', title: 'Low MOQ', description: 'Start from 100 pieces.' },
+      { icon: '⚡', title: 'Fast Turnaround', description: '15-20 days production.' },
+      { icon: '💰', title: 'Affordable', description: 'Great value for resealable bags.' }
+    ],
+    specifications: [
+      { label: 'Material', value: 'Glossy PET/LLDPE' },
+      { label: 'MOQ', value: '100 pieces' },
+      { label: 'Lead Time', value: '15-20 days' }
+    ],
+    useCases: ['Candies', 'Snacks', 'Dried fruits', 'Reusable samples', 'Multi-use products'],
+    certifications: ['Food Safe'],
+    comparisonAdvantage: 'Clear + resealable = perfect for products customers use multiple times.',
+    callToAction: 'From $110 for 100 bags — resealable clarity.'
+  },
+
+  'conven-3ss-met-zip': {
+    productId: 'conven-3ss-met-zip',
+    headline: 'Metalised Flat Pouch with Zipper — Premium Protection',
+    targetAudience: ['Coffee samples', 'Premium sachets', 'Light-sensitive products', 'Fresh-keeping needs'],
+    keyBenefits: [
+      { icon: '✨', title: 'Premium Look', description: 'Metalised finish for shelf appeal.' },
+      { icon: '🛡️', title: 'High Barrier', description: 'Blocks light, oxygen, and moisture.' },
+      { icon: '🔒', title: 'Resealable', description: 'Zipper keeps contents fresh.' },
+      { icon: '🎨', title: 'Digital Print', description: 'Full color customization.' },
+      { icon: '📦', title: 'Low MOQ', description: '100 pieces minimum.' },
+      { icon: '⚡', title: 'Fast Delivery', description: '15-20 days production.' }
+    ],
+    specifications: [
+      { label: 'Material', value: 'Mattopp/VMPET/LLDPE' },
+      { label: 'MOQ', value: '100 pieces' },
+      { label: 'Lead Time', value: '15-20 days' }
+    ],
+    useCases: ['Coffee samples', 'Tea sachets', 'Spices', 'Supplements', 'Premium samples'],
+    certifications: ['Food Safe', 'High Barrier'],
+    comparisonAdvantage: 'Maximum protection in a flat design. Perfect for premium samples and sachets.',
+    callToAction: 'From $110 for 100 bags — premium protection, flat price.'
+  },
+
+  'conven-sup-clear-xzip': {
+    productId: 'conven-sup-clear-xzip',
+    headline: 'Clear Stand-Up Pouch — Shelf Presence with Visibility',
+    targetAudience: ['Visual products', 'Candy brands', 'Snack producers', 'Retail packaging'],
+    keyBenefits: [
+      { icon: '👁️', title: 'Full Visibility', description: 'Clear material showcases your product.' },
+      { icon: '📐', title: 'Stand Up Design', description: 'Great shelf presence.' },
+      { icon: '🎨', title: 'Digital Print', description: 'Unlimited colors available.' },
+      { icon: '📦', title: 'Low MOQ', description: 'Start from 100 pieces.' },
+      { icon: '⚡', title: 'Fast Production', description: '15-20 days turnaround.' },
+      { icon: '✈️', title: 'Free Shipping', description: 'Air freight included.' }
+    ],
+    specifications: [
+      { label: 'Material', value: 'Glossy PET/LLDPE' },
+      { label: 'MOQ', value: '100 pieces' },
+      { label: 'Lead Time', value: '15-20 days' }
+    ],
+    useCases: ['Candies', 'Snacks', 'Dried products', 'Visual packaging', 'Retail display'],
+    certifications: ['Food Safe'],
+    comparisonAdvantage: 'Stand up and show off. Your product is the star with clear visibility.',
+    callToAction: 'From $90 for 100 bags — stand up and be seen.'
+  },
+
+  'conven-sup-met-xzip': {
+    productId: 'conven-sup-met-xzip',
+    headline: 'Metalised Stand-Up Pouch — Premium Without Zipper',
+    targetAudience: ['Single-serve products', 'Snack brands', 'Coffee singles', 'Premium samples'],
+    keyBenefits: [
+      { icon: '✨', title: 'Premium Look', description: 'Metalised finish for maximum impact.' },
+      { icon: '🛡️', title: 'High Barrier', description: 'Excellent protection from elements.' },
+      { icon: '📐', title: 'Stand Up', description: 'Great shelf presence.' },
+      { icon: '🎨', title: 'Digital Print', description: 'Full color customization.' },
+      { icon: '📦', title: 'Low MOQ', description: '100 pieces minimum.' },
+      { icon: '💰', title: 'Cost Effective', description: 'No zipper = lower cost.' }
+    ],
+    specifications: [
+      { label: 'Material', value: 'Mattopp/VMPET/LLDPE' },
+      { label: 'MOQ', value: '100 pieces' },
+      { label: 'Lead Time', value: '15-20 days' }
+    ],
+    useCases: ['Single-serve snacks', 'Coffee pods', 'Premium samples', 'Gift packaging'],
+    certifications: ['Food Safe', 'High Barrier'],
+    comparisonAdvantage: 'Premium metalised look without the zipper cost. Perfect for single-use products.',
+    callToAction: 'From $90 for 100 bags — premium look, smart price.'
+  },
+
+  // ========== MISSING ECO DIGITAL PRODUCTS ==========
+  'eco-3side': {
+    productId: 'eco-3side',
+    headline: 'Eco 3 Side Seal — Simple Sustainability',
+    targetAudience: ['Sample products', 'Sachets', 'Face masks', 'Single-serve eco brands'],
+    keyBenefits: [
+      { icon: '🌱', title: 'Eco Materials', description: 'PCR, Mono PE, or Compostable options.' },
+      { icon: '💰', title: 'Cost Effective', description: 'Flat design at sustainable pricing.' },
+      { icon: '🎨', title: 'Digital Print', description: 'Unlimited colors, no plates.' },
+      { icon: '🌍', title: '30% Lower Carbon', description: 'Reduced environmental impact.' },
+      { icon: '📦', title: 'Versatile', description: 'Works for many product types.' },
+      { icon: '📜', title: 'Certified', description: 'Sustainability certifications available.' }
+    ],
+    specifications: [
+      { label: 'Materials', value: 'PCR/Bio-PE, Mono PE/PP, Compostable' },
+      { label: 'MOQ', value: '1,000 pieces' },
+      { label: 'Lead Time', value: '20-30 days' }
+    ],
+    useCases: ['Samples', 'Sachets', 'Face masks', 'Single-serve items', 'Promotional products'],
+    certifications: ['Recyclable', 'Compostable Options'],
+    comparisonAdvantage: 'The simplest sustainable packaging. Low cost, low impact.',
+    callToAction: 'From $100 for 1,000 bags — simple eco packaging.'
+  },
+
+  'eco-centerseal': {
+    productId: 'eco-centerseal',
+    headline: 'Eco Center Seal — Classic Style, Modern Sustainability',
+    targetAudience: ['Traditional products', 'Candy brands', 'Snack producers', 'Cost-conscious eco brands'],
+    keyBenefits: [
+      { icon: '🌱', title: 'Sustainable', description: 'PCR, Recyclable, or Compostable.' },
+      { icon: '💰', title: 'Economical', description: 'Simple design = lower cost.' },
+      { icon: '🎨', title: 'Full Wrap Print', description: 'Print wraps around the tube.' },
+      { icon: '📦', title: 'Classic Design', description: 'Traditional flow-pack style.' },
+      { icon: '🌍', title: 'Eco Certified', description: 'Sustainability credentials.' },
+      { icon: '⚡', title: 'Digital Print', description: 'Fast turnaround, no plates.' }
+    ],
+    specifications: [
+      { label: 'Materials', value: 'PCR/Bio-PE, Mono PE/PP, Compostable' },
+      { label: 'MOQ', value: '1,000 pieces' },
+      { label: 'Lead Time', value: '20-30 days' }
+    ],
+    useCases: ['Candies', 'Bars', 'Cookies', 'Traditional snacks'],
+    certifications: ['Recyclable', 'Bio-based Options'],
+    comparisonAdvantage: 'The classic flow-pack now in sustainable materials. Tradition meets eco.',
+    callToAction: 'From $100 for 1,000 bags — eco center seal.'
+  },
+
+  'eco-quadseal': {
+    productId: 'eco-quadseal',
+    headline: 'Eco Quad Seal — Maximum Stability, Minimum Impact',
+    targetAudience: ['Premium brands', 'Coffee roasters', 'Large capacity products', 'Retail packaging'],
+    keyBenefits: [
+      { icon: '📦', title: 'Quad Seal', description: 'Four-corner stability.' },
+      { icon: '🌱', title: 'Eco Options', description: 'PCR, Mono PE, or Compostable.' },
+      { icon: '🎨', title: '4 Print Panels', description: 'Maximum branding space.' },
+      { icon: '📐', title: 'Premium Look', description: 'Squared appearance on shelf.' },
+      { icon: '🌍', title: 'Sustainable', description: '30% lower carbon footprint.' },
+      { icon: '⚡', title: 'Digital Print', description: 'Low MOQ, fast production.' }
+    ],
+    specifications: [
+      { label: 'Materials', value: 'PCR/Bio-PE, Mono PE/PP, Compostable' },
+      { label: 'MOQ', value: '1,000 pieces' },
+      { label: 'Lead Time', value: '25-35 days' }
+    ],
+    useCases: ['Premium coffee', 'Large snacks', 'Pet food', 'Retail display'],
+    certifications: ['Recyclable', 'Compostable Options'],
+    comparisonAdvantage: 'The most stable pouch design now in sustainable materials.',
+    callToAction: 'From $160 for 1,000 bags — premium eco quad seal.'
   }
 };
 

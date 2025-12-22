@@ -523,7 +523,11 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
     description: 'Eco-friendly 3-side seal pouch. Choose from PCR/Bio Plastic, Mono Recyclable, or Biodegradable materials.',
     shortDesc: 'From US$100 for 1,000 pcs',
     features: ['Eco Materials', '30% Lower Carbon', 'Digital Print', 'Sustainable'],
-    images: ['/imgs/store/pouch shape/3-side.webp'],
+    images: [
+      '/imgs/store/eco-digital/0eQiBArdHVo_uyy12vmVid9Vc-hB8Msln4h0Oddu4dQ=.webp',
+      '/imgs/store/eco-digital/1k3ig0ezuHcds_30mxxPOgFL-qeSwHc8uuzElo2-GP4=.webp',
+      '/imgs/store/pouch shape/3-side.webp'
+    ],
     badge: '🌿 Eco',
     rating: 4.7,
     reviews: 210,
@@ -553,7 +557,11 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
     description: 'Eco-friendly center seal. Simple and cost-effective design with sustainable material options.',
     shortDesc: 'From US$100 for 1,000 pcs',
     features: ['Eco Materials', 'Center Seal', 'Digital Print', 'Sustainable'],
-    images: ['/imgs/store/pouch shape/center.webp'],
+    images: [
+      '/imgs/store/eco-digital/7CWxuO-mB4GevbYtCFnSFfzuCLECtUQ8AjuleiT4vAk=.webp',
+      '/imgs/store/eco-digital/AvEbY4SX8gwP2SzENbSen8dnT_kTrrk8VN6siqp1B2I=.webp',
+      '/imgs/store/pouch shape/center.webp'
+    ],
     badge: '🌿 Eco',
     rating: 4.5,
     reviews: 110,
@@ -583,7 +591,12 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
     description: 'Premium eco stand-up pouch. Excellent shelf presence with sustainable materials.',
     shortDesc: 'From US$120 for 1,000 pcs',
     features: ['Eco Materials', 'Stand Up', 'Digital Print', 'Premium'],
-    images: ['/imgs/store/pouch shape/stand-up.webp'],
+    images: [
+      '/imgs/store/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp',
+      '/imgs/store/eco-digital/LQ5WGOrIkQPzbXSfWupAIFvVrlyL9lvZoMKc35bbHPw=.webp',
+      '/imgs/store/eco-digital/MPRxOw-bWF57OrAxie9J1CXjpM4HKHUUkoMKHeflN6E=.webp',
+      '/imgs/store/pouch shape/stand-up.webp'
+    ],
     badge: '✨ Most Popular',
     rating: 4.9,
     reviews: 426,
@@ -613,7 +626,11 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
     description: 'Eco box bottom pouch. Maximum stability and capacity with sustainable materials.',
     shortDesc: 'From US$170 for 1,000 pcs',
     features: ['Eco Materials', 'Box Bottom', 'High Capacity', 'Sustainable'],
-    images: ['/imgs/store/pouch shape/box.webp'],
+    images: [
+      '/imgs/store/eco-digital/TKAqlW4KL2xV9glNA91iuD_sYEvp2G29eWT4819Ne1g=.webp',
+      '/imgs/store/eco-digital/X5RkmCe76z3hyMvMr6Yvb5RjclkrdDjh2rNvGIRqgWU=.webp',
+      '/imgs/store/pouch shape/box.webp'
+    ],
     badge: '🌿 Eco',
     rating: 4.6,
     reviews: 81,
@@ -643,7 +660,12 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
     description: 'Eco flat bottom pouch. Premium flat bottom design with eco-friendly materials.',
     shortDesc: 'From US$190 for 1,000 pcs',
     features: ['Eco Materials', 'Flat Bottom', 'Premium Design', 'Sustainable'],
-    images: ['/imgs/store/pouch shape/flat-bottom.webp'],
+    images: [
+      '/imgs/store/eco-digital/YoIBVbbSdfCfRc5654ldAbT_L3N5rKcJk__lYon7YmU=.webp',
+      '/imgs/store/eco-digital/bUr_Wdvkcyq2aH95-oFtusPsS5YMJ2jZ6tjm74mHEr4=.webp',
+      '/imgs/store/eco-digital/ghEYoZQN4q_bq5SzDz94a_q95YbMZS933hJEnuImpmc=.webp',
+      '/imgs/store/pouch shape/flat-bottom.webp'
+    ],
     badge: '🌿 Eco',
     rating: 4.7,
     reviews: 119,
@@ -673,7 +695,12 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
     description: 'Eco quad seal pouch. Four-corner seal for maximum stability with sustainable materials.',
     shortDesc: 'From US$160 for 1,000 pcs',
     features: ['Eco Materials', 'Quad Seal', 'High Stability', 'Sustainable'],
-    images: ['/imgs/store/pouch shape/quad-seal.webp'],
+    images: [
+      '/imgs/store/eco-digital/hAGC60SxXYmSdiBTJD3XPhMZBocRVBXZyuV-dvt3r7c=.webp',
+      '/imgs/store/eco-digital/os9CHhTSQoGASvA8lsfm-iHYfG4kddPoZP2wYMh47fs=.webp',
+      '/imgs/store/eco-digital/vxuLNp13OWRZXhe-qkwn3UgHCWirk5TzBLhB7q8JJ30=.webp',
+      '/imgs/store/pouch shape/quad-seal.webp'
+    ],
     badge: '🌿 Eco',
     rating: 4.6,
     reviews: 97,
@@ -703,7 +730,11 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
     description: 'Eco side gusset pouch. Classic coffee bag style with sustainable materials.',
     shortDesc: 'From US$140 for 1,000 pcs',
     features: ['Eco Materials', 'Side Gusset', 'Coffee Bag Style', 'Sustainable'],
-    images: ['/imgs/store/pouch shape/side -seal.webp'],
+    images: [
+      '/imgs/store/eco-digital/wXqLssPqdR9J0iDhIyQ-NGTDDFm-3DgFKlyQD4ipsEw=.webp',
+      '/imgs/store/eco-digital/zwwZAmSiOHouQPEkkT_Wwz5rhX13CtgkT8LqvNnoJ5w=.webp',
+      '/imgs/store/pouch shape/side -seal.webp'
+    ],
     badge: '🌿 Eco',
     rating: 4.8,
     reviews: 236,
