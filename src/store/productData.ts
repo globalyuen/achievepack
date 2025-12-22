@@ -1332,6 +1332,7 @@ export const BOXES_PRODUCTS: BoxProduct[] = [
       'Rigid Box Construction'
     ],
     images: [
+      '/imgs/store/box/corrugated-box/2be65396-ac07-44d0-b54c-2422d3bfe981.webp',
       '/imgs/store/box/corrugated-box/90f309ab-e30c-49e3-891c-83b47a7fe7a6.webp',
       '/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp',
       '/imgs/store/box/corrugated-box/a_mockup_premium_layflat_applied_2105634.webp',
