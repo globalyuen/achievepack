@@ -67,6 +67,12 @@ const RELATED_PAGES_MAP: Record<string, RelatedPage[]> = {
     { title: 'Kraft Paper', url: '/materials/kraft-paper', description: 'Natural look materials' },
     { title: 'Product Store', url: '/store', description: 'See products by material' },
   ],
+  // Custom Boxes
+  'boxes': [
+    { title: 'Corrugated Mailer Boxes', url: '/store/product/box-corrugated-custom', description: 'FSC certified rigid boxes' },
+    { title: 'Tuck Boxes', url: '/store/product/box-tuck-custom', description: 'Gold foil & embossing' },
+    { title: 'Product Store', url: '/store?category=boxes', description: 'Browse all boxes' },
+  ],
   // Consultation/Meeting/Book
   'consultation': [
     { title: '📅 Book FREE Consultation', url: 'https://calendly.com/30-min-free-packaging-consultancy', description: '30-min video call with our team' },
@@ -112,6 +118,10 @@ const PRODUCT_CATALOG = [
   // Eco Stock Products (correct IDs from productData.ts)
   { id: 'eco-stock-header', name: 'Stock Compostable Header Bag', category: 'eco-stock', basePrice: 42, moq: 100, description: 'Ready-made compostable bag with hang hole. Ships in 3-5 days. Perfect for retail display.', materials: ['Compostable'], inStock: true, turnaround: '3-5 days', bestFor: ['retail', 'display', 'quick ship'] },
   { id: 'eco-stock-mailer', name: 'Stock Compostable Mailer Bag', category: 'eco-stock', basePrice: 42, moq: 100, description: 'Compostable shipping mailer for eco-conscious e-commerce. Ships in 3-5 days.', materials: ['Compostable'], inStock: true, turnaround: '3-5 days', bestFor: ['shipping', 'e-commerce', 'mailers'] },
+  
+  // Custom Printed Boxes Products
+  { id: 'box-corrugated-custom', name: 'Custom Printed Corrugated Mailer Boxes', category: 'boxes', basePrice: 514.50, moq: 200, description: 'Premium custom printed corrugated mailer boxes. CMYK printing, matte lamination, gold foil & embossing available. FSC certified recycled paper. Sizes: 500g (130×85×35mm), 1kg (270×85×35mm). Sea freight included.', materials: ['FSC Recycled Paper', 'Grayboard'], turnaround: '30 days + 40-60 days shipping', bestFor: ['coffee', 'tea', 'chocolate', 'gift boxes', 'premium packaging'] },
+  { id: 'box-tuck-custom', name: 'Custom Printed Tuck Boxes', category: 'boxes', basePrice: 1105.50, moq: 200, description: 'Premium tuck boxes (cartons) with gold foil stamping and embossing. 250g white card, matte finish. Size: 100g box (81×162×15mm). Perfect for chocolate bars, tea, confectionery. Sea freight included.', materials: ['250g White Card', 'FSC Paper'], turnaround: '30 days + 40-60 days shipping', bestFor: ['chocolate', 'tea', 'confectionery', 'premium gifts', 'luxury packaging'] },
 ]
 
 // FAQ Knowledge Base
@@ -124,8 +134,9 @@ const FAQ_KNOWLEDGE = [
   { keywords: ['custom', 'print', 'design', 'artwork'], answer: 'All digital printed pouches support full-color CMYK printing with matte or glossy finish. We provide free artwork templates after order confirmation.' },
   { keywords: ['barrier', 'moisture', 'oxygen', 'protection'], answer: 'We offer Clear/Low barrier (glossy) for dry goods and Metalised/High barrier (matte) for products needing moisture/oxygen protection like coffee and snacks.' },
   { keywords: ['coffee', 'valve', 'degassing'], answer: 'For coffee packaging, we recommend metalised high-barrier pouches with optional one-way degassing valve. Flat bottom and side gusset styles are most popular.' },
-  { keywords: ['certification', 'certified', 'en13432', 'astm', 'bpi'], answer: 'Available certifications: EN13432, ASTM D6400, OK Compost Home, OK Compost Industrial, GRS (recycled content), BPI certified, FSC (paper products).' },
+  { keywords: ['certification', 'certified', 'en13432', 'astm', 'bpi'], answer: 'Available certifications: EN13432, ASTM D6400, OK Compost Home, OK Compost Industrial, GRS (recycled content), BPI certified, FSC (paper products and boxes).' },
   { keywords: ['size', 'dimension', 'capacity'], answer: 'We offer 14 standard sizes from 90x130mm to 260x350mm. Custom sizes available for orders of 5,000+ pieces. Contact us for specific capacity needs.' },
+  { keywords: ['box', 'boxes', 'carton', 'corrugated', 'tuck', 'rigid'], answer: 'We offer custom printed boxes: 1) Corrugated Mailer Boxes (FSC recycled, 500g & 1kg sizes, from $514 for 200pcs) 2) Tuck Boxes (gold foil, embossing, 100g size, from $1105 for 200pcs). Both include matte lamination and sea freight shipping.' },
   { keywords: ['meeting', 'book', 'schedule', 'consultation', 'call', 'talk', 'discuss', 'calendly', 'appointment', 'consult'], answer: 'Book a FREE 30-minute packaging consultation with our team! Schedule directly at: https://calendly.com/30-min-free-packaging-consultancy - We\'ll discuss your requirements, recommend the best solutions, and provide accurate quotes.' },
   { keywords: ['contact', 'email', 'phone', 'whatsapp', 'reach'], answer: 'Contact us: Email ryan@achievepack.com, WhatsApp +852 6970 4411, or book a free consultation at https://calendly.com/30-min-free-packaging-consultancy' },
 ]
@@ -133,6 +144,15 @@ const FAQ_KNOWLEDGE = [
 // ============ RETRIEVAL LAYER ============
 function findRelevantProducts(question: string): typeof PRODUCT_CATALOG {
   const q = question.toLowerCase()
+  
+  // Special handling for boxes queries
+  if (q.includes('box') || q.includes('carton') || q.includes('corrugated') || q.includes('tuck') || q.includes('rigid') || q.includes('chocolate')) {
+    const boxProducts = PRODUCT_CATALOG.filter(p => 
+      p.category === 'boxes' ||
+      (p as any).bestFor?.some((b: string) => ['chocolate', 'gift boxes', 'premium packaging', 'luxury packaging'].includes(b))
+    )
+    if (boxProducts.length > 0) return boxProducts.slice(0, 5)
+  }
   
   // Special handling for coffee/high barrier queries - prioritize best matches
   if (q.includes('coffee') || q.includes('roast') || q.includes('bean') || 
@@ -216,6 +236,9 @@ function findRelatedPages(question: string, pageContext?: PageContext): RelatedP
   }
   if (q.includes('material') || q.includes('barrier') || q.includes('kraft')) {
     pages.push(...(RELATED_PAGES_MAP['materials'] || []))
+  }
+  if (q.includes('box') || q.includes('carton') || q.includes('corrugated') || q.includes('tuck') || q.includes('chocolate')) {
+    pages.push(...(RELATED_PAGES_MAP['boxes'] || []))
   }
   // Consultation/Meeting keywords
   if (q.includes('meeting') || q.includes('book') || q.includes('schedule') || q.includes('consultation') || 
@@ -330,7 +353,7 @@ You can see the user is browsing this page and should reference it when relevant
     }
   }
 
-  const systemPrompt = `You are a helpful packaging assistant for AchievePack, specializing in eco-friendly flexible packaging solutions (pouches, bags, mailers).
+  const systemPrompt = `You are a helpful packaging assistant for AchievePack, specializing in eco-friendly flexible packaging solutions (pouches, bags, mailers) and custom printed boxes.
 
 IMPORTANT RULES:
 1. Only use product and price information provided in the CONTEXT below.
@@ -350,8 +373,10 @@ ${context}${pageAwareContext}
 QUICK FACTS:
 - Conventional digital MOQ: 100 pieces
 - Eco digital MOQ: 1,000 pieces
+- Custom boxes MOQ: 200 pieces
 - Sample packs: $15-25, ships in 3-5 days
 - All prices include shipping ($40 minimum)
+- Boxes include sea freight (40-60 days)
 - FREE Consultation: https://calendly.com/30-min-free-packaging-consultancy
 - Contact: ryan@achievepack.com, WhatsApp +852 6970 4411`
 
