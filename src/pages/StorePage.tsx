@@ -341,31 +341,31 @@ const StorePage: React.FC = () => {
           {/* Product Grid/List */}
           <div className="flex-1">
             {viewMode === 'grid' ? (
-              <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
                 {sortedProducts.map(product => (
                   <Link
                     key={product.id}
                     to={`/store/product/${product.id}`}
-                    className="bg-white rounded-2xl overflow-hidden border border-neutral-200 hover:shadow-lg hover:border-neutral-300 transition group"
+                    className="bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-neutral-200 hover:shadow-lg hover:border-neutral-300 transition group"
                   >
-                    <div className="relative aspect-square bg-neutral-50 overflow-hidden p-4">
+                    <div className="relative aspect-square bg-neutral-50 overflow-hidden p-2 sm:p-4">
                       <img src={getProductDisplayImage(product)} alt={product.name} className="w-full h-full object-contain group-hover:scale-105 transition duration-300" />
                       {product.badge && (
-                        <span className="absolute top-3 left-3 bg-primary-500 text-white text-xs px-3 py-1 rounded-full">
+                        <span className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-primary-500 text-white text-[10px] sm:text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full">
                           {product.badge}
                         </span>
                       )}
                     </div>
-                    <div className="p-5">
-                      <h3 className="font-semibold text-neutral-900 mb-2 group-hover:text-primary-600 transition">{product.name}</h3>
-                      <div className="flex items-center gap-1 mb-2">
-                        <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
-                        <span className="text-sm text-neutral-600">{product.rating} ({product.reviews} reviews)</span>
+                    <div className="p-3 sm:p-5">
+                      <h3 className="font-semibold text-sm sm:text-base text-neutral-900 mb-1 sm:mb-2 group-hover:text-primary-600 transition line-clamp-2">{product.name}</h3>
+                      <div className="flex items-center gap-1 mb-1 sm:mb-2">
+                        <Star className="h-3 w-3 sm:h-4 sm:w-4 text-yellow-400 fill-yellow-400" />
+                        <span className="text-xs sm:text-sm text-neutral-600">{product.rating} ({product.reviews})</span>
                       </div>
-                      <p className="text-sm text-neutral-500 mb-3">{product.shortDesc}</p>
+                      <p className="text-xs sm:text-sm text-neutral-500 mb-2 sm:mb-3 line-clamp-2">{product.shortDesc}</p>
                       <div className="flex items-center justify-between">
-                        <span className="text-lg font-bold text-primary-600">From ${product.basePrice}</span>
-                        <span className="text-xs text-primary-500 font-medium">{product.turnaround}</span>
+                        <span className="text-sm sm:text-lg font-bold text-primary-600">From ${product.basePrice}</span>
+                        <span className="text-[10px] sm:text-xs text-primary-500 font-medium">{product.turnaround}</span>
                       </div>
                     </div>
                   </Link>

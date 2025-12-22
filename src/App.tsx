@@ -390,8 +390,14 @@ ${formData.message}`
               </div>
             </div>
 
-            {/* Mobile Menu Button */}
-            <div className="lg:hidden">
+            {/* Mobile Menu Button with Store Icon */}
+            <div className="lg:hidden flex items-center gap-2">
+              <Link
+                to="/store"
+                className="w-10 h-10 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
+              >
+                <ShoppingCart className="h-5 w-5 text-white" />
+              </Link>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-neutral-700 hover:text-primary-500 transition-colors"
