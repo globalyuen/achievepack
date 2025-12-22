@@ -1,5 +1,5 @@
 // Store category types
-export type StoreCategory = 'sample' | 'conventional-digital' | 'eco-digital' | 'eco-stock'
+export type StoreCategory = 'sample' | 'conventional-digital' | 'eco-digital' | 'eco-stock' | 'boxes'
 
 // Legacy product interface (keeping for backward compatibility)
 export interface PouchProduct {
@@ -71,7 +71,7 @@ export interface EcoDigitalProduct extends BaseStoreProduct {
   }
 }
 
-export type StoreProduct = PouchProduct | SampleProduct | ConventionalProduct | EcoDigitalProduct | EcoStockProduct
+export type StoreProduct = PouchProduct | SampleProduct | ConventionalProduct | EcoDigitalProduct | EcoStockProduct | BoxProduct
 
 // Eco Stock size variant (for products with multiple sizes)
 export interface EcoStockSizeVariant {
@@ -129,6 +129,27 @@ export interface EcoStockProduct extends BaseStoreProduct {
   stockProductId?: string
   // Custom print quantity pricing tiers
   customPrintQuantities?: CustomPrintQuantityOption[]
+}
+
+// Box quantity option
+export interface BoxQuantityOption {
+  quantity: number
+  totalPrice: number
+  unitPrice: number
+}
+
+// Box product (corrugated boxes)
+export interface BoxProduct extends BaseStoreProduct {
+  category: 'boxes'
+  shape: string
+  material: string
+  basePrice: number
+  minQuantity: number
+  insideDimensions: string
+  additionalFeatures: string[]
+  quantityOptions: BoxQuantityOption[]
+  customQuoteNote?: string
+  videoUrl?: string
 }
 
 export interface PouchSize {
@@ -1274,12 +1295,107 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
   },
 ]
 
-// Combined products array (18 total: 4 sample + 8 conventional + 7 eco + 2 eco-stock)
+// Custom Printed Boxes Products
+export const BOXES_PRODUCTS: BoxProduct[] = [
+  {
+    id: 'box-corrugated-chocbar',
+    name: 'Custom Printed Corrugated Box - Choc Bar Size',
+    category: 'boxes',
+    shape: 'Corrugated Box',
+    material: '157g coated gloss/matt art paper, CMYK printing, matt lamination, 2.0mm grayboard',
+    description: 'Premium custom printed corrugated box perfect for chocolate bars and small products. Features four-color CMYK printing with matte finish, gold foil, and embossing options. Made with FSC certified recycled paper for eco-conscious brands.',
+    shortDesc: 'Rigid box for chocolate bars with premium finishes',
+    features: [
+      'Matte Finish',
+      'Gold Foil Available',
+      'Embossed Details',
+      'FSC Certified Recycled Paper',
+      'Four Color Custom Printed (CMYK)',
+      'Rigid Box Construction'
+    ],
+    images: [
+      '/imgs/store/box/corrugated box/90f309ab-e30c-49e3-891c-83b47a7fe7a6.png',
+      '/imgs/store/box/corrugated box/a_half_open_box_3d_perspective_7357116.png',
+    ],
+    badge: 'FSC Certified',
+    rating: 4.9,
+    reviews: 47,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 200,
+    minQuantity: 200,
+    basePrice: 514.50,
+    insideDimensions: '75(W) × 115(L) × 30(H) mm',
+    additionalFeatures: [
+      'Matte Finish',
+      'Gold Foil',
+      'Embossed',
+      'FSC certified recycled paper',
+      'Four color custom printed'
+    ],
+    quantityOptions: [
+      { quantity: 200, totalPrice: 514.50, unitPrice: 2.5725 },
+      { quantity: 1000, totalPrice: 771.75, unitPrice: 0.7718 },
+      { quantity: 5000, totalPrice: 2054.25, unitPrice: 0.4109 },
+      { quantity: 10000, totalPrice: 3657.38, unitPrice: 0.3657 },
+    ],
+    customQuoteNote: 'For quantities over 10,000 pcs, please request a custom quote.',
+    videoUrl: 'https://youtube.com/shorts/nRWIQg9rCiQ',
+  },
+  {
+    id: 'box-corrugated-1000g',
+    name: 'Custom Printed Corrugated Box - 1000g Mailer Size',
+    category: 'boxes',
+    shape: 'Corrugated Box',
+    material: '157g coated gloss/matt art paper, CMYK printing, matt lamination, 2.0mm grayboard',
+    description: 'Large format custom printed corrugated mailer box ideal for 1kg products. Features premium four-color CMYK printing with matte finish, gold foil, and embossing options. Made with FSC certified recycled paper.',
+    shortDesc: 'Rigid mailer box for 1000g products',
+    features: [
+      'Matte Finish',
+      'Gold Foil Available',
+      'Embossed Details',
+      'FSC Certified Recycled Paper',
+      'Four Color Custom Printed (CMYK)',
+      'Rigid Box Construction'
+    ],
+    images: [
+      '/imgs/store/box/corrugated box/a_half_open_box_3d_perspective_7357116.png',
+      '/imgs/store/box/corrugated box/90f309ab-e30c-49e3-891c-83b47a7fe7a6.png',
+    ],
+    badge: 'FSC Certified',
+    rating: 4.8,
+    reviews: 32,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 200,
+    minQuantity: 200,
+    basePrice: 1285.50,
+    insideDimensions: '85(W) × 270(L) × 35(H) mm',
+    additionalFeatures: [
+      'Matte Finish',
+      'Gold Foil',
+      'Embossed',
+      'FSC certified recycled paper',
+      'Four color custom printed'
+    ],
+    quantityOptions: [
+      { quantity: 200, totalPrice: 1285.50, unitPrice: 6.4275 },
+      { quantity: 1000, totalPrice: 1714.50, unitPrice: 1.7145 },
+      { quantity: 5000, totalPrice: 3859.50, unitPrice: 0.7719 },
+      { quantity: 10000, totalPrice: 5040.75, unitPrice: 0.5041 },
+    ],
+    customQuoteNote: 'For quantities over 10,000 pcs, please request a custom quote.',
+    videoUrl: 'https://youtube.com/shorts/nRWIQg9rCiQ',
+  },
+]
+
+// Combined products array
 export const FEATURED_PRODUCTS: StoreProduct[] = [
   ...SAMPLE_PRODUCTS,
   ...CONVENTIONAL_PRODUCTS,
   ...ECO_DIGITAL_PRODUCTS,
   ...ECO_STOCK_PRODUCTS,
+  ...BOXES_PRODUCTS,
 ]
 
 export const getPrice = (shape: string, size: string, quantity: number): number => {

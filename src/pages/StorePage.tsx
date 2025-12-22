@@ -20,6 +20,7 @@ const CATEGORIES = [
   { id: 'conventional-digital', label: 'Conventional Digital' },
   { id: 'eco-digital', label: 'Eco Digital' },
   { id: 'eco-stock', label: 'Eco Stock' },
+  { id: 'boxes', label: 'Boxes' },
 ]
 
 const SHAPES = [
@@ -33,6 +34,7 @@ const SHAPES = [
   { id: 'Side Gusset Pouch', label: 'Side Gusset' },
   { id: 'Header Bag', label: 'Header Bag' },
   { id: 'Mailer Bag', label: 'Mailer Bag' },
+  { id: 'Corrugated Box', label: 'Corrugated Box' },
 ]
 
 const StorePage: React.FC = () => {
