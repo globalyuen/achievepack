@@ -180,6 +180,94 @@
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
+  
+  <!-- Content Protection Script -->
+  <script>
+    // Disable right-click context menu
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      return false;
+    });
+    
+    // Disable text selection
+    document.addEventListener('selectstart', function(e) {
+      // Allow selection in input fields and textareas
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+        return true;
+      }
+      e.preventDefault();
+      return false;
+    });
+    
+    // Disable copy
+    document.addEventListener('copy', function(e) {
+      // Allow copy in input fields and textareas
+      if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+        return true;
+      }
+      e.preventDefault();
+      return false;
+    });
+    
+    // Disable cut
+    document.addEventListener('cut', function(e) {
+      if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+        return true;
+      }
+      e.preventDefault();
+      return false;
+    });
+    
+    // Disable image dragging
+    document.addEventListener('dragstart', function(e) {
+      if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+        return false;
+      }
+    });
+    
+    // Disable keyboard shortcuts for saving/printing
+    document.addEventListener('keydown', function(e) {
+      // Ctrl+S, Ctrl+P, Ctrl+U (View Source)
+      if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S' || e.key === 'p' || e.key === 'P' || e.key === 'u' || e.key === 'U')) {
+        e.preventDefault();
+        return false;
+      }
+      // F12 (DevTools) - optional, can be aggressive
+      // if (e.key === 'F12') {
+      //   e.preventDefault();
+      //   return false;
+      // }
+    });
+  </script>
+  
+  <style>
+    /* Disable text selection globally except inputs */
+    body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    
+    /* Allow text selection in form inputs */
+    input, textarea, [contenteditable="true"] {
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+      user-select: text;
+    }
+    
+    /* Disable image dragging */
+    img {
+      -webkit-user-drag: none;
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      -o-user-drag: none;
+      user-drag: none;
+      pointer-events: auto;
+    }
+  </style>
 </body>
 
 </html>
