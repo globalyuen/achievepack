@@ -499,12 +499,12 @@ const StorePage: React.FC = () => {
           {/* Bottom Bar */}
           <div className="border-t border-neutral-800 pt-6">
             {/* Payment Methods */}
-            <div className="flex flex-wrap justify-center gap-4 mb-6">
-              <img src="/imgs/store/payment-logo/a_visa_logo_grey_5781158.webp" alt="Visa" className="h-8 w-auto" />
-              <img src="/imgs/store/payment-logo/a_mastercard_logo_grey_4350426.webp" alt="Mastercard" className="h-8 w-auto" />
-              <img src="/imgs/store/payment-logo/a_amex_logo_grey_3038228.webp" alt="American Express" className="h-8 w-auto" />
-              <img src="/imgs/store/payment-logo/a_paypal_logo_grey_3236525.webp" alt="PayPal" className="h-8 w-auto" />
-              <img src="/imgs/store/payment-logo/a_stripe_logo_grey_3625928.webp" alt="Stripe" className="h-8 w-auto" />
+            <div className="flex flex-wrap justify-center gap-6 mb-6">
+              <img src="/imgs/store/payment-logo/a_visa_logo_grey_5781158.webp" alt="Visa" className="h-16 w-auto" />
+              <img src="/imgs/store/payment-logo/a_mastercard_logo_grey_4350426.webp" alt="Mastercard" className="h-16 w-auto" />
+              <img src="/imgs/store/payment-logo/a_amex_logo_grey_3038228.webp" alt="American Express" className="h-16 w-auto" />
+              <img src="/imgs/store/payment-logo/a_paypal_logo_grey_3236525.webp" alt="PayPal" className="h-16 w-auto" />
+              <img src="/imgs/store/payment-logo/a_stripe_logo_grey_3625928.webp" alt="Stripe" className="h-16 w-auto" />
             </div>
 
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
