@@ -1,5 +1,5 @@
-import React, { useState, useTransition } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useState, useTransition, useEffect } from 'react'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { ArrowLeft, Leaf, Mail, Phone, Calendar, X } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
@@ -95,7 +95,13 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
 }) => {
   const { t } = useTranslation()
   const navigate = useNavigate()
+  const location = useLocation()
   const [isPending, startTransition] = useTransition()
+  
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
   
   // Lightbox state
   const [lightboxOpen, setLightboxOpen] = useState(false)

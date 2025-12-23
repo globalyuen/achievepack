@@ -1,10 +1,32 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Package, Leaf, Recycle, Box, Shield, Printer, Star, Lock, Eye, Wrench, CheckCircle } from 'lucide-react';
+import { Package, Leaf, Recycle, Box, Shield, Printer, Star, Lock, Eye, Wrench, CheckCircle, ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 import { SortableOptionsTable, CLOSURE_OPTIONS, SURFACE_OPTIONS, ADDITIONAL_FEATURES, BARRIER_OPTIONS } from '../../components/SortableOptionsTable';
 
 const AllOptionsPage = () => {
   const { t } = useTranslation();
+  const [enlargedImage, setEnlargedImage] = useState<{ src: string; index: number } | null>(null);
+  
+  const pouchShapeImages = [
+    '/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.webp',
+    '/imgs/pouch-shape/ads/a_achieve_pack_size_closure_options_7735113.webp',
+    '/imgs/pouch-shape/ads/a_achieve_pack_brand_closing_6612868.webp',
+    '/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.webp',
+    '/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp',
+    '/imgs/pouch-shape/ads/a_achieve_pack_quad_side_gusset_closeup_9751125.webp',
+    '/imgs/pouch-shape/ads/a_achieve_pack_spout_pouch_closeup_5874382.webp',
+    '/imgs/pouch-shape/ads/a_achieve_pack_irregular_shape_closeup_0205542.webp',
+    '/imgs/pouch-shape/ads/a_achieve_pack_rollstock_closeup_5394787.webp',
+  ];
+  
+  const navigateImage = (direction: 'prev' | 'next') => {
+    if (!enlargedImage) return;
+    let newIndex = direction === 'prev' ? enlargedImage.index - 1 : enlargedImage.index + 1;
+    if (newIndex < 0) newIndex = pouchShapeImages.length - 1;
+    if (newIndex >= pouchShapeImages.length) newIndex = 0;
+    setEnlargedImage({ src: pouchShapeImages[newIndex], index: newIndex });
+  };
 
   const heroImage = '/imgs/seo-photos/a_all_options_catalog_showcase_9383936.webp';
   
@@ -113,44 +135,40 @@ const AllOptionsPage = () => {
       icon: <Box className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Select the perfect pouch style for your product:</p>
+          <p>Explore our complete range of pouch shapes and styles. Click any image to enlarge:</p>
           
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-            <div className="bg-white p-4 rounded-xl border-2 border-primary-200 hover:border-primary-400 transition-colors">
-              <img src="/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp" alt="Stand-Up Pouch" className="h-20 mx-auto mb-3 object-contain" />
-              <h4 className="font-semibold text-center">Stand-Up Pouch</h4>
-              <p className="text-neutral-500 text-xs text-center mt-1">Most popular for retail</p>
-            </div>
-            
-            <div className="bg-white p-4 rounded-xl border-2 border-emerald-200 hover:border-emerald-400 transition-colors">
-              <img src="/imgs/pouch-shape/a_flat_bottom_pouch_isolated_7901973.webp" alt="Flat Bottom Bag" className="h-20 mx-auto mb-3 object-contain" />
-              <h4 className="font-semibold text-center">Flat Bottom Bag</h4>
-              <p className="text-neutral-500 text-xs text-center mt-1">Premium, 5 panels</p>
-            </div>
-            
-            <div className="bg-white p-4 rounded-xl border-2 border-amber-200 hover:border-amber-400 transition-colors">
-              <img src="/imgs/pouch-shape/a_side_gusset_pouch_isolated_2545871.webp" alt="Side Gusset Bag" className="h-20 mx-auto mb-3 object-contain" />
-              <h4 className="font-semibold text-center">Side Gusset Bag</h4>
-              <p className="text-neutral-500 text-xs text-center mt-1">Traditional coffee style</p>
-            </div>
-            
-            <div className="bg-white p-4 rounded-xl border-2 border-blue-200 hover:border-blue-400 transition-colors">
-              <img src="/imgs/pouch-shape/a_spout_pouch_isolated_6857112.webp" alt="Spout Pouch" className="h-20 mx-auto mb-3 object-contain" />
-              <h4 className="font-semibold text-center">Spout Pouch</h4>
-              <p className="text-neutral-500 text-xs text-center mt-1">For liquids & purees</p>
-            </div>
-            
-            <div className="bg-white p-4 rounded-xl border-2 border-purple-200 hover:border-purple-400 transition-colors">
-              <img src="/imgs/pouch-shape/a_three_side_seal_pouch_isolated_0879222.webp" alt="Flat Pouch" className="h-20 mx-auto mb-3 object-contain" />
-              <h4 className="font-semibold text-center">Flat Pouch</h4>
-              <p className="text-neutral-500 text-xs text-center mt-1">Sachets & samples</p>
-            </div>
-            
-            <div className="bg-white p-4 rounded-xl border-2 border-orange-200 hover:border-orange-400 transition-colors">
-              <img src="/imgs/store/pouch%20shape/quad-seal.webp" alt="Quad Seal Bag" className="h-20 mx-auto mb-3 object-contain" />
-              <h4 className="font-semibold text-center">Quad Seal Bag</h4>
-              <p className="text-neutral-500 text-xs text-center mt-1">Modern square look</p>
-            </div>
+          {/* Main Image Display */}
+          <div className="relative bg-white rounded-xl border border-neutral-200 overflow-hidden">
+            <img 
+              src={pouchShapeImages[0]} 
+              alt="Pouch Styles Overview" 
+              className="w-full h-64 md:h-80 object-cover cursor-pointer"
+              onClick={() => setEnlargedImage({ src: pouchShapeImages[0], index: 0 })}
+            />
+            <button 
+              onClick={() => setEnlargedImage({ src: pouchShapeImages[0], index: 0 })}
+              className="absolute bottom-3 right-3 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg transition"
+            >
+              <ZoomIn className="h-5 w-5 text-neutral-700" />
+            </button>
+          </div>
+          
+          {/* Thumbnail Gallery */}
+          <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-9 gap-2">
+            {pouchShapeImages.map((img, index) => (
+              <button
+                key={index}
+                onClick={() => setEnlargedImage({ src: img, index })}
+                className="aspect-square bg-white rounded-lg border-2 border-neutral-200 hover:border-primary-400 overflow-hidden transition-all hover:shadow-md group"
+              >
+                <img src={img} alt={`Pouch Style ${index + 1}`} className="w-full h-full object-cover group-hover:scale-105 transition" />
+              </button>
+            ))}
+          </div>
+          
+          <div className="bg-primary-50 border border-primary-200 p-4 rounded-xl">
+            <h4 className="font-semibold text-primary-800 mb-1">Custom Shapes Available</h4>
+            <p className="text-sm text-primary-700">Need a unique shape? We offer custom die-cut pouches for special requirements.</p>
           </div>
         </div>
       )
@@ -301,21 +319,63 @@ const AllOptionsPage = () => {
   ];
 
   return (
-    <SEOPageLayout
-      title={t(`${p}.title`)}
-      description={t(`${p}.description`)}
-      keywords={['packaging options', 'pouch customization', 'barrier levels', 'zipper options', 'printing finishes', 'sustainable packaging features']}
-      heroTitle={t(`${p}.heroTitle`)}
-      heroSubtitle={t(`${p}.heroSubtitle`)}
-      heroImage={heroImage}
-      sections={sections}
-      introSummary={t(`${p}.introSummary`)}
-      faqs={faqs}
-      ctaTitle={t(`${p}.cta.title`)}
-      ctaDescription={t(`${p}.cta.description`)}
-      ctaButtonText={t(`${p}.cta.button`)}
-      ctaButtonUrl="/contact"
-    />
+    <>
+      <SEOPageLayout
+        title={t(`${p}.title`)}
+        description={t(`${p}.description`)}
+        keywords={['packaging options', 'pouch customization', 'barrier levels', 'zipper options', 'printing finishes', 'sustainable packaging features']}
+        heroTitle={t(`${p}.heroTitle`)}
+        heroSubtitle={t(`${p}.heroSubtitle`)}
+        heroImage={heroImage}
+        sections={sections}
+        introSummary={t(`${p}.introSummary`)}
+        faqs={faqs}
+        ctaTitle={t(`${p}.cta.title`)}
+        ctaDescription={t(`${p}.cta.description`)}
+        ctaButtonText={t(`${p}.cta.button`)}
+        ctaButtonUrl="/contact"
+      />
+      
+      {/* Image Enlargement Modal */}
+      {enlargedImage && (
+        <div 
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          onClick={() => setEnlargedImage(null)}
+        >
+          <button 
+            onClick={() => setEnlargedImage(null)}
+            className="absolute top-4 right-4 text-white hover:text-neutral-300 transition"
+          >
+            <X className="h-8 w-8" />
+          </button>
+          
+          <button 
+            onClick={(e) => { e.stopPropagation(); navigateImage('prev'); }}
+            className="absolute left-4 text-white hover:text-neutral-300 transition p-2"
+          >
+            <ChevronLeft className="h-10 w-10" />
+          </button>
+          
+          <img 
+            src={enlargedImage.src} 
+            alt="Enlarged view" 
+            className="max-w-full max-h-[90vh] object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+          
+          <button 
+            onClick={(e) => { e.stopPropagation(); navigateImage('next'); }}
+            className="absolute right-4 text-white hover:text-neutral-300 transition p-2"
+          >
+            <ChevronRight className="h-10 w-10" />
+          </button>
+          
+          <div className="absolute bottom-4 text-white text-sm">
+            {enlargedImage.index + 1} / {pouchShapeImages.length}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
