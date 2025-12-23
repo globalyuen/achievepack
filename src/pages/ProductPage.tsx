@@ -839,7 +839,7 @@ const ProductPage: React.FC = () => {
                           if (hasVideo) {
                             setIsVideoModalOpen(true)
                           } else {
-                            setSelectedMainImage(index)
+                            startTransition(() => setSelectedMainImage(index))
                           }
                         }}
                         className={`relative aspect-square bg-white rounded-lg border-2 overflow-hidden transition-all hover:shadow-md ${
@@ -1193,7 +1193,7 @@ const ProductPage: React.FC = () => {
                           if (hasVideo) {
                             setIsVideoModalOpen(true)
                           } else {
-                            setSelectedMainImage(index)
+                            startTransition(() => setSelectedMainImage(index))
                           }
                         }}
                         className={`relative aspect-square bg-white rounded-lg border-2 overflow-hidden transition-all hover:shadow-md ${
@@ -1854,7 +1854,7 @@ const ProductPage: React.FC = () => {
                     ].map((img, index) => (
                       <button
                         key={index}
-                        onClick={() => setSelectedMainImage(index)}
+                        onClick={() => startTransition(() => setSelectedMainImage(index))}
                         className={`aspect-square bg-white rounded-md border-2 overflow-hidden transition-all hover:shadow-md ${
                           selectedMainImage === index ? 'border-primary-600 ring-2 ring-primary-200' : 'border-neutral-200'
                         }`}
