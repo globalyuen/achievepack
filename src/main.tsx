@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
+import { Analytics } from '@vercel/analytics/react'
 import { ErrorBoundary } from './components/ErrorBoundary.tsx'
 import { StoreProvider } from './store/StoreContext'
 import { CalendlyProvider } from './contexts/CalendlyContext'
@@ -316,6 +317,7 @@ createRoot(document.getElementById('root')!).render(
               <FloatingButtons />
               {/* AI Packaging Assistant Chat Widget */}
               <PackagingAssistantWidget />
+              <Analytics />
               </CalendlyProvider>
           </StoreProvider>
         </BrowserRouter>

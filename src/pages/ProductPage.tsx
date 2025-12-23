@@ -841,7 +841,7 @@ const ProductPage: React.FC = () => {
                           selectedMainImage === index && !hasVideo ? 'border-primary-600 ring-2 ring-primary-200' : 'border-neutral-200'
                         }`}
                       >
-                        <img src={img} alt={`View ${index + 1}`} className="w-full h-full object-contain p-1" />
+                        <img src={img} alt={`View ${index + 1}`} className="w-full h-full object-cover p-1" />
                         {/* YouTube Play Icon Overlay */}
                         {hasVideo && (
                           <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
@@ -1195,7 +1195,7 @@ const ProductPage: React.FC = () => {
                           selectedMainImage === index && !hasVideo ? 'border-green-600 ring-2 ring-green-200' : 'border-neutral-200'
                         }`}
                       >
-                        <img src={img} alt={`View ${index + 1}`} className="w-full h-full object-contain p-1" />
+                        <img src={img} alt={`View ${index + 1}`} className="w-full h-full object-cover p-1" />
                         {/* YouTube Play Icon Overlay */}
                         {hasVideo && (
                           <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
@@ -1255,7 +1255,7 @@ const ProductPage: React.FC = () => {
                       </div>
                       <div className="grid grid-cols-3 gap-2">
                         <dt className="text-neutral-500">Certification</dt>
-                        <dd className="text-neutral-900 col-span-2">Industrial Composting Approved</dd>
+                        <dd className="text-neutral-900 col-span-2">{isBoxes ? 'FSC Certified' : 'Industrial Composting Approved'}</dd>
                       </div>
                       <div className="grid grid-cols-3 gap-2">
                         <dt className="text-neutral-500">Shelf Life</dt>
@@ -1345,7 +1345,8 @@ const ProductPage: React.FC = () => {
               
               <p className="text-neutral-600">{product.description}</p>
               
-              {/* Dynamic Description for Eco Stock */}
+              {/* Dynamic Description for Eco Stock - Not for box products */}
+              {!isBoxes && (
               <div className="bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-xl overflow-hidden">
                 <div className="px-5 pt-5 pb-3">
                   <div className="flex items-start gap-3">
@@ -1401,6 +1402,7 @@ const ProductPage: React.FC = () => {
                   )}
                 </div>
               </div>
+              )}
               
               {/* Size Variant Selector - for products with multiple sizes */}
               {ecoStockProduct.sizeVariants && ecoStockProduct.sizeVariants.length > 0 && (
@@ -1460,18 +1462,19 @@ const ProductPage: React.FC = () => {
                   {/* Step 1: Select Size */}
                   <div>
                     <label className="block text-sm font-medium text-neutral-700 mb-2">1. Select Size</label>
-                    <div className="grid grid-cols-3 gap-2">
+                    <div className="grid grid-cols-2 gap-2">
                       {ecoStockProduct.sizeWithQuantities.map((size) => (
                         <button
                           key={size.id}
                           onClick={() => { setSelectedSizeWithQty(size.id); setSelectedQtyOption(null); }}
-                          className={`p-2 border rounded-lg text-center transition ${
+                          className={`p-3 border rounded-lg text-left transition ${
                             selectedSizeWithQty === size.id 
                               ? 'border-green-600 bg-green-50 ring-2 ring-green-200' 
                               : 'border-neutral-200 hover:border-green-300'
                           }`}
                         >
                           <div className="font-medium text-neutral-900 text-sm">{size.label}</div>
+                          <div className="text-xs text-neutral-500 mt-1">{size.dimensions}</div>
                         </button>
                       ))}
                     </div>
@@ -1743,8 +1746,8 @@ const ProductPage: React.FC = () => {
           </div>
         )}
         
-        {/* Main Product Image for Non-Eco Digital and Non-Conventional and Non-Eco-Stock Products - Top of Page */}
-        {!isEcoDigital && !isConventionalDigital && !isEcoStock && (
+        {/* Main Product Image for Non-Eco Digital and Non-Conventional and Non-Eco-Stock and Non-Boxes Products - Top of Page */}
+        {!isEcoDigital && !isConventionalDigital && !isEcoStock && !isBoxes && (
           <div className="mb-8">
             <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden max-w-2xl mx-auto">
               <div className="p-6">
@@ -1771,7 +1774,7 @@ const ProductPage: React.FC = () => {
         )}
 
         {/* Grid layout for sample products and eco-digital */}
-        {!isConventionalDigital && !isEcoStock && (
+        {!isConventionalDigital && !isEcoStock && !isBoxes && (
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left Column - Customer Examples + Package Preview */}
           <div className="hidden lg:block space-y-4">
@@ -3482,6 +3485,47 @@ const ProductPage: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* Related Products Section */}
+      <section className="bg-neutral-50 py-12">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-2xl font-bold text-neutral-900 mb-8">Related Products</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {FEATURED_PRODUCTS
+              .filter(p => p.id !== product?.id && p.category === product?.category)
+              .slice(0, 4)
+              .concat(
+                FEATURED_PRODUCTS
+                  .filter(p => p.id !== product?.id && p.category !== product?.category)
+                  .slice(0, 4 - FEATURED_PRODUCTS.filter(p => p.id !== product?.id && p.category === product?.category).slice(0, 4).length)
+              )
+              .map((relatedProduct) => (
+                <Link
+                  key={relatedProduct.id}
+                  to={`/store/product/${relatedProduct.id}`}
+                  className="bg-white rounded-xl overflow-hidden border border-neutral-200 hover:shadow-lg hover:border-neutral-300 transition group"
+                >
+                  <div className="aspect-square bg-neutral-50 overflow-hidden">
+                    <img 
+                      src={relatedProduct.images[0]} 
+                      alt={relatedProduct.name} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition duration-300" 
+                    />
+                  </div>
+                  <div className="p-3">
+                    <h3 className="font-medium text-sm text-neutral-900 line-clamp-2 mb-1">{relatedProduct.name}</h3>
+                    <p className="text-xs text-neutral-500">{relatedProduct.shortDesc}</p>
+                    {relatedProduct.badge && (
+                      <span className="inline-block mt-2 text-xs bg-primary-100 text-primary-700 px-2 py-0.5 rounded-full">
+                        {relatedProduct.badge}
+                      </span>
+                    )}
+                  </div>
+                </Link>
+              ))}
+          </div>
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="bg-neutral-900 text-white py-12 mt-16">

@@ -288,7 +288,7 @@ const StandUpPouchesPage: React.FC = () => {
           
           <div className="bg-green-50 border border-green-200 rounded-lg p-4 mt-4">
             <p className="text-sm text-green-800">
-              <strong>Why Achieve Pack?</strong> We've shipped over 50 million stand-up pouches globally. Our team helps you select the right configuration for your product. MOQ from 500 pieces for custom printed. <Link to="/store" className="text-green-600 hover:underline">Browse our stand-up pouch options →</Link>
+              <strong>Why Achieve Pack?</strong> We've shipped +10 million stand-up pouches to +8 countries globally. Our team helps you select the right configuration for your product. MOQ from 500 pieces for custom printed. <Link to="/store" className="text-green-600 hover:underline">Browse our stand-up pouch options →</Link>
             </p>
           </div>
         </div>

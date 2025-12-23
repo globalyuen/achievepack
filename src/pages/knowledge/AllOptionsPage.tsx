@@ -117,37 +117,37 @@ const AllOptionsPage = () => {
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
             <div className="bg-white p-4 rounded-xl border-2 border-primary-200 hover:border-primary-400 transition-colors">
-              <img src="/imgs/pouch-shape/stand-up-zipper-pouch.webp" alt="Stand-Up Pouch" className="h-20 mx-auto mb-3 object-contain" />
+              <img src="/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp" alt="Stand-Up Pouch" className="h-20 mx-auto mb-3 object-contain" />
               <h4 className="font-semibold text-center">Stand-Up Pouch</h4>
               <p className="text-neutral-500 text-xs text-center mt-1">Most popular for retail</p>
             </div>
             
             <div className="bg-white p-4 rounded-xl border-2 border-emerald-200 hover:border-emerald-400 transition-colors">
-              <img src="/imgs/pouch-shape/flat-bottom-pouch.webp" alt="Flat Bottom Bag" className="h-20 mx-auto mb-3 object-contain" />
+              <img src="/imgs/pouch-shape/a_flat_bottom_pouch_isolated_7901973.webp" alt="Flat Bottom Bag" className="h-20 mx-auto mb-3 object-contain" />
               <h4 className="font-semibold text-center">Flat Bottom Bag</h4>
               <p className="text-neutral-500 text-xs text-center mt-1">Premium, 5 panels</p>
             </div>
             
             <div className="bg-white p-4 rounded-xl border-2 border-amber-200 hover:border-amber-400 transition-colors">
-              <img src="/imgs/pouch-shape/side-gusset-pouch.webp" alt="Side Gusset Bag" className="h-20 mx-auto mb-3 object-contain" />
+              <img src="/imgs/pouch-shape/a_side_gusset_pouch_isolated_2545871.webp" alt="Side Gusset Bag" className="h-20 mx-auto mb-3 object-contain" />
               <h4 className="font-semibold text-center">Side Gusset Bag</h4>
               <p className="text-neutral-500 text-xs text-center mt-1">Traditional coffee style</p>
             </div>
             
             <div className="bg-white p-4 rounded-xl border-2 border-blue-200 hover:border-blue-400 transition-colors">
-              <img src="/imgs/pouch-shape/spout-pouch.webp" alt="Spout Pouch" className="h-20 mx-auto mb-3 object-contain" />
+              <img src="/imgs/pouch-shape/a_spout_pouch_isolated_6857112.webp" alt="Spout Pouch" className="h-20 mx-auto mb-3 object-contain" />
               <h4 className="font-semibold text-center">Spout Pouch</h4>
               <p className="text-neutral-500 text-xs text-center mt-1">For liquids & purees</p>
             </div>
             
             <div className="bg-white p-4 rounded-xl border-2 border-purple-200 hover:border-purple-400 transition-colors">
-              <img src="/imgs/pouch-shape/3-side-seal-pouch.webp" alt="Flat Pouch" className="h-20 mx-auto mb-3 object-contain" />
+              <img src="/imgs/pouch-shape/a_three_side_seal_pouch_isolated_0879222.webp" alt="Flat Pouch" className="h-20 mx-auto mb-3 object-contain" />
               <h4 className="font-semibold text-center">Flat Pouch</h4>
               <p className="text-neutral-500 text-xs text-center mt-1">Sachets & samples</p>
             </div>
             
             <div className="bg-white p-4 rounded-xl border-2 border-orange-200 hover:border-orange-400 transition-colors">
-              <img src="/imgs/pouch-shape/quad-seal-pouch.webp" alt="Quad Seal Bag" className="h-20 mx-auto mb-3 object-contain" />
+              <img src="/imgs/store/pouch%20shape/quad-seal.webp" alt="Quad Seal Bag" className="h-20 mx-auto mb-3 object-contain" />
               <h4 className="font-semibold text-center">Quad Seal Bag</h4>
               <p className="text-neutral-500 text-xs text-center mt-1">Modern square look</p>
             </div>

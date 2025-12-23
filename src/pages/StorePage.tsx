@@ -352,7 +352,7 @@ const StorePage: React.FC = () => {
                     className="bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-neutral-200 hover:shadow-lg hover:border-neutral-300 transition group"
                   >
                     <div className="relative aspect-square bg-neutral-50 overflow-hidden p-2 sm:p-4">
-                      <img src={getProductDisplayImage(product)} alt={product.name} className="w-full h-full object-contain group-hover:scale-105 transition duration-300" />
+                      <img src={getProductDisplayImage(product)} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
                       {product.badge && (
                         <span className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-primary-500 text-white text-[10px] sm:text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full">
                           {product.badge}
@@ -383,7 +383,7 @@ const StorePage: React.FC = () => {
                     className="flex bg-white rounded-2xl overflow-hidden border border-neutral-200 hover:shadow-lg hover:border-neutral-300 transition group"
                   >
                     <div className="relative w-48 h-48 bg-neutral-50 overflow-hidden p-4 flex-shrink-0">
-                      <img src={getProductDisplayImage(product)} alt={product.name} className="w-full h-full object-contain group-hover:scale-105 transition duration-300" />
+                      <img src={getProductDisplayImage(product)} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
                       {product.badge && (
                         <span className="absolute top-3 left-3 bg-primary-500 text-white text-xs px-2 py-0.5 rounded-full">
                           {product.badge}
@@ -447,11 +447,11 @@ const StorePage: React.FC = () => {
             <div>
               <h4 className="font-semibold text-sm mb-4">Categories</h4>
               <ul className="space-y-2 text-xs text-neutral-400">
-                <li><Link to="/store" onClick={() => { setSelectedCategory('sample'); requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' })) }} className="hover:text-primary-400">Sample Packs</Link></li>
-                <li><Link to="/store" onClick={() => { setSelectedCategory('conventional-digital'); requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' })) }} className="hover:text-primary-400">Conventional Digital</Link></li>
-                <li><Link to="/store" onClick={() => { setSelectedCategory('eco-digital'); requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' })) }} className="hover:text-primary-400">Eco Digital</Link></li>
-                <li><Link to="/store" onClick={() => { setSelectedCategory('eco-stock'); requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' })) }} className="hover:text-primary-400">Eco Stock</Link></li>
-                <li><Link to="/store" onClick={() => { setSelectedCategory('boxes'); requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' })) }} className="hover:text-primary-400">Custom Boxes</Link></li>
+                <li><Link to="/store" onClick={() => setSelectedCategory('sample')} className="hover:text-primary-400">Sample Packs</Link></li>
+                <li><Link to="/store" onClick={() => setSelectedCategory('conventional-digital')} className="hover:text-primary-400">Conventional Digital</Link></li>
+                <li><Link to="/store" onClick={() => setSelectedCategory('eco-digital')} className="hover:text-primary-400">Eco Digital</Link></li>
+                <li><Link to="/store" onClick={() => setSelectedCategory('eco-stock')} className="hover:text-primary-400">Eco Stock</Link></li>
+                <li><Link to="/store" onClick={() => setSelectedCategory('boxes')} className="hover:text-primary-400">Custom Boxes</Link></li>
               </ul>
             </div>
 
