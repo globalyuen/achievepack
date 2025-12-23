@@ -319,6 +319,11 @@ const ProductPage: React.FC = () => {
     }
   }, [ecoProduct])
 
+  // Scroll to top when product changes
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [productId])
+
   // Get size options based on product shape
   const sizeOptions = useMemo(() => {
     if (!isEcoDigital || !ecoProduct) return []
@@ -1941,7 +1946,7 @@ const ProductPage: React.FC = () => {
                                   : '/imgs/store/eco-material/compostable.webp'
                               }
                               alt={selectedMaterial}
-                              className="w-full h-16 object-contain"
+                              className="w-full h-16 object-cover"
                             />
                           </button>
                           <p className="text-xs font-medium text-neutral-700">Material</p>
@@ -1960,7 +1965,7 @@ const ProductPage: React.FC = () => {
                             <img 
                               src={getSizeImage(selectedSize as EcoSizeType)}
                               alt={`Size ${selectedSize}`}
-                              className="w-full h-16 object-contain"
+                              className="w-full h-16 object-cover"
                             />
                           </button>
                           <p className="text-xs font-medium text-neutral-700">Size</p>
@@ -1995,7 +2000,7 @@ const ProductPage: React.FC = () => {
                                 '/imgs/store/closure/no-zipper.webp'
                               }
                               alt={selectedClosure}
-                              className="w-full h-16 object-contain"
+                              className="w-full h-16 object-cover"
                             />
                           </button>
                           <p className="text-xs font-medium text-neutral-700">Closure</p>
@@ -2014,7 +2019,7 @@ const ProductPage: React.FC = () => {
                             <img 
                               src={getSurfaceImage(selectedSurface)}
                               alt={selectedSurface}
-                              className="w-full h-16 object-contain"
+                              className="w-full h-16 object-cover"
                             />
                           </button>
                           <p className="text-xs font-medium text-neutral-700">Surface</p>
@@ -2068,7 +2073,7 @@ const ProductPage: React.FC = () => {
                               <img 
                                 src="/imgs/store/additional/laser-tear.webp"
                                 alt="Laser Scoring"
-                                className="w-full h-16 object-contain"
+                                className="w-full h-16 object-cover"
                               />
                             </button>
                             <p className="text-xs font-medium text-neutral-700">Laser</p>
