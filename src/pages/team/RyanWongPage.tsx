@@ -66,7 +66,7 @@ const RyanWongPage = () => {
         </header>
 
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-primary-700 to-primary-900 text-white py-16">
+        <section style={{ background: 'linear-gradient(to bottom right, #166534, #14532d)' }} className="py-16">
           <div className="max-w-5xl mx-auto px-4">
             <div className="flex flex-col md:flex-row gap-8 items-center">
               <div className="flex-shrink-0">
@@ -77,12 +77,12 @@ const RyanWongPage = () => {
                 />
               </div>
               <div className="flex-1 text-center md:text-left">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">Ryan Wong</h1>
-                <p className="text-2xl text-primary-100 mb-4">Packaging Development Specialist</p>
-                <p className="text-lg text-primary-200 mb-2">
+                <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: 'white' }}>Ryan Wong</h1>
+                <p className="text-2xl mb-4" style={{ color: 'white' }}>Packaging Development Specialist</p>
+                <p className="text-lg mb-2" style={{ color: 'white' }}>
                   14 years experience | 8 countries | Fortune 500 & DTC startups
                 </p>
-                <p className="text-md text-primary-300 mb-6">
+                <p className="text-md mb-6" style={{ color: 'white' }}>
                   🎓 The Hong Kong Polytechnic University (Honor Degree)
                 </p>
                 <div className="flex gap-4 justify-center md:justify-start flex-wrap">
