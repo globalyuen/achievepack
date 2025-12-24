@@ -1799,6 +1799,19 @@ ${formData.message}`
               </ul>
             </div>
 
+            {/* Topics */}
+            <div>
+              <h4 className="text-sm font-semibold mb-2">Topics</h4>
+              <ul className="space-y-1 text-neutral-400 text-xs">
+                <li><Link to="/topics/eco-friendly-food-packaging" className="hover:text-primary-500">Eco Food Packaging</Link></li>
+                <li><Link to="/topics/dtc-sustainable-packaging" className="hover:text-primary-500">DTC Packaging</Link></li>
+                <li><Link to="/topics/green-coffee-materials" className="hover:text-primary-500">Coffee Materials</Link></li>
+                <li><Link to="/topics/digital-printing-eco-packaging" className="hover:text-primary-500">Digital Printing</Link></li>
+                <li><Link to="/topics/recyclable-snack-packaging" className="hover:text-primary-500">Recyclable Snacks</Link></li>
+                <li><Link to="/topics/eco-packaging-regulations" className="hover:text-primary-500">Regulations Guide</Link></li>
+              </ul>
+            </div>
+
             {/* Structure Specs */}
             <div>
               <h4 className="text-sm font-semibold mb-2">Structure Specs</h4>
