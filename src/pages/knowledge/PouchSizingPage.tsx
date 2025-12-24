@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Ruler, Box, Maximize2, Package, Calculator, Settings, ArrowRightLeft, CheckCircle, Eye, X, Layers, ShoppingCart } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import SEOPageLayout from '../../components/SEOPageLayout'
+import ClickableImage from '../../components/ClickableImage'
 import SortableSizesTable, { STAND_UP_SIZES, FLAT_BOTTOM_SIZES, THREE_SIDE_SEAL_SIZES, ALL_SIZES } from '../../components/SortableSizesTable'
 
 const PouchSizingPage: React.FC = () => {
@@ -62,6 +63,37 @@ const PouchSizingPage: React.FC = () => {
                 <span className="font-semibold text-primary-700">Gusset</span>
                 <p className="text-xs text-neutral-600 mt-1">Fold depth creating volume (stand up pouches)</p>
               </div>
+            </div>
+          </div>
+          
+          {/* Pouch Shape Reference Gallery */}
+          <div className="mt-6">
+            <h4 className="font-semibold text-neutral-800 mb-3">Pouch Shape Reference</h4>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <ClickableImage 
+                src="/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp" 
+                alt="Stand-up pouch with bottom gusset" 
+                className="w-full h-28 object-contain rounded-lg bg-neutral-50"
+                caption="Stand-Up Pouch"
+              />
+              <ClickableImage 
+                src="/imgs/pouch-shape/a_flat_bottom_pouch_isolated_7901973.webp" 
+                alt="Flat bottom bag with box-shaped base" 
+                className="w-full h-28 object-contain rounded-lg bg-neutral-50"
+                caption="Flat Bottom Bag"
+              />
+              <ClickableImage 
+                src="/imgs/pouch-shape/a_three_side_seal_pouch_isolated_0879222.webp" 
+                alt="Three side seal flat pouch" 
+                className="w-full h-28 object-contain rounded-lg bg-neutral-50"
+                caption="3-Side Seal Pouch"
+              />
+              <ClickableImage 
+                src="/imgs/pouch-shape/a_side_gusset_pouch_isolated_2545871.webp" 
+                alt="Side gusset pouch for coffee" 
+                className="w-full h-28 object-contain rounded-lg bg-neutral-50"
+                caption="Side Gusset"
+              />
             </div>
           </div>
 

@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Workflow, MessageCircle, Palette, Package, Factory, Truck, Clock, CheckCircle, FileText, Image, Plane, Ship } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
+import ClickableImage from '../../components/ClickableImage';
 
 const WorkflowPage = () => {
   const { t } = useTranslation();
@@ -21,6 +22,37 @@ const WorkflowPage = () => {
           <div className="bg-gradient-to-r from-primary-50 to-primary-100 p-5 rounded-xl mt-4">
             <h4 className="font-semibold text-primary-800 mb-2">Every project follows this proven workflow</h4>
             <p className="text-sm">With dedicated support at each stage, you are never left wondering what comes next.</p>
+          </div>
+          
+          {/* Workflow Process Gallery */}
+          <div className="mt-6">
+            <h4 className="font-semibold text-neutral-800 mb-3">Our Production Process</h4>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <ClickableImage 
+                src="/imgs/industry/ads/a_specialty_roaster_studio_scene_1655469.webp" 
+                alt="Design consultation and mockup creation" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Consultation"
+              />
+              <ClickableImage 
+                src="/imgs/surface/ads/a_achieve_pack_main_kv_six_finishes_3535755.webp" 
+                alt="Premium printing and finishing options" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Printing Options"
+              />
+              <ClickableImage 
+                src="/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.webp" 
+                alt="Pouch structure and material selection" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Material Selection"
+              />
+              <ClickableImage 
+                src="/imgs/barrier/ads/a_achieve_pack_barrier_kv_updated_green_definition_6833995.webp" 
+                alt="Quality control and barrier testing" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Quality Control"
+              />
+            </div>
           </div>
         </div>
       )
