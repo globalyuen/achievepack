@@ -1068,6 +1068,508 @@ export const imageHub: ImageAsset[] = [
     priority: 9,
     sizeHint: 'hero',
   },
+
+  // ============================================
+  // STORE IMAGES - 商店产品图片
+  // ============================================
+  
+  // --- Pouch Shapes ---
+  {
+    id: 'store-standup-pouch',
+    src: '/imgs/store/pouch shape/stand-up.webp',
+    alt: 'Stand-up pouch packaging for retail products',
+    caption: 'Stand-Up Pouch',
+    categories: {
+      pouchShape: ['stand-up-pouch'],
+      contentType: ['product'],
+    },
+    keywords: ['stand-up', 'pouch', 'doypack', 'retail', 'shelf'],
+    suitablePages: ['/store', '/options/pouch-shapes', '/products/compostable-stand-up-pouches'],
+    priority: 8,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-flat-bottom-pouch',
+    src: '/imgs/store/pouch shape/flat-bottom.webp',
+    alt: 'Flat bottom box pouch for premium packaging',
+    caption: 'Flat Bottom Pouch',
+    categories: {
+      pouchShape: ['flat-bottom'],
+      contentType: ['product'],
+    },
+    keywords: ['flat bottom', 'box pouch', 'premium', 'coffee'],
+    suitablePages: ['/store', '/options/pouch-shapes', '/products/coffee-bags-degassing-valve'],
+    priority: 8,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-side-seal-pouch',
+    src: '/imgs/store/pouch shape/side -seal.webp',
+    alt: 'Side seal gusset pouch for coffee and snacks',
+    caption: 'Side Gusset',
+    categories: {
+      pouchShape: ['side-gusset'],
+      contentType: ['product'],
+    },
+    keywords: ['side gusset', 'side seal', 'coffee bag'],
+    suitablePages: ['/store', '/options/pouch-shapes'],
+    priority: 7,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-3side-pouch',
+    src: '/imgs/store/pouch shape/3-side.webp',
+    alt: 'Three side seal flat pouch sachet',
+    caption: 'Three Side Seal',
+    categories: {
+      pouchShape: ['three-side-seal'],
+      contentType: ['product'],
+    },
+    keywords: ['three side seal', 'flat pouch', 'sachet', 'sample'],
+    suitablePages: ['/store', '/options/pouch-shapes'],
+    priority: 7,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-quad-seal-pouch',
+    src: '/imgs/store/pouch shape/quad-seal.webp',
+    alt: 'Quad seal pouch for maximum shelf presence',
+    caption: 'Quad Seal',
+    categories: {
+      pouchShape: ['quad-seal'],
+      contentType: ['product'],
+    },
+    keywords: ['quad seal', 'four side seal', 'premium', 'large'],
+    suitablePages: ['/store', '/options/pouch-shapes'],
+    priority: 7,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-center-seal-pouch',
+    src: '/imgs/store/pouch shape/center.webp',
+    alt: 'Center seal pillow pouch bag',
+    caption: 'Center Seal',
+    categories: {
+      pouchShape: ['three-side-seal'],
+      contentType: ['product'],
+    },
+    keywords: ['center seal', 'pillow bag', 'flow wrap'],
+    suitablePages: ['/store', '/options/pouch-shapes'],
+    priority: 6,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-box-pouch',
+    src: '/imgs/store/pouch shape/box.webp',
+    alt: 'Box pouch with flat bottom gusset',
+    caption: 'Box Pouch',
+    categories: {
+      pouchShape: ['flat-bottom'],
+      contentType: ['product'],
+    },
+    keywords: ['box pouch', 'block bottom', 'premium'],
+    suitablePages: ['/store', '/options/pouch-shapes'],
+    priority: 7,
+    sizeHint: 'gallery',
+  },
+
+  // --- Closure Options ---
+  {
+    id: 'store-normal-zipper',
+    src: '/imgs/store/closure/normal-zipper.webp',
+    alt: 'Standard press-to-close zipper for resealable packaging',
+    caption: 'Standard Zipper',
+    categories: {
+      feature: ['ziplock', 'press-to-close'],
+      contentType: ['product'],
+    },
+    keywords: ['zipper', 'ziplock', 'resealable', 'press to close'],
+    suitablePages: ['/store', '/options/reclosure'],
+    priority: 8,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-slider-zipper',
+    src: '/imgs/store/closure/slider-zipper.webp',
+    alt: 'Slider zipper for easy open and close',
+    caption: 'Slider Zipper',
+    categories: {
+      feature: ['ziplock'],
+      contentType: ['product'],
+    },
+    keywords: ['slider', 'easy open', 'convenience'],
+    suitablePages: ['/store', '/options/reclosure'],
+    priority: 7,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-child-resistant-zipper',
+    src: '/imgs/store/closure/child-resistant-zipper.webp',
+    alt: 'Child resistant zipper for cannabis and pharmaceutical packaging',
+    caption: 'Child Resistant',
+    categories: {
+      feature: ['ziplock'],
+      contentType: ['product'],
+    },
+    keywords: ['child resistant', 'CR', 'cannabis', 'pharmaceutical', 'safety'],
+    suitablePages: ['/store', '/options/reclosure'],
+    priority: 8,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-front-zipper',
+    src: '/imgs/store/closure/front-zipper.webp',
+    alt: 'Front zipper placement for easy access',
+    caption: 'Front Zipper',
+    categories: {
+      feature: ['ziplock'],
+      contentType: ['product'],
+    },
+    keywords: ['front zipper', 'easy access', 'convenience'],
+    suitablePages: ['/store', '/options/reclosure'],
+    priority: 6,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-tin-tie',
+    src: '/imgs/store/closure/tin-tie.webp',
+    alt: 'Tin tie closure for coffee bags fold over seal',
+    caption: 'Tin Tie',
+    categories: {
+      feature: ['tin-tie'],
+      application: ['coffee'],
+      contentType: ['product'],
+    },
+    keywords: ['tin tie', 'fold over', 'coffee', 'reseal'],
+    suitablePages: ['/store', '/options/reclosure', '/products/coffee-bags-degassing-valve'],
+    priority: 8,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-spout',
+    src: '/imgs/store/closure/spout.webp',
+    alt: 'Spout cap for liquid and beverage packaging',
+    caption: 'Spout Cap',
+    categories: {
+      feature: ['spout'],
+      contentType: ['product'],
+    },
+    keywords: ['spout', 'cap', 'liquid', 'beverage', 'pour'],
+    suitablePages: ['/store', '/options/reclosure'],
+    priority: 7,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-adhesive-tape',
+    src: '/imgs/store/closure/adhesive-tap.webp',
+    alt: 'Adhesive tape closure for simple sealing',
+    caption: 'Adhesive Tape',
+    categories: {
+      feature: ['tear-notch'],
+      contentType: ['product'],
+    },
+    keywords: ['adhesive', 'tape', 'peel seal', 'simple'],
+    suitablePages: ['/store', '/options/reclosure'],
+    priority: 5,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-no-zipper',
+    src: '/imgs/store/closure/no-zipper.webp',
+    alt: 'Heat seal only packaging without zipper',
+    caption: 'Heat Seal Only',
+    categories: {
+      contentType: ['product'],
+    },
+    keywords: ['no zipper', 'heat seal', 'single use'],
+    suitablePages: ['/store', '/options/reclosure'],
+    priority: 5,
+    sizeHint: 'gallery',
+  },
+
+  // --- Surface Finishes ---
+  {
+    id: 'store-matte-surface',
+    src: '/imgs/store/surface/matt.webp',
+    alt: 'Matte finish lamination for premium look',
+    caption: 'Matte Finish',
+    categories: {
+      surface: ['matte'],
+      contentType: ['product'],
+    },
+    keywords: ['matte', 'matt', 'finish', 'premium', 'sophisticated'],
+    suitablePages: ['/store', '/options/surface-finish', '/options/printing-types'],
+    priority: 8,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-glossy-surface',
+    src: '/imgs/store/surface/glossy.webp',
+    alt: 'Glossy finish lamination for vibrant colors',
+    caption: 'Glossy Finish',
+    categories: {
+      surface: ['gloss'],
+      contentType: ['product'],
+    },
+    keywords: ['glossy', 'gloss', 'shiny', 'vibrant'],
+    suitablePages: ['/store', '/options/surface-finish', '/options/printing-types'],
+    priority: 8,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-soft-touch-surface',
+    src: '/imgs/store/surface/soft-touch.webp',
+    alt: 'Soft touch lamination for luxury tactile feel',
+    caption: 'Soft Touch',
+    categories: {
+      surface: ['soft-touch'],
+      contentType: ['product'],
+    },
+    keywords: ['soft touch', 'velvet', 'tactile', 'luxury'],
+    suitablePages: ['/store', '/options/surface-finish', '/options/printing-types'],
+    priority: 8,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-metallic-surface',
+    src: '/imgs/store/surface/metalic.webp',
+    alt: 'Metallic finish for premium shelf appeal',
+    caption: 'Metallic',
+    categories: {
+      surface: ['metallic'],
+      contentType: ['product'],
+    },
+    keywords: ['metallic', 'shine', 'premium', 'eye-catching'],
+    suitablePages: ['/store', '/options/surface-finish', '/options/printing-types'],
+    priority: 7,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-emboss-surface',
+    src: '/imgs/store/surface/emboss.webp',
+    alt: 'Embossed texture for 3D tactile effect',
+    caption: 'Embossed',
+    categories: {
+      surface: ['embossed'],
+      contentType: ['product'],
+    },
+    keywords: ['emboss', 'embossed', 'texture', '3D', 'tactile'],
+    suitablePages: ['/store', '/options/surface-finish', '/options/printing-types'],
+    priority: 7,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-foil-stamp-surface',
+    src: '/imgs/store/surface/stamp-foil.webp',
+    alt: 'Hot foil stamping for luxury branding',
+    caption: 'Foil Stamping',
+    categories: {
+      surface: ['foil-stamping'],
+      contentType: ['product'],
+    },
+    keywords: ['foil stamping', 'hot foil', 'gold', 'silver', 'luxury'],
+    suitablePages: ['/store', '/options/surface-finish', '/options/printing-types'],
+    priority: 8,
+    sizeHint: 'gallery',
+  },
+
+  // --- Barrier Levels ---
+  {
+    id: 'store-barrier-2-clear',
+    src: '/imgs/store/barrier/2-clear.webp',
+    alt: 'Low barrier clear film for short shelf life products',
+    caption: 'Low Barrier Clear',
+    categories: {
+      barrier: ['low-barrier'],
+      contentType: ['product'],
+    },
+    keywords: ['low barrier', 'clear', 'transparent', 'short shelf life'],
+    suitablePages: ['/store', '/options/barrier', '/options/low-barrier'],
+    priority: 7,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-barrier-2-paper',
+    src: '/imgs/store/barrier/2-paper.webp',
+    alt: 'Low barrier kraft paper for eco-friendly products',
+    caption: 'Low Barrier Kraft',
+    categories: {
+      barrier: ['low-barrier'],
+      contentType: ['product'],
+    },
+    keywords: ['low barrier', 'kraft', 'paper', 'eco-friendly'],
+    suitablePages: ['/store', '/options/barrier', '/options/low-barrier'],
+    priority: 7,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-barrier-3-clear',
+    src: '/imgs/store/barrier/3-clear.webp',
+    alt: 'Medium barrier clear film for balanced protection',
+    caption: 'Medium Barrier Clear',
+    categories: {
+      barrier: ['medium-barrier'],
+      contentType: ['product'],
+    },
+    keywords: ['medium barrier', 'clear', 'balanced', 'protection'],
+    suitablePages: ['/store', '/options/barrier', '/options/medium-barrier'],
+    priority: 7,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-barrier-3-paper',
+    src: '/imgs/store/barrier/3-paper.webp',
+    alt: 'Medium barrier kraft paper with inner lining',
+    caption: 'Medium Barrier Kraft',
+    categories: {
+      barrier: ['medium-barrier'],
+      contentType: ['product'],
+    },
+    keywords: ['medium barrier', 'kraft', 'paper', 'lined'],
+    suitablePages: ['/store', '/options/barrier', '/options/medium-barrier'],
+    priority: 7,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-barrier-3-foil',
+    src: '/imgs/store/barrier/3-foil.webp',
+    alt: 'High barrier aluminum foil for maximum freshness',
+    caption: 'High Barrier Foil',
+    categories: {
+      barrier: ['high-barrier'],
+      contentType: ['product'],
+    },
+    keywords: ['high barrier', 'foil', 'aluminum', 'maximum protection'],
+    suitablePages: ['/store', '/options/barrier', '/options/high-barrier'],
+    priority: 8,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-barrier-3-paperclear',
+    src: '/imgs/store/barrier/3-paperclear.webp',
+    alt: 'Kraft paper with clear window for product visibility',
+    caption: 'Kraft with Window',
+    categories: {
+      barrier: ['medium-barrier'],
+      contentType: ['product'],
+    },
+    keywords: ['kraft', 'window', 'clear', 'visibility', 'see-through'],
+    suitablePages: ['/store', '/options/barrier'],
+    priority: 7,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-barrier-4-paper',
+    src: '/imgs/store/barrier/4-paper.webp',
+    alt: 'Maximum barrier kraft paper with foil lining',
+    caption: 'Max Barrier Kraft',
+    categories: {
+      barrier: ['high-barrier'],
+      contentType: ['product'],
+    },
+    keywords: ['high barrier', 'kraft', 'foil lined', 'maximum'],
+    suitablePages: ['/store', '/options/barrier', '/options/high-barrier'],
+    priority: 7,
+    sizeHint: 'gallery',
+  },
+
+  // --- Eco Materials ---
+  {
+    id: 'store-eco-compostable',
+    src: '/imgs/store/eco-material/compostable.webp',
+    alt: 'Compostable packaging material for sustainable brands',
+    caption: 'Compostable',
+    categories: {
+      material: ['compostable'],
+      contentType: ['product'],
+    },
+    keywords: ['compostable', 'biodegradable', 'sustainable', 'eco-friendly'],
+    suitablePages: ['/store', '/materials/compostable', '/products/compostable-coffee-bags', '/products/compostable-stand-up-pouches'],
+    priority: 9,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-eco-pcr-biope',
+    src: '/imgs/store/eco-material/pcr-or-biope.webp',
+    alt: 'PCR or Bio-PE sustainable packaging material',
+    caption: 'PCR / Bio-PE',
+    categories: {
+      material: ['pcr', 'bio-pe'],
+      contentType: ['product'],
+    },
+    keywords: ['PCR', 'bio-PE', 'recycled', 'plant-based', 'sustainable'],
+    suitablePages: ['/store', '/materials/pcr', '/materials/bio-pe'],
+    priority: 8,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-eco-recyclable',
+    src: '/imgs/store/eco-material/recycle.webp',
+    alt: 'Recyclable mono-material packaging for circular economy',
+    caption: 'Recyclable',
+    categories: {
+      material: ['recyclable', 'mono-material'],
+      contentType: ['product'],
+    },
+    keywords: ['recyclable', 'mono-material', 'circular', 'PE'],
+    suitablePages: ['/store', '/materials/recyclable-mono-pe', '/products/recyclable-mono-material-pouches'],
+    priority: 9,
+    sizeHint: 'gallery',
+  },
+
+  // --- Box Packaging ---
+  {
+    id: 'store-tuck-box-1',
+    src: '/imgs/store/box/tuck-box/247e2fdf-3274-4be8-b656-03d7e20b5a0f.webp',
+    alt: 'Custom tuck box for retail product packaging',
+    caption: 'Tuck Box',
+    categories: {
+      contentType: ['product'],
+    },
+    keywords: ['tuck box', 'carton', 'retail', 'custom box'],
+    suitablePages: ['/store', '/packaging/custom-boxes'],
+    priority: 7,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-tuck-box-2',
+    src: '/imgs/store/box/tuck-box/8a2918bb-a48c-44a3-875d-6e766e5f305f.webp',
+    alt: 'Premium tuck box packaging with custom printing',
+    caption: 'Premium Tuck Box',
+    categories: {
+      contentType: ['product'],
+    },
+    keywords: ['tuck box', 'premium', 'custom printing', 'branded'],
+    suitablePages: ['/store', '/packaging/custom-boxes'],
+    priority: 7,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-corrugated-box-1',
+    src: '/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp',
+    alt: 'Corrugated shipping box half open perspective',
+    caption: 'Corrugated Box',
+    categories: {
+      contentType: ['product'],
+    },
+    keywords: ['corrugated', 'shipping box', 'mailer', 'e-commerce'],
+    suitablePages: ['/store', '/packaging/custom-boxes'],
+    priority: 7,
+    sizeHint: 'gallery',
+  },
+  {
+    id: 'store-corrugated-box-2',
+    src: '/imgs/store/box/corrugated-box/a_mockup_premium_layflat_applied_2105634.webp',
+    alt: 'Premium corrugated box mockup with custom design',
+    caption: 'Premium Mailer Box',
+    categories: {
+      contentType: ['product'],
+    },
+    keywords: ['mailer box', 'premium', 'custom design', 'e-commerce'],
+    suitablePages: ['/store', '/packaging/custom-boxes'],
+    priority: 8,
+    sizeHint: 'gallery',
+  },
 ];
 
 // ============================================
@@ -1141,4 +1643,134 @@ export function getAllCategories(): Record<string, string[]> {
 // 导出为JSON
 export function exportAsJSON(): string {
   return JSON.stringify(imageHub, null, 2);
+}
+
+// ============================================
+// SEO页面专用JSON导出
+// ============================================
+
+// 简化的图片数据结构（用于SEO页面）
+export interface SEOImageData {
+  id: string;
+  src: string;
+  alt: string;
+  caption?: string;
+  keywords: string[];
+}
+
+// 导出SEO友好的JSON（精简版）
+export function exportForSEO(): SEOImageData[] {
+  return imageHub.map((img) => ({
+    id: img.id,
+    src: img.src,
+    alt: img.alt,
+    caption: img.caption,
+    keywords: img.keywords,
+  }));
+}
+
+// 按页面导出SEO图片数据
+export function exportSEOImagesForPage(pagePath: string): SEOImageData[] {
+  return getImagesForPage(pagePath).map((img) => ({
+    id: img.id,
+    src: img.src,
+    alt: img.alt,
+    caption: img.caption,
+    keywords: img.keywords,
+  }));
+}
+
+// 导出所有页面的图片映射JSON
+export function exportPageImageMapping(): Record<string, SEOImageData[]> {
+  const pages = [
+    '/store',
+    '/products/compostable-coffee-bags',
+    '/products/compostable-stand-up-pouches',
+    '/products/recyclable-mono-material-pouches',
+    '/products/coffee-bags-degassing-valve',
+    '/products/low-moq-packaging',
+    '/materials/compostable',
+    '/materials/pcr',
+    '/materials/bio-pe',
+    '/materials/recyclable-mono-pe',
+    '/options/barrier',
+    '/options/high-barrier',
+    '/options/medium-barrier',
+    '/options/low-barrier',
+    '/options/surface-finish',
+    '/options/printing-types',
+    '/options/reclosure',
+    '/options/pouch-shapes',
+    '/packaging/custom-boxes',
+    '/about',
+    '/solutions',
+  ];
+
+  const mapping: Record<string, SEOImageData[]> = {};
+  pages.forEach((page) => {
+    mapping[page] = exportSEOImagesForPage(page);
+  });
+
+  return mapping;
+}
+
+// 导出为JSON-LD格式（用于Schema.org）
+export function exportAsJSONLD(pagePath: string): object[] {
+  const images = getImagesForPage(pagePath);
+  return images.map((img) => ({
+    '@type': 'ImageObject',
+    'contentUrl': `https://achievepack.com${img.src}`,
+    'name': img.caption || img.alt,
+    'description': img.alt,
+    'keywords': img.keywords.join(', '),
+  }));
+}
+
+// 生成图片Gallery的结构化数据
+export function generateImageGallerySchema(pagePath: string, galleryName: string): object {
+  const images = getImagesForPage(pagePath);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ImageGallery',
+    'name': galleryName,
+    'image': images.map((img) => ({
+      '@type': 'ImageObject',
+      'contentUrl': `https://achievepack.com${img.src}`,
+      'name': img.caption || img.alt,
+      'description': img.alt,
+    })),
+  };
+}
+
+// 按材料类型导出图片
+export function exportByMaterial(materialType: string): SEOImageData[] {
+  return getImagesByCategory('material', materialType).map((img) => ({
+    id: img.id,
+    src: img.src,
+    alt: img.alt,
+    caption: img.caption,
+    keywords: img.keywords,
+  }));
+}
+
+// 按应用场景导出图片
+export function exportByApplication(application: string): SEOImageData[] {
+  return getImagesByCategory('application', application).map((img) => ({
+    id: img.id,
+    src: img.src,
+    alt: img.alt,
+    caption: img.caption,
+    keywords: img.keywords,
+  }));
+}
+
+// 导出完整的图片Hub JSON（包含所有元数据）
+export function exportFullJSON(): string {
+  return JSON.stringify({
+    version: '1.0',
+    totalImages: imageHub.length,
+    lastUpdated: new Date().toISOString(),
+    categories: getAllCategories(),
+    images: imageHub,
+  }, null, 2);
 }
