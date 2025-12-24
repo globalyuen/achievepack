@@ -40,7 +40,7 @@ const RecyclableMonoMaterialPage: React.FC = () => {
           
           <div className="mt-6">
             <ClickableImage 
-              src="/imgs/4-infograhic/recyc.webp" 
+              src="/imgs/4-infograhic/recyclable.webp"
               alt="Recyclable mono-material pouch infographic" 
               className="w-full rounded-lg shadow-md"
               caption="Recyclable mono-material packaging overview"
@@ -356,7 +356,7 @@ const RecyclableMonoMaterialPage: React.FC = () => {
         heroSubtitle="100% Mono-PE & Mono-PP | Store Drop-Off Recyclable | Low MOQ"
         introSummary="Our mono-material pouches are made from 100% single polymer (PE or PP) for easy recycling at store drop-off locations. Available custom printed from just 100 pieces minimum order."
         sections={sections}
-        heroImage="/imgs/4-infograhic/recyc.webp"
+        heroImage="/imgs/4-infograhic/recyclable.webp"
       />
     </>
   )
