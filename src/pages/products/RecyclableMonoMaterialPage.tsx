@@ -118,6 +118,37 @@ const RecyclableMonoMaterialPage: React.FC = () => {
               </tbody>
             </table>
           </div>
+
+          {/* Recyclable Materials Image Gallery */}
+          <div className="mt-6">
+            <h4 className="font-semibold text-neutral-800 mb-3">Recyclable Mono-Material Packaging Samples</h4>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <ClickableImage 
+                src="/imgs/4-infograhic/recyclable.webp" 
+                alt="Recyclable mono-material pouch certification infographic" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Recyclable Certified"
+              />
+              <ClickableImage 
+                src="/imgs/seo-photos/a_pcr_store_drop_off_recycling_1908718.webp" 
+                alt="Store drop-off recycling station for flexible packaging" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Store Drop-Off"
+              />
+              <ClickableImage 
+                src="/imgs/seo-photos/a_mono_recyclable_certification_compliance_7572715.webp" 
+                alt="Mono-material recyclable packaging certification" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Recyclability Compliance"
+              />
+              <ClickableImage 
+                src="/imgs/seo-photos/a_grs_mono_material_luxury_texture_1597149.webp" 
+                alt="Luxury recyclable mono-material pouch texture" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Premium Texture"
+              />
+            </div>
+          </div>
         </div>
       )
     },

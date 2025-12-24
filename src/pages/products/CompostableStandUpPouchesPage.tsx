@@ -146,6 +146,37 @@ const CompostableStandUpPouchesPage: React.FC = () => {
           <p className="text-sm mt-4">
             <Link to="/materials/compostable" className="text-primary-600 hover:underline">View full compostable materials guide →</Link>
           </p>
+
+          {/* Compostable Stand-Up Pouch Image Gallery */}
+          <div className="mt-6">
+            <h4 className="font-semibold text-neutral-800 mb-3">Compostable Stand-Up Pouch Options</h4>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <ClickableImage 
+                src="/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp" 
+                alt="Stand up pouch with resealable zipper for food packaging" 
+                className="w-full h-28 object-contain rounded-lg bg-neutral-50"
+                caption="Stand-Up Pouch"
+              />
+              <ClickableImage 
+                src="/imgs/4-infograhic/compost.webp" 
+                alt="Industrial compostable certification for stand-up pouches" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Industrial Compostable"
+              />
+              <ClickableImage 
+                src="/imgs/seo-photos/a_achievepack_compostable_garden_9329618.webp" 
+                alt="Compostable packaging breaking down naturally in garden" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Garden Compostable"
+              />
+              <ClickableImage 
+                src="/imgs/seo-photos/a_compostable_mixed_materials_lifestyle_kitchen_6722434.webp" 
+                alt="Compostable pouches in modern kitchen setting" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Kitchen Lifestyle"
+              />
+            </div>
+          </div>
         </div>
       )
     },

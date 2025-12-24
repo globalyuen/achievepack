@@ -291,6 +291,37 @@ const LowMOQPackagingPage: React.FC = () => {
               <p className="text-sm text-amber-700 mt-1">Plant-based sugarcane PE</p>
             </Link>
           </div>
+
+          {/* Low MOQ Packaging Image Gallery */}
+          <div className="mt-6">
+            <h4 className="font-semibold text-neutral-800 mb-3">Low MOQ Custom Packaging Examples</h4>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <ClickableImage 
+                src="/imgs/infographic-low-moq.webp" 
+                alt="Low MOQ packaging infographic showing 100 piece minimum" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Low MOQ Benefits"
+              />
+              <ClickableImage 
+                src="/imgs/seo-photos/a_digital_printing_customization_2717640.webp" 
+                alt="Digital printing for custom low MOQ packaging" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Digital Print"
+              />
+              <ClickableImage 
+                src="/imgs/seo-photos/a_ecommerce_lightweight_pouch_achieve_pack_8535238.webp" 
+                alt="E-commerce brand lightweight pouch packaging" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="E-commerce Pouch"
+              />
+              <ClickableImage 
+                src="/imgs/infographic-fast-turnaround.webp" 
+                alt="Fast turnaround for small batch orders" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Fast Turnaround"
+              />
+            </div>
+          </div>
         </div>
       )
     },

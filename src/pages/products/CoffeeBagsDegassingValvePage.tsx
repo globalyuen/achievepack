@@ -233,6 +233,37 @@ const CoffeeBagsDegassingValvePage: React.FC = () => {
           <p className="text-sm mt-4">
             <Link to="/features/reclosure-options" className="text-primary-600 hover:underline">View all closure & feature options →</Link>
           </p>
+
+          {/* Coffee Bag Features Image Gallery */}
+          <div className="mt-6">
+            <h4 className="font-semibold text-neutral-800 mb-3">Coffee Bag Closure & Valve Options</h4>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <ClickableImage 
+                src="/imgs/reclose/ads/a_valve_closure_detail_6401844.webp" 
+                alt="Coffee bag degassing valve closeup showing one-way release" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Degassing Valve"
+              />
+              <ClickableImage 
+                src="/imgs/reclose/ads/a_tintie_coffee_pouch_correct_4114906.webp" 
+                alt="Tin tie coffee pouch closure option" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Tin Tie Closure"
+              />
+              <ClickableImage 
+                src="/imgs/reclose/ads/a_reclosure_options_kv_product_photo_7983949.webp" 
+                alt="Various reclosure options for coffee packaging" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Reclosure Options"
+              />
+              <ClickableImage 
+                src="/imgs/seo-photos/a_bean_bole_coffee_roastery_8131919.webp" 
+                alt="Coffee roastery using degassing valve bags" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Roastery Use Case"
+              />
+            </div>
+          </div>
         </div>
       )
     },

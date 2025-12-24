@@ -96,6 +96,37 @@ const CompostableCoffeeBagsPage: React.FC = () => {
           <p className="text-sm mt-4">
             <strong>Not sure which material?</strong> <Link to="/materials/compostable" className="text-primary-600 hover:underline">Compare all compostable options →</Link>
           </p>
+
+          {/* Compostable Materials Image Gallery */}
+          <div className="mt-6">
+            <h4 className="font-semibold text-neutral-800 mb-3">Our Compostable Coffee Packaging Materials</h4>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <ClickableImage 
+                src="/imgs/4-infograhic/compost.webp" 
+                alt="Industrial compostable packaging certification infographic" 
+                className="w-full h-32 object-cover rounded-lg"
+                caption="Industrial Compostable"
+              />
+              <ClickableImage 
+                src="/imgs/4-infograhic/home-compost.webp" 
+                alt="Home compostable packaging - breaks down in backyard compost" 
+                className="w-full h-32 object-cover rounded-lg"
+                caption="Home Compostable"
+              />
+              <ClickableImage 
+                src="/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp" 
+                alt="Achieve Pack compostable coffee bag with eco-friendly materials" 
+                className="w-full h-32 object-cover rounded-lg"
+                caption="Compostable Pouch"
+              />
+              <ClickableImage 
+                src="/imgs/seo-photos/a_composting_timeline_5months_9414148.webp" 
+                alt="Composting timeline showing 5 months breakdown process" 
+                className="w-full h-32 object-cover rounded-lg"
+                caption="Composting Timeline"
+              />
+            </div>
+          </div>
         </div>
       )
     },
