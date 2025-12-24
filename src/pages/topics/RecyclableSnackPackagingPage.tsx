@@ -273,7 +273,7 @@ const RecyclableSnackPackagingPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Product"
-        heroImage="/imgs/seo-photos/usa/snack/a_snacks_packaging_overview_7870104.webp"
+        heroImage="/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp"
       />
     </>
   )

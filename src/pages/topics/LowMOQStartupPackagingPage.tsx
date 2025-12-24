@@ -255,7 +255,7 @@ const LowMOQStartupPackagingPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Product"
-        heroImage="/imgs/seo-photos/a_sustainable_packaging_printing_3127893.webp"
+        heroImage="/imgs/seo-photos/a_minimalist_eco_pouch_workspace_2025_8541573.webp"
       />
     </>
   )

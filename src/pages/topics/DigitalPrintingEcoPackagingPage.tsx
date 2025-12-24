@@ -300,7 +300,7 @@ const DigitalPrintingEcoPackagingPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Product"
-        heroImage="/imgs/seo-photos/a_sustainable_packaging_printing_3127893.webp"
+        heroImage="/imgs/seo-photos/a_digital_printing_customization_2717640.webp"
       />
     </>
   )

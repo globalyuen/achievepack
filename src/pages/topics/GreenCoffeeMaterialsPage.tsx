@@ -300,7 +300,7 @@ const GreenCoffeeMaterialsPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Product"
-        heroImage="/imgs/seo-photos/coffee/a_coffee_packaging_achieve_pack_9050022.webp"
+        heroImage="/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp"
       />
     </>
   )
