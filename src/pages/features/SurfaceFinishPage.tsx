@@ -1,13 +1,36 @@
-import React from 'react'
-import { Sparkles, Eye, Package, CheckCircle, Clock, Target, Shield, Calendar, Mail, Download } from 'lucide-react'
+import React, { useState } from 'react'
+import { Sparkles, Eye, Package, CheckCircle, Clock, Target, Shield, Calendar, Mail, Download, X, ChevronLeft, ChevronRight, Image } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
+const surfaceGallery = [
+  { src: '/imgs/surface/ads/a_achieve_pack_main_kv_six_finishes_3535755.webp', title: 'Six Premium Finishes', desc: 'Complete overview of all available surface treatment options' },
+  { src: '/imgs/surface/ads/a_gloss_finish_detail_5685549.webp', title: 'Gloss Finish Detail', desc: 'High-shine reflective surface for maximum color vibrancy' },
+  { src: '/imgs/surface/ads/a_gloss_pouch_correct_5078762.webp', title: 'Gloss Pouch Example', desc: 'Full gloss lamination creating eye-catching shelf presence' },
+  { src: '/imgs/surface/ads/a_matte_finish_detail_7483118.webp', title: 'Matte Finish Detail', desc: 'Smooth non-reflective surface for elegant sophisticated look' },
+  { src: '/imgs/surface/ads/a_matte_pouch_correct_6361818.webp', title: 'Matte Pouch Example', desc: 'Sophisticated matte finish perfect for premium brands' },
+  { src: '/imgs/surface/ads/a_metallic_gold_closeup_5151764.webp', title: 'Metallic Gold Effect', desc: 'Luxurious gold metallic finish for premium product positioning' },
+  { src: '/imgs/surface/ads/a_softtouch_pouch_correct_7961783.webp', title: 'Soft Touch Finish', desc: 'Velvety tactile surface creating sensory brand appeal' },
+  { src: '/imgs/surface/ads/a_embossed_navy_9933981.webp', title: 'Embossed Texture', desc: 'Raised patterns creating dimensional brand experience' },
+  { src: '/imgs/surface/ads/a_foil_green_charcoal_7632386.webp', title: 'Foil Stamping', desc: 'Hot foil accents in gold, silver, or custom metallic colors' },
+  { src: '/imgs/surface/ads/a_standup_pouches_main_6878547.webp', title: 'Stand-Up Collection', desc: 'Various surface finishes applied to standing pouch format' },
+];
+
 const SurfaceFinishPage: React.FC = () => {
   const { t } = useTranslation()
   const { openCalendly } = useCalendly()
+  const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
+  
+  const navigateGallery = (direction: 'prev' | 'next') => {
+    if (!galleryEnlarged) return
+    let newIndex = direction === 'prev' ? galleryEnlarged.index - 1 : galleryEnlarged.index + 1
+    if (newIndex < 0) newIndex = surfaceGallery.length - 1
+    if (newIndex >= surfaceGallery.length) newIndex = 0
+    setGalleryEnlarged({ src: surfaceGallery[newIndex].src, index: newIndex })
+  }
+  
   const sections = [
     {
       id: 'scenario-trigger',
@@ -52,6 +75,33 @@ const SurfaceFinishPage: React.FC = () => {
             <li><strong>Spot UV</strong> – Selective gloss highlights</li>
             <li><strong>Hot foil stamping</strong> – Metallic accents and logos</li>
           </ul>
+        </div>
+      )
+    },
+    {
+      id: 'visual-gallery',
+      title: 'Surface Finish Gallery',
+      icon: <Image className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>Explore our range of premium surface finishes. Click any image to enlarge:</p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {surfaceGallery.map((img, index) => (
+              <button
+                key={index}
+                onClick={() => setGalleryEnlarged({ src: img.src, index })}
+                className="text-left bg-white rounded-xl border border-neutral-200 hover:border-primary-400 overflow-hidden transition-all hover:shadow-lg group"
+              >
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img src={img.src} alt={img.title} className="w-full h-full object-cover group-hover:scale-105 transition" />
+                </div>
+                <div className="p-3">
+                  <h5 className="font-semibold text-sm text-neutral-800 mb-1">{img.title}</h5>
+                  <p className="text-xs text-neutral-600 line-clamp-2">{img.desc}</p>
+                </div>
+              </button>
+            ))}
+          </div>
         </div>
       )
     },
@@ -305,23 +355,40 @@ const SurfaceFinishPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
-      title={t('seoPages.pages.surfaceFinish.title')}
-      description="Premium surface finishes for eco-friendly pouches. Matte, gloss, soft-touch coating, spot UV, hot foil stamping, and embossing options for sustainable packaging."
-      keywords={['pouch finish options', 'matte packaging', 'soft touch coating', 'spot UV pouches', 'hot foil packaging', 'premium pouch finishes']}
-      canonicalUrl="https://achievepack.com/features/surface-finish"
-      heroTitle={t('seoPages.pages.surfaceFinish.heroTitle')}
-      heroSubtitle={t('seoPages.pages.surfaceFinish.heroSubtitle')}
-      heroImage="/imgs/seo-photos/a_finishing_options_premium_showcase_3613860.webp"
-      heroImageAlt="Premium surface finishes on eco-friendly pouches"
-      introSummary={t('seoPages.pages.surfaceFinish.introSummary')}
-      sections={sections}
-      faqs={faqs}
-      relatedLinks={relatedLinks}
-      ctaTitle={t('seoPages.pages.surfaceFinish.cta.title')}
-      ctaDescription={t('seoPages.pages.surfaceFinish.cta.description')}
-      ctaButtonText={t('seoPages.pages.surfaceFinish.cta.button')}
-    />
+    <>
+      <SEOPageLayout
+        title={t('seoPages.pages.surfaceFinish.title')}
+        description="Premium surface finishes for eco-friendly pouches. Matte, gloss, soft-touch coating, spot UV, hot foil stamping, and embossing options for sustainable packaging."
+        keywords={['pouch finish options', 'matte packaging', 'soft touch coating', 'spot UV pouches', 'hot foil packaging', 'premium pouch finishes']}
+        canonicalUrl="https://achievepack.com/features/surface-finish"
+        heroTitle={t('seoPages.pages.surfaceFinish.heroTitle')}
+        heroSubtitle={t('seoPages.pages.surfaceFinish.heroSubtitle')}
+        heroImage="/imgs/seo-photos/a_finishing_options_premium_showcase_3613860.webp"
+        heroImageAlt="Premium surface finishes on eco-friendly pouches"
+        introSummary={t('seoPages.pages.surfaceFinish.introSummary')}
+        sections={sections}
+        faqs={faqs}
+        relatedLinks={relatedLinks}
+        ctaTitle={t('seoPages.pages.surfaceFinish.cta.title')}
+        ctaDescription={t('seoPages.pages.surfaceFinish.cta.description')}
+        ctaButtonText={t('seoPages.pages.surfaceFinish.cta.button')}
+      />
+      
+      {/* Gallery Lightbox Modal */}
+      {galleryEnlarged && (
+        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4" onClick={() => setGalleryEnlarged(null)}>
+          <button onClick={() => setGalleryEnlarged(null)} className="absolute top-4 right-4 text-white hover:text-neutral-300 transition"><X className="h-8 w-8" /></button>
+          <button onClick={(e) => { e.stopPropagation(); navigateGallery('prev'); }} className="absolute left-4 text-white hover:text-neutral-300 transition p-2"><ChevronLeft className="h-10 w-10" /></button>
+          <img src={galleryEnlarged.src} alt={surfaceGallery[galleryEnlarged.index]?.title || 'Enlarged view'} className="max-w-full max-h-[80vh] object-contain" onClick={(e) => e.stopPropagation()} />
+          <button onClick={(e) => { e.stopPropagation(); navigateGallery('next'); }} className="absolute right-4 text-white hover:text-neutral-300 transition p-2"><ChevronRight className="h-10 w-10" /></button>
+          <div className="absolute bottom-4 text-center text-white max-w-xl px-4">
+            <p className="text-lg font-semibold">{surfaceGallery[galleryEnlarged.index]?.title}</p>
+            <p className="text-sm text-neutral-300">{surfaceGallery[galleryEnlarged.index]?.desc}</p>
+            <p className="text-xs mt-2 text-neutral-400">{galleryEnlarged.index + 1} / {surfaceGallery.length}</p>
+          </div>
+        </div>
+      )}
+    </>
   )
 }
 

@@ -268,9 +268,9 @@ const RyanWongPage = () => {
               </div>
 
               {/* CTA */}
-              <div className="bg-gradient-to-br from-primary-600 to-primary-700 text-white rounded-xl p-6 shadow-lg">
-                <h3 className="font-bold text-xl mb-3 text-white">Ready to Go Sustainable?</h3>
-                <p className="text-white text-sm mb-4">
+              <div className="bg-gradient-to-br from-primary-600 to-primary-700 rounded-xl p-6 shadow-lg">
+                <h3 className="font-bold text-xl mb-3" style={{ color: 'white' }}>Ready to Go Sustainable?</h3>
+                <p className="text-sm mb-4" style={{ color: 'white' }}>
                   Book a free 30-minute consultation to discuss your packaging needs.
                 </p>
                 <a 

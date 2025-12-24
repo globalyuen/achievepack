@@ -1,13 +1,35 @@
-import React from 'react'
-import { Lock, RefreshCw, Package, CheckCircle, Clock, Target, Shield, Calendar, Mail, Download } from 'lucide-react'
+import React, { useState } from 'react'
+import { Lock, RefreshCw, Package, CheckCircle, Clock, Target, Shield, Calendar, Mail, Download, X, ChevronLeft, ChevronRight, Image } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
+const recloseGallery = [
+  { src: '/imgs/reclose/ads/a_reclosure_options_kv_product_photo_7983949.webp', title: 'Reclosure Options Overview', desc: 'Complete range of resealable closure solutions for flexible packaging' },
+  { src: '/imgs/reclose/ads/a_reclosure_four_quadrant_overview_3481316.webp', title: 'Closure Categories', desc: 'Four main closure types: zippers, spouts, tin-ties, and child-resistant' },
+  { src: '/imgs/reclose/ads/a_reclosure_decision_guide_7052390.webp', title: 'Closure Selection Guide', desc: 'How to choose the right closure for your specific product needs' },
+  { src: '/imgs/reclose/ads/a_reclosure_value_proposition_0710400.webp', title: 'Closure Benefits', desc: 'Consumer convenience and extended product freshness advantages' },
+  { src: '/imgs/reclose/ads/a_reclosure_comparison_scene_9769566.webp', title: 'Closure Comparison', desc: 'Side-by-side comparison of different reclosure mechanisms' },
+  { src: '/imgs/reclose/ads/a_presstoclose_closure_detail_5742103.webp', title: 'Press-to-Close Zipper', desc: 'Standard resealable zipper for easy open and close operations' },
+  { src: '/imgs/reclose/ads/a_spout_closure_closeup_detail_2705813.webp', title: 'Spout Cap Detail', desc: 'Screw cap spout for controlled pouring of liquids and sauces' },
+  { src: '/imgs/reclose/ads/a_tintie_coffee_pouch_correct_4114906.webp', title: 'Tin Tie Closure', desc: 'Classic tin tie for coffee bags and artisan bakery products' },
+  { src: '/imgs/reclose/ads/a_valve_closure_detail_6401844.webp', title: 'Degassing Valve', desc: 'One-way valve for fresh roasted coffee and fermented products' },
+];
+
 const ReclosureOptionsPage: React.FC = () => {
   const { t } = useTranslation()
   const { openCalendly } = useCalendly()
+  const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
+  
+  const navigateGallery = (direction: 'prev' | 'next') => {
+    if (!galleryEnlarged) return
+    let newIndex = direction === 'prev' ? galleryEnlarged.index - 1 : galleryEnlarged.index + 1
+    if (newIndex < 0) newIndex = recloseGallery.length - 1
+    if (newIndex >= recloseGallery.length) newIndex = 0
+    setGalleryEnlarged({ src: recloseGallery[newIndex].src, index: newIndex })
+  }
+  
   const sections = [
     {
       id: 'scenario-trigger',
@@ -52,6 +74,33 @@ const ReclosureOptionsPage: React.FC = () => {
             <li><strong>Tin-ties</strong> – Classic look for coffee and artisan products</li>
             <li><strong>Child-resistant closures</strong> – Safety-first for cannabis and pharmaceuticals</li>
           </ul>
+        </div>
+      )
+    },
+    {
+      id: 'visual-gallery',
+      title: 'Reclosure Solutions Gallery',
+      icon: <Image className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>Explore our range of reclosure options. Click any image to enlarge:</p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            {recloseGallery.map((img, index) => (
+              <button
+                key={index}
+                onClick={() => setGalleryEnlarged({ src: img.src, index })}
+                className="text-left bg-white rounded-xl border border-neutral-200 hover:border-primary-400 overflow-hidden transition-all hover:shadow-lg group"
+              >
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img src={img.src} alt={img.title} className="w-full h-full object-cover group-hover:scale-105 transition" />
+                </div>
+                <div className="p-3">
+                  <h5 className="font-semibold text-sm text-neutral-800 mb-1">{img.title}</h5>
+                  <p className="text-xs text-neutral-600 line-clamp-2">{img.desc}</p>
+                </div>
+              </button>
+            ))}
+          </div>
         </div>
       )
     },
@@ -289,23 +338,40 @@ const ReclosureOptionsPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
-      title={t('seoPages.pages.reclosureOptions.title')}
-      description="Sustainable reclosure solutions for flexible packaging. Press-to-close zippers, slider zippers, spout caps, tin-ties, and child-resistant options for eco-friendly pouches."
-      keywords={['reclosable pouches', 'zipper bags', 'spout pouch', 'resealable packaging', 'child resistant packaging', 'tin tie bags']}
-      canonicalUrl="https://achievepack.com/features/reclosure-options"
-      heroTitle={t('seoPages.pages.reclosureOptions.heroTitle')}
-      heroSubtitle={t('seoPages.pages.reclosureOptions.heroSubtitle')}
-      heroImage="/imgs/seo-photos/a_closure_systems_infographic_4275938.webp"
-      heroImageAlt="Various reclosure options for eco-friendly pouches"
-      introSummary={t('seoPages.pages.reclosureOptions.introSummary')}
-      sections={sections}
-      faqs={faqs}
-      relatedLinks={relatedLinks}
-      ctaTitle={t('seoPages.pages.reclosureOptions.cta.title')}
-      ctaDescription={t('seoPages.pages.reclosureOptions.cta.description')}
-      ctaButtonText={t('seoPages.pages.reclosureOptions.cta.button')}
-    />
+    <>
+      <SEOPageLayout
+        title={t('seoPages.pages.reclosureOptions.title')}
+        description="Sustainable reclosure solutions for flexible packaging. Press-to-close zippers, slider zippers, spout caps, tin-ties, and child-resistant options for eco-friendly pouches."
+        keywords={['reclosable pouches', 'zipper bags', 'spout pouch', 'resealable packaging', 'child resistant packaging', 'tin tie bags']}
+        canonicalUrl="https://achievepack.com/features/reclosure-options"
+        heroTitle={t('seoPages.pages.reclosureOptions.heroTitle')}
+        heroSubtitle={t('seoPages.pages.reclosureOptions.heroSubtitle')}
+        heroImage="/imgs/seo-photos/a_closure_systems_infographic_4275938.webp"
+        heroImageAlt="Various reclosure options for eco-friendly pouches"
+        introSummary={t('seoPages.pages.reclosureOptions.introSummary')}
+        sections={sections}
+        faqs={faqs}
+        relatedLinks={relatedLinks}
+        ctaTitle={t('seoPages.pages.reclosureOptions.cta.title')}
+        ctaDescription={t('seoPages.pages.reclosureOptions.cta.description')}
+        ctaButtonText={t('seoPages.pages.reclosureOptions.cta.button')}
+      />
+      
+      {/* Gallery Lightbox Modal */}
+      {galleryEnlarged && (
+        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4" onClick={() => setGalleryEnlarged(null)}>
+          <button onClick={() => setGalleryEnlarged(null)} className="absolute top-4 right-4 text-white hover:text-neutral-300 transition"><X className="h-8 w-8" /></button>
+          <button onClick={(e) => { e.stopPropagation(); navigateGallery('prev'); }} className="absolute left-4 text-white hover:text-neutral-300 transition p-2"><ChevronLeft className="h-10 w-10" /></button>
+          <img src={galleryEnlarged.src} alt={recloseGallery[galleryEnlarged.index]?.title || 'Enlarged view'} className="max-w-full max-h-[80vh] object-contain" onClick={(e) => e.stopPropagation()} />
+          <button onClick={(e) => { e.stopPropagation(); navigateGallery('next'); }} className="absolute right-4 text-white hover:text-neutral-300 transition p-2"><ChevronRight className="h-10 w-10" /></button>
+          <div className="absolute bottom-4 text-center text-white max-w-xl px-4">
+            <p className="text-lg font-semibold">{recloseGallery[galleryEnlarged.index]?.title}</p>
+            <p className="text-sm text-neutral-300">{recloseGallery[galleryEnlarged.index]?.desc}</p>
+            <p className="text-xs mt-2 text-neutral-400">{galleryEnlarged.index + 1} / {recloseGallery.length}</p>
+          </div>
+        </div>
+      )}
+    </>
   )
 }
 

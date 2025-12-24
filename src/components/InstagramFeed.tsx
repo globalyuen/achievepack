@@ -98,7 +98,7 @@ export default function InstagramFeed() {
         </div>
 
         {/* Instagram Posts Grid - Using Embeds as Thumbnails */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
           {INSTAGRAM_POSTS.map((postUrl, index) => (
             <div 
               key={index} 
@@ -106,7 +106,7 @@ export default function InstagramFeed() {
               onClick={() => setSelectedPost(postUrl)}
             >
               {/* Instagram Embed as Thumbnail */}
-              <div className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 pointer-events-none">
+              <div className="rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 pointer-events-none">
                 <blockquote
                   className="instagram-media"
                   data-instgrm-permalink={postUrl}
@@ -114,7 +114,7 @@ export default function InstagramFeed() {
                   style={{
                     background: '#FFF',
                     border: 0,
-                    borderRadius: '12px',
+                    borderRadius: '8px',
                     margin: 0,
                     maxWidth: '100%',
                     minWidth: '100%',
@@ -122,13 +122,13 @@ export default function InstagramFeed() {
                     width: '100%',
                   }}
                 >
-                  <div style={{ padding: '16px' }}>
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500"></div>
-                      <span className="font-medium text-neutral-800">@pouch_eco</span>
+                  <div style={{ padding: '8px' }}>
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-5 h-5 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500"></div>
+                      <span className="font-medium text-neutral-800 text-xs">@pouch_eco</span>
                     </div>
-                    <div className="h-48 bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100 rounded-lg flex items-center justify-center">
-                      <svg className="h-12 w-12 text-pink-400 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+                    <div className="h-24 bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100 rounded flex items-center justify-center">
+                      <svg className="h-8 w-8 text-pink-400 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/>
                       </svg>
                     </div>
@@ -137,9 +137,9 @@ export default function InstagramFeed() {
               </div>
               
               {/* Click overlay */}
-              <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors duration-300 rounded-xl flex items-center justify-center opacity-0 hover:opacity-100">
-                <span className="bg-white/90 text-neutral-800 px-4 py-2 rounded-full font-medium text-sm shadow-lg">
-                  View Post
+              <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors duration-300 rounded-lg flex items-center justify-center opacity-0 hover:opacity-100">
+                <span className="bg-white/90 text-neutral-800 px-3 py-1 rounded-full font-medium text-xs shadow-lg">
+                  View
                 </span>
               </div>
             </div>

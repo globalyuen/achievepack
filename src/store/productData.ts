@@ -378,7 +378,8 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     images: [
       '/imgs/store/con-digital/3ss-clear-xzip/1.webp',
       '/imgs/store/con-digital/3ss-clear-xzip/2.webp',
-      '/imgs/store/con-digital/3ss-clear-xzip/3.webp'
+      '/imgs/store/con-digital/3ss-clear-xzip/3.webp',
+      '/imgs/store/con-digital/3ss-clear-xzip/tear.webp'
     ],
     badge: '🔍 Full Visibility',
     rating: 4.7,
@@ -400,7 +401,8 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     images: [
       '/imgs/store/con-digital/3ss-clear-zip/1.webp',
       '/imgs/store/con-digital/3ss-clear-zip/2.webp',
-      '/imgs/store/con-digital/3ss-clear-zip/3.webp'
+      '/imgs/store/con-digital/3ss-clear-zip/3.webp',
+      '/imgs/store/con-digital/3ss-clear-zip/tear.webp'
     ],
     badge: '🔒 Resealable',
     rating: 4.8,
@@ -422,7 +424,8 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     images: [
       '/imgs/store/con-digital/3ss-met-xzip/1.webp',
       '/imgs/store/con-digital/3ss-met-xzip/2.webp',
-      '/imgs/store/con-digital/3ss-met-xzip/3.webp'
+      '/imgs/store/con-digital/3ss-met-xzip/3.webp',
+      '/imgs/store/con-digital/3ss-met-xzip/tear.webp'
     ],
     badge: '🛡️ High Barrier',
     rating: 4.8,
@@ -444,7 +447,8 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     images: [
       '/imgs/store/con-digital/3ss-met-zip/1.webp',
       '/imgs/store/con-digital/3ss-met-zip/2.webp',
-      '/imgs/store/con-digital/3ss-met-zip/3.webp'
+      '/imgs/store/con-digital/3ss-met-zip/3.webp',
+      '/imgs/store/con-digital/3ss-met-zip/tear.webp'
     ],
     badge: '⭐ Premium',
     rating: 4.9,
@@ -469,6 +473,8 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
       '/imgs/store/con-digital/sup-clear-xzip/1.webp',
       '/imgs/store/con-digital/sup-clear-xzip/2.webp',
       '/imgs/store/con-digital/sup-clear-xzip/3.webp',
+      '/imgs/store/con-digital/sup-clear-xzip/transparent_gusset.webp',
+      '/imgs/store/con-digital/sup-clear-xzip/tear.webp',
       '/imgs/store/con-digital/sup-clear-xzip/4.webp'
     ],
     badge: '📐 Stand Up',
@@ -492,6 +498,8 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
       '/imgs/store/con-digital/sup-clear-zip/1.webp',
       '/imgs/store/con-digital/sup-clear-zip/2.webp',
       '/imgs/store/con-digital/sup-clear-zip/3.webp',
+      '/imgs/store/con-digital/sup-clear-zip/transparent_gusset.webp',
+      '/imgs/store/con-digital/sup-clear-zip/tear.webp',
       '/imgs/store/con-digital/sup-clear-zip/4.webp'
     ],
     badge: '✨ Popular',
@@ -515,6 +523,8 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
       '/imgs/store/con-digital/sup-met-xzip/1.webp',
       '/imgs/store/con-digital/sup-met-xzip/2.webp',
       '/imgs/store/con-digital/sup-met-xzip/3.webp',
+      '/imgs/store/con-digital/sup-met-xzip/silver_gusset.webp',
+      '/imgs/store/con-digital/sup-met-xzip/tear.webp',
       '/imgs/store/con-digital/sup-met-xzip/4.webp'
     ],
     badge: '🛡️ High Barrier',
@@ -538,6 +548,8 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
       '/imgs/store/con-digital/sup-met-zip/1.webp',
       '/imgs/store/con-digital/sup-met-zip/2.webp',
       '/imgs/store/con-digital/sup-met-zip/3.webp',
+      '/imgs/store/con-digital/sup-met-zip/silver_gusset.webp',
+      '/imgs/store/con-digital/sup-met-zip/tear.webp',
       '/imgs/store/con-digital/sup-met-zip/4.webp'
     ],
     badge: '⭐ Best Seller',

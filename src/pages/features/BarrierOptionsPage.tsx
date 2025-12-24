@@ -1,13 +1,35 @@
-import React from 'react'
-import { Shield, Thermometer, Package, CheckCircle, Clock, Target, Calendar, Mail, Download } from 'lucide-react'
+import React, { useState } from 'react'
+import { Shield, Thermometer, Package, CheckCircle, Clock, Target, Calendar, Mail, Download, X, ChevronLeft, ChevronRight, Image } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
+const barrierGallery = [
+  { src: '/imgs/barrier/ads/a_achieve_pack_barrier_kv_updated_green_definition_6833995.webp', title: 'Eco-Friendly Barrier Technology', desc: 'Our sustainable barrier solutions protect products while minimizing environmental impact' },
+  { src: '/imgs/barrier/ads/a_barrier_levels_7395220.webp', title: 'Barrier Level Comparison', desc: 'Compare Low, Medium, High, and Max barrier options for your product needs' },
+  { src: '/imgs/barrier/ads/a_kraft_levels_1_2_3604187.webp', title: 'Kraft Paper Barrier Options', desc: 'Paper-based solutions with low to medium barrier properties' },
+  { src: '/imgs/barrier/ads/a_kraft_high_max_4456348.webp', title: 'High Barrier Kraft', desc: 'Enhanced kraft paper with superior oxygen barrier for extended shelf life' },
+  { src: '/imgs/barrier/ads/a_transparent_options_3839456.webp', title: 'Transparent Barrier Films', desc: 'Clear packaging with various barrier levels for product visibility' },
+  { src: '/imgs/barrier/ads/a_metallic_barrier_closeup_9656118.webp', title: 'Metallic Barrier Detail', desc: 'Aluminum-free metallic appearance with maximum barrier protection' },
+  { src: '/imgs/barrier/ads/a_application_scenarios_2234685.webp', title: 'Application Scenarios', desc: 'Match the right barrier level to your specific product requirements' },
+  { src: '/imgs/barrier/ads/a_value_barrier_eco_4905901.webp', title: 'Eco Value Proposition', desc: 'Sustainable barrier solutions that dont compromise on protection' },
+  { src: '/imgs/barrier/ads/a_closing_consultation_6756895.webp', title: 'Expert Consultation', desc: 'Get personalized barrier recommendations from our packaging specialists' },
+];
+
 const BarrierOptionsPage: React.FC = () => {
   const { t } = useTranslation()
   const { openCalendly } = useCalendly()
+  const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
+  
+  const navigateGallery = (direction: 'prev' | 'next') => {
+    if (!galleryEnlarged) return
+    let newIndex = direction === 'prev' ? galleryEnlarged.index - 1 : galleryEnlarged.index + 1
+    if (newIndex < 0) newIndex = barrierGallery.length - 1
+    if (newIndex >= barrierGallery.length) newIndex = 0
+    setGalleryEnlarged({ src: barrierGallery[newIndex].src, index: newIndex })
+  }
+  
   const sections = [
     {
       id: 'scenario-trigger',
@@ -50,6 +72,33 @@ const BarrierOptionsPage: React.FC = () => {
             <li><strong>Medium Barrier (6-12 months)</strong> – Balanced protection for most products</li>
             <li><strong>High Barrier (12-24 months)</strong> – Maximum protection for sensitive products</li>
           </ul>
+        </div>
+      )
+    },
+    {
+      id: 'visual-gallery',
+      title: 'Barrier Solutions Gallery',
+      icon: <Image className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>Explore our range of barrier packaging options. Click any image to enlarge:</p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            {barrierGallery.map((img, index) => (
+              <button
+                key={index}
+                onClick={() => setGalleryEnlarged({ src: img.src, index })}
+                className="text-left bg-white rounded-xl border border-neutral-200 hover:border-primary-400 overflow-hidden transition-all hover:shadow-lg group"
+              >
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img src={img.src} alt={img.title} className="w-full h-full object-cover group-hover:scale-105 transition" />
+                </div>
+                <div className="p-3">
+                  <h5 className="font-semibold text-sm text-neutral-800 mb-1">{img.title}</h5>
+                  <p className="text-xs text-neutral-600 line-clamp-2">{img.desc}</p>
+                </div>
+              </button>
+            ))}
+          </div>
         </div>
       )
     },
@@ -302,23 +351,49 @@ const BarrierOptionsPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
-      title={t('seoPages.pages.barrierOptions.title')}
-      description="Choose the right barrier level for your sustainable packaging. Low, medium, and high barrier options in recyclable and compostable materials. Free shelf-life testing available."
-      keywords={['barrier packaging', 'high barrier pouches', 'oxygen barrier', 'moisture barrier', 'shelf life packaging', 'EVOH barrier']}
-      canonicalUrl="https://achievepack.com/features/barrier-options"
-      heroTitle={t('seoPages.pages.barrierOptions.heroTitle')}
-      heroSubtitle={t('seoPages.pages.barrierOptions.heroSubtitle')}
-      heroImage="/imgs/seo-photos/a_achievepack_barrier_range_comparison_2896222.webp"
-      heroImageAlt="Barrier protection levels for eco-friendly packaging"
-      introSummary={t('seoPages.pages.barrierOptions.introSummary')}
-      sections={sections}
-      faqs={faqs}
-      relatedLinks={relatedLinks}
-      ctaTitle={t('seoPages.pages.barrierOptions.cta.title')}
-      ctaDescription={t('seoPages.pages.barrierOptions.cta.description')}
-      ctaButtonText={t('seoPages.pages.barrierOptions.cta.button')}
-    />
+    <>
+      <SEOPageLayout
+        title={t('seoPages.pages.barrierOptions.title')}
+        description="Choose the right barrier level for your sustainable packaging. Low, medium, and high barrier options in recyclable and compostable materials. Free shelf-life testing available."
+        keywords={['barrier packaging', 'high barrier pouches', 'oxygen barrier', 'moisture barrier', 'shelf life packaging', 'EVOH barrier']}
+        canonicalUrl="https://achievepack.com/features/barrier-options"
+        heroTitle={t('seoPages.pages.barrierOptions.heroTitle')}
+        heroSubtitle={t('seoPages.pages.barrierOptions.heroSubtitle')}
+        heroImage="/imgs/seo-photos/a_achievepack_barrier_range_comparison_2896222.webp"
+        heroImageAlt="Barrier protection levels for eco-friendly packaging"
+        introSummary={t('seoPages.pages.barrierOptions.introSummary')}
+        sections={sections}
+        faqs={faqs}
+        relatedLinks={relatedLinks}
+        ctaTitle={t('seoPages.pages.barrierOptions.cta.title')}
+        ctaDescription={t('seoPages.pages.barrierOptions.cta.description')}
+        ctaButtonText={t('seoPages.pages.barrierOptions.cta.button')}
+      />
+      
+      {/* Gallery Lightbox Modal */}
+      {galleryEnlarged && (
+        <div 
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          onClick={() => setGalleryEnlarged(null)}
+        >
+          <button onClick={() => setGalleryEnlarged(null)} className="absolute top-4 right-4 text-white hover:text-neutral-300 transition">
+            <X className="h-8 w-8" />
+          </button>
+          <button onClick={(e) => { e.stopPropagation(); navigateGallery('prev'); }} className="absolute left-4 text-white hover:text-neutral-300 transition p-2">
+            <ChevronLeft className="h-10 w-10" />
+          </button>
+          <img src={galleryEnlarged.src} alt={barrierGallery[galleryEnlarged.index]?.title || 'Enlarged view'} className="max-w-full max-h-[80vh] object-contain" onClick={(e) => e.stopPropagation()} />
+          <button onClick={(e) => { e.stopPropagation(); navigateGallery('next'); }} className="absolute right-4 text-white hover:text-neutral-300 transition p-2">
+            <ChevronRight className="h-10 w-10" />
+          </button>
+          <div className="absolute bottom-4 text-center text-white max-w-xl px-4">
+            <p className="text-lg font-semibold">{barrierGallery[galleryEnlarged.index]?.title}</p>
+            <p className="text-sm text-neutral-300">{barrierGallery[galleryEnlarged.index]?.desc}</p>
+            <p className="text-xs mt-2 text-neutral-400">{galleryEnlarged.index + 1} / {barrierGallery.length}</p>
+          </div>
+        </div>
+      )}
+    </>
   )
 }
 

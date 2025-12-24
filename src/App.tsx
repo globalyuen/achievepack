@@ -41,6 +41,103 @@ function App() {
   const [calculatorResults, setCalculatorResults] = useState<CalculatorResults | null>(null)
   const [selectedProduct, setSelectedProduct] = useState<PouchProduct | null>(null)
   const [isRyanProfileOpen, setIsRyanProfileOpen] = useState(false)
+  const [pouchShapeEnlarged, setPouchShapeEnlarged] = useState<{ src: string; index: number } | null>(null)
+  
+  const pouchShapeImages = [
+    '/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.webp',
+    '/imgs/pouch-shape/ads/a_achieve_pack_size_closure_options_7735113.webp',
+    '/imgs/pouch-shape/ads/a_achieve_pack_brand_closing_6612868.webp',
+    '/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.webp',
+    '/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp',
+    '/imgs/pouch-shape/ads/a_achieve_pack_quad_side_gusset_closeup_9751125.webp',
+    '/imgs/pouch-shape/ads/a_achieve_pack_spout_pouch_closeup_5874382.webp',
+    '/imgs/pouch-shape/ads/a_achieve_pack_irregular_shape_closeup_0205542.webp',
+    '/imgs/pouch-shape/ads/a_achieve_pack_rollstock_closeup_5394787.webp',
+  ];
+  
+  const navigatePouchImage = (direction: 'prev' | 'next') => {
+    if (!pouchShapeEnlarged) return;
+    startTransition(() => {
+      let newIndex = direction === 'prev' ? pouchShapeEnlarged.index - 1 : pouchShapeEnlarged.index + 1;
+      if (newIndex < 0) newIndex = pouchShapeImages.length - 1;
+      if (newIndex >= pouchShapeImages.length) newIndex = 0;
+      setPouchShapeEnlarged({ src: pouchShapeImages[newIndex], index: newIndex });
+    });
+  };
+  
+  const [surfaceEnlarged, setSurfaceEnlarged] = useState<{ src: string; index: number } | null>(null);
+  
+  const surfaceImages = [
+    '/imgs/surface/ads/a_achieve_pack_main_kv_six_finishes_3535755.webp',
+    '/imgs/surface/ads/a_gloss_finish_detail_5685549.webp',
+    '/imgs/surface/ads/a_gloss_pouch_correct_5078762.webp',
+    '/imgs/surface/ads/a_matte_finish_detail_7483118.webp',
+    '/imgs/surface/ads/a_matte_pouch_correct_6361818.webp',
+    '/imgs/surface/ads/a_metallic_gold_closeup_5151764.webp',
+    '/imgs/surface/ads/a_softtouch_pouch_correct_7961783.webp',
+    '/imgs/surface/ads/a_embossed_navy_9933981.webp',
+    '/imgs/surface/ads/a_foil_green_charcoal_7632386.webp',
+    '/imgs/surface/ads/a_standup_pouches_main_6878547.webp',
+  ];
+  
+  const navigateSurfaceImage = (direction: 'prev' | 'next') => {
+    if (!surfaceEnlarged) return;
+    startTransition(() => {
+      let newIndex = direction === 'prev' ? surfaceEnlarged.index - 1 : surfaceEnlarged.index + 1;
+      if (newIndex < 0) newIndex = surfaceImages.length - 1;
+      if (newIndex >= surfaceImages.length) newIndex = 0;
+      setSurfaceEnlarged({ src: surfaceImages[newIndex], index: newIndex });
+    });
+  };
+  
+  const [recloseEnlarged, setRecloseEnlarged] = useState<{ src: string; index: number } | null>(null);
+  
+  const recloseImages = [
+    '/imgs/reclose/ads/a_reclosure_options_kv_product_photo_7983949.webp',
+    '/imgs/reclose/ads/a_reclosure_four_quadrant_overview_3481316.webp',
+    '/imgs/reclose/ads/a_reclosure_decision_guide_7052390.webp',
+    '/imgs/reclose/ads/a_reclosure_value_proposition_0710400.webp',
+    '/imgs/reclose/ads/a_reclosure_comparison_scene_9769566.webp',
+    '/imgs/reclose/ads/a_presstoclose_closure_detail_5742103.webp',
+    '/imgs/reclose/ads/a_spout_closure_closeup_detail_2705813.webp',
+    '/imgs/reclose/ads/a_tintie_coffee_pouch_correct_4114906.webp',
+    '/imgs/reclose/ads/a_valve_closure_detail_6401844.webp',
+  ];
+  
+  const navigateRecloseImage = (direction: 'prev' | 'next') => {
+    if (!recloseEnlarged) return;
+    startTransition(() => {
+      let newIndex = direction === 'prev' ? recloseEnlarged.index - 1 : recloseEnlarged.index + 1;
+      if (newIndex < 0) newIndex = recloseImages.length - 1;
+      if (newIndex >= recloseImages.length) newIndex = 0;
+      setRecloseEnlarged({ src: recloseImages[newIndex], index: newIndex });
+    });
+  };
+  
+  const [barrierEnlarged, setBarrierEnlarged] = useState<{ src: string; index: number } | null>(null);
+  
+  const barrierImages = [
+    '/imgs/barrier/ads/a_achieve_pack_barrier_kv_updated_green_definition_6833995.webp',
+    '/imgs/barrier/ads/a_barrier_levels_7395220.webp',
+    '/imgs/barrier/ads/a_kraft_levels_1_2_3604187.webp',
+    '/imgs/barrier/ads/a_kraft_high_max_4456348.webp',
+    '/imgs/barrier/ads/a_transparent_options_3839456.webp',
+    '/imgs/barrier/ads/a_metallic_barrier_closeup_9656118.webp',
+    '/imgs/barrier/ads/a_application_scenarios_2234685.webp',
+    '/imgs/barrier/ads/a_value_barrier_eco_4905901.webp',
+    '/imgs/barrier/ads/a_closing_consultation_6756895.webp',
+  ];
+  
+  const navigateBarrierImage = (direction: 'prev' | 'next') => {
+    if (!barrierEnlarged) return;
+    startTransition(() => {
+      let newIndex = direction === 'prev' ? barrierEnlarged.index - 1 : barrierEnlarged.index + 1;
+      if (newIndex < 0) newIndex = barrierImages.length - 1;
+      if (newIndex >= barrierImages.length) newIndex = 0;
+      setBarrierEnlarged({ src: barrierImages[newIndex], index: newIndex });
+    });
+  };
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -914,17 +1011,28 @@ ${formData.message}`
             {/* Barrier Options */}
             <div className="bg-neutral-50 rounded-lg p-8">
               <h3 className="text-2xl font-bold text-neutral-900 mb-6">{t('features.barrier.title')}</h3>
-              <div className="mb-6">
+              <div className="mb-4">
                 <img
                   src={img("feature-barrier-options")}
                   alt={t('features.barrier.title')}
-                  className="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer"
+                  className="w-full h-48 object-cover rounded-lg cursor-pointer"
                   onClick={() => {
                     setModalImage(img("feature-barrier-options"))
                     setModalAlt(t('features.barrier.title'))
                     setIsModalOpen(true)
                   }}
                 />
+              </div>
+              <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-9 gap-2 mb-6">
+                {barrierImages.map((imgSrc, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setBarrierEnlarged({ src: imgSrc, index })}
+                    className="aspect-square bg-neutral-100 rounded-lg border-2 border-neutral-200 hover:border-primary-400 overflow-hidden transition-all hover:shadow-md group"
+                  >
+                    <img src={imgSrc} alt={`Barrier Option ${index + 1}`} className="w-full h-full object-cover group-hover:scale-105 transition" />
+                  </button>
+                ))}
               </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div className="bg-white rounded-lg p-4 text-center">
@@ -961,11 +1069,11 @@ ${formData.message}`
             {/* Pouch Shapes */}
             <div className="bg-neutral-50 rounded-lg p-8">
               <h3 className="text-2xl font-bold text-neutral-900 mb-6">{t('features.shapes.title')}</h3>
-              <div className="mb-6">
+              <div className="mb-4">
                 <img
                   src={img("feature-pouch-shapes")}
                   alt={t('features.shapes.title')}
-                  className="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer"
+                  className="w-full h-48 object-cover rounded-lg cursor-pointer"
                   onClick={() => {
                     setModalImage(img("feature-pouch-shapes"))
                     setModalAlt(t('features.shapes.title'))
@@ -973,44 +1081,44 @@ ${formData.message}`
                   }}
                 />
               </div>
-              <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-4">
-                <div className="bg-white rounded-lg p-4 text-center">
-                  <Package className="h-8 w-8 text-primary-500 mx-auto mb-2" />
-                  <div className="text-sm font-medium">{t('features.shapes.standup')}</div>
-                </div>
-                <div className="bg-white rounded-lg p-4 text-center">
-                  <Package className="h-8 w-8 text-primary-500 mx-auto mb-2" />
-                  <div className="text-sm font-medium">{t('features.shapes.flat')}</div>
-                </div>
-                <div className="bg-white rounded-lg p-4 text-center">
-                  <Package className="h-8 w-8 text-primary-500 mx-auto mb-2" />
-                  <div className="text-sm font-medium">{t('features.shapes.gusset')}</div>
-                </div>
-                <div className="bg-white rounded-lg p-4 text-center">
-                  <Package className="h-8 w-8 text-primary-500 mx-auto mb-2" />
-                  <div className="text-sm font-medium">{t('features.shapes.quad')}</div>
-                </div>
-                <div className="bg-white rounded-lg p-4 text-center">
-                  <Package className="h-8 w-8 text-primary-500 mx-auto mb-2" />
-                  <div className="text-sm font-medium">{t('features.shapes.threeside')}</div>
-                </div>
+              <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-9 gap-2">
+                {pouchShapeImages.map((img, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setPouchShapeEnlarged({ src: img, index })}
+                    className="aspect-square bg-neutral-100 rounded-lg border-2 border-neutral-200 hover:border-primary-400 overflow-hidden transition-all hover:shadow-md group"
+                  >
+                    <img src={img} alt={`Pouch Style ${index + 1}`} className="w-full h-full object-cover group-hover:scale-105 transition" />
+                  </button>
+                ))}
               </div>
             </div>
 
             {/* Printing Options */}
             <div className="bg-neutral-50 rounded-lg p-8">
               <h3 className="text-2xl font-bold text-neutral-900 mb-6">{t('features.printing.title')}</h3>
-              <div className="mb-6">
+              <div className="mb-4">
                 <img
                   src={img("feature-printing-finishes")}
                   alt={t('features.printing.title')}
-                  className="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer"
+                  className="w-full h-48 object-cover rounded-lg cursor-pointer"
                   onClick={() => {
                     setModalImage(img("feature-printing-finishes"))
                     setModalAlt(t('features.printing.title'))
                     setIsModalOpen(true)
                   }}
                 />
+              </div>
+              <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-10 gap-2 mb-6">
+                {surfaceImages.map((imgSrc, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setSurfaceEnlarged({ src: imgSrc, index })}
+                    className="aspect-square bg-neutral-100 rounded-lg border-2 border-neutral-200 hover:border-primary-400 overflow-hidden transition-all hover:shadow-md group"
+                  >
+                    <img src={imgSrc} alt={`Surface Finish ${index + 1}`} className="w-full h-full object-cover group-hover:scale-105 transition" />
+                  </button>
+                ))}
               </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div className="bg-white rounded-lg p-6">
@@ -1043,17 +1151,28 @@ ${formData.message}`
             {/* Reclosure Options */}
             <div className="bg-neutral-50 rounded-lg p-8">
               <h3 className="text-2xl font-bold text-neutral-900 mb-6">{t('features.reclosure.title')}</h3>
-              <div className="mb-6">
+              <div className="mb-4">
                 <img
                   src={img("feature-reclosure-solutions")}
                   alt={t('features.reclosure.title')}
-                  className="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer"
+                  className="w-full h-48 object-cover rounded-lg cursor-pointer"
                   onClick={() => {
                     setModalImage(img("feature-reclosure-solutions"))
                     setModalAlt(t('features.reclosure.title'))
                     setIsModalOpen(true)
                   }}
                 />
+              </div>
+              <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-9 gap-2 mb-6">
+                {recloseImages.map((imgSrc, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setRecloseEnlarged({ src: imgSrc, index })}
+                    className="aspect-square bg-neutral-100 rounded-lg border-2 border-neutral-200 hover:border-primary-400 overflow-hidden transition-all hover:shadow-md group"
+                  >
+                    <img src={imgSrc} alt={`Reclosure Option ${index + 1}`} className="w-full h-full object-cover group-hover:scale-105 transition" />
+                  </button>
+                ))}
               </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
                 <div className="bg-white rounded-lg p-4 text-center">
@@ -1755,6 +1874,166 @@ ${formData.message}`
               onClick={(e) => e.stopPropagation()}
             />
             <p className="text-white text-center mt-4 text-lg font-semibold">{modalAlt}</p>
+          </div>
+        </div>
+      )}
+
+      {/* Pouch Shape Lightbox Modal */}
+      {pouchShapeEnlarged && (
+        <div 
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          onClick={() => setPouchShapeEnlarged(null)}
+        >
+          <button 
+            onClick={() => setPouchShapeEnlarged(null)}
+            className="absolute top-4 right-4 text-white hover:text-neutral-300 transition"
+          >
+            <X className="h-8 w-8" />
+          </button>
+          
+          <button 
+            onClick={(e) => { e.stopPropagation(); navigatePouchImage('prev'); }}
+            className="absolute left-4 text-white hover:text-neutral-300 transition p-2"
+          >
+            <ChevronDown className="h-10 w-10 rotate-90" />
+          </button>
+          
+          <img 
+            src={pouchShapeEnlarged.src} 
+            alt="Enlarged view" 
+            className="max-w-full max-h-[90vh] object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+          
+          <button 
+            onClick={(e) => { e.stopPropagation(); navigatePouchImage('next'); }}
+            className="absolute right-4 text-white hover:text-neutral-300 transition p-2"
+          >
+            <ChevronDown className="h-10 w-10 -rotate-90" />
+          </button>
+          
+          <div className="absolute bottom-4 text-white text-sm">
+            {pouchShapeEnlarged.index + 1} / {pouchShapeImages.length}
+          </div>
+        </div>
+      )}
+
+      {/* Surface Finish Lightbox Modal */}
+      {surfaceEnlarged && (
+        <div 
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          onClick={() => setSurfaceEnlarged(null)}
+        >
+          <button 
+            onClick={() => setSurfaceEnlarged(null)}
+            className="absolute top-4 right-4 text-white hover:text-neutral-300 transition"
+          >
+            <X className="h-8 w-8" />
+          </button>
+          
+          <button 
+            onClick={(e) => { e.stopPropagation(); navigateSurfaceImage('prev'); }}
+            className="absolute left-4 text-white hover:text-neutral-300 transition p-2"
+          >
+            <ChevronDown className="h-10 w-10 rotate-90" />
+          </button>
+          
+          <img 
+            src={surfaceEnlarged.src} 
+            alt="Enlarged view" 
+            className="max-w-full max-h-[90vh] object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+          
+          <button 
+            onClick={(e) => { e.stopPropagation(); navigateSurfaceImage('next'); }}
+            className="absolute right-4 text-white hover:text-neutral-300 transition p-2"
+          >
+            <ChevronDown className="h-10 w-10 -rotate-90" />
+          </button>
+          
+          <div className="absolute bottom-4 text-white text-sm">
+            {surfaceEnlarged.index + 1} / {surfaceImages.length}
+          </div>
+        </div>
+      )}
+
+      {/* Reclose Lightbox Modal */}
+      {recloseEnlarged && (
+        <div 
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          onClick={() => setRecloseEnlarged(null)}
+        >
+          <button 
+            onClick={() => setRecloseEnlarged(null)}
+            className="absolute top-4 right-4 text-white hover:text-neutral-300 transition"
+          >
+            <X className="h-8 w-8" />
+          </button>
+          
+          <button 
+            onClick={(e) => { e.stopPropagation(); navigateRecloseImage('prev'); }}
+            className="absolute left-4 text-white hover:text-neutral-300 transition p-2"
+          >
+            <ChevronDown className="h-10 w-10 rotate-90" />
+          </button>
+          
+          <img 
+            src={recloseEnlarged.src} 
+            alt="Enlarged view" 
+            className="max-w-full max-h-[90vh] object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+          
+          <button 
+            onClick={(e) => { e.stopPropagation(); navigateRecloseImage('next'); }}
+            className="absolute right-4 text-white hover:text-neutral-300 transition p-2"
+          >
+            <ChevronDown className="h-10 w-10 -rotate-90" />
+          </button>
+          
+          <div className="absolute bottom-4 text-white text-sm">
+            {recloseEnlarged.index + 1} / {recloseImages.length}
+          </div>
+        </div>
+      )}
+
+      {/* Barrier Lightbox Modal */}
+      {barrierEnlarged && (
+        <div 
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          onClick={() => setBarrierEnlarged(null)}
+        >
+          <button 
+            onClick={() => setBarrierEnlarged(null)}
+            className="absolute top-4 right-4 text-white hover:text-neutral-300 transition"
+          >
+            <X className="h-8 w-8" />
+          </button>
+          
+          <button 
+            onClick={(e) => { e.stopPropagation(); navigateBarrierImage('prev'); }}
+            className="absolute left-4 text-white hover:text-neutral-300 transition p-2"
+          >
+            <ChevronDown className="h-10 w-10 rotate-90" />
+          </button>
+          
+          <img 
+            src={barrierEnlarged.src} 
+            alt="Enlarged view" 
+            className="max-w-full max-h-[90vh] object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+          
+          <button 
+            onClick={(e) => { e.stopPropagation(); navigateBarrierImage('next'); }}
+            className="absolute right-4 text-white hover:text-neutral-300 transition p-2"
+          >
+            <ChevronDown className="h-10 w-10 -rotate-90" />
+          </button>
+          
+          <div className="absolute bottom-4 text-white text-sm">
+            {barrierEnlarged.index + 1} / {barrierImages.length}
           </div>
         </div>
       )}
