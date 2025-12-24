@@ -160,13 +160,13 @@ const CorporateSustainabilityPage: React.FC = () => {
                 caption="Recyclable Certified"
               />
               <ClickableImage 
-                src="/imgs/4-infograhic/pcr.webp" 
+                src="/imgs/4-infograhic/PCR.webp"
                 alt="PCR content certification" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="PCR Content"
               />
               <ClickableImage 
-                src="/imgs/4-infograhic/bio-pe.webp" 
+                src="/imgs/4-infograhic/Bio-PE.webp"
                 alt="Bio-based material certification" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Bio-Based PE"

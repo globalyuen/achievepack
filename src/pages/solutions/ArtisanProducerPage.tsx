@@ -109,25 +109,25 @@ const ArtisanProducerPage: React.FC = () => {
           <div className="mt-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               <ClickableImage 
-                src="/imgs/seo-photos/a_artisan_chocolate_abu_dhabi_7667063.webp" 
+                src="/imgs/seo-photos/a_artisan_chocolate_abu_dhabi_luxury_pouch_4218900.webp"
                 alt="Artisan chocolate packaging" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Artisan Chocolate"
               />
               <ClickableImage 
-                src="/imgs/seo-photos/a_tea_craft_australia_garden_5312888.webp" 
+                src="/imgs/seo-photos/a_tea_craft_australia_garden_morning_8955209.webp"
                 alt="Artisan tea packaging" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Craft Tea"
               />
               <ClickableImage 
-                src="/imgs/store/surface/kraft.webp" 
+                src="/imgs/store/barrier/3-paper.webp"
                 alt="Kraft paper finish" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Kraft Paper"
               />
               <ClickableImage 
-                src="/imgs/store/closure/zipper.webp" 
+                src="/imgs/store/closure/normal-zipper.webp"
                 alt="Resealable zipper closure" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Resealable"
@@ -258,7 +258,7 @@ const ArtisanProducerPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Product"
-        heroImage="/imgs/seo-photos/a_artisan_chocolate_abu_dhabi_7667063.webp"
+        heroImage="/imgs/seo-photos/a_artisan_chocolate_abu_dhabi_luxury_pouch_4218900.webp"
       />
     </>
   )

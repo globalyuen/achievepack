@@ -127,13 +127,13 @@ const FoodManufacturerPage: React.FC = () => {
           <div className="mt-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               <ClickableImage 
-                src="/imgs/store/barrier/high-barrier.webp" 
+                src="/imgs/store/barrier/3-foil.webp" 
                 alt="High barrier food packaging" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="High Barrier"
               />
               <ClickableImage 
-                src="/imgs/store/barrier/medium-barrier.webp" 
+                src="/imgs/store/barrier/3-clear.webp" 
                 alt="Medium barrier food packaging" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Medium Barrier"

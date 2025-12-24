@@ -133,16 +133,16 @@ const ProductDeveloperPage: React.FC = () => {
           <div className="mt-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               <ClickableImage 
-                src="/imgs/store/surface/holographic.webp" 
-                alt="Holographic finish innovative packaging" 
+                src="/imgs/store/surface/metalic.webp" 
+                alt="Metallic finish innovative packaging" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption="Holographic Finish"
+                caption="Metallic Finish"
               />
               <ClickableImage 
-                src="/imgs/store/surface/spot-uv.webp" 
-                alt="Spot UV premium finish" 
+                src="/imgs/store/surface/stamp-foil.webp" 
+                alt="Stamp foil premium finish" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption="Spot UV"
+                caption="Stamp Foil"
               />
               <ClickableImage 
                 src="/imgs/store/closure/slider-zipper.webp" 
