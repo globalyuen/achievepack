@@ -155,6 +155,13 @@ import BioPeKraftDuplexLowPage from './pages/spec/BioPeKraftDuplexLowPage'
 // Team Pages
 import RyanWongPage from './pages/team/RyanWongPage'
 
+// Products Pages - SEO Focused
+import CompostableCoffeeBagsPage from './pages/products/CompostableCoffeeBagsPage'
+import CompostableStandUpPouchesPage from './pages/products/CompostableStandUpPouchesPage'
+import RecyclableMonoMaterialPage from './pages/products/RecyclableMonoMaterialPage'
+import CoffeeBagsDegassingValvePage from './pages/products/CoffeeBagsDegassingValvePage'
+import LowMOQPackagingPage from './pages/products/LowMOQPackagingPage'
+
 // 404 Page
 import NotFoundPage from './pages/NotFoundPage'
 
@@ -268,6 +275,13 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/usa/coffee-packaging" element={<USACoffeePage />} />
               <Route path="/usa/snacks-packaging" element={<USASnacksPage />} />
               <Route path="/usa/labeling-guide" element={<USALabelingGuidePage />} />
+
+              {/* Products Pages - SEO Focused */}
+              <Route path="/products/compostable-coffee-bags" element={<CompostableCoffeeBagsPage />} />
+              <Route path="/products/compostable-stand-up-pouches" element={<CompostableStandUpPouchesPage />} />
+              <Route path="/products/recyclable-mono-material-pouches" element={<RecyclableMonoMaterialPage />} />
+              <Route path="/products/coffee-bags-degassing-valve" element={<CoffeeBagsDegassingValvePage />} />
+              <Route path="/products/low-moq-packaging" element={<LowMOQPackagingPage />} />
 
               {/* Spec Pages - Material Structures */}
               <Route path="/spec/pcr-pet-duplex-clear" element={<PcrPetDuplexClearPage />} />
