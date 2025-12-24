@@ -76,28 +76,28 @@ const SnackBrandManagerPage: React.FC = () => {
           <div className="mt-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               <ClickableImage 
-                src="/imgs/seo-photos/usa/snack/a_healthy_protein_bars_achieve_pack_8282018.webp" 
-                alt="Organic snack bar packaging" 
+                src="/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp" 
+                alt="Sustainable snack packaging solutions" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption="Protein Bars"
+                caption="Snack Pouches"
+              />
+              <ClickableImage 
+                src="/imgs/seo-photos/usa/snack/a_snacks_brand_sustainability_guide_7868632.webp" 
+                alt="Snack brand sustainability packaging" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Sustainability Guide"
+              />
+              <ClickableImage 
+                src="/imgs/seo-photos/usa/snack/a_snacks_pouch_format_comparison_8281669.webp" 
+                alt="Snack pouch format options" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Format Options"
               />
               <ClickableImage 
                 src="/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp" 
                 alt="Stand-up snack pouch" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Stand-Up Pouch"
-              />
-              <ClickableImage 
-                src="/imgs/store/closure/slider-zipper.webp" 
-                alt="Slider zipper for snacks" 
-                className="w-full h-28 object-cover rounded-lg"
-                caption="Slider Zipper"
-              />
-              <ClickableImage 
-                src="/imgs/4-infograhic/compost.webp" 
-                alt="Compostable snack packaging" 
-                className="w-full h-28 object-cover rounded-lg"
-                caption="Compostable"
               />
             </div>
           </div>
@@ -320,7 +320,7 @@ const SnackBrandManagerPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Product"
-        heroImage="/imgs/seo-photos/usa/snack/a_healthy_protein_bars_achieve_pack_8282018.webp"
+        heroImage="/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp"
       />
     </>
   )
