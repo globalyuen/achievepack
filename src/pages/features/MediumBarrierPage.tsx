@@ -1,11 +1,30 @@
-import React from 'react'
-import { Shield, Layers, Package, CheckCircle, Clock } from 'lucide-react'
+import React, { useState } from 'react'
+import { Shield, Layers, Package, CheckCircle, Clock, Image, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
+
+const mediumBarrierGallery = [
+  { src: '/imgs/barrier/ads/a_achieve_pack_barrier_kv_updated_green_definition_6833995.webp', title: 'Barrier Technology Overview', desc: 'Eco-friendly barrier solutions for balanced protection' },
+  { src: '/imgs/barrier/ads/a_barrier_levels_7395220.webp', title: 'Barrier Level Chart', desc: 'Medium barrier provides 6-12 months protection' },
+  { src: '/imgs/barrier/ads/a_kraft_levels_1_2_3604187.webp', title: 'Kraft Paper Options', desc: 'Paper-based solutions with medium barrier properties' },
+  { src: '/imgs/barrier/ads/a_transparent_options_3839456.webp', title: 'Transparent Options', desc: 'Clear films with medium barrier for product visibility' },
+  { src: '/imgs/barrier/ads/a_application_scenarios_2234685.webp', title: 'Application Scenarios', desc: 'Coffee beans, nuts, pet food, and protein powders' },
+  { src: '/imgs/barrier/ads/a_value_barrier_eco_4905901.webp', title: 'Eco Value Proposition', desc: 'Sustainable medium barrier without compromising protection' },
+];
 
 const MediumBarrierPage: React.FC = () => {
   const { t } = useTranslation()
   const p = 'seoPages.pages.mediumBarrier'
+  const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
+  
+  const navigateGallery = (direction: 'prev' | 'next') => {
+    if (!galleryEnlarged) return
+    let newIndex = direction === 'prev' ? galleryEnlarged.index - 1 : galleryEnlarged.index + 1
+    if (newIndex < 0) newIndex = mediumBarrierGallery.length - 1
+    if (newIndex >= mediumBarrierGallery.length) newIndex = 0
+    setGalleryEnlarged({ src: mediumBarrierGallery[newIndex].src, index: newIndex })
+  }
+  
   const sections = [
     {
       id: 'overview',
@@ -24,6 +43,33 @@ const MediumBarrierPage: React.FC = () => {
               <li>• <strong>Shelf Life:</strong> 6-12 months typical</li>
               <li>• <strong>Sustainability:</strong> Recyclable mono-materials available</li>
             </ul>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'visual-gallery',
+      title: 'Medium Barrier Solutions Gallery',
+      icon: <Image className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>Explore our medium barrier packaging solutions. Click any image to enlarge:</p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            {mediumBarrierGallery.map((img, index) => (
+              <button
+                key={index}
+                onClick={() => setGalleryEnlarged({ src: img.src, index })}
+                className="text-left bg-white rounded-xl border border-neutral-200 hover:border-primary-400 overflow-hidden transition-all hover:shadow-lg group"
+              >
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img src={img.src} alt={img.title} className="w-full h-full object-cover group-hover:scale-105 transition" />
+                </div>
+                <div className="p-3">
+                  <h5 className="font-semibold text-sm text-neutral-800 mb-1">{img.title}</h5>
+                  <p className="text-xs text-neutral-600 line-clamp-2">{img.desc}</p>
+                </div>
+              </button>
+            ))}
           </div>
         </div>
       )
@@ -197,22 +243,41 @@ const MediumBarrierPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
-      title={t(`${p}.title`)}
-      description={t(`${p}.description`)}
-      keywords={['medium barrier packaging', 'recyclable pouches', 'mono-PE packaging', 'bio-PE pouches', 'coffee packaging', 'pet food packaging']}
-      canonicalUrl="https://achievepack.com/features/medium-barrier"
-      heroTitle={t(`${p}.heroTitle`)}
-      heroSubtitle={t(`${p}.heroSubtitle`)}
-      heroImage="/imgs/seo-photos/a_achievepack_medium_barrier_pantry_7988653.webp"
-      heroImageAlt="Medium barrier recyclable packaging for pantry products"
-      introSummary={t(`${p}.introSummary`)}
-      sections={sections}
-      faqs={faqs}
-      relatedLinks={relatedLinks}
-      ctaTitle={t(`${p}.cta.title`)}
-      ctaDescription={t(`${p}.cta.description`)}
-    />
+    <>
+      <SEOPageLayout
+        title={t(`${p}.title`)}
+        description={t(`${p}.description`)}
+        keywords={['medium barrier packaging', 'recyclable pouches', 'mono-PE packaging', 'bio-PE pouches', 'coffee packaging', 'pet food packaging']}
+        canonicalUrl="https://achievepack.com/features/medium-barrier"
+        heroTitle={t(`${p}.heroTitle`)}
+        heroSubtitle={t(`${p}.heroSubtitle`)}
+        heroImage="/imgs/seo-photos/a_achievepack_medium_barrier_pantry_7988653.webp"
+        heroImageAlt="Medium barrier recyclable packaging for pantry products"
+        introSummary={t(`${p}.introSummary`)}
+        sections={sections}
+        faqs={faqs}
+        relatedLinks={relatedLinks}
+        ctaTitle={t(`${p}.cta.title`)}
+        ctaDescription={t(`${p}.cta.description`)}
+        ctaButtonText={t(`${p}.cta.button`)}
+        ctaButtonUrl="/contact"
+      />
+      
+      {/* Gallery Lightbox Modal */}
+      {galleryEnlarged && (
+        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4" onClick={() => setGalleryEnlarged(null)}>
+          <button onClick={() => setGalleryEnlarged(null)} className="absolute top-4 right-4 text-white hover:text-neutral-300 transition"><X className="h-8 w-8" /></button>
+          <button onClick={(e) => { e.stopPropagation(); navigateGallery('prev'); }} className="absolute left-4 text-white hover:text-neutral-300 transition p-2"><ChevronLeft className="h-10 w-10" /></button>
+          <img src={galleryEnlarged.src} alt={mediumBarrierGallery[galleryEnlarged.index]?.title || 'Enlarged view'} className="max-w-full max-h-[80vh] object-contain" onClick={(e) => e.stopPropagation()} />
+          <button onClick={(e) => { e.stopPropagation(); navigateGallery('next'); }} className="absolute right-4 text-white hover:text-neutral-300 transition p-2"><ChevronRight className="h-10 w-10" /></button>
+          <div className="absolute bottom-4 text-center text-white max-w-xl px-4">
+            <p className="text-lg font-semibold">{mediumBarrierGallery[galleryEnlarged.index]?.title}</p>
+            <p className="text-sm text-neutral-300">{mediumBarrierGallery[galleryEnlarged.index]?.desc}</p>
+            <p className="text-xs mt-2 text-neutral-400">{galleryEnlarged.index + 1} / {mediumBarrierGallery.length}</p>
+          </div>
+        </div>
+      )}
+    </>
   )
 }
 

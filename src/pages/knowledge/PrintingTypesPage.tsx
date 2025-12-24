@@ -1,9 +1,28 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Printer, Cpu, Layers, ArrowLeftRight, Sparkles, FileImage, CheckCircle, AlertCircle } from 'lucide-react';
+import { Printer, Cpu, Layers, ArrowLeftRight, Sparkles, FileImage, CheckCircle, AlertCircle, Image, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
+
+const printingGallery = [
+  { src: '/imgs/surface/ads/a_achieve_pack_main_kv_six_finishes_3535755.webp', title: 'Six Premium Finishes', desc: 'Overview of printing and surface treatment options' },
+  { src: '/imgs/surface/ads/a_gloss_finish_detail_5685549.webp', title: 'Gloss Finish Detail', desc: 'High-shine reflective surface for vibrant color printing' },
+  { src: '/imgs/surface/ads/a_matte_finish_detail_7483118.webp', title: 'Matte Finish Detail', desc: 'Smooth non-reflective surface for elegant print finish' },
+  { src: '/imgs/surface/ads/a_metallic_gold_closeup_5151764.webp', title: 'Metallic Printing', desc: 'Special metallic inks for premium brand positioning' },
+  { src: '/imgs/surface/ads/a_softtouch_pouch_correct_7961783.webp', title: 'Soft Touch Coating', desc: 'Velvety tactile finish applied over printed design' },
+  { src: '/imgs/surface/ads/a_foil_green_charcoal_7632386.webp', title: 'Hot Foil Stamping', desc: 'Metallic foil accents for logos and branding elements' },
+];
 
 const PrintingTypesPage = () => {
   const { t } = useTranslation();
+  const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null);
+  
+  const navigateGallery = (direction: 'prev' | 'next') => {
+    if (!galleryEnlarged) return;
+    let newIndex = direction === 'prev' ? galleryEnlarged.index - 1 : galleryEnlarged.index + 1;
+    if (newIndex < 0) newIndex = printingGallery.length - 1;
+    if (newIndex >= printingGallery.length) newIndex = 0;
+    setGalleryEnlarged({ src: printingGallery[newIndex].src, index: newIndex });
+  };
 
   const heroImage = '/imgs/seo-photos/a_printing_types_overview_4017325.webp';
   
@@ -21,6 +40,33 @@ const PrintingTypesPage = () => {
           <div className="bg-gradient-to-r from-primary-50 to-primary-100 p-5 rounded-xl mt-4">
             <h4 className="font-semibold text-primary-800 mb-2">Understanding your options helps you make the best choice for your brand</h4>
             <p className="text-sm">Let us guide you through the key differences and help you decide.</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'visual-gallery',
+      title: 'Printing & Finish Gallery',
+      icon: <Image className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>Explore different printing finishes and surface treatments. Click any image to enlarge:</p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            {printingGallery.map((img, index) => (
+              <button
+                key={index}
+                onClick={() => setGalleryEnlarged({ src: img.src, index })}
+                className="text-left bg-white rounded-xl border border-neutral-200 hover:border-primary-400 overflow-hidden transition-all hover:shadow-lg group"
+              >
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img src={img.src} alt={img.title} className="w-full h-full object-cover group-hover:scale-105 transition" />
+                </div>
+                <div className="p-3">
+                  <h5 className="font-semibold text-sm text-neutral-800 mb-1">{img.title}</h5>
+                  <p className="text-xs text-neutral-600 line-clamp-2">{img.desc}</p>
+                </div>
+              </button>
+            ))}
           </div>
         </div>
       )
@@ -394,21 +440,38 @@ const PrintingTypesPage = () => {
   ];
 
   return (
-    <SEOPageLayout
-      title={t(`${p}.title`)}
-      description={t(`${p}.description`)}
-      keywords={['digital printing', 'plate printing', 'flexographic printing', 'packaging printing', 'Pantone colors', 'CMYK printing']}
-      heroTitle={t(`${p}.heroTitle`)}
-      heroSubtitle={t(`${p}.heroSubtitle`)}
-      heroImage={heroImage}
-      sections={sections}
-      introSummary={t(`${p}.introSummary`)}
-      faqs={faqs}
-      ctaTitle={t(`${p}.cta.title`)}
-      ctaDescription={t(`${p}.cta.description`)}
-      ctaButtonText={t(`${p}.cta.button`)}
-      ctaButtonUrl="/contact"
-    />
+    <>
+      <SEOPageLayout
+        title={t(`${p}.title`)}
+        description={t(`${p}.description`)}
+        keywords={['digital printing', 'plate printing', 'flexographic printing', 'packaging printing', 'Pantone colors', 'CMYK printing']}
+        heroTitle={t(`${p}.heroTitle`)}
+        heroSubtitle={t(`${p}.heroSubtitle`)}
+        heroImage={heroImage}
+        sections={sections}
+        introSummary={t(`${p}.introSummary`)}
+        faqs={faqs}
+        ctaTitle={t(`${p}.cta.title`)}
+        ctaDescription={t(`${p}.cta.description`)}
+        ctaButtonText={t(`${p}.cta.button`)}
+        ctaButtonUrl="/contact"
+      />
+      
+      {/* Gallery Lightbox Modal */}
+      {galleryEnlarged && (
+        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4" onClick={() => setGalleryEnlarged(null)}>
+          <button onClick={() => setGalleryEnlarged(null)} className="absolute top-4 right-4 text-white hover:text-neutral-300 transition"><X className="h-8 w-8" /></button>
+          <button onClick={(e) => { e.stopPropagation(); navigateGallery('prev'); }} className="absolute left-4 text-white hover:text-neutral-300 transition p-2"><ChevronLeft className="h-10 w-10" /></button>
+          <img src={galleryEnlarged.src} alt={printingGallery[galleryEnlarged.index]?.title || 'Enlarged view'} className="max-w-full max-h-[80vh] object-contain" onClick={(e) => e.stopPropagation()} />
+          <button onClick={(e) => { e.stopPropagation(); navigateGallery('next'); }} className="absolute right-4 text-white hover:text-neutral-300 transition p-2"><ChevronRight className="h-10 w-10" /></button>
+          <div className="absolute bottom-4 text-center text-white max-w-xl px-4">
+            <p className="text-lg font-semibold">{printingGallery[galleryEnlarged.index]?.title}</p>
+            <p className="text-sm text-neutral-300">{printingGallery[galleryEnlarged.index]?.desc}</p>
+            <p className="text-xs mt-2 text-neutral-400">{galleryEnlarged.index + 1} / {printingGallery.length}</p>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
