@@ -1,6 +1,7 @@
 import React from 'react'
 import { Package, CheckCircle, Scissors, FileText, Target, Shield, Calendar, Mail, Download } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
+import ClickableImage from '../../components/ClickableImage'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -143,6 +144,37 @@ const FlatPouchesPage: React.FC = () => {
                 <li>• Matte/gloss finish</li>
                 <li>• Foil stamping</li>
               </ul>
+            </div>
+          </div>
+          
+          {/* Flat Pouch Examples Gallery */}
+          <div className="mt-6">
+            <h4 className="font-semibold text-neutral-800 mb-3">3-Side Seal Pouch Options</h4>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <ClickableImage 
+                src="/imgs/store/pouch shape/3-side.webp" 
+                alt="Three side seal flat pouch sachet" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="3-Side Seal"
+              />
+              <ClickableImage 
+                src="/imgs/store/barrier/2-clear.webp" 
+                alt="Clear flat pouch for product visibility" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Clear Film"
+              />
+              <ClickableImage 
+                src="/imgs/store/barrier/2-paper.webp" 
+                alt="Kraft paper flat sachet eco-friendly" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Kraft Paper"
+              />
+              <ClickableImage 
+                src="/imgs/store/eco-material/compostable.webp" 
+                alt="Compostable flat pouch sachet" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Compostable"
+              />
             </div>
           </div>
         </div>

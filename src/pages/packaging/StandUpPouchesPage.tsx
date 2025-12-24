@@ -1,6 +1,7 @@
 import React from 'react'
 import { Package, Leaf, Shield, CheckCircle, Zap, Award, MessageCircle, BookOpen, Building2, Target, Calendar, Phone, Download, Mail } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
+import ClickableImage from '../../components/ClickableImage'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -159,6 +160,68 @@ const StandUpPouchesPage: React.FC = () => {
                 {feature}
               </div>
             ))}
+          </div>
+          
+          {/* Closure Options Gallery */}
+          <div className="mt-6">
+            <h4 className="font-semibold text-neutral-800 mb-3">Closure Options for Stand-Up Pouches</h4>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <ClickableImage 
+                src="/imgs/store/closure/normal-zipper.webp" 
+                alt="Standard press-to-close zipper for resealable packaging" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Standard Zipper"
+              />
+              <ClickableImage 
+                src="/imgs/store/closure/slider-zipper.webp" 
+                alt="Slider zipper for easy open and close" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Slider Zipper"
+              />
+              <ClickableImage 
+                src="/imgs/store/closure/child-resistant-zipper.webp" 
+                alt="Child resistant zipper for cannabis and pharmaceutical packaging" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Child Resistant"
+              />
+              <ClickableImage 
+                src="/imgs/store/closure/tin-tie.webp" 
+                alt="Tin tie closure for coffee bags fold over seal" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Tin Tie"
+              />
+            </div>
+          </div>
+          
+          {/* Surface Finish Gallery */}
+          <div className="mt-6">
+            <h4 className="font-semibold text-neutral-800 mb-3">Surface Finishes & Special Effects</h4>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <ClickableImage 
+                src="/imgs/store/surface/matt.webp" 
+                alt="Matte finish lamination for premium look" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Matte Finish"
+              />
+              <ClickableImage 
+                src="/imgs/store/surface/glossy.webp" 
+                alt="Glossy finish lamination for vibrant colors" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Glossy Finish"
+              />
+              <ClickableImage 
+                src="/imgs/store/surface/soft-touch.webp" 
+                alt="Soft touch lamination for luxury tactile feel" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Soft Touch"
+              />
+              <ClickableImage 
+                src="/imgs/store/surface/stamp-foil.webp" 
+                alt="Hot foil stamping for luxury branding" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Foil Stamping"
+              />
+            </div>
           </div>
         </div>
       )

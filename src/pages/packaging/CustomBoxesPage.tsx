@@ -1,6 +1,7 @@
 import React from 'react'
 import { Package, CheckCircle, Shield, Target, Calendar, Phone, Download, Mail, Leaf, Award, TrendingUp, MessageCircle } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
+import ClickableImage from '../../components/ClickableImage'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -139,6 +140,37 @@ const CustomBoxesPage: React.FC = () => {
             <div className="bg-red-50 p-4 rounded-lg border border-red-200">
               <h4 className="font-semibold text-red-800 mb-2">💪 Rigid Construction</h4>
               <p className="text-sm text-red-700">2.0mm grayboard for premium structural integrity</p>
+            </div>
+          </div>
+          
+          {/* Box Types Gallery */}
+          <div className="mt-6">
+            <h4 className="font-semibold text-neutral-800 mb-3">Box Types & Styles</h4>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <ClickableImage 
+                src="/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp" 
+                alt="Corrugated mailer box for shipping and e-commerce" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Corrugated Mailer"
+              />
+              <ClickableImage 
+                src="/imgs/store/box/tuck-box/8a2918bb-a48c-44a3-875d-6e766e5f305f.webp" 
+                alt="Tuck box carton for chocolate and confectionery" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Tuck Box Carton"
+              />
+              <ClickableImage 
+                src="/imgs/store/surface/stamp-foil.webp" 
+                alt="Gold foil stamping for luxury box packaging" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Gold Foil Finish"
+              />
+              <ClickableImage 
+                src="/imgs/store/surface/emboss.webp" 
+                alt="Embossed texture for premium box packaging" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Embossed Texture"
+              />
             </div>
           </div>
         </div>

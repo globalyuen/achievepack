@@ -1,6 +1,7 @@
 import React from 'react'
 import { Package, Leaf, CheckCircle, Award, BoxSelect, Target, Shield, Calendar, Phone, Download, Mail, MessageCircle } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
+import ClickableImage from '../../components/ClickableImage'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -127,6 +128,37 @@ const FlatBottomBagsPage: React.FC = () => {
             <div className="border border-purple-200 rounded-lg p-4">
               <h4 className="font-semibold text-purple-800 mb-2">High Barrier</h4>
               <p className="text-sm">Metallized or aluminum for maximum freshness protection.</p>
+            </div>
+          </div>
+          
+          {/* Material Options Gallery */}
+          <div className="mt-6">
+            <h4 className="font-semibold text-neutral-800 mb-3">Flat Bottom Bag Material Samples</h4>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <ClickableImage 
+                src="/imgs/store/pouch shape/flat-bottom.webp" 
+                alt="Flat bottom bag structure showing box-like base" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Flat Bottom Structure"
+              />
+              <ClickableImage 
+                src="/imgs/store/barrier/4-alu.webp" 
+                alt="High barrier aluminum flat bottom bag" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Aluminum Barrier"
+              />
+              <ClickableImage 
+                src="/imgs/store/eco-material/kraft.webp" 
+                alt="Kraft paper flat bottom bag eco-friendly" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Kraft Paper"
+              />
+              <ClickableImage 
+                src="/imgs/store/closure/tin-tie.webp" 
+                alt="Tin tie closure for coffee flat bottom bags" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Tin Tie Closure"
+              />
             </div>
           </div>
         </div>

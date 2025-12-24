@@ -1,6 +1,7 @@
 import React from 'react'
 import { Droplets, Package, CheckCircle, Shield, Settings, MessageCircle, Target, Calendar, Phone, Download, Mail } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
+import ClickableImage from '../../components/ClickableImage'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -145,6 +146,37 @@ const SpoutPouchesPage: React.FC = () => {
                 <li>• Child-resistant (baby food)</li>
                 <li>• Tamper-evident bands</li>
               </ul>
+            </div>
+          </div>
+          
+          {/* Spout Pouch Examples Gallery */}
+          <div className="mt-6">
+            <h4 className="font-semibold text-neutral-800 mb-3">Spout Pouch Options</h4>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <ClickableImage 
+                src="/imgs/store/closure/spout.webp" 
+                alt="Spout cap for liquid and beverage packaging" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Spout Cap"
+              />
+              <ClickableImage 
+                src="/imgs/pouch-shape/a_spout_pouch_isolated_6857112.webp" 
+                alt="Spout pouch for baby food and beverages" 
+                className="w-full h-28 object-contain rounded-lg bg-neutral-50"
+                caption="Spout Pouch"
+              />
+              <ClickableImage 
+                src="/imgs/store/barrier/4-alu.webp" 
+                alt="High barrier aluminum spout pouch" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="High Barrier"
+              />
+              <ClickableImage 
+                src="/imgs/store/surface/glossy.webp" 
+                alt="Glossy finish for premium spout pouches" 
+                className="w-full h-28 object-cover rounded-lg"
+                caption="Glossy Finish"
+              />
             </div>
           </div>
         </div>
