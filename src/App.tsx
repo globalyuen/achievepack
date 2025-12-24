@@ -1786,6 +1786,19 @@ ${formData.message}`
               </ul>
             </div>
 
+            {/* Solutions */}
+            <div>
+              <h4 className="text-sm font-semibold mb-2">Solutions</h4>
+              <ul className="space-y-1 text-neutral-400 text-xs">
+                <li><Link to="/solutions/startup-founder" className="hover:text-primary-500">For Startups</Link></li>
+                <li><Link to="/solutions/ecommerce-brand" className="hover:text-primary-500">For E-commerce</Link></li>
+                <li><Link to="/solutions/coffee-roaster" className="hover:text-primary-500">For Coffee Roasters</Link></li>
+                <li><Link to="/solutions/artisan-producer" className="hover:text-primary-500">For Artisan Makers</Link></li>
+                <li><Link to="/solutions/snack-brand-manager" className="hover:text-primary-500">For Snack Brands</Link></li>
+                <li><Link to="/solutions/corporate-sustainability" className="hover:text-primary-500">For Corporate ESG</Link></li>
+              </ul>
+            </div>
+
             {/* Structure Specs */}
             <div>
               <h4 className="text-sm font-semibold mb-2">Structure Specs</h4>

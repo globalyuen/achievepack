@@ -162,6 +162,16 @@ import RecyclableMonoMaterialPage from './pages/products/RecyclableMonoMaterialP
 import CoffeeBagsDegassingValvePage from './pages/products/CoffeeBagsDegassingValvePage'
 import LowMOQPackagingPage from './pages/products/LowMOQPackagingPage'
 
+// Solutions Pages - Persona Based SEO
+import StartupFounderPage from './pages/solutions/StartupFounderPage'
+import EcommerceBrandPage from './pages/solutions/EcommerceBrandPage'
+import CorporateSustainabilityPage from './pages/solutions/CorporateSustainabilityPage'
+import FoodManufacturerPage from './pages/solutions/FoodManufacturerPage'
+import ProductDeveloperPage from './pages/solutions/ProductDeveloperPage'
+import CoffeeRoasterPage from './pages/solutions/CoffeeRoasterPage'
+import ArtisanProducerPage from './pages/solutions/ArtisanProducerPage'
+import SnackBrandManagerPage from './pages/solutions/SnackBrandManagerPage'
+
 // 404 Page
 import NotFoundPage from './pages/NotFoundPage'
 
@@ -282,6 +292,16 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/products/recyclable-mono-material-pouches" element={<RecyclableMonoMaterialPage />} />
               <Route path="/products/coffee-bags-degassing-valve" element={<CoffeeBagsDegassingValvePage />} />
               <Route path="/products/low-moq-packaging" element={<LowMOQPackagingPage />} />
+
+              {/* Solutions Pages - Persona Based SEO */}
+              <Route path="/solutions/startup-founder" element={<StartupFounderPage />} />
+              <Route path="/solutions/ecommerce-brand" element={<EcommerceBrandPage />} />
+              <Route path="/solutions/corporate-sustainability" element={<CorporateSustainabilityPage />} />
+              <Route path="/solutions/food-manufacturer" element={<FoodManufacturerPage />} />
+              <Route path="/solutions/product-developer" element={<ProductDeveloperPage />} />
+              <Route path="/solutions/coffee-roaster" element={<CoffeeRoasterPage />} />
+              <Route path="/solutions/artisan-producer" element={<ArtisanProducerPage />} />
+              <Route path="/solutions/snack-brand-manager" element={<SnackBrandManagerPage />} />
 
               {/* Spec Pages - Material Structures */}
               <Route path="/spec/pcr-pet-duplex-clear" element={<PcrPetDuplexClearPage />} />
