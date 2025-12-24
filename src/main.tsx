@@ -172,6 +172,18 @@ import CoffeeRoasterPage from './pages/solutions/CoffeeRoasterPage'
 import ArtisanProducerPage from './pages/solutions/ArtisanProducerPage'
 import SnackBrandManagerPage from './pages/solutions/SnackBrandManagerPage'
 
+// Topics Pages - AI Search Volume SEO
+import EcoFriendlyFoodPackagingPage from './pages/topics/EcoFriendlyFoodPackagingPage'
+import DTCSustainablePackagingPage from './pages/topics/DTCSustainablePackagingPage'
+import GreenCoffeeMaterialsPage from './pages/topics/GreenCoffeeMaterialsPage'
+import DigitalPrintingEcoPackagingPage from './pages/topics/DigitalPrintingEcoPackagingPage'
+import RecyclableSnackPackagingPage from './pages/topics/RecyclableSnackPackagingPage'
+import CustomPrintedSustainablePouchesPage from './pages/topics/CustomPrintedSustainablePouchesPage'
+import EcoPackagingRegulationsPage from './pages/topics/EcoPackagingRegulationsPage'
+import CustomCompostablePouchSuppliersPage from './pages/topics/CustomCompostablePouchSuppliersPage'
+import LowMOQStartupPackagingPage from './pages/topics/LowMOQStartupPackagingPage'
+import CompostableBabyFoodBagsPage from './pages/topics/CompostableBabyFoodBagsPage'
+
 // 404 Page
 import NotFoundPage from './pages/NotFoundPage'
 
@@ -302,6 +314,18 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/solutions/coffee-roaster" element={<CoffeeRoasterPage />} />
               <Route path="/solutions/artisan-producer" element={<ArtisanProducerPage />} />
               <Route path="/solutions/snack-brand-manager" element={<SnackBrandManagerPage />} />
+
+              {/* Topics Pages - AI Search Volume SEO */}
+              <Route path="/topics/eco-friendly-food-packaging" element={<EcoFriendlyFoodPackagingPage />} />
+              <Route path="/topics/dtc-sustainable-packaging" element={<DTCSustainablePackagingPage />} />
+              <Route path="/topics/green-coffee-materials" element={<GreenCoffeeMaterialsPage />} />
+              <Route path="/topics/digital-printing-eco-packaging" element={<DigitalPrintingEcoPackagingPage />} />
+              <Route path="/topics/recyclable-snack-packaging" element={<RecyclableSnackPackagingPage />} />
+              <Route path="/topics/custom-printed-sustainable-pouches" element={<CustomPrintedSustainablePouchesPage />} />
+              <Route path="/topics/eco-packaging-regulations" element={<EcoPackagingRegulationsPage />} />
+              <Route path="/topics/compostable-pouch-suppliers" element={<CustomCompostablePouchSuppliersPage />} />
+              <Route path="/topics/low-moq-startup-packaging" element={<LowMOQStartupPackagingPage />} />
+              <Route path="/topics/compostable-baby-food-bags" element={<CompostableBabyFoodBagsPage />} />
 
               {/* Spec Pages - Material Structures */}
               <Route path="/spec/pcr-pet-duplex-clear" element={<PcrPetDuplexClearPage />} />
