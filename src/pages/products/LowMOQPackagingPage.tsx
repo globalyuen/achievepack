@@ -65,17 +65,17 @@ const LowMOQPackagingPage: React.FC = () => {
           {/* Image Gallery */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-6">
             <ClickableImage
-              src="/imgs/industry/ads/a_specialty_roaster_studio_scene_1655469.webp"
+              src="/imgs/seo-photos/a_bean_bole_coffee_roastery_8131919.webp"
               alt="Small batch coffee roaster packaging"
               className="w-full h-40 object-cover rounded-lg"
             />
             <ClickableImage
-              src="/imgs/industry/ads/an_artisan_snack_brand_lifestyle_1655571.webp"
+              src="/imgs/seo-photos/a_artisan_chocolate_abu_dhabi_luxury_pouch_4218900.webp"
               alt="Artisan snack brand low MOQ packaging"
               className="w-full h-40 object-cover rounded-lg"
             />
             <ClickableImage
-              src="/imgs/industry/ads/a_premium_tea_brand_lifestyle_1655505.webp"
+              src="/imgs/seo-photos/a_tea_craft_australia_garden_morning_8955209.webp"
               alt="Premium tea brand small batch packaging"
               className="w-full h-40 object-cover rounded-lg"
             />
@@ -339,7 +339,7 @@ const LowMOQPackagingPage: React.FC = () => {
             <Link to="/packaging/stand-up-pouches" className="group">
               <div className="bg-white p-4 rounded-xl border border-gray-200 hover:shadow-lg transition-all">
                 <ClickableImage
-                  src="/imgs/pouch/stand-up-pouch.webp"
+                  src="/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp"
                   alt="Stand up pouch low MOQ"
                   className="w-full h-32 object-contain mb-3"
                 />
@@ -351,7 +351,7 @@ const LowMOQPackagingPage: React.FC = () => {
             <Link to="/packaging/flat-bottom-bags" className="group">
               <div className="bg-white p-4 rounded-xl border border-gray-200 hover:shadow-lg transition-all">
                 <ClickableImage
-                  src="/imgs/pouch/flat-bottom-bag.webp"
+                  src="/imgs/pouch-shape/a_flat_bottom_pouch_isolated_7901973.webp"
                   alt="Flat bottom bag low MOQ"
                   className="w-full h-32 object-contain mb-3"
                 />
@@ -363,7 +363,7 @@ const LowMOQPackagingPage: React.FC = () => {
             <Link to="/packaging/side-gusset-bags" className="group">
               <div className="bg-white p-4 rounded-xl border border-gray-200 hover:shadow-lg transition-all">
                 <ClickableImage
-                  src="/imgs/pouch/side-gusset-bag.webp"
+                  src="/imgs/pouch-shape/a_side_gusset_pouch_isolated_2545871.webp"
                   alt="Side gusset bag low MOQ"
                   className="w-full h-32 object-contain mb-3"
                 />
@@ -588,7 +588,7 @@ const LowMOQPackagingPage: React.FC = () => {
         heroSubtitle="Custom Printed Sustainable Pouches | Minimum 100 Pieces | Fast USA Delivery"
         introSummary="Custom printed sustainable packaging with the industry's lowest minimum order quantity - just 100 pieces. Perfect for startups, small-batch producers, and e-commerce brands testing new products."
         sections={sections}
-        heroImage="/imgs/industry/ads/an_artisan_snack_brand_lifestyle_1655571.webp"
+        heroImage="/imgs/seo-photos/a_artisan_chocolate_abu_dhabi_luxury_pouch_4218900.webp"
       />
     </>
   )
