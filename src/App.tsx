@@ -1774,6 +1774,18 @@ ${formData.message}`
               </ul>
             </div>
 
+            {/* Product Guides */}
+            <div>
+              <h4 className="text-sm font-semibold mb-2">Product Guides</h4>
+              <ul className="space-y-1 text-neutral-400 text-xs">
+                <li><Link to="/products/compostable-coffee-bags" className="hover:text-primary-500">Compostable Coffee Bags</Link></li>
+                <li><Link to="/products/compostable-stand-up-pouches" className="hover:text-primary-500">Compostable Stand-Up</Link></li>
+                <li><Link to="/products/recyclable-mono-material-pouches" className="hover:text-primary-500">Recyclable Mono-Material</Link></li>
+                <li><Link to="/products/coffee-bags-degassing-valve" className="hover:text-primary-500">Coffee Degassing Valve</Link></li>
+                <li><Link to="/products/low-moq-packaging" className="hover:text-primary-500">Low MOQ Packaging</Link></li>
+              </ul>
+            </div>
+
             {/* Structure Specs */}
             <div>
               <h4 className="text-sm font-semibold mb-2">Structure Specs</h4>

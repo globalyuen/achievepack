@@ -561,6 +561,18 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                 </ul>
               </div>
 
+              {/* Product Guides */}
+              <div>
+                <h4 className="font-semibold text-sm mb-2">Product Guides</h4>
+                <ul className="space-y-1 text-xs text-neutral-400">
+                  <li><Link to="/products/compostable-coffee-bags" className="hover:text-primary-400">Compostable Coffee Bags</Link></li>
+                  <li><Link to="/products/compostable-stand-up-pouches" className="hover:text-primary-400">Compostable Stand-Up</Link></li>
+                  <li><Link to="/products/recyclable-mono-material-pouches" className="hover:text-primary-400">Recyclable Mono-Material</Link></li>
+                  <li><Link to="/products/coffee-bags-degassing-valve" className="hover:text-primary-400">Coffee Degassing Valve</Link></li>
+                  <li><Link to="/products/low-moq-packaging" className="hover:text-primary-400">Low MOQ Packaging</Link></li>
+                </ul>
+              </div>
+
               {/* Structure Specs */}
               <div>
                 <h4 className="font-semibold text-sm mb-2">Structure Specs</h4>
