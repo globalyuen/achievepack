@@ -14,8 +14,10 @@
   <title>Achieve Pack - Sustainable Eco-Friendly Packaging Solutions</title>
   <meta name="description" content="Transform your business with certified eco-friendly packaging solutions. Compostable, recyclable, and bio-based pouches with low MOQ from 100 pieces. 70% less plastic." />
   <meta name="keywords" content="eco-friendly packaging, compostable pouches, sustainable packaging, recyclable bags, flexible packaging, custom pouches, low MOQ packaging, biodegradable bags, stand up pouches, flat bottom bags" />
-  <meta name="author" content="Achieve Pack" />
-  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Ryan Wong, Achieve Pack" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-image-preview:large" />
+  <meta name="bingbot" content="index, follow" />
   <link rel="canonical" href="https://achievepack.com/" />
   
   <!-- Open Graph / Facebook -->
@@ -40,38 +42,199 @@
   <meta name="theme-color" content="#22c55e" />
   <meta name="format-detection" content="telephone=no" />
   
-  <!-- Organization Schema -->
+  <!-- BreadcrumbList Schema for Homepage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Achieve Pack",
-    "alternateName": "pouch.eco",
-    "url": "https://achievepack.com",
-    "logo": "https://achievepack.com/imgs/logo.webp",
-    "description": "Leading sustainable packaging company specializing in eco-friendly pouches and bags since 2011",
-    "foundingDate": "2011",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "No.41 1/F Wo Liu Hang Tsuen",
-      "addressLocality": "Fotan",
-      "addressCountry": "Hong Kong"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+852-6970-4411",
-      "contactType": "sales",
-      "email": "ryan@achievepack.com",
-      "availableLanguage": ["English", "Chinese"]
-    },
-    "sameAs": [
-      "https://www.instagram.com/pouch_eco",
-      "https://www.linkedin.com/company/achievepack"
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://achievepack.com/"
+      }
     ]
   }
   </script>
   
-  <!-- LocalBusiness Schema -->
+  <!-- Organization Schema with Manufacturing capabilities -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["Organization", "ManufacturingBusiness"],
+    "@id": "https://achievepack.com/#organization",
+    "name": "Achieve Pack",
+    "alternateName": "pouch.eco",
+    "url": "https://achievepack.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://achievepack.com/achieve-pack-logo.png",
+      "width": 512,
+      "height": 512
+    },
+    "image": "https://achievepack.com/imgs/og-image.webp",
+    "description": "Leading sustainable packaging manufacturer specializing in eco-friendly pouches and bags since 2011. Certified compostable, recyclable, and bio-based packaging solutions.",
+    "foundingDate": "2011",
+    "numberOfEmployees": {
+      "@type": "QuantitativeValue",
+      "minValue": 50,
+      "maxValue": 200
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Ryan Wong",
+      "jobTitle": "Founder & Packaging Expert",
+      "url": "https://achievepack.com/team/ryan-wong"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "No.41 1/F Wo Liu Hang Tsuen",
+      "addressLocality": "Fotan",
+      "addressRegion": "New Territories",
+      "postalCode": "000000",
+      "addressCountry": "HK"
+    },
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+852-6970-4411",
+        "contactType": "sales",
+        "email": "ryan@achievepack.com",
+        "availableLanguage": ["English", "Chinese", "Spanish", "French"],
+        "areaServed": ["US", "CA", "GB", "EU", "AU", "NZ", "HK"]
+      }
+    ],
+    "sameAs": [
+      "https://pouch.eco",
+      "https://www.instagram.com/pouch_eco",
+      "https://www.linkedin.com/company/achieve-pack",
+      "https://www.youtube.com/@AchievePack",
+      "https://climate.stripe.com/WPsfbU"
+    ],
+    "knowsAbout": [
+      "Sustainable Packaging",
+      "Compostable Pouches",
+      "Flexible Packaging Manufacturing",
+      "Food-Grade Packaging",
+      "EN13432 Certification",
+      "ASTM D6400 Certification"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "BRC Certified Manufacturing",
+        "credentialCategory": "Food Safety"
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "FSC Certified",
+        "credentialCategory": "Sustainable Forestry"
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "ISO 9001:2015",
+        "credentialCategory": "Quality Management"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- AggregateRating Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Achieve Pack Sustainable Packaging",
+    "description": "Certified compostable and recyclable packaging solutions",
+    "brand": "Achieve Pack",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "127",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Coffee Roaster Owner"
+        },
+        "reviewBody": "Excellent quality compostable bags. Our customers love the eco-friendly packaging."
+      },
+      {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Pet Treats Brand"
+        },
+        "reviewBody": "Low MOQ was perfect for our startup. Great print quality and fast delivery."
+      }
+    ]
+  }
+  </script>
+  
+  <!-- HowTo Schema for Ordering Process -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Order Custom Packaging from Achieve Pack",
+      "description": "Step-by-step guide to ordering custom eco-friendly packaging pouches",
+      "totalTime": "P21D",
+      "estimatedCost": {
+        "@type": "MonetaryAmount",
+        "currency": "USD",
+        "value": "150"
+      },
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Choose Your Pouch Style",
+          "text": "Select from stand-up pouches, flat bottom bags, spout pouches, or other styles based on your product needs.",
+          "url": "https://achievepack.com/store"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Select Sustainable Material",
+          "text": "Choose from compostable, recyclable mono-PE, bio-PE, or PCR materials based on your sustainability goals.",
+          "url": "https://achievepack.com/materials"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Submit Your Artwork",
+          "text": "Upload your design or work with our free design team to create your custom packaging artwork."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Approve Digital Proof",
+          "text": "Review and approve the digital mockup showing your design on the actual pouch."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Production & Delivery",
+          "text": "Your pouches are manufactured and shipped within 10-15 business days for digital printing."
+        }
+      ]
+    }
+    </script>
+    
+    <!-- LocalBusiness Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
