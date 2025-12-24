@@ -33,7 +33,7 @@ const CompostableCoffeeBagsPage: React.FC = () => {
           
           <div className="mt-6">
             <ClickableImage 
-              src="/imgs/industry/ads/a_specialty_roaster_studio_scene_1655469.webp" 
+              src="/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp" 
               alt="Compostable coffee bags with degassing valve for specialty roasters" 
               className="w-full rounded-lg shadow-md"
               caption="Premium compostable coffee bags with degassing valve"
@@ -478,7 +478,7 @@ const CompostableCoffeeBagsPage: React.FC = () => {
         heroSubtitle="ASTM D6400 & EN 13432 Certified | Degassing Valve | Low MOQ from 100"
         introSummary="Premium compostable coffee bags designed for specialty roasters. Our ASTM D6400 and EN 13432 certified packaging features integrated degassing valves, resealable closures, and is available from just 100 pieces minimum order."
         sections={sections}
-        heroImage="/imgs/industry/ads/a_specialty_roaster_studio_scene_1655469.webp"
+        heroImage="/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp"
       />
     </>
   )
