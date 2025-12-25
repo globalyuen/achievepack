@@ -608,6 +608,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                 <ul className="space-y-1 text-xs text-neutral-400">
                   <li><Link to="/function/microwave-steam-bags" className="hover:text-primary-400">Microwave Steam Bags</Link></li>
                   <li><Link to="/function/carbon-neutral-bags" className="hover:text-primary-400">Carbon Neutral Bags</Link></li>
+                  <li><Link to="/function/spout-pouches-juice" className="hover:text-primary-400">Spout Pouches Juice</Link></li>
                 </ul>
               </div>
 
