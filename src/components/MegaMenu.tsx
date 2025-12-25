@@ -197,7 +197,7 @@ function MegaMenuDropdown({ categories, adsImages, shopAllLink, shopAllLabel, on
                 className="flex-shrink-0 group"
               >
                 <div 
-                  className="w-[120px] lg:w-[200px] bg-neutral-100 rounded-lg overflow-hidden transition-all duration-200 group-hover:shadow-lg group-hover:ring-2 group-hover:ring-primary-400 group-hover:scale-[1.02]"
+                  className="w-[120px] lg:w-[200px] bg-neutral-100 rounded-lg overflow-hidden"
                   style={{ aspectRatio: '9/16' }}
                 >
                   <img
@@ -386,7 +386,7 @@ export default function MegaMenu() {
                           className="flex-shrink-0 group"
                         >
                           <div 
-                            className="w-[120px] lg:w-[200px] bg-neutral-100 rounded-lg overflow-hidden transition-all duration-200 group-hover:shadow-lg group-hover:ring-2 group-hover:ring-primary-400 group-hover:scale-[1.02]"
+                            className="w-[120px] lg:w-[200px] bg-neutral-100 rounded-lg overflow-hidden"
                             style={{ aspectRatio: '9/16' }}
                           >
                             <img
@@ -479,7 +479,7 @@ export default function MegaMenu() {
                           className="flex-shrink-0 group"
                         >
                           <div 
-                            className="w-[120px] lg:w-[200px] bg-neutral-100 rounded-lg overflow-hidden transition-all duration-200 group-hover:shadow-lg group-hover:ring-2 group-hover:ring-primary-400 group-hover:scale-[1.02]"
+                            className="w-[120px] lg:w-[200px] bg-neutral-100 rounded-lg overflow-hidden"
                             style={{ aspectRatio: '9/16' }}
                           >
                             <img
