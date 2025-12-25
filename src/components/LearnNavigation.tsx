@@ -1,19 +1,33 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { ChevronRight, ChevronDown, Leaf, Package, Factory, Coffee, FileText, BookOpen, Users, Award } from 'lucide-react'
+import { ChevronRight, ChevronDown, Leaf, Package, Factory, FileText, BookOpen, Users, Award, ShoppingBag, Globe, Boxes, HelpCircle } from 'lucide-react'
 
-// All SEO pages mapped with illustrated images
+// All SEO pages mapped with illustrated images - COMPLETE LIST
 const LEARN_PAGES = {
   materials: {
     title: 'Materials',
     icon: <Leaf className="h-4 w-4" />,
     pages: [
+      { name: 'Compostable Overview', link: '/materials/compostable', image: '/imgs/illustrated/a_compostable_v3_9254998.webp' },
       { name: 'Home Compostable', link: '/materials/home-compostable', image: '/imgs/illustrated/a_home_compostable_card_v1_2166648.webp' },
       { name: 'Industrial Compostable', link: '/materials/industrial-compostable', image: '/imgs/illustrated/a_industrial_compostable_card_v1_5916306.webp' },
       { name: 'Recyclable Mono PE', link: '/materials/recyclable-mono-pe', image: '/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp' },
       { name: 'Recyclable Mono PP', link: '/materials/recyclable-mono-pp', image: '/imgs/illustrated/a_recyclable_mono_pp_card_v2_2805205.webp' },
       { name: 'Bio-PE', link: '/materials/bio-pe', image: '/imgs/illustrated/a_bio_pe_card_v3_4603248.webp' },
       { name: 'PCR Recycled', link: '/materials/pcr', image: '/imgs/illustrated/a_pcr_card_v1_0334493.webp' },
+    ]
+  },
+  packaging: {
+    title: 'Packaging Shapes',
+    icon: <Boxes className="h-4 w-4" />,
+    pages: [
+      { name: 'Stand Up Pouches', link: '/packaging/stand-up-pouches', image: '/imgs/illustrated/a_achievepack_standup_pouches_9884402.webp' },
+      { name: 'Flat Bottom Bags', link: '/packaging/flat-bottom-bags', image: '/imgs/illustrated/a_achievepack_flatbottom_bags_0519153.webp' },
+      { name: 'Side Gusset Bags', link: '/packaging/side-gusset-bags', image: '/imgs/illustrated/a_achievepack_sidegusset_bags_7074883.webp' },
+      { name: 'Flat Pouches', link: '/packaging/flat-pouches', image: '/imgs/illustrated/a_achievepack_flat_pouches_0260646.webp' },
+      { name: 'Spout Pouches', link: '/packaging/spout-pouches', image: '/imgs/illustrated/a_achievepack_spout_pouches_4058117.webp' },
+      { name: 'Vacuum Pouches', link: '/packaging/vacuum-pouches', image: '/imgs/illustrated/a_monomaterial_warm_4127359.webp' },
+      { name: 'Custom Boxes', link: '/packaging/custom-boxes', image: '/imgs/illustrated/a_achievepack_custom_boxes_6574270.webp' },
     ]
   },
   options: {
@@ -25,7 +39,9 @@ const LEARN_PAGES = {
       { name: 'Reclosure Options', link: '/features/reclosure-options', image: '/imgs/illustrated/a_reclosure_options_close_detail_b_4502553.webp' },
       { name: 'Surface Finishes', link: '/features/surface-finish', image: '/imgs/illustrated/a_surface_finish_close_detail_b_2163248.webp' },
       { name: 'Barrier Options', link: '/features/barrier-options', image: '/imgs/illustrated/a_barrier_options_presentation_c_6124347.webp' },
-      { name: 'All Options', link: '/features/all-options', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
+      { name: 'Low Barrier', link: '/features/low-barrier', image: '/imgs/illustrated/a_lowbarrier_presentation_c_9188452.webp' },
+      { name: 'Medium Barrier', link: '/features/medium-barrier', image: '/imgs/illustrated/a_mediumbarrier_presentation_c_5439721.webp' },
+      { name: 'High Barrier', link: '/features/high-barrier', image: '/imgs/illustrated/a_highbarrier_presentation_c_3827146.webp' },
     ]
   },
   industries: {
@@ -38,6 +54,32 @@ const LEARN_PAGES = {
       { name: 'Supplements', link: '/industry/supplements-powders', image: '/imgs/illustrated/a_supplements_hero_v1_0434970.webp' },
       { name: 'Baby Food', link: '/industry/baby-food', image: '/imgs/illustrated/a_baby_food_hero_v1_7008467.webp' },
       { name: 'Frozen Food', link: '/industry/frozen-food', image: '/imgs/illustrated/a_frozen_food_hero_v2_0166133.webp' },
+      { name: 'Sauces & Condiments', link: '/industry/sauces-condiments', image: '/imgs/illustrated/a_sauces_condiments_hero_v1_6823941.webp' },
+    ]
+  },
+  products: {
+    title: 'Products',
+    icon: <ShoppingBag className="h-4 w-4" />,
+    pages: [
+      { name: 'Compostable Coffee Bags', link: '/products/compostable-coffee-bags', image: '/imgs/illustrated/a_coffee_roaster_variation_1_6758424.webp' },
+      { name: 'Compostable Stand Up Pouches', link: '/products/compostable-stand-up-pouches', image: '/imgs/illustrated/a_compostable_v3_9254998.webp' },
+      { name: 'Recyclable Mono Pouches', link: '/products/recyclable-mono-material-pouches', image: '/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp' },
+      { name: 'Coffee Bags with Valve', link: '/products/coffee-bags-degassing-valve', image: '/imgs/illustrated/a_topic_03_coffee_materials_var_c_6491567.webp' },
+      { name: 'Low MOQ Packaging', link: '/products/low-moq-packaging', image: '/imgs/illustrated/a_lowmoq_warm_3372406.webp' },
+    ]
+  },
+  solutions: {
+    title: 'Solutions',
+    icon: <Users className="h-4 w-4" />,
+    pages: [
+      { name: 'Startup Founder', link: '/solutions/startup-founder', image: '/imgs/illustrated/a_startup_founder_variation_3_2900816.webp' },
+      { name: 'Ecommerce Brand', link: '/solutions/ecommerce-brand', image: '/imgs/illustrated/a_ecommerce_brand_variation_2_5348466.webp' },
+      { name: 'Corporate Sustainability', link: '/solutions/corporate-sustainability', image: '/imgs/illustrated/a_corporate_sustainability_variation_1_1739210.webp' },
+      { name: 'Food Manufacturer', link: '/solutions/food-manufacturer', image: '/imgs/illustrated/a_food_manufacturer_variation_1_8234567.webp' },
+      { name: 'Product Developer', link: '/solutions/product-developer', image: '/imgs/illustrated/a_product_developer_variation_2_7123456.webp' },
+      { name: 'Coffee Roaster', link: '/solutions/coffee-roaster', image: '/imgs/illustrated/a_coffee_roaster_variation_1_6758424.webp' },
+      { name: 'Artisan Producer', link: '/solutions/artisan-producer', image: '/imgs/illustrated/a_artisan_producer_variation_1_5454378.webp' },
+      { name: 'Snack Brand Manager', link: '/solutions/snack-brand-manager', image: '/imgs/illustrated/a_snack_brand_variation_1_5605894.webp' },
     ]
   },
   topics: {
@@ -48,26 +90,59 @@ const LEARN_PAGES = {
       { name: 'DTC Packaging', link: '/topics/dtc-sustainable-packaging', image: '/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.webp' },
       { name: 'Coffee Materials', link: '/topics/green-coffee-materials', image: '/imgs/illustrated/a_topic_03_coffee_materials_var_c_6491567.webp' },
       { name: 'Digital Printing Guide', link: '/topics/digital-printing-eco-packaging', image: '/imgs/illustrated/a_topic_04_digital_print_var_b_3318604.webp' },
+      { name: 'Recyclable Snack Packaging', link: '/topics/recyclable-snack-packaging', image: '/imgs/illustrated/a_snack_brand_variation_1_5605894.webp' },
+      { name: 'Custom Printed Pouches', link: '/topics/custom-printed-sustainable-pouches', image: '/imgs/illustrated/a_digital_printing_close_detail_b_7761926.webp' },
+      { name: 'Packaging Regulations', link: '/topics/eco-packaging-regulations', image: '/imgs/illustrated/a_corporate_sustainability_variation_1_1739210.webp' },
+      { name: 'Compostable Suppliers', link: '/topics/compostable-pouch-suppliers', image: '/imgs/illustrated/a_compostable_v3_9254998.webp' },
+      { name: 'Low MOQ Startup', link: '/topics/low-moq-startup-packaging', image: '/imgs/illustrated/a_startup_founder_variation_3_2900816.webp' },
+      { name: 'Baby Food Bags', link: '/topics/compostable-baby-food-bags', image: '/imgs/illustrated/a_baby_food_hero_v1_7008467.webp' },
+    ]
+  },
+  caseStudies: {
+    title: 'Case Studies',
+    icon: <Award className="h-4 w-4" />,
+    pages: [
+      { name: 'Coffee Roastery', link: '/case-studies/coffee-roastery', image: '/imgs/illustrated/a_coffee_roaster_variation_1_6758424.webp' },
+      { name: 'Tea Brand', link: '/case-studies/tea-brand', image: '/imgs/illustrated/a_coffee_tea_hero_v1_1905321.webp' },
+      { name: 'Superfood Brand', link: '/case-studies/superfood-brand', image: '/imgs/illustrated/a_supplements_hero_v1_0434970.webp' },
+      { name: 'Pet Treats', link: '/case-studies/pet-treats', image: '/imgs/illustrated/a_pet_food_hero_v3_7652587.webp' },
+      { name: 'Chocolate Brand', link: '/case-studies/chocolate-brand', image: '/imgs/illustrated/a_snacks_food_hero_v1_9854447.webp' },
+      { name: 'Candle Brand', link: '/case-studies/candle-brand', image: '/imgs/illustrated/a_artisan_producer_variation_1_5454378.webp' },
+      { name: 'Bakery', link: '/case-studies/bakery', image: '/imgs/illustrated/a_snack_brand_variation_1_5605894.webp' },
+      { name: 'Wellness Brand', link: '/case-studies/wellness-brand', image: '/imgs/illustrated/a_supplements_hero_v1_0434970.webp' },
+      { name: 'Organic Nuts', link: '/case-studies/organic-nuts', image: '/imgs/illustrated/a_snacks_food_hero_v1_9854447.webp' },
+      { name: 'Bath Products', link: '/case-studies/bath-products', image: '/imgs/illustrated/a_artisan_producer_variation_1_5454378.webp' },
+      { name: 'Adaptogens', link: '/case-studies/adaptogens', image: '/imgs/illustrated/a_supplements_hero_v1_0434970.webp' },
+      { name: 'Outdoor Snacks', link: '/case-studies/outdoor-snacks', image: '/imgs/illustrated/a_snack_brand_variation_1_5605894.webp' },
     ]
   },
   knowledge: {
     title: 'Knowledge Base',
     icon: <BookOpen className="h-4 w-4" />,
     pages: [
+      { name: 'All Options', link: '/knowledge/all-options', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
       { name: 'Pouch Sizing', link: '/knowledge/pouch-sizing', image: '/imgs/illustrated/a_pouch_sizing_guide_card_v3_5278730.webp' },
       { name: 'Size Guide', link: '/knowledge/size-guide', image: '/imgs/illustrated/a_size_guide_card_v2_9433535.webp' },
       { name: 'Printing Types', link: '/knowledge/printing-types', image: '/imgs/illustrated/a_printing_types_card_v2_6243973.webp' },
       { name: 'Workflow', link: '/knowledge/workflow', image: '/imgs/illustrated/a_lowmoq_warm_3372406.webp' },
     ]
   },
-  caseStudies: {
-    title: 'Case Studies',
-    icon: <Users className="h-4 w-4" />,
+  support: {
+    title: 'Support',
+    icon: <HelpCircle className="h-4 w-4" />,
     pages: [
-      { name: 'Coffee Roastery', link: '/case-studies/coffee-roastery', image: '/imgs/illustrated/a_coffee_roaster_variation_1_6758424.webp' },
-      { name: 'Snack Brand', link: '/solutions/snack-brand-manager', image: '/imgs/illustrated/a_snack_brand_variation_1_5605894.webp' },
-      { name: 'Artisan Producer', link: '/solutions/artisan-producer', image: '/imgs/illustrated/a_artisan_producer_variation_1_5454378.webp' },
-      { name: 'Startup Founder', link: '/solutions/startup-founder', image: '/imgs/illustrated/a_startup_founder_variation_3_2900816.webp' },
+      { name: 'FAQs', link: '/support/faqs', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
+      { name: 'Lead Time', link: '/support/lead-time', image: '/imgs/illustrated/a_lowmoq_warm_3372406.webp' },
+    ]
+  },
+  usa: {
+    title: 'USA Market',
+    icon: <Globe className="h-4 w-4" />,
+    pages: [
+      { name: 'Compostable Packaging USA', link: '/usa/compostable-packaging', image: '/imgs/illustrated/a_compostable_v3_9254998.webp' },
+      { name: 'Coffee Packaging USA', link: '/usa/coffee-packaging', image: '/imgs/illustrated/a_coffee_tea_hero_v1_1905321.webp' },
+      { name: 'Snacks Packaging USA', link: '/usa/snacks-packaging', image: '/imgs/illustrated/a_snacks_food_hero_v1_9854447.webp' },
+      { name: 'Labeling Guide USA', link: '/usa/labeling-guide', image: '/imgs/illustrated/a_corporate_sustainability_variation_1_1739210.webp' },
     ]
   },
   company: {
@@ -75,12 +150,16 @@ const LEARN_PAGES = {
     icon: <Award className="h-4 w-4" />,
     pages: [
       { name: 'About Us', link: '/company/about', image: '/imgs/illustrated/a_corporate_sustainability_variation_1_1739210.webp' },
+      { name: 'Factory Tour', link: '/company/factory-tour', image: '/imgs/illustrated/a_lowmoq_warm_3372406.webp' },
       { name: 'Certificates', link: '/company/certificates', image: '/imgs/illustrated/a_compostable_v3_9254998.webp' },
     ]
   },
 }
 
-// Flatten all pages for rotation
+// Get first page of each category for featured rotation
+const FEATURED_PAGES = Object.values(LEARN_PAGES).map(cat => cat.pages[0])
+
+// Flatten all pages for navigation
 const ALL_PAGES = Object.values(LEARN_PAGES).flatMap(cat => cat.pages)
 
 interface LearnNavigationProps {
@@ -95,11 +174,11 @@ export default function LearnNavigation({ currentPath }: LearnNavigationProps) {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   
-  // Auto-rotate featured images
+  // Auto-rotate featured images - only first page of each category
   useEffect(() => {
     if (!isAutoPlaying) return
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % ALL_PAGES.length)
+      setCurrentSlide((prev) => (prev + 1) % FEATURED_PAGES.length)
     }, 4000)
     return () => clearInterval(timer)
   }, [isAutoPlaying])
@@ -115,26 +194,15 @@ export default function LearnNavigation({ currentPath }: LearnNavigationProps) {
     setActiveCategory(activeCategory === catKey ? null : catKey)
   }
   
-  // Get current page info
-  const currentPage = ALL_PAGES[currentSlide]
-  
-  // Get 6 thumbnails centered around current slide
-  const getThumbnails = () => {
-    const total = ALL_PAGES.length
-    const thumbs = []
-    for (let i = -3; i <= 2; i++) {
-      const idx = (currentSlide + i + total) % total
-      thumbs.push({ ...ALL_PAGES[idx], index: idx })
-    }
-    return thumbs
-  }
+  // Get current featured page
+  const currentPage = FEATURED_PAGES[currentSlide]
 
   return (
     <div className="bg-gradient-to-b from-primary-50 to-white border-b border-neutral-200">
       <div className="max-w-7xl mx-auto px-4 py-6">
         <div className="grid lg:grid-cols-12 gap-6">
           {/* Left: Category Navigation */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-4 max-h-[400px] overflow-y-auto">
             <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-3 flex items-center gap-2">
               <BookOpen className="h-4 w-4" />
               Learn Center
@@ -153,11 +221,12 @@ export default function LearnNavigation({ currentPath }: LearnNavigationProps) {
                     <span className="flex items-center gap-2">
                       {category.icon}
                       {category.title}
+                      <span className="text-xs text-neutral-400">({category.pages.length})</span>
                     </span>
                     <ChevronDown className={`h-4 w-4 transition-transform ${activeCategory === key ? 'rotate-180' : ''}`} />
                   </button>
                   {activeCategory === key && (
-                    <div className="ml-4 mt-1 space-y-0.5">
+                    <div className="ml-4 mt-1 space-y-0.5 max-h-[200px] overflow-y-auto">
                       {category.pages.map((page) => (
                         <Link
                           key={page.link}
@@ -178,10 +247,10 @@ export default function LearnNavigation({ currentPath }: LearnNavigationProps) {
             </div>
           </div>
           
-          {/* Right: Featured Image Carousel */}
+          {/* Right: Featured Image Carousel - First page of each category */}
           <div className="lg:col-span-8">
             <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-3">
-              Featured Articles
+              Featured Categories
             </h3>
             
             {/* Main Featured Image */}
@@ -203,14 +272,14 @@ export default function LearnNavigation({ currentPath }: LearnNavigationProps) {
               </div>
             </Link>
             
-            {/* Thumbnail Carousel */}
+            {/* Thumbnail Carousel - All category first pages */}
             <div className="flex gap-2 overflow-x-auto pb-2">
-              {getThumbnails().map((page, i) => (
+              {FEATURED_PAGES.map((page, i) => (
                 <button
                   key={`${page.link}-${i}`}
-                  onClick={() => handleThumbnailClick(page.index)}
-                  className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                    page.index === currentSlide
+                  onClick={() => handleThumbnailClick(i)}
+                  className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                    i === currentSlide
                       ? 'border-primary-500 ring-2 ring-primary-200'
                       : 'border-transparent hover:border-primary-300'
                   }`}
@@ -232,4 +301,4 @@ export default function LearnNavigation({ currentPath }: LearnNavigationProps) {
 }
 
 // Export the pages data for use in other components
-export { LEARN_PAGES, ALL_PAGES }
+export { LEARN_PAGES, ALL_PAGES, FEATURED_PAGES }
