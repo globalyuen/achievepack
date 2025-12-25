@@ -140,6 +140,7 @@ const LEARN_PAGES = {
     icon: <Zap className="h-4 w-4" />,
     pages: [
       { name: 'Microwave Steam Bags', link: '/function/microwave-steam-bags', image: '/imgs/function/microwave/a_microwavebag_hero_main_kitchen_2543693.webp' },
+      { name: 'Carbon Neutral Bags', link: '/function/carbon-neutral-bags', image: '/imgs/function/carbon/a_hero_card_1_carbon_neutral_materials_3157781.webp' },
     ]
   },
   usa: {
