@@ -387,6 +387,19 @@ const TermsPage: React.FC = () => {
       {/* Footer */}
       <footer className="bg-neutral-900 text-white py-8 mt-12">
         <div className="max-w-5xl mx-auto px-4 text-center">
+          {/* Certification Logos & SSL Badge */}
+          <div className="flex flex-wrap items-center justify-center gap-4 mb-4">
+            <img src="/imgs/cert/logo-achievepack-BPI.jpg" alt="BPI Certified" className="h-10 w-auto rounded" loading="lazy" decoding="async" />
+            <img src="/imgs/cert/cert-ISO9001.webp" alt="ISO 9001 Certified" className="h-10 w-auto" loading="lazy" decoding="async" />
+            <img src="/imgs/cert/cert-ISO14001-cert.webp" alt="ISO 14001 Certified" className="h-10 w-auto" loading="lazy" decoding="async" />
+            <img src="/imgs/cert/cert-fsc.png" alt="FSC Certified" className="h-10 w-auto" loading="lazy" decoding="async" />
+            <div className="flex items-center gap-1.5 bg-neutral-800 px-3 py-1.5 rounded">
+              <svg className="h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+              <span className="text-xs text-neutral-300 font-medium">SSL 100% Secure Transactions</span>
+            </div>
+          </div>
           <p className="text-neutral-400 text-sm">© 2025 Achieve Pack. All rights reserved.</p>
           <p className="text-neutral-500 text-xs mt-2">Hong Kong Business Registration Number: 41007097 | No.41 1/F Wo Liu Hang Tsuen, Fotan, HK</p>
         </div>

@@ -613,6 +613,20 @@ const StorePage: React.FC = () => {
               <img src="/imgs/store/payment-logo/a_stripe_logo_grey_3625928.webp" alt="Stripe" className="h-16 w-auto" />
             </div>
 
+            {/* Certification Logos & SSL Badge */}
+            <div className="flex flex-wrap items-center justify-center gap-4 mb-6">
+              <img src="/imgs/cert/logo-achievepack-BPI.jpg" alt="BPI Certified" className="h-10 w-auto rounded" loading="lazy" decoding="async" />
+              <img src="/imgs/cert/cert-ISO9001.webp" alt="ISO 9001 Certified" className="h-10 w-auto" loading="lazy" decoding="async" />
+              <img src="/imgs/cert/cert-ISO14001-cert.webp" alt="ISO 14001 Certified" className="h-10 w-auto" loading="lazy" decoding="async" />
+              <img src="/imgs/cert/cert-fsc.png" alt="FSC Certified" className="h-10 w-auto" loading="lazy" decoding="async" />
+              <div className="flex items-center gap-1.5 bg-neutral-800 px-3 py-1.5 rounded">
+                <svg className="h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                <span className="text-xs text-neutral-300 font-medium">SSL 100% Secure Transactions</span>
+              </div>
+            </div>
+
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-neutral-500 text-xs">© 2025 Achieve Pack. All rights reserved.</p>
               <div className="text-neutral-600 text-xs text-center md:text-right">
