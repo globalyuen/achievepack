@@ -506,15 +506,15 @@ ${formData.message}`
               </Link>
               <div className="border-t border-neutral-100 pt-3">
                 <p className="text-xs font-bold text-primary-600 uppercase mb-2">Eco Digital</p>
-                <Link to="/store/eco-standup" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">Stand Up Pouch</Link>
-                <Link to="/store/eco-boxbottom" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">Box Bottom Pouch</Link>
-                <Link to="/store/eco-quadseal" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">Quad Seal Pouch</Link>
-                <Link to="/store/eco-sidegusset" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">Side Gusset Pouch</Link>
+                <Link to="/store?category=eco-digital&shape=stand-up" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">Stand Up Pouch</Link>
+                <Link to="/store?category=eco-digital&shape=flat-bottom" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">Box Bottom Pouch</Link>
+                <Link to="/store?category=eco-digital&shape=side-gusset" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">Side Gusset Pouch</Link>
+                <Link to="/store?category=eco-digital&shape=3-side-seal" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">3 Side Seal Pouch</Link>
               </div>
               <div className="border-t border-neutral-100 pt-3">
                 <p className="text-xs font-bold text-primary-600 uppercase mb-2">Boxes</p>
                 <Link to="/store?category=boxes" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">All Boxes</Link>
-                <Link to="/custom-boxes" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">Custom Boxes</Link>
+                <Link to="/packaging/custom-boxes" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">Custom Boxes</Link>
               </div>
               <div className="border-t border-neutral-100 pt-3">
                 <Link to="/blog" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700 font-medium">Blog</Link>
