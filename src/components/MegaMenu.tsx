@@ -3,83 +3,46 @@ import { Link } from 'react-router-dom'
 import { ChevronDown, ChevronRight, Layers, Palette, Package, BookOpen, Calendar, FileText, Sparkles } from 'lucide-react'
 import { useCustomQuote } from '../contexts/CustomQuoteContext'
 
-// Store product ads images pool (for SHAPE/CUSTOM/STOCK menus)
-const STORE_ADS_POOL = [
-  // Eco Digital products - linking to store with category filter
-  { image: '/imgs/store/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/eco-digital/TKAqlW4KL2xV9glNA91iuD_sYEvp2G29eWT4819Ne1g=.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/eco-digital/hAGC60SxXYmSdiBTJD3XPhMZBocRVBXZyuV-dvt3r7c=.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/eco-digital/os9CHhTSQoGASvA8lsfm-iHYfG4kddPoZP2wYMh47fs=.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/eco-digital/wXqLssPqdR9J0iDhIyQ-NGTDDFm-3DgFKlyQD4ipsEw=.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/eco-digital/X5RkmCe76z3hyMvMr6Yvb5RjclkrdDjh2rNvGIRqgWU=.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/eco-digital/LQ5WGOrIkQPzbXSfWupAIFvVrlyL9lvZoMKc35bbHPw=.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/eco-digital/vxuLNp13OWRZXhe-qkwn3UgHCWirk5TzBLhB7q8JJ30=.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/eco-digital/YoIBVbbSdfCfRc5654ldAbT_L3N5rKcJk__lYon7YmU=.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/eco-digital/AvEbY4SX8gwP2SzENbSen8dnT_kTrrk8VN6siqp1B2I=.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/eco-digital/0eQiBArdHVo_uyy12vmVid9Vc-hB8Msln4h0Oddu4dQ=.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/eco-digital/1k3ig0ezuHcds_30mxxPOgFL-qeSwHc8uuzElo2-GP4=.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/eco-digital/7CWxuO-mB4GevbYtCFnSFfzuCLECtUQ8AjuleiT4vAk=.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/eco-digital/ghEYoZQN4q_bq5SzDz94a_q95YbMZS933hJEnuImpmc=.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/eco-digital/MPRxOw-bWF57OrAxie9J1CXjpM4HKHUUkoMKHeflN6E=.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/eco-digital/bUr_Wdvkcyq2aH95-oFtusPsS5YMJ2jZ6tjm74mHEr4=.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/eco-digital/zwwZAmSiOHouQPEkkT_Wwz5rhX13CtgkT8LqvNnoJ5w=.webp', link: '/store?category=eco-digital' },
-  // Conventional Digital products
-  { image: '/imgs/store/con-digital/sup-clear-zip/1.webp', link: '/store?category=conventional-digital' },
-  { image: '/imgs/store/con-digital/sup-met-zip/1.webp', link: '/store?category=conventional-digital' },
-  { image: '/imgs/store/con-digital/3ss-met-xzip/1.webp', link: '/store?category=conventional-digital' },
-  { image: '/imgs/store/con-digital/3ss-clear-xzip/1.webp', link: '/store?category=conventional-digital' },
-  { image: '/imgs/store/con-digital/sup-clear-xzip/1.webp', link: '/store?category=conventional-digital' },
-  { image: '/imgs/store/con-digital/sup-met-xzip/1.webp', link: '/store?category=conventional-digital' },
-  { image: '/imgs/store/con-digital/3ss-clear-zip/1.webp', link: '/store?category=conventional-digital' },
-  { image: '/imgs/store/con-digital/3ss-met-zip/1.webp', link: '/store?category=conventional-digital' },
-  // Box products
-  { image: '/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/corrugated-box/a_mockup_premium_layflat_applied_2105634.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/corrugated-box/90f309ab-e30c-49e3-891c-83b47a7fe7a6.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/tuck-box/247e2fdf-3274-4be8-b656-03d7e20b5a0f.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/tuck-box/8a2918bb-a48c-44a3-875d-6e766e5f305f.webp', link: '/store?category=boxes' },
-  // Customer sample images
-  { image: '/imgs/store/customer-sample/Arielle.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/customer-sample/David.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/customer-sample/Holly.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/customer-sample/Leo.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/customer-sample/michelle.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/customer-sample/morlife.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/customer-sample/Nicole.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/customer-sample/Paul.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/customer-sample/Remi.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/customer-sample/Richard.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/customer-sample/ruby.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/customer-sample/Steph.webp', link: '/store?category=eco-digital' },
+// Unified 9:16 ads images pool (from ads folders only)
+const UNIFIED_ADS_POOL = [
+  // Pouch Shape ads (9:16)
+  { image: '/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp', link: '/store?shape=3-side-seal' },
+  { image: '/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.webp', link: '/store?shape=stand-up' },
+  { image: '/imgs/pouch-shape/ads/a_achieve_pack_quad_side_gusset_closeup_9751125.webp', link: '/store?shape=side-gusset' },
+  { image: '/imgs/pouch-shape/ads/a_achieve_pack_spout_pouch_closeup_5874382.webp', link: '/store?shape=spout' },
+  { image: '/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.webp', link: '/store' },
+  { image: '/imgs/pouch-shape/ads/a_achieve_pack_irregular_shape_closeup_0205542.webp', link: '/store' },
+  { image: '/imgs/pouch-shape/ads/a_achieve_pack_size_closure_options_7735113.webp', link: '/store' },
+  // Surface Finish ads (9:16)
+  { image: '/imgs/surface/ads/a_achieve_pack_main_kv_six_finishes_3535755.webp', link: '/features/surface-finish' },
+  { image: '/imgs/surface/ads/a_gloss_finish_detail_5685549.webp', link: '/features/surface-finish' },
+  { image: '/imgs/surface/ads/a_matte_finish_detail_7483118.webp', link: '/features/surface-finish' },
+  { image: '/imgs/surface/ads/a_metallic_gold_closeup_5151764.webp', link: '/features/surface-finish' },
+  { image: '/imgs/surface/ads/a_foil_green_charcoal_7632386.webp', link: '/features/surface-finish' },
+  { image: '/imgs/surface/ads/a_embossed_navy_9933981.webp', link: '/features/surface-finish' },
+  // Reclosure ads (9:16)
+  { image: '/imgs/reclose/ads/a_reclosure_options_kv_product_photo_7983949.webp', link: '/features/reclosure-options' },
+  { image: '/imgs/reclose/ads/a_reclosure_four_quadrant_overview_3481316.webp', link: '/features/reclosure-options' },
+  { image: '/imgs/reclose/ads/a_spout_closure_closeup_detail_2705813.webp', link: '/features/reclosure-options' },
+  { image: '/imgs/reclose/ads/a_tintie_coffee_pouch_correct_4114906.webp', link: '/features/reclosure-options' },
+  { image: '/imgs/reclose/ads/a_valve_closure_detail_6401844.webp', link: '/features/reclosure-options' },
+  // Barrier ads (9:16)
+  { image: '/imgs/barrier/ads/a_achieve_pack_barrier_kv_updated_green_definition_6833995.webp', link: '/features/barrier-options' },
+  { image: '/imgs/barrier/ads/a_barrier_levels_7395220.webp', link: '/features/barrier-options' },
+  { image: '/imgs/barrier/ads/a_kraft_high_max_4456348.webp', link: '/features/barrier-options' },
+  { image: '/imgs/barrier/ads/a_metallic_barrier_closeup_9656118.webp', link: '/features/barrier-options' },
+  // Box ads (9:16)
+  { image: '/imgs/store/box/corrugated-box/ads/a_hero_kv_black_gold_mailer_4737831.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/corrugated-box/ads/a_foil_stamping_detail_logo_3101304.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/corrugated-box/ads/a_material_benefits_page_4228725.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/tuck-box/ads/a_hero_kv_tuck_box_3590474.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/tuck-box/ads/a_detail_gold_foil_embossing_5696847.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/tuck-box/ads/a_range_collection_closing_9211739.webp', link: '/store?category=boxes' },
 ]
 
-// Learn/Blog ads images pool - Use store product images only
-const LEARN_ADS_POOL = [
-  // Eco Digital products
-  { image: '/imgs/store/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/eco-digital/TKAqlW4KL2xV9glNA91iuD_sYEvp2G29eWT4819Ne1g=.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/eco-digital/hAGC60SxXYmSdiBTJD3XPhMZBocRVBXZyuV-dvt3r7c=.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/eco-digital/os9CHhTSQoGASvA8lsfm-iHYfG4kddPoZP2wYMh47fs=.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/eco-digital/wXqLssPqdR9J0iDhIyQ-NGTDDFm-3DgFKlyQD4ipsEw=.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/eco-digital/X5RkmCe76z3hyMvMr6Yvb5RjclkrdDjh2rNvGIRqgWU=.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/eco-digital/LQ5WGOrIkQPzbXSfWupAIFvVrlyL9lvZoMKc35bbHPw=.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/eco-digital/vxuLNp13OWRZXhe-qkwn3UgHCWirk5TzBLhB7q8JJ30=.webp', link: '/store?category=eco-digital' },
-  // Conventional Digital products
-  { image: '/imgs/store/con-digital/sup-clear-zip/1.webp', link: '/store?category=conventional-digital' },
-  { image: '/imgs/store/con-digital/sup-met-zip/1.webp', link: '/store?category=conventional-digital' },
-  { image: '/imgs/store/con-digital/3ss-met-xzip/1.webp', link: '/store?category=conventional-digital' },
-  { image: '/imgs/store/con-digital/3ss-clear-xzip/1.webp', link: '/store?category=conventional-digital' },
-  // Box products
-  { image: '/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/corrugated-box/a_mockup_premium_layflat_applied_2105634.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/tuck-box/247e2fdf-3274-4be8-b656-03d7e20b5a0f.webp', link: '/store?category=boxes' },
-  // Customer samples
-  { image: '/imgs/store/customer-sample/Arielle.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/customer-sample/David.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/customer-sample/Holly.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/customer-sample/Leo.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/customer-sample/michelle.webp', link: '/store?category=eco-digital' },
-]
+// Use unified pool for all menus
+const STORE_ADS_POOL = UNIFIED_ADS_POOL
+const LEARN_ADS_POOL = UNIFIED_ADS_POOL
 
 // Shuffle array utility
 function shuffleArray<T>(array: T[]): T[] {
