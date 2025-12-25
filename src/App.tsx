@@ -8,6 +8,7 @@ import { CardContainer, CardBody, CardItem } from './components/ui/3d-card'
 import { getImage } from './utils/imageMapper'
 import Newsletter from './components/Newsletter'
 import CartSidebar from './components/store/CartSidebar'
+import MegaMenu from './components/MegaMenu'
 import type { CalculatorResults } from './utils/calculatorUtils'
 import { useStore } from './store/StoreContext'
 import { FEATURED_PRODUCTS, type PouchProduct } from './store/productData'
@@ -417,33 +418,8 @@ ${formData.message}`
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-neutral-100' : 'bg-white border-b border-neutral-100'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Left Navigation */}
-            <div className="hidden lg:flex items-center space-x-8">
-              {[
-                { id: 'about', label: t('nav.about') },
-                { id: 'solutions', label: t('nav.solutions') },
-                { id: 'products', label: t('nav.products') },
-                { id: 'features', label: t('nav.features') }
-              ].map(({ id, label }) => (
-                <button
-                  key={id}
-                  onClick={() => scrollToSection(id)}
-                  className={`text-sm font-medium transition-colors duration-200 ${
-                    activeSection === id
-                      ? 'text-neutral-900 font-semibold'
-                      : 'text-neutral-600 hover:text-neutral-900'
-                  }`}
-                >
-                  {label}
-                </button>
-              ))}
-              <Link
-                to="/blog"
-                className="text-sm font-medium text-neutral-600 hover:text-neutral-900 transition-colors duration-200"
-              >
-                Blog
-              </Link>
-            </div>
+            {/* Left: Mega Menu Navigation */}
+            <MegaMenu />
 
             {/* Center Logo */}
             <div className="flex items-center justify-center lg:absolute lg:left-1/2 lg:-translate-x-1/2">
@@ -514,38 +490,30 @@ ${formData.message}`
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Updated */}
         {isMenuOpen && (
           <div className="lg:hidden bg-white border-t border-neutral-200">
             <div className="px-4 py-4 space-y-3">
-              {[
-                { id: 'about', label: t('nav.about') },
-                { id: 'benefits', label: t('nav.benefits') },
-                { id: 'products', label: t('nav.products') },
-                { id: 'solutions', label: t('nav.solutions') },
-                { id: 'features', label: t('nav.features') },
-                { id: 'contact', label: t('nav.contact') }
-              ].map(({ id, label }) => (
-                <button
-                  key={id}
-                  onClick={() => scrollToSection(id)}
-                  className="block w-full text-left text-base font-medium text-neutral-700 hover:text-primary-500 py-2"
-                >
-                  {label}
-                </button>
-              ))}
-              <Link
-                to="/dashboard"
-                className="block w-full text-left text-base font-medium text-neutral-700 hover:text-primary-500 py-2"
-              >
-                {t('nav.customerCenter')}
+              <Link to="/store" onClick={() => setIsMenuOpen(false)} className="block w-full text-left text-base font-semibold text-neutral-900 py-2">
+                🛒 Shop All
               </Link>
-              <Link
-                to="/blog"
-                className="block w-full text-left text-base font-medium text-neutral-700 hover:text-primary-500 py-2"
-              >
-                Blog
-              </Link>
+              <div className="border-t border-neutral-100 pt-3">
+                <p className="text-xs font-bold text-primary-600 uppercase mb-2">Eco Digital</p>
+                <Link to="/store/eco-standup" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">Stand Up Pouch</Link>
+                <Link to="/store/eco-boxbottom" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">Box Bottom Pouch</Link>
+                <Link to="/store/eco-quadseal" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">Quad Seal Pouch</Link>
+                <Link to="/store/eco-sidegusset" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">Side Gusset Pouch</Link>
+              </div>
+              <div className="border-t border-neutral-100 pt-3">
+                <p className="text-xs font-bold text-primary-600 uppercase mb-2">Boxes</p>
+                <Link to="/store?category=boxes" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">All Boxes</Link>
+                <Link to="/custom-boxes" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">Custom Boxes</Link>
+              </div>
+              <div className="border-t border-neutral-100 pt-3">
+                <Link to="/blog" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700 font-medium">Blog</Link>
+                <Link to="/dashboard" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700 font-medium">Customer Center</Link>
+              </div>
+              
               {/* Mobile Language Options */}
               <div className="py-2 border-t border-neutral-100 my-2">
                 <div className="text-xs text-neutral-500 font-semibold mb-2 uppercase px-1">Language</div>
@@ -557,12 +525,14 @@ ${formData.message}`
                 </div>
               </div>
 
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="w-full bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-colors mt-4"
+              <a
+                href="https://calendly.com/30-min-free-packaging-consultancy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-colors mt-4 block text-center"
               >
-                {t('nav.getStarted')}
-              </button>
+                Book Free Consultation
+              </a>
             </div>
           </div>
         )}
