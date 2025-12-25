@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { ChevronRight, ChevronDown, Leaf, Package, Factory, FileText, BookOpen, Users, Award, ShoppingBag, Globe, Boxes, HelpCircle } from 'lucide-react'
+import { ChevronRight, ChevronDown, Leaf, Package, Factory, FileText, BookOpen, Users, Award, ShoppingBag, Globe, Boxes, HelpCircle, Search } from 'lucide-react'
 
 // All SEO pages mapped with illustrated images - COMPLETE LIST
 const LEARN_PAGES = {
@@ -292,6 +292,51 @@ export default function LearnNavigation({ currentPath }: LearnNavigationProps) {
                   />
                 </button>
               ))}
+            </div>
+            
+            {/* Search Box */}
+            <div className="mt-4">
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
+                <input
+                  type="text"
+                  placeholder="Search packaging solutions..."
+                  className="w-full pl-10 pr-4 py-2.5 border border-neutral-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white"
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      const query = (e.target as HTMLInputElement).value
+                      if (query.trim()) {
+                        window.location.href = `/blog?search=${encodeURIComponent(query)}`
+                      }
+                    }
+                  }}
+                />
+              </div>
+              
+              {/* Popular Search Terms */}
+              <div className="mt-3">
+                <span className="text-xs text-neutral-500 mr-2">Popular:</span>
+                <div className="inline-flex flex-wrap gap-2 mt-1">
+                  {[
+                    { term: 'Compostable', link: '/materials/compostable' },
+                    { term: 'Coffee Bags', link: '/products/compostable-coffee-bags' },
+                    { term: 'Stand Up Pouch', link: '/packaging/stand-up-pouches' },
+                    { term: 'Recyclable', link: '/materials/recyclable-mono-pe' },
+                    { term: 'Low MOQ', link: '/products/low-moq-packaging' },
+                    { term: 'Digital Print', link: '/printing/digital-printing' },
+                    { term: 'Pet Food', link: '/industry/pet-food' },
+                    { term: 'Flat Bottom', link: '/packaging/flat-bottom-bags' },
+                  ].map((item) => (
+                    <Link
+                      key={item.term}
+                      to={item.link}
+                      className="px-2.5 py-1 text-xs bg-neutral-100 hover:bg-primary-100 text-neutral-600 hover:text-primary-700 rounded-full transition-colors"
+                    >
+                      {item.term}
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
