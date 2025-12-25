@@ -202,7 +202,7 @@ export default function LearnNavigation({ currentPath }: LearnNavigationProps) {
       <div className="max-w-7xl mx-auto px-4 py-6">
         <div className="grid lg:grid-cols-12 gap-6">
           {/* Left: Category Navigation */}
-          <div className="lg:col-span-4 max-h-[400px] overflow-y-auto">
+          <div className="lg:col-span-4">
             <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-3 flex items-center gap-2">
               <BookOpen className="h-4 w-4" />
               Learn Center
@@ -226,7 +226,7 @@ export default function LearnNavigation({ currentPath }: LearnNavigationProps) {
                     <ChevronDown className={`h-4 w-4 transition-transform ${activeCategory === key ? 'rotate-180' : ''}`} />
                   </button>
                   {activeCategory === key && (
-                    <div className="ml-4 mt-1 space-y-0.5 max-h-[200px] overflow-y-auto">
+                    <div className="ml-4 mt-1 space-y-0.5">
                       {category.pages.map((page) => (
                         <Link
                           key={page.link}
