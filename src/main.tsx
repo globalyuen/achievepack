@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { StrictMode, Suspense, lazy } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
@@ -6,186 +6,201 @@ import { Analytics } from '@vercel/analytics/react'
 import { ErrorBoundary } from './components/ErrorBoundary.tsx'
 import { StoreProvider } from './store/StoreContext'
 import { CalendlyProvider } from './contexts/CalendlyContext'
-import CartSidebar from './components/store/CartSidebar'
-import FloatingButtons from './components/FloatingButtons'
-import PackagingAssistantWidget from './components/PackagingAssistantWidget'
-import GeoBlocker from './components/GeoBlocker'
 import './index.css'
 import './i18n'
+
+// Critical components loaded immediately
 import App from './App.tsx'
-import StorePage from './pages/StorePage'
-import ProductPage from './pages/ProductPage'
-import CheckoutPage from './pages/CheckoutPage'
-import OrderConfirmation from './pages/OrderConfirmation'
-import LoginPage from './pages/LoginPage'
-import RegisterPage from './pages/RegisterPage'
-import ForgotPasswordPage from './pages/ForgotPasswordPage'
-import ResetPasswordPage from './pages/ResetPasswordPage'
-import DashboardPage from './pages/DashboardPage'
-import TermsPage from './pages/TermsPage'
-import ContactPage from './pages/ContactPage'
-import AdminPage from './pages/AdminPage'
-import AdminManagementPage from './pages/AdminManagementPage'
+import CartSidebar from './components/store/CartSidebar'
+import FloatingButtons from './components/FloatingButtons'
+import GeoBlocker from './components/GeoBlocker'
 
-// Industry Pages
-import CoffeeTeaPage from './pages/industry/CoffeeTeaPage'
-import SnacksFoodPage from './pages/industry/SnacksFoodPage'
-import PetFoodPage from './pages/industry/PetFoodPage'
-import SupplementsPowdersPage from './pages/industry/SupplementsPowdersPage'
-import BabyFoodPage from './pages/industry/BabyFoodPage'
-import FrozenFoodPage from './pages/industry/FrozenFoodPage'
-import SaucesCondimentsPage from './pages/industry/SaucesCondimentsPage'
+// Lazy load heavy widget
+const PackagingAssistantWidget = lazy(() => import('./components/PackagingAssistantWidget'))
 
-// Packaging Pages
-import StandUpPouchesPage from './pages/packaging/StandUpPouchesPage'
-import FlatBottomBagsPage from './pages/packaging/FlatBottomBagsPage'
-import SpoutPouchesPage from './pages/packaging/SpoutPouchesPage'
-import FlatPouchesPage from './pages/packaging/FlatPouchesPage'
-import SideGussetBagsPage from './pages/packaging/SideGussetBagsPage'
-import VacuumPouchesPage from './pages/packaging/VacuumPouchesPage'
-import CustomBoxesPage from './pages/packaging/CustomBoxesPage'
+// Loading fallback component
+const PageLoader = () => (
+  <div className="min-h-screen bg-gradient-to-b from-green-50 to-white flex items-center justify-center">
+    <div className="flex flex-col items-center gap-4">
+      <div className="w-12 h-12 border-4 border-green-200 border-t-green-600 rounded-full animate-spin"></div>
+      <p className="text-gray-600 text-sm">Loading...</p>
+    </div>
+  </div>
+)
 
-// Materials Pages
-import CompostablePage from './pages/materials/CompostablePage'
-import RecyclableMonoPEPage from './pages/materials/RecyclableMonoPEPage'
-import RecyclableMonoPPPage from './pages/materials/RecyclableMonoPPPage'
-import BioPEPage from './pages/materials/BioPEPage'
-import PCRPage from './pages/materials/PCRPage'
-import HomeCompostablePage from './pages/materials/HomeCompostablePage'
-import IndustrialCompostablePage from './pages/materials/IndustrialCompostablePage'
+// Lazy load all pages for better code splitting
+const StorePage = lazy(() => import('./pages/StorePage'))
+const ProductPage = lazy(() => import('./pages/ProductPage'))
+const CheckoutPage = lazy(() => import('./pages/CheckoutPage'))
+const OrderConfirmation = lazy(() => import('./pages/OrderConfirmation'))
+const LoginPage = lazy(() => import('./pages/LoginPage'))
+const RegisterPage = lazy(() => import('./pages/RegisterPage'))
+const ForgotPasswordPage = lazy(() => import('./pages/ForgotPasswordPage'))
+const ResetPasswordPage = lazy(() => import('./pages/ResetPasswordPage'))
+const DashboardPage = lazy(() => import('./pages/DashboardPage'))
+const TermsPage = lazy(() => import('./pages/TermsPage'))
+const ContactPage = lazy(() => import('./pages/ContactPage'))
+const AdminPage = lazy(() => import('./pages/AdminPage'))
+const AdminManagementPage = lazy(() => import('./pages/AdminManagementPage'))
 
-// Printing Pages
-import DigitalPrintingPage from './pages/printing/DigitalPrintingPage'
-import PlatePrintingPage from './pages/printing/PlatePrintingPage'
+// Industry Pages - Lazy loaded
+const CoffeeTeaPage = lazy(() => import('./pages/industry/CoffeeTeaPage'))
+const SnacksFoodPage = lazy(() => import('./pages/industry/SnacksFoodPage'))
+const PetFoodPage = lazy(() => import('./pages/industry/PetFoodPage'))
+const SupplementsPowdersPage = lazy(() => import('./pages/industry/SupplementsPowdersPage'))
+const BabyFoodPage = lazy(() => import('./pages/industry/BabyFoodPage'))
+const FrozenFoodPage = lazy(() => import('./pages/industry/FrozenFoodPage'))
+const SaucesCondimentsPage = lazy(() => import('./pages/industry/SaucesCondimentsPage'))
 
-// Feature Pages
-import ReclosureOptionsPage from './pages/features/ReclosureOptionsPage'
-import SurfaceFinishPage from './pages/features/SurfaceFinishPage'
-import BarrierOptionsPage from './pages/features/BarrierOptionsPage'
-import LowBarrierPage from './pages/features/LowBarrierPage'
-import MediumBarrierPage from './pages/features/MediumBarrierPage'
-import HighBarrierPage from './pages/features/HighBarrierPage'
+// Packaging Pages - Lazy loaded
+const StandUpPouchesPage = lazy(() => import('./pages/packaging/StandUpPouchesPage'))
+const FlatBottomBagsPage = lazy(() => import('./pages/packaging/FlatBottomBagsPage'))
+const SpoutPouchesPage = lazy(() => import('./pages/packaging/SpoutPouchesPage'))
+const FlatPouchesPage = lazy(() => import('./pages/packaging/FlatPouchesPage'))
+const SideGussetBagsPage = lazy(() => import('./pages/packaging/SideGussetBagsPage'))
+const VacuumPouchesPage = lazy(() => import('./pages/packaging/VacuumPouchesPage'))
+const CustomBoxesPage = lazy(() => import('./pages/packaging/CustomBoxesPage'))
 
-// Legal Pages
-import PrivacyPolicyPage from './pages/legal/PrivacyPolicyPage'
-import ShippingPolicyPage from './pages/legal/ShippingPolicyPage'
+// Materials Pages - Lazy loaded
+const CompostablePage = lazy(() => import('./pages/materials/CompostablePage'))
+const RecyclableMonoPEPage = lazy(() => import('./pages/materials/RecyclableMonoPEPage'))
+const RecyclableMonoPPPage = lazy(() => import('./pages/materials/RecyclableMonoPPPage'))
+const BioPEPage = lazy(() => import('./pages/materials/BioPEPage'))
+const PCRPage = lazy(() => import('./pages/materials/PCRPage'))
+const HomeCompostablePage = lazy(() => import('./pages/materials/HomeCompostablePage'))
+const IndustrialCompostablePage = lazy(() => import('./pages/materials/IndustrialCompostablePage'))
 
-// Company Pages
-import AboutPage from './pages/company/AboutPage'
-import FactoryTourPage from './pages/company/FactoryTourPage'
-import CertificatesPage from './pages/company/CertificatesPage'
+// Printing Pages - Lazy loaded
+const DigitalPrintingPage = lazy(() => import('./pages/printing/DigitalPrintingPage'))
+const PlatePrintingPage = lazy(() => import('./pages/printing/PlatePrintingPage'))
 
-// Knowledge Pages
-import AllOptionsPage from './pages/knowledge/AllOptionsPage'
-import SizeGuidePage from './pages/knowledge/SizeGuidePage'
-import PouchSizingPage from './pages/knowledge/PouchSizingPage'
-import PrintingTypesPage from './pages/knowledge/PrintingTypesPage'
-import WorkflowPage from './pages/knowledge/WorkflowPage'
+// Feature Pages - Lazy loaded
+const ReclosureOptionsPage = lazy(() => import('./pages/features/ReclosureOptionsPage'))
+const SurfaceFinishPage = lazy(() => import('./pages/features/SurfaceFinishPage'))
+const BarrierOptionsPage = lazy(() => import('./pages/features/BarrierOptionsPage'))
+const LowBarrierPage = lazy(() => import('./pages/features/LowBarrierPage'))
+const MediumBarrierPage = lazy(() => import('./pages/features/MediumBarrierPage'))
+const HighBarrierPage = lazy(() => import('./pages/features/HighBarrierPage'))
 
-// Support Pages
-import FAQsPage from './pages/support/FAQsPage'
-import LeadTimePage from './pages/support/LeadTimePage'
+// Legal Pages - Lazy loaded
+const PrivacyPolicyPage = lazy(() => import('./pages/legal/PrivacyPolicyPage'))
+const ShippingPolicyPage = lazy(() => import('./pages/legal/ShippingPolicyPage'))
 
-// Case Studies Pages
-import CoffeeRoasteryCaseStudy from './pages/case-studies/CoffeeRoasteryCaseStudy'
-import TeaBrandCaseStudy from './pages/case-studies/TeaBrandCaseStudy'
-import SuperfoodBrandCaseStudy from './pages/case-studies/SuperfoodBrandCaseStudy'
-import PetTreatsCaseStudy from './pages/case-studies/PetTreatsCaseStudy'
-import ChocolateBrandCaseStudy from './pages/case-studies/ChocolateBrandCaseStudy'
-import CandleBrandCaseStudy from './pages/case-studies/CandleBrandCaseStudy'
-import BakeryCaseStudy from './pages/case-studies/BakeryCaseStudy'
-import WellnessBrandCaseStudy from './pages/case-studies/WellnessBrandCaseStudy'
-import OrganicNutsCaseStudy from './pages/case-studies/OrganicNutsCaseStudy'
-import BathProductsCaseStudy from './pages/case-studies/BathProductsCaseStudy'
-import AdaptogensCaseStudy from './pages/case-studies/AdaptogensCaseStudy'
-import React, { Suspense } from 'react'
-import OutdoorSnacksCaseStudy from './pages/case-studies/OutdoorSnacksCaseStudy'
+// Company Pages - Lazy loaded
+const AboutPage = lazy(() => import('./pages/company/AboutPage'))
+const FactoryTourPage = lazy(() => import('./pages/company/FactoryTourPage'))
+const CertificatesPage = lazy(() => import('./pages/company/CertificatesPage'))
 
-// Blog Pages
-import BlogPage from './pages/blog/BlogPage'
-import BlogPostPage from './pages/blog/BlogPostPage'
+// Knowledge Pages - Lazy loaded
+const AllOptionsPage = lazy(() => import('./pages/knowledge/AllOptionsPage'))
+const SizeGuidePage = lazy(() => import('./pages/knowledge/SizeGuidePage'))
+const PouchSizingPage = lazy(() => import('./pages/knowledge/PouchSizingPage'))
+const PrintingTypesPage = lazy(() => import('./pages/knowledge/PrintingTypesPage'))
+const WorkflowPage = lazy(() => import('./pages/knowledge/WorkflowPage'))
 
-// USA Pages
-import USACompostableHubPage from './pages/usa/USACompostableHubPage'
-import USACoffeePage from './pages/usa/USACoffeePage'
-import USASnacksPage from './pages/usa/USASnacksPage'
-import USALabelingGuidePage from './pages/usa/USALabelingGuidePage'
+// Support Pages - Lazy loaded
+const FAQsPage = lazy(() => import('./pages/support/FAQsPage'))
+const LeadTimePage = lazy(() => import('./pages/support/LeadTimePage'))
 
-// Spec Pages - Material Structures
-import PcrPetDuplexClearPage from './pages/spec/PcrPetDuplexClearPage'
-import PcrPpDuplexClearPage from './pages/spec/PcrPpDuplexClearPage'
-import PcrPetKraftTriplexClearPage from './pages/spec/PcrPetKraftTriplexClearPage'
-import PcrPpKraftTriplexClearPage from './pages/spec/PcrPpKraftTriplexClearPage'
-import PcrPetDuplexNoWindowPage from './pages/spec/PcrPetDuplexNoWindowPage'
-import PcrPpDuplexNoWindowPage from './pages/spec/PcrPpDuplexNoWindowPage'
-import PcrPetTriplexMetalisedPage from './pages/spec/PcrPetTriplexMetalisedPage'
-import PcrPpTriplexMetalisedPage from './pages/spec/PcrPpTriplexMetalisedPage'
-import PcrKraftVmpetPage from './pages/spec/PcrKraftVmpetPage'
-import PcrPetTriplexAluminumPage from './pages/spec/PcrPetTriplexAluminumPage'
-import PcrPpTriplexAluminumPage from './pages/spec/PcrPpTriplexAluminumPage'
-import PcrPetKraftQuadlexAluminumPage from './pages/spec/PcrPetKraftQuadlexAluminumPage'
-import PcrPpKraftQuadlexAluminumPage from './pages/spec/PcrPpKraftQuadlexAluminumPage'
-import PcrKraftDuplexLowPage from './pages/spec/PcrKraftDuplexLowPage'
-import MonoPeDuplexClearPage from './pages/spec/MonoPeDuplexClearPage'
-import MonoPpDuplexClearPage from './pages/spec/MonoPpDuplexClearPage'
-import MonoPeDuplexNoWindowPage from './pages/spec/MonoPeDuplexNoWindowPage'
-import MonoPpDuplexNoWindowPage from './pages/spec/MonoPpDuplexNoWindowPage'
-import BioCelloDuplexClearPage from './pages/spec/BioCelloDuplexClearPage'
-import BioCelloTriplexHighestPage from './pages/spec/BioCelloTriplexHighestPage'
-import BioCelloTriplexMetalisedPage from './pages/spec/BioCelloTriplexMetalisedPage'
-import BioKraftVmCelloPage from './pages/spec/BioKraftVmCelloPage'
-import BioKraftPbatLowPage from './pages/spec/BioKraftPbatLowPage'
+// Case Studies Pages - Lazy loaded
+const CoffeeRoasteryCaseStudy = lazy(() => import('./pages/case-studies/CoffeeRoasteryCaseStudy'))
+const TeaBrandCaseStudy = lazy(() => import('./pages/case-studies/TeaBrandCaseStudy'))
+const SuperfoodBrandCaseStudy = lazy(() => import('./pages/case-studies/SuperfoodBrandCaseStudy'))
+const PetTreatsCaseStudy = lazy(() => import('./pages/case-studies/PetTreatsCaseStudy'))
+const ChocolateBrandCaseStudy = lazy(() => import('./pages/case-studies/ChocolateBrandCaseStudy'))
+const CandleBrandCaseStudy = lazy(() => import('./pages/case-studies/CandleBrandCaseStudy'))
+const BakeryCaseStudy = lazy(() => import('./pages/case-studies/BakeryCaseStudy'))
+const WellnessBrandCaseStudy = lazy(() => import('./pages/case-studies/WellnessBrandCaseStudy'))
+const OrganicNutsCaseStudy = lazy(() => import('./pages/case-studies/OrganicNutsCaseStudy'))
+const BathProductsCaseStudy = lazy(() => import('./pages/case-studies/BathProductsCaseStudy'))
+const AdaptogensCaseStudy = lazy(() => import('./pages/case-studies/AdaptogensCaseStudy'))
+const OutdoorSnacksCaseStudy = lazy(() => import('./pages/case-studies/OutdoorSnacksCaseStudy'))
 
-// BioPE Spec Pages - Plant-Based Bio-PE Structures
-import BioPePetDuplexClearPage from './pages/spec/BioPePetDuplexClearPage'
-import BioPePpDuplexClearPage from './pages/spec/BioPePpDuplexClearPage'
-import BioPePetKraftTriplexClearPage from './pages/spec/BioPePetKraftTriplexClearPage'
-import BioPePpKraftTriplexClearPage from './pages/spec/BioPePpKraftTriplexClearPage'
-import BioPePetDuplexNoWindowPage from './pages/spec/BioPePetDuplexNoWindowPage'
-import BioPePpDuplexNoWindowPage from './pages/spec/BioPePpDuplexNoWindowPage'
-import BioPePetTriplexMetalisedPage from './pages/spec/BioPePetTriplexMetalisedPage'
-import BioPePpTriplexMetalisedPage from './pages/spec/BioPePpTriplexMetalisedPage'
-import BioPeKraftVmpetPage from './pages/spec/BioPeKraftVmpetPage'
-import BioPePetTriplexAluminumPage from './pages/spec/BioPePetTriplexAluminumPage'
-import BioPePpTriplexAluminumPage from './pages/spec/BioPePpTriplexAluminumPage'
-import BioPePetKraftQuadlexAluminumPage from './pages/spec/BioPePetKraftQuadlexAluminumPage'
-import BioPePpKraftQuadlexAluminumPage from './pages/spec/BioPePpKraftQuadlexAluminumPage'
-import BioPeKraftDuplexLowPage from './pages/spec/BioPeKraftDuplexLowPage'
+// Blog Pages - Lazy loaded
+const BlogPage = lazy(() => import('./pages/blog/BlogPage'))
+const BlogPostPage = lazy(() => import('./pages/blog/BlogPostPage'))
 
-// Team Pages
-import RyanWongPage from './pages/team/RyanWongPage'
+// USA Pages - Lazy loaded
+const USACompostableHubPage = lazy(() => import('./pages/usa/USACompostableHubPage'))
+const USACoffeePage = lazy(() => import('./pages/usa/USACoffeePage'))
+const USASnacksPage = lazy(() => import('./pages/usa/USASnacksPage'))
+const USALabelingGuidePage = lazy(() => import('./pages/usa/USALabelingGuidePage'))
 
-// Products Pages - SEO Focused
-import CompostableCoffeeBagsPage from './pages/products/CompostableCoffeeBagsPage'
-import CompostableStandUpPouchesPage from './pages/products/CompostableStandUpPouchesPage'
-import RecyclableMonoMaterialPage from './pages/products/RecyclableMonoMaterialPage'
-import CoffeeBagsDegassingValvePage from './pages/products/CoffeeBagsDegassingValvePage'
-import LowMOQPackagingPage from './pages/products/LowMOQPackagingPage'
+// Spec Pages - Material Structures - Lazy loaded
+const PcrPetDuplexClearPage = lazy(() => import('./pages/spec/PcrPetDuplexClearPage'))
+const PcrPpDuplexClearPage = lazy(() => import('./pages/spec/PcrPpDuplexClearPage'))
+const PcrPetKraftTriplexClearPage = lazy(() => import('./pages/spec/PcrPetKraftTriplexClearPage'))
+const PcrPpKraftTriplexClearPage = lazy(() => import('./pages/spec/PcrPpKraftTriplexClearPage'))
+const PcrPetDuplexNoWindowPage = lazy(() => import('./pages/spec/PcrPetDuplexNoWindowPage'))
+const PcrPpDuplexNoWindowPage = lazy(() => import('./pages/spec/PcrPpDuplexNoWindowPage'))
+const PcrPetTriplexMetalisedPage = lazy(() => import('./pages/spec/PcrPetTriplexMetalisedPage'))
+const PcrPpTriplexMetalisedPage = lazy(() => import('./pages/spec/PcrPpTriplexMetalisedPage'))
+const PcrKraftVmpetPage = lazy(() => import('./pages/spec/PcrKraftVmpetPage'))
+const PcrPetTriplexAluminumPage = lazy(() => import('./pages/spec/PcrPetTriplexAluminumPage'))
+const PcrPpTriplexAluminumPage = lazy(() => import('./pages/spec/PcrPpTriplexAluminumPage'))
+const PcrPetKraftQuadlexAluminumPage = lazy(() => import('./pages/spec/PcrPetKraftQuadlexAluminumPage'))
+const PcrPpKraftQuadlexAluminumPage = lazy(() => import('./pages/spec/PcrPpKraftQuadlexAluminumPage'))
+const PcrKraftDuplexLowPage = lazy(() => import('./pages/spec/PcrKraftDuplexLowPage'))
+const MonoPeDuplexClearPage = lazy(() => import('./pages/spec/MonoPeDuplexClearPage'))
+const MonoPpDuplexClearPage = lazy(() => import('./pages/spec/MonoPpDuplexClearPage'))
+const MonoPeDuplexNoWindowPage = lazy(() => import('./pages/spec/MonoPeDuplexNoWindowPage'))
+const MonoPpDuplexNoWindowPage = lazy(() => import('./pages/spec/MonoPpDuplexNoWindowPage'))
+const BioCelloDuplexClearPage = lazy(() => import('./pages/spec/BioCelloDuplexClearPage'))
+const BioCelloTriplexHighestPage = lazy(() => import('./pages/spec/BioCelloTriplexHighestPage'))
+const BioCelloTriplexMetalisedPage = lazy(() => import('./pages/spec/BioCelloTriplexMetalisedPage'))
+const BioKraftVmCelloPage = lazy(() => import('./pages/spec/BioKraftVmCelloPage'))
+const BioKraftPbatLowPage = lazy(() => import('./pages/spec/BioKraftPbatLowPage'))
 
-// Solutions Pages - Persona Based SEO
-import StartupFounderPage from './pages/solutions/StartupFounderPage'
-import EcommerceBrandPage from './pages/solutions/EcommerceBrandPage'
-import CorporateSustainabilityPage from './pages/solutions/CorporateSustainabilityPage'
-import FoodManufacturerPage from './pages/solutions/FoodManufacturerPage'
-import ProductDeveloperPage from './pages/solutions/ProductDeveloperPage'
-import CoffeeRoasterPage from './pages/solutions/CoffeeRoasterPage'
-import ArtisanProducerPage from './pages/solutions/ArtisanProducerPage'
-import SnackBrandManagerPage from './pages/solutions/SnackBrandManagerPage'
+// BioPE Spec Pages - Plant-Based Bio-PE Structures - Lazy loaded
+const BioPePetDuplexClearPage = lazy(() => import('./pages/spec/BioPePetDuplexClearPage'))
+const BioPePpDuplexClearPage = lazy(() => import('./pages/spec/BioPePpDuplexClearPage'))
+const BioPePetKraftTriplexClearPage = lazy(() => import('./pages/spec/BioPePetKraftTriplexClearPage'))
+const BioPePpKraftTriplexClearPage = lazy(() => import('./pages/spec/BioPePpKraftTriplexClearPage'))
+const BioPePetDuplexNoWindowPage = lazy(() => import('./pages/spec/BioPePetDuplexNoWindowPage'))
+const BioPePpDuplexNoWindowPage = lazy(() => import('./pages/spec/BioPePpDuplexNoWindowPage'))
+const BioPePetTriplexMetalisedPage = lazy(() => import('./pages/spec/BioPePetTriplexMetalisedPage'))
+const BioPePpTriplexMetalisedPage = lazy(() => import('./pages/spec/BioPePpTriplexMetalisedPage'))
+const BioPeKraftVmpetPage = lazy(() => import('./pages/spec/BioPeKraftVmpetPage'))
+const BioPePetTriplexAluminumPage = lazy(() => import('./pages/spec/BioPePetTriplexAluminumPage'))
+const BioPePpTriplexAluminumPage = lazy(() => import('./pages/spec/BioPePpTriplexAluminumPage'))
+const BioPePetKraftQuadlexAluminumPage = lazy(() => import('./pages/spec/BioPePetKraftQuadlexAluminumPage'))
+const BioPePpKraftQuadlexAluminumPage = lazy(() => import('./pages/spec/BioPePpKraftQuadlexAluminumPage'))
+const BioPeKraftDuplexLowPage = lazy(() => import('./pages/spec/BioPeKraftDuplexLowPage'))
 
-// Topics Pages - AI Search Volume SEO
-import EcoFriendlyFoodPackagingPage from './pages/topics/EcoFriendlyFoodPackagingPage'
-import DTCSustainablePackagingPage from './pages/topics/DTCSustainablePackagingPage'
-import GreenCoffeeMaterialsPage from './pages/topics/GreenCoffeeMaterialsPage'
-import DigitalPrintingEcoPackagingPage from './pages/topics/DigitalPrintingEcoPackagingPage'
-import RecyclableSnackPackagingPage from './pages/topics/RecyclableSnackPackagingPage'
-import CustomPrintedSustainablePouchesPage from './pages/topics/CustomPrintedSustainablePouchesPage'
-import EcoPackagingRegulationsPage from './pages/topics/EcoPackagingRegulationsPage'
-import CustomCompostablePouchSuppliersPage from './pages/topics/CustomCompostablePouchSuppliersPage'
-import LowMOQStartupPackagingPage from './pages/topics/LowMOQStartupPackagingPage'
-import CompostableBabyFoodBagsPage from './pages/topics/CompostableBabyFoodBagsPage'
+// Team Pages - Lazy loaded
+const RyanWongPage = lazy(() => import('./pages/team/RyanWongPage'))
 
-// 404 Page
-import NotFoundPage from './pages/NotFoundPage'
+// Products Pages - SEO Focused - Lazy loaded
+const CompostableCoffeeBagsPage = lazy(() => import('./pages/products/CompostableCoffeeBagsPage'))
+const CompostableStandUpPouchesPage = lazy(() => import('./pages/products/CompostableStandUpPouchesPage'))
+const RecyclableMonoMaterialPage = lazy(() => import('./pages/products/RecyclableMonoMaterialPage'))
+const CoffeeBagsDegassingValvePage = lazy(() => import('./pages/products/CoffeeBagsDegassingValvePage'))
+const LowMOQPackagingPage = lazy(() => import('./pages/products/LowMOQPackagingPage'))
+
+// Solutions Pages - Persona Based SEO - Lazy loaded
+const StartupFounderPage = lazy(() => import('./pages/solutions/StartupFounderPage'))
+const EcommerceBrandPage = lazy(() => import('./pages/solutions/EcommerceBrandPage'))
+const CorporateSustainabilityPage = lazy(() => import('./pages/solutions/CorporateSustainabilityPage'))
+const FoodManufacturerPage = lazy(() => import('./pages/solutions/FoodManufacturerPage'))
+const ProductDeveloperPage = lazy(() => import('./pages/solutions/ProductDeveloperPage'))
+const CoffeeRoasterPage = lazy(() => import('./pages/solutions/CoffeeRoasterPage'))
+const ArtisanProducerPage = lazy(() => import('./pages/solutions/ArtisanProducerPage'))
+const SnackBrandManagerPage = lazy(() => import('./pages/solutions/SnackBrandManagerPage'))
+
+// Topics Pages - AI Search Volume SEO - Lazy loaded
+const EcoFriendlyFoodPackagingPage = lazy(() => import('./pages/topics/EcoFriendlyFoodPackagingPage'))
+const DTCSustainablePackagingPage = lazy(() => import('./pages/topics/DTCSustainablePackagingPage'))
+const GreenCoffeeMaterialsPage = lazy(() => import('./pages/topics/GreenCoffeeMaterialsPage'))
+const DigitalPrintingEcoPackagingPage = lazy(() => import('./pages/topics/DigitalPrintingEcoPackagingPage'))
+const RecyclableSnackPackagingPage = lazy(() => import('./pages/topics/RecyclableSnackPackagingPage'))
+const CustomPrintedSustainablePouchesPage = lazy(() => import('./pages/topics/CustomPrintedSustainablePouchesPage'))
+const EcoPackagingRegulationsPage = lazy(() => import('./pages/topics/EcoPackagingRegulationsPage'))
+const CustomCompostablePouchSuppliersPage = lazy(() => import('./pages/topics/CustomCompostablePouchSuppliersPage'))
+const LowMOQStartupPackagingPage = lazy(() => import('./pages/topics/LowMOQStartupPackagingPage'))
+const CompostableBabyFoodBagsPage = lazy(() => import('./pages/topics/CompostableBabyFoodBagsPage'))
+
+// 404 Page - Lazy loaded
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -196,6 +211,7 @@ createRoot(document.getElementById('root')!).render(
             <StoreProvider>
               <CalendlyProvider>
               <CartSidebar />
+            <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<App />} />
               <Route path="/store" element={<StorePage />} />
@@ -371,10 +387,13 @@ createRoot(document.getElementById('root')!).render(
               {/* 404 - Catch All Route */}
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
+            </Suspense>
               {/* Global Floating Buttons - WhatsApp & Meeting */}
               <FloatingButtons />
               {/* AI Packaging Assistant Chat Widget */}
-              <PackagingAssistantWidget />
+              <Suspense fallback={null}>
+                <PackagingAssistantWidget />
+              </Suspense>
               <Analytics />
               </CalendlyProvider>
           </StoreProvider>

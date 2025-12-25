@@ -5,10 +5,38 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
+  <!-- DNS Prefetch and Preconnect for external resources -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/imgs/favicon.ico" />
   <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/imgs/apple-touch-icon.png" />
+  
+  <!-- Preload Critical Resources -->
+  <link rel="preload" as="image" href="/imgs/hero-image.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="/achieve-pack-logo.png" fetchpriority="high">
+  
+  <!-- Critical CSS for faster FCP -->
+  <style>
+    /* Critical CSS - Above the fold styles */
+    *,*::before,*::after{box-sizing:border-box}
+    html{-webkit-text-size-adjust:100%;line-height:1.5}
+    body{margin:0;font-family:system-ui,-apple-system,sans-serif;line-height:inherit;-webkit-font-smoothing:antialiased}
+    #root{min-height:100vh;display:flex;flex-direction:column}
+    /* Loading spinner */
+    .page-loader{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(to bottom,#f0fdf4,#fff)}
+    .loader-spinner{width:48px;height:48px;border:4px solid #bbf7d0;border-top-color:#16a34a;border-radius:50%;animation:spin 1s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    /* Prevent layout shift */
+    img,video{max-width:100%;height:auto;display:block}
+    /* Font loading optimization */
+    @font-face{font-display:swap}
+  </style>
   
   <!-- Primary Meta Tags -->
   <title>Achieve Pack - Sustainable Eco-Friendly Packaging Solutions</title>
@@ -281,63 +309,7 @@
   }
   </script>
   
-  <!-- FAQ Schema for AI Search Engines -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is the minimum order quantity for custom packaging?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Our minimum order quantity (MOQ) is just 100 pieces for digitally printed pouches. This allows small businesses and startups to access premium custom packaging without large inventory commitments."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What eco-friendly packaging materials do you offer?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We offer four main sustainable material categories: 1) Home Compostable - certified TUV OK Home, breaks down in 180 days. 2) Industrial Compostable - EN13432 certified. 3) Recyclable Mono-PE/PP - single material for easy recycling. 4) Bio-PE - sugarcane-based I'm Green plastic. 5) PCR - Post-Consumer Recycled content from 30-100%."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How long does production take for custom pouches?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Digital printing orders typically ship within 10-15 business days. Plate printing (rotogravure) takes 20-25 business days. Rush orders available for urgent needs. Sample orders ship within 3-5 business days."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Are your compostable pouches really home compostable?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, our home compostable pouches are certified by TUV Austria (OK Home Compost). They break down in home compost conditions within 180 days, unlike industrial compostable materials that require commercial facilities."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you offer samples before bulk orders?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes! We offer multiple sample options: 1) Sizing Pack ($40) - unprinted pouches in various sizes. 2) Eco Material Sample ($40) - assorted eco-friendly materials. 3) Custom Printed Sample - available after design approval. Visit our store at achievepack.com/store to order samples."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What barrier options are available for food packaging?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We offer three barrier levels: Low Barrier - for dry goods with short shelf life. Medium Barrier - for snacks, coffee, tea with moderate protection. High Barrier - maximum oxygen and moisture protection for sensitive products. All barriers available in both conventional and eco-friendly materials."
-        }
-      }
-    ]
-  }
-  </script>
+  <!-- FAQ Schema is rendered dynamically in App.tsx to support i18n translations -->
   
   <!-- Product/Service Schema for AI Crawlers -->
   <script type="application/ld+json">
@@ -357,6 +329,7 @@
           "name": "Stand Up Pouches",
           "description": "Flexible stand up pouches with bottom gusset. Available in compostable, recyclable mono-PE, and bio-PE materials. Perfect for coffee, snacks, pet food.",
           "url": "https://achievepack.com/packaging/stand-up-pouches",
+          "image": "https://achievepack.com/imgs/store/shape/stand-up-pouch.webp",
           "category": "Flexible Packaging",
           "brand": {"@type": "Brand", "name": "Achieve Pack"},
           "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "0.15", "priceValidUntil": "2025-12-31", "availability": "https://schema.org/InStock", "url": "https://achievepack.com/packaging/stand-up-pouches"},
@@ -371,6 +344,7 @@
           "name": "Flat Bottom Bags",
           "description": "Premium box pouch style bags with flat bottom for shelf stability. Ideal for coffee, tea, and premium products.",
           "url": "https://achievepack.com/packaging/flat-bottom-bags",
+          "image": "https://achievepack.com/imgs/store/shape/flat-bottom-pouch.webp",
           "category": "Flexible Packaging",
           "brand": {"@type": "Brand", "name": "Achieve Pack"},
           "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "0.18", "priceValidUntil": "2025-12-31", "availability": "https://schema.org/InStock", "url": "https://achievepack.com/packaging/flat-bottom-bags"},
@@ -385,6 +359,7 @@
           "name": "Compostable Materials",
           "description": "Home and industrial compostable packaging. TUV OK Home certified, breaks down in 180 days. Made from plant-based materials.",
           "url": "https://achievepack.com/materials/compostable",
+          "image": "https://achievepack.com/imgs/4-infograhic/compostable.webp",
           "category": "Sustainable Materials",
           "brand": {"@type": "Brand", "name": "Achieve Pack"},
           "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "0.20", "priceValidUntil": "2025-12-31", "availability": "https://schema.org/InStock", "url": "https://achievepack.com/materials/compostable"},
@@ -399,6 +374,7 @@
           "name": "Recyclable Mono-PE",
           "description": "Single-material polyethylene pouches, fully recyclable in PE recycling streams. Clear and matte finishes available.",
           "url": "https://achievepack.com/materials/recyclable-mono-pe",
+          "image": "https://achievepack.com/imgs/4-infograhic/recyclable.webp",
           "category": "Sustainable Materials",
           "brand": {"@type": "Brand", "name": "Achieve Pack"},
           "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "0.12", "priceValidUntil": "2025-12-31", "availability": "https://schema.org/InStock", "url": "https://achievepack.com/materials/recyclable-mono-pe"},
@@ -413,6 +389,7 @@
           "name": "Bio-PE (I'm Green)",
           "description": "Sugarcane-based bio-polyethylene. Carbon-negative production, fully recyclable. Braskem I'm Green certified.",
           "url": "https://achievepack.com/materials/bio-pe",
+          "image": "https://achievepack.com/imgs/4-infograhic/bio-pe.webp",
           "category": "Sustainable Materials",
           "brand": {"@type": "Brand", "name": "Achieve Pack"},
           "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "0.16", "priceValidUntil": "2025-12-31", "availability": "https://schema.org/InStock", "url": "https://achievepack.com/materials/bio-pe"},
@@ -427,6 +404,7 @@
           "name": "Kraft Paper PE Lining",
           "description": "Natural kraft paper exterior with PE barrier lining. Combines natural aesthetics with product protection.",
           "url": "https://achievepack.com/materials/kraft-paper-pe-lining",
+          "image": "https://achievepack.com/imgs/store/surface/kraft.webp",
           "category": "Sustainable Materials",
           "brand": {"@type": "Brand", "name": "Achieve Pack"},
           "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "0.14", "priceValidUntil": "2025-12-31", "availability": "https://schema.org/InStock", "url": "https://achievepack.com/materials/kraft-paper-pe-lining"},
@@ -540,12 +518,12 @@
     "name": "Packaging Types",
     "description": "Different pouch and bag styles",
     "itemListElement": [
-      {"@type": "ListItem", "position": 1, "item": {"@type": "Product", "name": "Stand Up Pouches", "url": "https://achievepack.com/packaging/stand-up-pouches", "description": "Popular flexible pouches with bottom gusset for shelf display. Available with zipper, spout, or tear notch.", "brand": {"@type": "Brand", "name": "Achieve Pack"}, "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "0.15", "priceValidUntil": "2025-12-31", "availability": "https://schema.org/InStock"}, "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "127"}}},
-      {"@type": "ListItem", "position": 2, "item": {"@type": "Product", "name": "Flat Bottom Bags", "url": "https://achievepack.com/packaging/flat-bottom-bags", "description": "Premium box-style pouches with flat bottom for maximum shelf presence. Ideal for coffee and premium products.", "brand": {"@type": "Brand", "name": "Achieve Pack"}, "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "0.18", "priceValidUntil": "2025-12-31", "availability": "https://schema.org/InStock"}, "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "89"}}},
-      {"@type": "ListItem", "position": 3, "item": {"@type": "Product", "name": "Spout Pouches", "url": "https://achievepack.com/packaging/spout-pouches", "description": "Pouches with integrated spout for liquids, sauces, and purees. Child-resistant options available.", "brand": {"@type": "Brand", "name": "Achieve Pack"}, "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "0.22", "priceValidUntil": "2025-12-31", "availability": "https://schema.org/InStock"}, "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "56"}}},
-      {"@type": "ListItem", "position": 4, "item": {"@type": "Product", "name": "Flat Pouches", "url": "https://achievepack.com/packaging/flat-pouches", "description": "Simple three-side seal pouches for samples, sachets, and single-serve products. Most economical option.", "brand": {"@type": "Brand", "name": "Achieve Pack"}, "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "0.08", "priceValidUntil": "2025-12-31", "availability": "https://schema.org/InStock"}, "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "82"}}},
-      {"@type": "ListItem", "position": 5, "item": {"@type": "Product", "name": "Side Gusset Bags", "url": "https://achievepack.com/packaging/side-gusset-bags", "description": "Traditional gusseted bags with side folds. Great for coffee with tin-tie or valve options.", "brand": {"@type": "Brand", "name": "Achieve Pack"}, "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "0.16", "priceValidUntil": "2025-12-31", "availability": "https://schema.org/InStock"}, "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "71"}}},
-      {"@type": "ListItem", "position": 6, "item": {"@type": "Product", "name": "Vacuum Pouches", "url": "https://achievepack.com/packaging/vacuum-pouches", "description": "Oxygen barrier pouches for vacuum sealing meat, cheese, and perishables.", "brand": {"@type": "Brand", "name": "Achieve Pack"}, "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "0.14", "priceValidUntil": "2025-12-31", "availability": "https://schema.org/InStock"}, "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "45"}}}
+      {"@type": "ListItem", "position": 1, "item": {"@type": "WebPage", "name": "Stand Up Pouches", "url": "https://achievepack.com/packaging/stand-up-pouches", "description": "Popular flexible pouches with bottom gusset for shelf display. Available with zipper, spout, or tear notch."}},
+      {"@type": "ListItem", "position": 2, "item": {"@type": "WebPage", "name": "Flat Bottom Bags", "url": "https://achievepack.com/packaging/flat-bottom-bags", "description": "Premium box-style pouches with flat bottom for maximum shelf presence. Ideal for coffee and premium products."}},
+      {"@type": "ListItem", "position": 3, "item": {"@type": "WebPage", "name": "Spout Pouches", "url": "https://achievepack.com/packaging/spout-pouches", "description": "Pouches with integrated spout for liquids, sauces, and purees. Child-resistant options available."}},
+      {"@type": "ListItem", "position": 4, "item": {"@type": "WebPage", "name": "Flat Pouches", "url": "https://achievepack.com/packaging/flat-pouches", "description": "Simple three-side seal pouches for samples, sachets, and single-serve products. Most economical option."}},
+      {"@type": "ListItem", "position": 5, "item": {"@type": "WebPage", "name": "Side Gusset Bags", "url": "https://achievepack.com/packaging/side-gusset-bags", "description": "Traditional gusseted bags with side folds. Great for coffee with tin-tie or valve options."}},
+      {"@type": "ListItem", "position": 6, "item": {"@type": "WebPage", "name": "Vacuum Pouches", "url": "https://achievepack.com/packaging/vacuum-pouches", "description": "Oxygen barrier pouches for vacuum sealing meat, cheese, and perishables."}}
     ]
   }
   </script>
@@ -558,12 +536,12 @@
     "name": "Sustainable Materials",
     "description": "Eco-friendly packaging material options",
     "itemListElement": [
-      {"@type": "ListItem", "position": 1, "item": {"@type": "Product", "name": "Home Compostable", "url": "https://achievepack.com/materials/home-compostable", "description": "TUV OK Home certified. Breaks down in home compost within 180 days. Made from PLA, PBAT, and plant starch.", "brand": {"@type": "Brand", "name": "Achieve Pack"}, "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "0.22", "priceValidUntil": "2025-12-31", "availability": "https://schema.org/InStock"}, "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "134"}}},
-      {"@type": "ListItem", "position": 2, "item": {"@type": "Product", "name": "Industrial Compostable", "url": "https://achievepack.com/materials/industrial-compostable", "description": "EN13432 certified for commercial composting facilities. Higher barrier than home compostable.", "brand": {"@type": "Brand", "name": "Achieve Pack"}, "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "0.18", "priceValidUntil": "2025-12-31", "availability": "https://schema.org/InStock"}, "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "98"}}},
-      {"@type": "ListItem", "position": 3, "item": {"@type": "Product", "name": "Recyclable Mono-PE", "url": "https://achievepack.com/materials/recyclable-mono-pe", "description": "Single-material polyethylene, 100% recyclable in PE streams. Clear and matte finishes.", "brand": {"@type": "Brand", "name": "Achieve Pack"}, "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "0.12", "priceValidUntil": "2025-12-31", "availability": "https://schema.org/InStock"}, "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "112"}}},
-      {"@type": "ListItem", "position": 4, "item": {"@type": "Product", "name": "Recyclable Mono-PP", "url": "https://achievepack.com/materials/recyclable-mono-pp", "description": "Single-material polypropylene, recyclable with higher heat resistance than PE.", "brand": {"@type": "Brand", "name": "Achieve Pack"}, "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "0.13", "priceValidUntil": "2025-12-31", "availability": "https://schema.org/InStock"}, "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "67"}}},
-      {"@type": "ListItem", "position": 5, "item": {"@type": "Product", "name": "Bio-PE (I'm Green)", "url": "https://achievepack.com/materials/bio-pe", "description": "Braskem sugarcane-based polyethylene. Carbon-negative production, identical performance to fossil PE.", "brand": {"@type": "Brand", "name": "Achieve Pack"}, "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "0.16", "priceValidUntil": "2025-12-31", "availability": "https://schema.org/InStock"}, "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "89"}}},
-      {"@type": "ListItem", "position": 6, "item": {"@type": "Product", "name": "PCR (Post-Consumer Recycled)", "url": "https://achievepack.com/materials/pcr", "description": "Contains 30-100% recycled ocean or post-consumer plastic. Reduces virgin plastic use.", "brand": {"@type": "Brand", "name": "Achieve Pack"}, "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "0.14", "priceValidUntil": "2025-12-31", "availability": "https://schema.org/InStock"}, "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "78"}}}
+      {"@type": "ListItem", "position": 1, "item": {"@type": "WebPage", "name": "Home Compostable", "url": "https://achievepack.com/materials/home-compostable", "description": "TUV OK Home certified. Breaks down in home compost within 180 days. Made from PLA, PBAT, and plant starch."}},
+      {"@type": "ListItem", "position": 2, "item": {"@type": "WebPage", "name": "Industrial Compostable", "url": "https://achievepack.com/materials/industrial-compostable", "description": "EN13432 certified for commercial composting facilities. Higher barrier than home compostable."}},
+      {"@type": "ListItem", "position": 3, "item": {"@type": "WebPage", "name": "Recyclable Mono-PE", "url": "https://achievepack.com/materials/recyclable-mono-pe", "description": "Single-material polyethylene, 100% recyclable in PE streams. Clear and matte finishes."}},
+      {"@type": "ListItem", "position": 4, "item": {"@type": "WebPage", "name": "Recyclable Mono-PP", "url": "https://achievepack.com/materials/recyclable-mono-pp", "description": "Single-material polypropylene, recyclable with higher heat resistance than PE."}},
+      {"@type": "ListItem", "position": 5, "item": {"@type": "WebPage", "name": "Bio-PE (I'm Green)", "url": "https://achievepack.com/materials/bio-pe", "description": "Braskem sugarcane-based polyethylene. Carbon-negative production, identical performance to fossil PE."}},
+      {"@type": "ListItem", "position": 6, "item": {"@type": "WebPage", "name": "PCR (Post-Consumer Recycled)", "url": "https://achievepack.com/materials/pcr", "description": "Contains 30-100% recycled ocean or post-consumer plastic. Reduces virgin plastic use."}}
     ]
   }
   </script>
@@ -667,7 +645,15 @@
 </head>
 
 <body>
-  <div id="root"></div>
+  <!-- Initial loading placeholder - removed by React when app mounts -->
+  <div id="root">
+    <div class="page-loader" id="initial-loader">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:16px">
+        <div class="loader-spinner"></div>
+        <p style="color:#4b5563;font-size:14px">Loading Achieve Pack...</p>
+      </div>
+    </div>
+  </div>
   <script type="module" src="/src/main.tsx"></script>
   
   <!-- Static content for AI crawlers and no-JS browsers -->

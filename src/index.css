@@ -7,6 +7,26 @@
     overflow-x: hidden;
     width: 100%;
     max-width: 100vw;
+    /* Performance optimizations */
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Optimize images */
+  img {
+    content-visibility: auto;
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 
   :root {
@@ -79,4 +99,15 @@ details[open] .details-chevron {
 /* Use CSS containment for better rendering performance */
 .faq-container {
   contain: content;
+}
+
+/* Optimize large sections with contain */
+section {
+  contain: layout style;
+}
+
+/* Optimize off-screen content */
+.lazy-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
 }
