@@ -155,17 +155,17 @@ interface MegaMenuDropdownProps {
 
 function MegaMenuDropdown({ categories, adsImages, shopAllLink, shopAllLabel, onQuoteClick }: MegaMenuDropdownProps) {
   return (
-    <div className="w-[1200px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
+    <div className="w-[95vw] max-w-[1200px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
       <div className="grid grid-cols-12">
         {/* Left: Categories */}
-        <div className="col-span-2 bg-neutral-50 p-5 border-r border-neutral-100">
+        <div className="col-span-3 lg:col-span-2 bg-neutral-50 p-4 lg:p-5 border-r border-neutral-100">
           <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-3">Categories</h3>
           <ul className="space-y-0.5">
             {categories.map((cat) => (
               <li key={cat.name}>
                 <Link
                   to={cat.link}
-                  className="flex items-center justify-between py-2 px-3 rounded-lg text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all group text-sm font-medium"
+                  className="flex items-center justify-between py-2 px-2 lg:px-3 rounded-lg text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all group text-xs lg:text-sm font-medium"
                 >
                   <span className="flex items-center gap-2">
                     <ChevronRight className="h-3 w-3 text-neutral-400" />
@@ -178,7 +178,7 @@ function MegaMenuDropdown({ categories, adsImages, shopAllLink, shopAllLabel, on
           <div className="mt-4 pt-4 border-t border-neutral-200">
             <button
               onClick={onQuoteClick}
-              className="flex items-center justify-center gap-2 w-full py-2 px-3 bg-primary-600 text-white rounded-lg text-sm font-semibold hover:bg-primary-700 transition-colors"
+              className="flex items-center justify-center gap-2 w-full py-2 px-2 lg:px-3 bg-primary-600 text-white rounded-lg text-xs lg:text-sm font-semibold hover:bg-primary-700 transition-colors"
             >
               <Sparkles className="h-4 w-4" />
               Custom Quote
@@ -186,10 +186,10 @@ function MegaMenuDropdown({ categories, adsImages, shopAllLink, shopAllLabel, on
           </div>
         </div>
 
-        {/* Right: Random Ads Images (9:16 ratio, 200px width) */}
-        <div className="col-span-10 p-4">
+        {/* Right: Random Ads Images (9:16 ratio) */}
+        <div className="col-span-9 lg:col-span-10 p-3 lg:p-4">
           <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-3">Discover Products</h3>
-          <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+          <div className="flex gap-2 lg:gap-3 overflow-x-auto pb-2 scrollbar-hide">
             {adsImages.map((ad, index) => (
               <Link 
                 key={`${ad.link}-${index}`} 
@@ -197,7 +197,7 @@ function MegaMenuDropdown({ categories, adsImages, shopAllLink, shopAllLabel, on
                 className="flex-shrink-0 group"
               >
                 <div 
-                  className="w-[200px] bg-neutral-100 rounded-lg overflow-hidden transition-all duration-200 group-hover:shadow-lg group-hover:ring-2 group-hover:ring-primary-400 group-hover:scale-[1.02]"
+                  className="w-[120px] lg:w-[200px] bg-neutral-100 rounded-lg overflow-hidden transition-all duration-200 group-hover:shadow-lg group-hover:ring-2 group-hover:ring-primary-400 group-hover:scale-[1.02]"
                   style={{ aspectRatio: '9/16' }}
                 >
                   <img
@@ -265,7 +265,7 @@ export default function MegaMenu() {
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'shape' ? 'rotate-180' : ''}`} />
           </button>
           {activeMenu === 'shape' && (
-            <div className="absolute left-0 top-full pt-2" onMouseEnter={() => handleMouseEnter('shape')} onMouseLeave={handleMouseLeave}>
+            <div className="fixed left-1/2 -translate-x-1/2 top-16 pt-2 z-50" onMouseEnter={() => handleMouseEnter('shape')} onMouseLeave={handleMouseLeave}>
               <MegaMenuDropdown
                 categories={SHAPE_CATEGORIES}
                 adsImages={randomStoreAdsImages}
@@ -285,7 +285,7 @@ export default function MegaMenu() {
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'custom' ? 'rotate-180' : ''}`} />
           </button>
           {activeMenu === 'custom' && (
-            <div className="absolute left-0 top-full pt-2" onMouseEnter={() => handleMouseEnter('custom')} onMouseLeave={handleMouseLeave}>
+            <div className="fixed left-1/2 -translate-x-1/2 top-16 pt-2 z-50" onMouseEnter={() => handleMouseEnter('custom')} onMouseLeave={handleMouseLeave}>
               <MegaMenuDropdown
                 categories={CUSTOM_CATEGORIES}
                 adsImages={randomStoreAdsImages}
@@ -305,7 +305,7 @@ export default function MegaMenu() {
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'stock' ? 'rotate-180' : ''}`} />
           </button>
           {activeMenu === 'stock' && (
-            <div className="absolute left-0 top-full pt-2" onMouseEnter={() => handleMouseEnter('stock')} onMouseLeave={handleMouseLeave}>
+            <div className="fixed left-1/2 -translate-x-1/2 top-16 pt-2 z-50" onMouseEnter={() => handleMouseEnter('stock')} onMouseLeave={handleMouseLeave}>
               <MegaMenuDropdown
                 categories={STOCK_CATEGORIES}
                 adsImages={randomStoreAdsImages}
@@ -328,11 +328,11 @@ export default function MegaMenu() {
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'learn' ? 'rotate-180' : ''}`} />
           </button>
           {activeMenu === 'learn' && (
-            <div className="absolute right-0 top-full pt-2" onMouseEnter={() => handleMouseEnter('learn')} onMouseLeave={handleMouseLeave}>
-              <div className="w-[1200px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
+            <div className="fixed left-1/2 -translate-x-1/2 top-16 pt-2 z-50" onMouseEnter={() => handleMouseEnter('learn')} onMouseLeave={handleMouseLeave}>
+              <div className="w-[95vw] max-w-[1200px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
                 <div className="flex">
                   {/* Left: Categories Grid */}
-                  <div className="flex-shrink-0 w-[280px] grid grid-cols-2 gap-0 border-r border-neutral-100">
+                  <div className="flex-shrink-0 w-[200px] lg:w-[280px] grid grid-cols-2 gap-0 border-r border-neutral-100">
                     <div className="p-4 border-r border-b border-neutral-100">
                       <h4 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-2">Materials</h4>
                       <ul className="space-y-1">
@@ -376,9 +376,9 @@ export default function MegaMenu() {
                   </div>
                   
                   {/* Right: Random Ads Images */}
-                  <div className="flex-1 p-4">
+                  <div className="flex-1 p-3 lg:p-4">
                     <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-3">Discover More</h3>
-                    <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+                    <div className="flex gap-2 lg:gap-3 overflow-x-auto pb-2 scrollbar-hide">
                       {randomLearnAdsImages.map((ad, index) => (
                         <Link 
                           key={`learn-${ad.link}-${index}`} 
@@ -386,7 +386,7 @@ export default function MegaMenu() {
                           className="flex-shrink-0 group"
                         >
                           <div 
-                            className="w-[200px] bg-neutral-100 rounded-lg overflow-hidden transition-all duration-200 group-hover:shadow-lg group-hover:ring-2 group-hover:ring-primary-400 group-hover:scale-[1.02]"
+                            className="w-[120px] lg:w-[200px] bg-neutral-100 rounded-lg overflow-hidden transition-all duration-200 group-hover:shadow-lg group-hover:ring-2 group-hover:ring-primary-400 group-hover:scale-[1.02]"
                             style={{ aspectRatio: '9/16' }}
                           >
                             <img
@@ -426,11 +426,11 @@ export default function MegaMenu() {
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'blog' ? 'rotate-180' : ''}`} />
           </button>
           {activeMenu === 'blog' && (
-            <div className="absolute right-0 top-full pt-2" onMouseEnter={() => handleMouseEnter('blog')} onMouseLeave={handleMouseLeave}>
-              <div className="w-[1200px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
+            <div className="fixed left-1/2 -translate-x-1/2 top-16 pt-2 z-50" onMouseEnter={() => handleMouseEnter('blog')} onMouseLeave={handleMouseLeave}>
+              <div className="w-[95vw] max-w-[1200px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
                 <div className="flex">
                   {/* Left: Blog Categories */}
-                  <div className="flex-shrink-0 w-[180px] bg-neutral-50 p-5 border-r border-neutral-100">
+                  <div className="flex-shrink-0 w-[140px] lg:w-[180px] bg-neutral-50 p-4 lg:p-5 border-r border-neutral-100">
                     <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-3">Categories</h3>
                     <ul className="space-y-0.5">
                       <li>
@@ -469,9 +469,9 @@ export default function MegaMenu() {
                   </div>
                   
                   {/* Right: Random Ads Images */}
-                  <div className="flex-1 p-4">
+                  <div className="flex-1 p-3 lg:p-4">
                     <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-3">Featured Products</h3>
-                    <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+                    <div className="flex gap-2 lg:gap-3 overflow-x-auto pb-2 scrollbar-hide">
                       {randomLearnAdsImages.map((ad, index) => (
                         <Link 
                           key={`blog-${ad.link}-${index}`} 
@@ -479,7 +479,7 @@ export default function MegaMenu() {
                           className="flex-shrink-0 group"
                         >
                           <div 
-                            className="w-[200px] bg-neutral-100 rounded-lg overflow-hidden transition-all duration-200 group-hover:shadow-lg group-hover:ring-2 group-hover:ring-primary-400 group-hover:scale-[1.02]"
+                            className="w-[120px] lg:w-[200px] bg-neutral-100 rounded-lg overflow-hidden transition-all duration-200 group-hover:shadow-lg group-hover:ring-2 group-hover:ring-primary-400 group-hover:scale-[1.02]"
                             style={{ aspectRatio: '9/16' }}
                           >
                             <img
