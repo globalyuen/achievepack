@@ -4,6 +4,7 @@ import { ArrowLeft, Leaf, Mail, Phone, Calendar, X } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { organizationEntity, getAuthorByContentType, generateBreadcrumb } from '../data/schemaEntities'
+import LearnNavigation from './LearnNavigation'
 
 interface FAQ {
   question: string
@@ -224,13 +225,13 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
       <div className="min-h-screen bg-neutral-50">
         {/* Header */}
         <header className="bg-white border-b sticky top-0 z-50">
-          <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
             <a 
               href="/" 
               onClick={handleNavigation('/')}
-              className="flex items-center gap-2 text-neutral-600 hover:text-primary-600 transition-colors"
+              className="flex items-center gap-2 text-neutral-600 hover:text-primary-600 transition-colors text-sm"
             >
-              <ArrowLeft className="h-5 w-5" /> {t('seoPages.backToHome')}
+              <ArrowLeft className="h-4 w-4" /> {t('seoPages.backToHome')}
             </a>
             <div className="flex items-center gap-4">
               <Link to="/" className="flex items-center gap-2">
@@ -239,6 +240,9 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
             </div>
           </div>
         </header>
+
+        {/* Learn Navigation with Rotating Featured Articles */}
+        <LearnNavigation />
 
         {/* Hero Section */}
         <section className="bg-primary-700 text-white">
