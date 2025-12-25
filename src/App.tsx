@@ -313,7 +313,7 @@ ${formData.message}`
             "@id": "https://achievepack.com/#organization",
             "name": "Achieve Pack Company Limited",
             "url": "https://achievepack.com",
-            "logo": "https://achievepack.com/achieve-pack-logo.png",
+            "logo": "https://achievepack.com/achieve-pack-logo.webp",
             "description": "Achieve Pack helps brands switch to certified eco-friendly pouches – compostable, recyclable and bio-based – without sacrificing product protection, lead times or margins.",
             "foundingDate": "2011",
             "address": {
@@ -440,7 +440,7 @@ ${formData.message}`
             {/* Center Logo */}
             <div className="flex items-center justify-center lg:absolute lg:left-1/2 lg:-translate-x-1/2">
               <Link to="/" className="flex items-center">
-                <img src="/achieve-pack-logo.png" alt="Achieve Pack Logo" className="h-12 w-auto" />
+                <img src="/achieve-pack-logo.webp" alt="Achieve Pack Logo" className="h-12 w-auto" loading="lazy" decoding="async" width="140" height="48" />
               </Link>
             </div>
 

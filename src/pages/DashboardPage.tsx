@@ -402,7 +402,7 @@ const DashboardPage: React.FC = () => {
         {/* Logo */}
         <div className="flex items-center gap-2 px-6 py-5 border-b border-gray-100">
           <Link to="/" className="flex items-center gap-2">
-            <img src="/achieve-pack-logo.png" alt="Logo" className="h-8 w-auto" />
+            <img src="/achieve-pack-logo.webp" alt="Logo" className="h-8 w-auto" />
             <span className="font-bold text-gray-900">Customer</span>
           </Link>
         </div>
@@ -588,7 +588,7 @@ const DashboardPage: React.FC = () => {
           <div className="flex items-center justify-between px-6 py-4">
             <div className="flex items-center gap-4 lg:hidden">
               <Link to="/" className="flex items-center gap-2">
-                <img src="/achieve-pack-logo.png" alt="Logo" className="h-8 w-auto" />
+                <img src="/achieve-pack-logo.webp" alt="Logo" className="h-8 w-auto" />
               </Link>
             </div>
             <div className="hidden lg:block">

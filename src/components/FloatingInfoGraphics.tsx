@@ -2,10 +2,10 @@ import React, { useState, useEffect, useMemo } from 'react'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 
 const INFOGRAPHIC_IMAGES = [
-  { src: '/imgs/4-infograhic/compost.webp', alt: 'Compostable Materials Infographic', title: 'Compostable', logo: '/eco-logo/transparent-bkg/compost.png' },
-  { src: '/imgs/4-infograhic/recyclable.webp', alt: 'Recyclable Materials Infographic', title: 'Recyclable', logo: '/eco-logo/transparent-bkg/recycle.png' },
-  { src: '/imgs/4-infograhic/PCR.webp', alt: 'PCR Materials Infographic', title: 'PCR', logo: '/eco-logo/transparent-bkg/pcr.png' },
-  { src: '/imgs/4-infograhic/Bio-PE.webp', alt: 'Bio-PE Materials Infographic', title: 'Bio-PE', logo: '/eco-logo/transparent-bkg/biope.png' },
+  { src: '/imgs/4-infograhic/compost.webp', alt: 'Compostable Materials Infographic', title: 'Compostable', logo: '/eco-logo/transparent-bkg/compost.webp' },
+  { src: '/imgs/4-infograhic/recyclable.webp', alt: 'Recyclable Materials Infographic', title: 'Recyclable', logo: '/eco-logo/transparent-bkg/recycle.webp' },
+  { src: '/imgs/4-infograhic/PCR.webp', alt: 'PCR Materials Infographic', title: 'PCR', logo: '/eco-logo/transparent-bkg/pcr.webp' },
+  { src: '/imgs/4-infograhic/Bio-PE.webp', alt: 'Bio-PE Materials Infographic', title: 'Bio-PE', logo: '/eco-logo/transparent-bkg/biope.webp' },
 ]
 
 interface FloatingIcon {
@@ -95,6 +95,10 @@ export const FloatingInfoGraphics: React.FC<FloatingInfoGraphicsProps> = ({ clas
               <img 
                 src={INFOGRAPHIC_IMAGES[icon.infographicIndex].logo} 
                 alt={INFOGRAPHIC_IMAGES[icon.infographicIndex].title}
+                loading="lazy"
+                decoding="async"
+                width={80}
+                height={80}
                 className="w-full h-full object-contain p-1"
               />
             </div>

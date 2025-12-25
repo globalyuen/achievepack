@@ -12,35 +12,35 @@ interface VideoItem {
 const VIDEO_ITEMS: VideoItem[] = [
   {
     id: 'why-achievepack',
-    image: '/eco-logo/transparent-bkg/ap-logo.png',
+    image: '/eco-logo/transparent-bkg/ap-logo.webp',
     titleKey: 'ecoVideo.whyAchievepack.title',
     descKey: 'ecoVideo.whyAchievepack.desc',
     url: 'https://youtube.com/shorts/0uawtlJB0B0',
   },
   {
     id: 'sample-action',
-    image: '/eco-logo/transparent-bkg/why-us.png',
+    image: '/eco-logo/transparent-bkg/why-us.webp',
     titleKey: 'ecoVideo.sampleAction.title',
     descKey: 'ecoVideo.sampleAction.desc',
     url: 'https://youtu.be/xKusl5lOEYM',
   },
   {
     id: 'compostable',
-    image: '/eco-logo/transparent-bkg/compost.png',
+    image: '/eco-logo/transparent-bkg/compost.webp',
     titleKey: 'ecoVideo.compostable.title',
     descKey: 'ecoVideo.compostable.desc',
     url: 'https://youtube.com/shorts/ls9W8QF-SQc',
   },
   {
     id: 'recyclable',
-    image: '/eco-logo/transparent-bkg/recycle.png',
+    image: '/eco-logo/transparent-bkg/recycle.webp',
     titleKey: 'ecoVideo.recyclable.title',
     descKey: 'ecoVideo.recyclable.desc',
     url: 'https://youtube.com/shorts/l23pEIAbkYQ',
   },
   {
     id: 'biope',
-    image: '/eco-logo/transparent-bkg/biope.png',
+    image: '/eco-logo/transparent-bkg/biope.webp',
     titleKey: 'ecoVideo.biope.title',
     descKey: 'ecoVideo.biope.desc',
     url: 'https://www.youtube.com/shorts/Jj6hyu-3RlU',
@@ -90,6 +90,10 @@ export const EcoVideoShowcase: React.FC<EcoVideoShowcaseProps> = ({ className = 
                   <img
                     src={item.image}
                     alt={t(item.titleKey)}
+                    loading="lazy"
+                    decoding="async"
+                    width={120}
+                    height={120}
                     className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
                   />
                   {/* Play Button Overlay */}
