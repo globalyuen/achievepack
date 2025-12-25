@@ -184,7 +184,7 @@ const RecyclableMonoPEPage: React.FC = () => {
           
           <div className="bg-green-50 border border-green-200 rounded-lg p-4 mt-4">
             <p className="text-sm text-green-800">
-              <strong>Why Achieve Pack?</strong> 13+ years of sustainable packaging expertise. Our mono-PE structures are designed for real-world recyclability, not just marketing claims. MOQ from 500 pieces for mono-PE. <Link to="/case-studies/snack-brand" className="text-green-600 hover:underline">See how snack brands transitioned to our recyclable pouches →</Link>
+              <strong>Why Achieve Pack?</strong> 13+ years of sustainable packaging expertise. Our mono-PE structures are designed for real-world recyclability, not just marketing claims. MOQ from 500 pieces for mono-PE. <Link to="/solutions/snack-brand-manager" className="text-green-600 hover:underline">See how snack brands transitioned to our recyclable pouches →</Link>
             </p>
           </div>
         </div>

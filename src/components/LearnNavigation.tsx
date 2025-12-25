@@ -65,9 +65,9 @@ const LEARN_PAGES = {
     icon: <Users className="h-4 w-4" />,
     pages: [
       { name: 'Coffee Roastery', link: '/case-studies/coffee-roastery', image: '/imgs/illustrated/a_coffee_roaster_variation_1_6758424.webp' },
-      { name: 'Snack Brand', link: '/case-studies/snack-brand', image: '/imgs/illustrated/a_snack_brand_variation_1_5605894.webp' },
-      { name: 'Artisan Producer', link: '/case-studies/artisan-producer', image: '/imgs/illustrated/a_artisan_producer_variation_1_5454378.webp' },
-      { name: 'Startup Founder', link: '/case-studies/startup-founder', image: '/imgs/illustrated/a_startup_founder_variation_3_2900816.webp' },
+      { name: 'Snack Brand', link: '/solutions/snack-brand-manager', image: '/imgs/illustrated/a_snack_brand_variation_1_5605894.webp' },
+      { name: 'Artisan Producer', link: '/solutions/artisan-producer', image: '/imgs/illustrated/a_artisan_producer_variation_1_5454378.webp' },
+      { name: 'Startup Founder', link: '/solutions/startup-founder', image: '/imgs/illustrated/a_startup_founder_variation_3_2900816.webp' },
     ]
   },
   company: {
