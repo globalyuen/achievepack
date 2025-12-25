@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { ExternalLink, X } from 'lucide-react'
 
 // Real Instagram post URLs from @pouch_eco
@@ -14,9 +14,37 @@ const INSTAGRAM_POSTS = [
 export default function InstagramFeed() {
   const [selectedPost, setSelectedPost] = useState<string | null>(null)
   const [isFollowModalOpen, setIsFollowModalOpen] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
 
+  // Use Intersection Observer to detect when section is visible
   useEffect(() => {
-    // Load Instagram embed script with idle callback to avoid blocking UI
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isVisible) {
+            setIsVisible(true)
+          }
+        })
+      },
+      {
+        rootMargin: '200px', // Start loading 200px before visible
+        threshold: 0.1
+      }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [isVisible])
+
+  // Only load Instagram script when section becomes visible
+  useEffect(() => {
+    if (!isVisible || isLoaded) return
+
     const loadInstagramScript = () => {
       if (!(window as any).instgrm) {
         const script = document.createElement('script')
@@ -24,7 +52,7 @@ export default function InstagramFeed() {
         script.async = true
         document.body.appendChild(script)
         script.onload = () => {
-          // Use requestIdleCallback to process embeds during idle time
+          setIsLoaded(true)
           if ('requestIdleCallback' in window) {
             (window as any).requestIdleCallback(() => {
               if ((window as any).instgrm) {
@@ -40,7 +68,7 @@ export default function InstagramFeed() {
           }
         }
       } else {
-        // Use requestIdleCallback for re-processing
+        setIsLoaded(true)
         if ('requestIdleCallback' in window) {
           (window as any).requestIdleCallback(() => {
             (window as any).instgrm.Embeds.process()
@@ -52,8 +80,11 @@ export default function InstagramFeed() {
         }
       }
     }
-    loadInstagramScript()
-  }, [])
+    
+    // Delay loading by 100ms to avoid blocking other resources
+    const timer = setTimeout(loadInstagramScript, 100)
+    return () => clearTimeout(timer)
+  }, [isVisible, isLoaded])
 
   // Re-process embeds when modal opens - using idle callback
   useEffect(() => {
@@ -71,7 +102,7 @@ export default function InstagramFeed() {
   }, [selectedPost])
 
   return (
-    <section className="py-16 bg-white relative overflow-hidden">
+    <section ref={sectionRef} className="py-16 bg-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{ 
