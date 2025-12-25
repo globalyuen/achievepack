@@ -5,27 +5,37 @@ import { useCustomQuote } from '../contexts/CustomQuoteContext'
 
 // Store-related 9:16 ads images pool (for SHAPE/CUSTOM/STOCK menus - left side)
 const STORE_ADS_POOL = [
-  // Corrugated Box ads (9:16)
-  { image: '/imgs/store/box/corrugated-box/ads/a_hero_kv_black_gold_mailer_4737831.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/corrugated-box/ads/a_foil_stamping_detail_logo_3101304.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/corrugated-box/ads/a_material_benefits_page_4228725.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/corrugated-box/ads/a_brand_closing_collection_9526391.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/corrugated-box/ads/a_insert_detail_arrangement_4804418.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/corrugated-box/ads/a_load_bearing_structure_detail_7538740.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/corrugated-box/ads/a_packing_scene_production_9264348.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/corrugated-box/ads/a_structure_info_page_mailer_9213547.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/corrugated-box/ads/a_tactile_opening_detail_7956611.webp', link: '/store?category=boxes' },
-  // Tuck Box ads (9:16)
-  { image: '/imgs/store/box/tuck-box/ads/a_hero_kv_tuck_box_3590474.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/tuck-box/ads/a_detail_gold_foil_embossing_5696847.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/tuck-box/ads/a_range_collection_closing_9211739.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/tuck-box/ads/a_detail_base_loading_4721904.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/tuck-box/ads/a_detail_edge_finish_8463428.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/tuck-box/ads/a_detail_interior_unboxing_9052534.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/tuck-box/ads/a_detail_tuck_flaps_folds_9224764.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/tuck-box/ads/a_material_sustainability_page_9060501.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/tuck-box/ads/a_retail_display_scene_3099119.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/tuck-box/ads/a_structure_tuck_box_views_2089693.webp', link: '/store?category=boxes' },
+  // Eco Digital products (9:16)
+  { image: '/imgs/menu/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/menu/eco-digital/TKAqlW4KL2xV9glNA91iuD_sYEvp2G29eWT4819Ne1g=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/menu/eco-digital/hAGC60SxXYmSdiBTJD3XPhMZBocRVBXZyuV-dvt3r7c=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/menu/eco-digital/os9CHhTSQoGASvA8lsfm-iHYfG4kddPoZP2wYMh47fs=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/menu/eco-digital/wXqLssPqdR9J0iDhIyQ-NGTDDFm-3DgFKlyQD4ipsEw=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/menu/eco-digital/X5RkmCe76z3hyMvMr6Yvb5RjclkrdDjh2rNvGIRqgWU=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/menu/eco-digital/LQ5WGOrIkQPzbXSfWupAIFvVrlyL9lvZoMKc35bbHPw=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/menu/eco-digital/vxuLNp13OWRZXhe-qkwn3UgHCWirk5TzBLhB7q8JJ30=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/menu/eco-digital/AvEbY4SX8gwP2SzENbSen8dnT_kTrrk8VN6siqp1B2I=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/menu/eco-digital/0eQiBArdHVo_uyy12vmVid9Vc-hB8Msln4h0Oddu4dQ=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/menu/eco-digital/1k3ig0ezuHcds_30mxxPOgFL-qeSwHc8uuzElo2-GP4=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/menu/eco-digital/7CWxuO-mB4GevbYtCFnSFfzuCLECtUQ8AjuleiT4vAk=.webp', link: '/store?category=eco-digital' },
+  // Corrugated Box (9:16)
+  { image: '/imgs/menu/corrugated-box/a_hero_kv_black_gold_mailer_4737831.webp', link: '/store?category=boxes' },
+  { image: '/imgs/menu/corrugated-box/a_foil_stamping_detail_logo_3101304.webp', link: '/store?category=boxes' },
+  { image: '/imgs/menu/corrugated-box/a_material_benefits_page_4228725.webp', link: '/store?category=boxes' },
+  { image: '/imgs/menu/corrugated-box/a_brand_closing_collection_9526391.webp', link: '/store?category=boxes' },
+  { image: '/imgs/menu/corrugated-box/a_insert_detail_arrangement_4804418.webp', link: '/store?category=boxes' },
+  { image: '/imgs/menu/corrugated-box/a_packing_scene_production_9264348.webp', link: '/store?category=boxes' },
+  // Tuck Box (9:16)
+  { image: '/imgs/menu/tuck-box/a_hero_kv_tuck_box_3590474.webp', link: '/store?category=boxes' },
+  { image: '/imgs/menu/tuck-box/a_detail_gold_foil_embossing_5696847.webp', link: '/store?category=boxes' },
+  { image: '/imgs/menu/tuck-box/a_range_collection_closing_9211739.webp', link: '/store?category=boxes' },
+  { image: '/imgs/menu/tuck-box/a_detail_base_loading_4721904.webp', link: '/store?category=boxes' },
+  { image: '/imgs/menu/tuck-box/a_retail_display_scene_3099119.webp', link: '/store?category=boxes' },
+  // Mailer Bags (9:16)
+  { image: '/imgs/menu/mailer/447849b2-65ea-49fb-86de-1278a636c795_upscayl_3x_upscayl-standard-4x.webp', link: '/store?category=mailer' },
+  { image: '/imgs/menu/mailer/a_comparison_compostable_transparent_7910662.webp', link: '/store?category=mailer' },
+  { image: '/imgs/menu/mailer/a_custom_printing_showcase_transparent_0406760.webp', link: '/store?category=mailer' },
+  { image: '/imgs/menu/mailer/a_durability_test_material_pull_6142959.webp', link: '/store?category=mailer' },
 ]
 
 // SEO page 9:16 ads images pool (for LEARN/BLOG menus - right side)
