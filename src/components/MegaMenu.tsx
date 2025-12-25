@@ -279,47 +279,76 @@ export default function MegaMenu() {
           </button>
           {activeMenu === 'learn' && (
             <div className="absolute right-0 top-full pt-2" onMouseEnter={() => handleMouseEnter('learn')} onMouseLeave={handleMouseLeave}>
-              <div className="w-[550px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
-                <div className="grid grid-cols-4 gap-0">
-                  <div className="p-4 border-r border-neutral-100">
-                    <h4 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-2">Materials</h4>
-                    <ul className="space-y-1">
-                      {LEARN_CATEGORIES.materials.map((item) => (
-                        <li key={item.name}>
-                          <Link to={item.link} className="block py-1 text-xs text-neutral-600 hover:text-primary-600 transition-colors">{item.name}</Link>
-                        </li>
-                      ))}
-                    </ul>
+              <div className="w-[850px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
+                <div className="flex">
+                  {/* Left: Categories Grid */}
+                  <div className="flex-shrink-0 w-[350px] grid grid-cols-2 gap-0 border-r border-neutral-100">
+                    <div className="p-4 border-r border-b border-neutral-100">
+                      <h4 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-2">Materials</h4>
+                      <ul className="space-y-1">
+                        {LEARN_CATEGORIES.materials.map((item) => (
+                          <li key={item.name}>
+                            <Link to={item.link} className="block py-1 text-xs text-neutral-600 hover:text-primary-600 transition-colors">{item.name}</Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="p-4 border-b border-neutral-100">
+                      <h4 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-2">Options</h4>
+                      <ul className="space-y-1">
+                        {LEARN_CATEGORIES.options.map((item) => (
+                          <li key={item.name}>
+                            <Link to={item.link} className="block py-1 text-xs text-neutral-600 hover:text-primary-600 transition-colors">{item.name}</Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="p-4 border-r border-neutral-100">
+                      <h4 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-2">Industries</h4>
+                      <ul className="space-y-1">
+                        {LEARN_CATEGORIES.industries.map((item) => (
+                          <li key={item.name}>
+                            <Link to={item.link} className="block py-1 text-xs text-neutral-600 hover:text-primary-600 transition-colors">{item.name}</Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="p-4">
+                      <h4 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-2">Support</h4>
+                      <ul className="space-y-1">
+                        {LEARN_CATEGORIES.support.map((item) => (
+                          <li key={item.name}>
+                            <Link to={item.link} className="block py-1 text-xs text-neutral-600 hover:text-primary-600 transition-colors">{item.name}</Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                  <div className="p-4 border-r border-neutral-100">
-                    <h4 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-2">Options</h4>
-                    <ul className="space-y-1">
-                      {LEARN_CATEGORIES.options.map((item) => (
-                        <li key={item.name}>
-                          <Link to={item.link} className="block py-1 text-xs text-neutral-600 hover:text-primary-600 transition-colors">{item.name}</Link>
-                        </li>
+                  
+                  {/* Right: Random Ads Images */}
+                  <div className="flex-1 p-4">
+                    <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-3">Discover More</h3>
+                    <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+                      {randomAdsImages.map((ad, index) => (
+                        <Link 
+                          key={`learn-${ad.link}-${index}`} 
+                          to={ad.link} 
+                          className="flex-shrink-0 group"
+                        >
+                          <div 
+                            className="w-[100px] bg-neutral-100 rounded-lg overflow-hidden group-hover:shadow-lg group-hover:ring-2 group-hover:ring-primary-400 transition-all"
+                            style={{ aspectRatio: '9/16' }}
+                          >
+                            <img
+                              src={ad.image}
+                              alt="Product"
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              loading="lazy"
+                            />
+                          </div>
+                        </Link>
                       ))}
-                    </ul>
-                  </div>
-                  <div className="p-4 border-r border-neutral-100">
-                    <h4 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-2">Industries</h4>
-                    <ul className="space-y-1">
-                      {LEARN_CATEGORIES.industries.map((item) => (
-                        <li key={item.name}>
-                          <Link to={item.link} className="block py-1 text-xs text-neutral-600 hover:text-primary-600 transition-colors">{item.name}</Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="p-4">
-                    <h4 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-2">Support</h4>
-                    <ul className="space-y-1">
-                      {LEARN_CATEGORIES.support.map((item) => (
-                        <li key={item.name}>
-                          <Link to={item.link} className="block py-1 text-xs text-neutral-600 hover:text-primary-600 transition-colors">{item.name}</Link>
-                        </li>
-                      ))}
-                    </ul>
+                    </div>
                   </div>
                 </div>
                 <div className="bg-neutral-50 px-4 py-2 border-t border-neutral-100">
@@ -339,10 +368,85 @@ export default function MegaMenu() {
         </div>
 
         {/* BLOG */}
-        <Link to="/blog" className="flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-neutral-700 hover:text-primary-600 transition-colors">
-          <FileText className="h-4 w-4" />
-          BLOG
-        </Link>
+        <div className="relative" onMouseEnter={() => handleMouseEnter('blog')} onMouseLeave={handleMouseLeave}>
+          <button className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors ${activeMenu === 'blog' ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'}`}>
+            <FileText className="h-4 w-4" />
+            BLOG
+            <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'blog' ? 'rotate-180' : ''}`} />
+          </button>
+          {activeMenu === 'blog' && (
+            <div className="absolute right-0 top-full pt-2" onMouseEnter={() => handleMouseEnter('blog')} onMouseLeave={handleMouseLeave}>
+              <div className="w-[750px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
+                <div className="flex">
+                  {/* Left: Blog Categories */}
+                  <div className="flex-shrink-0 w-[200px] bg-neutral-50 p-5 border-r border-neutral-100">
+                    <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-3">Categories</h3>
+                    <ul className="space-y-0.5">
+                      <li>
+                        <Link to="/blog" className="flex items-center gap-2 py-2 px-3 rounded-lg text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all text-sm font-medium">
+                          <ChevronRight className="h-3 w-3 text-neutral-400" />
+                          All Articles
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/blog?category=packaging" className="flex items-center gap-2 py-2 px-3 rounded-lg text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all text-sm font-medium">
+                          <ChevronRight className="h-3 w-3 text-neutral-400" />
+                          Packaging Tips
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/blog?category=sustainability" className="flex items-center gap-2 py-2 px-3 rounded-lg text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all text-sm font-medium">
+                          <ChevronRight className="h-3 w-3 text-neutral-400" />
+                          Sustainability
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/blog?category=industry" className="flex items-center gap-2 py-2 px-3 rounded-lg text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all text-sm font-medium">
+                          <ChevronRight className="h-3 w-3 text-neutral-400" />
+                          Industry News
+                        </Link>
+                      </li>
+                    </ul>
+                    <div className="mt-4 pt-4 border-t border-neutral-200">
+                      <Link
+                        to="/blog"
+                        className="inline-flex items-center gap-1 text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors"
+                      >
+                        View All Posts →
+                      </Link>
+                    </div>
+                  </div>
+                  
+                  {/* Right: Random Ads Images */}
+                  <div className="flex-1 p-4">
+                    <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-3">Featured Products</h3>
+                    <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+                      {randomAdsImages.map((ad, index) => (
+                        <Link 
+                          key={`blog-${ad.link}-${index}`} 
+                          to={ad.link} 
+                          className="flex-shrink-0 group"
+                        >
+                          <div 
+                            className="w-[100px] bg-neutral-100 rounded-lg overflow-hidden group-hover:shadow-lg group-hover:ring-2 group-hover:ring-primary-400 transition-all"
+                            style={{ aspectRatio: '9/16' }}
+                          >
+                            <img
+                              src={ad.image}
+                              alt="Product"
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              loading="lazy"
+                            />
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
       </nav>
     </div>
   )
