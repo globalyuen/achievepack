@@ -208,19 +208,200 @@ export default function LearnNavigation({ currentPath }: LearnNavigationProps) {
   return (
     <div className="bg-gradient-to-b from-primary-50 to-white border-b border-neutral-200">
       <div className="max-w-7xl mx-auto px-4 py-4 md:py-6">
-        {/* Mobile: Featured Image First, then Categories */}
-        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-4 md:gap-6">
+        
+        {/* Mobile Layout */}
+        <div className="lg:hidden">
+          {/* Mobile: Featured Categories Header */}
+          <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">
+            Featured Categories
+          </h3>
           
-          {/* Mobile: Featured Carousel First (order-1 on mobile, order-2 on lg) */}
-          <div className="order-1 lg:order-2 lg:col-span-8">
-            <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2 md:mb-3">
+          {/* Mobile: Hero Image - Compact aspect ratio */}
+          <Link 
+            to={currentPage.link}
+            className="block relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg group mb-3"
+          >
+            <img
+              src={currentPage.image}
+              alt={currentPage.name}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-3">
+              <h4 className="text-base font-bold text-white mb-0.5">{currentPage.name}</h4>
+              <span className="inline-flex items-center gap-1 text-xs text-white/80">
+                Read more <ChevronRight className="h-3 w-3" />
+              </span>
+            </div>
+          </Link>
+          
+          {/* Mobile: Thumbnail Carousel - Larger touch targets */}
+          <div className="flex gap-1.5 overflow-x-auto pb-2 -mx-4 px-4 scrollbar-hide">
+            {FEATURED_PAGES.map((page, i) => (
+              <button
+                key={`mobile-thumb-${page.link}-${i}`}
+                onClick={() => handleThumbnailClick(i)}
+                className={`flex-shrink-0 w-12 h-12 rounded-lg overflow-hidden border-2 transition-all ${
+                  i === currentSlide
+                    ? 'border-primary-500 ring-2 ring-primary-200'
+                    : 'border-neutral-200'
+                }`}
+              >
+                <img
+                  src={page.image}
+                  alt={page.name}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </button>
+            ))}
+          </div>
+          
+          {/* Mobile: Search Box */}
+          <div className="mt-3">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
+              <input
+                type="text"
+                placeholder="Search packaging solutions..."
+                className="w-full pl-9 pr-3 py-2 border border-neutral-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    const query = (e.target as HTMLInputElement).value
+                    if (query.trim()) {
+                      window.location.href = `/blog?search=${encodeURIComponent(query)}`
+                    }
+                  }
+                }}
+              />
+            </div>
+          </div>
+          
+          {/* Mobile: Popular Search Tags */}
+          <div className="mt-2 flex gap-1.5 overflow-x-auto -mx-4 px-4 pb-2 scrollbar-hide">
+            {[
+              { term: 'Compostable', link: '/materials/compostable' },
+              { term: 'Coffee Bags', link: '/products/compostable-coffee-bags' },
+              { term: 'Stand Up', link: '/packaging/stand-up-pouches' },
+              { term: 'Low MOQ', link: '/products/low-moq-packaging' },
+              { term: 'Pet Food', link: '/industry/pet-food' },
+            ].map((item) => (
+              <Link
+                key={item.term}
+                to={item.link}
+                className="flex-shrink-0 px-2.5 py-1.5 text-xs bg-white border border-neutral-200 text-neutral-600 rounded-full whitespace-nowrap hover:bg-primary-50 hover:border-primary-300"
+              >
+                {item.term}
+              </Link>
+            ))}
+          </div>
+          
+          {/* Mobile: Learn Center Categories */}
+          <div className="mt-4 pt-3 border-t border-neutral-200">
+            <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-2 flex items-center gap-2">
+              <BookOpen className="h-4 w-4" />
+              Learn Center
+            </h3>
+            
+            {/* Category Chips */}
+            <div className="flex gap-1.5 overflow-x-auto pb-2 -mx-4 px-4 scrollbar-hide">
+              {Object.entries(LEARN_PAGES).map(([key, category]) => (
+                <button
+                  key={key}
+                  onClick={() => toggleCategory(key)}
+                  className={`flex-shrink-0 flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-medium transition-colors whitespace-nowrap ${
+                    activeCategory === key
+                      ? 'bg-primary-500 text-white'
+                      : 'bg-white text-neutral-600 border border-neutral-200'
+                  }`}
+                >
+                  {category.icon}
+                  {category.title}
+                </button>
+              ))}
+            </div>
+            
+            {/* Selected category pages */}
+            {activeCategory && (
+              <div className="mt-2">
+                <div className="grid grid-cols-2 gap-1.5">
+                  {LEARN_PAGES[activeCategory as keyof typeof LEARN_PAGES]?.pages.map((page) => (
+                    <Link
+                      key={page.link}
+                      to={page.link}
+                      className={`px-2.5 py-2 rounded-lg text-xs font-medium transition-colors truncate ${
+                        path === page.link
+                          ? 'bg-primary-500 text-white'
+                          : 'bg-white text-neutral-700 border border-neutral-200'
+                      }`}
+                    >
+                      {page.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+        
+        {/* Desktop Layout */}
+        <div className="hidden lg:grid lg:grid-cols-12 gap-6">
+          {/* Desktop: Category Navigation */}
+          <div className="lg:col-span-4">
+            <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-3 flex items-center gap-2">
+              <BookOpen className="h-4 w-4" />
+              Learn Center
+            </h3>
+            <div className="space-y-1">
+              {Object.entries(LEARN_PAGES).map(([key, category]) => (
+                <div key={key}>
+                  <button
+                    onClick={() => toggleCategory(key)}
+                    className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                      activeCategory === key
+                        ? 'bg-primary-100 text-primary-700'
+                        : 'text-neutral-600 hover:bg-neutral-100'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2">
+                      {category.icon}
+                      {category.title}
+                      <span className="text-xs text-neutral-400">({category.pages.length})</span>
+                    </span>
+                    <ChevronDown className={`h-4 w-4 transition-transform ${activeCategory === key ? 'rotate-180' : ''}`} />
+                  </button>
+                  {activeCategory === key && (
+                    <div className="ml-4 mt-1 space-y-0.5">
+                      {category.pages.map((page) => (
+                        <Link
+                          key={page.link}
+                          to={page.link}
+                          className={`block px-3 py-1.5 text-sm rounded transition-colors ${
+                            path === page.link
+                              ? 'bg-primary-500 text-white'
+                              : 'text-neutral-600 hover:text-primary-600 hover:bg-primary-50'
+                          }`}
+                        >
+                          {page.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Desktop: Featured Image Carousel */}
+          <div className="lg:col-span-8">
+            <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-3">
               Featured Categories
             </h3>
             
             {/* Main Featured Image */}
             <Link 
               to={currentPage.link}
-              className="block relative aspect-[16/9] md:aspect-[16/9] rounded-xl overflow-hidden shadow-lg group mb-3 md:mb-4"
+              className="block relative aspect-[16/9] rounded-xl overflow-hidden shadow-lg group mb-4"
             >
               <img
                 src={currentPage.image}
@@ -228,21 +409,21 @@ export default function LearnNavigation({ currentPath }: LearnNavigationProps) {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
-                <h4 className="text-lg md:text-xl font-bold text-white mb-1 md:mb-2">{currentPage.name}</h4>
-                <span className="inline-flex items-center gap-1 text-xs md:text-sm text-white/80 group-hover:text-primary-300 transition-colors">
-                  Read more <ChevronRight className="h-3 w-3 md:h-4 md:w-4" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h4 className="text-xl font-bold text-white mb-2">{currentPage.name}</h4>
+                <span className="inline-flex items-center gap-1 text-sm text-white/80 group-hover:text-primary-300 transition-colors">
+                  Read more <ChevronRight className="h-4 w-4" />
                 </span>
               </div>
             </Link>
             
-            {/* Thumbnail Carousel - Larger touch targets on mobile */}
-            <div className="flex gap-2 overflow-x-auto pb-2 -mx-4 px-4 md:mx-0 md:px-0 scrollbar-hide">
+            {/* Thumbnail Carousel */}
+            <div className="flex gap-2 overflow-x-auto pb-2">
               {FEATURED_PAGES.map((page, i) => (
                 <button
-                  key={`${page.link}-${i}`}
+                  key={`desktop-thumb-${page.link}-${i}`}
                   onClick={() => handleThumbnailClick(i)}
-                  className={`flex-shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                  className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
                     i === currentSlide
                       ? 'border-primary-500 ring-2 ring-primary-200'
                       : 'border-transparent hover:border-primary-300'
@@ -258,8 +439,8 @@ export default function LearnNavigation({ currentPath }: LearnNavigationProps) {
               ))}
             </div>
             
-            {/* Search Box - Hidden on mobile, shown on desktop */}
-            <div className="hidden md:block mt-4">
+            {/* Search Box */}
+            <div className="mt-4">
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
                 <input
@@ -300,131 +481,6 @@ export default function LearnNavigation({ currentPath }: LearnNavigationProps) {
                     </Link>
                   ))}
                 </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Category Navigation (order-2 on mobile, order-1 on lg) */}
-          <div className="order-2 lg:order-1 lg:col-span-4">
-            <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-2 md:mb-3 flex items-center gap-2">
-              <BookOpen className="h-4 w-4" />
-              Learn Center
-            </h3>
-            
-            {/* Mobile: Horizontal scrollable category chips */}
-            <div className="flex gap-2 overflow-x-auto pb-2 -mx-4 px-4 md:hidden scrollbar-hide">
-              {Object.entries(LEARN_PAGES).map(([key, category]) => (
-                <button
-                  key={key}
-                  onClick={() => toggleCategory(key)}
-                  className={`flex-shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-medium transition-colors whitespace-nowrap ${
-                    activeCategory === key
-                      ? 'bg-primary-500 text-white'
-                      : 'bg-white text-neutral-600 border border-neutral-200'
-                  }`}
-                >
-                  {category.icon}
-                  {category.title}
-                </button>
-              ))}
-            </div>
-            
-            {/* Mobile: Selected category pages */}
-            {activeCategory && (
-              <div className="mt-3 md:hidden">
-                <div className="grid grid-cols-2 gap-2">
-                  {LEARN_PAGES[activeCategory as keyof typeof LEARN_PAGES]?.pages.map((page) => (
-                    <Link
-                      key={page.link}
-                      to={page.link}
-                      className={`flex items-center gap-2 px-3 py-2.5 rounded-lg text-xs font-medium transition-colors ${
-                        path === page.link
-                          ? 'bg-primary-500 text-white'
-                          : 'bg-white text-neutral-700 border border-neutral-200 hover:border-primary-300'
-                      }`}
-                    >
-                      {page.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
-            
-            {/* Desktop: Full category list with accordion */}
-            <div className="hidden md:block space-y-1">
-              {Object.entries(LEARN_PAGES).map(([key, category]) => (
-                <div key={key}>
-                  <button
-                    onClick={() => toggleCategory(key)}
-                    className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                      activeCategory === key
-                        ? 'bg-primary-100 text-primary-700'
-                        : 'text-neutral-600 hover:bg-neutral-100'
-                    }`}
-                  >
-                    <span className="flex items-center gap-2">
-                      {category.icon}
-                      {category.title}
-                      <span className="text-xs text-neutral-400">({category.pages.length})</span>
-                    </span>
-                    <ChevronDown className={`h-4 w-4 transition-transform ${activeCategory === key ? 'rotate-180' : ''}`} />
-                  </button>
-                  {activeCategory === key && (
-                    <div className="ml-4 mt-1 space-y-0.5">
-                      {category.pages.map((page) => (
-                        <Link
-                          key={page.link}
-                          to={page.link}
-                          className={`block px-3 py-1.5 text-sm rounded transition-colors ${
-                            path === page.link
-                              ? 'bg-primary-500 text-white'
-                              : 'text-neutral-600 hover:text-primary-600 hover:bg-primary-50'
-                          }`}
-                        >
-                          {page.name}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-            
-            {/* Mobile: Search Box at bottom */}
-            <div className="md:hidden mt-4">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  className="w-full pl-10 pr-4 py-2.5 border border-neutral-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white"
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter') {
-                      const query = (e.target as HTMLInputElement).value
-                      if (query.trim()) {
-                        window.location.href = `/blog?search=${encodeURIComponent(query)}`
-                      }
-                    }
-                  }}
-                />
-              </div>
-              
-              {/* Mobile: Fewer popular terms */}
-              <div className="mt-2 flex gap-2 overflow-x-auto -mx-4 px-4 pb-1 scrollbar-hide">
-                {[
-                  { term: 'Compostable', link: '/materials/compostable' },
-                  { term: 'Coffee Bags', link: '/products/compostable-coffee-bags' },
-                  { term: 'Stand Up Pouch', link: '/packaging/stand-up-pouches' },
-                  { term: 'Low MOQ', link: '/products/low-moq-packaging' },
-                ].map((item) => (
-                  <Link
-                    key={item.term}
-                    to={item.link}
-                    className="flex-shrink-0 px-2.5 py-1 text-xs bg-neutral-100 text-neutral-600 rounded-full whitespace-nowrap"
-                  >
-                    {item.term}
-                  </Link>
-                ))}
               </div>
             </div>
           </div>
