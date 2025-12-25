@@ -421,10 +421,10 @@ ${formData.message}`
             {/* Left: Mega Menu Navigation */}
             <MegaMenu />
 
-            {/* Center Logo */}
+            {/* Center Logo - Bigger & High-res */}
             <div className="flex items-center justify-center lg:absolute lg:left-1/2 lg:-translate-x-1/2">
               <Link to="/" className="flex items-center">
-                <img src="/achieve-pack-logo.webp" alt="Achieve Pack Logo" className="h-12 w-auto" loading="lazy" decoding="async" width="140" height="48" />
+                <img src="/achieve-pack-logo.webp" alt="Achieve Pack Logo" className="h-14 w-auto" loading="eager" decoding="async" width="180" height="56" />
               </Link>
             </div>
 

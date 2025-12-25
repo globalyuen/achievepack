@@ -2,14 +2,11 @@ import React, { useState, useMemo, useCallback, useTransition } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
-import { ShoppingCart, Search, Star, Truck, Shield, Clock, ArrowLeft, Grid3X3, List, ChevronDown, User, Globe, Menu, X } from 'lucide-react'
+import { ShoppingCart, Search, Star, Truck, Shield, Clock, Grid3X3, List, ChevronDown, User, Globe, Menu, X } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import { FEATURED_PRODUCTS, type StoreProduct, type EcoDigitalProduct, type ConventionalProduct } from '../store/productData'
 import { getProductImage } from '../utils/productImageMapper'
 import type { ShapeType } from '../utils/productImageMapper'
-import RandomBanner from '../components/RandomBanner'
-import EcoVideoShowcase from '../components/EcoVideoShowcase'
-import FloatingInfoGraphics from '../components/FloatingInfoGraphics'
 import MegaMenu from '../components/MegaMenu'
 
 type ViewMode = 'grid' | 'list'
@@ -326,28 +323,6 @@ const StorePage: React.FC = () => {
 
       {/* Spacer for fixed header */}
       <div className="h-16"></div>
-
-      {/* Hero Banner */}
-      <section className="bg-gradient-to-r from-primary-600 to-primary-700 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Custom Printed Pouches</h1>
-          <p className="text-xl text-white/90 mb-8">Starting from just $90 for 100 pieces • Free Shipping Included</p>
-          <div className="flex flex-wrap justify-center gap-8 text-sm">
-            <div className="flex items-center gap-2"><Truck className="h-5 w-5" /> Free Worldwide Shipping</div>
-            <div className="flex items-center gap-2"><Clock className="h-5 w-5" /> 15-20 Days Turnaround</div>
-            <div className="flex items-center gap-2"><Shield className="h-5 w-5" /> Food-Grade Quality</div>
-          </div>
-        </div>
-      </section>
-
-      {/* Random Banner with Floating Infographic Icons */}
-      <div className="relative">
-        <RandomBanner className="" />
-        <FloatingInfoGraphics />
-      </div>
-
-      {/* Eco Video Showcase */}
-      <EcoVideoShowcase className="" />
 
       <main className="max-w-7xl mx-auto px-4 py-8">
         {/* Search Result Header */}
