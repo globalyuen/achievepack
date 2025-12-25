@@ -483,7 +483,6 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                     <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                   </a>
                 </div>
-                <img src="/imgs/cert-b.webp" alt="B Corp Certified" className="h-12 w-auto" loading="lazy" decoding="async" />
               </div>
               
               {/* Products */}
@@ -683,7 +682,6 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
             <div className="border-t border-neutral-800 mt-6 pt-4">
               <div className="flex flex-wrap items-center justify-center gap-4 mb-4">
                 <img src="/imgs/cert/logo-achievepack-BPI.jpg" alt="BPI Certified" className="h-10 w-auto rounded grayscale" loading="lazy" decoding="async" />
-                <img src="/imgs/cert-b.webp" alt="B Corp Certified" className="h-10 w-auto grayscale" loading="lazy" decoding="async" />
                 <div className="flex items-center gap-1.5 bg-neutral-800 px-3 py-1.5 rounded">
                   <svg className="h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
