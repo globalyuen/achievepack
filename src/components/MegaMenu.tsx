@@ -3,16 +3,41 @@ import { Link } from 'react-router-dom'
 import { ChevronDown, ChevronRight, Layers, Palette, Package, BookOpen, Calendar, FileText, Sparkles } from 'lucide-react'
 import { useCustomQuote } from '../contexts/CustomQuoteContext'
 
-// Unified 9:16 ads images pool (from ads folders only)
-const UNIFIED_ADS_POOL = [
-  // Pouch Shape ads (9:16)
-  { image: '/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp', link: '/store?shape=3-side-seal' },
-  { image: '/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.webp', link: '/store?shape=stand-up' },
-  { image: '/imgs/pouch-shape/ads/a_achieve_pack_quad_side_gusset_closeup_9751125.webp', link: '/store?shape=side-gusset' },
-  { image: '/imgs/pouch-shape/ads/a_achieve_pack_spout_pouch_closeup_5874382.webp', link: '/store?shape=spout' },
-  { image: '/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.webp', link: '/store' },
-  { image: '/imgs/pouch-shape/ads/a_achieve_pack_irregular_shape_closeup_0205542.webp', link: '/store' },
-  { image: '/imgs/pouch-shape/ads/a_achieve_pack_size_closure_options_7735113.webp', link: '/store' },
+// Store-related 9:16 ads images pool (for SHAPE/CUSTOM/STOCK menus - left side)
+const STORE_ADS_POOL = [
+  // Corrugated Box ads (9:16)
+  { image: '/imgs/store/box/corrugated-box/ads/a_hero_kv_black_gold_mailer_4737831.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/corrugated-box/ads/a_foil_stamping_detail_logo_3101304.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/corrugated-box/ads/a_material_benefits_page_4228725.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/corrugated-box/ads/a_brand_closing_collection_9526391.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/corrugated-box/ads/a_insert_detail_arrangement_4804418.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/corrugated-box/ads/a_load_bearing_structure_detail_7538740.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/corrugated-box/ads/a_packing_scene_production_9264348.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/corrugated-box/ads/a_structure_info_page_mailer_9213547.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/corrugated-box/ads/a_tactile_opening_detail_7956611.webp', link: '/store?category=boxes' },
+  // Tuck Box ads (9:16)
+  { image: '/imgs/store/box/tuck-box/ads/a_hero_kv_tuck_box_3590474.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/tuck-box/ads/a_detail_gold_foil_embossing_5696847.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/tuck-box/ads/a_range_collection_closing_9211739.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/tuck-box/ads/a_detail_base_loading_4721904.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/tuck-box/ads/a_detail_edge_finish_8463428.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/tuck-box/ads/a_detail_interior_unboxing_9052534.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/tuck-box/ads/a_detail_tuck_flaps_folds_9224764.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/tuck-box/ads/a_material_sustainability_page_9060501.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/tuck-box/ads/a_retail_display_scene_3099119.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/tuck-box/ads/a_structure_tuck_box_views_2089693.webp', link: '/store?category=boxes' },
+]
+
+// SEO page 9:16 ads images pool (for LEARN/BLOG menus - right side)
+const LEARN_ADS_POOL = [
+  // Pouch Shape ads (9:16) - linking to SEO pages
+  { image: '/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp', link: '/packaging/flat-pouches' },
+  { image: '/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.webp', link: '/packaging/stand-up-pouches' },
+  { image: '/imgs/pouch-shape/ads/a_achieve_pack_quad_side_gusset_closeup_9751125.webp', link: '/packaging/side-gusset-bags' },
+  { image: '/imgs/pouch-shape/ads/a_achieve_pack_spout_pouch_closeup_5874382.webp', link: '/packaging/spout-pouches' },
+  { image: '/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.webp', link: '/packaging/flat-bottom-bags' },
+  { image: '/imgs/pouch-shape/ads/a_achieve_pack_irregular_shape_closeup_0205542.webp', link: '/packaging/vacuum-pouches' },
+  { image: '/imgs/pouch-shape/ads/a_achieve_pack_size_closure_options_7735113.webp', link: '/knowledge/pouch-sizing' },
   // Surface Finish ads (9:16)
   { image: '/imgs/surface/ads/a_achieve_pack_main_kv_six_finishes_3535755.webp', link: '/features/surface-finish' },
   { image: '/imgs/surface/ads/a_gloss_finish_detail_5685549.webp', link: '/features/surface-finish' },
@@ -26,23 +51,16 @@ const UNIFIED_ADS_POOL = [
   { image: '/imgs/reclose/ads/a_spout_closure_closeup_detail_2705813.webp', link: '/features/reclosure-options' },
   { image: '/imgs/reclose/ads/a_tintie_coffee_pouch_correct_4114906.webp', link: '/features/reclosure-options' },
   { image: '/imgs/reclose/ads/a_valve_closure_detail_6401844.webp', link: '/features/reclosure-options' },
+  { image: '/imgs/reclose/ads/a_presstoclose_closure_detail_5742103.webp', link: '/features/reclosure-options' },
+  { image: '/imgs/reclose/ads/a_reclosure_comparison_scene_9769566.webp', link: '/features/reclosure-options' },
   // Barrier ads (9:16)
   { image: '/imgs/barrier/ads/a_achieve_pack_barrier_kv_updated_green_definition_6833995.webp', link: '/features/barrier-options' },
   { image: '/imgs/barrier/ads/a_barrier_levels_7395220.webp', link: '/features/barrier-options' },
   { image: '/imgs/barrier/ads/a_kraft_high_max_4456348.webp', link: '/features/barrier-options' },
   { image: '/imgs/barrier/ads/a_metallic_barrier_closeup_9656118.webp', link: '/features/barrier-options' },
-  // Box ads (9:16)
-  { image: '/imgs/store/box/corrugated-box/ads/a_hero_kv_black_gold_mailer_4737831.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/corrugated-box/ads/a_foil_stamping_detail_logo_3101304.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/corrugated-box/ads/a_material_benefits_page_4228725.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/tuck-box/ads/a_hero_kv_tuck_box_3590474.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/tuck-box/ads/a_detail_gold_foil_embossing_5696847.webp', link: '/store?category=boxes' },
-  { image: '/imgs/store/box/tuck-box/ads/a_range_collection_closing_9211739.webp', link: '/store?category=boxes' },
+  { image: '/imgs/barrier/ads/a_application_scenarios_2234685.webp', link: '/features/barrier-options' },
+  { image: '/imgs/barrier/ads/a_transparent_options_3839456.webp', link: '/features/barrier-options' },
 ]
-
-// Use unified pool for all menus
-const STORE_ADS_POOL = UNIFIED_ADS_POOL
-const LEARN_ADS_POOL = UNIFIED_ADS_POOL
 
 // Shuffle array utility
 function shuffleArray<T>(array: T[]): T[] {
