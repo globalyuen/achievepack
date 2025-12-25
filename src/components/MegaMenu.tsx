@@ -3,8 +3,42 @@ import { Link } from 'react-router-dom'
 import { ChevronDown, ChevronRight, Layers, Palette, Package, BookOpen, Calendar, FileText, Sparkles } from 'lucide-react'
 import { useCustomQuote } from '../contexts/CustomQuoteContext'
 
-// Ads images pool with related product links (9:16 ratio images)
-const ADS_IMAGES_POOL = [
+// Store product ads images pool (for SHAPE/CUSTOM/STOCK menus)
+const STORE_ADS_POOL = [
+  // Eco Digital products
+  { image: '/imgs/store/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp', link: '/store/eco-sup-kraft-zip' },
+  { image: '/imgs/store/eco-digital/TKAqlW4KL2xV9glNA91iuD_sYEvp2G29eWT4819Ne1g=.webp', link: '/store/eco-fb-kraft-zip' },
+  { image: '/imgs/store/eco-digital/hAGC60SxXYmSdiBTJD3XPhMZBocRVBXZyuV-dvt3r7c=.webp', link: '/store/eco-qs-kraft-zip' },
+  { image: '/imgs/store/eco-digital/os9CHhTSQoGASvA8lsfm-iHYfG4kddPoZP2wYMh47fs=.webp', link: '/store/eco-sup-clear-zip' },
+  { image: '/imgs/store/eco-digital/wXqLssPqdR9J0iDhIyQ-NGTDDFm-3DgFKlyQD4ipsEw=.webp', link: '/store/eco-3ss-kraft-zip' },
+  { image: '/imgs/store/eco-digital/X5RkmCe76z3hyMvMr6Yvb5RjclkrdDjh2rNvGIRqgWU=.webp', link: '/store/eco-sup-met-zip' },
+  { image: '/imgs/store/eco-digital/LQ5WGOrIkQPzbXSfWupAIFvVrlyL9lvZoMKc35bbHPw=.webp', link: '/store/eco-fb-met-zip' },
+  { image: '/imgs/store/eco-digital/vxuLNp13OWRZXhe-qkwn3UgHCWirk5TzBLhB7q8JJ30=.webp', link: '/store/eco-3ss-clear-zip' },
+  { image: '/imgs/store/eco-digital/YoIBVbbSdfCfRc5654ldAbT_L3N5rKcJk__lYon7YmU=.webp', link: '/store/eco-qs-met-zip' },
+  { image: '/imgs/store/eco-digital/AvEbY4SX8gwP2SzENbSen8dnT_kTrrk8VN6siqp1B2I=.webp', link: '/store/eco-fb-clear-zip' },
+  // Eco Stock products
+  { image: '/imgs/store/eco-stock/flat-bottom/clear/1.webp', link: '/store/stock-fb-clear-zip' },
+  { image: '/imgs/store/eco-stock/flat-bottom/kraft/1.webp', link: '/store/stock-fb-kraft-zip' },
+  { image: '/imgs/store/eco-stock/mailer/zip bag/1.webp', link: '/store/stock-mailer-zip' },
+  // Conventional Digital products
+  { image: '/imgs/store/con-digital/sup-clear-zip/1.webp', link: '/store/con-sup-clear-zip' },
+  { image: '/imgs/store/con-digital/sup-met-zip/1.webp', link: '/store/con-sup-met-zip' },
+  { image: '/imgs/store/con-digital/3ss-met-xzip/1.webp', link: '/store/con-3ss-met-xzip' },
+  { image: '/imgs/store/con-digital/3ss-clear-xzip/1.webp', link: '/store/con-3ss-clear-xzip' },
+  // Box products
+  { image: '/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp', link: '/store/corrugated-box' },
+  { image: '/imgs/store/box/corrugated-box/a_mockup_premium_layflat_applied_2105634.webp', link: '/store/corrugated-box' },
+  { image: '/imgs/store/box/tuck-box/247e2fdf-3274-4be8-b656-03d7e20b5a0f.webp', link: '/store/tuck-box' },
+  // Customer sample images
+  { image: '/imgs/store/customer-sample/a_coffee_customer_brand_c_4302716.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/customer-sample/a_customer_snack_brand_c_1792817.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/customer-sample/a_customer_tea_brand_c_4912765.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/customer-sample/a_customer_supplement_brand_c_0582764.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/customer-sample/a_premium_coffee_customer_brand_c_3809513.webp', link: '/store?category=eco-digital' },
+]
+
+// Learn/Blog ads images pool (for LEARN/BLOG menus)
+const LEARN_ADS_POOL = [
   { image: '/imgs/illustrated/a_achievepack_standup_pouches_9884402.webp', link: '/packaging/stand-up-pouches' },
   { image: '/imgs/illustrated/a_achievepack_flatbottom_bags_0519153.webp', link: '/packaging/flat-bottom-bags' },
   { image: '/imgs/illustrated/a_achievepack_sidegusset_bags_7074883.webp', link: '/packaging/side-gusset-bags' },
@@ -186,9 +220,14 @@ export default function MegaMenu() {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
   const { openQuoteLightbox } = useCustomQuote()
   
-  // Randomize 10 ads images when menu opens
-  const randomAdsImages = useMemo(() => {
-    return shuffleArray(ADS_IMAGES_POOL).slice(0, 10)
+  // Randomize 10 store ads images for SHAPE/CUSTOM/STOCK menus
+  const randomStoreAdsImages = useMemo(() => {
+    return shuffleArray(STORE_ADS_POOL).slice(0, 10)
+  }, [refreshKey])
+  
+  // Randomize 10 learn/blog ads images for LEARN/BLOG menus
+  const randomLearnAdsImages = useMemo(() => {
+    return shuffleArray(LEARN_ADS_POOL).slice(0, 10)
   }, [refreshKey])
 
   const handleMouseEnter = (menuId: string) => {
@@ -218,7 +257,7 @@ export default function MegaMenu() {
             <div className="absolute left-0 top-full pt-2" onMouseEnter={() => handleMouseEnter('shape')} onMouseLeave={handleMouseLeave}>
               <MegaMenuDropdown
                 categories={SHAPE_CATEGORIES}
-                adsImages={randomAdsImages}
+                adsImages={randomStoreAdsImages}
                 shopAllLink="/store"
                 shopAllLabel="Shop All Shapes"
                 onQuoteClick={openQuoteLightbox}
@@ -238,7 +277,7 @@ export default function MegaMenu() {
             <div className="absolute left-0 top-full pt-2" onMouseEnter={() => handleMouseEnter('custom')} onMouseLeave={handleMouseLeave}>
               <MegaMenuDropdown
                 categories={CUSTOM_CATEGORIES}
-                adsImages={randomAdsImages}
+                adsImages={randomStoreAdsImages}
                 shopAllLink="/store?category=eco-digital"
                 shopAllLabel="Shop All Custom Printed"
                 onQuoteClick={openQuoteLightbox}
@@ -258,7 +297,7 @@ export default function MegaMenu() {
             <div className="absolute left-0 top-full pt-2" onMouseEnter={() => handleMouseEnter('stock')} onMouseLeave={handleMouseLeave}>
               <MegaMenuDropdown
                 categories={STOCK_CATEGORIES}
-                adsImages={randomAdsImages}
+                adsImages={randomStoreAdsImages}
                 shopAllLink="/store?category=eco-stock"
                 shopAllLabel="Shop All Stock Pouches"
                 onQuoteClick={openQuoteLightbox}
@@ -329,7 +368,7 @@ export default function MegaMenu() {
                   <div className="flex-1 p-4">
                     <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-3">Discover More</h3>
                     <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
-                      {randomAdsImages.map((ad, index) => (
+                      {randomLearnAdsImages.map((ad, index) => (
                         <Link 
                           key={`learn-${ad.link}-${index}`} 
                           to={ad.link} 
@@ -421,7 +460,7 @@ export default function MegaMenu() {
                   <div className="flex-1 p-4">
                     <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-3">Featured Products</h3>
                     <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
-                      {randomAdsImages.map((ad, index) => (
+                      {randomLearnAdsImages.map((ad, index) => (
                         <Link 
                           key={`blog-${ad.link}-${index}`} 
                           to={ad.link} 
