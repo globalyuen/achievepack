@@ -563,13 +563,13 @@ ${formData.message}`
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-start mb-12">
-                <button
-                  onClick={() => setIsCalculatorOpen(true)}
+                <Link
+                  to="/store"
                   className="flex items-center justify-center space-x-2 bg-primary-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-600 transition-all duration-200 hover:shadow-hover hover:-translate-y-0.5"
                 >
-                  <CalcIcon className="h-5 w-5" />
-                  <span>{t('hero.calculateSavings')}</span>
-                </button>
+                  <ShoppingCart className="h-5 w-5" />
+                  <span>Shop Now</span>
+                </Link>
                 <a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center space-x-2 border-2 border-neutral-200 text-neutral-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-neutral-50 transition-colors">
                   <Calendar className="h-5 w-5" />
                   <span>{t('hero.bookConsultation')}</span>
@@ -1886,8 +1886,21 @@ ${formData.message}`
             </div>
           </div>
 
-          {/* Certification Logos & SSL Badge */}
+          {/* Calculate Savings Button */}
           <div className="border-t border-neutral-800 mt-6 pt-4">
+            <div className="flex justify-center mb-4">
+              <button
+                onClick={() => setIsCalculatorOpen(true)}
+                className="flex items-center justify-center space-x-2 bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-all duration-200"
+              >
+                <CalcIcon className="h-5 w-5" />
+                <span>{t('hero.calculateSavings')}</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Certification Logos & SSL Badge */}
+          <div className="border-t border-neutral-800 pt-4">
             <div className="flex flex-wrap items-center justify-center gap-4 mb-4">
               {/* BPI Logo */}
               <img src="/imgs/cert/logo-achievepack-BPI.jpg" alt="BPI Certified" className="h-10 w-auto rounded grayscale" loading="lazy" decoding="async" />
