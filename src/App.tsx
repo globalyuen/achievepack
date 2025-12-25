@@ -16,7 +16,7 @@ import TestimonialsWall from './components/TestimonialsWall'
 import CartSidebar from './components/store/CartSidebar'
 import FloatingTestimonialVideo from './components/FloatingTestimonialVideo'
 import YouTubeShorts from './components/YouTubeShorts'
-import InstagramFeed from './components/InstagramFeed'
+// InstagramFeed removed for performance - icon in footer only
 import ClimateAction from './components/ClimateAction'
 import RandomBanner from './components/RandomBanner'
 import EcoVideoShowcase from './components/EcoVideoShowcase'
@@ -647,8 +647,7 @@ ${formData.message}`
       {/* YouTube Shorts Section - Hidden for now */}
       {/* <YouTubeShorts /> */}
 
-      {/* Instagram Feed Section */}
-      <InstagramFeed />
+      {/* Instagram Feed Section - Removed for performance, icon in footer */}
 
       {/* About Section */}
       <section id="about" className="py-16 bg-white">
