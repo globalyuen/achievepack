@@ -53,38 +53,32 @@ const STORE_ADS_POOL = [
   { image: '/imgs/store/customer-sample/Steph.webp', link: '/store?category=eco-digital' },
 ]
 
-// Learn/Blog ads images pool (for LEARN/BLOG menus)
+// Learn/Blog ads images pool - Use store product images only
 const LEARN_ADS_POOL = [
-  { image: '/imgs/illustrated/a_achievepack_standup_pouches_9884402.webp', link: '/packaging/stand-up-pouches' },
-  { image: '/imgs/illustrated/a_achievepack_flatbottom_bags_0519153.webp', link: '/packaging/flat-bottom-bags' },
-  { image: '/imgs/illustrated/a_achievepack_sidegusset_bags_7074883.webp', link: '/packaging/side-gusset-bags' },
-  { image: '/imgs/illustrated/a_achievepack_flat_pouches_0260646.webp', link: '/packaging/flat-pouches' },
-  { image: '/imgs/illustrated/a_achievepack_spout_pouches_1062736.webp', link: '/packaging/spout-pouches' },
-  { image: '/imgs/illustrated/a_achievepack_custom_boxes_6574270.webp', link: '/packaging/custom-boxes' },
-  { image: '/imgs/illustrated/a_compostable_v3_9254998.webp', link: '/materials/compostable' },
-  { image: '/imgs/illustrated/a_home_compostable_card_v1_2166648.webp', link: '/materials/home-compostable' },
-  { image: '/imgs/illustrated/a_industrial_compostable_card_v1_5916306.webp', link: '/materials/industrial-compostable' },
-  { image: '/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp', link: '/materials/recyclable-mono-pe' },
-  { image: '/imgs/illustrated/a_recyclable_mono_pp_card_v2_2805205.webp', link: '/materials/recyclable-mono-pp' },
-  { image: '/imgs/illustrated/a_bio_pe_card_v3_4603248.webp', link: '/materials/bio-pe' },
-  { image: '/imgs/illustrated/a_pcr_card_v1_0334493.webp', link: '/materials/pcr' },
-  { image: '/imgs/illustrated/a_coffee_roaster_variation_1_6758424.webp', link: '/solutions/coffee-roaster' },
-  { image: '/imgs/illustrated/a_coffee_tea_hero_v1_1905321.webp', link: '/industry/coffee-tea' },
-  { image: '/imgs/illustrated/a_pet_food_hero_v3_7652587.webp', link: '/industry/pet-food' },
-  { image: '/imgs/illustrated/a_snacks_food_hero_v1_9854447.webp', link: '/industry/snacks-food' },
-  { image: '/imgs/illustrated/a_baby_food_hero_v1_7008467.webp', link: '/industry/baby-food' },
-  { image: '/imgs/illustrated/a_frozen_food_hero_v2_0166133.webp', link: '/industry/frozen-food' },
-  { image: '/imgs/illustrated/a_supplements_hero_v1_0434970.webp', link: '/industry/supplements-powders' },
-  { image: '/imgs/illustrated/a_monomaterial_warm_4127359.webp', link: '/store?category=eco-stock' },
-  { image: '/imgs/illustrated/a_digital_printing_close_detail_b_7761926.webp', link: '/printing/digital-printing' },
-  { image: '/imgs/illustrated/a_ecommerce_brand_variation_2_5348466.webp', link: '/solutions/ecommerce-brand' },
-  { image: '/imgs/illustrated/a_startup_founder_variation_3_2900816.webp', link: '/solutions/startup-founder' },
-  { image: '/imgs/illustrated/a_artisan_producer_variation_1_5454378.webp', link: '/solutions/artisan-producer' },
-  { image: '/imgs/illustrated/a_corporate_sustainability_variation_1_1739210.webp', link: '/solutions/corporate-sustainability' },
-  { image: '/imgs/illustrated/a_lowmoq_warm_3372406.webp', link: '/products/low-moq-packaging' },
-  { image: '/imgs/illustrated/a_degassingvalve_warm_0118491.webp', link: '/products/coffee-bags-degassing-valve' },
-  { image: '/imgs/illustrated/a_snack_brand_variation_1_5605894.webp', link: '/solutions/snack-brand-manager' },
-  { image: '/imgs/illustrated/a_barrier_options_presentation_c_6124347.webp', link: '/features/barrier-options' },
+  // Eco Digital products
+  { image: '/imgs/store/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/eco-digital/TKAqlW4KL2xV9glNA91iuD_sYEvp2G29eWT4819Ne1g=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/eco-digital/hAGC60SxXYmSdiBTJD3XPhMZBocRVBXZyuV-dvt3r7c=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/eco-digital/os9CHhTSQoGASvA8lsfm-iHYfG4kddPoZP2wYMh47fs=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/eco-digital/wXqLssPqdR9J0iDhIyQ-NGTDDFm-3DgFKlyQD4ipsEw=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/eco-digital/X5RkmCe76z3hyMvMr6Yvb5RjclkrdDjh2rNvGIRqgWU=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/eco-digital/LQ5WGOrIkQPzbXSfWupAIFvVrlyL9lvZoMKc35bbHPw=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/eco-digital/vxuLNp13OWRZXhe-qkwn3UgHCWirk5TzBLhB7q8JJ30=.webp', link: '/store?category=eco-digital' },
+  // Conventional Digital products
+  { image: '/imgs/store/con-digital/sup-clear-zip/1.webp', link: '/store?category=conventional-digital' },
+  { image: '/imgs/store/con-digital/sup-met-zip/1.webp', link: '/store?category=conventional-digital' },
+  { image: '/imgs/store/con-digital/3ss-met-xzip/1.webp', link: '/store?category=conventional-digital' },
+  { image: '/imgs/store/con-digital/3ss-clear-xzip/1.webp', link: '/store?category=conventional-digital' },
+  // Box products
+  { image: '/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/corrugated-box/a_mockup_premium_layflat_applied_2105634.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/tuck-box/247e2fdf-3274-4be8-b656-03d7e20b5a0f.webp', link: '/store?category=boxes' },
+  // Customer samples
+  { image: '/imgs/store/customer-sample/Arielle.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/customer-sample/David.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/customer-sample/Holly.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/customer-sample/Leo.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/customer-sample/michelle.webp', link: '/store?category=eco-digital' },
 ]
 
 // Shuffle array utility
@@ -99,26 +93,26 @@ function shuffleArray<T>(array: T[]): T[] {
 
 // SHAPE menu - All packaging shapes
 const SHAPE_CATEGORIES = [
-  { name: '3 Side Seal Pouch', link: '/packaging/flat-pouches' },
-  { name: 'Stand Up Pouch', link: '/packaging/stand-up-pouches' },
-  { name: 'Flat Bottom Bags', link: '/packaging/flat-bottom-bags' },
-  { name: 'Side Gusset Bags', link: '/packaging/side-gusset-bags' },
-  { name: 'Spout Pouches', link: '/packaging/spout-pouches' },
-  { name: 'Boxes', link: '/packaging/custom-boxes' },
-  { name: 'Mailer', link: '/store?category=mailer' },
+  { name: '3 Side Seal Pouch', link: '/store?shape=3-side-seal' },
+  { name: 'Stand Up Pouch', link: '/store?shape=stand-up' },
+  { name: 'Flat Bottom Bags', link: '/store?shape=flat-bottom' },
+  { name: 'Side Gusset Bags', link: '/store?shape=side-gusset' },
+  { name: 'Spout Pouches', link: '/store?shape=spout' },
+  { name: 'Boxes', link: '/store?category=boxes' },
+  { name: 'Mailer Bags', link: '/store?category=mailer' },
 ]
 
 // CUSTOM menu - Custom printed packaging
 const CUSTOM_CATEGORIES = [
   { name: 'Eco Digital', link: '/store?category=eco-digital' },
   { name: 'Conventional Digital', link: '/store?category=conventional-digital' },
-  { name: 'Custom Boxes', link: '/packaging/custom-boxes' },
+  { name: 'Custom Boxes', link: '/store?category=boxes' },
 ]
 
 // STOCK menu - Ready stock items
 const STOCK_CATEGORIES = [
-  { name: 'Zipper Stand Up Pouch', link: '/store?category=eco-stock&shape=standup' },
-  { name: 'Zipper 3 Side Sealed', link: '/store?category=eco-stock&shape=3side' },
+  { name: 'Zipper Stand Up Pouch', link: '/store?category=eco-stock' },
+  { name: 'Zipper 3 Side Sealed', link: '/store?category=eco-stock' },
   { name: 'Mailer Bags', link: '/store?category=mailer' },
 ]
 
