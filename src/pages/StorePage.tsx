@@ -225,17 +225,6 @@ const StorePage: React.FC = () => {
 
             {/* Right Actions */}
             <div className="hidden lg:flex items-center space-x-3">
-              {/* Search */}
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  defaultValue={searchQuery}
-                  onChange={handleSearchChange}
-                  className="pl-9 pr-4 py-2 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-700 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500 w-48"
-                />
-              </div>
               <button
                 onClick={() => {
                   if (cartCount === 0) {
@@ -384,6 +373,18 @@ const StorePage: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-3">
+            {/* Search Box - Desktop */}
+            <div className="hidden md:block relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
+              <input
+                type="text"
+                placeholder="Search products..."
+                defaultValue={searchQuery}
+                onChange={handleSearchChange}
+                className="pl-9 pr-4 py-2.5 rounded-lg bg-white border border-neutral-200 text-neutral-700 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500 w-48"
+              />
+            </div>
+
             {/* Sort Dropdown */}
             <div className="relative">
               <button
