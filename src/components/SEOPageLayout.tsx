@@ -602,6 +602,15 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                 </ul>
               </div>
 
+              {/* Function */}
+              <div>
+                <h4 className="font-semibold text-sm mb-2">Function</h4>
+                <ul className="space-y-1 text-xs text-neutral-400">
+                  <li><Link to="/function/microwave-steam-bags" className="hover:text-primary-400">Microwave Steam Bags</Link></li>
+                  <li><Link to="/function/carbon-neutral-bags" className="hover:text-primary-400">Carbon Neutral Bags</Link></li>
+                </ul>
+              </div>
+
               {/* Structure Specs */}
               <div>
                 <h4 className="font-semibold text-sm mb-2">Structure Specs</h4>

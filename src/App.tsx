@@ -1814,6 +1814,15 @@ ${formData.message}`
               </ul>
             </div>
 
+            {/* Function */}
+            <div>
+              <h4 className="text-sm font-semibold mb-2">Function</h4>
+              <ul className="space-y-1 text-neutral-400 text-xs">
+                <li><Link to="/function/microwave-steam-bags" className="hover:text-primary-500">Microwave Steam Bags</Link></li>
+                <li><Link to="/function/carbon-neutral-bags" className="hover:text-primary-500">Carbon Neutral Bags</Link></li>
+              </ul>
+            </div>
+
             {/* Structure Specs */}
             <div>
               <h4 className="text-sm font-semibold mb-2">Structure Specs</h4>
