@@ -213,7 +213,7 @@ const AdminManagementPage: React.FC = () => {
         <div className="flex flex-col flex-grow pt-5 overflow-y-auto bg-white border-r border-gray-200">
           <div className="flex items-center flex-shrink-0 px-4">
             <Link to="/admin" className="flex items-center gap-2">
-              <img src="/achieve-pack-logo.webp" alt="Logo" className="h-8 w-auto" />
+              <img src="/ap-logo.svg" alt="Logo" className="h-8 w-auto" />
               <span className="font-bold text-gray-900">Admin</span>
             </Link>
           </div>

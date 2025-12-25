@@ -235,7 +235,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
             </a>
             <div className="flex items-center gap-4">
               <Link to="/" className="flex items-center gap-2">
-                <img src="/achieve-pack-logo.webp" alt="Achieve Pack" className="h-10 w-auto" />
+                <img src="/ap-logo.svg" alt="Achieve Pack" className="h-10 w-auto" />
               </Link>
             </div>
           </div>

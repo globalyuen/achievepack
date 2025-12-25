@@ -767,7 +767,7 @@ const ProductPage: React.FC = () => {
               className="flex items-center gap-2 hover:opacity-80 transition"
             >
               <img 
-                src="/achieve-pack-logo.webp" 
+                src="/ap-logo.svg" 
                 alt="Achieve Pack" 
                 className="h-9 w-auto"
                 loading="eager"

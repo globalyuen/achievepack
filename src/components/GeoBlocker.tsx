@@ -82,7 +82,7 @@ const GeoBlocker: React.FC<GeoBlockerProps> = ({ children }) => {
           {/* Logo */}
           <div className="mb-6">
             <img 
-              src="/achieve-pack-logo.webp" 
+              src="/ap-logo.svg" 
               alt="Achieve Pack" 
               className="h-16 mx-auto"
             />

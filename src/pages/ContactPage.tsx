@@ -69,7 +69,7 @@ const ContactPage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
             <a href="/" onClick={handleNavigation('/')} className="flex items-center gap-2">
               <img 
-                src="/achieve-pack-logo.webp" 
+                src="/ap-logo.svg" 
                 alt="Achieve Pack" 
                 className="h-9 w-auto"
                 loading="eager"
