@@ -79,7 +79,7 @@ export function CustomQuoteProvider({ children }: { children: ReactNode }) {
       `Quantity: ${formData.quantity || 'Not specified'}\n\n` +
       `${formData.message || 'Please contact me for more details.'}`
     )
-    window.open(`https://wa.me/85260340653?text=${message}`, '_blank')
+    window.open(`https://wa.me/85269704411?text=${message}`, '_blank')
   }
 
   return (
