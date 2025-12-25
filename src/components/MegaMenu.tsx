@@ -203,14 +203,15 @@ function MegaMenuDropdown({ categories, adsImages, shopAllLink, shopAllLabel, on
                 className="flex-shrink-0 group"
               >
                 <div 
-                  className="w-[200px] bg-neutral-100 rounded-lg overflow-hidden group-hover:shadow-lg group-hover:ring-2 group-hover:ring-primary-400 transition-all"
+                  className="w-[200px] bg-neutral-100 rounded-lg overflow-hidden transition-all duration-200 group-hover:shadow-lg group-hover:ring-2 group-hover:ring-primary-400 group-hover:scale-[1.02]"
                   style={{ aspectRatio: '9/16' }}
                 >
                   <img
                     src={ad.image}
                     alt="Product"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover pointer-events-none"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </Link>
@@ -391,14 +392,15 @@ export default function MegaMenu() {
                           className="flex-shrink-0 group"
                         >
                           <div 
-                            className="w-[200px] bg-neutral-100 rounded-lg overflow-hidden group-hover:shadow-lg group-hover:ring-2 group-hover:ring-primary-400 transition-all"
+                            className="w-[200px] bg-neutral-100 rounded-lg overflow-hidden transition-all duration-200 group-hover:shadow-lg group-hover:ring-2 group-hover:ring-primary-400 group-hover:scale-[1.02]"
                             style={{ aspectRatio: '9/16' }}
                           >
                             <img
                               src={ad.image}
                               alt="Product"
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              className="w-full h-full object-cover pointer-events-none"
                               loading="lazy"
+                              decoding="async"
                             />
                           </div>
                         </Link>
@@ -483,14 +485,15 @@ export default function MegaMenu() {
                           className="flex-shrink-0 group"
                         >
                           <div 
-                            className="w-[200px] bg-neutral-100 rounded-lg overflow-hidden group-hover:shadow-lg group-hover:ring-2 group-hover:ring-primary-400 transition-all"
+                            className="w-[200px] bg-neutral-100 rounded-lg overflow-hidden transition-all duration-200 group-hover:shadow-lg group-hover:ring-2 group-hover:ring-primary-400 group-hover:scale-[1.02]"
                             style={{ aspectRatio: '9/16' }}
                           >
                             <img
                               src={ad.image}
                               alt="Product"
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              className="w-full h-full object-cover pointer-events-none"
                               loading="lazy"
+                              decoding="async"
                             />
                           </div>
                         </Link>
