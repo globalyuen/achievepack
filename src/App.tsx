@@ -505,16 +505,16 @@ ${formData.message}`
                 🛒 Shop All
               </Link>
               <div className="border-t border-neutral-100 pt-3">
-                <p className="text-xs font-bold text-primary-600 uppercase mb-2">Eco Digital</p>
-                <Link to="/store?category=eco-digital&shape=stand-up" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">Stand Up Pouch</Link>
-                <Link to="/store?category=eco-digital&shape=flat-bottom" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">Box Bottom Pouch</Link>
-                <Link to="/store?category=eco-digital&shape=side-gusset" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">Side Gusset Pouch</Link>
-                <Link to="/store?category=eco-digital&shape=3-side-seal" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">3 Side Seal Pouch</Link>
+                <p className="text-xs font-bold text-primary-600 uppercase mb-2">Pouch Shapes</p>
+                <Link to="/store?shape=stand-up" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">Stand Up Pouch</Link>
+                <Link to="/store?shape=flat-bottom" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">Box Bottom Pouch</Link>
+                <Link to="/store?shape=side-gusset" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">Side Gusset Pouch</Link>
+                <Link to="/store?shape=3-side-seal" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">3 Side Seal Pouch</Link>
               </div>
               <div className="border-t border-neutral-100 pt-3">
                 <p className="text-xs font-bold text-primary-600 uppercase mb-2">Boxes</p>
                 <Link to="/store?category=boxes" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">All Boxes</Link>
-                <Link to="/packaging/custom-boxes" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">Custom Boxes</Link>
+                <Link to="/store?category=boxes" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700">Custom Boxes</Link>
               </div>
               <div className="border-t border-neutral-100 pt-3">
                 <Link to="/blog" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700 font-medium">Blog</Link>
@@ -1891,6 +1891,7 @@ ${formData.message}`
             <div className="flex flex-wrap items-center justify-center gap-4 mb-4">
               {/* BPI Logo */}
               <img src="/imgs/cert/logo-achievepack-BPI.jpg" alt="BPI Certified" className="h-10 w-auto rounded grayscale" loading="lazy" decoding="async" />
+                <img src="/imgs/cert-b.webp" alt="B Corp Certified" className="h-10 w-auto grayscale" loading="lazy" decoding="async" />
               
               {/* SSL Secure Badge */}
               <div className="flex items-center gap-1.5 bg-neutral-800 px-3 py-1.5 rounded">
