@@ -5,36 +5,52 @@ import { useCustomQuote } from '../contexts/CustomQuoteContext'
 
 // Store product ads images pool (for SHAPE/CUSTOM/STOCK menus)
 const STORE_ADS_POOL = [
-  // Eco Digital products
-  { image: '/imgs/store/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp', link: '/store/eco-sup-kraft-zip' },
-  { image: '/imgs/store/eco-digital/TKAqlW4KL2xV9glNA91iuD_sYEvp2G29eWT4819Ne1g=.webp', link: '/store/eco-fb-kraft-zip' },
-  { image: '/imgs/store/eco-digital/hAGC60SxXYmSdiBTJD3XPhMZBocRVBXZyuV-dvt3r7c=.webp', link: '/store/eco-qs-kraft-zip' },
-  { image: '/imgs/store/eco-digital/os9CHhTSQoGASvA8lsfm-iHYfG4kddPoZP2wYMh47fs=.webp', link: '/store/eco-sup-clear-zip' },
-  { image: '/imgs/store/eco-digital/wXqLssPqdR9J0iDhIyQ-NGTDDFm-3DgFKlyQD4ipsEw=.webp', link: '/store/eco-3ss-kraft-zip' },
-  { image: '/imgs/store/eco-digital/X5RkmCe76z3hyMvMr6Yvb5RjclkrdDjh2rNvGIRqgWU=.webp', link: '/store/eco-sup-met-zip' },
-  { image: '/imgs/store/eco-digital/LQ5WGOrIkQPzbXSfWupAIFvVrlyL9lvZoMKc35bbHPw=.webp', link: '/store/eco-fb-met-zip' },
-  { image: '/imgs/store/eco-digital/vxuLNp13OWRZXhe-qkwn3UgHCWirk5TzBLhB7q8JJ30=.webp', link: '/store/eco-3ss-clear-zip' },
-  { image: '/imgs/store/eco-digital/YoIBVbbSdfCfRc5654ldAbT_L3N5rKcJk__lYon7YmU=.webp', link: '/store/eco-qs-met-zip' },
-  { image: '/imgs/store/eco-digital/AvEbY4SX8gwP2SzENbSen8dnT_kTrrk8VN6siqp1B2I=.webp', link: '/store/eco-fb-clear-zip' },
-  // Eco Stock products
-  { image: '/imgs/store/eco-stock/flat-bottom/clear/1.webp', link: '/store/stock-fb-clear-zip' },
-  { image: '/imgs/store/eco-stock/flat-bottom/kraft/1.webp', link: '/store/stock-fb-kraft-zip' },
-  { image: '/imgs/store/eco-stock/mailer/zip bag/1.webp', link: '/store/stock-mailer-zip' },
+  // Eco Digital products - linking to store with category filter
+  { image: '/imgs/store/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/eco-digital/TKAqlW4KL2xV9glNA91iuD_sYEvp2G29eWT4819Ne1g=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/eco-digital/hAGC60SxXYmSdiBTJD3XPhMZBocRVBXZyuV-dvt3r7c=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/eco-digital/os9CHhTSQoGASvA8lsfm-iHYfG4kddPoZP2wYMh47fs=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/eco-digital/wXqLssPqdR9J0iDhIyQ-NGTDDFm-3DgFKlyQD4ipsEw=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/eco-digital/X5RkmCe76z3hyMvMr6Yvb5RjclkrdDjh2rNvGIRqgWU=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/eco-digital/LQ5WGOrIkQPzbXSfWupAIFvVrlyL9lvZoMKc35bbHPw=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/eco-digital/vxuLNp13OWRZXhe-qkwn3UgHCWirk5TzBLhB7q8JJ30=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/eco-digital/YoIBVbbSdfCfRc5654ldAbT_L3N5rKcJk__lYon7YmU=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/eco-digital/AvEbY4SX8gwP2SzENbSen8dnT_kTrrk8VN6siqp1B2I=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/eco-digital/0eQiBArdHVo_uyy12vmVid9Vc-hB8Msln4h0Oddu4dQ=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/eco-digital/1k3ig0ezuHcds_30mxxPOgFL-qeSwHc8uuzElo2-GP4=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/eco-digital/7CWxuO-mB4GevbYtCFnSFfzuCLECtUQ8AjuleiT4vAk=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/eco-digital/ghEYoZQN4q_bq5SzDz94a_q95YbMZS933hJEnuImpmc=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/eco-digital/MPRxOw-bWF57OrAxie9J1CXjpM4HKHUUkoMKHeflN6E=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/eco-digital/bUr_Wdvkcyq2aH95-oFtusPsS5YMJ2jZ6tjm74mHEr4=.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/eco-digital/zwwZAmSiOHouQPEkkT_Wwz5rhX13CtgkT8LqvNnoJ5w=.webp', link: '/store?category=eco-digital' },
   // Conventional Digital products
-  { image: '/imgs/store/con-digital/sup-clear-zip/1.webp', link: '/store/con-sup-clear-zip' },
-  { image: '/imgs/store/con-digital/sup-met-zip/1.webp', link: '/store/con-sup-met-zip' },
-  { image: '/imgs/store/con-digital/3ss-met-xzip/1.webp', link: '/store/con-3ss-met-xzip' },
-  { image: '/imgs/store/con-digital/3ss-clear-xzip/1.webp', link: '/store/con-3ss-clear-xzip' },
+  { image: '/imgs/store/con-digital/sup-clear-zip/1.webp', link: '/store?category=conventional-digital' },
+  { image: '/imgs/store/con-digital/sup-met-zip/1.webp', link: '/store?category=conventional-digital' },
+  { image: '/imgs/store/con-digital/3ss-met-xzip/1.webp', link: '/store?category=conventional-digital' },
+  { image: '/imgs/store/con-digital/3ss-clear-xzip/1.webp', link: '/store?category=conventional-digital' },
+  { image: '/imgs/store/con-digital/sup-clear-xzip/1.webp', link: '/store?category=conventional-digital' },
+  { image: '/imgs/store/con-digital/sup-met-xzip/1.webp', link: '/store?category=conventional-digital' },
+  { image: '/imgs/store/con-digital/3ss-clear-zip/1.webp', link: '/store?category=conventional-digital' },
+  { image: '/imgs/store/con-digital/3ss-met-zip/1.webp', link: '/store?category=conventional-digital' },
   // Box products
-  { image: '/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp', link: '/store/corrugated-box' },
-  { image: '/imgs/store/box/corrugated-box/a_mockup_premium_layflat_applied_2105634.webp', link: '/store/corrugated-box' },
-  { image: '/imgs/store/box/tuck-box/247e2fdf-3274-4be8-b656-03d7e20b5a0f.webp', link: '/store/tuck-box' },
+  { image: '/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/corrugated-box/a_mockup_premium_layflat_applied_2105634.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/corrugated-box/90f309ab-e30c-49e3-891c-83b47a7fe7a6.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/tuck-box/247e2fdf-3274-4be8-b656-03d7e20b5a0f.webp', link: '/store?category=boxes' },
+  { image: '/imgs/store/box/tuck-box/8a2918bb-a48c-44a3-875d-6e766e5f305f.webp', link: '/store?category=boxes' },
   // Customer sample images
-  { image: '/imgs/store/customer-sample/a_coffee_customer_brand_c_4302716.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/customer-sample/a_customer_snack_brand_c_1792817.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/customer-sample/a_customer_tea_brand_c_4912765.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/customer-sample/a_customer_supplement_brand_c_0582764.webp', link: '/store?category=eco-digital' },
-  { image: '/imgs/store/customer-sample/a_premium_coffee_customer_brand_c_3809513.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/customer-sample/Arielle.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/customer-sample/David.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/customer-sample/Holly.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/customer-sample/Leo.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/customer-sample/michelle.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/customer-sample/morlife.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/customer-sample/Nicole.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/customer-sample/Paul.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/customer-sample/Remi.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/customer-sample/Richard.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/customer-sample/ruby.webp', link: '/store?category=eco-digital' },
+  { image: '/imgs/store/customer-sample/Steph.webp', link: '/store?category=eco-digital' },
 ]
 
 // Learn/Blog ads images pool (for LEARN/BLOG menus)
@@ -96,7 +112,7 @@ const SHAPE_CATEGORIES = [
 const CUSTOM_CATEGORIES = [
   { name: 'Eco Digital', link: '/store?category=eco-digital' },
   { name: 'Conventional Digital', link: '/store?category=conventional-digital' },
-  { name: 'Custom Boxes', link: '/custom-boxes' },
+  { name: 'Custom Boxes', link: '/packaging/custom-boxes' },
 ]
 
 // STOCK menu - Ready stock items
@@ -145,10 +161,10 @@ interface MegaMenuDropdownProps {
 
 function MegaMenuDropdown({ categories, adsImages, shopAllLink, shopAllLabel, onQuoteClick }: MegaMenuDropdownProps) {
   return (
-    <div className="w-[750px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
+    <div className="w-[1200px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
       <div className="grid grid-cols-12">
         {/* Left: Categories */}
-        <div className="col-span-3 bg-neutral-50 p-5 border-r border-neutral-100">
+        <div className="col-span-2 bg-neutral-50 p-5 border-r border-neutral-100">
           <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-3">Categories</h3>
           <ul className="space-y-0.5">
             {categories.map((cat) => (
@@ -176,10 +192,10 @@ function MegaMenuDropdown({ categories, adsImages, shopAllLink, shopAllLabel, on
           </div>
         </div>
 
-        {/* Right: Random Ads Images (9:16 ratio, 100px width) */}
-        <div className="col-span-9 p-4">
+        {/* Right: Random Ads Images (9:16 ratio, 200px width) */}
+        <div className="col-span-10 p-4">
           <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-3">Discover Products</h3>
-          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+          <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
             {adsImages.map((ad, index) => (
               <Link 
                 key={`${ad.link}-${index}`} 
@@ -187,7 +203,7 @@ function MegaMenuDropdown({ categories, adsImages, shopAllLink, shopAllLabel, on
                 className="flex-shrink-0 group"
               >
                 <div 
-                  className="w-[100px] bg-neutral-100 rounded-lg overflow-hidden group-hover:shadow-lg group-hover:ring-2 group-hover:ring-primary-400 transition-all"
+                  className="w-[200px] bg-neutral-100 rounded-lg overflow-hidden group-hover:shadow-lg group-hover:ring-2 group-hover:ring-primary-400 transition-all"
                   style={{ aspectRatio: '9/16' }}
                 >
                   <img
@@ -318,10 +334,10 @@ export default function MegaMenu() {
           </button>
           {activeMenu === 'learn' && (
             <div className="absolute right-0 top-full pt-2" onMouseEnter={() => handleMouseEnter('learn')} onMouseLeave={handleMouseLeave}>
-              <div className="w-[850px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
+              <div className="w-[1200px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
                 <div className="flex">
                   {/* Left: Categories Grid */}
-                  <div className="flex-shrink-0 w-[350px] grid grid-cols-2 gap-0 border-r border-neutral-100">
+                  <div className="flex-shrink-0 w-[280px] grid grid-cols-2 gap-0 border-r border-neutral-100">
                     <div className="p-4 border-r border-b border-neutral-100">
                       <h4 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-2">Materials</h4>
                       <ul className="space-y-1">
@@ -367,7 +383,7 @@ export default function MegaMenu() {
                   {/* Right: Random Ads Images */}
                   <div className="flex-1 p-4">
                     <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-3">Discover More</h3>
-                    <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+                    <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
                       {randomLearnAdsImages.map((ad, index) => (
                         <Link 
                           key={`learn-${ad.link}-${index}`} 
@@ -375,7 +391,7 @@ export default function MegaMenu() {
                           className="flex-shrink-0 group"
                         >
                           <div 
-                            className="w-[100px] bg-neutral-100 rounded-lg overflow-hidden group-hover:shadow-lg group-hover:ring-2 group-hover:ring-primary-400 transition-all"
+                            className="w-[200px] bg-neutral-100 rounded-lg overflow-hidden group-hover:shadow-lg group-hover:ring-2 group-hover:ring-primary-400 transition-all"
                             style={{ aspectRatio: '9/16' }}
                           >
                             <img
@@ -415,10 +431,10 @@ export default function MegaMenu() {
           </button>
           {activeMenu === 'blog' && (
             <div className="absolute right-0 top-full pt-2" onMouseEnter={() => handleMouseEnter('blog')} onMouseLeave={handleMouseLeave}>
-              <div className="w-[750px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
+              <div className="w-[1200px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
                 <div className="flex">
                   {/* Left: Blog Categories */}
-                  <div className="flex-shrink-0 w-[200px] bg-neutral-50 p-5 border-r border-neutral-100">
+                  <div className="flex-shrink-0 w-[180px] bg-neutral-50 p-5 border-r border-neutral-100">
                     <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-3">Categories</h3>
                     <ul className="space-y-0.5">
                       <li>
@@ -459,7 +475,7 @@ export default function MegaMenu() {
                   {/* Right: Random Ads Images */}
                   <div className="flex-1 p-4">
                     <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-3">Featured Products</h3>
-                    <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+                    <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
                       {randomLearnAdsImages.map((ad, index) => (
                         <Link 
                           key={`blog-${ad.link}-${index}`} 
@@ -467,7 +483,7 @@ export default function MegaMenu() {
                           className="flex-shrink-0 group"
                         >
                           <div 
-                            className="w-[100px] bg-neutral-100 rounded-lg overflow-hidden group-hover:shadow-lg group-hover:ring-2 group-hover:ring-primary-400 transition-all"
+                            className="w-[200px] bg-neutral-100 rounded-lg overflow-hidden group-hover:shadow-lg group-hover:ring-2 group-hover:ring-primary-400 transition-all"
                             style={{ aspectRatio: '9/16' }}
                           >
                             <img
