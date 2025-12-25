@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { ChevronDown, ChevronRight, Layers, Palette, Package, BookOpen, Calendar, FileText } from 'lucide-react'
+import { ChevronDown, ChevronRight, Layers, Palette, Package, BookOpen, Calendar, FileText, Sparkles } from 'lucide-react'
+import { useCustomQuote } from '../contexts/CustomQuoteContext'
 
 // SHAPE menu - All packaging shapes
 const SHAPE_CATEGORIES = [
@@ -82,9 +83,10 @@ interface MegaMenuDropdownProps {
   featured: { name: string; image: string; link: string }[]
   shopAllLink: string
   shopAllLabel: string
+  onQuoteClick: () => void
 }
 
-function MegaMenuDropdown({ categories, featured, shopAllLink, shopAllLabel }: MegaMenuDropdownProps) {
+function MegaMenuDropdown({ categories, featured, shopAllLink, shopAllLabel, onQuoteClick }: MegaMenuDropdownProps) {
   return (
     <div className="w-[700px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
       <div className="grid grid-cols-12">
@@ -107,15 +109,13 @@ function MegaMenuDropdown({ categories, featured, shopAllLink, shopAllLabel }: M
             ))}
           </ul>
           <div className="mt-4 pt-4 border-t border-neutral-200">
-            <a
-              href="https://calendly.com/30-min-free-packaging-consultancy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full py-2 px-3 border border-primary-500 text-primary-600 rounded-lg text-sm font-semibold hover:bg-primary-50 transition-colors"
+            <button
+              onClick={onQuoteClick}
+              className="flex items-center justify-center gap-2 w-full py-2 px-3 bg-primary-600 text-white rounded-lg text-sm font-semibold hover:bg-primary-700 transition-colors"
             >
-              <Calendar className="h-4 w-4" />
+              <Sparkles className="h-4 w-4" />
               Custom Quote
-            </a>
+            </button>
           </div>
         </div>
 
@@ -156,6 +156,7 @@ function MegaMenuDropdown({ categories, featured, shopAllLink, shopAllLabel }: M
 export default function MegaMenu() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const { openQuoteLightbox } = useCustomQuote()
 
   const handleMouseEnter = (menuId: string) => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current)
@@ -184,6 +185,7 @@ export default function MegaMenu() {
                 featured={SHAPE_FEATURED}
                 shopAllLink="/store"
                 shopAllLabel="Shop All Shapes"
+                onQuoteClick={openQuoteLightbox}
               />
             </div>
           )}
@@ -203,6 +205,7 @@ export default function MegaMenu() {
                 featured={CUSTOM_FEATURED}
                 shopAllLink="/store?category=eco-digital"
                 shopAllLabel="Shop All Custom Printed"
+                onQuoteClick={openQuoteLightbox}
               />
             </div>
           )}
@@ -222,6 +225,7 @@ export default function MegaMenu() {
                 featured={STOCK_FEATURED}
                 shopAllLink="/store?category=eco-stock"
                 shopAllLabel="Shop All Stock Pouches"
+                onQuoteClick={openQuoteLightbox}
               />
             </div>
           )}

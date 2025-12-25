@@ -7,6 +7,7 @@ import { SpeedInsights } from '@vercel/speed-insights/react'
 import { ErrorBoundary } from './components/ErrorBoundary.tsx'
 import { StoreProvider } from './store/StoreContext'
 import { CalendlyProvider } from './contexts/CalendlyContext'
+import { CustomQuoteProvider } from './contexts/CustomQuoteContext'
 import './index.css'
 import './i18n'
 
@@ -211,6 +212,7 @@ createRoot(document.getElementById('root')!).render(
           <BrowserRouter>
             <StoreProvider>
               <CalendlyProvider>
+              <CustomQuoteProvider>
               <CartSidebar />
             <Suspense fallback={<PageLoader />}>
             <Routes>
@@ -397,6 +399,7 @@ createRoot(document.getElementById('root')!).render(
               </Suspense>
               <Analytics />
               <SpeedInsights />
+              </CustomQuoteProvider>
               </CalendlyProvider>
           </StoreProvider>
         </BrowserRouter>
