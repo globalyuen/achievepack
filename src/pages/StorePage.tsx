@@ -174,14 +174,14 @@ const StorePage: React.FC = () => {
             {/* Center Logo - Absolute positioned */}
             <div className="hidden lg:flex items-center justify-center absolute left-1/2 -translate-x-1/2">
               <Link to="/" className="flex items-center">
-                <img src="/achieve-pack-logo.webp" alt="Achieve Pack Logo" className="h-14 w-auto" loading="eager" decoding="async" width="180" height="56" />
+                <img src="/achieve-pack-logo.webp" alt="Achieve Pack Logo" className="h-14 w-auto" loading="eager" decoding="async" width="180" height="56" fetchPriority="high" />
               </Link>
             </div>
 
             {/* Mobile Logo */}
             <div className="lg:hidden flex items-center">
               <Link to="/" className="flex items-center">
-                <img src="/achieve-pack-logo.webp" alt="Achieve Pack Logo" className="h-10 w-auto" loading="eager" decoding="async" width="120" height="40" />
+                <img src="/achieve-pack-logo.webp" alt="Achieve Pack Logo" className="h-10 w-auto" loading="eager" decoding="async" width="120" height="40" fetchPriority="high" />
               </Link>
             </div>
 
