@@ -168,13 +168,20 @@ const StorePage: React.FC = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-neutral-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Left: Mega Menu Navigation */}
+            {/* Full Width Navigation: Left Menus | Logo | Right Menus + Actions */}
             <MegaMenu />
 
-            {/* Center Logo */}
-            <div className="flex items-center justify-center lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+            {/* Center Logo - Absolute positioned */}
+            <div className="hidden lg:flex items-center justify-center absolute left-1/2 -translate-x-1/2">
               <Link to="/" className="flex items-center">
-                <img src="/achieve-pack-logo.webp" alt="Achieve Pack Logo" className="h-12 w-auto" loading="lazy" decoding="async" width="140" height="48" />
+                <img src="/achieve-pack-logo.webp" alt="Achieve Pack Logo" className="h-14 w-auto" loading="eager" decoding="async" width="180" height="56" />
+              </Link>
+            </div>
+
+            {/* Mobile Logo */}
+            <div className="lg:hidden flex items-center">
+              <Link to="/" className="flex items-center">
+                <img src="/achieve-pack-logo.webp" alt="Achieve Pack Logo" className="h-10 w-auto" loading="eager" decoding="async" width="120" height="40" />
               </Link>
             </div>
 
