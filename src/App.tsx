@@ -22,7 +22,6 @@ const RandomBanner = lazy(() => import('./components/RandomBanner'))
 const EcoVideoShowcase = lazy(() => import('./components/EcoVideoShowcase'))
 const FloatingInfoGraphics = lazy(() => import('./components/FloatingInfoGraphics'))
 const AnimatedTestimonials = lazy(() => import('./components/ui/animated-testimonials').then(m => ({ default: m.AnimatedTestimonials })))
-const Carousel = lazy(() => import('./components/ui/apple-cards-carousel').then(m => ({ default: m.Carousel })))
 
 // Lazy load Google Analytics - not critical for initial render
 const loadGA = () => {
@@ -620,7 +619,7 @@ ${formData.message}`
             <div className="hidden lg:block relative">
               <CardContainer containerClassName="py-0">
                 <CardBody className="relative group/card w-full">
-                  <div className="absolute inset-0 bg-primary-500 rounded-full filter blur-3xl opacity-10 animate-pulse"></div>
+                  <div className="absolute inset-0 bg-primary-500 rounded-full filter blur-3xl opacity-10"></div>
                   <CardItem translateZ="100" className="w-full">
                     <img
                       src={img("about-hero")}
@@ -758,7 +757,7 @@ ${formData.message}`
               <Leaf className="h-6 w-6 text-primary-500 mr-3" />
               {t('benefits.envTitle')}
             </h3>
-            <Suspense fallback={<div className="h-96 bg-neutral-100 rounded-lg animate-pulse" />}>
+            <Suspense fallback={<div className="h-96 bg-neutral-100 rounded-lg" />}>
               <AnimatedTestimonials
                 autoplay={true}
                 testimonials={[
@@ -797,7 +796,7 @@ ${formData.message}`
               <Zap className="h-6 w-6 text-accent-500 mr-3" />
               {t('benefits.bizTitle')}
             </h3>
-            <Suspense fallback={<div className="h-96 bg-neutral-100 rounded-lg animate-pulse" />}>
+            <Suspense fallback={<div className="h-96 bg-neutral-100 rounded-lg" />}>
               <AnimatedTestimonials
                 autoplay={true}
                 testimonials={[
@@ -1534,7 +1533,7 @@ ${formData.message}`
           {/* Scroll indicator */}
           <div className="text-center mt-4 text-sm text-neutral-500">
             <span className="inline-flex items-center gap-1">
-              <ChevronDown className="h-4 w-4 animate-bounce" />
+              <ChevronDown className="h-4 w-4" />
               Scroll for more FAQs
             </span>
           </div>
