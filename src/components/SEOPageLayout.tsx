@@ -682,10 +682,8 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
             {/* Certification Logos & SSL Badge */}
             <div className="border-t border-neutral-800 mt-6 pt-4">
               <div className="flex flex-wrap items-center justify-center gap-4 mb-4">
-                <img src="/imgs/cert/logo-achievepack-BPI.jpg" alt="BPI Certified" className="h-10 w-auto rounded" loading="lazy" decoding="async" />
-                <img src="/imgs/cert/cert-ISO9001.webp" alt="ISO 9001 Certified" className="h-10 w-auto" loading="lazy" decoding="async" />
-                <img src="/imgs/cert/cert-ISO14001-cert.webp" alt="ISO 14001 Certified" className="h-10 w-auto" loading="lazy" decoding="async" />
-                <img src="/imgs/cert/cert-fsc.png" alt="FSC Certified" className="h-10 w-auto" loading="lazy" decoding="async" />
+                <img src="/imgs/cert/logo-achievepack-BPI.jpg" alt="BPI Certified" className="h-10 w-auto rounded grayscale" loading="lazy" decoding="async" />
+                <img src="/imgs/cert-b.webp" alt="B Corp Certified" className="h-10 w-auto grayscale" loading="lazy" decoding="async" />
                 <div className="flex items-center gap-1.5 bg-neutral-800 px-3 py-1.5 rounded">
                   <svg className="h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
