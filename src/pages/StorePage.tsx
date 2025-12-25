@@ -1,5 +1,5 @@
-import React, { useState, useMemo, useCallback, useTransition } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useState, useMemo, useCallback, useTransition, useEffect } from 'react'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { ShoppingCart, Search, Star, Truck, Shield, Clock, Grid3X3, List, ChevronDown, User, Globe, Menu, X } from 'lucide-react'
@@ -19,6 +19,7 @@ const CATEGORIES = [
   { id: 'eco-digital', label: 'Eco Digital' },
   { id: 'eco-stock', label: 'Eco Stock' },
   { id: 'boxes', label: 'Boxes' },
+  { id: 'mailer', label: 'Mailer Bags' },
 ]
 
 const SHAPES = [
@@ -40,15 +41,29 @@ const StorePage: React.FC = () => {
   const { t, i18n } = useTranslation()
   const { cartCount, setIsCartOpen } = useStore()
   const navigate = useNavigate()
+  const [searchParams, setSearchParams] = useSearchParams()
   const [isPending, startTransition] = useTransition()
-  const [selectedCategory, setSelectedCategory] = useState<string>('all')
-  const [selectedShape, setSelectedShape] = useState<string>('all')
+  
+  // Read initial values from URL params
+  const urlCategory = searchParams.get('category') || 'all'
+  const urlShape = searchParams.get('shape') || 'all'
+  
+  const [selectedCategory, setSelectedCategory] = useState<string>(urlCategory)
+  const [selectedShape, setSelectedShape] = useState<string>(urlShape)
   const [searchQuery, setSearchQuery] = useState('')
   const [viewMode, setViewMode] = useState<ViewMode>('grid')
   const [sortBy, setSortBy] = useState<SortOption>('popularity')
   const [isSortOpen, setIsSortOpen] = useState(false)
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  // Sync state with URL params when they change
+  useEffect(() => {
+    const newCategory = searchParams.get('category') || 'all'
+    const newShape = searchParams.get('shape') || 'all'
+    if (newCategory !== selectedCategory) setSelectedCategory(newCategory)
+    if (newShape !== selectedShape) setSelectedShape(newShape)
+  }, [searchParams])
 
   const changeLanguage = (lang: string) => {
     i18n.changeLanguage(lang)
@@ -119,14 +134,37 @@ const StorePage: React.FC = () => {
     return null
   }
 
+  // Map URL shape params to internal shape names
+  const urlShapeToInternal: Record<string, string> = {
+    '3-side-seal': '3 Side Seal Pouch',
+    'stand-up': 'Stand Up Pouch / Doypack',
+    'flat-bottom': 'Flat Squared Bottom Pouch',
+    'side-gusset': 'Side Gusset Pouch',
+    'spout': 'Spout Pouch',
+  }
+
   const filteredProducts = useMemo(() => {
+    // Convert URL shape param to internal shape name
+    const internalShape = urlShapeToInternal[selectedShape] || selectedShape
+    
     return FEATURED_PRODUCTS.filter(product => {
-      const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory
+      // Special handling for 'mailer' category - filter by shape
+      let matchesCategory = false
+      if (selectedCategory === 'all') {
+        matchesCategory = true
+      } else if (selectedCategory === 'mailer') {
+        // Mailer category filters by shape 'Mailer Bag'
+        const productShape = getProductShape(product)
+        matchesCategory = productShape === 'Mailer Bag'
+      } else {
+        matchesCategory = product.category === selectedCategory
+      }
+      
       const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
                            product.description.toLowerCase().includes(searchQuery.toLowerCase())
       
       const productShape = getProductShape(product)
-      const matchesShape = selectedShape === 'all' || productShape === selectedShape
+      const matchesShape = selectedShape === 'all' || productShape === internalShape || productShape === selectedShape
       
       return matchesCategory && matchesSearch && matchesShape
     })
