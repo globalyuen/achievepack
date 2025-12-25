@@ -25,14 +25,19 @@ export default defineConfig({
     // Enable CSS code splitting
     cssCodeSplit: true,
     // Increase chunk size warning limit
-    chunkSizeWarningLimit: 1500,
+    chunkSizeWarningLimit: 500,
     rollupOptions: {
       output: {
-        manualChunks: {
-          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
-          'vendor-ui': ['lucide-react'],
-          'vendor-helmet': ['react-helmet-async'],
-          'vendor-i18n': ['i18next', 'react-i18next'],
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react-dom')) return 'vendor-react';
+            if (id.includes('react-router')) return 'vendor-react';
+            if (id.includes('lucide-react')) return 'vendor-ui';
+            if (id.includes('react-helmet')) return 'vendor-helmet';
+            if (id.includes('i18next')) return 'vendor-i18n';
+            if (id.includes('framer-motion')) return 'vendor-motion';
+            if (id.includes('react-ga4')) return 'vendor-analytics';
+          }
         }
       }
     }

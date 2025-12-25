@@ -1,29 +1,36 @@
-import { useState, useEffect, useCallback, useTransition, useMemo } from 'react'
+import { useState, useEffect, useCallback, useTransition, useMemo, lazy, Suspense } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom'
-import ReactGA from "react-ga4";
 import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield, ShoppingCart, User, Linkedin, ArrowRight, Plus } from 'lucide-react'
 import { HeroGrainBackground } from './components/HeroGrainBackground'
 import { CardContainer, CardBody, CardItem } from './components/ui/3d-card'
-import { AnimatedTestimonials } from './components/ui/animated-testimonials'
-import { Carousel, Card } from './components/ui/apple-cards-carousel'
 import { getImage } from './utils/imageMapper'
-import Calculator from './components/Calculator'
 import Newsletter from './components/Newsletter'
-import BriefTestimonials from './components/BriefTestimonials'
-import TestimonialsWall from './components/TestimonialsWall'
 import CartSidebar from './components/store/CartSidebar'
-import FloatingTestimonialVideo from './components/FloatingTestimonialVideo'
-import YouTubeShorts from './components/YouTubeShorts'
-// InstagramFeed removed for performance - icon in footer only
-import ClimateAction from './components/ClimateAction'
-import RandomBanner from './components/RandomBanner'
-import EcoVideoShowcase from './components/EcoVideoShowcase'
-import FloatingInfoGraphics from './components/FloatingInfoGraphics'
 import type { CalculatorResults } from './utils/calculatorUtils'
 import { useStore } from './store/StoreContext'
 import { FEATURED_PRODUCTS, type PouchProduct } from './store/productData'
+
+// Lazy load non-critical components for better performance
+const Calculator = lazy(() => import('./components/Calculator'))
+const BriefTestimonials = lazy(() => import('./components/BriefTestimonials'))
+const TestimonialsWall = lazy(() => import('./components/TestimonialsWall'))
+const FloatingTestimonialVideo = lazy(() => import('./components/FloatingTestimonialVideo'))
+const ClimateAction = lazy(() => import('./components/ClimateAction'))
+const RandomBanner = lazy(() => import('./components/RandomBanner'))
+const EcoVideoShowcase = lazy(() => import('./components/EcoVideoShowcase'))
+const FloatingInfoGraphics = lazy(() => import('./components/FloatingInfoGraphics'))
+const AnimatedTestimonials = lazy(() => import('./components/ui/animated-testimonials').then(m => ({ default: m.AnimatedTestimonials })))
+const Carousel = lazy(() => import('./components/ui/apple-cards-carousel').then(m => ({ default: m.Carousel })))
+
+// Lazy load Google Analytics - not critical for initial render
+const loadGA = () => {
+  import('react-ga4').then((ReactGA) => {
+    ReactGA.default.initialize("G-JQTMH42E01");
+    ReactGA.default.send({ hitType: "pageview", page: window.location.pathname });
+  });
+};
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -179,10 +186,12 @@ function App() {
   const img = (imageName: string) => getImage(imageName, i18n.language as any);
 
   useEffect(() => {
-    // Initialize Google Analytics
-    ReactGA.initialize("G-JQTMH42E01");
-    // Send initial pageview
-    ReactGA.send({ hitType: "pageview", page: window.location.pathname });
+    // Load Google Analytics after initial render (non-blocking)
+    if ('requestIdleCallback' in window) {
+      (window as any).requestIdleCallback(loadGA);
+    } else {
+      setTimeout(loadGA, 2000);
+    }
   }, []);
 
   useEffect(() => {
@@ -633,16 +642,22 @@ ${formData.message}`
       {/* 3D Eco Pouch Material Experience - Disabled */}
 
       {/* Random Banner with Floating Infographic Icons - Below Hero */}
-      <div className="relative">
-        <RandomBanner className="" />
-        <FloatingInfoGraphics />
-      </div>
+      <Suspense fallback={<div className="h-32" />}>
+        <div className="relative">
+          <RandomBanner className="" />
+          <FloatingInfoGraphics />
+        </div>
+      </Suspense>
 
       {/* Eco Video Showcase */}
-      <EcoVideoShowcase className="" />
+      <Suspense fallback={<div className="h-64 bg-green-50" />}>
+        <EcoVideoShowcase className="" />
+      </Suspense>
 
       {/* Brief Testimonials - Avatar Row */}
-      <BriefTestimonials />
+      <Suspense fallback={<div className="h-24" />}>
+        <BriefTestimonials />
+      </Suspense>
 
       {/* YouTube Shorts Section - Hidden for now */}
       {/* <YouTubeShorts /> */}
@@ -742,35 +757,37 @@ ${formData.message}`
               <Leaf className="h-6 w-6 text-primary-500 mr-3" />
               {t('benefits.envTitle')}
             </h3>
-            <AnimatedTestimonials
-              autoplay={true}
-              testimonials={[
-                {
-                  quote: t('benefits.env.carbon.desc'),
-                  name: t('benefits.env.carbon.title'),
-                  designation: "70% Less CO₂ Emissions",
-                  src: img("infographic-carbon-footprint"),
-                },
-                {
-                  quote: t('benefits.env.compostable.desc'),
-                  name: t('benefits.env.compostable.title'),
-                  designation: "EN13432 & ASTM D6400 Certified",
-                  src: img("infographic-compostable"),
-                },
-                {
-                  quote: t('benefits.env.plantBased.desc'),
-                  name: t('benefits.env.plantBased.title'),
-                  designation: "Renewable Resources",
-                  src: img("infographic-plant-based"),
-                },
-                {
-                  quote: t('benefits.env.recyclable.desc'),
-                  name: t('benefits.env.recyclable.title'),
-                  designation: "GRS Certified Materials",
-                  src: img("infographic-grs-recyclable"),
-                },
-              ]}
-            />
+            <Suspense fallback={<div className="h-96 bg-neutral-100 rounded-lg animate-pulse" />}>
+              <AnimatedTestimonials
+                autoplay={true}
+                testimonials={[
+                  {
+                    quote: t('benefits.env.carbon.desc'),
+                    name: t('benefits.env.carbon.title'),
+                    designation: "70% Less CO₂ Emissions",
+                    src: img("infographic-carbon-footprint"),
+                  },
+                  {
+                    quote: t('benefits.env.compostable.desc'),
+                    name: t('benefits.env.compostable.title'),
+                    designation: "EN13432 & ASTM D6400 Certified",
+                    src: img("infographic-compostable"),
+                  },
+                  {
+                    quote: t('benefits.env.plantBased.desc'),
+                    name: t('benefits.env.plantBased.title'),
+                    designation: "Renewable Resources",
+                    src: img("infographic-plant-based"),
+                  },
+                  {
+                    quote: t('benefits.env.recyclable.desc'),
+                    name: t('benefits.env.recyclable.title'),
+                    designation: "GRS Certified Materials",
+                    src: img("infographic-grs-recyclable"),
+                  },
+                ]}
+              />
+            </Suspense>
           </div>
 
           {/* Business Benefits - Animated */}
@@ -779,35 +796,37 @@ ${formData.message}`
               <Zap className="h-6 w-6 text-accent-500 mr-3" />
               {t('benefits.bizTitle')}
             </h3>
-            <AnimatedTestimonials
-              autoplay={true}
-              testimonials={[
-                {
-                  quote: t('benefits.biz.moq.desc'),
-                  name: t('benefits.biz.moq.title'),
-                  designation: "Start from 1,000 units",
-                  src: img("infographic-low-moq"),
-                },
-                {
-                  quote: t('benefits.biz.turnaround.desc'),
-                  name: t('benefits.biz.turnaround.title'),
-                  designation: "2-3 Weeks Production",
-                  src: img("infographic-fast-turnaround"),
-                },
-                {
-                  quote: t('benefits.biz.shipping.desc'),
-                  name: t('benefits.biz.shipping.title'),
-                  designation: "70% Less Shipping Volume",
-                  src: img("infographic-shipping-storage"),
-                },
-                {
-                  quote: t('benefits.biz.finish.desc'),
-                  name: t('benefits.biz.finish.title'),
-                  designation: "Matte, Gloss & Soft Touch",
-                  src: img("infographic-premium-finishes"),
-                },
-              ]}
-            />
+            <Suspense fallback={<div className="h-96 bg-neutral-100 rounded-lg animate-pulse" />}>
+              <AnimatedTestimonials
+                autoplay={true}
+                testimonials={[
+                  {
+                    quote: t('benefits.biz.moq.desc'),
+                    name: t('benefits.biz.moq.title'),
+                    designation: "Start from 1,000 units",
+                    src: img("infographic-low-moq"),
+                  },
+                  {
+                    quote: t('benefits.biz.turnaround.desc'),
+                    name: t('benefits.biz.turnaround.title'),
+                    designation: "2-3 Weeks Production",
+                    src: img("infographic-fast-turnaround"),
+                  },
+                  {
+                    quote: t('benefits.biz.shipping.desc'),
+                    name: t('benefits.biz.shipping.title'),
+                    designation: "70% Less Shipping Volume",
+                    src: img("infographic-shipping-storage"),
+                  },
+                  {
+                    quote: t('benefits.biz.finish.desc'),
+                    name: t('benefits.biz.finish.title'),
+                    designation: "Matte, Gloss & Soft Touch",
+                    src: img("infographic-premium-finishes"),
+                  },
+                ]}
+              />
+            </Suspense>
           </div>
         </div>
       </section>
@@ -1369,7 +1388,9 @@ ${formData.message}`
       </section>
 
       {/* Testimonials Wall Section */}
-      <TestimonialsWall />
+      <Suspense fallback={<div className="h-96 bg-neutral-50" />}>
+        <TestimonialsWall />
+      </Suspense>
 
       {/* Meet Our Team Section */}
       <section id="team" className="py-16 bg-white">
@@ -1523,7 +1544,9 @@ ${formData.message}`
       <Newsletter />
 
       {/* Climate Action Section */}
-      <ClimateAction />
+      <Suspense fallback={<div className="h-64 bg-green-50" />}>
+        <ClimateAction />
+      </Suspense>
 
       {/* Contact Section */}
       <section id="contact" className="py-16 bg-neutral-50">
@@ -2076,16 +2099,17 @@ ${formData.message}`
       )}
 
       {/* Calculator Modal */}
-      <Calculator
-        isOpen={isCalculatorOpen}
-        onClose={() => setIsCalculatorOpen(false)}
-        language={i18n.language}
-        onSubmitToContact={(results) => {
-          setCalculatorResults(results);
-          setIsCalculatorOpen(false);
+      <Suspense fallback={null}>
+        <Calculator
+          isOpen={isCalculatorOpen}
+          onClose={() => setIsCalculatorOpen(false)}
+          language={i18n.language}
+          onSubmitToContact={(results) => {
+            setCalculatorResults(results);
+            setIsCalculatorOpen(false);
 
-          // Pre-fill contact form with calculator results
-          const message = `Hi, I used your savings calculator and found I could save $${results.costSavings.totalAnnualSavings.toLocaleString()} annually by switching to flexible packaging. I'd like to discuss this further.
+            // Pre-fill contact form with calculator results
+            const message = `Hi, I used your savings calculator and found I could save $${results.costSavings.totalAnnualSavings.toLocaleString()} annually by switching to flexible packaging. I'd like to discuss this further.
 
 Calculator Results:
 - Annual Savings: $${results.costSavings.totalAnnualSavings.toLocaleString()}
@@ -2094,12 +2118,13 @@ Calculator Results:
 
 Please contact me to discuss custom solutions.`;
 
-          setFormData({ ...formData, message });
+            setFormData({ ...formData, message });
 
-          // Scroll to contact section
-          scrollToSection('contact');
-        }}
-      />
+            // Scroll to contact section
+            scrollToSection('contact');
+          }}
+        />
+      </Suspense>
 
       {/* Product Detail Modal */}
       {selectedProduct && (
@@ -2371,7 +2396,9 @@ Please contact me to discuss custom solutions.`;
       <CartSidebar />
 
       {/* Floating Testimonial Video */}
-      <FloatingTestimonialVideo />
+      <Suspense fallback={null}>
+        <FloatingTestimonialVideo />
+      </Suspense>
     </div>
     </>
   )
