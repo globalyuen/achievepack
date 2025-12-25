@@ -836,7 +836,7 @@ const ProductPage: React.FC = () => {
                         selectedMainImage === index ? 'border-primary-600 ring-2 ring-primary-200' : 'border-neutral-200'
                       }`}
                     >
-                      <img src={img} alt={`View ${index + 1}`} className="w-full h-full object-cover p-1" />
+                      <img src={img} alt={`View ${index + 1}`} className="w-full h-full object-cover p-1 pointer-events-none" loading="lazy" decoding="async" />
                     </button>
                   ))}
                   {/* Separate YouTube Video Thumbnail */}
@@ -1187,7 +1187,7 @@ const ProductPage: React.FC = () => {
                         selectedMainImage === index ? 'border-green-600 ring-2 ring-green-200' : 'border-neutral-200'
                       }`}
                     >
-                      <img src={img} alt={`View ${index + 1}`} className="w-full h-full object-cover p-1" />
+                      <img src={img} alt={`View ${index + 1}`} className="w-full h-full object-cover p-1 pointer-events-none" loading="lazy" decoding="async" />
                     </button>
                   ))}
                   {/* Separate YouTube Video Thumbnail */}
