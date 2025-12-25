@@ -2,7 +2,7 @@ import React, { useState, useMemo, useCallback, useTransition } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
-import { ShoppingCart, Search, Star, Truck, Shield, Clock, ArrowLeft, Grid3X3, List, ChevronDown } from 'lucide-react'
+import { ShoppingCart, Search, Star, Truck, Shield, Clock, ArrowLeft, Grid3X3, List, ChevronDown, User, Globe, Menu, X } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import { FEATURED_PRODUCTS, type StoreProduct, type EcoDigitalProduct, type ConventionalProduct } from '../store/productData'
 import { getProductImage } from '../utils/productImageMapper'
@@ -10,6 +10,7 @@ import type { ShapeType } from '../utils/productImageMapper'
 import RandomBanner from '../components/RandomBanner'
 import EcoVideoShowcase from '../components/EcoVideoShowcase'
 import FloatingInfoGraphics from '../components/FloatingInfoGraphics'
+import MegaMenu from '../components/MegaMenu'
 
 type ViewMode = 'grid' | 'list'
 type SortOption = 'popularity' | 'price-low' | 'price-high' | 'newest'
@@ -49,6 +50,13 @@ const StorePage: React.FC = () => {
   const [viewMode, setViewMode] = useState<ViewMode>('grid')
   const [sortBy, setSortBy] = useState<SortOption>('popularity')
   const [isSortOpen, setIsSortOpen] = useState(false)
+  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  const changeLanguage = (lang: string) => {
+    i18n.changeLanguage(lang)
+    setIsLangMenuOpen(false)
+  }
 
   // Debounced search handler for INP optimization
   const handleSearchChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -159,58 +167,165 @@ const StorePage: React.FC = () => {
         <meta property="og:url" content="https://achievepack.com/store" />
       </Helmet>
     <div className="min-h-screen bg-neutral-50">
-      {/* Store Header - Fixed */}
-      <header className="bg-primary-600 text-white fixed top-0 left-0 right-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <a 
-              href="/" 
-              onClick={(e) => { e.preventDefault(); startTransition(() => navigate('/')); }}
-              className="flex items-center gap-3 hover:opacity-90 transition cursor-pointer"
-            >
-              <img 
-                src="/ap-logo-white.webp" 
-                alt="Achieve Pack" 
-                className="h-10 w-auto"
-                loading="eager"
-                decoding="async"
-                width="133"
-                height="40"
-              />
-              <span className="text-2xl font-bold hidden sm:inline">Store</span>
-            </a>
-          </div>
-          <div className="flex items-center gap-4">
-            <div className="relative hidden md:block">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-neutral-400" />
-              <input
-                type="text"
-                placeholder="Search products..."
-                defaultValue={searchQuery}
-                onChange={handleSearchChange}
-                className="pl-10 pr-4 py-2 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 w-64"
-              />
+      {/* Store Header - Same as Landing Page */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-neutral-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            {/* Left: Mega Menu Navigation */}
+            <MegaMenu />
+
+            {/* Center Logo */}
+            <div className="flex items-center justify-center lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+              <Link to="/" className="flex items-center">
+                <img src="/achieve-pack-logo.webp" alt="Achieve Pack Logo" className="h-12 w-auto" loading="lazy" decoding="async" width="140" height="48" />
+              </Link>
             </div>
-            <button onClick={() => {
-              if (cartCount === 0) {
-                navigate('/store')
-              } else {
-                setIsCartOpen(true)
-              }
-            }} className="relative p-2 hover:bg-white/10 rounded-full transition">
-              <ShoppingCart className="h-6 w-6" />
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
-                  {cartCount}
-                </span>
-              )}
-            </button>
+
+            {/* Right Actions */}
+            <div className="hidden lg:flex items-center space-x-3">
+              {/* Search */}
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  defaultValue={searchQuery}
+                  onChange={handleSearchChange}
+                  className="pl-9 pr-4 py-2 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-700 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500 w-48"
+                />
+              </div>
+              <button
+                onClick={() => {
+                  if (cartCount === 0) {
+                    navigate('/store')
+                  } else {
+                    setIsCartOpen(true)
+                  }
+                }}
+                className="relative w-10 h-10 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
+              >
+                <ShoppingCart className="h-5 w-5 text-white" />
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center">
+                    {cartCount > 99 ? '99+' : cartCount}
+                  </span>
+                )}
+              </button>
+              <Link
+                to="/dashboard"
+                className="w-10 h-10 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
+              >
+                <User className="h-5 w-5 text-white" />
+              </Link>
+              <div className="relative">
+                <button
+                  onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+                  className="w-10 h-10 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
+                >
+                  <Globe className="h-5 w-5 text-white" />
+                </button>
+                {isLangMenuOpen && (
+                  <div className="absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-neutral-200 py-1 z-50">
+                    <button onClick={() => changeLanguage('en')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">English</button>
+                    <button onClick={() => changeLanguage('fr')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Français</button>
+                    <button onClick={() => changeLanguage('es')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Español</button>
+                    <button onClick={() => changeLanguage('zh-TW')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">繁體中文</button>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="lg:hidden flex items-center gap-2">
+              <button
+                onClick={() => {
+                  if (cartCount === 0) {
+                    navigate('/store')
+                  } else {
+                    setIsCartOpen(true)
+                  }
+                }}
+                className="relative w-10 h-10 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
+              >
+                <ShoppingCart className="h-5 w-5 text-white" />
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center">
+                    {cartCount}
+                  </span>
+                )}
+              </button>
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="text-neutral-700 hover:text-primary-500 transition-colors"
+                aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+              >
+                {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
+            </div>
           </div>
         </div>
-      </header>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden bg-white border-t border-neutral-200">
+            <div className="px-4 py-4 space-y-3">
+              {/* Mobile Search */}
+              <div className="relative mb-4">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
+                <input
+                  type="text"
+                  placeholder="Search products..."
+                  defaultValue={searchQuery}
+                  onChange={handleSearchChange}
+                  className="w-full pl-9 pr-4 py-2 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-700 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                />
+              </div>
+              <Link to="/store" onClick={() => setIsMobileMenuOpen(false)} className="block w-full text-left text-base font-semibold text-neutral-900 py-2">
+                🛒 Shop All
+              </Link>
+              <div className="border-t border-neutral-100 pt-3">
+                <p className="text-xs font-bold text-primary-600 uppercase mb-2">Eco Digital</p>
+                <Link to="/store/eco-standup" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 text-neutral-700">Stand Up Pouch</Link>
+                <Link to="/store/eco-boxbottom" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 text-neutral-700">Box Bottom Pouch</Link>
+                <Link to="/store/eco-quadseal" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 text-neutral-700">Quad Seal Pouch</Link>
+                <Link to="/store/eco-sidegusset" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 text-neutral-700">Side Gusset Pouch</Link>
+              </div>
+              <div className="border-t border-neutral-100 pt-3">
+                <p className="text-xs font-bold text-primary-600 uppercase mb-2">Boxes</p>
+                <Link to="/store?category=boxes" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 text-neutral-700">All Boxes</Link>
+                <Link to="/custom-boxes" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 text-neutral-700">Custom Boxes</Link>
+              </div>
+              <div className="border-t border-neutral-100 pt-3">
+                <Link to="/blog" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 text-neutral-700 font-medium">Blog</Link>
+                <Link to="/dashboard" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 text-neutral-700 font-medium">Customer Center</Link>
+              </div>
+              
+              {/* Mobile Language Options */}
+              <div className="py-2 border-t border-neutral-100 my-2">
+                <div className="text-xs text-neutral-500 font-semibold mb-2 uppercase px-1">Language</div>
+                <div className="grid grid-cols-2 gap-2">
+                  <button onClick={() => changeLanguage('en')} className={`text-sm py-1 px-2 rounded ${i18n.language === 'en' ? 'bg-primary-50 text-primary-600' : 'text-neutral-600'}`}>English</button>
+                  <button onClick={() => changeLanguage('fr')} className={`text-sm py-1 px-2 rounded ${i18n.language === 'fr' ? 'bg-primary-50 text-primary-600' : 'text-neutral-600'}`}>Français</button>
+                  <button onClick={() => changeLanguage('es')} className={`text-sm py-1 px-2 rounded ${i18n.language === 'es' ? 'bg-primary-50 text-primary-600' : 'text-neutral-600'}`}>Español</button>
+                  <button onClick={() => changeLanguage('zh-TW')} className={`text-sm py-1 px-2 rounded ${i18n.language === 'zh-TW' ? 'bg-primary-50 text-primary-600' : 'text-neutral-600'}`}>繁體中文</button>
+                </div>
+              </div>
+
+              <a
+                href="https://calendly.com/30-min-free-packaging-consultancy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-colors mt-4 block text-center"
+              >
+                Book Free Consultation
+              </a>
+            </div>
+          </div>
+        )}
+      </nav>
 
       {/* Spacer for fixed header */}
-      <div className="h-[72px]"></div>
+      <div className="h-16"></div>
 
       {/* Hero Banner */}
       <section className="bg-gradient-to-r from-primary-600 to-primary-700 text-white py-16">
