@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    font-size: 17px; /* Increased from default 16px by 1pt */
+  }
+  
   html, body {
     overflow-x: hidden;
     width: 100%;
