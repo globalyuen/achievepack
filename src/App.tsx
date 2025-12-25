@@ -507,6 +507,7 @@ ${formData.message}`
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-neutral-700 hover:text-primary-500 transition-colors"
+                aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>

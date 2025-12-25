@@ -46,6 +46,7 @@ export default function FloatingButtons() {
         {/* Toggle Button */}
         <button
           onClick={() => setIsExpanded(!isExpanded)}
+          aria-label={isExpanded ? 'Close contact options' : 'Open contact options'}
           className={`w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110 ${
             isExpanded 
               ? 'bg-neutral-700 hover:bg-neutral-800' 

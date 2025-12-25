@@ -119,13 +119,14 @@ export default function FloatingTestimonialVideo() {
 
         {/* Progress Dots */}
         <div className="flex justify-center gap-1.5 mt-2">
-          {allTestimonials.map((_, index) => (
+          {allTestimonials.map((testimonial, index) => (
             <button
               key={index}
               onClick={(e) => {
                 e.stopPropagation()
                 setCurrentIndex(index)
               }}
+              aria-label={`Go to testimonial ${index + 1} of ${allTestimonials.length}`}
               className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
                 index === currentIndex
                   ? 'bg-primary-500 w-4'
