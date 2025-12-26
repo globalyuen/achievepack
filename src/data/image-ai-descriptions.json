@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 71,
+  "total_analyzed": 73,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -711,6 +711,26 @@
       "category": "technical",
       "type": "infographic",
       "colors": ["green", "teal", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/blog/Sustainable-pet/a_sustainable_pet_food_packaging_hero_2601845.webp": {
+      "title": "Sustainable Pet Food Packaging Hero - Earth Paws Complete Collection",
+      "description": "Hero lifestyle image featuring golden retriever and tabby cat with complete sustainable pet food packaging collection on green grass with tropical plants background. Products include: 1) RECYCLABLE PAPER BAG with paw print (FSC CERTIFIED badge, kraft with green band); 2) EARTH PAWS SUSTAINABLE KIBBLE stand-up pouch (COMPOSTABLE badge, BPI CERTIFIED logos); 3) FRESH KEEPER ZIPPER pouch (RECYCLABLE badge, OK COMPOST certification, PLANT BASED label); 4) BIODEGRADABLE TREAT POUCH (RECYCLABLE badge, PLANT-BASED label); 5) REUSABLE & RECYCLABLE CONTAINER glass jar with bamboo lid (PLASTIC FREE badge). All products feature kraft/green color scheme with eco-certification badges prominently displayed.",
+      "alt": "Earth Paws sustainable pet food packaging hero with golden retriever cat showing recyclable compostable BPI certified FSC kraft pouches containers on grass",
+      "keywords": ["sustainable pet food", "Earth Paws", "recyclable packaging", "compostable pouch", "BPI certified", "FSC certified", "plant-based", "plastic-free", "pet packaging hero"],
+      "category": "marketing",
+      "type": "hero",
+      "colors": ["kraft brown", "green", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/blog/How/a_use_cases_application_matrix_4684895.webp": {
+      "title": "Compostable Pouches Professional Use-Case Matrix - 6 Applications",
+      "description": "COMPOSTABLE POUCHES: PROFESSIONAL USE-CASE MATRIX infographic with 6 application categories. 1) COFFEE/TEA - kraft stand-up pouch with HIGH BARRIER (shield icon) and DEGASSING VALVE (valve icon); 2) SNACKS/NUTS - clear window pouch with QUICK SHELF LIFE (clock icon) and RESEALABLE (zipper icon); 3) PET TREATS - brown flat-bottom bag with PUNCTURE RESISTANT (shield icon) and GUSSETS (expand icon); 4) SUPPLEMENTS/POWDERS - white pouch with MOISTURE PROTECTION (umbrella icon) and WIDER OPENING (wide mouth icon); 5) LIQUIDS/SAUCES - brown spout pouch with CONTROLLED POURING (droplet icon) and STRONG SEALING (seal icon); 6) MOQ CONSIDERATIONS - TESTING QUANTITIES (100-500 UNITS FOR TESTING with pallet icon) and SCALE QUANTITIES (5000+ FOR SCALE with pallets icon). Green and cream color scheme with leaf decorations.",
+      "alt": "Compostable pouches use-case matrix showing coffee tea snacks pet treats supplements liquids applications with MOQ 100-500 testing 5000+ scale quantities",
+      "keywords": ["compostable pouches", "use-case matrix", "coffee packaging", "snack pouch", "pet treats", "supplement packaging", "spout pouch", "MOQ", "degassing valve", "resealable"],
+      "category": "technical",
+      "type": "infographic",
+      "colors": ["kraft brown", "green", "cream", "white"],
       "seo_priority": "high"
     }
   }
