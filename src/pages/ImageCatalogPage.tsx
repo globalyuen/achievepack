@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Search, Grid3X3, List, Folder, ArrowLeft, Copy, Check, ExternalLink, Save, Download, FileText, X, Sparkles, Tag, Eye } from 'lucide-react'
+import { Search, Grid3X3, List, Folder, ArrowLeft, Copy, Check, ExternalLink, Save, Download, FileText, X, Sparkles, Tag, Eye, Code } from 'lucide-react'
 import imageCatalog from '../data/image-catalog.json'
 import aiDescriptionsData from '../data/image-ai-descriptions.json'
 
@@ -46,7 +46,9 @@ export default function ImageCatalogPage() {
     const [aiDescriptions, setAiDescriptions] = useState<Record<string, AIDescription>>(preloadedDescriptions)
     const [editingImage, setEditingImage] = useState<string | null>(null)
 
-  const categories = imageCatalog.categories as Record<string, CategoryData>
+  const [copiedJson, setCopiedJson] = useState<string | null>(null)
+  
+    const categories = imageCatalog.categories as Record<string, CategoryData>
   const totalImages = imageCatalog.total_images
 
   // Load data from localStorage on mount
@@ -112,6 +114,19 @@ export default function ImageCatalogPage() {
     navigator.clipboard.writeText(text)
     setCopiedPath(text)
     setTimeout(() => setCopiedPath(null), 2000)
+  }
+
+  const copyJsonToClipboard = (path: string) => {
+    const ai = aiDescriptions[path]
+    if (ai) {
+      const jsonData = JSON.stringify({
+        path,
+        ...ai
+      }, null, 2)
+      navigator.clipboard.writeText(jsonData)
+      setCopiedJson(path)
+      setTimeout(() => setCopiedJson(null), 2000)
+    }
   }
 
   const handleAltTextChange = (path: string, value: string) => {
@@ -410,6 +425,15 @@ export default function ImageCatalogPage() {
                               <p className="text-xs text-neutral-500 font-mono">{img.path}</p>
                             </div>
                             <div className="flex items-center gap-1">
+                              {aiDescriptions[img.path] && (
+                                <button
+                                  onClick={() => copyJsonToClipboard(img.path)}
+                                  className="p-1 text-purple-400 hover:text-purple-600"
+                                  title="Copy JSON"
+                                >
+                                  {copiedJson === img.path ? <Check className="h-4 w-4 text-green-500" /> : <Code className="h-4 w-4" />}
+                                </button>
+                              )}
                               <button
                                 onClick={() => copyToClipboard(img.path)}
                                 className="p-1 text-neutral-400 hover:text-neutral-600"
@@ -431,19 +455,40 @@ export default function ImageCatalogPage() {
                           <div className="relative">
                             <input
                               type="text"
-                              value={altTexts[img.path] || ''}
+                              value={altTexts[img.path] || aiDescriptions[img.path]?.alt || ''}
                               onChange={(e) => handleAltTextChange(img.path, e.target.value)}
                               placeholder="Enter alt text for SEO & accessibility..."
                               className={`w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 ${
-                                altTexts[img.path]?.trim() 
-                                  ? 'border-green-300 bg-green-50' 
-                                  : 'border-neutral-200 bg-white'
+                                aiDescriptions[img.path] 
+                                  ? 'border-purple-300 bg-purple-50' 
+                                  : altTexts[img.path]?.trim() 
+                                    ? 'border-green-300 bg-green-50' 
+                                    : 'border-neutral-200 bg-white'
                               }`}
                             />
-                            {altTexts[img.path]?.trim() && (
-                              <Check className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-green-500" />
+                            {aiDescriptions[img.path] && (
+                              <Sparkles className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-purple-500" />
                             )}
                           </div>
+                          
+                          {/* AI Description Preview */}
+                          {aiDescriptions[img.path] && (
+                            <div className="mt-2 p-2 bg-purple-50 rounded-lg border border-purple-200">
+                              <div className="flex items-center justify-between mb-1">
+                                <span className="text-xs font-medium text-purple-700 flex items-center gap-1">
+                                  <Sparkles className="h-3 w-3" /> AI Analyzed
+                                </span>
+                                <button
+                                  onClick={() => copyJsonToClipboard(img.path)}
+                                  className="text-xs text-purple-600 hover:text-purple-800 flex items-center gap-1"
+                                >
+                                  {copiedJson === img.path ? <><Check className="h-3 w-3" /> Copied!</> : <><Code className="h-3 w-3" /> Copy JSON</>}
+                                </button>
+                              </div>
+                              <p className="text-xs text-purple-800 font-medium">{aiDescriptions[img.path].title}</p>
+                              <p className="text-xs text-purple-600 mt-1 line-clamp-2">{aiDescriptions[img.path].description}</p>
+                            </div>
+                          )}
                         </div>
                       </div>
                     ))}
