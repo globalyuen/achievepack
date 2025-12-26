@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 147,
+  "total_analyzed": 148,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -1481,6 +1481,16 @@
       "category": "product",
       "type": "scene",
       "colors": ["gray", "black", "gold", "green"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/tuck-box/a_range_collection_closing_9211739.webp": {
+      "title": "Build a Full Black & Gold Tuck Box Range",
+      "description": "Build a full black & gold tuck box range / 用一整套黑金插口礼盒，覆盖不同规格与品类 range collection closing image. Features multiple black Achieve Pack tuck boxes in various sizes with gold foil branding, displayed with perfume bottle. Caption: Custom Printed Tuck Boxes (Gold Foil & Embossing) · Start your next project with Achieve Pack. Showcases complete size range for different product categories.",
+      "alt": "Black and gold tuck box collection range - multiple Achieve Pack custom printed boxes in various sizes with gold foil embossing for luxury packaging",
+      "keywords": ["tuck box range", "black gold", "size collection", "custom printed", "gold foil", "embossing", "luxury packaging", "gift boxes", "product range"],
+      "category": "product",
+      "type": "collection",
+      "colors": ["black", "gold", "gray"],
       "seo_priority": "high"
     }
   }
