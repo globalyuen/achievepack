@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 155,
+  "total_analyzed": 156,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -1561,6 +1561,16 @@
       "category": "product",
       "type": "technical",
       "colors": ["green", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/vaccum/a_closing_design_system_2830996.webp": {
+      "title": "Design Your Compostable Vacuum System",
+      "description": "Design your compostable vacuum system with Achieve Pack / 和 Achieve Pack 一起设计你的可堆肥真空包装系统 closing design system page. Three-step customization: 1) Choose bag size, thickness and texture / 选择袋子尺寸、厚度与纹理; 2) Select compostable material structure and barrier level / 选择可堆肥材料结构与阻隔等级; 3) Add custom printing and branding / 加上专属印刷与品牌设计. Shows olive green compostable pouch with nuts. Caption: From fresh to frozen, one compostable pouch for your whole line.",
+      "alt": "Design compostable vacuum system - Achieve Pack three-step customization for bag size material barrier and branding with olive green nut pouch",
+      "keywords": ["compostable vacuum", "design system", "customization", "bag size", "material structure", "barrier level", "custom printing", "branding", "fresh to frozen"],
+      "category": "marketing",
+      "type": "service",
+      "colors": ["green", "olive", "white"],
       "seo_priority": "high"
     }
   }
