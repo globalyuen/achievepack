@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 42,
+  "total_analyzed": 45,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -421,6 +421,36 @@
       "category": "sustainability",
       "type": "infographic",
       "colors": ["brown", "green", "beige"],
+      "seo_priority": "high"
+    },
+    "/imgs/product-pcr-biobased.webp": {
+      "title": "PCR & Bio-Based Materials - Sustainable Pouch Collection",
+      "description": "PCR & Bio-Based Materials product showcase featuring diverse sustainable pouch collection on natural backdrop with soybeans and kraft paper. Display includes: matte gray pouches with Achieve Pack 'ap' logo, olive green pouches, cream/white pouches, silver metallic pouches. Central recycling symbol emphasizes circular economy. FDA FOOD CONTACT APPROVED badge on kraft tag. Various sizes and configurations shown including stand-up pouches with zipper closures. Natural botanical elements (dried flowers, soybeans) complement eco-friendly theme.",
+      "alt": "PCR and Bio-Based Materials sustainable pouch collection with FDA approved kraft olive gray silver pouches featuring recycling symbol and Achieve Pack branding",
+      "keywords": ["PCR materials", "bio-based", "sustainable pouches", "FDA approved", "recycled content", "eco packaging", "kraft pouch", "olive green", "circular economy"],
+      "category": "product",
+      "type": "product",
+      "colors": ["kraft brown", "olive green", "gray", "silver", "cream"],
+      "seo_priority": "high"
+    },
+    "/imgs/product-recyclable-pouches.webp": {
+      "title": "Mono-Material Recyclable Pouches - GRS Certified",
+      "description": "Mono-Material Recyclable pouches lifestyle photography showing three sustainable packaging options on marble surface. Left: white matte stand-up pouch with Achieve Pack 'ap' logo. Center: cream/white pouch with Achieve Pack branding. Right: kraft brown pouch with GRS CERTIFIED recycling badge being held by hand. 'Mono-Material Recyclable' text overlay emphasizes single-material construction for easier recycling. Clean, modern aesthetic demonstrates premium sustainable packaging solution.",
+      "alt": "Mono-Material Recyclable pouches with GRS Certified kraft bag - white and cream sustainable stand-up pouches on marble surface",
+      "keywords": ["mono-material", "recyclable pouch", "GRS certified", "single material", "kraft bag", "sustainable packaging", "white pouch", "easy recycling"],
+      "category": "product",
+      "type": "scene",
+      "colors": ["white", "cream", "kraft brown"],
+      "seo_priority": "high"
+    },
+    "/imgs/solution-cosmetics.webp": {
+      "title": "Premium Sustainable Finishes for Cosmetics Packaging",
+      "description": "Grid showcase of 6 premium sustainable finishes for cosmetics and beauty packaging. MATTE FINISH (dark green, Premium Sustainable Finishes badge), GLOSS FINISH (silver metallic with 'ap' logo), SOFT-TOUCH FINISH (beige/champagne, Premium Sustainable Finishes badge, with makeup brush), METALLIC FINISH (gold, Luxury You Can Feel), EMBOSSED POUCH (navy blue with geometric pattern, Premium Sustainable Finishes), SPOT UV FINISH (black with glossy 'ap' logo, Luxury You Can Feel). All pouches feature stand-up design with zipper closure for cosmetics industry.",
+      "alt": "6 premium cosmetics packaging finishes - matte gloss soft-touch metallic embossed spot UV sustainable pouches for beauty products",
+      "keywords": ["cosmetics packaging", "beauty packaging", "matte finish", "gloss finish", "soft-touch", "metallic", "embossed", "spot UV", "luxury finishes", "premium packaging"],
+      "category": "product",
+      "type": "product",
+      "colors": ["green", "silver", "champagne", "gold", "navy blue", "black"],
       "seo_priority": "high"
     }
   }
