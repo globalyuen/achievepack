@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 18,
+  "total_analyzed": 19,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -178,6 +178,16 @@
       "description": "Braskem 'I'm green' bio-polyethylene trademark logo on transparent background. Green text with integrated leaf design symbolizing plant-based sustainable plastic alternative. This certification mark indicates packaging made from sugarcane-based bio-PE, a renewable resource that reduces carbon footprint compared to fossil-based plastics.",
       "alt": "I'm Green Braskem bio-polyethylene logo - plant-based sustainable plastic certification mark with green leaf design",
       "keywords": ["I'm green", "Bio-PE", "Braskem", "bio-polyethylene", "plant-based plastic", "sugarcane plastic", "renewable materials", "eco certification"],
+      "category": "certification",
+      "type": "logo",
+      "colors": ["green"],
+      "seo_priority": "high"
+    },
+    "/eco-logo/transparent-bkg/compost.png": {
+      "title": "Compostable Certification Seedling Logo",
+      "description": "Compostable certification trademark logo featuring green seedling/sprout design with registered trademark symbol. The iconic seedling represents biodegradable materials that break down into nutrient-rich compost. Used to indicate packaging certified to industrial or home composting standards like ASTM D6400, EN13432, or OK Compost.",
+      "alt": "Compostable certification seedling logo - green sprout trademark symbol for biodegradable eco-friendly packaging materials",
+      "keywords": ["compostable", "seedling logo", "biodegradable", "compost certification", "eco certification", "green packaging", "sustainable materials", "OK Compost"],
       "category": "certification",
       "type": "logo",
       "colors": ["green"],
