@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 150,
+  "total_analyzed": 151,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -1508,6 +1508,16 @@
       "description": "Mailer structure for gifting & shipping / 兼顾开箱仪式感与邮寄安全的经典礼盒结构 structure info page. Shows Quantum Cacao black mailer box in three views: LEFT closed front view, BOTTOM RIGHT open 3/4 view with gold logo and foam insert, top view with insert. Caption: Closed front / Open 3/4 view / Top view with insert. Demonstrates complete box structure for premium unboxing experience.",
       "alt": "Mailer box structure views - Quantum Cacao black gift box showing closed front open 3/4 view and top view with custom foam insert",
       "keywords": ["mailer structure", "gift box", "shipping box", "foam insert", "unboxing", "box views", "corrugated mailer", "premium packaging", "structure info"],
+      "category": "product",
+      "type": "technical",
+      "colors": ["black", "gold", "gray"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/tuck-box/a_structure_tuck_box_views_2089693.webp": {
+      "title": "Tuck Box Built for Easy Packing & Display",
+      "description": "Tuck box, built for easy packing & display / 为快速装箱与货架展示设计的插口礼盒结构 structure views page. Shows Achieve Pack black tuck box in multiple views: Front closed, Top open, and Flat die-line view (two die-cut templates). Technical diagram demonstrating box construction for retail packaging.",
+      "alt": "Tuck box structure views - Achieve Pack black box showing front closed top open and flat die-line templates for easy packing display",
+      "keywords": ["tuck box structure", "die-line", "box template", "packing", "retail display", "front closed", "top open", "die-cut", "packaging structure"],
       "category": "product",
       "type": "technical",
       "colors": ["black", "gold", "gray"],
