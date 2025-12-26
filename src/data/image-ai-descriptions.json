@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 58,
+  "total_analyzed": 62,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -581,6 +581,46 @@
       "category": "product",
       "type": "product",
       "colors": ["kraft brown", "cream", "white", "green"],
+      "seo_priority": "high"
+    },
+    "/imgs/blog/Sustainable-packaging/a_eco_packaging_hero_collection_4454797.webp": {
+      "title": "Eco Packaging Hero Collection - Sustainable Pouches Flat Lay",
+      "description": "Beautiful flat lay hero image of eco-friendly packaging collection on cream background. Features diverse sustainable pouches: kraft brown stand-up bags, clear window pouches with dried flowers/herbs, olive green pouch, terracotta/rust colored pouch, dusty blue pouch. Wooden recycling symbol arrows centerpiece. Decorated with succulents in terracotta pots, eucalyptus branches, and fresh green leaves. Perfect hero visual for sustainable packaging brand or eco-friendly product showcase.",
+      "alt": "Eco packaging flat lay collection with kraft olive terracotta blue pouches wooden recycling symbol succulents eucalyptus on cream background",
+      "keywords": ["eco packaging", "sustainable pouches", "flat lay", "kraft bags", "recycling symbol", "succulents", "hero image", "packaging collection", "eco-friendly"],
+      "category": "marketing",
+      "type": "hero",
+      "colors": ["kraft brown", "olive green", "terracotta", "dusty blue", "cream"],
+      "seo_priority": "high"
+    },
+    "/imgs/blog/geo/a_eu_brand_ppwr_compliance_2551996.webp": {
+      "title": "EU PPWR Compliance 2024 - European Packaging Regulation",
+      "description": "European businesswoman in modern office presenting PPWR COMPLIANCE 2024 document (Packaging and Packaging Waste Regulation). Three packaging samples on desk: 1) Silver metallic pouch labeled 'PET+Al+PE LAMINATE - LEGACY' (non-compliant multi-material), 2) Clear pouch 'MONO-MATERIAL PE - RECYCLABLE' (compliant), 3) Kraft pouch 'HOME COMPOSTABLE' (compliant). EU flag on desk. Computer showing packaging design software. European city architecture visible through window. Represents brands transitioning to PPWR-compliant sustainable packaging.",
+      "alt": "EU PPWR Compliance 2024 presentation with legacy laminate vs mono-material recyclable vs home compostable packaging samples in European office",
+      "keywords": ["PPWR", "EU regulation", "packaging compliance", "2024", "mono-material", "recyclable", "home compostable", "European packaging", "sustainability regulation"],
+      "category": "regulatory",
+      "type": "scene",
+      "colors": ["silver", "clear", "kraft", "blue"],
+      "seo_priority": "high"
+    },
+    "/imgs/blog/geo/a_european_organic_products_retail_8280108.webp": {
+      "title": "European Organic Products Retail Shelf - PPWR Compliant Packaging",
+      "description": "European organic grocery store shelf display featuring PPWR-compliant sustainable packaging. Top shelf: Premium Organic Granola in kraft pouches with windows, '100% RECYCLABLE' and 'PPWR COMPLIANT PE/PE mono-material' labels. Middle shelf: Specialty Coffee Beans in kraft pouches with EN13432 COMPOSTABLE certification, 'HOME COMPOSTABLE' labels. Bottom shelf: Herbal Tea in kraft boxes with botanical illustrations, 'PLASTIC-FREE PACKAGING' shelf tags. Price tags in Euros (€3.99, €4.99). Clean modern organic supermarket aesthetic.",
+      "alt": "European organic store shelf with PPWR compliant granola coffee tea in recyclable compostable plastic-free kraft packaging with Euro prices",
+      "keywords": ["European retail", "organic products", "PPWR compliant", "recyclable packaging", "compostable", "plastic-free", "grocery shelf", "kraft packaging", "EN13432"],
+      "category": "retail",
+      "type": "scene",
+      "colors": ["kraft brown", "green", "natural wood"],
+      "seo_priority": "high"
+    },
+    "/imgs/blog/Sustainable-packaging/a_packaging_decision_matrix_infographic_6353215.webp": {
+      "title": "Compostable vs Recyclable Packaging Decision Matrix",
+      "description": "Comprehensive decision matrix infographic comparing Compostable vs Recyclable packaging materials. LEFT SIDE - COMPOSTABLE: Industrial Composting path with PLA (Polylactic Acid - bio-based, transparent, rigid, requires commercial facilities), PBAT (Polybutylene Adipate Terephthalate - flexible, durable, home compostable, biodegradable), Cellulose (plant fiber derived, transparent, moisture barrier). Stats: 10-20% Premium for Compostable, 6-12 Months Degradation in industrial conditions. Certifications: EN13432, ASTM D6400. RIGHT SIDE - RECYCLABLE: Mechanical Recycling path with PE (Polyethylene) / PP (Polypropylene) - widely recycled, versatile, durable, HDPE and LDPE options. How2Recycle Store Drop-Off program. Stats: 30-55 Day Lead Time for International, Lower Cost & Widespread Infrastructure. CENTER - Decision Tree: What is your Product Type? What's your Timeline? What's your Budget? ULTIMATE GOAL: Reduce Environmental Impact Through Informed Choice and Circular Economy Principles.",
+      "alt": "Compostable vs recyclable packaging decision matrix with PLA PBAT cellulose PE PP comparison EN13432 ASTM D6400 How2Recycle certifications",
+      "keywords": ["decision matrix", "compostable vs recyclable", "PLA", "PBAT", "cellulose", "PE", "PP", "EN13432", "ASTM D6400", "How2Recycle", "packaging guide", "circular economy"],
+      "category": "technical",
+      "type": "infographic",
+      "colors": ["green", "blue", "teal"],
       "seo_priority": "high"
     }
   }
