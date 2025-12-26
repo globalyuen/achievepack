@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 157,
+  "total_analyzed": 158,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -1581,6 +1581,16 @@
       "category": "product",
       "type": "feature",
       "colors": ["clear", "green", "orange"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/eco-digital/1k3ig0ezuHcds_30mxxP0gFL-qeSwHc8uuzElo2-GP4=.webp": {
+      "title": "Beauty Refills, Beautifully Packed",
+      "description": "Beauty refills, beautifully packed / 补充装，也要有颜值 beauty refill packaging image. Elegant white stand-up pouch for cosmetics refill products. Features Triplex eco-materials for durable, low-waste refills. Beauty product bottles in background. Premium sustainable packaging for skincare and cosmetics refill market.",
+      "alt": "Beauty refills beautifully packed - elegant white stand-up pouch for cosmetics refill with Triplex eco-materials low-waste durable",
+      "keywords": ["beauty refills", "cosmetics packaging", "refill pouch", "Triplex eco-materials", "low-waste", "durable", "skincare refill", "white pouch", "sustainable beauty"],
+      "category": "product",
+      "type": "lifestyle",
+      "colors": ["white", "cream", "natural"],
       "seo_priority": "high"
     }
   }
