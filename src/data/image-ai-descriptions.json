@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 159,
+  "total_analyzed": 160,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -1601,6 +1601,16 @@
       "category": "marketing",
       "type": "infographic",
       "colors": ["green", "beige", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/eco-digital/os9CHhTSQoGASvA8lsfm-iHYfG4kddPoZP2wYMh47fs=.webp": {
+      "title": "Food Packaging, Rethought",
+      "description": "Food packaging, rethought / 让食品包装，更轻、更绿 lifestyle hero image. Two Achieve Pack stand-up pouches in kitchen setting: green NUTS & SNACKS pouch and white GRAINS & DRY GOODS pouch. Wooden shelf background with kitchen items. Caption: Lower shipping weight · Up to 70% less CO₂. Showcases sustainable food packaging solution.",
+      "alt": "Food packaging rethought - Achieve Pack green nuts snacks and white grains dry goods pouches in kitchen with 70% less CO2 shipping",
+      "keywords": ["food packaging", "rethought", "nuts snacks", "grains dry goods", "lower shipping weight", "70% less CO2", "sustainable", "kitchen", "stand-up pouch"],
+      "category": "marketing",
+      "type": "hero",
+      "colors": ["green", "white", "natural"],
       "seo_priority": "high"
     }
   }
