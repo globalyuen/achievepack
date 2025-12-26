@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 8,
+  "total_analyzed": 9,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -81,6 +81,16 @@
       "category": "marketing",
       "type": "hero",
       "colors": ["green", "white", "dark gray", "multicolor"],
+      "seo_priority": "high"
+    },
+    "/imgs/infographic-our-process.webp": {
+      "title": "Achieve Pack Manufacturing Process Timeline",
+      "description": "Our Process infographic showing 5-step packaging production workflow with 30-45 day total timeline. Steps include: 1) Consultation & Design (5-7 days) - free consultation, mockup design, material recommendation; 2) Proofing - PDF proof & cylinder approval; 3) Manufacturing (20-30 days) - mass printing with quality checks; 4) Quality Control (3-5 days) - final inspection & testing; 5) Delivery (2-3 days) - shipping with certification docs. Green progress bar with checkmarks.",
+      "alt": "Achieve Pack 5-step packaging manufacturing process infographic - consultation design proofing manufacturing quality control delivery with 30-45 day timeline",
+      "keywords": ["manufacturing process", "packaging timeline", "quality control", "production workflow", "30-45 days", "custom packaging", "proofing", "consultation", "delivery"],
+      "category": "marketing",
+      "type": "infographic",
+      "colors": ["green", "white", "gray"],
       "seo_priority": "high"
     }
   }
