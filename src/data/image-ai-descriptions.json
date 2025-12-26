@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 156,
+  "total_analyzed": 157,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -1571,6 +1571,16 @@
       "category": "marketing",
       "type": "service",
       "colors": ["green", "olive", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/microwave/a_kv_2_info_foodsafe_5240576.webp": {
+      "title": "Food-Safe & Microwave-Safe",
+      "description": "Food-Safe & Microwave-Safe / 食品级材料 · 微波炉安全 info page. Key features: Certified food-contact material / 通过食品接触安全测试; Designed for typical home microwave temperatures / 专为家用微波加热温度设计. Shows clear Achieve Pack microwave pouch with broccoli and carrots inside.",
+      "alt": "Food-safe microwave-safe Achieve Pack clear pouch with broccoli carrots - certified food-contact material for home microwave cooking",
+      "keywords": ["food-safe", "microwave-safe", "food-contact material", "microwave temperatures", "certified", "cooking pouch", "vegetables", "broccoli", "carrots"],
+      "category": "product",
+      "type": "feature",
+      "colors": ["clear", "green", "orange"],
       "seo_priority": "high"
     }
   }
