@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 12,
+  "total_analyzed": 14,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -121,6 +121,26 @@
       "category": "product",
       "type": "product",
       "colors": ["green", "silver", "beige", "gold", "navy blue", "black"],
+      "seo_priority": "high"
+    },
+    "/imgs/solution-food-beverage.webp": {
+      "title": "Food & Beverage Packaging Solutions Lifestyle Scene",
+      "description": "Premium food and beverage packaging lifestyle photography on rustic wooden table. Features multiple Achieve Pack branded pouches: white tea pouch, kraft coffee bag with beans spilling out, olive green pouch, brown coffee pouch, and clear nuts pouch. Scene includes cups of coffee and tea, dried orange slices, almonds, coffee beans, rosemary, cinnamon sticks, star anise, and succulent plant. Hands shown holding kraft pouch.",
+      "alt": "Achieve Pack food beverage packaging pouches on wooden table with coffee tea nuts dried fruits - sustainable flexible packaging lifestyle scene",
+      "keywords": ["food packaging", "beverage packaging", "coffee pouch", "tea packaging", "nuts pouch", "lifestyle photography", "sustainable packaging", "kraft bags", "flexible packaging"],
+      "category": "product",
+      "type": "scene",
+      "colors": ["kraft brown", "white", "olive green", "dark brown"],
+      "seo_priority": "high"
+    },
+    "/imgs/solution-pet-products.webp": {
+      "title": "Pet Products Packaging Solutions with Golden Retriever",
+      "description": "Pet food and treats packaging lifestyle scene featuring happy golden retriever in modern living room. Showcases Achieve Pack branded products: large kraft 'Premium Dog Food' bag, olive green 'Dental Chews' pouch, and kraft treat pouch being offered to dog. Scene includes dog food bowl, rope toy, and person's hand feeding treats. Warm home environment with sofa and natural light.",
+      "alt": "Achieve Pack pet food packaging with golden retriever dog - premium dog food bag dental chews pouch and treats in home living room setting",
+      "keywords": ["pet food packaging", "dog food bag", "pet treats pouch", "dental chews", "golden retriever", "pet products", "sustainable pet packaging", "kraft pet bags"],
+      "category": "product",
+      "type": "scene",
+      "colors": ["kraft brown", "olive green", "natural"],
       "seo_priority": "high"
     }
   }
