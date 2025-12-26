@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 6,
+  "total_analyzed": 8,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -61,6 +61,26 @@
       "category": "marketing",
       "type": "infographic",
       "colors": ["green", "gray", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/landing-eco-pouch.webp": {
+      "title": "Eco Pouch Sustainable Packaging Product",
+      "description": "Kraft brown stand-up pouch featuring eco pouch branding with green leaf icon. Tagline 'no plastic / no wastage / no problem' emphasizes sustainability. Product label states 'PLANT-BASED. COMPOSTABLE. ECO-FRIENDLY.' with Achieve Pack logo. Premium eco-friendly flexible packaging solution.",
+      "alt": "Eco Pouch kraft brown compostable stand-up pouch - plant-based no plastic sustainable packaging with green leaf branding",
+      "keywords": ["eco pouch", "compostable pouch", "kraft packaging", "no plastic", "plant-based", "stand-up pouch", "sustainable packaging", "eco-friendly"],
+      "category": "product",
+      "type": "product",
+      "colors": ["kraft brown", "green", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/og-image.webp": {
+      "title": "Achieve Pack Hero Banner - Sustainable Packaging Solutions",
+      "description": "Achieve Pack main hero visual showcasing 'Sustainable Packaging Solutions for a Greener Future'. Features multiple branded product pouches including Gold Dust, Carbon Imprint, Storm X, Tea Craft, Barky Bakey, Lorrie Hapilt, Sweet Spicy, Same Cooking Supplement displayed with decorative green leaves. Tagline: Biodegradable, Compostable, & Eco-Friendly Options for Every Product.",
+      "alt": "Achieve Pack sustainable packaging hero banner featuring biodegradable compostable eco-friendly pouches for food brands with green leaves decoration",
+      "keywords": ["Achieve Pack", "sustainable packaging", "biodegradable", "compostable", "eco-friendly", "food packaging", "stand-up pouches", "green packaging", "hero banner"],
+      "category": "marketing",
+      "type": "hero",
+      "colors": ["green", "white", "dark gray", "multicolor"],
       "seo_priority": "high"
     }
   }
