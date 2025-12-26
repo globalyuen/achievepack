@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 151,
+  "total_analyzed": 152,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -1520,6 +1520,16 @@
       "keywords": ["tuck box structure", "die-line", "box template", "packing", "retail display", "front closed", "top open", "die-cut", "packaging structure"],
       "category": "product",
       "type": "technical",
+      "colors": ["black", "gold", "gray"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/corrugated-box/a_tactile_opening_detail_7956611.webp": {
+      "title": "Smooth Opening, Secure Lock-in Flaps",
+      "description": "Smooth opening, secure lock-in flaps / 顺滑开合，锁舌稳固不易弹开 tactile opening detail image. Hand opening black Quantum Cacao mailer box demonstrating smooth lid action and secure lock-in flap mechanism. Showcases premium unboxing experience with reliable closure system for shipping protection.",
+      "alt": "Smooth opening corrugated box detail - hand opening black Quantum Cacao mailer showing secure lock-in flap mechanism",
+      "keywords": ["smooth opening", "lock-in flaps", "secure closure", "unboxing", "tactile experience", "mailer box", "lid mechanism", "premium packaging", "corrugated box"],
+      "category": "product",
+      "type": "detail",
       "colors": ["black", "gold", "gray"],
       "seo_priority": "high"
     }
