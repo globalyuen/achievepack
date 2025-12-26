@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 169,
+  "total_analyzed": 170,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -1701,6 +1701,16 @@
       "category": "product",
       "type": "product",
       "colors": ["kraft", "green", "striped"],
+      "seo_priority": "high"
+    },
+    "/imgs/store/con-digital/sup-clear-zip/1.webp": {
+      "title": "Clear Stand-Up Pouch with Reclosable Zip",
+      "description": "Clear stand-up pouch with reclosable press zip and clear glossy material. Features: Reclosable Press Zip for easy open/close; Clear Glossy Material for product visibility. Perfect for food, snacks, and retail products requiring transparent packaging.",
+      "alt": "Clear stand-up pouch reclosable press zip glossy material - transparent packaging product visibility",
+      "keywords": ["clear pouch", "stand-up pouch", "reclosable zip", "press zip", "glossy material", "transparent", "product visibility", "retail packaging"],
+      "category": "product",
+      "type": "product",
+      "colors": ["clear", "transparent"],
       "seo_priority": "high"
     }
   }
