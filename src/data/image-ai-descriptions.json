@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 73,
+  "total_analyzed": 142,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -731,6 +731,706 @@
       "category": "technical",
       "type": "infographic",
       "colors": ["kraft brown", "green", "cream", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/spout/a_barrier_freshness_juice_9675285.webp": {
+      "title": "Keep Juice Fresh Longer - High Barrier Spout Pouch",
+      "description": "Keep juice fresh longer / 让果汁保持更久新鲜 infographic featuring kraft and olive green spout pouch with Achieve Pack branding. Demonstrates dual barrier technology: O2 barrier (氧气阻隔) shown as layered film graphic and Moisture barrier (水汽阻隔) protecting golden juice droplet. Fresh oranges and orange slices with green leaves in orchard background. Caption: High-barrier laminated film helps protect flavor and vitamins / 高阻隔复合膜有助于保护风味和维生素. Bilingual English/Chinese.",
+      "alt": "Keep juice fresh longer high barrier spout pouch with O2 and moisture barrier technology - Achieve Pack kraft olive green juice packaging with oranges",
+      "keywords": ["spout pouch", "juice packaging", "high barrier", "O2 barrier", "moisture barrier", "orange juice", "freshness", "laminated film", "flavor protection", "vitamin protection"],
+      "category": "product",
+      "type": "infographic",
+      "colors": ["kraft brown", "olive green", "orange", "gold"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/spout/a_custom_shape_ergonomic_8007266.webp": {
+      "title": "Custom-Shaped Pouches for Adults - Ergonomic Design",
+      "description": "Custom-shaped pouches for adults / 面向成年消费者的定制异形袋 product showcase featuring olive green and kraft spout pouch with Achieve Pack branding. Minimalist gray background with dotted outline showing custom shape possibilities. Caption: Design ergonomic shapes that fit your brand and hand feel / 让袋形既符合品牌个性，又好拿好握. Brown screw cap closure. Bilingual English/Chinese marketing for custom-shaped flexible packaging.",
+      "alt": "Custom-shaped ergonomic spout pouch for adults with Achieve Pack branding - olive green kraft design for brand customization and comfortable grip",
+      "keywords": ["custom shape", "ergonomic pouch", "spout pouch", "adult packaging", "custom design", "hand feel", "brand customization", "flexible packaging", "shaped pouch"],
+      "category": "product",
+      "type": "product",
+      "colors": ["olive green", "kraft brown", "gray"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/spout/a_custom_system_closing_page_7251476.webp": {
+      "title": "Design Your Eco Spout Juice Pouch Line - Achieve Pack CTA",
+      "description": "Design your eco spout juice pouch line with Achieve Pack / 和 Achieve Pack 一起设计你的环保吸嘴果汁袋系列 closing page CTA. Three-step customization process: 1) Choose your volume and shape / 选择容量与袋形; 2) Select spout, cap and material (recyclable, bio-based, PCR) / 选择吸嘴、盖子与材料（可回收、生物基、PCR等）; 3) Add custom printing for your adult juice brand / 加上你的果汁或功能饮品品牌印刷. Features olive green spout pouch with kraft bottom section and Achieve Pack branding. Fresh citrus fruits (oranges, lemons) and olive branches in natural background. Footer: From concept to shelf-ready pouches, one partner for liquids / 从概念到上架成品，一个伙伴搞定所有液体包装. Bilingual English/Chinese.",
+      "alt": "Achieve Pack eco spout juice pouch customization CTA - 3-step design process for recyclable bio-based PCR liquid packaging with citrus background",
+      "keywords": ["spout pouch design", "custom juice packaging", "eco spout", "recyclable", "bio-based", "PCR material", "liquid packaging", "Achieve Pack", "juice brand", "custom printing"],
+      "category": "marketing",
+      "type": "infographic",
+      "colors": ["olive green", "kraft brown", "orange", "yellow"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/vaccum/a_detail_film_texture_thickness_2473367.webp": {
+      "title": "High-Performance Compostable Film - Textured Vacuum Packaging",
+      "description": "High-performance compostable film / 高性能可堆肥薄膜 product detail showing textured film material for vacuum packaging applications. Close-up view of translucent compostable film with embossed texture pattern. Caption: Textured for better vacuum draw and puncture resistance / 纹理有利于抽真空并提升耐刺穿性能. Demonstrates premium sustainable film technology for food preservation. Bilingual English/Chinese.",
+      "alt": "High-performance compostable textured film for vacuum packaging - better vacuum draw and puncture resistance sustainable material",
+      "keywords": ["compostable film", "vacuum packaging", "textured film", "puncture resistance", "vacuum draw", "sustainable film", "food preservation", "high-performance", "embossed texture"],
+      "category": "product",
+      "type": "product",
+      "colors": ["translucent", "cream", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/vaccum/a_detail_oxygen_moisture_barrier_5318868.webp": {
+      "title": "Protects Against Oxygen and Moisture - Vacuum Pouch Barrier",
+      "description": "Protects against oxygen and moisture / 阻隔氧气与水汽 infographic showing vacuum pouch barrier protection. Features O2 molecule and water droplet icons with arrows being blocked by green shield protecting vacuum-sealed food pouch containing oats/granola. Caption: Helps extend shelf life for vacuum-packed foods / 有助于延长真空食品的保质期. Demonstrates dual barrier technology for oxygen and moisture protection. Bilingual English/Chinese.",
+      "alt": "Oxygen and moisture barrier vacuum pouch with shield protection icon - extends shelf life for vacuum-packed foods with O2 and water blocking",
+      "keywords": ["oxygen barrier", "moisture barrier", "vacuum pouch", "shelf life", "food preservation", "barrier protection", "vacuum packaging", "O2 barrier", "sealed pouch"],
+      "category": "product",
+      "type": "infographic",
+      "colors": ["white", "green", "blue"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/vaccum/a_detail_portion_thickness_options_5039721.webp": {
+      "title": "Multiple Thicknesses and Sizes - Vacuum Pouch Options",
+      "description": "Multiple thicknesses and sizes / 多种厚度与规格可选 product showcase displaying three vacuum pouch thickness options. Line drawings show: 1) Thin for short-term / 轻薄款·短期保存; 2) Standard for everyday / 标准款·日常保存; 3) Thick for long-term & export / 加厚款·长期及出口. Product photography shows vacuum pouches with various food items including oats, coffee beans, meat, and cheese on kitchen counter. Bilingual English/Chinese.",
+      "alt": "Multiple vacuum pouch thicknesses thin standard thick options for short-term everyday long-term export food storage",
+      "keywords": ["vacuum pouch thickness", "multiple sizes", "thin pouch", "standard pouch", "thick pouch", "long-term storage", "export packaging", "food storage", "portion options"],
+      "category": "product",
+      "type": "infographic",
+      "colors": ["white", "cream", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/vaccum/a_detail_seal_strength_3813125.webp": {
+      "title": "Strong Reliable Heat-Seals - Vacuum Packaging Quality",
+      "description": "Strong, reliable heat-seals / 高强度热封，可靠不漏 product detail showing vacuum pouch seal quality. Close-up view of heat-sealed vacuum bag containing oats/granola with visible strong seal line at top. Caption: Engineered for vacuum machines and long-term storage / 针对真空设备与长期储存而设计. Demonstrates premium seal integrity for food preservation. Bilingual English/Chinese.",
+      "alt": "Strong reliable heat-seal vacuum pouch for vacuum machines and long-term food storage with visible seal line quality",
+      "keywords": ["heat-seal", "vacuum seal", "seal strength", "reliable seal", "vacuum machine", "long-term storage", "seal integrity", "food preservation", "leak-proof"],
+      "category": "product",
+      "type": "product",
+      "colors": ["white", "cream", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/spout/a_detail_spout_cap_2155787.webp": {
+      "title": "Easy-Pour Spout Top - Twist Open Close Design",
+      "description": "Easy-pour spout top / 易倒吸嘴设计 product detail showing olive green and kraft spout pouch with Achieve Pack branding in modern kitchen setting. Close-up of twist cap spout closure. Caption: Twist to open, twist to close – no spills / 旋开即用，旋紧防漏. Demonstrates convenient resealable liquid packaging solution. Bilingual English/Chinese.",
+      "alt": "Easy-pour spout top twist open close no spills - Achieve Pack olive kraft liquid pouch with convenient cap design",
+      "keywords": ["spout cap", "easy pour", "twist cap", "no spills", "resealable", "liquid pouch", "spout closure", "convenient packaging"],
+      "category": "product",
+      "type": "product",
+      "colors": ["olive green", "kraft brown", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/spout/a_fridge_chill_scene_2985986.webp": {
+      "title": "Ready to Chill - Spout Pouch Fridge Storage Scene",
+      "description": "Ready to chill / 放进冰箱，随拿随喝 lifestyle scene showing olive green and kraft Achieve Pack spout pouch standing upright inside refrigerator shelf. Surrounded by fresh fruits (strawberries, blueberries, apples, kiwi), orange juice bottle, and vegetables. Caption: Stand-up design keeps pouches neat in the fridge / 自立结构在冰箱中整齐好摆. Dark fridge interior with LED lighting. Bilingual English/Chinese.",
+      "alt": "Ready to chill spout pouch in refrigerator with fruits - stand-up design keeps Achieve Pack pouches neat in fridge",
+      "keywords": ["fridge storage", "stand-up pouch", "spout pouch", "refrigerator", "chill", "neat storage", "juice pouch", "cold storage"],
+      "category": "lifestyle",
+      "type": "scene",
+      "colors": ["olive green", "kraft brown", "dark"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/carbon/a_hero_card_1_carbon_neutral_materials_3157781.webp": {
+      "title": "Reduce Your Carbon Footprint - Carbon Neutral Materials",
+      "description": "Achieve Pack Pouch.eco hero card featuring illustrated man comparing packaging materials: Bio-based kraft pouch, PCR silver pouch, and Traditional PE with Offset option. Right side shows Carbon Neutral badge on kraft pouch with recycling symbol. Headline: Reduce Your Carbon Footprint Without Compromising on Quality. CTA: Explore Our Materials. Demonstrates sustainable material options for carbon-conscious brands.",
+      "alt": "Achieve Pack carbon neutral materials hero - reduce carbon footprint with bio-based PCR traditional PE offset packaging options",
+      "keywords": ["carbon neutral", "carbon footprint", "bio-based", "PCR", "carbon offset", "sustainable materials", "eco packaging", "Achieve Pack"],
+      "category": "marketing",
+      "type": "hero",
+      "colors": ["green", "kraft brown", "silver", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/spout/a_hero_kv_juice_pouch_7892714.webp": {
+      "title": "Eco-Friendly Spout Pouches for Juice - Hero KV",
+      "description": "Achieve Pack hero key visual for Eco-Friendly Spout Pouches for Juice. Headline: Custom-shaped, food-safe and recyclable / 定制异形·食品级·可回收. Features olive green and kraft spout pouch with Achieve Pack branding on wooden cutting board in bright modern kitchen. Fresh kiwis, green apples, and oranges with green smoothie. Natural sunlight through window. Bilingual English/Chinese.",
+      "alt": "Eco-Friendly Spout Pouches for Juice hero - Achieve Pack custom-shaped food-safe recyclable liquid packaging with fresh fruits",
+      "keywords": ["juice pouch", "spout pouch", "eco-friendly", "food-safe", "recyclable", "custom shape", "liquid packaging", "hero image"],
+      "category": "marketing",
+      "type": "hero",
+      "colors": ["olive green", "kraft brown", "white", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/vaccum/a_hero_kv_vacuum_bags_2450954.webp": {
+      "title": "Compostable Vacuum Seal Bags - Hero KV",
+      "description": "Achieve Pack hero key visual for Compostable Vacuum Seal Bags. Features clear vacuum pouches containing various foods: oats/granola, coffee beans, meat, and cheese on kitchen counter. Headline: Food-safe vacuum packaging for fresh, frozen and dry foods / 面向新鲜、冷冻与干货的食品级可堆肥真空包装袋. Clean modern kitchen aesthetic. Bilingual English/Chinese.",
+      "alt": "Compostable Vacuum Seal Bags hero - Achieve Pack food-safe vacuum packaging for fresh frozen dry foods with various food items",
+      "keywords": ["vacuum bags", "compostable", "vacuum seal", "food-safe", "fresh food", "frozen food", "dry food", "hero image"],
+      "category": "marketing",
+      "type": "hero",
+      "colors": ["clear", "cream", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/carbon/a_image10_design_your_system_closing_2038825.webp": {
+      "title": "Design Your Carbon-Neutral Pouch System - 3 Step Guide",
+      "description": "Design your carbon-neutral pouch system with Achieve Pack / 和 Achieve Pack 一起设计你的碳中和包装系统 CTA infographic. Three-step process: 1) Choose your material route (PE, PCR, bio-based, paper) / 选择你的材料路径; 2) Define your CO₂ reduction target / 定义你的减碳目标; 3) Combine structure + offsets to reach carbon neutrality / 通过结构设计 + 碳补偿实现碳中和. Features clear vacuum pouch with fresh vegetables (broccoli, carrots). Footer: From compostable to recyclable to carbon-neutral – one partner for all / 从可堆肥到可回收到碳中和，一个伙伴搞定. Bilingual English/Chinese.",
+      "alt": "Design carbon-neutral pouch system 3-step guide - choose material define CO2 target combine structure offsets with Achieve Pack",
+      "keywords": ["carbon neutral", "CO2 reduction", "material route", "PCR", "bio-based", "carbon offset", "sustainable design", "pouch system"],
+      "category": "marketing",
+      "type": "infographic",
+      "colors": ["green", "white", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/carbon/a_image2_what_is_carbon_neutral_4619875.webp": {
+      "title": "What is a Carbon-Neutral Bag - Explainer",
+      "description": "What is a carbon-neutral bag? / 什么是碳中和包装袋？ educational infographic explaining carbon-neutral packaging concept. Two key points: 1) Made with low-carbon materials like PCR PE and bio-based films / 使用 PCR 再生 PE 和生物基薄膜等低碳材料 (with leaf icon); 2) Remaining emissions are balanced via certified carbon offset projects / 剩余排放通过认证碳补偿项目进行抵消 (with arrow icon). Features clear vacuum pouch containing fresh broccoli and carrots. Bilingual English/Chinese.",
+      "alt": "What is carbon-neutral bag explainer - PCR PE bio-based low-carbon materials plus certified carbon offset projects with vegetable pouch",
+      "keywords": ["carbon neutral", "carbon-neutral bag", "PCR PE", "bio-based", "low-carbon materials", "carbon offset", "sustainable packaging", "explainer"],
+      "category": "marketing",
+      "type": "infographic",
+      "colors": ["green", "white", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/carbon/a_image3_ap_carbon_neutral_badge_6727135.webp": {
+      "title": "Achieve Pack × Carbon-Neutral Materials Badge",
+      "description": "Achieve Pack × Carbon-Neutral Materials / Achieve Pack × 碳中和材料 product showcase featuring carbon neutral certification badge. Large green circular badge with leaf and recycling symbol represents carbon-neutral commitment. Clear vacuum pouch containing fresh broccoli and carrots. Caption: From material choice to offsets, every pouch is designed to balance its CO₂ / 从材料选择到碳补偿，每一只袋子都以平衡碳排为目标. Bilingual English/Chinese.",
+      "alt": "Achieve Pack carbon-neutral materials badge - green certification logo with vegetable vacuum pouch CO2 balanced packaging",
+      "keywords": ["carbon neutral badge", "carbon-neutral materials", "Achieve Pack", "CO2 balance", "carbon offset", "certification badge", "sustainable packaging", "eco badge"],
+      "category": "marketing",
+      "type": "product",
+      "colors": ["green", "white", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/carbon/a_image4_lifecycle_reduction_9341345.webp": {
+      "title": "Carbon Footprint Managed End to End - Lifecycle Reduction",
+      "description": "Carbon footprint, managed from end to end / 从头到尾管理碳足迹 infographic showing 3-step lifecycle carbon reduction process. Steps: 1) Low-carbon or bio-based films / 低碳或生物基薄膜 (leaf gear icon); 2) Efficient production & printing / 高效生产与印刷 (factory gear icon); 3) Recyclable structures & carbon offsets / 可回收结构 + 碳补偿 (recycling arrows icon). Features clear vacuum pouch with broccoli and carrots in kitchen setting with microwave. Bilingual English/Chinese.",
+      "alt": "Carbon footprint managed end to end lifecycle - low-carbon films efficient production recyclable structures carbon offsets with vegetable pouch",
+      "keywords": ["carbon footprint", "lifecycle reduction", "low-carbon films", "bio-based", "efficient production", "recyclable structures", "carbon offsets", "end to end"],
+      "category": "marketing",
+      "type": "infographic",
+      "colors": ["green", "white", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/carbon/a_image5_co2_reduction_callout_7988460.webp": {
+      "title": "Up to -20% CO₂ Reduction Callout",
+      "description": "Up to -20% CO₂ reduction callout product image featuring clear vacuum pouch with fresh broccoli and carrots steaming in front of microwave. Green callout badge prominently displays 'Up to -20% CO₂' reduction potential. Disclaimer: *Example reduction potential depending on material structure and project / *实际减排取决于材料结构和项目配置. Demonstrates carbon reduction benefits of sustainable packaging. Bilingual English/Chinese.",
+      "alt": "Up to -20% CO2 reduction vacuum pouch with steaming vegetables - carbon footprint reduction potential sustainable packaging",
+      "keywords": ["CO2 reduction", "-20% CO2", "carbon reduction", "vacuum pouch", "carbon footprint", "sustainable packaging", "reduction potential", "eco-friendly"],
+      "category": "marketing",
+      "type": "product",
+      "colors": ["green", "clear", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/carbon/a_image6_materials_mix_options_2058438.webp": {
+      "title": "Carbon-Neutral Material Options - PE PCR Bio-based",
+      "description": "Three carbon-neutral material pathways infographic. Options: 1) Traditional PE with offsets / 传统 PE + 碳补偿 (recycling gear icon); 2) PCR PE blends / PCR 再生 PE 混配 (leaf recycling icon); 3) Bio-based Green PE / 生物基 Green PE (leaf icon). Footer: All engineered to reach carbon-neutral balance / 全部可通过组合达到碳中和平衡. Features clear vacuum pouch with broccoli and carrots in kitchen setting with microwave. Bilingual English/Chinese.",
+      "alt": "Carbon-neutral material options - Traditional PE offsets PCR PE blends Bio-based Green PE all reaching carbon balance",
+      "keywords": ["material options", "Traditional PE", "PCR PE", "Bio-based PE", "Green PE", "carbon neutral", "carbon offsets", "material pathways"],
+      "category": "marketing",
+      "type": "infographic",
+      "colors": ["green", "white", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/carbon/a_image7_recyclable_structures_3548261.webp": {
+      "title": "Recyclable Carbon-Neutral Structures Available",
+      "description": "Recyclable carbon-neutral structures available / 可回收且碳中和的结构可选 infographic with large green recycling arrows icon. Two key options with checkmarks: 1) Mono-material films where local recycling exists / 在具备回收条件的地区使用单一材质薄膜; 2) Paper-based hybrid options for specific markets / 可针对特定市场提供纸基混合结构. Features clear vacuum pouch with broccoli and carrots in kitchen setting. Bilingual English/Chinese.",
+      "alt": "Recyclable carbon-neutral structures - mono-material films and paper-based hybrid options for sustainable packaging markets",
+      "keywords": ["recyclable structures", "carbon neutral", "mono-material", "paper-based hybrid", "local recycling", "sustainable packaging", "recycling arrows"],
+      "category": "marketing",
+      "type": "infographic",
+      "colors": ["green", "white", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/carbon/a_image8_kitchen_scene_co2_comparison_3143190.webp": {
+      "title": "Same Recipe Lower Packaging Footprint - CO2 Comparison",
+      "description": "Same recipe, lower packaging footprint / 同样的菜，包装足迹更低 infographic with CO₂ Emissions comparison bar chart. Chart shows: Conventional plastic containers / 传统塑料容器 (tall gray bar) vs Achieve Pack carbon-neutral bag / Achieve Pack 碳中和 (shorter green bar). Features clear vacuum pouch with broccoli and carrots in modern kitchen with herbs. Demonstrates significant carbon reduction. Bilingual English/Chinese.",
+      "alt": "Same recipe lower packaging footprint CO2 comparison chart - conventional plastic vs Achieve Pack carbon-neutral bag emissions",
+      "keywords": ["CO2 comparison", "packaging footprint", "carbon emissions", "conventional plastic", "carbon-neutral bag", "emissions chart", "lower footprint"],
+      "category": "marketing",
+      "type": "infographic",
+      "colors": ["green", "gray", "white", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/carbon/a_image9_brands_retailers_benefits_6658677.webp": {
+      "title": "Carbon-Neutral Packaging as a Growth Story",
+      "description": "Carbon-neutral packaging as a growth story / 让碳中和包装成为增长故事 infographic showing benefits for brands and retailers. FOR BRANDS / 品牌方: Show carbon-neutral logo on pack / 在包装上展示碳中和标识; Support ESG & PPWR compliance / 支持 ESG 与未来包装法规合规; Quantifiable CO₂ reduction data for reports / 为 ESG 报告提供可量化减排数据. FOR RETAILERS / 零售商: Easy to communicate on-shelf / 货架上易于传达环保卖点; Appeals to eco-conscious consumers / 吸引关注环境的消费者; Premium brand positioning & differentiation / 提升品牌档次与差异化竞争. Features Achieve Pack Carbon-Neutral Cooking Bags product. Bilingual English/Chinese.",
+      "alt": "Carbon-neutral packaging growth story benefits for brands and retailers - ESG compliance eco-conscious consumers premium positioning",
+      "keywords": ["growth story", "brands benefits", "retailers benefits", "ESG compliance", "PPWR", "CO2 reduction", "eco-conscious", "premium positioning", "carbon-neutral logo"],
+      "category": "marketing",
+      "type": "infographic",
+      "colors": ["green", "white", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/vaccum/a_info_food_safe_compostable_6727865.webp": {
+      "title": "Food-Safe & Compostable Vacuum Bags - Features",
+      "description": "Food-Safe & Compostable / 食品级·可堆肥 vacuum bag features infographic. Three key benefits with icons: 1) Certified for direct food contact / 通过食品直接接触安全认证 (fork knife icon); 2) Designed to break down in industrial composting / 适用于工业可堆肥环境 (leaf icon); 3) Ideal for meat, cheese, coffee, frozen meals / 适合肉类、奶酪、咖啡和冷冻餐 (package icon). Features clear vacuum pouch with coffee beans. Bilingual English/Chinese.",
+      "alt": "Food-Safe Compostable vacuum bags - certified food contact industrial composting for meat cheese coffee frozen meals",
+      "keywords": ["food-safe", "compostable", "vacuum bags", "food contact", "industrial composting", "meat packaging", "cheese packaging", "coffee packaging", "frozen meals"],
+      "category": "product",
+      "type": "infographic",
+      "colors": ["white", "black", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/spout/a_info_food_safe_recyclable_3061288.webp": {
+      "title": "Food-Safe & Recyclable Spout Pouches",
+      "description": "Food-Safe & Recyclable / 食品级·可回收 spout pouch features infographic. Two key benefits with checkmarks: 1) Food-grade materials for juices and beverages / 适用于果汁和饮料的食品级材料 (leaf icon); 2) Mono-material or recyclable structures available / 提供单一材质或可回收结构方案 (recycling icon). Features olive green and kraft spout pouch with Achieve Pack branding and brown screw cap. Bilingual English/Chinese.",
+      "alt": "Food-Safe Recyclable spout pouches - food-grade materials for juices beverages with mono-material recyclable structures",
+      "keywords": ["food-safe", "recyclable", "spout pouch", "food-grade", "juices", "beverages", "mono-material", "recyclable structures"],
+      "category": "product",
+      "type": "infographic",
+      "colors": ["olive green", "kraft brown", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/microwave/a_kv_10_specs_closingpage_2082225.webp": {
+      "title": "Achieve Pack Microwave Steam Pouch - Specs Closing Page",
+      "description": "Achieve Pack Microwave Steam Pouch / Achieve Pack 微波蒸煮袋 specifications closing page. Table shows: Sizes & formats / 尺寸与规格 (small, medium, family size); Usage / 用途 (vegetables, frozen meals, meal prep); Safety & standards / 安全与标准 (food-grade, microwave-safe, eco-friendly material options). Features clear vacuum pouch with broccoli and carrots in front of microwave. Footer: Designed by Achieve Pack for modern, eco-conscious kitchens / 由 Achieve Pack 打造，服务现代环保厨房. Bilingual English/Chinese.",
+      "alt": "Achieve Pack Microwave Steam Pouch specifications - sizes formats usage safety standards for eco-conscious kitchens",
+      "keywords": ["microwave steam pouch", "specifications", "sizes formats", "food-grade", "microwave-safe", "eco-friendly", "meal prep", "frozen meals"],
+      "category": "marketing",
+      "type": "infographic",
+      "colors": ["green", "white", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/microwave/a_kv_1_hero_main_4427371.webp": {
+      "title": "Eco-Friendly Microwave Cooking Bags - Hero Main",
+      "description": "Achieve Pack Eco-Friendly Microwave Cooking Bags hero main image. Headline: Steam, store and reheat food safely / 安全微波蒸煮、保鲜与加热的一体袋. Features clear vacuum pouch with steaming broccoli and carrots in front of modern microwave in bright kitchen. Steam rising from pouch demonstrates microwave cooking functionality. Bilingual English/Chinese.",
+      "alt": "Eco-Friendly Microwave Cooking Bags hero - steam store reheat food safely with Achieve Pack steaming vegetable pouch",
+      "keywords": ["microwave cooking bags", "eco-friendly", "steam pouch", "reheat food", "store food", "microwave safe", "hero image", "vegetable steaming"],
+      "category": "marketing",
+      "type": "hero",
+      "colors": ["clear", "white", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/microwave/a_kv_3_detail_zipperbase_3012328.webp": {
+      "title": "Strong Zipper & Stand-Up Base - Microwave Pouch Detail",
+      "description": "Strong zipper & stand-up base / 牢固拉链 + 自立底结构 microwave cooking pouch detail. Shows clear Achieve Pack pouch with broccoli and carrots standing upright in front of microwave. Caption: Easy to seal, easy to stand in the microwave / 轻松密封，在微波炉中稳稳站立. Demonstrates convenient stand-up design for microwave cooking. Bilingual English/Chinese.",
+      "alt": "Strong zipper stand-up base microwave pouch - easy seal easy stand Achieve Pack cooking bag with vegetables",
+      "keywords": ["strong zipper", "stand-up base", "microwave pouch", "easy seal", "stand in microwave", "cooking bag", "zipper closure"],
+      "category": "product",
+      "type": "product",
+      "colors": ["clear", "white", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/microwave/a_kv_4_detail_steamvent_4869525.webp": {
+      "title": "Built-In Steam Vent - Microwave Pouch Safety Feature",
+      "description": "Built-in steam vent / 内置蒸汽孔设计 microwave cooking pouch safety feature detail. Shows clear Achieve Pack pouch with broccoli and carrots. Caption: Helps release pressure for safer, more even microwave cooking / 帮助释放压力，让微波加热更安全、更均匀. Demonstrates built-in steam release technology for safe microwave use. Bilingual English/Chinese.",
+      "alt": "Built-in steam vent microwave pouch - release pressure for safer even cooking Achieve Pack vegetable bag",
+      "keywords": ["steam vent", "built-in vent", "microwave safety", "pressure release", "even cooking", "microwave pouch", "steam release"],
+      "category": "product",
+      "type": "product",
+      "colors": ["clear", "white", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/microwave/a_kv_5_detail_freshness_8989322.webp": {
+      "title": "See Freshness at a Glance - Clear Microwave Pouch",
+      "description": "See freshness at a glance / 一眼看见新鲜 microwave cooking pouch visibility feature. Shows clear Achieve Pack pouch with broccoli and carrots in front of microwave. Caption: Clear enough to check doneness, cloudy enough to hide mess / 够清晰看熟度，也能适度遮挡混乱. Demonstrates semi-transparent design for easy food monitoring while cooking. Bilingual English/Chinese.",
+      "alt": "See freshness at a glance clear microwave pouch - check doneness hide mess Achieve Pack vegetable cooking bag",
+      "keywords": ["freshness", "clear pouch", "check doneness", "visibility", "microwave cooking", "transparent pouch", "food monitoring"],
+      "category": "product",
+      "type": "product",
+      "colors": ["clear", "white", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/microwave/a_kv_6_detail_waterdrops_2735995.webp": {
+      "title": "Heat-Resistant Food-Grade Film - Microwave Steaming",
+      "description": "Heat-resistant food-grade film / 耐热食品级薄膜 product detail with thermometer icon badge. Shows clear Achieve Pack pouch with water droplets and condensation from steaming. Caption: Designed for everyday microwave reheating and steaming / 专为日常微波加热与蒸煮设计. Demonstrates heat-resistant material suitable for microwave cooking. Bilingual English/Chinese.",
+      "alt": "Heat-resistant food-grade film microwave pouch with water droplets - everyday reheating steaming Achieve Pack cooking bag",
+      "keywords": ["heat-resistant", "food-grade film", "microwave reheating", "steaming", "water droplets", "condensation", "everyday cooking", "microwave safe"],
+      "category": "product",
+      "type": "product",
+      "colors": ["clear", "white", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/microwave/a_kv_7_detail_capacity_9860751.webp": {
+      "title": "Generous Capacity for Family Portions - Microwave Pouch",
+      "description": "Generous capacity for family portions / 宽口大容量，适合家庭份量 microwave cooking pouch capacity feature. Shows large clear Achieve Pack pouch generously filled with broccoli and carrots. Caption: Ideal for vegetables, mixed meals and meal prep / 适合蒸菜拼盘、混合餐和预制菜分装. Wide opening design for easy filling. Bilingual English/Chinese.",
+      "alt": "Generous capacity family portions microwave pouch - ideal for vegetables mixed meals meal prep Achieve Pack large cooking bag",
+      "keywords": ["generous capacity", "family portions", "large pouch", "wide opening", "vegetables", "mixed meals", "meal prep", "microwave cooking"],
+      "category": "product",
+      "type": "product",
+      "colors": ["clear", "white", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/microwave/a_kv_8_lifestyle_journeyscene_9334974.webp": {
+      "title": "From Fridge to Microwave in One Bag - Lifestyle Journey",
+      "description": "From fridge to microwave in one bag / 一袋搞定，从冰箱到微波炉 lifestyle journey scene. Open refrigerator with fresh produce in background, clear steaming Achieve Pack pouch with broccoli and carrots in foreground. Caption: Store, steam and serve with the same Achieve Pack pouch / 存放、蒸煮、上桌都用同一只 Achieve Pack 袋. Demonstrates versatile fridge-to-microwave convenience. Bilingual English/Chinese.",
+      "alt": "From fridge to microwave in one bag lifestyle - store steam serve same Achieve Pack pouch with refrigerator background",
+      "keywords": ["fridge to microwave", "one bag", "store steam serve", "convenience", "lifestyle", "versatile pouch", "meal journey", "refrigerator"],
+      "category": "lifestyle",
+      "type": "scene",
+      "colors": ["clear", "white", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/microwave/a_kv_9_info_ecocomparison_5260427.webp": {
+      "title": "Eco-Friendly Convenience - Traditional vs Steam Bags Comparison",
+      "description": "Eco-friendly convenience / 环保又省事 infographic comparing Traditional cooking vs With Achieve Pack steam bags. Comparison icons: pots/pans vs pouch, colander vs microwave, water usage (many drops vs few). Benefits: Less water, fewer dishes to wash / 用水更少、减少刷锅洗碗; Less material than rigid plastic containers / 比硬质塑料盒使用更少材料. Features steaming Achieve Pack pouch with vegetables. Bilingual English/Chinese.",
+      "alt": "Eco-friendly convenience comparison traditional cooking vs Achieve Pack steam bags - less water fewer dishes less material",
+      "keywords": ["eco-friendly", "convenience", "comparison", "less water", "fewer dishes", "less material", "traditional cooking", "steam bags", "sustainable"],
+      "category": "marketing",
+      "type": "infographic",
+      "colors": ["white", "blue", "clear", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/microwave/a_microwavebag_hero_main_kitchen_2543693.webp": {
+      "title": "Microwave Store Reheat - Illustrated Kitchen Hero",
+      "description": "Microwave. Store. Reheat. illustrated hero banner featuring Achieve Pack and pouch.eco logos. Illustration shows person filling clear Achieve Pack pouch with broccoli and carrots on wooden kitchen counter. Microwave in background displays 3:00 timer with steaming bowl icon. Fresh vegetables on cutting board. Modern flat illustration style for sustainable microwave cooking bags marketing.",
+      "alt": "Microwave Store Reheat illustrated hero - person filling Achieve Pack pouch with vegetables in kitchen with microwave background",
+      "keywords": ["microwave", "store", "reheat", "illustrated", "hero banner", "kitchen scene", "Achieve Pack", "pouch.eco", "vegetables"],
+      "category": "marketing",
+      "type": "hero",
+      "colors": ["green", "white", "beige", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/microwave/a_microwavebag_lifecycle_journey_2868105.webp": {
+      "title": "Safe Fresh Sustainable - Microwave Bag Lifecycle Journey",
+      "description": "Safe. Fresh. Sustainable. illustrated 3-step lifecycle journey infographic. Steps with circular arrows: 1) PREP & PACK - Fill with fresh ingredients (person putting vegetables into pouch); 2) COOK & STEAM - Microwave & lock in nutrients (microwave showing 2:30 with steaming pouch); 3) SERVE & ENJOY - Ready to eat, Recycle the bag (person serving onto plate). Features Achieve Pack logo, green leaves decoration, and recycling symbol. Modern flat illustration style.",
+      "alt": "Safe Fresh Sustainable microwave bag lifecycle - prep pack cook steam serve enjoy recycle with Achieve Pack illustrated journey",
+      "keywords": ["lifecycle journey", "prep pack", "cook steam", "serve enjoy", "recycle", "sustainable", "fresh ingredients", "nutrients", "illustrated"],
+      "category": "marketing",
+      "type": "infographic",
+      "colors": ["green", "beige", "white", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/spout/a_recyclable_structure_callout_4512115.webp": {
+      "title": "Recyclable Spout Pouch Structure - Mono-Material PE",
+      "description": "Recyclable spout pouch structure / 可回收吸嘴袋结构 product callout featuring olive green and kraft spout pouch with Achieve Pack branding and brown screw cap. Recycling symbol in corner. Two key points: Mono-material PE options / 可选单一材质 PE 结构; Check local recycling guidelines / 请参考当地回收指引. Demonstrates recyclable packaging structure options. Bilingual English/Chinese.",
+      "alt": "Recyclable spout pouch structure mono-material PE options - Achieve Pack olive kraft liquid packaging with recycling symbol",
+      "keywords": ["recyclable structure", "spout pouch", "mono-material PE", "recycling guidelines", "recyclable packaging", "PE structure", "liquid pouch"],
+      "category": "product",
+      "type": "product",
+      "colors": ["olive green", "kraft brown", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/spout/a_refillable_on_the_go_0614853.webp": {
+      "title": "Refill Reuse Enjoy Again - On-The-Go Spout Pouch",
+      "description": "Refill, reuse, enjoy again / 可以重复灤装，再次享用 lifestyle scene showing hand pouring from olive green Achieve Pack spout pouch into glass of iced tea at outdoor cafe. Feature badges: Refill / 可重复灤装; On-the-go / 随身携带. Wooden table setting with natural bokeh background. Caption: Great for juices, cold brew, cocktails and more / 适合果汁、冷萃、鸡尾酒等多种饮品. Bilingual English/Chinese.",
+      "alt": "Refill reuse enjoy again on-the-go spout pouch - Achieve Pack olive pouch pouring iced tea at outdoor cafe for juices cocktails",
+      "keywords": ["refillable", "reusable", "on-the-go", "spout pouch", "juices", "cold brew", "cocktails", "portable", "outdoor"],
+      "category": "lifestyle",
+      "type": "scene",
+      "colors": ["olive green", "kraft brown", "amber"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/vaccum/a_scene_freezer_ready_2135960.webp": {
+      "title": "Freezer-Ready Compostable Bags - Frozen Food Storage",
+      "description": "Freezer-ready compostable bags / 适用于冷冻环境的可堆肥真空袋 product showcase on icy blue frozen surface. Multiple vacuum pouches containing: coffee beans, raw meat, ground meat, and cheese blocks. Caption: Resist cracking and freezer burn for frozen foods / 抗脆裂，减少冷冻灶伤，适合冷冻食材. Demonstrates durable compostable packaging for freezer storage. Bilingual English/Chinese.",
+      "alt": "Freezer-ready compostable vacuum bags with meat cheese coffee on ice - resist cracking freezer burn for frozen foods",
+      "keywords": ["freezer-ready", "compostable bags", "frozen food", "freezer burn", "cracking resistant", "vacuum bags", "meat storage", "cheese storage"],
+      "category": "product",
+      "type": "scene",
+      "colors": ["clear", "icy blue", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/vaccum/a_scene_kitchen_meal_prep_7320966.webp": {
+      "title": "Perfect for Home Meal Prep - Kitchen Vacuum Bags",
+      "description": "Perfect for home meal prep / 家用备餐的理想真空袋 lifestyle scene showing kitchen meal preparation. Wooden cutting board with fresh vegetables (bell pepper, tomatoes, rosemary), small bowls of ingredients. Clear vacuum pouch with pasta in foreground. Caption: Portion, vacuum, freeze and compost the bag at end-of-life / 分装、抽真空、冷冻，使用结束后可进入堆肥体系. Natural kitchen window lighting. Bilingual English/Chinese.",
+      "alt": "Perfect for home meal prep vacuum bags - portion vacuum freeze compost kitchen scene with vegetables and pasta pouch",
+      "keywords": ["meal prep", "home kitchen", "vacuum bags", "portion", "freeze", "compostable", "food storage", "pasta", "vegetables"],
+      "category": "lifestyle",
+      "type": "scene",
+      "colors": ["clear", "natural", "red", "green"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/vaccum/a_scene_professional_use_8940352.webp": {
+      "title": "Ready for Professional Kitchens and Factories",
+      "description": "Ready for professional kitchens and factories / 适用于专业厨房与工厂 commercial kitchen scene. Stainless steel prep counter with multiple vacuum pouches containing meat portions and pasta. Chef working in background with professional kitchen equipment. Caption: Compostable vacuum solution for foodservice and food brands / 面向餐饮与食品品牌的可堆肥真空解决方案. Industrial food preparation setting. Bilingual English/Chinese.",
+      "alt": "Ready for professional kitchens factories - compostable vacuum solution for foodservice food brands with meat pasta pouches",
+      "keywords": ["professional kitchen", "factories", "foodservice", "food brands", "compostable vacuum", "commercial", "industrial", "meat portions"],
+      "category": "lifestyle",
+      "type": "scene",
+      "colors": ["clear", "stainless steel", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/spout/a_sport_commute_scene_7174103.webp": {
+      "title": "Perfect for Sport Work and Travel - Portable Spout Pouch",
+      "description": "Perfect for sport, work and travel / 适合运动、通勤与旅行 lifestyle scene showing olive green and kraft Achieve Pack spout pouch on wooden table. Background features gym bag, stainless steel water bottle, and dumbbells. Caption: Lightweight, shatter-free alternative to bottles / 比瓶装更轻，不易摔碎. Active lifestyle setting for portable beverage packaging. Bilingual English/Chinese.",
+      "alt": "Perfect for sport work travel spout pouch - lightweight shatter-free bottle alternative with gym bag dumbbells",
+      "keywords": ["sport", "work", "travel", "portable", "lightweight", "shatter-free", "bottle alternative", "gym", "commute", "active lifestyle"],
+      "category": "lifestyle",
+      "type": "scene",
+      "colors": ["olive green", "kraft brown", "gray"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/spout/hero.webp": {
+      "title": "Recyclable Spout Pouches for Modern Brands - Hero Banner",
+      "description": "Recyclable Spout Pouches for Modern Brands illustrated hero banner. Features Achieve Pack and pouch.eco logos. Illustration shows woman in green apron packing olive green Achieve Pack spout pouches into cardboard shipping boxes with recycling symbols. Wooden table with multiple pouches and boxes, small potted plant. Modern fulfillment/packaging room setting with window. Clean flat illustration style for sustainable brand packaging marketing.",
+      "alt": "Recyclable Spout Pouches for Modern Brands hero - illustrated woman packing Achieve Pack pouches into shipping boxes",
+      "keywords": ["recyclable spout pouches", "modern brands", "hero banner", "illustrated", "packaging", "fulfillment", "shipping boxes", "Achieve Pack", "pouch.eco"],
+      "category": "marketing",
+      "type": "hero",
+      "colors": ["green", "olive green", "kraft brown", "beige"],
+      "seo_priority": "high"
+    },
+    "/imgs/function/vaccum/hero.webp": {
+      "title": "Seal Store Sustain - Compostable Vacuum Bags Hero",
+      "description": "Seal. Store. Sustain. illustrated hero banner for compostable vacuum bags. Features Achieve Pack and Pouch.eco logos. Illustration shows woman using vacuum sealer machine at wooden kitchen table with various foods: vacuum-sealed chicken, berries in pouch, fresh vegetables (broccoli, peppers, tomatoes). Subheadline: Compostable vacuum bags for home meal prep. Compostable icon in corner. Modern flat illustration style for sustainable food storage marketing.",
+      "alt": "Seal Store Sustain compostable vacuum bags hero - illustrated woman using vacuum sealer with chicken berries vegetables for meal prep",
+      "keywords": ["seal store sustain", "compostable vacuum bags", "home meal prep", "vacuum sealer", "hero banner", "illustrated", "Achieve Pack", "Pouch.eco", "food storage"],
+      "category": "marketing",
+      "type": "hero",
+      "colors": ["green", "beige", "natural", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/eco-digital/0eQiBArdHVo_uyy12vmVid9Vc-hB8Msln4h0Oddu4dQ=.webp": {
+      "title": "Snack Smart Pack Light - Stand-Up Snack Pouch",
+      "description": "Snack smart, pack light / 更轻便的零食软包装 product showcase featuring green stand-up pouch with snacks branding and nut/leaf logo. Text callouts: Stand-up design for better shelf impact; Ideal for nuts, dried fruits, and snacks. Almonds scattered at base of pouch. Light gray gradient background. Professional product photography for sustainable snack packaging marketing. Bilingual English/Chinese.",
+      "alt": "Snack smart pack light green stand-up pouch - stand-up design for nuts dried fruits snacks with almonds",
+      "keywords": ["snack packaging", "stand-up pouch", "nuts", "dried fruits", "snacks", "shelf impact", "lightweight", "sustainable packaging"],
+      "category": "product",
+      "type": "product",
+      "colors": ["green", "white", "natural", "gray"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/eco-digital/1k3ig0ezuHcds_30mxxP0gFL-qeSwHc8uuzElo2-GP4=.webp": {
+      "title": "Beauty Refills Beautifully Packed - Eco Cosmetic Pouch",
+      "description": "Beauty refills, beautifully packed / 补充装，也要有颜值 product showcase featuring elegant white/cream kraft stand-up pouch for cosmetic refills. Text callout: Triplex eco-materials for durable, low-waste refills. Background shows blurred cosmetic glass bottles. Clean minimal product photography on white/beige gradient. Sustainable beauty and wellness packaging. Bilingual English/Chinese.",
+      "alt": "Beauty refills beautifully packed eco cosmetic pouch - triplex eco-materials for durable low-waste refills with cosmetic bottles",
+      "keywords": ["beauty refills", "cosmetic packaging", "triplex eco-materials", "low-waste", "refill pouch", "sustainable beauty", "wellness", "elegant packaging"],
+      "category": "product",
+      "type": "product",
+      "colors": ["white", "cream", "beige", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/mailer/447849b2-65ea-49fb-86de-1278a636c795_upscayl_3x_upscayl-standard-4x.webp": {
+      "title": "Compostable Mailer - From Package to Plant",
+      "description": "Achieve Pack compostable mailer lifestyle scene showing white mailer bag with Achieve Pack branding and COMPOSTABLE MAILER text. Stack of mailers next to terracotta pot with small plant seedling growing, demonstrating circular economy concept. Kitchen/home setting with window and lush greenery in background. Natural lighting. Sustainable packaging lifecycle visualization for eco-friendly shipping.",
+      "alt": "Achieve Pack compostable mailer with plant seedling in pot - sustainable shipping packaging lifecycle",
+      "keywords": ["compostable mailer", "shipping bag", "sustainable packaging", "plant seedling", "circular economy", "eco-friendly", "Achieve Pack", "biodegradable"],
+      "category": "product",
+      "type": "scene",
+      "colors": ["white", "green", "terracotta", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/eco-digital/7CWxuO-mB4GevbYtCFnSFfzuCLECtUQ8AjuleiT4vAk=.webp": {
+      "title": "Package With Purpose - Multi-Category Sustainable Pouches",
+      "description": "Package with purpose / 为目标而包，为地球而护 product lineup featuring four stand-up pouches: Achieve Pack branded, SNACKS (green), PET TREATS (kraft/beige), and COSMETICS (green). Taglines: Snacks · Cosmetics · Pets; Compostable & recyclable options; Sustainable pouch solutions. Clean gradient background. Showcases versatile sustainable packaging for multiple industries. Bilingual English/Chinese.",
+      "alt": "Package with purpose sustainable pouches lineup - snacks cosmetics pets compostable recyclable options",
+      "keywords": ["package with purpose", "sustainable pouches", "snacks", "cosmetics", "pet treats", "compostable", "recyclable", "multi-category", "product lineup"],
+      "category": "marketing",
+      "type": "product",
+      "colors": ["green", "kraft brown", "beige", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/eco-digital/AvEbY4SX8gwP2SzENbSen8dnT_kTrrk8VN6siqp1B2I=.webp": {
+      "title": "From Product To Planet - Sustainable Pouches Mission",
+      "description": "FROM PRODUCT TO PLANET brand mission image featuring green Achieve Pack stand-up pouch. Text callout: Customizable, sustainable pouches for every business. Chinese tagline: 从产品，到地球的每一步 (From product to every step for the planet). Clean gradient background. Brand statement showcasing eco-friendly packaging solutions for businesses. Bilingual English/Chinese.",
+      "alt": "From Product To Planet - Achieve Pack customizable sustainable pouches for every business",
+      "keywords": ["from product to planet", "sustainable pouches", "customizable", "business packaging", "eco-friendly", "brand mission", "Achieve Pack"],
+      "category": "marketing",
+      "type": "hero",
+      "colors": ["green", "white", "beige"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp": {
+      "title": "Package With Purpose Protect With Sustainability - CTA",
+      "description": "Package with purpose, protect with sustainability / 为目标而包，为地球而护 marketing CTA image. Green Achieve Pack stand-up pouch with 'sustainable pouch solutions' text. Call-to-action: Ready to rethink your packaging? / 现在，就升级你的包装体验. Clean gradient background. Encourages businesses to upgrade to sustainable packaging. Bilingual English/Chinese.",
+      "alt": "Package with purpose protect sustainability - sustainable pouch solutions ready to rethink your packaging CTA",
+      "keywords": ["package with purpose", "sustainability", "sustainable pouch solutions", "rethink packaging", "CTA", "upgrade packaging", "eco-friendly"],
+      "category": "marketing",
+      "type": "hero",
+      "colors": ["green", "white", "beige"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/eco-digital/LQ5WGOrIkQPzbXSfWupAIFvVrlyL9lvZoMKc35bbHPw=.webp": {
+      "title": "Stronger Pouches Happier Pets - Pet Treats Packaging",
+      "description": "Stronger pouches, happier pets / 高阻隔保护，每一口更安心 pet treats packaging showcase. Green stand-up pouch with dog and cat line art illustrations. Text callouts: High-barrier plant-based material; Stable base for heavier pet treats. Dog biscuit treats scattered at base of pouch. Professional product photography for sustainable pet food packaging. Bilingual English/Chinese.",
+      "alt": "Stronger pouches happier pets - green pet treats packaging high-barrier plant-based stable base with dog biscuits",
+      "keywords": ["pet treats", "pet packaging", "high-barrier", "plant-based material", "stable base", "dog treats", "cat treats", "sustainable pet food"],
+      "category": "product",
+      "type": "product",
+      "colors": ["green", "white", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/eco-digital/MPRxOw-bWF57OrAxie9J1CXjpM4HKHUUkoMKHefIN6E=.webp": {
+      "title": "Match The Barrier To Your Product - Shelf Life Guide",
+      "description": "Match the barrier to your product / 为你的产品，选对阻隔等级 barrier selection infographic. Achieve Pack pouch illustration with 4 barrier level options: Low barrier (3-6 months), Standard barrier (4-9 months), Medium barrier (6-12 months), High barrier (9-18 months). Each level with leaf/shield protection icon. Caption: Up to 8 barrier options for different shelf life needs. Technical guide for packaging material selection. Bilingual English/Chinese.",
+      "alt": "Match barrier to product shelf life guide - low standard medium high barrier 3-18 months options",
+      "keywords": ["barrier options", "shelf life", "low barrier", "standard barrier", "medium barrier", "high barrier", "product protection", "packaging guide"],
+      "category": "technical",
+      "type": "infographic",
+      "colors": ["green", "white", "beige"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/eco-digital/TKAqlW4KL2xV9glNA91iuD_sYEvp2G29eWT4819Ne1g=.webp": {
+      "title": "Structure That Fits Your Product - Pouch Types Catalog",
+      "description": "Structure that fits your product / 为每一种产品，找到对的结构 pouch structure catalog. Multiple pouch types shown: 3-side seal, Stand-up, Flat bottom, Side gusset, Valve pouch. Products displayed: olive oil, granola, herbal tea, dried fruit snacks, coffee beans. Two additional flat pouch structures at bottom. Caption: Achieve Pack – Sustainable Flexible Packaging Solutions. Comprehensive packaging structure guide. Bilingual English/Chinese.",
+      "alt": "Structure that fits your product - pouch types catalog 3-side seal stand-up flat bottom side gusset valve pouch",
+      "keywords": ["pouch structures", "3-side seal", "stand-up pouch", "flat bottom", "side gusset", "valve pouch", "packaging catalog", "flexible packaging"],
+      "category": "technical",
+      "type": "infographic",
+      "colors": ["green", "kraft brown", "white", "beige"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/eco-digital/X5RkmCe76z3hyMvMr6Yvb5RjclkrdDjh2rNvGIRqgWU=.webp": {
+      "title": "Engineered To Expand - Side Gusset Structure Detail",
+      "description": "Engineered to expand / 专业侧褶结构，容纳更多可能 technical detail shot showing olive green side gusset pouch with expanded gusset structure. Close-up view demonstrating expandable capacity engineering and packaging construction. Professional product photography highlighting structural design for increased volume. Bilingual English/Chinese.",
+      "alt": "Engineered to expand side gusset structure detail - olive green pouch expandable capacity design",
+      "keywords": ["side gusset", "expandable", "engineered structure", "packaging construction", "capacity", "gusset pouch", "technical detail"],
+      "category": "technical",
+      "type": "product",
+      "colors": ["olive green", "gray"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/eco-digital/YoIBVbbSdfCfRc5654ldAbT_L3N5rKcJk__lYon7YmU=.webp": {
+      "title": "Better Treats Better Packaging - Pet Food Lifestyle",
+      "description": "Better treats, better packaging / 宠物更爱吃，地球更轻松 pet food packaging lifestyle scene. Green Achieve Pack pouch with paw print designs and branding. Text callout: Odor barrier & resealable options. Blurred dog silhouette running in background. Pet treats/kibble scattered at base of pouch. Dynamic lifestyle photography for sustainable pet packaging. Bilingual English/Chinese.",
+      "alt": "Better treats better packaging - Achieve Pack pet food pouch with odor barrier resealable options and running dog",
+      "keywords": ["pet treats", "pet packaging", "odor barrier", "resealable", "dog food", "sustainable pet", "paw prints", "lifestyle"],
+      "category": "lifestyle",
+      "type": "scene",
+      "colors": ["green", "white", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/corrugated-box/a_brand_closing_collection_9526391.webp": {
+      "title": "Design Your Signature Unboxing Black & Gold - Gift Boxes",
+      "description": "Design your signature unboxing in black & gold / 用一整套黑金礼盒，打造专属于你的开箱记忆 premium gift box collection. Quantum Cacao branded black boxes in various sizes with gold logo. Gold foil wrapped chocolates and cacao nibs in jar. Caption: Custom Printed Corrugated Mailer Boxes (FSC certified) · Start your project with Achieve Pack. Luxury black and gold branding showcase for premium unboxing experience. Bilingual English/Chinese.",
+      "alt": "Design signature unboxing black gold - Quantum Cacao custom printed corrugated mailer boxes FSC certified with chocolates",
+      "keywords": ["unboxing", "black gold", "gift boxes", "corrugated boxes", "FSC certified", "custom printed", "premium packaging", "luxury branding"],
+      "category": "product",
+      "type": "product",
+      "colors": ["black", "gold", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/header/a_brand_closing_earth_return_transparent_9888178.webp": {
+      "title": "End-of-Life That Returns To Earth - Compostable Mailers",
+      "description": "End-of-life that returns to earth / 真正的终点，是回到土壤里 circular economy lifestyle scene. Achieve Pack logo with stacked compostable mailer bags on wooden surface. Terracotta pot with plant seedling growing from soil. Green plant leaves in background. Caption: Compostable mailers that disappear like food scraps. Demonstrates sustainable packaging lifecycle returning to earth. Bilingual English/Chinese.",
+      "alt": "End-of-life returns to earth - compostable mailers disappear like food scraps with plant seedling and mailer bags",
+      "keywords": ["end-of-life", "returns to earth", "compostable mailers", "circular economy", "biodegradable", "plant seedling", "sustainable lifecycle"],
+      "category": "marketing",
+      "type": "hero",
+      "colors": ["green", "terracotta", "natural", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/mailer/a_comparison_compostable_transparent_7910662.webp": {
+      "title": "Switch From Plastic To Compostable - Comparison Chart",
+      "description": "Switch from plastic to compostable / 从传统塑料快递袋，升级为可堆肥方案 comparison infographic. Side-by-side comparison of Conventional Plastic vs Compostable Mailer. Three comparison rows: End-of-life (Landfill vs Compostable); Material (Fossil-based vs Plant-based); Impact (Centuries vs Breaks down in months). Caption: Same protection, dramatically different footprint. Achieve Pack logo. Educational infographic for sustainable shipping alternatives. Bilingual English/Chinese.",
+      "alt": "Switch plastic to compostable comparison - landfill vs compostable fossil vs plant-based centuries vs months",
+      "keywords": ["plastic vs compostable", "comparison", "landfill", "plant-based", "fossil-based", "breaks down", "sustainable mailers", "environmental impact"],
+      "category": "technical",
+      "type": "infographic",
+      "colors": ["green", "beige", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/header/a_compost_mailer_seal_detail_closeup_3236876.webp": {
+      "title": "Simple Single-Seal Closure - Mailer Detail",
+      "description": "Simple single-seal closure / 一条封口，更直观、更好操作 technical detail close-up of green compostable mailer bag. White adhesive strip for sealing clearly visible. Text callout: Single adhesive strip for quick, reliable sealing. Professional product photography highlighting closure mechanism and ease of use. Bilingual English/Chinese.",
+      "alt": "Simple single-seal closure mailer detail - adhesive strip for quick reliable sealing on green compostable mailer",
+      "keywords": ["single-seal closure", "adhesive strip", "mailer detail", "quick sealing", "reliable closure", "compostable mailer", "easy operation"],
+      "category": "technical",
+      "type": "product",
+      "colors": ["green", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/mailer/a_custom_printing_showcase_transparent_0406760.webp": {
+      "title": "Custom Compostable Mailers For Every Brand",
+      "description": "Custom compostable mailers for every brand / 颜色、尺寸、印刷，都可以为你量身定制 product showcase. Three branded compostable mailers: ECO BRAND CO (olive green), GREEN CONSCIOUS (mint/gray), PLANET FIRST SUPPLY (pink). Achieve Pack logo. Caption: Low MOQ options for growing eCommerce brands. Demonstrates custom printing capabilities for various brand colors and designs. Bilingual English/Chinese.",
+      "alt": "Custom compostable mailers for every brand - Eco Brand Co Green Conscious Planet First Supply low MOQ eCommerce",
+      "keywords": ["custom mailers", "custom printing", "brand colors", "low MOQ", "eCommerce", "compostable mailers", "personalized packaging"],
+      "category": "product",
+      "type": "product",
+      "colors": ["olive green", "mint", "pink", "gray"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/tuck-box/a_detail_base_loading_4721904.webp": {
+      "title": "Reinforced Base For Real-World Shelves & Shipping",
+      "description": "Reinforced base for real-world shelves & shipping / 加固盒底结构，货架展示和快递运输都不怯场 technical detail of black premium tuck box with Achieve Pack gold logo. Shows reinforced base structure. Text: Recyclable paperboard / Printed by Achieve Pack. Elegant product photography on white/gray surface demonstrating durable construction for retail and shipping. Bilingual English/Chinese.",
+      "alt": "Reinforced base tuck box for shelves shipping - Achieve Pack black recyclable paperboard premium gift box detail",
+      "keywords": ["reinforced base", "tuck box", "shelves", "shipping", "recyclable paperboard", "premium box", "gift box", "durable construction"],
+      "category": "product",
+      "type": "product",
+      "colors": ["black", "gold", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/tuck-box/a_detail_edge_finish_8463428.webp": {
+      "title": "Clean Edges Flawless Finishing - Tuck Box Detail",
+      "description": "Clean edges, flawless finishing / 边缘收口干净利落，放大看也精致 technical close-up detail of black premium tuck box. Shows clean edge finishing and high-quality craftsmanship. Gold Achieve Pack logo visible. Professional product photography demonstrating premium packaging edge quality and precision manufacturing. Bilingual English/Chinese.",
+      "alt": "Clean edges flawless finishing tuck box detail - Achieve Pack black premium box craftsmanship close-up",
+      "keywords": ["clean edges", "flawless finishing", "edge detail", "craftsmanship", "premium quality", "tuck box", "precision manufacturing"],
+      "category": "technical",
+      "type": "product",
+      "colors": ["black", "gold", "cream"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/tuck-box/a_detail_gold_foil_embossing_5696847.webp": {
+      "title": "Gold Foil + Embossing For Tactile Branding",
+      "description": "Gold foil + embossing for tactile branding / 金箔烫金结合压凸，让品牌既好看又好摸 premium finishing close-up. Black premium box with gold foil Achieve Pack logo and lotus/leaf emblem. Shows embossed gold foil detail on dark matte surface. Demonstrates tactile branding effect and luxury finishing techniques. Professional product photography. Bilingual English/Chinese.",
+      "alt": "Gold foil embossing tactile branding - Achieve Pack logo embossed gold on black premium tuck box",
+      "keywords": ["gold foil", "embossing", "tactile branding", "luxury finishing", "premium box", "foil stamping", "brand experience"],
+      "category": "technical",
+      "type": "product",
+      "colors": ["black", "gold"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/tuck-box/a_detail_interior_unboxing_9052534.webp": {
+      "title": "Designed Interior For Complete Unboxing Story",
+      "description": "Designed interior for a complete unboxing story / 连盒内也为你讲好品牌故事 premium unboxing experience. Open black tuck box showing interior with gold foil wrapped products. Interior text: Crafted for conscious indulgence. Demonstrates complete brand storytelling through packaging interior design. Professional product photography showing premium gift box experience. Bilingual English/Chinese.",
+      "alt": "Designed interior complete unboxing story - open black tuck box with gold foil products crafted for conscious indulgence",
+      "keywords": ["interior design", "unboxing story", "brand storytelling", "premium unboxing", "gift box interior", "conscious indulgence", "luxury experience"],
+      "category": "product",
+      "type": "product",
+      "colors": ["black", "gold", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/tuck-box/a_detail_tuck_flaps_folds_9224764.webp": {
+      "title": "Smart Tuck Flaps For Fast Secure Closing",
+      "description": "Smart tuck flaps for fast, secure closing / 顺手好装箱的插舌结构，快节奏包装也从容 technical detail showing open black premium tuck box with tuck flap closure mechanism. Achieve Pack gold logo visible inside. Demonstrates structural design for easy and secure closing, suitable for fast-paced packaging operations. Professional product photography. Bilingual English/Chinese.",
+      "alt": "Smart tuck flaps fast secure closing - black tuck box open showing closure mechanism with Achieve Pack logo",
+      "keywords": ["tuck flaps", "secure closing", "fast packing", "closure mechanism", "easy assembly", "tuck box structure", "packaging efficiency"],
+      "category": "technical",
+      "type": "product",
+      "colors": ["black", "gold", "gray"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/header/a_disposal_instructions_transparent_mailer_4494569.webp": {
+      "title": "Clear Disposal Instructions On Every Mailer",
+      "description": "Clear disposal instructions on every mailer / 每一只快递袋，都教你的客户怎么正确处理 product feature showcase. White/cream compostable mailer with printed instructions: COMPOST ME AT HOME with leaf icon, No microplastics badge. Caption: Simple icons make end-of-life crystal clear. Shows disposal instructions printed directly on packaging for customer education. Bilingual English/Chinese.",
+      "alt": "Clear disposal instructions every mailer - compost me at home no microplastics icons end-of-life crystal clear",
+      "keywords": ["disposal instructions", "compost me at home", "no microplastics", "end-of-life", "customer education", "compostable mailer", "simple icons"],
+      "category": "product",
+      "type": "product",
+      "colors": ["green", "white", "cream"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/mailer/a_durability_test_material_pull_6142959.webp": {
+      "title": "Tough Enough For Real Shipping - Durability Test",
+      "description": "Tough enough for real shipping / 像塑料一样结实，却比塑料更友好 durability demonstration. Hands stretching/pulling dark green compostable mailer to show material strength. Text callout: Tear-resistant, water-resistant, built for long journeys. Achieve Pack logo. Shows real-world durability testing of eco-friendly mailer material. Bilingual English/Chinese.",
+      "alt": "Tough enough real shipping durability test - hands pulling green mailer tear-resistant water-resistant long journeys",
+      "keywords": ["durability test", "tough shipping", "tear-resistant", "water-resistant", "material strength", "long journeys", "compostable mailer"],
+      "category": "technical",
+      "type": "scene",
+      "colors": ["dark green", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/header/a_ecommerce_packing_scene_transparent_8524468.webp": {
+      "title": "Designed For Modern eCommerce - Packing Scene",
+      "description": "Designed for modern eCommerce / 从小店到大品牌，都能无缝切换到可堆肥包装 lifestyle packing scene. Hand placing item into compostable mailer bag on wooden desk. Stacked folded t-shirts/apparel in background. Label printer for shipping workflow. COMPOSTABLE MAILER text visible on bag. Caption: Perfect for apparel, soft goods and flat items. Achieve Pack logo. Bilingual English/Chinese.",
+      "alt": "Designed for modern eCommerce packing scene - hand packing apparel into compostable mailer with label printer",
+      "keywords": ["eCommerce", "modern packing", "apparel", "soft goods", "flat items", "compostable mailer", "shipping workflow", "small business"],
+      "category": "lifestyle",
+      "type": "scene",
+      "colors": ["green", "cream", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/corrugated-box/a_foil_stamping_detail_logo_3101304.webp": {
+      "title": "Refined Gold Foil Stamping For Standout Branding",
+      "description": "Refined gold foil stamping for standout branding / 精致金属烫金，让品牌一眼被记住 premium finishing detail. Close-up of black corrugated box with gold foil stamped QUANTUM CACAO logo and lotus/flower emblem. Shows refined gold foil stamping technique on matte black surface. Luxury branding finish for memorable brand presentation. Bilingual English/Chinese.",
+      "alt": "Refined gold foil stamping standout branding - Quantum Cacao logo emblem gold on black corrugated box",
+      "keywords": ["gold foil stamping", "standout branding", "luxury finish", "premium printing", "brand logo", "corrugated box", "metallic foil"],
+      "category": "technical",
+      "type": "product",
+      "colors": ["black", "gold"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/corrugated-box/a_hero_kv_black_gold_mailer_4737831.webp": {
+      "title": "Custom Black & Gold Mailer Boxes - Premium Gift Box",
+      "description": "Custom Black & Gold Mailer Boxes / 黑金配色定制瓦楻礼盒 / 邮寄盒 hero product image. Open black corrugated mailer box with Quantum Cacao gold logo. Interior shows gold foil wrapped chocolates/truffles. Jar of cacao nibs beside box. Caption: FSC certified · Designed for premium chocolate & cacao brands. Premium gift box presentation for luxury food brands. Bilingual English/Chinese.",
+      "alt": "Custom Black Gold Mailer Boxes - Quantum Cacao FSC certified premium chocolate cacao brands gift box",
+      "keywords": ["black gold mailer", "custom boxes", "FSC certified", "premium chocolate", "cacao brands", "gift box", "corrugated mailer", "luxury packaging"],
+      "category": "product",
+      "type": "hero",
+      "colors": ["black", "gold", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/header/a_hero_kv_compost_mailer_transparent_5939909.webp": {
+      "title": "Ship Greener With Compostable Mailers - Hero",
+      "description": "Ship greener with compostable mailers / 发一单货，也是为地球做一件小事 hero product image. Compostable mailer bag containing folded clothing/textiles (sweater, blanket). COMPOSTABLE MAILER text with leaf icon on bag. Caption: Durable, waterproof and certified home compostable. Achieve Pack logo. Showcases eco-friendly shipping solution for apparel. Bilingual English/Chinese.",
+      "alt": "Ship greener compostable mailers hero - durable waterproof certified home compostable with folded clothing",
+      "keywords": ["ship greener", "compostable mailers", "durable", "waterproof", "home compostable", "eco shipping", "apparel packaging"],
+      "category": "marketing",
+      "type": "hero",
+      "colors": ["green", "cream", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/tuck-box/a_hero_kv_tuck_box_3590474.webp": {
+      "title": "Custom Printed Tuck Boxes - Gold Foil & Embossing Hero",
+      "description": "Custom Printed Tuck Boxes (Gold Foil & Embossing) / 金箔烫金与压凸工艺定制开窗插口礼盒 hero product image. Black premium tuck box with Achieve Pack gold logo and lotus emblem. Caption: FSC-ready paperboard · Designed for premium retail & gifting. Showcases luxury finishing options for high-end packaging. Bilingual English/Chinese.",
+      "alt": "Custom Printed Tuck Boxes Gold Foil Embossing - Achieve Pack FSC-ready paperboard premium retail gifting",
+      "keywords": ["tuck boxes", "gold foil", "embossing", "custom printed", "FSC-ready", "premium retail", "gifting", "luxury packaging"],
+      "category": "product",
+      "type": "hero",
+      "colors": ["black", "gold", "gray"],
       "seo_priority": "high"
     }
   }
