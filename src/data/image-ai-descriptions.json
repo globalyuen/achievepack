@@ -1,0 +1,67 @@
+{
+  "generated": "2025-12-26",
+  "version": "1.0",
+  "total_analyzed": 6,
+  "descriptions": {
+    "/imgs/BioPE.webp": {
+      "title": "Bio-PE Certification (97% Biobased)",
+      "description": "I'm Green Bio-Polyethylene certification from BETA accredited laboratory showing 97% biobased content. PJLA #59423 accreditation with ISO/IEC 17025:2005 compliance. Test date March 2015. Braskem's sustainable bio-based plastic alternative.",
+      "alt": "I'm Green Bio-PE certification showing 97% biobased content - BETA ISO/IEC 17025:2005 accredited laboratory test results for bio-polyethylene sustainable packaging material",
+      "keywords": ["Bio-PE", "Bio-Polyethylene", "I'm Green", "97% biobased", "BETA certified", "ISO 17025", "sustainable packaging", "eco-friendly material", "Braskem"],
+      "category": "certification",
+      "type": "certification",
+      "colors": ["green", "white", "black"],
+      "seo_priority": "high"
+    },
+    "/imgs/cert-brcgs.webp": {
+      "title": "BRCGS Global Standard for Packaging Materials Certificate",
+      "description": "BRCGS (British Retail Consortium Global Standards) certification for Packaging Materials. Issue 6 August 2019, Achieved Grade B+, Unannounced Audit Programme (1 in 3). Certified by SGS with UKAS accreditation. Covers gravure printing, digital printing, lamination, curing, slitting of flexible plastic film including BOPP, TOPP, POPP, PET, KPET, KOPP, VMCPP, VMPET, VMOPP, AL, BOPA, RCPP, CPP, PE-films for primary food contact packaging.",
+      "alt": "BRCGS Global Standard for Packaging Materials Grade B+ certificate - Issue 6 August 2019 SGS certified with UKAS accreditation for food-safe flexible packaging production",
+      "keywords": ["BRCGS", "BRC certification", "packaging materials", "Grade B+", "food safe", "SGS certified", "UKAS", "flexible packaging", "food contact", "quality standard"],
+      "category": "certification",
+      "type": "certification",
+      "colors": ["red", "white", "gray"],
+      "seo_priority": "high"
+    },
+    "/imgs/cert-bcorp-pending.webp": {
+      "title": "Certified B Corporation Pending Status",
+      "description": "B Corporation certification pending status badge. Shows company commitment to social and environmental performance, accountability, and transparency. B Corp certification measures a company's entire social and environmental impact. Black and white official B Corp pending logo design.",
+      "alt": "Certified B Corporation Pending logo - sustainable business certification in progress demonstrating commitment to social and environmental responsibility",
+      "keywords": ["B Corp", "B Corporation", "certified B Corp", "pending", "social responsibility", "environmental impact", "sustainable business", "corporate certification"],
+      "category": "certification",
+      "type": "logo",
+      "colors": ["black", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/cert-din-home-compostable.webp": {
+      "title": "DIN CERTCO Home Compostable Certificate",
+      "description": "TÜVRheinland DIN CERTCO certification for home compostable packaging. Certificate for products made of compostable materials for home and garden composting. Compost Packing Bag tested to NF T51-800:2015 standard. Registration No. 9P0246, valid until December 31, 2029. Features DIN Geprüft Home Compostable seal and DAkkS accreditation.",
+      "alt": "DIN CERTCO TÜVRheinland home compostable certification for packaging bags - NF T51-800:2015 standard compliant valid until 2029 with DIN Geprüft seal",
+      "keywords": ["DIN CERTCO", "home compostable", "TÜVRheinland", "compostable packaging", "NF T51-800", "DIN Geprüft", "garden composting", "biodegradable", "eco certification"],
+      "category": "certification",
+      "type": "certification",
+      "colors": ["blue", "red", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/carbon-capture-facility.webp": {
+      "title": "Direct Air Capture Carbon Removal Facility",
+      "description": "Industrial Direct Air Capture (DAC) facility with large cylindrical fan collectors removing CO2 from the atmosphere. Climeworks-style carbon capture technology set against a green Swiss landscape with rolling hills and forests. Represents cutting-edge carbon removal technology for combating climate change and achieving carbon neutrality.",
+      "alt": "Direct Air Capture DAC carbon removal facility with industrial CO2 collectors in green Swiss landscape - climate change technology for carbon neutral packaging",
+      "keywords": ["carbon capture", "Direct Air Capture", "DAC", "CO2 removal", "Climeworks", "carbon neutral", "climate technology", "carbon offset", "sustainability"],
+      "category": "sustainability",
+      "type": "scene",
+      "colors": ["silver", "green", "blue"],
+      "seo_priority": "medium"
+    },
+    "/imgs/infographic-data-comparison.webp": {
+      "title": "Achieve Pack Sustainability Data Infographic",
+      "description": "The Data Doesn't Lie infographic comparing traditional packaging vs Achieve Pack sustainable solutions. Three key metrics: 70% Less Plastic usage, 70% Lower CO2 carbon footprint, and 70% Space Savings in storage efficiency. Visual comparison with bar charts showing reduction from 100% to 30%. Green and gray color scheme with Achieve Pack branding.",
+      "alt": "Achieve Pack sustainability infographic showing 70% less plastic, 70% lower CO2, and 70% space savings compared to traditional packaging solutions",
+      "keywords": ["sustainability data", "70% less plastic", "carbon footprint reduction", "space savings", "eco packaging comparison", "Achieve Pack", "infographic", "environmental benefits"],
+      "category": "marketing",
+      "type": "infographic",
+      "colors": ["green", "gray", "white"],
+      "seo_priority": "high"
+    }
+  }
+}

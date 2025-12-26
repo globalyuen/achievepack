@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Search, Grid3X3, List, Folder, ArrowLeft, Copy, Check, ExternalLink, Save, Download, FileText, X } from 'lucide-react'
+import { Search, Grid3X3, List, Folder, ArrowLeft, Copy, Check, ExternalLink, Save, Download, FileText, X, Sparkles, Tag, Eye } from 'lucide-react'
 import imageCatalog from '../data/image-catalog.json'
+import aiDescriptionsData from '../data/image-ai-descriptions.json'
 
 interface ImageInfo {
   filename: string
@@ -14,8 +15,23 @@ interface CategoryData {
   images: ImageInfo[]
 }
 
-// LocalStorage key for alt texts
+// LocalStorage keys
 const ALT_TEXTS_KEY = 'achievepack_image_alt_texts'
+const AI_DESCRIPTIONS_KEY = 'achievepack_ai_descriptions'
+
+interface AIDescription {
+  title: string
+  description: string
+  alt: string
+  keywords: string[]
+  category: string
+  type: string
+  colors: string[]
+  seo_priority: string
+}
+
+// Pre-loaded AI descriptions from JSON file
+const preloadedDescriptions = (aiDescriptionsData as any).descriptions as Record<string, AIDescription>
 
 export default function ImageCatalogPage() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -27,21 +43,35 @@ export default function ImageCatalogPage() {
   const [unsavedChanges, setUnsavedChanges] = useState(false)
   const [saveMessage, setSaveMessage] = useState<string | null>(null)
   const [showOnlyEmpty, setShowOnlyEmpty] = useState(false)
+    const [aiDescriptions, setAiDescriptions] = useState<Record<string, AIDescription>>(preloadedDescriptions)
+    const [editingImage, setEditingImage] = useState<string | null>(null)
 
   const categories = imageCatalog.categories as Record<string, CategoryData>
   const totalImages = imageCatalog.total_images
 
-  // Load alt texts from localStorage on mount
+  // Load data from localStorage on mount
   useEffect(() => {
-    const saved = localStorage.getItem(ALT_TEXTS_KEY)
-    if (saved) {
+    const savedAlt = localStorage.getItem(ALT_TEXTS_KEY)
+    if (savedAlt) {
       try {
-        setAltTexts(JSON.parse(saved))
+        setAltTexts(JSON.parse(savedAlt))
       } catch (e) {
         console.error('Failed to parse saved alt texts')
       }
     }
+    const savedAI = localStorage.getItem(AI_DESCRIPTIONS_KEY)
+    if (savedAI) {
+      try {
+        const parsed = JSON.parse(savedAI)
+        setAiDescriptions(prev => ({ ...preloadedDescriptions, ...prev, ...parsed }))
+      } catch (e) {
+        console.error('Failed to parse saved AI descriptions')
+      }
+    }
   }, [])
+
+  // Count AI analyzed images
+  const countWithAI = Object.keys(aiDescriptions).length
 
   // Filter images based on search and empty filter
   const getFilteredImages = () => {
@@ -91,25 +121,28 @@ export default function ImageCatalogPage() {
 
   const saveAltTexts = () => {
     localStorage.setItem(ALT_TEXTS_KEY, JSON.stringify(altTexts))
+    localStorage.setItem(AI_DESCRIPTIONS_KEY, JSON.stringify(aiDescriptions))
     setUnsavedChanges(false)
     setSaveMessage('Saved to browser!')
     setTimeout(() => setSaveMessage(null), 2000)
   }
 
   const exportAsJson = () => {
-    // Create export data with image info and alt texts
+    // Create export data with image info, alt texts, and AI descriptions
     const exportData = {
-      generated: new Date().toISOString().split('T')[0],
+      generated: new Date().toISOString(),
       total_images: totalImages,
       images_with_alt: countWithAltText,
+      images_with_ai: countWithAI,
+      ai_descriptions: aiDescriptions,
       alt_texts: altTexts,
-      // Also create a detailed list
       images: Object.entries(categories).flatMap(([category, data]) => 
         data.images.map(img => ({
           category,
           filename: img.filename,
           path: img.path,
-          alt: altTexts[img.path] || ''
+          alt: altTexts[img.path] || aiDescriptions[img.path]?.alt || '',
+          ai: aiDescriptions[img.path] || null
         }))
       )
     }
@@ -118,7 +151,7 @@ export default function ImageCatalogPage() {
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
-    a.download = 'image-alt-texts.json'
+    a.download = `achievepack-image-catalog-${new Date().toISOString().split('T')[0]}.json`
     a.click()
     URL.revokeObjectURL(url)
   }
@@ -166,9 +199,12 @@ export default function ImageCatalogPage() {
                 <ArrowLeft className="h-5 w-5" />
               </Link>
               <div>
-                <h1 className="text-xl font-bold text-neutral-900">Image Catalog & Alt Text Editor</h1>
+                <h1 className="text-xl font-bold text-neutral-900 flex items-center gap-2">
+                  <Sparkles className="h-5 w-5 text-purple-500" />
+                  AI Image Catalog
+                </h1>
                 <p className="text-sm text-neutral-500">
-                  {totalImages} images · <span className="text-green-600">{countWithAltText} with alt</span> · <span className="text-orange-600">{countWithoutAltText} missing</span>
+                  {totalImages} images · <span className="text-purple-600">{countWithAI} AI analyzed</span> · <span className="text-green-600">{countWithAltText} with alt</span>
                 </p>
               </div>
             </div>
