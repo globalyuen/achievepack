@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { Search, Grid3X3, List, Folder, ArrowLeft, Copy, Check, ExternalLink, Save, Download, FileText, X, Sparkles, Tag, Eye, Code } from 'lucide-react'
+import { Link, useNavigate } from 'react-router-dom'
+import { Search, Grid3X3, List, Folder, ArrowLeft, Copy, Check, ExternalLink, Save, Download, FileText, X, Sparkles, Tag, Eye, Code, Lock, LogOut } from 'lucide-react'
 import imageCatalog from '../data/image-catalog.json'
 import aiDescriptionsData from '../data/image-ai-descriptions.json'
+import { useAuth } from '../hooks/useAuth'
+
+const ADMIN_EMAIL = 'ryan@achievepack.com'
 
 interface ImageInfo {
   filename: string
@@ -34,6 +37,8 @@ interface AIDescription {
 const preloadedDescriptions = (aiDescriptionsData as any).descriptions as Record<string, AIDescription>
 
 export default function ImageCatalogPage() {
+  const navigate = useNavigate()
+  const { user, signOut, loading: authLoading } = useAuth()
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('list') // Default to list for alt text editing
@@ -47,6 +52,18 @@ export default function ImageCatalogPage() {
     const [editingImage, setEditingImage] = useState<string | null>(null)
 
   const [copiedJson, setCopiedJson] = useState<string | null>(null)
+
+  // Check if user is admin
+  useEffect(() => {
+    if (!authLoading && (!user || user.email !== ADMIN_EMAIL)) {
+      navigate('/login')
+    }
+  }, [user, authLoading, navigate])
+
+  const handleSignOut = async () => {
+    await signOut()
+    navigate('/')
+  }
   
     const categories = imageCatalog.categories as Record<string, CategoryData>
   const totalImages = imageCatalog.total_images
@@ -203,6 +220,23 @@ export default function ImageCatalogPage() {
     setUnsavedChanges(true)
   }
 
+  // Show loading state
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-neutral-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-primary-500 mb-2"></div>
+          <p className="text-neutral-600">Loading...</p>
+        </div>
+      </div>
+    )
+  }
+
+  // Redirect if not admin
+  if (!user || user.email !== ADMIN_EMAIL) {
+    return null
+  }
+
   return (
     <div className="min-h-screen bg-neutral-50">
       {/* Header */}
@@ -210,7 +244,7 @@ export default function ImageCatalogPage() {
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between flex-wrap gap-3">
             <div className="flex items-center gap-4">
-              <Link to="/" className="text-neutral-500 hover:text-neutral-900">
+              <Link to="/admin" className="text-neutral-500 hover:text-neutral-900">
                 <ArrowLeft className="h-5 w-5" />
               </Link>
               <div>
@@ -289,6 +323,15 @@ export default function ImageCatalogPage() {
               >
                 <Download className="h-4 w-4" />
                 Export JSON
+              </button>
+
+              {/* Sign Out */}
+              <button
+                onClick={handleSignOut}
+                className="px-3 py-2 rounded-lg bg-red-100 text-red-700 text-sm font-medium hover:bg-red-200 transition flex items-center gap-1"
+              >
+                <LogOut className="h-4 w-4" />
+                Sign Out
               </button>
             </div>
           </div>
