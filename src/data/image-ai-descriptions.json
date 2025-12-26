@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 54,
+  "total_analyzed": 58,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -541,6 +541,46 @@
       "category": "product",
       "type": "product",
       "colors": ["silver", "gunmetal", "green"],
+      "seo_priority": "high"
+    },
+    "/imgs/blog/geo/a_australian_coffee_roaster_packaging_9098429.webp": {
+      "title": "Australian Coffee Roaster with Sustainable Kraft Packaging",
+      "description": "Female coffee roaster in Melbourne-style specialty roastery inspecting fresh roasted coffee beans on tray. Industrial brick warehouse setting with professional Probat-style roasting machines. Multiple kraft brown stand-up pouches with clear windows lined up for packaging. Whiteboard in background shows ARL (Australasian Recycling Label) symbols, 'Soft Plastics Curbside Study', and 'Home Compostable' notes. Green tram visible through window. Represents Australian specialty coffee industry's commitment to sustainable packaging solutions.",
+      "alt": "Australian coffee roaster woman inspecting beans in Melbourne warehouse with kraft sustainable pouches and ARL recycling whiteboard",
+      "keywords": ["Australian coffee", "coffee roaster", "Melbourne", "kraft pouch", "specialty coffee", "sustainable packaging", "ARL recycling", "home compostable", "roastery"],
+      "category": "lifestyle",
+      "type": "scene",
+      "colors": ["kraft brown", "industrial gray", "green"],
+      "seo_priority": "high"
+    },
+    "/imgs/blog/Sustainable-packaging/a_brand_showcase_sustainable_packaging_7993247.webp": {
+      "title": "Sustainable Brand Packaging Showcase - Eco Certifications",
+      "description": "Flat lay showcase of sustainable brand packaging on rustic wooden surface with linen fabric. Features: Wildtype olive green pouch (FROM RECYCLED MATERIALS, Plant badge, Recyclable Materials badge), Counter Culture Coffee kraft bag (Compostable badge), Humm Kombucha glass bottle with bamboo lid (Recyclable badge), Herbivore Botanicals cream jar (Compostable badge), Nature's Path Granola kraft pouch (Plant-Based badge, Resealable). Canvas tote bag with recycled materials text. Eucalyptus branch decoration. Demonstrates diverse eco-friendly packaging options across food, beverage, and cosmetics industries.",
+      "alt": "Sustainable packaging flat lay with Wildtype Counter Culture Humm Kombucha Herbivore Botanicals Nature's Path showing eco certifications on wooden surface",
+      "keywords": ["sustainable packaging", "brand showcase", "eco certifications", "recyclable", "compostable", "plant-based", "Counter Culture Coffee", "Humm Kombucha", "flat lay"],
+      "category": "lifestyle",
+      "type": "scene",
+      "colors": ["olive green", "kraft brown", "cream", "natural wood"],
+      "seo_priority": "high"
+    },
+    "/imgs/blog/How/a_compostable_pouch_material_structure_5028836.webp": {
+      "title": "Compostable Stand-Up Pouch Material Cross-Section Guide",
+      "description": "Technical cross-section diagram of compostable stand-up pouch material structure. Three-layer construction: 1) Plant-based PLA film (Inner layer, transparent) - Excellent moisture protection, plant-derived; 2) PBAT compostable polyester (Structural layer) - Oxygen Barrier & Structural Integrity, provides strength and oxygen barrier, fully compostable; 3) Kraft or white paper layer (Outer printed surface) - Light Protection & Printability, natural texture, printable surface, shields from light. Features: Compostable resealable zipper, Compostable one-way degassing valve. Overall Properties: Full barrier protection (Oxygen, Moisture, Light), compostable, printable, strong structure. Certifications: EN 13432 Certified Industrial Compostable, ASTM D6400 Certified Biodegradable & Compostable.",
+      "alt": "Compostable pouch 3-layer material cross-section diagram showing PLA PBAT kraft paper structure with EN13432 ASTM D6400 certifications",
+      "keywords": ["compostable pouch", "material structure", "PLA film", "PBAT", "kraft paper", "cross-section", "EN13432", "ASTM D6400", "degassing valve", "barrier protection"],
+      "category": "technical",
+      "type": "infographic",
+      "colors": ["kraft brown", "green", "blue", "gray"],
+      "seo_priority": "high"
+    },
+    "/imgs/blog/How/a_compostable_pouches_product_showcase_1649901.webp": {
+      "title": "Home Compostable Pouches Product Range - 6 Applications",
+      "description": "Six home compostable pouch applications grid showcase with green plant decoration. Top row: 1) Earth Blend Coffee (kraft with HOME COMPOSTABLE badge), 2) Pure Leaf Tea (cream/yellow with compostable seedling icon), 3) Organic Granola Snacks (kraft with window showing granola). Bottom row: 4) Nature's Paw Treats (kraft pet food with paw icon, HOME COMPOSTABLE badge), 5) Daily Boost Supplement Powder (white stand-up pouch), 6) Herbal Infusion Sauce (kraft spout pouch). All feature compostable seedling certification logo. Demonstrates versatility across coffee, tea, snacks, pet food, supplements, and sauces.",
+      "alt": "Six home compostable pouch products - coffee tea granola pet treats supplement sauce with seedling certification on white background",
+      "keywords": ["home compostable", "compostable pouch", "coffee pouch", "tea packaging", "pet food pouch", "supplement packaging", "spout pouch", "seedling logo", "product showcase"],
+      "category": "product",
+      "type": "product",
+      "colors": ["kraft brown", "cream", "white", "green"],
       "seo_priority": "high"
     }
   }
