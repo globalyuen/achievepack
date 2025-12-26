@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 168,
+  "total_analyzed": 169,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -1691,6 +1691,16 @@
       "category": "product",
       "type": "product",
       "colors": ["kraft", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/pouch-shape/ads/a_achieve_pack_rollstock_closeup_5394787.webp": {
+      "title": "Rollstock for Form-Fill-Seal Lines",
+      "description": "Rollstock for form-fill-seal lines / 适配自动制袋/充填生产线的连续卷膜解决方案 rollstock showcase. Continuous roll film with striped pattern and GO ACHIEVE PACK branding. Designed for automated FFS (form-fill-seal) production lines. Industrial-scale packaging solution.",
+      "alt": "Rollstock form-fill-seal lines - continuous roll film GO ACHIEVE PACK automated FFS production packaging",
+      "keywords": ["rollstock", "form-fill-seal", "FFS", "roll film", "automated production", "continuous film", "industrial packaging", "production line"],
+      "category": "product",
+      "type": "product",
+      "colors": ["kraft", "green", "striped"],
       "seo_priority": "high"
     }
   }
