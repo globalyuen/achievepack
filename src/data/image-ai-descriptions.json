@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 25,
+  "total_analyzed": 28,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -251,6 +251,36 @@
       "category": "sustainability",
       "type": "scene",
       "colors": ["silver", "green", "blue sky"],
+      "seo_priority": "high"
+    },
+    "/imgs/brc-cert.webp": {
+      "title": "BRCGS Global Standard for Packaging Materials Certificate 2024",
+      "description": "Official BRCGS (British Retail Consortium Global Standards) certificate for Global Standard for Packaging Materials Issue 6 August 2019. Achieved Grade B+ through Unannounced Audit Programme (1 in 3). Certificate issued by SGS United Kingdom Ltd with UKAS accreditation. Product Categories 5, 7. Auditor Number 33194. Evaluation Date 10 September 2024. Certificate Issue Date 14 October 2024. Valid until 01 December 2025. Covers gravure printing, digital printing, lamination, curing, slitting of flexible plastic film including BOPP, TOPP, POPP, PET, KPET, KOPP, VMCPP, VMPET, VMOPP, AL, BOPA, RCPP, CPP, PE-films for primary food contact. Authorized by Liz Moran, Business Manager. Features BRCGS Packaging Materials CERTIFICATED logo with purple branding.",
+      "alt": "BRCGS Global Standard for Packaging Materials Grade B+ certificate 2024 - SGS UKAS accredited certification for food-safe flexible packaging production valid until December 2025",
+      "keywords": ["BRCGS certificate", "BRC packaging materials", "Grade B+", "SGS certified", "UKAS accreditation", "food contact packaging", "flexible film", "Issue 6", "quality certification", "2024 certificate"],
+      "category": "certification",
+      "type": "certification",
+      "colors": ["purple", "white", "gray"],
+      "seo_priority": "high"
+    },
+    "/imgs/comparison-flexible-vs-rigid.webp": {
+      "title": "The Data Doesn't Lie - Flexible vs Traditional Packaging Comparison",
+      "description": "'THE DATA DOESN'T LIE' infographic comparing traditional packaging versus Achieve Pack flexible solutions across three key environmental metrics. PLASTIC USAGE: Traditional plastic bottle and pouch at 100% vs Achieve Pack solution at 30% = 70% LESS PLASTIC. CARBON FOOTPRINT: Traditional factory emissions at 100% vs Achieve Pack eco-friendly production at 30% = 70% LOWER CO2. STORAGE EFFICIENCY: Traditional warehouse storage at 100% vs Achieve Pack compact pouches at 30% = 70% SPACE SAVINGS. Visual bar charts with red X marks on traditional and green checkmarks on Achieve Pack solutions. Features Achieve Pack 'ap' logo with tagline.",
+      "alt": "The Data Doesn't Lie infographic - Achieve Pack flexible packaging vs traditional showing 70% less plastic, 70% lower CO2, 70% space savings comparison",
+      "keywords": ["flexible packaging comparison", "70% less plastic", "carbon footprint reduction", "space savings", "traditional vs flexible", "sustainability data", "eco packaging benefits", "Achieve Pack infographic", "packaging efficiency"],
+      "category": "marketing",
+      "type": "infographic",
+      "colors": ["green", "gray", "white", "black"],
+      "seo_priority": "high"
+    },
+    "/imgs/feature-barrier-options.webp": {
+      "title": "8 Eco-Friendly Barrier Options - Low Medium High Maximum Protection",
+      "description": "Comprehensive display of 8 eco-friendly packaging barrier options ranging from Low to Maximum protection levels. Options include: 1) Low Barrier (No Window) - minimal protection, breathable with gray O2/moisture/light indicators; 2) Medium Transparent Barrier (Optional Window) - moderate protection, visible with yellow indicators; 3) Metallized High Barrier (No Window) - high protection, foil-lined with orange indicators; 4) Aluminum Maximum Barrier (No Window) - total protection, complete block with red indicators; 5) Kraft Low Barrier (No Window) - basic protection, natural feel; 6) Kraft Medium Barrier (Optional Window) - standard protection, windowed; 7) Kraft High Barrier (No Window) - enhanced protection, durable; 8) Kraft Maximum Barrier (No Window) - superior protection, robust. Visual data points legend: Grey=Low, Yellow=Medium, Orange=High, Red=Maximum, Green=Recyclable.",
+      "alt": "8 Eco-Friendly Barrier Options showing low medium high maximum protection levels - transparent metallized aluminum and kraft sustainable pouch barriers",
+      "keywords": ["barrier options", "low barrier", "medium barrier", "high barrier", "maximum barrier", "metallized pouch", "aluminum barrier", "kraft barrier", "oxygen barrier", "moisture barrier", "eco-friendly packaging"],
+      "category": "product",
+      "type": "product",
+      "colors": ["silver", "kraft brown", "gray", "yellow", "orange", "red", "green"],
       "seo_priority": "high"
     }
   }
