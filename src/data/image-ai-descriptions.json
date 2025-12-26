@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 35,
+  "total_analyzed": 36,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -351,6 +351,16 @@
       "category": "marketing",
       "type": "infographic",
       "colors": ["green", "gray", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/infographic-plant-based.webp": {
+      "title": "Plant-Based Renewable Materials - Reduces Fossil Fuel Dependence",
+      "description": "PLANT-BASED RENEWABLE MATERIALS infographic showing sustainable material sourcing. Top section: Corn and sugarcane plants absorbing CO2 from atmosphere, converting to kraft eco-pouch in RENEWABLE LOOP cycle with green checkmark. Bottom comparison: Fossil Fuels (black oil barrel) VS Renewable Plants (corn and sugarcane). REDUCES FOSSIL FUEL DEPENDENCE tagline. Made from cornstarch PLA and sugarcane bagasse. Features Achieve Pack 'ap' logo. Demonstrates bio-based alternative to petroleum-derived plastics.",
+      "alt": "Plant-based renewable materials infographic showing corn sugarcane CO2 absorption renewable loop vs fossil fuels - cornstarch PLA sugarcane bagasse sustainable packaging",
+      "keywords": ["plant-based materials", "renewable materials", "cornstarch PLA", "sugarcane bagasse", "bio-based", "fossil fuel alternative", "renewable loop", "CO2 absorption", "sustainable sourcing", "bioplastic"],
+      "category": "sustainability",
+      "type": "infographic",
+      "colors": ["green", "kraft brown", "white"],
       "seo_priority": "high"
     }
   }
