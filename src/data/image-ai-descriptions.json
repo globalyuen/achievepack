@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 17,
+  "total_analyzed": 18,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -169,6 +169,16 @@
       "alt": "Achieve Pack green ap logo with leaf design on transparent background - sustainable packaging brand identity",
       "keywords": ["Achieve Pack logo", "ap logo", "brand logo", "transparent logo", "green logo", "eco logo", "sustainable brand"],
       "category": "branding",
+      "type": "logo",
+      "colors": ["green"],
+      "seo_priority": "high"
+    },
+    "/eco-logo/transparent-bkg/biope.png": {
+      "title": "I'm Green Bio-Polyethylene Logo",
+      "description": "Braskem 'I'm green' bio-polyethylene trademark logo on transparent background. Green text with integrated leaf design symbolizing plant-based sustainable plastic alternative. This certification mark indicates packaging made from sugarcane-based bio-PE, a renewable resource that reduces carbon footprint compared to fossil-based plastics.",
+      "alt": "I'm Green Braskem bio-polyethylene logo - plant-based sustainable plastic certification mark with green leaf design",
+      "keywords": ["I'm green", "Bio-PE", "Braskem", "bio-polyethylene", "plant-based plastic", "sugarcane plastic", "renewable materials", "eco certification"],
+      "category": "certification",
       "type": "logo",
       "colors": ["green"],
       "seo_priority": "high"
