@@ -44,6 +44,7 @@ const TermsPage = lazy(() => import('./pages/TermsPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
 const AdminPage = lazy(() => import('./pages/AdminPage'))
 const AdminManagementPage = lazy(() => import('./pages/AdminManagementPage'))
+const ImageCatalogPage = lazy(() => import('./pages/ImageCatalogPage'))
 
 // Industry Pages - Lazy loaded
 const CoffeeTeaPage = lazy(() => import('./pages/industry/CoffeeTeaPage'))
@@ -235,6 +236,7 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/admin" element={<AdminPage />} />
               <Route path="/admin/management" element={<AdminManagementPage />} />
+              <Route path="/image-catalog" element={<ImageCatalogPage />} />
 
               {/* Industry Pages */}
               <Route path="/industry/coffee-tea" element={<CoffeeTeaPage />} />
