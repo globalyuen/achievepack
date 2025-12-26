@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 62,
+  "total_analyzed": 67,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -621,6 +621,56 @@
       "category": "technical",
       "type": "infographic",
       "colors": ["green", "blue", "teal"],
+      "seo_priority": "high"
+    },
+    "/imgs/blog/plant/a_packaging_label_closeup_details_1273763.webp": {
+      "title": "Root & Paw Plant-Based Kibble - Premium Pet Food Packaging Label",
+      "description": "Close-up detail shot of Root & Paw premium plant-based kibble packaging on wooden surface. Kraft paper pouch with olive green branding features: PREMIUM M (logo), Root & Paw PLANT-BASED KIBBLE headline with leaf icons. Certification badges: CRUELTY-FREE (rabbit icon), SUSTAINABLY SOURCED (leaf checkmark), RECYCLABLE PACKAGING (recycling arrows). Detailed Nutrition Facts panel showing Serving Size 1 cup (20g), Calories per 20, Protein 25%, various vitamins and minerals. Ingredients list visible. Premium sustainable pet food packaging design.",
+      "alt": "Root & Paw plant-based kibble kraft packaging closeup with cruelty-free sustainably sourced recyclable badges and nutrition facts label",
+      "keywords": ["plant-based kibble", "pet food label", "cruelty-free", "sustainably sourced", "recyclable packaging", "nutrition facts", "kraft pouch", "premium pet food", "Root & Paw"],
+      "category": "product",
+      "type": "product",
+      "colors": ["kraft brown", "olive green", "cream"],
+      "seo_priority": "high"
+    },
+    "/imgs/blog/Recyclable/a_packaging_materials_comparison_chart_0623698.webp": {
+      "title": "Recyclable Cosmetic Packaging Materials Comparison & Analysis Chart",
+      "description": "Comprehensive comparison chart for recyclable cosmetic packaging options. Four materials analyzed: 1) BOPP FILM (Biaxially Oriented Polypropylene) - FSSC 22000/FDA certified, 3/5 leaves environmental rating, $$ low-mid cost, supplier Amcor; 2) KRAFT PAPER (Recycled) - FSC/Eco-Label/OK Compost Home certified, 4/5 leaves high rating, $$$ mid-high cost, supplier Mondi Group; 3) PE POLYETHYLENE (High-Density HDPE) - FDA/ISO 14001/Recycle Ready certified, 2/5 leaves moderate rating, $$ low-mid cost, supplier Berry Global; 4) COMPOSTABLE PLA (Polylactic Acid) - BPI/OK Compost Industrial/USDA BioPreferred certified, 5/5 leaves excellent rating, $$$$ high cost, supplier NatureWorks. Chart includes brand examples, benefits, environmental impact rating with leaf icons. Source: Independent Market Analysis 2024.",
+      "alt": "Recyclable cosmetic packaging comparison chart BOPP kraft PE PLA with certifications environmental ratings costs suppliers Amcor Mondi Berry NatureWorks",
+      "keywords": ["packaging comparison", "BOPP film", "kraft paper", "HDPE", "PLA", "cosmetic packaging", "recyclable", "FSC certified", "environmental rating", "Amcor", "Mondi", "NatureWorks"],
+      "category": "technical",
+      "type": "infographic",
+      "colors": ["green", "brown", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/blog/plant/a_pet_food_lifestyle_scene_9319878.webp": {
+      "title": "Plant-Based Pet Food Lifestyle Scene - Golden Retriever Home",
+      "description": "Warm lifestyle scene of golden retriever eating from ceramic bowl in cozy plant-filled living room. Rustic wooden shelf displays Earth Paws PLANT BASED DOG FOOD kraft bags and Green Bites sustainable pet food packaging. Home decor includes ferns, spider plants, woven baskets, linen curtains with natural light. Jute rug, comfortable sofa, and terracotta pots create organic eco-conscious aesthetic. Perfect visual for plant-based pet nutrition and sustainable pet product marketing.",
+      "alt": "Golden retriever eating in plant-filled living room with Earth Paws Green Bites sustainable pet food packaging on wooden shelf",
+      "keywords": ["pet food lifestyle", "golden retriever", "plant-based dog food", "Earth Paws", "Green Bites", "sustainable pet food", "home scene", "eco-friendly pet", "kraft packaging"],
+      "category": "lifestyle",
+      "type": "scene",
+      "colors": ["kraft brown", "green", "natural", "cream"],
+      "seo_priority": "high"
+    },
+    "/imgs/blog/Sustainable-pet/a_pet_food_material_comparison_4636150.webp": {
+      "title": "Sustainable Pet Food Packaging Material Comparison Chart - B2B Educational",
+      "description": "B2B educational comparison chart for sustainable pet food packaging materials. Four options: 1) COMPOSTABLE KRAFT POUCH (Bio-based & Certified) - PLA/PHA/cellulose fibers, Excellent sustainability rating (5 stars), EN13432 certified, moderate O2/moisture barrier, $$$ cost, best for dry kibble/freeze-dried/organic brands; 2) RECYCLABLE PLASTIC FILM (Mono-material PE/PP) - Good sustainability (4 stars), high O2 barrier, $$$$ cost, best for all pet food types with high barrier needs; 3) RECYCLED PAPER & CARDBOARD (Fibrous & Structural) - Very Good sustainability (4 stars), 80%+ post-consumer waste, low-moderate barriers, $$$$ cost, best for dry kibble bags/multipacks; 4) HYBRID COMPOSTABLE BLEND (Multi-layer & Versatile) - Developing sustainability, customizable barriers, $$$$$ high cost, best for specialized/niche markets. Includes barrier performance, cost relative, best-use scenarios, and end-of-life benefits.",
+      "alt": "Sustainable pet food packaging B2B comparison chart compostable kraft recyclable plastic recycled paper hybrid blend with ratings costs uses",
+      "keywords": ["pet food packaging", "B2B comparison", "compostable kraft", "recyclable plastic", "recycled paper", "hybrid compostable", "EN13432", "sustainability rating", "barrier performance"],
+      "category": "technical",
+      "type": "infographic",
+      "colors": ["kraft brown", "teal", "green", "blue"],
+      "seo_priority": "high"
+    },
+    "/imgs/blog/Sustainable-pet/a_pet_food_packaging_solutions_guide_9437354.webp": {
+      "title": "Optimal Pet Food Packaging Solutions - Comprehensive Matrix Guide",
+      "description": "Comprehensive pet food packaging solutions matrix with 6 product categories. Header shows Recyclable/Compostable/Bio-Based/Eco-Friendly certification badges. Categories: 1) DRY KIBBLE - kraft pouch with press-to-seal, high-barrier multi-layer protection, puncture-resistant, oxygen protection; 2) WET/CANNED FOOD - recyclable aluminum can with airtight seal, compostable tray with moisture barrier; 3) PET TREATS & JERKY - clear window pouch for product visibility, quick shelf turnover; 4) FREEZE-DRIED RAW - lightweight design reduces shipping, moisture control valve prevents clumping; 5) GRAIN-FREE/PREMIUM - luxurious texture/finish for shelf appeal, eco-conscious branding communicates sustainability; 6) BULK/REFILL FORMAT - cost-effective lower packaging cost per unit, minimal waste reduces single-use packaging. Footer: Designed for Professional Pet Industry. Prioritize Performance & Planet. Paw print decorations throughout.",
+      "alt": "Optimal pet food packaging solutions matrix for dry kibble wet food treats freeze-dried grain-free bulk refill with eco certifications",
+      "keywords": ["pet food packaging", "packaging solutions", "dry kibble", "wet food", "pet treats", "freeze-dried", "grain-free", "bulk refill", "professional pet industry", "eco-friendly"],
+      "category": "technical",
+      "type": "infographic",
+      "colors": ["kraft brown", "green", "teal", "cream"],
       "seo_priority": "high"
     }
   }
