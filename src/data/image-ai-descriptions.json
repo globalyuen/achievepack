@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 14,
+  "total_analyzed": 17,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -141,6 +141,36 @@
       "category": "product",
       "type": "scene",
       "colors": ["kraft brown", "olive green", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/solution-wellness.webp": {
+      "title": "Wellness & Supplements Packaging Solution",
+      "description": "Health and wellness lifestyle scene showing woman pouring green superfood powder from white Achieve Pack stand-up pouch into glass of water with ice. Kitchen counter setting with fresh fruits (strawberries, blueberries, raspberries, green apple), dumbbells, yoga mat, and basil plant. Person wearing fitness attire and smartwatch. Premium supplement packaging for health-conscious consumers.",
+      "alt": "Achieve Pack wellness supplement pouch with woman pouring green powder into water glass - healthy lifestyle fitness kitchen scene with fruits and dumbbells",
+      "keywords": ["wellness packaging", "supplement pouch", "superfood powder", "health products", "fitness lifestyle", "protein powder bag", "sustainable supplement packaging", "green powder"],
+      "category": "product",
+      "type": "scene",
+      "colors": ["white", "green", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/testimonials-client-logos.webp": {
+      "title": "Achieve Pack Client Brands Logo Wall",
+      "description": "Grid display of 40+ client brand logos showcasing Achieve Pack's diverse customer base. Includes: Morlife, Sustenir Agriculture, SEGA PAC, MSI Flexible Packaging, Essential Graphics, Win Packaging, Humble Snacks, Premium Pantry, NG WAH International, Modern Food Packing, Mavella Superfoods, Superfood Lab Asia, Taste of Paradise, Green Urban Foods, Knowrish Well, Fodilicious, Northwest Confections, Supplefactory, Hike Again Remedies, KAKEJO, Cocktails by Mail, Nuditea, Winand Products, Caffeine Solutions, Simply This, Freshfield, Happy Jack Co, Hoehne Consulting, Delyn, OOVO Straw, Honestea, Un-Possible Kitchen, Tra My Organic, Happy Mix Co, Chic Eatz, moom.health, Alia Wall Co, Lola Lifestyle, Prime Natural Foods, and more.",
+      "alt": "Achieve Pack trusted client logos grid featuring 40+ food beverage supplement and packaging brand partners worldwide",
+      "keywords": ["client logos", "brand partners", "testimonials", "trusted brands", "customer logos", "food brands", "beverage brands", "supplement brands", "packaging clients"],
+      "category": "marketing",
+      "type": "logo",
+      "colors": ["gray", "white"],
+      "seo_priority": "medium"
+    },
+    "/eco-logo/transparent-bkg/ap-logo.png": {
+      "title": "Achieve Pack Logo - Transparent Background",
+      "description": "Official Achieve Pack 'ap' logo with integrated leaf design on transparent background. Green colored modern minimalist logo representing sustainable eco-friendly packaging brand. The leaf element symbolizes environmental commitment and natural materials.",
+      "alt": "Achieve Pack green ap logo with leaf design on transparent background - sustainable packaging brand identity",
+      "keywords": ["Achieve Pack logo", "ap logo", "brand logo", "transparent logo", "green logo", "eco logo", "sustainable brand"],
+      "category": "branding",
+      "type": "logo",
+      "colors": ["green"],
       "seo_priority": "high"
     }
   }
