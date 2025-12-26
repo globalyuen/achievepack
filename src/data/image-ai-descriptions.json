@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 9,
+  "total_analyzed": 10,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -91,6 +91,16 @@
       "category": "marketing",
       "type": "infographic",
       "colors": ["green", "white", "gray"],
+      "seo_priority": "high"
+    },
+    "/imgs/infographic-composting-timeline.webp": {
+      "title": "Industrial Composting Timeline for Compostable Packaging",
+      "description": "Composting Timeline infographic showing biodegradation process in industrial composting facility at optimal temperature and moisture. Features ASTM D6400 / EN13432 certification badge. Timeline stages: Week 1 - pouch placed in compost bin with initial microbial activity; Month 1 - early breakdown with edges fragmenting; Month 2 - continued decomposition; Month 3 - partial decomposition with accelerated microbial action; Month 4-5 - advanced decomposition into organic fragments; Final - complete decomposition into nutrient-rich soil. Shows Achieve Pack branded pouch degrading with earthworms and organic matter.",
+      "alt": "Compostable packaging industrial composting timeline showing 5-month biodegradation process from intact pouch to nutrient-rich soil with ASTM D6400 EN13432 certification",
+      "keywords": ["composting timeline", "industrial composting", "biodegradable", "ASTM D6400", "EN13432", "compostable packaging", "decomposition", "eco-friendly", "soil application"],
+      "category": "sustainability",
+      "type": "infographic",
+      "colors": ["brown", "green", "beige"],
       "seo_priority": "high"
     }
   }
