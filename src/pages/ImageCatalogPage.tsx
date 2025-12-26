@@ -96,10 +96,6 @@ export default function ImageCatalogPage() {
   const getFilteredImages = () => {
     let images: ImageInfo[] = []
     
-    if (!searchQuery && !selectedCategory) {
-      return []
-    }
-
     if (searchQuery) {
       const query = searchQuery.toLowerCase()
       Object.values(categories).forEach(cat => {
@@ -111,6 +107,11 @@ export default function ImageCatalogPage() {
       })
     } else if (selectedCategory) {
       images = categories[selectedCategory]?.images || []
+    } else {
+      // Show all images when no category selected
+      Object.values(categories).forEach(cat => {
+        images = images.concat(cat.images)
+      })
     }
 
     // Filter to show only empty alt texts if enabled
@@ -382,59 +383,6 @@ export default function ImageCatalogPage() {
 
           {/* Main Content */}
           <main className="flex-1">
-            {/* Show all categories overview when nothing selected */}
-            {!selectedCategory && !searchQuery ? (
-              <div className="space-y-4">
-                <h2 className="text-lg font-semibold text-neutral-900">Select a Category to View AI Analysis</h2>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  {Object.entries(categories).map(([cat, data]) => {
-                    const catAICount = data.images.filter(img => aiDescriptions[img.path]).length
-                    const progress = Math.round((catAICount / data.count) * 100)
-                    return (
-                      <button
-                        key={cat}
-                        onClick={() => setSelectedCategory(cat)}
-                        className="bg-white rounded-xl border border-neutral-200 p-4 hover:border-primary-300 hover:shadow-md transition text-left group"
-                      >
-                        <div className="flex items-center gap-3 mb-3">
-                          <div className="w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center">
-                            <Folder className="h-5 w-5 text-primary-600" />
-                          </div>
-                          <div>
-                            <h3 className="font-medium text-neutral-900 group-hover:text-primary-600 transition text-sm">{cat}</h3>
-                            <p className="text-xs text-neutral-500">{data.count} images</p>
-                          </div>
-                        </div>
-                        {/* Progress bar */}
-                        <div className="mb-2">
-                          <div className="flex justify-between text-xs mb-1">
-                            <span className="text-neutral-500">AI Analyzed Progress</span>
-                            <span className={progress === 100 ? 'text-purple-600 font-medium' : 'text-neutral-500'}>{progress}%</span>
-                          </div>
-                          <div className="h-2 bg-neutral-100 rounded-full overflow-hidden">
-                            <div 
-                              className={`h-full transition-all ${progress === 100 ? 'bg-purple-500' : 'bg-purple-400'}`}
-                              style={{ width: `${progress}%` }}
-                            />
-                          </div>
-                        </div>
-                        {/* Preview thumbnails */}
-                        <div className="grid grid-cols-4 gap-1">
-                          {data.images.slice(0, 4).map((img, i) => (
-                            <div key={i} className="aspect-square bg-neutral-100 rounded overflow-hidden relative">
-                              <img src={img.path} alt="" className="w-full h-full object-cover" loading="lazy" />
-                              {aiDescriptions[img.path] && (
-                                <div className="absolute top-0.5 right-0.5 w-2 h-2 bg-purple-500 rounded-full" />
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      </button>
-                    )
-                  })}
-                </div>
-              </div>
-            ) : (
               <>
                 {/* Category header */}
                 <div className="flex items-center justify-between mb-4">
@@ -570,7 +518,6 @@ export default function ImageCatalogPage() {
                   </div>
                 )}
               </>
-            )}
           </main>
         </div>
       </div>
