@@ -385,11 +385,11 @@ export default function ImageCatalogPage() {
             {/* Show all categories overview when nothing selected */}
             {!selectedCategory && !searchQuery ? (
               <div className="space-y-4">
-                <h2 className="text-lg font-semibold text-neutral-900">Select a Category to Edit Alt Texts</h2>
+                <h2 className="text-lg font-semibold text-neutral-900">Select a Category to View AI Analysis</h2>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                   {Object.entries(categories).map(([cat, data]) => {
-                    const catAltCount = data.images.filter(img => altTexts[img.path]?.trim()).length
-                    const progress = Math.round((catAltCount / data.count) * 100)
+                    const catAICount = data.images.filter(img => aiDescriptions[img.path]).length
+                    const progress = Math.round((catAICount / data.count) * 100)
                     return (
                       <button
                         key={cat}
@@ -408,12 +408,12 @@ export default function ImageCatalogPage() {
                         {/* Progress bar */}
                         <div className="mb-2">
                           <div className="flex justify-between text-xs mb-1">
-                            <span className="text-neutral-500">Alt Text Progress</span>
-                            <span className={progress === 100 ? 'text-green-600 font-medium' : 'text-neutral-500'}>{progress}%</span>
+                            <span className="text-neutral-500">AI Analyzed Progress</span>
+                            <span className={progress === 100 ? 'text-purple-600 font-medium' : 'text-neutral-500'}>{progress}%</span>
                           </div>
                           <div className="h-2 bg-neutral-100 rounded-full overflow-hidden">
                             <div 
-                              className={`h-full transition-all ${progress === 100 ? 'bg-green-500' : 'bg-primary-500'}`}
+                              className={`h-full transition-all ${progress === 100 ? 'bg-purple-500' : 'bg-purple-400'}`}
                               style={{ width: `${progress}%` }}
                             />
                           </div>
@@ -423,8 +423,8 @@ export default function ImageCatalogPage() {
                           {data.images.slice(0, 4).map((img, i) => (
                             <div key={i} className="aspect-square bg-neutral-100 rounded overflow-hidden relative">
                               <img src={img.path} alt="" className="w-full h-full object-cover" loading="lazy" />
-                              {altTexts[img.path]?.trim() && (
-                                <div className="absolute top-0.5 right-0.5 w-2 h-2 bg-green-500 rounded-full" />
+                              {aiDescriptions[img.path] && (
+                                <div className="absolute top-0.5 right-0.5 w-2 h-2 bg-purple-500 rounded-full" />
                               )}
                             </div>
                           ))}
