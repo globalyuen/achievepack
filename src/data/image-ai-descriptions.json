@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 143,
+  "total_analyzed": 144,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -1441,6 +1441,16 @@
       "category": "product",
       "type": "detail",
       "colors": ["black", "gold", "brown"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/corrugated-box/a_load_bearing_structure_detail_7538740.webp": {
+      "title": "Double-Wall Strength for Real Shipping",
+      "description": "Double-wall strength for real shipping / 双层瓦楞强度，应对真实快递链路 product detail image. Hand holding black corrugated mailer box demonstrating load-bearing capability and structural strength. Box features FSC certified / Recyclable label. Showcases durable double-wall construction designed to withstand real-world shipping and logistics conditions.",
+      "alt": "Double-wall corrugated box strength demonstration - hand holding FSC certified recyclable black mailer showing load-bearing shipping durability",
+      "keywords": ["double-wall", "corrugated box", "load bearing", "shipping strength", "FSC certified", "recyclable", "durable packaging", "mailer box", "structural strength"],
+      "category": "product",
+      "type": "detail",
+      "colors": ["black", "gray"],
       "seo_priority": "high"
     }
   }
