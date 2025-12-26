@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 145,
+  "total_analyzed": 146,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -1458,6 +1458,16 @@
       "description": "Premium materials with a sustainable core / 高端纸材与FSC认证，让高级感与环保同在 material benefits page. Features black Quantum Cacao luxury mailer box with three key selling points: FSC certified corrugated board, Recyclable plastic-free mailer box, Perfect for chocolate tea coffee beauty & gifting. Showcases sustainable premium packaging solution combining eco-credentials with luxury aesthetics.",
       "alt": "Premium sustainable corrugated box materials - FSC certified recyclable plastic-free mailer for chocolate tea coffee beauty gifting with Quantum Cacao example",
       "keywords": ["FSC certified", "corrugated board", "recyclable", "plastic-free", "premium materials", "sustainable packaging", "luxury mailer", "chocolate packaging", "gift box"],
+      "category": "product",
+      "type": "marketing",
+      "colors": ["black", "gold", "beige"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/tuck-box/a_material_sustainability_page_9060501.webp": {
+      "title": "Luxury Look with an Eco-Conscious Core",
+      "description": "Luxury look with an eco-conscious core / 外表高级，内里环保——从纸板开始升级你的品牌 material sustainability page. Features elegant black Achieve Pack tuck box with three key selling points: Premium FSC-ready paperboard, Recyclable plastic-free cardboard box, Ideal for chocolate tea cosmetics & small electronics. Showcases sustainable luxury packaging solution.",
+      "alt": "Luxury eco-conscious tuck box - Achieve Pack FSC-ready recyclable plastic-free cardboard for chocolate tea cosmetics electronics",
+      "keywords": ["tuck box", "FSC-ready", "recyclable", "plastic-free", "luxury packaging", "eco-conscious", "cardboard box", "cosmetics packaging", "electronics packaging"],
       "category": "product",
       "type": "marketing",
       "colors": ["black", "gold", "beige"],
