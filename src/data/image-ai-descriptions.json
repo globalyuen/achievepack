@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 148,
+  "total_analyzed": 149,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -1491,6 +1491,16 @@
       "category": "product",
       "type": "collection",
       "colors": ["black", "gold", "gray"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/tuck-box/a_retail_display_scene_3099119.webp": {
+      "title": "Ready for Premium Retail Shelves",
+      "description": "Ready for premium retail shelves / 一整排整齐陈列，让货架一眼看出你的品牌 retail display scene image. Multiple black Achieve Pack tuck boxes neatly arranged on retail shelf showing brand consistency. Caption: Consistent tuck box sizing, perfect for retail walls & counters. Demonstrates professional retail-ready packaging presentation.",
+      "alt": "Premium retail shelf display with black Achieve Pack tuck boxes - consistent sizing for retail walls counters and store shelves",
+      "keywords": ["retail display", "shelf ready", "retail shelves", "store display", "consistent sizing", "brand presentation", "counter display", "retail packaging", "tuck box"],
+      "category": "product",
+      "type": "scene",
+      "colors": ["black", "gold", "white"],
       "seo_priority": "high"
     }
   }
