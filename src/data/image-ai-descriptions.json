@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 67,
+  "total_analyzed": 71,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -671,6 +671,46 @@
       "category": "technical",
       "type": "infographic",
       "colors": ["kraft brown", "green", "teal", "cream"],
+      "seo_priority": "high"
+    },
+    "/imgs/blog/plant/a_plant_based_pet_food_packaging_design_0193748.webp": {
+      "title": "AchievePack Solutions Plant-Based Superfood Pet Food Packaging",
+      "description": "Premium plant-based superfood pet food packaging by AchievePack Solutions. Olive green stand-up pouches with clear window showing colorful multi-shaped kibble (green, orange, brown varieties). Features white leaf logo with 'AchievePack Solutions' branding. Product labels: 'PLANT-BASED SUPERFOOD' and 'SUSTAINABLE & ECO-FRIENDLY PREMIUM QUALITY'. Side panel shows Nutrition Facts with recyclable symbol. Multiple bags displayed on wooden shelf in retail-style arrangement. Professional pet food packaging design showcasing sustainable materials and premium positioning.",
+      "alt": "AchievePack Solutions olive green plant-based superfood pet food packaging with clear window showing colorful kibble sustainable eco-friendly design",
+      "keywords": ["plant-based pet food", "superfood kibble", "AchievePack Solutions", "sustainable packaging", "eco-friendly", "pet food design", "stand-up pouch", "window pouch", "premium pet food"],
+      "category": "product",
+      "type": "product",
+      "colors": ["olive green", "kraft", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/blog/geo/a_ppwr_compliant_packaging_certifications_0874427.webp": {
+      "title": "PPWR Compliant Packaging Certifications - EU Recyclable & Compostable",
+      "description": "EU PPWR-compliant packaging showcase displaying three certification categories. LEFT: Clear PE mono-material pouch with 'EU DESIGN-FOR-RECYCLING CERTIFIED' badge, Recyclability Rating A symbols, PE recycling triangle, PPWR COMPLIANT MATERIAL QR codes. CENTER: Kraft pouches with large 'EN 13432' industrial compostable certification, coffee cup icon, PE symbol, REGULATORY COMPOSTABLE BIO-DEGRADABLE labels, QR codes. RIGHT: Kraft pouches with 'PPWR CONFORMITY DOCUMENTATION', PPWR VERIFIED badge, 'SUSTAINABLE PACKAGING SOLUTION', RECYCLABLE symbol, PPWR COMPLIANT MATERIAL QR code. Professional product photography on neutral gray background.",
+      "alt": "PPWR compliant EU packaging certifications clear PE recyclable EN13432 compostable kraft PPWR verified sustainable pouches with QR codes",
+      "keywords": ["PPWR compliant", "EU certification", "EN13432", "recyclable", "compostable", "design-for-recycling", "PE mono-material", "PPWR verified", "sustainable packaging"],
+      "category": "regulatory",
+      "type": "product",
+      "colors": ["clear", "kraft brown", "gray"],
+      "seo_priority": "high"
+    },
+    "/imgs/blog/Recyclable/a_recyclable_cosmetic_packaging_pouches_3486985.webp": {
+      "title": "Recyclable Cosmetic Packaging - Minimal Flat Pouches Collection",
+      "description": "RECYCLABLE COSMETIC PACKAGING hero image featuring 6 minimal flat pouches on textured stone surface. Color palette: pure white pouches (2), sage green/olive pouches (2), natural kraft brown pouches (2). Clean minimalist design with no branding - blank templates for cosmetic brand customization. Soft natural lighting through window. Dried botanical decoration (pampas grass). Premium aesthetic for sustainable beauty and skincare packaging. Stone texture adds organic, earthy feel.",
+      "alt": "Recyclable cosmetic packaging flat pouches in white sage green kraft brown on stone surface minimalist sustainable beauty packaging",
+      "keywords": ["recyclable cosmetic packaging", "flat pouches", "minimalist packaging", "beauty packaging", "skincare pouch", "sustainable cosmetics", "white pouch", "sage green", "kraft pouch"],
+      "category": "product",
+      "type": "hero",
+      "colors": ["white", "sage green", "kraft brown", "stone gray"],
+      "seo_priority": "high"
+    },
+    "/imgs/blog/Recyclable/a_recyclable_packaging_circular_economy_9642967.webp": {
+      "title": "Journey of Recyclable Cosmetic Packaging - Circular Economy Infographic",
+      "description": "THE JOURNEY OF RECYCLABLE COSMETIC PACKAGING: A CIRCULAR ECONOMY infographic. Circular flow diagram with green arrows: 1) RAW MATERIALS - Renewable & Plant-Based Sources (kraft paper stack, bio-plastic pills with checkmark); 2) MANUFACTURING - Low-Impact Production, Energy Efficient (factory with gear/lightning icons); 3) SUSTAINABLE POUCHES - Durable, Lightweight, Designed for Reuse (cosmetic bottles with FSSC 22000 Certified, FDA Approved Material, OK Compost Home badges); 4) CONSUMER USE - Enjoy & Refill, Reduce Waste (person using dropper product); 5) RECYCLING - Collection, Sorting & Reprocessing (recycling bin, conveyor, washing machine); 6) NEW PRODUCTS - Closed-Loop Creation, Circular Economy (recycled cosmetic containers with leaf sprout). Center text: CIRCULAR ECONOMY: REDUCE, REUSE, RECYCLE, REGENERATE. Green leaves decoration. Growth chart icons showing sustainability metrics.",
+      "alt": "Circular economy infographic for recyclable cosmetic packaging showing raw materials manufacturing sustainable pouches consumer use recycling new products cycle",
+      "keywords": ["circular economy", "recyclable packaging", "cosmetic packaging journey", "sustainable manufacturing", "closed-loop", "reduce reuse recycle", "bio-plastic", "FSSC 22000", "FDA approved"],
+      "category": "technical",
+      "type": "infographic",
+      "colors": ["green", "teal", "white"],
       "seo_priority": "high"
     }
   }
