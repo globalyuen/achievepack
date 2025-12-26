@@ -4,6 +4,8 @@ import { Mail, Lock, Eye, EyeOff, ArrowLeft, Loader2, ChevronLeft, ChevronRight 
 import { useAuth } from '../hooks/useAuth'
 import { useTranslation } from 'react-i18next'
 
+const ADMIN_EMAIL = 'ryan@achievepack.com'
+
 const LoginPage: React.FC = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
@@ -63,7 +65,12 @@ const LoginPage: React.FC = () => {
       setError(error.message)
       setLoading(false)
     } else {
-      navigate('/dashboard')
+      // Redirect admin to /admin, others to /dashboard
+      if (email.toLowerCase() === ADMIN_EMAIL) {
+        navigate('/admin')
+      } else {
+        navigate('/dashboard')
+      }
     }
   }
 
