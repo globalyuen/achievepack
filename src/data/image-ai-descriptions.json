@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 37,
+  "total_analyzed": 38,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -371,6 +371,16 @@
       "category": "marketing",
       "type": "infographic",
       "colors": ["kraft brown", "gold", "holographic", "green"],
+      "seo_priority": "high"
+    },
+    "/imgs/infographic-shipping-storage.webp": {
+      "title": "Shipping Cost Savings & Storage Space Savings Infographic",
+      "description": "Two-part infographic showing logistics benefits. TOP: SHIPPING COST SAVINGS - 15-22% LESS SHIPPING COSTS comparing Traditional Packaging (heavy cardboard box with shipping weight icon) to Achieve Pack Pouches (organized flat pouches in shipping box with dollar savings). Arrow shows cost reduction. BOTTOM: STORAGE SPACE SAVINGS - 70% SPACE SAVINGS comparing Cluttered Shelf (rigid containers with disorganized warehouse) to Organized Shelf (efficient pouches on neat warehouse shelving). Percentage arrow shows space optimization. Features Achieve Pack 'ap' logo.",
+      "alt": "Shipping and storage savings infographic - 15-22% less shipping costs and 70% space savings comparing traditional rigid packaging vs efficient Achieve Pack pouches",
+      "keywords": ["shipping savings", "storage savings", "15-22% less shipping", "70% space savings", "warehouse efficiency", "logistics", "cost reduction", "flexible packaging benefits", "organized storage"],
+      "category": "marketing",
+      "type": "infographic",
+      "colors": ["green", "kraft brown", "gray"],
       "seo_priority": "high"
     }
   }
