@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 28,
+  "total_analyzed": 35,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -281,6 +281,76 @@
       "category": "product",
       "type": "product",
       "colors": ["silver", "kraft brown", "gray", "yellow", "orange", "red", "green"],
+      "seo_priority": "high"
+    },
+    "/imgs/feature-pouch-shapes.webp": {
+      "title": "7+ Pouch Configurations - Any Size Any Closure",
+      "description": "Comprehensive display of 7+ sustainable pouch configurations with Achieve Pack branding. Options include: 3-Side Seal Pouch, Stand-Up Pouch, Box Pouch, Flat-Bottom Pouch, Quad Seal Pouch, Side Gusset Pouch, and Spout Pouch. Available from XXXS to XXL sizes with Zipper, Spout, and Tin-Tie closure options. Custom printing available with MOQ 100 pcs. Kraft and olive green color variations shown.",
+      "alt": "7 pouch configurations from Achieve Pack - 3-side seal stand-up box flat-bottom quad seal side gusset spout pouches in various sizes with zipper spout tin-tie closures",
+      "keywords": ["pouch shapes", "stand-up pouch", "box pouch", "flat bottom pouch", "quad seal", "side gusset", "spout pouch", "3-side seal", "custom sizes", "MOQ 100"],
+      "category": "product",
+      "type": "product",
+      "colors": ["kraft brown", "olive green"],
+      "seo_priority": "high"
+    },
+    "/imgs/feature-printing-finishes.webp": {
+      "title": "Premium Sustainable Printing Finishes Collection",
+      "description": "Showcase of 6 premium sustainable printing finishes on stand-up pouches with Achieve Pack 'ap' branding. Options include: MATTE FINISH (dark green, Premium Sustainable Finishes), GLOSS FINISH (silver metallic, Premium Sustainable Finishes), SOFT-TOUCH FINISH (beige/champagne, Luxury You Can Feel with brush texture demo), METALLIC FINISH (gold, Premium Sustainable Finishes), EMBOSSED POUCH (dark teal with geometric pattern, Premium Sustainable Finishes), STAMP FOIL FINISH (navy blue, Luxury You Can Feel). All finishes available on eco-friendly packaging.",
+      "alt": "6 premium pouch printing finishes - matte gloss soft-touch metallic embossed stamp foil sustainable packaging options from Achieve Pack",
+      "keywords": ["printing finishes", "matte finish", "gloss finish", "soft-touch", "metallic finish", "embossed", "stamp foil", "luxury packaging", "premium finishes", "sustainable printing"],
+      "category": "product",
+      "type": "product",
+      "colors": ["green", "silver", "gold", "champagne", "teal", "navy blue"],
+      "seo_priority": "high"
+    },
+    "/imgs/feature-reclosure-solutions.webp": {
+      "title": "Reclosure Options for Freshness Convenience Reusability",
+      "description": "Comprehensive infographic showing 5 reclosure options for sustainable packaging. Features: ZIPPER CLOSURE (e.g., stand-up pouch) - Press & Slide to seal, Pull to open; TIN-TIE CLOSURE (e.g., coffee/snack bag) - Fold over, Bend ties, Secure; SPOUT CAP (e.g., liquid pouch) - Twist to seal, Untwist to dispense; PRESS-TO-CLOSE CLOSURE (e.g., modern pressure seal) - Apply pressure to engage seal with Achieve Pack branding; VALVE (optional, e.g., coffee pouch) - Allows gas out, keeps air out. Icons show Freshness, Convenience, and Reusability benefits.",
+      "alt": "5 pouch reclosure options - zipper tin-tie spout cap press-to-close valve closures for freshness convenience reusability in sustainable packaging",
+      "keywords": ["reclosure options", "zipper closure", "tin-tie", "spout cap", "press-to-close", "valve", "resealable pouch", "freshness", "convenience", "reusable packaging"],
+      "category": "product",
+      "type": "infographic",
+      "colors": ["green", "white", "kraft brown"],
+      "seo_priority": "high"
+    },
+    "/imgs/infographic-carbon-footprint.webp": {
+      "title": "70% Carbon Footprint Reduction Infographic",
+      "description": "Environmental impact comparison infographic showing 70% CARBON FOOTPRINT REDUCTION. Left side: Traditional Plastic Production with factory emitting dark CO2 smoke clouds. Right side: Sustainable Achieve Pack solution with green eco-friendly pouch surrounded by leaves and minimal CO2 emissions with green checkmark. Large '70% REDUCTION' text with downward arrow. Based on comparative lifecycle assessment data. Features Achieve Pack 'ap' logo.",
+      "alt": "70% carbon footprint reduction infographic comparing traditional plastic factory emissions vs sustainable Achieve Pack eco-friendly packaging",
+      "keywords": ["carbon footprint", "70% reduction", "CO2 emissions", "lifecycle assessment", "sustainable packaging", "eco-friendly", "carbon neutral", "environmental impact", "green packaging"],
+      "category": "sustainability",
+      "type": "infographic",
+      "colors": ["green", "gray", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/infographic-fast-turnaround.webp": {
+      "title": "Fast Turnaround Times - 6-8 Weeks vs 12-16 Weeks",
+      "description": "FAST TURNAROUND TIMES infographic comparing Achieve Pack digital printing speed vs traditional suppliers. Production timeline: Design (2-3 WEEKS) → Sample → Approval → Production (6-8 WEEKS) → Delivery. Traditional suppliers shown as slow snail taking 12-16 weeks. Achieve Pack shown as fast rocket taking only 6-8 weeks. MEET YOUR TIMELINE tagline emphasizes digital printing enables faster production. Features stopwatch icon and Achieve Pack 'ap' logo.",
+      "alt": "Fast turnaround times infographic - Achieve Pack 6-8 weeks vs traditional suppliers 12-16 weeks with digital printing for faster production",
+      "keywords": ["fast turnaround", "6-8 weeks", "quick delivery", "digital printing", "production timeline", "speed", "fast packaging", "meet deadline", "quick production"],
+      "category": "marketing",
+      "type": "infographic",
+      "colors": ["green", "white", "gray"],
+      "seo_priority": "high"
+    },
+    "/imgs/infographic-grs-recyclable.webp": {
+      "title": "GRS-Certified Recyclable Options - Complete Circular Economy",
+      "description": "GRS-CERTIFIED RECYCLABLE OPTIONS infographic showing complete circular economy flow. Process: Used packaging → Collection bin → Recycling facility → New material → New packaging (with 100% Recycled Content Post-Consumer Recycled PCR badge). Center features GLOBAL RECYCLE STANDARD (GRS) logo with COMPLETE CIRCULAR ECONOMY text. Bottom shows benefits: Waste Reduction, Material Tracking, Certified Recycling Process, Chain of Custody & Traceability. Third-party certified for circular economy integration. Features Achieve Pack 'ap' logo.",
+      "alt": "GRS Global Recycle Standard certified recyclable packaging infographic showing complete circular economy with waste reduction material tracking traceability",
+      "keywords": ["GRS certified", "Global Recycle Standard", "recyclable packaging", "circular economy", "post-consumer recycled", "PCR", "waste reduction", "traceability", "recycling process", "chain of custody"],
+      "category": "sustainability",
+      "type": "infographic",
+      "colors": ["green", "blue", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/infographic-low-moq.webp": {
+      "title": "Low Minimum Order 100 Pieces - Start Small Test Faster",
+      "description": "LOW MINIMUM ORDER: 100 PIECES infographic comparing industry standard vs Achieve Pack. Left: Frustrated businessman with gray boxes showing Industry Standard 5,000-10,000 pcs minimum with red X. Right: Happy businessman with green boxes showing Achieve Pack 100 pcs minimum with green checkmark. Large '100 PIECES' text in center. START SMALL, TEST FASTER tagline. Perfect for startups and small businesses. Features Achieve Pack 'ap' logo.",
+      "alt": "Low MOQ 100 pieces infographic - Achieve Pack vs industry standard 5000-10000 pcs, perfect for startups and small businesses to start small test faster",
+      "keywords": ["low MOQ", "100 pieces minimum", "small order", "startup friendly", "test market", "small business", "low minimum order", "flexible ordering", "sample order"],
+      "category": "marketing",
+      "type": "infographic",
+      "colors": ["green", "gray", "white"],
       "seo_priority": "high"
     }
   }
