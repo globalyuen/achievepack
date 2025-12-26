@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 173,
+  "total_analyzed": 174,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -1741,6 +1741,16 @@
       "category": "product",
       "type": "product",
       "colors": ["silver", "metallic"],
+      "seo_priority": "high"
+    },
+    "/imgs/store/con-digital/sup-clear-xzip/1.webp": {
+      "title": "Clear Glossy Stand-Up Pouch",
+      "description": "Stand-up pouch with clear glossy material. Features: Clear Glossy Material for maximum product visibility; Stand-up design for excellent shelf display. Perfect for snacks, dried fruits, and retail products.",
+      "alt": "Clear glossy stand-up pouch - transparent packaging product visibility shelf display",
+      "keywords": ["stand-up pouch", "clear glossy", "transparent", "product visibility", "shelf display", "snack bag", "retail packaging"],
+      "category": "product",
+      "type": "product",
+      "colors": ["clear", "transparent"],
       "seo_priority": "high"
     }
   }
