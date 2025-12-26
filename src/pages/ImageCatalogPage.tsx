@@ -253,7 +253,7 @@ export default function ImageCatalogPage() {
                   AI Image Catalog
                 </h1>
                 <p className="text-sm text-neutral-500">
-                  {totalImages} images · <span className="text-purple-600">{countWithAI} AI analyzed</span> · <span className="text-green-600">{countWithAltText} with alt</span>
+                  {totalImages} images · <span className="text-purple-600">{countWithAI} AI analyzed</span> · <span className="text-green-600">{countWithAltText} filled alt text</span>
                 </p>
               </div>
             </div>
@@ -359,7 +359,7 @@ export default function ImageCatalogPage() {
                   </button>
                 </li>
                 {Object.entries(categories).map(([cat, data]) => {
-                  const catAltCount = data.images.filter(img => altTexts[img.path]?.trim()).length
+                  const catAICount = data.images.filter(img => aiDescriptions[img.path]).length
                   return (
                     <li key={cat}>
                       <button
@@ -369,8 +369,8 @@ export default function ImageCatalogPage() {
                         }`}
                       >
                         <span className="truncate">{cat}</span>
-                        <span className={`text-xs ml-2 ${catAltCount === data.count ? 'text-green-600' : 'text-neutral-400'}`}>
-                          {catAltCount}/{data.count}
+                        <span className={`text-xs ml-2 ${catAICount === data.count ? 'text-purple-600' : 'text-neutral-400'}`}>
+                          {catAICount}/{data.count}
                         </span>
                       </button>
                     </li>
