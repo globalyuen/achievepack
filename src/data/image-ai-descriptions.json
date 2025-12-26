@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 10,
+  "total_analyzed": 12,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -101,6 +101,26 @@
       "category": "sustainability",
       "type": "infographic",
       "colors": ["brown", "green", "beige"],
+      "seo_priority": "high"
+    },
+    "/imgs/coffee-pouch-nature-scene.webp": {
+      "title": "Kraft Coffee Pouch in Natural Forest Setting",
+      "description": "Premium kraft brown stand-up coffee pouch with Achieve Pack 'ap' leaf logo displayed in lush natural forest setting. Features clear window showing roasted coffee beans inside. Surrounded by ferns, succulents, moss, and rocks with warm sunlight filtering through green leaves. Perfect eco-friendly lifestyle product photography showcasing sustainable packaging in harmony with nature.",
+      "alt": "Achieve Pack kraft brown coffee pouch with clear window showing coffee beans in natural forest setting with ferns succulents and sunlight",
+      "keywords": ["coffee pouch", "kraft packaging", "eco-friendly", "nature setting", "stand-up pouch", "coffee beans", "sustainable packaging", "product photography", "forest scene"],
+      "category": "product",
+      "type": "scene",
+      "colors": ["kraft brown", "green", "gold sunlight"],
+      "seo_priority": "high"
+    },
+    "/imgs/surface-finishes-showcase.webp": {
+      "title": "Premium Pouch Surface Finishes Collection",
+      "description": "Showcase of 6 premium sustainable pouch surface finishes: 1) Matte Finish - dark green elegant matte texture; 2) Gloss Finish - silver metallic glossy surface; 3) Soft-Touch Finish - beige/tan velvety tactile surface with brush texture demo; 4) Metallic Finish - luxury gold metallic with 'ap' branding; 5) Embossed Pouch - navy blue with dimensional embossed pattern; 6) Spot UV Finish - black with selective UV glossy coating on logo. Premium sustainable finishes labeled.",
+      "alt": "Six premium pouch surface finishes - matte gloss soft-touch metallic embossed and spot UV packaging finish options for sustainable pouches",
+      "keywords": ["surface finish", "matte finish", "gloss finish", "soft-touch", "metallic", "embossed", "spot UV", "premium packaging", "luxury pouch", "sustainable finishes"],
+      "category": "product",
+      "type": "product",
+      "colors": ["green", "silver", "beige", "gold", "navy blue", "black"],
       "seo_priority": "high"
     }
   }
