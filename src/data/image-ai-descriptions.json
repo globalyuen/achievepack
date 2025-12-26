@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 162,
+  "total_analyzed": 163,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -1631,6 +1631,16 @@
       "category": "marketing",
       "type": "feature",
       "colors": ["kraft", "clear", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/eco-digital/zwwZAmSi0HouQPEkkT_Wwz5rhX13CtgkT8LqvNnoJ5w=.webp": {
+      "title": "Refill-Ready, Future-Proof",
+      "description": "Refill-ready, future-proof / 为补充装而生的环保软包装 refill packaging image. White spout pouch with side-gusset design for larger volumes. Features: Side-gusset design for larger volumes; Perfect for skincare and haircare refills. Brown cosmetic bottle in background. Sustainable refill packaging solution.",
+      "alt": "Refill-ready future-proof white spout pouch - side-gusset design for skincare haircare refills larger volumes",
+      "keywords": ["refill-ready", "future-proof", "side-gusset", "larger volumes", "skincare refill", "haircare refill", "spout pouch", "sustainable refill"],
+      "category": "product",
+      "type": "feature",
+      "colors": ["white", "cream", "brown"],
       "seo_priority": "high"
     }
   }
