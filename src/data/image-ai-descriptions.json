@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 170,
+  "total_analyzed": 172,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -1708,6 +1708,26 @@
       "description": "Clear stand-up pouch with reclosable press zip and clear glossy material. Features: Reclosable Press Zip for easy open/close; Clear Glossy Material for product visibility. Perfect for food, snacks, and retail products requiring transparent packaging.",
       "alt": "Clear stand-up pouch reclosable press zip glossy material - transparent packaging product visibility",
       "keywords": ["clear pouch", "stand-up pouch", "reclosable zip", "press zip", "glossy material", "transparent", "product visibility", "retail packaging"],
+      "category": "product",
+      "type": "product",
+      "colors": ["clear", "transparent"],
+      "seo_priority": "high"
+    },
+    "/imgs/store/con-digital/3ss-met-xzip/1.webp": {
+      "title": "Three-Side Seal Matt Silver Pouch",
+      "description": "Three-side seal flat pouch with matt silver material. Features: 3 Side Seal structure for flat products; Matt Silver Material for premium metallic finish. Ideal for samples, sachets, and flat product packaging.",
+      "alt": "Three-side seal matt silver pouch - 3SS flat packaging metallic finish samples sachets",
+      "keywords": ["three-side seal", "3SS", "matt silver", "metallic", "flat pouch", "sachet", "sample packaging"],
+      "category": "product",
+      "type": "product",
+      "colors": ["silver", "metallic"],
+      "seo_priority": "high"
+    },
+    "/imgs/store/con-digital/3ss-clear-xzip/1.webp": {
+      "title": "Three-Side Seal Clear Glossy Pouch",
+      "description": "Three-side seal flat pouch with clear glossy material. Features: 3 Side Seal structure for flat products; Clear Glossy Material for product visibility. Perfect for samples, masks, and transparent flat packaging.",
+      "alt": "Three-side seal clear glossy pouch - 3SS flat transparent packaging product visibility",
+      "keywords": ["three-side seal", "3SS", "clear glossy", "transparent", "flat pouch", "sample", "mask packaging"],
       "category": "product",
       "type": "product",
       "colors": ["clear", "transparent"],
