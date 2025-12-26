@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 165,
+  "total_analyzed": 166,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -1660,6 +1660,16 @@
       "keywords": ["stand-up", "flat-bottom", "base structure", "shelf impact", "box pouch", "stable display", "kraft", "green", "pouch shape"],
       "category": "product",
       "type": "product",
+      "colors": ["kraft", "green"],
+      "seo_priority": "high"
+    },
+    "/imgs/pouch-shape/ads/a_achieve_pack_brand_closing_6612868.webp": {
+      "title": "Design Your Full Pouch System with Achieve Pack",
+      "description": "Design your full pouch system with Achieve Pack / 从袋型选择到结构搭配，一站式完成你的品牌包装系统 brand closing image. Full pouch collection showcase with 9+ structures. Features: 9+ structures · Any size; Custom printing from 100 pcs; Global support from Achieve Pack. Complete packaging system solution.",
+      "alt": "Design full pouch system Achieve Pack - 9+ structures custom printing 100 pcs global support brand packaging",
+      "keywords": ["full pouch system", "9+ structures", "custom printing", "100 pcs MOQ", "global support", "brand packaging", "pouch collection", "achievepack.com"],
+      "category": "marketing",
+      "type": "hero",
       "colors": ["kraft", "green"],
       "seo_priority": "high"
     }
