@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 153,
+  "total_analyzed": 155,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -1541,6 +1541,26 @@
       "category": "marketing",
       "type": "lifestyle",
       "colors": ["cream", "white", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/eco-digital/bUr_Wdvkcyq2aH95-oFtusPsS5YMJ2jZ6tjm74mHEr4=.webp": {
+      "title": "Design Your Pouch With Us",
+      "description": "Design your pouch with us / 一对一咨询，量身定制包装方案 consultation page image. Computer screen showing packaging design interface with multiple Achieve Pack branded pouches in various colors (gray, blue, white, green, red) displayed in foreground. Caption: Book your free consultation today. Showcases custom pouch design service.",
+      "alt": "Design your pouch consultation - computer screen with packaging design and colorful Achieve Pack pouches for custom branding",
+      "keywords": ["design consultation", "custom pouch", "packaging design", "free consultation", "custom branding", "pouch colors", "design service"],
+      "category": "marketing",
+      "type": "service",
+      "colors": ["gray", "blue", "white", "green", "red"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/eco-digital/ghEYoZQN4q_bq5SzDz94a_q95YbMZS933hJEnuImpmc=.webp": {
+      "title": "Layers of Protection",
+      "description": "Layers of protection / 看得见的多层高阻隔保护 material layer detail image. Cross-section view of green pouch showing multi-layer barrier structure. Features: Multi-layer barrier structure, Keeps freshness locked in. Demonstrates high barrier packaging technology for food preservation.",
+      "alt": "Layers of protection pouch cross-section - green bag showing multi-layer barrier structure for freshness preservation",
+      "keywords": ["layers protection", "multi-layer", "barrier structure", "freshness", "high barrier", "food preservation", "pouch structure", "packaging technology"],
+      "category": "product",
+      "type": "technical",
+      "colors": ["green", "white"],
       "seo_priority": "high"
     }
   }
