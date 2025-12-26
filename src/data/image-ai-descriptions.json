@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 146,
+  "total_analyzed": 147,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -1471,6 +1471,16 @@
       "category": "product",
       "type": "marketing",
       "colors": ["black", "gold", "beige"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/corrugated-box/a_packing_scene_production_9264348.webp": {
+      "title": "From Production Line to Unboxing Moment",
+      "description": "From production line to unboxing moment / 从生产线到开箱时刻，黑金礼盒一路保持品牌质感 packing scene production image. Shows packing station setup with stacked gray corrugated mailer boxes, black Quantum Cacao branded gift box, packing tape rolls, and green plant. Caption: Custom corrugated mailer boxes that plug straight into your packing station. Demonstrates seamless integration into fulfillment workflow.",
+      "alt": "Packing station scene with custom corrugated mailer boxes - stacked gray boxes black Quantum Cacao gift box tape rolls for production line fulfillment",
+      "keywords": ["packing station", "production line", "corrugated mailer", "fulfillment", "custom boxes", "gift box", "packaging workflow", "unboxing", "brand quality"],
+      "category": "product",
+      "type": "scene",
+      "colors": ["gray", "black", "gold", "green"],
       "seo_priority": "high"
     }
   }
