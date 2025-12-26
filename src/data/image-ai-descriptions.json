@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 161,
+  "total_analyzed": 162,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -1621,6 +1621,16 @@
       "category": "marketing",
       "type": "hero",
       "colors": ["kraft", "white", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/eco-digital/wXqLssPqdR9J0iDhIyQ-NGTDDFm-3DgFKlyQD4ipsEw=.webp": {
+      "title": "Choose Your Sustainable Material",
+      "description": "Choose your sustainable material / 从可堆肥到可回收，自由选材 material selection image. Two sustainable material options: Compostable Kraft (brown kraft paper pouch) and Recyclable Cello (clear cellophane pouch). Demonstrates eco-friendly material choices for sustainable packaging customization.",
+      "alt": "Choose sustainable material - Compostable Kraft brown pouch and Recyclable Cello clear pouch eco-friendly packaging options",
+      "keywords": ["sustainable material", "compostable kraft", "recyclable cello", "material selection", "eco-friendly", "kraft paper", "cellophane", "packaging choice"],
+      "category": "marketing",
+      "type": "feature",
+      "colors": ["kraft", "clear", "natural"],
       "seo_priority": "high"
     }
   }
