@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 22,
+  "total_analyzed": 23,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -222,6 +222,16 @@
       "type": "icon",
       "colors": ["green"],
       "seo_priority": "medium"
+    },
+    "/imgs/cert-b.webp": {
+      "title": "Certified B Corporation Pending Badge",
+      "description": "Official Certified B Corporation Pending status logo on black background. Large white 'B' in circle with 'Certified' above and 'Corporation' below, followed by 'PENDING' status indicator. B Corp certification demonstrates a company's commitment to balancing profit with purpose, meeting rigorous standards of social and environmental performance, accountability, and transparency.",
+      "alt": "Certified B Corporation Pending badge - black and white B Corp logo showing sustainability certification in progress",
+      "keywords": ["B Corp", "B Corporation", "certified pending", "sustainable business", "social impact", "environmental responsibility", "ethical business", "corporate certification"],
+      "category": "certification",
+      "type": "logo",
+      "colors": ["black", "white"],
+      "seo_priority": "high"
     }
   }
 }
