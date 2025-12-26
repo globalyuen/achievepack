@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 152,
+  "total_analyzed": 153,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -1531,6 +1531,16 @@
       "category": "product",
       "type": "detail",
       "colors": ["black", "gold", "gray"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/header/a_unboxing_scene_transparent_mailer_7400547.webp": {
+      "title": "Unboxing That Feels Good and Does Good",
+      "description": "Unboxing that feels good and does good / 拆快递这一刻，也是在做一件对地球好的事 unboxing scene image. Woman at home opening Achieve Pack compostable mailer bag containing folded sweaters and clothing. Warm sunlit interior setting. Caption: Let customers compost your mailer at home. Showcases sustainable home composting packaging experience.",
+      "alt": "Unboxing compostable mailer at home - woman opening Achieve Pack eco-friendly bag with folded clothing in warm sunlit room",
+      "keywords": ["unboxing", "compostable mailer", "home composting", "sustainable packaging", "eco-friendly", "clothing packaging", "customer experience", "feels good does good"],
+      "category": "marketing",
+      "type": "lifestyle",
+      "colors": ["cream", "white", "natural"],
       "seo_priority": "high"
     }
   }
