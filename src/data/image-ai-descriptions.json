@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 149,
+  "total_analyzed": 150,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -1501,6 +1501,16 @@
       "category": "product",
       "type": "scene",
       "colors": ["black", "gold", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/corrugated-box/a_structure_info_page_mailer_9213547.webp": {
+      "title": "Mailer Structure for Gifting & Shipping",
+      "description": "Mailer structure for gifting & shipping / 兼顾开箱仪式感与邮寄安全的经典礼盒结构 structure info page. Shows Quantum Cacao black mailer box in three views: LEFT closed front view, BOTTOM RIGHT open 3/4 view with gold logo and foam insert, top view with insert. Caption: Closed front / Open 3/4 view / Top view with insert. Demonstrates complete box structure for premium unboxing experience.",
+      "alt": "Mailer box structure views - Quantum Cacao black gift box showing closed front open 3/4 view and top view with custom foam insert",
+      "keywords": ["mailer structure", "gift box", "shipping box", "foam insert", "unboxing", "box views", "corrugated mailer", "premium packaging", "structure info"],
+      "category": "product",
+      "type": "technical",
+      "colors": ["black", "gold", "gray"],
       "seo_priority": "high"
     }
   }
