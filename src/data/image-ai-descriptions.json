@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 23,
+  "total_analyzed": 24,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -231,6 +231,16 @@
       "category": "certification",
       "type": "logo",
       "colors": ["black", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/contact-cta-banner.webp": {
+      "title": "Contact Us CTA Banner - Start Your Sustainable Packaging Journey",
+      "description": "Call-to-action banner with Achieve Pack 'ap' logo featuring headline 'Start Your Sustainable Packaging Journey. Get Your Free Consultation Today.' Showcases kraft pouches for coffee, wellness products, herbal, and organic items with green leaves decoration. Key benefits: 30-45 Day Delivery, FDA & ISO Certified, Eco-Friendly Solutions. Green 'CONTACT US' button with certification badges. Footer shows pouch.eco | Achieve Pack branding.",
+      "alt": "Achieve Pack Contact Us banner - Start sustainable packaging journey with free consultation, 30-45 day delivery, FDA ISO certified eco-friendly pouches",
+      "keywords": ["contact us", "CTA banner", "free consultation", "sustainable packaging", "30-45 day delivery", "FDA certified", "ISO certified", "eco-friendly", "kraft pouches"],
+      "category": "marketing",
+      "type": "hero",
+      "colors": ["green", "kraft brown", "white"],
       "seo_priority": "high"
     }
   }
