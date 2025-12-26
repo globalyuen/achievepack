@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 21,
+  "total_analyzed": 22,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -212,6 +212,16 @@
       "type": "logo",
       "colors": ["green"],
       "seo_priority": "high"
+    },
+    "/eco-logo/transparent-bkg/why-us.png": {
+      "title": "Why Us - Achieve Pack Value Proposition Icon",
+      "description": "'WHY US' branding graphic with green leaf design representing Achieve Pack's unique value proposition and commitment to sustainability. Two-tone green leaves frame the text, symbolizing eco-friendly approach and natural materials. Used for marketing sections highlighting company advantages and differentiators.",
+      "alt": "Why Us green leaf icon - Achieve Pack sustainable packaging value proposition branding element",
+      "keywords": ["why us", "value proposition", "branding", "green leaf", "company advantages", "sustainable packaging", "Achieve Pack"],
+      "category": "branding",
+      "type": "icon",
+      "colors": ["green"],
+      "seo_priority": "medium"
     }
   }
 }
