@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 19,
+  "total_analyzed": 20,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -188,6 +188,16 @@
       "description": "Compostable certification trademark logo featuring green seedling/sprout design with registered trademark symbol. The iconic seedling represents biodegradable materials that break down into nutrient-rich compost. Used to indicate packaging certified to industrial or home composting standards like ASTM D6400, EN13432, or OK Compost.",
       "alt": "Compostable certification seedling logo - green sprout trademark symbol for biodegradable eco-friendly packaging materials",
       "keywords": ["compostable", "seedling logo", "biodegradable", "compost certification", "eco certification", "green packaging", "sustainable materials", "OK Compost"],
+      "category": "certification",
+      "type": "logo",
+      "colors": ["green"],
+      "seo_priority": "high"
+    },
+    "/eco-logo/transparent-bkg/pcr.png": {
+      "title": "PCR Recycle Post-Consumer Recycled Logo",
+      "description": "PCR RECYCLE certification logo featuring green leaf design indicating Post-Consumer Recycled content in packaging materials. This mark signifies that the product contains recycled plastic from consumer waste, reducing virgin plastic usage and supporting circular economy. Used for packaging with recycled PE, PP, or PET content.",
+      "alt": "PCR Recycle logo with green leaves - Post-Consumer Recycled content certification for sustainable packaging materials",
+      "keywords": ["PCR", "post-consumer recycled", "recycled plastic", "recycle logo", "circular economy", "recycled content", "sustainable packaging", "eco certification"],
       "category": "certification",
       "type": "logo",
       "colors": ["green"],
