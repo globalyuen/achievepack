@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 24,
+  "total_analyzed": 25,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -241,6 +241,16 @@
       "category": "marketing",
       "type": "hero",
       "colors": ["green", "kraft brown", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/climate.webp": {
+      "title": "Climeworks Direct Air Capture CO2 Removal Technology",
+      "description": "Industrial Direct Air Capture (DAC) facility featuring Climeworks-style modular carbon capture collectors. Large cylindrical fan units with silver metallic housing arranged in stacked configuration, drawing atmospheric CO2. Set against lush green Swiss Alpine landscape with forested hills and traditional farmhouse. This cutting-edge climate technology removes carbon dioxide directly from ambient air for permanent storage or utilization, supporting carbon neutral and net-zero goals.",
+      "alt": "Climeworks Direct Air Capture facility with modular CO2 collectors in Swiss green landscape - industrial carbon removal technology for climate change mitigation",
+      "keywords": ["Direct Air Capture", "DAC", "Climeworks", "carbon capture", "CO2 removal", "carbon neutral", "climate technology", "net zero", "carbon offset", "Swiss"],
+      "category": "sustainability",
+      "type": "scene",
+      "colors": ["silver", "green", "blue sky"],
       "seo_priority": "high"
     }
   }
