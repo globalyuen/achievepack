@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 38,
+  "total_analyzed": 42,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -381,6 +381,46 @@
       "category": "marketing",
       "type": "infographic",
       "colors": ["green", "kraft brown", "gray"],
+      "seo_priority": "high"
+    },
+    "/imgs/landing-hero.png": {
+      "title": "Eco Pouch - Plant-Based Compostable Eco-Friendly Packaging",
+      "description": "Hero product image of kraft brown eco pouch stand-up bag with green leaf branding. Features 'eco pouch' text with tagline 'no plastic | no wastage | no problem'. Bottom label states 'PLANT-BASED. COMPOSTABLE. ECO-FRIENDLY.' Premium sustainable packaging from Achieve Pack showcased on dark background for maximum visual impact.",
+      "alt": "Eco Pouch kraft stand-up bag with no plastic no wastage no problem tagline - plant-based compostable eco-friendly sustainable packaging from Achieve Pack",
+      "keywords": ["eco pouch", "plant-based", "compostable", "eco-friendly", "no plastic", "kraft pouch", "sustainable packaging", "stand-up bag", "hero image"],
+      "category": "product",
+      "type": "hero",
+      "colors": ["kraft brown", "green", "dark background"],
+      "seo_priority": "high"
+    },
+    "/imgs/pcr-grs-cert-1.webp": {
+      "title": "SGS Global Recycled Standard GRS Certificate with PCR Certification",
+      "description": "Official SGS Scope Certificate for Global Recycled Standard (Version 4.0). Certificate Number SGC-GRC50841-GRS-2023-12. Product categories: Packaging (PC0023), Manufacturing (PR0016), Packing (PR0020), Printing (PR0023). Valid until 2025-01-02. Audit criteria: Global Recycled Standard V4.0, Content Claim Standard V3.1, Textile Exchange Standards Claims Policy V1.3. Certified by SGS with Textile Exchange licensing. Features PCR RECYCLE logo badge (Post Consumer Recycled Packaging Material in green) and Global Recycled Standard circular logo.",
+      "alt": "SGS Global Recycled Standard GRS scope certificate with PCR Post Consumer Recycled certification - sustainable packaging material verification",
+      "keywords": ["GRS certificate", "Global Recycled Standard", "SGS certified", "PCR", "post-consumer recycled", "scope certificate", "Textile Exchange", "recycled content", "sustainable certification"],
+      "category": "certification",
+      "type": "certification",
+      "colors": ["green", "blue", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/process-5-steps.webp": {
+      "title": "Our Process - 5 Steps to Custom Packaging in 30-45 Days",
+      "description": "OUR PROCESS infographic showing 5-step custom packaging production workflow with Achieve Pack branding. Steps: 1) Consultation & Design (5-7 days) - Free consultation, Mockup design, Material recommendation; 2) Proofing - PDF proof & cylinder approval; 3) Manufacturing (20-30 days) - Mass printing with quality checks; 4) Quality Control (3-5 days) - Final inspection & testing; 5) Delivery (2-3 days) - Shipping with certification docs. Green progress bar with checkmarks at each stage. 30-45 Day Total Timeline highlighted at bottom.",
+      "alt": "Achieve Pack 5-step packaging process infographic - consultation proofing manufacturing quality control delivery with 30-45 day total timeline",
+      "keywords": ["packaging process", "5 steps", "30-45 days", "consultation", "proofing", "manufacturing", "quality control", "delivery", "custom packaging", "production timeline"],
+      "category": "marketing",
+      "type": "infographic",
+      "colors": ["green", "white", "gray"],
+      "seo_priority": "high"
+    },
+    "/imgs/product-composting-timeline.webp": {
+      "title": "Composting Timeline - Industrial Composting Process",
+      "description": "COMPOSTING TIMELINE infographic showing biodegradation process in industrial composting facility at optimal temperature and moisture. Features EN13432/ASTM D6400 CERTIFIED badge. Timeline: WEEK 1 - Compostable pouch with Achieve Pack branding placed in compost bin surrounded by organic matter (food scraps, leaves), initial microbial activity begins. MONTH 1 - Early breakdown, pouch edges fragmenting, microorganisms colonizing. MONTH 2 - Complete decomposition, fully integrated into compost. MONTH 3 - Partial decomposition, significantly degraded, accelerated microbial action. MONTH 4-5 - Advanced decomposition, mostly broken into organic fragments, integrated into developing humus. Rich dark soil with earthworms shown as final result, ready for nutrient-rich soil application.",
+      "alt": "Composting timeline infographic showing 5-month biodegradation from compostable pouch to nutrient-rich soil with EN13432 ASTM D6400 certification",
+      "keywords": ["composting timeline", "biodegradation", "industrial composting", "EN13432", "ASTM D6400", "compostable packaging", "decomposition", "soil application", "microbial breakdown"],
+      "category": "sustainability",
+      "type": "infographic",
+      "colors": ["brown", "green", "beige"],
       "seo_priority": "high"
     }
   }
