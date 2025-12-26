@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 158,
+  "total_analyzed": 159,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -1591,6 +1591,16 @@
       "category": "product",
       "type": "lifestyle",
       "colors": ["white", "cream", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/eco-digital/hAGC60SxXYmSdiBTJD3XPhMZBocRVBXZyuV-dvt3r7c=.webp": {
+      "title": "Inside Every Pouch, A Better Material",
+      "description": "Inside every pouch, a better material / 每一种材质，都是对地球更好的选择 eco-materials infographic. Three sustainable material options: Cellophane · cellulose-based; PLA · plant-based bioplastic; Bio-based / PCR PE · lower carbon footprint. Features green Achieve Pack pouch with molecular structure diagrams. Showcases eco-friendly material choices for sustainable packaging.",
+      "alt": "Inside every pouch better material - Cellophane PLA Bio-based PCR PE sustainable packaging materials with molecular diagrams green Achieve Pack pouch",
+      "keywords": ["eco-materials", "Cellophane", "cellulose-based", "PLA", "plant-based bioplastic", "Bio-based PE", "PCR PE", "lower carbon footprint", "sustainable materials"],
+      "category": "marketing",
+      "type": "infographic",
+      "colors": ["green", "beige", "natural"],
       "seo_priority": "high"
     }
   }
