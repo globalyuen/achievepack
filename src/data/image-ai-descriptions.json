@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 167,
+  "total_analyzed": 168,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -1681,6 +1681,16 @@
       "category": "product",
       "type": "product",
       "colors": ["green"],
+      "seo_priority": "high"
+    },
+    "/imgs/pouch-shape/ads/a_achieve_pack_quad_side_gusset_closeup_9751125.webp": {
+      "title": "Quad Seal & Side Gusset for High-Volume Products",
+      "description": "Quad seal & side gusset for high-volume products / 适合更高容量与更高货架存在感的大包装 quad seal showcase. Two kraft quad seal pouches with side gusset design and GO ACHIEVE PACK branding. Perfect for high-volume bulk products with premium shelf presence.",
+      "alt": "Quad seal side gusset kraft pouches - high-volume products GO ACHIEVE PACK premium shelf presence",
+      "keywords": ["quad seal", "side gusset", "high-volume", "bulk packaging", "kraft pouch", "shelf presence", "large capacity", "premium"],
+      "category": "product",
+      "type": "product",
+      "colors": ["kraft", "natural"],
       "seo_priority": "high"
     }
   }
