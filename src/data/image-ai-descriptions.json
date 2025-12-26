@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 166,
+  "total_analyzed": 167,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -1671,6 +1671,16 @@
       "category": "marketing",
       "type": "hero",
       "colors": ["kraft", "green"],
+      "seo_priority": "high"
+    },
+    "/imgs/pouch-shape/ads/a_achieve_pack_irregular_shape_closeup_0205542.webp": {
+      "title": "Irregular Shapes for Seasonal & Limited-Edition Drops",
+      "description": "Irregular shapes for seasonal & limited-edition drops / 用异形袋做节日款和联名款，让货架一秒吸睛 irregular shape showcase. Green star-shaped pouch with GO ACHIEVE PACK branding. Perfect for seasonal promotions, limited editions, and collaboration releases. Eye-catching shelf impact.",
+      "alt": "Irregular shapes seasonal limited-edition - green star-shaped pouch GO ACHIEVE PACK eye-catching shelf display",
+      "keywords": ["irregular shapes", "star pouch", "seasonal", "limited-edition", "collaboration", "eye-catching", "shelf impact", "special shape"],
+      "category": "product",
+      "type": "product",
+      "colors": ["green"],
       "seo_priority": "high"
     }
   }
