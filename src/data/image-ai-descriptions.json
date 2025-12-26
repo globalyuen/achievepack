@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 45,
+  "total_analyzed": 49,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -451,6 +451,46 @@
       "category": "product",
       "type": "product",
       "colors": ["green", "silver", "champagne", "gold", "navy blue", "black"],
+      "seo_priority": "high"
+    },
+    "/imgs/4-infograhic/Bio-PE.webp": {
+      "title": "Renewable Bio-PE 100% Recyclable - Made from Sugarcane",
+      "description": "Renewable Bio-PE · 100% Recyclable infographic showing circular lifecycle. Top row: Renewable Source (sugarcane field) → Collected (plastic collection) → Reborn (recycled pellets). Circular flow: Made from sugarcane → Take to store drop-off → Drop-in PE recycles with regular plastic film → Back as new packaging. Central POUCH.ECO bag shows Bio-Based Polyethylene 100% Recyclable with recycling symbol. 'Renewable + Recyclable' headline. Bio-PE: chemically identical to fossil PE – fully compatible with existing recycling. Bottom badges: How2Recycle Store Drop-Off (18,000+ locations), >90% renewable bio-based content (sugarcane), 100% recyclable in PE film stream with no compromise on performance.",
+      "alt": "Renewable Bio-PE 100% recyclable infographic showing sugarcane-based sustainable packaging circular lifecycle with How2Recycle store drop-off",
+      "keywords": ["Bio-PE", "renewable", "100% recyclable", "sugarcane", "bio-based polyethylene", "How2Recycle", "store drop-off", "circular economy", "sustainable plastic"],
+      "category": "sustainability",
+      "type": "infographic",
+      "colors": ["green", "white", "beige"],
+      "seo_priority": "high"
+    },
+    "/imgs/4-infograhic/PCR.webp": {
+      "title": "High PCR Content - Up to 60% Post-Consumer Recycled",
+      "description": "Up to 60% Post-Consumer Recycled infographic showing recycling lifecycle. Top row: Collected (grocery store collection bins) → Processed (recycled plastic flakes) → Reborn with PCR (recycled pellets). Circular flow: Less virgin plastic, Real recycled content. Take to store drop-off → Collected with plastic bags & wraps → Turned into recycled PE resin → Made into new packaging. Central POUCH.ECO bag shows High Post-Consumer Recycled Content Store Drop-Off. 'High PCR Content' headline. Contains 40-60% post-consumer recycled plastic – reducing demand for new virgin material. Bottom badges: How2Recycle Store Drop-Off, Up to 60% Post-Consumer Recycled content, Mono-PE structure designed for film recycling stream.",
+      "alt": "High PCR content 40-60% post-consumer recycled infographic showing plastic recycling lifecycle with How2Recycle store drop-off certification",
+      "keywords": ["PCR", "post-consumer recycled", "60% recycled", "recycled plastic", "How2Recycle", "PE resin", "circular economy", "virgin plastic reduction"],
+      "category": "sustainability",
+      "type": "infographic",
+      "colors": ["green", "white", "gray"],
+      "seo_priority": "high"
+    },
+    "/imgs/4-infograhic/compost.webp": {
+      "title": "100% Industrially Compostable - Certified Packaging",
+      "description": "100% Industrially Compostable infographic showing composting lifecycle. Top row: Used (coffee grounds in packaging) → Collected (food waste collection) → Transformed (rich compost soil with seedling). Circular flow: Designed for industrial composting facilities. Add to food/yard waste → Collected with organic waste → Breaks down in 12 weeks under industrial conditions → Turns into nutrient-rich compost. Central POUCH.ECO bag shows 100% Industrially Compostable with TÜV Austria and DIN CERTCO badges. '100% Compostable' headline. Certified to disappear completely in industrial composting – not suitable for home composting. Bottom badges: BPI Certified Industrially Compostable, OK biota & ASTM D6400/EN13432 Compostable, Zero persistent microplastics Returns to nature.",
+      "alt": "100% industrially compostable packaging infographic with BPI TÜV Austria DIN CERTCO certifications showing 12-week decomposition cycle",
+      "keywords": ["industrially compostable", "100% compostable", "BPI certified", "TÜV Austria", "DIN CERTCO", "ASTM D6400", "EN13432", "12 weeks", "zero microplastics"],
+      "category": "sustainability",
+      "type": "infographic",
+      "colors": ["green", "white", "brown"],
+      "seo_priority": "high"
+    },
+    "/imgs/4-infograhic/home-compost.webp": {
+      "title": "Truly Home Compostable - TÜV Austria OK Compost HOME Certified",
+      "description": "100% Home Compostable infographic showing backyard composting lifecycle. Top row: Used (kraft pouch with coffee) → Collected (backyard compost bin with food scraps) → Transformed (rich soil with earthworms). Circular flow: Composts in your backyard – no industrial facility needed. Toss in backyard compost → Breaks down in 6-12 months → Turns into nutrient-rich soil → Feeds your garden. Central kraft POUCH.ECO bag shows 100% Home Compostable with TÜV Austria OK Compost badge. 'Truly Home Compostable' headline. Certified TÜV Austria OK Compost HOME – the highest standard. Natural beige/kraft color scheme emphasizes home-friendly composting.",
+      "alt": "Truly Home Compostable packaging infographic with TÜV Austria OK Compost HOME certification showing 6-12 month backyard composting cycle",
+      "keywords": ["home compostable", "backyard compost", "TÜV Austria", "OK Compost HOME", "6-12 months", "no industrial facility", "garden compost", "nutrient-rich soil", "kraft packaging"],
+      "category": "sustainability",
+      "type": "infographic",
+      "colors": ["kraft brown", "green", "beige"],
       "seo_priority": "high"
     }
   }
