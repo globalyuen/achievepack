@@ -63,6 +63,21 @@ export type Document = {
   created_at: string
 }
 
+export type ImageDescription = {
+  id?: string
+  path: string
+  alt_text?: string
+  title?: string
+  description?: string
+  keywords?: string[]
+  category?: string
+  type?: string
+  colors?: string[]
+  seo_priority?: string
+  created_at?: string
+  updated_at?: string
+}
+
 export type ArtworkFile = {
   id: string
   user_id: string

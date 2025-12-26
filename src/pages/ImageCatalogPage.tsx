@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Search, Grid3X3, List, Folder, ArrowLeft, Copy, Check, ExternalLink, Save, Download, FileText, X, Sparkles, Tag, Eye, Code, Lock, LogOut } from 'lucide-react'
+import { Search, Grid3X3, List, Folder, ArrowLeft, Copy, Check, ExternalLink, Save, Download, FileText, X, Sparkles, Tag, Eye, Code, Lock, LogOut, Cloud, CloudOff } from 'lucide-react'
 import imageCatalog from '../data/image-catalog.json'
 import aiDescriptionsData from '../data/image-ai-descriptions.json'
 import { useAuth } from '../hooks/useAuth'
+import { supabase } from '../lib/supabase'
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
 
@@ -48,6 +49,8 @@ export default function ImageCatalogPage() {
   const [unsavedChanges, setUnsavedChanges] = useState(false)
   const [saveMessage, setSaveMessage] = useState<string | null>(null)
   const [showOnlyEmpty, setShowOnlyEmpty] = useState(false)
+  const [isSavingToCloud, setIsSavingToCloud] = useState(false)
+  const [cloudSyncStatus, setCloudSyncStatus] = useState<'synced' | 'pending' | 'error'>('synced')
     const [aiDescriptions, setAiDescriptions] = useState<Record<string, AIDescription>>(preloadedDescriptions)
     const [editingImage, setEditingImage] = useState<string | null>(null)
 
@@ -68,25 +71,67 @@ export default function ImageCatalogPage() {
     const categories = imageCatalog.categories as Record<string, CategoryData>
   const totalImages = imageCatalog.total_images
 
-  // Load data from localStorage on mount
+  // Load data from localStorage and Supabase on mount
   useEffect(() => {
-    const savedAlt = localStorage.getItem(ALT_TEXTS_KEY)
-    if (savedAlt) {
+    const loadData = async () => {
+      // First load from localStorage for immediate display
+      const savedAlt = localStorage.getItem(ALT_TEXTS_KEY)
+      if (savedAlt) {
+        try {
+          setAltTexts(JSON.parse(savedAlt))
+        } catch (e) {
+          console.error('Failed to parse saved alt texts')
+        }
+      }
+      const savedAI = localStorage.getItem(AI_DESCRIPTIONS_KEY)
+      if (savedAI) {
+        try {
+          const parsed = JSON.parse(savedAI)
+          setAiDescriptions(prev => ({ ...preloadedDescriptions, ...prev, ...parsed }))
+        } catch (e) {
+          console.error('Failed to parse saved AI descriptions')
+        }
+      }
+
+      // Then load from Supabase (cloud data takes priority)
       try {
-        setAltTexts(JSON.parse(savedAlt))
+        const { data, error } = await supabase
+          .from('image_descriptions')
+          .select('*')
+        
+        if (!error && data && data.length > 0) {
+          const cloudAltTexts: Record<string, string> = {}
+          const cloudAiDescriptions: Record<string, AIDescription> = {}
+          
+          data.forEach((item: any) => {
+            if (item.alt_text) {
+              cloudAltTexts[item.path] = item.alt_text
+            }
+            if (item.title || item.description) {
+              cloudAiDescriptions[item.path] = {
+                title: item.title || '',
+                description: item.description || '',
+                alt: item.alt_text || '',
+                keywords: item.keywords || [],
+                category: item.category || '',
+                type: item.type || '',
+                colors: item.colors || [],
+                seo_priority: item.seo_priority || 'medium'
+              }
+            }
+          })
+          
+          setAltTexts(prev => ({ ...prev, ...cloudAltTexts }))
+          setAiDescriptions(prev => ({ ...preloadedDescriptions, ...prev, ...cloudAiDescriptions }))
+          setCloudSyncStatus('synced')
+        }
       } catch (e) {
-        console.error('Failed to parse saved alt texts')
+        console.error('Failed to load from Supabase:', e)
+        setCloudSyncStatus('error')
       }
     }
-    const savedAI = localStorage.getItem(AI_DESCRIPTIONS_KEY)
-    if (savedAI) {
-      try {
-        const parsed = JSON.parse(savedAI)
-        setAiDescriptions(prev => ({ ...preloadedDescriptions, ...prev, ...parsed }))
-      } catch (e) {
-        console.error('Failed to parse saved AI descriptions')
-      }
-    }
+
+    loadData()
   }, [])
 
   // Count AI analyzed images
@@ -152,12 +197,65 @@ export default function ImageCatalogPage() {
     setUnsavedChanges(true)
   }
 
-  const saveAltTexts = () => {
+  const saveAltTexts = async () => {
+    // Save to localStorage first (immediate)
     localStorage.setItem(ALT_TEXTS_KEY, JSON.stringify(altTexts))
     localStorage.setItem(AI_DESCRIPTIONS_KEY, JSON.stringify(aiDescriptions))
-    setUnsavedChanges(false)
-    setSaveMessage('Saved to browser!')
-    setTimeout(() => setSaveMessage(null), 2000)
+    
+    // Then save to Supabase (cloud)
+    setIsSavingToCloud(true)
+    setSaveMessage('Saving to cloud...')
+    
+    try {
+      // Prepare data for upsert
+      const upsertData = Object.entries(altTexts).map(([path, alt_text]) => ({
+        path,
+        alt_text,
+        title: aiDescriptions[path]?.title || null,
+        description: aiDescriptions[path]?.description || null,
+        keywords: aiDescriptions[path]?.keywords || null,
+        category: aiDescriptions[path]?.category || null,
+        type: aiDescriptions[path]?.type || null,
+        colors: aiDescriptions[path]?.colors || null,
+        seo_priority: aiDescriptions[path]?.seo_priority || null,
+        updated_at: new Date().toISOString()
+      }))
+      
+      // Also add AI descriptions that don't have alt texts yet
+      Object.entries(aiDescriptions).forEach(([path, desc]: [string, AIDescription]) => {
+        if (!altTexts[path]) {
+          upsertData.push({
+            path,
+            alt_text: desc.alt || null,
+            title: desc.title || null,
+            description: desc.description || null,
+            keywords: desc.keywords || null,
+            category: desc.category || null,
+            type: desc.type || null,
+            colors: desc.colors || null,
+            seo_priority: desc.seo_priority || null,
+            updated_at: new Date().toISOString()
+          })
+        }
+      })
+      
+      const { error } = await supabase
+        .from('image_descriptions')
+        .upsert(upsertData, { onConflict: 'path' })
+      
+      if (error) throw error
+      
+      setUnsavedChanges(false)
+      setCloudSyncStatus('synced')
+      setSaveMessage('Saved to cloud!')
+    } catch (e) {
+      console.error('Failed to save to Supabase:', e)
+      setCloudSyncStatus('error')
+      setSaveMessage('Cloud save failed!')
+    } finally {
+      setIsSavingToCloud(false)
+      setTimeout(() => setSaveMessage(null), 2000)
+    }
   }
 
   const exportAsJson = () => {
@@ -309,12 +407,13 @@ export default function ImageCatalogPage() {
               {/* Save */}
               <button
                 onClick={saveAltTexts}
+                disabled={isSavingToCloud}
                 className={`px-3 py-2 rounded-lg text-sm font-medium transition flex items-center gap-1 ${
                   unsavedChanges ? 'bg-primary-600 text-white hover:bg-primary-700' : 'bg-neutral-100 text-neutral-600'
-                }`}
+                } ${isSavingToCloud ? 'opacity-50 cursor-not-allowed' : ''}`}
               >
-                <Save className="h-4 w-4" />
-                {saveMessage || (unsavedChanges ? 'Save Changes' : 'Saved')}
+                {cloudSyncStatus === 'synced' ? <Cloud className="h-4 w-4" /> : cloudSyncStatus === 'error' ? <CloudOff className="h-4 w-4 text-red-500" /> : <Save className="h-4 w-4" />}
+                {saveMessage || (isSavingToCloud ? 'Saving...' : unsavedChanges ? 'Save to Cloud' : 'Synced')}
               </button>
 
               {/* Export */}
