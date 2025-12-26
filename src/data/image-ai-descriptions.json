@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 142,
+  "total_analyzed": 143,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -1431,6 +1431,16 @@
       "category": "product",
       "type": "hero",
       "colors": ["black", "gold", "gray"],
+      "seo_priority": "high"
+    },
+    "/imgs/menu/corrugated-box/a_insert_detail_arrangement_4804418.webp": {
+      "title": "Custom Inserts for a Perfect Fit - Premium Chocolate Box",
+      "description": "Custom inserts for a perfect fit / 量身定制内托，让每一颗巧克力都稳稳在位 product detail image. Open black corrugated mailer box with Quantum Cacao gold logo showing custom foam inserts holding gold foil wrapped chocolates/truffles perfectly in place. Jar of cacao nibs displayed beside box. Demonstrates precision-fit insert solutions for premium confectionery packaging.",
+      "alt": "Custom inserts for corrugated box showing Quantum Cacao premium chocolate packaging with gold foil truffles and precision foam insert arrangement",
+      "keywords": ["custom inserts", "corrugated box", "chocolate packaging", "foam insert", "precision fit", "premium confectionery", "gift box insert", "truffle packaging", "Quantum Cacao"],
+      "category": "product",
+      "type": "detail",
+      "colors": ["black", "gold", "brown"],
       "seo_priority": "high"
     }
   }
