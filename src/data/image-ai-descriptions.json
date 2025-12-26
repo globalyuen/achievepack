@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 50,
+  "total_analyzed": 54,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -501,6 +501,46 @@
       "category": "sustainability",
       "type": "infographic",
       "colors": ["green", "white", "blue"],
+      "seo_priority": "high"
+    },
+    "/imgs/barrier/ads/a_closing_consultation_6756895.webp": {
+      "title": "Design Your Barrier System with Achieve Pack - 3-Step Consultation",
+      "description": "Design your barrier system with Achieve Pack consultation guide. Three-step process: 1) Define shelf life and channels 定义保质期和渠道; 2) Check product sensitivity to oxygen/moisture/light 检查产品对氧气/水分/光线的敏感性; 3) Choose material family and barrier level 选择材料家族和阻隔等级. Features diverse pouch collection including clear, kraft, colorful printed, and black metallic options. CTA: Talk to Achieve Pack for samples & barrier recommendations 联系Achieve Pack获取样品与阻隔建议. Bilingual English/Chinese.",
+      "alt": "Achieve Pack barrier consultation guide - 3-step process to design custom packaging barrier system with material family selection and product sensitivity check",
+      "keywords": ["barrier consultation", "shelf life", "oxygen barrier", "moisture barrier", "material selection", "packaging samples", "barrier recommendations", "custom packaging"],
+      "category": "marketing",
+      "type": "infographic",
+      "colors": ["green", "white", "kraft", "black"],
+      "seo_priority": "high"
+    },
+    "/imgs/barrier/ads/a_kraft_high_max_4456348.webp": {
+      "title": "High Barrier vs Maximum Barrier - Dark Kraft Pouches",
+      "description": "Premium dark kraft/brown stand-up pouches showcasing High Barrier vs Maximum Barrier comparison. Left pouch: HIGH BARRIER with shield icon, MULTILAYER PROTECTION with layered material diagram. Right pouch: MAXIMUM BARRIER with reinforced shield icon, ULTRA-THICK FOIL LAMINATE with triple-layer diagram. Both pouches on wooden surface with dramatic lighting. Gold/bronze typography on dark kraft material for premium aesthetic.",
+      "alt": "High Barrier multilayer protection vs Maximum Barrier ultra-thick foil laminate dark kraft pouches comparison on wooden surface",
+      "keywords": ["high barrier", "maximum barrier", "multilayer protection", "foil laminate", "dark kraft pouch", "barrier comparison", "premium packaging", "coffee pouch"],
+      "category": "product",
+      "type": "product",
+      "colors": ["dark brown", "gold", "bronze"],
+      "seo_priority": "high"
+    },
+    "/imgs/barrier/ads/a_kraft_levels_1_2_3604187.webp": {
+      "title": "Low Barrier vs Medium Barrier - Kraft Pouches",
+      "description": "Natural kraft brown stand-up pouches showcasing Low Barrier vs Medium Barrier comparison on rustic wooden table. Left pouch: LOW BARRIER for products with minimal protection needs like dry snacks. Right pouch: MEDIUM BARRIER with clear window showing product inside, for items needing moderate oxygen/moisture protection. Warm natural lighting with green plant in background. Clean lifestyle product photography.",
+      "alt": "Low Barrier vs Medium Barrier kraft stand-up pouches with window on wooden table - natural sustainable packaging comparison",
+      "keywords": ["low barrier", "medium barrier", "kraft pouch", "window pouch", "barrier levels", "sustainable packaging", "dry goods packaging", "snack pouch"],
+      "category": "product",
+      "type": "product",
+      "colors": ["kraft brown", "natural"],
+      "seo_priority": "high"
+    },
+    "/imgs/barrier/ads/a_metallic_barrier_closeup_9656118.webp": {
+      "title": "High & Maximum Barrier Metallic Pouches - 高阻隔与极高阻隔",
+      "description": "High & Maximum barrier / 高阻隔与极高阻隔 metallic pouch comparison. Suitable for coffee, nuts, spices, superfood powder - products extremely sensitive to oxygen and moisture 适合咖啡、坚果、香料、超级食物粉等对氧气与湿气极为敏感的产品. Left: Silver metallic high barrier flat-bottom pouch with Achieve Pack AR logo, O2/moisture/light indicators (orange/orange/green). Right: Dark gunmetal maximum barrier pouch with same branding, O2/moisture/light indicators (red/red/green). Both feature 'high barrier recyclable' and 'Maximum barrier recyclable' labels. Bilingual English/Chinese.",
+      "alt": "High barrier silver vs Maximum barrier dark metallic Achieve Pack pouches for coffee nuts spices superfood - recyclable flat bottom bags with barrier indicators",
+      "keywords": ["high barrier", "maximum barrier", "metallic pouch", "silver pouch", "coffee packaging", "oxygen barrier", "moisture barrier", "flat bottom bag", "recyclable"],
+      "category": "product",
+      "type": "product",
+      "colors": ["silver", "gunmetal", "green"],
       "seo_priority": "high"
     }
   }
