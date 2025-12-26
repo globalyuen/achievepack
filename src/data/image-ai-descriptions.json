@@ -1,7 +1,7 @@
 {
   "generated": "2025-12-26",
   "version": "1.0",
-  "total_analyzed": 36,
+  "total_analyzed": 37,
   "descriptions": {
     "/imgs/BioPE.webp": {
       "title": "Bio-PE Certification (97% Biobased)",
@@ -361,6 +361,16 @@
       "category": "sustainability",
       "type": "infographic",
       "colors": ["green", "kraft brown", "white"],
+      "seo_priority": "high"
+    },
+    "/imgs/infographic-premium-finishes.webp": {
+      "title": "Premium Finishes at Lower Cost - Digital Printing Advantage",
+      "description": "PREMIUM FINISHES AT LOWER COST infographic showcasing 6 premium pouch finish options with budget-friendly pricing. Top row displays: Matte finish (kraft with PREMIUM QUALITY badge), Glossy finish (gold), Metallic/holographic finish (rainbow iridescent), Spot UV finish (kraft), and Soft-touch coating (kraft). All with green checkmarks. Center: BUDGET-FRIENDLY PRICE with dollar sign and upward arrow. Bottom comparison: Traditional Printing (press machine with $$$ high setup costs) vs Digital Printing (inkjet printer with affordable premium options). PROFESSIONAL LOOK, BUDGET-FRIENDLY PRICE tagline. Digital printing reduces setup costs for premium finishes. Features Achieve Pack 'ap' logo.",
+      "alt": "Premium finishes at lower cost infographic showing matte glossy metallic holographic spot UV soft-touch pouches with digital vs traditional printing cost comparison",
+      "keywords": ["premium finishes", "lower cost", "digital printing", "matte finish", "glossy", "metallic", "holographic", "spot UV", "soft-touch", "budget-friendly", "affordable packaging"],
+      "category": "marketing",
+      "type": "infographic",
+      "colors": ["kraft brown", "gold", "holographic", "green"],
       "seo_priority": "high"
     }
   }
