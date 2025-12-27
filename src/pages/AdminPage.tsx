@@ -395,6 +395,13 @@ const AdminPage: React.FC = () => {
               {tab.charAt(0).toUpperCase() + tab.slice(1)}
             </button>
           ))}
+          <Link
+            to="/image-catalog"
+            className="px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap bg-violet-100 text-violet-700 flex items-center gap-1"
+          >
+            <Sparkles className="h-4 w-4" />
+            AI Images
+          </Link>
         </div>
 
         <main className="flex-1 overflow-y-auto p-4 md:p-6">
