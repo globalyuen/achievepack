@@ -90,6 +90,7 @@ const MicrowaveSteamBagsPage = lazy(() => import('./pages/function/MicrowaveStea
 const CarbonNeutralBagsPage = lazy(() => import('./pages/function/CarbonNeutralBagsPage'))
 const SpoutPouchesJuicePage = lazy(() => import('./pages/function/SpoutPouchesJuicePage'))
 const ChildResistantBagsPage = lazy(() => import('./pages/function/ChildResistantBagsPage'))
+const DigitalPrintedRetortBagsPage = lazy(() => import('./pages/function/DigitalPrintedRetortBagsPage'))
 
 // Legal Pages - Lazy loaded
 const PrivacyPolicyPage = lazy(() => import('./pages/legal/PrivacyPolicyPage'))
@@ -283,6 +284,7 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/function/carbon-neutral-bags" element={<CarbonNeutralBagsPage />} />
               <Route path="/function/spout-pouches-juice" element={<SpoutPouchesJuicePage />} />
               <Route path="/function/child-resistant-bags" element={<ChildResistantBagsPage />} />
+              <Route path="/function/digital-printed-retort-bags" element={<DigitalPrintedRetortBagsPage />} />
 
               {/* Legal Pages */}
               <Route path="/privacy" element={<PrivacyPolicyPage />} />
