@@ -142,7 +142,7 @@ const LEARN_PAGES = {
       { name: 'Microwave Steam Bags', link: '/function/microwave-steam-bags', image: '/imgs/function/microwave/a_microwavebag_hero_main_kitchen_2543693.webp' },
       { name: 'Carbon Neutral Bags', link: '/function/carbon-neutral-bags', image: '/imgs/function/carbon/a_hero_card_1_carbon_neutral_materials_3157781.webp' },
       { name: 'Spout Pouches Juice', link: '/function/spout-pouches-juice', image: '/imgs/function/spout/a_hero_kv_juice_pouch_7892714.webp' },
-      { name: 'Child-Resistant Bags', link: '/function/child-resistant-bags', image: '/imgs/function/child/a_hero_kv_child_resistant_6350351.webp' },
+      { name: 'Child-Resistant Bags', link: '/function/child-resistant-bags', image: '/imgs/function/child/child-resistant-hero-learn-center.webp' },
     ]
   },
   usa: {
