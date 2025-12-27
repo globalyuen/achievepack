@@ -356,16 +356,16 @@ export default function ImageCatalogPage() {
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-2 flex-wrap">
+            <div className="flex items-center gap-2 flex-wrap w-full sm:w-auto">
               {/* Search */}
-              <div className="relative">
+              <div className="relative w-full sm:w-auto">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
                 <input
                   type="text"
                   placeholder="Search images..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-9 pr-4 py-2 rounded-lg bg-neutral-100 border border-neutral-200 text-neutral-700 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500 w-48"
+                  className="pl-9 pr-4 py-2 rounded-lg bg-neutral-100 border border-neutral-200 text-neutral-700 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500 w-full sm:w-48"
                 />
               </div>
               
@@ -439,15 +439,15 @@ export default function ImageCatalogPage() {
       </header>
 
       <div className="max-w-7xl mx-auto px-4 py-6">
-        <div className="flex gap-6">
+        <div className="flex flex-col lg:flex-row gap-6">
           {/* Sidebar - Categories */}
-          <aside className="w-64 flex-shrink-0">
-            <div className="bg-white rounded-xl border border-neutral-200 p-4 sticky top-24">
+          <aside className="w-full lg:w-64 flex-shrink-0">
+            <div className="bg-white rounded-xl border border-neutral-200 p-4 lg:sticky lg:top-24">
               <h2 className="font-semibold text-neutral-900 mb-3 flex items-center gap-2">
                 <Folder className="h-4 w-4" />
                 Categories
               </h2>
-              <ul className="space-y-1 max-h-[70vh] overflow-y-auto">
+              <ul className="space-y-1 max-h-[40vh] lg:max-h-[70vh] overflow-y-auto flex flex-wrap lg:flex-col gap-1 lg:gap-0">
                 <li>
                   <button
                     onClick={() => setSelectedCategory(null)}
@@ -495,11 +495,11 @@ export default function ImageCatalogPage() {
                 {viewMode === 'list' ? (
                   <div className="space-y-3">
                     {filteredImages.map((img, i) => (
-                      <div key={i} className="bg-white rounded-lg border border-neutral-200 p-4 flex gap-4">
+                      <div key={i} className="bg-white rounded-lg border border-neutral-200 p-3 sm:p-4 flex gap-3 sm:gap-4">
                         {/* Thumbnail */}
                         <button
                           onClick={() => setPreviewImage(img.path)}
-                          className="w-24 h-24 flex-shrink-0 bg-neutral-100 rounded-lg overflow-hidden relative group"
+                          className="w-16 h-16 sm:w-24 sm:h-24 flex-shrink-0 bg-neutral-100 rounded-lg overflow-hidden relative group"
                         >
                           <img src={img.path} alt={altTexts[img.path] || img.filename} className="w-full h-full object-cover" loading="lazy" />
                           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center opacity-0 group-hover:opacity-100">
