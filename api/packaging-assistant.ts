@@ -126,6 +126,7 @@ const PRODUCT_CATALOG = [
 
 // FAQ Knowledge Base
 const FAQ_KNOWLEDGE = [
+  { keywords: ['plastic free', 'plastic-free', 'no plastic', 'without plastic'], answer: 'Yes, we have plastic-free packaging options! Our compostable packaging line (Kraft+PLA, NatureFlex) is 100% plastic-free, made from plant-based materials. Our custom printed corrugated mailer boxes and tuck boxes are also plastic-free, made from FSC-certified recycled paper and cardstock. Both are certified sustainable and fully biodegradable.' },
   { keywords: ['moq', 'minimum', 'order', 'quantity'], answer: 'Minimum Order Quantity: Sample packs start from 1 unit ($15-25). Digital printed pouches from 100 pieces. Eco digital from 1,000 pieces. Volume discounts start at 5,000+ pieces.' },
   { keywords: ['turnaround', 'time', 'production', 'lead', 'how long'], answer: 'Production time: Sample packs ship in 3-5 days. Conventional digital print: 2-3 weeks. Eco digital print: 3-4 weeks. Large bulk orders: 6-8 weeks.' },
   { keywords: ['shipping', 'delivery', 'freight'], answer: 'We offer Air Freight (5-7 days), Sea Freight (25-35 days), and Dual Shipping options. Minimum shipping cost is $40. Free shipping on conventional digital orders.' },
