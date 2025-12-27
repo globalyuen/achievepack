@@ -68,8 +68,29 @@ export default function ImageCatalogPage() {
     navigate('/')
   }
   
-    const categories = imageCatalog.categories as Record<string, CategoryData>
+  const fileCategories = imageCatalog.categories as Record<string, CategoryData>
   const totalImages = imageCatalog.total_images
+
+  // Get all images from file catalog
+  const allImages: ImageInfo[] = Object.values(fileCategories).flatMap(cat => cat.images)
+
+  // Build AI-based categories dynamically
+  const getAICategories = () => {
+    const catMap: Record<string, ImageInfo[]> = {}
+    
+    allImages.forEach(img => {
+      const aiDesc = aiDescriptions[img.path]
+      const category = aiDesc?.category || 'uncategorized'
+      if (!catMap[category]) {
+        catMap[category] = []
+      }
+      catMap[category].push(img)
+    })
+    
+    return catMap
+  }
+
+  const aiCategories = getAICategories()
 
   // Load data from localStorage and Supabase on mount
   useEffect(() => {
@@ -143,20 +164,22 @@ export default function ImageCatalogPage() {
     
     if (searchQuery) {
       const query = searchQuery.toLowerCase()
-      Object.values(categories).forEach(cat => {
-        cat.images.forEach(img => {
-          if (img.filename.toLowerCase().includes(query) || img.path.toLowerCase().includes(query)) {
-            images.push(img)
-          }
-        })
+      allImages.forEach(img => {
+        const aiDesc = aiDescriptions[img.path]
+        if (
+          img.filename.toLowerCase().includes(query) || 
+          img.path.toLowerCase().includes(query) ||
+          aiDesc?.title?.toLowerCase().includes(query) ||
+          aiDesc?.keywords?.some(k => k.toLowerCase().includes(query))
+        ) {
+          images.push(img)
+        }
       })
     } else if (selectedCategory) {
-      images = categories[selectedCategory]?.images || []
+      images = aiCategories[selectedCategory] || []
     } else {
       // Show all images when no category selected
-      Object.values(categories).forEach(cat => {
-        images = images.concat(cat.images)
-      })
+      images = allImages
     }
 
     // Filter to show only empty alt texts if enabled
@@ -267,8 +290,8 @@ export default function ImageCatalogPage() {
       images_with_ai: countWithAI,
       ai_descriptions: aiDescriptions,
       alt_texts: altTexts,
-      images: Object.entries(categories).flatMap(([category, data]) => 
-        data.images.map(img => ({
+      images: Object.entries(aiCategories).flatMap(([category, images]) => 
+        images.map(img => ({
           category,
           filename: img.filename,
           path: img.path,
@@ -308,12 +331,10 @@ export default function ImageCatalogPage() {
 
   const autoGenerateAllEmpty = () => {
     const newAltTexts = { ...altTexts }
-    Object.values(categories).forEach(cat => {
-      cat.images.forEach(img => {
-        if (!newAltTexts[img.path] || newAltTexts[img.path].trim() === '') {
-          newAltTexts[img.path] = generateAltFromFilename(img.filename)
-        }
-      })
+    allImages.forEach(img => {
+      if (!newAltTexts[img.path] || newAltTexts[img.path].trim() === '') {
+        newAltTexts[img.path] = generateAltFromFilename(img.filename)
+      }
     })
     setAltTexts(newAltTexts)
     setUnsavedChanges(true)
@@ -458,8 +479,9 @@ export default function ImageCatalogPage() {
                     All Categories
                   </button>
                 </li>
-                {Object.entries(categories).map(([cat, data]) => {
-                  const catAICount = data.images.filter(img => aiDescriptions[img.path]).length
+                {Object.entries(aiCategories)
+                  .sort(([a], [b]) => a === 'uncategorized' ? 1 : b === 'uncategorized' ? -1 : a.localeCompare(b))
+                  .map(([cat, images]) => {
                   return (
                     <li key={cat}>
                       <button
@@ -468,9 +490,9 @@ export default function ImageCatalogPage() {
                           selectedCategory === cat ? 'bg-primary-50 text-primary-700 font-medium' : 'text-neutral-600 hover:bg-neutral-50'
                         }`}
                       >
-                        <span className="truncate">{cat}</span>
-                        <span className={`text-xs ml-2 ${catAICount === data.count ? 'text-purple-600' : 'text-neutral-400'}`}>
-                          {catAICount}/{data.count}
+                        <span className="truncate capitalize">{cat}</span>
+                        <span className="text-xs ml-2 text-neutral-400">
+                          {images.length}
                         </span>
                       </button>
                     </li>
