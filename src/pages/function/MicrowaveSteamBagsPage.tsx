@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Zap, Shield, Thermometer, Package, Droplets, Maximize, ArrowRight, Leaf, CheckCircle, Calendar, Mail, X, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Zap, Shield, Thermometer, Package, Droplets, Maximize, ArrowRight, Leaf, CheckCircle, Calendar, Mail, X, ChevronLeft, ChevronRight, Award, Users, Globe, FileCheck, Building2, Sparkles } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -350,6 +350,74 @@ const MicrowaveSteamBagsPage: React.FC = () => {
       )
     },
     {
+      id: 'trust-eeat',
+      title: 'Why Trust Achieve Pack?',
+      icon: <Award className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-8">
+          {/* E-E-A-T Trust Signals */}
+          <div className="bg-gradient-to-r from-primary-50 to-green-50 p-6 rounded-xl border border-primary-200">
+            <h3 className="text-xl font-bold text-neutral-900 mb-4">Food-Grade Packaging Experts Since 2011</h3>
+            <p className="text-neutral-700 mb-4">
+              Achieve Pack has been manufacturing food-safe flexible packaging for over 13 years. Our microwave steam bags are produced in BRC-certified facilities and tested to meet FDA food contact standards.
+            </p>
+            <p className="text-neutral-600 text-sm">
+              Achieve Pack 自 2011 年起专注食品级软包装制造。我们的微波蒸煮袋在 BRC 认证工厂生产，符合 FDA 食品接触标准。
+            </p>
+          </div>
+          
+          {/* Trust Badges Grid */}
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
+              <FileCheck className="h-8 w-8 text-green-600 mx-auto mb-2" />
+              <h4 className="font-semibold text-neutral-800">FDA Compliant</h4>
+              <p className="text-xs text-neutral-500">Food contact approved</p>
+            </div>
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
+              <Building2 className="h-8 w-8 text-green-600 mx-auto mb-2" />
+              <h4 className="font-semibold text-neutral-800">BRC Certified</h4>
+              <p className="text-xs text-neutral-500">Food safety standard</p>
+            </div>
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
+              <Globe className="h-8 w-8 text-green-600 mx-auto mb-2" />
+              <h4 className="font-semibold text-neutral-800">500+ Brands</h4>
+              <p className="text-xs text-neutral-500">Trusted worldwide</p>
+            </div>
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
+              <Users className="h-8 w-8 text-green-600 mx-auto mb-2" />
+              <h4 className="font-semibold text-neutral-800">13+ Years</h4>
+              <p className="text-xs text-neutral-500">Industry experience</p>
+            </div>
+          </div>
+          
+          {/* Internal Links for SEO */}
+          <div className="bg-neutral-50 p-6 rounded-lg">
+            <h4 className="font-semibold text-neutral-800 mb-3">Explore Related Solutions</h4>
+            <div className="grid md:grid-cols-3 gap-3">
+              <Link to="/materials/compostable" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
+                <Leaf className="h-4 w-4" /> Compostable Materials
+              </Link>
+              <Link to="/materials/recyclable-mono-pe" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
+                <Package className="h-4 w-4" /> Recyclable Mono-PE
+              </Link>
+              <Link to="/packaging/stand-up-pouches" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
+                <Package className="h-4 w-4" /> Stand Up Pouches
+              </Link>
+              <Link to="/function/child-resistant-bags" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
+                <Shield className="h-4 w-4" /> Child-Resistant Bags
+              </Link>
+              <Link to="/function/carbon-neutral-bags" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
+                <Sparkles className="h-4 w-4" /> Carbon Neutral Bags
+              </Link>
+              <Link to="/company/certificates" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
+                <Award className="h-4 w-4" /> Our Certifications
+              </Link>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
       id: 'cta',
       title: 'Ready to Get Started?',
       icon: <Shield className="h-5 w-5 text-white" />,
@@ -382,30 +450,60 @@ const MicrowaveSteamBagsPage: React.FC = () => {
   const faqs = [
     {
       question: "Are microwave steam bags safe for food?",
-      answer: "Yes, our microwave steam bags are made from food-grade materials that have passed relevant food safety tests. They are designed to safely contact vegetables, fruits, and meat, and can withstand typical home microwave temperatures."
+      answer: "Yes, our microwave steam bags are made from food-grade materials that have passed FDA food contact tests and relevant food safety certifications. They are designed to safely contact vegetables, fruits, and meat, and can withstand typical home microwave temperatures up to 100°C."
     },
     {
       question: "How does the steam vent work?",
-      answer: "The small holes above the zipper serve as steam vents. As food heats up and releases steam, these vents allow pressure to escape safely, preventing the bag from bursting while ensuring even heat distribution."
+      answer: "The small holes above the zipper serve as steam vents. As food heats up and releases steam, these vents allow pressure to escape safely, preventing the bag from bursting while ensuring even heat distribution throughout the food."
     },
     {
       question: "Can I reuse microwave steam bags?",
       answer: "The bags feature a resealable zipper for storage purposes. However, for food safety reasons, we recommend using each bag for microwave cooking only once. The bag can be reused for cold storage before cooking."
     },
     {
-      question: "What sizes are available?",
-      answer: "We offer small (individual portions), medium (2-3 servings), and family size options. Custom sizes are also available for commercial and food service applications with minimum order quantities."
+      question: "What sizes are available for microwave steam bags?",
+      answer: "We offer small (individual portions), medium (2-3 servings), and family size options. Custom sizes are also available for commercial and food service applications with minimum order quantities starting at 1,000 pieces."
     },
     {
       question: "Are these bags eco-friendly?",
-      answer: "Yes! Compared to rigid plastic containers, our flexible steam bags use significantly less material. We also offer recyclable and bio-based formulations to minimize environmental impact. Contact us for sustainable material options."
+      answer: "Yes! Compared to rigid plastic containers, our flexible steam bags use up to 70% less material. We also offer recyclable mono-PE and bio-based formulations to minimize environmental impact. Visit our compostable materials page for more sustainable options."
+    },
+    {
+      question: "What is the minimum order quantity?",
+      answer: "Our minimum order quantity starts at 1,000 pieces for stock sizes. For custom sizes or printed bags, MOQ typically starts at 5,000 pieces. Contact us for exact quotes based on your requirements."
+    },
+    {
+      question: "Can I get custom printed microwave steam bags?",
+      answer: "Yes, we offer full-color custom printing on microwave steam bags. Our digital printing starts from 1,000 pieces, while plate printing is available for larger quantities. See our printing types page for more details."
+    },
+    {
+      question: "How long is the production lead time?",
+      answer: "Standard production time is 2-3 weeks for stock items and 3-4 weeks for custom printed bags. Express production may be available for urgent orders. Check our lead time page for current schedules."
     }
   ]
 
+  // Enhanced related links for internal linking SEO
   const relatedLinks = [
-    { title: "Stand Up Pouches", url: "/packaging/stand-up-pouches", description: "Versatile packaging shapes" },
-    { title: "Recyclable Mono-PE", url: "/materials/recyclable-mono-pe", description: "Eco-friendly material options" },
-    { title: "Reclosure Options", url: "/features/reclosure-options", description: "Zipper and seal types" }
+    // Material options
+    { title: "Compostable Pouches", url: "/materials/compostable", description: "100% plastic-free eco-friendly material" },
+    { title: "Recyclable Mono-PE", url: "/materials/recyclable-mono-pe", description: "Fully recyclable single-material structure" },
+    { title: "Bio-PE Materials", url: "/materials/bio-pe", description: "Plant-based polyethylene options" },
+    // Packaging shapes
+    { title: "Stand Up Pouches", url: "/packaging/stand-up-pouches", description: "Self-standing packaging" },
+    { title: "Flat Bottom Bags", url: "/packaging/flat-bottom-bags", description: "Premium box-bottom style" },
+    // Features
+    { title: "Reclosure Options", url: "/features/reclosure-options", description: "All zipper types available" },
+    { title: "Barrier Options", url: "/features/barrier-options", description: "Choose protection level" },
+    // Related function pages
+    { title: "Carbon Neutral Bags", url: "/function/carbon-neutral-bags", description: "Climate-positive packaging" },
+    { title: "Child-Resistant Bags", url: "/function/child-resistant-bags", description: "Safety-certified pouches" },
+    { title: "Spout Pouches", url: "/function/spout-pouches-juice", description: "Liquid packaging solutions" },
+    // Industry applications
+    { title: "Frozen Food Packaging", url: "/industry/frozen-food", description: "Freeze-safe pouch solutions" },
+    { title: "Snacks Packaging", url: "/industry/snacks-food", description: "Food-grade snack bags" },
+    // Knowledge & Support
+    { title: "Certificates", url: "/company/certificates", description: "View our certifications" },
+    { title: "Lead Time", url: "/support/lead-time", description: "Production schedules" }
   ]
 
   return (
@@ -413,7 +511,7 @@ const MicrowaveSteamBagsPage: React.FC = () => {
       <SEOPageLayout
         title="Microwave Steam Bags | Eco-Friendly Cooking Pouches"
         description="Food-safe microwave steam bags for vegetables, frozen meals, and meal prep. Eco-friendly, heat-resistant pouches with built-in steam vents. Store, steam and serve in one bag."
-        keywords={['microwave steam bags', 'microwave cooking pouches', 'vegetable steam bags', 'food-safe microwave bags', 'eco-friendly cooking bags', 'meal prep pouches']}
+        keywords={['microwave steam bags', 'microwave cooking pouches', 'vegetable steam bags', 'food-safe microwave bags', 'eco-friendly cooking bags', 'meal prep pouches', 'steam vent bags', 'microwaveable food pouches', 'heat resistant bags', 'frozen meal bags', 'reheatable pouches', 'BPA-free microwave bags', 'sustainable cooking bags', 'food grade steam bags']}
         canonicalUrl="https://achievepack.com/function/microwave-steam-bags"
         heroTitle="Eco-Friendly Microwave Cooking Bags"
         heroSubtitle="Steam, store and reheat food safely — 安全微波蒸煮、保鲜与加热的一体袋"

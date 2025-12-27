@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Leaf, Recycle, Target, BarChart3, Package, Users, CheckCircle, Calendar, Mail, X, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Leaf, Recycle, Target, BarChart3, Package, Users, CheckCircle, Calendar, Mail, X, ChevronLeft, ChevronRight, Award, Globe, FileCheck, Building2, Shield, Sparkles } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -410,6 +410,74 @@ const CarbonNeutralBagsPage: React.FC = () => {
       )
     },
     {
+      id: 'trust-eeat',
+      title: 'Why Trust Achieve Pack?',
+      icon: <Award className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-8">
+          {/* E-E-A-T Trust Signals */}
+          <div className="bg-gradient-to-r from-primary-50 to-green-50 p-6 rounded-xl border border-primary-200">
+            <h3 className="text-xl font-bold text-neutral-900 mb-4">Sustainability Experts Since 2011</h3>
+            <p className="text-neutral-700 mb-4">
+              Achieve Pack is a certified 1% for the Planet member through Stripe Climate, demonstrating our commitment to climate action. We've helped over 500 brands achieve their sustainability goals with certified low-carbon and carbon-neutral packaging solutions.
+            </p>
+            <p className="text-neutral-600 text-sm">
+              Achieve Pack 是经认证的 Stripe Climate "1% for the Planet" 成员，已帮助超过 500 个品牌实现可持续发展目标。
+            </p>
+          </div>
+          
+          {/* Trust Badges Grid */}
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
+              <FileCheck className="h-8 w-8 text-green-600 mx-auto mb-2" />
+              <h4 className="font-semibold text-neutral-800">Gold Standard</h4>
+              <p className="text-xs text-neutral-500">Certified carbon offsets</p>
+            </div>
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
+              <Building2 className="h-8 w-8 text-green-600 mx-auto mb-2" />
+              <h4 className="font-semibold text-neutral-800">LCA Verified</h4>
+              <p className="text-xs text-neutral-500">Life-cycle assessment</p>
+            </div>
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
+              <Globe className="h-8 w-8 text-green-600 mx-auto mb-2" />
+              <h4 className="font-semibold text-neutral-800">500+ Brands</h4>
+              <p className="text-xs text-neutral-500">Trusted worldwide</p>
+            </div>
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
+              <Users className="h-8 w-8 text-green-600 mx-auto mb-2" />
+              <h4 className="font-semibold text-neutral-800">1% for Planet</h4>
+              <p className="text-xs text-neutral-500">Stripe Climate member</p>
+            </div>
+          </div>
+          
+          {/* Internal Links for SEO */}
+          <div className="bg-neutral-50 p-6 rounded-lg">
+            <h4 className="font-semibold text-neutral-800 mb-3">Explore Related Solutions</h4>
+            <div className="grid md:grid-cols-3 gap-3">
+              <Link to="/materials/compostable" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
+                <Leaf className="h-4 w-4" /> Compostable Materials
+              </Link>
+              <Link to="/materials/pcr" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
+                <Recycle className="h-4 w-4" /> PCR Recycled Materials
+              </Link>
+              <Link to="/materials/bio-pe" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
+                <Sparkles className="h-4 w-4" /> Bio-PE Plant-Based
+              </Link>
+              <Link to="/function/child-resistant-bags" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
+                <Shield className="h-4 w-4" /> Child-Resistant Bags
+              </Link>
+              <Link to="/function/microwave-steam-bags" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
+                <Package className="h-4 w-4" /> Microwave Steam Bags
+              </Link>
+              <Link to="/company/certificates" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
+                <Award className="h-4 w-4" /> Our Certifications
+              </Link>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
       id: 'cta',
       title: 'Ready to Get Started?',
       icon: <Leaf className="h-5 w-5 text-white" />,
@@ -450,7 +518,7 @@ const CarbonNeutralBagsPage: React.FC = () => {
     },
     {
       question: "What carbon offset projects do you support?",
-      answer: "We work with certified carbon offset projects that meet international standards such as Gold Standard or Verified Carbon Standard (VCS). These typically include reforestation, renewable energy, and community-based sustainability projects."
+      answer: "We work with certified carbon offset projects that meet international standards such as Gold Standard or Verified Carbon Standard (VCS). These typically include reforestation, renewable energy, and community-based sustainability projects. We're also members of Stripe Climate's 1% for the Planet initiative."
     },
     {
       question: "Can I display a carbon-neutral logo on my packaging?",
@@ -459,13 +527,44 @@ const CarbonNeutralBagsPage: React.FC = () => {
     {
       question: "Is carbon-neutral packaging more expensive?",
       answer: "There is typically a modest premium compared to conventional packaging, primarily due to the cost of carbon offsets and potentially higher-cost sustainable materials. However, many brands find the marketing value and regulatory compliance benefits outweigh the additional cost."
+    },
+    {
+      question: "What is the minimum order quantity for carbon-neutral bags?",
+      answer: "Our minimum order quantity starts at 1,000 pieces for stock structures. For custom printed carbon-neutral bags, MOQ typically starts at 5,000 pieces. Contact us for exact quotes based on your requirements."
+    },
+    {
+      question: "How does carbon-neutral packaging help with ESG reporting?",
+      answer: "Carbon-neutral packaging provides quantifiable data for Scope 3 emissions reporting. We provide documentation of carbon footprint calculations and offset certificates that can be included in your sustainability reports."
+    },
+    {
+      question: "What materials are used in carbon-neutral bags?",
+      answer: "We offer multiple options: traditional PE with carbon offsets, PCR (post-consumer recycled) PE, bio-based Green PE from sugarcane, and recyclable mono-material structures. Each can be combined to achieve carbon neutrality. Visit our materials pages for detailed specifications."
     }
   ]
 
+  // Enhanced related links for internal linking SEO
   const relatedLinks = [
-    { title: "Recyclable Mono-PE", url: "/materials/recyclable-mono-pe", description: "Recyclable material options" },
-    { title: "Bio-PE Materials", url: "/materials/bio-pe", description: "Plant-based alternatives" },
-    { title: "PCR Recycled", url: "/materials/pcr", description: "Post-consumer recycled content" }
+    // Material options
+    { title: "Recyclable Mono-PE", url: "/materials/recyclable-mono-pe", description: "Fully recyclable single-material structure" },
+    { title: "Bio-PE Materials", url: "/materials/bio-pe", description: "Plant-based polyethylene options" },
+    { title: "PCR Recycled", url: "/materials/pcr", description: "Post-consumer recycled content" },
+    { title: "Compostable Pouches", url: "/materials/compostable", description: "100% plastic-free materials" },
+    // Packaging shapes
+    { title: "Stand Up Pouches", url: "/packaging/stand-up-pouches", description: "Self-standing packaging" },
+    { title: "Flat Bottom Bags", url: "/packaging/flat-bottom-bags", description: "Premium box-bottom style" },
+    // Features
+    { title: "Barrier Options", url: "/features/barrier-options", description: "Choose protection level" },
+    { title: "Surface Finishes", url: "/features/surface-finish", description: "Matte, gloss, soft-touch" },
+    // Related function pages
+    { title: "Child-Resistant Bags", url: "/function/child-resistant-bags", description: "Safety-certified pouches" },
+    { title: "Microwave Steam Bags", url: "/function/microwave-steam-bags", description: "Food-safe heating pouches" },
+    { title: "Spout Pouches", url: "/function/spout-pouches-juice", description: "Liquid packaging solutions" },
+    // Industry applications
+    { title: "Coffee Packaging", url: "/industry/coffee-tea", description: "Premium coffee bags" },
+    { title: "Pet Food Bags", url: "/industry/pet-food", description: "Sustainable pet packaging" },
+    // Knowledge & Support
+    { title: "Certificates", url: "/company/certificates", description: "View our certifications" },
+    { title: "About Us", url: "/company/about", description: "Our sustainability story" }
   ]
 
   return (
@@ -473,7 +572,7 @@ const CarbonNeutralBagsPage: React.FC = () => {
       <SEOPageLayout
         title="Carbon-Neutral Bags | Eco-Friendly Packaging"
         description="Carbon-neutral packaging bags with low-carbon materials, efficient production, and certified carbon offsets. Help your brand reduce CO₂ emissions up to 20% with quantifiable sustainability data for ESG reporting."
-        keywords={['carbon neutral packaging', 'carbon neutral bags', 'low carbon packaging', 'sustainable packaging', 'PCR PE bags', 'bio-based packaging', 'carbon offset packaging']}
+        keywords={['carbon neutral packaging', 'carbon neutral bags', 'low carbon packaging', 'sustainable packaging', 'PCR PE bags', 'bio-based packaging', 'carbon offset packaging', 'eco-friendly bags', 'ESG packaging', 'net zero packaging', 'climate positive packaging', 'green PE bags', 'recyclable carbon neutral', 'sustainable pouch packaging']}
         canonicalUrl="https://achievepack.com/function/carbon-neutral-bags"
         heroTitle="Carbon-Neutral Cooking Bags"
         heroSubtitle="Lower CO₂, same convenience — 减少碳排放 · 保留日常便利"

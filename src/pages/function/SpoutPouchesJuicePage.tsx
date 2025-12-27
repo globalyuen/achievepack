@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Droplets, Recycle, Package, Shield, Users, CheckCircle, Calendar, Mail, X, ChevronLeft, ChevronRight, Zap } from 'lucide-react'
+import { Droplets, Recycle, Package, Shield, Users, CheckCircle, Calendar, Mail, X, ChevronLeft, ChevronRight, Zap, Award, Building2, FileCheck, Globe, Sparkles } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -342,6 +342,77 @@ const SpoutPouchesJuicePage: React.FC = () => {
       )
     },
     {
+      id: 'trust-eeat',
+      title: 'Why Trust Achieve Pack?',
+      icon: <Award className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-8">
+          {/* E-E-A-T Trust Signals */}
+          <div className="bg-gradient-to-r from-primary-50 to-orange-50 p-6 rounded-xl border border-primary-200">
+            <h3 className="text-xl font-bold text-neutral-900 mb-4">Industry-Leading Expertise in Beverage Packaging</h3>
+            <p className="text-neutral-700 mb-4">
+              With over 13 years of experience manufacturing flexible packaging, Achieve Pack has supplied spout pouches to beverage brands, juice companies, and cold brew producers across North America, Europe, and Asia-Pacific.
+            </p>
+            <p className="text-neutral-600">
+              Our BRC and ISO-certified facilities produce <Link to="/packaging/spout-pouches" className="text-primary-600 underline hover:text-primary-800">spout pouches</Link> using food-grade multi-layer films and <Link to="/materials/recyclable-mono-pe" className="text-primary-600 underline hover:text-primary-800">recyclable mono-PE structures</Link> for leading beverage brands worldwide.
+            </p>
+          </div>
+          
+          {/* Trust Badges Grid */}
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center shadow-sm">
+              <FileCheck className="h-8 w-8 mx-auto mb-2 text-blue-600" />
+              <h4 className="font-bold text-neutral-900">FDA Compliant</h4>
+              <p className="text-xs text-neutral-600">Food Contact Safe</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center shadow-sm">
+              <Shield className="h-8 w-8 mx-auto mb-2 text-green-600" />
+              <h4 className="font-bold text-neutral-900">BRC Certified</h4>
+              <p className="text-xs text-neutral-600">Global Food Standard</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center shadow-sm">
+              <Building2 className="h-8 w-8 mx-auto mb-2 text-purple-600" />
+              <h4 className="font-bold text-neutral-900">500+ Brands</h4>
+              <p className="text-xs text-neutral-600">Trusted by Industry</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center shadow-sm">
+              <Globe className="h-8 w-8 mx-auto mb-2 text-orange-600" />
+              <h4 className="font-bold text-neutral-900">Global Shipping</h4>
+              <p className="text-xs text-neutral-600">Worldwide Delivery</p>
+            </div>
+          </div>
+          
+          {/* Internal Links for SEO */}
+          <div className="bg-neutral-50 p-6 rounded-lg">
+            <h4 className="font-semibold text-neutral-900 mb-4 flex items-center gap-2">
+              <Sparkles className="h-5 w-5 text-primary-600" />
+              Explore Related Packaging Solutions
+            </h4>
+            <div className="grid md:grid-cols-3 gap-3">
+              <Link to="/materials/recyclable-mono-pe" className="flex items-center gap-2 text-sm text-primary-600 hover:text-primary-800 hover:underline">
+                <Recycle className="h-4 w-4" /> Recyclable Mono-PE
+              </Link>
+              <Link to="/materials/pcr" className="flex items-center gap-2 text-sm text-primary-600 hover:text-primary-800 hover:underline">
+                <Recycle className="h-4 w-4" /> PCR Materials
+              </Link>
+              <Link to="/features/barrier-options" className="flex items-center gap-2 text-sm text-primary-600 hover:text-primary-800 hover:underline">
+                <Shield className="h-4 w-4" /> Barrier Options
+              </Link>
+              <Link to="/packaging/stand-up-pouches" className="flex items-center gap-2 text-sm text-primary-600 hover:text-primary-800 hover:underline">
+                <Package className="h-4 w-4" /> Stand Up Pouches
+              </Link>
+              <Link to="/industry/beverages" className="flex items-center gap-2 text-sm text-primary-600 hover:text-primary-800 hover:underline">
+                <Droplets className="h-4 w-4" /> Beverage Industry
+              </Link>
+              <Link to="/company/certificates" className="flex items-center gap-2 text-sm text-primary-600 hover:text-primary-800 hover:underline">
+                <FileCheck className="h-4 w-4" /> Our Certificates
+              </Link>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
       id: 'cta',
       title: 'Ready to Get Started?',
       icon: <Droplets className="h-5 w-5 text-white" />,
@@ -391,13 +462,43 @@ const SpoutPouchesJuicePage: React.FC = () => {
     {
       question: "How do spout pouches compare to bottles?",
       answer: "Spout pouches are lighter, require less storage space, have lower transportation costs, and are shatter-proof. They're more convenient for on-the-go consumption while offering similar barrier properties to protect product freshness."
+    },
+    {
+      question: "What barrier options are available for juice pouches?",
+      answer: "We offer multiple barrier levels including standard MVTR barrier, high-oxygen barrier with AlOx coating, and metallized options. Our barrier films protect juice vitamins, flavor, and freshness for extended shelf life."
+    },
+    {
+      question: "Can spout pouches be used for hot-fill beverages?",
+      answer: "Yes, we offer heat-resistant spout pouches suitable for hot-fill applications up to 85°C. These are perfect for pasteurized juices, teas, and other hot-fill beverages. Contact us for specific temperature requirements."
+    },
+    {
+      question: "What certifications do your spout pouches have?",
+      answer: "Our spout pouches are manufactured in BRC and ISO-certified facilities. All materials are FDA compliant for food contact. We can provide COA, COC, and third-party test reports for your quality assurance needs."
     }
   ]
 
   const relatedLinks = [
-    { title: "Spout Pouches", url: "/packaging/spout-pouches", description: "All spout pouch options" },
-    { title: "Recyclable Mono-PE", url: "/materials/recyclable-mono-pe", description: "Recyclable material options" },
-    { title: "Stand Up Pouches", url: "/packaging/stand-up-pouches", description: "Stand-up pouch designs" }
+    // Material options
+    { title: "Recyclable Mono-PE", url: "/materials/recyclable-mono-pe", description: "Fully recyclable single-material structure" },
+    { title: "PCR Materials", url: "/materials/pcr", description: "Post-consumer recycled content options" },
+    { title: "Bio-Based Materials", url: "/materials/bio-based", description: "Plant-derived sustainable materials" },
+    { title: "Compostable Pouches", url: "/materials/compostable", description: "100% plastic-free eco-friendly options" },
+    // Packaging shapes
+    { title: "Spout Pouches", url: "/packaging/spout-pouches", description: "All spout pouch options and sizes" },
+    { title: "Stand Up Pouches", url: "/packaging/stand-up-pouches", description: "Versatile self-standing packaging" },
+    { title: "Flat Bottom Bags", url: "/packaging/flat-bottom-bags", description: "Premium box-pouch designs" },
+    // Features
+    { title: "Barrier Options", url: "/features/barrier-options", description: "Choose your protection level" },
+    { title: "Printing Capabilities", url: "/features/printing", description: "Digital and rotogravure options" },
+    // Related function pages
+    { title: "Carbon Neutral Bags", url: "/function/carbon-neutral-bags", description: "Climate-positive packaging solutions" },
+    { title: "Microwave Steam Bags", url: "/function/microwave-steam-bags", description: "Food-safe heating pouches" },
+    { title: "Child-Resistant Bags", url: "/function/child-resistant-bags", description: "Safety-compliant CR packaging" },
+    // Industry applications
+    { title: "Beverages Packaging", url: "/industry/beverages", description: "Complete beverage pouch solutions" },
+    // Knowledge & Support
+    { title: "Certificates", url: "/company/certificates", description: "View our safety certifications" },
+    { title: "FAQs", url: "/support/faqs", description: "Common questions answered" }
   ]
 
   return (
@@ -405,7 +506,7 @@ const SpoutPouchesJuicePage: React.FC = () => {
       <SEOPageLayout
         title="Recyclable Spout Juice Pouches | Eco-Friendly Beverage Packaging"
         description="Custom-shaped, food-safe, recyclable spout pouches for adult beverages. Ideal for juices, cold brew, sports drinks with easy-pour spout design and high barrier freshness protection."
-        keywords={['spout pouches', 'juice pouches', 'recyclable spout bags', 'beverage packaging', 'liquid pouches', 'food-safe pouches', 'custom spout pouches']}
+        keywords={['spout pouches', 'juice pouches', 'recyclable spout bags', 'beverage packaging', 'liquid pouches', 'food-safe pouches', 'custom spout pouches', 'drink pouches', 'juice pouch packaging', 'cold brew pouches', 'sports drink pouches', 'mono-PE spout bags', 'eco friendly juice bags', 'refillable beverage pouches']}
         canonicalUrl="https://achievepack.com/function/spout-pouches-juice"
         heroTitle="Eco-Friendly Spout Pouches for Juice"
         heroSubtitle="Custom-shaped, food-safe and recyclable — 定制异形 · 食品级 · 可回收"

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Shield, Lock, Package, Leaf, AlertTriangle, CheckCircle, Calendar, Mail, X, ChevronLeft, ChevronRight, Baby, Droplets, Factory } from 'lucide-react'
+import { Shield, Lock, Package, Leaf, AlertTriangle, CheckCircle, Calendar, Mail, X, ChevronLeft, ChevronRight, Baby, Droplets, Factory, Award, Users, Globe, FileCheck, Building2, Sparkles } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -354,6 +354,74 @@ const ChildResistantBagsPage: React.FC = () => {
       )
     },
     {
+      id: 'trust-eeat',
+      title: 'Why Trust Achieve Pack?',
+      icon: <Award className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-8">
+          {/* E-E-A-T Trust Signals */}
+          <div className="bg-gradient-to-r from-primary-50 to-green-50 p-6 rounded-xl border border-primary-200">
+            <h3 className="text-xl font-bold text-neutral-900 mb-4">Industry-Leading Expertise in Child-Resistant Packaging</h3>
+            <p className="text-neutral-700 mb-4">
+              With over 13 years of experience manufacturing flexible packaging, Achieve Pack has supplied child-resistant pouches to cannabis dispensaries, pharmaceutical companies, and supplement brands across North America, Europe, and Asia-Pacific.
+            </p>
+            <p className="text-neutral-600 text-sm">
+              凭借超过 13 年的软包装制造经验，Achieve Pack 已为北美、欧洲和亚太地区的大麻药房、制药公司和营养补剂品牌提供儿童防开启袋。
+            </p>
+          </div>
+          
+          {/* Trust Badges Grid */}
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
+              <FileCheck className="h-8 w-8 text-green-600 mx-auto mb-2" />
+              <h4 className="font-semibold text-neutral-800">CPSC Compliant</h4>
+              <p className="text-xs text-neutral-500">U.S. 16 CFR 1700 certified</p>
+            </div>
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
+              <Building2 className="h-8 w-8 text-green-600 mx-auto mb-2" />
+              <h4 className="font-semibold text-neutral-800">BRC Certified</h4>
+              <p className="text-xs text-neutral-500">Food safety standard</p>
+            </div>
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
+              <Globe className="h-8 w-8 text-green-600 mx-auto mb-2" />
+              <h4 className="font-semibold text-neutral-800">500+ Brands</h4>
+              <p className="text-xs text-neutral-500">Trusted worldwide</p>
+            </div>
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
+              <Users className="h-8 w-8 text-green-600 mx-auto mb-2" />
+              <h4 className="font-semibold text-neutral-800">13+ Years</h4>
+              <p className="text-xs text-neutral-500">Industry experience</p>
+            </div>
+          </div>
+          
+          {/* Internal Links for SEO */}
+          <div className="bg-neutral-50 p-6 rounded-lg">
+            <h4 className="font-semibold text-neutral-800 mb-3">Explore Related Solutions</h4>
+            <div className="grid md:grid-cols-3 gap-3">
+              <Link to="/materials/compostable" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
+                <Leaf className="h-4 w-4" /> Compostable Materials
+              </Link>
+              <Link to="/features/barrier-options" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
+                <Shield className="h-4 w-4" /> Barrier Options
+              </Link>
+              <Link to="/packaging/stand-up-pouches" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
+                <Package className="h-4 w-4" /> Stand Up Pouches
+              </Link>
+              <Link to="/company/certificates" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
+                <Award className="h-4 w-4" /> Our Certifications
+              </Link>
+              <Link to="/function/carbon-neutral-bags" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
+                <Sparkles className="h-4 w-4" /> Carbon Neutral Bags
+              </Link>
+              <Link to="/support/faqs" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
+                <CheckCircle className="h-4 w-4" /> FAQs
+              </Link>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
       id: 'cta',
       title: 'Ready to Get Started?',
       icon: <Shield className="h-5 w-5 text-white" />,
@@ -386,11 +454,11 @@ const ChildResistantBagsPage: React.FC = () => {
   const faqs = [
     {
       question: "What certifications do your child-resistant bags have?",
-      answer: "Our child-resistant zipper bags are designed to meet U.S. 16 CFR 1700 child safety standards. We can provide CPSC certification reports and testing documentation upon request. The bags use certified push-to-open and pinch-and-slide mechanisms."
+      answer: "Our child-resistant zipper bags are designed to meet U.S. 16 CFR 1700 child safety standards. We can provide CPSC certification reports and testing documentation upon request. The bags use certified push-to-open and pinch-and-slide mechanisms. Our manufacturing facility is also BRC certified for food safety."
     },
     {
       question: "Are these bags suitable for cannabis products?",
-      answer: "Yes, our child-resistant pouches are specifically designed for cannabis flower, edibles, and concentrates. They meet regulatory requirements for child-resistant packaging in most cannabis markets, with high barrier properties to contain odors and maintain freshness."
+      answer: "Yes, our child-resistant pouches are specifically designed for cannabis flower, edibles, and concentrates. They meet regulatory requirements for child-resistant packaging in most cannabis markets including California, Colorado, and Canada, with high barrier properties to contain odors and maintain freshness."
     },
     {
       question: "How do the child-resistant zippers work?",
@@ -398,18 +466,49 @@ const ChildResistantBagsPage: React.FC = () => {
     },
     {
       question: "Do you offer eco-friendly child-resistant options?",
-      answer: "Yes! We offer recyclable PE structures and compostable PLA laminates that maintain child-resistant functionality. These options help brands achieve sustainability goals without compromising child safety compliance."
+      answer: "Yes! We offer recyclable PE structures and compostable PLA laminates that maintain child-resistant functionality. These options help brands achieve sustainability goals without compromising child safety compliance. See our compostable materials page for more details."
     },
     {
       question: "What pouch styles are available with child-resistant zippers?",
       answer: "Child-resistant zippers can be added to stand-up pouches, flat pouches, and side gusset bags. We offer various sizes and custom dimensions to suit your product requirements. All styles feature high-barrier multi-layer construction."
+    },
+    {
+      question: "What is the minimum order quantity for child-resistant bags?",
+      answer: "Our minimum order quantity starts at 1,000 pieces for stock sizes. For custom sizes or printing, MOQ typically starts at 5,000-10,000 pieces depending on specifications. Contact us for exact quotes based on your requirements."
+    },
+    {
+      question: "How long does production take for child-resistant pouches?",
+      answer: "Standard production time is 2-3 weeks for stock items and 3-4 weeks for custom printed child-resistant bags. Rush orders may be available for urgent projects. Check our lead time page for current production schedules."
+    },
+    {
+      question: "Can I get samples before placing a bulk order?",
+      answer: "Yes, we offer sample packs of our child-resistant bags so you can test the closure mechanism and material quality before committing to a bulk order. Sample requests can be made through our contact form or by scheduling a consultation."
     }
   ]
 
+  // Enhanced related links for internal linking SEO
   const relatedLinks = [
-    { title: "Compostable Pouches", url: "/materials/compostable", description: "Eco-friendly material options" },
-    { title: "Stand Up Pouches", url: "/packaging/stand-up-pouches", description: "Versatile packaging shapes" },
-    { title: "Reclosure Options", url: "/features/reclosure-options", description: "Zipper and seal types" }
+    // Material options
+    { title: "Compostable Pouches", url: "/materials/compostable", description: "100% plastic-free eco-friendly material options" },
+    { title: "Recyclable Mono-PE", url: "/materials/recyclable-mono-pe", description: "Fully recyclable single-material structure" },
+    { title: "PCR Materials", url: "/materials/pcr", description: "Post-consumer recycled content options" },
+    // Packaging shapes
+    { title: "Stand Up Pouches", url: "/packaging/stand-up-pouches", description: "Versatile self-standing packaging" },
+    { title: "Flat Bottom Bags", url: "/packaging/flat-bottom-bags", description: "Premium box-bottom pouch style" },
+    { title: "Side Gusset Bags", url: "/packaging/side-gusset-bags", description: "Traditional gusseted bag format" },
+    // Features
+    { title: "Reclosure Options", url: "/features/reclosure-options", description: "All zipper and seal types available" },
+    { title: "Barrier Options", url: "/features/barrier-options", description: "Choose your protection level" },
+    { title: "Surface Finishes", url: "/features/surface-finish", description: "Matte, gloss, soft-touch options" },
+    // Related function pages
+    { title: "Carbon Neutral Bags", url: "/function/carbon-neutral-bags", description: "Climate-positive packaging solutions" },
+    { title: "Microwave Steam Bags", url: "/function/microwave-steam-bags", description: "Food-safe heating pouches" },
+    // Industry applications
+    { title: "Supplements Packaging", url: "/industry/supplements-powders", description: "Nutraceutical pouch solutions" },
+    { title: "Pet Food Bags", url: "/industry/pet-food", description: "Durable pet treat packaging" },
+    // Knowledge & Support
+    { title: "Certificates", url: "/company/certificates", description: "View our safety certifications" },
+    { title: "FAQs", url: "/support/faqs", description: "Common questions answered" }
   ]
 
   return (
@@ -417,7 +516,7 @@ const ChildResistantBagsPage: React.FC = () => {
       <SEOPageLayout
         title="Child-Resistant Zipper Bags | Certified Safety Pouches"
         description="Certified child-resistant zipper bags for cannabis, pharmaceuticals, supplements and more. Push-to-open mechanism meets U.S. 16 CFR 1700 standards. High barrier, odor-proof, eco-friendly options available."
-        keywords={['child-resistant bags', 'child-resistant pouches', 'cannabis packaging', 'pharmaceutical pouches', 'CPSC certified bags', 'child-proof packaging', 'push-to-open bags']}
+        keywords={['child-resistant bags', 'child-resistant pouches', 'cannabis packaging', 'pharmaceutical pouches', 'CPSC certified bags', 'child-proof packaging', 'push-to-open bags', 'child safety packaging', 'CR zipper bags', 'compliant cannabis bags', 'supplement safety pouches', '16 CFR 1700 bags', 'tamper evident pouches', 'odor proof cannabis bags', 'eco friendly child resistant']}
         canonicalUrl="https://achievepack.com/function/child-resistant-bags"
         heroTitle="Child-Resistant Zipper Bags"
         heroSubtitle="Certified safety for cannabis, pharma, supplements & more / 面向大麻、药品、营养补剂等高敏产品的认证安全包装"
