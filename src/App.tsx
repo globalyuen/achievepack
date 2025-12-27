@@ -1821,6 +1821,7 @@ ${formData.message}`
                 <li><Link to="/function/microwave-steam-bags" className="hover:text-primary-500">Microwave Steam Bags</Link></li>
                 <li><Link to="/function/carbon-neutral-bags" className="hover:text-primary-500">Carbon Neutral Bags</Link></li>
                 <li><Link to="/function/spout-pouches-juice" className="hover:text-primary-500">Spout Pouches Juice</Link></li>
+                <li><Link to="/function/child-resistant-bags" className="hover:text-primary-500">Child-Resistant Bags</Link></li>
               </ul>
             </div>
 

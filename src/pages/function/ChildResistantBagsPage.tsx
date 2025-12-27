@@ -1,0 +1,462 @@
+import React, { useState } from 'react'
+import { Shield, Lock, Package, Leaf, AlertTriangle, CheckCircle, Calendar, Mail, X, ChevronLeft, ChevronRight, Baby, Droplets, Factory } from 'lucide-react'
+import SEOPageLayout from '../../components/SEOPageLayout'
+import { Link } from 'react-router-dom'
+import { useCalendly } from '../../contexts/CalendlyContext'
+
+// Gallery images from /imgs/function/child/
+const childResistantGallery = [
+  { src: '/imgs/function/child/a_hero_kv_child_resistant_6350351.webp', title: 'Child-Resistant Zipper Bags', desc: '儿童防开启拉链自立袋' },
+  { src: '/imgs/function/child/a_info_why_child_resistant_2579617.webp', title: 'Why Child-Resistant Matters', desc: '为什么需要儿童防开启包装' },
+  { src: '/imgs/function/child/a_manual_instruction_sequence_1396492.webp', title: 'Child-Resistant Zipper Mechanism', desc: '通过认证的儿童防开启结构' },
+  { src: '/imgs/function/child/a_detail_adult_usability_1537698.webp', title: 'Adult-Friendly Usability', desc: '对成人友好，对儿童困难' },
+  { src: '/imgs/function/child/a_detail_high_barrier_1342803.webp', title: 'High Barrier Mylar Structure', desc: '高阻隔保护' },
+  { src: '/imgs/function/child/a_detail_odor_tamper_2823302.webp', title: 'Odor Control & Tamper-Evidence', desc: '气味阻隔与防拆封' },
+  { src: '/imgs/function/child/a_detail_eco_friendly_0335391.webp', title: 'Eco-Friendly Material Options', desc: '环保材料方案' },
+  { src: '/imgs/function/child/child-resistant-zipper-application.webp', title: 'Applications Across Industries', desc: '多品类适配' },
+  { src: '/imgs/function/child/child-resistant-zipper-Stand-out branding with full compliance.webp', title: 'On-Shelf Branding & Compliance', desc: '货架表现与合规信息' },
+  { src: '/imgs/function/child/a_hero_card_sustainability_1266701.webp', title: 'Design Your Child-Resistant System', desc: '和 Achieve Pack 一起设计' },
+]
+
+const ChildResistantBagsPage: React.FC = () => {
+  const { openCalendly } = useCalendly()
+  const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
+  
+  const navigateGallery = (direction: 'prev' | 'next') => {
+    if (!galleryEnlarged) return
+    let newIndex = direction === 'prev' ? galleryEnlarged.index - 1 : galleryEnlarged.index + 1
+    if (newIndex < 0) newIndex = childResistantGallery.length - 1
+    if (newIndex >= childResistantGallery.length) newIndex = 0
+    setGalleryEnlarged({ src: childResistantGallery[newIndex].src, index: newIndex })
+  }
+
+  // Alternating layout component
+  const AlternatingSection = ({ 
+    image, 
+    imageAlt, 
+    title, 
+    titleCn, 
+    content, 
+    contentCn,
+    imageLeft = true,
+    index
+  }: { 
+    image: string
+    imageAlt: string
+    title: string
+    titleCn: string
+    content: string
+    contentCn: string
+    imageLeft?: boolean
+    index: number
+  }) => (
+    <div className={`grid md:grid-cols-2 gap-8 items-center ${!imageLeft ? 'md:flex-row-reverse' : ''}`}>
+      {imageLeft ? (
+        <>
+          <button 
+            onClick={() => setGalleryEnlarged({ src: image, index })}
+            className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
+          >
+            <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge 点击放大</div>
+          </button>
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold text-neutral-900">{title}</h3>
+            <p className="text-sm text-primary-600 font-medium">{titleCn}</p>
+            <p className="text-neutral-700">{content}</p>
+            <p className="text-neutral-600 text-sm">{contentCn}</p>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="space-y-4 md:order-1">
+            <h3 className="text-xl font-bold text-neutral-900">{title}</h3>
+            <p className="text-sm text-primary-600 font-medium">{titleCn}</p>
+            <p className="text-neutral-700">{content}</p>
+            <p className="text-neutral-600 text-sm">{contentCn}</p>
+          </div>
+          <button 
+            onClick={() => setGalleryEnlarged({ src: image, index })}
+            className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group md:order-2"
+          >
+            <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge 点击放大</div>
+          </button>
+        </>
+      )}
+    </div>
+  )
+  
+  const sections = [
+    {
+      id: 'intro',
+      title: 'Child-Resistant Zipper Bags Overview',
+      icon: <Shield className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-8">
+          <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-lg border border-green-200">
+            <p className="text-lg font-medium text-neutral-900 mb-4">
+              <strong>Certified safety for cannabis, pharma, supplements & more</strong> — Child-resistant zipper bags designed to meet international safety standards while remaining easy for adults to open.
+            </p>
+            <p className="text-neutral-700">
+              面向大麻、药品、营养补剂等高敏产品的认证安全包装 — 按国际儿童安全标准设计，成人开启顺手
+            </p>
+          </div>
+          
+          <AlternatingSection
+            image="/imgs/function/child/a_hero_kv_child_resistant_6350351.webp"
+            imageAlt="Child-Resistant Zipper Bags Hero"
+            title="Child-Resistant Zipper Bags"
+            titleCn="儿童防开启拉链自立袋"
+            content="Our child-resistant zipper bags feature certified push-to-open and pinch-and-slide mechanisms, designed and tested to U.S. 16 CFR 1700 child safety standards. Perfect for cannabis, pharmaceuticals, supplements, and any product requiring secure, compliant packaging."
+            contentCn="我们的儿童防开启拉链袋采用认证的按压开启和捏压滑动机构，按照美国 16 CFR 1700 儿童安全标准设计和测试。非常适合大麻、药品、营养补剂以及任何需要安全合规包装的产品。"
+            imageLeft={true}
+            index={0}
+          />
+        </div>
+      )
+    },
+    {
+      id: 'why-child-resistant',
+      title: 'Why Child-Resistant Matters',
+      icon: <Baby className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-8">
+          <AlternatingSection
+            image="/imgs/function/child/a_info_why_child_resistant_2579617.webp"
+            imageAlt="Why Child-Resistant Packaging Matters"
+            title="Protect Children, Protect Your Brand"
+            titleCn="为什么需要儿童防开启包装"
+            content="Child-resistant packaging helps prevent accidental ingestion by children and is required for cannabis, certain medicines and chemicals in many markets. It provides peace of mind for brands and consumers alike, ensuring compliance with safety regulations."
+            contentCn="儿童防开启包装帮助防止儿童误食危险产品，在许多市场中是大麻、部分药品和化学品的法规要求。让品牌和消费者更安心，确保符合安全法规。"
+            imageLeft={false}
+            index={1}
+          />
+          
+          <div className="grid md:grid-cols-3 gap-4 mt-6">
+            <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+              <Shield className="h-5 w-5 text-green-600 mb-2" />
+              <h4 className="font-semibold text-green-800">Prevent accidental ingestion</h4>
+              <p className="text-sm text-green-700">帮助防止儿童误食</p>
+            </div>
+            <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+              <AlertTriangle className="h-5 w-5 text-green-600 mb-2" />
+              <h4 className="font-semibold text-green-800">Required by law in many markets</h4>
+              <p className="text-sm text-green-700">多地区法规要求</p>
+            </div>
+            <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+              <CheckCircle className="h-5 w-5 text-green-600 mb-2" />
+              <h4 className="font-semibold text-green-800">Peace of mind for all</h4>
+              <p className="text-sm text-green-700">品牌和消费者都更安心</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'zipper-mechanism',
+      title: 'Child-Resistant Zipper Mechanism',
+      icon: <Lock className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-8">
+          <AlternatingSection
+            image="/imgs/function/child/a_manual_instruction_sequence_1396492.webp"
+            imageAlt="Child-Resistant Zipper Mechanism Detail"
+            title="Certified Child-Resistant Closure"
+            titleCn="通过认证的儿童防开启结构"
+            content="The child-resistant zipper track features a special locking mechanism that requires a press-and-slide or pinch-and-pull motion to open. Designed to meet U.S. 16 CFR 1700 child safety standards, with CPSC certification reports available."
+            contentCn="儿童防开启拉链轨道具有特殊锁定机构，需要按压并滑动或捏压并拉动才能打开。按照美国 16 CFR 1700 儿童安全标准设计，可提供 CPSC 认证报告。"
+            imageLeft={true}
+            index={2}
+          />
+        </div>
+      )
+    },
+    {
+      id: 'adult-friendly',
+      title: 'Adult-Friendly Usability',
+      icon: <CheckCircle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-8">
+          <AlternatingSection
+            image="/imgs/function/child/a_detail_adult_usability_1537698.webp"
+            imageAlt="Adult-Friendly Usability"
+            title="Easy for Adults, Hard for Kids"
+            titleCn="对成人友好，对儿童困难"
+            content="The engineered locking motions are intuitive for adults but challenging for children under five. Complex actions like press-and-slide or pinch-and-pull prevent young children from accessing contents while remaining convenient for everyday adult use."
+            contentCn="锁定动作对成人直观易懂，却让五岁以下儿童难以打开。按压滑动或捏压拉动等复杂动作能阻止幼童接触内容物，同时对成人日常使用仍然便捷。"
+            imageLeft={false}
+            index={3}
+          />
+        </div>
+      )
+    },
+    {
+      id: 'high-barrier',
+      title: 'High Barrier Protection',
+      icon: <Package className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-8">
+          <AlternatingSection
+            image="/imgs/function/child/a_detail_high_barrier_1342803.webp"
+            imageAlt="High Barrier Mylar Structure"
+            title="Multi-Layer Barrier Protection"
+            titleCn="高阻隔保护"
+            content="Our child-resistant pouches feature multi-layer Mylar/PET composite structures with excellent oxygen, moisture, UV and odor barrier capabilities. Ideal for pharmaceuticals, supplements, cannabis, and chemical-based products that require maximum protection."
+            contentCn="多层 Mylar/PET 复合结构，具有优良的氧气、水汽、UV 和气味阻隔能力，适合药品、补剂、大麻、清洁剂等敏感或有气味产品。"
+            imageLeft={true}
+            index={4}
+          />
+        </div>
+      )
+    },
+    {
+      id: 'odor-tamper',
+      title: 'Odor Control & Tamper-Evidence',
+      icon: <Droplets className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-8">
+          <AlternatingSection
+            image="/imgs/function/child/a_detail_odor_tamper_2823302.webp"
+            imageAlt="Odor Control and Tamper-Evidence"
+            title="Keep Strong Aromas In, Tampering Out"
+            titleCn="锁住强烈气味，防止被轻易篡改"
+            content="Our pouches feature odor-control sealing to contain strong aromas, plus optional tamper-evident heat seals and tear notches. Large printable areas accommodate warning labels, dosage instructions, and regulatory icons alongside your brand graphics."
+            contentCn="袋子具有气味阻隔封口，可锁住强烈气味，另有可选的防拆封热封和撕裂口结构。大面积可印刷区域可放置警示语、剂量说明、法规图标，同时展示品牌图案。"
+            imageLeft={false}
+            index={5}
+          />
+        </div>
+      )
+    },
+    {
+      id: 'eco-friendly',
+      title: 'Eco-Friendly Material Options',
+      icon: <Leaf className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-8">
+          <AlternatingSection
+            image="/imgs/function/child/a_detail_eco_friendly_0335391.webp"
+            imageAlt="Eco-Friendly Material Options"
+            title="Child Safety Meets Sustainability"
+            titleCn="环保材料方案"
+            content="We offer eco-friendly child-resistant packaging options including recyclable PE structures and compostable PLA laminates. Achieve child safety without compromising your brand's sustainability goals and ESG narrative."
+            contentCn="提供环保版儿童防开启包装方案，包括可回收 PE 结构和可堆肥 PLA 复合结构。在不牺牲儿童安全的前提下实现环保目标，帮助品牌完成 ESG 叙事。"
+            imageLeft={true}
+            index={6}
+          />
+          
+          <div className="grid md:grid-cols-2 gap-4 mt-6">
+            <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+              <h4 className="font-semibold text-green-800 mb-2">Recyclable PE Structures</h4>
+              <p className="text-sm text-green-700">可回收 PE 结构</p>
+            </div>
+            <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+              <h4 className="font-semibold text-green-800 mb-2">Compostable PLA Laminates</h4>
+              <p className="text-sm text-green-700">可堆肥 PLA 复合结构</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'applications',
+      title: 'Applications Across Industries',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-8">
+          <AlternatingSection
+            image="/imgs/function/child/child-resistant-zipper-application.webp"
+            imageAlt="Child-Resistant Bags Applications"
+            title="One Child-Resistant System, Many Applications"
+            titleCn="一套儿童防开启系统，覆盖多种品类"
+            content="Our child-resistant pouches are suitable for pharmaceuticals, nutritional supplements, batteries, small accessories, cleaning products, personal care items, as well as cannabis flower and edibles. Available in stand-up, flat, and gusset styles."
+            contentCn="适用于药品、营养补充剂、电池、小物件、清洁剂、个护品以及大麻花和食品等，提供自立袋、平袋、侧风琴等多种袋型。"
+            imageLeft={false}
+            index={7}
+          />
+          
+          <div className="grid md:grid-cols-4 gap-4 mt-6">
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
+              <h4 className="font-semibold text-neutral-800">Medicine</h4>
+              <p className="text-xs text-neutral-500">药品</p>
+            </div>
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
+              <h4 className="font-semibold text-neutral-800">Supplements</h4>
+              <p className="text-xs text-neutral-500">营养补剂</p>
+            </div>
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
+              <h4 className="font-semibold text-neutral-800">Cannabis</h4>
+              <p className="text-xs text-neutral-500">大麻产品</p>
+            </div>
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
+              <h4 className="font-semibold text-neutral-800">Cleaners</h4>
+              <p className="text-xs text-neutral-500">清洁剂</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'branding-compliance',
+      title: 'On-Shelf Branding & Compliance',
+      icon: <AlertTriangle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-8">
+          <AlternatingSection
+            image="/imgs/function/child/child-resistant-zipper-Stand-out branding with full compliance.webp"
+            imageAlt="On-Shelf Branding and Compliance"
+            title="Stand-Out Branding with Full Compliance"
+            titleCn="兼顾货架表现与合规信息"
+            content="Our child-resistant pouches feature large printable areas for high-impact graphics and regulated labels. Bold branding areas with clear warning triangles and dosage text panels ensure your product stands out while meeting all regulatory requirements."
+            contentCn="大面积可印刷区域，兼容品牌图形与法规标签。清晰的警告三角和剂量文字面板确保产品在货架上脱颖而出，同时满足所有法规要求。"
+            imageLeft={true}
+            index={8}
+          />
+        </div>
+      )
+    },
+    {
+      id: 'design-system',
+      title: 'Design Your System',
+      icon: <Package className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-8">
+          <AlternatingSection
+            image="/imgs/function/child/a_hero_card_sustainability_1266701.webp"
+            imageAlt="Design Your Child-Resistant System"
+            title="Design Your Child-Resistant Zipper Bag Line"
+            titleCn="和 Achieve Pack 一起设计你的儿童防开启拉链袋系列"
+            content="Work with Achieve Pack to create your custom child-resistant packaging solution. Choose your pouch type and size, select barrier level and eco materials, then add certified child-resistant zippers and your brand artwork."
+            contentCn="安全、阻隔与可持续集于一体的柔性包装。选择袋型与尺寸，选择阻隔等级与环保材料，加上认证儿童防开启拉链与品牌设计。"
+            imageLeft={false}
+            index={9}
+          />
+          
+          <div className="grid md:grid-cols-3 gap-4 mt-6">
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg">
+              <div className="text-2xl font-bold text-primary-600 mb-2">1</div>
+              <h4 className="font-semibold text-neutral-800 mb-1">Choose Pouch Type & Size</h4>
+              <p className="text-sm text-neutral-600">选择袋型与尺寸</p>
+            </div>
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg">
+              <div className="text-2xl font-bold text-primary-600 mb-2">2</div>
+              <h4 className="font-semibold text-neutral-800 mb-1">Select Barrier & Eco Materials</h4>
+              <p className="text-sm text-neutral-600">选择阻隔等级与环保材料</p>
+            </div>
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg">
+              <div className="text-2xl font-bold text-primary-600 mb-2">3</div>
+              <h4 className="font-semibold text-neutral-800 mb-1">Add Zipper & Artwork</h4>
+              <p className="text-sm text-neutral-600">加上认证儿童防开启拉链与品牌设计</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'cta',
+      title: 'Ready to Get Started?',
+      icon: <Shield className="h-5 w-5 text-white" />,
+      content: (
+        <div className="bg-gradient-to-br from-green-500 to-emerald-600 text-white p-8 rounded-xl">
+          <h3 className="text-2xl font-bold mb-6 text-center">Choose How You'd Like to Connect</h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
+              <Calendar className="h-8 w-8 mx-auto mb-3" />
+              <h4 className="font-semibold mb-2">Book a Call</h4>
+              <p className="text-sm text-white/80 mb-4">30-min free consultation</p>
+              <button onClick={openCalendly} className="w-full bg-white text-green-600 px-4 py-2 rounded-lg font-semibold hover:bg-green-50 transition cursor-pointer">
+                Schedule Now
+              </button>
+            </div>
+            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
+              <Mail className="h-8 w-8 mx-auto mb-3" />
+              <h4 className="font-semibold mb-2">Email Quote</h4>
+              <p className="text-sm text-white/80 mb-4">Get response within 24hrs</p>
+              <a href="mailto:ryan@achievepack.com?subject=Child-Resistant Zipper Bags Quote" className="block w-full bg-white text-green-600 px-4 py-2 rounded-lg font-semibold hover:bg-green-50 transition">
+                Send Email
+              </a>
+            </div>
+          </div>
+        </div>
+      )
+    }
+  ]
+
+  const faqs = [
+    {
+      question: "What certifications do your child-resistant bags have?",
+      answer: "Our child-resistant zipper bags are designed to meet U.S. 16 CFR 1700 child safety standards. We can provide CPSC certification reports and testing documentation upon request. The bags use certified push-to-open and pinch-and-slide mechanisms."
+    },
+    {
+      question: "Are these bags suitable for cannabis products?",
+      answer: "Yes, our child-resistant pouches are specifically designed for cannabis flower, edibles, and concentrates. They meet regulatory requirements for child-resistant packaging in most cannabis markets, with high barrier properties to contain odors and maintain freshness."
+    },
+    {
+      question: "How do the child-resistant zippers work?",
+      answer: "The child-resistant zipper requires a specific motion to open—either press-and-slide or pinch-and-pull. These complex actions are intuitive for adults but challenging for children under five, meeting safety requirements while remaining convenient for everyday use."
+    },
+    {
+      question: "Do you offer eco-friendly child-resistant options?",
+      answer: "Yes! We offer recyclable PE structures and compostable PLA laminates that maintain child-resistant functionality. These options help brands achieve sustainability goals without compromising child safety compliance."
+    },
+    {
+      question: "What pouch styles are available with child-resistant zippers?",
+      answer: "Child-resistant zippers can be added to stand-up pouches, flat pouches, and side gusset bags. We offer various sizes and custom dimensions to suit your product requirements. All styles feature high-barrier multi-layer construction."
+    }
+  ]
+
+  const relatedLinks = [
+    { title: "Compostable Pouches", url: "/materials/compostable", description: "Eco-friendly material options" },
+    { title: "Stand Up Pouches", url: "/packaging/stand-up-pouches", description: "Versatile packaging shapes" },
+    { title: "Reclosure Options", url: "/features/reclosure-options", description: "Zipper and seal types" }
+  ]
+
+  return (
+    <>
+      <SEOPageLayout
+        title="Child-Resistant Zipper Bags | Certified Safety Pouches"
+        description="Certified child-resistant zipper bags for cannabis, pharmaceuticals, supplements and more. Push-to-open mechanism meets U.S. 16 CFR 1700 standards. High barrier, odor-proof, eco-friendly options available."
+        keywords={['child-resistant bags', 'child-resistant pouches', 'cannabis packaging', 'pharmaceutical pouches', 'CPSC certified bags', 'child-proof packaging', 'push-to-open bags']}
+        canonicalUrl="https://achievepack.com/function/child-resistant-bags"
+        heroTitle="Child-Resistant Zipper Bags"
+        heroSubtitle="Certified safety for cannabis, pharma, supplements & more / 面向大麻、药品、营养补剂等高敏产品的认证安全包装"
+        heroImage="/imgs/function/child/a_hero_kv_child_resistant_6350351.webp"
+        heroImageAlt="Achieve Pack Child-Resistant Zipper Bags"
+        introSummary="Child-resistant zipper bags designed to U.S. 16 CFR 1700 standards. Push-to-open and pinch-and-slide mechanisms keep children safe while remaining easy for adults. High barrier, odor-proof, with eco-friendly options."
+        sections={sections}
+        faqs={faqs}
+        relatedLinks={relatedLinks}
+        ctaTitle="Ready to Order Child-Resistant Bags?"
+        ctaDescription="Get certified child-resistant packaging for your cannabis, pharmaceutical, or supplement brand. Eco-friendly options available."
+        ctaButtonText="Get a Quote"
+      />
+      
+      {/* Gallery Lightbox Modal */}
+      {galleryEnlarged && (
+        <div 
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          onClick={() => setGalleryEnlarged(null)}
+        >
+          <button onClick={() => setGalleryEnlarged(null)} className="absolute top-4 right-4 text-white hover:text-neutral-300 transition">
+            <X className="h-8 w-8" />
+          </button>
+          <button onClick={(e) => { e.stopPropagation(); navigateGallery('prev'); }} className="absolute left-4 text-white hover:text-neutral-300 transition p-2">
+            <ChevronLeft className="h-10 w-10" />
+          </button>
+          <img src={galleryEnlarged.src} alt={childResistantGallery[galleryEnlarged.index]?.title || 'Enlarged view'} className="max-w-full max-h-[80vh] object-contain" onClick={(e) => e.stopPropagation()} />
+          <button onClick={(e) => { e.stopPropagation(); navigateGallery('next'); }} className="absolute right-4 text-white hover:text-neutral-300 transition p-2">
+            <ChevronRight className="h-10 w-10" />
+          </button>
+          <div className="absolute bottom-4 text-center text-white max-w-xl px-4">
+            <p className="text-lg font-semibold">{childResistantGallery[galleryEnlarged.index]?.title}</p>
+            <p className="text-sm text-neutral-300">{childResistantGallery[galleryEnlarged.index]?.desc}</p>
+            <p className="text-xs mt-2 text-neutral-400">{galleryEnlarged.index + 1} / {childResistantGallery.length}</p>
+          </div>
+        </div>
+      )}
+    </>
+  )
+}
+
+export default ChildResistantBagsPage
