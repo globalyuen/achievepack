@@ -1822,6 +1822,7 @@ ${formData.message}`
                 <li><Link to="/function/carbon-neutral-bags" className="hover:text-primary-500">Carbon Neutral Bags</Link></li>
                 <li><Link to="/function/spout-pouches-juice" className="hover:text-primary-500">Spout Pouches Juice</Link></li>
                 <li><Link to="/function/child-resistant-bags" className="hover:text-primary-500">Child-Resistant Bags</Link></li>
+                <li><Link to="/function/pre-zippered-rollstock" className="hover:text-primary-500">Pre-Zippered Rollstock</Link></li>
                 <li><Link to="/function/digital-printed-retort-bags" className="hover:text-primary-500">Digital Printed Retort</Link></li>
               </ul>
             </div>
