@@ -1826,7 +1826,7 @@ const ProductPage: React.FC = () => {
                 
                 {/* Thumbnail Gallery - 2 rows */}
                 <div className="p-3 border-t border-neutral-200">
-                  <div className="grid grid-cols-9 gap-1.5">
+                  <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-9 gap-1.5">
                     {[
                       '/imgs/store/eco-digital/0eQiBArdHVo_uyy12vmVid9Vc-hB8Msln4h0Oddu4dQ=.webp',
                       '/imgs/store/eco-digital/1k3ig0ezuHcds_30mxxPOgFL-qeSwHc8uuzElo2-GP4=.webp',
@@ -1917,7 +1917,7 @@ const ProductPage: React.FC = () => {
                       </div>
                       
                       {/* Grid: Material, Size, Closure, Surface, Barrier, Stiffness */}
-                      <div className="grid grid-cols-3 gap-3">
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
                         {/* Material */}
                         <div className="text-center">
                           <button 
@@ -2297,7 +2297,7 @@ const ProductPage: React.FC = () => {
                     </h3>
                   </div>
                   <div className="px-4 pb-4">
-                    <div className="grid grid-cols-6 gap-1.5">
+                    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-1.5">
                       {[
                         'a_blend_coffee_family_group_4850129.webp',
                         'a_blend4_coffee_functional_closeup_9237259.webp',
