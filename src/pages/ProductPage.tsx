@@ -800,7 +800,7 @@ const ProductPage: React.FC = () => {
       {/* Spacer for fixed header */}
       <div className="h-[60px]"></div>
 
-      <main className="max-w-7xl mx-auto px-3 sm:px-4 py-6 sm:py-8 lg:pt-14">
+      <main className="max-w-7xl mx-auto px-3 sm:px-4 py-6 sm:py-8 lg:pt-14 overflow-x-hidden">
         {/* Main Product Section for Conventional Digital Products */}
         {isConventionalDigital && conventionalProduct && (
           <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 mb-8">
@@ -2322,7 +2322,7 @@ const ProductPage: React.FC = () => {
           </div>
 
           {/* Right Column - Product Options */}
-          <div className="space-y-6">
+          <div className="space-y-6 overflow-hidden">
             {/* Price Section - Hide on desktop since we have fixed top bar */}
             {isEcoDigital && (
               <div className="lg:hidden bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border-2 border-primary-200 shadow-lg overflow-hidden">
@@ -2348,7 +2348,7 @@ const ProductPage: React.FC = () => {
                 
                 {/* Collapsible Content */}
                 <div className={`px-6 pb-6 transition-all duration-300 ${isRightCollapsed ? 'hidden' : ''}`}>
-                  <div className="text-4xl font-bold text-primary-700 mb-3">US${Math.round(totalPrice).toLocaleString()}</div>
+                  <div className="text-3xl sm:text-4xl font-bold text-primary-700 mb-3">US${Math.round(totalPrice).toLocaleString()}</div>
                   {calculationResult && (
                     <div className="grid grid-cols-2 gap-3 text-sm">
                       <div className="bg-white bg-opacity-60 rounded-lg p-3">
@@ -2377,7 +2377,7 @@ const ProductPage: React.FC = () => {
             )}
             
             {product.badge && <span className="inline-block bg-primary-100 text-primary-700 text-sm px-4 py-1 rounded-full font-medium">{product.badge}</span>}
-            <h1 className="text-3xl font-bold text-neutral-900">{product.name}</h1>
+            <h1 className="text-2xl sm:text-3xl font-bold text-neutral-900">{product.name}</h1>
             
             <div className="flex items-center gap-2">
               <div className="flex">
@@ -2392,7 +2392,7 @@ const ProductPage: React.FC = () => {
 
             {/* Dynamic Product Description - Problem → Solution → Features */}
             {isEcoDigital && ecoProduct && (
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-xl overflow-hidden">
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-xl overflow-hidden w-full">
                 {(() => {
                   const dynamicInfo = generateDynamicDescription({
                     shape: ecoProduct.shape, material: selectedMaterial, size: selectedSize,
@@ -2466,7 +2466,7 @@ const ProductPage: React.FC = () => {
                     <span className="text-neutral-400 text-xs cursor-help">ℹ️</span>
                   </label>
                   {/* Tooltip */}
-                  <div className="invisible group-hover:visible absolute left-0 top-full mt-1 w-72 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
+                  <div className="invisible group-hover:visible absolute left-0 top-full mt-1 w-64 sm:w-72 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
                     <div className="font-semibold mb-1">Material Type Guide:</div>
                     <div className="mb-2">
                       <strong>PCR/Bio Plastic:</strong> 30% lower carbon footprint, uses recycled or plant-based materials
@@ -2545,7 +2545,7 @@ const ProductPage: React.FC = () => {
                     <span className="text-neutral-400 text-xs cursor-help">ℹ️</span>
                   </label>
                   {/* Tooltip */}
-                  <div className="invisible group-hover:visible absolute left-0 top-full mt-1 w-72 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
+                  <div className="invisible group-hover:visible absolute left-0 top-full mt-1 w-64 sm:w-72 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
                     <div className="font-semibold mb-1">Package Size Guide:</div>
                     • <strong>XXXS-XXS:</strong> Trial sizes, samples, single-serve products<br/>
                     • <strong>XS-S:</strong> Specialty foods, premium coffee, small portions<br/>
@@ -2610,7 +2610,7 @@ const ProductPage: React.FC = () => {
                     <span className="text-neutral-400 text-xs cursor-help">ℹ️</span>
                   </label>
                   {/* Tooltip */}
-                  <div className="invisible group-hover:visible absolute left-0 top-full mt-1 w-72 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
+                  <div className="invisible group-hover:visible absolute left-0 top-full mt-1 w-64 sm:w-72 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
                     <div className="font-semibold mb-1">Closure Options:</div>
                     • <strong>Regular Zipper:</strong> Resealable, maintains freshness<br/>
                     • <strong>One-Sided:</strong> Easy pouring, front access<br/>
@@ -2701,7 +2701,7 @@ const ProductPage: React.FC = () => {
                     <span className="text-neutral-400 text-xs cursor-help">ℹ️</span>
                   </label>
                   {/* Tooltip */}
-                  <div className="invisible group-hover:visible absolute left-0 top-full mt-1 w-72 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
+                  <div className="invisible group-hover:visible absolute left-0 top-full mt-1 w-64 sm:w-72 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
                     <div className="font-semibold mb-1">Surface Treatment:</div>
                     • <strong>Glossy:</strong> Vibrant colors, classic finish<br/>
                     • <strong>Matt:</strong> Elegant, reduced glare, modern look<br/>
