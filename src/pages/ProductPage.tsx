@@ -2554,7 +2554,7 @@ const ProductPage: React.FC = () => {
                   </div>
                   
                   {/* Image Grid Selection */}
-                  <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 mb-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
                     {sizeOptions.map(size => (
                       <button
                         key={size.value}
@@ -2621,7 +2621,7 @@ const ProductPage: React.FC = () => {
                   </div>
                   
                   {/* Image Grid Selection */}
-                  <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 mb-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
                     {[
                       { value: 'No' as ClosureType, label: 'No Closure', img: '/imgs/store/closure/no-zipper.webp' },
                       { value: 'Regular Zipper' as ClosureType, label: 'Regular', img: '/imgs/store/closure/normal-zipper.webp' },
