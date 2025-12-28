@@ -144,6 +144,7 @@ const LEARN_PAGES = {
       { name: 'Spout Pouches Juice', link: '/function/spout-pouches-juice', image: '/imgs/function/spout/a_hero_kv_juice_pouch_7892714.webp' },
       { name: 'Child-Resistant Bags', link: '/function/child-resistant-bags', image: '/imgs/function/child/child-resistant-hero-learn-center.webp' },
       { name: 'Digital Printed Retort Bags', link: '/function/digital-printed-retort-bags', image: '/imgs/function/retort/retort-hero.webp' },
+      { name: 'Pre-Zippered Rollstock', link: '/function/pre-zippered-rollstock', image: '/imgs/function/roll/hero.webp' },
     ]
   },
   usa: {
