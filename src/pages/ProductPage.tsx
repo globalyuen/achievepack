@@ -2894,7 +2894,7 @@ const ProductPage: React.FC = () => {
                   </div>
                   
                   {/* Button Grid Selection - 3 options */}
-                  <div className="grid grid-cols-3 gap-1 sm:gap-2 mb-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-3">
                     {[
                       { key: 'Valve' as AdditionalType, value: 'valve', label: 'Valve', sublabel: '(Coffee/Tea)', state: selectedValve, setter: setSelectedValve },
                       { key: 'Laser Scoring' as AdditionalType, value: 'laser', label: 'Laser Tear', sublabel: '(Easy Open)', state: selectedLaserScoring, setter: setSelectedLaserScoring },

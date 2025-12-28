@@ -148,7 +148,7 @@ export function CustomQuoteProvider({ children }: { children: ReactNode }) {
                 // Form State
                 <>
                   {/* Quick Contact Options */}
-                  <div className="grid grid-cols-3 gap-3 mb-6">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
                     <a
                       href="https://calendly.com/30-min-free-packaging-consultancy"
                       target="_blank"
