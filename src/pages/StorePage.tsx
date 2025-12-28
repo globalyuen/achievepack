@@ -56,6 +56,7 @@ const StorePage: React.FC = () => {
   const [isSortOpen, setIsSortOpen] = useState(false)
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false)
 
   // Sync state with URL params when they change
   useEffect(() => {
@@ -429,6 +430,99 @@ const StorePage: React.FC = () => {
           </div>
         </div>
 
+        {/* Mobile Filter Button */}
+        <div className="lg:hidden mb-4">
+          <button
+            onClick={() => setIsMobileFilterOpen(true)}
+            className="flex items-center gap-2 px-4 py-2.5 bg-white border border-neutral-200 rounded-lg w-full justify-center text-neutral-700 font-medium hover:border-neutral-300 transition"
+          >
+            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+            </svg>
+            Filters
+            {(selectedCategory !== 'all' || selectedShape !== 'all') && (
+              <span className="bg-primary-500 text-white text-xs px-2 py-0.5 rounded-full">
+                {(selectedCategory !== 'all' ? 1 : 0) + (selectedShape !== 'all' ? 1 : 0)}
+              </span>
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Filter Drawer */}
+        {isMobileFilterOpen && (
+          <div className="lg:hidden fixed inset-0 z-50">
+            {/* Backdrop */}
+            <div 
+              className="absolute inset-0 bg-black/50"
+              onClick={() => setIsMobileFilterOpen(false)}
+            />
+            {/* Drawer */}
+            <div className="absolute left-0 top-0 bottom-0 w-80 max-w-[85vw] bg-white shadow-xl overflow-y-auto">
+              <div className="sticky top-0 bg-white border-b border-neutral-200 p-4 flex items-center justify-between">
+                <h3 className="font-bold text-lg text-neutral-900">Filters</h3>
+                <button 
+                  onClick={() => setIsMobileFilterOpen(false)}
+                  className="p-2 hover:bg-neutral-100 rounded-lg transition"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+              
+              {/* Category Filter */}
+              <div className="p-4 border-b border-neutral-100">
+                <h4 className="font-bold text-neutral-900 mb-3">Category</h4>
+                <ul className="space-y-2">
+                  {CATEGORIES.map(cat => (
+                    <li key={cat.id}>
+                      <button
+                        onClick={() => { handleCategoryChange(cat.id); }}
+                        className={`w-full text-left py-2 px-3 text-sm rounded-lg transition ${selectedCategory === cat.id ? 'bg-primary-50 text-primary-600 font-medium' : 'text-neutral-600 hover:bg-neutral-50'}`}
+                      >
+                        {cat.label}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Shape Filter */}
+              <div className="p-4">
+                <h4 className="font-bold text-neutral-900 mb-3">Shape</h4>
+                <ul className="space-y-2">
+                  {SHAPES.map(shape => (
+                    <li key={shape.id}>
+                      <button
+                        onClick={() => { handleShapeChange(shape.id); }}
+                        className={`w-full text-left py-2 px-3 text-sm rounded-lg transition ${selectedShape === shape.id ? 'bg-primary-50 text-primary-600 font-medium' : 'text-neutral-600 hover:bg-neutral-50'}`}
+                      >
+                        {shape.label}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Apply Button */}
+              <div className="sticky bottom-0 bg-white border-t border-neutral-200 p-4">
+                <button
+                  onClick={() => setIsMobileFilterOpen(false)}
+                  className="w-full py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition"
+                >
+                  Apply Filters
+                </button>
+                {(selectedCategory !== 'all' || selectedShape !== 'all') && (
+                  <button
+                    onClick={() => { setSelectedCategory('all'); setSelectedShape('all'); }}
+                    className="w-full mt-2 py-2 text-primary-600 font-medium text-sm hover:underline"
+                  >
+                    Clear All Filters
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+
         <div className="flex gap-8">
           {/* Sidebar Filters - Sticky */}
           <aside className="hidden lg:block w-72 flex-shrink-0">
@@ -516,9 +610,9 @@ const StorePage: React.FC = () => {
                   <Link
                     key={product.id}
                     to={`/store/product/${product.id}`}
-                    className="flex bg-white rounded-2xl overflow-hidden border border-neutral-200 hover:shadow-lg hover:border-neutral-300 transition group"
+                    className="flex flex-col sm:flex-row bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-neutral-200 hover:shadow-lg hover:border-neutral-300 transition group"
                   >
-                    <div className="relative w-48 h-48 bg-neutral-50 overflow-hidden p-4 flex-shrink-0">
+                    <div className="relative w-full sm:w-48 h-48 bg-neutral-50 overflow-hidden p-4 flex-shrink-0">
                       <img src={getProductDisplayImage(product)} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
                       {product.badge && (
                         <span className="absolute top-3 left-3 bg-primary-500 text-white text-xs px-2 py-0.5 rounded-full">
@@ -526,16 +620,16 @@ const StorePage: React.FC = () => {
                         </span>
                       )}
                     </div>
-                    <div className="p-5 flex-1">
-                      <h3 className="font-semibold text-lg text-neutral-900 mb-2 group-hover:text-primary-600 transition">{product.name}</h3>
+                    <div className="p-4 sm:p-5 flex-1">
+                      <h3 className="font-semibold text-base sm:text-lg text-neutral-900 mb-2 group-hover:text-primary-600 transition">{product.name}</h3>
                       <div className="flex items-center gap-1 mb-2">
                         <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
                         <span className="text-sm text-neutral-600">{product.rating} ({product.reviews} reviews)</span>
                       </div>
-                      <p className="text-neutral-600 mb-4">{product.description}</p>
+                      <p className="text-sm sm:text-base text-neutral-600 mb-3 sm:mb-4 line-clamp-2">{product.description}</p>
                       <div className="flex items-center justify-between">
-                        <span className="text-xl font-bold text-primary-600">From ${product.basePrice}</span>
-                        <span className="text-sm text-primary-500 font-medium">{product.turnaround}</span>
+                        <span className="text-lg sm:text-xl font-bold text-primary-600">From ${product.basePrice}</span>
+                        <span className="text-xs sm:text-sm text-primary-500 font-medium">{product.turnaround}</span>
                       </div>
                     </div>
                   </Link>

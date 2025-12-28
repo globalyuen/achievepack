@@ -800,10 +800,10 @@ const ProductPage: React.FC = () => {
       {/* Spacer for fixed header */}
       <div className="h-[60px]"></div>
 
-      <main className="max-w-7xl mx-auto px-4 py-8 lg:pt-14">
+      <main className="max-w-7xl mx-auto px-3 sm:px-4 py-6 sm:py-8 lg:pt-14">
         {/* Main Product Section for Conventional Digital Products */}
         {isConventionalDigital && conventionalProduct && (
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-8">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 mb-8">
             {/* Left Column - Image Gallery */}
             <div className="space-y-4">
               {/* Main Image */}
@@ -827,7 +827,7 @@ const ProductPage: React.FC = () => {
               
               {/* Thumbnail Gallery */}
               {product.images.length > 1 && (
-                <div className="grid grid-cols-6 gap-2">
+                <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-2">
                   {product.images.map((img, index) => (
                     <button
                       key={index}
@@ -1013,8 +1013,8 @@ const ProductPage: React.FC = () => {
             
             {/* Right Column - Product Options */}
             <div className="space-y-6">
-              {product.badge && <span className="inline-block bg-primary-100 text-primary-700 text-sm px-4 py-1 rounded-full font-medium">{product.badge}</span>}
-              <h1 className="text-3xl font-bold text-neutral-900">{product.name}</h1>
+              {product.badge && <span className="inline-block bg-primary-100 text-primary-700 text-xs sm:text-sm px-3 sm:px-4 py-1 rounded-full font-medium">{product.badge}</span>}
+              <h1 className="text-2xl sm:text-3xl font-bold text-neutral-900">{product.name}</h1>
               
               <div className="flex items-center gap-2">
                 <div className="flex">
@@ -1025,7 +1025,7 @@ const ProductPage: React.FC = () => {
                 <span className="text-neutral-600">({product.reviews} reviews)</span>
               </div>
               
-              <p className="text-neutral-600">{product.description}</p>
+              <p className="text-sm sm:text-base text-neutral-600">{product.description}</p>
               
               {/* Dynamic Description for Conventional Digital */}
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-xl overflow-hidden">
@@ -1081,8 +1081,8 @@ const ProductPage: React.FC = () => {
               </div>
               
               {/* Price Display */}
-              <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border-2 border-primary-200 p-6">
-                <div className="text-3xl font-bold text-primary-700">US${conventionalPrice.total.toLocaleString()}</div>
+              <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border-2 border-primary-200 p-4 sm:p-6">
+                <div className="text-2xl sm:text-3xl font-bold text-primary-700">US${conventionalPrice.total.toLocaleString()}</div>
                 <div className="text-sm text-primary-600 mt-1">
                   ${conventionalPrice.unit.toFixed(2)}/piece • {selectedConvQuantity.toLocaleString()} pieces
                 </div>
@@ -1141,7 +1141,7 @@ const ProductPage: React.FC = () => {
               </button>
               
               {/* Features */}
-              <div className="grid grid-cols-2 gap-3 pt-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 pt-4">
                 {product.features.map((feature, i) => (
                   <div key={i} className="flex items-center gap-2 text-sm text-neutral-600">
                     <Check className="h-4 w-4 text-primary-500" /> {feature}
@@ -1154,7 +1154,7 @@ const ProductPage: React.FC = () => {
         
         {/* Eco Stock Products Layout */}
         {(isEcoStock || isBoxes) && ecoStockProduct && (
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-8">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 mb-8">
             {/* Left Column - Image Gallery */}
             <div className="space-y-4">
               {/* Main Image */}
@@ -1178,7 +1178,7 @@ const ProductPage: React.FC = () => {
               
               {/* Thumbnail Gallery */}
               {product.images.length > 1 && (
-                <div className="grid grid-cols-6 gap-2">
+                <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-2">
                   {product.images.map((img, index) => (
                     <button
                       key={index}
@@ -1342,7 +1342,7 @@ const ProductPage: React.FC = () => {
                 <span className="text-neutral-600">({product.reviews} reviews)</span>
               </div>
               
-              <p className="text-neutral-600">{product.description}</p>
+              <p className="text-sm sm:text-base text-neutral-600">{product.description}</p>
               
               {/* Dynamic Description for Eco Stock - Not for box products */}
               {!isBoxes && (
@@ -1723,7 +1723,7 @@ const ProductPage: React.FC = () => {
               </button>
               
               {/* Features */}
-              <div className="grid grid-cols-2 gap-3 pt-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 pt-4">
                 {product.features.map((feature, i) => (
                   <div key={i} className="flex items-center gap-2 text-sm text-neutral-600">
                     <Check className="h-4 w-4 text-green-500" /> {feature}
@@ -2388,7 +2388,7 @@ const ProductPage: React.FC = () => {
               <span className="text-neutral-600">({product.reviews} reviews)</span>
             </div>
 
-            <p className="text-neutral-600">{product.description}</p>
+            <p className="text-sm sm:text-base text-neutral-600">{product.description}</p>
 
             {/* Dynamic Product Description - Problem → Solution → Features */}
             {isEcoDigital && ecoProduct && (
@@ -2480,7 +2480,7 @@ const ProductPage: React.FC = () => {
                   </div>
                   
                   {/* Image Grid Selection */}
-                  <div className="grid grid-cols-3 gap-3 mb-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 mb-3">
                     {[
                       { value: 'PCR or Bio Plastic', label: 'PCR/Bio', img: '/imgs/store/eco-material/pcr-or-biope.webp' },
                       { value: 'Mono Recyclable Plastic', label: 'Recyclable', img: '/imgs/store/eco-material/recycle.webp' },
@@ -2554,7 +2554,7 @@ const ProductPage: React.FC = () => {
                   </div>
                   
                   {/* Image Grid Selection */}
-                  <div className="grid grid-cols-4 gap-2 mb-3">
+                  <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 mb-3">
                     {sizeOptions.map(size => (
                       <button
                         key={size.value}
@@ -2621,7 +2621,7 @@ const ProductPage: React.FC = () => {
                   </div>
                   
                   {/* Image Grid Selection */}
-                  <div className="grid grid-cols-4 gap-2 mb-3">
+                  <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 mb-3">
                     {[
                       { value: 'No' as ClosureType, label: 'No Closure', img: '/imgs/store/closure/no-zipper.webp' },
                       { value: 'Regular Zipper' as ClosureType, label: 'Regular', img: '/imgs/store/closure/normal-zipper.webp' },
@@ -2712,7 +2712,7 @@ const ProductPage: React.FC = () => {
                   </div>
                   
                   {/* Image Grid Selection */}
-                  <div className="grid grid-cols-3 gap-3 mb-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 mb-3">
                     {[
                       { value: 'Glossy' as SurfaceType, label: 'Glossy' },
                       { value: 'Matt' as SurfaceType, label: 'Matt' },
@@ -2792,7 +2792,7 @@ const ProductPage: React.FC = () => {
                   </div>
                   
                   {/* Button Grid Selection */}
-                  <div className="grid grid-cols-3 gap-3 mb-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 mb-3">
                     {[
                       { value: 'mid clear mid barrier (Optional Window)', label: 'Mid Barrier', sublabel: '(Window)' },
                       { value: 'metalised high barrier (No Window)', label: 'High Barrier', sublabel: '(No Window)' },
@@ -2844,7 +2844,7 @@ const ProductPage: React.FC = () => {
                   </div>
                   
                   {/* Button Grid Selection */}
-                  <div className="grid grid-cols-2 gap-3 mb-3">
+                  <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-3">
                     {[
                       { value: 'Without Paper Lining (Softer)', label: 'Softer', sublabel: '(No Paper)' },
                       { value: 'With Paper Lining (stiffer)', label: 'Stiffer', sublabel: '(With Paper)' }
@@ -2894,7 +2894,7 @@ const ProductPage: React.FC = () => {
                   </div>
                   
                   {/* Button Grid Selection - 3 options */}
-                  <div className="grid grid-cols-3 gap-2 mb-3">
+                  <div className="grid grid-cols-3 gap-1 sm:gap-2 mb-3">
                     {[
                       { key: 'Valve' as AdditionalType, value: 'valve', label: 'Valve', sublabel: '(Coffee/Tea)', state: selectedValve, setter: setSelectedValve },
                       { key: 'Laser Scoring' as AdditionalType, value: 'laser', label: 'Laser Tear', sublabel: '(Easy Open)', state: selectedLaserScoring, setter: setSelectedLaserScoring },
@@ -2986,7 +2986,7 @@ const ProductPage: React.FC = () => {
             </button>
 
             {/* Features */}
-            <div className="grid grid-cols-2 gap-3 pt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 pt-4">
               {product.features.map((feature, i) => (
                 <div key={i} className="flex items-center gap-2 text-sm text-neutral-600">
                   <Check className="h-4 w-4 text-primary-500" /> {feature}
@@ -3489,7 +3489,7 @@ const ProductPage: React.FC = () => {
       <section className="bg-neutral-50 py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-2xl font-bold text-neutral-900 mb-8">Related Products</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
             {FEATURED_PRODUCTS
               .filter(p => p.id !== product?.id && p.category === product?.category)
               .slice(0, 4)
@@ -3511,7 +3511,7 @@ const ProductPage: React.FC = () => {
                       className="w-full h-full object-cover group-hover:scale-105 transition duration-300" 
                     />
                   </div>
-                  <div className="p-3">
+                  <div className="p-2 sm:p-3">
                     <h3 className="font-medium text-sm text-neutral-900 line-clamp-2 mb-1">{relatedProduct.name}</h3>
                     <p className="text-xs text-neutral-500">{relatedProduct.shortDesc}</p>
                     {relatedProduct.badge && (
