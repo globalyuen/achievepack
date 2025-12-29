@@ -1798,6 +1798,8 @@ ${formData.message}`
                 <li><Link to="/solutions/artisan-producer" className="hover:text-primary-500">For Artisan Makers</Link></li>
                 <li><Link to="/solutions/snack-brand-manager" className="hover:text-primary-500">For Snack Brands</Link></li>
                 <li><Link to="/solutions/corporate-sustainability" className="hover:text-primary-500">For Corporate ESG</Link></li>
+                <li><Link to="/solutions/food-manufacturer" className="hover:text-primary-500">For Food Manufacturers</Link></li>
+                <li><Link to="/solutions/product-developer" className="hover:text-primary-500">For Product Developers</Link></li>
               </ul>
             </div>
 
@@ -1811,6 +1813,10 @@ ${formData.message}`
                 <li><Link to="/topics/digital-printing-eco-packaging" className="hover:text-primary-500">Digital Printing</Link></li>
                 <li><Link to="/topics/recyclable-snack-packaging" className="hover:text-primary-500">Recyclable Snacks</Link></li>
                 <li><Link to="/topics/eco-packaging-regulations" className="hover:text-primary-500">Regulations Guide</Link></li>
+                <li><Link to="/topics/compostable-pouch-suppliers" className="hover:text-primary-500">Compostable Suppliers</Link></li>
+                <li><Link to="/topics/low-moq-startup-packaging" className="hover:text-primary-500">Low MOQ Startup</Link></li>
+                <li><Link to="/topics/compostable-baby-food-bags" className="hover:text-primary-500">Baby Food Bags</Link></li>
+                <li><Link to="/topics/custom-printed-sustainable-pouches" className="hover:text-primary-500">Custom Printed Pouches</Link></li>
               </ul>
             </div>
 
