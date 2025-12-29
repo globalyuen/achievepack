@@ -146,6 +146,7 @@ const LEARN_PAGES = {
       { name: 'Digital Printed Retort Bags', link: '/function/digital-printed-retort-bags', image: '/imgs/function/retort/retort-hero.webp' },
       { name: 'Pre-Zippered Rollstock', link: '/function/pre-zippered-rollstock', image: '/imgs/function/roll/hero.webp' },
       { name: 'Rice Paper Bags', link: '/function/rice-paper-bags', image: '/imgs/function/rice/hero.webp' },
+      { name: 'PVA Water-Soluble Bags', link: '/function/pva-water-soluble-bags', image: '/imgs/function/water/hero.webp' },
     ]
   },
   usa: {
