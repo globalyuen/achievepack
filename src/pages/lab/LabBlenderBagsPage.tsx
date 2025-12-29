@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { X, ChevronLeft, ChevronRight, Beaker, CheckCircle, AlertCircle } from 'lucide-react'
-import SEOPageLayout from '../../components/SEOPageLayout'
 
 // Gallery images for Lab Blender Bags
 const blenderBagsGallery = [
@@ -195,33 +194,23 @@ const LabBlenderBagsPage: React.FC = () => {
   }
 
   return (
-    <SEOPageLayout
-      title="Lab Blender Bags | Sterile Sample Preparation Bags | AchievePack"
-      description="AchievePack® sterile lab blender bags for microbiology sample preparation. 5-80 mL capacity, gamma irradiated, high-clarity LDPE, impact resistant. Perfect for food testing, pharmaceutical QC, and environmental labs."
-      keywords={[
-        'lab blender bags',
-        'sterile sample bags',
-        'microbiology bags',
-        'homogenizer bags',
-        'paddle blender bags',
-        'stomacher bags',
-        'laboratory sample preparation',
-        'gamma irradiated bags',
-        'food testing bags',
-        'pharmaceutical QC bags',
-        '5-80 mL bags',
-        'LDPE sterile bags',
-      ]}
-      canonicalUrl="https://achievepack.com/lab/lab-blender-bags"
-      heroTitle="Lab Blender Bags"
-      heroSubtitle="Sterile, high-clarity LDPE bags for microbiology sample preparation, homogenization, and QC testing"
-      heroImage="/imgs/lab/blend/a_kv_material_thickness_detail_7472209.webp"
-      showHeroImage={false}
-    >
+    <>
       <Helmet>
+        <title>Lab Blender Bags | Sterile Sample Preparation Bags | AchievePack</title>
+        <meta name="description" content="AchievePack® sterile lab blender bags for microbiology sample preparation. 5-80 mL capacity, gamma irradiated, high-clarity LDPE, impact resistant. Perfect for food testing, pharmaceutical QC, and environmental labs." />
+        <meta name="keywords" content="lab blender bags, sterile sample bags, microbiology bags, homogenizer bags, paddle blender bags, stomacher bags, laboratory sample preparation, gamma irradiated bags, food testing bags, pharmaceutical QC bags, 5-80 mL bags, LDPE sterile bags" />
+        <link rel="canonical" href="https://achievepack.com/lab/lab-blender-bags" />
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(productSchema)}</script>
       </Helmet>
+
+      {/* Hero Section */}
+      <div className="bg-gradient-to-b from-primary-50 to-white py-16">
+        <div className="container mx-auto px-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">Lab Blender Bags</h1>
+          <p className="text-xl text-neutral-600 max-w-3xl">Sterile, high-clarity LDPE bags for microbiology sample preparation, homogenization, and QC testing</p>
+        </div>
+      </div>
 
       {/* Section 1: Brand Hero KV */}
       <section className="py-16 bg-white">
@@ -720,7 +709,7 @@ const LabBlenderBagsPage: React.FC = () => {
           </div>
         </div>
       )}
-    </SEOPageLayout>
+    </>
   )
 }
 
