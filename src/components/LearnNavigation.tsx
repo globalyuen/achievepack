@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { ChevronRight, ChevronDown, Leaf, Package, Factory, FileText, BookOpen, Users, Award, ShoppingBag, Globe, Boxes, HelpCircle, Search, Zap, Beaker } from 'lucide-react'
+import { ChevronRight, ChevronDown, Leaf, Package, Factory, FileText, BookOpen, Users, Award, ShoppingBag, Globe, Boxes, HelpCircle, Search, Zap, Beaker, Layers } from 'lucide-react'
 
 // All SEO pages mapped with illustrated images - COMPLETE LIST
 const LEARN_PAGES = {
@@ -175,6 +175,16 @@ const LEARN_PAGES = {
       { name: 'About Us', link: '/company/about', image: '/imgs/illustrated/a_corporate_sustainability_variation_1_1739210.webp' },
       { name: 'Factory Tour', link: '/company/factory-tour', image: '/imgs/illustrated/a_lowmoq_warm_3372406.webp' },
       { name: 'Certificates', link: '/company/certificates', image: '/imgs/illustrated/a_compostable_v3_9254998.webp' },
+    ]
+  },
+  spec: {
+    title: 'Structure Spec',
+    icon: <Layers className="h-4 w-4" />,
+    pages: [
+      { name: 'PCR PET Duplex Clear', link: '/spec/pcr-pet-duplex-clear', image: '/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp' },
+      { name: 'Bio-PE PET Duplex Clear', link: '/spec/bio-pe-pet-duplex-clear', image: '/imgs/illustrated/a_bio_pe_card_v3_4603248.webp' },
+      { name: 'Bio-Cello Duplex Clear', link: '/spec/bio-cello-duplex-clear', image: '/imgs/illustrated/a_compostable_v3_9254998.webp' },
+      { name: 'Mono PE Duplex Clear', link: '/spec/mono-pe-duplex-clear', image: '/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp' },
     ]
   },
 }
