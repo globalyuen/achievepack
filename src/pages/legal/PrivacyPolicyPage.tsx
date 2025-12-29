@@ -9,7 +9,7 @@ const PrivacyPolicyPage: React.FC = () => {
       <Helmet>
         <title>Privacy Policy | Achieve Pack - Eco-Friendly Packaging</title>
         <meta name="description" content="Achieve Pack's privacy policy explains how we collect, use, and protect your personal information when you use our website and services." />
-        <meta name="robots" content="noindex, follow" />
+        <meta name="robots" content="index, follow" />
       </Helmet>
 
       <div className="min-h-screen bg-neutral-50">

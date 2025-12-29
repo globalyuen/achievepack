@@ -542,7 +542,7 @@ export const blogPosts: BlogPost[] = [
         <li><a href="/materials/recyclable-mono-pe">Explore mono-PE materials</a> - 100% recyclable options</li>
         <li><a href="/materials/bio-pe">View PCR and Bio-PE options</a> - recycled and bio-based alternatives</li>
         <li><a href="/packaging/stand-up-pouches">Browse pouch styles</a> - stand-up, flat, sachets and more</li>
-        <li><a href="/industry/cosmetics-beauty">Cosmetics industry solutions</a> - tailored packaging for beauty brands</li>
+        <li><a href="/industry/supplements-powders">Cosmetics industry solutions</a> - tailored packaging for beauty brands</li>
       </ul>
     `,
     author: "Achieve Pack Team",
@@ -750,7 +750,7 @@ export const blogPosts: BlogPost[] = [
         <li><a href="/store">Browse our pet food pouch store</a> - starting from just 100 pieces</li>
         <li><a href="/industry/pet-food">Explore pet food packaging solutions</a> - tailored for the industry</li>
         <li><a href="/materials/compostable">View compostable materials</a> - BPI and TÜV certified options</li>
-        <li><a href="/case-studies/pet-treats-company">Read our pet treats case study</a> - see how others succeeded</li>
+        <li><a href="/case-studies/pet-treats">Read our pet treats case study</a> - see how others succeeded</li>
       </ul>
     `,
     author: "Achieve Pack Team",
@@ -942,7 +942,7 @@ export const blogPosts: BlogPost[] = [
       <h3>Recommendation by Product Type</h3>
 
       <h4>For Dry Kibble & Treats</h4>
-      <p><strong>Top Choice:</strong> <a href="/materials/recyclable-mono-pe">Mono-PE</a> or <a href="/materials/kraft-paper-pe-lining">Kraft + PE lining</a></p>
+      <p><strong>Top Choice:</strong> <a href="/materials/recyclable-mono-pe">Mono-PE</a> or <a href="/materials/kraft-high-barrier">Kraft + PE lining</a></p>
       <ul>
         <li>Balance of barrier, cost, and recyclability</li>
         <li>Proven supply chain and processing compatibility</li>
@@ -1035,7 +1035,7 @@ export const blogPosts: BlogPost[] = [
         <li><strong>Full material range:</strong> Compostable, recyclable, bio-based options</li>
         <li><strong>Pet food expertise:</strong> <a href="/industry/pet-food">Dedicated solutions</a> for the industry</li>
         <li><strong>Certified materials:</strong> BPI, TÜV, FSC, GRS options</li>
-        <li><strong>Case studies:</strong> <a href="/case-studies/pet-treats-company">Proven success</a> with pet food brands</li>
+        <li><strong>Case studies:</strong> <a href="/case-studies/pet-treats">Proven success</a> with pet food brands</li>
       </ul>
 
       <h2>Key Takeaways</h2>
@@ -1116,7 +1116,7 @@ export const blogPosts: BlogPost[] = [
       <h3>Best Materials for Pet Treat Startups</h3>
 
       <h4>Option 1: Kraft Paper + PE Lining</h4>
-      <p><a href="/materials/kraft-paper-pe-lining">Kraft-based pouches</a> offer the best balance for budget-conscious startups:</p>
+      <p><a href="/materials/kraft-high-barrier">Kraft-based pouches</a> offer the best balance for budget-conscious startups:</p>
       <ul>
         <li><strong>Cost:</strong> Most affordable sustainable option (+5-10% vs. conventional)</li>
         <li><strong>Appearance:</strong> Natural, artisan look that signals quality</li>
@@ -1348,9 +1348,9 @@ export const blogPosts: BlogPost[] = [
       <p><a href="/">Achieve Pack</a> makes sustainable packaging accessible for startups:</p>
       <ul>
         <li><a href="/store">Shop pet treat pouches</a> - starting from just 100 pieces</li>
-        <li><a href="/materials/kraft-paper-pe-lining">Explore kraft options</a> - budget-friendly sustainable choice</li>
+        <li><a href="/materials/kraft-high-barrier">Explore kraft options</a> - budget-friendly sustainable choice</li>
         <li><a href="/packaging/stand-up-pouches">View stand-up pouches</a> - most popular for pet treats</li>
-        <li><a href="/case-studies/pet-treats-company">Read our pet treats case study</a> - learn from other startups</li>
+        <li><a href="/case-studies/pet-treats">Read our pet treats case study</a> - learn from other startups</li>
         <li><a href="/industry/pet-food">Pet food solutions</a> - tailored for the industry</li>
       </ul>
     `,
@@ -1419,7 +1419,7 @@ export const blogPosts: BlogPost[] = [
       <h3>Coffee and Tea</h3>
       <p>Specialty coffee and premium tea are some of the earliest adopters of compostable pouches.</p>
       <ul>
-        <li>Coffee beans and ground coffee often use <strong><a href="/materials/kraft-paper-pe-lining">kraft or white compostable stand up pouches</a> with a one-way degassing valve and zipper</strong>, balancing aroma protection with an authentic, sustainable look.</li>
+        <li>Coffee beans and ground coffee often use <strong><a href="/materials/kraft-high-barrier">kraft or white compostable stand up pouches</a> with a one-way degassing valve and zipper</strong>, balancing aroma protection with an authentic, sustainable look.</li>
         <li>Loose-leaf tea and herbal blends benefit from high-barrier compostable films that protect volatile aromas while giving you a large printable surface for origin and brewing storytelling.</li>
       </ul>
       <p>Roasters and tea brands frequently start with 4 oz, 8 oz, or 12 oz formats for retail bags, then add larger compostable pouches for refill or bulk formats. <a href="/industry/coffee-tea">Explore our coffee and tea packaging solutions</a>.</p>
@@ -1493,7 +1493,7 @@ export const blogPosts: BlogPost[] = [
       <h3>Step 3: Performance Testing and Real-World Case Studies</h3>
       <ul>
         <li>Request tests or references covering sealing, drop resistance, and shelf-life performance in climates similar to your main markets.</li>
-        <li>Look for case studies from brands in similar segments (<a href="/case-studies/coffee-roastery">specialty coffee roasters</a>, <a href="/case-studies/natural-snacks-brand">natural snack lines</a>, <a href="/case-studies/pet-treats-company">sustainable pet brands</a>, <a href="/case-studies/superfood-brand">wellness supplements</a>) so you can learn from their experience instead of starting from zero.</li>
+        <li>Look for case studies from brands in similar segments (<a href="/case-studies/coffee-roastery">specialty coffee roasters</a>, <a href="/case-studies/outdoor-snacks">natural snack lines</a>, <a href="/case-studies/pet-treats">sustainable pet brands</a>, <a href="/case-studies/superfood-brand">wellness supplements</a>) so you can learn from their experience instead of starting from zero.</li>
       </ul>
       
       <p>The more specific a supplier can be about your category and use case, the less guesswork you will have to do.</p>

@@ -415,7 +415,7 @@ const StandUpPouchesPage: React.FC = () => {
             <Mail className="h-8 w-8 mx-auto mb-2 text-neutral-500" />
             <h4 className="font-bold text-lg text-neutral-900">Still Exploring?</h4>
             <p className="text-sm text-neutral-600 mt-1">See how other brands solved it</p>
-            <Link to="/case-studies" className="inline-block mt-3 px-4 py-2 border border-primary-600 text-primary-600 rounded-lg font-semibold hover:bg-primary-50 transition">View Case Studies</Link>
+            <Link to="/case-studies/coffee-roastery" className="inline-block mt-3 px-4 py-2 border border-primary-600 text-primary-600 rounded-lg font-semibold hover:bg-primary-50 transition">View Case Studies</Link>
           </div>
         </div>
       )
