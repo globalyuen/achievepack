@@ -9,6 +9,7 @@ const ShippingPolicyPage: React.FC = () => {
       <Helmet>
         <title>Shipping Policy | Achieve Pack - Global Packaging Delivery</title>
         <meta name="description" content="Achieve Pack shipping information: worldwide delivery, shipping times, costs, and tracking. We ship to USA, UK, EU, Australia, and 100+ countries." />
+        <link rel="canonical" href="https://achievepack.com/shipping" />
       </Helmet>
 
       <div className="min-h-screen bg-neutral-50">

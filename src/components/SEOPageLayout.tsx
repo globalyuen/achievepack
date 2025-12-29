@@ -99,6 +99,9 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   const location = useLocation()
   const [isPending, startTransition] = useTransition()
   
+  // Generate canonical URL from current path if not provided
+  const effectiveCanonicalUrl = canonicalUrl || `https://achievepack.com${location.pathname}`
+  
   // Scroll to top when page loads
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -149,7 +152,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   // Generate Breadcrumb
   const breadcrumbItems = [
     { name: 'Home', url: 'https://achievepack.com/' },
-    { name: title, url: canonicalUrl || window.location.href }
+    { name: title, url: effectiveCanonicalUrl }
   ]
 
   // 使用 @graph 結構整合所有實體 - E-E-A-T 優化
@@ -165,7 +168,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
       // Main Content Entity (Article/WebPage)
       {
         "@type": schemaType,
-        "@id": canonicalUrl || `https://achievepack.com${window.location.pathname}#article`,
+        "@id": `${effectiveCanonicalUrl}#article`,
         "headline": title,
         "description": description,
         "image": heroImage || ogImage,
@@ -175,7 +178,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         "dateModified": new Date().toISOString().split('T')[0],
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": canonicalUrl || window.location.href
+          "@id": effectiveCanonicalUrl
         },
         "about": keywords.slice(0, 5), // 主題關鍵字
         "mentions": keywords.slice(5, 10), // 提及的相關主題
@@ -198,7 +201,8 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         <title>{title} | Achieve Pack - Eco-Friendly Packaging Solutions</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords.join(', ')} />
-        {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+                {/* Always set canonical URL */}
+                <link rel="canonical" href={effectiveCanonicalUrl} />
         
         {/* Open Graph */}
         <meta property="og:title" content={title} />
