@@ -154,6 +154,7 @@ const LEARN_PAGES = {
     icon: <Beaker className="h-4 w-4" />,
     pages: [
       { name: 'Lateral Filter Bags', link: '/lab/lateral-filter-bags', image: '/imgs/lab/filter/hero.webp' },
+      { name: 'Wire Closure Bags', link: '/lab/wire-closure-bags', image: '/imgs/lab/wire/hero.webp' },
     ]
   },
   usa: {

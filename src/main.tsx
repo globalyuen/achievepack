@@ -99,6 +99,7 @@ const PVAWaterSolubleBagsPage = lazy(() => import('./pages/function/PVAWaterSolu
 
 // Lab Pages - Lazy loaded
 const LateralFilterBagsPage = lazy(() => import('./pages/lab/LateralFilterBagsPage'))
+const WireClosureBagsPage = lazy(() => import('./pages/lab/WireClosureBagsPage'))
 
 // Legal Pages - Lazy loaded
 const PrivacyPolicyPage = lazy(() => import('./pages/legal/PrivacyPolicyPage'))
@@ -301,6 +302,7 @@ createRoot(document.getElementById('root')!).render(
               
                             {/* Lab Pages */}
                             <Route path="/lab/lateral-filter-bags" element={<LateralFilterBagsPage />} />
+                            <Route path="/lab/wire-closure-bags" element={<WireClosureBagsPage />} />
 
               {/* Legal Pages */}
               <Route path="/privacy" element={<PrivacyPolicyPage />} />
