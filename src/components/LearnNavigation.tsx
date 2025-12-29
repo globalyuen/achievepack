@@ -155,6 +155,7 @@ const LEARN_PAGES = {
     pages: [
       { name: 'Lateral Filter Bags', link: '/lab/lateral-filter-bags', image: '/imgs/lab/filter/hero.webp' },
       { name: 'Wire Closure Bags', link: '/lab/wire-closure-bags', image: '/imgs/lab/wire/hero.webp' },
+      { name: 'Lab Blender Bags', link: '/lab/lab-blender-bags', image: '/imgs/lab/blend/a_kv_material_thickness_detail_7472209.webp' },
     ]
   },
   usa: {

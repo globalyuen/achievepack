@@ -1841,6 +1841,7 @@ ${formData.message}`
               <ul className="space-y-1 text-neutral-400 text-xs">
                 <li><Link to="/lab/lateral-filter-bags" className="hover:text-primary-500">Lateral Filter Bags</Link></li>
                 <li><Link to="/lab/wire-closure-bags" className="hover:text-primary-500">Wire Closure Bags</Link></li>
+                <li><Link to="/lab/lab-blender-bags" className="hover:text-primary-500">Lab Blender Bags</Link></li>
               </ul>
             </div>
 
