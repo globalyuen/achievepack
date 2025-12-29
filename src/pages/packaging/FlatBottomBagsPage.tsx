@@ -148,7 +148,7 @@ const FlatBottomBagsPage: React.FC = () => {
                 caption="Aluminum Barrier"
               />
               <ClickableImage 
-                src="/imgs/store/eco-material/kraft.webp" 
+                src="/imgs/store/eco-material/compostable.webp"
                 alt="Kraft paper flat bottom bag eco-friendly" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Kraft Paper"

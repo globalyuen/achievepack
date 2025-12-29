@@ -107,7 +107,7 @@ const GreenCoffeeMaterialsPage: React.FC = () => {
               caption="High Barrier"
             />
             <ClickableImage 
-              src="/imgs/store/barrier/2-medium.webp" 
+              src="/imgs/store/barrier/2-clear.webp"
               alt="Medium barrier coffee packaging" 
               className="w-full h-28 object-cover rounded-lg"
               caption="Medium Barrier"

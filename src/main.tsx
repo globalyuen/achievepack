@@ -72,6 +72,7 @@ const BioPEPage = lazy(() => import('./pages/materials/BioPEPage'))
 const PCRPage = lazy(() => import('./pages/materials/PCRPage'))
 const HomeCompostablePage = lazy(() => import('./pages/materials/HomeCompostablePage'))
 const IndustrialCompostablePage = lazy(() => import('./pages/materials/IndustrialCompostablePage'))
+const KraftHighBarrierPage = lazy(() => import('./pages/materials/KraftHighBarrierPage'))
 
 // Printing Pages - Lazy loaded
 const DigitalPrintingPage = lazy(() => import('./pages/printing/DigitalPrintingPage'))
@@ -267,6 +268,7 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/materials/pcr" element={<PCRPage />} />
               <Route path="/materials/home-compostable" element={<HomeCompostablePage />} />
               <Route path="/materials/industrial-compostable" element={<IndustrialCompostablePage />} />
+                            <Route path="/materials/kraft-high-barrier" element={<KraftHighBarrierPage />} />
 
               {/* Printing Pages */}
               <Route path="/printing/digital-printing" element={<DigitalPrintingPage />} />

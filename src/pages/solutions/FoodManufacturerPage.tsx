@@ -301,7 +301,7 @@ const FoodManufacturerPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Product"
-        heroImage="/imgs/store/barrier/high-barrier.webp"
+        heroImage="/imgs/store/barrier/3-foil.webp"
       />
     </>
   )

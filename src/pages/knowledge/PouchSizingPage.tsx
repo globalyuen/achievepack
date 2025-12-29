@@ -33,7 +33,7 @@ const PouchSizingPage: React.FC = () => {
           sizes={FLAT_BOTTOM_SIZES}
           title="Flat Bottom Bag Sizes - Sortable & Filterable"
           categoryColor="amber"
-          productLink="/store/product/eco-flat-bottom"
+          productLink="/packaging/flat-bottom-bags"
         />
       )
     },
@@ -394,7 +394,7 @@ const PouchSizingPage: React.FC = () => {
 
   const relatedLinks = [
     { title: "Shop Eco Stand Up Pouches", url: "/store/product/eco-standup", description: "Browse all stand up sizes" },
-    { title: "Shop Flat Bottom Bags", url: "/store/product/eco-flat-bottom", description: "Premium box-shaped bags" },
+    { title: "Shop Flat Bottom Bags", url: "/packaging/flat-bottom-bags", description: "Premium box-shaped bags" },
     { title: "Materials Guide", url: "/materials/pcr", description: "Learn about eco materials" },
     { title: "Contact for Custom", url: "/contact", description: "Request custom dimensions" }
   ]

@@ -92,7 +92,7 @@ const LowMOQStartupPackagingPage: React.FC = () => {
               caption="Flat Pouch"
             />
             <ClickableImage 
-              src="/imgs/store/shape/side-gusset.webp" 
+              src="/imgs/store/pouch shape/side -seal.webp"
               alt="Side gusset bag" 
               className="w-full h-24 object-cover rounded-lg"
               caption="Side Gusset"

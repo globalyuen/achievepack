@@ -66,7 +66,7 @@ const DTCSustainablePackagingPage: React.FC = () => {
                   caption="Foil Stamp"
                 />
                 <ClickableImage 
-                  src="/imgs/store/surface/spot-matte.webp" 
+                  src="/imgs/store/surface/matt.webp"
                   alt="Premium matte finish" 
                   className="w-20 h-20 object-cover rounded-lg"
                   caption="Spot Matte"
@@ -152,7 +152,7 @@ const DTCSustainablePackagingPage: React.FC = () => {
               caption="Stand Up"
             />
             <ClickableImage 
-              src="/imgs/store/shape/side-gusset.webp" 
+              src="/imgs/store/pouch shape/side -seal.webp"
               alt="Side gusset bag" 
               className="w-full h-24 object-cover rounded-lg"
               caption="Side Gusset"

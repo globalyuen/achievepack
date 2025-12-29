@@ -184,7 +184,7 @@ const DigitalPrintingEcoPackagingPage: React.FC = () => {
               <h4 className="font-semibold text-purple-800 mb-3">Spot UV & Embossing</h4>
               <p className="text-sm text-purple-700 mb-3">Tactile spot varnish. Debossed or embossed logos. Create premium unboxing experiences.</p>
               <ClickableImage 
-                src="/imgs/store/surface/spot-matte.webp" 
+                src="/imgs/store/surface/matt.webp"
                 alt="Spot UV on sustainable packaging" 
                 className="w-full h-24 object-cover rounded-lg"
                 caption="Spot Matte UV"

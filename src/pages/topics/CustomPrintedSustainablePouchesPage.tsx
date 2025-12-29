@@ -114,7 +114,7 @@ const CustomPrintedSustainablePouchesPage: React.FC = () => {
               <p className="text-xs text-neutral-600">Metallic accents</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
-              <ClickableImage src="/imgs/store/surface/spot-matte.webp" alt="Spot UV" className="w-full h-20 object-cover rounded-lg mb-2" caption="Spot UV" />
+              <ClickableImage src="/imgs/store/surface/matt.webp" alt="Matte Finish" className="w-full h-20 object-cover rounded-lg mb-2" caption="Matte Finish" />
               <h5 className="font-semibold text-neutral-800 text-sm">Spot UV</h5>
               <p className="text-xs text-neutral-600">Tactile highlights</p>
             </div>
@@ -150,7 +150,7 @@ const CustomPrintedSustainablePouchesPage: React.FC = () => {
               <p className="text-xs text-neutral-600">Premium shelf</p>
             </Link>
             <Link to="/packaging/side-gusset-bags" className="block bg-white p-4 rounded-lg border border-neutral-200 hover:shadow-md transition text-center">
-              <ClickableImage src="/imgs/store/shape/side-gusset.webp" alt="Side gusset bag" className="w-full h-24 object-cover rounded-lg mb-2" caption="Side Gusset" />
+              <ClickableImage src="/imgs/store/pouch shape/side -seal.webp" alt="Side gusset bag" className="w-full h-24 object-cover rounded-lg mb-2" caption="Side Gusset" />
               <h5 className="font-semibold text-neutral-800 text-sm">Side Gusset</h5>
               <p className="text-xs text-neutral-600">Coffee favorite</p>
             </Link>
