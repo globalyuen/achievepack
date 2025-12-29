@@ -705,7 +705,7 @@ const StorePage: React.FC = () => {
                 <li><Link to="/materials/compostable" className="hover:text-primary-400">Compostable</Link></li>
                 <li><Link to="/materials/recyclable-mono-pe" className="hover:text-primary-400">Recyclable Mono-PE</Link></li>
                 <li><Link to="/materials/bio-pe" className="hover:text-primary-400">Bio-PE / PCR</Link></li>
-                <li><Link to="/materials/kraft-paper-pe-lining" className="hover:text-primary-400">Kraft Paper</Link></li>
+                <li><Link to="/packaging/flat-bottom-bags" className="hover:text-primary-400">Flat Bottom Bags</Link></li>
                 <li><Link to="/materials/home-compostable" className="hover:text-primary-400">Home Compostable</Link></li>
               </ul>
             </div>
@@ -715,8 +715,8 @@ const StorePage: React.FC = () => {
               <h4 className="font-semibold text-sm mb-4">Store Policies</h4>
               <ul className="space-y-2 text-xs text-neutral-400">
                 <li><Link to="/terms" className="hover:text-primary-400">Terms & Conditions</Link></li>
-                <li><Link to="/returns" className="hover:text-primary-400">Return Policy</Link></li>
-                <li><Link to="/shipping" className="hover:text-primary-400">Shipping Info</Link></li>
+                <li><Link to="/support/faqs" className="hover:text-primary-400">Return Policy</Link></li>
+                <li><Link to="/support/lead-time" className="hover:text-primary-400">Shipping & Lead Time</Link></li>
                 <li><Link to="/privacy" className="hover:text-primary-400">Privacy Policy</Link></li>
                 <li><Link to="/support/lead-time" className="hover:text-primary-400">Lead Time</Link></li>
               </ul>

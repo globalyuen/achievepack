@@ -213,7 +213,7 @@ const CoffeeRoasteryCaseStudy = () => {
               <li>• <Link to="/industry/coffee-tea" className="underline">Explore our Coffee & Tea packaging options</Link></li>
               <li>• <Link to="/materials/compostable" className="underline">Learn about compostable materials</Link></li>
               <li>• <Link to="/spec/bio-kraft-pbat-low" className="underline">View complete spec - Kraft + PBAT structure</Link></li>
-              <li>• <Link to="/spec/bio-kraft-vmcello" className="underline">High barrier compostable - Kraft VMPET Triplex</Link></li>
+              <li>• <Link to="/spec/bio-kraft-pbat-low" className="underline">High barrier compostable - Kraft PBAT structure</Link></li>
               <li>• <Link to="/store" className="underline">Shop compostable coffee pouches</Link></li>
             </ul>
           </div>

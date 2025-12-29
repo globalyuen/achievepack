@@ -392,7 +392,7 @@ const CompostablePage: React.FC = () => {
           </div>
           
           <p className="text-sm text-neutral-600 mt-4">
-            Over 500 brands worldwide trust Achieve Pack for their sustainable packaging needs. <Link to="/certificates" className="text-primary-600 hover:underline">View our certifications</Link> or <Link to="/factory-tour" className="text-primary-600 hover:underline">take a virtual factory tour</Link>.
+            Over 500 brands worldwide trust Achieve Pack for their sustainable packaging needs. <Link to="/company/certificates" className="text-primary-600 hover:underline">View our certifications</Link> or <Link to="/company/factory-tour" className="text-primary-600 hover:underline">take a virtual factory tour</Link>.
           </p>
         </div>
       )
@@ -466,7 +466,7 @@ const CompostablePage: React.FC = () => {
               <Mail className="h-8 w-8 mx-auto mb-2 text-neutral-500" />
               <h4 className="font-bold text-lg mb-2 text-neutral-900">Still Exploring?</h4>
               <p className="text-sm text-neutral-600 mb-4">Download our buyer guide or browse case studies</p>
-              <Link to="/case-studies" className="inline-block border-2 border-neutral-300 text-neutral-700 px-4 py-2 rounded-lg font-semibold hover:border-primary-300 transition">
+              <Link to="/case-studies/coffee-roastery" className="inline-block border-2 border-neutral-300 text-neutral-700 px-4 py-2 rounded-lg font-semibold hover:border-primary-300 transition">
                 See Case Studies
               </Link>
             </div>

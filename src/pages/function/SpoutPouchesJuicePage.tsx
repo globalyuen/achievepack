@@ -401,8 +401,8 @@ const SpoutPouchesJuicePage: React.FC = () => {
               <Link to="/packaging/stand-up-pouches" className="flex items-center gap-2 text-sm text-primary-600 hover:text-primary-800 hover:underline">
                 <Package className="h-4 w-4" /> Stand Up Pouches
               </Link>
-              <Link to="/industry/beverages" className="flex items-center gap-2 text-sm text-primary-600 hover:text-primary-800 hover:underline">
-                <Droplets className="h-4 w-4" /> Beverage Industry
+              <Link to="/industry/sauces-condiments" className="flex items-center gap-2 text-sm text-primary-600 hover:text-primary-800 hover:underline">
+                <Droplets className="h-4 w-4" /> Liquid Packaging
               </Link>
               <Link to="/company/certificates" className="flex items-center gap-2 text-sm text-primary-600 hover:text-primary-800 hover:underline">
                 <FileCheck className="h-4 w-4" /> Our Certificates
@@ -481,7 +481,7 @@ const SpoutPouchesJuicePage: React.FC = () => {
     // Material options
     { title: "Recyclable Mono-PE", url: "/materials/recyclable-mono-pe", description: "Fully recyclable single-material structure" },
     { title: "PCR Materials", url: "/materials/pcr", description: "Post-consumer recycled content options" },
-    { title: "Bio-Based Materials", url: "/materials/bio-based", description: "Plant-derived sustainable materials" },
+    { title: "Bio-Based Materials", url: "/materials/bio-pe", description: "Plant-derived sustainable materials" },
     { title: "Compostable Pouches", url: "/materials/compostable", description: "100% plastic-free eco-friendly options" },
     // Packaging shapes
     { title: "Spout Pouches", url: "/packaging/spout-pouches", description: "All spout pouch options and sizes" },
@@ -489,13 +489,13 @@ const SpoutPouchesJuicePage: React.FC = () => {
     { title: "Flat Bottom Bags", url: "/packaging/flat-bottom-bags", description: "Premium box-pouch designs" },
     // Features
     { title: "Barrier Options", url: "/features/barrier-options", description: "Choose your protection level" },
-    { title: "Printing Capabilities", url: "/features/printing", description: "Digital and rotogravure options" },
+    { title: "Printing Capabilities", url: "/printing/digital-printing", description: "Digital and rotogravure options" },
     // Related function pages
     { title: "Carbon Neutral Bags", url: "/function/carbon-neutral-bags", description: "Climate-positive packaging solutions" },
     { title: "Microwave Steam Bags", url: "/function/microwave-steam-bags", description: "Food-safe heating pouches" },
     { title: "Child-Resistant Bags", url: "/function/child-resistant-bags", description: "Safety-compliant CR packaging" },
     // Industry applications
-    { title: "Beverages Packaging", url: "/industry/beverages", description: "Complete beverage pouch solutions" },
+    { title: "Liquid Packaging", url: "/industry/sauces-condiments", description: "Complete liquid pouch solutions" },
     // Knowledge & Support
     { title: "Certificates", url: "/company/certificates", description: "View our safety certifications" },
     { title: "FAQs", url: "/support/faqs", description: "Common questions answered" }

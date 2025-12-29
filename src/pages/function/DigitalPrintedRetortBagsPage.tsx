@@ -467,7 +467,7 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
               With over 13 years of experience manufacturing flexible packaging, Achieve Pack has supplied retort pouches to ready meal brands, baby food manufacturers, and pet food companies across North America, Europe, and Asia-Pacific.
             </p>
             <p className="text-neutral-600">
-              Our BRC and ISO-certified facilities produce <Link to="/packaging/retort-pouches" className="text-primary-600 underline hover:text-primary-800">retort pouches</Link> using food-grade multi-layer films designed for commercial sterilization, trusted by leading <Link to="/industry/food" className="text-primary-600 underline hover:text-primary-800">food brands</Link> worldwide.
+              Our BRC and ISO-certified facilities produce <Link to="/packaging/retort-pouches" className="text-primary-600 underline hover:text-primary-800">retort pouches</Link> using food-grade multi-layer films designed for commercial sterilization, trusted by leading <Link to="/industry/snacks-food" className="text-primary-600 underline hover:text-primary-800">food brands</Link> worldwide.
             </p>
           </div>
           
@@ -514,7 +514,7 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
               <Link to="/packaging/stand-up-pouches" className="flex items-center gap-2 text-sm text-primary-600 hover:text-primary-800 hover:underline">
                 <Package className="h-4 w-4" /> Stand Up Pouches
               </Link>
-              <Link to="/industry/food" className="flex items-center gap-2 text-sm text-primary-600 hover:text-primary-800 hover:underline">
+              <Link to="/industry/snacks-food" className="flex items-center gap-2 text-sm text-primary-600 hover:text-primary-800 hover:underline">
                 <Flame className="h-4 w-4" /> Food Industry
               </Link>
               <Link to="/company/certificates" className="flex items-center gap-2 text-sm text-primary-600 hover:text-primary-800 hover:underline">
@@ -594,7 +594,7 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     // Material options
     { title: "Recyclable Mono-PE", url: "/materials/recyclable-mono-pe", description: "Recyclable single-material options" },
     { title: "PCR Materials", url: "/materials/pcr", description: "Post-consumer recycled content" },
-    { title: "High Barrier Films", url: "/materials/high-barrier", description: "Aluminum and metallized options" },
+    { title: "High Barrier Films", url: "/features/barrier-options", description: "Aluminum and metallized options" },
     { title: "Compostable Pouches", url: "/materials/compostable", description: "Eco-friendly alternatives" },
     // Packaging shapes
     { title: "Stand Up Pouches", url: "/packaging/stand-up-pouches", description: "Self-standing retort pouches" },
@@ -603,7 +603,7 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     // Features
     { title: "Barrier Options", url: "/features/barrier-options", description: "Choose your protection level" },
     { title: "Reclosure Options", url: "/features/reclosure-options", description: "Zippers and reseal features" },
-    { title: "Printing Capabilities", url: "/features/printing", description: "Digital and rotogravure" },
+    { title: "Printing Capabilities", url: "/printing/digital-printing", description: "Digital and rotogravure" },
     // Related function pages
     { title: "Microwave Steam Bags", url: "/function/microwave-steam-bags", description: "Heat-and-eat solutions" },
     { title: "Carbon Neutral Bags", url: "/function/carbon-neutral-bags", description: "Climate-positive packaging" },

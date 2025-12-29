@@ -415,7 +415,7 @@ export default function BlogPostPage() {
                 <ul className="space-y-2 text-neutral-400 text-sm">
                   <li><Link to="/materials/recyclable-mono-pe" className="hover:text-white transition">Recyclable Mono-PE</Link></li>
                   <li><Link to="/materials/bio-pe" className="hover:text-white transition">Bio-PE</Link></li>
-                  <li><Link to="/materials/kraft-paper-pe-lining" className="hover:text-white transition">Kraft Paper</Link></li>
+                  <li><Link to="/packaging/flat-bottom-bags" className="hover:text-white transition">Flat Bottom Bags</Link></li>
                   <li><Link to="/materials/home-compostable" className="hover:text-white transition">Home Compostable</Link></li>
                 </ul>
               </div>
@@ -425,7 +425,7 @@ export default function BlogPostPage() {
                 <h4 className="font-semibold mb-4">Company</h4>
                 <ul className="space-y-2 text-neutral-400 text-sm">
                   <li><Link to="/blog" className="hover:text-white transition">Blog</Link></li>
-                  <li><Link to="/case-studies" className="hover:text-white transition">Case Studies</Link></li>
+                  <li><Link to="/case-studies/coffee-roastery" className="hover:text-white transition">Case Studies</Link></li>
                   <li><a href="https://achievepack.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Main Website</a></li>
                 </ul>
               </div>
