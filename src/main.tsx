@@ -93,6 +93,7 @@ const SpoutPouchesJuicePage = lazy(() => import('./pages/function/SpoutPouchesJu
 const ChildResistantBagsPage = lazy(() => import('./pages/function/ChildResistantBagsPage'))
 const PreZipperedRollstockPage = lazy(() => import('./pages/function/PreZipperedRollstockPage'))
 const DigitalPrintedRetortBagsPage = lazy(() => import('./pages/function/DigitalPrintedRetortBagsPage'))
+const RicePaperBagsPage = lazy(() => import('./pages/function/RicePaperBagsPage'))
 
 // Legal Pages - Lazy loaded
 const PrivacyPolicyPage = lazy(() => import('./pages/legal/PrivacyPolicyPage'))
@@ -289,6 +290,7 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/function/child-resistant-bags" element={<ChildResistantBagsPage />} />
               <Route path="/function/pre-zippered-rollstock" element={<PreZipperedRollstockPage />} />
               <Route path="/function/digital-printed-retort-bags" element={<DigitalPrintedRetortBagsPage />} />
+              <Route path="/function/rice-paper-bags" element={<RicePaperBagsPage />} />
 
               {/* Legal Pages */}
               <Route path="/privacy" element={<PrivacyPolicyPage />} />

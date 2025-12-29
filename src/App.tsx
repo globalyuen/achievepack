@@ -1830,6 +1830,7 @@ ${formData.message}`
                 <li><Link to="/function/child-resistant-bags" className="hover:text-primary-500">Child-Resistant Bags</Link></li>
                 <li><Link to="/function/pre-zippered-rollstock" className="hover:text-primary-500">Pre-Zippered Rollstock</Link></li>
                 <li><Link to="/function/digital-printed-retort-bags" className="hover:text-primary-500">Digital Printed Retort</Link></li>
+                <li><Link to="/function/rice-paper-bags" className="hover:text-primary-500">Rice Paper Bags</Link></li>
               </ul>
             </div>
 

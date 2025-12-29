@@ -145,6 +145,7 @@ const LEARN_PAGES = {
       { name: 'Child-Resistant Bags', link: '/function/child-resistant-bags', image: '/imgs/function/child/child-resistant-hero-learn-center.webp' },
       { name: 'Digital Printed Retort Bags', link: '/function/digital-printed-retort-bags', image: '/imgs/function/retort/retort-hero.webp' },
       { name: 'Pre-Zippered Rollstock', link: '/function/pre-zippered-rollstock', image: '/imgs/function/roll/hero.webp' },
+      { name: 'Rice Paper Bags', link: '/function/rice-paper-bags', image: '/imgs/function/rice/hero.webp' },
     ]
   },
   usa: {
