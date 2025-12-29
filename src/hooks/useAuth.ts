@@ -26,6 +26,23 @@ export const useAuth = () => {
     return await supabase.auth.signInWithPassword({ email, password })
   }
 
+  const signInWithGoogle = async () => {
+    const redirectUrl = typeof window !== 'undefined' 
+      ? `${window.location.origin}/auth/callback` 
+      : 'https://achievepack.com/auth/callback'
+    
+    return await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        redirectTo: redirectUrl,
+        queryParams: {
+          access_type: 'offline',
+          prompt: 'consent',
+        }
+      }
+    })
+  }
+
   const signUp = async (email: string, password: string, metadata?: { full_name?: string; company?: string }) => {
     // Get the current origin for redirect URL
     const redirectUrl = typeof window !== 'undefined' 
@@ -60,5 +77,5 @@ export const useAuth = () => {
     return await supabase.auth.updateUser({ password: newPassword })
   }
 
-  return { session, user, loading, signIn, signUp, signOut, resetPassword, updatePassword }
+  return { session, user, loading, signIn, signInWithGoogle, signUp, signOut, resetPassword, updatePassword }
 }
