@@ -590,6 +590,8 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                   <li><Link to="/solutions/artisan-producer" className="hover:text-primary-400">For Artisan Makers</Link></li>
                   <li><Link to="/solutions/snack-brand-manager" className="hover:text-primary-400">For Snack Brands</Link></li>
                   <li><Link to="/solutions/corporate-sustainability" className="hover:text-primary-400">For Corporate ESG</Link></li>
+                  <li><Link to="/solutions/food-manufacturer" className="hover:text-primary-400">For Food Manufacturers</Link></li>
+                  <li><Link to="/solutions/product-developer" className="hover:text-primary-400">For Product Developers</Link></li>
                 </ul>
               </div>
 
@@ -603,6 +605,10 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                   <li><Link to="/topics/digital-printing-eco-packaging" className="hover:text-primary-400">Digital Printing</Link></li>
                   <li><Link to="/topics/recyclable-snack-packaging" className="hover:text-primary-400">Recyclable Snacks</Link></li>
                   <li><Link to="/topics/eco-packaging-regulations" className="hover:text-primary-400">Regulations Guide</Link></li>
+                  <li><Link to="/topics/compostable-pouch-suppliers" className="hover:text-primary-400">Compostable Suppliers</Link></li>
+                  <li><Link to="/topics/low-moq-startup-packaging" className="hover:text-primary-400">Low MOQ Startup</Link></li>
+                  <li><Link to="/topics/compostable-baby-food-bags" className="hover:text-primary-400">Baby Food Bags</Link></li>
+                  <li><Link to="/topics/custom-printed-sustainable-pouches" className="hover:text-primary-400">Custom Printed Pouches</Link></li>
                 </ul>
               </div>
 
@@ -614,7 +620,10 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                   <li><Link to="/function/carbon-neutral-bags" className="hover:text-primary-400">Carbon Neutral Bags</Link></li>
                   <li><Link to="/function/spout-pouches-juice" className="hover:text-primary-400">Spout Pouches Juice</Link></li>
                   <li><Link to="/function/child-resistant-bags" className="hover:text-primary-400">Child-Resistant Bags</Link></li>
+                  <li><Link to="/function/pre-zippered-rollstock" className="hover:text-primary-400">Pre-Zippered Rollstock</Link></li>
                   <li><Link to="/function/digital-printed-retort-bags" className="hover:text-primary-400">Digital Printed Retort</Link></li>
+                  <li><Link to="/function/rice-paper-bags" className="hover:text-primary-400">Rice Paper Bags</Link></li>
+                  <li><Link to="/function/pva-water-soluble-bags" className="hover:text-primary-400">PVA Water-Soluble Bags</Link></li>
                 </ul>
               </div>
 
