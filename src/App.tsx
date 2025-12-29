@@ -1835,6 +1835,14 @@ ${formData.message}`
               </ul>
             </div>
 
+            {/* Lab Bag */}
+            <div>
+              <h4 className="text-sm font-semibold mb-2">Lab Bag</h4>
+              <ul className="space-y-1 text-neutral-400 text-xs">
+                <li><Link to="/lab/lateral-filter-bags" className="hover:text-primary-500">Lateral Filter Bags</Link></li>
+              </ul>
+            </div>
+
             {/* Structure Specs */}
             <div>
               <h4 className="text-sm font-semibold mb-2">Structure Specs</h4>

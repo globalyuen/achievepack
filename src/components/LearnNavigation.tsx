@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { ChevronRight, ChevronDown, Leaf, Package, Factory, FileText, BookOpen, Users, Award, ShoppingBag, Globe, Boxes, HelpCircle, Search, Zap } from 'lucide-react'
+import { ChevronRight, ChevronDown, Leaf, Package, Factory, FileText, BookOpen, Users, Award, ShoppingBag, Globe, Boxes, HelpCircle, Search, Zap, Beaker } from 'lucide-react'
 
 // All SEO pages mapped with illustrated images - COMPLETE LIST
 const LEARN_PAGES = {
@@ -147,6 +147,13 @@ const LEARN_PAGES = {
       { name: 'Pre-Zippered Rollstock', link: '/function/pre-zippered-rollstock', image: '/imgs/function/roll/hero.webp' },
       { name: 'Rice Paper Bags', link: '/function/rice-paper-bags', image: '/imgs/function/rice/hero.webp' },
       { name: 'PVA Water-Soluble Bags', link: '/function/pva-water-soluble-bags', image: '/imgs/function/water/hero.webp' },
+    ]
+  },
+  lab: {
+    title: 'Lab Bag',
+    icon: <Beaker className="h-4 w-4" />,
+    pages: [
+      { name: 'Lateral Filter Bags', link: '/lab/lateral-filter-bags', image: '/imgs/lab/filter/hero.webp' },
     ]
   },
   usa: {

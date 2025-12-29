@@ -627,6 +627,14 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                 </ul>
               </div>
 
+              {/* Lab Bag */}
+              <div>
+                <h4 className="font-semibold text-sm mb-2">Lab Bag</h4>
+                <ul className="space-y-1 text-xs text-neutral-400">
+                  <li><Link to="/lab/lateral-filter-bags" className="hover:text-primary-400">Lateral Filter Bags</Link></li>
+                </ul>
+              </div>
+
               {/* Structure Specs */}
               <div>
                 <h4 className="font-semibold text-sm mb-2">Structure Specs</h4>

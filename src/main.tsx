@@ -96,6 +96,9 @@ const DigitalPrintedRetortBagsPage = lazy(() => import('./pages/function/Digital
 const RicePaperBagsPage = lazy(() => import('./pages/function/RicePaperBagsPage'))
 const PVAWaterSolubleBagsPage = lazy(() => import('./pages/function/PVAWaterSolubleBagsPage'))
 
+// Lab Pages - Lazy loaded
+const LateralFilterBagsPage = lazy(() => import('./pages/lab/LateralFilterBagsPage'))
+
 // Legal Pages - Lazy loaded
 const PrivacyPolicyPage = lazy(() => import('./pages/legal/PrivacyPolicyPage'))
 const ShippingPolicyPage = lazy(() => import('./pages/legal/ShippingPolicyPage'))
@@ -293,6 +296,9 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/function/digital-printed-retort-bags" element={<DigitalPrintedRetortBagsPage />} />
               <Route path="/function/rice-paper-bags" element={<RicePaperBagsPage />} />
               <Route path="/function/pva-water-soluble-bags" element={<PVAWaterSolubleBagsPage />} />
+              
+                            {/* Lab Pages */}
+                            <Route path="/lab/lateral-filter-bags" element={<LateralFilterBagsPage />} />
 
               {/* Legal Pages */}
               <Route path="/privacy" element={<PrivacyPolicyPage />} />
