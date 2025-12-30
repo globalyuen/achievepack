@@ -163,6 +163,29 @@ async function importPayPalTransactions() {
       const amountUSD = convertToUSD(gross, currency)
       const customerType = classifyCustomer(amountUSD)
       
+      // Build full address from all fields
+      const addressParts = [
+        record['Address Line 1'],
+        record['Address Line 2/District/Neighbourhood'],
+        record['Town/City'],
+        record['County'],
+        record['Postcode'],
+        record['Country']
+      ].filter(p => p && p.trim())
+      
+      const fullAddress = addressParts.length > 0 
+        ? addressParts.join(', ')
+        : record['Shipping Address'] || ''
+      
+      // Build notes with all transaction and address details
+      const notes = [
+        `Customer Type: ${customerType}`,
+        `Transaction: $${amountUSD.toFixed(2)} ${currency}`,
+        `PayPal Transaction ID: ${transactionId}`,
+        fullAddress ? `\nAddress: ${fullAddress}` : '',
+        record['Contact Phone Number'] ? `Phone: ${record['Contact Phone Number']}` : ''
+      ].filter(n => n).join('\n')
+      
       allTransactions.push({
         paypal_transaction_id: transactionId,
         name: record['Name'].trim(),
@@ -180,7 +203,8 @@ async function importPayPalTransactions() {
         transaction_currency: currency,
         transaction_amount_usd: Math.round(amountUSD * 100) / 100,
         country: extractCountry(record),
-        address: record['Shipping Address'] || '',
+        address: fullAddress,
+        notes: notes,
         created_at: parseDate(record['Date'], record['Time']).toISOString(),
         updated_at: new Date().toISOString()
       })
@@ -220,20 +244,40 @@ async function importPayPalTransactions() {
   
   const existingEmails = new Set((existing || []).map(e => e.email))
   
-  // Filter out already imported
+  // Separate new vs existing
   const newTransactions = allTransactions.filter(t => !existingEmails.has(t.email))
+  const existingTransactions = allTransactions.filter(t => existingEmails.has(t.email))
   
   console.log(`\n🔄 Import Status:`)
-  console.log(`   Already in CRM: ${allTransactions.length - newTransactions.length}`)
+  console.log(`   Already in CRM: ${existingTransactions.length}`)
   console.log(`   New to import: ${newTransactions.length}`)
   
+  // Update existing records with address info
+  if (existingTransactions.length > 0) {
+    console.log(`\n📝 Updating ${existingTransactions.length} existing records with address info...`)
+    
+    for (const t of existingTransactions) {
+      if (t.address) {
+        await supabase
+          .from('crm_inquiries')
+          .update({ 
+            notes: t.notes,
+            updated_at: new Date().toISOString()
+          })
+          .eq('email', t.email)
+          .eq('source', 'paypal')
+      }
+    }
+    console.log(`   ✅ Updated existing records with addresses`)
+  }
+  
   if (newTransactions.length === 0) {
-    console.log('\n✅ All transactions already imported!')
+    console.log('\n✅ All transactions processed!')
     return
   }
   
   // Insert new transactions
-  console.log(`\n📥 Importing ${newTransactions.length} transactions...`)
+  console.log(`\n📥 Importing ${newTransactions.length} new transactions...`)
   
   const { error } = await supabase
     .from('crm_inquiries')
@@ -248,7 +292,7 @@ async function importPayPalTransactions() {
       source: t.source,
       status: t.status,
       priority: t.priority,
-      notes: `Customer Type: ${t.customer_type}\nTransaction: $${t.transaction_amount_usd} ${t.transaction_currency}\nCountry: ${t.country}\nAddress: ${t.address}`,
+      notes: t.notes,
       created_at: t.created_at,
       updated_at: t.updated_at
     })))
