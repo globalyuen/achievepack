@@ -344,8 +344,8 @@ const ProductPage: React.FC = () => {
   
   const ADDITIONAL_OPTIONS = [
     { id: 'valve', name: 'Degassing Valve', img: '/imgs/store/additional/valve.webp', description: 'One-way valve releases gases (CO2) while preventing air entry. Essential for freshly roasted coffee and fermented products.', bestFor: ['Coffee', 'Tea', 'Fermented foods'], premium: true },
-    { id: 'laser', name: 'Laser Scoring (Easy Tear)', img: '/imgs/store/additional/laser.webp', description: 'Precision laser-cut tear lines for easy, clean opening. Professional finish with no scissors needed.', bestFor: ['Consumer convenience', 'Single-serve', 'Premium products'], premium: false },
-    { id: 'hang', name: 'Hang Hole', img: '/imgs/store/additional/hang.webp', description: 'Euro-slot or round hang hole for retail display hooks. Makes your product easy to merchandise.', bestFor: ['Retail display', 'Convenience stores', 'Gift shops'], premium: false }
+    { id: 'laser', name: 'Laser Scoring (Easy Tear)', img: '/imgs/store/additional/laser-tear.webp', description: 'Precision laser-cut tear lines for easy, clean opening. Professional finish with no scissors needed.', bestFor: ['Consumer convenience', 'Single-serve', 'Premium products'], premium: false },
+    { id: 'hang', name: 'Hang Hole', img: '/imgs/store/additional/hang-hole.webp', description: 'Euro-slot or round hang hole for retail display hooks. Makes your product easy to merchandise.', bestFor: ['Retail display', 'Convenience stores', 'Gift shops'], premium: false }
   ]
   
   // URL search params for shareable configurations
@@ -3382,7 +3382,113 @@ const ProductPage: React.FC = () => {
           </div>
         </section>
       )}
-
+            
+      {/* Customer Testimonials and Samples - Moved after FAQ */}
+      {isEcoDigital && (
+        <div className="hidden lg:block space-y-4 mt-8">
+          {/* Testimonial Section - Desktop Only, Always Expanded */}
+          <div className="bg-white rounded-lg border border-neutral-200 shadow-sm overflow-hidden">
+            <div className="p-4">
+              <h3 className="text-lg font-semibold text-neutral-900 flex items-center gap-2">
+                <span className="text-2xl">💬</span>
+                Customer Testimonials
+              </h3>
+            </div>
+            <div className="px-6 pb-6 space-y-4 max-h-[500px] overflow-y-auto">
+              {/* Real Testimonials */}
+              {TESTIMONIALS.map((testimonial) => (
+                <div key={testimonial.id} className="bg-neutral-50 rounded-lg p-4 border-l-4 border-primary-500">
+                  <div className="flex items-start gap-3 mb-2">
+                    <img 
+                      src={testimonial.ownerImage} 
+                      alt={testimonial.name}
+                      className="w-12 h-12 rounded-full flex-shrink-0 object-cover"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement
+                        target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name)}&background=22c55e&color=fff&size=48`
+                      }}
+                    />
+                    <div className="flex-1">
+                      <div className="font-semibold text-neutral-900">{testimonial.name}</div>
+                      <div className="text-xs text-neutral-500">
+                        {testimonial.company ? `${testimonial.role}, ${testimonial.company}` : 'Verified Buyer'}
+                      </div>
+                    </div>
+                    <div className="flex text-yellow-400">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-current" />
+                      ))}
+                    </div>
+                  </div>
+                  <p className="text-sm text-neutral-700 italic">
+                    "{testimonial.shortQuote}"
+                  </p>
+                  <div className="text-xs text-neutral-400 mt-2">{testimonial.extraInfo}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+                
+          {/* Customer Samples & Shape Reference */}
+          <div className="space-y-4">
+            {/* Pouch Shape Reference */}
+            {product.images.filter(img => img.includes('pouch shape')).length > 0 && (
+              <div className="bg-white rounded-lg border border-neutral-200 shadow-sm overflow-hidden">
+                <div className="p-4">
+                  <h3 className="text-sm font-semibold text-neutral-700 flex items-center gap-2">
+                    <span className="text-lg">📐</span>
+                    Pouch Shape Reference
+                  </h3>
+                </div>
+                <div className="px-4 pb-4">
+                  <div className="grid grid-cols-1 gap-2">
+                    {product.images.filter(img => img.includes('pouch shape')).map((img, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setEnlargedImage({ src: img, alt: 'Pouch Shape Reference' })}
+                        className="bg-neutral-50 rounded-lg p-3 hover:bg-neutral-100 transition cursor-pointer"
+                      >
+                        <img src={img} alt="Pouch Shape" className="w-full h-24 object-contain" />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+                  
+            {/* Customer Samples Gallery */}
+            <div className="bg-white rounded-lg border border-neutral-200 shadow-sm overflow-hidden">
+              <div className="p-4">
+                <h3 className="text-sm font-semibold text-neutral-700 flex items-center gap-2">
+                  <span className="text-lg">📸</span>
+                  Customer Samples
+                </h3>
+              </div>
+              <div className="px-4 pb-4">
+                <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-1.5">
+                  {[
+                    'a_blend_coffee_family_group_4850129.webp',
+                    'a_blend4_coffee_functional_closeup_9237259.webp',
+                    'a_natures_touch_fruit_family_0232483.webp',
+                    'Arielle.webp', 'David.webp', 'Holly.webp',
+                    'Leo.webp', 'Nicole.webp', 'Paul.webp',
+                    'Remi.webp', 'Richard.webp', 'Steph.webp'
+                  ].map((img, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setEnlargedImage({ src: `/imgs/store/customer-sample/${img}`, alt: 'Customer Sample' })}
+                      className="aspect-square bg-neutral-50 rounded-md overflow-hidden hover:opacity-80 transition cursor-pointer"
+                    >
+                      <img src={`/imgs/store/customer-sample/${img}`} alt="Customer Sample" className="w-full h-full object-cover" />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+            
       {/* Image Enlargement Modal - Fit screen height, mobile responsive, with gallery navigation */}
       {enlargedImage && (
         <div 
