@@ -203,6 +203,7 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
   const [industryFilter, setIndustryFilter] = useState<string>('all')
   const [countryFilter, setCountryFilter] = useState<string>('all')
   const [packagingFilter, setPackagingFilter] = useState<string>('all')
+  const [customerTypeFilter, setCustomerTypeFilter] = useState<string>('all')
   const [selectedInquiry, setSelectedInquiry] = useState<CRMInquiry | null>(null)
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set())
   const [showEmailModal, setShowEmailModal] = useState(false)
@@ -289,12 +290,36 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
       const detectedIndustry = detectIndustry(allText)
       const detectedCountry = detectCountry(inq.phone || '', inq.email)
       
+      // Detect customer type from source or notes
+      let customerType: 'lead' | 'sample' | 'customer' = 'lead'
+      if (inq.source === 'paypal') {
+        // Check notes for transaction info
+        const notes = inq.notes || ''
+        if (notes.includes('Customer Type: customer')) {
+          customerType = 'customer'
+        } else if (notes.includes('Customer Type: sample')) {
+          customerType = 'sample'
+        } else {
+          // Parse amount from notes if available
+          const amountMatch = notes.match(/Transaction: \$(\d+\.?\d*)/)
+          if (amountMatch) {
+            const amount = parseFloat(amountMatch[1])
+            customerType = amount >= 100 ? 'customer' : 'sample'
+          } else {
+            customerType = 'customer' // PayPal default
+          }
+        }
+      } else if (inq.status === 'won') {
+        customerType = 'customer'
+      }
+      
       return {
         ...inq,
         country: aiResult?.country || detectedCountry,
         industry: aiResult?.industry || detectedIndustry,
         domain: extractDomain(inq.email),
-        aiAnalyzed: !!aiResult
+        aiAnalyzed: !!aiResult,
+        customerType
       }
     })
   }, [inquiries, aiAnalysisResults])
@@ -398,6 +423,9 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
     if (packagingFilter !== 'all') {
       result = result.filter(i => i.packaging_type === packagingFilter)
     }
+    if (customerTypeFilter !== 'all') {
+      result = result.filter(i => i.customerType === customerTypeFilter)
+    }
     if (searchQuery) {
       const query = searchQuery.toLowerCase()
       result = result.filter(i => 
@@ -410,7 +438,7 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
     }
 
     return result
-  }, [enrichedInquiries, statusFilter, industryFilter, countryFilter, packagingFilter, searchQuery])
+  }, [enrichedInquiries, statusFilter, industryFilter, countryFilter, packagingFilter, customerTypeFilter, searchQuery])
 
   // Pagination
   const totalPages = Math.ceil(filteredInquiries.length / pageSize)
@@ -422,6 +450,7 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
     const byCountry: Record<string, number> = {}
     const byStatus: Record<string, number> = {}
     const byPackaging: Record<string, number> = {}
+    const byCustomerType: Record<string, number> = { lead: 0, sample: 0, customer: 0 }
 
     enrichedInquiries.forEach(inq => {
       byIndustry[inq.industry] = (byIndustry[inq.industry] || 0) + 1
@@ -432,9 +461,10 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
       if (inq.packaging_type) {
         byPackaging[inq.packaging_type] = (byPackaging[inq.packaging_type] || 0) + 1
       }
+      byCustomerType[inq.customerType] = (byCustomerType[inq.customerType] || 0) + 1
     })
 
-    return { byIndustry, byCountry, byStatus, byPackaging }
+    return { byIndustry, byCountry, byStatus, byPackaging, byCustomerType }
   }, [enrichedInquiries])
 
   const updateInquiryStatus = async (id: string, status: string) => {
@@ -710,7 +740,13 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
               <option value="all">All Packaging</option>
               {filterOptions.packagingTypes.map(p => <option key={p} value={p}>{p}</option>)}
             </select>
-            <button onClick={() => { setStatusFilter('all'); setIndustryFilter('all'); setCountryFilter('all'); setPackagingFilter('all') }} className="text-sm text-gray-500 hover:text-gray-700">
+            <select value={customerTypeFilter} onChange={(e) => { setCustomerTypeFilter(e.target.value); setCurrentPage(1) }} className="border rounded-lg px-3 py-1.5 text-sm bg-gradient-to-r from-amber-50 to-orange-50">
+              <option value="all">All Types</option>
+              <option value="lead">🔍 Leads (Inquiry Only)</option>
+              <option value="sample">📦 Sample (&lt; $100)</option>
+              <option value="customer">⭐ Customer (≥ $100)</option>
+            </select>
+            <button onClick={() => { setStatusFilter('all'); setIndustryFilter('all'); setCountryFilter('all'); setPackagingFilter('all'); setCustomerTypeFilter('all') }} className="text-sm text-gray-500 hover:text-gray-700">
               Clear All
             </button>
           </div>
@@ -1158,6 +1194,28 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
                       <span className="text-sm font-medium w-10 text-right">{count}</span>
                     </div>
                   ))}
+                </div>
+              </div>
+
+              {/* By Customer Type */}
+              <div className="md:col-span-2 bg-gradient-to-r from-amber-50 to-orange-50 p-4 rounded-lg">
+                <h4 className="font-semibold mb-3 flex items-center gap-2"><Star className="h-4 w-4 text-amber-500" /> Customer Classification</h4>
+                <div className="grid grid-cols-3 gap-4 text-center">
+                  <div className="bg-white p-4 rounded-lg shadow-sm">
+                    <div className="text-3xl font-bold text-gray-600">{analytics.byCustomerType.lead || 0}</div>
+                    <div className="text-sm text-gray-500">🔍 Leads</div>
+                    <div className="text-xs text-gray-400">Inquiry Only</div>
+                  </div>
+                  <div className="bg-white p-4 rounded-lg shadow-sm">
+                    <div className="text-3xl font-bold text-blue-600">{analytics.byCustomerType.sample || 0}</div>
+                    <div className="text-sm text-gray-500">📦 Samples</div>
+                    <div className="text-xs text-gray-400">Paid &lt; $100</div>
+                  </div>
+                  <div className="bg-white p-4 rounded-lg shadow-sm">
+                    <div className="text-3xl font-bold text-green-600">{analytics.byCustomerType.customer || 0}</div>
+                    <div className="text-sm text-gray-500">⭐ Customers</div>
+                    <div className="text-xs text-gray-400">Paid ≥ $100</div>
+                  </div>
                 </div>
               </div>
 

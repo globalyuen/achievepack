@@ -150,9 +150,10 @@ export type CRMInquiry = {
   subject?: string
   message?: string
   photo_url?: string
-  source: 'website' | 'import' | 'manual'
+  source: 'website' | 'import' | 'manual' | 'paypal'
   status: 'new' | 'contacted' | 'quoted' | 'follow_up' | 'won' | 'lost' | 'spam'
   priority: 'low' | 'medium' | 'high'
+  customer_type?: 'lead' | 'sample' | 'customer'  // lead = inquiry only, sample = paid < $100, customer = paid >= $100
   assigned_to?: string
   notes?: string
   follow_up_date?: string
