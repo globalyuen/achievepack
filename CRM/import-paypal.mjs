@@ -118,12 +118,20 @@ async function importPayPalTransactions() {
   
   for (const csvFile of csvFiles) {
     const filePath = path.join(paypalDir, csvFile)
-    const content = fs.readFileSync(filePath, 'utf-8')
+    let content = fs.readFileSync(filePath, 'utf-8')
+    
+    // Remove BOM if present
+    if (content.charCodeAt(0) === 0xFEFF) {
+      content = content.slice(1)
+    }
+    // Also try removing common BOMs
+    content = content.replace(/^\uFEFF/, '')
     
     const records = parse(content, {
       columns: true,
       skip_empty_lines: true,
-      trim: true
+      trim: true,
+      bom: true  // Handle BOM automatically
     })
     
     console.log(`Processing ${csvFile}: ${records.length} records`)
