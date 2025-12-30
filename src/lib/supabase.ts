@@ -137,3 +137,37 @@ export type QuoteInquiry = {
   created_at?: string
   status?: string
 }
+
+// CRM Inquiry Type for imported and new inquiries
+export type CRMInquiry = {
+  id: string
+  submission_id?: string
+  name: string
+  email: string
+  phone?: string
+  company?: string
+  packaging_type?: string
+  subject?: string
+  message?: string
+  photo_url?: string
+  source: 'website' | 'import' | 'manual'
+  status: 'new' | 'contacted' | 'quoted' | 'follow_up' | 'won' | 'lost' | 'spam'
+  priority: 'low' | 'medium' | 'high'
+  assigned_to?: string
+  notes?: string
+  follow_up_date?: string
+  last_contacted?: string
+  created_at: string
+  updated_at: string
+}
+
+// CRM Follow-up/Activity Log
+export type CRMActivity = {
+  id: string
+  inquiry_id: string
+  type: 'email' | 'call' | 'meeting' | 'note' | 'status_change'
+  subject?: string
+  content: string
+  created_by: string
+  created_at: string
+}

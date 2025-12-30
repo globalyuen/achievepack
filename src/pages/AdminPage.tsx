@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, Order, Profile, NewsletterSubscriber, Document, Quote, ArtworkFile } from '../lib/supabase'
-import { Home, Users, Package, Settings, Search, ChevronDown, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles } from 'lucide-react'
+import { Home, Users, Package, Settings, Search, ChevronDown, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox } from 'lucide-react'
+import CRMPanel from '../components/admin/CRMPanel'
 
-type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'artwork' | 'documents' | 'newsletter' | 'settings'
+type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'artwork' | 'documents' | 'newsletter' | 'crm' | 'settings'
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
 
@@ -304,6 +305,18 @@ const AdminPage: React.FC = () => {
                 </span>
               </button>
 
+              <button
+                onClick={() => setActiveTab('crm')}
+                className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
+                  activeTab === 'crm'
+                    ? 'bg-primary-500 text-white'
+                    : 'text-gray-900 hover:bg-primary-50 hover:text-primary-600'
+                }`}
+              >
+                <Inbox className="flex-shrink-0 w-5 h-5 mr-4" />
+                CRM / Inquiries
+              </button>
+
               <Link
                 to="/admin/management?tab=quotes"
                 className="flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 text-gray-900 hover:bg-yellow-50 hover:text-yellow-600"
@@ -382,7 +395,7 @@ const AdminPage: React.FC = () => {
 
         {/* Mobile Nav */}
         <div className="md:hidden flex overflow-x-auto bg-white border-b px-2 py-2 gap-2">
-          {(['dashboard', 'customers', 'orders', 'documents', 'newsletter', 'settings'] as TabType[]).map(tab => (
+          {(['dashboard', 'customers', 'orders', 'documents', 'newsletter', 'crm', 'settings'] as TabType[]).map(tab => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -713,6 +726,16 @@ const AdminPage: React.FC = () => {
                   )}
                 </div>
               </div>
+            </div>
+          )}
+
+          {/* CRM Tab */}
+          {activeTab === 'crm' && (
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <h1 className="text-2xl font-bold text-gray-900">CRM / Inquiries</h1>
+              </div>
+              <CRMPanel onRefresh={fetchData} />
             </div>
           )}
 
