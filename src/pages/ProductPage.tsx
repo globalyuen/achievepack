@@ -312,7 +312,41 @@ const ProductPage: React.FC = () => {
   const [copySuccess, setCopySuccess] = useState(false)
   
   // Compare options modal state
-  const [compareModal, setCompareModal] = useState<{ type: 'closure' | 'surface' | null; isOpen: boolean }>({ type: null, isOpen: false })
+  const [compareModal, setCompareModal] = useState<{ type: 'material' | 'size' | 'closure' | 'surface' | 'barrier' | 'stiffness' | 'additional' | null; isOpen: boolean }>({ type: null, isOpen: false })
+  
+  // Option comparison data
+  const MATERIAL_OPTIONS = [
+    { id: 'pcr', name: 'PCR or Bio Plastic', img: '/imgs/store/eco-material/pcr-or-biope.webp', description: 'Made with 30% post-consumer recycled content or 50% sugarcane-based bio-PE, reducing carbon footprint by up to 30%.', bestFor: ['Sustainability-focused brands', 'Coffee roasters', 'Specialty food'], premium: false },
+    { id: 'mono', name: 'Mono Recyclable Plastic', img: '/imgs/store/eco-material/recycle.webp', description: 'Single-material construction (mono-PE or mono-PP) designed for maximum recyclability in curbside recycling. 95% recyclable.', bestFor: ['EU/UK markets', 'PPWR compliance', 'Eco-conscious brands'], premium: false },
+    { id: 'compost', name: 'Biodegradable and Compostable', img: '/imgs/store/eco-material/compostable.webp', description: 'Certified compostable materials breaking down within 180 days in industrial composting, returning nutrients to soil.', bestFor: ['Organic foods', 'Farmers markets', 'Health food stores'], premium: true }
+  ]
+  
+  const SIZE_OPTIONS = [
+    { id: 'XXXS', name: 'XXXS - Extra Extra Extra Small', img: '/imgs/store/size/xxxs.webp', description: 'Capacity: 10-30g / 0.35-1oz. Perfect for single-serve samples and trial sizes.', bestFor: ['Samples', 'Single-serve', 'Trial products'], premium: false },
+    { id: 'XXS', name: 'XXS - Extra Extra Small', img: '/imgs/store/size/xxs.webp', description: 'Capacity: 30-50g / 1-1.75oz. Great for premium samples and small portions.', bestFor: ['Premium samples', 'Small portions'], premium: false },
+    { id: 'XS', name: 'XS - Extra Small', img: '/imgs/store/size/xs.webp', description: 'Capacity: 50-100g / 1.75-3.5oz. Ideal for specialty foods and premium snacks.', bestFor: ['Specialty foods', 'Premium snacks'], premium: false },
+    { id: 'S', name: 'S - Small', img: '/imgs/store/size/s.webp', description: 'Capacity: 100-200g / 3.5-7oz. Standard retail size for coffee, tea, and snacks.', bestFor: ['Retail coffee', 'Tea', 'Snacks'], premium: false },
+    { id: 'L', name: 'L - Large', img: '/imgs/store/size/l.webp', description: 'Capacity: 350-500g / 12-17.5oz. Great for large retail and bulk snacks.', bestFor: ['Large retail', 'Bulk snacks'], premium: false },
+    { id: 'XL', name: 'XL - Extra Large', img: '/imgs/store/size/xl.webp', description: 'Capacity: 500-1000g / 17.5-35oz. Perfect for bulk packaging and value packs.', bestFor: ['Bulk packaging', 'Value packs'], premium: false },
+    { id: 'XXL', name: 'XXL - Extra Extra Large', img: '/imgs/store/size/xxl.webp', description: 'Capacity: 1000-2000g / 35-70oz. Commercial and wholesale sizes.', bestFor: ['Commercial', 'Wholesale'], premium: false }
+  ]
+  
+  const BARRIER_OPTIONS_DATA = [
+    { id: 'mid', name: 'Mid Barrier (Optional Window)', img: '/imgs/store/barrier/3-clear.webp', description: 'Clear barrier with 6-9 months shelf life. Good moisture and moderate oxygen protection. Optional clear window for product visibility.', bestFor: ['Dry snacks', 'Candy', 'Nuts', 'Product visibility'], premium: false },
+    { id: 'high', name: 'High Barrier (No Window)', img: '/imgs/store/barrier/3-metalised.webp', description: 'Metalised barrier with 9-12 months shelf life. Excellent oxygen and moisture protection. Blocks light to preserve freshness.', bestFor: ['Coffee', 'Tea', 'Spices', 'Sensitive products'], premium: false },
+    { id: 'highest', name: 'Highest Barrier (Aluminum)', img: '/imgs/store/barrier/3-alu.webp', description: 'Aluminum foil barrier with 12-18 months shelf life. Maximum protection against oxygen, moisture, and light.', bestFor: ['Pharmaceuticals', 'Premium coffee', 'Long shelf life'], premium: true }
+  ]
+  
+  const STIFFNESS_OPTIONS = [
+    { id: 'soft', name: 'Without Paper Lining (Softer)', img: '/imgs/store/stiffness/soft.webp', description: 'More flexible, lighter weight, thinner profile. Standard film construction without added paper layer.', bestFor: ['Flexible products', 'Cost-sensitive', 'Lighter weight'], premium: false },
+    { id: 'stiff', name: 'With Paper Lining (Stiffer)', img: '/imgs/store/stiffness/stiff.webp', description: 'Better standing stability, premium feel. Kraft paper layer adds 50-60 micron / 2 mil thickness.', bestFor: ['Premium brands', 'Retail display', 'Coffee bags'], premium: true }
+  ]
+  
+  const ADDITIONAL_OPTIONS = [
+    { id: 'valve', name: 'Degassing Valve', img: '/imgs/store/additional/valve.webp', description: 'One-way valve releases gases (CO2) while preventing air entry. Essential for freshly roasted coffee and fermented products.', bestFor: ['Coffee', 'Tea', 'Fermented foods'], premium: true },
+    { id: 'laser', name: 'Laser Scoring (Easy Tear)', img: '/imgs/store/additional/laser.webp', description: 'Precision laser-cut tear lines for easy, clean opening. Professional finish with no scissors needed.', bestFor: ['Consumer convenience', 'Single-serve', 'Premium products'], premium: false },
+    { id: 'hang', name: 'Hang Hole', img: '/imgs/store/additional/hang.webp', description: 'Euro-slot or round hang hole for retail display hooks. Makes your product easy to merchandise.', bestFor: ['Retail display', 'Convenience stores', 'Gift shops'], premium: false }
+  ]
   
   // URL search params for shareable configurations
   const [searchParams] = useSearchParams()
@@ -2625,6 +2659,15 @@ const ProductPage: React.FC = () => {
                     </div>
                   </div>
                   
+                  {/* Compare Options Link */}
+                  <button
+                    type="button"
+                    onClick={() => setCompareModal({ type: 'material', isOpen: true })}
+                    className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
+                  >
+                    Compare All Material Options →
+                  </button>
+                  
                   {/* Dropdown Option */}
                   <div className="flex gap-3 items-center">
                     <select value={selectedMaterial} onChange={e => setSelectedMaterial(e.target.value)} className="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
@@ -2661,6 +2704,15 @@ const ProductPage: React.FC = () => {
                     • <strong>M-L:</strong> Standard retail products, family-sized packs<br/>
                     • <strong>XL-XXL:</strong> Bulk items, wholesale, subscription products
                   </div>
+                  
+                  {/* Compare Options Link */}
+                  <button
+                    type="button"
+                    onClick={() => setCompareModal({ type: 'size', isOpen: true })}
+                    className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
+                  >
+                    Compare All Size Options →
+                  </button>
                   
                   {/* Dropdown Option */}
                   <div className="flex gap-3 items-start">
@@ -2803,6 +2855,15 @@ const ProductPage: React.FC = () => {
                     </div>
                   </div>
                   
+                  {/* Compare Options Link */}
+                  <button
+                    type="button"
+                    onClick={() => setCompareModal({ type: 'barrier', isOpen: true })}
+                    className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
+                  >
+                    Compare All Barrier Options →
+                  </button>
+                  
                   {/* Dropdown Option */}
                   <select value={selectedBarrier} onChange={e => setSelectedBarrier(e.target.value)} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                     <option value="mid clear mid barrier (Optional Window)">Mid Barrier (Window)</option>
@@ -2827,6 +2888,15 @@ const ProductPage: React.FC = () => {
                     </div>
                   </div>
                   
+                  {/* Compare Options Link */}
+                  <button
+                    type="button"
+                    onClick={() => setCompareModal({ type: 'stiffness', isOpen: true })}
+                    className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
+                  >
+                    Compare All Stiffness Options →
+                  </button>
+                  
                   {/* Dropdown Option */}
                   <select value={selectedStiffness} onChange={e => setSelectedStiffness(e.target.value)} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                     <option value="Without Paper Lining (Softer)">Softer (No Paper)</option>
@@ -2849,6 +2919,15 @@ const ProductPage: React.FC = () => {
                       <strong>Laser Scoring:</strong> Easy-tear lines for convenient opening, professional finish
                     </div>
                   </div>
+                  
+                  {/* Compare Options Link */}
+                  <button
+                    type="button"
+                    onClick={() => setCompareModal({ type: 'additional', isOpen: true })}
+                    className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
+                  >
+                    Compare All Additional Options →
+                  </button>
                   
                   {/* Checkbox Options */}
                   <div className="grid grid-cols-2 gap-2 text-sm">
@@ -3605,118 +3684,182 @@ const ProductPage: React.FC = () => {
     )}
 
     {/* Compare Options Modal */}
-    {compareModal.isOpen && compareModal.type && (
-      <div 
-        className="fixed inset-0 z-50 bg-black/60 overflow-y-auto"
-        onClick={() => setCompareModal({ type: null, isOpen: false })}
-      >
-        <div className="min-h-screen py-8 px-4 flex items-start justify-center">
-          <div 
-            className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Header */}
-            <div className="sticky top-0 bg-white border-b border-neutral-200 px-6 py-4 flex justify-between items-center z-10">
-              <h3 className="text-xl font-bold text-neutral-900">
-                {compareModal.type === 'closure' ? 'Compare Closure Options' : 'Compare Surface Options'}
-              </h3>
-              <button 
-                onClick={() => setCompareModal({ type: null, isOpen: false })} 
-                className="text-neutral-400 hover:text-neutral-600 transition p-2 hover:bg-neutral-100 rounded-full"
-              >
-                <X className="h-6 w-6" />
-              </button>
-            </div>
-            
-            {/* Options Grid */}
-            <div className="p-6 space-y-4">
-              {(compareModal.type === 'closure' ? CLOSURE_OPTIONS : SURFACE_OPTIONS).map((option) => (
-                <div 
-                  key={option.id}
-                  className="flex flex-col sm:flex-row gap-4 p-4 border border-neutral-200 rounded-xl hover:border-primary-300 hover:shadow-md transition"
+    {compareModal.isOpen && compareModal.type && ((
+) => {
+      // Get the appropriate options based on modal type
+      const getModalOptions = () => {
+        switch (compareModal.type) {
+          case 'material': return MATERIAL_OPTIONS
+          case 'size': return SIZE_OPTIONS
+          case 'closure': return CLOSURE_OPTIONS
+          case 'surface': return SURFACE_OPTIONS
+          case 'barrier': return BARRIER_OPTIONS_DATA
+          case 'stiffness': return STIFFNESS_OPTIONS
+          case 'additional': return ADDITIONAL_OPTIONS
+          default: return []
+        }
+      }
+      
+      const getModalTitle = () => {
+        switch (compareModal.type) {
+          case 'material': return 'Compare Material Options'
+          case 'size': return 'Compare Size Options'
+          case 'closure': return 'Compare Closure Options'
+          case 'surface': return 'Compare Surface Options'
+          case 'barrier': return 'Compare Barrier Options'
+          case 'stiffness': return 'Compare Stiffness Options'
+          case 'additional': return 'Compare Additional Features'
+          default: return 'Compare Options'
+        }
+      }
+      
+      const handleSelect = (optionId: string) => {
+        switch (compareModal.type) {
+          case 'material':
+            const materialMap: Record<string, string> = {
+              'pcr': 'PCR or Bio Plastic',
+              'mono': 'Mono Recyclable Plastic',
+              'compost': 'Biodegradable and Compostable'
+            }
+            if (materialMap[optionId]) setSelectedMaterial(materialMap[optionId])
+            break
+          case 'size':
+            setSelectedSize(optionId)
+            break
+          case 'closure':
+            const closureMap: Record<string, string> = {
+              'no-zipper': 'No',
+              'normal-zipper': 'Regular Zipper',
+              'front-zipper': 'One-Sided Zipper',
+              'slider-zipper': 'Slider',
+              'child-resistant': 'Child Resistant Zipper',
+              'tin-tie': 'Tin Tie',
+              'spout': 'Spout',
+              'adhesive-tape': 'Adhesive Tape'
+            }
+            if (closureMap[optionId]) setSelectedClosure(closureMap[optionId] as ClosureType)
+            break
+          case 'surface':
+            const surfaceMap: Record<string, SurfaceType> = {
+              'glossy': 'Glossy',
+              'matt': 'Matt',
+              'metallic': 'Metallic',
+              'soft-touch': 'Soft Touch',
+              'emboss': 'Emboss',
+              'stamp-foil': 'Stamp Foil'
+            }
+            if (surfaceMap[optionId]) setSelectedSurface(surfaceMap[optionId])
+            break
+          case 'barrier':
+            const barrierMap: Record<string, string> = {
+              'mid': 'mid clear mid barrier (Optional Window)',
+              'high': 'metalised high barrier (No Window)',
+              'highest': 'Aluminum highest barrier (No Window)'
+            }
+            if (barrierMap[optionId]) setSelectedBarrier(barrierMap[optionId])
+            break
+          case 'stiffness':
+            const stiffnessMap: Record<string, string> = {
+              'soft': 'Without Paper Lining (Softer)',
+              'stiff': 'With Paper Lining (stiffer)'
+            }
+            if (stiffnessMap[optionId]) setSelectedStiffness(stiffnessMap[optionId])
+            break
+          case 'additional':
+            if (optionId === 'valve') setSelectedValve('Yes')
+            else if (optionId === 'laser') setSelectedLaserScoring('Yes')
+            else if (optionId === 'hang') setSelectedHangHole('Yes')
+            break
+        }
+        setCompareModal({ type: null, isOpen: false })
+      }
+      
+      const options = getModalOptions()
+      
+      return (
+        <div 
+          className="fixed inset-0 z-50 bg-black/60 overflow-y-auto"
+          onClick={() => setCompareModal({ type: null, isOpen: false })}
+        >
+          <div className="min-h-screen py-8 px-4 flex items-start justify-center">
+            <div 
+              className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Header */}
+              <div className="sticky top-0 bg-white border-b border-neutral-200 px-6 py-4 flex justify-between items-center z-10">
+                <h3 className="text-xl font-bold text-neutral-900">
+                  {getModalTitle()}
+                </h3>
+                <button 
+                  onClick={() => setCompareModal({ type: null, isOpen: false })} 
+                  className="text-neutral-400 hover:text-neutral-600 transition p-2 hover:bg-neutral-100 rounded-full"
                 >
-                  {/* Image */}
-                  <div className="flex-shrink-0 w-full sm:w-32 h-32 bg-neutral-50 rounded-lg overflow-hidden flex items-center justify-center">
-                    <img 
-                      src={option.img} 
-                      alt={option.name} 
-                      className="max-w-full max-h-full object-contain p-2"
-                    />
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="flex-1 min-w-0">
-                    <h4 className="text-lg font-semibold text-neutral-900 mb-1">{option.name}</h4>
-                    <p className="text-sm text-neutral-600 mb-2">{option.description}</p>
-                    
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      {option.bestFor.map((tag, i) => (
-                        <span key={i} className="text-xs bg-primary-50 text-primary-700 px-2 py-1 rounded-full">
-                          {tag}
-                        </span>
-                      ))}
-                      {option.premium && (
-                        <span className="text-xs bg-amber-50 text-amber-700 px-2 py-1 rounded-full">
-                          Premium
-                        </span>
-                      )}
+                  <X className="h-6 w-6" />
+                </button>
+              </div>
+              
+              {/* Options Grid */}
+              <div className="p-6 space-y-4">
+                {options.map((option) => (
+                  <div 
+                    key={option.id}
+                    className="flex flex-col sm:flex-row gap-4 p-4 border border-neutral-200 rounded-xl hover:border-primary-300 hover:shadow-md transition"
+                  >
+                    {/* Image */}
+                    <div className="flex-shrink-0 w-full sm:w-32 h-32 bg-neutral-50 rounded-lg overflow-hidden flex items-center justify-center">
+                      <img 
+                        src={option.img} 
+                        alt={option.name} 
+                        className="max-w-full max-h-full object-contain p-2"
+                      />
                     </div>
                     
-                    {/* Select Button */}
-                    <button
-                      onClick={() => {
-                        if (compareModal.type === 'closure') {
-                          // Map option id to ClosureType value
-                          const closureMap: Record<string, string> = {
-                            'no-zipper': 'No',
-                            'normal-zipper': 'Regular Zipper',
-                            'front-zipper': 'One-Sided Zipper',
-                            'slider-zipper': 'Slider',
-                            'child-resistant': 'Child Resistant Zipper',
-                            'tin-tie': 'Tin Tie',
-                            'spout': 'Spout',
-                            'adhesive-tape': 'Adhesive Tape'
-                          }
-                          const value = closureMap[option.id]
-                          if (value) setSelectedClosure(value as ClosureType)
-                        } else {
-                          // Map option id to SurfaceType value
-                          const surfaceMap: Record<string, SurfaceType> = {
-                            'glossy': 'Glossy',
-                            'matt': 'Matt',
-                            'metallic': 'Metallic',
-                            'soft-touch': 'Soft Touch',
-                            'emboss': 'Emboss',
-                            'stamp-foil': 'Stamp Foil'
-                          }
-                          const value = surfaceMap[option.id]
-                          if (value) setSelectedSurface(value)
-                        }
-                        setCompareModal({ type: null, isOpen: false })
-                      }}
-                      className="px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium rounded-lg transition"
-                    >
-                      Select This Option
-                    </button>
+                    {/* Content */}
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-lg font-semibold text-neutral-900 mb-1">{option.name}</h4>
+                      <p className="text-sm text-neutral-600 mb-2">{option.description}</p>
+                      
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        {option.bestFor.map((tag, i) => (
+                          <span key={i} className="text-xs bg-primary-50 text-primary-700 px-2 py-1 rounded-full">
+                            {tag}
+                          </span>
+                        ))}
+                        {option.premium && (
+                          <span className="text-xs bg-amber-50 text-amber-700 px-2 py-1 rounded-full">
+                            Premium
+                          </span>
+                        )}
+                      </div>
+                      
+                      {/* Select Button */}
+                      <button
+                        onClick={() => handleSelect(option.id)}
+                        className="px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium rounded-lg transition"
+                      >
+                        {compareModal.type === 'additional' ? 'Enable This Feature' : 'Select This Option'}
+                      </button>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-            
-            {/* Footer */}
-            <div className="sticky bottom-0 bg-white border-t border-neutral-200 px-6 py-4">
-              <button
-                onClick={() => setCompareModal({ type: null, isOpen: false })}
-                className="w-full py-3 text-neutral-600 hover:text-neutral-800 text-sm font-medium transition"
-              >
-                Close
-              </button>
+                ))}
+              </div>
+              
+              {/* Footer */}
+              <div className="sticky bottom-0 bg-white border-t border-neutral-200 px-6 py-4">
+                <button
+                  onClick={() => setCompareModal({ type: null, isOpen: false })}
+                  className="w-full py-3 text-neutral-600 hover:text-neutral-800 text-sm font-medium transition"
+                >
+                  Close
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    )}
+      )
+    })()}
     </>
   )
 }
