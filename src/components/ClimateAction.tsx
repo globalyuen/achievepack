@@ -1,10 +1,8 @@
-import { useState } from 'react'
-import { X, ExternalLink } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 export default function ClimateAction() {
   const { t } = useTranslation()
-  const [isLightboxOpen, setIsLightboxOpen] = useState(false)
 
   return (
     <>
@@ -115,13 +113,15 @@ export default function ClimateAction() {
                 </div>
               </div>
 
-              <button
-                onClick={() => setIsLightboxOpen(true)}
+              <a
+                href="https://climate.stripe.com/WPsfbU"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-green-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-green-600 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
               >
                 <span>{t('climate.learnMore')}</span>
                 <ExternalLink className="h-5 w-5" />
-              </button>
+              </a>
             </div>
 
             {/* Right Visual */}
@@ -161,39 +161,7 @@ export default function ClimateAction() {
         </div>
       </section>
 
-      {/* Lightbox for Stripe Climate Page */}
-      {isLightboxOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm">
-          {/* Close Button */}
-          <button
-            onClick={() => setIsLightboxOpen(false)}
-            className="absolute top-4 right-4 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm"
-          >
-            <X className="h-6 w-6 text-white" />
-          </button>
 
-          {/* Back to Achieve Pack Button */}
-          <button
-            onClick={() => setIsLightboxOpen(false)}
-            className="absolute top-4 left-4 bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors flex items-center gap-2"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            {t('climate.backToAchievePack')}
-          </button>
-
-          {/* Iframe Container */}
-          <div className="relative w-full max-w-7xl h-[85vh] bg-white rounded-2xl overflow-hidden shadow-2xl mt-20">
-            <iframe
-              src="https://climate.stripe.com/WPsfbU"
-              className="w-full h-full"
-              title="Stripe Climate - Achieve Pack"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
-            />
-          </div>
-        </div>
-      )}
     </>
   )
 }
