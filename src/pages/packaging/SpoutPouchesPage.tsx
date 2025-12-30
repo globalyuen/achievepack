@@ -166,7 +166,7 @@ const SpoutPouchesPage: React.FC = () => {
                 caption="Spout Pouch"
               />
               <ClickableImage 
-                src="/imgs/store/barrier/4-alu.webp" 
+                src="/imgs/store/barrier/3-foil.webp" 
                 alt="High barrier aluminum spout pouch" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="High Barrier"
