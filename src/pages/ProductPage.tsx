@@ -281,6 +281,9 @@ const ProductPage: React.FC = () => {
   
   // Tab state for Specifications / Insights
   const [specTab, setSpecTab] = useState<'specs' | 'insights'>('specs')
+    
+    // Insights collapsed state - collapsed by default
+    const [isInsightsExpanded, setIsInsightsExpanded] = useState(false)
   
   // Image enlargement modal state with gallery navigation
   const [enlargedImage, setEnlargedImage] = useState<{ src: string; alt: string; index?: number; images?: string[] } | null>(null)
@@ -1029,7 +1032,7 @@ const ProductPage: React.FC = () => {
                   <button
                     onClick={() => { setActiveTab('visualization'); setSpecTab('specs'); }}
                     className={`flex-1 px-3 py-3 text-sm font-medium transition ${
-                      activeTab === 'visualization' && specTab !== 'insights'
+                      activeTab === 'visualization'
                         ? 'bg-primary-50 text-primary-700 border-b-2 border-primary-600'
                         : 'text-neutral-600 hover:bg-neutral-50'
                     }`}
@@ -1039,71 +1042,16 @@ const ProductPage: React.FC = () => {
                   <button
                     onClick={() => { setActiveTab('specifications'); setSpecTab('specs'); }}
                     className={`flex-1 px-3 py-3 text-sm font-medium transition ${
-                      activeTab === 'specifications' && specTab !== 'insights'
+                      activeTab === 'specifications'
                         ? 'bg-primary-50 text-primary-700 border-b-2 border-primary-600'
                         : 'text-neutral-600 hover:bg-neutral-50'
                     }`}
                   >
                     📋 Specs
                   </button>
-                  {aiSellingPoints && (
-                    <button
-                      onClick={() => setSpecTab('insights')}
-                      className={`flex-1 px-3 py-3 text-sm font-medium transition ${
-                        specTab === 'insights'
-                          ? 'bg-primary-50 text-primary-700 border-b-2 border-primary-600'
-                          : 'text-neutral-600 hover:bg-neutral-50'
-                      }`}
-                    >
-                      ✨ Insights
-                    </button>
-                  )}
                 </div>
                 <div className="p-4">
-                  {specTab === 'insights' && aiSellingPoints ? (
-                    <div className="space-y-4">
-                      {/* Headline */}
-                      <div className="text-sm font-semibold text-primary-700 leading-tight">
-                        {aiSellingPoints.headline}
-                      </div>
-                      
-                      {/* Key Benefits Grid */}
-                      <div className="grid grid-cols-2 gap-2">
-                        {aiSellingPoints.keyBenefits.slice(0, 6).map((benefit, i) => (
-                          <div key={i} className="flex gap-2 p-2 bg-primary-50 rounded-lg">
-                            <span className="text-lg">{benefit.icon}</span>
-                            <div>
-                              <div className="text-xs font-medium text-primary-800">{benefit.title}</div>
-                              <div className="text-xs text-primary-600 leading-tight">{benefit.description}</div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                      
-                      {/* Comparison Advantage */}
-                      <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
-                        <div className="text-xs font-medium text-amber-800 mb-1">💡 Why Choose This?</div>
-                        <div className="text-xs text-amber-700">{aiSellingPoints.comparisonAdvantage}</div>
-                      </div>
-                      
-                      {/* Use Cases */}
-                      <div>
-                        <div className="text-xs font-medium text-neutral-700 mb-1">Perfect For:</div>
-                        <div className="flex flex-wrap gap-1">
-                          {aiSellingPoints.useCases.map((useCase, i) => (
-                            <span key={i} className="text-xs bg-neutral-100 text-neutral-600 px-2 py-0.5 rounded-full">
-                              {useCase}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                      
-                      {/* CTA */}
-                      <div className="text-xs text-primary-700 font-medium border-t pt-2">
-                        {aiSellingPoints.callToAction}
-                      </div>
-                    </div>
-                  ) : activeTab === 'visualization' ? (
+                  {activeTab === 'visualization' ? (
                     <div className="space-y-3">
                       <div className="flex items-start gap-3">
                         <span className="text-primary-500">✓</span>
@@ -1172,6 +1120,69 @@ const ProductPage: React.FC = () => {
                   )}
                 </div>
               </div>
+              
+              {/* Collapsible Insights Section */}
+              {aiSellingPoints && (
+                <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-lg border border-amber-200 overflow-hidden">
+                  <button
+                    onClick={() => setIsInsightsExpanded(!isInsightsExpanded)}
+                    className="w-full px-4 py-3 flex items-center justify-between hover:bg-amber-100/50 transition"
+                  >
+                    <span className="text-sm font-semibold text-amber-800 flex items-center gap-2">
+                      ✨ Product Insights
+                    </span>
+                    {isInsightsExpanded ? (
+                      <ChevronUp className="w-5 h-5 text-amber-600" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-amber-600" />
+                    )}
+                  </button>
+                  {isInsightsExpanded && (
+                    <div className="px-4 pb-4 space-y-4">
+                      {/* Headline */}
+                      <div className="text-sm font-semibold text-primary-700 leading-tight">
+                        {aiSellingPoints.headline}
+                      </div>
+                      
+                      {/* Key Benefits Grid */}
+                      <div className="grid grid-cols-2 gap-2">
+                        {aiSellingPoints.keyBenefits.slice(0, 6).map((benefit, i) => (
+                          <div key={i} className="flex gap-2 p-2 bg-white/60 rounded-lg">
+                            <span className="text-lg">{benefit.icon}</span>
+                            <div>
+                              <div className="text-xs font-medium text-primary-800">{benefit.title}</div>
+                              <div className="text-xs text-primary-600 leading-tight">{benefit.description}</div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      
+                      {/* Comparison Advantage */}
+                      <div className="bg-white/60 border border-amber-200 rounded-lg p-3">
+                        <div className="text-xs font-medium text-amber-800 mb-1">💡 Why Choose This?</div>
+                        <div className="text-xs text-amber-700">{aiSellingPoints.comparisonAdvantage}</div>
+                      </div>
+                      
+                      {/* Use Cases */}
+                      <div>
+                        <div className="text-xs font-medium text-neutral-700 mb-1">Perfect For:</div>
+                        <div className="flex flex-wrap gap-1">
+                          {aiSellingPoints.useCases.map((useCase, i) => (
+                            <span key={i} className="text-xs bg-white/60 text-neutral-600 px-2 py-0.5 rounded-full">
+                              {useCase}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      {/* CTA */}
+                      <div className="text-xs text-primary-700 font-medium border-t border-amber-200 pt-2">
+                        {aiSellingPoints.callToAction}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
             
             {/* Right Column - Product Options */}
@@ -1388,61 +1399,63 @@ const ProductPage: React.FC = () => {
                 <div className="flex border-b border-neutral-200">
                   <button
                     onClick={() => setSpecTab('specs')}
-                    className={`flex-1 px-4 py-3 text-sm font-medium transition ${
-                      specTab === 'specs'
-                        ? 'bg-green-50 text-green-700 border-b-2 border-green-600'
-                        : 'text-neutral-600 hover:bg-neutral-50'
-                    }`}
+                    className="flex-1 px-4 py-3 text-sm font-medium transition bg-green-50 text-green-700 border-b-2 border-green-600"
                   >
                     🌱 Specifications
                   </button>
-                  {aiSellingPoints && (
-                    <button
-                      onClick={() => setSpecTab('insights')}
-                      className={`flex-1 px-4 py-3 text-sm font-medium transition ${
-                        specTab === 'insights'
-                          ? 'bg-green-50 text-green-700 border-b-2 border-green-600'
-                          : 'text-neutral-600 hover:bg-neutral-50'
-                      }`}
-                    >
-                      ✨ Insights
-                    </button>
-                  )}
                 </div>
                 <div className="p-4">
-                  {specTab === 'specs' ? (
-                    <dl className="grid grid-cols-1 gap-y-3 text-sm">
-                      <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500">Material</dt>
-                        <dd className="text-neutral-900 col-span-2">{ecoStockProduct.material}</dd>
-                      </div>
-                      <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500">Size</dt>
-                        <dd className="text-neutral-900 col-span-2">{ecoStockProduct.sizeInfo}</dd>
-                      </div>
-                      <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500">Shape</dt>
-                        <dd className="text-neutral-900 col-span-2">{ecoStockProduct.shape}</dd>
-                      </div>
-                      <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500">Certification</dt>
-                        <dd className="text-neutral-900 col-span-2">{isBoxes ? 'FSC Certified' : 'Industrial Composting Approved'}</dd>
-                      </div>
-                      <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500">Shelf Life</dt>
-                        <dd className="text-neutral-900 col-span-2">6-12 months freshness</dd>
-                      </div>
-                      <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500">Lead Time</dt>
-                        <dd className="text-neutral-900 col-span-2">{ecoStockProduct.turnaround}</dd>
-                      </div>
-                      <div className="grid grid-cols-3 gap-2">
-                        <dt className="text-neutral-500">Shipping</dt>
-                        <dd className="text-neutral-900 col-span-2">Air Freight (Included)</dd>
-                      </div>
-                    </dl>
-                  ) : aiSellingPoints && (
-                    <div className="space-y-4">
+                  <dl className="grid grid-cols-1 gap-y-3 text-sm">
+                    <div className="grid grid-cols-3 gap-2">
+                      <dt className="text-neutral-500">Material</dt>
+                      <dd className="text-neutral-900 col-span-2">{ecoStockProduct.material}</dd>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2">
+                      <dt className="text-neutral-500">Size</dt>
+                      <dd className="text-neutral-900 col-span-2">{ecoStockProduct.sizeInfo}</dd>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2">
+                      <dt className="text-neutral-500">Shape</dt>
+                      <dd className="text-neutral-900 col-span-2">{ecoStockProduct.shape}</dd>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2">
+                      <dt className="text-neutral-500">Certification</dt>
+                      <dd className="text-neutral-900 col-span-2">{isBoxes ? 'FSC Certified' : 'Industrial Composting Approved'}</dd>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2">
+                      <dt className="text-neutral-500">Shelf Life</dt>
+                      <dd className="text-neutral-900 col-span-2">6-12 months freshness</dd>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2">
+                      <dt className="text-neutral-500">Lead Time</dt>
+                      <dd className="text-neutral-900 col-span-2">{ecoStockProduct.turnaround}</dd>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2">
+                      <dt className="text-neutral-500">Shipping</dt>
+                      <dd className="text-neutral-900 col-span-2">Air Freight (Included)</dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+              
+              {/* Collapsible Insights Section */}
+              {aiSellingPoints && (
+                <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-lg border border-amber-200 overflow-hidden">
+                  <button
+                    onClick={() => setIsInsightsExpanded(!isInsightsExpanded)}
+                    className="w-full px-4 py-3 flex items-center justify-between hover:bg-amber-100/50 transition"
+                  >
+                    <span className="text-sm font-semibold text-amber-800 flex items-center gap-2">
+                      ✨ Product Insights
+                    </span>
+                    {isInsightsExpanded ? (
+                      <ChevronUp className="w-5 h-5 text-amber-600" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-amber-600" />
+                    )}
+                  </button>
+                  {isInsightsExpanded && (
+                    <div className="px-4 pb-4 space-y-4">
                       {/* Headline */}
                       <div className="text-sm font-semibold text-green-700 leading-tight">
                         {aiSellingPoints.headline}
@@ -1451,7 +1464,7 @@ const ProductPage: React.FC = () => {
                       {/* Key Benefits Grid */}
                       <div className="grid grid-cols-2 gap-2">
                         {aiSellingPoints.keyBenefits.slice(0, 6).map((benefit, i) => (
-                          <div key={i} className="flex gap-2 p-2 bg-green-50 rounded-lg">
+                          <div key={i} className="flex gap-2 p-2 bg-white/60 rounded-lg">
                             <span className="text-lg">{benefit.icon}</span>
                             <div>
                               <div className="text-xs font-medium text-green-800">{benefit.title}</div>
@@ -1462,7 +1475,7 @@ const ProductPage: React.FC = () => {
                       </div>
                       
                       {/* Comparison Advantage */}
-                      <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
+                      <div className="bg-white/60 border border-amber-200 rounded-lg p-3">
                         <div className="text-xs font-medium text-amber-800 mb-1">💡 Why Choose This?</div>
                         <div className="text-xs text-amber-700">{aiSellingPoints.comparisonAdvantage}</div>
                       </div>
@@ -1472,7 +1485,7 @@ const ProductPage: React.FC = () => {
                         <div className="text-xs font-medium text-neutral-700 mb-1">Perfect For:</div>
                         <div className="flex flex-wrap gap-1">
                           {aiSellingPoints.useCases.map((useCase, i) => (
-                            <span key={i} className="text-xs bg-neutral-100 text-neutral-600 px-2 py-0.5 rounded-full">
+                            <span key={i} className="text-xs bg-white/60 text-neutral-600 px-2 py-0.5 rounded-full">
                               {useCase}
                             </span>
                           ))}
@@ -1491,13 +1504,13 @@ const ProductPage: React.FC = () => {
                       )}
                       
                       {/* CTA */}
-                      <div className="text-xs text-green-700 font-medium border-t pt-2">
+                      <div className="text-xs text-green-700 font-medium border-t border-amber-200 pt-2">
                         {aiSellingPoints.callToAction}
                       </div>
                     </div>
                   )}
                 </div>
-              </div>
+              )}
             </div>
             
             {/* Right Column - Product Options */}
