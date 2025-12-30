@@ -2766,48 +2766,6 @@ const ProductPage: React.FC = () => {
                     • <strong>Spout:</strong> Perfect for liquids, precise pouring
                   </div>
                   
-                  {/* Image Grid Selection */}
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
-                    {[
-                      { value: 'No' as ClosureType, label: 'No Closure', img: '/imgs/store/closure/no-zipper.webp' },
-                      { value: 'Regular Zipper' as ClosureType, label: 'Regular', img: '/imgs/store/closure/normal-zipper.webp' },
-                      { value: 'One-Sided Zipper' as ClosureType, label: 'One-Sided', img: '/imgs/store/closure/front-zipper.webp' },
-                      { value: 'Child Resistant Zipper' as ClosureType, label: 'Child Safe', img: '/imgs/store/closure/child-resistant-zipper.webp' },
-                      { value: 'Slider' as ClosureType, label: 'Slider', img: '/imgs/store/closure/slider-zipper.webp' },
-                      { value: 'Tin Tie' as ClosureType, label: 'Tin Tie', img: '/imgs/store/closure/tin-tie.webp' },
-                      { value: 'Spout' as ClosureType, label: 'Spout', img: '/imgs/store/closure/spout.webp' },
-                      { value: 'Adhesive Tape' as ClosureType, label: 'Adhesive Tape', img: '/imgs/store/closure/adhesive-tap.webp' }
-                    ].map(option => (
-                      <button
-                        key={option.value}
-                        type="button"
-                        onClick={() => setSelectedClosure(option.value)}
-                        className={`relative p-2 border-2 rounded-lg transition-all hover:shadow-md ${
-                          selectedClosure === option.value
-                            ? 'border-primary-600 bg-primary-50'
-                            : 'border-neutral-200 hover:border-primary-300'
-                        }`}
-                      >
-                        <div className="aspect-square bg-white rounded-lg mb-1 flex items-center justify-center relative group/img">
-                          <img src={option.img} alt={option.label} className="max-w-full max-h-full object-contain p-1" />
-                          <button
-                            type="button"
-                            onClick={(e) => { e.stopPropagation(); setEnlargedImage({ src: option.img, alt: option.label }); }}
-                            className="absolute bottom-1 right-1 bg-white/90 rounded-full p-1 opacity-0 group-hover/img:opacity-100 transition shadow hover:bg-primary-50"
-                          >
-                            <ZoomIn className="w-3 h-3 text-neutral-600" />
-                          </button>
-                        </div>
-                        <div className="text-xs font-medium text-neutral-700 text-center truncate">{option.label}</div>
-                        {selectedClosure === option.value && (
-                          <div className="absolute top-1 right-1 bg-primary-600 text-white rounded-full w-4 h-4 flex items-center justify-center">
-                            <Check className="w-2.5 h-2.5" />
-                          </div>
-                        )}
-                      </button>
-                    ))}
-                  </div>
-                  
                   {/* Compare Options Link */}
                   <button
                     type="button"
@@ -2864,46 +2822,6 @@ const ProductPage: React.FC = () => {
                     • <strong>Soft Touch:</strong> Luxurious velvet-like feel<br/>
                     • <strong>Emboss:</strong> Raised/depressed design, tactile<br/>
                     • <strong>Stamp Foil:</strong> Metallic accents, luxury effect
-                  </div>
-                  
-                  {/* Image Grid Selection */}
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 mb-3">
-                    {[
-                      { value: 'Glossy' as SurfaceType, label: 'Glossy' },
-                      { value: 'Matt' as SurfaceType, label: 'Matt' },
-                      { value: 'Metallic' as SurfaceType, label: 'Metallic' },
-                      { value: 'Soft Touch' as SurfaceType, label: 'Soft Touch' },
-                      { value: 'Emboss' as SurfaceType, label: 'Emboss' },
-                      { value: 'Stamp Foil' as SurfaceType, label: 'Stamp Foil' }
-                    ].map(option => (
-                      <button
-                        key={option.value}
-                        type="button"
-                        onClick={() => setSelectedSurface(option.value)}
-                        className={`relative p-2 border-2 rounded-lg transition-all hover:shadow-md ${
-                          selectedSurface === option.value
-                            ? 'border-primary-600 bg-primary-50'
-                            : 'border-neutral-200 hover:border-primary-300'
-                        }`}
-                      >
-                        <div className="aspect-square bg-white rounded-lg mb-1 flex items-center justify-center relative group/img">
-                          <img src={getSurfaceImage(option.value)} alt={option.label} className="max-w-full max-h-full object-contain p-1" />
-                          <button
-                            type="button"
-                            onClick={(e) => { e.stopPropagation(); setEnlargedImage({ src: getSurfaceImage(option.value), alt: option.label }); }}
-                            className="absolute bottom-1 right-1 bg-white/90 rounded-full p-1 opacity-0 group-hover/img:opacity-100 transition shadow hover:bg-primary-50"
-                          >
-                            <ZoomIn className="w-3 h-3 text-neutral-600" />
-                          </button>
-                        </div>
-                        <div className="text-xs font-medium text-neutral-700 text-center">{option.label}</div>
-                        {selectedSurface === option.value && (
-                          <div className="absolute top-1 right-1 bg-primary-600 text-white rounded-full w-4 h-4 flex items-center justify-center">
-                            <Check className="w-2.5 h-2.5" />
-                          </div>
-                        )}
-                      </button>
-                    ))}
                   </div>
                   
                   {/* Compare Options Link */}
