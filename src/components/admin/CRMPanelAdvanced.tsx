@@ -690,9 +690,9 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">{selectedInquiry.name}</h3>
                   <p className="text-sm text-gray-500">{selectedInquiry.email}</p>
-                  {selectedInquiry.domain && (
-                    <a href={`https://${selectedInquiry.domain}`} target="_blank" rel="noopener noreferrer" className="text-sm text-primary-600 hover:underline flex items-center gap-1">
-                      <Globe className="h-3 w-3" /> {selectedInquiry.domain}
+                  {extractDomain(selectedInquiry.email) && (
+                    <a href={`https://${extractDomain(selectedInquiry.email)}`} target="_blank" rel="noopener noreferrer" className="text-sm text-primary-600 hover:underline flex items-center gap-1">
+                      <Globe className="h-3 w-3" /> {extractDomain(selectedInquiry.email)}
                     </a>
                   )}
                 </div>
