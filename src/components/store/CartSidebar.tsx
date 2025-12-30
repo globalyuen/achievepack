@@ -22,7 +22,7 @@ const generateEditUrl = (item: any): string => {
   if (item.variant.hangHole) params.set('hangHole', item.variant.hangHole)
   params.set('edit', '1') // Flag to indicate editing from cart
   
-  return `/store/${item.productId}?${params.toString()}`
+  return `/store/product/${item.productId}?${params.toString()}`
 }
 
 const CartSidebar: React.FC = () => {
