@@ -2397,76 +2397,121 @@ const ProductPage: React.FC = () => {
               </div>
             )}
             
-            {/* Testimonials & Customer Samples - Horizontal Layout - Desktop Only */}
-            <div className="hidden lg:block">
-              <div className="grid grid-cols-2 gap-6">
+            {/* Testimonials & Customer Samples - Responsive Horizontal Layout */}
+            <div className="block">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
                 {/* Left: Customer Testimonials */}
-                <div className="bg-gradient-to-br from-white to-neutral-50 rounded-2xl border border-neutral-200 shadow-lg overflow-hidden">
-                  <div className="bg-gradient-to-r from-primary-500 to-primary-600 px-5 py-4">
-                    <h3 className="text-lg font-bold text-white flex items-center gap-3">
-                      <span className="bg-white/20 p-2 rounded-lg">💬</span>
+                <div className="bg-gradient-to-br from-white to-neutral-50 rounded-xl lg:rounded-2xl border border-neutral-200 shadow-md lg:shadow-lg overflow-hidden">
+                  <div className="bg-gradient-to-r from-primary-500 to-primary-600 px-4 lg:px-5 py-3 lg:py-4">
+                    <h3 className="text-base lg:text-lg font-bold text-white flex items-center gap-2 lg:gap-3">
+                      <span className="bg-white/20 p-1.5 lg:p-2 rounded-lg text-sm lg:text-base">💬</span>
                       Customer Testimonials
                     </h3>
-                    <p className="text-primary-100 text-sm mt-1">What our customers say</p>
+                    <p className="text-primary-100 text-xs lg:text-sm mt-0.5 lg:mt-1">What our customers say</p>
                   </div>
-                  <div className="p-5 space-y-4 max-h-[420px] overflow-y-auto custom-scrollbar">
-                    {TESTIMONIALS.map((testimonial, index) => (
+                  <div className="p-3 lg:p-5 space-y-3 lg:space-y-4 max-h-[300px] lg:max-h-[420px] overflow-y-auto custom-scrollbar">
+                    {TESTIMONIALS.slice(0, 3).map((testimonial, index) => (
                       <div 
                         key={testimonial.id} 
-                        className="bg-white rounded-xl p-4 shadow-sm border border-neutral-100 hover:shadow-md hover:border-primary-200 transition-all duration-300"
+                        className="bg-white rounded-lg lg:rounded-xl p-3 lg:p-4 shadow-sm border border-neutral-100 hover:shadow-md hover:border-primary-200 transition-all duration-300"
                       >
-                        <div className="flex items-start gap-3">
-                          <div className="relative">
+                        <div className="flex items-start gap-2 lg:gap-3">
+                          <div className="relative flex-shrink-0">
                             <img 
                               src={testimonial.ownerImage} 
                               alt={testimonial.name}
-                              className="w-14 h-14 rounded-full flex-shrink-0 object-cover ring-2 ring-primary-100 ring-offset-2"
+                              className="w-10 h-10 lg:w-14 lg:h-14 rounded-full object-cover ring-2 ring-primary-100 ring-offset-1 lg:ring-offset-2"
                               onError={(e) => {
                                 const target = e.target as HTMLImageElement
                                 target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name)}&background=22c55e&color=fff&size=56`
                               }}
                             />
-                            <div className="absolute -bottom-1 -right-1 bg-primary-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center shadow">✓</div>
+                            <div className="absolute -bottom-0.5 -right-0.5 lg:-bottom-1 lg:-right-1 bg-primary-500 text-white text-[10px] lg:text-xs w-4 h-4 lg:w-5 lg:h-5 rounded-full flex items-center justify-center shadow">✓</div>
                           </div>
                           <div className="flex-1 min-w-0">
-                            <div className="flex items-center justify-between gap-2">
-                              <div className="font-semibold text-neutral-900 truncate">{testimonial.name}</div>
+                            <div className="flex items-center justify-between gap-1 lg:gap-2">
+                              <div className="font-semibold text-neutral-900 truncate text-sm lg:text-base">{testimonial.name}</div>
                               <div className="flex text-amber-400 flex-shrink-0">
                                 {[...Array(5)].map((_, i) => (
-                                  <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                                  <Star key={i} className="w-3 h-3 lg:w-3.5 lg:h-3.5 fill-current" />
                                 ))}
                               </div>
                             </div>
-                            <div className="text-xs text-neutral-500 truncate">
+                            <div className="text-[10px] lg:text-xs text-neutral-500 truncate">
                               {testimonial.company ? `${testimonial.role}, ${testimonial.company}` : 'Verified Buyer'}
                             </div>
                           </div>
                         </div>
-                        <p className="text-sm text-neutral-600 mt-3 leading-relaxed">
-                          <span className="text-primary-500 text-lg font-serif">"</span>
+                        <p className="text-xs lg:text-sm text-neutral-600 mt-2 lg:mt-3 leading-relaxed line-clamp-3 lg:line-clamp-none">
+                          <span className="text-primary-500 text-base lg:text-lg font-serif">"</span>
                           {testimonial.shortQuote}
-                          <span className="text-primary-500 text-lg font-serif">"</span>
+                          <span className="text-primary-500 text-base lg:text-lg font-serif">"</span>
                         </p>
-                        <div className="text-xs text-neutral-400 mt-2 flex items-center gap-1">
+                        <div className="text-[10px] lg:text-xs text-neutral-400 mt-1.5 lg:mt-2 flex items-center gap-1">
                           <span>📍</span> {testimonial.extraInfo}
                         </div>
                       </div>
                     ))}
+                    {/* Show more testimonials on desktop */}
+                    <div className="hidden lg:block">
+                      {TESTIMONIALS.slice(3).map((testimonial, index) => (
+                        <div 
+                          key={testimonial.id} 
+                          className="bg-white rounded-xl p-4 shadow-sm border border-neutral-100 hover:shadow-md hover:border-primary-200 transition-all duration-300 mt-4"
+                        >
+                          <div className="flex items-start gap-3">
+                            <div className="relative flex-shrink-0">
+                              <img 
+                                src={testimonial.ownerImage} 
+                                alt={testimonial.name}
+                                className="w-14 h-14 rounded-full object-cover ring-2 ring-primary-100 ring-offset-2"
+                                onError={(e) => {
+                                  const target = e.target as HTMLImageElement
+                                  target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name)}&background=22c55e&color=fff&size=56`
+                                }}
+                              />
+                              <div className="absolute -bottom-1 -right-1 bg-primary-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center shadow">✓</div>
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center justify-between gap-2">
+                                <div className="font-semibold text-neutral-900 truncate">{testimonial.name}</div>
+                                <div className="flex text-amber-400 flex-shrink-0">
+                                  {[...Array(5)].map((_, i) => (
+                                    <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                                  ))}
+                                </div>
+                              </div>
+                              <div className="text-xs text-neutral-500 truncate">
+                                {testimonial.company ? `${testimonial.role}, ${testimonial.company}` : 'Verified Buyer'}
+                              </div>
+                            </div>
+                          </div>
+                          <p className="text-sm text-neutral-600 mt-3 leading-relaxed">
+                            <span className="text-primary-500 text-lg font-serif">"</span>
+                            {testimonial.shortQuote}
+                            <span className="text-primary-500 text-lg font-serif">"</span>
+                          </p>
+                          <div className="text-xs text-neutral-400 mt-2 flex items-center gap-1">
+                            <span>📍</span> {testimonial.extraInfo}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
                 {/* Right: Customer Samples Gallery */}
-                <div className="bg-gradient-to-br from-white to-neutral-50 rounded-2xl border border-neutral-200 shadow-lg overflow-hidden">
-                  <div className="bg-gradient-to-r from-amber-500 to-orange-500 px-5 py-4">
-                    <h3 className="text-lg font-bold text-white flex items-center gap-3">
-                      <span className="bg-white/20 p-2 rounded-lg">📸</span>
+                <div className="bg-gradient-to-br from-white to-neutral-50 rounded-xl lg:rounded-2xl border border-neutral-200 shadow-md lg:shadow-lg overflow-hidden">
+                  <div className="bg-gradient-to-r from-amber-500 to-orange-500 px-4 lg:px-5 py-3 lg:py-4">
+                    <h3 className="text-base lg:text-lg font-bold text-white flex items-center gap-2 lg:gap-3">
+                      <span className="bg-white/20 p-1.5 lg:p-2 rounded-lg text-sm lg:text-base">📸</span>
                       Customer Samples
                     </h3>
-                    <p className="text-amber-100 text-sm mt-1">Real products from our customers</p>
+                    <p className="text-amber-100 text-xs lg:text-sm mt-0.5 lg:mt-1">Real products from our customers</p>
                   </div>
-                  <div className="p-5">
+                  <div className="p-3 lg:p-5">
                     {/* Featured Samples - Larger Images */}
-                    <div className="grid grid-cols-2 gap-3 mb-4">
+                    <div className="grid grid-cols-2 gap-2 lg:gap-3 mb-3 lg:mb-4">
                       {[
                         'a_blend_coffee_family_group_4850129.webp',
                         'a_blend4_coffee_functional_closeup_9237259.webp',
@@ -2476,22 +2521,22 @@ const ProductPage: React.FC = () => {
                         <button
                           key={index}
                           onClick={() => setEnlargedImage({ src: `/imgs/store/customer-sample/${img}`, alt: 'Customer Sample' })}
-                          className="group relative aspect-square bg-neutral-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300"
+                          className="group relative aspect-square bg-neutral-100 rounded-lg lg:rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300"
                         >
                           <img 
                             src={`/imgs/store/customer-sample/${img}`} 
                             alt="Customer Sample" 
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-3">
-                            <span className="text-white text-xs font-medium bg-black/30 px-2 py-1 rounded-full">Click to view</span>
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-2 lg:pb-3">
+                            <span className="text-white text-[10px] lg:text-xs font-medium bg-black/30 px-1.5 lg:px-2 py-0.5 lg:py-1 rounded-full">Click to view</span>
                           </div>
                         </button>
                       ))}
                     </div>
                     
                     {/* More Samples - Smaller Grid */}
-                    <div className="grid grid-cols-4 gap-2">
+                    <div className="grid grid-cols-4 gap-1.5 lg:gap-2">
                       {[
                         'David.webp', 'Holly.webp', 'Leo.webp', 'Nicole.webp',
                         'Paul.webp', 'Remi.webp', 'Richard.webp', 'Steph.webp'
@@ -2499,7 +2544,7 @@ const ProductPage: React.FC = () => {
                         <button
                           key={index}
                           onClick={() => setEnlargedImage({ src: `/imgs/store/customer-sample/${img}`, alt: 'Customer Sample' })}
-                          className="group relative aspect-square bg-neutral-100 rounded-lg overflow-hidden hover:ring-2 hover:ring-amber-400 transition-all duration-200"
+                          className="group relative aspect-square bg-neutral-100 rounded-md lg:rounded-lg overflow-hidden hover:ring-2 hover:ring-amber-400 transition-all duration-200"
                         >
                           <img 
                             src={`/imgs/store/customer-sample/${img}`} 
@@ -2512,18 +2557,18 @@ const ProductPage: React.FC = () => {
 
                     {/* Pouch Shape Reference - if exists */}
                     {isEcoDigital && product.images.filter(img => img.includes('pouch shape')).length > 0 && (
-                      <div className="mt-5 pt-5 border-t border-neutral-200">
-                        <h4 className="text-sm font-semibold text-neutral-700 flex items-center gap-2 mb-3">
+                      <div className="mt-4 lg:mt-5 pt-4 lg:pt-5 border-t border-neutral-200">
+                        <h4 className="text-xs lg:text-sm font-semibold text-neutral-700 flex items-center gap-2 mb-2 lg:mb-3">
                           <span>📐</span> Pouch Shape Reference
                         </h4>
-                        <div className="grid grid-cols-2 gap-2">
+                        <div className="grid grid-cols-2 gap-1.5 lg:gap-2">
                           {product.images.filter(img => img.includes('pouch shape')).map((img, index) => (
                             <button
                               key={index}
                               onClick={() => setEnlargedImage({ src: img, alt: 'Pouch Shape Reference' })}
-                              className="bg-neutral-100 rounded-lg p-3 hover:bg-neutral-200 transition cursor-pointer"
+                              className="bg-neutral-100 rounded-md lg:rounded-lg p-2 lg:p-3 hover:bg-neutral-200 transition cursor-pointer"
                             >
-                              <img src={img} alt="Pouch Shape" className="w-full h-20 object-contain" />
+                              <img src={img} alt="Pouch Shape" className="w-full h-16 lg:h-20 object-contain" />
                             </button>
                           ))}
                         </div>
