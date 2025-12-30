@@ -3781,33 +3781,33 @@ const ProductPage: React.FC = () => {
           className="fixed inset-0 z-50 bg-black/60 overflow-y-auto"
           onClick={() => setCompareModal({ type: null, isOpen: false })}
         >
-          <div className="min-h-screen py-8 px-4 flex items-start justify-center">
+          <div className="min-h-screen py-4 sm:py-8 px-2 sm:px-4 flex items-start justify-center">
             <div 
-              className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+              className="bg-white rounded-xl sm:rounded-2xl shadow-2xl max-w-4xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
-              <div className="sticky top-0 bg-white border-b border-neutral-200 px-6 py-4 flex justify-between items-center z-10">
-                <h3 className="text-xl font-bold text-neutral-900">
+              <div className="sticky top-0 bg-white border-b border-neutral-200 px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center z-10">
+                <h3 className="text-base sm:text-xl font-bold text-neutral-900">
                   {getModalTitle()}
                 </h3>
                 <button 
                   onClick={() => setCompareModal({ type: null, isOpen: false })} 
-                  className="text-neutral-400 hover:text-neutral-600 transition p-2 hover:bg-neutral-100 rounded-full"
+                  className="text-neutral-400 hover:text-neutral-600 transition p-1.5 sm:p-2 hover:bg-neutral-100 rounded-full"
                 >
-                  <X className="h-6 w-6" />
+                  <X className="h-5 w-5 sm:h-6 sm:w-6" />
                 </button>
               </div>
               
               {/* Options Grid */}
-              <div className="p-6 space-y-4">
+              <div className="p-3 sm:p-6 space-y-3 sm:space-y-4">
                 {options.map((option) => (
                   <div 
                     key={option.id}
-                    className="flex flex-col sm:flex-row gap-4 p-4 border border-neutral-200 rounded-xl hover:border-primary-300 hover:shadow-md transition"
+                    className="flex flex-col sm:flex-row gap-3 sm:gap-4 p-3 sm:p-4 border border-neutral-200 rounded-lg sm:rounded-xl hover:border-primary-300 hover:shadow-md transition"
                   >
                     {/* Image */}
-                    <div className="flex-shrink-0 w-full sm:w-32 h-32 bg-neutral-50 rounded-lg overflow-hidden flex items-center justify-center">
+                    <div className="flex-shrink-0 w-full sm:w-32 h-24 sm:h-32 bg-neutral-50 rounded-lg overflow-hidden flex items-center justify-center">
                       <img 
                         src={option.img} 
                         alt={option.name} 
@@ -3817,18 +3817,18 @@ const ProductPage: React.FC = () => {
                     
                     {/* Content */}
                     <div className="flex-1 min-w-0">
-                      <h4 className="text-lg font-semibold text-neutral-900 mb-1">{option.name}</h4>
-                      <p className="text-sm text-neutral-600 mb-2">{option.description}</p>
+                      <h4 className="text-base sm:text-lg font-semibold text-neutral-900 mb-1">{option.name}</h4>
+                      <p className="text-xs sm:text-sm text-neutral-600 mb-2 line-clamp-3 sm:line-clamp-none">{option.description}</p>
                       
                       {/* Tags */}
-                      <div className="flex flex-wrap gap-2 mb-3">
+                      <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-2 sm:mb-3">
                         {option.bestFor.map((tag, i) => (
-                          <span key={i} className="text-xs bg-primary-50 text-primary-700 px-2 py-1 rounded-full">
+                          <span key={i} className="text-[10px] sm:text-xs bg-primary-50 text-primary-700 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full">
                             {tag}
                           </span>
                         ))}
                         {option.premium && (
-                          <span className="text-xs bg-amber-50 text-amber-700 px-2 py-1 rounded-full">
+                          <span className="text-[10px] sm:text-xs bg-amber-50 text-amber-700 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full">
                             Premium
                           </span>
                         )}
@@ -3837,7 +3837,7 @@ const ProductPage: React.FC = () => {
                       {/* Select Button */}
                       <button
                         onClick={() => handleSelect(option.id)}
-                        className="px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium rounded-lg transition"
+                        className="w-full sm:w-auto px-4 py-2.5 sm:py-2 bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium rounded-lg transition"
                       >
                         {compareModal.type === 'additional' ? 'Enable This Feature' : 'Select This Option'}
                       </button>
@@ -3847,10 +3847,10 @@ const ProductPage: React.FC = () => {
               </div>
               
               {/* Footer */}
-              <div className="sticky bottom-0 bg-white border-t border-neutral-200 px-6 py-4">
+              <div className="sticky bottom-0 bg-white border-t border-neutral-200 px-4 sm:px-6 py-3 sm:py-4">
                 <button
                   onClick={() => setCompareModal({ type: null, isOpen: false })}
-                  className="w-full py-3 text-neutral-600 hover:text-neutral-800 text-sm font-medium transition"
+                  className="w-full py-2.5 sm:py-3 text-neutral-600 hover:text-neutral-800 text-sm font-medium transition"
                 >
                   Close
                 </button>
