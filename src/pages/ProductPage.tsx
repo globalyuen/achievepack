@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect, useTransition, useCallback } from 'react'
-import { useParams, Link, useNavigate } from 'react-router-dom'
+import { useParams, Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn, MessageCircle, Package, Home } from 'lucide-react'
+import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn, MessageCircle, Package, Home, Share2, Copy, X } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct, type ConventionalProduct, type EcoStockProduct, type BoxProduct, type EcoStockSizeVariant, type EcoStockSizeWithQuantities, type EcoStockQuantityOption, PRICING_DATA, POUCH_SIZES, QUANTITY_OPTIONS } from '../store/productData'
 import { calculateEcoPrice, type EcoCalculatorSelections, getMaterialStructureInfo } from '../utils/ecoDigitalCalculator'
@@ -304,6 +304,124 @@ const ProductPage: React.FC = () => {
   
   // Mobile bottom bar state
   const [mobileActivePanel, setMobileActivePanel] = useState<'none' | 'preview' | 'testimonials' | 'price'>('none')
+  
+  // Share configuration modal state
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false)
+  const [shareUrl, setShareUrl] = useState('')
+  const [copySuccess, setCopySuccess] = useState(false)
+  
+  // URL search params for shareable configurations
+  const [searchParams] = useSearchParams()
+  
+  // Generate shareable URL with current configuration
+  const generateShareUrl = useCallback(() => {
+    const baseUrl = window.location.origin
+    const params = new URLSearchParams()
+    
+    if (isEcoDigital) {
+      params.set('material', selectedMaterial)
+      params.set('size', selectedSize)
+      params.set('quantity', selectedQuantity)
+      params.set('designs', selectedDesignCount.toString())
+      params.set('barrier', selectedBarrier)
+      params.set('stiffness', selectedStiffness)
+      params.set('closure', selectedClosure)
+      params.set('surface', selectedSurface)
+      params.set('laser', selectedLaserScoring)
+      params.set('valve', selectedValve)
+      params.set('adhesive', selectedAdhesiveTape)
+      params.set('hanghole', selectedHangHole)
+      params.set('spout', selectedSpout)
+      params.set('shipping', selectedShipping)
+    } else if (isConventionalDigital) {
+      params.set('size', selectedConvSize)
+      params.set('quantity', selectedConvQuantity.toString())
+    } else if (isBoxes && ecoStockProduct) {
+      if (selectedSizeVariant) params.set('variant', selectedSizeVariant)
+      if (selectedSizeWithQty) params.set('sizeQty', selectedSizeWithQty)
+      if (selectedQtyOption) params.set('qtyOption', selectedQtyOption.toString())
+      params.set('quantity', selectedEcoStockQuantity.toString())
+    }
+    
+    return `${baseUrl}/store/product/${productId}?${params.toString()}`
+  }, [isEcoDigital, isConventionalDigital, isBoxes, productId, selectedMaterial, selectedSize, selectedQuantity, selectedDesignCount, selectedBarrier, selectedStiffness, selectedClosure, selectedSurface, selectedLaserScoring, selectedValve, selectedAdhesiveTape, selectedHangHole, selectedSpout, selectedShipping, selectedConvSize, selectedConvQuantity, ecoStockProduct, selectedSizeVariant, selectedSizeWithQty, selectedQtyOption, selectedEcoStockQuantity])
+  
+  // Open share modal
+  const handleShareClick = () => {
+    const url = generateShareUrl()
+    setShareUrl(url)
+    setIsShareModalOpen(true)
+    setCopySuccess(false)
+  }
+  
+  // Copy share URL to clipboard
+  const handleCopyUrl = async () => {
+    try {
+      await navigator.clipboard.writeText(shareUrl)
+      setCopySuccess(true)
+      setTimeout(() => setCopySuccess(false), 2000)
+    } catch (err) {
+      console.error('Failed to copy:', err)
+    }
+  }
+  
+  // Load configuration from URL params on mount
+  useEffect(() => {
+    if (!product) return
+    
+    // Eco Digital params
+    if (isEcoDigital) {
+      const material = searchParams.get('material')
+      const size = searchParams.get('size')
+      const quantity = searchParams.get('quantity')
+      const designs = searchParams.get('designs')
+      const barrier = searchParams.get('barrier')
+      const stiffness = searchParams.get('stiffness')
+      const closure = searchParams.get('closure')
+      const surface = searchParams.get('surface')
+      const laser = searchParams.get('laser')
+      const valve = searchParams.get('valve')
+      const adhesive = searchParams.get('adhesive')
+      const hanghole = searchParams.get('hanghole')
+      const spout = searchParams.get('spout')
+      const shipping = searchParams.get('shipping')
+      
+      if (material) setSelectedMaterial(material)
+      if (size) setSelectedSize(size)
+      if (quantity) setSelectedQuantity(quantity)
+      if (designs) setSelectedDesignCount(parseInt(designs) || 1)
+      if (barrier) setSelectedBarrier(barrier)
+      if (stiffness) setSelectedStiffness(stiffness)
+      if (closure) setSelectedClosure(closure as ClosureType)
+      if (surface) setSelectedSurface(surface as SurfaceType)
+      if (laser) setSelectedLaserScoring(laser as 'Yes' | 'No')
+      if (valve) setSelectedValve(valve as 'Yes' | 'No')
+      if (adhesive) setSelectedAdhesiveTape(adhesive as 'Yes' | 'No')
+      if (hanghole) setSelectedHangHole(hanghole as 'Yes' | 'No')
+      if (spout) setSelectedSpout(spout as 'Yes' | 'No')
+      if (shipping) setSelectedShipping(shipping)
+    }
+    
+    // Conventional Digital params
+    if (isConventionalDigital) {
+      const size = searchParams.get('size')
+      const quantity = searchParams.get('quantity')
+      if (size) setSelectedConvSize(size)
+      if (quantity) setSelectedConvQuantity(parseInt(quantity) || 100)
+    }
+    
+    // Boxes params
+    if (isBoxes) {
+      const variant = searchParams.get('variant')
+      const sizeQty = searchParams.get('sizeQty')
+      const qtyOption = searchParams.get('qtyOption')
+      const quantity = searchParams.get('quantity')
+      if (variant) setSelectedSizeVariant(variant)
+      if (sizeQty) setSelectedSizeWithQty(sizeQty)
+      if (qtyOption) setSelectedQtyOption(parseInt(qtyOption))
+      if (quantity) setSelectedEcoStockQuantity(parseInt(quantity) || 500)
+    }
+  }, [product, isEcoDigital, isConventionalDigital, isBoxes, searchParams])
   
   // Initialize from product defaults
   useEffect(() => {
@@ -1123,22 +1241,31 @@ const ProductPage: React.FC = () => {
               </div>
               
               {/* Add to Cart */}
-              <button 
-                onClick={() => {
-                  addToCart({
-                    productId: product.id,
-                    name: product.name,
-                    image: product.images[0],
-                    variant: { shape: conventionalProduct.shape, size: selectedConvSize, material: product.name.includes('Metalised') ? 'Mattopp/VMPET/LLDPE' : 'Glossy PET/LLDPE' },
-                    quantity: 1,
-                    unitPrice: conventionalPrice.total,
-                    totalPrice: conventionalPrice.total
-                  })
-                }} 
-                className="w-full py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2"
-              >
-                <ShoppingCart className="h-5 w-5" /> Add to Cart
-              </button>
+              <div className="flex gap-2">
+                <button 
+                  onClick={() => {
+                    addToCart({
+                      productId: product.id,
+                      name: product.name,
+                      image: product.images[0],
+                      variant: { shape: conventionalProduct.shape, size: selectedConvSize, material: product.name.includes('Metalised') ? 'Mattopp/VMPET/LLDPE' : 'Glossy PET/LLDPE' },
+                      quantity: 1,
+                      unitPrice: conventionalPrice.total,
+                      totalPrice: conventionalPrice.total
+                    })
+                  }} 
+                  className="flex-1 py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2"
+                >
+                  <ShoppingCart className="h-5 w-5" /> Add to Cart
+                </button>
+                <button 
+                  onClick={handleShareClick}
+                  className="px-4 py-4 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 rounded-xl transition flex items-center justify-center gap-2 border border-neutral-200"
+                  title="Share Configuration"
+                >
+                  <Share2 className="h-5 w-5" />
+                </button>
+              </div>
               
               {/* Features */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 pt-4">
@@ -1669,58 +1796,69 @@ const ProductPage: React.FC = () => {
                 </div>
               )}
               
-              {/* Add to Cart - Green button for compostable products */}
-              <button 
-                onClick={() => {
-                  const selectedVariant = ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)
-                  const selectedSizeData = ecoStockProduct.sizeWithQuantities?.find(s => s.id === selectedSizeWithQty)
-                  const selectedQtyData = selectedSizeData?.quantityOptions.find(o => o.quantity === selectedQtyOption)
-                  const customPrintQtyData = ecoStockProduct.customPrintQuantities?.find(o => o.quantity === selectedQtyOption)
-                  
-                  let cartPrice: number
-                  let cartSize: string
-                  
-                  if (customPrintQtyData) {
-                    cartPrice = customPrintQtyData.totalPrice
-                    cartSize = `Custom Print (${customPrintQtyData.quantity.toLocaleString()} pcs)`
-                  } else if (selectedQtyData && selectedSizeData) {
-                    cartPrice = selectedQtyData.totalPrice
-                    cartSize = `${selectedSizeData.label} - ${selectedSizeData.dimensions} (${selectedQtyData.quantity} pcs)`
-                  } else if (selectedVariant) {
-                    // Multiply by batch count for sizeVariants
-                    cartPrice = selectedVariant.totalPrice * sizeVariantBatchCount
-                    const totalPcs = selectedVariant.quantity * sizeVariantBatchCount
-                    cartSize = `${selectedVariant.label} - ${selectedVariant.dimensions} (${totalPcs} pcs)`
-                  } else {
-                    cartPrice = selectedEcoStockQuantity * ecoStockProduct.pricePerPiece
-                    cartSize = ecoStockProduct.sizeInfo
+              {/* Add to Cart & Share */}
+              <div className="flex gap-2">
+                <button 
+                  onClick={() => {
+                    const selectedVariant = ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)
+                    const selectedSizeData = ecoStockProduct.sizeWithQuantities?.find(s => s.id === selectedSizeWithQty)
+                    const selectedQtyData = selectedSizeData?.quantityOptions.find(o => o.quantity === selectedQtyOption)
+                    const customPrintQtyData = ecoStockProduct.customPrintQuantities?.find(o => o.quantity === selectedQtyOption)
+                    
+                    let cartPrice: number
+                    let cartSize: string
+                    
+                    if (customPrintQtyData) {
+                      cartPrice = customPrintQtyData.totalPrice
+                      cartSize = `Custom Print (${customPrintQtyData.quantity.toLocaleString()} pcs)`
+                    } else if (selectedQtyData && selectedSizeData) {
+                      cartPrice = selectedQtyData.totalPrice
+                      cartSize = `${selectedSizeData.label} - ${selectedSizeData.dimensions} (${selectedQtyData.quantity} pcs)`
+                    } else if (selectedVariant) {
+                      // Multiply by batch count for sizeVariants
+                      cartPrice = selectedVariant.totalPrice * sizeVariantBatchCount
+                      const totalPcs = selectedVariant.quantity * sizeVariantBatchCount
+                      cartSize = `${selectedVariant.label} - ${selectedVariant.dimensions} (${totalPcs} pcs)`
+                    } else {
+                      cartPrice = selectedEcoStockQuantity * ecoStockProduct.pricePerPiece
+                      cartSize = ecoStockProduct.sizeInfo
+                    }
+                    
+                    addToCart({
+                      productId: product.id,
+                      name: product.name,
+                      image: product.images[0],
+                      variant: { shape: ecoStockProduct.shape, size: cartSize, material: ecoStockProduct.material },
+                      quantity: 1,
+                      unitPrice: cartPrice,
+                      totalPrice: cartPrice
+                    })
+                  }} 
+                  disabled={
+                    (ecoStockProduct.sizeVariants && ecoStockProduct.sizeVariants.length > 0 && !ecoStockProduct.customPrintQuantities && !selectedSizeVariant) ||
+                    (ecoStockProduct.sizeWithQuantities && ecoStockProduct.sizeWithQuantities.length > 0 && (!selectedSizeWithQty || !selectedQtyOption)) ||
+                    (ecoStockProduct.customPrintQuantities && ecoStockProduct.customPrintQuantities.length > 0 && !selectedQtyOption)
                   }
-                  
-                  addToCart({
-                    productId: product.id,
-                    name: product.name,
-                    image: product.images[0],
-                    variant: { shape: ecoStockProduct.shape, size: cartSize, material: ecoStockProduct.material },
-                    quantity: 1,
-                    unitPrice: cartPrice,
-                    totalPrice: cartPrice
-                  })
-                }} 
-                disabled={
-                  (ecoStockProduct.sizeVariants && ecoStockProduct.sizeVariants.length > 0 && !ecoStockProduct.customPrintQuantities && !selectedSizeVariant) ||
-                  (ecoStockProduct.sizeWithQuantities && ecoStockProduct.sizeWithQuantities.length > 0 && (!selectedSizeWithQty || !selectedQtyOption)) ||
-                  (ecoStockProduct.customPrintQuantities && ecoStockProduct.customPrintQuantities.length > 0 && !selectedQtyOption)
-                }
-                className={`w-full py-4 font-semibold rounded-xl transition flex items-center justify-center gap-2 ${
-                  (ecoStockProduct.sizeVariants && ecoStockProduct.sizeVariants.length > 0 && !ecoStockProduct.customPrintQuantities && !selectedSizeVariant) ||
-                  (ecoStockProduct.sizeWithQuantities && ecoStockProduct.sizeWithQuantities.length > 0 && (!selectedSizeWithQty || !selectedQtyOption)) ||
-                  (ecoStockProduct.customPrintQuantities && ecoStockProduct.customPrintQuantities.length > 0 && !selectedQtyOption)
-                    ? 'bg-neutral-300 text-neutral-500 cursor-not-allowed'
-                    : 'bg-green-600 hover:bg-green-700 text-white'
-                }`}
-              >
-                <ShoppingCart className="h-5 w-5" /> {ecoStockProduct.customPrintQuantities ? '🎨 Add Custom Print Order' : isBoxes ? 'Add to Cart' : '🌱 Add Compostable Bag to Cart'}
-              </button>
+                  className={`flex-1 py-4 font-semibold rounded-xl transition flex items-center justify-center gap-2 ${
+                    (ecoStockProduct.sizeVariants && ecoStockProduct.sizeVariants.length > 0 && !ecoStockProduct.customPrintQuantities && !selectedSizeVariant) ||
+                    (ecoStockProduct.sizeWithQuantities && ecoStockProduct.sizeWithQuantities.length > 0 && (!selectedSizeWithQty || !selectedQtyOption)) ||
+                    (ecoStockProduct.customPrintQuantities && ecoStockProduct.customPrintQuantities.length > 0 && !selectedQtyOption)
+                      ? 'bg-neutral-300 text-neutral-500 cursor-not-allowed'
+                      : 'bg-green-600 hover:bg-green-700 text-white'
+                  }`}
+                >
+                  <ShoppingCart className="h-5 w-5" /> {ecoStockProduct.customPrintQuantities ? '🎨 Add Custom Print Order' : isBoxes ? 'Add to Cart' : '🌱 Add Compostable Bag to Cart'}
+                </button>
+                {isBoxes && (
+                  <button 
+                    onClick={handleShareClick}
+                    className="px-4 py-4 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 rounded-xl transition flex items-center justify-center gap-2 border border-neutral-200"
+                    title="Share Configuration"
+                  >
+                    <Share2 className="h-5 w-5" />
+                  </button>
+                )}
+              </div>
               
               {/* Features */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 pt-4">
@@ -2981,9 +3119,18 @@ const ProductPage: React.FC = () => {
             )}
 
             {/* Add to Cart */}
-            <button onClick={handleAddToCart} disabled={totalPrice <= 0} className="w-full py-4 bg-primary-600 hover:bg-primary-700 disabled:bg-neutral-400 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2">
-              <ShoppingCart className="h-5 w-5" /> Add to Cart
-            </button>
+            <div className="flex gap-2">
+              <button onClick={handleAddToCart} disabled={totalPrice <= 0} className="flex-1 py-4 bg-primary-600 hover:bg-primary-700 disabled:bg-neutral-400 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2">
+                <ShoppingCart className="h-5 w-5" /> Add to Cart
+              </button>
+              <button 
+                onClick={handleShareClick}
+                className="px-4 py-4 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 rounded-xl transition flex items-center justify-center gap-2 border border-neutral-200"
+                title="Share Configuration"
+              >
+                <Share2 className="h-5 w-5" />
+              </button>
+            </div>
 
             {/* Features */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 pt-4">
@@ -3636,6 +3783,45 @@ const ProductPage: React.FC = () => {
         </div>
       </footer>
     </div>
+
+    {/* Share Configuration Modal */}
+    {isShareModalOpen && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+        <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full mx-4 p-6">
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="text-xl font-bold text-neutral-900">Share Product Configuration</h3>
+            <button 
+              onClick={() => setIsShareModalOpen(false)} 
+              className="text-neutral-400 hover:text-neutral-600 transition"
+            >
+              <X className="h-6 w-6" />
+            </button>
+          </div>
+          <p className="text-sm text-neutral-600 mb-4">
+            Sharing below link with a person will let them view the same configuration you have on the screen. However, they will not be able to access your shopping cart or account information.
+          </p>
+          <input 
+            type="text" 
+            value={shareUrl} 
+            readOnly 
+            className="w-full p-3 bg-neutral-50 border border-neutral-200 rounded-lg text-sm text-neutral-700 mb-4"
+            onClick={(e) => (e.target as HTMLInputElement).select()}
+          />
+          <button 
+            onClick={handleCopyUrl}
+            className="w-full py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-full transition"
+          >
+            {copySuccess ? '✓ COPIED!' : 'COPY LINK'}
+          </button>
+          <button 
+            onClick={() => setIsShareModalOpen(false)}
+            className="w-full py-2 text-neutral-600 hover:text-neutral-800 text-sm mt-2 transition"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    )}
     </>
   )
 }
