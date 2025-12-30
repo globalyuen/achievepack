@@ -5,7 +5,7 @@ import { useAuth } from '../hooks/useAuth'
 import { useTranslation } from 'react-i18next'
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
-const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAABkMYinChTAoKfnt'
+const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAACJvySd2iBsvYcJv'
 
 const LoginPage: React.FC = () => {
   const { t } = useTranslation()

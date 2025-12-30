@@ -3,7 +3,7 @@ import { X, Mail, Phone, MessageCircle, Calendar, Send, CheckCircle, Package, Sp
 import { supabase } from '../lib/supabase'
 
 // Cloudflare Turnstile Site Key (get from Cloudflare Dashboard)
-const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAABkMYinChTAoKfnt'
+const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAACJvySd2iBsvYcJv'
 
 interface CustomQuoteContextType {
   openQuoteLightbox: () => void

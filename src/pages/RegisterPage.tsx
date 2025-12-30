@@ -4,7 +4,7 @@ import { Mail, Lock, User, Building, Eye, EyeOff, ArrowLeft, Loader2 } from 'luc
 import { useAuth } from '../hooks/useAuth'
 import { useTranslation } from 'react-i18next'
 
-const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAABkMYinChTAoKfnt'
+const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAACJvySd2iBsvYcJv'
 
 const RegisterPage: React.FC = () => {
   const { t } = useTranslation()
