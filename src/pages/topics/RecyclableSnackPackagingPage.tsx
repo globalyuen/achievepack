@@ -86,13 +86,13 @@ const RecyclableSnackPackagingPage: React.FC = () => {
               caption="Recyclable"
             />
             <ClickableImage 
-              src="/imgs/store/shape/stand-up-pouch.webp" 
+              src="/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp" 
               alt="Stand up pouch for snacks" 
               className="w-full h-24 object-cover rounded-lg"
               caption="Stand Up"
             />
             <ClickableImage 
-              src="/imgs/store/shape/flat-bottom-pouch.webp" 
+              src="/imgs/pouch-shape/a_flat_bottom_pouch_isolated_7901973.webp" 
               alt="Flat bottom for snacks" 
               className="w-full h-24 object-cover rounded-lg"
               caption="Flat Bottom"
