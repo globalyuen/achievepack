@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect, useTransition, useCallback } from 'react'
 import { useParams, Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn, MessageCircle, Package, Home, Share2, Copy, X } from 'lucide-react'
+import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn, MessageCircle, Package, Home, Share2, Copy, X, Sparkles } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct, type ConventionalProduct, type EcoStockProduct, type BoxProduct, type EcoStockSizeVariant, type EcoStockSizeWithQuantities, type EcoStockQuantityOption, PRICING_DATA, POUCH_SIZES, QUANTITY_OPTIONS } from '../store/productData'
 import { calculateEcoPrice, type EcoCalculatorSelections, getMaterialStructureInfo } from '../utils/ecoDigitalCalculator'
@@ -10,6 +10,7 @@ import { TESTIMONIALS } from '../data/testimonialsData'
 import { getProductFAQs, generateFAQSchema, DEFAULT_FAQS, type ProductFAQ } from '../data/productFAQData'
 import { getAISellingPoints, hasAISellingPoints, type AISellingPoint } from '../data/aiSellingPoints'
 import { CLOSURE_OPTIONS, SURFACE_OPTIONS, type ClosureOption, type SurfaceOption } from '../components/SortableOptionsTable'
+import { useCustomQuote } from '../contexts/CustomQuoteContext'
 
 // SKU-based Dynamic Product Descriptions (Problem → Solution → Features logic)
 // Organized by material type: pcr (PCR/Bio), mono (Mono Recyclable), compost (Biodegradable)
@@ -226,6 +227,7 @@ const generateDynamicDescription = (options: {
 const ProductPage: React.FC = () => {
   const { productId } = useParams<{ productId: string }>()
   const { addToCart, cartCount, setIsCartOpen } = useStore()
+  const { openQuoteLightbox } = useCustomQuote()
   const navigate = useNavigate()
   const [isPending, startTransition] = useTransition()
   
@@ -1379,6 +1381,13 @@ const ProductPage: React.FC = () => {
                 >
                   <Share2 className="h-5 w-5" />
                 </button>
+                <button 
+                  onClick={openQuoteLightbox}
+                  className="px-4 py-4 bg-primary-100 hover:bg-primary-200 text-primary-700 rounded-xl transition flex items-center justify-center gap-2 border border-primary-200"
+                  title="Get Custom Quote"
+                >
+                  <Sparkles className="h-5 w-5" />
+                </button>
               </div>
               
               {/* Features */}
@@ -1974,6 +1983,13 @@ const ProductPage: React.FC = () => {
                     <Share2 className="h-5 w-5" />
                   </button>
                 )}
+                <button 
+                  onClick={openQuoteLightbox}
+                  className="px-4 py-4 bg-primary-100 hover:bg-primary-200 text-primary-700 rounded-xl transition flex items-center justify-center gap-2 border border-primary-200"
+                  title="Get Custom Quote"
+                >
+                  <Sparkles className="h-5 w-5" />
+                </button>
               </div>
               
               {/* Features */}
@@ -3061,6 +3077,13 @@ const ProductPage: React.FC = () => {
                 title="Share Configuration"
               >
                 <Share2 className="h-5 w-5" />
+              </button>
+              <button 
+                onClick={openQuoteLightbox}
+                className="px-4 py-4 bg-primary-100 hover:bg-primary-200 text-primary-700 rounded-xl transition flex items-center justify-center gap-2 border border-primary-200"
+                title="Get Custom Quote"
+              >
+                <Sparkles className="h-5 w-5" />
               </button>
             </div>
 
