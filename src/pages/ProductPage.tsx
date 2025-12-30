@@ -306,9 +306,6 @@ const ProductPage: React.FC = () => {
   const [isRightCollapsed, setIsRightCollapsed] = useState(true)
   const [isTestimonialsCollapsed, setIsTestimonialsCollapsed] = useState(true)
   
-  // Info tooltip state - click to show
-  const [activeTooltip, setActiveTooltip] = useState<string | null>(null)
-  
   // Mobile bottom bar state
   const [mobileActivePanel, setMobileActivePanel] = useState<'none' | 'preview' | 'testimonials' | 'price'>('none')
   
@@ -2735,39 +2732,10 @@ const ProductPage: React.FC = () => {
             {/* Options */}
             {isEcoDigital && ecoProduct && (
               <div className="space-y-4 pt-4 border-t">
-                <div className="relative">
-                  <label className="block text-sm font-medium text-neutral-700 mb-2 flex items-center gap-2">
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">
                     Eco Material Type
-                    <button 
-                      type="button"
-                      onClick={() => setActiveTooltip(activeTooltip === 'material' ? null : 'material')}
-                      className="text-neutral-400 hover:text-primary-500 text-xs transition-colors"
-                    >
-                      ℹ️
-                    </button>
                   </label>
-                  {/* Tooltip - Click to show */}
-                  {activeTooltip === 'material' && (
-                    <div className="absolute left-0 top-8 w-64 sm:w-72 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
-                      <button 
-                        type="button"
-                        onClick={() => setActiveTooltip(null)}
-                        className="absolute top-2 right-2 text-white/70 hover:text-white"
-                      >
-                        ✕
-                      </button>
-                      <div className="font-semibold mb-1">Material Type Guide:</div>
-                      <div className="mb-2">
-                        <strong>PCR/Bio Plastic:</strong> 30% lower carbon footprint, uses recycled or plant-based materials
-                      </div>
-                      <div className="mb-2">
-                        <strong>Mono Recyclable:</strong> 40% lower carbon footprint, 95% recyclable, single-material construction
-                      </div>
-                      <div>
-                        <strong>Biodegradable:</strong> Breaks down naturally, compostable, returns nutrients to soil
-                      </div>
-                    </div>
-                  )}
                   
                   {/* Compare Options Link */}
                   <button
@@ -2801,34 +2769,10 @@ const ProductPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="relative">
-                  <label className="block text-sm font-medium text-neutral-700 mb-2 flex items-center gap-2">
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">
                     {getSizeLabel}
-                    <button 
-                      type="button"
-                      onClick={() => setActiveTooltip(activeTooltip === 'size' ? null : 'size')}
-                      className="text-neutral-400 hover:text-primary-500 text-xs transition-colors"
-                    >
-                      ℹ️
-                    </button>
                   </label>
-                  {/* Tooltip - Click to show */}
-                  {activeTooltip === 'size' && (
-                    <div className="absolute left-0 top-8 w-64 sm:w-72 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
-                      <button 
-                        type="button"
-                        onClick={() => setActiveTooltip(null)}
-                        className="absolute top-2 right-2 text-white/70 hover:text-white"
-                      >
-                        ✕
-                      </button>
-                      <div className="font-semibold mb-1">Package Size Guide:</div>
-                      • <strong>XXXS-XXS:</strong> Trial sizes, samples, single-serve products<br/>
-                      • <strong>XS-S:</strong> Specialty foods, premium coffee, small portions<br/>
-                      • <strong>M-L:</strong> Standard retail products, family-sized packs<br/>
-                      • <strong>XL-XXL:</strong> Bulk items, wholesale, subscription products
-                    </div>
-                  )}
                   
                   {/* Compare Options Link */}
                   <button
@@ -2857,36 +2801,10 @@ const ProductPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="relative">
-                  <label className="block text-sm font-medium text-neutral-700 mb-2 flex items-center gap-2">
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">
                     Closure
-                    <button 
-                      type="button"
-                      onClick={() => setActiveTooltip(activeTooltip === 'closure' ? null : 'closure')}
-                      className="text-neutral-400 hover:text-primary-500 text-xs transition-colors"
-                    >
-                      ℹ️
-                    </button>
                   </label>
-                  {/* Tooltip - Click to show */}
-                  {activeTooltip === 'closure' && (
-                    <div className="absolute left-0 top-8 w-64 sm:w-72 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
-                      <button 
-                        type="button"
-                        onClick={() => setActiveTooltip(null)}
-                        className="absolute top-2 right-2 text-white/70 hover:text-white"
-                      >
-                        ✕
-                      </button>
-                      <div className="font-semibold mb-1">Closure Options:</div>
-                      • <strong>Regular Zipper:</strong> Resealable, maintains freshness<br/>
-                      • <strong>One-Sided:</strong> Easy pouring, front access<br/>
-                      • <strong>Child Resistant:</strong> Safety feature for medications<br/>
-                      • <strong>Slider:</strong> Premium smooth action<br/>
-                      • <strong>Tin Tie:</strong> Cost-effective for coffee/tea<br/>
-                      • <strong>Spout:</strong> Perfect for liquids, precise pouring
-                    </div>
-                  )}
                   
                   {/* Compare Options Link */}
                   <button
@@ -2930,36 +2848,10 @@ const ProductPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="relative">
-                  <label className="block text-sm font-medium text-neutral-700 mb-2 flex items-center gap-2">
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">
                     Surface
-                    <button 
-                      type="button"
-                      onClick={() => setActiveTooltip(activeTooltip === 'surface' ? null : 'surface')}
-                      className="text-neutral-400 hover:text-primary-500 text-xs transition-colors"
-                    >
-                      ℹ️
-                    </button>
                   </label>
-                  {/* Tooltip - Click to show */}
-                  {activeTooltip === 'surface' && (
-                    <div className="absolute left-0 top-8 w-64 sm:w-72 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
-                      <button 
-                        type="button"
-                        onClick={() => setActiveTooltip(null)}
-                        className="absolute top-2 right-2 text-white/70 hover:text-white"
-                      >
-                        ✕
-                      </button>
-                      <div className="font-semibold mb-1">Surface Treatment:</div>
-                      • <strong>Glossy:</strong> Vibrant colors, classic finish<br/>
-                      • <strong>Matt:</strong> Elegant, reduced glare, modern look<br/>
-                      • <strong>Metallic:</strong> Premium metallic appearance<br/>
-                      • <strong>Soft Touch:</strong> Luxurious velvet-like feel<br/>
-                      • <strong>Emboss:</strong> Raised/depressed design, tactile<br/>
-                      • <strong>Stamp Foil:</strong> Metallic accents, luxury effect
-                    </div>
-                  )}
                   
                   {/* Compare Options Link */}
                   <button
@@ -2991,39 +2883,10 @@ const ProductPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="relative">
-                  <label className="block text-sm font-medium text-neutral-700 mb-2 flex items-center gap-2">
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">
                     Barrier
-                    <button 
-                      type="button"
-                      onClick={() => setActiveTooltip(activeTooltip === 'barrier' ? null : 'barrier')}
-                      className="text-neutral-400 hover:text-primary-500 text-xs transition-colors"
-                    >
-                      ℹ️
-                    </button>
                   </label>
-                  {/* Tooltip - Click to show */}
-                  {activeTooltip === 'barrier' && (
-                    <div className="absolute left-0 top-8 w-80 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
-                      <button 
-                        type="button"
-                        onClick={() => setActiveTooltip(null)}
-                        className="absolute top-2 right-2 text-white/70 hover:text-white"
-                      >
-                        ✕
-                      </button>
-                      <div className="font-semibold mb-1">Barrier Protection:</div>
-                      <div className="mb-2">
-                        <strong>Mid Barrier:</strong> 6-9 months shelf life, clear visibility, good for dry snacks
-                      </div>
-                      <div className="mb-2">
-                        <strong>High Barrier:</strong> 9-12 months, blocks light/oxygen, for coffee/tea/spices
-                      </div>
-                      <div>
-                        <strong>Highest Barrier:</strong> 12-18 months, aluminum layer, maximum protection
-                      </div>
-                    </div>
-                  )}
                   
                   {/* Compare Options Link */}
                   <button
@@ -3042,36 +2905,10 @@ const ProductPage: React.FC = () => {
                   </select>
                 </div>
 
-                <div className="relative">
-                  <label className="block text-sm font-medium text-neutral-700 mb-2 flex items-center gap-2">
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">
                     Stiffness and Thickness
-                    <button 
-                      type="button"
-                      onClick={() => setActiveTooltip(activeTooltip === 'stiffness' ? null : 'stiffness')}
-                      className="text-neutral-400 hover:text-primary-500 text-xs transition-colors"
-                    >
-                      ℹ️
-                    </button>
                   </label>
-                  {/* Tooltip - Click to show */}
-                  {activeTooltip === 'stiffness' && (
-                    <div className="absolute left-0 top-8 w-80 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
-                      <button 
-                        type="button"
-                        onClick={() => setActiveTooltip(null)}
-                        className="absolute top-2 right-2 text-white/70 hover:text-white"
-                      >
-                        ✕
-                      </button>
-                      <div className="font-semibold mb-1">Package Stiffness and Thickness:</div>
-                      <div className="mb-2">
-                        <strong>With Paper Lining (Stiffer):</strong> Better standing stability, premium feel. Adding kraft paper increases thickness by 50-60 micron / 2 mil.
-                      </div>
-                      <div>
-                        <strong>Without Paper (Softer):</strong> More flexible, lighter weight, thinner profile.
-                      </div>
-                    </div>
-                  )}
                   
                   {/* Compare Options Link */}
                   <button
@@ -3089,36 +2926,10 @@ const ProductPage: React.FC = () => {
                   </select>
                 </div>
 
-                <div className="relative">
-                  <label className="block text-sm font-medium text-neutral-700 mb-2 flex items-center gap-2">
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">
                     Additional Features
-                    <button 
-                      type="button"
-                      onClick={() => setActiveTooltip(activeTooltip === 'additional' ? null : 'additional')}
-                      className="text-neutral-400 hover:text-primary-500 text-xs transition-colors"
-                    >
-                      ℹ️
-                    </button>
                   </label>
-                  {/* Tooltip - Click to show */}
-                  {activeTooltip === 'additional' && (
-                    <div className="absolute left-0 top-8 w-80 bg-neutral-800 text-white text-xs rounded-lg p-3 shadow-lg z-50">
-                      <button 
-                        type="button"
-                        onClick={() => setActiveTooltip(null)}
-                        className="absolute top-2 right-2 text-white/70 hover:text-white"
-                      >
-                        ✕
-                      </button>
-                      <div className="font-semibold mb-1">Additional Features:</div>
-                      <div className="mb-2">
-                        <strong>Degassing Valve:</strong> Releases gases while preventing air entry, ideal for coffee/tea
-                      </div>
-                      <div>
-                        <strong>Laser Scoring:</strong> Easy-tear lines for convenient opening, professional finish
-                      </div>
-                    </div>
-                  )}
                   
                   {/* Compare Options Link */}
                   <button
