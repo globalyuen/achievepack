@@ -383,11 +383,11 @@ export default function MegaMenu() {
       <nav className="flex items-center">
         {/* LEARN */}
         <div className="relative" onMouseEnter={() => handleMouseEnter('learn')} onMouseLeave={handleMouseLeave}>
-          <button className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors ${activeMenu === 'learn' ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'}`}>
+          <Link to="/learn" className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors ${activeMenu === 'learn' ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'}`}>
             <BookOpen className="h-4 w-4" />
             LEARN
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'learn' ? 'rotate-180' : ''}`} />
-          </button>
+          </Link>
           {activeMenu === 'learn' && (
             <div className="fixed left-1/2 -translate-x-1/2 top-16 pt-2 z-50" onMouseEnter={() => handleMouseEnter('learn')} onMouseLeave={handleMouseLeave}>
               <div className="w-[95vw] max-w-[1200px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
@@ -481,11 +481,11 @@ export default function MegaMenu() {
 
         {/* BLOG */}
         <div className="relative" onMouseEnter={() => handleMouseEnter('blog')} onMouseLeave={handleMouseLeave}>
-          <button className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors ${activeMenu === 'blog' ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'}`}>
+          <Link to="/blog" className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors ${activeMenu === 'blog' ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'}`}>
             <FileText className="h-4 w-4" />
             BLOG
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'blog' ? 'rotate-180' : ''}`} />
-          </button>
+          </Link>
           {activeMenu === 'blog' && (
             <div className="fixed left-1/2 -translate-x-1/2 top-16 pt-2 z-50" onMouseEnter={() => handleMouseEnter('blog')} onMouseLeave={handleMouseLeave}>
               <div className="w-[95vw] max-w-[1200px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
