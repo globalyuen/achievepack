@@ -217,8 +217,8 @@ const LoginPage: React.FC = () => {
             </div>
 
             {/* Cloudflare Turnstile Widget */}
-            <div className="flex justify-center">
-              <div ref={turnstileRef} className="cf-turnstile" />
+            <div className="flex justify-center my-4">
+              <div ref={turnstileRef} className="cf-turnstile w-full max-w-[300px]" />
             </div>
 
             <button

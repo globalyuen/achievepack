@@ -163,8 +163,8 @@ const RegisterPage: React.FC = () => {
             </div>
             
             {/* Cloudflare Turnstile Widget */}
-            <div className="flex justify-center">
-              <div ref={turnstileRef} className="cf-turnstile" />
+            <div className="flex justify-center my-4">
+              <div ref={turnstileRef} className="cf-turnstile w-full max-w-[300px]" />
             </div>
             
             <button type="submit" disabled={loading || googleLoading || !turnstileToken} className="w-full py-3 bg-primary-600 hover:bg-primary-700 disabled:bg-neutral-400 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition flex items-center justify-center gap-2">

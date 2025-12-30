@@ -1700,8 +1700,8 @@ function App() {
                     required
                   ></textarea>
                 </div>
-                <div className="flex justify-center">
-                  <div ref={homeTurnstileRef} className="cf-turnstile" />
+                <div className="flex justify-center my-4">
+                  <div ref={homeTurnstileRef} className="cf-turnstile w-full max-w-[300px]" />
                 </div>
                 <button
                   type="submit"
