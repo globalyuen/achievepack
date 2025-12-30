@@ -1934,8 +1934,8 @@ ${formData.message}`
           <div className="border-t border-neutral-800 pt-4">
             <div className="flex flex-wrap items-center justify-center gap-4 mb-4">
               {/* BPI Logo */}
-              <img src="/imgs/cert/logo-achievepack-BPI.jpg" alt="BPI Certified" className="h-10 w-auto rounded grayscale" loading="lazy" decoding="async" />
-                <img src="/imgs/cert-b.webp" alt="B Corp Certified" className="h-10 w-auto grayscale" loading="lazy" decoding="async" />
+              <img src="/imgs/cert/logo-achievepack-BPI.jpg" alt="BPI Certified" className="h-10 w-auto rounded brightness-0 invert opacity-70" loading="lazy" decoding="async" />
+                <img src="/imgs/cert-b.webp" alt="B Corp Certified" className="h-10 w-auto brightness-0 invert opacity-70" loading="lazy" decoding="async" />
               
               {/* SSL Secure Badge */}
               <div className="flex items-center gap-1.5 bg-neutral-800 px-3 py-1.5 rounded">
