@@ -1685,6 +1685,8 @@ function App() {
                 <li><Link to="/packaging/flat-pouches" className="hover:text-primary-500">{t('footer.links.flatPouches')}</Link></li>
                 <li><Link to="/packaging/side-gusset-bags" className="hover:text-primary-500">{t('footer.links.sideGussetBags')}</Link></li>
                 <li><Link to="/packaging/custom-boxes" className="hover:text-primary-500">Custom Boxes</Link></li>
+                <li><Link to="/products/labels-and-stickers" className="hover:text-primary-500">Labels & Stickers</Link></li>
+                <li><Link to="/products/lab-bags" className="hover:text-primary-500">Lab Bags</Link></li>
               </ul>
             </div>
 
