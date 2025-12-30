@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { organizationEntity, getAuthorByContentType, generateBreadcrumb } from '../data/schemaEntities'
 import LearnNavigation from './LearnNavigation'
+import SocialShareButtons from './SocialShareButtons'
 
 interface FAQ {
   question: string
@@ -304,8 +305,19 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         <section className="py-8 bg-primary-50 border-b border-primary-100">
           <div className="max-w-7xl mx-auto px-4">
             <div className="bg-white rounded-xl p-6 shadow-sm border-l-4 border-primary-500">
-              <h2 className="text-sm font-semibold text-primary-600 uppercase tracking-wide mb-2">{t('seoPages.quickSummary')}</h2>
-              <p className="text-lg text-neutral-700 leading-relaxed">{introSummary}</p>
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                <div className="flex-1">
+                  <h2 className="text-sm font-semibold text-primary-600 uppercase tracking-wide mb-2">{t('seoPages.quickSummary')}</h2>
+                  <p className="text-lg text-neutral-700 leading-relaxed">{introSummary}</p>
+                </div>
+                <div className="flex-shrink-0 pt-1">
+                  <SocialShareButtons 
+                    url={effectiveCanonicalUrl}
+                    title={title}
+                    description={description}
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </section>
