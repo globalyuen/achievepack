@@ -3,22 +3,34 @@
  * 
  * This script imports inquiry data from the CSV file into Supabase
  * 
- * Usage:
- * 1. Set your Supabase credentials below
- * 2. Run: node import-csv.mjs
+ * Usage: node import-csv.mjs
  */
 
 import fs from 'fs';
+import path from 'path';
 import { parse } from 'csv-parse/sync';
 import { createClient } from '@supabase/supabase-js';
+import { fileURLToPath } from 'url';
 
-// ========== CONFIGURATION ==========
-const SUPABASE_URL = process.env.SUPABASE_URL || 'YOUR_SUPABASE_URL';
-const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY || 'YOUR_SUPABASE_SERVICE_KEY';
-const CSV_FILE_PATH = './old/form-1-entries.csv';
-// ===================================
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
+// Read .env file from parent directory
+const envPath = path.join(__dirname, '..', '.env');
+const envContent = fs.readFileSync(envPath, 'utf-8');
+const envVars = {};
+envContent.split('\n').forEach(line => {
+  const [key, ...valueParts] = line.split('=');
+  if (key && valueParts.length) {
+    envVars[key.trim()] = valueParts.join('=').trim();
+  }
+});
+
+const SUPABASE_URL = envVars.VITE_SUPABASE_URL;
+const SUPABASE_KEY = envVars.VITE_SUPABASE_ANON_KEY;
+const CSV_FILE_PATH = path.join(__dirname, 'old', 'form-1-entries.csv');
+
+const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // Spam detection patterns
 const SPAM_PATTERNS = [
@@ -156,65 +168,7 @@ async function importCSV() {
   console.log(`  Errors: ${errors}`);
 }
 
-// Check if we have valid Supabase credentials
-if (SUPABASE_URL === 'YOUR_SUPABASE_URL' || SUPABASE_SERVICE_KEY === 'YOUR_SUPABASE_SERVICE_KEY') {
-  console.log(`
-==================================================
-CRM CSV Import Script
-==================================================
-
-Before running this script, you need to:
-
-1. Create the crm_inquiries table in Supabase:
-
-   CREATE TABLE crm_inquiries (
-     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-     submission_id TEXT,
-     name TEXT NOT NULL,
-     email TEXT NOT NULL,
-     phone TEXT,
-     company TEXT,
-     packaging_type TEXT,
-     subject TEXT,
-     message TEXT,
-     photo_url TEXT,
-     source TEXT DEFAULT 'website',
-     status TEXT DEFAULT 'new',
-     priority TEXT DEFAULT 'medium',
-     assigned_to TEXT,
-     notes TEXT,
-     follow_up_date TIMESTAMP,
-     last_contacted TIMESTAMP,
-     created_at TIMESTAMP DEFAULT NOW(),
-     updated_at TIMESTAMP DEFAULT NOW()
-   );
-
-   CREATE TABLE crm_activities (
-     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-     inquiry_id UUID REFERENCES crm_inquiries(id) ON DELETE CASCADE,
-     type TEXT NOT NULL,
-     subject TEXT,
-     content TEXT NOT NULL,
-     created_by TEXT,
-     created_at TIMESTAMP DEFAULT NOW()
-   );
-
-   CREATE INDEX idx_inquiries_email ON crm_inquiries(email);
-   CREATE INDEX idx_inquiries_status ON crm_inquiries(status);
-   CREATE INDEX idx_inquiries_created ON crm_inquiries(created_at DESC);
-
-2. Set your Supabase credentials:
-
-   export SUPABASE_URL="https://xxx.supabase.co"
-   export SUPABASE_SERVICE_KEY="your-service-key"
-
-3. Install dependencies and run:
-
-   npm install csv-parse @supabase/supabase-js
-   node import-csv.mjs
-
-==================================================
-`);
-} else {
-  importCSV().catch(console.error);
-}
+// Run the import
+console.log('Supabase URL:', SUPABASE_URL);
+console.log('CSV Path:', CSV_FILE_PATH);
+importCSV().catch(console.error);

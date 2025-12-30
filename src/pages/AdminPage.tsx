@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, Order, Profile, NewsletterSubscriber, Document, Quote, ArtworkFile } from '../lib/supabase'
 import { Home, Users, Package, Settings, Search, ChevronDown, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox } from 'lucide-react'
-import CRMPanel from '../components/admin/CRMPanel'
+import CRMPanelAdvanced from '../components/admin/CRMPanelAdvanced'
 
 type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'artwork' | 'documents' | 'newsletter' | 'crm' | 'settings'
 
@@ -735,7 +735,7 @@ const AdminPage: React.FC = () => {
               <div className="flex items-center justify-between">
                 <h1 className="text-2xl font-bold text-gray-900">CRM / Inquiries</h1>
               </div>
-              <CRMPanel onRefresh={fetchData} />
+              <CRMPanelAdvanced onRefresh={fetchData} />
             </div>
           )}
 
