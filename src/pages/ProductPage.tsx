@@ -9,6 +9,7 @@ import { getProductImage, getSizeImage, getSurfaceImage, getAdditionalImage, typ
 import { TESTIMONIALS } from '../data/testimonialsData'
 import { getProductFAQs, generateFAQSchema, DEFAULT_FAQS, type ProductFAQ } from '../data/productFAQData'
 import { getAISellingPoints, hasAISellingPoints, type AISellingPoint } from '../data/aiSellingPoints'
+import { CLOSURE_OPTIONS, SURFACE_OPTIONS, type ClosureOption, type SurfaceOption } from '../components/SortableOptionsTable'
 
 // SKU-based Dynamic Product Descriptions (Problem → Solution → Features logic)
 // Organized by material type: pcr (PCR/Bio), mono (Mono Recyclable), compost (Biodegradable)
@@ -309,6 +310,9 @@ const ProductPage: React.FC = () => {
   const [isShareModalOpen, setIsShareModalOpen] = useState(false)
   const [shareUrl, setShareUrl] = useState('')
   const [copySuccess, setCopySuccess] = useState(false)
+  
+  // Compare options modal state
+  const [compareModal, setCompareModal] = useState<{ type: 'closure' | 'surface' | null; isOpen: boolean }>({ type: null, isOpen: false })
   
   // URL search params for shareable configurations
   const [searchParams] = useSearchParams()
@@ -2804,6 +2808,15 @@ const ProductPage: React.FC = () => {
                     ))}
                   </div>
                   
+                  {/* Compare Options Link */}
+                  <button
+                    type="button"
+                    onClick={() => setCompareModal({ type: 'closure', isOpen: true })}
+                    className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
+                  >
+                    Compare All Closure Options →
+                  </button>
+                  
                   {/* Dropdown Option */}
                   <div className="flex gap-3 items-center">
                     <select value={selectedClosure} onChange={e => setSelectedClosure(e.target.value as ClosureType)} className="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
@@ -2892,6 +2905,15 @@ const ProductPage: React.FC = () => {
                       </button>
                     ))}
                   </div>
+                  
+                  {/* Compare Options Link */}
+                  <button
+                    type="button"
+                    onClick={() => setCompareModal({ type: 'surface', isOpen: true })}
+                    className="text-xs text-primary-600 hover:text-primary-700 underline mb-3 block"
+                  >
+                    Compare All Surface Options →
+                  </button>
                   
                   {/* Dropdown Option */}
                   <div className="flex gap-3 items-center">
@@ -3823,6 +3845,120 @@ const ProductPage: React.FC = () => {
           >
             Cancel
           </button>
+        </div>
+      </div>
+    )}
+
+    {/* Compare Options Modal */}
+    {compareModal.isOpen && compareModal.type && (
+      <div 
+        className="fixed inset-0 z-50 bg-black/60 overflow-y-auto"
+        onClick={() => setCompareModal({ type: null, isOpen: false })}
+      >
+        <div className="min-h-screen py-8 px-4 flex items-start justify-center">
+          <div 
+            className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div className="sticky top-0 bg-white border-b border-neutral-200 px-6 py-4 flex justify-between items-center z-10">
+              <h3 className="text-xl font-bold text-neutral-900">
+                {compareModal.type === 'closure' ? 'Compare Closure Options' : 'Compare Surface Options'}
+              </h3>
+              <button 
+                onClick={() => setCompareModal({ type: null, isOpen: false })} 
+                className="text-neutral-400 hover:text-neutral-600 transition p-2 hover:bg-neutral-100 rounded-full"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+            
+            {/* Options Grid */}
+            <div className="p-6 space-y-4">
+              {(compareModal.type === 'closure' ? CLOSURE_OPTIONS : SURFACE_OPTIONS).map((option) => (
+                <div 
+                  key={option.id}
+                  className="flex flex-col sm:flex-row gap-4 p-4 border border-neutral-200 rounded-xl hover:border-primary-300 hover:shadow-md transition"
+                >
+                  {/* Image */}
+                  <div className="flex-shrink-0 w-full sm:w-32 h-32 bg-neutral-50 rounded-lg overflow-hidden flex items-center justify-center">
+                    <img 
+                      src={option.img} 
+                      alt={option.name} 
+                      className="max-w-full max-h-full object-contain p-2"
+                    />
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-lg font-semibold text-neutral-900 mb-1">{option.name}</h4>
+                    <p className="text-sm text-neutral-600 mb-2">{option.description}</p>
+                    
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {option.bestFor.map((tag, i) => (
+                        <span key={i} className="text-xs bg-primary-50 text-primary-700 px-2 py-1 rounded-full">
+                          {tag}
+                        </span>
+                      ))}
+                      {option.premium && (
+                        <span className="text-xs bg-amber-50 text-amber-700 px-2 py-1 rounded-full">
+                          Premium
+                        </span>
+                      )}
+                    </div>
+                    
+                    {/* Select Button */}
+                    <button
+                      onClick={() => {
+                        if (compareModal.type === 'closure') {
+                          // Map option id to ClosureType value
+                          const closureMap: Record<string, string> = {
+                            'no-zipper': 'No',
+                            'normal-zipper': 'Regular Zipper',
+                            'front-zipper': 'One-Sided Zipper',
+                            'slider-zipper': 'Slider',
+                            'child-resistant': 'Child Resistant Zipper',
+                            'tin-tie': 'Tin Tie',
+                            'spout': 'Spout',
+                            'adhesive-tape': 'Adhesive Tape'
+                          }
+                          const value = closureMap[option.id]
+                          if (value) setSelectedClosure(value as ClosureType)
+                        } else {
+                          // Map option id to SurfaceType value
+                          const surfaceMap: Record<string, SurfaceType> = {
+                            'glossy': 'Glossy',
+                            'matt': 'Matt',
+                            'metallic': 'Metallic',
+                            'soft-touch': 'Soft Touch',
+                            'emboss': 'Emboss',
+                            'stamp-foil': 'Stamp Foil'
+                          }
+                          const value = surfaceMap[option.id]
+                          if (value) setSelectedSurface(value)
+                        }
+                        setCompareModal({ type: null, isOpen: false })
+                      }}
+                      className="px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium rounded-lg transition"
+                    >
+                      Select This Option
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            {/* Footer */}
+            <div className="sticky bottom-0 bg-white border-t border-neutral-200 px-6 py-4">
+              <button
+                onClick={() => setCompareModal({ type: null, isOpen: false })}
+                className="w-full py-3 text-neutral-600 hover:text-neutral-800 text-sm font-medium transition"
+              >
+                Close
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     )}
