@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Mail, Lock, Eye, EyeOff, ArrowLeft, Loader2, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { useTranslation } from 'react-i18next'
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
+const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAABkMYinChTAoKfnt'
 
 const LoginPage: React.FC = () => {
   const { t } = useTranslation()
@@ -17,6 +18,9 @@ const LoginPage: React.FC = () => {
   const [googleLoading, setGoogleLoading] = useState(false)
   const [error, setError] = useState('')
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [turnstileToken, setTurnstileToken] = useState('')
+  const turnstileRef = useRef<HTMLDivElement>(null)
+  const turnstileWidgetId = useRef<string | null>(null)
 
   const slides = [
     {
@@ -49,6 +53,54 @@ const LoginPage: React.FC = () => {
     return () => clearInterval(timer)
   }, [])
 
+  // Load Turnstile script
+  useEffect(() => {
+    if (typeof window !== 'undefined' && !(window as any).turnstile) {
+      const script = document.createElement('script')
+      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad'
+      script.async = true
+      script.defer = true
+      document.head.appendChild(script)
+    }
+  }, [])
+
+  // Render Turnstile widget
+  useEffect(() => {
+    const renderWidget = () => {
+      if (turnstileRef.current && (window as any).turnstile) {
+        if (turnstileWidgetId.current) {
+          try { (window as any).turnstile.remove(turnstileWidgetId.current) } catch (e) {}
+        }
+        turnstileWidgetId.current = (window as any).turnstile.render(turnstileRef.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          callback: (token: string) => setTurnstileToken(token),
+          'error-callback': () => setError('Verification failed. Please refresh.'),
+          theme: 'light',
+          size: 'flexible'
+        })
+      }
+    }
+    
+    // Try immediately or wait for script to load
+    if ((window as any).turnstile) {
+      renderWidget()
+    } else {
+      const checkTurnstile = setInterval(() => {
+        if ((window as any).turnstile) {
+          clearInterval(checkTurnstile)
+          renderWidget()
+        }
+      }, 100)
+      return () => clearInterval(checkTurnstile)
+    }
+    
+    return () => {
+      if (turnstileWidgetId.current && (window as any).turnstile) {
+        try { (window as any).turnstile.remove(turnstileWidgetId.current) } catch (e) {}
+      }
+    }
+  }, [])
+
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length)
   }
@@ -59,12 +111,24 @@ const LoginPage: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    // Verify Turnstile token
+    if (!turnstileToken) {
+      setError('Please complete the security verification.')
+      return
+    }
+    
     setLoading(true)
     setError('')
     const { error } = await signIn(email, password)
     if (error) {
       setError(error.message)
       setLoading(false)
+      // Reset Turnstile on error
+      if ((window as any).turnstile && turnstileWidgetId.current) {
+        (window as any).turnstile.reset(turnstileWidgetId.current)
+      }
+      setTurnstileToken('')
     } else {
       // Redirect admin to /admin, others to /dashboard
       if (email.toLowerCase() === ADMIN_EMAIL) {
@@ -152,10 +216,15 @@ const LoginPage: React.FC = () => {
               </div>
             </div>
 
+            {/* Cloudflare Turnstile Widget */}
+            <div className="flex justify-center">
+              <div ref={turnstileRef} className="cf-turnstile" />
+            </div>
+
             <button
               type="submit"
-              disabled={loading || googleLoading}
-              className="w-full py-3 bg-primary-600 hover:bg-primary-700 disabled:bg-neutral-400 text-white font-semibold rounded-lg transition flex items-center justify-center gap-2"
+              disabled={loading || googleLoading || !turnstileToken}
+              className="w-full py-3 bg-primary-600 hover:bg-primary-700 disabled:bg-neutral-400 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition flex items-center justify-center gap-2"
             >
               {loading ? (
                 <>

@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Mail, Lock, User, Building, Eye, EyeOff, ArrowLeft, Loader2 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { useTranslation } from 'react-i18next'
+
+const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAABkMYinChTAoKfnt'
 
 const RegisterPage: React.FC = () => {
   const { t } = useTranslation()
@@ -14,6 +16,56 @@ const RegisterPage: React.FC = () => {
   const [googleLoading, setGoogleLoading] = useState(false)
   const [error, setError] = useState('')
   const [success, setSuccess] = useState(false)
+  const [turnstileToken, setTurnstileToken] = useState('')
+  const turnstileRef = useRef<HTMLDivElement>(null)
+  const turnstileWidgetId = useRef<string | null>(null)
+
+  // Load Turnstile script
+  useEffect(() => {
+    if (typeof window !== 'undefined' && !(window as any).turnstile) {
+      const script = document.createElement('script')
+      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad'
+      script.async = true
+      script.defer = true
+      document.head.appendChild(script)
+    }
+  }, [])
+
+  // Render Turnstile widget
+  useEffect(() => {
+    const renderWidget = () => {
+      if (turnstileRef.current && (window as any).turnstile) {
+        if (turnstileWidgetId.current) {
+          try { (window as any).turnstile.remove(turnstileWidgetId.current) } catch (e) {}
+        }
+        turnstileWidgetId.current = (window as any).turnstile.render(turnstileRef.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          callback: (token: string) => setTurnstileToken(token),
+          'error-callback': () => setError('Verification failed. Please refresh.'),
+          theme: 'light',
+          size: 'flexible'
+        })
+      }
+    }
+    
+    if ((window as any).turnstile) {
+      renderWidget()
+    } else {
+      const checkTurnstile = setInterval(() => {
+        if ((window as any).turnstile) {
+          clearInterval(checkTurnstile)
+          renderWidget()
+        }
+      }, 100)
+      return () => clearInterval(checkTurnstile)
+    }
+    
+    return () => {
+      if (turnstileWidgetId.current && (window as any).turnstile) {
+        try { (window as any).turnstile.remove(turnstileWidgetId.current) } catch (e) {}
+      }
+    }
+  }, [])
 
   const handleGoogleSignIn = async () => {
     setGoogleLoading(true)
@@ -27,12 +79,24 @@ const RegisterPage: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    // Verify Turnstile token
+    if (!turnstileToken) {
+      setError('Please complete the security verification.')
+      return
+    }
+    
     setLoading(true)
     setError('')
     const { error } = await signUp(formData.email, formData.password, { full_name: formData.fullName, company: formData.company })
     if (error) {
       setError(error.message)
       setLoading(false)
+      // Reset Turnstile on error
+      if ((window as any).turnstile && turnstileWidgetId.current) {
+        (window as any).turnstile.reset(turnstileWidgetId.current)
+      }
+      setTurnstileToken('')
     } else {
       setSuccess(true)
     }
@@ -97,7 +161,13 @@ const RegisterPage: React.FC = () => {
                 </button>
               </div>
             </div>
-            <button type="submit" disabled={loading || googleLoading} className="w-full py-3 bg-primary-600 hover:bg-primary-700 disabled:bg-neutral-400 text-white font-semibold rounded-lg transition flex items-center justify-center gap-2">
+            
+            {/* Cloudflare Turnstile Widget */}
+            <div className="flex justify-center">
+              <div ref={turnstileRef} className="cf-turnstile" />
+            </div>
+            
+            <button type="submit" disabled={loading || googleLoading || !turnstileToken} className="w-full py-3 bg-primary-600 hover:bg-primary-700 disabled:bg-neutral-400 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition flex items-center justify-center gap-2">
               {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : t('customerCenter.register.createAccount')}
             </button>
           </form>
