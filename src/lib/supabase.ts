@@ -123,3 +123,17 @@ export type SavedCartItem = {
   created_at: string
   updated_at: string
 }
+
+export type QuoteInquiry = {
+  id?: string
+  name: string
+  email: string
+  company?: string
+  product?: string
+  quantity?: string
+  message?: string
+  source_page?: string
+  user_agent?: string
+  created_at?: string
+  status?: string
+}

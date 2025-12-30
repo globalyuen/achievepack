@@ -1,5 +1,9 @@
-import { createContext, useContext, useState, ReactNode } from 'react'
-import { X, Mail, Phone, MessageCircle, Calendar, Send, CheckCircle, Package, Sparkles } from 'lucide-react'
+import { createContext, useContext, useState, ReactNode, useEffect, useRef } from 'react'
+import { X, Mail, Phone, MessageCircle, Calendar, Send, CheckCircle, Package, Sparkles, AlertCircle } from 'lucide-react'
+import { supabase } from '../lib/supabase'
+
+// Cloudflare Turnstile Site Key (get from Cloudflare Dashboard)
+const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAABkMYinChTAoKfnt'
 
 interface CustomQuoteContextType {
   openQuoteLightbox: () => void
@@ -27,47 +31,160 @@ export function CustomQuoteProvider({ children }: { children: ReactNode }) {
     quantity: '',
     message: ''
   })
+  const [turnstileToken, setTurnstileToken] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState('')
+  const turnstileRef = useRef<HTMLDivElement>(null)
+  const turnstileWidgetId = useRef<string | null>(null)
+
+  // Load Turnstile script
+  useEffect(() => {
+    if (typeof window !== 'undefined' && !(window as any).turnstile) {
+      const script = document.createElement('script')
+      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad'
+      script.async = true
+      script.defer = true
+      document.head.appendChild(script)
+    }
+  }, [])
+
+  // Render Turnstile widget when modal opens
+  useEffect(() => {
+    if (isOpen && turnstileRef.current && (window as any).turnstile) {
+      // Clear any existing widget
+      if (turnstileWidgetId.current) {
+        try {
+          (window as any).turnstile.remove(turnstileWidgetId.current)
+        } catch (e) {}
+      }
+      
+      // Render new widget
+      setTimeout(() => {
+        if (turnstileRef.current) {
+          turnstileWidgetId.current = (window as any).turnstile.render(turnstileRef.current, {
+            sitekey: TURNSTILE_SITE_KEY,
+            callback: (token: string) => {
+              setTurnstileToken(token)
+              setError('')
+            },
+            'error-callback': () => {
+              setError('Verification failed. Please try again.')
+            },
+            theme: 'light',
+            size: 'flexible'
+          })
+        }
+      }, 100)
+    }
+    
+    return () => {
+      if (turnstileWidgetId.current && (window as any).turnstile) {
+        try {
+          (window as any).turnstile.remove(turnstileWidgetId.current)
+        } catch (e) {}
+        turnstileWidgetId.current = null
+      }
+    }
+  }, [isOpen])
 
   const openQuoteLightbox = () => {
     setIsOpen(true)
     setIsSubmitted(false)
+    setError('')
+    setTurnstileToken('')
   }
+  
   const closeQuoteLightbox = () => {
     setIsOpen(false)
-    // Reset form after closing
     setTimeout(() => {
       setFormData({ name: '', email: '', company: '', product: '', quantity: '', message: '' })
       setIsSubmitted(false)
+      setError('')
+      setTurnstileToken('')
     }, 300)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
+    setError('')
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setError('')
+    
+    // Verify Turnstile token is present
+    if (!turnstileToken) {
+      setError('Please complete the verification challenge.')
+      return
+    }
+    
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(formData.email)) {
+      setError('Please enter a valid email address.')
+      return
+    }
+    
     setIsSubmitting(true)
     
-    // Create mailto link with form data
-    const subject = encodeURIComponent(`Quote Request: ${formData.product || 'Custom Packaging'}`)
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\n` +
-      `Email: ${formData.email}\n` +
-      `Company: ${formData.company || 'N/A'}\n` +
-      `Product Type: ${formData.product || 'N/A'}\n` +
-      `Estimated Quantity: ${formData.quantity || 'N/A'}\n\n` +
-      `Message:\n${formData.message}`
-    )
-    
-    window.location.href = `mailto:ryan@achievepack.com?subject=${subject}&body=${body}`
-    
-    setTimeout(() => {
-      setIsSubmitting(false)
+    try {
+      // 1. Save to Supabase database
+      const { error: dbError } = await supabase.from('quote_inquiries').insert({
+        name: formData.name,
+        email: formData.email,
+        company: formData.company || null,
+        product: formData.product || null,
+        quantity: formData.quantity || null,
+        message: formData.message || null,
+        source_page: window.location.pathname,
+        user_agent: navigator.userAgent
+      })
+      
+      if (dbError) {
+        console.error('DB Error:', dbError)
+        // Continue even if DB fails - email is more important
+      }
+      
+      // 2. Send email via API route with Turnstile verification
+      const emailResponse = await fetch('/api/send-quote-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          product: formData.product,
+          quantity: formData.quantity,
+          message: formData.message,
+          sourcePage: window.location.pathname,
+          turnstileToken: turnstileToken
+        })
+      })
+      
+      const result = await emailResponse.json()
+      
+      if (!emailResponse.ok) {
+        if (result.error === 'Verification failed') {
+          setError('Security verification failed. Please refresh and try again.')
+          // Reset Turnstile
+          if ((window as any).turnstile && turnstileWidgetId.current) {
+            (window as any).turnstile.reset(turnstileWidgetId.current)
+          }
+          setTurnstileToken('')
+          return
+        }
+        throw new Error(result.error || 'Failed to send email')
+      }
+      
       setIsSubmitted(true)
-    }, 800)
+    } catch (err) {
+      console.error('Submit error:', err)
+      setError('Something went wrong. Please try WhatsApp or email us directly.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleWhatsApp = () => {
@@ -124,9 +241,9 @@ export function CustomQuoteProvider({ children }: { children: ReactNode }) {
                   <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <CheckCircle className="h-8 w-8 text-green-600" />
                   </div>
-                  <h4 className="text-xl font-bold text-neutral-900 mb-2">Request Sent!</h4>
+                  <h4 className="text-xl font-bold text-neutral-900 mb-2">Request Sent Successfully!</h4>
                   <p className="text-neutral-600 mb-6">
-                    Your email app should open with your quote request. We'll respond within 24 hours.
+                    We've received your inquiry and will respond within 24 hours.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 justify-center">
                     <button
@@ -179,6 +296,14 @@ export function CustomQuoteProvider({ children }: { children: ReactNode }) {
                     <span className="px-3 text-sm text-neutral-500">or fill out the form</span>
                     <div className="border-t border-neutral-200 flex-grow"></div>
                   </div>
+
+                  {/* Error Message */}
+                  {error && (
+                    <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg flex items-center gap-2 text-red-700 text-sm">
+                      <AlertCircle className="h-4 w-4 flex-shrink-0" />
+                      {error}
+                    </div>
+                  )}
 
                   {/* Quote Form */}
                   <form onSubmit={handleSubmit} className="space-y-4">
@@ -290,10 +415,15 @@ export function CustomQuoteProvider({ children }: { children: ReactNode }) {
                       />
                     </div>
 
+                    {/* Cloudflare Turnstile Widget */}
+                    <div className="flex justify-center">
+                      <div ref={turnstileRef} className="cf-turnstile" />
+                    </div>
+
                     <button
                       type="submit"
-                      disabled={isSubmitting}
-                      className="w-full py-3 bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 text-white font-semibold rounded-lg transition flex items-center justify-center gap-2"
+                      disabled={isSubmitting || !turnstileToken}
+                      className="w-full py-3 bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition flex items-center justify-center gap-2"
                     >
                       {isSubmitting ? (
                         <>
