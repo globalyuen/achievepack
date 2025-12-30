@@ -204,7 +204,7 @@ export default function LearnNavigation({ currentPath }: LearnNavigationProps) {
   const path = currentPath || location.pathname
   
   const [activeCategory, setActiveCategory] = useState<string | null>('materials')
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [currentSlide, setCurrentSlide] = useState(() => Math.floor(Math.random() * FEATURED_PAGES.length))
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   
   // Auto-rotate featured images - only first page of each category
