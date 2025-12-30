@@ -495,8 +495,7 @@ const CustomLabelsPage: React.FC = () => {
         canonicalUrl="https://achievepack.com/products/custom-labels"
         heroTitle="Custom Sheet Labels"
         heroSubtitle="Professional Quality • No Minimum Order • Fast Turnaround"
-        heroDescription="High-quality custom labels for products, events, and branding. Print-ready in 2-3 business days with expert design support."
-        heroDescriptionCn="专业定制纸张不干胶标签，无起订量限制，2-3个工作日印刷发货。"
+        introSummary="High-quality custom labels for products, events, and branding. Print-ready in 2-3 business days with expert design support."
         heroImage="/imgs/label/custom-label/hero.webp"
         sections={sections}
         keywords={['custom labels', 'sheet labels', 'product labels', 'stickers', 'packaging labels', 'no MOQ', 'fast turnaround', 'waterproof labels']}

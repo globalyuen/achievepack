@@ -523,8 +523,7 @@ const CustomStickersPage: React.FC = () => {
         canonicalUrl="https://achievepack.com/products/custom-stickers"
         heroTitle="Custom Stickers"
         heroSubtitle="Factory-Grade Quality • Premium Materials • Eco-Friendly Options"
-        heroDescription="Professional custom stickers with multiple types, shapes, materials, and finishes. From cut-to-size singles to roll stickers."
-        heroDescriptionCn="专业定制贴纸，多种类型、形状、材质和表面处理可选。从剪裁单张到卷装贴纸。"
+        introSummary="Professional custom stickers with multiple types, shapes, materials, and finishes. From cut-to-size singles to roll stickers."
         heroImage="/imgs/label/custom-sticker/hero.webp"
         sections={sections}
         keywords={['custom stickers', 'roll stickers', 'die cut stickers', 'kiss cut stickers', 'sheet stickers', 'eco-friendly stickers', 'PLA stickers', 'metallic stickers']}

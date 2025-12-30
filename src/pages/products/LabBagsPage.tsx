@@ -429,8 +429,7 @@ const LabBagsPage: React.FC = () => {
         canonicalUrl="https://achievepack.com/products/lab-bags"
         heroTitle="Laboratory Blender Bags"
         heroSubtitle="Lateral Filter • Standard Blender • Wire Closure • Gamma Sterilized"
-        heroDescription="Premium sterile lab bags for microbiology, food safety, and pharmaceutical testing. Clean room produced with certified sterilization."
-        heroDescriptionCn="优质无菌实验室袋，用于微生物学、食品安全和制药检测。洁净室生产，认证灭菌。"
+        introSummary="Premium sterile lab bags for microbiology, food safety, and pharmaceutical testing. Clean room produced with certified sterilization."
         heroImage="/imgs/lab/filter/hero.webp"
         sections={sections}
         keywords={['lab blender bags', 'sterile blender bags', 'lateral filter bags', 'wire closure bags', 'stomacher bags', 'homogenizer bags', 'microbiology bags', 'food testing bags']}

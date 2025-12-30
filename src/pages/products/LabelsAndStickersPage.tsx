@@ -416,8 +416,7 @@ const LabelsAndStickersPage: React.FC = () => {
         canonicalUrl="https://achievepack.com/products/labels-and-stickers"
         heroTitle="Custom Labels & Stickers"
         heroSubtitle="Sheet Labels • Roll Stickers • Die-Cut • Eco-Friendly Options"
-        heroDescription="Complete labeling and sticker solutions with premium materials, custom shapes, and professional finishes for every brand."
-        heroDescriptionCn="优质材料、自定义形状和专业表面处理的完整标签和贴纸解决方案。"
+        introSummary="Complete labeling and sticker solutions with premium materials, custom shapes, and professional finishes for every brand."
         heroImage="/imgs/label/custom-label/hero.webp"
         sections={sections}
         keywords={['custom labels', 'custom stickers', 'sheet labels', 'roll stickers', 'die-cut stickers', 'kiss cut stickers', 'eco-friendly labels', 'product labels', 'branded stickers']}
