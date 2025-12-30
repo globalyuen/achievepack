@@ -423,9 +423,13 @@ const ProductPage: React.FC = () => {
     }
   }, [product, isEcoDigital, isConventionalDigital, isBoxes, searchParams])
   
-  // Initialize from product defaults
+  // Initialize from product defaults (only if no URL params)
   useEffect(() => {
     if (ecoProduct?.ecoConfig) {
+      // Check if URL has configuration params - if so, skip defaults
+      const hasUrlParams = searchParams.has('material') || searchParams.has('size') || searchParams.has('quantity')
+      if (hasUrlParams) return // URL params take priority
+      
       setSelectedMaterial(ecoProduct.ecoConfig.defaultMaterial)
       setSelectedSize(ecoProduct.ecoConfig.defaultSize)
       setSelectedQuantity(ecoProduct.ecoConfig.defaultQuantity)
@@ -435,7 +439,7 @@ const ProductPage: React.FC = () => {
       setSelectedClosure(ecoProduct.ecoConfig.defaultZipper as ClosureType)
       setSelectedShipping(ecoProduct.ecoConfig.defaultShippingMethod)
     }
-  }, [ecoProduct])
+  }, [ecoProduct, searchParams])
 
   // Scroll to top when product changes
   useEffect(() => {
