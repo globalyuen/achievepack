@@ -43,7 +43,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
-  const { name, email, company, product, quantity, message, sourcePage, turnstileToken } = req.body
+  const { name, email, company, phone, subject, message, inquiryType, turnstileToken } = req.body
   
   // Get client IP
   const clientIp = (req.headers['x-forwarded-for'] as string)?.split(',')[0] || 
@@ -65,12 +65,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(500).json({ error: 'Email service not configured' })
   }
 
+  const inquiryTypeLabels: Record<string, string> = {
+    quote: '📦 Quote Request',
+    sample: '🎁 Sample Request',
+    support: '🛠️ Support',
+    other: '💬 General Inquiry'
+  }
+
+  const inquiryLabel = inquiryTypeLabels[inquiryType] || inquiryTypeLabels.other
+
   // Email to Admin (Ryan)
   const emailToAdmin = {
-    sender: { name: 'AchievePack Quote Form', email: 'noreply@achievepack.com' },
+    sender: { name: 'AchievePack Contact Form', email: 'noreply@achievepack.com' },
     to: [{ email: ADMIN_EMAIL, name: 'Ryan' }],
     replyTo: { email: email, name: name },
-    subject: `🎯 New Quote Request: ${product || 'Custom Packaging'} - ${name}`,
+    subject: `${inquiryLabel}: ${subject || 'New Contact Message'} - ${name}`,
     htmlContent: `
       <!DOCTYPE html>
       <html>
@@ -87,13 +96,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           .quick-actions { margin-top: 20px; padding: 15px; background: #ecfdf5; border-radius: 8px; }
           .button { display: inline-block; background: #10b981; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: 600; margin-right: 10px; }
           .button-secondary { background: #2563eb; }
+          .type-badge { display: inline-block; background: #dbeafe; color: #1d4ed8; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
         </style>
       </head>
       <body>
         <div class="container">
           <div class="header">
-            <h1 style="margin:0; font-size: 22px;">🎯 New Quote Request</h1>
-            <p style="margin: 10px 0 0; opacity: 0.9; font-size: 14px;">From ${sourcePage || 'website'}</p>
+            <h1 style="margin:0; font-size: 22px;">📬 New Contact Message</h1>
+            <p style="margin: 10px 0 0; opacity: 0.9; font-size: 14px;">${inquiryLabel}</p>
           </div>
           <div class="content">
             <div class="field">
@@ -104,28 +114,32 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
               <div class="label">Email</div>
               <div class="value"><a href="mailto:${email}" style="color: #2563eb;">${email}</a></div>
             </div>
-            <div class="field">
-              <div class="label">Company</div>
-              <div class="value">${company || 'Not provided'}</div>
-            </div>
-            <div class="field">
-              <div class="label">Product Type</div>
-              <div class="value">${product || 'Not specified'}</div>
-            </div>
-            <div class="field">
-              <div class="label">Estimated Quantity</div>
-              <div class="value">${quantity || 'Not specified'}</div>
-            </div>
-            ${message ? `
-              <div class="message-box">
-                <div class="label">Customer Message</div>
-                <div class="value" style="white-space: pre-wrap;">${message}</div>
+            ${phone ? `
+              <div class="field">
+                <div class="label">Phone</div>
+                <div class="value"><a href="tel:${phone}" style="color: #2563eb;">${phone}</a></div>
               </div>
             ` : ''}
+            ${company ? `
+              <div class="field">
+                <div class="label">Company</div>
+                <div class="value">${company}</div>
+              </div>
+            ` : ''}
+            ${subject ? `
+              <div class="field">
+                <div class="label">Subject</div>
+                <div class="value">${subject}</div>
+              </div>
+            ` : ''}
+            <div class="message-box">
+              <div class="label">Message</div>
+              <div class="value" style="white-space: pre-wrap;">${message}</div>
+            </div>
             <div class="quick-actions">
               <div class="label" style="margin-bottom: 10px;">Quick Actions</div>
-              <a href="mailto:${email}?subject=Re: Your Quote Request for ${product || 'Custom Packaging'}" class="button button-secondary">📧 Reply via Email</a>
-              <a href="https://wa.me/${email.includes('+') ? email : ''}?text=Hi ${name}! Thanks for your quote request..." class="button">💬 WhatsApp</a>
+              <a href="mailto:${email}?subject=Re: ${subject || 'Your Inquiry'}" class="button button-secondary">📧 Reply via Email</a>
+              ${phone ? `<a href="tel:${phone}" class="button" style="background: #6366f1;">📞 Call</a>` : ''}
             </div>
             <p style="color: #6b7280; font-size: 12px; margin-top: 20px; text-align: center;">
               Submitted at ${new Date().toLocaleString('en-HK', { timeZone: 'Asia/Hong_Kong' })} HKT
@@ -142,7 +156,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     sender: { name: 'AchievePack', email: 'noreply@achievepack.com' },
     to: [{ email: email, name: name }],
     replyTo: { email: ADMIN_EMAIL, name: 'Ryan at AchievePack' },
-    subject: `✅ We've received your quote request - ${product || 'Custom Packaging'}`,
+    subject: `✅ We've received your message - ${subject || 'Thank you for contacting us'}`,
     htmlContent: `
       <!DOCTYPE html>
       <html>
@@ -166,22 +180,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         <div class="container">
           <div class="header">
             <h1 style="margin:0; font-size: 26px;">Thank You, ${name}!</h1>
-            <p style="margin: 15px 0 0; font-size: 16px; opacity: 0.9;">We've received your quote request</p>
+            <p style="margin: 15px 0 0; font-size: 16px; opacity: 0.9;">We've received your message</p>
           </div>
           <div class="content">
             <p style="font-size: 16px;">Hi ${name},</p>
-            <p>Thank you for your interest in our sustainable packaging solutions! We're excited to help bring your vision to life.</p>
+            <p>Thank you for reaching out to Achieve Pack! We appreciate your interest in our sustainable packaging solutions.</p>
             
             <div class="highlight">
               <strong>⏰ What happens next?</strong><br>
-              Our team will review your requirements and get back to you within <strong>24 hours</strong> with a custom quote.
+              Our team will review your message and get back to you within <strong>24 hours</strong>.
             </div>
             
             <div class="summary">
-              <h3 style="margin-top: 0; color: #2563eb;">Your Request Summary</h3>
-              <p><strong>Product:</strong> ${product || 'Custom Packaging'}</p>
-              <p><strong>Quantity:</strong> ${quantity || 'To be discussed'}</p>
-              ${company ? `<p><strong>Company:</strong> ${company}</p>` : ''}
+              <h3 style="margin-top: 0; color: #2563eb;">Your Message</h3>
+              ${subject ? `<p><strong>Subject:</strong> ${subject}</p>` : ''}
+              <p style="white-space: pre-wrap; color: #4b5563;">${message}</p>
             </div>
             
             <p><strong>Need faster response?</strong> Connect with us directly:</p>
@@ -191,7 +204,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
               <a href="https://calendly.com/30-min-free-packaging-consultancy" class="button button-calendar">📅 Book a Call</a>
             </div>
             
-            <p style="margin-top: 30px;">Looking forward to working with you!</p>
+            <p style="margin-top: 30px;">Looking forward to connecting with you!</p>
             <p><strong>Ryan</strong><br>
             AchievePack<br>
             <a href="mailto:ryan@achievepack.com" style="color: #2563eb;">ryan@achievepack.com</a></p>
@@ -233,7 +246,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     ])
 
     const responses = await Promise.all(results.map(r => r.json().catch(() => ({}))))
-    console.log('Quote email responses:', responses)
+    console.log('Contact email responses:', responses)
 
     // Check if admin email was sent successfully
     if (!results[0].ok) {
@@ -243,7 +256,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     return res.status(200).json({ 
       success: true, 
-      message: 'Quote request sent successfully' 
+      message: 'Message sent successfully' 
     })
   } catch (error) {
     console.error('Email error:', error)

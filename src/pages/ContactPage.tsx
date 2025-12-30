@@ -1,8 +1,10 @@
-import React, { useState, useCallback, useTransition } from 'react'
+import React, { useState, useCallback, useTransition, useEffect, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link, useNavigate } from 'react-router-dom'
-import { Mail, Phone, MapPin, Clock, MessageCircle, Calendar, Send, ArrowLeft, CheckCircle, Building2, Globe } from 'lucide-react'
+import { Mail, Phone, MapPin, Clock, MessageCircle, Calendar, Send, ArrowLeft, CheckCircle, Building2, Globe, AlertCircle } from 'lucide-react'
 import { useCalendly } from '../contexts/CalendlyContext'
+
+const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAACJvySd2iBsvYcJv'
 
 const ContactPage: React.FC = () => {
   const { openCalendly } = useCalendly()
@@ -19,6 +21,52 @@ const ContactPage: React.FC = () => {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState('')
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
+  const turnstileRef = useRef<HTMLDivElement>(null)
+  const turnstileWidgetId = useRef<string | null>(null)
+
+  // Load Turnstile script
+  useEffect(() => {
+    if (typeof window !== 'undefined' && !(window as any).turnstile) {
+      const script = document.createElement('script')
+      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad'
+      script.async = true
+      script.defer = true
+      document.head.appendChild(script)
+    }
+  }, [])
+
+  // Render Turnstile widget
+  useEffect(() => {
+    const renderWidget = () => {
+      if (turnstileRef.current && (window as any).turnstile && !turnstileWidgetId.current) {
+        turnstileWidgetId.current = (window as any).turnstile.render(turnstileRef.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          callback: (token: string) => setTurnstileToken(token),
+          'error-callback': () => setError('Verification failed. Please refresh the page.'),
+          'expired-callback': () => setTurnstileToken(null),
+          theme: 'light',
+          size: 'flexible'
+        })
+      }
+    }
+
+    if ((window as any).turnstile) {
+      renderWidget()
+    } else {
+      (window as any).onTurnstileLoad = renderWidget
+    }
+
+    return () => {
+      if (turnstileWidgetId.current && (window as any).turnstile) {
+        try {
+          (window as any).turnstile.remove(turnstileWidgetId.current)
+        } catch (e) {}
+        turnstileWidgetId.current = null
+      }
+    }
+  }, [])
 
   // Optimized navigation handler for better INP
     const handleNavigation = useCallback((to: string) => (e: React.MouseEvent) => {
@@ -34,25 +82,43 @@ const ContactPage: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setError('')
+    
+    if (!turnstileToken) {
+      setError('Please wait for verification to complete.')
+      return
+    }
+    
     setIsSubmitting(true)
     
-    // Create mailto link with form data
-    const subject = encodeURIComponent(`[${formData.inquiryType.toUpperCase()}] ${formData.subject || 'Packaging Inquiry'}`)
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\n` +
-      `Email: ${formData.email}\n` +
-      `Company: ${formData.company || 'N/A'}\n` +
-      `Phone: ${formData.phone || 'N/A'}\n` +
-      `Inquiry Type: ${formData.inquiryType}\n\n` +
-      `Message:\n${formData.message}`
-    )
-    
-    window.location.href = `mailto:ryan@achievepack.com?subject=${subject}&body=${body}`
-    
-    setTimeout(() => {
-      setIsSubmitting(false)
+    try {
+      const response = await fetch('/api/send-contact-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          turnstileToken
+        })
+      })
+      
+      const result = await response.json()
+      
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send message')
+      }
+      
       setIsSubmitted(true)
-    }, 1000)
+      setFormData({ name: '', email: '', company: '', phone: '', subject: '', message: '', inquiryType: 'quote' })
+    } catch (err: any) {
+      setError(err.message || 'Failed to send message. Please try again.')
+      // Reset Turnstile
+      if ((window as any).turnstile && turnstileWidgetId.current) {
+        (window as any).turnstile.reset(turnstileWidgetId.current)
+        setTurnstileToken(null)
+      }
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -223,8 +289,8 @@ const ContactPage: React.FC = () => {
                     <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <CheckCircle className="h-8 w-8 text-green-600" />
                     </div>
-                    <h3 className="text-xl font-semibold text-neutral-900 mb-2">Message Ready to Send!</h3>
-                    <p className="text-neutral-600 mb-6">Your email client should open with your message. If not, please email us directly at ryan@achievepack.com</p>
+                    <h3 className="text-xl font-semibold text-neutral-900 mb-2">Message Sent Successfully!</h3>
+                    <p className="text-neutral-600 mb-6">Thank you for contacting us. We'll respond within 24 hours.</p>
                     <button
                       onClick={() => setIsSubmitted(false)}
                       className="text-primary-600 hover:underline"
@@ -234,6 +300,14 @@ const ContactPage: React.FC = () => {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Error Message */}
+                    {error && (
+                      <div className="p-3 bg-red-50 border border-red-200 rounded-lg flex items-center gap-2 text-red-700 text-sm">
+                        <AlertCircle className="h-4 w-4 flex-shrink-0" />
+                        {error}
+                      </div>
+                    )}
+                    
                     {/* Inquiry Type */}
                     <div>
                       <label className="block text-sm font-medium text-neutral-700 mb-2">Inquiry Type</label>
@@ -347,10 +421,15 @@ const ContactPage: React.FC = () => {
                       />
                     </div>
 
+                    {/* Cloudflare Turnstile Widget */}
+                    <div className="flex justify-center">
+                      <div ref={turnstileRef} className="cf-turnstile" />
+                    </div>
+
                     {/* Submit Button */}
                     <button
                       type="submit"
-                      disabled={isSubmitting}
+                      disabled={isSubmitting || !turnstileToken}
                       className="w-full flex items-center justify-center gap-2 py-4 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? (
