@@ -294,7 +294,7 @@ export default function LearnNavigation({ currentPath }: LearnNavigationProps) {
                   if (e.key === 'Enter') {
                     const query = (e.target as HTMLInputElement).value
                     if (query.trim()) {
-                      window.location.href = `/blog?search=${encodeURIComponent(query)}`
+                      window.location.href = `/learn?q=${encodeURIComponent(query)}`
                     }
                   }
                 }}
@@ -476,7 +476,7 @@ export default function LearnNavigation({ currentPath }: LearnNavigationProps) {
                     if (e.key === 'Enter') {
                       const query = (e.target as HTMLInputElement).value
                       if (query.trim()) {
-                        window.location.href = `/blog?search=${encodeURIComponent(query)}`
+                        window.location.href = `/learn?q=${encodeURIComponent(query)}`
                       }
                     }
                   }}

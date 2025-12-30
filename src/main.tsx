@@ -140,6 +140,9 @@ const OutdoorSnacksCaseStudy = lazy(() => import('./pages/case-studies/OutdoorSn
 const BlogPage = lazy(() => import('./pages/blog/BlogPage'))
 const BlogPostPage = lazy(() => import('./pages/blog/BlogPostPage'))
 
+// Learn Center - Lazy loaded
+const LearnSearchPage = lazy(() => import('./pages/LearnSearchPage'))
+
 // USA Pages - Lazy loaded
 const USACompostableHubPage = lazy(() => import('./pages/usa/USACompostableHubPage'))
 const USACoffeePage = lazy(() => import('./pages/usa/USACoffeePage'))
@@ -350,6 +353,9 @@ createRoot(document.getElementById('root')!).render(
               {/* Blog Pages */}
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/blog/:slug" element={<BlogPostPage />} />
+
+              {/* Learn Center */}
+              <Route path="/learn" element={<LearnSearchPage />} />
 
               {/* USA Pages */}
               <Route path="/usa/compostable-packaging" element={<USACompostableHubPage />} />
