@@ -2,12 +2,13 @@ import React, { useState, useMemo, useCallback, useTransition, useEffect } from 
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
-import { ShoppingCart, Search, Star, Truck, Shield, Clock, Grid3X3, List, ChevronDown, User, Globe, Menu, X } from 'lucide-react'
+import { ShoppingCart, Search, Star, Truck, Shield, Clock, Grid3X3, List, ChevronDown, User, Globe, Menu, X, Sparkles } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import { FEATURED_PRODUCTS, type StoreProduct, type EcoDigitalProduct, type ConventionalProduct } from '../store/productData'
 import { getProductImage } from '../utils/productImageMapper'
 import type { ShapeType } from '../utils/productImageMapper'
 import MegaMenu from '../components/MegaMenu'
+import { useCustomQuote } from '../contexts/CustomQuoteContext'
 
 type ViewMode = 'grid' | 'list'
 type SortOption = 'popularity' | 'price-low' | 'price-high' | 'newest'
@@ -40,6 +41,7 @@ const SHAPES = [
 const StorePage: React.FC = () => {
   const { t, i18n } = useTranslation()
   const { cartCount, setIsCartOpen } = useStore()
+  const { openQuoteLightbox } = useCustomQuote()
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
   const [isPending, startTransition] = useTransition()
@@ -576,11 +578,27 @@ const StorePage: React.FC = () => {
             {viewMode === 'grid' ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
                 {sortedProducts.map(product => (
-                  <Link
+                  <div
                     key={product.id}
-                    to={`/store/product/${product.id}`}
-                    className="bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-neutral-200 hover:shadow-lg hover:border-neutral-300 transition group"
+                    className="bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-neutral-200 hover:shadow-lg hover:border-neutral-300 transition group relative"
                   >
+                    {/* Custom Quote Button */}
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
+                        openQuoteLightbox()
+                      }}
+                      className="absolute top-2 right-2 sm:top-3 sm:right-3 z-10 flex items-center gap-1 bg-primary-600 text-white text-[10px] sm:text-xs px-2 py-1 rounded-full hover:bg-primary-700 transition-colors shadow-md"
+                      title="Get Custom Quote"
+                    >
+                      <Sparkles className="h-3 w-3" />
+                      <span className="hidden sm:inline">Quote</span>
+                    </button>
+                    <Link
+                      to={`/store/product/${product.id}`}
+                      className="block"
+                    >
                     <div className="relative aspect-square bg-neutral-50 overflow-hidden p-2 sm:p-4">
                       <img src={getProductDisplayImage(product)} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
                       {product.badge && (
@@ -601,17 +619,34 @@ const StorePage: React.FC = () => {
                         <span className="text-[10px] sm:text-xs text-primary-500 font-medium">{product.turnaround}</span>
                       </div>
                     </div>
-                  </Link>
+                    </Link>
+                  </div>
                 ))}
               </div>
             ) : (
               <div className="space-y-4">
                 {sortedProducts.map(product => (
-                  <Link
+                  <div
                     key={product.id}
-                    to={`/store/product/${product.id}`}
-                    className="flex flex-col sm:flex-row bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-neutral-200 hover:shadow-lg hover:border-neutral-300 transition group"
+                    className="flex flex-col sm:flex-row bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-neutral-200 hover:shadow-lg hover:border-neutral-300 transition group relative"
                   >
+                    {/* Custom Quote Button */}
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
+                        openQuoteLightbox()
+                      }}
+                      className="absolute top-2 right-2 sm:top-3 sm:right-3 z-10 flex items-center gap-1 bg-primary-600 text-white text-[10px] sm:text-xs px-2 py-1 rounded-full hover:bg-primary-700 transition-colors shadow-md"
+                      title="Get Custom Quote"
+                    >
+                      <Sparkles className="h-3 w-3" />
+                      <span>Quote</span>
+                    </button>
+                    <Link
+                      to={`/store/product/${product.id}`}
+                      className="flex flex-col sm:flex-row flex-1"
+                    >
                     <div className="relative w-full sm:w-48 h-48 bg-neutral-50 overflow-hidden p-4 flex-shrink-0">
                       <img src={getProductDisplayImage(product)} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
                       {product.badge && (
@@ -632,7 +667,8 @@ const StorePage: React.FC = () => {
                         <span className="text-xs sm:text-sm text-primary-500 font-medium">{product.turnaround}</span>
                       </div>
                     </div>
-                  </Link>
+                    </Link>
+                  </div>
                 ))}
               </div>
             )}
@@ -657,7 +693,7 @@ const StorePage: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-neutral-900 text-white py-12 mt-16">
+      <footer className="bg-primary-800 text-white pt-12 pb-8 rounded-t-[3rem] mt-8">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-8">
             {/* Store Info */}

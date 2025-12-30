@@ -3527,7 +3527,7 @@ const ProductPage: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-neutral-900 text-white py-12 mt-16">
+      <footer className="bg-primary-800 text-white pt-12 pb-8 rounded-t-[3rem] mt-8">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-8">
             {/* Store Info */}
