@@ -433,29 +433,7 @@ const LabBagsPage: React.FC = () => {
         heroImage="/imgs/lab/filter/hero.webp"
         sections={sections}
         keywords={['lab blender bags', 'sterile blender bags', 'lateral filter bags', 'wire closure bags', 'stomacher bags', 'homogenizer bags', 'microbiology bags', 'food testing bags']}
-        articleType="Product"
-        lastUpdated="2024-12-30"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": "Laboratory Blender Bags",
-          "description": "Premium sterile laboratory blender bags for microbiology and food safety testing.",
-          "brand": {
-            "@type": "Brand",
-            "name": "Achieve Pack"
-          },
-          "category": "Laboratory Supplies",
-          "offers": {
-            "@type": "AggregateOffer",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock"
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "89"
-          }
-        }}
+        schemaType="Product"
       />
 
       {/* Gallery Lightbox */}

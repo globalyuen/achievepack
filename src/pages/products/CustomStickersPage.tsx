@@ -527,24 +527,7 @@ const CustomStickersPage: React.FC = () => {
         heroImage="/imgs/label/custom-sticker/hero.webp"
         sections={sections}
         keywords={['custom stickers', 'roll stickers', 'die cut stickers', 'kiss cut stickers', 'sheet stickers', 'eco-friendly stickers', 'PLA stickers', 'metallic stickers']}
-        articleType="Product"
-        lastUpdated="2024-12-30"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": "Custom Stickers",
-          "description": "Factory-grade custom stickers with premium materials, eco-friendly options, and professional finishes.",
-          "brand": {
-            "@type": "Brand",
-            "name": "Achieve Pack"
-          },
-          "category": "Labels & Stickers",
-          "offers": {
-            "@type": "Offer",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock"
-          }
-        }}
+        schemaType="Product"
       />
 
       {/* Gallery Lightbox */}

@@ -499,29 +499,7 @@ const CustomLabelsPage: React.FC = () => {
         heroImage="/imgs/label/custom-label/hero.webp"
         sections={sections}
         keywords={['custom labels', 'sheet labels', 'product labels', 'stickers', 'packaging labels', 'no MOQ', 'fast turnaround', 'waterproof labels']}
-        articleType="Product"
-        lastUpdated="2024-12-30"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": "Custom Sheet Labels",
-          "description": "Professional custom sheet labels with no minimum order, 2-3 day turnaround, and high-quality printing.",
-          "brand": {
-            "@type": "Brand",
-            "name": "Achieve Pack"
-          },
-          "category": "Labels & Stickers",
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.7",
-            "reviewCount": "6700"
-          },
-          "offers": {
-            "@type": "Offer",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock"
-          }
-        }}
+        schemaType="Product"
       />
 
       {/* Gallery Lightbox */}
