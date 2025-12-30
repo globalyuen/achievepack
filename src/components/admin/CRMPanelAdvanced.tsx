@@ -43,19 +43,21 @@ const COUNTRY_CODES: Record<string, string> = {
   '+351': 'Portugal', '+353': 'Ireland', '+358': 'Finland', '+46': 'Sweden', '+47': 'Norway'
 }
 
-// Industry detection keywords
+// Industry detection keywords - expanded
 const INDUSTRY_KEYWORDS: Record<string, string[]> = {
-  'Coffee & Tea': ['coffee', 'tea', 'roast', 'brew', 'cafe', 'espresso', 'chai', 'matcha'],
-  'Food & Snacks': ['food', 'snack', 'chip', 'cookie', 'candy', 'chocolate', 'nuts', 'granola', 'protein', 'bar'],
-  'Pet Food': ['pet', 'dog', 'cat', 'treat', 'kibble', 'animal'],
-  'Cannabis/CBD': ['cannabis', 'cbd', 'hemp', 'weed', 'marijuana', 'thc', 'dispensary'],
-  'Supplements': ['supplement', 'vitamin', 'protein', 'powder', 'health', 'wellness', 'nutrition'],
-  'Cosmetics': ['cosmetic', 'beauty', 'skincare', 'makeup', 'cream', 'lotion', 'serum'],
-  'Baby Products': ['baby', 'infant', 'puree', 'toddler', 'child'],
-  'Sauce & Condiments': ['sauce', 'condiment', 'ketchup', 'mayo', 'dressing', 'spice', 'seasoning'],
-  'Frozen Food': ['frozen', 'ice', 'cold', 'freeze'],
-  'Agriculture': ['seed', 'farm', 'agriculture', 'organic', 'harvest', 'grow'],
-  'E-commerce': ['amazon', 'shopify', 'ecommerce', 'online', 'dtc', 'direct to consumer']
+  'Coffee & Tea': ['coffee', 'tea', 'roast', 'brew', 'cafe', 'espresso', 'chai', 'matcha', 'bean', 'latte', 'cappuccino', 'barista'],
+  'Food & Snacks': ['food', 'snack', 'chip', 'cookie', 'candy', 'chocolate', 'nuts', 'granola', 'protein', 'bar', 'biscuit', 'cracker', 'popcorn', 'dried fruit', 'jerky', 'meat', 'cheese'],
+  'Pet Food': ['pet', 'dog', 'cat', 'treat', 'kibble', 'animal', 'puppy', 'kitten', 'canine', 'feline'],
+  'Cannabis/CBD': ['cannabis', 'cbd', 'hemp', 'weed', 'marijuana', 'thc', 'dispensary', 'gummy', 'edible'],
+  'Supplements': ['supplement', 'vitamin', 'protein', 'powder', 'health', 'wellness', 'nutrition', 'probiotic', 'collagen', 'superfood'],
+  'Cosmetics': ['cosmetic', 'beauty', 'skincare', 'makeup', 'cream', 'lotion', 'serum', 'face', 'hair', 'body', 'soap', 'shampoo'],
+  'Baby Products': ['baby', 'infant', 'puree', 'toddler', 'child', 'kids', 'children'],
+  'Sauce & Condiments': ['sauce', 'condiment', 'ketchup', 'mayo', 'dressing', 'spice', 'seasoning', 'honey', 'syrup', 'jam', 'butter', 'oil', 'vinegar'],
+  'Frozen Food': ['frozen', 'ice', 'cold', 'freeze', 'refrigerated'],
+  'Agriculture': ['seed', 'farm', 'agriculture', 'organic', 'harvest', 'grow', 'garden', 'plant', 'fertilizer'],
+  'Beverage': ['drink', 'beverage', 'juice', 'water', 'soda', 'smoothie', 'shake', 'energy drink'],
+  'Pharmaceutical': ['pharma', 'medicine', 'medical', 'drug', 'pill', 'capsule', 'tablet'],
+  'E-commerce': ['amazon', 'shopify', 'ecommerce', 'online', 'dtc', 'direct to consumer', 'retail', 'brand']
 }
 
 // AI Email templates by industry
@@ -227,15 +229,29 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
 
   const fetchInquiries = async () => {
     setLoading(true)
-    const { data, error } = await supabase
-      .from('crm_inquiries')
-      .select('*')
-      .order('created_at', { ascending: false })
-      .limit(5000) // Override default 1000 limit
+    // Use range to bypass default 1000 limit - fetch in batches
+    let allData: CRMInquiry[] = []
+    let start = 0
+    const batchSize = 1000
+    let hasMore = true
     
-    if (!error && data) {
-      setInquiries(data)
+    while (hasMore) {
+      const { data, error } = await supabase
+        .from('crm_inquiries')
+        .select('*')
+        .order('created_at', { ascending: false })
+        .range(start, start + batchSize - 1)
+      
+      if (!error && data && data.length > 0) {
+        allData = [...allData, ...data]
+        start += batchSize
+        hasMore = data.length === batchSize
+      } else {
+        hasMore = false
+      }
     }
+    
+    setInquiries(allData)
     setLoading(false)
   }
 
@@ -251,14 +267,26 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
     }
   }
 
-  // Enriched inquiries with analyzed data
+  // Enriched inquiries with analyzed data - enhanced detection
   const enrichedInquiries = useMemo(() => {
-    return inquiries.map(inq => ({
-      ...inq,
-      country: detectCountry(inq.phone || '', inq.email),
-      industry: detectIndustry(`${inq.message || ''} ${inq.packaging_type || ''} ${inq.subject || ''}`),
-      domain: extractDomain(inq.email)
-    }))
+    return inquiries.map(inq => {
+      // Combine all text for industry detection
+      const allText = [
+        inq.message || '',
+        inq.packaging_type || '',
+        inq.subject || '',
+        inq.company || '',
+        inq.name || '',
+        extractDomain(inq.email) || ''
+      ].join(' ')
+      
+      return {
+        ...inq,
+        country: detectCountry(inq.phone || '', inq.email),
+        industry: detectIndustry(allText),
+        domain: extractDomain(inq.email)
+      }
+    })
   }, [inquiries])
 
   // Get unique values for filters
