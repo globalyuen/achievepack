@@ -1894,19 +1894,6 @@ function App() {
             </div>
           </div>
 
-          {/* Calculate Savings Button */}
-          <div className="border-t border-neutral-800 mt-6 pt-4">
-            <div className="flex justify-center mb-4">
-              <button
-                onClick={() => setIsCalculatorOpen(true)}
-                className="flex items-center justify-center space-x-2 bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-all duration-200"
-              >
-                <CalcIcon className="h-5 w-5" />
-                <span>{t('hero.calculateSavings')}</span>
-              </button>
-            </div>
-          </div>
-
           {/* Certification Logos & SSL Badge */}
           <div className="border-t border-neutral-800 pt-4">
             <div className="flex flex-col items-center gap-4 mb-4">
