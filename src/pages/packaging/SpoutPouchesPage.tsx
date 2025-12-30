@@ -183,6 +183,64 @@ const SpoutPouchesPage: React.FC = () => {
       )
     },
     {
+      id: 'eco-materials',
+      title: 'Eco-Friendly Material Options',
+      icon: <Package className="h-5 w-5 text-green-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>
+            <strong>Spout pouches can be produced with sustainable materials</strong> that reduce environmental impact without compromising on liquid barrier performance.
+          </p>
+          
+          {/* Kraft-Look Explanation */}
+          <div className="bg-amber-50 p-5 rounded-lg border border-amber-200 mb-6">
+            <h4 className="font-semibold text-amber-800 mb-2">🌾 What is "Kraft-Look"?</h4>
+            <p className="text-amber-900">
+              <strong>Kraft-look is a digital printed kraft pattern with matte coating</strong> applied to the pouch surface. It gives you the natural, premium appearance and tactile feel of kraft paper, while being <strong>100% waterproof</strong> — essential for liquid products.
+            </p>
+            <p className="text-sm text-amber-700 mt-2">
+              Real kraft paper would absorb moisture, but our kraft-look finish delivers the aesthetic without compromising liquid barrier performance.
+            </p>
+          </div>
+          
+          {/* Important Clarification */}
+          <div className="bg-blue-50 border-2 border-blue-200 p-5 rounded-lg">
+            <h4 className="font-bold text-blue-800 mb-3">ℹ️ Important: Understanding "Eco" Materials</h4>
+            <p className="text-blue-900 mb-4">
+              <strong>Bio-PE and PCR pouches are NOT biodegradable or compostable.</strong> They are traditional plastic at end-of-life. However, they are eco-friendly at the <strong>START</strong> of their lifecycle:
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="bg-green-100 p-4 rounded-lg">
+                <h5 className="font-semibold text-green-800 mb-2">Bio-PE (30-50% Bio-Based)</h5>
+                <ul className="text-sm text-green-700 space-y-1">
+                  <li>• Made from sugarcane polyethylene</li>
+                  <li>• Renewable, sustainable source</li>
+                  <li>• Reduces fossil fuel dependency</li>
+                  <li>• Fully recyclable in PE streams</li>
+                </ul>
+                <Link to="/materials/bio-pe" className="text-xs text-green-600 hover:underline mt-2 inline-block">Learn more →</Link>
+              </div>
+              <div className="bg-purple-100 p-4 rounded-lg">
+                <h5 className="font-semibold text-purple-800 mb-2">PCR (30% Recycled Content)</h5>
+                <ul className="text-sm text-purple-700 space-y-1">
+                  <li>• Contains post-consumer recycled plastic</li>
+                  <li>• Reduces virgin plastic demand</li>
+                  <li>• GRS certified available</li>
+                  <li>• Fully recyclable in PE streams</li>
+                </ul>
+                <Link to="/materials/pcr" className="text-xs text-purple-600 hover:underline mt-2 inline-block">Learn more →</Link>
+              </div>
+            </div>
+            
+            <p className="text-sm text-blue-700 mt-4">
+              <strong>Need truly compostable?</strong> <Link to="/materials/compostable" className="underline">See our compostable options →</Link> (note: compostable spout pouches have limited availability)
+            </p>
+          </div>
+        </div>
+      )
+    },
+    {
       id: 'specifications',
       title: 'Technical Specifications',
       icon: <Shield className="h-5 w-5 text-primary-600" />,

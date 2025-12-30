@@ -92,6 +92,45 @@ const BioPEPage: React.FC = () => {
       )
     },
     {
+      id: 'important-clarification',
+      title: 'Important: What Bio-PE Is (and Isn\'t)',
+      icon: <Shield className="h-5 w-5 text-amber-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="bg-amber-50 border-2 border-amber-300 p-5 rounded-lg">
+            <h4 className="font-bold text-amber-800 mb-3">⚠️ Key Clarification</h4>
+            <p className="text-amber-900 mb-4">
+              <strong>Bio-PE is NOT biodegradable or compostable.</strong> It is chemically identical to conventional plastic and behaves the same way at end-of-life.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="bg-green-100 p-4 rounded-lg">
+                <h5 className="font-semibold text-green-800 mb-2">✅ Eco-Friendly at START of Life</h5>
+                <ul className="text-sm text-green-700 space-y-1">
+                  <li>• Made from sugarcane (renewable source)</li>
+                  <li>• Contains 30-50% bio-based content</li>
+                  <li>• Absorbs CO2 during production</li>
+                  <li>• Reduces fossil fuel dependency</li>
+                </ul>
+              </div>
+              <div className="bg-neutral-100 p-4 rounded-lg">
+                <h5 className="font-semibold text-neutral-800 mb-2">📦 Traditional Plastic at END of Life</h5>
+                <ul className="text-sm text-neutral-700 space-y-1">
+                  <li>• Same recyclability as conventional PE</li>
+                  <li>• Not biodegradable in landfill</li>
+                  <li>• Not compostable (home or industrial)</li>
+                  <li>• Requires standard PE recycling</li>
+                </ul>
+              </div>
+            </div>
+            <p className="text-sm text-amber-700 mt-4">
+              <strong>Best for:</strong> Brands who want to reduce carbon footprint and use sustainable raw materials, while maintaining full recyclability. 
+              <Link to="/materials/compostable" className="text-amber-800 underline ml-1">Need compostable? See options →</Link>
+            </p>
+          </div>
+        </div>
+      )
+    },
+    {
       id: 'how-it-works',
       title: t(`${p}.sections.howItWorks.title`),
       icon: <Sprout className="h-5 w-5 text-primary-600" />,
