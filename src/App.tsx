@@ -1667,7 +1667,7 @@ ${formData.message}`
       </section>
 
       {/* Footer */}
-      <footer className="bg-neutral-900 text-white py-8">
+      <footer className="bg-primary-800 text-white pt-12 pb-8 rounded-t-[3rem] mt-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* First Row */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 mb-6">
