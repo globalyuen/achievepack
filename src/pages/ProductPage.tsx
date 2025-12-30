@@ -2625,43 +2625,6 @@ const ProductPage: React.FC = () => {
                     </div>
                   </div>
                   
-                  {/* Image Grid Selection */}
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 mb-3">
-                    {[
-                      { value: 'PCR or Bio Plastic', label: 'PCR/Bio', img: '/imgs/store/eco-material/pcr-or-biope.webp' },
-                      { value: 'Mono Recyclable Plastic', label: 'Recyclable', img: '/imgs/store/eco-material/recycle.webp' },
-                      { value: 'Biodegradable and Compostable', label: 'Compostable', img: '/imgs/store/eco-material/compostable.webp' }
-                    ].map(option => (
-                      <button
-                        key={option.value}
-                        type="button"
-                        onClick={() => setSelectedMaterial(option.value)}
-                        className={`relative p-3 border-2 rounded-lg transition-all hover:shadow-md ${
-                          selectedMaterial === option.value
-                            ? 'border-primary-600 bg-primary-50'
-                            : 'border-neutral-200 hover:border-primary-300'
-                        }`}
-                      >
-                        <div className="aspect-square bg-white rounded-lg mb-2 flex items-center justify-center relative group/img">
-                          <img src={option.img} alt={option.label} className="max-w-full max-h-full object-contain p-2" />
-                          <button
-                            type="button"
-                            onClick={(e) => { e.stopPropagation(); setEnlargedImage({ src: option.img, alt: option.label }); }}
-                            className="absolute bottom-1 right-1 bg-white/90 rounded-full p-1 opacity-0 group-hover/img:opacity-100 transition shadow hover:bg-primary-50"
-                          >
-                            <ZoomIn className="w-3 h-3 text-neutral-600" />
-                          </button>
-                        </div>
-                        <div className="text-xs font-medium text-neutral-700 text-center">{option.label}</div>
-                        {selectedMaterial === option.value && (
-                          <div className="absolute top-1 right-1 bg-primary-600 text-white rounded-full w-5 h-5 flex items-center justify-center">
-                            <Check className="w-3 h-3" />
-                          </div>
-                        )}
-                      </button>
-                    ))}
-                  </div>
-                  
                   {/* Dropdown Option */}
                   <div className="flex gap-3 items-center">
                     <select value={selectedMaterial} onChange={e => setSelectedMaterial(e.target.value)} className="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
@@ -2697,39 +2660,6 @@ const ProductPage: React.FC = () => {
                     • <strong>XS-S:</strong> Specialty foods, premium coffee, small portions<br/>
                     • <strong>M-L:</strong> Standard retail products, family-sized packs<br/>
                     • <strong>XL-XXL:</strong> Bulk items, wholesale, subscription products
-                  </div>
-                  
-                  {/* Image Grid Selection */}
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
-                    {sizeOptions.map(size => (
-                      <button
-                        key={size.value}
-                        type="button"
-                        onClick={() => setSelectedSize(size.value)}
-                        className={`relative p-2 border-2 rounded-lg transition-all hover:shadow-md ${
-                          selectedSize === size.value
-                            ? 'border-primary-600 bg-primary-50'
-                            : 'border-neutral-200 hover:border-primary-300'
-                        }`}
-                      >
-                        <div className="aspect-square bg-white rounded-lg mb-1 flex items-center justify-center relative group/img">
-                          <img src={getSizeImage(size.value as EcoSizeType)} alt={size.label} className="max-w-full max-h-full object-contain p-1" />
-                          <button
-                            type="button"
-                            onClick={(e) => { e.stopPropagation(); setEnlargedImage({ src: getSizeImage(size.value as EcoSizeType), alt: size.label }); }}
-                            className="absolute bottom-1 right-1 bg-white/90 rounded-full p-1 opacity-0 group-hover/img:opacity-100 transition shadow hover:bg-primary-50"
-                          >
-                            <ZoomIn className="w-3 h-3 text-neutral-600" />
-                          </button>
-                        </div>
-                        <div className="text-xs font-medium text-neutral-700 text-center">{size.value}</div>
-                        {selectedSize === size.value && (
-                          <div className="absolute top-1 right-1 bg-primary-600 text-white rounded-full w-4 h-4 flex items-center justify-center">
-                            <Check className="w-2.5 h-2.5" />
-                          </div>
-                        )}
-                      </button>
-                    ))}
                   </div>
                   
                   {/* Dropdown Option */}
@@ -2873,34 +2803,6 @@ const ProductPage: React.FC = () => {
                     </div>
                   </div>
                   
-                  {/* Button Grid Selection */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 mb-3">
-                    {[
-                      { value: 'mid clear mid barrier (Optional Window)', label: 'Mid Barrier', sublabel: '(Window)' },
-                      { value: 'metalised high barrier (No Window)', label: 'High Barrier', sublabel: '(No Window)' },
-                      { value: 'Aluminum highest barrier (No Window)', label: 'Highest', sublabel: '(No Window)' }
-                    ].map(option => (
-                      <button
-                        key={option.value}
-                        type="button"
-                        onClick={() => setSelectedBarrier(option.value)}
-                        className={`relative p-3 border-2 rounded-lg transition-all hover:shadow-md text-left ${
-                          selectedBarrier === option.value
-                            ? 'border-primary-600 bg-primary-50'
-                            : 'border-neutral-200 hover:border-primary-300'
-                        }`}
-                      >
-                        <div className="text-sm font-semibold text-neutral-800">{option.label}</div>
-                        <div className="text-xs text-neutral-600">{option.sublabel}</div>
-                        {selectedBarrier === option.value && (
-                          <div className="absolute top-2 right-2 bg-primary-600 text-white rounded-full w-5 h-5 flex items-center justify-center">
-                            <Check className="w-3 h-3" />
-                          </div>
-                        )}
-                      </button>
-                    ))}
-                  </div>
-                  
                   {/* Dropdown Option */}
                   <select value={selectedBarrier} onChange={e => setSelectedBarrier(e.target.value)} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                     <option value="mid clear mid barrier (Optional Window)">Mid Barrier (Window)</option>
@@ -2923,33 +2825,6 @@ const ProductPage: React.FC = () => {
                     <div>
                       <strong>Without Paper (Softer):</strong> More flexible, lighter weight, thinner profile.
                     </div>
-                  </div>
-                  
-                  {/* Button Grid Selection */}
-                  <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-3">
-                    {[
-                      { value: 'Without Paper Lining (Softer)', label: 'Softer', sublabel: '(No Paper)' },
-                      { value: 'With Paper Lining (stiffer)', label: 'Stiffer', sublabel: '(With Paper)' }
-                    ].map(option => (
-                      <button
-                        key={option.value}
-                        type="button"
-                        onClick={() => setSelectedStiffness(option.value)}
-                        className={`relative p-3 border-2 rounded-lg transition-all hover:shadow-md text-left ${
-                          selectedStiffness === option.value
-                            ? 'border-primary-600 bg-primary-50'
-                            : 'border-neutral-200 hover:border-primary-300'
-                        }`}
-                      >
-                        <div className="text-sm font-semibold text-neutral-800">{option.label}</div>
-                        <div className="text-xs text-neutral-600">{option.sublabel}</div>
-                        {selectedStiffness === option.value && (
-                          <div className="absolute top-2 right-2 bg-primary-600 text-white rounded-full w-5 h-5 flex items-center justify-center">
-                            <Check className="w-3 h-3" />
-                          </div>
-                        )}
-                      </button>
-                    ))}
                   </div>
                   
                   {/* Dropdown Option */}
@@ -2975,45 +2850,7 @@ const ProductPage: React.FC = () => {
                     </div>
                   </div>
                   
-                  {/* Button Grid Selection - 3 options */}
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-3">
-                    {[
-                      { key: 'Valve' as AdditionalType, value: 'valve', label: 'Valve', sublabel: '(Coffee/Tea)', state: selectedValve, setter: setSelectedValve },
-                      { key: 'Laser Scoring' as AdditionalType, value: 'laser', label: 'Laser Tear', sublabel: '(Easy Open)', state: selectedLaserScoring, setter: setSelectedLaserScoring },
-                      { key: 'Hang Hole' as AdditionalType, value: 'hang', label: 'Hang Hole', sublabel: '(Display)', state: selectedHangHole, setter: setSelectedHangHole }
-                    ].map(option => (
-                      <button
-                        key={option.value}
-                        type="button"
-                        onClick={() => option.setter(option.state === 'Yes' ? 'No' : 'Yes')}
-                        className={`relative p-2 border-2 rounded-lg transition-all hover:shadow-md ${
-                          option.state === 'Yes'
-                            ? 'border-primary-600 bg-primary-50'
-                            : 'border-neutral-200 hover:border-primary-300'
-                        }`}
-                      >
-                        <div className="aspect-square bg-white rounded-lg mb-1 flex items-center justify-center relative group/img">
-                          <img src={getAdditionalImage(option.key)} alt={option.label} className="max-w-full max-h-full object-contain p-1" />
-                          <button
-                            type="button"
-                            onClick={(e) => { e.stopPropagation(); setEnlargedImage({ src: getAdditionalImage(option.key), alt: option.label }); }}
-                            className="absolute bottom-1 right-1 bg-white/90 rounded-full p-1 opacity-0 group-hover/img:opacity-100 transition shadow hover:bg-primary-50"
-                          >
-                            <ZoomIn className="w-3 h-3 text-neutral-600" />
-                          </button>
-                        </div>
-                        <div className="text-xs font-medium text-neutral-700 text-center truncate">{option.label}</div>
-                        <div className="text-xs text-neutral-500 text-center truncate">{option.sublabel}</div>
-                        {option.state === 'Yes' && (
-                          <div className="absolute top-1 right-1 bg-primary-600 text-white rounded-full w-4 h-4 flex items-center justify-center">
-                            <Check className="w-2.5 h-2.5" />
-                          </div>
-                        )}
-                      </button>
-                    ))}
-                  </div>
-                  
-                  {/* Checkbox Options - Keep for accessibility */}
+                  {/* Checkbox Options */}
                   <div className="grid grid-cols-2 gap-2 text-sm">
                     <label className="flex items-center gap-2 cursor-pointer">
                       <input type="checkbox" checked={selectedValve === 'Yes'} onChange={e => setSelectedValve(e.target.checked ? 'Yes' : 'No')} className="rounded" />
