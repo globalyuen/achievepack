@@ -216,6 +216,8 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
   const [pageSize, setPageSize] = useState(50)
   const [aiGenerating, setAiGenerating] = useState(false)
   const [showFilters, setShowFilters] = useState(false)
+  const [aiAnalyzing, setAiAnalyzing] = useState(false)
+  const [aiAnalysisResults, setAiAnalysisResults] = useState<Record<string, { industry: string, country: string }>>({}) // Store AI results by inquiry ID
 
   useEffect(() => {
     fetchInquiries()
@@ -267,9 +269,12 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
     }
   }
 
-  // Enriched inquiries with analyzed data - enhanced detection
+  // Enriched inquiries with analyzed data - enhanced detection + AI results
   const enrichedInquiries = useMemo(() => {
     return inquiries.map(inq => {
+      // Check if we have AI analysis results for this inquiry
+      const aiResult = aiAnalysisResults[inq.id]
+      
       // Combine all text for industry detection
       const allText = [
         inq.message || '',
@@ -280,14 +285,83 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
         extractDomain(inq.email) || ''
       ].join(' ')
       
+      // Use AI results if available, otherwise fallback to keyword detection
+      const detectedIndustry = detectIndustry(allText)
+      const detectedCountry = detectCountry(inq.phone || '', inq.email)
+      
       return {
         ...inq,
-        country: detectCountry(inq.phone || '', inq.email),
-        industry: detectIndustry(allText),
-        domain: extractDomain(inq.email)
+        country: aiResult?.country || detectedCountry,
+        industry: aiResult?.industry || detectedIndustry,
+        domain: extractDomain(inq.email),
+        aiAnalyzed: !!aiResult
       }
     })
-  }, [inquiries])
+  }, [inquiries, aiAnalysisResults])
+
+  // AI Deep Analysis function - analyzes "Other" category inquiries
+  const runAiDeepAnalysis = async () => {
+    setAiAnalyzing(true)
+    
+    try {
+      // Get inquiries that are currently "Other" or "Unknown" 
+      const needsAnalysis = enrichedInquiries.filter(
+        inq => inq.industry === 'Other' || inq.country === 'Unknown'
+      ).slice(0, 50) // Analyze 50 at a time
+      
+      if (needsAnalysis.length === 0) {
+        alert('No inquiries need AI analysis - all are already categorized!')
+        setAiAnalyzing(false)
+        return
+      }
+      
+      // Process in batches of 20
+      const batchSize = 20
+      const newResults: Record<string, { industry: string, country: string }> = { ...aiAnalysisResults }
+      
+      for (let i = 0; i < needsAnalysis.length; i += batchSize) {
+        const batch = needsAnalysis.slice(i, i + batchSize)
+        
+        const response = await fetch('/api/crm-analyze', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            inquiries: batch.map(inq => ({
+              name: inq.name,
+              email: inq.email,
+              phone: inq.phone,
+              company: inq.company,
+              message: inq.message,
+              packaging_type: inq.packaging_type,
+              subject: inq.subject
+            }))
+          })
+        })
+        
+        if (response.ok) {
+          const data = await response.json()
+          if (data.results && Array.isArray(data.results)) {
+            data.results.forEach((result: { industry: string, country: string }, idx: number) => {
+              if (batch[idx]) {
+                newResults[batch[idx].id] = {
+                  industry: result.industry || 'Other',
+                  country: result.country || 'Unknown'
+                }
+              }
+            })
+          }
+        }
+      }
+      
+      setAiAnalysisResults(newResults)
+      alert(`AI analyzed ${needsAnalysis.length} inquiries!`)
+    } catch (error) {
+      console.error('AI Analysis error:', error)
+      alert('AI analysis failed. Please try again.')
+    }
+    
+    setAiAnalyzing(false)
+  }
 
   // Get unique values for filters
   const filterOptions = useMemo(() => {
@@ -593,6 +667,14 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
             <button onClick={() => setShowAnalyticsModal(true)} className="flex items-center gap-2 px-3 py-2 text-gray-600 hover:bg-gray-100 rounded-lg text-sm">
               <BarChart3 className="h-4 w-4" />
               Analytics
+            </button>
+            <button 
+              onClick={runAiDeepAnalysis} 
+              disabled={aiAnalyzing}
+              className="flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg text-sm hover:opacity-90 disabled:opacity-50"
+            >
+              <Sparkles className="h-4 w-4" />
+              {aiAnalyzing ? 'AI Analyzing...' : 'AI Deep Analyze'}
             </button>
             <button onClick={fetchInquiries} className="flex items-center gap-2 px-3 py-2 text-gray-600 hover:bg-gray-100 rounded-lg text-sm">
               <RefreshCw className="h-4 w-4" />
