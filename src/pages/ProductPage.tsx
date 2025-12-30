@@ -753,7 +753,7 @@ const ProductPage: React.FC = () => {
         stiffness: selectedStiffness,
         shipping: selectedShipping,
         designCount: selectedDesignCount,
-        quantityUnits: selectedQuantity,
+        quantityUnits: parseInt(selectedQuantity.replace(/,/g, '').split(' ')[0]),
         laserScoring: selectedLaserScoring,
         valve: selectedValve,
         hangHole: selectedHangHole
