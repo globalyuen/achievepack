@@ -2397,108 +2397,142 @@ const ProductPage: React.FC = () => {
               </div>
             )}
             
-            {/* Testimonial Section - Desktop Only, Always Expanded */}
-            <div className="hidden lg:block bg-white rounded-lg border border-neutral-200 shadow-sm overflow-hidden">
-              <div className="p-4">
-                <h3 className="text-lg font-semibold text-neutral-900 flex items-center gap-2">
-                  <span className="text-2xl">💬</span>
-                  Customer Testimonials
-                </h3>
-              </div>
-              <div className="px-6 pb-6 space-y-4 max-h-[500px] overflow-y-auto">
-                {/* Real Testimonials */}
-                {TESTIMONIALS.map((testimonial) => (
-                  <div key={testimonial.id} className="bg-neutral-50 rounded-lg p-4 border-l-4 border-primary-500">
-                    <div className="flex items-start gap-3 mb-2">
-                      <img 
-                        src={testimonial.ownerImage} 
-                        alt={testimonial.name}
-                        className="w-12 h-12 rounded-full flex-shrink-0 object-cover"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement
-                          target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name)}&background=22c55e&color=fff&size=48`
-                        }}
-                      />
-                      <div className="flex-1">
-                        <div className="font-semibold text-neutral-900">{testimonial.name}</div>
-                        <div className="text-xs text-neutral-500">
-                          {testimonial.company ? `${testimonial.role}, ${testimonial.company}` : 'Verified Buyer'}
+            {/* Testimonials & Customer Samples - Horizontal Layout - Desktop Only */}
+            <div className="hidden lg:block">
+              <div className="grid grid-cols-2 gap-6">
+                {/* Left: Customer Testimonials */}
+                <div className="bg-gradient-to-br from-white to-neutral-50 rounded-2xl border border-neutral-200 shadow-lg overflow-hidden">
+                  <div className="bg-gradient-to-r from-primary-500 to-primary-600 px-5 py-4">
+                    <h3 className="text-lg font-bold text-white flex items-center gap-3">
+                      <span className="bg-white/20 p-2 rounded-lg">💬</span>
+                      Customer Testimonials
+                    </h3>
+                    <p className="text-primary-100 text-sm mt-1">What our customers say</p>
+                  </div>
+                  <div className="p-5 space-y-4 max-h-[420px] overflow-y-auto custom-scrollbar">
+                    {TESTIMONIALS.map((testimonial, index) => (
+                      <div 
+                        key={testimonial.id} 
+                        className="bg-white rounded-xl p-4 shadow-sm border border-neutral-100 hover:shadow-md hover:border-primary-200 transition-all duration-300"
+                      >
+                        <div className="flex items-start gap-3">
+                          <div className="relative">
+                            <img 
+                              src={testimonial.ownerImage} 
+                              alt={testimonial.name}
+                              className="w-14 h-14 rounded-full flex-shrink-0 object-cover ring-2 ring-primary-100 ring-offset-2"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement
+                                target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name)}&background=22c55e&color=fff&size=56`
+                              }}
+                            />
+                            <div className="absolute -bottom-1 -right-1 bg-primary-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center shadow">✓</div>
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between gap-2">
+                              <div className="font-semibold text-neutral-900 truncate">{testimonial.name}</div>
+                              <div className="flex text-amber-400 flex-shrink-0">
+                                {[...Array(5)].map((_, i) => (
+                                  <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                                ))}
+                              </div>
+                            </div>
+                            <div className="text-xs text-neutral-500 truncate">
+                              {testimonial.company ? `${testimonial.role}, ${testimonial.company}` : 'Verified Buyer'}
+                            </div>
+                          </div>
+                        </div>
+                        <p className="text-sm text-neutral-600 mt-3 leading-relaxed">
+                          <span className="text-primary-500 text-lg font-serif">"</span>
+                          {testimonial.shortQuote}
+                          <span className="text-primary-500 text-lg font-serif">"</span>
+                        </p>
+                        <div className="text-xs text-neutral-400 mt-2 flex items-center gap-1">
+                          <span>📍</span> {testimonial.extraInfo}
                         </div>
                       </div>
-                      <div className="flex text-yellow-400">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-current" />
-                        ))}
-                      </div>
-                    </div>
-                    <p className="text-sm text-neutral-700 italic">
-                      "{testimonial.shortQuote}"
-                    </p>
-                    <div className="text-xs text-neutral-400 mt-2">{testimonial.extraInfo}</div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Customer Samples & Shape Reference - Below Testimonials for Eco Digital */}
-            {isEcoDigital && (
-              <div className="hidden lg:block space-y-4">
-                {/* Pouch Shape Reference */}
-                {product.images.filter(img => img.includes('pouch shape')).length > 0 && (
-                  <div className="bg-white rounded-lg border border-neutral-200 shadow-sm overflow-hidden">
-                    <div className="p-4">
-                      <h3 className="text-sm font-semibold text-neutral-700 flex items-center gap-2">
-                        <span className="text-lg">📐</span>
-                        Pouch Shape Reference
-                      </h3>
-                    </div>
-                    <div className="px-4 pb-4">
-                      <div className="grid grid-cols-1 gap-2">
-                        {product.images.filter(img => img.includes('pouch shape')).map((img, index) => (
-                          <button
-                            key={index}
-                            onClick={() => setEnlargedImage({ src: img, alt: 'Pouch Shape Reference' })}
-                            className="bg-neutral-50 rounded-lg p-3 hover:bg-neutral-100 transition cursor-pointer"
-                          >
-                            <img src={img} alt="Pouch Shape" className="w-full h-24 object-contain" />
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                )}
-                
-                {/* Customer Samples Gallery */}
-                <div className="bg-white rounded-lg border border-neutral-200 shadow-sm overflow-hidden">
-                  <div className="p-4">
-                    <h3 className="text-sm font-semibold text-neutral-700 flex items-center gap-2">
-                      <span className="text-lg">📸</span>
+                </div>
+
+                {/* Right: Customer Samples Gallery */}
+                <div className="bg-gradient-to-br from-white to-neutral-50 rounded-2xl border border-neutral-200 shadow-lg overflow-hidden">
+                  <div className="bg-gradient-to-r from-amber-500 to-orange-500 px-5 py-4">
+                    <h3 className="text-lg font-bold text-white flex items-center gap-3">
+                      <span className="bg-white/20 p-2 rounded-lg">📸</span>
                       Customer Samples
                     </h3>
+                    <p className="text-amber-100 text-sm mt-1">Real products from our customers</p>
                   </div>
-                  <div className="px-4 pb-4">
-                    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-1.5">
+                  <div className="p-5">
+                    {/* Featured Samples - Larger Images */}
+                    <div className="grid grid-cols-2 gap-3 mb-4">
                       {[
                         'a_blend_coffee_family_group_4850129.webp',
                         'a_blend4_coffee_functional_closeup_9237259.webp',
                         'a_natures_touch_fruit_family_0232483.webp',
-                        'Arielle.webp', 'David.webp', 'Holly.webp',
-                        'Leo.webp', 'Nicole.webp', 'Paul.webp',
-                        'Remi.webp', 'Richard.webp', 'Steph.webp'
+                        'Arielle.webp'
                       ].map((img, index) => (
                         <button
                           key={index}
                           onClick={() => setEnlargedImage({ src: `/imgs/store/customer-sample/${img}`, alt: 'Customer Sample' })}
-                          className="aspect-square bg-neutral-50 rounded-md overflow-hidden hover:opacity-80 transition cursor-pointer"
+                          className="group relative aspect-square bg-neutral-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300"
                         >
-                          <img src={`/imgs/store/customer-sample/${img}`} alt="Customer Sample" className="w-full h-full object-cover" />
+                          <img 
+                            src={`/imgs/store/customer-sample/${img}`} 
+                            alt="Customer Sample" 
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-3">
+                            <span className="text-white text-xs font-medium bg-black/30 px-2 py-1 rounded-full">Click to view</span>
+                          </div>
                         </button>
                       ))}
                     </div>
+                    
+                    {/* More Samples - Smaller Grid */}
+                    <div className="grid grid-cols-4 gap-2">
+                      {[
+                        'David.webp', 'Holly.webp', 'Leo.webp', 'Nicole.webp',
+                        'Paul.webp', 'Remi.webp', 'Richard.webp', 'Steph.webp'
+                      ].map((img, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setEnlargedImage({ src: `/imgs/store/customer-sample/${img}`, alt: 'Customer Sample' })}
+                          className="group relative aspect-square bg-neutral-100 rounded-lg overflow-hidden hover:ring-2 hover:ring-amber-400 transition-all duration-200"
+                        >
+                          <img 
+                            src={`/imgs/store/customer-sample/${img}`} 
+                            alt="Customer Sample" 
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" 
+                          />
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Pouch Shape Reference - if exists */}
+                    {isEcoDigital && product.images.filter(img => img.includes('pouch shape')).length > 0 && (
+                      <div className="mt-5 pt-5 border-t border-neutral-200">
+                        <h4 className="text-sm font-semibold text-neutral-700 flex items-center gap-2 mb-3">
+                          <span>📐</span> Pouch Shape Reference
+                        </h4>
+                        <div className="grid grid-cols-2 gap-2">
+                          {product.images.filter(img => img.includes('pouch shape')).map((img, index) => (
+                            <button
+                              key={index}
+                              onClick={() => setEnlargedImage({ src: img, alt: 'Pouch Shape Reference' })}
+                              className="bg-neutral-100 rounded-lg p-3 hover:bg-neutral-200 transition cursor-pointer"
+                            >
+                              <img src={img} alt="Pouch Shape" className="w-full h-20 object-contain" />
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
-            )}
+            </div>
           </div>
 
           {/* Right Column - Product Options */}
