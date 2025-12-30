@@ -140,22 +140,22 @@ const CustomPrintedSustainablePouchesPage: React.FC = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
             <Link to="/packaging/stand-up-pouches" className="block bg-white p-4 rounded-lg border border-neutral-200 hover:shadow-md transition text-center">
-              <ClickableImage src="/imgs/store/shape/stand-up-pouch.webp" alt="Stand up pouch" className="w-full h-24 object-cover rounded-lg mb-2" caption="Stand Up" />
+              <ClickableImage src="/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp" alt="Stand up pouch" className="w-full h-24 object-cover rounded-lg mb-2" caption="Stand Up" />
               <h5 className="font-semibold text-neutral-800 text-sm">Stand Up Pouch</h5>
               <p className="text-xs text-neutral-600">Best seller</p>
             </Link>
             <Link to="/packaging/flat-bottom-bags" className="block bg-white p-4 rounded-lg border border-neutral-200 hover:shadow-md transition text-center">
-              <ClickableImage src="/imgs/store/shape/flat-bottom-pouch.webp" alt="Flat bottom bag" className="w-full h-24 object-cover rounded-lg mb-2" caption="Flat Bottom" />
+              <ClickableImage src="/imgs/pouch-shape/a_flat_bottom_pouch_isolated_7901973.webp" alt="Flat bottom bag" className="w-full h-24 object-cover rounded-lg mb-2" caption="Flat Bottom" />
               <h5 className="font-semibold text-neutral-800 text-sm">Flat Bottom</h5>
               <p className="text-xs text-neutral-600">Premium shelf</p>
             </Link>
             <Link to="/packaging/side-gusset-bags" className="block bg-white p-4 rounded-lg border border-neutral-200 hover:shadow-md transition text-center">
-              <ClickableImage src="/imgs/store/pouch shape/side -seal.webp" alt="Side gusset bag" className="w-full h-24 object-cover rounded-lg mb-2" caption="Side Gusset" />
+              <ClickableImage src="/imgs/pouch-shape/a_side_gusset_pouch_isolated_2545871.webp" alt="Side gusset bag" className="w-full h-24 object-cover rounded-lg mb-2" caption="Side Gusset" />
               <h5 className="font-semibold text-neutral-800 text-sm">Side Gusset</h5>
               <p className="text-xs text-neutral-600">Coffee favorite</p>
             </Link>
             <Link to="/packaging/flat-pouches" className="block bg-white p-4 rounded-lg border border-neutral-200 hover:shadow-md transition text-center">
-              <ClickableImage src="/imgs/store/shape/flat-pouch.webp" alt="Flat pouch" className="w-full h-24 object-cover rounded-lg mb-2" caption="Flat Pouch" />
+              <ClickableImage src="/imgs/pouch-shape/a_three_side_seal_pouch_isolated_0879222.webp" alt="Flat pouch" className="w-full h-24 object-cover rounded-lg mb-2" caption="Flat Pouch" />
               <h5 className="font-semibold text-neutral-800 text-sm">Flat Pouch</h5>
               <p className="text-xs text-neutral-600">Samples</p>
             </Link>
