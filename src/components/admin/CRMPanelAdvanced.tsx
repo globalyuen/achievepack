@@ -231,6 +231,7 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
       .from('crm_inquiries')
       .select('*')
       .order('created_at', { ascending: false })
+      .limit(5000) // Override default 1000 limit
     
     if (!error && data) {
       setInquiries(data)
