@@ -426,7 +426,7 @@ const LabBagsPage: React.FC = () => {
       <SEOPageLayout
         title="Lab Blender Bags | Sterile Filter Bags, Wire Closure | Achieve Pack"
         description="Premium sterile laboratory blender bags for microbiology and food safety testing. Lateral filter bags, standard blender bags, wire closure bags. Gamma sterilized, clean room produced."
-        canonical="https://achievepack.com/products/lab-bags"
+        canonicalUrl="https://achievepack.com/products/lab-bags"
         heroTitle="Laboratory Blender Bags"
         heroSubtitle="Lateral Filter • Standard Blender • Wire Closure • Gamma Sterilized"
         heroDescription="Premium sterile lab bags for microbiology, food safety, and pharmaceutical testing. Clean room produced with certified sterilization."

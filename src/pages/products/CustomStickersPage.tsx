@@ -520,7 +520,7 @@ const CustomStickersPage: React.FC = () => {
       <SEOPageLayout
         title="Custom Stickers | Factory-Grade Printing | Achieve Pack"
         description="Factory-grade custom stickers with premium materials, multiple shapes, eco-friendly options, and professional finishes. Cut-to-size, roll, sheet, and kiss-cut types available."
-        canonical="https://achievepack.com/products/custom-stickers"
+        canonicalUrl="https://achievepack.com/products/custom-stickers"
         heroTitle="Custom Stickers"
         heroSubtitle="Factory-Grade Quality • Premium Materials • Eco-Friendly Options"
         heroDescription="Professional custom stickers with multiple types, shapes, materials, and finishes. From cut-to-size singles to roll stickers."

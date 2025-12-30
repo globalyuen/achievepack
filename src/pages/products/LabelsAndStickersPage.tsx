@@ -413,7 +413,7 @@ const LabelsAndStickersPage: React.FC = () => {
       <SEOPageLayout
         title="Custom Labels & Stickers | Sheet Labels, Roll Stickers, Die-Cut | Achieve Pack"
         description="Professional custom labels and stickers with premium materials, eco-friendly options, and expert finishes. Sheet labels, roll stickers, die-cut, and kiss-cut types. No minimum order."
-        canonical="https://achievepack.com/products/labels-and-stickers"
+        canonicalUrl="https://achievepack.com/products/labels-and-stickers"
         heroTitle="Custom Labels & Stickers"
         heroSubtitle="Sheet Labels • Roll Stickers • Die-Cut • Eco-Friendly Options"
         heroDescription="Complete labeling and sticker solutions with premium materials, custom shapes, and professional finishes for every brand."

@@ -492,7 +492,7 @@ const CustomLabelsPage: React.FC = () => {
       <SEOPageLayout
         title="Custom Sheet Labels | No Minimum Order | Achieve Pack"
         description="Professional custom sheet labels with no minimum order, 2-3 day turnaround, and expert design review. High-quality printing for products, packaging, and branding."
-        canonical="https://achievepack.com/products/custom-labels"
+        canonicalUrl="https://achievepack.com/products/custom-labels"
         heroTitle="Custom Sheet Labels"
         heroSubtitle="Professional Quality • No Minimum Order • Fast Turnaround"
         heroDescription="High-quality custom labels for products, events, and branding. Print-ready in 2-3 business days with expert design support."
