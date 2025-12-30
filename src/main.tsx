@@ -197,6 +197,7 @@ const RecyclableMonoMaterialPage = lazy(() => import('./pages/products/Recyclabl
 const CoffeeBagsDegassingValvePage = lazy(() => import('./pages/products/CoffeeBagsDegassingValvePage'))
 const LowMOQPackagingPage = lazy(() => import('./pages/products/LowMOQPackagingPage'))
 const CustomLabelsPage = lazy(() => import('./pages/products/CustomLabelsPage'))
+const CustomStickersPage = lazy(() => import('./pages/products/CustomStickersPage'))
 
 // Solutions Pages - Persona Based SEO - Lazy loaded
 const StartupFounderPage = lazy(() => import('./pages/solutions/StartupFounderPage'))
@@ -361,6 +362,7 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/products/coffee-bags-degassing-valve" element={<CoffeeBagsDegassingValvePage />} />
               <Route path="/products/low-moq-packaging" element={<LowMOQPackagingPage />} />
 <Route path="/products/custom-labels" element={<CustomLabelsPage />} />
+<Route path="/products/custom-stickers" element={<CustomStickersPage />} />
 
               {/* Solutions Pages - Persona Based SEO */}
               <Route path="/solutions/startup-founder" element={<StartupFounderPage />} />
