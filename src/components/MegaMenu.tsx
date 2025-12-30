@@ -82,22 +82,33 @@ function shuffleArray<T>(array: T[]): T[] {
   return shuffled
 }
 
-// SHAPE menu - All packaging shapes
-const SHAPE_CATEGORIES = [
+// SHAPE menu - All packaging shapes (two columns)
+const SHAPE_CATEGORIES_COL1 = [
   { name: '3 Side Seal Pouch', link: '/store?shape=3-side-seal' },
   { name: 'Stand Up Pouch', link: '/store?shape=stand-up' },
   { name: 'Flat Bottom Bags', link: '/store?shape=flat-bottom' },
   { name: 'Side Gusset Bags', link: '/store?shape=side-gusset' },
   { name: 'Spout Pouches', link: '/store?shape=spout' },
-  { name: 'Boxes', link: '/store?category=boxes' },
-  { name: 'Mailer Bags', link: '/store?category=mailer' },
 ]
+
+const SHAPE_CATEGORIES_COL2 = [
+  { name: 'Custom Boxes', link: '/store?category=boxes' },
+  { name: 'Mailer Bags', link: '/store?category=mailer' },
+  { name: 'Labels & Stickers', link: '/products/labels-and-stickers' },
+  { name: 'Lab Bags', link: '/products/lab-bags' },
+]
+
+// Combined for backward compat
+const SHAPE_CATEGORIES = [...SHAPE_CATEGORIES_COL1, ...SHAPE_CATEGORIES_COL2]
 
 // CUSTOM menu - Custom printed packaging
 const CUSTOM_CATEGORIES = [
-  { name: 'Eco Digital', link: '/store?category=eco-digital' },
+  { name: 'Eco Digital Pouches', link: '/store?category=eco-digital' },
   { name: 'Conventional Digital', link: '/store?category=conventional-digital' },
   { name: 'Custom Boxes', link: '/store?category=boxes' },
+  { name: 'Custom Mailer Bags', link: '/store?category=mailer' },
+  { name: 'Custom Labels', link: '/products/custom-labels' },
+  { name: 'Custom Stickers', link: '/products/custom-stickers' },
 ]
 
 // STOCK menu - Ready stock items
@@ -257,13 +268,72 @@ export default function MegaMenu() {
           </button>
           {activeMenu === 'shape' && (
             <div className="fixed left-1/2 -translate-x-1/2 top-16 pt-2 z-50" onMouseEnter={() => handleMouseEnter('shape')} onMouseLeave={handleMouseLeave}>
-              <MegaMenuDropdown
-                categories={SHAPE_CATEGORIES}
-                adsImages={randomStoreAdsImages}
-                shopAllLink="/store"
-                shopAllLabel="Shop All Shapes"
-                onQuoteClick={openQuoteLightbox}
-              />
+              <div className="w-[95vw] max-w-[1200px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
+                <div className="grid grid-cols-12">
+                  {/* Left: Categories - Two Columns */}
+                  <div className="col-span-4 lg:col-span-3 bg-neutral-50 p-4 lg:p-5 border-r border-neutral-100">
+                    <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-3">All Shapes & Products</h3>
+                    <div className="grid grid-cols-2 gap-4">
+                      {/* Column 1: Pouches */}
+                      <div>
+                        <h4 className="text-[10px] font-bold text-neutral-500 uppercase mb-2">Pouches</h4>
+                        <ul className="space-y-0.5">
+                          {SHAPE_CATEGORIES_COL1.map((cat) => (
+                            <li key={cat.name}>
+                              <Link to={cat.link} className="flex items-center gap-1 py-1.5 px-2 rounded-lg text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all text-xs font-medium">
+                                <ChevronRight className="h-2.5 w-2.5 text-neutral-400" />
+                                {cat.name}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      {/* Column 2: Other Products */}
+                      <div>
+                        <h4 className="text-[10px] font-bold text-neutral-500 uppercase mb-2">Other Products</h4>
+                        <ul className="space-y-0.5">
+                          {SHAPE_CATEGORIES_COL2.map((cat) => (
+                            <li key={cat.name}>
+                              <Link to={cat.link} className="flex items-center gap-1 py-1.5 px-2 rounded-lg text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all text-xs font-medium">
+                                <ChevronRight className="h-2.5 w-2.5 text-neutral-400" />
+                                {cat.name}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="mt-4 pt-4 border-t border-neutral-200">
+                      <button
+                        onClick={openQuoteLightbox}
+                        className="flex items-center justify-center gap-2 w-full py-2 px-3 bg-primary-600 text-white rounded-lg text-xs font-semibold hover:bg-primary-700 transition-colors"
+                      >
+                        <Sparkles className="h-4 w-4" />
+                        Custom Quote
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Right: Random Ads Images */}
+                  <div className="col-span-8 lg:col-span-9 p-3 lg:p-4">
+                    <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-3">Discover Products</h3>
+                    <div className="flex gap-2 lg:gap-3 overflow-x-auto pb-2 scrollbar-hide">
+                      {randomStoreAdsImages.map((ad, index) => (
+                        <Link key={`shape-${ad.link}-${index}`} to={ad.link} className="flex-shrink-0 group">
+                          <div className="w-[120px] lg:w-[200px] bg-neutral-100 rounded-lg overflow-hidden" style={{ aspectRatio: '9/16' }}>
+                            <img src={ad.image} alt="Product" className="w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async" />
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                    <div className="mt-3 pt-3 border-t border-neutral-100">
+                      <Link to="/store" className="inline-flex items-center gap-1 text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors">
+                        Shop All Products →
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
         </div>
