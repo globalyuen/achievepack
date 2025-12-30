@@ -112,18 +112,58 @@ Best regards,
 {sender}`
 }
 
-function detectCountry(phone: string): string {
-  if (!phone) return 'Unknown'
-  const cleaned = phone.replace(/[\s\-\(\)]/g, '')
+// Email domain TLD to country mapping
+const EMAIL_TLD_COUNTRIES: Record<string, string> = {
+  '.au': 'Australia', '.com.au': 'Australia', '.net.au': 'Australia', '.org.au': 'Australia',
+  '.uk': 'UK', '.co.uk': 'UK', '.org.uk': 'UK',
+  '.ca': 'Canada',
+  '.de': 'Germany', '.at': 'Austria', '.ch': 'Switzerland',
+  '.fr': 'France', '.es': 'Spain', '.it': 'Italy', '.pt': 'Portugal',
+  '.nl': 'Netherlands', '.be': 'Belgium', '.ie': 'Ireland',
+  '.se': 'Sweden', '.no': 'Norway', '.dk': 'Denmark', '.fi': 'Finland',
+  '.pl': 'Poland', '.cz': 'Czech Republic', '.hu': 'Hungary',
+  '.nz': 'New Zealand',
+  '.jp': 'Japan', '.kr': 'Korea', '.cn': 'China', '.hk': 'Hong Kong', '.tw': 'Taiwan',
+  '.sg': 'Singapore', '.my': 'Malaysia', '.id': 'Indonesia', '.ph': 'Philippines', '.th': 'Thailand', '.vn': 'Vietnam',
+  '.in': 'India', '.pk': 'Pakistan',
+  '.ae': 'UAE', '.sa': 'Saudi Arabia', '.il': 'Israel',
+  '.za': 'South Africa', '.ng': 'Nigeria', '.ke': 'Kenya', '.eg': 'Egypt',
+  '.mx': 'Mexico', '.br': 'Brazil', '.ar': 'Argentina', '.cl': 'Chile', '.co': 'Colombia', '.pe': 'Peru',
+  '.ru': 'Russia', '.ua': 'Ukraine', '.tr': 'Turkey',
+}
+
+function detectCountryFromEmail(email: string): string {
+  if (!email) return ''
+  const domain = email.toLowerCase()
   
-  for (const [code, country] of Object.entries(COUNTRY_CODES)) {
-    if (cleaned.startsWith(code)) return country
+  // Check for country-specific TLDs (longer ones first)
+  for (const [tld, country] of Object.entries(EMAIL_TLD_COUNTRIES).sort((a, b) => b[0].length - a[0].length)) {
+    if (domain.endsWith(tld)) return country
   }
   
-  // Check for country codes without +
-  if (/^1\d{10}$/.test(cleaned)) return 'USA/Canada'
-  if (/^44\d{10}$/.test(cleaned)) return 'UK'
-  if (/^61\d{9}$/.test(cleaned)) return 'Australia'
+  return ''
+}
+
+function detectCountry(phone: string, email?: string): string {
+  // First try phone number
+  if (phone) {
+    const cleaned = phone.replace(/[\s\-\(\)]/g, '')
+    
+    for (const [code, country] of Object.entries(COUNTRY_CODES)) {
+      if (cleaned.startsWith(code)) return country
+    }
+    
+    // Check for country codes without +
+    if (/^1\d{10}$/.test(cleaned)) return 'USA/Canada'
+    if (/^44\d{10}$/.test(cleaned)) return 'UK'
+    if (/^61\d{9}$/.test(cleaned)) return 'Australia'
+  }
+  
+  // Then try email domain TLD
+  if (email) {
+    const emailCountry = detectCountryFromEmail(email)
+    if (emailCountry) return emailCountry
+  }
   
   return 'Unknown'
 }
@@ -214,7 +254,7 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
   const enrichedInquiries = useMemo(() => {
     return inquiries.map(inq => ({
       ...inq,
-      country: detectCountry(inq.phone || ''),
+      country: detectCountry(inq.phone || '', inq.email),
       industry: detectIndustry(`${inq.message || ''} ${inq.packaging_type || ''} ${inq.subject || ''}`),
       domain: extractDomain(inq.email)
     }))
