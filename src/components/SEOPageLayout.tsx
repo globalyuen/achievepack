@@ -715,9 +715,14 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
 
             {/* Certification Logos & SSL Badge */}
             <div className="border-t border-neutral-800 mt-6 pt-4">
-              <div className="flex flex-wrap items-center justify-center gap-4 mb-4">
-                <img src="/imgs/cert/logo-achievepack-BPI.jpg" alt="BPI Certified" className="h-10 w-auto rounded brightness-0 invert opacity-70" loading="lazy" decoding="async" />
-                <img src="/imgs/cert-b.webp" alt="B Corp Certified" className="h-10 w-auto brightness-0 invert opacity-70" loading="lazy" decoding="async" />
+              <div className="flex flex-col items-center gap-4 mb-4">
+                {/* BPI & B Corp Logos */}
+                <img src="/bpi-bcorp-logos.svg" alt="BPI & B Corp Certified" className="h-12 w-auto" loading="lazy" decoding="async" />
+                
+                {/* Payment Logos */}
+                <img src="/pay-logos.svg" alt="Payment Methods" className="h-8 w-auto" loading="lazy" decoding="async" />
+                
+                {/* SSL Secure Badge */}
                 <div className="flex items-center gap-1.5 bg-neutral-800 px-3 py-1.5 rounded">
                   <svg className="h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
