@@ -1,8 +1,8 @@
-import { useState, useEffect, useCallback, useTransition, useMemo, lazy, Suspense } from 'react'
+import { useState, useEffect, useCallback, useTransition, useMemo, lazy, Suspense, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom'
-import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield, ShoppingCart, User, Linkedin, ArrowRight, Plus } from 'lucide-react'
+import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield, ShoppingCart, User, Linkedin, ArrowRight, Plus, AlertCircle } from 'lucide-react'
 import { HeroGrainBackground } from './components/HeroGrainBackground'
 import { CardContainer, CardBody, CardItem } from './components/ui/3d-card'
 import { getImage } from './utils/imageMapper'
@@ -151,6 +151,53 @@ function App() {
     company: '',
     message: ''
   })
+  const [formError, setFormError] = useState('')
+  const [formSubmitting, setFormSubmitting] = useState(false)
+  const [formSubmitted, setFormSubmitted] = useState(false)
+  const [homeTurnstileToken, setHomeTurnstileToken] = useState<string | null>(null)
+  const homeTurnstileRef = useRef<HTMLDivElement>(null)
+  const homeTurnstileWidgetId = useRef<string | null>(null)
+
+  const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAACJvySd2iBsvYcJv'
+
+  // Load Turnstile script for homepage form
+  useEffect(() => {
+    if (typeof window !== 'undefined' && !(window as any).turnstile) {
+      const script = document.createElement('script')
+      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad'
+      script.async = true
+      script.defer = true
+      document.head.appendChild(script)
+    }
+  }, [])
+
+  // Render Turnstile widget for homepage form
+  useEffect(() => {
+    const renderWidget = () => {
+      if (homeTurnstileRef.current && (window as any).turnstile && !homeTurnstileWidgetId.current) {
+        homeTurnstileWidgetId.current = (window as any).turnstile.render(homeTurnstileRef.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          callback: (token: string) => setHomeTurnstileToken(token),
+          'error-callback': () => setFormError('Verification failed. Please refresh the page.'),
+          'expired-callback': () => setHomeTurnstileToken(null),
+          theme: 'light',
+          size: 'flexible'
+        })
+      }
+    }
+
+    const checkAndRender = () => {
+      if ((window as any).turnstile) {
+        renderWidget()
+      } else {
+        (window as any).onTurnstileLoad = renderWidget
+      }
+    }
+    
+    // Delay to ensure DOM is ready
+    const timer = setTimeout(checkAndRender, 500)
+    return () => clearTimeout(timer)
+  }, [])
 
   // Optimized modal close handlers for INP
   const closeImageModal = useCallback(() => {
@@ -247,28 +294,50 @@ function App() {
     setFormData(prev => ({ ...prev, [id]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-
-    // Create email content
-    const subject = `New Contact Form Submission from ${formData.name}`
-    const body = `Name: ${formData.name}
-Email: ${formData.email}
-Company: ${formData.company}
-
-Message:
-${formData.message}`
-
-    // Create mailto link
-    const mailtoLink = `mailto:ryan@achievepack.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-
-    // Open email client
-    window.location.href = mailtoLink
-
-    // Reset form
-    setFormData({ name: '', email: '', company: '', message: '' })
-
-    alert('Thank you for your message! Your email client should open with the pre-filled email.')
+    setFormError('')
+    
+    if (!homeTurnstileToken) {
+      setFormError('Please wait for verification to complete.')
+      return
+    }
+    
+    setFormSubmitting(true)
+    
+    try {
+      const response = await fetch('/api/send-contact-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          message: formData.message,
+          inquiryType: 'quote',
+          subject: 'Homepage Contact Form',
+          turnstileToken: homeTurnstileToken
+        })
+      })
+      
+      const result = await response.json()
+      
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send message')
+      }
+      
+      setFormSubmitted(true)
+      setFormData({ name: '', email: '', company: '', message: '' })
+    } catch (err: any) {
+      setFormError(err.message || 'Failed to send message. Please try again.')
+      // Reset Turnstile
+      if ((window as any).turnstile && homeTurnstileWidgetId.current) {
+        (window as any).turnstile.reset(homeTurnstileWidgetId.current)
+        setHomeTurnstileToken(null)
+      }
+    } finally {
+      setFormSubmitting(false)
+    }
   }
 
   // Memoize FAQ items to prevent unnecessary re-renders and improve INP
@@ -1555,8 +1624,33 @@ ${formData.message}`
             {/* Contact Form */}
             <div className="bg-white rounded-lg p-8 shadow-card">
               <h3 className="text-2xl font-bold text-neutral-900 mb-6">{t('contact.form.title')}</h3>
-              <div className="mb-4 text-sm text-primary-600 font-medium">{t('contact.form.sendTo')}: ryan@achievepack.com</div>
-              <form className="space-y-6" onSubmit={handleSubmit}>
+              
+              {formSubmitted ? (
+                <div className="text-center py-12">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle className="h-8 w-8 text-green-600" />
+                  </div>
+                  <h4 className="text-xl font-semibold text-neutral-900 mb-2">Message Sent Successfully!</h4>
+                  <p className="text-neutral-600 mb-6">Thank you for contacting us. We'll respond within 24 hours.</p>
+                  <button
+                    onClick={() => setFormSubmitted(false)}
+                    className="text-primary-600 hover:underline"
+                  >
+                    Send another message
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <div className="mb-4 text-sm text-primary-600 font-medium">{t('contact.form.sendTo')}: ryan@achievepack.com</div>
+                  
+                  {formError && (
+                    <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg flex items-center gap-2 text-red-700 text-sm">
+                      <AlertCircle className="h-4 w-4 flex-shrink-0" />
+                      {formError}
+                    </div>
+                  )}
+                  
+                  <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-neutral-700 mb-2">{t('contact.form.name')}</label>
@@ -1606,13 +1700,19 @@ ${formData.message}`
                     required
                   ></textarea>
                 </div>
+                <div className="flex justify-center">
+                  <div ref={homeTurnstileRef} className="cf-turnstile" />
+                </div>
                 <button
                   type="submit"
-                  className="w-full bg-primary-500 text-white px-6 py-4 rounded-lg font-semibold hover:bg-primary-600 transition-colors"
+                  disabled={formSubmitting || !homeTurnstileToken}
+                  className="w-full bg-primary-500 text-white px-6 py-4 rounded-lg font-semibold hover:bg-primary-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {t('contact.form.submit')}
+                  {formSubmitting ? 'Sending...' : t('contact.form.submit')}
                 </button>
               </form>
+                </>
+              )}
             </div>
 
             {/* Contact Information */}
