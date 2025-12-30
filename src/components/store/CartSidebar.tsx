@@ -1,9 +1,29 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { X, ShoppingBag, Trash2, Heart, Loader2, CheckCircle } from 'lucide-react'
+import { X, ShoppingBag, Trash2, Heart, Loader2, CheckCircle, Edit3 } from 'lucide-react'
 import { useStore } from '../../store/StoreContext'
 import { useAuth } from '../../hooks/useAuth'
 import { supabase } from '../../lib/supabase'
+
+// Generate URL with configuration parameters
+const generateEditUrl = (item: any): string => {
+  const params = new URLSearchParams()
+  if (item.variant.material) params.set('material', item.variant.material)
+  if (item.variant.size) params.set('size', item.variant.size)
+  if (item.variant.closure) params.set('closure', item.variant.closure)
+  if (item.variant.surface) params.set('surface', item.variant.surface)
+  if (item.variant.barrier) params.set('barrier', item.variant.barrier)
+  if (item.variant.stiffness) params.set('stiffness', item.variant.stiffness)
+  if (item.variant.shipping) params.set('shipping', item.variant.shipping)
+  if (item.variant.designCount) params.set('designs', item.variant.designCount.toString())
+  if (item.variant.quantityUnits) params.set('quantity', item.variant.quantityUnits.toString())
+  if (item.variant.laserScoring) params.set('laser', item.variant.laserScoring)
+  if (item.variant.valve) params.set('valve', item.variant.valve)
+  if (item.variant.hangHole) params.set('hangHole', item.variant.hangHole)
+  params.set('edit', '1') // Flag to indicate editing from cart
+  
+  return `/store/${item.productId}?${params.toString()}`
+}
 
 const CartSidebar: React.FC = () => {
   const { cart, cartTotal, isCartOpen, setIsCartOpen, removeFromCart, clearCart } = useStore()
@@ -84,9 +104,21 @@ const CartSidebar: React.FC = () => {
             <div className="flex-1 overflow-y-auto p-4 space-y-4">
               {cart.map(item => (
                 <div key={item.id} className="flex gap-4 bg-neutral-50 rounded-lg p-3">
-                  <img src={item.image} alt={item.name} className="w-20 h-20 object-contain rounded-lg bg-white" />
+                  <Link 
+                    to={generateEditUrl(item)}
+                    onClick={() => setIsCartOpen(false)}
+                    className="flex-shrink-0 hover:opacity-80 transition"
+                  >
+                    <img src={item.image} alt={item.name} className="w-20 h-20 object-contain rounded-lg bg-white" />
+                  </Link>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-medium text-neutral-900 truncate">{item.name}</h3>
+                    <Link 
+                      to={generateEditUrl(item)}
+                      onClick={() => setIsCartOpen(false)}
+                      className="block hover:text-primary-600 transition"
+                    >
+                      <h3 className="font-medium text-neutral-900 truncate">{item.name}</h3>
+                    </Link>
                     {item.productId.startsWith('sample-') ? (
                       <p className="text-xs text-neutral-500">Sample Pack</p>
                     ) : (
@@ -96,9 +128,19 @@ const CartSidebar: React.FC = () => {
                     )}
                     <div className="flex items-center justify-between mt-2">
                       <span className="font-bold text-primary-600">${item.totalPrice.toLocaleString()}</span>
-                      <button onClick={() => removeFromCart(item.id)} className="text-red-500 hover:text-red-700 p-1">
-                        <Trash2 className="h-4 w-4" />
-                      </button>
+                      <div className="flex items-center gap-1">
+                        <Link
+                          to={generateEditUrl(item)}
+                          onClick={() => setIsCartOpen(false)}
+                          className="text-primary-500 hover:text-primary-700 p-1"
+                          title="Edit configuration"
+                        >
+                          <Edit3 className="h-4 w-4" />
+                        </Link>
+                        <button onClick={() => removeFromCart(item.id)} className="text-red-500 hover:text-red-700 p-1">
+                          <Trash2 className="h-4 w-4" />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>

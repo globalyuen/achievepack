@@ -354,6 +354,52 @@ const ProductPage: React.FC = () => {
   // URL search params for shareable configurations
   const [searchParams] = useSearchParams()
   
+  // Restore configuration from URL params (for edit from cart)
+  useEffect(() => {
+    const isEdit = searchParams.get('edit') === '1'
+    if (!isEdit) return
+    
+    // Restore all configuration from URL params
+    const material = searchParams.get('material')
+    const size = searchParams.get('size')
+    const closure = searchParams.get('closure')
+    const surface = searchParams.get('surface')
+    const barrier = searchParams.get('barrier')
+    const stiffness = searchParams.get('stiffness')
+    const shipping = searchParams.get('shipping')
+    const designs = searchParams.get('designs')
+    const quantity = searchParams.get('quantity')
+    const laser = searchParams.get('laser')
+    const valve = searchParams.get('valve')
+    const hangHole = searchParams.get('hangHole')
+    
+    if (material) setSelectedMaterial(material)
+    if (size) setSelectedSize(size)
+    if (closure) setSelectedClosure(closure as ClosureType)
+    if (surface) setSelectedSurface(surface as SurfaceType)
+    if (barrier) setSelectedBarrier(barrier)
+    if (stiffness) setSelectedStiffness(stiffness)
+    if (shipping) setSelectedShipping(shipping)
+    if (designs) setSelectedDesignCount(parseInt(designs))
+    if (quantity) {
+      // Find matching quantity option based on the numeric value
+      const qtyNum = parseInt(quantity)
+      const ecoDigitalQtyOptions = [
+        '1,000 (Digital print)', '2,000 (Digital print)', '3,000 (Digital print)',
+        '5,000 (Flexo print)', '10,000 (Flexo print)', '20,000 (Flexo print)',
+        '30,000 (Flexo print)', '50,000 (Flexo print)'
+      ]
+      const matchingQty = ecoDigitalQtyOptions.find(q => {
+        const numPart = parseInt(q.replace(/,/g, '').split(' ')[0])
+        return numPart === qtyNum
+      })
+      if (matchingQty) setSelectedQuantity(matchingQty)
+    }
+    if (laser) setSelectedLaserScoring(laser as 'Yes' | 'No')
+    if (valve) setSelectedValve(valve as 'Yes' | 'No')
+    if (hangHole) setSelectedHangHole(hangHole as 'Yes' | 'No')
+  }, [searchParams])
+  
   // Generate shareable URL with current configuration
   const generateShareUrl = useCallback(() => {
     const baseUrl = window.location.origin
@@ -696,7 +742,22 @@ const ProductPage: React.FC = () => {
       productId: product.id,
       name: product.name,
       image: productImage,
-      variant: { shape: variantDescription, size: selectedSize, barrier: selectedBarrier, finish: selectedSurface.toLowerCase() },
+      variant: { 
+        shape: variantDescription, 
+        size: selectedSize, 
+        barrier: selectedBarrier, 
+        finish: selectedSurface.toLowerCase(),
+        material: selectedMaterial,
+        closure: selectedClosure,
+        surface: selectedSurface,
+        stiffness: selectedStiffness,
+        shipping: selectedShipping,
+        designCount: selectedDesignCount,
+        quantityUnits: selectedQuantity,
+        laserScoring: selectedLaserScoring,
+        valve: selectedValve,
+        hangHole: selectedHangHole
+      },
       quantity: 1,
       unitPrice: totalPrice,
       totalPrice: totalPrice

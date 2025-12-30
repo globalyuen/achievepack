@@ -6,6 +6,15 @@ export interface ProductVariant {
   barrier?: string
   finish?: string
   material?: string
+  closure?: string
+  surface?: string
+  stiffness?: string
+  shipping?: string
+  designCount?: number
+  quantityUnits?: number
+  laserScoring?: string
+  valve?: string
+  hangHole?: string
 }
 
 export interface CartItem {
