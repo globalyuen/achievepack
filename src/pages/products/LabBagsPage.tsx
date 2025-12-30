@@ -11,7 +11,7 @@ const labBagGallery = [
   { src: '/imgs/lab/filter/a_achieve_pack_400ml_kv_main_visual_5029578.webp', title: 'Sterile Lab Bag Collection', desc: '无菌实验室均质袋系列', category: 'filter' },
   { src: '/imgs/lab/filter/a_achieve_pack_400ml_filter_texture_detail_7479934.webp', title: 'Filter Membrane Detail', desc: '滤膜细节特写', category: 'filter' },
   // Blender bags
-  { src: '/imgs/lab/blend/hero.webp', title: 'Lab Blender Bags', desc: '实验室均质袋', category: 'blend' },
+  { src: '/imgs/lab/blend/a_hero_kv_sterile_lab_1567556.webp', title: 'Lab Blender Bags', desc: '实验室均质袋', category: 'blend' },
   { src: '/imgs/lab/blend/a_achieve_pack_400ml_kv_main_visual_5029578.webp', title: 'Standard Blender Bags', desc: '标准均质袋', category: 'blend' },
   // Wire closure bags
   { src: '/imgs/lab/wire/hero.webp', title: 'Wire Closure Bags', desc: '铁丝封口袋', category: 'wire' },
@@ -117,7 +117,7 @@ const LabBagsPage: React.FC = () => {
               <p className="text-neutral-600 text-sm">Side-mounted filtration membrane for instant, particle-free sample preparation.</p>
             </Link>
             <Link to="/lab/lab-blender-bags" className="group block bg-white p-6 rounded-xl border border-neutral-200 hover:border-primary-400 hover:shadow-lg transition-all">
-              <img src="/imgs/lab/blend/hero.webp" alt="Standard Lab Blender Bags" className="w-full h-40 object-cover rounded-lg mb-4 group-hover:scale-[1.02] transition-transform" />
+              <img src="/imgs/lab/blend/a_hero_kv_sterile_lab_1567556.webp" alt="Standard Lab Blender Bags" className="w-full h-40 object-cover rounded-lg mb-4 group-hover:scale-[1.02] transition-transform" />
               <h3 className="text-lg font-bold text-neutral-900 group-hover:text-primary-600 mb-2">Standard Blender Bags</h3>
               <p className="text-sm text-primary-600 font-medium mb-2">标准实验室均质袋</p>
               <p className="text-neutral-600 text-sm">Classic sterile blender bags for general homogenization applications.</p>
@@ -196,7 +196,7 @@ const LabBagsPage: React.FC = () => {
       content: (
         <div className="space-y-8">
           <AlternatingSection
-            image="/imgs/lab/blend/hero.webp"
+            image="/imgs/lab/blend/a_hero_kv_sterile_lab_1567556.webp"
             imageAlt="Standard lab blender bags"
             title="Classic Sterile Blender Bags"
             titleCn="经典无菌均质袋"
