@@ -166,7 +166,7 @@ const AdminPage: React.FC = () => {
     return images
   }
 
-  // Get page content by slug
+  // Get page content by slug - returns raw HTML
   const getPageContent = (pagePath: string): { content: string; images: string[]; title: string } | null => {
     // Check if it's a blog page
     if (pagePath.startsWith('/blog/')) {
@@ -175,7 +175,7 @@ const AdminPage: React.FC = () => {
       if (blog) {
         return {
           title: blog.title,
-          content: htmlToText(blog.content),
+          content: blog.content, // Return raw HTML
           images: [blog.featuredImage, ...extractImages(blog.content)]
         }
       }
