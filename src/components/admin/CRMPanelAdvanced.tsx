@@ -8,6 +8,10 @@ import {
   BarChart3, MapPin, Factory, Users, CheckSquare, Square, X, Wand2, Copy, Eye
 } from 'lucide-react'
 
+// Days of week labels
+const DAYS_OF_WEEK = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
 interface CRMPanelProps {
   onRefresh?: () => void
 }
@@ -203,6 +207,7 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
   const [industryFilter, setIndustryFilter] = useState<string>('all')
   const [countryFilter, setCountryFilter] = useState<string>('all')
   const [packagingFilter, setPackagingFilter] = useState<string>('all')
+  const [sourceFilter, setSourceFilter] = useState<string>('all')
   const [customerTypeFilter, setCustomerTypeFilter] = useState<string>('all')
   const [selectedInquiry, setSelectedInquiry] = useState<CRMInquiry | null>(null)
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set())
@@ -292,7 +297,7 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
       
       // Detect customer type from source or notes
       let customerType: 'lead' | 'sample' | 'customer' = 'lead'
-      if (inq.source === 'paypal') {
+      if (inq.source === 'paypal' || inq.source === 'stripe') {
         // Check notes for transaction info
         const notes = inq.notes || ''
         if (notes.includes('Customer Type: customer')) {
@@ -306,7 +311,7 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
             const amount = parseFloat(amountMatch[1])
             customerType = amount >= 100 ? 'customer' : 'sample'
           } else {
-            customerType = 'customer' // PayPal default
+            customerType = 'customer' // PayPal/Stripe default
           }
         }
       } else if (inq.status === 'won') {
@@ -393,17 +398,20 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
     const industries = new Set<string>()
     const countries = new Set<string>()
     const packagingTypes = new Set<string>()
+    const sources = new Set<string>()
     
     enrichedInquiries.forEach(inq => {
       if (inq.industry) industries.add(inq.industry)
       if (inq.country && inq.country !== 'Unknown') countries.add(inq.country)
       if (inq.packaging_type) packagingTypes.add(inq.packaging_type)
+      if (inq.source) sources.add(inq.source)
     })
     
     return {
       industries: Array.from(industries).sort(),
       countries: Array.from(countries).sort(),
-      packagingTypes: Array.from(packagingTypes).sort()
+      packagingTypes: Array.from(packagingTypes).sort(),
+      sources: Array.from(sources).sort()
     }
   }, [enrichedInquiries])
 
@@ -423,6 +431,9 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
     if (packagingFilter !== 'all') {
       result = result.filter(i => i.packaging_type === packagingFilter)
     }
+    if (sourceFilter !== 'all') {
+      result = result.filter(i => i.source === sourceFilter)
+    }
     if (customerTypeFilter !== 'all') {
       result = result.filter(i => i.customerType === customerTypeFilter)
     }
@@ -438,7 +449,7 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
     }
 
     return result
-  }, [enrichedInquiries, statusFilter, industryFilter, countryFilter, packagingFilter, customerTypeFilter, searchQuery])
+  }, [enrichedInquiries, statusFilter, industryFilter, countryFilter, packagingFilter, sourceFilter, customerTypeFilter, searchQuery])
 
   // Pagination
   const totalPages = Math.ceil(filteredInquiries.length / pageSize)
@@ -451,6 +462,13 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
     const byStatus: Record<string, number> = {}
     const byPackaging: Record<string, number> = {}
     const byCustomerType: Record<string, number> = { lead: 0, sample: 0, customer: 0 }
+    const byHour: Record<number, number> = {}
+    const byDayOfWeek: Record<number, number> = {}
+    const byMonth: Record<string, number> = {}
+    const byYear: Record<number, number> = {}
+    const bySource: Record<string, { count: number; revenue: number }> = {}
+    const addressList: { name: string; email: string; address: string; country: string; city: string; date: string }[] = []
+    let totalRevenue = 0
 
     enrichedInquiries.forEach(inq => {
       byIndustry[inq.industry] = (byIndustry[inq.industry] || 0) + 1
@@ -462,9 +480,59 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
         byPackaging[inq.packaging_type] = (byPackaging[inq.packaging_type] || 0) + 1
       }
       byCustomerType[inq.customerType] = (byCustomerType[inq.customerType] || 0) + 1
+      
+      // Time-based analytics
+      if (inq.created_at) {
+        const date = new Date(inq.created_at)
+        const hour = date.getHours()
+        const dayOfWeek = date.getDay()
+        const monthYear = `${MONTHS[date.getMonth()]} ${date.getFullYear()}`
+        const year = date.getFullYear()
+        
+        byHour[hour] = (byHour[hour] || 0) + 1
+        byDayOfWeek[dayOfWeek] = (byDayOfWeek[dayOfWeek] || 0) + 1
+        byMonth[monthYear] = (byMonth[monthYear] || 0) + 1
+        byYear[year] = (byYear[year] || 0) + 1
+      }
+      
+      // Source and revenue analytics
+      if (inq.source) {
+        if (!bySource[inq.source]) {
+          bySource[inq.source] = { count: 0, revenue: 0 }
+        }
+        bySource[inq.source].count++
+        
+        // Extract revenue from notes
+        if (inq.notes) {
+          const amountMatch = inq.notes.match(/Transaction: \$(\d+\.?\d*)/)
+          if (amountMatch) {
+            const amount = parseFloat(amountMatch[1])
+            bySource[inq.source].revenue += amount
+            totalRevenue += amount
+          }
+        }
+      }
+      
+      // Extract addresses from PayPal notes
+      if (inq.source === 'paypal' && inq.notes) {
+        const addressMatch = inq.notes.match(/Address: ([^\n]+)/)
+        if (addressMatch && addressMatch[1]) {
+          const parts = addressMatch[1].split(', ')
+          const country = parts[parts.length - 1] || inq.country
+          const city = parts.length > 2 ? parts[parts.length - 3] : ''
+          addressList.push({
+            name: inq.name,
+            email: inq.email,
+            address: addressMatch[1],
+            country: country,
+            city: city,
+            date: inq.created_at
+          })
+        }
+      }
     })
 
-    return { byIndustry, byCountry, byStatus, byPackaging, byCustomerType }
+    return { byIndustry, byCountry, byStatus, byPackaging, byCustomerType, byHour, byDayOfWeek, byMonth, byYear, bySource, totalRevenue, addressList }
   }, [enrichedInquiries])
 
   const updateInquiryStatus = async (id: string, status: string) => {
@@ -740,13 +808,21 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
               <option value="all">All Packaging</option>
               {filterOptions.packagingTypes.map(p => <option key={p} value={p}>{p}</option>)}
             </select>
+            <select value={sourceFilter} onChange={(e) => { setSourceFilter(e.target.value); setCurrentPage(1) }} className="border rounded-lg px-3 py-1.5 text-sm bg-gradient-to-r from-blue-50 to-indigo-50">
+              <option value="all">All Sources</option>
+              <option value="website">🌐 Website</option>
+              <option value="paypal">🟡 PayPal</option>
+              <option value="stripe">🟣 Stripe</option>
+              <option value="import">📥 Import</option>
+              <option value="manual">✍️ Manual</option>
+            </select>
             <select value={customerTypeFilter} onChange={(e) => { setCustomerTypeFilter(e.target.value); setCurrentPage(1) }} className="border rounded-lg px-3 py-1.5 text-sm bg-gradient-to-r from-amber-50 to-orange-50">
               <option value="all">All Types</option>
               <option value="lead">🔍 Leads (Inquiry Only)</option>
               <option value="sample">📦 Sample (&lt; $100)</option>
               <option value="customer">⭐ Customer (≥ $100)</option>
             </select>
-            <button onClick={() => { setStatusFilter('all'); setIndustryFilter('all'); setCountryFilter('all'); setPackagingFilter('all'); setCustomerTypeFilter('all') }} className="text-sm text-gray-500 hover:text-gray-700">
+            <button onClick={() => { setStatusFilter('all'); setIndustryFilter('all'); setCountryFilter('all'); setPackagingFilter('all'); setSourceFilter('all'); setCustomerTypeFilter('all') }} className="text-sm text-gray-500 hover:text-gray-700">
               Clear All
             </button>
           </div>
@@ -1141,7 +1217,7 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
       {/* Analytics Modal */}
       {showAnalyticsModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="bg-white rounded-lg shadow-xl max-w-6xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-4 border-b flex items-center justify-between">
               <h3 className="font-semibold flex items-center gap-2"><BarChart3 className="h-5 w-5" /> Analytics Dashboard</h3>
               <button onClick={() => setShowAnalyticsModal(false)} className="text-gray-400 hover:text-gray-600">
@@ -1149,6 +1225,131 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
               </button>
             </div>
             <div className="p-4 grid md:grid-cols-2 gap-6">
+              {/* Transaction Time - By Hour */}
+              <div className="md:col-span-2 bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg">
+                <h4 className="font-semibold mb-3 flex items-center gap-2"><Clock className="h-4 w-4 text-blue-500" /> Transactions by Hour (When Business Happens)</h4>
+                <div className="grid grid-cols-12 gap-1 h-32">
+                  {Array.from({ length: 24 }, (_, hour) => {
+                    const count = analytics.byHour[hour] || 0
+                    const maxCount = Math.max(...Object.values(analytics.byHour), 1)
+                    const height = (count / maxCount) * 100
+                    return (
+                      <div key={hour} className="flex flex-col items-center justify-end">
+                        <div 
+                          className="w-full bg-blue-500 rounded-t transition-all hover:bg-blue-600" 
+                          style={{ height: `${height}%`, minHeight: count > 0 ? '4px' : '0' }}
+                          title={`${hour}:00 - ${count} inquiries`}
+                        />
+                        <span className="text-xs text-gray-500 mt-1">{hour}</span>
+                      </div>
+                    )
+                  })}
+                </div>
+                <p className="text-xs text-gray-500 mt-2 text-center">Hour of day (0-23, your timezone)</p>
+              </div>
+
+              {/* Transaction Time - By Day of Week */}
+              <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-lg">
+                <h4 className="font-semibold mb-3 flex items-center gap-2"><Calendar className="h-4 w-4 text-green-500" /> By Day of Week</h4>
+                <div className="space-y-2">
+                  {DAYS_OF_WEEK.map((day, idx) => {
+                    const count = analytics.byDayOfWeek[idx] || 0
+                    const maxCount = Math.max(...Object.values(analytics.byDayOfWeek), 1)
+                    return (
+                      <div key={day} className="flex items-center gap-2">
+                        <span className="text-sm w-20">{day.slice(0, 3)}</span>
+                        <div className="flex-1 bg-gray-100 rounded-full h-5 overflow-hidden">
+                          <div className="bg-green-500 h-full rounded-full" style={{ width: `${(count / maxCount) * 100}%` }} />
+                        </div>
+                        <span className="text-sm font-medium w-10 text-right">{count}</span>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+
+              {/* Transaction Time - By Month */}
+              <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-lg">
+                <h4 className="font-semibold mb-3 flex items-center gap-2"><Calendar className="h-4 w-4 text-purple-500" /> By Month (Last 12)</h4>
+                <div className="space-y-2 max-h-48 overflow-y-auto">
+                  {Object.entries(analytics.byMonth)
+                    .sort((a, b) => {
+                      const [aMonth, aYear] = a[0].split(' ')
+                      const [bMonth, bYear] = b[0].split(' ')
+                      return Number(bYear) - Number(aYear) || MONTHS.indexOf(bMonth) - MONTHS.indexOf(aMonth)
+                    })
+                    .slice(0, 12)
+                    .map(([monthYear, count]) => {
+                      const maxCount = Math.max(...Object.values(analytics.byMonth), 1)
+                      return (
+                        <div key={monthYear} className="flex items-center gap-2">
+                          <span className="text-sm w-20">{monthYear}</span>
+                          <div className="flex-1 bg-gray-100 rounded-full h-5 overflow-hidden">
+                            <div className="bg-purple-500 h-full rounded-full" style={{ width: `${(count / maxCount) * 100}%` }} />
+                          </div>
+                          <span className="text-sm font-medium w-10 text-right">{count}</span>
+                        </div>
+                      )
+                    })}
+                </div>
+              </div>
+
+              {/* Customer Addresses Map */}
+              <div className="md:col-span-2 bg-gradient-to-r from-cyan-50 to-teal-50 p-4 rounded-lg">
+                <h4 className="font-semibold mb-3 flex items-center gap-2"><MapPin className="h-4 w-4 text-cyan-500" /> Customer Addresses from PayPal ({analytics.addressList.length} addresses)</h4>
+                {analytics.addressList.length === 0 ? (
+                  <p className="text-gray-500 text-center py-4">No addresses found in PayPal data. Import PayPal transactions to see addresses.</p>
+                ) : (
+                  <div className="max-h-64 overflow-y-auto">
+                    <table className="w-full text-sm">
+                      <thead className="bg-white sticky top-0">
+                        <tr>
+                          <th className="text-left px-2 py-1">Customer</th>
+                          <th className="text-left px-2 py-1">City</th>
+                          <th className="text-left px-2 py-1">Country</th>
+                          <th className="text-left px-2 py-1">Full Address</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y">
+                        {analytics.addressList.map((addr, idx) => (
+                          <tr key={idx} className="hover:bg-white">
+                            <td className="px-2 py-1">
+                              <div className="font-medium">{addr.name}</div>
+                              <div className="text-xs text-gray-500">{addr.email}</div>
+                            </td>
+                            <td className="px-2 py-1">{addr.city}</td>
+                            <td className="px-2 py-1">
+                              <span className="px-2 py-0.5 bg-cyan-100 text-cyan-800 rounded-full text-xs">{addr.country}</span>
+                            </td>
+                            <td className="px-2 py-1 text-xs text-gray-600 max-w-xs truncate" title={addr.address}>{addr.address}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+              </div>
+
+              {/* Revenue by Source */}
+              <div className="md:col-span-2 bg-gradient-to-r from-emerald-50 to-green-50 p-4 rounded-lg">
+                <h4 className="font-semibold mb-3 flex items-center gap-2">💰 Revenue by Source (Total: ${analytics.totalRevenue.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USD)</h4>
+                <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+                  {Object.entries(analytics.bySource)
+                    .sort((a, b) => b[1].revenue - a[1].revenue)
+                    .map(([source, data]) => {
+                      const icon = source === 'paypal' ? '🟡' : source === 'stripe' ? '🟣' : source === 'website' ? '🌐' : '📥'
+                      return (
+                        <div key={source} className="bg-white p-3 rounded-lg shadow-sm text-center">
+                          <div className="text-2xl">{icon}</div>
+                          <div className="text-sm font-medium capitalize mt-1">{source}</div>
+                          <div className="text-lg font-bold text-green-600">${data.revenue.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</div>
+                          <div className="text-xs text-gray-500">{data.count} transactions</div>
+                        </div>
+                      )
+                    })}
+                </div>
+              </div>
+
               {/* By Industry */}
               <div>
                 <h4 className="font-medium mb-3 flex items-center gap-2"><Factory className="h-4 w-4" /> By Industry</h4>
