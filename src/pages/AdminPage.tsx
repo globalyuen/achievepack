@@ -46,6 +46,7 @@ const AdminPage: React.FC = () => {
   const [currentDraftId, setCurrentDraftId] = useState<string | null>(null)
   const [inquiries, setInquiries] = useState<CRMInquiry[]>([])
   const [contactFilter, setContactFilter] = useState<'all' | 'newsletter' | 'customer' | 'inquiry'>('all')
+  const [editorMode, setEditorMode] = useState<'visual' | 'html'>('visual')
 
   // Check if user is admin
   useEffect(() => {
@@ -1129,14 +1130,83 @@ const AdminPage: React.FC = () => {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Email Content</label>
-                        <textarea
-                          value={emailContent}
-                          onChange={(e) => setEmailContent(e.target.value)}
-                          placeholder="Write your email content here...\n\nYou can use {{name}} for personalization."
-                          rows={8}
-                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
-                        />
+                        <div className="flex items-center justify-between mb-1">
+                          <label className="block text-sm font-medium text-gray-700">Email Content</label>
+                          <div className="flex bg-gray-100 rounded-lg p-0.5">
+                            <button
+                              onClick={() => setEditorMode('visual')}
+                              className={`px-3 py-1 text-xs font-medium rounded-md transition-colors ${editorMode === 'visual' ? 'bg-white shadow-sm text-gray-900' : 'text-gray-500 hover:text-gray-700'}`}
+                            >
+                              Visual
+                            </button>
+                            <button
+                              onClick={() => setEditorMode('html')}
+                              className={`px-3 py-1 text-xs font-medium rounded-md transition-colors ${editorMode === 'html' ? 'bg-white shadow-sm text-gray-900' : 'text-gray-500 hover:text-gray-700'}`}
+                            >
+                              HTML
+                            </button>
+                          </div>
+                        </div>
+                        
+                        {editorMode === 'visual' ? (
+                          <div className="border border-gray-300 rounded-lg overflow-hidden">
+                            {/* Toolbar */}
+                            <div className="flex items-center gap-1 p-2 bg-gray-50 border-b">
+                              <button 
+                                onClick={() => setEmailContent(emailContent + '<h2>Heading</h2>')}
+                                className="px-2 py-1 text-xs font-bold bg-white border rounded hover:bg-gray-100"
+                              >H2</button>
+                              <button 
+                                onClick={() => setEmailContent(emailContent + '<strong>bold</strong>')}
+                                className="px-2 py-1 text-xs font-bold bg-white border rounded hover:bg-gray-100"
+                              >B</button>
+                              <button 
+                                onClick={() => setEmailContent(emailContent + '<em>italic</em>')}
+                                className="px-2 py-1 text-xs italic bg-white border rounded hover:bg-gray-100"
+                              >I</button>
+                              <button 
+                                onClick={() => setEmailContent(emailContent + '<a href="https://achievepack.com">link</a>')}
+                                className="px-2 py-1 text-xs text-blue-600 bg-white border rounded hover:bg-gray-100"
+                              >Link</button>
+                              <button 
+                                onClick={() => setEmailContent(emailContent + '<ul><li>Item 1</li><li>Item 2</li></ul>')}
+                                className="px-2 py-1 text-xs bg-white border rounded hover:bg-gray-100"
+                              >List</button>
+                              <button 
+                                onClick={() => setEmailContent(emailContent + '<blockquote>Quote text here</blockquote>')}
+                                className="px-2 py-1 text-xs bg-white border rounded hover:bg-gray-100"
+                              >Quote</button>
+                              <div className="flex-1" />
+                              <button 
+                                onClick={() => setEmailContent('')}
+                                className="px-2 py-1 text-xs text-red-600 bg-white border rounded hover:bg-red-50"
+                              >Clear</button>
+                            </div>
+                            {/* Editor + Preview Split */}
+                            <div className="grid grid-cols-2 divide-x">
+                              <textarea
+                                value={emailContent}
+                                onChange={(e) => setEmailContent(e.target.value)}
+                                placeholder="Write HTML content...\n\n<h2>Title</h2>\n<p>Your paragraph here...</p>"
+                                rows={12}
+                                className="w-full px-4 py-3 text-sm font-mono border-0 focus:ring-0 resize-none"
+                              />
+                              <div 
+                                className="p-4 prose prose-sm max-w-none overflow-y-auto bg-white" 
+                                style={{maxHeight: '300px'}}
+                                dangerouslySetInnerHTML={{__html: emailContent || '<p class="text-gray-400">Preview will appear here...</p>'}}
+                              />
+                            </div>
+                          </div>
+                        ) : (
+                          <textarea
+                            value={emailContent}
+                            onChange={(e) => setEmailContent(e.target.value)}
+                            placeholder="Write raw HTML...\n\n<h2>Title</h2>\n<p>Content</p>"
+                            rows={12}
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 font-mono text-sm"
+                          />
+                        )}
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">Closing</label>
@@ -1486,79 +1556,113 @@ Note: Email delivery in progress.`)
           {/* Email Preview Modal */}
           {showEmailPreview && (
             <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-              <div className="bg-white rounded-xl max-w-3xl w-full max-h-[90vh] overflow-hidden flex flex-col">
-                <div className="p-4 border-b flex items-center justify-between bg-gray-50">
-                  <h2 className="text-lg font-bold text-gray-900">Email Preview</h2>
+              <div className="bg-gray-100 rounded-xl max-w-4xl w-full max-h-[95vh] overflow-hidden flex flex-col shadow-2xl">
+                <div className="p-4 border-b flex items-center justify-between bg-white">
+                  <div className="flex items-center gap-3">
+                    <div className="flex gap-1.5">
+                      <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                    </div>
+                    <h2 className="text-sm font-medium text-gray-700">Email Preview - {emailSubject}</h2>
+                  </div>
                   <button onClick={() => setShowEmailPreview(false)} className="text-gray-500 hover:text-gray-700">
                     <X className="h-5 w-5" />
                   </button>
                 </div>
                 
-                {/* Email Header Preview */}
-                <div className="p-4 border-b bg-gray-100">
-                  <div className="text-sm space-y-1">
-                    <p><span className="text-gray-500">From:</span> Achieve Pack &lt;hello@achievepack.com&gt;</p>
-                    <p><span className="text-gray-500">To:</span> {'{'}recipient{'}'}</p>
-                    <p><span className="text-gray-500 font-semibold">Subject:</span> <span className="font-semibold">{emailSubject}</span></p>
+                {/* Email Client Header */}
+                <div className="p-4 bg-gray-50 border-b text-sm">
+                  <div className="space-y-1">
+                    <p className="flex gap-2"><span className="text-gray-500 w-14">From:</span> <span className="font-medium">Achieve Pack</span> &lt;hello@achievepack.com&gt;</p>
+                    <p className="flex gap-2"><span className="text-gray-500 w-14">To:</span> <span>John Doe &lt;john@example.com&gt;</span></p>
+                    <p className="flex gap-2"><span className="text-gray-500 w-14">Subject:</span> <span className="font-semibold text-gray-900">{emailSubject}</span></p>
                   </div>
                 </div>
                 
-                {/* Email Body Preview */}
-                <div className="flex-1 overflow-y-auto p-6 bg-white">
-                  <div className="max-w-xl mx-auto">
-                    {/* Logo */}
-                    <div className="text-center mb-6">
-                      <img src="/ap-logo.png" alt="Achieve Pack" className="h-10 mx-auto" />
+                {/* Email Body - Website Style */}
+                <div className="flex-1 overflow-y-auto bg-gray-100 p-6">
+                  <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
+                    {/* Header with gradient */}
+                    <div className="bg-gradient-to-r from-primary-600 to-primary-500 px-8 py-6">
+                      <img src="/ap-logo-white.png" alt="Achieve Pack" className="h-8" />
                     </div>
                     
-                    {/* Greeting */}
-                    <p className="text-gray-800 mb-4">{personalizationFields.greeting.replace('{{name}}', 'John')},</p>
+                    {/* Featured Image */}
+                    {emailImages.length > 0 && (
+                      <div className="relative">
+                        <img src={emailImages[0]} alt="" className="w-full h-64 object-cover" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                      </div>
+                    )}
                     
                     {/* Content */}
-                    <div className="text-gray-700 whitespace-pre-wrap mb-6">
-                      {emailContent || 'Your email content will appear here...'}
-                    </div>
-                    
-                    {/* Added Images */}
-                    {emailImages.length > 0 && (
-                      <div className="my-6 space-y-3">
-                        {emailImages.map((img, idx) => (
-                          <img key={idx} src={img} alt="" className="w-full rounded-lg" />
-                        ))}
+                    <div className="px-8 py-8">
+                      {/* Greeting */}
+                      <p className="text-xl text-gray-800 mb-6">{personalizationFields.greeting.replace('{{name}}', 'John')},</p>
+                      
+                      {/* Main Content - Rendered HTML */}
+                      <div 
+                        className="prose prose-lg max-w-none text-gray-700 mb-8"
+                        dangerouslySetInnerHTML={{__html: emailContent || '<p>Your email content will appear here...</p>'}}
+                      />
+                      
+                      {/* Additional Images */}
+                      {emailImages.length > 1 && (
+                        <div className="grid grid-cols-2 gap-4 my-8">
+                          {emailImages.slice(1).map((img, idx) => (
+                            <img key={idx} src={img} alt="" className="w-full rounded-xl shadow-md" />
+                          ))}
+                        </div>
+                      )}
+                      
+                      {/* CTA Button */}
+                      {selectedPage && (
+                        <div className="my-8 text-center">
+                          <a 
+                            href={`https://achievepack.com${selectedPage}`}
+                            className="inline-block px-8 py-4 bg-primary-500 text-white font-semibold rounded-xl hover:bg-primary-600 transition-colors shadow-lg"
+                          >
+                            Read More on Our Website →
+                          </a>
+                        </div>
+                      )}
+                      
+                      {/* Closing */}
+                      <div className="text-gray-700 whitespace-pre-wrap mt-8 pt-6 border-t">
+                        {personalizationFields.closing}
                       </div>
-                    )}
-                    
-                    {/* Featured Page Link */}
-                    {selectedPage && (
-                      <div className="my-6 p-4 bg-gray-50 rounded-lg border">
-                        <p className="text-sm text-gray-500 mb-2">Featured Content from: {selectedPage}</p>
-                        <a href={`https://achievepack.com${selectedPage}`} className="text-primary-600 hover:underline text-sm">
-                          Read more on our website →
-                        </a>
-                      </div>
-                    )}
-                    
-                    {/* Closing */}
-                    <div className="text-gray-700 whitespace-pre-wrap mt-6">
-                      {personalizationFields.closing}
                     </div>
                     
                     {/* Footer */}
-                    <div className="mt-8 pt-6 border-t text-center text-xs text-gray-500">
-                      <p>© 2025 Achieve Pack. All rights reserved.</p>
-                      <p className="mt-1">You're receiving this because you subscribed to our newsletter.</p>
-                      <p className="mt-1"><a href="#" className="text-primary-600 hover:underline">Unsubscribe</a></p>
+                    <div className="bg-gray-50 px-8 py-8">
+                      <div className="flex items-center justify-between mb-6">
+                        <img src="/ap-logo.png" alt="Achieve Pack" className="h-6" />
+                        <div className="flex gap-4">
+                          <a href="#" className="text-gray-400 hover:text-primary-500"><Globe className="h-5 w-5" /></a>
+                          <a href="#" className="text-gray-400 hover:text-primary-500"><Mail className="h-5 w-5" /></a>
+                        </div>
+                      </div>
+                      <div className="text-center text-xs text-gray-500 space-y-2">
+                        <p>Sustainable Packaging Solutions for Modern Brands</p>
+                        <p>© 2025 Achieve Pack. All rights reserved.</p>
+                        <p className="pt-2">
+                          <a href="#" className="text-primary-600 hover:underline">View in browser</a>
+                          <span className="mx-2">•</span>
+                          <a href="#" className="text-primary-600 hover:underline">Unsubscribe</a>
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
                 
                 {/* Actions */}
-                <div className="p-4 border-t bg-gray-50 flex gap-3">
+                <div className="p-4 border-t bg-white flex gap-3">
                   <button
                     onClick={() => setShowEmailPreview(false)}
-                    className="flex-1 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors"
+                    className="flex-1 py-2.5 border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors font-medium"
                   >
-                    Edit Content
+                    ← Edit Content
                   </button>
                   <button
                     onClick={async () => {
@@ -1568,10 +1672,23 @@ Note: Email delivery in progress.`)
                       alert('Test email sent to ryan@achievepack.com!')
                     }}
                     disabled={testEmailSending}
-                    className="flex-1 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 disabled:opacity-50 transition-colors flex items-center justify-center gap-2"
+                    className="flex-1 py-2.5 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 disabled:opacity-50 transition-colors flex items-center justify-center gap-2 font-medium"
                   >
                     {testEmailSending ? <RefreshCw className="h-4 w-4 animate-spin" /> : <Mail className="h-4 w-4" />}
-                    Test Send
+                    Send Test Email
+                  </button>
+                  <button
+                    disabled={selectedContacts.length === 0}
+                    onClick={() => {
+                      if (confirm(`Send to ${selectedContacts.length} recipients?`)) {
+                        alert('Email campaign sent!')
+                        setShowEmailPreview(false)
+                      }
+                    }}
+                    className="flex-1 py-2.5 bg-primary-500 text-white rounded-lg hover:bg-primary-600 disabled:opacity-50 transition-colors flex items-center justify-center gap-2 font-medium"
+                  >
+                    <Send className="h-4 w-4" />
+                    Send to {selectedContacts.length}
                   </button>
                 </div>
               </div>
