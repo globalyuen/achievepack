@@ -5,6 +5,7 @@ import { supabase, Order, Profile, NewsletterSubscriber, Document, Quote, Artwor
 import { blogPosts } from '../data/blogData'
 import { Home, Users, Package, Settings, Search, ChevronDown, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox, Send, FileCode, Check, Globe } from 'lucide-react'
 import CRMPanelAdvanced from '../components/admin/CRMPanelAdvanced'
+import { sendTestEmail, sendBulkEmails, generateEmailTemplate, EmailRecipient } from '../lib/brevo'
 
 type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'artwork' | 'documents' | 'newsletter' | 'crm' | 'seo-email' | 'settings'
 
@@ -47,6 +48,7 @@ const AdminPage: React.FC = () => {
   const [inquiries, setInquiries] = useState<CRMInquiry[]>([])
   const [contactFilter, setContactFilter] = useState<'all' | 'newsletter' | 'customer' | 'inquiry'>('all')
   const [editorMode, setEditorMode] = useState<'visual' | 'html'>('visual')
+  const [sendingCampaign, setSendingCampaign] = useState(false)
 
   // Check if user is admin
   useEffect(() => {
@@ -1510,14 +1512,27 @@ const AdminPage: React.FC = () => {
                       <button
                         onClick={async () => {
                           setTestEmailSending(true)
-                          // Simulate test email send
-                          await new Promise(resolve => setTimeout(resolve, 1500))
+                          try {
+                            const result = await sendTestEmail(
+                              'ryan@achievepack.com',
+                              emailSubject,
+                              emailContent,
+                              personalizationFields.greeting,
+                              personalizationFields.closing
+                            )
+                            if (result.success) {
+                              alert(`✅ Test email sent successfully!
+
+Message ID: ${result.messageId}
+
+Check your inbox at ryan@achievepack.com`)
+                            } else {
+                              alert(`❌ Failed to send test email:\n\n${result.error}`)
+                            }
+                          } catch (error) {
+                            alert(`❌ Error: ${error instanceof Error ? error.message : 'Unknown error'}`)
+                          }
                           setTestEmailSending(false)
-                          alert(`Test email sent to ryan@achievepack.com
-
-Subject: ${emailSubject}
-
-Check your inbox!`)
                         }}
                         disabled={!emailSubject || testEmailSending}
                         className="w-full py-2.5 bg-yellow-500 text-white font-medium rounded-lg hover:bg-yellow-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
@@ -1531,20 +1546,57 @@ Check your inbox!`)
                       
                       {/* Send to All Button */}
                       <button
-                        disabled={!selectedPage || !emailSubject || selectedContacts.length === 0}
-                        onClick={() => {
-                          if (confirm(`Send email to ${selectedContacts.length} recipients?\n\nSubject: ${emailSubject}`)) {
-                            alert(`Email campaign sent!
-
-Recipients: ${selectedContacts.length}
-
-Note: Email delivery in progress.`)
+                        disabled={!emailSubject || selectedContacts.length === 0 || sendingCampaign}
+                        onClick={async () => {
+                          if (!confirm(`Send email to ${selectedContacts.length} recipients?\n\nSubject: ${emailSubject}`)) return
+                          
+                          setSendingCampaign(true)
+                          try {
+                            // Build recipient list
+                            const recipients: EmailRecipient[] = []
+                            
+                            selectedContacts.forEach(contactId => {
+                              if (contactId.startsWith('newsletter_')) {
+                                const sub = subscribers.find(s => `newsletter_${s.id}` === contactId)
+                                if (sub) recipients.push({ email: sub.email, name: sub.first_name || undefined })
+                              } else if (contactId.startsWith('customer_')) {
+                                const cust = customers.find(c => `customer_${c.id}` === contactId)
+                                if (cust) recipients.push({ email: cust.email, name: cust.full_name || undefined })
+                              } else if (contactId.startsWith('inquiry_')) {
+                                const inq = inquiries.find(i => `inquiry_${i.id}` === contactId)
+                                if (inq && inq.email) recipients.push({ email: inq.email, name: inq.name || undefined })
+                              }
+                            })
+                            
+                            const fullHtml = generateEmailTemplate(
+                              emailContent,
+                              personalizationFields.greeting,
+                              personalizationFields.closing,
+                              emailImages[0],
+                              selectedPage ? `https://achievepack.com${selectedPage}` : undefined,
+                              'Read More on Our Website'
+                            )
+                            
+                            const result = await sendBulkEmails(
+                              recipients,
+                              emailSubject,
+                              fullHtml
+                            )
+                            
+                            const errMsg = result.errors.length > 0 ? '\n\nErrors:\n' + result.errors.slice(0, 5).join('\n') : ''
+                            alert('📧 Email Campaign Complete!\n\n✅ Sent: ' + result.success + '\n❌ Failed: ' + result.failed + errMsg)
+                          } catch (error) {
+                            alert(`❌ Campaign failed: ${error instanceof Error ? error.message : 'Unknown error'}`)
                           }
+                          setSendingCampaign(false)
                         }}
                         className="w-full py-3 bg-white text-primary-600 font-semibold rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
                       >
-                        <Send className="h-5 w-5" />
-                        Send to {selectedContacts.length} Recipients
+                        {sendingCampaign ? (
+                          <><RefreshCw className="h-5 w-5 animate-spin" /> Sending Campaign...</>
+                        ) : (
+                          <><Send className="h-5 w-5" /> Send to {selectedContacts.length} Recipients</>
+                        )}
                       </button>
                     </div>
                   </div>
