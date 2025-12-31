@@ -166,9 +166,34 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
       // Author Entity (專家作者)
       authorEntity,
       
-      // Main Content Entity (Article/WebPage)
+      // WebSite Entity
       {
-        "@type": schemaType,
+        "@type": "WebSite",
+        "@id": "https://achievepack.com/#website",
+        "url": "https://achievepack.com",
+        "name": "Achieve Pack",
+        "description": "Sustainable eco-friendly packaging solutions",
+        "publisher": { "@id": "https://achievepack.com/#organization" },
+        "inLanguage": "en-US"
+      },
+      
+      // WebPage Entity
+      {
+        "@type": "WebPage",
+        "@id": `${effectiveCanonicalUrl}#webpage`,
+        "url": effectiveCanonicalUrl,
+        "name": title,
+        "description": description,
+        "isPartOf": { "@id": "https://achievepack.com/#website" },
+        "about": { "@id": "https://achievepack.com/#organization" },
+        "inLanguage": "en-US",
+        "datePublished": "2025-01-01",
+        "dateModified": new Date().toISOString().split('T')[0]
+      },
+      
+      // Main Content Entity (Article/WebPage)
+      schemaType === 'Article' ? {
+        "@type": "Article",
         "@id": `${effectiveCanonicalUrl}#article`,
         "headline": title,
         "description": description,
@@ -179,21 +204,15 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         "dateModified": new Date().toISOString().split('T')[0],
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": effectiveCanonicalUrl
+          "@id": `${effectiveCanonicalUrl}#webpage`
         },
-        "about": keywords.slice(0, 5), // 主題關鍵字
-        "mentions": keywords.slice(5, 10), // 提及的相關主題
-        "inLanguage": "en-US",
-        "isPartOf": {
-          "@type": "WebSite",
-          "@id": "https://achievepack.com/#website",
-          "name": "Achieve Pack"
-        }
-      },
+        "keywords": keywords.slice(0, 10).join(', '),
+        "inLanguage": "en-US"
+      } : null,
       
       // Breadcrumb
       generateBreadcrumb(breadcrumbItems)
-    ]
+    ].filter(Boolean)
   }
 
   return (
@@ -202,19 +221,23 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         <title>{title} | Achieve Pack - Eco-Friendly Packaging Solutions</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords.join(', ')} />
-                {/* Always set canonical URL */}
-                <link rel="canonical" href={effectiveCanonicalUrl} />
+        {/* Always set canonical URL */}
+        <link rel="canonical" href={effectiveCanonicalUrl} />
         
         {/* Open Graph */}
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={ogImage} />
+        <meta property="og:image" content={ogImage.startsWith('http') ? ogImage : `https://achievepack.com${ogImage}`} />
+        <meta property="og:url" content={effectiveCanonicalUrl} />
         <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Achieve Pack" />
+        <meta property="og:locale" content="en_US" />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={ogImage.startsWith('http') ? ogImage : `https://achievepack.com${ogImage}`} />
         
         {/* Enhanced Schema.org JSON-LD with E-E-A-T Optimization */}
         <script type="application/ld+json">

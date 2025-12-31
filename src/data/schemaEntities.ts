@@ -12,43 +12,53 @@ export const organizationEntity = {
   "url": "https://achievepack.com",
   "logo": {
     "@type": "ImageObject",
+    "@id": "https://achievepack.com/#logo",
     "url": "https://achievepack.com/achieve-pack-logo.png",
-    "width": 250,
-    "height": 60
+    "contentUrl": "https://achievepack.com/achieve-pack-logo.png",
+    "width": "250",
+    "height": "60",
+    "caption": "Achieve Pack Logo"
   },
+  "image": "https://achievepack.com/imgs/og-image.webp",
   "description": "Leading sustainable flexible packaging manufacturer specializing in compostable, recyclable, and bio-based pouches. ISO 9001, BRC certified with FDA and EU food-safe compliance.",
-  "foundingDate": "2015",
+  "foundingDate": "2015-01-01",
   "slogan": "Eco-Friendly Packaging Solutions for Modern Brands",
   "sameAs": [
     "https://www.linkedin.com/company/achieve-pack",
-    "https://www.facebook.com/achievepack",
-    "https://www.instagram.com/achievepack"
+    "https://www.instagram.com/pouch_eco/"
   ],
   "contactPoint": [
     {
       "@type": "ContactPoint",
       "contactType": "sales",
-      "telephone": "+86-755-2344-5678",
-      "email": "sales@achievepack.com",
-      "availableLanguage": ["en", "zh", "es", "fr"]
+      "telephone": "+852-6970-4411",
+      "email": "ryan@achievepack.com",
+      "availableLanguage": ["English", "Chinese", "Spanish", "French"]
     },
     {
       "@type": "ContactPoint",
       "contactType": "customer support",
-      "email": "support@achievepack.com",
-      "availableLanguage": ["en", "zh"]
+      "telephone": "+852-6970-4411",
+      "email": "ryan@achievepack.com",
+      "availableLanguage": ["English", "Chinese"]
     }
   ],
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Building 3, Industrial Park",
-    "addressLocality": "Shenzhen",
-    "addressRegion": "Guangdong",
-    "postalCode": "518000",
-    "addressCountry": "CN"
+    "streetAddress": "Unit 1603, 16/F, Tower 2, Lippo Centre, 89 Queensway",
+    "addressLocality": "Admiralty",
+    "addressRegion": "Hong Kong",
+    "postalCode": "000000",
+    "addressCountry": "HK"
   },
   "areaServed": [
-    "US", "CA", "GB", "AU", "NZ", "SG", "HK", "EU", "UAE"
+    {"@type": "Country", "name": "United States"},
+    {"@type": "Country", "name": "Canada"},
+    {"@type": "Country", "name": "United Kingdom"},
+    {"@type": "Country", "name": "Australia"},
+    {"@type": "Country", "name": "New Zealand"},
+    {"@type": "Country", "name": "Singapore"},
+    {"@type": "Country", "name": "Hong Kong"}
   ],
   "knowsAbout": [
     "Compostable packaging",

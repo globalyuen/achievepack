@@ -98,13 +98,16 @@
     "url": "https://achievepack.com",
     "logo": {
       "@type": "ImageObject",
+      "@id": "https://achievepack.com/#logo",
       "url": "https://achievepack.com/achieve-pack-logo.webp",
-      "width": 512,
-      "height": 512
+      "contentUrl": "https://achievepack.com/achieve-pack-logo.webp",
+      "width": "512",
+      "height": "512",
+      "caption": "Achieve Pack Logo"
     },
     "image": "https://achievepack.com/imgs/og-image.webp",
     "description": "Leading sustainable packaging manufacturer specializing in eco-friendly pouches and bags since 2011. Certified compostable, recyclable, and bio-based packaging solutions.",
-    "foundingDate": "2011",
+    "foundingDate": "2011-01-01",
     "numberOfEmployees": {
       "@type": "QuantitativeValue",
       "minValue": 50,
@@ -118,9 +121,9 @@
     },
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "No.41 1/F Wo Liu Hang Tsuen",
-      "addressLocality": "Fotan",
-      "addressRegion": "New Territories",
+      "streetAddress": "Unit 1603, 16/F, Tower 2, Lippo Centre, 89 Queensway",
+      "addressLocality": "Admiralty",
+      "addressRegion": "Hong Kong",
       "postalCode": "000000",
       "addressCountry": "HK"
     },
@@ -131,12 +134,19 @@
         "contactType": "sales",
         "email": "ryan@achievepack.com",
         "availableLanguage": ["English", "Chinese", "Spanish", "French"],
-        "areaServed": ["US", "CA", "GB", "EU", "AU", "NZ", "HK"]
+        "areaServed": [
+          {"@type": "Country", "name": "United States"},
+          {"@type": "Country", "name": "Canada"},
+          {"@type": "Country", "name": "United Kingdom"},
+          {"@type": "Country", "name": "Australia"},
+          {"@type": "Country", "name": "New Zealand"},
+          {"@type": "Country", "name": "Hong Kong"}
+        ]
       }
     ],
     "sameAs": [
       "https://pouch.eco",
-      "https://www.instagram.com/pouch_eco",
+      "https://www.instagram.com/pouch_eco/",
       "https://www.linkedin.com/company/achieve-pack",
       "https://www.youtube.com/@AchievePack",
       "https://climate.stripe.com/WPsfbU"

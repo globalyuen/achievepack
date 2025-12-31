@@ -1,61 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Homepage - Highest Priority -->
+  <!-- Homepage -->
   <url>
     <loc>https://achievepack.com/</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Store Pages -->
+  <!-- Store -->
   <url>
     <loc>https://achievepack.com/store</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://achievepack.com/contact</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- Industry Pages -->
   <url>
     <loc>https://achievepack.com/industry/coffee-tea</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://achievepack.com/industry/snacks-food</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://achievepack.com/industry/pet-food</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://achievepack.com/industry/supplements-powders</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://achievepack.com/industry/baby-food</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://achievepack.com/industry/frozen-food</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://achievepack.com/industry/sauces-condiments</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -63,43 +71,43 @@
   <!-- Packaging Pages -->
   <url>
     <loc>https://achievepack.com/packaging/stand-up-pouches</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://achievepack.com/packaging/flat-bottom-bags</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://achievepack.com/packaging/spout-pouches</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://achievepack.com/packaging/flat-pouches</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://achievepack.com/packaging/side-gusset-bags</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://achievepack.com/packaging/vacuum-pouches</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://achievepack.com/packaging/custom-boxes</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -107,43 +115,43 @@
   <!-- Materials Pages -->
   <url>
     <loc>https://achievepack.com/materials/compostable</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/materials/recyclable-mono-pe</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/materials/recyclable-mono-pp</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/materials/bio-pe</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/materials/pcr</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://achievepack.com/materials/home-compostable</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://achievepack.com/materials/industrial-compostable</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://achievepack.com/materials/recyclable-mono-pe</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://achievepack.com/materials/recyclable-mono-pp</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://achievepack.com/materials/bio-pe</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://achievepack.com/materials/pcr</loc>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -151,13 +159,13 @@
   <!-- Printing Pages -->
   <url>
     <loc>https://achievepack.com/printing/digital-printing</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/printing/plate-printing</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -165,37 +173,37 @@
   <!-- Feature Pages -->
   <url>
     <loc>https://achievepack.com/features/reclosure-options</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/features/surface-finish</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/features/barrier-options</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/features/low-barrier</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/features/medium-barrier</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/features/high-barrier</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -203,49 +211,49 @@
   <!-- Function Pages -->
   <url>
     <loc>https://achievepack.com/function/microwave-steam-bags</loc>
-    <lastmod>2024-12-29</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/function/carbon-neutral-bags</loc>
-    <lastmod>2024-12-29</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/function/spout-pouches-juice</loc>
-    <lastmod>2024-12-29</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/function/child-resistant-bags</loc>
-    <lastmod>2024-12-29</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/function/pre-zippered-rollstock</loc>
-    <lastmod>2024-12-29</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/function/digital-printed-retort-bags</loc>
-    <lastmod>2024-12-29</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/function/rice-paper-bags</loc>
-    <lastmod>2024-12-29</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/function/pva-water-soluble-bags</loc>
-    <lastmod>2024-12-29</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -253,19 +261,19 @@
   <!-- Lab Pages -->
   <url>
     <loc>https://achievepack.com/lab/lateral-filter-bags</loc>
-    <lastmod>2024-12-29</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/lab/wire-closure-bags</loc>
-    <lastmod>2024-12-29</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/lab/lab-blender-bags</loc>
-    <lastmod>2024-12-29</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -273,19 +281,19 @@
   <!-- Company Pages -->
   <url>
     <loc>https://achievepack.com/company/about</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/company/factory-tour</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/company/certificates</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -293,7 +301,7 @@
   <!-- Team Pages -->
   <url>
     <loc>https://achievepack.com/team/ryan-wong</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -301,25 +309,31 @@
   <!-- Knowledge Pages -->
   <url>
     <loc>https://achievepack.com/knowledge/all-options</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/knowledge/size-guide</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://achievepack.com/knowledge/pouch-sizing</loc>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/knowledge/printing-types</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/knowledge/workflow</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -327,383 +341,389 @@
   <!-- Support Pages -->
   <url>
     <loc>https://achievepack.com/support/faqs</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/support/lead-time</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
-  <!-- Case Studies Pages -->
+  <!-- Case Studies -->
   <url>
     <loc>https://achievepack.com/case-studies/coffee-roastery</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/case-studies/tea-brand</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/case-studies/superfood-brand</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/case-studies/pet-treats</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/case-studies/chocolate-brand</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/case-studies/candle-brand</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/case-studies/bakery</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/case-studies/wellness-brand</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/case-studies/organic-nuts</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/case-studies/bath-products</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/case-studies/adaptogens</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/case-studies/outdoor-snacks</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Structure Spec Pages -->
+  <!-- Structure Spec Pages - Compostable Bio -->
   <url>
     <loc>https://achievepack.com/spec/bio-cello-duplex-clear</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/bio-cello-triplex-highest</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/bio-cello-triplex-metalised</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/bio-kraft-pbat-low</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/bio-kraft-vm-cello</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
+
+  <!-- Structure Spec Pages - BioPE -->
   <url>
     <loc>https://achievepack.com/spec/biope-kraft-duplex-low</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/biope-kraft-vmpet</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/biope-pet-duplex-clear</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/biope-pet-duplex-nowindow</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/biope-pet-kraft-quadlex-aluminum</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/biope-pet-kraft-triplex-clear</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/biope-pet-triplex-aluminum</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/biope-pet-triplex-metalised</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/biope-pp-duplex-clear</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/biope-pp-duplex-nowindow</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/biope-pp-kraft-quadlex-aluminum</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/biope-pp-kraft-triplex-clear</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/biope-pp-triplex-aluminum</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/biope-pp-triplex-metalised</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
+
+  <!-- Structure Spec Pages - Mono PE/PP -->
   <url>
     <loc>https://achievepack.com/spec/mono-pe-duplex-clear</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/mono-pe-duplex-nowindow</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/mono-pp-duplex-clear</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/mono-pp-duplex-nowindow</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
+
+  <!-- Structure Spec Pages - PCR -->
   <url>
     <loc>https://achievepack.com/spec/pcr-kraft-duplex-low</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/pcr-kraft-vmpet</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/pcr-pet-duplex-clear</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/pcr-pet-duplex-nowindow</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/pcr-pet-kraft-quadlex-aluminum</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/pcr-pet-kraft-triplex-clear</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/pcr-pet-triplex-aluminum</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/pcr-pet-triplex-metalised</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/pcr-pp-duplex-clear</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/pcr-pp-duplex-nowindow</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/pcr-pp-kraft-quadlex-aluminum</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/pcr-pp-kraft-triplex-clear</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/pcr-pp-triplex-aluminum</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://achievepack.com/spec/pcr-pp-triplex-metalised</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 
   <!-- Legal Pages -->
   <url>
     <loc>https://achievepack.com/terms</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://achievepack.com/privacy</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://achievepack.com/shipping</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
-  <!-- Products Pages - SEO Focused -->
+  <!-- SEO Product Pages -->
   <url>
     <loc>https://achievepack.com/products/compostable-coffee-bags</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://achievepack.com/products/compostable-stand-up-pouches</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://achievepack.com/products/recyclable-mono-material-pouches</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://achievepack.com/products/coffee-bags-degassing-valve</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://achievepack.com/products/low-moq-packaging</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Blog Pages -->
+  <!-- Blog -->
   <url>
     <loc>https://achievepack.com/blog</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://achievepack.com/blog/sustainable-packaging-supplier-analysis</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://achievepack.com/blog/recyclable-cosmetic-packaging-pouches-guide</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -711,254 +731,138 @@
   <!-- USA Regional Pages -->
   <url>
     <loc>https://achievepack.com/usa/compostable-packaging</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://achievepack.com/usa/coffee-packaging</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://achievepack.com/usa/snacks-packaging</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://achievepack.com/usa/labeling-guide</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Solutions Pages - Persona Based SEO -->
+  <!-- Solutions Pages -->
   <url>
     <loc>https://achievepack.com/solutions/startup-founder</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://achievepack.com/solutions/ecommerce-brand</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://achievepack.com/solutions/corporate-sustainability</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://achievepack.com/solutions/food-manufacturer</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://achievepack.com/solutions/product-developer</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://achievepack.com/solutions/coffee-roaster</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://achievepack.com/solutions/artisan-producer</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://achievepack.com/solutions/snack-brand-manager</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Topics Pages - AI Search Volume SEO -->
+  <!-- Topics Pages -->
   <url>
     <loc>https://achievepack.com/topics/eco-friendly-food-packaging</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://achievepack.com/topics/dtc-sustainable-packaging</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://achievepack.com/topics/green-coffee-materials</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://achievepack.com/topics/digital-printing-eco-packaging</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://achievepack.com/topics/recyclable-snack-packaging</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://achievepack.com/topics/custom-printed-sustainable-pouches</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://achievepack.com/topics/eco-packaging-regulations</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://achievepack.com/topics/compostable-pouch-suppliers</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://achievepack.com/topics/low-moq-startup-packaging</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://achievepack.com/topics/compostable-baby-food-bags</loc>
-    <lastmod>2024-12-25</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-  </url>
-
-  <!-- Contact Page -->
-  <url>
-    <loc>https://achievepack.com/contact</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Knowledge Pages - Additional -->
-  <url>
-    <loc>https://achievepack.com/knowledge/pouch-sizing</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- BioPE Spec Pages -->
-  <url>
-    <loc>https://achievepack.com/spec/biope-pet-duplex-clear</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/spec/biope-pp-duplex-clear</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/spec/biope-pet-kraft-triplex-clear</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/spec/biope-pp-kraft-triplex-clear</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/spec/biope-pet-duplex-nowindow</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/spec/biope-pp-duplex-nowindow</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/spec/biope-pet-triplex-metalised</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/spec/biope-pp-triplex-metalised</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/spec/biope-kraft-vmpet</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/spec/biope-pet-triplex-aluminum</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/spec/biope-pp-triplex-aluminum</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/spec/biope-pet-kraft-quadlex-aluminum</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/spec/biope-pp-kraft-quadlex-aluminum</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/spec/biope-kraft-duplex-low</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Additional Spec Pages -->
-  <url>
-    <loc>https://achievepack.com/spec/bio-kraft-vm-cello</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/spec/bio-kraft-pbat-low</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 </urlset>
