@@ -224,6 +224,12 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
   const [showFilters, setShowFilters] = useState(false)
   const [aiAnalyzing, setAiAnalyzing] = useState(false)
   const [aiAnalysisResults, setAiAnalysisResults] = useState<Record<string, { industry: string, country: string }>>({}) // Store AI results by inquiry ID
+  // Analytics date filter
+  const [analyticsDateFrom, setAnalyticsDateFrom] = useState<string>('')
+  const [analyticsDateTo, setAnalyticsDateTo] = useState<string>('')
+  const [analyticsAiInsight, setAnalyticsAiInsight] = useState<string>('')
+  const [analyticsAiLoading, setAnalyticsAiLoading] = useState(false)
+  const [transactionView, setTransactionView] = useState<'chart' | 'list'>('chart')
 
   useEffect(() => {
     fetchInquiries()
@@ -462,15 +468,26 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
     const byStatus: Record<string, number> = {}
     const byPackaging: Record<string, number> = {}
     const byCustomerType: Record<string, number> = { lead: 0, sample: 0, customer: 0 }
-    const byHour: Record<number, number> = {}
     const byDayOfWeek: Record<number, number> = {}
     const byMonth: Record<string, number> = {}
     const byYear: Record<number, number> = {}
     const bySource: Record<string, { count: number; revenue: number }> = {}
     const addressList: { name: string; email: string; address: string; country: string; city: string; date: string }[] = []
+    const transactionList: { name: string; email: string; amount: number; date: string; source: string; id: string }[] = []
     let totalRevenue = 0
 
+    // Date filter
+    const fromDate = analyticsDateFrom ? new Date(analyticsDateFrom) : null
+    const toDate = analyticsDateTo ? new Date(analyticsDateTo + 'T23:59:59') : null
+
     enrichedInquiries.forEach(inq => {
+      // Apply date filter
+      if (inq.created_at) {
+        const inqDate = new Date(inq.created_at)
+        if (fromDate && inqDate < fromDate) return
+        if (toDate && inqDate > toDate) return
+      }
+
       byIndustry[inq.industry] = (byIndustry[inq.industry] || 0) + 1
       if (inq.country !== 'Unknown') {
         byCountry[inq.country] = (byCountry[inq.country] || 0) + 1
@@ -484,12 +501,10 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
       // Time-based analytics
       if (inq.created_at) {
         const date = new Date(inq.created_at)
-        const hour = date.getHours()
         const dayOfWeek = date.getDay()
         const monthYear = `${MONTHS[date.getMonth()]} ${date.getFullYear()}`
         const year = date.getFullYear()
         
-        byHour[hour] = (byHour[hour] || 0) + 1
         byDayOfWeek[dayOfWeek] = (byDayOfWeek[dayOfWeek] || 0) + 1
         byMonth[monthYear] = (byMonth[monthYear] || 0) + 1
         byYear[year] = (byYear[year] || 0) + 1
@@ -509,6 +524,16 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
             const amount = parseFloat(amountMatch[1])
             bySource[inq.source].revenue += amount
             totalRevenue += amount
+            
+            // Add to transaction list
+            transactionList.push({
+              name: inq.name,
+              email: inq.email,
+              amount: amount,
+              date: inq.created_at,
+              source: inq.source,
+              id: inq.id
+            })
           }
         }
       }
@@ -532,8 +557,46 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
       }
     })
 
-    return { byIndustry, byCountry, byStatus, byPackaging, byCustomerType, byHour, byDayOfWeek, byMonth, byYear, bySource, totalRevenue, addressList }
-  }, [enrichedInquiries])
+    // Sort transactions by date (newest first)
+    transactionList.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+
+    return { byIndustry, byCountry, byStatus, byPackaging, byCustomerType, byDayOfWeek, byMonth, byYear, bySource, totalRevenue, addressList, transactionList }
+  }, [enrichedInquiries, analyticsDateFrom, analyticsDateTo])
+
+  // xAI Analytics Insights
+  const getAiInsight = async () => {
+    setAnalyticsAiLoading(true)
+    try {
+      const summaryData = {
+        totalTransactions: analytics.transactionList.length,
+        totalRevenue: analytics.totalRevenue,
+        topCountries: Object.entries(analytics.byCountry).sort((a, b) => b[1] - a[1]).slice(0, 5),
+        topIndustries: Object.entries(analytics.byIndustry).sort((a, b) => b[1] - a[1]).slice(0, 5),
+        bySource: analytics.bySource,
+        byMonth: Object.entries(analytics.byMonth).sort((a, b) => b[0].localeCompare(a[0])).slice(0, 6),
+        byDayOfWeek: DAYS_OF_WEEK.map((d, i) => ({ day: d, count: analytics.byDayOfWeek[i] || 0 })),
+        customerTypes: analytics.byCustomerType,
+        dateRange: analyticsDateFrom && analyticsDateTo ? `${analyticsDateFrom} to ${analyticsDateTo}` : 'All time'
+      }
+      
+      const response = await fetch('/api/crm-analyze', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'analytics_insight',
+          data: summaryData
+        })
+      })
+      
+      if (response.ok) {
+        const result = await response.json()
+        setAnalyticsAiInsight(result.insight || 'Unable to generate insight')
+      }
+    } catch (e) {
+      setAnalyticsAiInsight('Failed to get AI insight')
+    }
+    setAnalyticsAiLoading(false)
+  }
 
   const updateInquiryStatus = async (id: string, status: string) => {
     await supabase
@@ -1224,28 +1287,97 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
                 <X className="h-5 w-5" />
               </button>
             </div>
-            <div className="p-4 grid md:grid-cols-2 gap-6">
-              {/* Transaction Time - By Hour */}
-              <div className="md:col-span-2 bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg">
-                <h4 className="font-semibold mb-3 flex items-center gap-2"><Clock className="h-4 w-4 text-blue-500" /> Transactions by Hour (When Business Happens)</h4>
-                <div className="grid grid-cols-12 gap-1 h-32">
-                  {Array.from({ length: 24 }, (_, hour) => {
-                    const count = analytics.byHour[hour] || 0
-                    const maxCount = Math.max(...Object.values(analytics.byHour), 1)
-                    const height = (count / maxCount) * 100
-                    return (
-                      <div key={hour} className="flex flex-col items-center justify-end">
-                        <div 
-                          className="w-full bg-blue-500 rounded-t transition-all hover:bg-blue-600" 
-                          style={{ height: `${height}%`, minHeight: count > 0 ? '4px' : '0' }}
-                          title={`${hour}:00 - ${count} inquiries`}
-                        />
-                        <span className="text-xs text-gray-500 mt-1">{hour}</span>
-                      </div>
-                    )
-                  })}
+            
+            {/* Date Filter & AI Insight */}
+            <div className="p-4 bg-gradient-to-r from-indigo-50 to-purple-50 border-b">
+              <div className="flex flex-wrap items-center gap-4">
+                <div className="flex items-center gap-2">
+                  <span className="text-sm font-medium">Date Range:</span>
+                  <input type="date" value={analyticsDateFrom} onChange={(e) => setAnalyticsDateFrom(e.target.value)} className="px-2 py-1 border rounded text-sm" />
+                  <span>to</span>
+                  <input type="date" value={analyticsDateTo} onChange={(e) => setAnalyticsDateTo(e.target.value)} className="px-2 py-1 border rounded text-sm" />
+                  {(analyticsDateFrom || analyticsDateTo) && (
+                    <button onClick={() => { setAnalyticsDateFrom(''); setAnalyticsDateTo('') }} className="text-xs text-red-500 hover:underline">Clear</button>
+                  )}
                 </div>
-                <p className="text-xs text-gray-500 mt-2 text-center">Hour of day (0-23, your timezone)</p>
+                <div className="flex items-center gap-2">
+                  <button onClick={() => { const d = new Date(); setAnalyticsDateFrom(new Date(d.getFullYear(), d.getMonth(), 1).toISOString().split('T')[0]); setAnalyticsDateTo(d.toISOString().split('T')[0]) }} className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs hover:bg-blue-200">This Month</button>
+                  <button onClick={() => { const d = new Date(); setAnalyticsDateFrom(new Date(d.getFullYear(), 0, 1).toISOString().split('T')[0]); setAnalyticsDateTo(d.toISOString().split('T')[0]) }} className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs hover:bg-green-200">This Year</button>
+                  <button onClick={() => { const d = new Date(); const last = new Date(d.getFullYear(), d.getMonth() - 1, 1); setAnalyticsDateFrom(last.toISOString().split('T')[0]); setAnalyticsDateTo(new Date(d.getFullYear(), d.getMonth(), 0).toISOString().split('T')[0]) }} className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs hover:bg-purple-200">Last Month</button>
+                </div>
+                <button onClick={getAiInsight} disabled={analyticsAiLoading} className="ml-auto flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded text-sm hover:opacity-90 disabled:opacity-50">
+                  <Sparkles className="h-4 w-4" />
+                  {analyticsAiLoading ? 'Analyzing...' : 'AI Insight'}
+                </button>
+              </div>
+              {analyticsAiInsight && (
+                <div className="mt-3 p-3 bg-white rounded-lg border border-purple-200">
+                  <p className="text-sm text-gray-700 whitespace-pre-wrap">{analyticsAiInsight}</p>
+                </div>
+              )}
+            </div>
+
+            <div className="p-4 grid md:grid-cols-2 gap-6">
+              {/* Transaction List */}
+              <div className="md:col-span-2 bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg">
+                <div className="flex items-center justify-between mb-3">
+                  <h4 className="font-semibold flex items-center gap-2"><Calendar className="h-4 w-4 text-blue-500" /> Transactions ({analytics.transactionList.length} payments)</h4>
+                  <div className="flex gap-2">
+                    <button onClick={() => setTransactionView('chart')} className={`px-2 py-1 rounded text-xs ${transactionView === 'chart' ? 'bg-blue-500 text-white' : 'bg-gray-100'}`}>Chart</button>
+                    <button onClick={() => setTransactionView('list')} className={`px-2 py-1 rounded text-xs ${transactionView === 'list' ? 'bg-blue-500 text-white' : 'bg-gray-100'}`}>List</button>
+                  </div>
+                </div>
+                {transactionView === 'list' ? (
+                  <div className="max-h-64 overflow-y-auto">
+                    <table className="w-full text-sm">
+                      <thead className="bg-white sticky top-0">
+                        <tr>
+                          <th className="text-left px-2 py-1">Date</th>
+                          <th className="text-left px-2 py-1">Customer</th>
+                          <th className="text-left px-2 py-1">Source</th>
+                          <th className="text-right px-2 py-1">Amount</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y">
+                        {analytics.transactionList.map((tx, idx) => (
+                          <tr key={idx} className="hover:bg-white">
+                            <td className="px-2 py-1 text-xs">{new Date(tx.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</td>
+                            <td className="px-2 py-1">
+                              <div className="font-medium">{tx.name}</div>
+                              <div className="text-xs text-gray-500">{tx.email}</div>
+                            </td>
+                            <td className="px-2 py-1">
+                              <span className={`px-2 py-0.5 rounded-full text-xs ${tx.source === 'paypal' ? 'bg-yellow-100 text-yellow-800' : tx.source === 'stripe' ? 'bg-purple-100 text-purple-800' : 'bg-gray-100'}`}>{tx.source}</span>
+                            </td>
+                            <td className="px-2 py-1 text-right font-bold text-green-600">${tx.amount.toLocaleString('en-US', { minimumFractionDigits: 2 })}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                ) : (
+                  <div className="space-y-2 max-h-48 overflow-y-auto">
+                    {Object.entries(analytics.byMonth)
+                      .sort((a, b) => {
+                        const [aMonth, aYear] = a[0].split(' ')
+                        const [bMonth, bYear] = b[0].split(' ')
+                        return Number(bYear) - Number(aYear) || MONTHS.indexOf(bMonth) - MONTHS.indexOf(aMonth)
+                      })
+                      .slice(0, 12)
+                      .map(([monthYear, count]) => {
+                        const maxCount = Math.max(...Object.values(analytics.byMonth), 1)
+                        return (
+                          <div key={monthYear} className="flex items-center gap-2">
+                            <span className="text-sm w-20">{monthYear}</span>
+                            <div className="flex-1 bg-gray-100 rounded-full h-5 overflow-hidden">
+                              <div className="bg-blue-500 h-full rounded-full" style={{ width: `${(count / maxCount) * 100}%` }} />
+                            </div>
+                            <span className="text-sm font-medium w-10 text-right">{count}</span>
+                          </div>
+                        )
+                      })}
+                  </div>
+                )}
               </div>
 
               {/* Transaction Time - By Day of Week */}

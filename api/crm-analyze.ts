@@ -135,6 +135,67 @@ Return ONLY valid JSON array like:
   }
 }
 
+// Generate AI insight for analytics data
+async function generateAnalyticsInsight(data: any): Promise<string> {
+  const XAI_API_KEY = process.env.XAI_API_KEY
+  
+  if (!XAI_API_KEY) {
+    throw new Error('XAI API key not configured')
+  }
+
+  const systemPrompt = `You are a business analytics expert for a packaging company. Analyze the CRM and sales data provided and give actionable insights. Be concise and practical. Focus on:
+1. Revenue trends and patterns
+2. Customer behavior insights
+3. Market opportunities
+4. Recommendations for growth
+Keep response under 200 words.`
+
+  try {
+    const response = await fetch('https://api.x.ai/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${XAI_API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: 'grok-3-mini-beta',
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { 
+            role: 'user', 
+            content: `Analyze this CRM data and provide business insights:
+
+Date Range: ${data.dateRange}
+Total Transactions: ${data.totalTransactions}
+Total Revenue: $${data.totalRevenue?.toLocaleString() || 0}
+
+Top Countries: ${JSON.stringify(data.topCountries)}
+Top Industries: ${JSON.stringify(data.topIndustries)}
+Revenue by Source: ${JSON.stringify(data.bySource)}
+Monthly Trend: ${JSON.stringify(data.byMonth)}
+Day of Week Pattern: ${JSON.stringify(data.byDayOfWeek)}
+Customer Types: ${JSON.stringify(data.customerTypes)}
+
+Provide 3-4 key insights and recommendations.`
+          },
+        ],
+        max_tokens: 500,
+        temperature: 0.5,
+      }),
+    })
+
+    if (!response.ok) {
+      throw new Error(`API error: ${response.status}`)
+    }
+
+    const result = await response.json()
+    return result.choices?.[0]?.message?.content || 'Unable to generate insight'
+  } catch (error) {
+    console.error('Analytics Insight Error:', error)
+    throw error
+  }
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
@@ -149,7 +210,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const { inquiries } = req.body
+    const { inquiries, type, data } = req.body
+    
+    // Handle analytics insight request
+    if (type === 'analytics_insight' && data) {
+      const insight = await generateAnalyticsInsight(data)
+      return res.status(200).json({ success: true, insight })
+    }
     
     if (!inquiries || !Array.isArray(inquiries)) {
       return res.status(400).json({ error: 'Invalid inquiries data' })
