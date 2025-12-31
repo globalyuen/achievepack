@@ -172,3 +172,55 @@ export type CRMActivity = {
   created_by: string
   created_at: string
 }
+
+// Email Draft
+export type EmailDraft = {
+  id: string
+  name?: string
+  subject: string
+  greeting: string
+  content: string
+  closing: string
+  selected_page?: string
+  images: string[]
+  status: 'draft' | 'scheduled' | 'sent'
+  created_at: string
+  updated_at: string
+}
+
+// Email Campaign
+export type EmailCampaign = {
+  id: string
+  draft_id?: string
+  subject: string
+  content: string
+  total_recipients: number
+  sent_count: number
+  failed_count: number
+  status: 'pending' | 'sending' | 'completed' | 'failed'
+  sent_at?: string
+  created_at: string
+}
+
+// Email Recipient
+export type EmailRecipient = {
+  id: string
+  campaign_id: string
+  email: string
+  name?: string
+  source: 'newsletter' | 'customer' | 'inquiry'
+  status: 'pending' | 'sent' | 'failed' | 'opened'
+  sent_at?: string
+  opened_at?: string
+}
+
+// Master Contact
+export type MasterContact = {
+  id: string
+  email: string
+  name?: string
+  source: 'newsletter' | 'customer' | 'inquiry' | 'import'
+  subscribed: boolean
+  created_at: string
+  updated_at: string
+}

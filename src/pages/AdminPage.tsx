@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
-import { supabase, Order, Profile, NewsletterSubscriber, Document, Quote, ArtworkFile } from '../lib/supabase'
+import { supabase, Order, Profile, NewsletterSubscriber, Document, Quote, ArtworkFile, EmailDraft } from '../lib/supabase'
 import { Home, Users, Package, Settings, Search, ChevronDown, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox, Send, FileCode, Check, Globe } from 'lucide-react'
 import CRMPanelAdvanced from '../components/admin/CRMPanelAdvanced'
 
@@ -40,6 +40,9 @@ const AdminPage: React.FC = () => {
   const [showEmailPreview, setShowEmailPreview] = useState(false)
   const [emailImages, setEmailImages] = useState<string[]>([])
   const [testEmailSending, setTestEmailSending] = useState(false)
+  const [emailDrafts, setEmailDrafts] = useState<EmailDraft[]>([])
+  const [savingDraft, setSavingDraft] = useState(false)
+  const [currentDraftId, setCurrentDraftId] = useState<string | null>(null)
 
   // Check if user is admin
   useEffect(() => {
@@ -57,17 +60,74 @@ const AdminPage: React.FC = () => {
 
   const fetchData = async () => {
     setLoading(true)
-    const [customersRes, ordersRes, subscribersRes, documentsRes] = await Promise.all([
+    const [customersRes, ordersRes, subscribersRes, documentsRes, draftsRes] = await Promise.all([
       supabase.from('profiles').select('*').order('created_at', { ascending: false }),
       supabase.from('orders').select('*').order('created_at', { ascending: false }),
       supabase.from('newsletter_subscribers').select('*').order('created_at', { ascending: false }),
-      supabase.from('documents').select('*').order('created_at', { ascending: false })
+      supabase.from('documents').select('*').order('created_at', { ascending: false }),
+      supabase.from('email_drafts').select('*').order('updated_at', { ascending: false })
     ])
     setCustomers(customersRes.data || [])
     setOrders(ordersRes.data || [])
     setSubscribers(subscribersRes.data || [])
     setDocuments(documentsRes.data || [])
+    setEmailDrafts(draftsRes.data || [])
     setLoading(false)
+  }
+
+  // Save email draft
+  const saveDraft = async () => {
+    setSavingDraft(true)
+    const draftData = {
+      name: emailSubject || 'Untitled Draft',
+      subject: emailSubject,
+      greeting: personalizationFields.greeting,
+      content: emailContent,
+      closing: personalizationFields.closing,
+      selected_page: selectedPage,
+      images: emailImages,
+      status: 'draft' as const,
+      updated_at: new Date().toISOString()
+    }
+    
+    if (currentDraftId) {
+      await supabase.from('email_drafts').update(draftData).eq('id', currentDraftId)
+    } else {
+      const { data } = await supabase.from('email_drafts').insert([draftData]).select().single()
+      if (data) setCurrentDraftId(data.id)
+    }
+    
+    setSavingDraft(false)
+    fetchData()
+    alert('Draft saved!')
+  }
+
+  // Load email draft
+  const loadDraft = (draft: EmailDraft) => {
+    setCurrentDraftId(draft.id)
+    setEmailSubject(draft.subject)
+    setEmailContent(draft.content)
+    setSelectedPage(draft.selected_page || '')
+    setEmailImages(draft.images || [])
+    setPersonalizationFields({
+      greeting: draft.greeting || 'Hi {{name}}',
+      closing: draft.closing || 'Best regards,\nRyan Wong\nAchievePack Team'
+    })
+  }
+
+  // Delete draft
+  const deleteDraft = async (id: string) => {
+    if (confirm('Delete this draft?')) {
+      await supabase.from('email_drafts').delete().eq('id', id)
+      if (currentDraftId === id) {
+        setCurrentDraftId(null)
+        setEmailSubject('')
+        setEmailContent('')
+        setSelectedPage('')
+        setEmailImages([])
+      }
+      fetchData()
+    }
   }
 
   const handleSignOut = async () => {
@@ -968,10 +1028,28 @@ const AdminPage: React.FC = () => {
 
                   {/* Email Builder */}
                   <div className="bg-white rounded-xl shadow-sm border p-6">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                      <Mail className="h-5 w-5 text-green-500" />
-                      Email Builder
-                    </h3>
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                        <Mail className="h-5 w-5 text-green-500" />
+                        Email Builder
+                        {currentDraftId && <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Editing Draft</span>}
+                      </h3>
+                      {currentDraftId && (
+                        <button
+                          onClick={() => {
+                            setCurrentDraftId(null)
+                            setEmailSubject('')
+                            setEmailContent('')
+                            setSelectedPage('')
+                            setEmailImages([])
+                            setPersonalizationFields({ greeting: 'Hi {{name}}', closing: 'Best regards,\nRyan Wong\nAchievePack Team' })
+                          }}
+                          className="text-sm text-primary-600 hover:text-primary-700 font-medium"
+                        >
+                          + New Email
+                        </button>
+                      )}
+                    </div>
                     <div className="space-y-4">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">Subject Line</label>
@@ -1054,6 +1132,32 @@ const AdminPage: React.FC = () => {
                       </div>
                     </div>
                   </div>
+
+                  {/* Saved Drafts */}
+                  {emailDrafts.length > 0 && (
+                    <div className="bg-white rounded-xl shadow-sm border p-6">
+                      <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <FileText className="h-5 w-5 text-orange-500" />
+                        Saved Drafts ({emailDrafts.length})
+                      </h3>
+                      <div className="space-y-2 max-h-[200px] overflow-y-auto">
+                        {emailDrafts.map(draft => (
+                          <div key={draft.id} className={`flex items-center justify-between p-3 rounded-lg border cursor-pointer hover:bg-gray-50 transition-colors ${currentDraftId === draft.id ? 'border-primary-500 bg-primary-50' : 'border-gray-200'}`}>
+                            <div className="flex-1 min-w-0" onClick={() => loadDraft(draft)}>
+                              <p className="text-sm font-medium text-gray-900 truncate">{draft.name || 'Untitled'}</p>
+                              <p className="text-xs text-gray-500">{new Date(draft.updated_at).toLocaleString()}</p>
+                            </div>
+                            <button
+                              onClick={(e) => { e.stopPropagation(); deleteDraft(draft.id); }}
+                              className="ml-2 text-red-500 hover:text-red-700"
+                            >
+                              <Trash2 className="h-4 w-4" />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Right Column - Contact Selection */}
@@ -1168,6 +1272,19 @@ const AdminPage: React.FC = () => {
                     
                     {/* Action Buttons */}
                     <div className="space-y-2">
+                      {/* Save Draft Button */}
+                      <button
+                        onClick={saveDraft}
+                        disabled={!emailSubject || savingDraft}
+                        className="w-full py-2.5 bg-gray-700 text-white font-medium rounded-lg hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+                      >
+                        {savingDraft ? (
+                          <><RefreshCw className="h-4 w-4 animate-spin" /> Saving...</>
+                        ) : (
+                          <><FileText className="h-4 w-4" /> {currentDraftId ? 'Update Draft' : 'Save Draft'}</>
+                        )}
+                      </button>
+
                       {/* Preview Button */}
                       <button
                         onClick={() => setShowEmailPreview(true)}
