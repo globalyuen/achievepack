@@ -230,6 +230,10 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
   const [analyticsAiInsight, setAnalyticsAiInsight] = useState<string>('')
   const [analyticsAiLoading, setAnalyticsAiLoading] = useState(false)
   const [transactionView, setTransactionView] = useState<'chart' | 'list'>('chart')
+  // Transaction edit modal
+  const [editingTransaction, setEditingTransaction] = useState<{ id: string; name: string; email: string; amount: number; source: string; date: string } | null>(null)
+  const [savingTransaction, setSavingTransaction] = useState(false)
+  const [activitySaveStatus, setActivitySaveStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle')
 
   useEffect(() => {
     fetchInquiries()
@@ -625,40 +629,89 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
 
   const addNote = async () => {
     if (!selectedInquiry || !newNote.trim()) return
+    setActivitySaveStatus('saving')
     
-    await supabase.from('crm_activities').insert({
-      inquiry_id: selectedInquiry.id,
-      type: 'note',
-      content: newNote,
-      created_by: 'admin'
-    })
-    
-    await supabase.from('crm_inquiries').update({ updated_at: new Date().toISOString() }).eq('id', selectedInquiry.id)
-    
-    setNewNote('')
-    fetchActivities(selectedInquiry.id)
-    fetchInquiries()
+    try {
+      const { error } = await supabase.from('crm_activities').insert({
+        inquiry_id: selectedInquiry.id,
+        type: 'note',
+        content: newNote,
+        created_by: 'admin'
+      })
+      
+      if (error) throw error
+      
+      await supabase.from('crm_inquiries').update({ updated_at: new Date().toISOString() }).eq('id', selectedInquiry.id)
+      
+      setNewNote('')
+      setActivitySaveStatus('saved')
+      setTimeout(() => setActivitySaveStatus('idle'), 2000)
+      fetchActivities(selectedInquiry.id)
+      fetchInquiries()
+    } catch (err) {
+      console.error('Error saving note:', err)
+      setActivitySaveStatus('error')
+      setTimeout(() => setActivitySaveStatus('idle'), 3000)
+    }
   }
 
   const addCustomerReply = async () => {
     if (!selectedInquiry || !customerReply.trim()) return
+    setActivitySaveStatus('saving')
     
-    await supabase.from('crm_activities').insert({
-      inquiry_id: selectedInquiry.id,
-      type: 'email',
-      subject: 'Customer Reply',
-      content: `[CUSTOMER REPLY]\n${customerReply}`,
-      created_by: 'customer'
-    })
+    try {
+      const { error } = await supabase.from('crm_activities').insert({
+        inquiry_id: selectedInquiry.id,
+        type: 'email',
+        subject: 'Customer Reply',
+        content: `[CUSTOMER REPLY]\n${customerReply}`,
+        created_by: 'customer'
+      })
+      
+      if (error) throw error
+      
+      await supabase.from('crm_inquiries').update({ 
+        updated_at: new Date().toISOString(),
+        status: 'follow_up'
+      }).eq('id', selectedInquiry.id)
+      
+      setCustomerReply('')
+      setActivitySaveStatus('saved')
+      setTimeout(() => setActivitySaveStatus('idle'), 2000)
+      fetchActivities(selectedInquiry.id)
+      fetchInquiries()
+    } catch (err) {
+      console.error('Error saving customer reply:', err)
+      setActivitySaveStatus('error')
+      setTimeout(() => setActivitySaveStatus('idle'), 3000)
+    }
+  }
+
+  const saveTransactionEdit = async () => {
+    if (!editingTransaction) return
+    setSavingTransaction(true)
     
-    await supabase.from('crm_inquiries').update({ 
-      updated_at: new Date().toISOString(),
-      status: 'follow_up'
-    }).eq('id', selectedInquiry.id)
-    
-    setCustomerReply('')
-    fetchActivities(selectedInquiry.id)
-    fetchInquiries()
+    try {
+      const { error } = await supabase
+        .from('crm_inquiries')
+        .update({
+          name: editingTransaction.name,
+          email: editingTransaction.email,
+          source: editingTransaction.source as any,
+          notes: `Transaction: $${editingTransaction.amount.toFixed(2)}\nCustomer Type: ${editingTransaction.amount >= 100 ? 'customer' : 'sample'}`,
+          updated_at: new Date().toISOString()
+        })
+        .eq('id', editingTransaction.id)
+      
+      if (error) throw error
+      
+      setEditingTransaction(null)
+      fetchInquiries()
+    } catch (err) {
+      console.error('Error saving transaction:', err)
+      alert('Failed to save transaction')
+    }
+    setSavingTransaction(false)
   }
 
   const generateAIEmail = async () => {
@@ -1115,13 +1168,26 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
                   placeholder="Paste customer's email reply here..."
                   className="w-full px-3 py-2 border rounded-lg text-sm h-20 resize-none"
                 />
-                <button
-                  onClick={addCustomerReply}
-                  disabled={!customerReply.trim()}
-                  className="mt-2 w-full flex items-center justify-center gap-2 px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 disabled:opacity-50"
-                >
-                  <Plus className="h-4 w-4" /> Save Reply
-                </button>
+                <div className="flex items-center gap-2 mt-2">
+                  <button
+                    onClick={addCustomerReply}
+                    disabled={!customerReply.trim() || activitySaveStatus === 'saving'}
+                    className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 disabled:opacity-50"
+                  >
+                    {activitySaveStatus === 'saving' ? (
+                      <><RefreshCw className="h-4 w-4 animate-spin" /> Saving...</>
+                    ) : activitySaveStatus === 'saved' ? (
+                      <><CheckCircle className="h-4 w-4 text-green-500" /> Saved!</>
+                    ) : activitySaveStatus === 'error' ? (
+                      <><AlertCircle className="h-4 w-4 text-red-500" /> Error - Try Again</>
+                    ) : (
+                      <><Plus className="h-4 w-4" /> Save Reply</>
+                    )}
+                  </button>
+                </div>
+                {activitySaveStatus === 'error' && (
+                  <p className="text-xs text-red-500 mt-1">Failed to save. Check if crm_activities table exists in Supabase.</p>
+                )}
               </div>
 
               {/* Notes */}
@@ -1136,8 +1202,12 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
                     className="flex-1 px-3 py-2 border rounded-lg text-sm"
                     onKeyDown={(e) => e.key === 'Enter' && addNote()}
                   />
-                  <button onClick={addNote} className="px-3 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200">
-                    <Plus className="h-4 w-4" />
+                  <button 
+                    onClick={addNote} 
+                    disabled={activitySaveStatus === 'saving'}
+                    className="px-3 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 disabled:opacity-50"
+                  >
+                    {activitySaveStatus === 'saving' ? <RefreshCw className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}
                   </button>
                 </div>
               </div>
@@ -1336,11 +1406,12 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
                           <th className="text-left px-2 py-1">Customer</th>
                           <th className="text-left px-2 py-1">Source</th>
                           <th className="text-right px-2 py-1">Amount</th>
+                          <th className="px-1 py-1"></th>
                         </tr>
                       </thead>
                       <tbody className="divide-y">
                         {analytics.transactionList.map((tx, idx) => (
-                          <tr key={idx} className="hover:bg-white">
+                          <tr key={idx} className="hover:bg-white cursor-pointer" onClick={() => setEditingTransaction({ id: tx.id, name: tx.name, email: tx.email, amount: tx.amount, source: tx.source, date: tx.date })}>
                             <td className="px-2 py-1 text-xs">{new Date(tx.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</td>
                             <td className="px-2 py-1">
                               <div className="font-medium">{tx.name}</div>
@@ -1350,6 +1421,9 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
                               <span className={`px-2 py-0.5 rounded-full text-xs ${tx.source === 'paypal' ? 'bg-yellow-100 text-yellow-800' : tx.source === 'stripe' ? 'bg-purple-100 text-purple-800' : 'bg-gray-100'}`}>{tx.source}</span>
                             </td>
                             <td className="px-2 py-1 text-right font-bold text-green-600">${tx.amount.toLocaleString('en-US', { minimumFractionDigits: 2 })}</td>
+                            <td className="px-1 py-1">
+                              <button className="text-gray-400 hover:text-blue-500" title="Edit"><Edit className="h-3 w-3" /></button>
+                            </td>
                           </tr>
                         ))}
                       </tbody>
@@ -1619,6 +1693,94 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
               {activities.length === 0 && (
                 <p className="text-center text-gray-400 py-8">No follow-up activity yet</p>
               )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Edit Transaction Modal */}
+      {editingTransaction && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" onClick={() => setEditingTransaction(null)}>
+          <div className="bg-white rounded-xl shadow-2xl w-full max-w-md p-6" onClick={e => e.stopPropagation()}>
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-bold">Edit Transaction</h3>
+              <button onClick={() => setEditingTransaction(null)} className="text-gray-400 hover:text-gray-600">
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Customer Name</label>
+                <input
+                  type="text"
+                  value={editingTransaction.name}
+                  onChange={(e) => setEditingTransaction({ ...editingTransaction, name: e.target.value })}
+                  className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <input
+                  type="email"
+                  value={editingTransaction.email}
+                  onChange={(e) => setEditingTransaction({ ...editingTransaction, email: e.target.value })}
+                  className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Amount ($)</label>
+                <input
+                  type="number"
+                  value={editingTransaction.amount}
+                  onChange={(e) => setEditingTransaction({ ...editingTransaction, amount: parseFloat(e.target.value) || 0 })}
+                  className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                  step="0.01"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Source</label>
+                <select
+                  value={editingTransaction.source}
+                  onChange={(e) => setEditingTransaction({ ...editingTransaction, source: e.target.value })}
+                  className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="paypal">PayPal</option>
+                  <option value="stripe">Stripe</option>
+                  <option value="website">Website</option>
+                  <option value="import">Import</option>
+                  <option value="manual">Manual</option>
+                </select>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Date</label>
+                <input
+                  type="date"
+                  value={editingTransaction.date.split('T')[0]}
+                  onChange={(e) => setEditingTransaction({ ...editingTransaction, date: e.target.value + 'T00:00:00.000Z' })}
+                  className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+            </div>
+            
+            <div className="flex gap-3 mt-6">
+              <button
+                onClick={() => setEditingTransaction(null)}
+                className="flex-1 px-4 py-2 border rounded-lg hover:bg-gray-50"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={saveTransactionEdit}
+                disabled={savingTransaction}
+                className="flex-1 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:opacity-50"
+              >
+                {savingTransaction ? 'Saving...' : 'Save Changes'}
+              </button>
             </div>
           </div>
         </div>
