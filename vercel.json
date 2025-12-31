@@ -1,7 +1,9 @@
 {
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/((?!api/|imgs/|assets/|.*\\.webp|.*\\.png|.*\\.jpg|.*\\.svg|.*\\.woff2|.*\\.js|.*\\.css).*)", "destination": "/index.html" }
+    { "source": "/api/:path*", "destination": "/api/:path*" },
+    { "source": "/imgs/:path*", "destination": "/imgs/:path*" },
+    { "source": "/assets/:path*", "destination": "/assets/:path*" },
+    { "source": "/:path*", "destination": "/index.html" }
   ],
   "headers": [
     {
