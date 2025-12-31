@@ -364,7 +364,7 @@ export default function ImageCatalogPage() {
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between flex-wrap gap-3">
             <div className="flex items-center gap-4">
-              <Link to="/admin" className="text-neutral-500 hover:text-neutral-900">
+              <Link to="/ctrl-x9k7m" className="text-neutral-500 hover:text-neutral-900">
                 <ArrowLeft className="h-5 w-5" />
               </Link>
               <div>

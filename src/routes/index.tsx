@@ -201,8 +201,8 @@ const routes = [
   { path: "/dashboard", element: <LazyRoute component={() => import('../pages/DashboardPage')} fallback={<LoadingFallback />} /> },
   { path: "/terms", element: <LazyRoute component={() => import('../pages/TermsPage')} fallback={<LoadingFallback />} /> },
   { path: "/contact", element: <LazyRoute component={() => import('../pages/ContactPage')} fallback={<LoadingFallback />} /> },
-  { path: "/admin", element: <LazyRoute component={() => import('../pages/AdminPage')} fallback={<LoadingFallback />} /> },
-  { path: "/admin/management", element: <LazyRoute component={() => import('../pages/AdminManagementPage')} fallback={<LoadingFallback />} /> },
+  { path: "/ctrl-x9k7m", element: <LazyRoute component={() => import('../pages/AdminPage')} fallback={<LoadingFallback />} /> },
+  { path: "/ctrl-x9k7m/management", element: <LazyRoute component={() => import('../pages/AdminManagementPage')} fallback={<LoadingFallback />} /> },
 
   // Industry Pages
   { path: "/industry/coffee-tea", element: <LazyRoute component={() => import('../pages/industry/CoffeeTeaPage')} fallback={<LoadingFallback />} /> },

@@ -132,7 +132,7 @@ const LoginPage: React.FC = () => {
     } else {
       // Redirect admin to /admin, others to /dashboard
       if (email.toLowerCase() === ADMIN_EMAIL) {
-        navigate('/admin')
+        navigate('/ctrl-x9k7m')
       } else {
         navigate('/dashboard')
       }

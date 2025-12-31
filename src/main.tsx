@@ -254,8 +254,8 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/dashboard" element={<DashboardPage />} />
               <Route path="/terms" element={<TermsPage />} />
               <Route path="/contact" element={<ContactPage />} />
-              <Route path="/admin" element={<AdminPage />} />
-              <Route path="/admin/management" element={<AdminManagementPage />} />
+              <Route path="/ctrl-x9k7m" element={<AdminPage />} />
+              <Route path="/ctrl-x9k7m/management" element={<AdminManagementPage />} />
               <Route path="/image-catalog" element={<ImageCatalogPage />} />
 
               {/* Industry Pages */}

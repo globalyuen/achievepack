@@ -318,7 +318,7 @@ const AdminPage: React.FC = () => {
               </button>
 
               <Link
-                to="/admin/management?tab=quotes"
+                to="/ctrl-x9k7m/management?tab=quotes"
                 className="flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 text-gray-900 hover:bg-yellow-50 hover:text-yellow-600"
               >
                 <MessageSquare className="flex-shrink-0 w-5 h-5 mr-4" />
@@ -326,7 +326,7 @@ const AdminPage: React.FC = () => {
               </Link>
 
               <Link
-                to="/admin/management?tab=artwork"
+                to="/ctrl-x9k7m/management?tab=artwork"
                 className="flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 text-gray-900 hover:bg-purple-50 hover:text-purple-600"
               >
                 <Image className="flex-shrink-0 w-5 h-5 mr-4" />
