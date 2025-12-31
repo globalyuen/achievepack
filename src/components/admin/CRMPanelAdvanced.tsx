@@ -234,6 +234,7 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
   const [editingTransaction, setEditingTransaction] = useState<{ id: string; name: string; email: string; amount: number; source: string; date: string } | null>(null)
   const [savingTransaction, setSavingTransaction] = useState(false)
   const [activitySaveStatus, setActivitySaveStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle')
+    const [activeTab, setActiveTab] = useState<'contacts' | 'analytics'>('contacts')
 
   useEffect(() => {
     fetchInquiries()
@@ -824,6 +825,24 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
 
   return (
     <div className="space-y-4">
+      {/* Tab Navigation */}
+      <div className="flex gap-1 bg-gray-100 p-1 rounded-lg w-fit">
+        <button
+          onClick={() => setActiveTab('contacts')}
+          className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${activeTab === 'contacts' ? 'bg-white shadow text-primary-600' : 'text-gray-600 hover:text-gray-900'}`}
+        >
+          <Users className="h-4 w-4 inline mr-2" />Contacts ({inquiries.length})
+        </button>
+        <button
+          onClick={() => setActiveTab('analytics')}
+          className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${activeTab === 'analytics' ? 'bg-white shadow text-primary-600' : 'text-gray-600 hover:text-gray-900'}`}
+        >
+          <BarChart3 className="h-4 w-4 inline mr-2" />Analytics
+        </button>
+      </div>
+
+      {activeTab === 'contacts' && (
+      <>
       {/* Stats Cards */}
       <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
         <div className="bg-white p-3 rounded-lg shadow-sm border">
@@ -878,10 +897,6 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
             </button>
           </div>
           <div className="flex items-center gap-2">
-            <button onClick={() => setShowAnalyticsModal(true)} className="flex items-center gap-2 px-3 py-2 text-gray-600 hover:bg-gray-100 rounded-lg text-sm">
-              <BarChart3 className="h-4 w-4" />
-              Analytics
-            </button>
             <button 
               onClick={runAiDeepAnalysis} 
               disabled={aiAnalyzing}
@@ -1250,6 +1265,284 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
           )}
         </div>
       </div>
+      </>
+      )}
+
+      {/* Analytics Tab */}
+      {activeTab === 'analytics' && (
+        <div className="space-y-6">
+          {/* Date Filter & AI Insight */}
+          <div className="bg-white rounded-lg shadow-sm p-4">
+            <div className="flex flex-wrap items-center gap-4">
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-medium">Date Range:</span>
+                <input type="date" value={analyticsDateFrom} onChange={(e) => setAnalyticsDateFrom(e.target.value)} className="px-2 py-1 border rounded text-sm" />
+                <span>to</span>
+                <input type="date" value={analyticsDateTo} onChange={(e) => setAnalyticsDateTo(e.target.value)} className="px-2 py-1 border rounded text-sm" />
+                {(analyticsDateFrom || analyticsDateTo) && (
+                  <button onClick={() => { setAnalyticsDateFrom(''); setAnalyticsDateTo('') }} className="text-xs text-red-500 hover:underline">Clear</button>
+                )}
+              </div>
+              <div className="flex items-center gap-2">
+                <button onClick={() => { const d = new Date(); setAnalyticsDateFrom(new Date(d.getFullYear(), d.getMonth(), 1).toISOString().split('T')[0]); setAnalyticsDateTo(d.toISOString().split('T')[0]) }} className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs hover:bg-blue-200">This Month</button>
+                <button onClick={() => { const d = new Date(); setAnalyticsDateFrom(new Date(d.getFullYear(), 0, 1).toISOString().split('T')[0]); setAnalyticsDateTo(d.toISOString().split('T')[0]) }} className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs hover:bg-green-200">This Year</button>
+                <button onClick={() => { const d = new Date(); const last = new Date(d.getFullYear(), d.getMonth() - 1, 1); setAnalyticsDateFrom(last.toISOString().split('T')[0]); setAnalyticsDateTo(new Date(d.getFullYear(), d.getMonth(), 0).toISOString().split('T')[0]) }} className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs hover:bg-purple-200">Last Month</button>
+              </div>
+              <button onClick={getAiInsight} disabled={analyticsAiLoading} className="ml-auto flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded text-sm hover:opacity-90 disabled:opacity-50">
+                <Sparkles className="h-4 w-4" />
+                {analyticsAiLoading ? 'Analyzing...' : 'AI Insight'}
+              </button>
+            </div>
+            {analyticsAiInsight && (
+              <div className="mt-3 p-3 bg-purple-50 rounded-lg border border-purple-200">
+                <p className="text-sm text-gray-700 whitespace-pre-wrap">{analyticsAiInsight}</p>
+              </div>
+            )}
+          </div>
+
+          {/* Key Metrics */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl p-4 text-white">
+              <div className="text-3xl font-bold">${analytics.totalRevenue.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</div>
+              <div className="text-green-100 text-sm">Total Revenue</div>
+            </div>
+            <div className="bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl p-4 text-white">
+              <div className="text-3xl font-bold">{analytics.transactionList.length}</div>
+              <div className="text-blue-100 text-sm">Transactions</div>
+            </div>
+            <div className="bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl p-4 text-white">
+              <div className="text-3xl font-bold">{inquiries.length}</div>
+              <div className="text-purple-100 text-sm">Total Contacts</div>
+            </div>
+            <div className="bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl p-4 text-white">
+              <div className="text-3xl font-bold">{Object.keys(analytics.byCountry).length}</div>
+              <div className="text-amber-100 text-sm">Countries</div>
+            </div>
+          </div>
+
+          {/* Revenue by Source */}
+          <div className="bg-white rounded-lg shadow-sm p-4">
+            <h3 className="font-semibold mb-4 flex items-center gap-2">💰 Revenue by Source</h3>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+              {Object.entries(analytics.bySource)
+                .sort((a, b) => b[1].revenue - a[1].revenue)
+                .map(([source, data]) => {
+                  const icon = source === 'paypal' ? '🟡' : source === 'stripe' ? '🟣' : source === 'website' ? '🌐' : source === 'calendly' ? '📅' : '📥'
+                  return (
+                    <div key={source} className="bg-gray-50 p-4 rounded-lg text-center border">
+                      <div className="text-2xl">{icon}</div>
+                      <div className="text-sm font-medium capitalize mt-1">{source}</div>
+                      <div className="text-xl font-bold text-green-600">${data.revenue.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</div>
+                      <div className="text-xs text-gray-500">{data.count} transactions</div>
+                    </div>
+                  )
+                })}
+            </div>
+          </div>
+
+          {/* Transactions Table */}
+          <div className="bg-white rounded-lg shadow-sm p-4">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="font-semibold flex items-center gap-2"><Calendar className="h-5 w-5 text-blue-500" /> Transaction History ({analytics.transactionList.length})</h3>
+              <div className="flex gap-2">
+                <button onClick={() => setTransactionView('chart')} className={`px-3 py-1.5 rounded text-sm ${transactionView === 'chart' ? 'bg-blue-500 text-white' : 'bg-gray-100'}`}>Chart</button>
+                <button onClick={() => setTransactionView('list')} className={`px-3 py-1.5 rounded text-sm ${transactionView === 'list' ? 'bg-blue-500 text-white' : 'bg-gray-100'}`}>List</button>
+              </div>
+            </div>
+            {transactionView === 'list' ? (
+              <div className="max-h-96 overflow-y-auto">
+                <table className="w-full text-sm">
+                  <thead className="bg-gray-50 sticky top-0">
+                    <tr>
+                      <th className="text-left px-3 py-2">Date</th>
+                      <th className="text-left px-3 py-2">Customer</th>
+                      <th className="text-left px-3 py-2">Source</th>
+                      <th className="text-right px-3 py-2">Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y">
+                    {analytics.transactionList.map((tx, idx) => (
+                      <tr key={idx} className="hover:bg-gray-50 cursor-pointer" onClick={() => setEditingTransaction({ id: tx.id, name: tx.name, email: tx.email, amount: tx.amount, source: tx.source, date: tx.date })}>
+                        <td className="px-3 py-2">{new Date(tx.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</td>
+                        <td className="px-3 py-2">
+                          <div className="font-medium">{tx.name}</div>
+                          <div className="text-xs text-gray-500">{tx.email}</div>
+                        </td>
+                        <td className="px-3 py-2">
+                          <span className={`px-2 py-1 rounded-full text-xs ${tx.source === 'paypal' ? 'bg-yellow-100 text-yellow-800' : tx.source === 'stripe' ? 'bg-purple-100 text-purple-800' : tx.source === 'calendly' ? 'bg-blue-100 text-blue-800' : 'bg-gray-100'}`}>{tx.source}</span>
+                        </td>
+                        <td className="px-3 py-2 text-right font-bold text-green-600">${tx.amount.toLocaleString('en-US', { minimumFractionDigits: 2 })}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <div className="space-y-2">
+                {Object.entries(analytics.byMonth)
+                  .sort((a, b) => {
+                    const [aMonth, aYear] = a[0].split(' ')
+                    const [bMonth, bYear] = b[0].split(' ')
+                    return Number(bYear) - Number(aYear) || MONTHS.indexOf(bMonth) - MONTHS.indexOf(aMonth)
+                  })
+                  .slice(0, 12)
+                  .map(([monthYear, count]) => {
+                    const maxCount = Math.max(...Object.values(analytics.byMonth), 1)
+                    return (
+                      <div key={monthYear} className="flex items-center gap-3">
+                        <span className="text-sm w-24 font-medium">{monthYear}</span>
+                        <div className="flex-1 bg-gray-100 rounded-full h-6 overflow-hidden">
+                          <div className="bg-blue-500 h-full rounded-full" style={{ width: `${(count / maxCount) * 100}%` }} />
+                        </div>
+                        <span className="text-sm font-bold w-10 text-right">{count}</span>
+                      </div>
+                    )
+                  })}
+              </div>
+            )}
+          </div>
+
+          {/* Charts Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {/* By Country */}
+            <div className="bg-white rounded-lg shadow-sm p-4">
+              <h4 className="font-semibold mb-3 flex items-center gap-2"><MapPin className="h-4 w-4" /> By Country</h4>
+              <div className="space-y-2 max-h-64 overflow-y-auto">
+                {Object.entries(analytics.byCountry).sort((a, b) => b[1] - a[1]).slice(0, 15).map(([country, count]) => (
+                  <div key={country} className="flex items-center gap-2">
+                    <div className="flex-1 bg-gray-100 rounded-full h-5 overflow-hidden">
+                      <div className="bg-green-500 h-full rounded-full" style={{ width: `${(count / Math.max(...Object.values(analytics.byCountry))) * 100}%` }} />
+                    </div>
+                    <span className="text-xs w-20 truncate">{country}</span>
+                    <span className="text-xs font-bold w-8 text-right">{count}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* By Industry */}
+            <div className="bg-white rounded-lg shadow-sm p-4">
+              <h4 className="font-semibold mb-3 flex items-center gap-2"><Factory className="h-4 w-4" /> By Industry</h4>
+              <div className="space-y-2 max-h-64 overflow-y-auto">
+                {Object.entries(analytics.byIndustry).sort((a, b) => b[1] - a[1]).map(([industry, count]) => (
+                  <div key={industry} className="flex items-center gap-2">
+                    <div className="flex-1 bg-gray-100 rounded-full h-5 overflow-hidden">
+                      <div className="bg-primary-500 h-full rounded-full" style={{ width: `${(count / Math.max(...Object.values(analytics.byIndustry))) * 100}%` }} />
+                    </div>
+                    <span className="text-xs w-24 truncate">{industry}</span>
+                    <span className="text-xs font-bold w-8 text-right">{count}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* By Day of Week */}
+            <div className="bg-white rounded-lg shadow-sm p-4">
+              <h4 className="font-semibold mb-3 flex items-center gap-2"><Calendar className="h-4 w-4" /> By Day of Week</h4>
+              <div className="space-y-2">
+                {DAYS_OF_WEEK.map((day, idx) => {
+                  const count = analytics.byDayOfWeek[idx] || 0
+                  const maxCount = Math.max(...Object.values(analytics.byDayOfWeek), 1)
+                  return (
+                    <div key={day} className="flex items-center gap-2">
+                      <span className="text-xs w-12">{day.slice(0, 3)}</span>
+                      <div className="flex-1 bg-gray-100 rounded-full h-5 overflow-hidden">
+                        <div className="bg-purple-500 h-full rounded-full" style={{ width: `${(count / maxCount) * 100}%` }} />
+                      </div>
+                      <span className="text-xs font-bold w-8 text-right">{count}</span>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+
+            {/* Customer Type */}
+            <div className="bg-white rounded-lg shadow-sm p-4">
+              <h4 className="font-semibold mb-3 flex items-center gap-2"><Star className="h-4 w-4" /> Customer Type</h4>
+              <div className="grid grid-cols-3 gap-2 text-center">
+                <div className="bg-gray-50 p-3 rounded-lg">
+                  <div className="text-2xl font-bold text-gray-600">{analytics.byCustomerType.lead || 0}</div>
+                  <div className="text-xs">🔍 Leads</div>
+                </div>
+                <div className="bg-blue-50 p-3 rounded-lg">
+                  <div className="text-2xl font-bold text-blue-600">{analytics.byCustomerType.sample || 0}</div>
+                  <div className="text-xs">📦 Samples</div>
+                </div>
+                <div className="bg-green-50 p-3 rounded-lg">
+                  <div className="text-2xl font-bold text-green-600">{analytics.byCustomerType.customer || 0}</div>
+                  <div className="text-xs">⭐ Customers</div>
+                </div>
+              </div>
+            </div>
+
+            {/* By Status */}
+            <div className="bg-white rounded-lg shadow-sm p-4">
+              <h4 className="font-semibold mb-3 flex items-center gap-2"><Tag className="h-4 w-4" /> By Status</h4>
+              <div className="space-y-2">
+                {Object.entries(analytics.byStatus).sort((a, b) => b[1] - a[1]).map(([status, count]) => (
+                  <div key={status} className="flex items-center gap-2">
+                    <span className={`px-2 py-0.5 rounded text-xs ${STATUS_COLORS[status]}`}>{status}</span>
+                    <div className="flex-1 bg-gray-100 rounded-full h-5 overflow-hidden">
+                      <div className="bg-indigo-500 h-full rounded-full" style={{ width: `${(count / Math.max(...Object.values(analytics.byStatus))) * 100}%` }} />
+                    </div>
+                    <span className="text-xs font-bold w-8 text-right">{count}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* By Packaging */}
+            <div className="bg-white rounded-lg shadow-sm p-4">
+              <h4 className="font-semibold mb-3 flex items-center gap-2"><Package className="h-4 w-4" /> By Packaging</h4>
+              <div className="space-y-2 max-h-48 overflow-y-auto">
+                {Object.entries(analytics.byPackaging).sort((a, b) => b[1] - a[1]).slice(0, 10).map(([pkg, count]) => (
+                  <div key={pkg} className="flex items-center gap-2">
+                    <div className="flex-1 bg-gray-100 rounded-full h-5 overflow-hidden">
+                      <div className="bg-orange-500 h-full rounded-full" style={{ width: `${(count / Math.max(...Object.values(analytics.byPackaging))) * 100}%` }} />
+                    </div>
+                    <span className="text-xs w-28 truncate">{pkg}</span>
+                    <span className="text-xs font-bold w-8 text-right">{count}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Address List */}
+          {analytics.addressList.length > 0 && (
+            <div className="bg-white rounded-lg shadow-sm p-4">
+              <h3 className="font-semibold mb-4 flex items-center gap-2"><MapPin className="h-5 w-5 text-cyan-500" /> Customer Addresses ({analytics.addressList.length})</h3>
+              <div className="max-h-64 overflow-y-auto">
+                <table className="w-full text-sm">
+                  <thead className="bg-gray-50 sticky top-0">
+                    <tr>
+                      <th className="text-left px-3 py-2">Customer</th>
+                      <th className="text-left px-3 py-2">City</th>
+                      <th className="text-left px-3 py-2">Country</th>
+                      <th className="text-left px-3 py-2">Full Address</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y">
+                    {analytics.addressList.map((addr, idx) => (
+                      <tr key={idx} className="hover:bg-gray-50">
+                        <td className="px-3 py-2">
+                          <div className="font-medium">{addr.name}</div>
+                          <div className="text-xs text-gray-500">{addr.email}</div>
+                        </td>
+                        <td className="px-3 py-2">{addr.city}</td>
+                        <td className="px-3 py-2">
+                          <span className="px-2 py-0.5 bg-cyan-100 text-cyan-800 rounded-full text-xs">{addr.country}</span>
+                        </td>
+                        <td className="px-3 py-2 text-xs text-gray-600 max-w-xs truncate" title={addr.address}>{addr.address}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Email Modal */}
       {showEmailModal && selectedInquiry && (
