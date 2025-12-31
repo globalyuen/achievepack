@@ -1340,68 +1340,6 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
             </div>
           </div>
 
-          {/* Transactions Table */}
-          <div className="bg-white rounded-lg shadow-sm p-4">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="font-semibold flex items-center gap-2"><Calendar className="h-5 w-5 text-blue-500" /> Transaction History ({analytics.transactionList.length})</h3>
-              <div className="flex gap-2">
-                <button onClick={() => setTransactionView('chart')} className={`px-3 py-1.5 rounded text-sm ${transactionView === 'chart' ? 'bg-blue-500 text-white' : 'bg-gray-100'}`}>Chart</button>
-                <button onClick={() => setTransactionView('list')} className={`px-3 py-1.5 rounded text-sm ${transactionView === 'list' ? 'bg-blue-500 text-white' : 'bg-gray-100'}`}>List</button>
-              </div>
-            </div>
-            {transactionView === 'list' ? (
-              <div className="max-h-96 overflow-y-auto">
-                <table className="w-full text-sm">
-                  <thead className="bg-gray-50 sticky top-0">
-                    <tr>
-                      <th className="text-left px-3 py-2">Date</th>
-                      <th className="text-left px-3 py-2">Customer</th>
-                      <th className="text-left px-3 py-2">Source</th>
-                      <th className="text-right px-3 py-2">Amount</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y">
-                    {analytics.transactionList.map((tx, idx) => (
-                      <tr key={idx} className="hover:bg-gray-50 cursor-pointer" onClick={() => setEditingTransaction({ id: tx.id, name: tx.name, email: tx.email, amount: tx.amount, source: tx.source, date: tx.date })}>
-                        <td className="px-3 py-2">{new Date(tx.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</td>
-                        <td className="px-3 py-2">
-                          <div className="font-medium">{tx.name}</div>
-                          <div className="text-xs text-gray-500">{tx.email}</div>
-                        </td>
-                        <td className="px-3 py-2">
-                          <span className={`px-2 py-1 rounded-full text-xs ${tx.source === 'paypal' ? 'bg-yellow-100 text-yellow-800' : tx.source === 'stripe' ? 'bg-purple-100 text-purple-800' : tx.source === 'calendly' ? 'bg-blue-100 text-blue-800' : 'bg-gray-100'}`}>{tx.source}</span>
-                        </td>
-                        <td className="px-3 py-2 text-right font-bold text-green-600">${tx.amount.toLocaleString('en-US', { minimumFractionDigits: 2 })}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            ) : (
-              <div className="space-y-2">
-                {Object.entries(analytics.byMonth)
-                  .sort((a, b) => {
-                    const [aMonth, aYear] = a[0].split(' ')
-                    const [bMonth, bYear] = b[0].split(' ')
-                    return Number(bYear) - Number(aYear) || MONTHS.indexOf(bMonth) - MONTHS.indexOf(aMonth)
-                  })
-                  .slice(0, 12)
-                  .map(([monthYear, count]) => {
-                    const maxCount = Math.max(...Object.values(analytics.byMonth), 1)
-                    return (
-                      <div key={monthYear} className="flex items-center gap-3">
-                        <span className="text-sm w-24 font-medium">{monthYear}</span>
-                        <div className="flex-1 bg-gray-100 rounded-full h-6 overflow-hidden">
-                          <div className="bg-blue-500 h-full rounded-full" style={{ width: `${(count / maxCount) * 100}%` }} />
-                        </div>
-                        <span className="text-sm font-bold w-10 text-right">{count}</span>
-                      </div>
-                    )
-                  })}
-              </div>
-            )}
-          </div>
-
           {/* Charts Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* By Country */}
@@ -1508,37 +1446,103 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
             </div>
           </div>
 
-          {/* Address List */}
+          {/* Address List with Map View */}
           {analytics.addressList.length > 0 && (
             <div className="bg-white rounded-lg shadow-sm p-4">
-              <h3 className="font-semibold mb-4 flex items-center gap-2"><MapPin className="h-5 w-5 text-cyan-500" /> Customer Addresses ({analytics.addressList.length})</h3>
-              <div className="max-h-64 overflow-y-auto">
-                <table className="w-full text-sm">
-                  <thead className="bg-gray-50 sticky top-0">
-                    <tr>
-                      <th className="text-left px-3 py-2">Customer</th>
-                      <th className="text-left px-3 py-2">City</th>
-                      <th className="text-left px-3 py-2">Country</th>
-                      <th className="text-left px-3 py-2">Full Address</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y">
-                    {analytics.addressList.map((addr, idx) => (
-                      <tr key={idx} className="hover:bg-gray-50">
-                        <td className="px-3 py-2">
-                          <div className="font-medium">{addr.name}</div>
-                          <div className="text-xs text-gray-500">{addr.email}</div>
-                        </td>
-                        <td className="px-3 py-2">{addr.city}</td>
-                        <td className="px-3 py-2">
-                          <span className="px-2 py-0.5 bg-cyan-100 text-cyan-800 rounded-full text-xs">{addr.country}</span>
-                        </td>
-                        <td className="px-3 py-2 text-xs text-gray-600 max-w-xs truncate" title={addr.address}>{addr.address}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="font-semibold flex items-center gap-2"><MapPin className="h-5 w-5 text-cyan-500" /> Customer Addresses ({analytics.addressList.length})</h3>
+                <div className="flex gap-2">
+                  <button onClick={() => setTransactionView('list')} className={`px-3 py-1.5 rounded text-sm flex items-center gap-1 ${transactionView === 'list' ? 'bg-cyan-500 text-white' : 'bg-gray-100'}`}>
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" /></svg>
+                    List
+                  </button>
+                  <button onClick={() => setTransactionView('chart')} className={`px-3 py-1.5 rounded text-sm flex items-center gap-1 ${transactionView === 'chart' ? 'bg-cyan-500 text-white' : 'bg-gray-100'}`}>
+                    <Globe className="h-4 w-4" />
+                    Map
+                  </button>
+                </div>
               </div>
+              {transactionView === 'list' ? (
+                <div className="max-h-64 overflow-y-auto">
+                  <table className="w-full text-sm">
+                    <thead className="bg-gray-50 sticky top-0">
+                      <tr>
+                        <th className="text-left px-3 py-2">Customer</th>
+                        <th className="text-left px-3 py-2">City</th>
+                        <th className="text-left px-3 py-2">Country</th>
+                        <th className="text-left px-3 py-2">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y">
+                      {analytics.addressList.map((addr, idx) => (
+                        <tr key={idx} className="hover:bg-gray-50">
+                          <td className="px-3 py-2">
+                            <div className="font-medium">{addr.name}</div>
+                            <div className="text-xs text-gray-500">{addr.email}</div>
+                          </td>
+                          <td className="px-3 py-2">{addr.city}</td>
+                          <td className="px-3 py-2">
+                            <span className="px-2 py-0.5 bg-cyan-100 text-cyan-800 rounded-full text-xs">{addr.country}</span>
+                          </td>
+                          <td className="px-3 py-2">
+                            <a 
+                              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addr.address)}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-blue-500 hover:text-blue-700 text-xs flex items-center gap-1"
+                            >
+                              <ExternalLink className="h-3 w-3" /> View Map
+                            </a>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ) : (
+                <div className="space-y-3">
+                  {/* Country summary with map links */}
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    {Object.entries(
+                      analytics.addressList.reduce((acc, addr) => {
+                        acc[addr.country] = (acc[addr.country] || 0) + 1
+                        return acc
+                      }, {} as Record<string, number>)
+                    ).sort((a, b) => b[1] - a[1]).slice(0, 8).map(([country, count]) => (
+                      <a
+                        key={country}
+                        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(country)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-gradient-to-br from-cyan-50 to-blue-50 p-3 rounded-lg text-center hover:shadow-md transition border border-cyan-100"
+                      >
+                        <div className="text-2xl mb-1">🌍</div>
+                        <div className="font-semibold text-sm">{country}</div>
+                        <div className="text-xs text-gray-500">{count} customers</div>
+                      </a>
+                    ))}
+                  </div>
+                  {/* Quick map buttons */}
+                  <div className="flex flex-wrap gap-2 pt-2 border-t">
+                    {analytics.addressList.slice(0, 10).map((addr, idx) => (
+                      <a
+                        key={idx}
+                        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addr.address)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1 px-2 py-1 bg-gray-100 hover:bg-cyan-100 rounded text-xs"
+                        title={addr.address}
+                      >
+                        <MapPin className="h-3 w-3 text-cyan-500" />
+                        {addr.city || addr.country}
+                      </a>
+                    ))}
+                    {analytics.addressList.length > 10 && (
+                      <span className="px-2 py-1 text-xs text-gray-400">+{analytics.addressList.length - 10} more</span>
+                    )}
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -1641,304 +1645,7 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
         </div>
       )}
 
-      {/* Analytics Modal */}
-      {showAnalyticsModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg shadow-xl max-w-6xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-4 border-b flex items-center justify-between">
-              <h3 className="font-semibold flex items-center gap-2"><BarChart3 className="h-5 w-5" /> Analytics Dashboard</h3>
-              <button onClick={() => setShowAnalyticsModal(false)} className="text-gray-400 hover:text-gray-600">
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-            
-            {/* Date Filter & AI Insight */}
-            <div className="p-4 bg-gradient-to-r from-indigo-50 to-purple-50 border-b">
-              <div className="flex flex-wrap items-center gap-4">
-                <div className="flex items-center gap-2">
-                  <span className="text-sm font-medium">Date Range:</span>
-                  <input type="date" value={analyticsDateFrom} onChange={(e) => setAnalyticsDateFrom(e.target.value)} className="px-2 py-1 border rounded text-sm" />
-                  <span>to</span>
-                  <input type="date" value={analyticsDateTo} onChange={(e) => setAnalyticsDateTo(e.target.value)} className="px-2 py-1 border rounded text-sm" />
-                  {(analyticsDateFrom || analyticsDateTo) && (
-                    <button onClick={() => { setAnalyticsDateFrom(''); setAnalyticsDateTo('') }} className="text-xs text-red-500 hover:underline">Clear</button>
-                  )}
-                </div>
-                <div className="flex items-center gap-2">
-                  <button onClick={() => { const d = new Date(); setAnalyticsDateFrom(new Date(d.getFullYear(), d.getMonth(), 1).toISOString().split('T')[0]); setAnalyticsDateTo(d.toISOString().split('T')[0]) }} className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs hover:bg-blue-200">This Month</button>
-                  <button onClick={() => { const d = new Date(); setAnalyticsDateFrom(new Date(d.getFullYear(), 0, 1).toISOString().split('T')[0]); setAnalyticsDateTo(d.toISOString().split('T')[0]) }} className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs hover:bg-green-200">This Year</button>
-                  <button onClick={() => { const d = new Date(); const last = new Date(d.getFullYear(), d.getMonth() - 1, 1); setAnalyticsDateFrom(last.toISOString().split('T')[0]); setAnalyticsDateTo(new Date(d.getFullYear(), d.getMonth(), 0).toISOString().split('T')[0]) }} className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs hover:bg-purple-200">Last Month</button>
-                </div>
-                <button onClick={getAiInsight} disabled={analyticsAiLoading} className="ml-auto flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded text-sm hover:opacity-90 disabled:opacity-50">
-                  <Sparkles className="h-4 w-4" />
-                  {analyticsAiLoading ? 'Analyzing...' : 'AI Insight'}
-                </button>
-              </div>
-              {analyticsAiInsight && (
-                <div className="mt-3 p-3 bg-white rounded-lg border border-purple-200">
-                  <p className="text-sm text-gray-700 whitespace-pre-wrap">{analyticsAiInsight}</p>
-                </div>
-              )}
-            </div>
 
-            <div className="p-4 grid md:grid-cols-2 gap-6">
-              {/* Transaction List */}
-              <div className="md:col-span-2 bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg">
-                <div className="flex items-center justify-between mb-3">
-                  <h4 className="font-semibold flex items-center gap-2"><Calendar className="h-4 w-4 text-blue-500" /> Transactions ({analytics.transactionList.length} payments)</h4>
-                  <div className="flex gap-2">
-                    <button onClick={() => setTransactionView('chart')} className={`px-2 py-1 rounded text-xs ${transactionView === 'chart' ? 'bg-blue-500 text-white' : 'bg-gray-100'}`}>Chart</button>
-                    <button onClick={() => setTransactionView('list')} className={`px-2 py-1 rounded text-xs ${transactionView === 'list' ? 'bg-blue-500 text-white' : 'bg-gray-100'}`}>List</button>
-                  </div>
-                </div>
-                {transactionView === 'list' ? (
-                  <div className="max-h-64 overflow-y-auto">
-                    <table className="w-full text-sm">
-                      <thead className="bg-white sticky top-0">
-                        <tr>
-                          <th className="text-left px-2 py-1">Date</th>
-                          <th className="text-left px-2 py-1">Customer</th>
-                          <th className="text-left px-2 py-1">Source</th>
-                          <th className="text-right px-2 py-1">Amount</th>
-                          <th className="px-1 py-1"></th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y">
-                        {analytics.transactionList.map((tx, idx) => (
-                          <tr key={idx} className="hover:bg-white cursor-pointer" onClick={() => setEditingTransaction({ id: tx.id, name: tx.name, email: tx.email, amount: tx.amount, source: tx.source, date: tx.date })}>
-                            <td className="px-2 py-1 text-xs">{new Date(tx.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</td>
-                            <td className="px-2 py-1">
-                              <div className="font-medium">{tx.name}</div>
-                              <div className="text-xs text-gray-500">{tx.email}</div>
-                            </td>
-                            <td className="px-2 py-1">
-                              <span className={`px-2 py-0.5 rounded-full text-xs ${tx.source === 'paypal' ? 'bg-yellow-100 text-yellow-800' : tx.source === 'stripe' ? 'bg-purple-100 text-purple-800' : tx.source === 'calendly' ? 'bg-blue-100 text-blue-800' : 'bg-gray-100'}`}>{tx.source}</span>
-                            </td>
-                            <td className="px-2 py-1 text-right font-bold text-green-600">${tx.amount.toLocaleString('en-US', { minimumFractionDigits: 2 })}</td>
-                            <td className="px-1 py-1">
-                              <button className="text-gray-400 hover:text-blue-500" title="Edit"><Edit className="h-3 w-3" /></button>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                ) : (
-                  <div className="space-y-2 max-h-48 overflow-y-auto">
-                    {Object.entries(analytics.byMonth)
-                      .sort((a, b) => {
-                        const [aMonth, aYear] = a[0].split(' ')
-                        const [bMonth, bYear] = b[0].split(' ')
-                        return Number(bYear) - Number(aYear) || MONTHS.indexOf(bMonth) - MONTHS.indexOf(aMonth)
-                      })
-                      .slice(0, 12)
-                      .map(([monthYear, count]) => {
-                        const maxCount = Math.max(...Object.values(analytics.byMonth), 1)
-                        return (
-                          <div key={monthYear} className="flex items-center gap-2">
-                            <span className="text-sm w-20">{monthYear}</span>
-                            <div className="flex-1 bg-gray-100 rounded-full h-5 overflow-hidden">
-                              <div className="bg-blue-500 h-full rounded-full" style={{ width: `${(count / maxCount) * 100}%` }} />
-                            </div>
-                            <span className="text-sm font-medium w-10 text-right">{count}</span>
-                          </div>
-                        )
-                      })}
-                  </div>
-                )}
-              </div>
-
-              {/* Transaction Time - By Day of Week */}
-              <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-lg">
-                <h4 className="font-semibold mb-3 flex items-center gap-2"><Calendar className="h-4 w-4 text-green-500" /> By Day of Week</h4>
-                <div className="space-y-2">
-                  {DAYS_OF_WEEK.map((day, idx) => {
-                    const count = analytics.byDayOfWeek[idx] || 0
-                    const maxCount = Math.max(...Object.values(analytics.byDayOfWeek), 1)
-                    return (
-                      <div key={day} className="flex items-center gap-2">
-                        <span className="text-sm w-20">{day.slice(0, 3)}</span>
-                        <div className="flex-1 bg-gray-100 rounded-full h-5 overflow-hidden">
-                          <div className="bg-green-500 h-full rounded-full" style={{ width: `${(count / maxCount) * 100}%` }} />
-                        </div>
-                        <span className="text-sm font-medium w-10 text-right">{count}</span>
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
-
-              {/* Transaction Time - By Month */}
-              <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-lg">
-                <h4 className="font-semibold mb-3 flex items-center gap-2"><Calendar className="h-4 w-4 text-purple-500" /> By Month (Last 12)</h4>
-                <div className="space-y-2 max-h-48 overflow-y-auto">
-                  {Object.entries(analytics.byMonth)
-                    .sort((a, b) => {
-                      const [aMonth, aYear] = a[0].split(' ')
-                      const [bMonth, bYear] = b[0].split(' ')
-                      return Number(bYear) - Number(aYear) || MONTHS.indexOf(bMonth) - MONTHS.indexOf(aMonth)
-                    })
-                    .slice(0, 12)
-                    .map(([monthYear, count]) => {
-                      const maxCount = Math.max(...Object.values(analytics.byMonth), 1)
-                      return (
-                        <div key={monthYear} className="flex items-center gap-2">
-                          <span className="text-sm w-20">{monthYear}</span>
-                          <div className="flex-1 bg-gray-100 rounded-full h-5 overflow-hidden">
-                            <div className="bg-purple-500 h-full rounded-full" style={{ width: `${(count / maxCount) * 100}%` }} />
-                          </div>
-                          <span className="text-sm font-medium w-10 text-right">{count}</span>
-                        </div>
-                      )
-                    })}
-                </div>
-              </div>
-
-              {/* Customer Addresses Map */}
-              <div className="md:col-span-2 bg-gradient-to-r from-cyan-50 to-teal-50 p-4 rounded-lg">
-                <h4 className="font-semibold mb-3 flex items-center gap-2"><MapPin className="h-4 w-4 text-cyan-500" /> Customer Addresses from PayPal ({analytics.addressList.length} addresses)</h4>
-                {analytics.addressList.length === 0 ? (
-                  <p className="text-gray-500 text-center py-4">No addresses found in PayPal data. Import PayPal transactions to see addresses.</p>
-                ) : (
-                  <div className="max-h-64 overflow-y-auto">
-                    <table className="w-full text-sm">
-                      <thead className="bg-white sticky top-0">
-                        <tr>
-                          <th className="text-left px-2 py-1">Customer</th>
-                          <th className="text-left px-2 py-1">City</th>
-                          <th className="text-left px-2 py-1">Country</th>
-                          <th className="text-left px-2 py-1">Full Address</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y">
-                        {analytics.addressList.map((addr, idx) => (
-                          <tr key={idx} className="hover:bg-white">
-                            <td className="px-2 py-1">
-                              <div className="font-medium">{addr.name}</div>
-                              <div className="text-xs text-gray-500">{addr.email}</div>
-                            </td>
-                            <td className="px-2 py-1">{addr.city}</td>
-                            <td className="px-2 py-1">
-                              <span className="px-2 py-0.5 bg-cyan-100 text-cyan-800 rounded-full text-xs">{addr.country}</span>
-                            </td>
-                            <td className="px-2 py-1 text-xs text-gray-600 max-w-xs truncate" title={addr.address}>{addr.address}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                )}
-              </div>
-
-              {/* Revenue by Source */}
-              <div className="md:col-span-2 bg-gradient-to-r from-emerald-50 to-green-50 p-4 rounded-lg">
-                <h4 className="font-semibold mb-3 flex items-center gap-2">💰 Revenue by Source (Total: ${analytics.totalRevenue.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USD)</h4>
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-                  {Object.entries(analytics.bySource)
-                    .sort((a, b) => b[1].revenue - a[1].revenue)
-                    .map(([source, data]) => {
-                      const icon = source === 'paypal' ? '🟡' : source === 'stripe' ? '🟣' : source === 'website' ? '🌐' : source === 'calendly' ? '📅' : '📥'
-                      return (
-                        <div key={source} className="bg-white p-3 rounded-lg shadow-sm text-center">
-                          <div className="text-2xl">{icon}</div>
-                          <div className="text-sm font-medium capitalize mt-1">{source}</div>
-                          <div className="text-lg font-bold text-green-600">${data.revenue.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</div>
-                          <div className="text-xs text-gray-500">{data.count} transactions</div>
-                        </div>
-                      )
-                    })}
-                </div>
-              </div>
-
-              {/* By Industry */}
-              <div>
-                <h4 className="font-medium mb-3 flex items-center gap-2"><Factory className="h-4 w-4" /> By Industry</h4>
-                <div className="space-y-2">
-                  {Object.entries(analytics.byIndustry).sort((a, b) => b[1] - a[1]).map(([industry, count]) => (
-                    <div key={industry} className="flex items-center gap-2">
-                      <div className="flex-1 bg-gray-100 rounded-full h-6 overflow-hidden">
-                        <div className="bg-primary-500 h-full rounded-full" style={{ width: `${(count / inquiries.length) * 100}%` }} />
-                      </div>
-                      <span className="text-sm w-24 truncate">{industry}</span>
-                      <span className="text-sm font-medium w-10 text-right">{count}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* By Country */}
-              <div>
-                <h4 className="font-medium mb-3 flex items-center gap-2"><MapPin className="h-4 w-4" /> By Country</h4>
-                <div className="space-y-2">
-                  {Object.entries(analytics.byCountry).sort((a, b) => b[1] - a[1]).slice(0, 10).map(([country, count]) => (
-                    <div key={country} className="flex items-center gap-2">
-                      <div className="flex-1 bg-gray-100 rounded-full h-6 overflow-hidden">
-                        <div className="bg-green-500 h-full rounded-full" style={{ width: `${(count / inquiries.length) * 100}%` }} />
-                      </div>
-                      <span className="text-sm w-24 truncate">{country}</span>
-                      <span className="text-sm font-medium w-10 text-right">{count}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* By Status */}
-              <div>
-                <h4 className="font-medium mb-3 flex items-center gap-2"><Tag className="h-4 w-4" /> By Status</h4>
-                <div className="space-y-2">
-                  {Object.entries(analytics.byStatus).sort((a, b) => b[1] - a[1]).map(([status, count]) => (
-                    <div key={status} className="flex items-center gap-2">
-                      <div className="flex-1 bg-gray-100 rounded-full h-6 overflow-hidden">
-                        <div className="bg-purple-500 h-full rounded-full" style={{ width: `${(count / inquiries.length) * 100}%` }} />
-                      </div>
-                      <span className="text-sm w-24 truncate">{status}</span>
-                      <span className="text-sm font-medium w-10 text-right">{count}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* By Customer Type */}
-              <div className="md:col-span-2 bg-gradient-to-r from-amber-50 to-orange-50 p-4 rounded-lg">
-                <h4 className="font-semibold mb-3 flex items-center gap-2"><Star className="h-4 w-4 text-amber-500" /> Customer Classification</h4>
-                <div className="grid grid-cols-3 gap-4 text-center">
-                  <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <div className="text-3xl font-bold text-gray-600">{analytics.byCustomerType.lead || 0}</div>
-                    <div className="text-sm text-gray-500">🔍 Leads</div>
-                    <div className="text-xs text-gray-400">Inquiry Only</div>
-                  </div>
-                  <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <div className="text-3xl font-bold text-blue-600">{analytics.byCustomerType.sample || 0}</div>
-                    <div className="text-sm text-gray-500">📦 Samples</div>
-                    <div className="text-xs text-gray-400">Paid &lt; $100</div>
-                  </div>
-                  <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <div className="text-3xl font-bold text-green-600">{analytics.byCustomerType.customer || 0}</div>
-                    <div className="text-sm text-gray-500">⭐ Customers</div>
-                    <div className="text-xs text-gray-400">Paid ≥ $100</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* By Packaging */}
-              <div>
-                <h4 className="font-medium mb-3 flex items-center gap-2"><Package className="h-4 w-4" /> By Packaging Type</h4>
-                <div className="space-y-2">
-                  {Object.entries(analytics.byPackaging).sort((a, b) => b[1] - a[1]).slice(0, 10).map(([pkg, count]) => (
-                    <div key={pkg} className="flex items-center gap-2">
-                      <div className="flex-1 bg-gray-100 rounded-full h-6 overflow-hidden">
-                        <div className="bg-orange-500 h-full rounded-full" style={{ width: `${(count / inquiries.length) * 100}%` }} />
-                      </div>
-                      <span className="text-sm w-32 truncate">{pkg}</span>
-                      <span className="text-sm font-medium w-10 text-right">{count}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* History Modal */}
       {showHistoryModal && selectedInquiry && (
