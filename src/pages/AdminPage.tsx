@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, Order, Profile, NewsletterSubscriber, Document, Quote, ArtworkFile, EmailDraft } from '../lib/supabase'
+import { blogPosts } from '../data/blogData'
 import { Home, Users, Package, Settings, Search, ChevronDown, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox, Send, FileCode, Check, Globe } from 'lucide-react'
 import CRMPanelAdvanced from '../components/admin/CRMPanelAdvanced'
 
@@ -128,6 +129,51 @@ const AdminPage: React.FC = () => {
       }
       fetchData()
     }
+  }
+
+  // Extract text from HTML content
+  const htmlToText = (html: string): string => {
+    const tempDiv = document.createElement('div')
+    tempDiv.innerHTML = html
+    // Remove figure/figcaption as they're not content
+    tempDiv.querySelectorAll('figure, figcaption').forEach(el => el.remove())
+    // Convert lists to bullet points
+    tempDiv.querySelectorAll('li').forEach(li => {
+      li.innerHTML = '• ' + li.innerHTML
+    })
+    // Convert blockquotes
+    tempDiv.querySelectorAll('blockquote').forEach(bq => {
+      bq.innerHTML = '"' + bq.innerHTML.trim() + '"'
+    })
+    return tempDiv.textContent?.replace(/\s+/g, ' ').trim() || ''
+  }
+
+  // Extract images from HTML content
+  const extractImages = (html: string): string[] => {
+    const imgRegex = /<img[^>]+src=["']([^"']+)["']/g
+    const images: string[] = []
+    let match
+    while ((match = imgRegex.exec(html)) !== null) {
+      images.push(match[1])
+    }
+    return images
+  }
+
+  // Get page content by slug
+  const getPageContent = (pagePath: string): { content: string; images: string[]; title: string } | null => {
+    // Check if it's a blog page
+    if (pagePath.startsWith('/blog/')) {
+      const slug = pagePath.replace('/blog/', '')
+      const blog = blogPosts.find(b => b.slug === slug)
+      if (blog) {
+        return {
+          title: blog.title,
+          content: htmlToText(blog.content),
+          images: [blog.featuredImage, ...extractImages(blog.content)]
+        }
+      }
+    }
+    return null
   }
 
   const handleSignOut = async () => {
@@ -948,8 +994,19 @@ const AdminPage: React.FC = () => {
                     <select
                       value={selectedPage}
                       onChange={(e) => {
-                        setSelectedPage(e.target.value)
-                        // Auto-generate subject based on page
+                        const pagePath = e.target.value
+                        setSelectedPage(pagePath)
+                        
+                        // Try to get content from blog posts
+                        const pageContent = getPageContent(pagePath)
+                        if (pageContent) {
+                          setEmailSubject(pageContent.title)
+                          setEmailContent(pageContent.content)
+                          setEmailImages(pageContent.images.filter(img => img))
+                          return
+                        }
+                        
+                        // Fallback: Auto-generate subject based on page
                         const pageTitles: Record<string, string> = {
                           '/industry/coffee-tea': 'Sustainable Coffee & Tea Packaging Solutions',
                           '/industry/pet-food': 'Eco-Friendly Pet Food Packaging',
@@ -960,14 +1017,11 @@ const AdminPage: React.FC = () => {
                           '/packaging/flat-bottom-bags': 'Premium Flat Bottom Bags',
                           '/features/barrier-options': 'Barrier Options for Product Protection',
                           '/products/compostable-coffee-bags': 'Compostable Coffee Bags',
-                          '/topics/eco-friendly-food-packaging': 'Eco-Friendly Food Packaging Guide',
-                          '/blog/sustainable-packaging-supplier-analysis': 'Sustainable Packaging Supplier Analysis',
-                          '/blog/pet-food-packaging-complete-guide': 'Complete Guide to Pet Food Packaging',
-                          '/blog/startup-sustainable-packaging-guide': 'Startup Guide to Sustainable Packaging',
-                          '/blog/anz-sustainable-food-packaging-guide': 'ANZ Sustainable Food Packaging Guide',
-                          '/blog/thank-you-for-2025-heres-to-whats-next': 'Thank You for 2025. Here\'s to What\'s Next.'
+                          '/topics/eco-friendly-food-packaging': 'Eco-Friendly Food Packaging Guide'
                         }
-                        setEmailSubject(pageTitles[e.target.value] || '')
+                        setEmailSubject(pageTitles[pagePath] || '')
+                        setEmailContent('')
+                        setEmailImages([])
                       }}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                     >

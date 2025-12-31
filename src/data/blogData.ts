@@ -2060,6 +2060,11 @@ export const blogPosts: BlogPost[] = [
         <figcaption class="text-center text-sm text-neutral-500 mt-3">From seedling to growth: Our journey from 2025 into 2026</figcaption>
       </figure>
 
+      <figure class="my-8">
+        <img src="/imgs/newsletter/a_community_collaborative_partnership_growth_2566410.webp" alt="Community and collaborative partnership growth" class="w-full rounded-xl" />
+        <figcaption class="text-center text-sm text-neutral-500 mt-3">Building a community of sustainable brands together</figcaption>
+      </figure>
+
       <h2>A Genuine Thank You</h2>
       <p>As we close the door on 2025, we want to pause and genuinely thank you.</p>
       
