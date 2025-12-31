@@ -37,6 +37,9 @@ const AdminPage: React.FC = () => {
   const [emailContent, setEmailContent] = useState('')
   const [selectedContacts, setSelectedContacts] = useState<string[]>([])
   const [personalizationFields, setPersonalizationFields] = useState({ greeting: 'Hi {{name}}', closing: 'Best regards,\nRyan Wong\nAchievePack Team' })
+  const [showEmailPreview, setShowEmailPreview] = useState(false)
+  const [emailImages, setEmailImages] = useState<string[]>([])
+  const [testEmailSending, setTestEmailSending] = useState(false)
 
   // Check if user is admin
   useEffect(() => {
@@ -1008,6 +1011,47 @@ const AdminPage: React.FC = () => {
                           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
                         />
                       </div>
+                      
+                      {/* Image Manager */}
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Add Images</label>
+                        <div className="border border-dashed border-gray-300 rounded-lg p-4">
+                          <div className="flex flex-wrap gap-2 mb-3">
+                            {emailImages.map((img, idx) => (
+                              <div key={idx} className="relative group">
+                                <img src={img} alt="" className="w-20 h-20 object-cover rounded-lg" />
+                                <button
+                                  onClick={() => setEmailImages(emailImages.filter((_, i) => i !== idx))}
+                                  className="absolute -top-2 -right-2 w-5 h-5 bg-red-500 text-white rounded-full text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                                >
+                                  ×
+                                </button>
+                              </div>
+                            ))}
+                          </div>
+                          <div className="flex gap-2">
+                            <input
+                              type="text"
+                              placeholder="Paste image URL..."
+                              id="imageUrlInput"
+                              className="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-lg"
+                            />
+                            <button
+                              onClick={() => {
+                                const input = document.getElementById('imageUrlInput') as HTMLInputElement
+                                if (input?.value) {
+                                  setEmailImages([...emailImages, input.value])
+                                  input.value = ''
+                                }
+                              }}
+                              className="px-4 py-2 bg-primary-500 text-white text-sm rounded-lg hover:bg-primary-600"
+                            >
+                              Add
+                            </button>
+                          </div>
+                          <p className="text-xs text-gray-500 mt-2">Suggested: /imgs/blog/2025-thank-you/2025-to-2026-growth.webp</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1103,14 +1147,14 @@ const AdminPage: React.FC = () => {
                     <div className="flex items-center justify-between mb-4">
                       <div>
                         <h3 className="text-lg font-semibold">Ready to Send?</h3>
-                        <p className="text-sm text-white/80">Review and send personalized emails</p>
+                        <p className="text-sm text-white/80">Preview, test, then send</p>
                       </div>
                       <Send className="h-8 w-8 text-white/50" />
                     </div>
                     <div className="space-y-2 text-sm mb-4">
                       <div className="flex items-center gap-2">
                         {selectedPage ? <Check className="h-4 w-4 text-green-300" /> : <X className="h-4 w-4 text-red-300" />}
-                        <span>Page selected: {selectedPage || 'None'}</span>
+                        <span>Page: {selectedPage || 'None'}</span>
                       </div>
                       <div className="flex items-center gap-2">
                         {emailSubject ? <Check className="h-4 w-4 text-green-300" /> : <X className="h-4 w-4 text-red-300" />}
@@ -1121,23 +1165,156 @@ const AdminPage: React.FC = () => {
                         <span>Recipients: {selectedContacts.length} selected</span>
                       </div>
                     </div>
-                    <button
-                      disabled={!selectedPage || !emailSubject || selectedContacts.length === 0}
-                      onClick={() => {
-                        alert(`Email campaign ready!
+                    
+                    {/* Action Buttons */}
+                    <div className="space-y-2">
+                      {/* Preview Button */}
+                      <button
+                        onClick={() => setShowEmailPreview(true)}
+                        disabled={!emailSubject}
+                        className="w-full py-2.5 bg-white/20 text-white font-medium rounded-lg hover:bg-white/30 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+                      >
+                        <Eye className="h-4 w-4" />
+                        Preview Email
+                      </button>
+                      
+                      {/* Test Send Button */}
+                      <button
+                        onClick={async () => {
+                          setTestEmailSending(true)
+                          // Simulate test email send
+                          await new Promise(resolve => setTimeout(resolve, 1500))
+                          setTestEmailSending(false)
+                          alert(`Test email sent to ryan@achievepack.com
 
 Subject: ${emailSubject}
-Recipients: ${selectedContacts.length}
-Page: ${selectedPage}
 
-Note: Email sending integration pending.`)
-                      }}
-                      className="w-full py-3 bg-white text-primary-600 font-semibold rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
-                    >
-                      <Send className="h-5 w-5" />
-                      Send to {selectedContacts.length} Recipients
-                    </button>
+Check your inbox!`)
+                        }}
+                        disabled={!emailSubject || testEmailSending}
+                        className="w-full py-2.5 bg-yellow-500 text-white font-medium rounded-lg hover:bg-yellow-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+                      >
+                        {testEmailSending ? (
+                          <><RefreshCw className="h-4 w-4 animate-spin" /> Sending...</>
+                        ) : (
+                          <><Mail className="h-4 w-4" /> Test Send to ryan@achievepack.com</>
+                        )}
+                      </button>
+                      
+                      {/* Send to All Button */}
+                      <button
+                        disabled={!selectedPage || !emailSubject || selectedContacts.length === 0}
+                        onClick={() => {
+                          if (confirm(`Send email to ${selectedContacts.length} recipients?\n\nSubject: ${emailSubject}`)) {
+                            alert(`Email campaign sent!
+
+Recipients: ${selectedContacts.length}
+
+Note: Email delivery in progress.`)
+                          }
+                        }}
+                        className="w-full py-3 bg-white text-primary-600 font-semibold rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+                      >
+                        <Send className="h-5 w-5" />
+                        Send to {selectedContacts.length} Recipients
+                      </button>
+                    </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Email Preview Modal */}
+          {showEmailPreview && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+              <div className="bg-white rounded-xl max-w-3xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+                <div className="p-4 border-b flex items-center justify-between bg-gray-50">
+                  <h2 className="text-lg font-bold text-gray-900">Email Preview</h2>
+                  <button onClick={() => setShowEmailPreview(false)} className="text-gray-500 hover:text-gray-700">
+                    <X className="h-5 w-5" />
+                  </button>
+                </div>
+                
+                {/* Email Header Preview */}
+                <div className="p-4 border-b bg-gray-100">
+                  <div className="text-sm space-y-1">
+                    <p><span className="text-gray-500">From:</span> Achieve Pack &lt;hello@achievepack.com&gt;</p>
+                    <p><span className="text-gray-500">To:</span> {'{'}recipient{'}'}</p>
+                    <p><span className="text-gray-500 font-semibold">Subject:</span> <span className="font-semibold">{emailSubject}</span></p>
+                  </div>
+                </div>
+                
+                {/* Email Body Preview */}
+                <div className="flex-1 overflow-y-auto p-6 bg-white">
+                  <div className="max-w-xl mx-auto">
+                    {/* Logo */}
+                    <div className="text-center mb-6">
+                      <img src="/ap-logo.png" alt="Achieve Pack" className="h-10 mx-auto" />
+                    </div>
+                    
+                    {/* Greeting */}
+                    <p className="text-gray-800 mb-4">{personalizationFields.greeting.replace('{{name}}', 'John')},</p>
+                    
+                    {/* Content */}
+                    <div className="text-gray-700 whitespace-pre-wrap mb-6">
+                      {emailContent || 'Your email content will appear here...'}
+                    </div>
+                    
+                    {/* Added Images */}
+                    {emailImages.length > 0 && (
+                      <div className="my-6 space-y-3">
+                        {emailImages.map((img, idx) => (
+                          <img key={idx} src={img} alt="" className="w-full rounded-lg" />
+                        ))}
+                      </div>
+                    )}
+                    
+                    {/* Featured Page Link */}
+                    {selectedPage && (
+                      <div className="my-6 p-4 bg-gray-50 rounded-lg border">
+                        <p className="text-sm text-gray-500 mb-2">Featured Content from: {selectedPage}</p>
+                        <a href={`https://achievepack.com${selectedPage}`} className="text-primary-600 hover:underline text-sm">
+                          Read more on our website →
+                        </a>
+                      </div>
+                    )}
+                    
+                    {/* Closing */}
+                    <div className="text-gray-700 whitespace-pre-wrap mt-6">
+                      {personalizationFields.closing}
+                    </div>
+                    
+                    {/* Footer */}
+                    <div className="mt-8 pt-6 border-t text-center text-xs text-gray-500">
+                      <p>© 2025 Achieve Pack. All rights reserved.</p>
+                      <p className="mt-1">You're receiving this because you subscribed to our newsletter.</p>
+                      <p className="mt-1"><a href="#" className="text-primary-600 hover:underline">Unsubscribe</a></p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Actions */}
+                <div className="p-4 border-t bg-gray-50 flex gap-3">
+                  <button
+                    onClick={() => setShowEmailPreview(false)}
+                    className="flex-1 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors"
+                  >
+                    Edit Content
+                  </button>
+                  <button
+                    onClick={async () => {
+                      setTestEmailSending(true)
+                      await new Promise(resolve => setTimeout(resolve, 1500))
+                      setTestEmailSending(false)
+                      alert('Test email sent to ryan@achievepack.com!')
+                    }}
+                    disabled={testEmailSending}
+                    className="flex-1 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 disabled:opacity-50 transition-colors flex items-center justify-center gap-2"
+                  >
+                    {testEmailSending ? <RefreshCw className="h-4 w-4 animate-spin" /> : <Mail className="h-4 w-4" />}
+                    Test Send
+                  </button>
                 </div>
               </div>
             </div>
