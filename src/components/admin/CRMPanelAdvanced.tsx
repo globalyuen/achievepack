@@ -929,6 +929,7 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
               <option value="website">🌐 Website</option>
               <option value="paypal">🟡 PayPal</option>
               <option value="stripe">🟣 Stripe</option>
+              <option value="calendly">📅 Calendly</option>
               <option value="import">📥 Import</option>
               <option value="manual">✍️ Manual</option>
             </select>
@@ -1418,7 +1419,7 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
                               <div className="text-xs text-gray-500">{tx.email}</div>
                             </td>
                             <td className="px-2 py-1">
-                              <span className={`px-2 py-0.5 rounded-full text-xs ${tx.source === 'paypal' ? 'bg-yellow-100 text-yellow-800' : tx.source === 'stripe' ? 'bg-purple-100 text-purple-800' : 'bg-gray-100'}`}>{tx.source}</span>
+                              <span className={`px-2 py-0.5 rounded-full text-xs ${tx.source === 'paypal' ? 'bg-yellow-100 text-yellow-800' : tx.source === 'stripe' ? 'bg-purple-100 text-purple-800' : tx.source === 'calendly' ? 'bg-blue-100 text-blue-800' : 'bg-gray-100'}`}>{tx.source}</span>
                             </td>
                             <td className="px-2 py-1 text-right font-bold text-green-600">${tx.amount.toLocaleString('en-US', { minimumFractionDigits: 2 })}</td>
                             <td className="px-1 py-1">
@@ -1543,7 +1544,7 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
                   {Object.entries(analytics.bySource)
                     .sort((a, b) => b[1].revenue - a[1].revenue)
                     .map(([source, data]) => {
-                      const icon = source === 'paypal' ? '🟡' : source === 'stripe' ? '🟣' : source === 'website' ? '🌐' : '📥'
+                      const icon = source === 'paypal' ? '🟡' : source === 'stripe' ? '🟣' : source === 'website' ? '🌐' : source === 'calendly' ? '📅' : '📥'
                       return (
                         <div key={source} className="bg-white p-3 rounded-lg shadow-sm text-center">
                           <div className="text-2xl">{icon}</div>
@@ -1750,6 +1751,7 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
                 >
                   <option value="paypal">PayPal</option>
                   <option value="stripe">Stripe</option>
+                  <option value="calendly">Calendly</option>
                   <option value="website">Website</option>
                   <option value="import">Import</option>
                   <option value="manual">Manual</option>
