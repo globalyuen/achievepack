@@ -81,18 +81,32 @@ const StorePage: React.FC = () => {
     })
   }, [])
 
-  // Optimized category/shape handlers
+  // Optimized category/shape handlers - also update URL
   const handleCategoryChange = useCallback((categoryId: string) => {
     startTransition(() => {
       setSelectedCategory(categoryId)
+      const newParams = new URLSearchParams(searchParams)
+      if (categoryId === 'all') {
+        newParams.delete('category')
+      } else {
+        newParams.set('category', categoryId)
+      }
+      setSearchParams(newParams, { replace: true })
     })
-  }, [])
+  }, [searchParams, setSearchParams])
 
   const handleShapeChange = useCallback((shapeId: string) => {
     startTransition(() => {
       setSelectedShape(shapeId)
+      const newParams = new URLSearchParams(searchParams)
+      if (shapeId === 'all') {
+        newParams.delete('shape')
+      } else {
+        newParams.set('shape', shapeId)
+      }
+      setSearchParams(newParams, { replace: true })
     })
-  }, [])
+  }, [searchParams, setSearchParams])
 
   const handleSortChange = useCallback((option: SortOption) => {
     setSortBy(option)
