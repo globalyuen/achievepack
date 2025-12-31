@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
-import { supabase, Order, Profile, NewsletterSubscriber, Document, Quote, ArtworkFile, EmailDraft } from '../lib/supabase'
+import { supabase, Order, Profile, NewsletterSubscriber, Document, Quote, ArtworkFile, EmailDraft, CRMInquiry } from '../lib/supabase'
 import { blogPosts } from '../data/blogData'
 import { Home, Users, Package, Settings, Search, ChevronDown, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox, Send, FileCode, Check, Globe } from 'lucide-react'
 import CRMPanelAdvanced from '../components/admin/CRMPanelAdvanced'
@@ -44,6 +44,8 @@ const AdminPage: React.FC = () => {
   const [emailDrafts, setEmailDrafts] = useState<EmailDraft[]>([])
   const [savingDraft, setSavingDraft] = useState(false)
   const [currentDraftId, setCurrentDraftId] = useState<string | null>(null)
+  const [inquiries, setInquiries] = useState<CRMInquiry[]>([])
+  const [contactFilter, setContactFilter] = useState<'all' | 'newsletter' | 'customer' | 'inquiry'>('all')
 
   // Check if user is admin
   useEffect(() => {
@@ -61,18 +63,20 @@ const AdminPage: React.FC = () => {
 
   const fetchData = async () => {
     setLoading(true)
-    const [customersRes, ordersRes, subscribersRes, documentsRes, draftsRes] = await Promise.all([
+    const [customersRes, ordersRes, subscribersRes, documentsRes, draftsRes, inquiriesRes] = await Promise.all([
       supabase.from('profiles').select('*').order('created_at', { ascending: false }),
       supabase.from('orders').select('*').order('created_at', { ascending: false }),
       supabase.from('newsletter_subscribers').select('*').order('created_at', { ascending: false }),
       supabase.from('documents').select('*').order('created_at', { ascending: false }),
-      supabase.from('email_drafts').select('*').order('updated_at', { ascending: false })
+      supabase.from('email_drafts').select('*').order('updated_at', { ascending: false }),
+      supabase.from('crm_inquiries').select('*').order('created_at', { ascending: false })
     ])
     setCustomers(customersRes.data || [])
     setOrders(ordersRes.data || [])
     setSubscribers(subscribersRes.data || [])
     setDocuments(documentsRes.data || [])
     setEmailDrafts(draftsRes.data || [])
+    setInquiries(inquiriesRes.data || [])
     setLoading(false)
   }
 
@@ -1225,7 +1229,11 @@ const AdminPage: React.FC = () => {
                       <div className="flex items-center gap-2">
                         <button
                           onClick={() => {
-                            const allIds = [...subscribers.filter(s => s.subscribed).map(s => s.id), ...customers.map(c => c.id)]
+                            const allIds = [
+                              ...subscribers.filter(s => s.subscribed).map(s => `newsletter_${s.id}`),
+                              ...customers.map(c => `customer_${c.id}`),
+                              ...inquiries.filter(i => i.email && i.status !== 'spam').map(i => `inquiry_${i.id}`)
+                            ]
                             setSelectedContacts(allIds)
                           }}
                           className="text-xs px-2 py-1 bg-gray-100 rounded hover:bg-gray-200"
@@ -1240,63 +1248,142 @@ const AdminPage: React.FC = () => {
                         </button>
                       </div>
                     </div>
+
+                    {/* Filter Buttons */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <button
+                        onClick={() => setContactFilter('all')}
+                        className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
+                          contactFilter === 'all' ? 'bg-primary-500 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                        }`}
+                      >
+                        All ({subscribers.filter(s => s.subscribed).length + customers.length + inquiries.filter(i => i.email && i.status !== 'spam').length})
+                      </button>
+                      <button
+                        onClick={() => setContactFilter('newsletter')}
+                        className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
+                          contactFilter === 'newsletter' ? 'bg-green-500 text-white' : 'bg-green-100 text-green-700 hover:bg-green-200'
+                        }`}
+                      >
+                        Newsletter ({subscribers.filter(s => s.subscribed).length})
+                      </button>
+                      <button
+                        onClick={() => setContactFilter('customer')}
+                        className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
+                          contactFilter === 'customer' ? 'bg-blue-500 text-white' : 'bg-blue-100 text-blue-700 hover:bg-blue-200'
+                        }`}
+                      >
+                        Customers ({customers.length})
+                      </button>
+                      <button
+                        onClick={() => setContactFilter('inquiry')}
+                        className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
+                          contactFilter === 'inquiry' ? 'bg-orange-500 text-white' : 'bg-orange-100 text-orange-700 hover:bg-orange-200'
+                        }`}
+                      >
+                        Inquiries ({inquiries.filter(i => i.email && i.status !== 'spam').length})
+                      </button>
+                    </div>
                     
                     <div className="text-sm text-gray-500 mb-3">
                       Selected: <span className="font-semibold text-primary-600">{selectedContacts.length}</span> contacts
                     </div>
 
-                    <div className="max-h-[500px] overflow-y-auto space-y-2">
+                    <div className="max-h-[400px] overflow-y-auto space-y-2">
                       {/* Newsletter Subscribers */}
-                      <div className="mb-4">
-                        <p className="text-xs font-semibold text-gray-500 uppercase mb-2">Newsletter Subscribers ({subscribers.filter(s => s.subscribed).length})</p>
-                        {subscribers.filter(s => s.subscribed).map(sub => (
-                          <label key={sub.id} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg cursor-pointer">
-                            <input
-                              type="checkbox"
-                              checked={selectedContacts.includes(sub.id)}
-                              onChange={(e) => {
-                                if (e.target.checked) {
-                                  setSelectedContacts([...selectedContacts, sub.id])
-                                } else {
-                                  setSelectedContacts(selectedContacts.filter(id => id !== sub.id))
-                                }
-                              }}
-                              className="w-4 h-4 text-primary-600 rounded focus:ring-primary-500"
-                            />
-                            <div className="flex-1 min-w-0">
-                              <p className="text-sm font-medium text-gray-900 truncate">{sub.first_name || 'Subscriber'}</p>
-                              <p className="text-xs text-gray-500 truncate">{sub.email}</p>
-                            </div>
-                            <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Newsletter</span>
-                          </label>
-                        ))}
-                      </div>
+                      {(contactFilter === 'all' || contactFilter === 'newsletter') && (
+                        <div className="mb-4">
+                          <p className="text-xs font-semibold text-gray-500 uppercase mb-2 sticky top-0 bg-white py-1">Newsletter Subscribers ({subscribers.filter(s => s.subscribed).length})</p>
+                          {subscribers.filter(s => s.subscribed).map(sub => (
+                            <label key={sub.id} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg cursor-pointer">
+                              <input
+                                type="checkbox"
+                                checked={selectedContacts.includes(`newsletter_${sub.id}`)}
+                                onChange={(e) => {
+                                  const contactId = `newsletter_${sub.id}`
+                                  if (e.target.checked) {
+                                    setSelectedContacts([...selectedContacts, contactId])
+                                  } else {
+                                    setSelectedContacts(selectedContacts.filter(id => id !== contactId))
+                                  }
+                                }}
+                                className="w-4 h-4 text-primary-600 rounded focus:ring-primary-500"
+                              />
+                              <div className="flex-1 min-w-0">
+                                <p className="text-sm font-medium text-gray-900 truncate">{sub.first_name || 'Subscriber'}</p>
+                                <p className="text-xs text-gray-500 truncate">{sub.email}</p>
+                              </div>
+                              <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Newsletter</span>
+                            </label>
+                          ))}
+                        </div>
+                      )}
 
                       {/* Customers */}
-                      <div>
-                        <p className="text-xs font-semibold text-gray-500 uppercase mb-2">Customers ({customers.length})</p>
-                        {customers.map(customer => (
-                          <label key={customer.id} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg cursor-pointer">
-                            <input
-                              type="checkbox"
-                              checked={selectedContacts.includes(customer.id)}
-                              onChange={(e) => {
-                                if (e.target.checked) {
-                                  setSelectedContacts([...selectedContacts, customer.id])
-                                } else {
-                                  setSelectedContacts(selectedContacts.filter(id => id !== customer.id))
-                                }
-                              }}
-                              className="w-4 h-4 text-primary-600 rounded focus:ring-primary-500"
-                            />
-                            <div className="flex-1 min-w-0">
-                              <p className="text-sm font-medium text-gray-900 truncate">{customer.full_name || 'Customer'}</p>
-                              <p className="text-xs text-gray-500 truncate">{customer.email}</p>
-                            </div>
-                            <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">Customer</span>
-                          </label>
-                        ))}
-                      </div>
+                      {(contactFilter === 'all' || contactFilter === 'customer') && (
+                        <div className="mb-4">
+                          <p className="text-xs font-semibold text-gray-500 uppercase mb-2 sticky top-0 bg-white py-1">Customers ({customers.length})</p>
+                          {customers.map(customer => (
+                            <label key={customer.id} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg cursor-pointer">
+                              <input
+                                type="checkbox"
+                                checked={selectedContacts.includes(`customer_${customer.id}`)}
+                                onChange={(e) => {
+                                  const contactId = `customer_${customer.id}`
+                                  if (e.target.checked) {
+                                    setSelectedContacts([...selectedContacts, contactId])
+                                  } else {
+                                    setSelectedContacts(selectedContacts.filter(id => id !== contactId))
+                                  }
+                                }}
+                                className="w-4 h-4 text-primary-600 rounded focus:ring-primary-500"
+                              />
+                              <div className="flex-1 min-w-0">
+                                <p className="text-sm font-medium text-gray-900 truncate">{customer.full_name || 'Customer'}</p>
+                                <p className="text-xs text-gray-500 truncate">{customer.email}</p>
+                              </div>
+                              <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">Customer</span>
+                            </label>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Inquiries */}
+                      {(contactFilter === 'all' || contactFilter === 'inquiry') && (
+                        <div className="mb-4">
+                          <p className="text-xs font-semibold text-gray-500 uppercase mb-2 sticky top-0 bg-white py-1">Inquiries ({inquiries.filter(i => i.email && i.status !== 'spam').length})</p>
+                          {inquiries.filter(i => i.email && i.status !== 'spam').map(inquiry => (
+                            <label key={inquiry.id} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg cursor-pointer">
+                              <input
+                                type="checkbox"
+                                checked={selectedContacts.includes(`inquiry_${inquiry.id}`)}
+                                onChange={(e) => {
+                                  const contactId = `inquiry_${inquiry.id}`
+                                  if (e.target.checked) {
+                                    setSelectedContacts([...selectedContacts, contactId])
+                                  } else {
+                                    setSelectedContacts(selectedContacts.filter(id => id !== contactId))
+                                  }
+                                }}
+                                className="w-4 h-4 text-primary-600 rounded focus:ring-primary-500"
+                              />
+                              <div className="flex-1 min-w-0">
+                                <p className="text-sm font-medium text-gray-900 truncate">{inquiry.name || 'Unknown'}</p>
+                                <p className="text-xs text-gray-500 truncate">{inquiry.email}</p>
+                              </div>
+                              <div className="flex items-center gap-1">
+                                <span className={`text-xs px-2 py-0.5 rounded-full ${
+                                  inquiry.source === 'paypal' ? 'bg-yellow-100 text-yellow-700' :
+                                  inquiry.source === 'calendly' ? 'bg-purple-100 text-purple-700' :
+                                  'bg-orange-100 text-orange-700'
+                                }`}>
+                                  {inquiry.source || 'Inquiry'}
+                                </span>
+                              </div>
+                            </label>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
 
