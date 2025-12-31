@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, Order, Profile, NewsletterSubscriber, Document, Quote, ArtworkFile } from '../lib/supabase'
-import { Home, Users, Package, Settings, Search, ChevronDown, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox } from 'lucide-react'
+import { Home, Users, Package, Settings, Search, ChevronDown, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox, Send, FileCode, Check, Globe } from 'lucide-react'
 import CRMPanelAdvanced from '../components/admin/CRMPanelAdvanced'
 
-type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'artwork' | 'documents' | 'newsletter' | 'crm' | 'settings'
+type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'artwork' | 'documents' | 'newsletter' | 'crm' | 'seo-email' | 'settings'
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
 
@@ -30,6 +30,13 @@ const AdminPage: React.FC = () => {
   const [uploadForm, setUploadForm] = useState({ userId: '', name: '', description: '', fileUrl: '', type: 'PDF' })
   const [trackingForm, setTrackingForm] = useState({ trackingNumber: '', carrier: '', trackingUrl: '' })
   const [artworkFeedback, setArtworkFeedback] = useState('')
+  
+  // SEO to Email state
+  const [selectedPage, setSelectedPage] = useState('')
+  const [emailSubject, setEmailSubject] = useState('')
+  const [emailContent, setEmailContent] = useState('')
+  const [selectedContacts, setSelectedContacts] = useState<string[]>([])
+  const [personalizationFields, setPersonalizationFields] = useState({ greeting: 'Hi {{name}}', closing: 'Best regards,\nRyan Wong\nAchievePack Team' })
 
   // Check if user is admin
   useEffect(() => {
@@ -317,6 +324,18 @@ const AdminPage: React.FC = () => {
                 CRM / Inquiries
               </button>
 
+              <button
+                onClick={() => setActiveTab('seo-email')}
+                className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
+                  activeTab === 'seo-email'
+                    ? 'bg-primary-500 text-white'
+                    : 'text-gray-900 hover:bg-primary-50 hover:text-primary-600'
+                }`}
+              >
+                <Send className="flex-shrink-0 w-5 h-5 mr-4" />
+                SEO to Email
+              </button>
+
               <Link
                 to="/ctrl-x9k7m/management?tab=quotes"
                 className="flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 text-gray-900 hover:bg-yellow-50 hover:text-yellow-600"
@@ -395,7 +414,7 @@ const AdminPage: React.FC = () => {
 
         {/* Mobile Nav */}
         <div className="md:hidden flex overflow-x-auto bg-white border-b px-2 py-2 gap-2">
-          {(['dashboard', 'customers', 'orders', 'documents', 'newsletter', 'crm', 'settings'] as TabType[]).map(tab => (
+          {(['dashboard', 'customers', 'orders', 'documents', 'newsletter', 'crm', 'seo-email', 'settings'] as TabType[]).map(tab => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -839,6 +858,286 @@ const AdminPage: React.FC = () => {
                   {filteredSubscribers.length === 0 && (
                     <div className="text-center py-12 text-gray-500">No subscribers found</div>
                   )}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* SEO to Email Tab */}
+          {activeTab === 'seo-email' && (
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <h1 className="text-2xl font-bold text-gray-900">SEO Page to Email</h1>
+                <div className="text-sm text-gray-500">
+                  Convert any page content to personalized emails
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {/* Left Column - Page Selection & Email Builder */}
+                <div className="space-y-4">
+                  {/* Page Selection */}
+                  <div className="bg-white rounded-xl shadow-sm border p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                      <Globe className="h-5 w-5 text-blue-500" />
+                      Select Page
+                    </h3>
+                    <select
+                      value={selectedPage}
+                      onChange={(e) => {
+                        setSelectedPage(e.target.value)
+                        // Auto-generate subject based on page
+                        const pageTitles: Record<string, string> = {
+                          '/industry/coffee-tea': 'Sustainable Coffee & Tea Packaging Solutions',
+                          '/industry/pet-food': 'Eco-Friendly Pet Food Packaging',
+                          '/industry/snacks-food': 'Sustainable Snack Packaging Options',
+                          '/materials/compostable': 'Discover Our Compostable Materials',
+                          '/materials/recyclable-mono-pe': 'Recyclable Mono-PE Solutions',
+                          '/packaging/stand-up-pouches': 'Custom Stand-Up Pouches for Your Brand',
+                          '/packaging/flat-bottom-bags': 'Premium Flat Bottom Bags',
+                          '/features/barrier-options': 'Barrier Options for Product Protection',
+                          '/products/compostable-coffee-bags': 'Compostable Coffee Bags',
+                          '/topics/eco-friendly-food-packaging': 'Eco-Friendly Food Packaging Guide',
+                          '/blog/sustainable-packaging-supplier-analysis': 'Sustainable Packaging Supplier Analysis',
+                          '/blog/pet-food-packaging-complete-guide': 'Complete Guide to Pet Food Packaging',
+                          '/blog/startup-sustainable-packaging-guide': 'Startup Guide to Sustainable Packaging',
+                          '/blog/anz-sustainable-food-packaging-guide': 'ANZ Sustainable Food Packaging Guide',
+                          '/blog/thank-you-for-2025-heres-to-whats-next': 'Thank You for 2025. Here\'s to What\'s Next.'
+                        }
+                        setEmailSubject(pageTitles[e.target.value] || '')
+                      }}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                    >
+                      <option value="">-- Select a page --</option>
+                      <optgroup label="Industry Pages">
+                        <option value="/industry/coffee-tea">Coffee & Tea Industry</option>
+                        <option value="/industry/pet-food">Pet Food Industry</option>
+                        <option value="/industry/snacks-food">Snacks & Food Industry</option>
+                        <option value="/industry/supplements-powders">Supplements & Powders</option>
+                        <option value="/industry/baby-food">Baby Food</option>
+                      </optgroup>
+                      <optgroup label="Materials">
+                        <option value="/materials/compostable">Compostable Materials</option>
+                        <option value="/materials/recyclable-mono-pe">Recyclable Mono-PE</option>
+                        <option value="/materials/recyclable-mono-pp">Recyclable Mono-PP</option>
+                        <option value="/materials/bio-pe">Bio-PE Materials</option>
+                        <option value="/materials/pcr">PCR Materials</option>
+                      </optgroup>
+                      <optgroup label="Packaging Types">
+                        <option value="/packaging/stand-up-pouches">Stand-Up Pouches</option>
+                        <option value="/packaging/flat-bottom-bags">Flat Bottom Bags</option>
+                        <option value="/packaging/spout-pouches">Spout Pouches</option>
+                        <option value="/packaging/flat-pouches">Flat Pouches</option>
+                        <option value="/packaging/side-gusset-bags">Side Gusset Bags</option>
+                      </optgroup>
+                      <optgroup label="Products">
+                        <option value="/products/compostable-coffee-bags">Compostable Coffee Bags</option>
+                        <option value="/products/compostable-stand-up-pouches">Compostable Stand-Up Pouches</option>
+                        <option value="/products/low-moq-packaging">Low MOQ Packaging</option>
+                      </optgroup>
+                      <optgroup label="Topics">
+                        <option value="/topics/eco-friendly-food-packaging">Eco-Friendly Food Packaging</option>
+                        <option value="/topics/dtc-sustainable-packaging">DTC Sustainable Packaging</option>
+                        <option value="/topics/green-coffee-materials">Green Coffee Materials</option>
+                      </optgroup>
+                      <optgroup label="Blog Articles">
+                        <option value="/blog/sustainable-packaging-supplier-analysis">Sustainable Packaging Supplier Analysis</option>
+                        <option value="/blog/pet-food-packaging-complete-guide">Pet Food Packaging Complete Guide</option>
+                        <option value="/blog/startup-sustainable-packaging-guide">Startup Sustainable Packaging Guide</option>
+                        <option value="/blog/anz-sustainable-food-packaging-guide">ANZ Sustainable Packaging Guide</option>
+                        <option value="/blog/thank-you-for-2025-heres-to-whats-next">Thank You for 2025 (Newsletter)</option>
+                      </optgroup>
+                      <optgroup label="Newsletter">
+                        <option value="/blog/thank-you-for-2025-heres-to-whats-next">🎄 Thank You for 2025 - New Year Message</option>
+                      </optgroup>
+                    </select>
+                    {selectedPage && (
+                      <a 
+                        href={selectedPage} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="mt-2 inline-flex items-center gap-1 text-sm text-primary-600 hover:text-primary-700"
+                      >
+                        Preview page <ExternalLink className="h-3 w-3" />
+                      </a>
+                    )}
+                  </div>
+
+                  {/* Email Builder */}
+                  <div className="bg-white rounded-xl shadow-sm border p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                      <Mail className="h-5 w-5 text-green-500" />
+                      Email Builder
+                    </h3>
+                    <div className="space-y-4">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Subject Line</label>
+                        <input
+                          type="text"
+                          value={emailSubject}
+                          onChange={(e) => setEmailSubject(e.target.value)}
+                          placeholder="Enter email subject..."
+                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Greeting (use {'{'}{'{'} name {'}'}{'}'}  for personalization)</label>
+                        <input
+                          type="text"
+                          value={personalizationFields.greeting}
+                          onChange={(e) => setPersonalizationFields({...personalizationFields, greeting: e.target.value})}
+                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Email Content</label>
+                        <textarea
+                          value={emailContent}
+                          onChange={(e) => setEmailContent(e.target.value)}
+                          placeholder="Write your email content here...\n\nYou can use {{name}} for personalization."
+                          rows={8}
+                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Closing</label>
+                        <textarea
+                          value={personalizationFields.closing}
+                          onChange={(e) => setPersonalizationFields({...personalizationFields, closing: e.target.value})}
+                          rows={3}
+                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Column - Contact Selection */}
+                <div className="space-y-4">
+                  <div className="bg-white rounded-xl shadow-sm border p-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                        <Users className="h-5 w-5 text-purple-500" />
+                        Select Recipients
+                      </h3>
+                      <div className="flex items-center gap-2">
+                        <button
+                          onClick={() => {
+                            const allIds = [...subscribers.filter(s => s.subscribed).map(s => s.id), ...customers.map(c => c.id)]
+                            setSelectedContacts(allIds)
+                          }}
+                          className="text-xs px-2 py-1 bg-gray-100 rounded hover:bg-gray-200"
+                        >
+                          Select All
+                        </button>
+                        <button
+                          onClick={() => setSelectedContacts([])}
+                          className="text-xs px-2 py-1 bg-gray-100 rounded hover:bg-gray-200"
+                        >
+                          Clear All
+                        </button>
+                      </div>
+                    </div>
+                    
+                    <div className="text-sm text-gray-500 mb-3">
+                      Selected: <span className="font-semibold text-primary-600">{selectedContacts.length}</span> contacts
+                    </div>
+
+                    <div className="max-h-[500px] overflow-y-auto space-y-2">
+                      {/* Newsletter Subscribers */}
+                      <div className="mb-4">
+                        <p className="text-xs font-semibold text-gray-500 uppercase mb-2">Newsletter Subscribers ({subscribers.filter(s => s.subscribed).length})</p>
+                        {subscribers.filter(s => s.subscribed).map(sub => (
+                          <label key={sub.id} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg cursor-pointer">
+                            <input
+                              type="checkbox"
+                              checked={selectedContacts.includes(sub.id)}
+                              onChange={(e) => {
+                                if (e.target.checked) {
+                                  setSelectedContacts([...selectedContacts, sub.id])
+                                } else {
+                                  setSelectedContacts(selectedContacts.filter(id => id !== sub.id))
+                                }
+                              }}
+                              className="w-4 h-4 text-primary-600 rounded focus:ring-primary-500"
+                            />
+                            <div className="flex-1 min-w-0">
+                              <p className="text-sm font-medium text-gray-900 truncate">{sub.first_name || 'Subscriber'}</p>
+                              <p className="text-xs text-gray-500 truncate">{sub.email}</p>
+                            </div>
+                            <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Newsletter</span>
+                          </label>
+                        ))}
+                      </div>
+
+                      {/* Customers */}
+                      <div>
+                        <p className="text-xs font-semibold text-gray-500 uppercase mb-2">Customers ({customers.length})</p>
+                        {customers.map(customer => (
+                          <label key={customer.id} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg cursor-pointer">
+                            <input
+                              type="checkbox"
+                              checked={selectedContacts.includes(customer.id)}
+                              onChange={(e) => {
+                                if (e.target.checked) {
+                                  setSelectedContacts([...selectedContacts, customer.id])
+                                } else {
+                                  setSelectedContacts(selectedContacts.filter(id => id !== customer.id))
+                                }
+                              }}
+                              className="w-4 h-4 text-primary-600 rounded focus:ring-primary-500"
+                            />
+                            <div className="flex-1 min-w-0">
+                              <p className="text-sm font-medium text-gray-900 truncate">{customer.full_name || 'Customer'}</p>
+                              <p className="text-xs text-gray-500 truncate">{customer.email}</p>
+                            </div>
+                            <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">Customer</span>
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Send Button */}
+                  <div className="bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl p-6 text-white">
+                    <div className="flex items-center justify-between mb-4">
+                      <div>
+                        <h3 className="text-lg font-semibold">Ready to Send?</h3>
+                        <p className="text-sm text-white/80">Review and send personalized emails</p>
+                      </div>
+                      <Send className="h-8 w-8 text-white/50" />
+                    </div>
+                    <div className="space-y-2 text-sm mb-4">
+                      <div className="flex items-center gap-2">
+                        {selectedPage ? <Check className="h-4 w-4 text-green-300" /> : <X className="h-4 w-4 text-red-300" />}
+                        <span>Page selected: {selectedPage || 'None'}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        {emailSubject ? <Check className="h-4 w-4 text-green-300" /> : <X className="h-4 w-4 text-red-300" />}
+                        <span>Subject: {emailSubject || 'Not set'}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        {selectedContacts.length > 0 ? <Check className="h-4 w-4 text-green-300" /> : <X className="h-4 w-4 text-red-300" />}
+                        <span>Recipients: {selectedContacts.length} selected</span>
+                      </div>
+                    </div>
+                    <button
+                      disabled={!selectedPage || !emailSubject || selectedContacts.length === 0}
+                      onClick={() => {
+                        alert(`Email campaign ready!
+
+Subject: ${emailSubject}
+Recipients: ${selectedContacts.length}
+Page: ${selectedPage}
+
+Note: Email sending integration pending.`)
+                      }}
+                      className="w-full py-3 bg-white text-primary-600 font-semibold rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+                    >
+                      <Send className="h-5 w-5" />
+                      Send to {selectedContacts.length} Recipients
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

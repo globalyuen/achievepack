@@ -2048,6 +2048,70 @@ export const blogPosts: BlogPost[] = [
     featuredImage: "/imgs/blog/geo/a_anz_specialty_food_retail_3052167.webp",
     readTime: 11,
     metaDescription: "How food and CPG brands in Australia & New Zealand can meet APCO 2025 targets with ARL-compatible recyclable and AS 5810 home compostable packaging. Low MOQ from 100 units."
+  },
+  {
+    id: "6",
+    slug: "thank-you-for-2025-heres-to-whats-next",
+    title: "Thank You for 2025. Here's to What's Next.",
+    excerpt: "As we close the door on 2025, we want to pause and genuinely thank you. Every sustainable switch, every certification milestone, every conversation about doing better—you made that happen.",
+    content: `
+      <figure class="my-8">
+        <img src="/imgs/blog/2025-thank-you/2025-to-2026-growth.webp" alt="Achieve Pack and Pouch.eco growth from 2025 to 2026 - seedling to thriving plant" class="w-full rounded-xl" />
+        <figcaption class="text-center text-sm text-neutral-500 mt-3">From seedling to growth: Our journey from 2025 into 2026</figcaption>
+      </figure>
+
+      <h2>A Genuine Thank You</h2>
+      <p>As we close the door on 2025, we want to pause and genuinely thank you.</p>
+      
+      <p>Every brand that chose to make their packaging eco—every sustainable switch, every certification milestone, every conversation about doing better—<strong>you made that happen</strong>. You trusted us to help you align your values with your business. You bet on certified compostable materials when it would've been easier not to. You asked the hard questions about impact, transparency, and real change (not greenwashing).</p>
+      
+      <p><strong>That means something to us.</strong></p>
+      
+      <p>This year, together, we've helped shift conversations and systems around <a href="/materials/compostable">sustainable packaging</a>. Not perfectly. But genuinely. And we're just getting started.</p>
+
+      <h2>Looking Into 2026</h2>
+      <p>We're leaning into what we've learned:</p>
+      
+      <ul>
+        <li><strong>Faster innovation cycles</strong> — so sustainability doesn't mean compromise</li>
+        <li><strong>Even lower MOQs</strong> — so emerging brands can lead the way</li>
+        <li><strong>Deeper partnerships</strong> — with brands like you building the food ecosystem we actually want to see</li>
+      </ul>
+      
+      <blockquote>
+        The seedling phase is behind us. 2026 is about roots going deeper and growth reaching higher.
+      </blockquote>
+
+      <h2>We're Ready. Are You?</h2>
+      <p>If you've been thinking about the packaging question, or if you want to explore what's possible with certified eco materials, <a href="/contact">let's talk</a>. Our team is here.</p>
+      
+      <p>Whether you're looking for:</p>
+      <ul>
+        <li><a href="/products/compostable-coffee-bags">Compostable coffee bags</a> with low MOQ</li>
+        <li><a href="/packaging/stand-up-pouches">Custom stand-up pouches</a> for your growing brand</li>
+        <li><a href="/materials/recyclable-mono-pe">Recyclable mono-materials</a> for circular economy goals</li>
+        <li>Or simply guidance on making the switch to sustainable packaging</li>
+      </ul>
+      
+      <p>We're here to help make it happen—not in 10,000 units, but starting from just 100.</p>
+
+      <h2>Thank You for Being Part of This Story</h2>
+      <p>From everyone at Achieve Pack and Pouch.eco, we wish you a wonderful new year ahead. Here's to building something meaningful together in 2026.</p>
+      
+      <p><strong>Warmly,</strong><br/>The Achieve Pack & Pouch.eco Team</p>
+      
+      <hr class="my-8" />
+      
+      <p class="text-center"><strong>Ready to start 2026 with sustainable packaging?</strong></p>
+      <p class="text-center"><a href="/store">Browse our store</a> | <a href="/contact">Get in touch</a> | <a href="/company/about">Learn about us</a></p>
+    `,
+    author: "Achieve Pack Team",
+    publishDate: "2025-12-31",
+    category: "Newsletter",
+    tags: ["year in review", "2025", "2026", "thank you", "sustainable packaging", "company update", "new year", "eco packaging", "newsletter"],
+    featuredImage: "/imgs/blog/2025-thank-you/2025-to-2026-growth.webp",
+    readTime: 3,
+    metaDescription: "A heartfelt thank you from Achieve Pack and Pouch.eco as we close 2025. Here's to deeper roots and higher growth in sustainable packaging for 2026."
   }
 ];
 
@@ -2058,5 +2122,7 @@ export const blogCategories = [
   "Guides",
   "Pet Food Packaging",
   "Startup Resources",
-  "Regional Guides"
+  "Regional Guides",
+  "Company News",
+  "Newsletter"
 ];
