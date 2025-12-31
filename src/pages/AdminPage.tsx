@@ -46,9 +46,10 @@ const AdminPage: React.FC = () => {
   const [savingDraft, setSavingDraft] = useState(false)
   const [currentDraftId, setCurrentDraftId] = useState<string | null>(null)
   const [inquiries, setInquiries] = useState<CRMInquiry[]>([])
-  const [contactFilter, setContactFilter] = useState<'all' | 'newsletter' | 'customer' | 'inquiry'>('all')
+  const [contactFilter, setContactFilter] = useState<'all' | 'newsletter' | 'customer' | 'inquiry' | 'paypal' | 'stripe' | 'calendly' | 'website' | 'import' | 'manual'>('all')
   const [editorMode, setEditorMode] = useState<'visual' | 'html'>('visual')
   const [sendingCampaign, setSendingCampaign] = useState(false)
+  const [contactSearch, setContactSearch] = useState('')
 
   // Check if user is admin
   useEffect(() => {
@@ -1322,7 +1323,7 @@ const AdminPage: React.FC = () => {
                     </div>
 
                     {/* Filter Buttons */}
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-2 mb-3">
                       <button
                         onClick={() => setContactFilter('all')}
                         className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
@@ -1353,8 +1354,71 @@ const AdminPage: React.FC = () => {
                           contactFilter === 'inquiry' ? 'bg-orange-500 text-white' : 'bg-orange-100 text-orange-700 hover:bg-orange-200'
                         }`}
                       >
-                        Inquiries ({inquiries.filter(i => i.email && i.status !== 'spam').length})
+                        All Inquiries ({inquiries.filter(i => i.email && i.status !== 'spam').length})
                       </button>
+                    </div>
+                    {/* Source Filter Buttons */}
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      <span className="text-xs text-gray-500 self-center mr-1">Source:</span>
+                      <button
+                        onClick={() => setContactFilter('paypal')}
+                        className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
+                          contactFilter === 'paypal' ? 'bg-yellow-500 text-white' : 'bg-yellow-100 text-yellow-700 hover:bg-yellow-200'
+                        }`}
+                      >
+                        PayPal ({inquiries.filter(i => i.email && i.source === 'paypal').length})
+                      </button>
+                      <button
+                        onClick={() => setContactFilter('stripe')}
+                        className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
+                          contactFilter === 'stripe' ? 'bg-indigo-500 text-white' : 'bg-indigo-100 text-indigo-700 hover:bg-indigo-200'
+                        }`}
+                      >
+                        Stripe ({inquiries.filter(i => i.email && i.source === 'stripe').length})
+                      </button>
+                      <button
+                        onClick={() => setContactFilter('calendly')}
+                        className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
+                          contactFilter === 'calendly' ? 'bg-purple-500 text-white' : 'bg-purple-100 text-purple-700 hover:bg-purple-200'
+                        }`}
+                      >
+                        Calendly ({inquiries.filter(i => i.email && i.source === 'calendly').length})
+                      </button>
+                      <button
+                        onClick={() => setContactFilter('website')}
+                        className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
+                          contactFilter === 'website' ? 'bg-teal-500 text-white' : 'bg-teal-100 text-teal-700 hover:bg-teal-200'
+                        }`}
+                      >
+                        Website ({inquiries.filter(i => i.email && i.source === 'website').length})
+                      </button>
+                      <button
+                        onClick={() => setContactFilter('import')}
+                        className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
+                          contactFilter === 'import' ? 'bg-gray-700 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                        }`}
+                      >
+                        Import ({inquiries.filter(i => i.email && i.source === 'import').length})
+                      </button>
+                      <button
+                        onClick={() => setContactFilter('manual')}
+                        className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
+                          contactFilter === 'manual' ? 'bg-pink-500 text-white' : 'bg-pink-100 text-pink-700 hover:bg-pink-200'
+                        }`}
+                      >
+                        Manual ({inquiries.filter(i => i.email && i.source === 'manual').length})
+                      </button>
+                    </div>
+
+                    {/* Search */}
+                    <div className="mb-3">
+                      <input
+                        type="text"
+                        placeholder="Search by name, email, company..."
+                        value={contactSearch}
+                        onChange={(e) => setContactSearch(e.target.value)}
+                        className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+                      />
                     </div>
                     
                     <div className="text-sm text-gray-500 mb-3">
@@ -1366,7 +1430,11 @@ const AdminPage: React.FC = () => {
                       {(contactFilter === 'all' || contactFilter === 'newsletter') && (
                         <div className="mb-4">
                           <p className="text-xs font-semibold text-gray-500 uppercase mb-2 sticky top-0 bg-white py-1">Newsletter Subscribers ({subscribers.filter(s => s.subscribed).length})</p>
-                          {subscribers.filter(s => s.subscribed).map(sub => (
+                          {subscribers.filter(s => s.subscribed).filter(s => 
+                            !contactSearch || 
+                            s.first_name?.toLowerCase().includes(contactSearch.toLowerCase()) ||
+                            s.email?.toLowerCase().includes(contactSearch.toLowerCase())
+                          ).map(sub => (
                             <label key={sub.id} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg cursor-pointer">
                               <input
                                 type="checkbox"
@@ -1395,7 +1463,12 @@ const AdminPage: React.FC = () => {
                       {(contactFilter === 'all' || contactFilter === 'customer') && (
                         <div className="mb-4">
                           <p className="text-xs font-semibold text-gray-500 uppercase mb-2 sticky top-0 bg-white py-1">Customers ({customers.length})</p>
-                          {customers.map(customer => (
+                          {customers.filter(c => 
+                            !contactSearch ||
+                            c.full_name?.toLowerCase().includes(contactSearch.toLowerCase()) ||
+                            c.email?.toLowerCase().includes(contactSearch.toLowerCase()) ||
+                            c.company?.toLowerCase().includes(contactSearch.toLowerCase())
+                          ).map(customer => (
                             <label key={customer.id} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg cursor-pointer">
                               <input
                                 type="checkbox"
@@ -1420,42 +1493,71 @@ const AdminPage: React.FC = () => {
                         </div>
                       )}
 
-                      {/* Inquiries */}
-                      {(contactFilter === 'all' || contactFilter === 'inquiry') && (
-                        <div className="mb-4">
-                          <p className="text-xs font-semibold text-gray-500 uppercase mb-2 sticky top-0 bg-white py-1">Inquiries ({inquiries.filter(i => i.email && i.status !== 'spam').length})</p>
-                          {inquiries.filter(i => i.email && i.status !== 'spam').map(inquiry => (
-                            <label key={inquiry.id} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg cursor-pointer">
-                              <input
-                                type="checkbox"
-                                checked={selectedContacts.includes(`inquiry_${inquiry.id}`)}
-                                onChange={(e) => {
-                                  const contactId = `inquiry_${inquiry.id}`
-                                  if (e.target.checked) {
-                                    setSelectedContacts([...selectedContacts, contactId])
-                                  } else {
-                                    setSelectedContacts(selectedContacts.filter(id => id !== contactId))
-                                  }
-                                }}
-                                className="w-4 h-4 text-primary-600 rounded focus:ring-primary-500"
-                              />
-                              <div className="flex-1 min-w-0">
-                                <p className="text-sm font-medium text-gray-900 truncate">{inquiry.name || 'Unknown'}</p>
-                                <p className="text-xs text-gray-500 truncate">{inquiry.email}</p>
-                              </div>
-                              <div className="flex items-center gap-1">
-                                <span className={`text-xs px-2 py-0.5 rounded-full ${
-                                  inquiry.source === 'paypal' ? 'bg-yellow-100 text-yellow-700' :
-                                  inquiry.source === 'calendly' ? 'bg-purple-100 text-purple-700' :
-                                  'bg-orange-100 text-orange-700'
-                                }`}>
-                                  {inquiry.source || 'Inquiry'}
-                                </span>
-                              </div>
-                            </label>
-                          ))}
-                        </div>
-                      )}
+                      {/* Inquiries by Source */}
+                      {(() => {
+                        const sourceFilters: Record<string, string[]> = {
+                          'all': [],
+                          'inquiry': [],
+                          'paypal': ['paypal'],
+                          'stripe': ['stripe'],
+                          'calendly': ['calendly'],
+                          'website': ['website'],
+                          'import': ['import'],
+                          'manual': ['manual']
+                        }
+                        const sources = sourceFilters[contactFilter] || []
+                        const filteredInquiries = inquiries
+                          .filter(i => i.email && i.status !== 'spam')
+                          .filter(i => sources.length === 0 || sources.includes(i.source || ''))
+                          .filter(i =>
+                            !contactSearch ||
+                            i.name?.toLowerCase().includes(contactSearch.toLowerCase()) ||
+                            i.email?.toLowerCase().includes(contactSearch.toLowerCase()) ||
+                            i.company?.toLowerCase().includes(contactSearch.toLowerCase())
+                          )
+                        
+                        if (contactFilter === 'newsletter' || contactFilter === 'customer') return null
+                        
+                        return (
+                          <div className="mb-4">
+                            <p className="text-xs font-semibold text-gray-500 uppercase mb-2 sticky top-0 bg-white py-1">
+                              {contactFilter === 'all' ? 'All Inquiries' : contactFilter.charAt(0).toUpperCase() + contactFilter.slice(1)} ({filteredInquiries.length})
+                            </p>
+                            {filteredInquiries.map(inquiry => (
+                              <label key={inquiry.id} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg cursor-pointer">
+                                <input
+                                  type="checkbox"
+                                  checked={selectedContacts.includes(`inquiry_${inquiry.id}`)}
+                                  onChange={(e) => {
+                                    const contactId = `inquiry_${inquiry.id}`
+                                    if (e.target.checked) {
+                                      setSelectedContacts([...selectedContacts, contactId])
+                                    } else {
+                                      setSelectedContacts(selectedContacts.filter(id => id !== contactId))
+                                    }
+                                  }}
+                                  className="w-4 h-4 text-primary-600 rounded focus:ring-primary-500"
+                                />
+                                <div className="flex-1 min-w-0">
+                                  <p className="text-sm font-medium text-gray-900 truncate">{inquiry.name || 'Unknown'}</p>
+                                  <p className="text-xs text-gray-500 truncate">{inquiry.email}</p>
+                                  {inquiry.company && <p className="text-xs text-gray-400 truncate">{inquiry.company}</p>}
+                                </div>
+                                <div className="flex items-center gap-1">
+                                  <span className={`text-xs px-2 py-0.5 rounded-full ${
+                                    inquiry.source === 'paypal' ? 'bg-yellow-100 text-yellow-700' :
+                                    inquiry.source === 'stripe' ? 'bg-indigo-100 text-indigo-700' :
+                                    inquiry.source === 'calendly' ? 'bg-purple-100 text-purple-700' :
+                                    'bg-orange-100 text-orange-700'
+                                  }`}>
+                                    {inquiry.source || 'website'}
+                                  </span>
+                                </div>
+                              </label>
+                            ))}
+                          </div>
+                        )
+                      })()}
                     </div>
                   </div>
 
