@@ -225,15 +225,14 @@ async function importCalendlyCSV() {
       name: fullName,
       email: email,
       phone: phone,
-      country: country,
       message: message || notes || `Calendly meeting: ${eventType}`,
       source: 'calendly',
       status: 'new',
       priority: 'medium',
       created_at: createdAt,
       updated_at: new Date().toISOString(),
-      // Store additional info in metadata
-      notes: notes || null
+      // Store additional info in notes
+      notes: country ? `Country: ${country}\n${notes || ''}` : (notes || null)
     });
   }
   
