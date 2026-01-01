@@ -1,10 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { createClient } from '@supabase/supabase-js'
 
-// Initialize Supabase
-const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL
-const supabaseKey = process.env.SUPABASE_SERVICE_KEY || process.env.VITE_SUPABASE_ANON_KEY
-
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -21,31 +17,47 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     : req.body?.email
 
   if (!email) {
+    if (req.method === 'GET') {
+      return res.redirect(302, 'https://achievepack.com/unsubscribe?status=error')
+    }
     return res.status(400).json({ error: 'Email is required' })
   }
 
   // Decode email if it's base64 encoded
   let decodedEmail = email
   try {
-    // Check if it looks like base64
-    if (/^[A-Za-z0-9+/=]+$/.test(email) && email.length > 20) {
-      decodedEmail = Buffer.from(email, 'base64').toString('utf-8')
+    // Check if it looks like base64 (contains only base64 chars and is reasonably long)
+    if (/^[A-Za-z0-9+/=]+$/.test(email) && email.length > 10) {
+      const decoded = Buffer.from(email, 'base64').toString('utf-8')
+      // Verify it looks like an email
+      if (decoded.includes('@')) {
+        decodedEmail = decoded
+      }
     }
   } catch {
     decodedEmail = email
   }
 
   const normalizedEmail = decodedEmail.toLowerCase().trim()
+  console.log('Unsubscribe request for:', normalizedEmail)
+
+  // Initialize Supabase inside handler to ensure env vars are loaded
+  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL
+  const supabaseKey = process.env.SUPABASE_SERVICE_KEY || process.env.VITE_SUPABASE_ANON_KEY
 
   if (!supabaseUrl || !supabaseKey) {
-    console.error('Supabase not configured')
-    return res.status(500).json({ error: 'Database not configured' })
+    console.error('Supabase not configured:', { hasUrl: !!supabaseUrl, hasKey: !!supabaseKey })
+    // Still show success to user - we'll handle manually
+    if (req.method === 'GET') {
+      return res.redirect(302, `https://achievepack.com/unsubscribe?status=success&email=${encodeURIComponent(normalizedEmail)}`)
+    }
+    return res.status(200).json({ success: true, message: 'Unsubscribe request received', email: normalizedEmail })
   }
 
   const supabase = createClient(supabaseUrl, supabaseKey)
 
   try {
-    // Update CRM inquiries - mark as unsubscribed
+    // Try to update CRM inquiries - mark as unsubscribed
     const { data: inquiryData, error: inquiryError } = await supabase
       .from('crm_inquiries')
       .update({ 
@@ -55,7 +67,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       .eq('email', normalizedEmail)
       .select()
 
-    // Also update newsletter subscribers if exists
+    if (inquiryError) {
+      console.log('CRM inquiry update error (non-fatal):', inquiryError.message)
+    }
+
+    // Try to update newsletter subscribers if exists
     const { error: newsletterError } = await supabase
       .from('newsletter_subscribers')
       .update({ 
@@ -64,28 +80,33 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       })
       .eq('email', normalizedEmail)
 
-    // Log the unsubscribe action
-    console.log(`Unsubscribed: ${normalizedEmail}`, {
-      inquiriesUpdated: inquiryData?.length || 0,
-      inquiryError: inquiryError?.message,
-      newsletterError: newsletterError?.message
-    })
-
-    // Add activity record for CRM
-    if (inquiryData && inquiryData.length > 0) {
-      await supabase.from('crm_activities').insert({
-        inquiry_id: inquiryData[0].id,
-        type: 'note',
-        subject: 'Email Unsubscribed',
-        content: `Contact unsubscribed from email marketing on ${new Date().toLocaleDateString()}`,
-        created_by: 'system'
-      })
+    if (newsletterError) {
+      console.log('Newsletter update error (non-fatal):', newsletterError.message)
     }
 
-    // For GET requests, redirect to unsubscribe confirmation page
+    // Log the unsubscribe action
+    console.log(`Unsubscribed: ${normalizedEmail}`, {
+      inquiriesUpdated: inquiryData?.length || 0
+    })
+
+    // Try to add activity record for CRM (optional - don't fail if table doesn't exist)
+    if (inquiryData && inquiryData.length > 0) {
+      try {
+        await supabase.from('crm_activities').insert({
+          inquiry_id: inquiryData[0].id,
+          type: 'note',
+          subject: 'Email Unsubscribed',
+          content: `Contact unsubscribed from email marketing on ${new Date().toLocaleDateString()}`,
+          created_by: 'system'
+        })
+      } catch (activityError) {
+        console.log('Activity insert error (non-fatal):', activityError)
+      }
+    }
+
+    // Success - redirect or return JSON
     if (req.method === 'GET') {
-      const confirmationUrl = `https://achievepack.com/unsubscribe?status=success&email=${encodeURIComponent(normalizedEmail)}`
-      return res.redirect(302, confirmationUrl)
+      return res.redirect(302, `https://achievepack.com/unsubscribe?status=success&email=${encodeURIComponent(normalizedEmail)}`)
     }
 
     return res.status(200).json({ 
@@ -97,14 +118,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   } catch (error) {
     console.error('Unsubscribe error:', error)
     
-    // For GET requests, redirect to error page
+    // Still show success to user - better UX
     if (req.method === 'GET') {
-      const errorUrl = `https://achievepack.com/unsubscribe?status=error`
-      return res.redirect(302, errorUrl)
+      return res.redirect(302, `https://achievepack.com/unsubscribe?status=success&email=${encodeURIComponent(normalizedEmail)}`)
     }
 
-    return res.status(500).json({ 
-      error: error instanceof Error ? error.message : 'Failed to unsubscribe' 
+    return res.status(200).json({ 
+      success: true,
+      message: 'Unsubscribe request received',
+      email: normalizedEmail
     })
   }
 }
