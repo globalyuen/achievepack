@@ -111,8 +111,21 @@ export const generateEmailTemplate = (
   ctaLink?: string,
   ctaText?: string
 ): string => {
+  const baseUrl = 'https://achievepack.com'
+  
   // Convert relative URLs in content to absolute
   const absoluteContent = convertToAbsoluteUrls(content)
+  
+  // Convert featured image to absolute URL if relative
+  const absoluteFeaturedImage = featuredImage 
+    ? (featuredImage.startsWith('/') ? `${baseUrl}${featuredImage}` : featuredImage)
+    : undefined
+  
+  // Convert CTA link to absolute URL if relative
+  const absoluteCtaLink = ctaLink
+    ? (ctaLink.startsWith('/') ? `${baseUrl}${ctaLink}` : ctaLink)
+    : undefined
+    
   return `
 <!DOCTYPE html>
 <html lang="en">
@@ -159,9 +172,9 @@ export const generateEmailTemplate = (
       </div>
     </div>
     
-    ${featuredImage ? `
+    ${absoluteFeaturedImage ? `
     <!-- Hero Image -->
-    <img src="${featuredImage}" alt="" class="hero-image" />
+    <img src="${absoluteFeaturedImage}" alt="" class="hero-image" />
     ` : ''}
     
     <!-- Content -->
@@ -172,9 +185,9 @@ export const generateEmailTemplate = (
         ${absoluteContent}
       </div>
       
-      ${ctaLink ? `
+      ${absoluteCtaLink ? `
       <div style="text-align: center;">
-        <a href="${ctaLink}" class="cta-button">${ctaText || 'Learn More'}</a>
+        <a href="${absoluteCtaLink}" class="cta-button">${ctaText || 'Learn More'}</a>
       </div>
       ` : ''}
       
