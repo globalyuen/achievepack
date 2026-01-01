@@ -87,6 +87,20 @@ export const sendBulkEmails = async (
 }
 
 /**
+ * Convert relative image URLs to absolute URLs
+ */
+const convertToAbsoluteUrls = (html: string): string => {
+  const baseUrl = 'https://achievepack.com'
+  
+  // Convert src="/... to src="https://achievepack.com/...
+  return html
+    .replace(/src="\//g, `src="${baseUrl}/`)
+    .replace(/src='\//g, `src='${baseUrl}/`)
+    .replace(/href="\//g, `href="${baseUrl}/`)
+    .replace(/href='\//g, `href='${baseUrl}/`)
+}
+
+/**
  * Generate beautiful email HTML template
  */
 export const generateEmailTemplate = (
@@ -97,6 +111,8 @@ export const generateEmailTemplate = (
   ctaLink?: string,
   ctaText?: string
 ): string => {
+  // Convert relative URLs in content to absolute
+  const absoluteContent = convertToAbsoluteUrls(content)
   return `
 <!DOCTYPE html>
 <html lang="en">
@@ -145,7 +161,7 @@ export const generateEmailTemplate = (
       <p class="greeting">${greeting.replace(/\{\{name\}\}/g, '{{name}}')},</p>
       
       <div class="main-content">
-        ${content}
+        ${absoluteContent}
       </div>
       
       ${ctaLink ? `
