@@ -55,38 +55,64 @@ export const sendTestEmail = async (
 }
 
 /**
- * Send bulk emails via server API
+ * Send bulk emails via server API with batching for large campaigns
+ * Uses chunked requests to avoid Vercel timeout (max 50 per batch)
  */
 export const sendBulkEmails = async (
   recipients: EmailRecipient[],
   subject: string,
-  htmlContent: string
+  htmlContent: string,
+  onProgress?: (sent: number, total: number) => void
 ): Promise<{ success: number; failed: number; errors: string[] }> => {
-  try {
-    const response = await fetch(API_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        recipients,
-        subject,
-        htmlContent
+  const BATCH_SIZE = 50 // Vercel has 60s timeout, 50 emails with 100ms delay = 5s per batch
+  const results = { success: 0, failed: 0, errors: [] as string[] }
+  
+  // Split recipients into batches
+  const batches: EmailRecipient[][] = []
+  for (let i = 0; i < recipients.length; i += BATCH_SIZE) {
+    batches.push(recipients.slice(i, i + BATCH_SIZE))
+  }
+  
+  // Process each batch sequentially
+  for (let batchIndex = 0; batchIndex < batches.length; batchIndex++) {
+    const batch = batches[batchIndex]
+    
+    try {
+      const response = await fetch(API_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          recipients: batch,
+          subject,
+          htmlContent
+        })
       })
-    })
-    
-    const data = await response.json()
-    
-    return {
-      success: data.sent || 0,
-      failed: data.failed || 0,
-      errors: data.errors || []
-    }
-  } catch (error) {
-    return {
-      success: 0,
-      failed: recipients.length,
-      errors: [error instanceof Error ? error.message : 'Unknown error']
+      
+      const data = await response.json()
+      
+      results.success += data.sent || 0
+      results.failed += data.failed || 0
+      if (data.errors) {
+        results.errors.push(...data.errors.slice(0, 5)) // Limit errors per batch
+      }
+      
+      // Report progress
+      if (onProgress) {
+        const processed = Math.min((batchIndex + 1) * BATCH_SIZE, recipients.length)
+        onProgress(processed, recipients.length)
+      }
+      
+      // Small delay between batches to avoid overwhelming the server
+      if (batchIndex < batches.length - 1) {
+        await new Promise(resolve => setTimeout(resolve, 500))
+      }
+    } catch (error) {
+      results.failed += batch.length
+      results.errors.push(`Batch ${batchIndex + 1} failed: ${error instanceof Error ? error.message : 'Unknown error'}`)
     }
   }
+  
+  return results
 }
 
 /**

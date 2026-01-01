@@ -93,6 +93,7 @@ const AdminPage: React.FC = () => {
   const [contactFilter, setContactFilter] = useState<'all' | 'newsletter' | 'customer' | 'inquiry' | 'paypal' | 'stripe' | 'calendly' | 'website' | 'import' | 'manual'>('all')
   const [editorMode, setEditorMode] = useState<'visual' | 'html'>('visual')
   const [sendingCampaign, setSendingCampaign] = useState(false)
+  const [sendProgress, setSendProgress] = useState<{ sent: number; total: number } | null>(null)
   const [contactSearch, setContactSearch] = useState('')
   
   // Advanced filters for Email Marketing
@@ -2465,26 +2466,75 @@ Check your inbox at ryan@achievepack.com`)
                       <button
                         disabled={!emailSubject || selectedContacts.length === 0 || sendingCampaign}
                         onClick={async () => {
-                          if (!confirm(`Send email to ${selectedContacts.length} recipients?\n\nSubject: ${emailSubject}`)) return
+                          // Build recipient list with filtering
+                          const recipientMap = new Map<string, EmailRecipient>()
+                          let unsubscribedCount = 0
+                          let invalidCount = 0
+                          
+                          selectedContacts.forEach(contactId => {
+                            let email = ''
+                            let name = ''
+                            let status = ''
+                            
+                            if (contactId.startsWith('newsletter_')) {
+                              const sub = subscribers.find(s => `newsletter_${s.id}` === contactId)
+                              if (sub) {
+                                email = sub.email?.toLowerCase().trim() || ''
+                                name = sub.first_name || ''
+                              }
+                            } else if (contactId.startsWith('customer_')) {
+                              const cust = customers.find(c => `customer_${c.id}` === contactId)
+                              if (cust) {
+                                email = cust.email?.toLowerCase().trim() || ''
+                                name = cust.full_name || ''
+                              }
+                            } else if (contactId.startsWith('inquiry_')) {
+                              const inq = inquiries.find(i => `inquiry_${i.id}` === contactId)
+                              if (inq && inq.email) {
+                                email = inq.email?.toLowerCase().trim() || ''
+                                name = inq.name || ''
+                                status = inq.status || ''
+                              }
+                            }
+                            
+                            // Skip unsubscribed contacts
+                            if (status === 'unsubscribed') {
+                              unsubscribedCount++
+                              return
+                            }
+                            
+                            // Skip invalid emails
+                            if (!email || !email.includes('@')) {
+                              invalidCount++
+                              return
+                            }
+                            
+                            // Dedupe by email (first contact wins)
+                            if (!recipientMap.has(email)) {
+                              recipientMap.set(email, { email, name: name || undefined })
+                            }
+                          })
+                          
+                          const recipients = Array.from(recipientMap.values())
+                          const dupeCount = selectedContacts.length - recipients.length - unsubscribedCount - invalidCount
+                          
+                          // Build confirmation message
+                          let confirmMsg = `Send email to ${recipients.length} recipients?\n\nSubject: ${emailSubject}`
+                          if (unsubscribedCount > 0) confirmMsg += `\n\n⚠️ ${unsubscribedCount} unsubscribed contacts will be skipped`
+                          if (dupeCount > 0) confirmMsg += `\n📧 ${dupeCount} duplicate emails will be skipped`
+                          if (invalidCount > 0) confirmMsg += `\n❌ ${invalidCount} invalid emails will be skipped`
+                          
+                          if (recipients.length === 0) {
+                            alert('No valid recipients to send to!')
+                            return
+                          }
+                          
+                          if (!confirm(confirmMsg)) return
                           
                           setSendingCampaign(true)
+                          setSendProgress({ sent: 0, total: recipients.length })
+                          
                           try {
-                            // Build recipient list
-                            const recipients: EmailRecipient[] = []
-                            
-                            selectedContacts.forEach(contactId => {
-                              if (contactId.startsWith('newsletter_')) {
-                                const sub = subscribers.find(s => `newsletter_${s.id}` === contactId)
-                                if (sub) recipients.push({ email: sub.email, name: sub.first_name || undefined })
-                              } else if (contactId.startsWith('customer_')) {
-                                const cust = customers.find(c => `customer_${c.id}` === contactId)
-                                if (cust) recipients.push({ email: cust.email, name: cust.full_name || undefined })
-                              } else if (contactId.startsWith('inquiry_')) {
-                                const inq = inquiries.find(i => `inquiry_${i.id}` === contactId)
-                                if (inq && inq.email) recipients.push({ email: inq.email, name: inq.name || undefined })
-                              }
-                            })
-                            
                             const fullHtml = generateEmailTemplate(
                               emailContent,
                               personalizationFields.greeting,
@@ -2497,7 +2547,8 @@ Check your inbox at ryan@achievepack.com`)
                             const result = await sendBulkEmails(
                               recipients,
                               emailSubject,
-                              fullHtml
+                              fullHtml,
+                              (sent, total) => setSendProgress({ sent, total })
                             )
                             
                             // Record to CRM if successful
@@ -2512,11 +2563,15 @@ Check your inbox at ryan@achievepack.com`)
                             alert(`❌ Campaign failed: ${error instanceof Error ? error.message : 'Unknown error'}`)
                           }
                           setSendingCampaign(false)
+                          setSendProgress(null)
                         }}
                         className="w-full py-3 bg-white text-primary-600 font-semibold rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
                       >
                         {sendingCampaign ? (
-                          <><RefreshCw className="h-5 w-5 animate-spin" /> Sending Campaign...</>
+                          <>
+                            <RefreshCw className="h-5 w-5 animate-spin" /> 
+                            {sendProgress ? `Sending... ${sendProgress.sent}/${sendProgress.total}` : 'Preparing...'}
+                          </>
                         ) : (
                           <><Send className="h-5 w-5" /> Send to {selectedContacts.length} Recipients</>
                         )}
