@@ -47,6 +47,7 @@ const AdminPage = lazy(() => import('./pages/AdminPage'))
 const AdminManagementPage = lazy(() => import('./pages/AdminManagementPage'))
 const CustomerMapPage = lazy(() => import('./pages/CustomerMapPage'))
 const ImageCatalogPage = lazy(() => import('./pages/ImageCatalogPage'))
+const UnsubscribePage = lazy(() => import('./pages/UnsubscribePage'))
 
 // Industry Pages - Lazy loaded
 const CoffeeTeaPage = lazy(() => import('./pages/industry/CoffeeTeaPage'))
@@ -259,6 +260,7 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/ctrl-x9k7m/management" element={<AdminManagementPage />} />
               <Route path="/ctrl-x9k7m/customer-map" element={<CustomerMapPage />} />
               <Route path="/image-catalog" element={<ImageCatalogPage />} />
+              <Route path="/unsubscribe" element={<UnsubscribePage />} />
 
               {/* Industry Pages */}
               <Route path="/industry/coffee-tea" element={<CoffeeTeaPage />} />

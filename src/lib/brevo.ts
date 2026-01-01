@@ -190,12 +190,15 @@ export const generateEmailTemplate = (
       </div>
       <p class="footer-text">Sustainable Packaging Solutions for Modern Brands</p>
       <p class="footer-text">© 2025 Achieve Pack × Pouch.eco. All rights reserved.</p>
+      <p class="footer-text" style="font-size: 10px; color: #9ca3af; margin-top: 12px;">
+        You're receiving this email because you previously inquired about sustainable packaging at achievepack.com or pouch.eco.
+      </p>
       <p class="footer-links">
         <a href="https://achievepack.com">achievepack.com</a>
         <span>•</span>
         <a href="https://pouch.eco">pouch.eco</a>
         <span>•</span>
-        <a href="{{unsubscribe_url}}">Unsubscribe</a>
+        <a href="https://achievepack.com/unsubscribe?email={{email_encoded}}">Unsubscribe</a>
       </p>
     </div>
   </div>

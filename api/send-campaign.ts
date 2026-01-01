@@ -59,8 +59,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Send emails
     for (const recipient of targetRecipients) {
       try {
-        // Personalize content
-        const personalizedHtml = htmlContent.replace(/\{\{name\}\}/g, recipient.name || 'there')
+        // Personalize content - replace name and email placeholders
+        const encodedEmail = Buffer.from(recipient.email).toString('base64')
+        const personalizedHtml = htmlContent
+          .replace(/\{\{name\}\}/g, recipient.name || 'there')
+          .replace(/\{\{email_encoded\}\}/g, encodedEmail)
 
         const response = await fetch('https://api.brevo.com/v3/smtp/email', {
           method: 'POST',
