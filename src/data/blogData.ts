@@ -2117,6 +2117,105 @@ export const blogPosts: BlogPost[] = [
     featuredImage: "/imgs/blog/2025-thank-you/2025-to-2026-growth.webp",
     readTime: 3,
     metaDescription: "A heartfelt thank you from Achieve Pack and Pouch.eco as we close 2025. Here's to deeper roots and higher growth in sustainable packaging for 2026."
+  },
+  {
+    id: "7",
+    slug: "our-year-at-achievepack-gratitude-growth-whats-next",
+    title: "Our Year at Achievepack: Gratitude, Growth, and What's Next",
+    excerpt: "When we launched Achievepack at the beginning of 2025, I had a dream: help brands solve their packaging challenges without compromising on sustainability. Looking back now, I'm overwhelmed by how far we've come.",
+    content: `
+      <figure class="my-8">
+        <img src="/imgs/blog/2025-thank-you/2025letter.webp" alt="Our Year at Achievepack and Pouch.eco" class="w-full rounded-xl" />
+        <figcaption class="text-center text-sm text-neutral-500 mt-3">Reflecting on a year of gratitude, growth, and sustainable packaging innovation</figcaption>
+      </figure>
+
+      <h2>Our Year at Achievepack: Gratitude, Growth, and What's Next</h2>
+      <p>When we launched Achievepack at the beginning of 2025, I had a dream: help brands solve their packaging challenges without compromising on sustainability. Looking back now, I'm overwhelmed by how far we've come—and how much we've learned along the way.</p>
+      
+      <p>Every single one of you made this year possible. From the coffee roasters who took a chance on our <a href="/materials/compostable">compostable pouches</a>, to the skincare brands who trusted us with their first sustainable packaging redesign, to the team members who believed in this mission before we had all the answers—<strong>this year belongs to all of us</strong>. Thank you.</p>
+      
+      <p>But here's what struck me most: we didn't just move products this year. We moved mindsets. Brands that came to us skeptical about sustainable packaging are now thinking about it as a core part of their identity. <strong>That shift? That's everything.</strong></p>
+
+      <h2>Why Sustainable Packaging Matters</h2>
+      <p>Let's be honest: sustainable packaging isn't just a trend. It's a necessity.</p>
+      
+      <p>Consumers today care about where their products come from and how they're packaged. Retailers are setting aggressive sustainability targets. Regulations around single-use plastics keep tightening. And frankly, if you're a brand that genuinely cares about your impact, continuing with traditional packaging feels increasingly hollow.</p>
+      
+      <p>But here's where the confusion starts. "Sustainable" doesn't mean one thing. It's not a checkbox you tick and move on. It's a spectrum of choices— <a href="/materials/compostable">compostable materials</a>, <a href="/materials/recyclable-mono-pe">recyclable options</a>, mono-material structures, reduced packaging weight. Each has trade-offs in cost, shelf life, barrier properties, and environmental impact.</p>
+      
+      <p>At Achievepack, we think about packaging as a system. What are you protecting? How long does the product need to stay fresh? Who's going to recycle or compost it? What does your brand need to communicate? These questions matter, because the right sustainable solution for a <a href="/industry/coffee-tea">coffee brand</a> looks completely different than for a cosmetics line or <a href="/industry/pet-food">pet food company</a>.</p>
+      
+      <p>Our job isn't to push one material or one approach. It's to help you find the sustainable solution that actually works for your business and your customer.</p>
+
+      <h2>Our 2025 Journey: The Wins</h2>
+      <p>When we opened our doors, I'll admit we were nervous. Would brands actually commit to sustainable packaging? Would they care beyond the marketing angle?</p>
+      
+      <p><strong>The answer was a resounding yes.</strong></p>
+      
+      <p>This year, we worked with over 50 brands across coffee, chocolate, cosmetics, supplements, and pet products—each one making a genuine shift toward sustainable packaging. One coffee roaster we partnered with saw a <strong>30% increase in repeat purchases</strong> after switching to compostable pouches. Why? Their customers felt good about the choice, and honestly, the pouch performs better on the shelf.</p>
+      
+      <p>A skincare brand reduced their packaging weight by <strong>40%</strong> using mono-material recyclable structures, cutting both environmental impact and shipping costs. They literally save money while reducing plastic.</p>
+      
+      <p>But the wins weren't just about sales numbers. We had conversations with founders who stayed up late worrying about their carbon footprint. We saw teams at established companies fight internally to get sustainable packaging approved because they genuinely believed it mattered. We watched retailers put our clients' products front and center because the sustainability story resonated with their customers.</p>
+      
+      <p>These aren't just transactions. They're relationships. And that's what 2025 taught us.</p>
+
+      <h2>Busting Packaging Myths</h2>
+      <p>One thing we've learned is that sustainable packaging comes with a lot of baggage—mostly misconceptions.</p>
+      
+      <h3>Myth #1: Sustainable packaging costs way more.</h3>
+      <p><strong>Reality:</strong> It depends. Yes, certain premium materials cost more upfront. But when you factor in reduced weight (lower shipping costs), better shelf life (fewer damaged products), and customer loyalty (repeat purchases), the total cost of ownership often comes out ahead. We've seen dozens of brands break even or save money within the first year.</p>
+      
+      <h3>Myth #2: Compostable means it'll break down in your backyard.</h3>
+      <p><strong>Reality:</strong> Most certified <a href="/materials/compostable">compostable packaging</a> requires industrial composting facilities. <a href="/materials/home-compostable">Home composting</a> won't cut it for most materials. This matters for transparency with your customers, but it doesn't make the material less sustainable—it just means you need proper infrastructure. Many cities and regions are building out composting facilities specifically because demand is growing.</p>
+      
+      <h3>Myth #3: Sustainable packaging can't protect delicate products.</h3>
+      <p><strong>Reality:</strong> Modern sustainable materials have come incredibly far. We're talking barrier layers that protect coffee, spices, supplements, and cosmetics just as well as traditional plastics. The innovation in the past 3-4 years has been remarkable.</p>
+      
+      <h3>Myth #4: It's mostly greenwashing anyway.</h3>
+      <p><strong>Reality:</strong> Some companies definitely greenwash. But more and more brands are taking genuine steps. The certification standards exist (like industrial composting certifications, recycling symbols, carbon footprint labels). When brands partner with transparent suppliers and communicate honestly, the impact is real.</p>
+      
+      <p>The truth? Sustainable packaging is nuanced. It's not perfect, but it's real, it works, and it's getting better every month.</p>
+
+      <h2>What's Next: 2026 Vision</h2>
+      <p>We have big plans. Like, genuinely big.</p>
+      
+      <p>This year, we're scaling our consultancy services so that brands don't have to figure out sustainable packaging alone. We're investing in new materials and certifications that frankly don't exist yet in the market. We're building tools and calculators to make it easier for anyone to understand the environmental impact of their packaging choices. And we're expanding our reach internationally because we believe sustainable packaging is a global challenge that needs local solutions.</p>
+      
+      <p>But beyond the business side, our real vision is simpler: <strong>we want sustainable packaging to become the default</strong>. Not the exception. Not the premium option. The standard.</p>
+      
+      <p>We want a world where a small coffee roaster and a Fortune 500 company can both access high-quality sustainable packaging without jumping through endless hoops. Where "compostable" and "recyclable" are common words, not marketing jargon. Where brands feel proud of their packaging choices, not conflicted.</p>
+      
+      <p>That won't happen overnight. But with the momentum we're building, with partners like you pushing for change, and with the team we've assembled, I genuinely believe 2026 is the year the needle moves.</p>
+
+      <h2>Join Us on This Journey</h2>
+      <p>If you're a brand thinking about sustainable packaging, <strong>now's the time</strong>. Not next year. Not when you've found the perfect solution. Now, because the perfect is the enemy of the good, and we need good solutions in the market today.</p>
+      
+      <p>Start with a conversation. <a href="/contact">Reach out to us</a>, send a sample of your current packaging, ask the hard questions. We'll help you figure out what's actually possible for your business and your budget.</p>
+      
+      <p>If you're already using sustainable packaging, thank you. Share your story. Tell your customers why you made the switch. Your voice matters more than any of our marketing ever will.</p>
+      
+      <p>And if you're on the fence, uncertain, or skeptical—honestly, that's valid. But I'd love to prove you wrong. Because 2026 is about turning skepticism into action. Confusion into clarity. And sustainable packaging from niche to normal.</p>
+      
+      <blockquote>
+        Here's to the year ahead. Let's do this together.
+      </blockquote>
+      
+      <p><strong>Warm regards,</strong><br/>Ryan @ Achievepack and Pouch.eco</p>
+      
+      <hr class="my-8" />
+      
+      <p class="text-center"><strong>Ready to explore sustainable packaging for your brand?</strong></p>
+      <p class="text-center"><a href="/">Visit achievepack.com</a> to start your consultation today.</p>
+      <p class="text-center"><a href="/store">Browse our store</a> | <a href="/contact">Get in touch</a> | <a href="/materials/compostable">Explore materials</a></p>
+    `,
+    author: "Ryan Wong",
+    publishDate: "2026-01-01",
+    category: "Newsletter",
+    tags: ["year in review", "2025", "2026", "sustainable packaging", "gratitude", "company update", "eco packaging", "newsletter", "sustainability", "compostable", "recyclable"],
+    featuredImage: "/imgs/blog/2025-thank-you/2025letter.webp",
+    readTime: 10,
+    metaDescription: "Our 2025 year in review at Achievepack and Pouch.eco. Reflecting on gratitude, growth, and our vision for making sustainable packaging the default in 2026."
   }
 ];
 
