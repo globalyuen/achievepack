@@ -2549,80 +2549,26 @@ Check your inbox at ryan@achievepack.com`)
                   </div>
                 </div>
                 
-                {/* Email Body - Website Style */}
-                <div className="flex-1 overflow-y-auto bg-gray-100 p-6">
-                  <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
-                    {/* Header with gradient */}
-                    <div className="bg-gradient-to-r from-primary-600 to-primary-500 px-8 py-6">
-                      <img src="/ap-logo-white.png" alt="Achieve Pack" className="h-8" />
-                    </div>
-                    
-                    {/* Featured Image */}
-                    {emailImages.length > 0 && (
-                      <div className="relative">
-                        <img src={emailImages[0]} alt="" className="w-full h-64 object-cover" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                      </div>
-                    )}
-                    
-                    {/* Content */}
-                    <div className="px-8 py-8">
-                      {/* Greeting */}
-                      <p className="text-xl text-gray-800 mb-6">{personalizationFields.greeting.replace('{{name}}', 'John')},</p>
-                      
-                      {/* Main Content - Rendered HTML */}
-                      <div 
-                        className="prose prose-lg max-w-none text-gray-700 mb-8"
-                        dangerouslySetInnerHTML={{__html: emailContent || '<p>Your email content will appear here...</p>'}}
-                      />
-                      
-                      {/* Additional Images */}
-                      {emailImages.length > 1 && (
-                        <div className="grid grid-cols-2 gap-4 my-8">
-                          {emailImages.slice(1).map((img, idx) => (
-                            <img key={idx} src={img} alt="" className="w-full rounded-xl shadow-md" />
-                          ))}
-                        </div>
-                      )}
-                      
-                      {/* CTA Button */}
-                      {selectedPage && (
-                        <div className="my-8 text-center">
-                          <a 
-                            href={`https://achievepack.com${selectedPage}`}
-                            className="inline-block px-8 py-4 bg-primary-500 text-white font-semibold rounded-xl hover:bg-primary-600 transition-colors shadow-lg"
-                          >
-                            Read More on Our Website →
-                          </a>
-                        </div>
-                      )}
-                      
-                      {/* Closing */}
-                      <div className="text-gray-700 whitespace-pre-wrap mt-8 pt-6 border-t">
-                        {personalizationFields.closing}
-                      </div>
-                    </div>
-                    
-                    {/* Footer */}
-                    <div className="bg-gray-50 px-8 py-8">
-                      <div className="flex items-center justify-between mb-6">
-                        <img src="/ap-logo.png" alt="Achieve Pack" className="h-6" />
-                        <div className="flex gap-4">
-                          <a href="#" className="text-gray-400 hover:text-primary-500"><Globe className="h-5 w-5" /></a>
-                          <a href="#" className="text-gray-400 hover:text-primary-500"><Mail className="h-5 w-5" /></a>
-                        </div>
-                      </div>
-                      <div className="text-center text-xs text-gray-500 space-y-2">
-                        <p>Sustainable Packaging Solutions for Modern Brands</p>
-                        <p>© 2025 Achieve Pack. All rights reserved.</p>
-                        <p className="pt-2">
-                          <a href="#" className="text-primary-600 hover:underline">View in browser</a>
-                          <span className="mx-2">•</span>
-                          <a href="#" className="text-primary-600 hover:underline">Unsubscribe</a>
-                        </p>
-                      </div>
-                    </div>
+                {/* Email Body - Actual Template Preview */}
+                <div className="flex-1 overflow-y-auto bg-gray-200 p-4">
+                  <div className="max-w-[650px] mx-auto bg-white shadow-lg">
+                    <iframe
+                      title="Email Preview"
+                      srcDoc={generateEmailTemplate(
+                        emailContent || '<p>Your email content will appear here...</p>',
+                        personalizationFields.greeting.replace('{{name}}', 'John'),
+                        personalizationFields.closing,
+                        emailImages.length > 0 ? emailImages[0] : undefined,
+                        selectedPage ? `https://achievepack.com${selectedPage}` : undefined,
+                        'Read More'
+                      ).replace('{{email_encoded}}', btoa('john@example.com'))}
+                      className="w-full border-0"
+                      style={{ height: '600px' }}
+                    />
                   </div>
+                  <p className="text-center text-xs text-gray-500 mt-3">
+                    ✓ This preview shows exactly what customers will receive
+                  </p>
                 </div>
                 
                 {/* Actions */}
