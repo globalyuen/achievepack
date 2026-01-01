@@ -119,12 +119,14 @@ export const generateEmailTemplate = (
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Achieve Pack</title>
+  <title>Achieve Pack x Pouch.eco</title>
   <style>
     body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f3f4f6; }
     .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; }
     .header { background: linear-gradient(135deg, #059669 0%, #10b981 100%); padding: 24px 32px; }
-    .header img { height: 32px; }
+    .header-logos { display: flex; align-items: center; justify-content: center; gap: 16px; }
+    .header-logos img { height: 32px; }
+    .header-divider { color: rgba(255,255,255,0.5); font-size: 24px; font-weight: 300; }
     .hero-image { width: 100%; height: auto; display: block; }
     .content { padding: 32px; color: #374151; line-height: 1.6; }
     .greeting { font-size: 18px; margin-bottom: 24px; }
@@ -135,10 +137,12 @@ export const generateEmailTemplate = (
     .main-content li { margin-bottom: 8px; }
     .main-content blockquote { border-left: 4px solid #059669; padding-left: 16px; margin: 16px 0; font-style: italic; color: #6b7280; }
     .main-content a { color: #059669; text-decoration: underline; }
+    .main-content img { max-width: 100%; height: auto; border-radius: 8px; margin: 16px 0; }
     .cta-button { display: inline-block; padding: 16px 32px; background-color: #059669; color: #ffffff !important; text-decoration: none; border-radius: 8px; font-weight: 600; margin: 24px 0; }
     .closing { margin-top: 32px; padding-top: 24px; border-top: 1px solid #e5e7eb; white-space: pre-line; }
     .footer { background-color: #f9fafb; padding: 32px; text-align: center; }
-    .footer-logo { height: 24px; margin-bottom: 16px; }
+    .footer-logos { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 16px; }
+    .footer-logos img { height: 24px; }
     .footer-text { font-size: 12px; color: #6b7280; margin: 0 0 8px; }
     .footer-links { font-size: 12px; }
     .footer-links a { color: #059669; text-decoration: none; margin: 0 8px; }
@@ -146,9 +150,13 @@ export const generateEmailTemplate = (
 </head>
 <body>
   <div class="container">
-    <!-- Header -->
+    <!-- Header with Co-Branding -->
     <div class="header">
-      <img src="https://achievepack.com/ap-logo-white.png" alt="Achieve Pack" />
+      <div class="header-logos">
+        <img src="https://achievepack.com/ap-logo-white.png" alt="Achieve Pack" />
+        <span class="header-divider">×</span>
+        <img src="https://achievepack.com/ep-logo.svg" alt="Pouch.eco" style="height: 28px;" />
+      </div>
     </div>
     
     ${featuredImage ? `
@@ -173,13 +181,19 @@ export const generateEmailTemplate = (
       <div class="closing">${closing}</div>
     </div>
     
-    <!-- Footer -->
+    <!-- Footer with Co-Branding -->
     <div class="footer">
-      <img src="https://achievepack.com/ap-logo.png" alt="Achieve Pack" class="footer-logo" />
+      <div class="footer-logos">
+        <img src="https://achievepack.com/ap-logo.png" alt="Achieve Pack" />
+        <span style="color: #9ca3af;">×</span>
+        <img src="https://achievepack.com/ep-logo.svg" alt="Pouch.eco" style="height: 20px;" />
+      </div>
       <p class="footer-text">Sustainable Packaging Solutions for Modern Brands</p>
-      <p class="footer-text">© 2025 Achieve Pack. All rights reserved.</p>
+      <p class="footer-text">© 2025 Achieve Pack × Pouch.eco. All rights reserved.</p>
       <p class="footer-links">
-        <a href="https://achievepack.com">Website</a>
+        <a href="https://achievepack.com">achievepack.com</a>
+        <span>•</span>
+        <a href="https://pouch.eco">pouch.eco</a>
         <span>•</span>
         <a href="{{unsubscribe_url}}">Unsubscribe</a>
       </p>
