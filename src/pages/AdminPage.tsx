@@ -255,7 +255,12 @@ const AdminPage: React.FC = () => {
       
       // Source filter
       if (contactFilter !== 'all' && contactFilter !== 'newsletter' && contactFilter !== 'customer' && contactFilter !== 'inquiry') {
-        if (contact.source !== contactFilter) return false
+        // Website filter includes null/undefined/empty source
+        if (contactFilter === 'website') {
+          if (contact.source && contact.source !== 'website') return false
+        } else {
+          if (contact.source !== contactFilter) return false
+        }
       }
       
       // Industry filter
@@ -2262,6 +2267,8 @@ const AdminPage: React.FC = () => {
                                   <option value={100}>100</option>
                                   <option value={200}>200</option>
                                   <option value={500}>500</option>
+                                  <option value={1000}>1000</option>
+                                  <option value={10000}>All</option>
                                 </select>
                               </div>
                               <div className="flex items-center gap-1">
