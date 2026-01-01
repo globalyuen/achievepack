@@ -159,13 +159,40 @@ const AdminPage: React.FC = () => {
 
   const fetchData = async () => {
     setLoading(true)
-    const [customersRes, ordersRes, subscribersRes, documentsRes, draftsRes, inquiriesRes, emailHistoryRes] = await Promise.all([
+    
+    // Fetch all CRM inquiries (may be more than 1000)
+    let allInquiries: CRMInquiry[] = []
+    let offset = 0
+    const batchSize = 1000
+    let hasMore = true
+    
+    while (hasMore) {
+      const { data, error } = await supabase
+        .from('crm_inquiries')
+        .select('*')
+        .order('created_at', { ascending: false })
+        .range(offset, offset + batchSize - 1)
+      
+      if (error) {
+        console.error('Inquiries fetch error:', error)
+        break
+      }
+      
+      if (data && data.length > 0) {
+        allInquiries = [...allInquiries, ...data]
+        offset += batchSize
+        hasMore = data.length === batchSize
+      } else {
+        hasMore = false
+      }
+    }
+    
+    const [customersRes, ordersRes, subscribersRes, documentsRes, draftsRes, emailHistoryRes] = await Promise.all([
       supabase.from('profiles').select('*').order('created_at', { ascending: false }),
       supabase.from('orders').select('*').order('created_at', { ascending: false }),
       supabase.from('newsletter_subscribers').select('*').order('created_at', { ascending: false }),
       supabase.from('documents').select('*').order('created_at', { ascending: false }),
       supabase.from('email_drafts').select('*').order('updated_at', { ascending: false }),
-      supabase.from('crm_inquiries').select('*').order('created_at', { ascending: false }),
       supabase.from('crm_activities').select('*').eq('type', 'email').order('created_at', { ascending: false }).limit(100)
     ])
     
@@ -174,13 +201,13 @@ const AdminPage: React.FC = () => {
       customers: customersRes.data?.length || 0,
       orders: ordersRes.data?.length || 0,
       subscribers: subscribersRes.data?.length || 0,
-      inquiries: inquiriesRes.data?.length || 0,
+      inquiries: allInquiries.length,
       emailHistory: emailHistoryRes.data?.length || 0
     })
     
     // Debug: Log inquiry sources
-    if (inquiriesRes.data) {
-      const sources = inquiriesRes.data.reduce((acc: Record<string, number>, inq: any) => {
+    if (allInquiries.length > 0) {
+      const sources = allInquiries.reduce((acc: Record<string, number>, inq: any) => {
         acc[inq.source || 'unknown'] = (acc[inq.source || 'unknown'] || 0) + 1
         return acc
       }, {})
@@ -190,14 +217,13 @@ const AdminPage: React.FC = () => {
     // Check for errors
     if (customersRes.error) console.error('Customers error:', customersRes.error)
     if (subscribersRes.error) console.error('Subscribers error:', subscribersRes.error)
-    if (inquiriesRes.error) console.error('Inquiries error:', inquiriesRes.error)
     
     setCustomers(customersRes.data || [])
     setOrders(ordersRes.data || [])
     setSubscribers(subscribersRes.data || [])
     setDocuments(documentsRes.data || [])
     setEmailDrafts(draftsRes.data || [])
-    setInquiries(inquiriesRes.data || [])
+    setInquiries(allInquiries)
     setEmailHistory(emailHistoryRes.data || [])
     setLoading(false)
   }
