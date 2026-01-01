@@ -808,22 +808,40 @@ const AdminPage: React.FC = () => {
 
   const deleteOrder = async (orderId: string) => {
     if (confirm('Are you sure you want to delete this order?')) {
-      await supabase.from('orders').delete().eq('id', orderId)
+      const { error } = await supabase.from('orders').delete().eq('id', orderId)
+      if (error) {
+        console.error('Delete order error:', error)
+        alert(`Failed to delete order: ${error.message}`)
+        return
+      }
+      alert('Order deleted successfully!')
       fetchData()
+      setSelectedOrder(null)
     }
   }
 
   const toggleSubscription = async (id: string, currentStatus: boolean) => {
-    await supabase.from('newsletter_subscribers').update({ 
+    const { error } = await supabase.from('newsletter_subscribers').update({ 
       subscribed: !currentStatus, 
       updated_at: new Date().toISOString() 
     }).eq('id', id)
+    if (error) {
+      console.error('Toggle subscription error:', error)
+      alert(`Failed to update subscription: ${error.message}`)
+      return
+    }
     fetchData()
   }
 
   const deleteSubscriber = async (id: string) => {
     if (confirm('Are you sure you want to delete this subscriber?')) {
-      await supabase.from('newsletter_subscribers').delete().eq('id', id)
+      const { error } = await supabase.from('newsletter_subscribers').delete().eq('id', id)
+      if (error) {
+        console.error('Delete subscriber error:', error)
+        alert(`Failed to delete subscriber: ${error.message}`)
+        return
+      }
+      alert('Subscriber deleted successfully!')
       fetchData()
     }
   }
@@ -833,7 +851,7 @@ const AdminPage: React.FC = () => {
       alert('Please fill in all required fields')
       return
     }
-    await supabase.from('documents').insert([{
+    const { error } = await supabase.from('documents').insert([{
       user_id: uploadForm.userId,
       name: uploadForm.name,
       description: uploadForm.description,
@@ -841,6 +859,11 @@ const AdminPage: React.FC = () => {
       file_url: uploadForm.fileUrl,
       is_public: true
     }])
+    if (error) {
+      console.error('Upload document error:', error)
+      alert(`Failed to upload document: ${error.message}`)
+      return
+    }
     setShowUploadModal(false)
     setUploadForm({ userId: '', name: '', description: '', fileUrl: '', type: 'PDF' })
     fetchData()
@@ -852,13 +875,19 @@ const AdminPage: React.FC = () => {
       alert('Please enter tracking number')
       return
     }
-    await supabase.from('orders').update({
+    const { error } = await supabase.from('orders').update({
       tracking_number: trackingForm.trackingNumber,
       carrier: trackingForm.carrier,
       tracking_url: trackingForm.trackingUrl,
       status: 'shipped',
       updated_at: new Date().toISOString()
     }).eq('id', selectedOrder.id)
+    
+    if (error) {
+      console.error('Update tracking error:', error)
+      alert(`Failed to update tracking: ${error.message}`)
+      return
+    }
     
     // Fetch updated order data
     const { data: updatedOrder } = await supabase
@@ -881,7 +910,13 @@ const AdminPage: React.FC = () => {
 
   const deleteDocument = async (id: string) => {
     if (confirm('Are you sure you want to delete this document?')) {
-      await supabase.from('documents').delete().eq('id', id)
+      const { error } = await supabase.from('documents').delete().eq('id', id)
+      if (error) {
+        console.error('Delete document error:', error)
+        alert(`Failed to delete document: ${error.message}`)
+        return
+      }
+      alert('Document deleted successfully!')
       fetchData()
     }
   }
