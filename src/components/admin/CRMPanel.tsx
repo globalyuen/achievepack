@@ -631,27 +631,47 @@ Achieve Pack Team`
       {/* Import Modal */}
       {showImportModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg shadow-xl max-w-lg w-full">
+          <div className="bg-white rounded-lg shadow-xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
             <div className="p-4 border-b flex items-center justify-between">
-              <h3 className="font-semibold">Import CSV</h3>
+              <h3 className="font-semibold">Import Contacts</h3>
               <button onClick={() => setShowImportModal(false)} className="text-gray-400 hover:text-gray-600">
                 <XCircle className="h-5 w-5" />
               </button>
             </div>
-            <div className="p-4 space-y-4">
-              <p className="text-sm text-gray-600">
-                To import your CSV data, run the import script in your Supabase dashboard or use the API.
-              </p>
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <p className="text-xs font-mono text-gray-600">
-                  1. Go to Supabase Dashboard → SQL Editor<br/>
-                  2. Create the crm_inquiries table<br/>
-                  3. Use the CSV import feature or API
+            <div className="p-4 space-y-6">
+              <div>
+                <h4 className="font-medium mb-2">Import from CSV</h4>
+                <p className="text-sm text-gray-600 mb-3">
+                  To import your CSV data, run the import script in your Supabase dashboard or use the API.
+                </p>
+                <div className="bg-gray-50 p-4 rounded-lg mb-3">
+                  <p className="text-xs font-mono text-gray-600">
+                    1. Go to Supabase Dashboard → SQL Editor<br/>
+                    2. Create the crm_inquiries table<br/>
+                    3. Use the CSV import feature or API
+                  </p>
+                </div>
+                <p className="text-sm text-gray-500">
+                  CSV file location: <code className="bg-gray-100 px-2 py-1 rounded">CRM/old/form-1-entries.csv</code>
                 </p>
               </div>
-              <p className="text-sm text-gray-500">
-                CSV file location: <code className="bg-gray-100 px-2 py-1 rounded">CRM/old/form-1-entries.csv</code>
-              </p>
+              
+              <div>
+                <h4 className="font-medium mb-2">Import PayPal/Stripe/Calendly Contacts</h4>
+                <p className="text-sm text-gray-600 mb-3">
+                  Use the import scripts in the backend to sync contacts from PayPal, Stripe, and Calendly.
+                </p>
+                <div className="bg-gray-50 p-4 rounded-lg">
+                  <p className="text-xs font-mono text-gray-600">
+                    1. Go to Supabase Dashboard → SQL Editor<br/>
+                    2. Run the import script for each source:<br/>
+                    - PayPal: <code className="bg-gray-200 px-1 rounded">import_paypal.sql</code><br/>
+                    - Stripe: <code className="bg-gray-200 px-1 rounded">import_stripe.sql</code><br/>
+                    - Calendly: <code className="bg-gray-200 px-1 rounded">import_calendly.sql</code><br/>
+                    - Website: <code className="bg-gray-200 px-1 rounded">import_website.sql</code>
+                  </p>
+                </div>
+              </div>
             </div>
             <div className="p-4 border-t flex justify-end">
               <button
