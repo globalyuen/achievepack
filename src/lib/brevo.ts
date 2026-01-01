@@ -67,6 +67,13 @@ export const sendBulkEmails = async (
   const BATCH_SIZE = 50 // Vercel has 60s timeout, 50 emails with 100ms delay = 5s per batch
   const results = { success: 0, failed: 0, errors: [] as string[] }
   
+  console.log(`📧 Starting bulk email send: ${recipients.length} recipients, ${Math.ceil(recipients.length / BATCH_SIZE)} batches`)
+  
+  if (recipients.length === 0) {
+    console.error('❌ No recipients provided')
+    return { success: 0, failed: 0, errors: ['No recipients provided'] }
+  }
+  
   // Split recipients into batches
   const batches: EmailRecipient[][] = []
   for (let i = 0; i < recipients.length; i += BATCH_SIZE) {
@@ -76,6 +83,7 @@ export const sendBulkEmails = async (
   // Process each batch sequentially
   for (let batchIndex = 0; batchIndex < batches.length; batchIndex++) {
     const batch = batches[batchIndex]
+    console.log(`📤 Sending batch ${batchIndex + 1}/${batches.length} (${batch.length} emails)`)
     
     try {
       const response = await fetch(API_ENDPOINT, {
@@ -88,7 +96,18 @@ export const sendBulkEmails = async (
         })
       })
       
+      console.log(`📨 Batch ${batchIndex + 1} response status: ${response.status}`)
+      
+      if (!response.ok) {
+        const errorText = await response.text()
+        console.error(`❌ Batch ${batchIndex + 1} failed: ${response.status}`, errorText)
+        results.failed += batch.length
+        results.errors.push(`Batch ${batchIndex + 1}: HTTP ${response.status}`)
+        continue
+      }
+      
       const data = await response.json()
+      console.log(`✅ Batch ${batchIndex + 1} result:`, data)
       
       results.success += data.sent || 0
       results.failed += data.failed || 0
@@ -107,11 +126,13 @@ export const sendBulkEmails = async (
         await new Promise(resolve => setTimeout(resolve, 500))
       }
     } catch (error) {
+      console.error(`❌ Batch ${batchIndex + 1} exception:`, error)
       results.failed += batch.length
       results.errors.push(`Batch ${batchIndex + 1} failed: ${error instanceof Error ? error.message : 'Unknown error'}`)
     }
   }
   
+  console.log(`📧 Bulk send complete: ${results.success} sent, ${results.failed} failed`)
   return results
 }
 
