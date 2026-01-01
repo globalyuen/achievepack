@@ -1,11 +1,54 @@
-import React, { useState, useEffect } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import React, { useState, useEffect, useMemo } from 'react'
+import { useNavigate, Link, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
-import { supabase, Order, Profile, NewsletterSubscriber, Document, Quote, ArtworkFile, EmailDraft, CRMInquiry } from '../lib/supabase'
+import { supabase, Order, Profile, NewsletterSubscriber, Document, Quote, ArtworkFile, EmailDraft, CRMInquiry, CRMActivity } from '../lib/supabase'
 import { blogPosts } from '../data/blogData'
-import { Home, Users, Package, Settings, Search, ChevronDown, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox, Send, FileCode, Check, Globe } from 'lucide-react'
+import { Home, Users, Package, Settings, Search, ChevronDown, ChevronLeft, ChevronRight, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox, Send, FileCode, Check, Globe, Filter, MapPin, Factory, Tag, History } from 'lucide-react'
 import CRMPanelAdvanced from '../components/admin/CRMPanelAdvanced'
 import { sendTestEmail, sendBulkEmails, generateEmailTemplate, EmailRecipient } from '../lib/brevo'
+
+// Industry detection keywords
+const INDUSTRY_KEYWORDS: Record<string, string[]> = {
+  'Coffee & Tea': ['coffee', 'tea', 'roast', 'brew', 'cafe', 'espresso', 'chai', 'matcha', 'bean'],
+  'Food & Snacks': ['food', 'snack', 'chip', 'cookie', 'candy', 'chocolate', 'nuts', 'granola', 'protein', 'bar'],
+  'Pet Food': ['pet', 'dog', 'cat', 'treat', 'kibble', 'animal'],
+  'Cannabis/CBD': ['cannabis', 'cbd', 'hemp', 'weed', 'marijuana', 'thc', 'dispensary'],
+  'Supplements': ['supplement', 'vitamin', 'protein', 'powder', 'health', 'wellness', 'nutrition'],
+  'Cosmetics': ['cosmetic', 'beauty', 'skincare', 'makeup', 'cream', 'lotion', 'serum'],
+  'Baby Products': ['baby', 'infant', 'puree', 'toddler', 'child'],
+  'Sauce & Condiments': ['sauce', 'condiment', 'ketchup', 'mayo', 'dressing', 'spice', 'seasoning'],
+  'Agriculture': ['seed', 'farm', 'agriculture', 'organic', 'harvest', 'grow', 'garden'],
+  'Beverage': ['drink', 'beverage', 'juice', 'water', 'soda', 'smoothie']
+}
+
+// Email domain TLD to country mapping
+const EMAIL_TLD_COUNTRIES: Record<string, string> = {
+  '.au': 'Australia', '.com.au': 'Australia', '.nz': 'New Zealand',
+  '.uk': 'UK', '.co.uk': 'UK', '.ca': 'Canada', '.de': 'Germany',
+  '.fr': 'France', '.es': 'Spain', '.it': 'Italy', '.nl': 'Netherlands',
+  '.se': 'Sweden', '.no': 'Norway', '.dk': 'Denmark', '.fi': 'Finland',
+  '.jp': 'Japan', '.kr': 'Korea', '.cn': 'China', '.hk': 'Hong Kong',
+  '.sg': 'Singapore', '.my': 'Malaysia', '.in': 'India', '.ae': 'UAE',
+  '.za': 'South Africa', '.mx': 'Mexico', '.br': 'Brazil'
+}
+
+function detectCountryFromEmail(email: string): string {
+  if (!email) return 'Unknown'
+  const domain = email.toLowerCase()
+  for (const [tld, country] of Object.entries(EMAIL_TLD_COUNTRIES).sort((a, b) => b[0].length - a[0].length)) {
+    if (domain.endsWith(tld)) return country
+  }
+  return 'USA' // Default for .com
+}
+
+function detectIndustry(text: string): string {
+  if (!text) return 'Other'
+  const lower = text.toLowerCase()
+  for (const [industry, keywords] of Object.entries(INDUSTRY_KEYWORDS)) {
+    if (keywords.some(kw => lower.includes(kw))) return industry
+  }
+  return 'Other'
+}
 
 type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'artwork' | 'documents' | 'newsletter' | 'crm' | 'seo-email' | 'settings'
 
@@ -13,6 +56,7 @@ const ADMIN_EMAIL = 'ryan@achievepack.com'
 
 const AdminPage: React.FC = () => {
   const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
   const { user, signOut, loading: authLoading } = useAuth()
   const [activeTab, setActiveTab] = useState<TabType>('dashboard')
   const [customers, setCustomers] = useState<Profile[]>([])
@@ -50,6 +94,18 @@ const AdminPage: React.FC = () => {
   const [editorMode, setEditorMode] = useState<'visual' | 'html'>('visual')
   const [sendingCampaign, setSendingCampaign] = useState(false)
   const [contactSearch, setContactSearch] = useState('')
+  
+  // Advanced filters for SEO to Email
+  const [showAdvancedFilters, setShowAdvancedFilters] = useState(false)
+  const [industryFilter, setIndustryFilter] = useState<string>('all')
+  const [countryFilter, setCountryFilter] = useState<string>('all')
+  const [statusFilter, setStatusFilter] = useState<string>('all')
+  const [customerTypeFilter, setCustomerTypeFilter] = useState<string>('all')
+  const [dateRangeFilter, setDateRangeFilter] = useState<'all' | '7days' | '30days' | '90days' | '1year'>('all')
+  const [contactPage, setContactPage] = useState(1)
+  const [contactPageSize, setContactPageSize] = useState(50)
+  const [emailHistory, setEmailHistory] = useState<CRMActivity[]>([])
+  const [showEmailHistory, setShowEmailHistory] = useState(false)
 
   // Check if user is admin
   useEffect(() => {
@@ -67,21 +123,165 @@ const AdminPage: React.FC = () => {
 
   const fetchData = async () => {
     setLoading(true)
-    const [customersRes, ordersRes, subscribersRes, documentsRes, draftsRes, inquiriesRes] = await Promise.all([
+    const [customersRes, ordersRes, subscribersRes, documentsRes, draftsRes, inquiriesRes, emailHistoryRes] = await Promise.all([
       supabase.from('profiles').select('*').order('created_at', { ascending: false }),
       supabase.from('orders').select('*').order('created_at', { ascending: false }),
       supabase.from('newsletter_subscribers').select('*').order('created_at', { ascending: false }),
       supabase.from('documents').select('*').order('created_at', { ascending: false }),
       supabase.from('email_drafts').select('*').order('updated_at', { ascending: false }),
-      supabase.from('crm_inquiries').select('*').order('created_at', { ascending: false })
+      supabase.from('crm_inquiries').select('*').order('created_at', { ascending: false }),
+      supabase.from('crm_activities').select('*').eq('type', 'email').order('created_at', { ascending: false }).limit(100)
     ])
+    
+    // Debug: Log data counts
+    console.log('📊 Data loaded:', {
+      customers: customersRes.data?.length || 0,
+      orders: ordersRes.data?.length || 0,
+      subscribers: subscribersRes.data?.length || 0,
+      inquiries: inquiriesRes.data?.length || 0,
+      emailHistory: emailHistoryRes.data?.length || 0
+    })
+    
+    // Debug: Log inquiry sources
+    if (inquiriesRes.data) {
+      const sources = inquiriesRes.data.reduce((acc: Record<string, number>, inq: any) => {
+        acc[inq.source || 'unknown'] = (acc[inq.source || 'unknown'] || 0) + 1
+        return acc
+      }, {})
+      console.log('📍 Inquiry sources:', sources)
+    }
+    
+    // Check for errors
+    if (customersRes.error) console.error('Customers error:', customersRes.error)
+    if (subscribersRes.error) console.error('Subscribers error:', subscribersRes.error)
+    if (inquiriesRes.error) console.error('Inquiries error:', inquiriesRes.error)
+    
     setCustomers(customersRes.data || [])
     setOrders(ordersRes.data || [])
     setSubscribers(subscribersRes.data || [])
     setDocuments(documentsRes.data || [])
     setEmailDrafts(draftsRes.data || [])
     setInquiries(inquiriesRes.data || [])
+    setEmailHistory(emailHistoryRes.data || [])
     setLoading(false)
+  }
+
+  // Handle URL params for preselecting contacts from CRM
+  useEffect(() => {
+    const preselect = searchParams.get('preselect')
+    const tab = searchParams.get('tab')
+    
+    if (tab === 'seo-email') {
+      setActiveTab('seo-email')
+    }
+    
+    if (preselect) {
+      // Format: inquiry_id1,inquiry_id2 or single inquiry_id
+      const ids = preselect.split(',').map(id => id.startsWith('inquiry_') ? id : `inquiry_${id}`)
+      setSelectedContacts(ids)
+    }
+  }, [searchParams])
+
+  // Enriched contacts with industry and country detection
+  const enrichedContacts = useMemo(() => {
+    return inquiries.map(inq => ({
+      ...inq,
+      industry: detectIndustry(`${inq.message || ''} ${inq.packaging_type || ''} ${inq.company || ''}`),
+      country: detectCountryFromEmail(inq.email || '')
+    }))
+  }, [inquiries])
+
+  // Filter options for dropdowns
+  const filterOptions = useMemo(() => {
+    const industries = [...new Set(enrichedContacts.map(c => c.industry))].sort()
+    const countries = [...new Set(enrichedContacts.map(c => c.country))].sort()
+    const statuses = [...new Set(enrichedContacts.map(c => c.status))].filter(Boolean)
+    return { industries, countries, statuses }
+  }, [enrichedContacts])
+
+  // Filtered contacts based on all filters
+  const filteredContacts = useMemo(() => {
+    const now = new Date()
+    const dateThresholds: Record<string, number> = {
+      '7days': 7, '30days': 30, '90days': 90, '1year': 365
+    }
+    
+    return enrichedContacts.filter(contact => {
+      // Search filter
+      if (contactSearch) {
+        const search = contactSearch.toLowerCase()
+        if (!contact.name?.toLowerCase().includes(search) &&
+            !contact.email?.toLowerCase().includes(search) &&
+            !contact.company?.toLowerCase().includes(search)) {
+          return false
+        }
+      }
+      
+      // Source filter
+      if (contactFilter !== 'all' && contactFilter !== 'newsletter' && contactFilter !== 'customer' && contactFilter !== 'inquiry') {
+        if (contact.source !== contactFilter) return false
+      }
+      
+      // Industry filter
+      if (industryFilter !== 'all' && contact.industry !== industryFilter) return false
+      
+      // Country filter  
+      if (countryFilter !== 'all' && contact.country !== countryFilter) return false
+      
+      // Status filter
+      if (statusFilter !== 'all' && contact.status !== statusFilter) return false
+      
+      // Customer type filter
+      if (customerTypeFilter !== 'all' && contact.customer_type !== customerTypeFilter) return false
+      
+      // Date range filter
+      if (dateRangeFilter !== 'all') {
+        const days = dateThresholds[dateRangeFilter]
+        const contactDate = new Date(contact.created_at)
+        const diffDays = (now.getTime() - contactDate.getTime()) / (1000 * 60 * 60 * 24)
+        if (diffDays > days) return false
+      }
+      
+      // Exclude spam
+      if (contact.status === 'spam') return false
+      
+      return true
+    })
+  }, [enrichedContacts, contactSearch, contactFilter, industryFilter, countryFilter, statusFilter, customerTypeFilter, dateRangeFilter])
+
+  // Paginated contacts
+  const paginatedContacts = useMemo(() => {
+    const start = (contactPage - 1) * contactPageSize
+    return filteredContacts.slice(start, start + contactPageSize)
+  }, [filteredContacts, contactPage, contactPageSize])
+
+  const totalContactPages = Math.ceil(filteredContacts.length / contactPageSize)
+
+  // Record email to CRM after sending
+  const recordEmailToCRM = async (recipients: EmailRecipient[], subject: string, content: string) => {
+    const activities = recipients.map(r => {
+      // Find inquiry ID from email
+      const inquiry = inquiries.find(i => i.email === r.email)
+      if (!inquiry) return null
+      return {
+        inquiry_id: inquiry.id,
+        type: 'email' as const,
+        subject: subject,
+        content: `Campaign Email: ${subject}\n\nSent via SEO to Email feature`,
+        created_by: 'admin'
+      }
+    }).filter(Boolean)
+    
+    if (activities.length > 0) {
+      await supabase.from('crm_activities').insert(activities)
+      
+      // Update last_contacted for all recipients
+      const inquiryIds = activities.map(a => a!.inquiry_id)
+      await supabase.from('crm_inquiries').update({
+        last_contacted: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      }).in('id', inquiryIds)
+    }
   }
 
   // Save email draft
@@ -167,6 +367,344 @@ const AdminPage: React.FC = () => {
     return images
   }
 
+  // SEO Page email content templates
+  const seoPageTemplates: Record<string, { title: string; content: string; images: string[] }> = {
+    // Industry Pages
+    '/industry/coffee-tea': {
+      title: 'Sustainable Coffee & Tea Packaging Solutions',
+      content: `<h2>Eco-Friendly Packaging for Coffee & Tea Brands</h2>
+<p>Looking for sustainable packaging that keeps your coffee fresh and your brand values aligned? We specialize in <strong>low MOQ eco-friendly pouches</strong> designed specifically for coffee and tea brands.</p>
+
+<h3>Why Choose Our Coffee & Tea Packaging?</h3>
+<ul>
+  <li><strong>High barrier protection</strong> — Keeps coffee fresh with excellent oxygen and moisture barriers</li>
+  <li><strong>Certified sustainable</strong> — Compostable, recyclable, and bio-based options available</li>
+  <li><strong>Low MOQ from 100 units</strong> — Perfect for small roasters and specialty brands</li>
+  <li><strong>Custom printing</strong> — Showcase your brand with premium digital or gravure printing</li>
+</ul>
+
+<p>Whether you need stand-up pouches with degassing valves, flat bottom bags for premium shelf presence, or side gusset bags for bulk packaging, we have you covered.</p>
+
+<p><strong>Ready to explore sustainable coffee packaging?</strong> Let's chat about your needs.</p>`,
+      images: ['/imgs/industry/coffee-tea-hero.webp']
+    },
+    '/industry/pet-food': {
+      title: 'Eco-Friendly Pet Food Packaging',
+      content: `<h2>Sustainable Packaging for Pet Food Brands</h2>
+<p>Pet owners care about sustainability — and so should your packaging. We offer <strong>eco-friendly pet food pouches</strong> with the durability and barrier properties your products need.</p>
+
+<h3>Pet Food Packaging Solutions</h3>
+<ul>
+  <li><strong>Heavy-duty materials</strong> — Built for larger package sizes and heavier contents</li>
+  <li><strong>Excellent barrier properties</strong> — Keeps pet food fresh and aroma-sealed</li>
+  <li><strong>Recyclable mono-PE options</strong> — Easy for consumers to recycle</li>
+  <li><strong>Compostable alternatives</strong> — For brands targeting eco-conscious pet owners</li>
+</ul>
+
+<p>From premium freeze-dried treats to bulk kibble, our packaging solutions scale with your brand.</p>
+
+<p><strong>Let's discuss your pet food packaging needs.</strong></p>`,
+      images: ['/imgs/industry/pet-food-hero.webp']
+    },
+    '/industry/snacks-food': {
+      title: 'Sustainable Snack Packaging Options',
+      content: `<h2>Eco-Friendly Snack & Food Packaging</h2>
+<p>Stand out on shelves with sustainable packaging that consumers love. Our <strong>snack pouches</strong> combine eye-catching design with genuine eco credentials.</p>
+
+<h3>Snack Packaging Features</h3>
+<ul>
+  <li><strong>Vibrant printing</strong> — High-definition colors that pop on retail shelves</li>
+  <li><strong>Resealable options</strong> — Zipper closures for consumer convenience</li>
+  <li><strong>Multiple sizes</strong> — From single-serve sachets to family packs</li>
+  <li><strong>Sustainable materials</strong> — Compostable, recyclable, and bio-based choices</li>
+</ul>
+
+<p>Perfect for chips, nuts, dried fruits, granola, and more.</p>
+
+<p><strong>Ready to make your snacks shine sustainably?</strong></p>`,
+      images: ['/imgs/industry/snacks-hero.webp']
+    },
+    '/industry/supplements-powders': {
+      title: 'Supplements & Powders Packaging',
+      content: `<h2>Sustainable Packaging for Supplements & Powders</h2>
+<p>Your wellness brand deserves packaging that reflects your commitment to health — for people and planet. Our <strong>supplement pouches</strong> offer superior protection with eco-friendly materials.</p>
+
+<h3>Why Our Supplement Packaging?</h3>
+<ul>
+  <li><strong>High moisture barrier</strong> — Essential for powder stability</li>
+  <li><strong>Light protection</strong> — Preserves ingredient potency</li>
+  <li><strong>Resealable closures</strong> — Maintains freshness between uses</li>
+  <li><strong>Clean labeling</strong> — Ample space for nutritional info and certifications</li>
+</ul>
+
+<p>From protein powders to vitamin blends, we have the right solution.</p>`,
+      images: ['/imgs/industry/supplements-hero.webp']
+    },
+    '/industry/baby-food': {
+      title: 'Baby Food Packaging Solutions',
+      content: `<h2>Safe & Sustainable Baby Food Packaging</h2>
+<p>Parents want the best for their children — including packaging that's safe and eco-friendly. Our <strong>baby food pouches</strong> meet the highest safety standards while reducing environmental impact.</p>
+
+<h3>Baby Food Packaging Features</h3>
+<ul>
+  <li><strong>Food-grade certified</strong> — Meets FDA and international safety standards</li>
+  <li><strong>Spout pouches available</strong> — Perfect for purées and smoothies</li>
+  <li><strong>BPA-free materials</strong> — Safe for babies and toddlers</li>
+  <li><strong>Eco-friendly options</strong> — Show parents you care about their child's future</li>
+</ul>
+
+<p><strong>Let's create packaging parents can trust.</strong></p>`,
+      images: ['/imgs/industry/baby-food-hero.webp']
+    },
+    // Materials Pages
+    '/materials/compostable': {
+      title: 'Discover Our Compostable Materials',
+      content: `<h2>Certified Compostable Packaging Materials</h2>
+<p>Make a genuine impact with <strong>certified compostable pouches</strong> that break down naturally, leaving no harmful residues behind.</p>
+
+<h3>Our Compostable Options</h3>
+<ul>
+  <li><strong>Home compostable</strong> — TÜV OK compost HOME certified for backyard composting</li>
+  <li><strong>Industrial compostable</strong> — BPI certified for commercial facilities</li>
+  <li><strong>PLA-based films</strong> — Made from renewable plant sources</li>
+  <li><strong>Cellulose materials</strong> — Natural look with genuine eco performance</li>
+</ul>
+
+<p>Perfect for brands committed to true sustainability. Available from just 100 units.</p>
+
+<p><strong>Ready to go compostable?</strong></p>`,
+      images: ['/imgs/materials/compostable-hero.webp']
+    },
+    '/materials/recyclable-mono-pe': {
+      title: 'Recyclable Mono-PE Solutions',
+      content: `<h2>100% Recyclable Mono-PE Packaging</h2>
+<p>Our <strong>mono-material PE pouches</strong> are designed for easy recycling in existing infrastructure — no sorting hassles for consumers.</p>
+
+<h3>Mono-PE Benefits</h3>
+<ul>
+  <li><strong>100% recyclable</strong> — Compatible with PE recycling streams worldwide</li>
+  <li><strong>Excellent barrier</strong> — High moisture protection for product freshness</li>
+  <li><strong>Cost-effective</strong> — Only 5-10% premium over conventional materials</li>
+  <li><strong>How2Recycle compatible</strong> — Clear recycling guidance for consumers</li>
+</ul>
+
+<p>The practical choice for brands wanting immediate recycling compatibility.</p>`,
+      images: ['/imgs/materials/mono-pe-hero.webp']
+    },
+    '/materials/recyclable-mono-pp': {
+      title: 'Recyclable Mono-PP Options',
+      content: `<h2>Recyclable Mono-PP Packaging</h2>
+<p>For applications requiring higher temperature resistance, our <strong>mono-PP pouches</strong> deliver recyclability with enhanced performance.</p>
+
+<h3>Mono-PP Advantages</h3>
+<ul>
+  <li><strong>Heat resistant</strong> — Suitable for hot-fill applications</li>
+  <li><strong>Excellent clarity</strong> — Great for showcasing product contents</li>
+  <li><strong>Recyclable</strong> — Compatible with PP recycling streams</li>
+  <li><strong>Versatile</strong> — Works for multiple product categories</li>
+</ul>`,
+      images: ['/imgs/materials/mono-pp-hero.webp']
+    },
+    '/materials/bio-pe': {
+      title: 'Bio-PE Materials - Carbon Negative',
+      content: `<h2>Bio-PE: The Carbon-Negative Alternative</h2>
+<p>Made from sugarcane, <strong>Bio-PE</strong> offers the same performance as conventional PE with a fraction of the carbon footprint.</p>
+
+<h3>Why Choose Bio-PE?</h3>
+<ul>
+  <li><strong>Carbon-negative raw material</strong> — Sugarcane captures CO₂ during growth</li>
+  <li><strong>Chemically identical to PE</strong> — Same processing, same recyclability</li>
+  <li><strong>ISCC certified</strong> — Verified sustainable sourcing</li>
+  <li><strong>No performance compromise</strong> — Identical barrier and strength properties</li>
+</ul>
+
+<p>Tell a powerful sustainability story without changing your supply chain.</p>`,
+      images: ['/imgs/materials/bio-pe-hero.webp']
+    },
+    '/materials/pcr': {
+      title: 'PCR Recycled Materials',
+      content: `<h2>Post-Consumer Recycled (PCR) Packaging</h2>
+<p>Close the loop with <strong>PCR materials</strong> that incorporate recycled plastic from consumer waste.</p>
+
+<h3>PCR Options Available</h3>
+<ul>
+  <li><strong>30% PCR content</strong> — Balance of sustainability and cost</li>
+  <li><strong>50% PCR content</strong> — Strong environmental statement</li>
+  <li><strong>GRS certified</strong> — Third-party verified recycled content</li>
+  <li><strong>Supports circular economy</strong> — Reduces virgin plastic demand</li>
+</ul>
+
+<p>Make your packaging part of the solution.</p>`,
+      images: ['/imgs/materials/pcr-hero.webp']
+    },
+    // Packaging Types
+    '/packaging/stand-up-pouches': {
+      title: 'Custom Stand-Up Pouches for Your Brand',
+      content: `<h2>Stand-Up Pouches — Versatile & Eye-Catching</h2>
+<p>The most popular flexible packaging format, <strong>stand-up pouches</strong> offer maximum shelf visibility and consumer convenience.</p>
+
+<h3>Stand-Up Pouch Features</h3>
+<ul>
+  <li><strong>Self-standing design</strong> — Great retail shelf presence</li>
+  <li><strong>Multiple closure options</strong> — Zippers, tear notches, spouts</li>
+  <li><strong>360° branding</strong> — Front, back, and gusset printing</li>
+  <li><strong>Sustainable materials</strong> — Available in all our eco-friendly options</li>
+</ul>
+
+<p>Perfect for coffee, snacks, pet food, and more. Starting from just 100 units.</p>`,
+      images: ['/imgs/packaging/stand-up-pouch-hero.webp']
+    },
+    '/packaging/flat-bottom-bags': {
+      title: 'Premium Flat Bottom Bags',
+      content: `<h2>Flat Bottom Bags — Premium Shelf Presence</h2>
+<p>Also known as box pouches, <strong>flat bottom bags</strong> provide superior stability and a premium look for specialty products.</p>
+
+<h3>Flat Bottom Bag Benefits</h3>
+<ul>
+  <li><strong>Superior stability</strong> — Stands perfectly upright without support</li>
+  <li><strong>5 printable panels</strong> — Maximum branding real estate</li>
+  <li><strong>Premium appearance</strong> — Ideal for specialty and artisan products</li>
+  <li><strong>High capacity</strong> — Great for larger product volumes</li>
+</ul>
+
+<p>Elevate your product presentation with flat bottom bags.</p>`,
+      images: ['/imgs/packaging/flat-bottom-hero.webp']
+    },
+    '/packaging/spout-pouches': {
+      title: 'Spout Pouches for Liquids',
+      content: `<h2>Spout Pouches — Perfect for Liquids</h2>
+<p>Our <strong>spout pouches</strong> offer controlled dispensing for liquids, purées, and semi-liquid products.</p>
+
+<h3>Spout Pouch Applications</h3>
+<ul>
+  <li><strong>Baby food purées</strong> — Convenient feeding format</li>
+  <li><strong>Liquid supplements</strong> — Easy, mess-free consumption</li>
+  <li><strong>Sauces & condiments</strong> — Controlled pour dispensing</li>
+  <li><strong>Beverages</strong> — Alternative to bottles and cans</li>
+</ul>
+
+<p>Available in multiple spout styles and sustainable materials.</p>`,
+      images: ['/imgs/packaging/spout-pouch-hero.webp']
+    },
+    '/packaging/flat-pouches': {
+      title: 'Flat Pouches & Sachets',
+      content: `<h2>Flat Pouches — Simple & Efficient</h2>
+<p><strong>Flat pouches</strong> and sachets are the most economical packaging format, perfect for samples and single-serve portions.</p>
+
+<h3>Flat Pouch Uses</h3>
+<ul>
+  <li><strong>Sample packs</strong> — Cost-effective trial sizes</li>
+  <li><strong>Single-serve portions</strong> — Convenience and portion control</li>
+  <li><strong>Seasonings & condiments</strong> — Individual serving packets</li>
+  <li><strong>Minimal material usage</strong> — Lower environmental footprint</li>
+</ul>`,
+      images: ['/imgs/packaging/flat-pouch-hero.webp']
+    },
+    '/packaging/side-gusset-bags': {
+      title: 'Side Gusset Bags',
+      content: `<h2>Side Gusset Bags — Classic & Reliable</h2>
+<p>A traditional format that's still incredibly popular, <strong>side gusset bags</strong> offer excellent volume capacity and a familiar look.</p>
+
+<h3>Side Gusset Bag Features</h3>
+<ul>
+  <li><strong>High capacity</strong> — Great for bulk products</li>
+  <li><strong>Classic appearance</strong> — Familiar to consumers</li>
+  <li><strong>Multiple closure options</strong> — Tin ties, zippers, heat seals</li>
+  <li><strong>Popular for coffee</strong> — Traditional coffee bag format</li>
+</ul>`,
+      images: ['/imgs/packaging/side-gusset-hero.webp']
+    },
+    // Products & Topics
+    '/products/compostable-coffee-bags': {
+      title: 'Compostable Coffee Bags',
+      content: `<h2>Certified Compostable Coffee Bags</h2>
+<p>Give coffee lovers packaging they can feel good about. Our <strong>compostable coffee bags</strong> combine excellent barrier properties with genuine sustainability.</p>
+
+<h3>Features</h3>
+<ul>
+  <li><strong>Home compostable options</strong> — TÜV certified</li>
+  <li><strong>Degassing valves</strong> — Compatible with compostable materials</li>
+  <li><strong>Multiple formats</strong> — Stand-up, flat bottom, side gusset</li>
+  <li><strong>Low MOQ from 100 units</strong> — Perfect for specialty roasters</li>
+</ul>`,
+      images: ['/imgs/products/compostable-coffee-hero.webp']
+    },
+    '/products/compostable-stand-up-pouches': {
+      title: 'Compostable Stand-Up Pouches',
+      content: `<h2>Compostable Stand-Up Pouches</h2>
+<p>The versatility of stand-up pouches with certified compostable materials. Available in home and industrial compostable options.</p>
+
+<h3>Perfect For</h3>
+<ul>
+  <li>Snacks & granola</li>
+  <li>Coffee & tea</li>
+  <li>Pet treats</li>
+  <li>Supplements & powders</li>
+</ul>
+
+<p>Starting from just 100 units with full custom printing.</p>`,
+      images: ['/imgs/products/compostable-sup-hero.webp']
+    },
+    '/products/low-moq-packaging': {
+      title: 'Low MOQ Packaging',
+      content: `<h2>Low MOQ Custom Packaging — Start from 100 Units</h2>
+<p>Don't let minimum order quantities hold your brand back. We offer <strong>custom printed pouches from just 100 pieces</strong> — perfect for startups, market testing, and small brands.</p>
+
+<h3>Why Low MOQ Matters</h3>
+<ul>
+  <li><strong>Test before committing</strong> — Validate packaging designs with real customers</li>
+  <li><strong>Reduce inventory risk</strong> — Order what you need, when you need it</li>
+  <li><strong>Multiple SKUs affordable</strong> — Launch product variations without breaking the bank</li>
+  <li><strong>Fast iteration</strong> — Update designs quickly based on feedback</li>
+</ul>`,
+      images: ['/imgs/products/low-moq-hero.webp']
+    },
+    '/topics/eco-friendly-food-packaging': {
+      title: 'Eco-Friendly Food Packaging Guide',
+      content: `<h2>Your Guide to Eco-Friendly Food Packaging</h2>
+<p>Navigating sustainable packaging options can be overwhelming. Here's what you need to know about making your food packaging more eco-friendly.</p>
+
+<h3>Key Considerations</h3>
+<ul>
+  <li><strong>Compostable vs Recyclable</strong> — Understanding the differences and best applications</li>
+  <li><strong>Certifications that matter</strong> — BPI, TÜV, How2Recycle explained</li>
+  <li><strong>Barrier requirements</strong> — Balancing sustainability with product protection</li>
+  <li><strong>Consumer perception</strong> — What eco claims resonate most</li>
+</ul>
+
+<p>We're here to help you make the right choice for your products.</p>`,
+      images: ['/imgs/topics/eco-friendly-hero.webp']
+    },
+    '/topics/dtc-sustainable-packaging': {
+      title: 'DTC Sustainable Packaging Guide',
+      content: `<h2>Sustainable Packaging for DTC Brands</h2>
+<p>Direct-to-consumer brands have unique packaging needs. Here's how to nail sustainable packaging for your DTC business.</p>
+
+<h3>DTC Packaging Best Practices</h3>
+<ul>
+  <li><strong>Unboxing experience</strong> — Create memorable moments sustainably</li>
+  <li><strong>Right-sized packaging</strong> — Reduce waste and shipping costs</li>
+  <li><strong>Brand storytelling</strong> — Communicate your values through packaging</li>
+  <li><strong>Return-friendly</strong> — Consider the reverse logistics</li>
+</ul>`,
+      images: ['/imgs/topics/dtc-hero.webp']
+    },
+    '/topics/green-coffee-materials': {
+      title: 'Green Coffee Materials Guide',
+      content: `<h2>Sustainable Materials for Coffee Packaging</h2>
+<p>Coffee brands have unique barrier requirements. Here are the best sustainable material options for keeping your coffee fresh.</p>
+
+<h3>Material Comparison</h3>
+<ul>
+  <li><strong>Compostable with barrier</strong> — Home and industrial options</li>
+  <li><strong>Recyclable mono-PE</strong> — Practical and cost-effective</li>
+  <li><strong>Bio-PE alternatives</strong> — Carbon-negative performance</li>
+  <li><strong>Kraft paper laminates</strong> — Natural look with barrier protection</li>
+</ul>`,
+      images: ['/imgs/topics/green-coffee-hero.webp']
+    }
+  }
+
   // Get page content by slug - returns raw HTML
   const getPageContent = (pagePath: string): { content: string; images: string[]; title: string } | null => {
     // Check if it's a blog page
@@ -181,6 +719,12 @@ const AdminPage: React.FC = () => {
         }
       }
     }
+    
+    // Check if it's an SEO page with template
+    if (seoPageTemplates[pagePath]) {
+      return seoPageTemplates[pagePath]
+    }
+    
     return null
   }
 
@@ -1361,6 +1905,22 @@ const AdminPage: React.FC = () => {
                     <div className="flex flex-wrap gap-2 mb-3">
                       <span className="text-xs text-gray-500 self-center mr-1">Source:</span>
                       <button
+                        onClick={() => setContactFilter('website')}
+                        className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
+                          contactFilter === 'website' ? 'bg-teal-500 text-white' : 'bg-teal-100 text-teal-700 hover:bg-teal-200'
+                        }`}
+                      >
+                        Website ({inquiries.filter(i => i.email && (i.source === 'website' || !i.source)).length})
+                      </button>
+                      <button
+                        onClick={() => setContactFilter('import')}
+                        className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
+                          contactFilter === 'import' ? 'bg-gray-700 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                        }`}
+                      >
+                        Import ({inquiries.filter(i => i.email && i.source === 'import').length})
+                      </button>
+                      <button
                         onClick={() => setContactFilter('paypal')}
                         className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
                           contactFilter === 'paypal' ? 'bg-yellow-500 text-white' : 'bg-yellow-100 text-yellow-700 hover:bg-yellow-200'
@@ -1385,22 +1945,6 @@ const AdminPage: React.FC = () => {
                         Calendly ({inquiries.filter(i => i.email && i.source === 'calendly').length})
                       </button>
                       <button
-                        onClick={() => setContactFilter('website')}
-                        className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
-                          contactFilter === 'website' ? 'bg-teal-500 text-white' : 'bg-teal-100 text-teal-700 hover:bg-teal-200'
-                        }`}
-                      >
-                        Website ({inquiries.filter(i => i.email && i.source === 'website').length})
-                      </button>
-                      <button
-                        onClick={() => setContactFilter('import')}
-                        className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
-                          contactFilter === 'import' ? 'bg-gray-700 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                        }`}
-                      >
-                        Import ({inquiries.filter(i => i.email && i.source === 'import').length})
-                      </button>
-                      <button
                         onClick={() => setContactFilter('manual')}
                         className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
                           contactFilter === 'manual' ? 'bg-pink-500 text-white' : 'bg-pink-100 text-pink-700 hover:bg-pink-200'
@@ -1409,6 +1953,86 @@ const AdminPage: React.FC = () => {
                         Manual ({inquiries.filter(i => i.email && i.source === 'manual').length})
                       </button>
                     </div>
+
+                    {/* Advanced Filters Toggle */}
+                    <button
+                      onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
+                      className="flex items-center gap-2 text-xs text-primary-600 hover:text-primary-700 mb-3"
+                    >
+                      <Filter className="h-3 w-3" />
+                      {showAdvancedFilters ? 'Hide' : 'Show'} Advanced Filters
+                      {(industryFilter !== 'all' || countryFilter !== 'all' || statusFilter !== 'all' || customerTypeFilter !== 'all' || dateRangeFilter !== 'all') && (
+                        <span className="bg-primary-500 text-white text-xs px-1.5 rounded-full">!</span>
+                      )}
+                    </button>
+
+                    {/* Advanced Filters */}
+                    {showAdvancedFilters && (
+                      <div className="grid grid-cols-2 gap-2 mb-3 p-3 bg-gray-50 rounded-lg">
+                        <select
+                          value={industryFilter}
+                          onChange={(e) => { setIndustryFilter(e.target.value); setContactPage(1) }}
+                          className="text-xs border rounded-lg px-2 py-1.5"
+                        >
+                          <option value="all">All Industries</option>
+                          {filterOptions.industries.map(i => <option key={i} value={i}>{i}</option>)}
+                        </select>
+                        <select
+                          value={countryFilter}
+                          onChange={(e) => { setCountryFilter(e.target.value); setContactPage(1) }}
+                          className="text-xs border rounded-lg px-2 py-1.5"
+                        >
+                          <option value="all">All Countries</option>
+                          {filterOptions.countries.map(c => <option key={c} value={c}>{c}</option>)}
+                        </select>
+                        <select
+                          value={statusFilter}
+                          onChange={(e) => { setStatusFilter(e.target.value); setContactPage(1) }}
+                          className="text-xs border rounded-lg px-2 py-1.5"
+                        >
+                          <option value="all">All Status</option>
+                          <option value="new">New</option>
+                          <option value="contacted">Contacted</option>
+                          <option value="quoted">Quoted</option>
+                          <option value="follow_up">Follow Up</option>
+                          <option value="won">Won</option>
+                          <option value="lost">Lost</option>
+                        </select>
+                        <select
+                          value={customerTypeFilter}
+                          onChange={(e) => { setCustomerTypeFilter(e.target.value); setContactPage(1) }}
+                          className="text-xs border rounded-lg px-2 py-1.5"
+                        >
+                          <option value="all">All Types</option>
+                          <option value="lead">Leads</option>
+                          <option value="sample">Sample (&lt;$100)</option>
+                          <option value="customer">Customer (≥$100)</option>
+                        </select>
+                        <select
+                          value={dateRangeFilter}
+                          onChange={(e) => { setDateRangeFilter(e.target.value as any); setContactPage(1) }}
+                          className="text-xs border rounded-lg px-2 py-1.5"
+                        >
+                          <option value="all">All Time</option>
+                          <option value="7days">Last 7 Days</option>
+                          <option value="30days">Last 30 Days</option>
+                          <option value="90days">Last 90 Days</option>
+                          <option value="1year">Last Year</option>
+                        </select>
+                        <button
+                          onClick={() => {
+                            setIndustryFilter('all')
+                            setCountryFilter('all')
+                            setStatusFilter('all')
+                            setCustomerTypeFilter('all')
+                            setDateRangeFilter('all')
+                          }}
+                          className="text-xs text-gray-500 hover:text-gray-700"
+                        >
+                          Clear Filters
+                        </button>
+                      </div>
+                    )}
 
                     {/* Search */}
                     <div className="mb-3">
@@ -1493,8 +2117,11 @@ const AdminPage: React.FC = () => {
                         </div>
                       )}
 
-                      {/* Inquiries by Source */}
+                      {/* Inquiries - Using paginated filtered contacts */}
                       {(() => {
+                        if (contactFilter === 'newsletter' || contactFilter === 'customer') return null
+                        
+                        // Check for source filters
                         const sourceFilters: Record<string, string[]> = {
                           'all': [],
                           'inquiry': [],
@@ -1506,24 +2133,44 @@ const AdminPage: React.FC = () => {
                           'manual': ['manual']
                         }
                         const sources = sourceFilters[contactFilter] || []
-                        const filteredInquiries = inquiries
-                          .filter(i => i.email && i.status !== 'spam')
-                          .filter(i => sources.length === 0 || sources.includes(i.source || ''))
-                          .filter(i =>
-                            !contactSearch ||
-                            i.name?.toLowerCase().includes(contactSearch.toLowerCase()) ||
-                            i.email?.toLowerCase().includes(contactSearch.toLowerCase()) ||
-                            i.company?.toLowerCase().includes(contactSearch.toLowerCase())
-                          )
                         
-                        if (contactFilter === 'newsletter' || contactFilter === 'customer') return null
+                        // Apply source filter on top of existing filters
+                        const displayContacts = sources.length === 0 
+                          ? paginatedContacts
+                          : paginatedContacts.filter(c => sources.includes(c.source || ''))
                         
                         return (
                           <div className="mb-4">
-                            <p className="text-xs font-semibold text-gray-500 uppercase mb-2 sticky top-0 bg-white py-1">
-                              {contactFilter === 'all' ? 'All Inquiries' : contactFilter.charAt(0).toUpperCase() + contactFilter.slice(1)} ({filteredInquiries.length})
-                            </p>
-                            {filteredInquiries.map(inquiry => (
+                            <div className="flex items-center justify-between sticky top-0 bg-white py-1 mb-2">
+                              <p className="text-xs font-semibold text-gray-500 uppercase">
+                                {contactFilter === 'all' ? 'All Inquiries' : contactFilter.charAt(0).toUpperCase() + contactFilter.slice(1)} 
+                                ({filteredContacts.length} total)
+                              </p>
+                              <div className="flex items-center gap-1">
+                                <button
+                                  onClick={() => {
+                                    // Select all visible
+                                    const ids = filteredContacts.map(c => `inquiry_${c.id}`)
+                                    setSelectedContacts([...new Set([...selectedContacts, ...ids])])
+                                  }}
+                                  className="text-xs text-primary-600 hover:underline"
+                                >
+                                  Select All ({filteredContacts.length})
+                                </button>
+                                <span className="text-gray-300">|</span>
+                                <button
+                                  onClick={() => {
+                                    const inquiryIds = filteredContacts.map(c => `inquiry_${c.id}`)
+                                    setSelectedContacts(selectedContacts.filter(id => !inquiryIds.includes(id)))
+                                  }}
+                                  className="text-xs text-gray-500 hover:underline"
+                                >
+                                  Clear
+                                </button>
+                              </div>
+                            </div>
+                            
+                            {displayContacts.map(inquiry => (
                               <label key={inquiry.id} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg cursor-pointer">
                                 <input
                                   type="checkbox"
@@ -1543,7 +2190,7 @@ const AdminPage: React.FC = () => {
                                   <p className="text-xs text-gray-500 truncate">{inquiry.email}</p>
                                   {inquiry.company && <p className="text-xs text-gray-400 truncate">{inquiry.company}</p>}
                                 </div>
-                                <div className="flex items-center gap-1">
+                                <div className="flex flex-col items-end gap-0.5">
                                   <span className={`text-xs px-2 py-0.5 rounded-full ${
                                     inquiry.source === 'paypal' ? 'bg-yellow-100 text-yellow-700' :
                                     inquiry.source === 'stripe' ? 'bg-indigo-100 text-indigo-700' :
@@ -1552,9 +2199,63 @@ const AdminPage: React.FC = () => {
                                   }`}>
                                     {inquiry.source || 'website'}
                                   </span>
+                                  <span className="text-xs text-gray-400">
+                                    {inquiry.industry} · {inquiry.country}
+                                  </span>
                                 </div>
                               </label>
                             ))}
+                            
+                            {/* Pagination Controls */}
+                            <div className="flex items-center justify-between pt-3 mt-2 border-t text-xs">
+                              <div className="flex items-center gap-2">
+                                <span className="text-gray-500">
+                                  Page {contactPage} of {totalContactPages} ({filteredContacts.length} contacts)
+                                </span>
+                                <select
+                                  value={contactPageSize}
+                                  onChange={(e) => { setContactPageSize(Number(e.target.value)); setContactPage(1) }}
+                                  className="border rounded px-1 py-0.5 text-xs"
+                                >
+                                  <option value={25}>25</option>
+                                  <option value={50}>50</option>
+                                  <option value={100}>100</option>
+                                  <option value={200}>200</option>
+                                  <option value={500}>500</option>
+                                </select>
+                              </div>
+                              <div className="flex items-center gap-1">
+                                <button
+                                  onClick={() => setContactPage(1)}
+                                  disabled={contactPage === 1}
+                                  className="px-2 py-1 rounded hover:bg-gray-100 disabled:opacity-50"
+                                >
+                                  First
+                                </button>
+                                <button
+                                  onClick={() => setContactPage(p => Math.max(1, p - 1))}
+                                  disabled={contactPage === 1}
+                                  className="p-1 rounded hover:bg-gray-100 disabled:opacity-50"
+                                >
+                                  <ChevronLeft className="h-4 w-4" />
+                                </button>
+                                <span className="px-2">{contactPage}</span>
+                                <button
+                                  onClick={() => setContactPage(p => Math.min(totalContactPages, p + 1))}
+                                  disabled={contactPage === totalContactPages}
+                                  className="p-1 rounded hover:bg-gray-100 disabled:opacity-50"
+                                >
+                                  <ChevronRight className="h-4 w-4" />
+                                </button>
+                                <button
+                                  onClick={() => setContactPage(totalContactPages)}
+                                  disabled={contactPage === totalContactPages}
+                                  className="px-2 py-1 rounded hover:bg-gray-100 disabled:opacity-50"
+                                >
+                                  Last
+                                </button>
+                              </div>
+                            </div>
                           </div>
                         )
                       })()}
@@ -1684,6 +2385,12 @@ Check your inbox at ryan@achievepack.com`)
                               emailSubject,
                               fullHtml
                             )
+                            
+                            // Record to CRM if successful
+                            if (result.success > 0) {
+                              await recordEmailToCRM(recipients, emailSubject, emailContent)
+                              fetchData() // Refresh email history
+                            }
                             
                             const errMsg = result.errors.length > 0 ? '\n\nErrors:\n' + result.errors.slice(0, 5).join('\n') : ''
                             alert('📧 Email Campaign Complete!\n\n✅ Sent: ' + result.success + '\n❌ Failed: ' + result.failed + errMsg)

@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo, useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { supabase, CRMInquiry, CRMActivity } from '../../lib/supabase'
 import { 
   Search, Filter, Mail, Phone, Calendar, Clock, Globe, Building2,
@@ -14,6 +15,7 @@ const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', '
 
 interface CRMPanelProps {
   onRefresh?: () => void
+  onEmailCampaign?: (inquiryIds: string[]) => void
 }
 
 const STATUS_COLORS: Record<string, string> = {
@@ -198,7 +200,8 @@ function extractDomain(email: string): string {
   return domain
 }
 
-export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
+export default function CRMPanelAdvanced({ onRefresh, onEmailCampaign }: CRMPanelProps) {
+  const navigate = useNavigate()
   const [inquiries, setInquiries] = useState<CRMInquiry[]>([])
   const [activities, setActivities] = useState<CRMActivity[]>([])
   const [loading, setLoading] = useState(true)
@@ -910,7 +913,10 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
             </button>
             {selectedIds.size > 0 && (
               <button
-                onClick={() => setShowBulkEmailModal(true)}
+                onClick={() => {
+                  const ids = Array.from(selectedIds).join(',')
+                  navigate(`/admin?tab=seo-email&preselect=${ids}`)
+                }}
                 className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg text-sm hover:bg-primary-700"
               >
                 <Mail className="h-4 w-4" />
@@ -1033,9 +1039,13 @@ export default function CRMPanelAdvanced({ onRefresh }: CRMPanelProps) {
                       </td>
                       <td className="px-2 py-2" onClick={(e) => e.stopPropagation()}>
                         <div className="flex items-center gap-1">
-                          <a href={`mailto:${inquiry.email}`} className="p-1 text-gray-400 hover:text-primary-600" title="Email">
+                          <button 
+                            onClick={() => navigate(`/admin?tab=seo-email&preselect=${inquiry.id}`)}
+                            className="p-1 text-gray-400 hover:text-primary-600" 
+                            title="Email Campaign"
+                          >
                             <Mail className="h-3.5 w-3.5" />
-                          </a>
+                          </button>
                           {inquiry.phone && (
                             <a href={`https://wa.me/${inquiry.phone.replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" className="p-1 text-gray-400 hover:text-green-600" title="WhatsApp">
                               <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor">
