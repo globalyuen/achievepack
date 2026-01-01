@@ -106,6 +106,42 @@ const AdminPage: React.FC = () => {
   const [contactPageSize, setContactPageSize] = useState(50)
   const [emailHistory, setEmailHistory] = useState<CRMActivity[]>([])
   const [showEmailHistory, setShowEmailHistory] = useState(false)
+  const [showImageCatalog, setShowImageCatalog] = useState(false)
+  const [imageCatalogFilter, setImageCatalogFilter] = useState<string>('all')
+
+  // Image Catalog for Email
+  const imageCatalog = {
+    'Growth & Progress': [
+      { url: '/imgs/blog/2025-thank-you/2025-to-2026-growth.webp', name: 'Seedling to Plant Growth', alt: 'Growth from 2025 to 2026' },
+      { url: '/imgs/blog/2025-thank-you/community-partnership.webp', name: 'Community Partnership', alt: 'Community and collaborative partnership growth' },
+      { url: '/imgs/blog/2025-thank-you/sustainability-journey.webp', name: 'Sustainability Journey', alt: 'Sustainability journey milestone' },
+    ],
+    'Products': [
+      { url: '/imgs/products/stand-up-pouch.webp', name: 'Stand-Up Pouch', alt: 'Eco-friendly stand-up pouch' },
+      { url: '/imgs/products/flat-bottom-bag.webp', name: 'Flat Bottom Bag', alt: 'Sustainable flat bottom bag' },
+      { url: '/imgs/products/side-gusset-bag.webp', name: 'Side Gusset Bag', alt: 'Side gusset packaging bag' },
+      { url: '/imgs/products/kraft-paper-pouch.webp', name: 'Kraft Paper Pouch', alt: 'Brown kraft paper pouch' },
+      { url: '/imgs/products/compostable-bag.webp', name: 'Compostable Bag', alt: 'Home compostable packaging' },
+    ],
+    'Industry': [
+      { url: '/imgs/industry/coffee-packaging.webp', name: 'Coffee Packaging', alt: 'Coffee bag packaging solution' },
+      { url: '/imgs/industry/tea-packaging.webp', name: 'Tea Packaging', alt: 'Tea packaging solution' },
+      { url: '/imgs/industry/snacks-packaging.webp', name: 'Snacks Packaging', alt: 'Snack food packaging' },
+      { url: '/imgs/industry/pet-food-packaging.webp', name: 'Pet Food Packaging', alt: 'Pet food packaging solution' },
+      { url: '/imgs/industry/supplements-packaging.webp', name: 'Supplements Packaging', alt: 'Supplement packaging' },
+    ],
+    'Sustainability': [
+      { url: '/imgs/eco/compostable-certified.webp', name: 'Compostable Certified', alt: 'Certified compostable packaging' },
+      { url: '/imgs/eco/recyclable-materials.webp', name: 'Recyclable Materials', alt: 'Recyclable packaging materials' },
+      { url: '/imgs/eco/plant-based.webp', name: 'Plant-Based Materials', alt: 'Plant-based sustainable materials' },
+      { url: '/imgs/eco/ocean-plastic.webp', name: 'Ocean Plastic Free', alt: 'Ocean-bound plastic free' },
+    ],
+    'Brand & Logo': [
+      { url: '/ap-logo.png', name: 'AP Logo', alt: 'Achieve Pack logo' },
+      { url: '/ap-logo-white.png', name: 'AP Logo White', alt: 'Achieve Pack logo white' },
+      { url: '/imgs/brand/achieve-pack-banner.webp', name: 'AP Banner', alt: 'Achieve Pack banner' },
+    ],
+  }
 
   // Check if user is admin
   useEffect(() => {
@@ -1723,6 +1759,10 @@ const AdminPage: React.FC = () => {
                                 onClick={() => setEmailContent(emailContent + '<blockquote>Quote text here</blockquote>')}
                                 className="px-2 py-1 text-xs bg-white border rounded hover:bg-gray-100"
                               >Quote</button>
+                              <button 
+                                onClick={() => setShowImageCatalog(true)}
+                                className="px-2 py-1 text-xs bg-white border rounded hover:bg-gray-100 flex items-center gap-1"
+                              ><Image className="h-3 w-3" />Image</button>
                               <div className="flex-1" />
                               <button 
                                 onClick={() => setEmailContent('')}
@@ -2917,6 +2957,91 @@ Check your inbox at ryan@achievepack.com`)
                   Cancel
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Image Catalog Modal */}
+      {showImageCatalog && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[80vh] overflow-hidden">
+            <div className="flex items-center justify-between p-6 border-b bg-gradient-to-r from-primary-500 to-primary-600">
+              <div>
+                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                  <Image className="h-6 w-6" />
+                  Image Catalog
+                </h2>
+                <p className="text-primary-100 text-sm">Select an image to insert into your email</p>
+              </div>
+              <button onClick={() => setShowImageCatalog(false)} className="text-white hover:bg-white/20 p-2 rounded-lg">
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            
+            {/* Category Filter */}
+            <div className="flex flex-wrap gap-2 p-4 bg-gray-50 border-b">
+              <button
+                onClick={() => setImageCatalogFilter('all')}
+                className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${imageCatalogFilter === 'all' ? 'bg-primary-500 text-white' : 'bg-white border text-gray-600 hover:bg-gray-100'}`}
+              >All Images</button>
+              {Object.keys(imageCatalog).map(cat => (
+                <button
+                  key={cat}
+                  onClick={() => setImageCatalogFilter(cat)}
+                  className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${imageCatalogFilter === cat ? 'bg-primary-500 text-white' : 'bg-white border text-gray-600 hover:bg-gray-100'}`}
+                >{cat}</button>
+              ))}
+            </div>
+            
+            {/* Image Grid */}
+            <div className="p-6 overflow-y-auto" style={{maxHeight: 'calc(80vh - 200px)'}}>
+              {(imageCatalogFilter === 'all' ? Object.entries(imageCatalog) : [[imageCatalogFilter, imageCatalog[imageCatalogFilter as keyof typeof imageCatalog]]]).map(([category, images]) => (
+                <div key={category} className="mb-6">
+                  <h3 className="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
+                    <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
+                    {category}
+                  </h3>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                    {(images as {url: string, name: string, alt: string}[]).map((img, idx) => (
+                      <div
+                        key={idx}
+                        onClick={() => {
+                          const imgTag = `<img src="${img.url}" alt="${img.alt}" class="w-full rounded-lg my-4" />`
+                          setEmailContent(emailContent + imgTag)
+                          setShowImageCatalog(false)
+                        }}
+                        className="group cursor-pointer bg-white rounded-xl border-2 border-transparent hover:border-primary-500 transition-all overflow-hidden shadow-sm hover:shadow-lg"
+                      >
+                        <div className="aspect-square bg-gray-100 flex items-center justify-center overflow-hidden">
+                          <img 
+                            src={img.url} 
+                            alt={img.alt} 
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).src = '/placeholder-image.png'
+                              (e.target as HTMLImageElement).className = 'w-12 h-12 opacity-30'
+                            }}
+                          />
+                        </div>
+                        <div className="p-3">
+                          <p className="text-xs font-medium text-gray-900 truncate">{img.name}</p>
+                          <p className="text-xs text-gray-500 truncate">{img.alt}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            {/* Footer */}
+            <div className="p-4 border-t bg-gray-50 flex items-center justify-between">
+              <p className="text-xs text-gray-500">Click on an image to insert it into your email content</p>
+              <button
+                onClick={() => setShowImageCatalog(false)}
+                className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 text-sm font-medium"
+              >Close</button>
             </div>
           </div>
         </div>
