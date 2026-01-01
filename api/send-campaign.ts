@@ -61,9 +61,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       try {
         // Personalize content - replace name and email placeholders
         const encodedEmail = Buffer.from(recipient.email).toString('base64')
+        const recipientName = recipient.name || 'there'
         const personalizedHtml = htmlContent
-          .replace(/\{\{name\}\}/g, recipient.name || 'there')
+          .replace(/\{\{name\}\}/g, recipientName)
           .replace(/\{\{email_encoded\}\}/g, encodedEmail)
+        
+        // Personalize subject line with recipient name
+        const personalizedSubject = subject.replace(/\{\{name\}\}/g, recipientName)
 
         const response = await fetch('https://api.brevo.com/v3/smtp/email', {
           method: 'POST',
@@ -78,7 +82,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
               name: 'Achieve Pack'
             },
             to: [{ email: recipient.email, name: recipient.name }],
-            subject,
+            subject: personalizedSubject,
             htmlContent: personalizedHtml,
             replyTo: {
               email: 'ryan@achievepack.com',
