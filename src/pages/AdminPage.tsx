@@ -50,7 +50,7 @@ function detectIndustry(text: string): string {
   return 'Other'
 }
 
-type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'artwork' | 'documents' | 'newsletter' | 'crm' | 'seo-email' | 'settings'
+type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'artwork' | 'documents' | 'newsletter' | 'crm' | 'email-marketing' | 'settings'
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
 
@@ -77,7 +77,7 @@ const AdminPage: React.FC = () => {
   const [trackingForm, setTrackingForm] = useState({ trackingNumber: '', carrier: '', trackingUrl: '' })
   const [artworkFeedback, setArtworkFeedback] = useState('')
   
-  // SEO to Email state
+  // Email Marketing state
   const [selectedPage, setSelectedPage] = useState('')
   const [emailSubject, setEmailSubject] = useState('')
   const [emailContent, setEmailContent] = useState('')
@@ -95,7 +95,7 @@ const AdminPage: React.FC = () => {
   const [sendingCampaign, setSendingCampaign] = useState(false)
   const [contactSearch, setContactSearch] = useState('')
   
-  // Advanced filters for SEO to Email
+  // Advanced filters for Email Marketing
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false)
   const [industryFilter, setIndustryFilter] = useState<string>('all')
   const [countryFilter, setCountryFilter] = useState<string>('all')
@@ -233,8 +233,8 @@ const AdminPage: React.FC = () => {
     const preselect = searchParams.get('preselect')
     const tab = searchParams.get('tab')
     
-    if (tab === 'seo-email') {
-      setActiveTab('seo-email')
+    if (tab === 'seo-email' || tab === 'email-marketing') {
+      setActiveTab('email-marketing')
     }
     
     if (preselect) {
@@ -334,7 +334,7 @@ const AdminPage: React.FC = () => {
         inquiry_id: inquiry.id,
         type: 'email' as const,
         subject: subject,
-        content: `Campaign Email: ${subject}\n\nSent via SEO to Email feature`,
+        content: `Campaign Email: ${subject}\n\nSent via Email Marketing feature`,
         created_by: 'admin'
       }
     }).filter(Boolean)
@@ -1088,15 +1088,15 @@ const AdminPage: React.FC = () => {
               </button>
 
               <button
-                onClick={() => setActiveTab('seo-email')}
+                onClick={() => setActiveTab('email-marketing')}
                 className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
-                  activeTab === 'seo-email'
+                  activeTab === 'email-marketing'
                     ? 'bg-primary-500 text-white'
                     : 'text-gray-900 hover:bg-primary-50 hover:text-primary-600'
                 }`}
               >
                 <Send className="flex-shrink-0 w-5 h-5 mr-4" />
-                SEO to Email
+                Email Marketing
               </button>
 
               <Link
@@ -1177,7 +1177,7 @@ const AdminPage: React.FC = () => {
 
         {/* Mobile Nav */}
         <div className="md:hidden flex overflow-x-auto bg-white border-b px-2 py-2 gap-2">
-          {(['dashboard', 'customers', 'orders', 'documents', 'newsletter', 'crm', 'seo-email', 'settings'] as TabType[]).map(tab => (
+          {(['dashboard', 'customers', 'orders', 'documents', 'newsletter', 'crm', 'email-marketing', 'settings'] as TabType[]).map(tab => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -1626,11 +1626,11 @@ const AdminPage: React.FC = () => {
             </div>
           )}
 
-          {/* SEO to Email Tab */}
-          {activeTab === 'seo-email' && (
+          {/* Email Marketing Tab */}
+          {activeTab === 'email-marketing' && (
             <div className="space-y-6">
               <div className="flex items-center justify-between">
-                <h1 className="text-2xl font-bold text-gray-900">SEO Page to Email</h1>
+                <h1 className="text-2xl font-bold text-gray-900">Email Marketing</h1>
                 <div className="text-sm text-gray-500">
                   Convert any page content to personalized emails
                 </div>
