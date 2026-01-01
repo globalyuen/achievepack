@@ -2429,7 +2429,10 @@ const AdminPage: React.FC = () => {
                               emailSubject,
                               emailContent,
                               personalizationFields.greeting,
-                              personalizationFields.closing
+                              personalizationFields.closing,
+                              emailImages.length > 0 ? emailImages[0] : undefined,
+                              selectedPage ? `https://achievepack.com${selectedPage}` : undefined,
+                              'Read More on Our Website'
                             )
                             if (result.success) {
                               alert(`✅ Test email sent successfully!

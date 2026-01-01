@@ -24,9 +24,12 @@ export const sendTestEmail = async (
   subject: string,
   htmlContent: string,
   greeting: string = 'Hi Ryan',
-  closing: string = 'Best regards,\nAchieve Pack Team'
+  closing: string = 'Best regards,\nAchieve Pack Team',
+  featuredImage?: string,
+  ctaLink?: string,
+  ctaText?: string
 ): Promise<SendEmailResponse> => {
-  const fullHtmlContent = generateEmailTemplate(htmlContent, greeting, closing)
+  const fullHtmlContent = generateEmailTemplate(htmlContent, greeting, closing, featuredImage, ctaLink, ctaText)
   
   try {
     const response = await fetch(API_ENDPOINT, {
