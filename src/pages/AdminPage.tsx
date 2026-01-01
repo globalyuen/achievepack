@@ -3000,7 +3000,7 @@ Check your inbox at ryan@achievepack.com`)
                 <div key={String(category)} className="mb-6">
                   <h3 className="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
                     <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
-                    {category}
+                    {String(category)}
                   </h3>
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                     {(images as {url: string, name: string, alt: string}[]).map((img, idx) => (
@@ -3019,8 +3019,9 @@ Check your inbox at ryan@achievepack.com`)
                             alt={img.alt} 
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                             onError={(e) => {
-                              (e.target as HTMLImageElement).src = '/placeholder-image.png'
-                              (e.target as HTMLImageElement).className = 'w-12 h-12 opacity-30'
+                              const target = e.target as HTMLImageElement
+                              target.src = '/placeholder-image.png'
+                              target.setAttribute('class', 'w-12 h-12 opacity-30')
                             }}
                           />
                         </div>
