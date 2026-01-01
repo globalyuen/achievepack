@@ -153,9 +153,9 @@ export const generateEmailTemplate = (
     <!-- Header with Co-Branding -->
     <div class="header">
       <div class="header-logos">
-        <img src="https://achievepack.com/ap-logo-white.png" alt="Achieve Pack" />
+        <img src="https://achievepack.com/ap-logo-white.png" alt="Achieve Pack" style="height: 32px;" />
         <span class="header-divider">×</span>
-        <img src="https://achievepack.com/ep-logo.svg" alt="Pouch.eco" style="height: 28px;" />
+        <img src="https://achievepack.com/eco-pouch-logo-white.png" alt="Pouch.eco" style="height: 32px;" />
       </div>
     </div>
     
@@ -184,9 +184,9 @@ export const generateEmailTemplate = (
     <!-- Footer with Co-Branding -->
     <div class="footer">
       <div class="footer-logos">
-        <img src="https://achievepack.com/ap-logo.png" alt="Achieve Pack" />
+        <img src="https://achievepack.com/ap-logo.png" alt="Achieve Pack" style="height: 24px;" />
         <span style="color: #9ca3af;">×</span>
-        <img src="https://achievepack.com/ep-logo.svg" alt="Pouch.eco" style="height: 20px;" />
+        <img src="https://achievepack.com/eco-pouch-logo.png" alt="Pouch.eco" style="height: 24px;" />
       </div>
       <p class="footer-text">Sustainable Packaging Solutions for Modern Brands</p>
       <p class="footer-text">© 2025 Achieve Pack × Pouch.eco. All rights reserved.</p>
