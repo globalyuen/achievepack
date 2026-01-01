@@ -2997,7 +2997,7 @@ Check your inbox at ryan@achievepack.com`)
             {/* Image Grid */}
             <div className="p-6 overflow-y-auto" style={{maxHeight: 'calc(80vh - 200px)'}}>
               {(imageCatalogFilter === 'all' ? Object.entries(imageCatalog) : [[imageCatalogFilter, imageCatalog[imageCatalogFilter as keyof typeof imageCatalog]]]).map(([category, images]) => (
-                <div key={category} className="mb-6">
+                <div key={String(category)} className="mb-6">
                   <h3 className="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
                     <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
                     {category}
