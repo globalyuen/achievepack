@@ -2466,54 +2466,69 @@ Check your inbox at ryan@achievepack.com`)
                       <button
                         disabled={!emailSubject || selectedContacts.length === 0 || sendingCampaign}
                         onClick={async () => {
+                          // Show preparing state immediately to prevent INP issues
+                          setSendingCampaign(true)
+                          setSendProgress(null)
+                          
+                          // Defer heavy work to next frame to allow UI to update
+                          await new Promise(resolve => requestAnimationFrame(() => setTimeout(resolve, 0)))
+                          
                           // Build recipient list with filtering
                           const recipientMap = new Map<string, EmailRecipient>()
                           let unsubscribedCount = 0
                           let invalidCount = 0
                           
-                          selectedContacts.forEach(contactId => {
-                            let email = ''
-                            let name = ''
-                            let status = ''
+                          // Process in chunks to avoid blocking
+                          const chunkSize = 500
+                          for (let i = 0; i < selectedContacts.length; i += chunkSize) {
+                            const chunk = selectedContacts.slice(i, i + chunkSize)
                             
-                            if (contactId.startsWith('newsletter_')) {
-                              const sub = subscribers.find(s => `newsletter_${s.id}` === contactId)
-                              if (sub) {
-                                email = sub.email?.toLowerCase().trim() || ''
-                                name = sub.first_name || ''
+                            chunk.forEach(contactId => {
+                              let email = ''
+                              let name = ''
+                              let status = ''
+                              
+                              if (contactId.startsWith('newsletter_')) {
+                                const sub = subscribers.find(s => `newsletter_${s.id}` === contactId)
+                                if (sub) {
+                                  email = sub.email?.toLowerCase().trim() || ''
+                                  name = sub.first_name || ''
+                                }
+                              } else if (contactId.startsWith('customer_')) {
+                                const cust = customers.find(c => `customer_${c.id}` === contactId)
+                                if (cust) {
+                                  email = cust.email?.toLowerCase().trim() || ''
+                                  name = cust.full_name || ''
+                                }
+                              } else if (contactId.startsWith('inquiry_')) {
+                                const inq = inquiries.find(i => `inquiry_${i.id}` === contactId)
+                                if (inq && inq.email) {
+                                  email = inq.email?.toLowerCase().trim() || ''
+                                  name = inq.name || ''
+                                  status = inq.status || ''
+                                }
                               }
-                            } else if (contactId.startsWith('customer_')) {
-                              const cust = customers.find(c => `customer_${c.id}` === contactId)
-                              if (cust) {
-                                email = cust.email?.toLowerCase().trim() || ''
-                                name = cust.full_name || ''
+                              
+                              if (status === 'unsubscribed') {
+                                unsubscribedCount++
+                                return
                               }
-                            } else if (contactId.startsWith('inquiry_')) {
-                              const inq = inquiries.find(i => `inquiry_${i.id}` === contactId)
-                              if (inq && inq.email) {
-                                email = inq.email?.toLowerCase().trim() || ''
-                                name = inq.name || ''
-                                status = inq.status || ''
+                              
+                              if (!email || !email.includes('@')) {
+                                invalidCount++
+                                return
                               }
-                            }
+                              
+                              if (!recipientMap.has(email)) {
+                                recipientMap.set(email, { email, name: name || undefined })
+                              }
+                            })
                             
-                            // Skip unsubscribed contacts
-                            if (status === 'unsubscribed') {
-                              unsubscribedCount++
-                              return
+                            // Yield to UI between chunks
+                            if (i + chunkSize < selectedContacts.length) {
+                              await new Promise(resolve => setTimeout(resolve, 0))
                             }
-                            
-                            // Skip invalid emails
-                            if (!email || !email.includes('@')) {
-                              invalidCount++
-                              return
-                            }
-                            
-                            // Dedupe by email (first contact wins)
-                            if (!recipientMap.has(email)) {
-                              recipientMap.set(email, { email, name: name || undefined })
-                            }
-                          })
+                          }
                           
                           const recipients = Array.from(recipientMap.values())
                           const dupeCount = selectedContacts.length - recipients.length - unsubscribedCount - invalidCount
@@ -2525,13 +2540,16 @@ Check your inbox at ryan@achievepack.com`)
                           if (invalidCount > 0) confirmMsg += `\n❌ ${invalidCount} invalid emails will be skipped`
                           
                           if (recipients.length === 0) {
+                            setSendingCampaign(false)
                             alert('No valid recipients to send to!')
                             return
                           }
                           
-                          if (!confirm(confirmMsg)) return
+                          if (!confirm(confirmMsg)) {
+                            setSendingCampaign(false)
+                            return
+                          }
                           
-                          setSendingCampaign(true)
                           setSendProgress({ sent: 0, total: recipients.length })
                           
                           try {
