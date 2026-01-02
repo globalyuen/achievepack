@@ -182,7 +182,7 @@ const LEARN_PAGES = {
     icon: <Layers className="h-4 w-4" />,
     pages: [
       { name: 'PCR PET Duplex Clear', link: '/spec/pcr-pet-duplex-clear', image: '/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp' },
-      { name: 'Bio-PE PET Duplex Clear', link: '/spec/bio-pe-pet-duplex-clear', image: '/imgs/illustrated/a_bio_pe_card_v3_4603248.webp' },
+      { name: 'Bio-PE PET Duplex Clear', link: '/spec/biope-pet-duplex-clear', image: '/imgs/illustrated/a_bio_pe_card_v3_4603248.webp' },
       { name: 'Bio-Cello Duplex Clear', link: '/spec/bio-cello-duplex-clear', image: '/imgs/illustrated/a_compostable_v3_9254998.webp' },
       { name: 'Mono PE Duplex Clear', link: '/spec/mono-pe-duplex-clear', image: '/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp' },
     ]
