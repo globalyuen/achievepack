@@ -107,6 +107,7 @@ const LabBlenderBagsPage = lazy(() => import('./pages/lab/LabBlenderBagsPage'))
 // Legal Pages - Lazy loaded
 const PrivacyPolicyPage = lazy(() => import('./pages/legal/PrivacyPolicyPage'))
 const ShippingPolicyPage = lazy(() => import('./pages/legal/ShippingPolicyPage'))
+const CookiePolicyPage = lazy(() => import('./pages/legal/CookiePolicyPage'))
 
 // Company Pages - Lazy loaded
 const AboutPage = lazy(() => import('./pages/company/AboutPage'))
@@ -234,6 +235,9 @@ const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 // Reviews Page - Lazy loaded
 const ReviewsPage = lazy(() => import('./pages/ReviewsPage'))
 
+// Cookie Consent Component
+import CookieConsent from './components/CookieConsent'
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <HelmetProvider>
@@ -323,6 +327,7 @@ createRoot(document.getElementById('root')!).render(
               {/* Legal Pages */}
               <Route path="/privacy" element={<PrivacyPolicyPage />} />
               <Route path="/shipping" element={<ShippingPolicyPage />} />
+              <Route path="/cookie-policy" element={<CookiePolicyPage />} />
 
               {/* Company Pages */}
               <Route path="/company/about" element={<AboutPage />} />
@@ -459,6 +464,7 @@ createRoot(document.getElementById('root')!).render(
               </Suspense>
               <Analytics />
               <SpeedInsights />
+              <CookieConsent />
               </CustomQuoteProvider>
               </CalendlyProvider>
           </StoreProvider>
