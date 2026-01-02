@@ -2125,7 +2125,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "When we launched Achievepack at the beginning of 2025, I had a dream: help brands solve their packaging challenges without compromising on sustainability. Looking back now, I'm overwhelmed by how far we've come.",
     content: `
       <figure class="my-8">
-        <img src="/imgs/blog/2025-thank-you/2025letter.webp" alt="Our Year at Achievepack and Pouch.eco" class="w-full rounded-xl" />
+        <img src="/imgs/newsletter/2025letter.webp" alt="Our Year at Achievepack and Pouch.eco" class="w-full rounded-xl" />
         <figcaption class="text-center text-sm text-neutral-500 mt-3">Reflecting on a year of gratitude, growth, and sustainable packaging innovation</figcaption>
       </figure>
 
@@ -2213,7 +2213,7 @@ export const blogPosts: BlogPost[] = [
     publishDate: "2026-01-01",
     category: "Newsletter",
     tags: ["year in review", "2025", "2026", "sustainable packaging", "gratitude", "company update", "eco packaging", "newsletter", "sustainability", "compostable", "recyclable"],
-    featuredImage: "/imgs/blog/2025-thank-you/2025letter.webp",
+    featuredImage: "/imgs/newsletter/2025letter.webp",
     readTime: 10,
     metaDescription: "Our 2025 year in review at Achievepack and Pouch.eco. Reflecting on gratitude, growth, and our vision for making sustainable packaging the default in 2026."
   }
