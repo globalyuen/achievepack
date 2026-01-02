@@ -1827,6 +1827,7 @@ function App() {
                 <li><Link to="/support/faqs" className="hover:text-primary-500">{t('footer.links.faqs')}</Link></li>
                 <li><Link to="/support/lead-time" className="hover:text-primary-500">{t('footer.links.leadTime')}</Link></li>
                 <li><Link to="/knowledge/workflow" className="hover:text-primary-500">{t('footer.links.workflow')}</Link></li>
+                <li><Link to="/reviews" className="hover:text-primary-500">Customer Reviews</Link></li>
                 <li><Link to="/company/about" className="hover:text-primary-500">{t('footer.links.aboutUs')}</Link></li>
                 <li><Link to="/company/certificates" className="hover:text-primary-500">{t('footer.links.certificates')}</Link></li>
                 <li><Link to="/company/factory-tour" className="hover:text-primary-500">{t('footer.links.factoryTour')}</Link></li>
