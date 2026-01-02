@@ -232,6 +232,7 @@ const CompostableBabyFoodBagsPage = lazy(() => import('./pages/topics/Compostabl
 // Compostable Education Pages - Lazy loaded
 const BiodegradableVsCompostablePage = lazy(() => import('./pages/compostable/BiodegradableVsCompostablePage'))
 const CompostServiceFinderPage = lazy(() => import('./pages/compostable/CompostServiceFinderPage'))
+const CompostingBenefitsPage = lazy(() => import('./pages/compostable/CompostingBenefitsPage'))
 
 // 404 Page - Lazy loaded
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
@@ -415,6 +416,7 @@ createRoot(document.getElementById('root')!).render(
               {/* Compostable Education Pages */}
               <Route path="/compostable/biodegradable-vs-compostable" element={<BiodegradableVsCompostablePage />} />
               <Route path="/compostable/composting-services" element={<CompostServiceFinderPage />} />
+              <Route path="/compostable/composting-benefits" element={<CompostingBenefitsPage />} />
 
               {/* Spec Pages - Material Structures */}
               <Route path="/spec/pcr-pet-duplex-clear" element={<PcrPetDuplexClearPage />} />
