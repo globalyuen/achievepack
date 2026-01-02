@@ -871,19 +871,6 @@ const CompostServiceFinderPage: React.FC = () => {
             </div>
           </section>
         </main>
-
-        {/* Footer */}
-        <footer className="bg-neutral-900 text-white py-8">
-          <div className="max-w-5xl mx-auto px-4 text-center">
-            <p className="text-neutral-400 text-sm mb-4">© {new Date().getFullYear()} Achieve Pack. All rights reserved.</p>
-            <div className="flex justify-center gap-6 text-sm text-neutral-500">
-              <Link to="/terms" className="hover:text-primary-400">Terms</Link>
-              <Link to="/privacy" className="hover:text-primary-400">Privacy</Link>
-              <Link to="/cookie-policy" className="hover:text-primary-400">Cookies</Link>
-              <Link to="/shipping" className="hover:text-primary-400">Shipping</Link>
-            </div>
-          </div>
-        </footer>
       </div>
     </>
   )
