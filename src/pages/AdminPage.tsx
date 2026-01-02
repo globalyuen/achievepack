@@ -1206,12 +1206,12 @@ const AdminPage: React.FC = () => {
         <main className="flex-1 overflow-y-auto p-4 md:p-6">
           {/* Dashboard Tab */}
           {activeTab === 'dashboard' && (
-            <div className="space-y-6">
-              <div className="flex items-center justify-between">
-                <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
+            <div className="space-y-4 md:space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <h1 className="text-xl md:text-2xl font-bold text-gray-900">Dashboard</h1>
                 <button
                   onClick={fetchData}
-                  className="flex items-center gap-2 px-4 py-2 bg-white border rounded-lg hover:bg-gray-50 text-sm"
+                  className="flex items-center justify-center gap-2 px-4 py-2 bg-white border rounded-lg hover:bg-gray-50 text-sm w-full sm:w-auto"
                 >
                   <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
                   Refresh
@@ -1219,51 +1219,51 @@ const AdminPage: React.FC = () => {
               </div>
 
               {/* Stats Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="bg-white rounded-xl p-6 shadow-sm border">
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+                <div className="bg-white rounded-xl p-4 md:p-6 shadow-sm border">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-gray-500">Total Customers</p>
-                      <p className="text-3xl font-bold text-gray-900 mt-1">{customers.length}</p>
+                      <p className="text-xs md:text-sm text-gray-500">Total Customers</p>
+                      <p className="text-xl md:text-3xl font-bold text-gray-900 mt-1">{customers.length}</p>
                     </div>
-                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                      <Users className="h-6 w-6 text-blue-600" />
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                      <Users className="h-5 w-5 md:h-6 md:w-6 text-blue-600" />
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-white rounded-xl p-6 shadow-sm border">
+                <div className="bg-white rounded-xl p-4 md:p-6 shadow-sm border">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-gray-500">Total Orders</p>
-                      <p className="text-3xl font-bold text-gray-900 mt-1">{orders.length}</p>
+                      <p className="text-xs md:text-sm text-gray-500">Total Orders</p>
+                      <p className="text-xl md:text-3xl font-bold text-gray-900 mt-1">{orders.length}</p>
                     </div>
-                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                      <ShoppingBag className="h-6 w-6 text-purple-600" />
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                      <ShoppingBag className="h-5 w-5 md:h-6 md:w-6 text-purple-600" />
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-white rounded-xl p-6 shadow-sm border">
+                <div className="bg-white rounded-xl p-4 md:p-6 shadow-sm border">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-gray-500">Pending Orders</p>
-                      <p className="text-3xl font-bold text-yellow-600 mt-1">{pendingOrders}</p>
+                      <p className="text-xs md:text-sm text-gray-500">Pending Orders</p>
+                      <p className="text-xl md:text-3xl font-bold text-yellow-600 mt-1">{pendingOrders}</p>
                     </div>
-                    <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
-                      <Package className="h-6 w-6 text-yellow-600" />
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+                      <Package className="h-5 w-5 md:h-6 md:w-6 text-yellow-600" />
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-white rounded-xl p-6 shadow-sm border">
+                <div className="bg-white rounded-xl p-4 md:p-6 shadow-sm border">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-gray-500">Total Revenue</p>
-                      <p className="text-3xl font-bold text-green-600 mt-1">${totalRevenue.toLocaleString()}</p>
+                      <p className="text-xs md:text-sm text-gray-500">Total Revenue</p>
+                      <p className="text-xl md:text-3xl font-bold text-green-600 mt-1">${totalRevenue.toLocaleString()}</p>
                     </div>
-                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                      <DollarSign className="h-6 w-6 text-green-600" />
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-green-100 rounded-full flex items-center justify-center">
+                      <DollarSign className="h-5 w-5 md:h-6 md:w-6 text-green-600" />
                     </div>
                   </div>
                 </div>
@@ -1310,11 +1310,35 @@ const AdminPage: React.FC = () => {
 
           {/* Customers Tab */}
           {activeTab === 'customers' && (
-            <div className="space-y-6">
-              <h1 className="text-2xl font-bold text-gray-900">Customers</h1>
+            <div className="space-y-4 md:space-y-6">
+              <h1 className="text-xl md:text-2xl font-bold text-gray-900">Customers</h1>
               
               <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
-                <div className="overflow-x-auto">
+                {/* Mobile Cards View */}
+                <div className="md:hidden divide-y">
+                  {filteredCustomers.map(customer => (
+                    <div key={customer.id} className="p-4" onClick={() => setSelectedCustomer(customer)}>
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center flex-shrink-0">
+                          <span className="text-primary-600 font-semibold">
+                            {customer.full_name?.charAt(0) || customer.email?.charAt(0) || '?'}
+                          </span>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium text-gray-900 truncate">{customer.full_name || 'No name'}</p>
+                          <p className="text-xs text-gray-500 truncate">{customer.email}</p>
+                          {customer.company && <p className="text-xs text-gray-400 truncate">{customer.company}</p>}
+                        </div>
+                        <Eye className="h-5 w-5 text-gray-400" />
+                      </div>
+                    </div>
+                  ))}
+                  {filteredCustomers.length === 0 && (
+                    <div className="text-center py-12 text-gray-500 text-sm">No customers found</div>
+                  )}
+                </div>
+                {/* Desktop Table View */}
+                <div className="hidden md:block overflow-x-auto">
                   <table className="w-full">
                     <thead className="bg-gray-50">
                       <tr>
@@ -1369,11 +1393,33 @@ const AdminPage: React.FC = () => {
 
           {/* Orders Tab */}
           {activeTab === 'orders' && (
-            <div className="space-y-6">
-              <h1 className="text-2xl font-bold text-gray-900">Orders</h1>
+            <div className="space-y-4 md:space-y-6">
+              <h1 className="text-xl md:text-2xl font-bold text-gray-900">Orders</h1>
               
               <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
-                <div className="overflow-x-auto">
+                {/* Mobile Cards View */}
+                <div className="md:hidden divide-y">
+                  {filteredOrders.map(order => (
+                    <div key={order.id} className="p-4" onClick={() => setSelectedOrder(order)}>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-sm font-bold text-gray-900">{order.order_number}</span>
+                        <span className={`px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(order.status)}`}>
+                          {order.status}
+                        </span>
+                      </div>
+                      <div className="text-sm text-gray-600 mb-1">{order.customer_name}</div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm font-medium text-gray-900">${order.total_amount?.toLocaleString()}</span>
+                        <span className="text-xs text-gray-500">{new Date(order.created_at).toLocaleDateString()}</span>
+                      </div>
+                    </div>
+                  ))}
+                  {filteredOrders.length === 0 && (
+                    <div className="text-center py-12 text-gray-500 text-sm">No orders found</div>
+                  )}
+                </div>
+                {/* Desktop Table View */}
+                <div className="hidden md:block overflow-x-auto">
                   <table className="w-full">
                     <thead className="bg-gray-50">
                       <tr>
@@ -1430,20 +1476,55 @@ const AdminPage: React.FC = () => {
 
           {/* Documents Tab */}
           {activeTab === 'documents' && (
-            <div className="space-y-6">
-              <div className="flex items-center justify-between">
-                <h1 className="text-2xl font-bold text-gray-900">Documents Management</h1>
+            <div className="space-y-4 md:space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <h1 className="text-xl md:text-2xl font-bold text-gray-900">Documents Management</h1>
                 <button
                   onClick={() => setShowUploadModal(true)}
-                  className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition"
+                  className="flex items-center justify-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition text-sm w-full sm:w-auto"
                 >
-                  <Upload className="h-5 w-5" />
+                  <Upload className="h-4 w-4 md:h-5 md:w-5" />
                   Upload Document
                 </button>
               </div>
 
               <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
-                <div className="overflow-x-auto">
+                {/* Mobile Cards View */}
+                <div className="md:hidden divide-y">
+                  {documents.map(doc => {
+                    const docUser = customers.find(c => c.id === doc.user_id)
+                    return (
+                      <div key={doc.id} className="p-4">
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <FileText className="h-5 w-5 text-blue-600" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm font-medium text-gray-900 truncate">{doc.name}</p>
+                            <p className="text-xs text-gray-500 truncate">{docUser?.full_name || docUser?.email || 'Unknown'}</p>
+                          </div>
+                          <span className="px-2 py-0.5 bg-gray-100 text-gray-700 text-xs rounded-full">{doc.type}</span>
+                        </div>
+                        <div className="flex items-center justify-between text-xs">
+                          <span className="text-gray-400">{new Date(doc.created_at).toLocaleDateString()}</span>
+                          <div className="flex items-center gap-2">
+                            <a href={doc.file_url} target="_blank" rel="noopener noreferrer" className="text-primary-600">
+                              <ExternalLink className="h-4 w-4" />
+                            </a>
+                            <button onClick={() => deleteDocument(doc.id)} className="text-red-600">
+                              <Trash2 className="h-4 w-4" />
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  })}
+                  {documents.length === 0 && (
+                    <div className="text-center py-12 text-gray-500 text-sm">No documents uploaded yet</div>
+                  )}
+                </div>
+                {/* Desktop Table View */}
+                <div className="hidden md:block overflow-x-auto">
                   <table className="w-full">
                     <thead className="bg-gray-50">
                       <tr>
@@ -1517,9 +1598,9 @@ const AdminPage: React.FC = () => {
 
           {/* CRM Tab */}
           {activeTab === 'crm' && (
-            <div className="space-y-6">
+            <div className="space-y-4 md:space-y-6">
               <div className="flex items-center justify-between">
-                <h1 className="text-2xl font-bold text-gray-900">CRM / Inquiries</h1>
+                <h1 className="text-xl md:text-2xl font-bold text-gray-900">CRM / Inquiries</h1>
               </div>
               <CRMPanelAdvanced onRefresh={fetchData} />
             </div>
@@ -1527,18 +1608,18 @@ const AdminPage: React.FC = () => {
 
           {/* Settings Tab */}
           {activeTab === 'settings' && (
-            <div className="space-y-6">
-              <h1 className="text-2xl font-bold text-gray-900">Settings</h1>
-              <div className="bg-white rounded-xl shadow-sm border p-6">
-                <h2 className="text-lg font-semibold mb-4">Admin Information</h2>
-                <div className="space-y-4">
+            <div className="space-y-4 md:space-y-6">
+              <h1 className="text-xl md:text-2xl font-bold text-gray-900">Settings</h1>
+              <div className="bg-white rounded-xl shadow-sm border p-4 md:p-6">
+                <h2 className="text-base md:text-lg font-semibold mb-4">Admin Information</h2>
+                <div className="space-y-3 md:space-y-4">
                   <div className="flex items-center gap-3">
-                    <Mail className="h-5 w-5 text-gray-400" />
-                    <span className="text-gray-600">{user.email}</span>
+                    <Mail className="h-4 w-4 md:h-5 md:w-5 text-gray-400" />
+                    <span className="text-sm md:text-base text-gray-600 truncate">{user.email}</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Calendar className="h-5 w-5 text-gray-400" />
-                    <span className="text-gray-600">Last login: {new Date().toLocaleDateString()}</span>
+                    <Calendar className="h-4 w-4 md:h-5 md:w-5 text-gray-400" />
+                    <span className="text-sm md:text-base text-gray-600">Last login: {new Date().toLocaleDateString()}</span>
                   </div>
                 </div>
               </div>
@@ -1547,11 +1628,11 @@ const AdminPage: React.FC = () => {
 
           {/* Newsletter Tab */}
           {activeTab === 'newsletter' && (
-            <div className="space-y-6">
-              <div className="flex items-center justify-between">
-                <h1 className="text-2xl font-bold text-gray-900">Newsletter Subscribers</h1>
+            <div className="space-y-4 md:space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                <h1 className="text-xl md:text-2xl font-bold text-gray-900">Newsletter Subscribers</h1>
                 <div className="flex items-center gap-4">
-                  <div className="text-sm text-gray-500">
+                  <div className="text-xs md:text-sm text-gray-500">
                     <span className="font-semibold text-green-600">{activeSubscribers}</span> active / 
                     <span className="font-semibold text-gray-600"> {subscribers.length}</span> total
                   </div>
@@ -1559,7 +1640,50 @@ const AdminPage: React.FC = () => {
               </div>
               
               <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
-                <div className="overflow-x-auto">
+                {/* Mobile Cards View */}
+                <div className="md:hidden divide-y">
+                  {filteredSubscribers.map(subscriber => (
+                    <div key={subscriber.id} className="p-4">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                          <span className="text-green-600 font-semibold text-sm">
+                            {subscriber.first_name?.charAt(0) || '?'}
+                          </span>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium text-gray-900 truncate">{subscriber.first_name || 'No name'}</p>
+                          <p className="text-xs text-gray-500 truncate">{subscriber.email}</p>
+                        </div>
+                        <span className={`px-2 py-0.5 text-xs font-medium rounded-full ${
+                          subscriber.subscribed ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
+                        }`}>
+                          {subscriber.subscribed ? 'Active' : 'Unsub'}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between text-xs">
+                        <span className="text-gray-400">{subscriber.created_at ? new Date(subscriber.created_at).toLocaleDateString() : '-'}</span>
+                        <div className="flex items-center gap-2">
+                          <button
+                            onClick={() => toggleSubscription(subscriber.id, subscriber.subscribed)}
+                            className={`px-2 py-1 text-xs font-medium rounded-lg ${
+                              subscriber.subscribed ? 'bg-gray-100 text-gray-700' : 'bg-green-100 text-green-700'
+                            }`}
+                          >
+                            {subscriber.subscribed ? 'Unsub' : 'Resub'}
+                          </button>
+                          <button onClick={() => deleteSubscriber(subscriber.id)} className="text-red-600">
+                            <Trash2 className="h-4 w-4" />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                  {filteredSubscribers.length === 0 && (
+                    <div className="text-center py-12 text-gray-500 text-sm">No subscribers found</div>
+                  )}
+                </div>
+                {/* Desktop Table View */}
+                <div className="hidden md:block overflow-x-auto">
                   <table className="w-full">
                     <thead className="bg-gray-50">
                       <tr>
@@ -1632,13 +1756,13 @@ const AdminPage: React.FC = () => {
 
           {/* Email Marketing Tab */}
           {activeTab === 'email-marketing' && (
-            <div className="space-y-6">
-              <div className="flex items-center justify-between">
-                <h1 className="text-2xl font-bold text-gray-900">Email Marketing</h1>
-                <div className="flex items-center gap-3">
+            <div className="space-y-4 md:space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <h1 className="text-xl md:text-2xl font-bold text-gray-900">Email Marketing</h1>
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3">
                   <button
                     onClick={() => setShowEmailHistory(!showEmailHistory)}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition-colors ${
+                    className={`flex items-center gap-2 px-3 py-2 text-sm rounded-lg border transition-colors w-full sm:w-auto justify-center ${
                       showEmailHistory ? 'bg-primary-50 border-primary-300 text-primary-700' : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-50'
                     }`}
                   >
@@ -1648,7 +1772,7 @@ const AdminPage: React.FC = () => {
                       <span className="bg-primary-500 text-white text-xs px-1.5 py-0.5 rounded-full">{emailHistory.length}</span>
                     )}
                   </button>
-                  <div className="text-sm text-gray-500">
+                  <div className="text-xs sm:text-sm text-gray-500 hidden md:block">
                     Convert any page content to personalized emails
                   </div>
                 </div>
@@ -1656,38 +1780,38 @@ const AdminPage: React.FC = () => {
 
               {/* Email History Panel */}
               {showEmailHistory && (
-                <div className="bg-white rounded-xl shadow-sm border p-6">
+                <div className="bg-white rounded-xl shadow-sm border p-4 md:p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
-                      <History className="h-5 w-5 text-blue-500" />
+                    <h3 className="text-base md:text-lg font-semibold text-gray-900 flex items-center gap-2">
+                      <History className="h-4 w-4 md:h-5 md:w-5 text-blue-500" />
                       Email Send History
                     </h3>
                     <button
                       onClick={() => fetchData()}
-                      className="text-sm text-primary-600 hover:text-primary-700 flex items-center gap-1"
+                      className="text-xs md:text-sm text-primary-600 hover:text-primary-700 flex items-center gap-1"
                     >
                       <RefreshCw className="h-3 w-3" /> Refresh
                     </button>
                   </div>
                   {emailHistory.length === 0 ? (
-                    <p className="text-gray-500 text-center py-8">No email campaigns sent yet</p>
+                    <p className="text-gray-500 text-center py-6 md:py-8 text-sm">No email campaigns sent yet</p>
                   ) : (
-                    <div className="space-y-3 max-h-96 overflow-y-auto">
+                    <div className="space-y-2 md:space-y-3 max-h-64 md:max-h-96 overflow-y-auto">
                       {emailHistory.slice(0, 50).map((activity, index) => (
-                        <div key={activity.id || index} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
-                          <div className="p-2 bg-blue-100 text-blue-600 rounded-full">
-                            <Mail className="h-4 w-4" />
+                        <div key={activity.id || index} className="flex items-start gap-2 md:gap-3 p-2 md:p-3 bg-gray-50 rounded-lg">
+                          <div className="p-1.5 md:p-2 bg-blue-100 text-blue-600 rounded-full flex-shrink-0">
+                            <Mail className="h-3 w-3 md:h-4 md:w-4" />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <p className="font-medium text-gray-900 truncate">{activity.subject || 'Campaign Email'}</p>
-                            <p className="text-sm text-gray-500 truncate">{activity.content?.substring(0, 100)}...</p>
+                            <p className="font-medium text-gray-900 truncate text-sm">{activity.subject || 'Campaign Email'}</p>
+                            <p className="text-xs text-gray-500 truncate hidden sm:block">{activity.content?.substring(0, 100)}...</p>
                             <p className="text-xs text-gray-400 mt-1">
                               {new Date(activity.created_at).toLocaleString()}
                             </p>
                           </div>
-                          <div className="text-right">
-                            <span className="inline-flex items-center gap-1 text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
-                              <CheckCircle className="h-3 w-3" /> Sent
+                          <div className="text-right flex-shrink-0">
+                            <span className="inline-flex items-center gap-1 text-xs bg-green-100 text-green-700 px-1.5 md:px-2 py-0.5 md:py-1 rounded-full">
+                              <CheckCircle className="h-3 w-3" /> <span className="hidden sm:inline">Sent</span>
                             </span>
                           </div>
                         </div>
@@ -1701,9 +1825,9 @@ const AdminPage: React.FC = () => {
                 {/* Left Column - Page Selection & Email Builder */}
                 <div className="space-y-4">
                   {/* Page Selection */}
-                  <div className="bg-white rounded-xl shadow-sm border p-6">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                      <Globe className="h-5 w-5 text-blue-500" />
+                  <div className="bg-white rounded-xl shadow-sm border p-4 md:p-6">
+                    <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-3 md:mb-4 flex items-center gap-2">
+                      <Globe className="h-4 w-4 md:h-5 md:w-5 text-blue-500" />
                       Select Page
                     </h3>
                     <select
@@ -1796,12 +1920,12 @@ const AdminPage: React.FC = () => {
                   </div>
 
                   {/* Email Builder */}
-                  <div className="bg-white rounded-xl shadow-sm border p-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
-                        <Mail className="h-5 w-5 text-green-500" />
+                  <div className="bg-white rounded-xl shadow-sm border p-4 md:p-6">
+                    <div className="flex items-center justify-between mb-3 md:mb-4">
+                      <h3 className="text-base md:text-lg font-semibold text-gray-900 flex items-center gap-2">
+                        <Mail className="h-4 w-4 md:h-5 md:w-5 text-green-500" />
                         Email Builder
-                        {currentDraftId && <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Editing Draft</span>}
+                        {currentDraftId && <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full hidden sm:inline">Editing Draft</span>}
                       </h3>
                       {currentDraftId && (
                         <button
