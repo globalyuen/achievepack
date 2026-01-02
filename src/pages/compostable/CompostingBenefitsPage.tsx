@@ -304,11 +304,31 @@ const CompostingBenefitsPage: React.FC = () => {
           </div>
         </nav>
 
-        {/* Main Content */}
-        <main className="max-w-5xl mx-auto px-4 py-12">
+        {/* Main Content with Sidebar */}
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          <div className="grid lg:grid-cols-4 gap-8">
+            {/* Sidebar Navigation */}
+            <aside className="hidden lg:block lg:col-span-1">
+              <div className="sticky top-24 max-h-[calc(100vh-120px)] overflow-y-auto bg-white rounded-xl shadow-sm border border-neutral-100 p-4">
+                <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wide mb-4">Contents</h3>
+                <nav className="space-y-1">
+                  <a href="#why-composting" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Why Composting Matters</a>
+                  <a href="#landfill-waste" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Organic Waste in Landfills</a>
+                  <a href="#types-of-composting" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Types of Composting</a>
+                  <a href="#environmental-benefits" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Environmental Benefits</a>
+                  <a href="#packaging-fits-in" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Compostable Packaging</a>
+                  <a href="#achievepack-solutions" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Achievepack Solutions</a>
+                  <a href="#brand-actions" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Brand Actions</a>
+                  <a href="#faq" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">FAQ</a>
+                </nav>
+              </div>
+            </aside>
+
+            {/* Main Content Area */}
+            <main className="lg:col-span-3 space-y-8">
           
           {/* Introduction */}
-          <section className="mb-16">
+          <section id="why-composting" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
             <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
               <Sprout className="h-8 w-8 text-green-600" />
               Why Composting Matters Now
@@ -330,7 +350,7 @@ const CompostingBenefitsPage: React.FC = () => {
           </section>
 
           {/* What Happens to Organic Waste in Landfills */}
-          <section className="mb-16">
+          <section id="landfill-waste" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
             <ImageTextRow
               image={IMAGES.landfill}
               imageAlt="Cross-section illustration showing organic waste decomposition in landfill vs composting"
@@ -363,7 +383,7 @@ const CompostingBenefitsPage: React.FC = () => {
           </section>
 
           {/* Types of Composting */}
-          <section className="mb-16">
+          <section id="types-of-composting" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
             <ImageTextRow
               image={IMAGES.commercial}
               imageAlt="Commercial composting facility with industrial windrows processing organic waste"
@@ -403,7 +423,7 @@ const CompostingBenefitsPage: React.FC = () => {
           </section>
 
           {/* Key Environmental Benefits */}
-          <section className="mb-16">
+          <section id="environmental-benefits" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
             <ImageTextRow
               image={IMAGES.benefits}
               imageAlt="Benefits grid showing environmental advantages of composting - reduced emissions, soil health, water retention"
@@ -460,7 +480,7 @@ const CompostingBenefitsPage: React.FC = () => {
           </section>
 
           {/* Where Compostable Packaging Fits In */}
-          <section className="mb-16 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-200">
+          <section id="packaging-fits-in" className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-200">
             <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
               <Package className="h-8 w-8 text-green-600" />
               Where Compostable Packaging Fits In
@@ -491,7 +511,7 @@ const CompostingBenefitsPage: React.FC = () => {
           </section>
 
           {/* Achievepack's Compostable Solutions */}
-          <section className="mb-16">
+          <section id="achievepack-solutions" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
             <ImageTextRow
               image={IMAGES.heroIllustration}
               imageAlt="Achievepack certified compostable packaging solutions for brands"
@@ -568,7 +588,7 @@ const CompostingBenefitsPage: React.FC = () => {
           </section>
 
           {/* Practical Steps for Brands */}
-          <section className="mb-16">
+          <section id="brand-actions" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
             <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
               <Building2 className="h-8 w-8 text-primary-600" />
               Practical Steps for Brands Supporting Composting
@@ -666,7 +686,7 @@ const CompostingBenefitsPage: React.FC = () => {
           </section>
 
           {/* Related Links */}
-          <section className="mb-12">
+          <section id="faq" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
             <h2 className="text-xl font-bold text-neutral-900 mb-4">Related Resources</h2>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
               <Link to="/compostable/composting-services" className="bg-white p-4 rounded-lg border hover:shadow-md transition group">
@@ -714,7 +734,9 @@ const CompostingBenefitsPage: React.FC = () => {
               </div>
             </div>
           </section>
-        </main>
+            </main>
+          </div>
+        </div>
       </div>
 
       {/* Footer */}
