@@ -1,9 +1,56 @@
 import React, { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Search, MapPin, ExternalLink, Leaf, ArrowLeft, ChevronDown, Calendar, Package, CheckCircle, AlertTriangle, Globe, Building2, Phone, Mail, HelpCircle, ChevronRight, Users } from 'lucide-react'
+import { Search, MapPin, ExternalLink, Leaf, ArrowLeft, ChevronDown, Calendar, Package, CheckCircle, AlertTriangle, Globe, Building2, Phone, Mail, HelpCircle, ChevronRight, Users, X } from 'lucide-react'
 import { useCalendly } from '../../contexts/CalendlyContext'
 import Footer from '../../components/Footer'
+
+// Clickable Image Component with lightbox
+const ClickableImage: React.FC<{
+  src: string
+  alt: string
+  className?: string
+  caption?: string
+}> = ({ src, alt, className = '', caption }) => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <>
+      <figure className="cursor-pointer group" onClick={() => setIsOpen(true)}>
+        <img 
+          src={src} 
+          alt={alt} 
+          className={`${className} transition-transform group-hover:scale-[1.02]`}
+          loading="lazy"
+        />
+        {caption && (
+          <figcaption className="text-xs text-neutral-500 mt-2 text-center">{caption}</figcaption>
+        )}
+        <div className="text-xs text-primary-600 text-center mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Click to enlarge</div>
+      </figure>
+
+      {isOpen && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+          onClick={() => setIsOpen(false)}
+        >
+          <button 
+            className="absolute top-4 right-4 text-white hover:text-neutral-300"
+            onClick={() => setIsOpen(false)}
+          >
+            <X className="h-8 w-8" />
+          </button>
+          <img 
+            src={src} 
+            alt={alt} 
+            className="max-w-full max-h-[90vh] object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
+    </>
+  )
+}
 
 // Composting service data structure
 interface CompostService {
@@ -335,10 +382,29 @@ const CompostServiceFinderPage: React.FC = () => {
           </div>
         </section>
 
-        {/* Main Content */}
-        <main className="max-w-5xl mx-auto px-4 py-12">
+        {/* Main Content with Sidebar */}
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          <div className="grid lg:grid-cols-4 gap-8">
+            {/* Sidebar Navigation */}
+            <aside className="hidden lg:block lg:col-span-1">
+              <div className="sticky top-24 max-h-[calc(100vh-120px)] overflow-y-auto bg-white rounded-xl shadow-sm border border-neutral-100 p-4">
+                <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wide mb-4">Contents</h3>
+                <nav className="space-y-1">
+                  <a href="#usa" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">USA Services</a>
+                  <a href="#canada" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Canada</a>
+                  <a href="#australia" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Australia</a>
+                  <a href="#europe" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Europe</a>
+                  <a href="#tips" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Contact Tips</a>
+                  <a href="#resources" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Related Resources</a>
+                </nav>
+              </div>
+            </aside>
+
+            {/* Main Content Area */}
+            <main className="lg:col-span-3 space-y-8">
           
           {/* Results Count */}
+          <section id="usa" className="scroll-mt-24">
           <div className="mb-6 flex items-center justify-between">
             <p className="text-neutral-600">
               Showing <strong>{filteredServices.length}</strong> composting services
@@ -398,6 +464,8 @@ const CompostServiceFinderPage: React.FC = () => {
               <p className="text-neutral-600">Try adjusting your search or filter criteria</p>
             </div>
           )}
+
+          </section>
 
           {/* Educational Section */}
           <section className="mt-16 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-8 border border-green-200">
@@ -722,7 +790,7 @@ const CompostServiceFinderPage: React.FC = () => {
           </section>
 
           {/* Tips for Contacting Section */}
-          <section className="mt-16 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-8 border border-indigo-200">
+          <section id="tips" className="mt-16 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-8 border border-indigo-200 scroll-mt-24">
             <h2 className="text-2xl font-bold text-neutral-900 mb-6 flex items-center gap-2">
               <Phone className="h-6 w-6 text-indigo-600" />
               Tips for Contacting Composting Facilities
@@ -781,7 +849,7 @@ const CompostServiceFinderPage: React.FC = () => {
           </section>
 
           {/* Related Links */}
-          <section className="mt-12">
+          <section id="resources" className="mt-12 scroll-mt-24">
             <h2 className="text-xl font-bold text-neutral-900 mb-4">Related Resources</h2>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
               <Link to="/compostable/biodegradable-vs-compostable" className="bg-white p-4 rounded-lg border hover:shadow-md transition">
@@ -857,7 +925,7 @@ const CompostServiceFinderPage: React.FC = () => {
           </section>
 
           {/* Disclaimer Section */}
-          <section className="mt-8 bg-amber-50 border border-amber-200 rounded-xl p-6">
+          <section id="disclaimer" className="mt-8 bg-amber-50 border border-amber-200 rounded-xl p-6">
             <div className="flex items-start gap-3">
               <AlertTriangle className="h-6 w-6 text-amber-600 flex-shrink-0 mt-0.5" />
               <div>
@@ -871,7 +939,9 @@ const CompostServiceFinderPage: React.FC = () => {
               </div>
             </div>
           </section>
-        </main>
+            </main>
+          </div>
+        </div>
       </div>
 
       {/* Footer */}

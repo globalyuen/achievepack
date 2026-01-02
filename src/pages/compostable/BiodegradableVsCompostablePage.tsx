@@ -237,11 +237,30 @@ const BiodegradableVsCompostablePage: React.FC = () => {
           </div>
         </section>
 
-        {/* Main Content */}
-        <main className="max-w-5xl mx-auto px-4 py-12">
+        {/* Main Content with Sidebar */}
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          <div className="grid lg:grid-cols-4 gap-8">
+            {/* Sidebar Navigation */}
+            <aside className="hidden lg:block lg:col-span-1">
+              <div className="sticky top-24 max-h-[calc(100vh-120px)] overflow-y-auto bg-white rounded-xl shadow-sm border border-neutral-100 p-4">
+                <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wide mb-4">Contents</h3>
+                <nav className="space-y-1">
+                  <a href="#intro" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Why Terms Matter</a>
+                  <a href="#biodegradable" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">What is Biodegradable</a>
+                  <a href="#compostable" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">What is Compostable</a>
+                  <a href="#comparison" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Key Differences</a>
+                  <a href="#certifications" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Certifications</a>
+                  <a href="#greenwashing" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Greenwashing Red Flags</a>
+                  <a href="#cta" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Get Started</a>
+                </nav>
+              </div>
+            </aside>
+
+            {/* Main Content Area */}
+            <main className="lg:col-span-3 space-y-8">
           
           {/* Introduction */}
-          <section className="mb-16">
+          <section id="intro" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
             <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg mb-8">
               <h2 className="text-xl font-bold text-amber-800 mb-2 flex items-center gap-2">
                 <AlertTriangle className="h-5 w-5" />
@@ -279,7 +298,7 @@ const BiodegradableVsCompostablePage: React.FC = () => {
           </section>
 
           {/* What is Biodegradable */}
-          <section className="mb-16">
+          <section id="biodegradable" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
             <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
               <Target className="h-7 w-7 text-amber-600" />
               What "Biodegradable" Really Means
@@ -324,7 +343,7 @@ const BiodegradableVsCompostablePage: React.FC = () => {
           </section>
 
           {/* What is Compostable */}
-          <section className="mb-16">
+          <section id="compostable" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
             <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
               <Leaf className="h-7 w-7 text-green-600" />
               What "Compostable" Actually Guarantees
@@ -384,7 +403,7 @@ const BiodegradableVsCompostablePage: React.FC = () => {
           </section>
 
           {/* Key Differences Table */}
-          <section className="mb-16">
+          <section id="comparison" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
             <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
               <FileCheck className="h-7 w-7 text-blue-600" />
               Key Differences at a Glance
@@ -698,7 +717,9 @@ const BiodegradableVsCompostablePage: React.FC = () => {
             </div>
           </section>
 
-        </main>
+            </main>
+          </div>
+        </div>
       </div>
 
       {/* Footer */}
