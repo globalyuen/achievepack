@@ -187,6 +187,15 @@ const LEARN_PAGES = {
       { name: 'Mono PE Duplex Clear', link: '/spec/mono-pe-duplex-clear', image: '/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp' },
     ]
   },
+  composting: {
+    title: 'Composting',
+    icon: <Leaf className="h-4 w-4" />,
+    pages: [
+      { name: 'Composting Benefits', link: '/compostable/composting-benefits', image: '/imgs/compostable/benefits/a_achievepack_composting_locator_hero_9733153.webp' },
+      { name: 'Composting Service Finder', link: '/compostable/composting-services', image: '/imgs/compostable/finder/a_achievepack_composting_locator_hero_9733153.webp' },
+      { name: 'Biodegradable vs Compostable', link: '/compostable/biodegradable-vs-compostable', image: '/imgs/compostable/vs/hero.webp' },
+    ]
+  },
 }
 
 // Get first page of each category for featured rotation

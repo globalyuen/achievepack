@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { Search, MapPin, ExternalLink, Leaf, ArrowLeft, ChevronDown, Calendar, Package, CheckCircle, AlertTriangle, Globe, Building2, Phone, Mail, HelpCircle, ChevronRight, Users } from 'lucide-react'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import Footer from '../../components/Footer'
 
 // Composting service data structure
 interface CompostService {
@@ -872,6 +873,9 @@ const CompostServiceFinderPage: React.FC = () => {
           </section>
         </main>
       </div>
+
+      {/* Footer */}
+      <Footer />
     </>
   )
 }

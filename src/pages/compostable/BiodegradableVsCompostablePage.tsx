@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { Leaf, AlertTriangle, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Clock, ExternalLink, FileCheck, Search, X, ArrowLeft, Package } from 'lucide-react'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import Footer from '../../components/Footer'
 
 // Image paths
 const IMAGES = {
@@ -699,6 +700,9 @@ const BiodegradableVsCompostablePage: React.FC = () => {
 
         </main>
       </div>
+
+      {/* Footer */}
+      <Footer />
     </>
   )
 }

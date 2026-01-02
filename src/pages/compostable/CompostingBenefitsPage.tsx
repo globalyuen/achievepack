@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { Leaf, AlertTriangle, CheckCircle, Award, Calendar, Target, Shield, Recycle, Droplets, TreeDeciduous, Factory, Package, ArrowLeft, X, ChevronRight, Mail, Phone, Sprout, Globe, Building2 } from 'lucide-react'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import Footer from '../../components/Footer'
 
 // Image paths
 const IMAGES = {
@@ -715,6 +716,9 @@ const CompostingBenefitsPage: React.FC = () => {
           </section>
         </main>
       </div>
+
+      {/* Footer */}
+      <Footer />
     </>
   )
 }

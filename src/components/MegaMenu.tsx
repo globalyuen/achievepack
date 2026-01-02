@@ -136,6 +136,7 @@ const CATEGORY_ICONS: Record<string, React.ReactNode> = {
   usa: <Globe className="h-3.5 w-3.5" />,
   company: <Award className="h-3.5 w-3.5" />,
   spec: <Layers className="h-3.5 w-3.5" />,
+  composting: <Leaf className="h-3.5 w-3.5" />,
 }
 
 interface MegaMenuDropdownProps {
@@ -220,6 +221,8 @@ function MegaMenuDropdown({ categories, adsImages, shopAllLink, shopAllLabel, on
 
 export default function MegaMenu() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null)
+  const [activeCategory, setActiveCategory] = useState<string | null>(null)
+  const [hoveredPage, setHoveredPage] = useState<{ name: string; link: string; image: string } | null>(null)
   const [refreshKey, setRefreshKey] = useState(0)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
   const { openQuoteLightbox } = useCustomQuote()
@@ -381,62 +384,91 @@ export default function MegaMenu() {
           </Link>
           {activeMenu === 'learn' && (
             <div className="fixed left-1/2 -translate-x-1/2 top-16 pt-2 z-50" onMouseEnter={() => handleMouseEnter('learn')} onMouseLeave={handleMouseLeave}>
-              <div className="w-[95vw] max-w-[900px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
-                {/* Compact Category Grid - No Images */}
-                <div className="p-4">
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider flex items-center gap-2">
+              <div className="w-[95vw] max-w-[1100px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
+                <div className="grid grid-cols-12">
+                  {/* Left: All Categories */}
+                  <div className="col-span-3 bg-neutral-50 p-3 border-r border-neutral-100 max-h-[70vh] overflow-y-auto">
+                    <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-2 flex items-center gap-2">
                       <BookOpen className="h-4 w-4" />
                       Learn Center
                     </h3>
-                    <div className="relative flex-1 max-w-xs ml-4">
-                      <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-neutral-400" />
-                      <input
-                        type="text"
-                        placeholder="Search..."
-                        className="w-full pl-8 pr-3 py-1.5 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary-500"
-                        onKeyDown={(e) => {
-                          if (e.key === 'Enter') {
-                            const query = (e.target as HTMLInputElement).value
-                            if (query.trim()) {
-                              window.location.href = `/learn?q=${encodeURIComponent(query)}`
-                            }
-                          }
-                        }}
-                      />
-                    </div>
+                    <ul className="space-y-0.5">
+                      {Object.entries(LEARN_PAGES).map(([key, category]) => (
+                        <li key={key}>
+                          <button
+                            onMouseEnter={() => { setActiveCategory(key); setHoveredPage(null); }}
+                            className={`w-full flex items-center justify-between py-1.5 px-2 rounded-lg text-xs font-medium transition-all ${
+                              activeCategory === key ? 'bg-primary-100 text-primary-700' : 'text-neutral-700 hover:bg-neutral-100'
+                            }`}
+                          >
+                            <span className="flex items-center gap-1.5">
+                              {CATEGORY_ICONS[key]}
+                              {category.title}
+                            </span>
+                            <span className="text-[10px] text-neutral-400">{category.pages.length}</span>
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <div className="grid grid-cols-5 gap-3">
-                    {Object.entries(LEARN_PAGES).map(([key, category]) => (
-                      <div key={key} className="space-y-1">
-                        <h4 className="text-[10px] font-bold text-neutral-500 uppercase tracking-wider flex items-center gap-1 mb-1.5">
-                          {CATEGORY_ICONS[key]}
-                          {category.title}
+
+                  {/* Middle: Pages of selected category */}
+                  <div className="col-span-5 p-3 border-r border-neutral-100 max-h-[70vh] overflow-y-auto">
+                    {activeCategory && LEARN_PAGES[activeCategory as keyof typeof LEARN_PAGES] ? (
+                      <>
+                        <h4 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">
+                          {LEARN_PAGES[activeCategory as keyof typeof LEARN_PAGES].title}
                         </h4>
                         <ul className="space-y-0.5">
-                          {category.pages.slice(0, 4).map((page) => (
+                          {LEARN_PAGES[activeCategory as keyof typeof LEARN_PAGES].pages.map((page) => (
                             <li key={page.link}>
-                              <Link 
-                                to={page.link} 
-                                className="block py-0.5 text-[11px] text-neutral-600 hover:text-primary-600 transition-colors truncate"
+                              <Link
+                                to={page.link}
+                                onMouseEnter={() => setHoveredPage(page)}
+                                className={`block py-1.5 px-2 rounded-lg text-xs transition-all ${
+                                  hoveredPage?.link === page.link ? 'bg-primary-50 text-primary-700' : 'text-neutral-600 hover:bg-neutral-50'
+                                }`}
                               >
                                 {page.name}
                               </Link>
                             </li>
                           ))}
-                          {category.pages.length > 4 && (
-                            <li>
-                              <Link 
-                                to="/learn" 
-                                className="block py-0.5 text-[10px] text-primary-500 hover:text-primary-600 font-medium"
-                              >
-                                +{category.pages.length - 4} more
-                              </Link>
-                            </li>
-                          )}
                         </ul>
+                      </>
+                    ) : (
+                      <div className="text-center py-8 text-neutral-400 text-sm">
+                        <BookOpen className="h-8 w-8 mx-auto mb-2 opacity-50" />
+                        Hover a category to see pages
                       </div>
-                    ))}
+                    )}
+                  </div>
+
+                  {/* Right: Hero Image Preview */}
+                  <div className="col-span-4 p-3 bg-neutral-50">
+                    {hoveredPage ? (
+                      <div className="h-full flex flex-col">
+                        <img
+                          src={hoveredPage.image}
+                          alt={hoveredPage.name}
+                          className="w-full aspect-[4/3] object-cover rounded-lg mb-2"
+                          loading="lazy"
+                        />
+                        <h5 className="text-sm font-semibold text-neutral-800 mb-1">{hoveredPage.name}</h5>
+                        <Link
+                          to={hoveredPage.link}
+                          className="text-xs text-primary-600 hover:text-primary-700 font-medium"
+                        >
+                          Read more →
+                        </Link>
+                      </div>
+                    ) : (
+                      <div className="h-full flex items-center justify-center text-neutral-400 text-sm">
+                        <div className="text-center">
+                          <Search className="h-8 w-8 mx-auto mb-2 opacity-50" />
+                          Hover a page to preview
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className="bg-neutral-50 px-4 py-2 border-t border-neutral-100 flex items-center justify-between">
