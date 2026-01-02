@@ -77,6 +77,7 @@ const ALL_PAGES = [
   { name: 'DTC Packaging', link: '/topics/dtc-sustainable-packaging', image: '/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.webp', category: 'Topics', description: 'Direct-to-consumer sustainable packaging', keywords: ['dtc', 'direct to consumer', 'ecommerce'] },
   { name: 'Coffee Materials', link: '/topics/green-coffee-materials', image: '/imgs/illustrated/a_topic_03_coffee_materials_var_c_6491567.webp', category: 'Topics', description: 'Eco-friendly materials for coffee packaging', keywords: ['coffee', 'materials', 'green'] },
   { name: 'Recyclable Snack Packaging', link: '/topics/recyclable-snack-packaging', image: '/imgs/illustrated/a_snack_brand_variation_1_5605894.webp', category: 'Topics', description: 'Recyclable options for snack brands', keywords: ['recyclable', 'snack', 'packaging'] },
+  { name: 'Biodegradable vs Compostable', link: '/compostable/biodegradable-vs-compostable', image: '/imgs/compostable/vs/a_hero_biodegradable_vs_compostable_8031695.webp', category: 'Topics', description: 'How to tell the difference and avoid greenwashing in packaging', keywords: ['biodegradable', 'compostable', 'greenwashing', 'EN 13432', 'ASTM D6400', 'certification'] },
   
   // Case Studies
   { name: 'Coffee Roastery', link: '/case-studies/coffee-roastery', image: '/imgs/illustrated/a_coffee_roaster_variation_1_6758424.webp', category: 'Case Studies', description: 'How a specialty roaster switched to compostable', keywords: ['case study', 'coffee', 'roastery'] },
