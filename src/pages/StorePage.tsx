@@ -673,7 +673,8 @@ const StorePage: React.FC = () => {
                       <h3 className="font-semibold text-base sm:text-lg text-neutral-900 mb-2 group-hover:text-primary-600 transition">{product.name}</h3>
                       <div className="flex items-center gap-1 mb-2">
                         <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
-                        <span className="text-sm text-neutral-600">{product.rating} ({product.reviews} reviews)</span>
+                        <span className="text-sm text-neutral-600">{product.rating}</span>
+                        <Link to="/reviews" className="text-sm text-neutral-600 hover:text-primary-600 hover:underline transition-colors">({product.reviews} reviews)</Link>
                       </div>
                       <p className="text-sm sm:text-base text-neutral-600 mb-3 sm:mb-4 line-clamp-2">{product.description}</p>
                       <div className="flex items-center justify-between">

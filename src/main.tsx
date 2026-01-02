@@ -231,6 +231,9 @@ const CompostableBabyFoodBagsPage = lazy(() => import('./pages/topics/Compostabl
 // 404 Page - Lazy loaded
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 
+// Reviews Page - Lazy loaded
+const ReviewsPage = lazy(() => import('./pages/ReviewsPage'))
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <HelmetProvider>
@@ -441,6 +444,9 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/spec/biope-pp-kraft-quadlex-aluminum" element={<BioPePpKraftQuadlexAluminumPage />} />
               <Route path="/spec/biope-kraft-duplex-low" element={<BioPeKraftDuplexLowPage />} />
               
+              {/* Reviews Page */}
+              <Route path="/reviews" element={<ReviewsPage />} />
+
               {/* 404 - Catch All Route */}
               <Route path="*" element={<NotFoundPage />} />
             </Routes>

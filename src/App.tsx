@@ -932,7 +932,7 @@ function App() {
                         />
                       ))}
                     </div>
-                    <span className="text-sm text-neutral-500">({product.reviews})</span>
+                    <Link to="/reviews" className="text-sm text-neutral-500 hover:text-primary-600 hover:underline transition-colors">({product.reviews})</Link>
                   </div>
 
                   {/* Price & CTA */}
@@ -2232,7 +2232,8 @@ Please contact me to discuss custom solutions.`;
                     />
                   ))}
                 </div>
-                <span className="text-neutral-600">{selectedProduct.rating} ({selectedProduct.reviews} reviews)</span>
+                <span className="text-neutral-600">{selectedProduct.rating}</span>
+                <Link to="/reviews" onClick={closeProductModal} className="text-neutral-600 hover:text-primary-600 hover:underline transition-colors">({selectedProduct.reviews} reviews)</Link>
               </div>
 
               {/* Price */}

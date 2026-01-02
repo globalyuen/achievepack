@@ -1256,7 +1256,7 @@ const ProductPage: React.FC = () => {
                     <Star key={i} className={`h-5 w-5 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-neutral-300'}`} />
                   ))}
                 </div>
-                <span className="text-neutral-600">({product.reviews} reviews)</span>
+                <Link to="/reviews" className="text-neutral-600 hover:text-primary-600 hover:underline transition-colors">({product.reviews} reviews)</Link>
               </div>
               
               <p className="text-sm sm:text-base text-neutral-600">{product.description}</p>
@@ -1591,7 +1591,7 @@ const ProductPage: React.FC = () => {
                     <Star key={i} className={`h-5 w-5 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-neutral-300'}`} />
                   ))}
                 </div>
-                <span className="text-neutral-600">({product.reviews} reviews)</span>
+                <Link to="/reviews" className="text-neutral-600 hover:text-primary-600 hover:underline transition-colors">({product.reviews} reviews)</Link>
               </div>
               
               <p className="text-sm sm:text-base text-neutral-600">{product.description}</p>
@@ -2734,7 +2734,7 @@ const ProductPage: React.FC = () => {
                   <Star key={i} className={`h-5 w-5 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-neutral-300'}`} />
                 ))}
               </div>
-              <span className="text-neutral-600">({product.reviews} reviews)</span>
+              <Link to="/reviews" className="text-neutral-600 hover:text-primary-600 hover:underline transition-colors">({product.reviews} reviews)</Link>
             </div>
 
             <p className="text-sm sm:text-base text-neutral-600">{product.description}</p>
