@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { ArrowLeft, Linkedin, Mail, Award, GraduationCap, Briefcase, Target } from 'lucide-react'
+import { ArrowLeft, Linkedin, Mail, Award, GraduationCap, Briefcase, Target, Globe, Users, Leaf, Calendar, MapPin, Building2 } from 'lucide-react'
 import { authorEntities } from '../../data/schemaEntities'
 
 const RyanWongPage = () => {
@@ -13,6 +13,7 @@ const RyanWongPage = () => {
     "@type": "Person",
     ...ryanEntity,
     "award": [
+      "PolyU Featured Alumni - Young Achievers",
       "Supply Chain Excellence Award",
       "Sustainable Packaging Innovation Leader"
     ],
@@ -80,11 +81,13 @@ const RyanWongPage = () => {
                 <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: 'white' }}>Ryan Wong</h1>
                 <p className="text-2xl mb-4" style={{ color: 'white' }}>Packaging Development Specialist</p>
                 <p className="text-lg mb-2" style={{ color: 'white' }}>
-                  14 years experience | 8 countries | Fortune 500 & DTC startups
+                  14+ years experience | 8 countries | Fortune 500 & DTC startups
                 </p>
-                <p className="text-md mb-6" style={{ color: 'white' }}>
-                  🎓 The Hong Kong Polytechnic University (Honor Degree)
-                </p>
+                <div className="flex flex-wrap gap-3 mb-6 justify-center md:justify-start">
+                  <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm" style={{ color: 'white' }}>🎓 PolyU Honor Degree</span>
+                  <span className="bg-amber-500/90 px-3 py-1 rounded-full text-sm font-medium" style={{ color: 'white' }}>🏆 PolyU Featured Alumni</span>
+                  <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm" style={{ color: 'white' }}>🌱 Eco Packaging Pioneer</span>
+                </div>
                 <div className="flex gap-4 justify-center md:justify-start flex-wrap">
                   <a 
                     href="https://www.linkedin.com/in/ryanwwc/" 
@@ -129,7 +132,7 @@ const RyanWongPage = () => {
 
                 <div className="prose prose-neutral max-w-none">
                   <p className="text-lg text-neutral-800 leading-relaxed mb-4">
-                    With <strong>14 years of dedicated experience</strong> in the packaging industry, Ryan Wong has built expertise cooperating with multinational and Fortune 500 companies to achieve mutual beneficial and long-lasting business relationships.
+                    With <strong>14+ years of dedicated experience</strong> in the packaging industry, Ryan Wong has built expertise cooperating with multinational and Fortune 500 companies to achieve mutually beneficial and long-lasting business relationships.
                   </p>
                   <p className="text-lg text-neutral-800 leading-relaxed mb-4">
                     Ryan's packaging experience and business relationships span <strong>8 countries</strong>: Australia, Canada, China, Germany, South Africa, Philippines, UK and USA. As a <strong>Hong Kong Polytechnic University Honor Degree</strong> graduate in Global Supply Chain and Business Administration, he combines academic excellence with practical expertise.
@@ -138,8 +141,45 @@ const RyanWongPage = () => {
                     His objective is to be a <strong>supply chain architect</strong> — with packaging knowledge, IT skills and passion to create irreplaceable values and synergy for all parties throughout the whole supply chain from upstream to downstream.
                   </p>
                   <p className="text-lg text-neutral-800 leading-relaxed">
-                    At <Link to="/" className="text-primary-600 hover:underline font-semibold">Achieve Pack</Link>, Ryan specializes in <strong>100% compostable digital print solutions</strong> with industry-leading low MOQ (100-500 pieces), making sustainable packaging accessible to DTC startups and established brands alike. His expertise in <strong>HP Indigo 20000 digital printing</strong> enables 4-day turnaround for urgent orders.
+                    As the <strong>Founder of Achieve Pack & Pouch.eco</strong>, Ryan specializes in <strong>100% compostable digital print solutions</strong> with industry-leading low MOQ (100-500 pieces), making sustainable packaging accessible to DTC startups and established brands alike. His expertise in <strong>HP Indigo 20000 digital printing</strong> enables 4-day turnaround for urgent orders.
                   </p>
+                </div>
+              </section>
+
+              {/* Career Journey */}
+              <section className="bg-white rounded-xl p-8 shadow-sm border border-neutral-100">
+                <div className="flex items-center gap-3 mb-6">
+                  <Building2 className="h-7 w-7 text-primary-600" />
+                  <h2 className="text-3xl font-bold text-neutral-900">Career Journey</h2>
+                </div>
+                <div className="space-y-6">
+                  <div className="relative pl-8 border-l-2 border-primary-200">
+                    <div className="absolute -left-2.5 top-0 w-5 h-5 bg-primary-600 rounded-full border-4 border-white"></div>
+                    <div className="mb-1">
+                      <span className="text-sm text-primary-600 font-medium">2018 - Present</span>
+                    </div>
+                    <h3 className="text-lg font-bold text-neutral-900">Founder & Packaging Development Specialist</h3>
+                    <p className="text-neutral-600 font-medium">Achieve Pack / Pouch.eco</p>
+                    <p className="text-neutral-700 mt-2">Founded eco-friendly packaging company focused on compostable and sustainable solutions. Pioneer in digital printing with low MOQ for DTC brands.</p>
+                  </div>
+                  <div className="relative pl-8 border-l-2 border-neutral-200">
+                    <div className="absolute -left-2.5 top-0 w-5 h-5 bg-neutral-400 rounded-full border-4 border-white"></div>
+                    <div className="mb-1">
+                      <span className="text-sm text-neutral-500 font-medium">2010 - 2018</span>
+                    </div>
+                    <h3 className="text-lg font-bold text-neutral-900">Senior Packaging Consultant</h3>
+                    <p className="text-neutral-600 font-medium">Fortune 500 & Multinational Companies</p>
+                    <p className="text-neutral-700 mt-2">Developed supply chain strategies and packaging solutions for international brands across 8 countries.</p>
+                  </div>
+                  <div className="relative pl-8 border-l-2 border-neutral-200">
+                    <div className="absolute -left-2.5 top-0 w-5 h-5 bg-neutral-400 rounded-full border-4 border-white"></div>
+                    <div className="mb-1">
+                      <span className="text-sm text-neutral-500 font-medium">1999 - 2003</span>
+                    </div>
+                    <h3 className="text-lg font-bold text-neutral-900">Bachelor's Degree (Honors)</h3>
+                    <p className="text-neutral-600 font-medium">The Hong Kong Polytechnic University</p>
+                    <p className="text-neutral-700 mt-2">Global Supply Chain Management & Business Administration</p>
+                  </div>
                 </div>
               </section>
 
@@ -206,12 +246,25 @@ const RyanWongPage = () => {
 
             {/* Sidebar */}
             <div className="space-y-6">
+              {/* PolyU Alumni Badge */}
+              <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 border border-amber-200">
+                <div className="flex items-center gap-2 mb-3">
+                  <Award className="h-6 w-6 text-amber-600" />
+                  <h3 className="font-bold text-neutral-900">Recognition</h3>
+                </div>
+                <div className="bg-white rounded-lg p-4 border border-amber-100">
+                  <div className="text-amber-700 font-bold text-lg mb-1">PolyU Featured Alumni</div>
+                  <div className="text-sm text-neutral-600">Young Achievers Program</div>
+                  <div className="text-xs text-neutral-500 mt-2">Recognized for contributions to sustainable packaging innovation</div>
+                </div>
+              </div>
+
               {/* Quick Stats */}
               <div className="bg-primary-50 rounded-xl p-6 border border-primary-100">
                 <h3 className="font-bold text-neutral-900 mb-4">Quick Facts</h3>
                 <div className="space-y-4">
                   <div>
-                    <div className="text-3xl font-bold text-primary-700">14</div>
+                    <div className="text-3xl font-bold text-primary-700">14+</div>
                     <div className="text-sm text-neutral-600">Years Experience</div>
                   </div>
                   <div>
@@ -262,8 +315,37 @@ const RyanWongPage = () => {
                       <span className="bg-neutral-100 px-2 py-1 rounded text-xs">Adobe Photoshop</span>
                       <span className="bg-neutral-100 px-2 py-1 rounded text-xs">Adobe Illustrator</span>
                       <span className="bg-neutral-100 px-2 py-1 rounded text-xs">HP Indigo 20000</span>
+                      <span className="bg-neutral-100 px-2 py-1 rounded text-xs">Supply Chain Mgmt</span>
+                      <span className="bg-neutral-100 px-2 py-1 rounded text-xs">Digital Printing</span>
                     </div>
                   </div>
+                  <div className="pt-3 border-t">
+                    <div className="text-sm font-semibold text-neutral-700 mb-2">Certifications Expertise:</div>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="bg-green-100 text-green-700 px-2 py-1 rounded text-xs">EN 13432</span>
+                      <span className="bg-green-100 text-green-700 px-2 py-1 rounded text-xs">ASTM D6400</span>
+                      <span className="bg-green-100 text-green-700 px-2 py-1 rounded text-xs">BPI Certified</span>
+                      <span className="bg-green-100 text-green-700 px-2 py-1 rounded text-xs">TÜV OK Compost</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Global Network */}
+              <div className="bg-white rounded-xl p-6 shadow-sm border border-neutral-100">
+                <div className="flex items-center gap-2 mb-4">
+                  <Globe className="h-5 w-5 text-primary-600" />
+                  <h3 className="font-bold text-neutral-900">Global Network</h3>
+                </div>
+                <div className="grid grid-cols-2 gap-2 text-xs">
+                  <div className="flex items-center gap-1.5"><span>🇦🇺</span> Australia</div>
+                  <div className="flex items-center gap-1.5"><span>🇨🇦</span> Canada</div>
+                  <div className="flex items-center gap-1.5"><span>🇨🇳</span> China</div>
+                  <div className="flex items-center gap-1.5"><span>🇩🇪</span> Germany</div>
+                  <div className="flex items-center gap-1.5"><span>🇿🇦</span> South Africa</div>
+                  <div className="flex items-center gap-1.5"><span>🇵🇭</span> Philippines</div>
+                  <div className="flex items-center gap-1.5"><span>🇬🇧</span> UK</div>
+                  <div className="flex items-center gap-1.5"><span>🇺🇸</span> USA</div>
                 </div>
               </div>
 
