@@ -1,7 +1,7 @@
-import React, { useState, useMemo, useEffect } from 'react'
+import React, { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Search, MapPin, ExternalLink, Leaf, ArrowLeft, Filter, ChevronDown, Calendar, Package, CheckCircle, AlertTriangle, Globe } from 'lucide-react'
+import { Search, MapPin, ExternalLink, Leaf, ArrowLeft, ChevronDown, Calendar, Package, CheckCircle, AlertTriangle, Globe, Building2, Phone, Mail, HelpCircle, ChevronRight, Users } from 'lucide-react'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
 // Composting service data structure
@@ -146,28 +146,45 @@ const CompostServiceFinderPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Composting Service Finder USA | Find Local Compost Drop-Off Near You | Achieve Pack</title>
-        <meta name="description" content="Find composting services and compost drop-off locations near you. Directory of 300+ composting facilities across all 50 US states. Support your certified compostable packaging's end-of-life journey." />
+        <title>Global Composting Service Finder | USA, Canada, Australia, Europe | Achieve Pack</title>
+        <meta name="description" content="Find composting services worldwide. Directory of 300+ US facilities plus Canada, Australia & Europe. EN 13432, ASTM D6400, AS 4736 certified compostable packaging accepted." />
         <link rel="canonical" href="https://achievepack.com/compostable/composting-services" />
-        <meta name="keywords" content="composting service, compost drop-off, composting facility, food waste composting, organic waste recycling, compostable packaging disposal, local composting" />
+        <meta name="keywords" content="composting service, compost facility, EN 13432, ASTM D6400, AS 4736, industrial composting, compostable packaging, USA composting, Canada composting, Australia composting, Europe composting" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Composting Service Finder USA - Find Local Compost Drop-Off" />
-        <meta property="og:description" content="Directory of 300+ composting services across the USA. Find where to compost your certified compostable packaging." />
+        <meta property="og:title" content="Global Composting Service Finder - USA, Canada, Australia, Europe" />
+        <meta property="og:description" content="Find composting facilities worldwide. 300+ US services plus Canada, Australia & Europe. Support your certified compostable packaging's end-of-life journey." />
         <meta property="og:image" content="https://achievepack.com/imgs/compostable/vs/a_lifecycle_compostable_infographic_2163778.webp" />
         <meta property="og:type" content="website" />
         
-        {/* Local Business Schema */}
+        {/* WebPage Schema with E-E-A-T signals */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "name": "Composting Service Finder USA",
-            "description": "Find composting services and facilities near you across all 50 US states",
+            "name": "Global Composting Service Finder",
+            "description": "Find composting services worldwide including USA, Canada, Australia, and Europe",
+            "datePublished": "2024-01-15",
+            "dateModified": new Date().toISOString().split('T')[0],
+            "author": {
+              "@type": "Organization",
+              "name": "Achieve Pack",
+              "url": "https://achievepack.com",
+              "description": "BRC-certified sustainable packaging manufacturer specializing in certified compostable solutions"
+            },
             "publisher": {
               "@type": "Organization",
               "name": "Achieve Pack",
-              "url": "https://achievepack.com"
+              "url": "https://achievepack.com",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://achievepack.com/imgs/logo/achievepack-logo.png"
+              }
+            },
+            "about": {
+              "@type": "Thing",
+              "name": "Composting Services Directory",
+              "description": "Industrial composting facilities accepting certified compostable packaging (EN 13432, ASTM D6400, AS 4736)"
             },
             "mainEntity": {
               "@type": "ItemList",
@@ -246,14 +263,14 @@ const CompostServiceFinderPage: React.FC = () => {
           <div className="max-w-5xl mx-auto px-4 text-center">
             <div className="flex items-center justify-center gap-2 mb-4">
               <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                USA Directory
+                <Globe className="inline h-4 w-4 mr-1" /> Global Directory
               </span>
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Composting Service Finder
+              Global Composting Service Finder
             </h1>
             <p className="text-lg md:text-xl text-green-100 mb-8 max-w-2xl mx-auto">
-              Find local composting facilities and drop-off locations near you. 
+              Find composting facilities worldwide — USA, Canada, Australia & Europe. 
               Support your certified compostable packaging's end-of-life journey.
             </p>
             
@@ -287,14 +304,18 @@ const CompostServiceFinderPage: React.FC = () => {
             </div>
             
             {/* Stats */}
-            <div className="flex justify-center gap-8 mt-8">
+            <div className="flex flex-wrap justify-center gap-6 md:gap-8 mt-8">
               <div className="text-center">
                 <div className="text-3xl font-bold">{COMPOST_SERVICES.length}+</div>
-                <div className="text-sm text-green-200">Services Listed</div>
+                <div className="text-sm text-green-200">US Services</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold">{STATES.length}</div>
-                <div className="text-sm text-green-200">States Covered</div>
+                <div className="text-3xl font-bold">4</div>
+                <div className="text-sm text-green-200">Countries</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold">3</div>
+                <div className="text-sm text-green-200">Certifications</div>
               </div>
             </div>
           </div>
@@ -415,6 +436,349 @@ const CompostServiceFinderPage: React.FC = () => {
             </div>
           </section>
 
+          {/* ========== INTERNATIONAL COMPOSTING SERVICES ========== */}
+          
+          {/* Canada Section */}
+          <section className="mt-16" id="canada">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-3xl">🇨🇦</span>
+              <h2 className="text-2xl md:text-3xl font-bold text-neutral-900">Canada Composting Services by Province</h2>
+            </div>
+            <p className="text-neutral-700 mb-6">
+              Canada's composting infrastructure is growing, with major national and regional operators accepting certified compostable packaging (<Link to="/compostable/biodegradable-vs-compostable" className="text-primary-600 hover:underline">EN 13432</Link> / <Link to="/company/certificates" className="text-primary-600 hover:underline">ASTM D6400</Link>). For the most current facility information and regional availability, consult these key resources:
+            </p>
+
+            {/* Canada National Services */}
+            <div className="bg-gradient-to-br from-red-50 to-white rounded-xl p-6 border border-red-200 mb-6">
+              <h3 className="text-xl font-bold text-neutral-900 mb-4 flex items-center gap-2">
+                <Globe className="h-5 w-5 text-red-600" />
+                National Services
+              </h3>
+              <div className="space-y-4">
+                <a href="https://gflenv.com/" target="_blank" rel="noopener noreferrer" className="block bg-white p-4 rounded-lg border hover:shadow-md transition group">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h4 className="font-semibold text-neutral-800 group-hover:text-primary-600">GFL Environmental</h4>
+                      <p className="text-sm text-neutral-600 mt-1">Multi-province service offering commercial organics collection and composting. Accepts "compostable dinnerware and trash bags" certified to composability standards.</p>
+                      <p className="text-xs text-neutral-500 mt-2">Coverage: Toronto, Vancouver, Calgary, Montreal, Ottawa, Edmonton</p>
+                      <p className="text-xs text-amber-600 mt-1">⚠️ Accepted items vary by region—always confirm with your local branch.</p>
+                    </div>
+                    <ExternalLink className="h-4 w-4 text-neutral-400 flex-shrink-0" />
+                  </div>
+                </a>
+                <a href="https://compostmanufacturingalliance.com/find-a-cma-facility/" target="_blank" rel="noopener noreferrer" className="block bg-white p-4 rounded-lg border hover:shadow-md transition group">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h4 className="font-semibold text-neutral-800 group-hover:text-primary-600">Compost Manufacturing Alliance (CMA) Partner Facility Locator</h4>
+                      <p className="text-sm text-neutral-600 mt-1">Industry directory covering composting facilities across Canadian provinces. Use the online map and filters to find facilities by region.</p>
+                    </div>
+                    <ExternalLink className="h-4 w-4 text-neutral-400 flex-shrink-0" />
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            {/* Canada Provinces Grid */}
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div className="bg-white p-5 rounded-lg border">
+                <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+                  <MapPin className="h-4 w-4 text-primary-600" />
+                  British Columbia (Vancouver, Victoria)
+                </h4>
+                <ul className="text-sm text-neutral-600 space-y-2">
+                  <li>• <a href="https://gflenv.com/" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">GFL Environmental</a> (contact local branch)</li>
+                  <li>• Use <a href="https://compostmanufacturingalliance.com/find-a-cma-facility/" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">CMA Partner Locator</a> to verify specific acceptance</li>
+                </ul>
+              </div>
+              <div className="bg-white p-5 rounded-lg border">
+                <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+                  <MapPin className="h-4 w-4 text-primary-600" />
+                  Ontario (Toronto, Ottawa)
+                </h4>
+                <ul className="text-sm text-neutral-600 space-y-2">
+                  <li>• <a href="https://gflenv.com/" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">GFL Environmental</a> (contact local branch)</li>
+                  <li>• CMA Partner Facilities (varies by city)</li>
+                </ul>
+              </div>
+              <div className="bg-white p-5 rounded-lg border">
+                <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+                  <MapPin className="h-4 w-4 text-primary-600" />
+                  Alberta (Calgary, Edmonton)
+                </h4>
+                <ul className="text-sm text-neutral-600 space-y-2">
+                  <li>• <a href="https://gflenv.com/" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">GFL Environmental</a> (contact local branch)</li>
+                  <li>• Regional industrial composting facilities via CMA Locator</li>
+                </ul>
+              </div>
+              <div className="bg-white p-5 rounded-lg border">
+                <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+                  <MapPin className="h-4 w-4 text-primary-600" />
+                  Quebec (Montreal)
+                </h4>
+                <ul className="text-sm text-neutral-600 space-y-2">
+                  <li>• <a href="https://gflenv.com/" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">GFL Environmental</a> (contact local branch)</li>
+                  <li>• Regional operators accepting certified compostables</li>
+                </ul>
+              </div>
+              <div className="bg-white p-5 rounded-lg border md:col-span-2">
+                <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+                  <MapPin className="h-4 w-4 text-primary-600" />
+                  Nova Scotia, New Brunswick, Manitoba, Saskatchewan
+                </h4>
+                <ul className="text-sm text-neutral-600 space-y-2">
+                  <li>• <a href="https://gflenv.com/" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">GFL Environmental</a> (select locations)</li>
+                  <li>• <a href="https://compostmanufacturingalliance.com/find-a-cma-facility/" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">CMA Partner Facility Locator</a> for regional options</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Canada How to Find */}
+            <div className="bg-green-50 p-5 rounded-lg border border-green-200">
+              <h4 className="font-semibold text-neutral-800 mb-2 flex items-center gap-2">
+                <HelpCircle className="h-5 w-5 text-green-600" />
+                How to Find Services in Canada
+              </h4>
+              <p className="text-sm text-neutral-700">
+                For Canadian facilities accepting <Link to="/company/certificates" className="text-primary-600 hover:underline">EN 13432 or ASTM D6400 certified packaging</Link>, start with <a href="https://gflenv.com/find-my-local-branch/" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">GFL's "Find My Branch" tool</a> or search the <a href="https://compostmanufacturingalliance.com/find-a-cma-facility/" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">CMA Partner Facility Locator</a> by your city and province. Contact the facility directly to confirm acceptance of compostable packaging in their commercial stream.
+              </p>
+            </div>
+          </section>
+
+          {/* Australia Section */}
+          <section className="mt-16" id="australia">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-3xl">🇦🇺</span>
+              <h2 className="text-2xl md:text-3xl font-bold text-neutral-900">Australia Composting Services by State</h2>
+            </div>
+            <p className="text-neutral-700 mb-6">
+              Australia's composting network is led by <strong>Compost Connect</strong>, a business-focused platform linking companies to industrial composters across the country. Partners accept packaging certified to Australian Standards <Link to="/company/certificates" className="text-primary-600 hover:underline">AS 4736 (industrial)</Link> or AS 5810 (home compostability).
+            </p>
+
+            {/* Compost Connect National */}
+            <div className="bg-gradient-to-br from-amber-50 to-white rounded-xl p-6 border border-amber-200 mb-6">
+              <a href="https://compostconnect.com.au/" target="_blank" rel="noopener noreferrer" className="block group">
+                <div className="flex justify-between items-start">
+                  <div>
+                    <h3 className="text-xl font-bold text-neutral-900 group-hover:text-primary-600 flex items-center gap-2">
+                      Compost Connect National Network
+                      <ExternalLink className="h-4 w-4 text-neutral-400" />
+                    </h3>
+                    <p className="text-neutral-600 mt-2">Connects <strong>2,200+ suburbs</strong> to <strong>23+ compost partners</strong>. Enter your postcode to find local collection and composting services.</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            {/* Australia States Grid */}
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div className="bg-white p-5 rounded-lg border">
+                <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+                  <MapPin className="h-4 w-4 text-primary-600" />
+                  New South Wales (Sydney)
+                </h4>
+                <div className="text-sm text-neutral-600 space-y-2">
+                  <p><a href="https://organicrecyclinggroup.com.au/" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">ORG (Organic Recycling Group)</a> - Collection service partnered with Compost Connect. Delivers compostable packaging to Soilco and EarthPower for industrial composting. Accepts BioPak and other AS 4736-certified materials.</p>
+                  <p className="text-xs text-amber-600">⚠️ NSW EPA does not permit certified compostable packaging in residential FOGO collections; commercial services are the pathway.</p>
+                </div>
+              </div>
+              <div className="bg-white p-5 rounded-lg border">
+                <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+                  <MapPin className="h-4 w-4 text-primary-600" />
+                  Queensland (Brisbane & South East Queensland)
+                </h4>
+                <div className="text-sm text-neutral-600 space-y-2">
+                  <p><strong>SUEZ + NuGrow</strong> - SUEZ collects organics; NuGrow (Ipswich facility) processes certified compostable packaging. NuGrow produces 130,000+ tonnes annually; compost tested to AS 4454:2012.</p>
+                  <p><a href="https://www.veolia.com/anz/" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">Veolia</a> - Brisbane-based compost partner on Compost Connect network.</p>
+                </div>
+              </div>
+              <div className="bg-white p-5 rounded-lg border">
+                <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+                  <MapPin className="h-4 w-4 text-primary-600" />
+                  South Australia (Adelaide)
+                </h4>
+                <div className="text-sm text-neutral-600 space-y-2">
+                  <p><a href="https://www.jeffries.com.au/" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">Jeffries</a> - Full-service collection and composting in metropolitan Adelaide. Accepts packaging certified to AS 4736 and AS 5810. Material processed at Wingfield, then composted at Buckland Park.</p>
+                </div>
+              </div>
+              <div className="bg-white p-5 rounded-lg border">
+                <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+                  <MapPin className="h-4 w-4 text-primary-600" />
+                  Victoria (Melbourne)
+                </h4>
+                <div className="text-sm text-neutral-600 space-y-2">
+                  <p><a href="https://compostconnect.com.au/" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">Compost Connect partners</a> including Corio Waste Management and Remondis serve Melbourne and surrounding areas.</p>
+                </div>
+              </div>
+              <div className="bg-white p-5 rounded-lg border md:col-span-2">
+                <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+                  <MapPin className="h-4 w-4 text-primary-600" />
+                  Western Australia (Perth)
+                </h4>
+                <div className="text-sm text-neutral-600">
+                  <p><a href="https://compostconnect.com.au/" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">Compost Connect partners</a> including JJ's Waste & Recycling service Perth and surrounding regions.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Australia How to Find */}
+            <div className="bg-amber-50 p-5 rounded-lg border border-amber-200">
+              <h4 className="font-semibold text-neutral-800 mb-2 flex items-center gap-2">
+                <HelpCircle className="h-5 w-5 text-amber-600" />
+                How to Find Services in Australia
+              </h4>
+              <p className="text-sm text-neutral-700">
+                Visit <a href="https://compostconnect.com.au/" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">Compost Connect</a>, enter your postcode, select your preferred partner, and arrange collection. Weekly pickups and smaller options available. Certified packaging must meet <Link to="/materials/industrial-compostable" className="text-primary-600 hover:underline">AS 4736 (industrial)</Link> or <Link to="/materials/home-compostable" className="text-primary-600 hover:underline">AS 5810 (home)</Link> standards.
+              </p>
+            </div>
+          </section>
+
+          {/* Europe Section */}
+          <section className="mt-16" id="europe">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-3xl">🇪🇺</span>
+              <h2 className="text-2xl md:text-3xl font-bold text-neutral-900">Europe Composting Services</h2>
+            </div>
+            <p className="text-neutral-700 mb-6">
+              European composting infrastructure accepts <Link to="/company/certificates" className="text-primary-600 hover:underline">EN 13432-certified compostable packaging</Link> through industrial facilities and managed collection services. Standards and acceptance vary by country and operator.
+            </p>
+
+            {/* Europe Countries */}
+            <div className="space-y-4 mb-6">
+              {/* UK */}
+              <div className="bg-white p-5 rounded-lg border">
+                <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+                  <span className="text-xl">🇬🇧</span>
+                  United Kingdom
+                </h4>
+                <div className="text-sm text-neutral-600 space-y-3">
+                  <p><a href="https://envarcomposting.co.uk/" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">EnVar Composting</a> (St Ives, Cambridgeshire) - Accepts certified compostable packaging via Vegware/Recorra service streams. In-vessel composting with 7-week cycle. PAS100/CQP certified.</p>
+                  <p><a href="https://recorra.co.uk/" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">Recorra</a> - London-based collection service delivering certified compostable items to EnVar for processing.</p>
+                  <p><strong>Multiple CCS-Certified Facilities</strong> - The UK's Composting Association maintains a directory of 29 CCS-certified composting facilities that accept independently verified compostable materials. Use the <a href="https://www.r-e-a.net/" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">REA (Recycled Products Alliance) map</a> to locate facilities accepting compostable packaging.</p>
+                </div>
+              </div>
+
+              {/* Italy */}
+              <div className="bg-white p-5 rounded-lg border">
+                <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+                  <span className="text-xl">🇮🇹</span>
+                  Italy
+                </h4>
+                <div className="text-sm text-neutral-600">
+                  <p><a href="https://sesaeste.it/" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">S.E.S.A. Spa</a> (Este, Padova) - Accepts bioplastics certified to UNI EN 13432, including bags and rigid items (cutlery). Complete biodegradation/disintegration through industrial composting process.</p>
+                </div>
+              </div>
+
+              {/* Netherlands */}
+              <div className="bg-white p-5 rounded-lg border">
+                <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+                  <span className="text-xl">🇳🇱</span>
+                  Netherlands
+                </h4>
+                <div className="text-sm text-neutral-600 space-y-2">
+                  <p><strong>Dutch Industrial Composting Network</strong> - EN 13432-certified packaging successfully processes within 22 days in industrial composting facilities across the GFT (organic waste) stream. Confirmed through trials conducted by Wageningen University Research (WUR).</p>
+                  <p className="text-xs text-amber-600">Contact local waste authorities for facility-specific acceptance confirmations.</p>
+                </div>
+              </div>
+
+              {/* Other EU Countries */}
+              <div className="bg-white p-5 rounded-lg border">
+                <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+                  <Globe className="h-5 w-5 text-primary-600" />
+                  Germany, France, Spain, Scandinavia
+                </h4>
+                <div className="text-sm text-neutral-600 space-y-2">
+                  <p>Industrial composting infrastructure continues to expand across major European cities. Acceptance of <Link to="/company/certificates" className="text-primary-600 hover:underline">certified compostable packaging</Link> varies by operator.</p>
+                  <p><strong>Recommended approach:</strong> Contact the composting facility directly to confirm they accept EN 13432-certified packaging. Many operators require segregated collection streams (e.g., dedicated compostable packaging bins) for acceptance.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Europe Verification */}
+            <div className="bg-blue-50 p-5 rounded-lg border border-blue-200">
+              <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+                <CheckCircle className="h-5 w-5 text-blue-600" />
+                How to Verify Acceptance in Europe
+              </h4>
+              <ul className="text-sm text-neutral-700 space-y-2">
+                <li className="flex items-start gap-2">
+                  <ChevronRight className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <span>Confirm the facility is <Link to="/company/certificates" className="text-primary-600 hover:underline">EN 13432 certified</Link> (not EN 14995, which covers only fossil-based plastics)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ChevronRight className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <span>Check if the facility operates a dedicated compostable packaging collection stream</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ChevronRight className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <span>Many facilities require pre-arrangement for commercial compostable packaging volumes</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ChevronRight className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <span>Contact the facility directly—acceptance policies vary and are not always published online</span>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          {/* Tips for Contacting Section */}
+          <section className="mt-16 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-8 border border-indigo-200">
+            <h2 className="text-2xl font-bold text-neutral-900 mb-6 flex items-center gap-2">
+              <Phone className="h-6 w-6 text-indigo-600" />
+              Tips for Contacting Composting Facilities
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white p-5 rounded-lg border">
+                <h3 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+                  <HelpCircle className="h-5 w-5 text-indigo-500" />
+                  What to Ask
+                </h3>
+                <ul className="text-sm text-neutral-600 space-y-2">
+                  <li>• Do you accept commercially compostable packaging?</li>
+                  <li>• Are you certified to process <Link to="/company/certificates" className="text-primary-600 hover:underline">EN 13432 or ASTM D6400</Link> materials?</li>
+                  <li>• What's the turnaround time for composting (typically 90–180 days)?</li>
+                  <li>• Can you provide documentation that confirms compostability of our packaging?</li>
+                  <li>• Do you offer pickup services or drop-off only?</li>
+                  <li>• What's the volume requirement for commercial composting?</li>
+                </ul>
+              </div>
+              
+              <div className="bg-white p-5 rounded-lg border">
+                <h3 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-green-500" />
+                  Why This Matters
+                </h3>
+                <p className="text-sm text-neutral-600">
+                  Not all composting facilities accept certified compostable packaging. Some focus exclusively on food waste. By asking these questions, you ensure your <Link to="/materials/industrial-compostable" className="text-primary-600 hover:underline">Achievepack packaging</Link> will actually be processed—and you can confidently tell your customers the full story.
+                </p>
+                <p className="text-sm text-neutral-600 mt-3">
+                  Learn more about <Link to="/compostable/biodegradable-vs-compostable" className="text-primary-600 hover:underline">the difference between biodegradable and compostable</Link> packaging.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Missing Your Region Section */}
+          <section className="mt-12 bg-white rounded-xl p-8 border-2 border-dashed border-neutral-300 text-center">
+            <h2 className="text-xl font-bold text-neutral-900 mb-4 flex items-center justify-center gap-2">
+              <Users className="h-6 w-6 text-primary-600" />
+              Missing Your Region?
+            </h2>
+            <p className="text-neutral-700 mb-4 max-w-2xl mx-auto">
+              Composting infrastructure is expanding rapidly. If you know of a facility we've missed or if new services have launched in your area, we'd love to hear about it.
+            </p>
+            <Link 
+              to="/company/contact"
+              className="inline-flex items-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition"
+            >
+              <Mail className="h-5 w-5" />
+              Contact Achievepack to Suggest an Addition
+            </Link>
+            <p className="text-sm text-neutral-500 mt-4">
+              We update this resource regularly to reflect the growing composting network across North America and beyond.
+            </p>
+          </section>
+
           {/* Related Links */}
           <section className="mt-12">
             <h2 className="text-xl font-bold text-neutral-900 mb-4">Related Resources</h2>
@@ -446,28 +810,64 @@ const CompostServiceFinderPage: React.FC = () => {
             </div>
           </section>
 
-          {/* CTA Section */}
-          <section className="mt-12 bg-gradient-to-r from-green-700 to-green-800 rounded-xl p-8 text-white text-center">
-            <h3 className="text-2xl font-bold mb-4">Need Certified Compostable Packaging?</h3>
-            <p className="text-green-100 mb-6 max-w-2xl mx-auto">
-              Achieve Pack offers BPI and TUV certified compostable packaging that's accepted at composting facilities nationwide. 
-              Get samples with full certification documentation.
+          {/* CTA Section - What's Next */}
+          <section className="mt-12 bg-gradient-to-r from-green-700 to-green-800 rounded-xl p-8 text-white">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center">What's Next?</h2>
+            <p className="text-green-100 mb-6 max-w-2xl mx-auto text-center">
+              Found your local composting facility? Great! Now it's time to choose packaging that actually works in your market.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={openCalendly}
-                className="flex items-center justify-center gap-2 bg-white text-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition"
+            
+            <div className="text-center mb-8">
+              <p className="text-lg font-semibold text-white">Ready to commit to Achievepack's certified compostable solution?</p>
+            </div>
+            
+            <div className="grid sm:grid-cols-3 gap-4 mb-8">
+              <Link
+                to="/materials"
+                className="bg-white/10 backdrop-blur p-5 rounded-lg border border-white/20 hover:bg-white/20 transition text-center group"
               >
-                <Calendar className="h-5 w-5" />
-                Book Consultation
-              </button>
+                <Leaf className="h-8 w-8 text-green-300 mx-auto mb-3" />
+                <h4 className="font-semibold text-white group-hover:text-green-200">Explore Our Compostable Materials</h4>
+                <p className="text-sm text-green-200 mt-2">See our full range of EN 13432 and ASTM D6400 certified options</p>
+              </Link>
               <Link
                 to="/store"
-                className="flex items-center justify-center gap-2 border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition"
+                className="bg-white/10 backdrop-blur p-5 rounded-lg border border-white/20 hover:bg-white/20 transition text-center group"
               >
-                <Package className="h-5 w-5" />
-                Order Samples
+                <Package className="h-8 w-8 text-green-300 mx-auto mb-3" />
+                <h4 className="font-semibold text-white group-hover:text-green-200">Request Samples</h4>
+                <p className="text-sm text-green-200 mt-2">Test our packaging on your products (MOQ from 100 pieces)</p>
               </Link>
+              <button
+                onClick={openCalendly}
+                className="bg-white/10 backdrop-blur p-5 rounded-lg border border-white/20 hover:bg-white/20 transition text-center group"
+              >
+                <Calendar className="h-8 w-8 text-green-300 mx-auto mb-3" />
+                <h4 className="font-semibold text-white group-hover:text-green-200">Book a Consultation</h4>
+                <p className="text-sm text-green-200 mt-2">Discuss your region's infrastructure, market fit, and best packaging solution</p>
+              </button>
+            </div>
+            
+            <div className="bg-white/10 p-4 rounded-lg text-center">
+              <p className="text-green-100 text-sm">
+                Or, if your region lacks composting infrastructure, we can also recommend <Link to="/materials/recyclable-mono-pe" className="text-white underline hover:text-green-200">mono-PE recyclable alternatives</Link> that align with existing recycling streams. Achievepack is here to match your sustainability goals to your market reality.
+              </p>
+            </div>
+          </section>
+
+          {/* Disclaimer Section */}
+          <section className="mt-8 bg-amber-50 border border-amber-200 rounded-xl p-6">
+            <div className="flex items-start gap-3">
+              <AlertTriangle className="h-6 w-6 text-amber-600 flex-shrink-0 mt-0.5" />
+              <div>
+                <h3 className="font-semibold text-amber-900 mb-2">Disclaimer</h3>
+                <p className="text-sm text-amber-800">
+                  <strong>Please also check local resources.</strong> All data on this page is gathered from publicly available internet sources and may not be up-to-date or accurate. Composting facility acceptance policies, certifications, and service availability change frequently. Always contact the facility directly to confirm current acceptance of certified compostable packaging before arranging drop-off or collection. Achieve Pack is not responsible for inaccuracies in third-party facility information.
+                </p>
+                <p className="text-xs text-amber-700 mt-3">
+                  Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })} | <Link to="/company/contact" className="text-primary-600 hover:underline">Report an error or update</Link>
+                </p>
+              </div>
             </div>
           </section>
         </main>
