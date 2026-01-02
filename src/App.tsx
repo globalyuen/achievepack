@@ -1914,22 +1914,26 @@ function App() {
                 </div>
               </div>
 
-              {/* Center: Certifications, Payment & SSL */}
+              {/* Center: Certifications, Carbon Commitment, Payment & SSL */}
               <div className="text-center">
                 <div className="flex flex-col items-center gap-3">
                   {/* BPI & B Corp Logos */}
-                  <div className="flex items-center justify-center gap-4">
-                    <img src="/imgs/cert/logo-achievepack-BPI.jpg" alt="BPI Certified" className="h-10 w-auto rounded" loading="lazy" decoding="async" />
-                    <img src="/imgs/cert-b.webp" alt="B Corp Certified" className="h-10 w-auto" loading="lazy" decoding="async" />
-                  </div>
+                  <img src="/bpi-bcorp-logos.svg" alt="BPI & B Corp Certified" className="h-12 w-auto" loading="lazy" decoding="async" />
+                  {/* 1% Carbon Removal */}
+                  <a 
+                    href="https://climate.stripe.com/WPsfbU" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-xs text-primary-300 hover:text-primary-200 transition-colors"
+                  >
+                    <svg className="h-4 w-4 text-green-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9z"/>
+                      <path d="M12 8v8M8 12h8"/>
+                    </svg>
+                    <span>At Achieve Pack pouch.eco, we contribute 1% of our revenue to carbon removal</span>
+                  </a>
                   {/* Payment Logos */}
-                  <div className="flex items-center justify-center gap-3 text-white/80">
-                    <span className="text-sm font-medium">stripe</span>
-                    <span className="text-sm font-medium">PayPal</span>
-                    <span className="text-xs font-bold bg-white/20 px-1.5 py-0.5 rounded">AMEX</span>
-                    <span className="text-sm font-bold">VISA</span>
-                    <span className="text-sm">●●</span>
-                  </div>
+                  <img src="/pay-logos.svg" alt="Payment Methods" className="h-8 w-auto" loading="lazy" decoding="async" />
                   {/* SSL Secure Badge */}
                   <div className="flex items-center gap-1.5 bg-neutral-800 px-3 py-1.5 rounded">
                     <svg className="h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
