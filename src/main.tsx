@@ -1,4 +1,4 @@
-import { StrictMode, Suspense, lazy } from 'react'
+import { StrictMode, Suspense, lazy, ComponentType } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
@@ -17,8 +17,31 @@ import CartSidebar from './components/store/CartSidebar'
 import FloatingButtons from './components/FloatingButtons'
 import GeoBlocker from './components/GeoBlocker'
 
+// Helper function for lazy loading with error handling for stale chunks
+function lazyWithRetry<T extends ComponentType<any>>(
+  componentImport: () => Promise<{ default: T }>
+): React.LazyExoticComponent<T> {
+  return lazy(() => {
+    return componentImport().catch((error) => {
+      // Check if this is a chunk loading error
+      if (
+        error.message?.includes('Failed to fetch dynamically imported module') ||
+        error.message?.includes('Loading chunk') ||
+        error.message?.includes('Loading CSS chunk')
+      ) {
+        // Reload the page to get the latest version
+        console.warn('Chunk loading failed, reloading page...', error)
+        window.location.reload()
+        // Return a never-resolving promise to prevent rendering stale content
+        return new Promise(() => {})
+      }
+      throw error
+    })
+  })
+}
+
 // Lazy load heavy widget
-const PackagingAssistantWidget = lazy(() => import('./components/PackagingAssistantWidget'))
+const PackagingAssistantWidget = lazyWithRetry(() => import('./components/PackagingAssistantWidget'))
 
 // Loading fallback component
 const PageLoader = () => (
@@ -31,214 +54,214 @@ const PageLoader = () => (
 )
 
 // Lazy load all pages for better code splitting
-const StorePage = lazy(() => import('./pages/StorePage'))
-const ProductPage = lazy(() => import('./pages/ProductPage'))
-const CheckoutPage = lazy(() => import('./pages/CheckoutPage'))
-const OrderConfirmation = lazy(() => import('./pages/OrderConfirmation'))
-const LoginPage = lazy(() => import('./pages/LoginPage'))
-const RegisterPage = lazy(() => import('./pages/RegisterPage'))
-const ForgotPasswordPage = lazy(() => import('./pages/ForgotPasswordPage'))
-const ResetPasswordPage = lazy(() => import('./pages/ResetPasswordPage'))
-const AuthCallbackPage = lazy(() => import('./pages/AuthCallbackPage'))
-const DashboardPage = lazy(() => import('./pages/DashboardPage'))
-const TermsPage = lazy(() => import('./pages/TermsPage'))
-const ContactPage = lazy(() => import('./pages/ContactPage'))
-const AdminPage = lazy(() => import('./pages/AdminPage'))
-const AdminManagementPage = lazy(() => import('./pages/AdminManagementPage'))
-const CustomerMapPage = lazy(() => import('./pages/CustomerMapPage'))
-const ImageCatalogPage = lazy(() => import('./pages/ImageCatalogPage'))
-const UnsubscribePage = lazy(() => import('./pages/UnsubscribePage'))
+const StorePage = lazyWithRetry(() => import('./pages/StorePage'))
+const ProductPage = lazyWithRetry(() => import('./pages/ProductPage'))
+const CheckoutPage = lazyWithRetry(() => import('./pages/CheckoutPage'))
+const OrderConfirmation = lazyWithRetry(() => import('./pages/OrderConfirmation'))
+const LoginPage = lazyWithRetry(() => import('./pages/LoginPage'))
+const RegisterPage = lazyWithRetry(() => import('./pages/RegisterPage'))
+const ForgotPasswordPage = lazyWithRetry(() => import('./pages/ForgotPasswordPage'))
+const ResetPasswordPage = lazyWithRetry(() => import('./pages/ResetPasswordPage'))
+const AuthCallbackPage = lazyWithRetry(() => import('./pages/AuthCallbackPage'))
+const DashboardPage = lazyWithRetry(() => import('./pages/DashboardPage'))
+const TermsPage = lazyWithRetry(() => import('./pages/TermsPage'))
+const ContactPage = lazyWithRetry(() => import('./pages/ContactPage'))
+const AdminPage = lazyWithRetry(() => import('./pages/AdminPage'))
+const AdminManagementPage = lazyWithRetry(() => import('./pages/AdminManagementPage'))
+const CustomerMapPage = lazyWithRetry(() => import('./pages/CustomerMapPage'))
+const ImageCatalogPage = lazyWithRetry(() => import('./pages/ImageCatalogPage'))
+const UnsubscribePage = lazyWithRetry(() => import('./pages/UnsubscribePage'))
 
 // Industry Pages - Lazy loaded
-const CoffeeTeaPage = lazy(() => import('./pages/industry/CoffeeTeaPage'))
-const SnacksFoodPage = lazy(() => import('./pages/industry/SnacksFoodPage'))
-const PetFoodPage = lazy(() => import('./pages/industry/PetFoodPage'))
-const SupplementsPowdersPage = lazy(() => import('./pages/industry/SupplementsPowdersPage'))
-const BabyFoodPage = lazy(() => import('./pages/industry/BabyFoodPage'))
-const FrozenFoodPage = lazy(() => import('./pages/industry/FrozenFoodPage'))
-const SaucesCondimentsPage = lazy(() => import('./pages/industry/SaucesCondimentsPage'))
+const CoffeeTeaPage = lazyWithRetry(() => import('./pages/industry/CoffeeTeaPage'))
+const SnacksFoodPage = lazyWithRetry(() => import('./pages/industry/SnacksFoodPage'))
+const PetFoodPage = lazyWithRetry(() => import('./pages/industry/PetFoodPage'))
+const SupplementsPowdersPage = lazyWithRetry(() => import('./pages/industry/SupplementsPowdersPage'))
+const BabyFoodPage = lazyWithRetry(() => import('./pages/industry/BabyFoodPage'))
+const FrozenFoodPage = lazyWithRetry(() => import('./pages/industry/FrozenFoodPage'))
+const SaucesCondimentsPage = lazyWithRetry(() => import('./pages/industry/SaucesCondimentsPage'))
 
 // Packaging Pages - Lazy loaded
-const StandUpPouchesPage = lazy(() => import('./pages/packaging/StandUpPouchesPage'))
-const FlatBottomBagsPage = lazy(() => import('./pages/packaging/FlatBottomBagsPage'))
-const SpoutPouchesPage = lazy(() => import('./pages/packaging/SpoutPouchesPage'))
-const FlatPouchesPage = lazy(() => import('./pages/packaging/FlatPouchesPage'))
-const SideGussetBagsPage = lazy(() => import('./pages/packaging/SideGussetBagsPage'))
-const VacuumPouchesPage = lazy(() => import('./pages/packaging/VacuumPouchesPage'))
-const CustomBoxesPage = lazy(() => import('./pages/packaging/CustomBoxesPage'))
+const StandUpPouchesPage = lazyWithRetry(() => import('./pages/packaging/StandUpPouchesPage'))
+const FlatBottomBagsPage = lazyWithRetry(() => import('./pages/packaging/FlatBottomBagsPage'))
+const SpoutPouchesPage = lazyWithRetry(() => import('./pages/packaging/SpoutPouchesPage'))
+const FlatPouchesPage = lazyWithRetry(() => import('./pages/packaging/FlatPouchesPage'))
+const SideGussetBagsPage = lazyWithRetry(() => import('./pages/packaging/SideGussetBagsPage'))
+const VacuumPouchesPage = lazyWithRetry(() => import('./pages/packaging/VacuumPouchesPage'))
+const CustomBoxesPage = lazyWithRetry(() => import('./pages/packaging/CustomBoxesPage'))
 
 // Materials Pages - Lazy loaded
-const CompostablePage = lazy(() => import('./pages/materials/CompostablePage'))
-const RecyclableMonoPEPage = lazy(() => import('./pages/materials/RecyclableMonoPEPage'))
-const RecyclableMonoPPPage = lazy(() => import('./pages/materials/RecyclableMonoPPPage'))
-const BioPEPage = lazy(() => import('./pages/materials/BioPEPage'))
-const PCRPage = lazy(() => import('./pages/materials/PCRPage'))
-const HomeCompostablePage = lazy(() => import('./pages/materials/HomeCompostablePage'))
-const IndustrialCompostablePage = lazy(() => import('./pages/materials/IndustrialCompostablePage'))
-const KraftHighBarrierPage = lazy(() => import('./pages/materials/KraftHighBarrierPage'))
+const CompostablePage = lazyWithRetry(() => import('./pages/materials/CompostablePage'))
+const RecyclableMonoPEPage = lazyWithRetry(() => import('./pages/materials/RecyclableMonoPEPage'))
+const RecyclableMonoPPPage = lazyWithRetry(() => import('./pages/materials/RecyclableMonoPPPage'))
+const BioPEPage = lazyWithRetry(() => import('./pages/materials/BioPEPage'))
+const PCRPage = lazyWithRetry(() => import('./pages/materials/PCRPage'))
+const HomeCompostablePage = lazyWithRetry(() => import('./pages/materials/HomeCompostablePage'))
+const IndustrialCompostablePage = lazyWithRetry(() => import('./pages/materials/IndustrialCompostablePage'))
+const KraftHighBarrierPage = lazyWithRetry(() => import('./pages/materials/KraftHighBarrierPage'))
 
 // Printing Pages - Lazy loaded
-const DigitalPrintingPage = lazy(() => import('./pages/printing/DigitalPrintingPage'))
-const PlatePrintingPage = lazy(() => import('./pages/printing/PlatePrintingPage'))
+const DigitalPrintingPage = lazyWithRetry(() => import('./pages/printing/DigitalPrintingPage'))
+const PlatePrintingPage = lazyWithRetry(() => import('./pages/printing/PlatePrintingPage'))
 
 // Feature Pages - Lazy loaded
-const ReclosureOptionsPage = lazy(() => import('./pages/features/ReclosureOptionsPage'))
-const SurfaceFinishPage = lazy(() => import('./pages/features/SurfaceFinishPage'))
-const BarrierOptionsPage = lazy(() => import('./pages/features/BarrierOptionsPage'))
-const LowBarrierPage = lazy(() => import('./pages/features/LowBarrierPage'))
-const MediumBarrierPage = lazy(() => import('./pages/features/MediumBarrierPage'))
-const HighBarrierPage = lazy(() => import('./pages/features/HighBarrierPage'))
+const ReclosureOptionsPage = lazyWithRetry(() => import('./pages/features/ReclosureOptionsPage'))
+const SurfaceFinishPage = lazyWithRetry(() => import('./pages/features/SurfaceFinishPage'))
+const BarrierOptionsPage = lazyWithRetry(() => import('./pages/features/BarrierOptionsPage'))
+const LowBarrierPage = lazyWithRetry(() => import('./pages/features/LowBarrierPage'))
+const MediumBarrierPage = lazyWithRetry(() => import('./pages/features/MediumBarrierPage'))
+const HighBarrierPage = lazyWithRetry(() => import('./pages/features/HighBarrierPage'))
 
 // Function Pages - Lazy loaded
-const MicrowaveSteamBagsPage = lazy(() => import('./pages/function/MicrowaveSteamBagsPage'))
-const CarbonNeutralBagsPage = lazy(() => import('./pages/function/CarbonNeutralBagsPage'))
-const SpoutPouchesJuicePage = lazy(() => import('./pages/function/SpoutPouchesJuicePage'))
-const ChildResistantBagsPage = lazy(() => import('./pages/function/ChildResistantBagsPage'))
-const PreZipperedRollstockPage = lazy(() => import('./pages/function/PreZipperedRollstockPage'))
-const DigitalPrintedRetortBagsPage = lazy(() => import('./pages/function/DigitalPrintedRetortBagsPage'))
-const RicePaperBagsPage = lazy(() => import('./pages/function/RicePaperBagsPage'))
-const PVAWaterSolubleBagsPage = lazy(() => import('./pages/function/PVAWaterSolubleBagsPage'))
+const MicrowaveSteamBagsPage = lazyWithRetry(() => import('./pages/function/MicrowaveSteamBagsPage'))
+const CarbonNeutralBagsPage = lazyWithRetry(() => import('./pages/function/CarbonNeutralBagsPage'))
+const SpoutPouchesJuicePage = lazyWithRetry(() => import('./pages/function/SpoutPouchesJuicePage'))
+const ChildResistantBagsPage = lazyWithRetry(() => import('./pages/function/ChildResistantBagsPage'))
+const PreZipperedRollstockPage = lazyWithRetry(() => import('./pages/function/PreZipperedRollstockPage'))
+const DigitalPrintedRetortBagsPage = lazyWithRetry(() => import('./pages/function/DigitalPrintedRetortBagsPage'))
+const RicePaperBagsPage = lazyWithRetry(() => import('./pages/function/RicePaperBagsPage'))
+const PVAWaterSolubleBagsPage = lazyWithRetry(() => import('./pages/function/PVAWaterSolubleBagsPage'))
 
 // Lab Pages - Lazy loaded
-const LateralFilterBagsPage = lazy(() => import('./pages/lab/LateralFilterBagsPage'))
-const WireClosureBagsPage = lazy(() => import('./pages/lab/WireClosureBagsPage'))
-const LabBlenderBagsPage = lazy(() => import('./pages/lab/LabBlenderBagsPage'))
+const LateralFilterBagsPage = lazyWithRetry(() => import('./pages/lab/LateralFilterBagsPage'))
+const WireClosureBagsPage = lazyWithRetry(() => import('./pages/lab/WireClosureBagsPage'))
+const LabBlenderBagsPage = lazyWithRetry(() => import('./pages/lab/LabBlenderBagsPage'))
 
 // Legal Pages - Lazy loaded
-const PrivacyPolicyPage = lazy(() => import('./pages/legal/PrivacyPolicyPage'))
-const ShippingPolicyPage = lazy(() => import('./pages/legal/ShippingPolicyPage'))
-const CookiePolicyPage = lazy(() => import('./pages/legal/CookiePolicyPage'))
+const PrivacyPolicyPage = lazyWithRetry(() => import('./pages/legal/PrivacyPolicyPage'))
+const ShippingPolicyPage = lazyWithRetry(() => import('./pages/legal/ShippingPolicyPage'))
+const CookiePolicyPage = lazyWithRetry(() => import('./pages/legal/CookiePolicyPage'))
 
 // Company Pages - Lazy loaded
-const AboutPage = lazy(() => import('./pages/company/AboutPage'))
-const FactoryTourPage = lazy(() => import('./pages/company/FactoryTourPage'))
-const CertificatesPage = lazy(() => import('./pages/company/CertificatesPage'))
+const AboutPage = lazyWithRetry(() => import('./pages/company/AboutPage'))
+const FactoryTourPage = lazyWithRetry(() => import('./pages/company/FactoryTourPage'))
+const CertificatesPage = lazyWithRetry(() => import('./pages/company/CertificatesPage'))
 
 // Knowledge Pages - Lazy loaded
-const AllOptionsPage = lazy(() => import('./pages/knowledge/AllOptionsPage'))
-const SizeGuidePage = lazy(() => import('./pages/knowledge/SizeGuidePage'))
-const PouchSizingPage = lazy(() => import('./pages/knowledge/PouchSizingPage'))
-const PrintingTypesPage = lazy(() => import('./pages/knowledge/PrintingTypesPage'))
-const WorkflowPage = lazy(() => import('./pages/knowledge/WorkflowPage'))
+const AllOptionsPage = lazyWithRetry(() => import('./pages/knowledge/AllOptionsPage'))
+const SizeGuidePage = lazyWithRetry(() => import('./pages/knowledge/SizeGuidePage'))
+const PouchSizingPage = lazyWithRetry(() => import('./pages/knowledge/PouchSizingPage'))
+const PrintingTypesPage = lazyWithRetry(() => import('./pages/knowledge/PrintingTypesPage'))
+const WorkflowPage = lazyWithRetry(() => import('./pages/knowledge/WorkflowPage'))
 
 // Support Pages - Lazy loaded
-const FAQsPage = lazy(() => import('./pages/support/FAQsPage'))
-const LeadTimePage = lazy(() => import('./pages/support/LeadTimePage'))
+const FAQsPage = lazyWithRetry(() => import('./pages/support/FAQsPage'))
+const LeadTimePage = lazyWithRetry(() => import('./pages/support/LeadTimePage'))
 
 // Case Studies Pages - Lazy loaded
-const CoffeeRoasteryCaseStudy = lazy(() => import('./pages/case-studies/CoffeeRoasteryCaseStudy'))
-const TeaBrandCaseStudy = lazy(() => import('./pages/case-studies/TeaBrandCaseStudy'))
-const SuperfoodBrandCaseStudy = lazy(() => import('./pages/case-studies/SuperfoodBrandCaseStudy'))
-const PetTreatsCaseStudy = lazy(() => import('./pages/case-studies/PetTreatsCaseStudy'))
-const ChocolateBrandCaseStudy = lazy(() => import('./pages/case-studies/ChocolateBrandCaseStudy'))
-const CandleBrandCaseStudy = lazy(() => import('./pages/case-studies/CandleBrandCaseStudy'))
-const BakeryCaseStudy = lazy(() => import('./pages/case-studies/BakeryCaseStudy'))
-const WellnessBrandCaseStudy = lazy(() => import('./pages/case-studies/WellnessBrandCaseStudy'))
-const OrganicNutsCaseStudy = lazy(() => import('./pages/case-studies/OrganicNutsCaseStudy'))
-const BathProductsCaseStudy = lazy(() => import('./pages/case-studies/BathProductsCaseStudy'))
-const AdaptogensCaseStudy = lazy(() => import('./pages/case-studies/AdaptogensCaseStudy'))
-const OutdoorSnacksCaseStudy = lazy(() => import('./pages/case-studies/OutdoorSnacksCaseStudy'))
+const CoffeeRoasteryCaseStudy = lazyWithRetry(() => import('./pages/case-studies/CoffeeRoasteryCaseStudy'))
+const TeaBrandCaseStudy = lazyWithRetry(() => import('./pages/case-studies/TeaBrandCaseStudy'))
+const SuperfoodBrandCaseStudy = lazyWithRetry(() => import('./pages/case-studies/SuperfoodBrandCaseStudy'))
+const PetTreatsCaseStudy = lazyWithRetry(() => import('./pages/case-studies/PetTreatsCaseStudy'))
+const ChocolateBrandCaseStudy = lazyWithRetry(() => import('./pages/case-studies/ChocolateBrandCaseStudy'))
+const CandleBrandCaseStudy = lazyWithRetry(() => import('./pages/case-studies/CandleBrandCaseStudy'))
+const BakeryCaseStudy = lazyWithRetry(() => import('./pages/case-studies/BakeryCaseStudy'))
+const WellnessBrandCaseStudy = lazyWithRetry(() => import('./pages/case-studies/WellnessBrandCaseStudy'))
+const OrganicNutsCaseStudy = lazyWithRetry(() => import('./pages/case-studies/OrganicNutsCaseStudy'))
+const BathProductsCaseStudy = lazyWithRetry(() => import('./pages/case-studies/BathProductsCaseStudy'))
+const AdaptogensCaseStudy = lazyWithRetry(() => import('./pages/case-studies/AdaptogensCaseStudy'))
+const OutdoorSnacksCaseStudy = lazyWithRetry(() => import('./pages/case-studies/OutdoorSnacksCaseStudy'))
 
 // Blog Pages - Lazy loaded
-const BlogPage = lazy(() => import('./pages/blog/BlogPage'))
-const BlogPostPage = lazy(() => import('./pages/blog/BlogPostPage'))
+const BlogPage = lazyWithRetry(() => import('./pages/blog/BlogPage'))
+const BlogPostPage = lazyWithRetry(() => import('./pages/blog/BlogPostPage'))
 
 // Learn Center - Lazy loaded
-const LearnSearchPage = lazy(() => import('./pages/LearnSearchPage'))
+const LearnSearchPage = lazyWithRetry(() => import('./pages/LearnSearchPage'))
 
 // USA Pages - Lazy loaded
-const USACompostableHubPage = lazy(() => import('./pages/usa/USACompostableHubPage'))
-const USACoffeePage = lazy(() => import('./pages/usa/USACoffeePage'))
-const USASnacksPage = lazy(() => import('./pages/usa/USASnacksPage'))
-const USALabelingGuidePage = lazy(() => import('./pages/usa/USALabelingGuidePage'))
+const USACompostableHubPage = lazyWithRetry(() => import('./pages/usa/USACompostableHubPage'))
+const USACoffeePage = lazyWithRetry(() => import('./pages/usa/USACoffeePage'))
+const USASnacksPage = lazyWithRetry(() => import('./pages/usa/USASnacksPage'))
+const USALabelingGuidePage = lazyWithRetry(() => import('./pages/usa/USALabelingGuidePage'))
 
 // Spec Pages - Material Structures - Lazy loaded
-const PcrPetDuplexClearPage = lazy(() => import('./pages/spec/PcrPetDuplexClearPage'))
-const PcrPpDuplexClearPage = lazy(() => import('./pages/spec/PcrPpDuplexClearPage'))
-const PcrPetKraftTriplexClearPage = lazy(() => import('./pages/spec/PcrPetKraftTriplexClearPage'))
-const PcrPpKraftTriplexClearPage = lazy(() => import('./pages/spec/PcrPpKraftTriplexClearPage'))
-const PcrPetDuplexNoWindowPage = lazy(() => import('./pages/spec/PcrPetDuplexNoWindowPage'))
-const PcrPpDuplexNoWindowPage = lazy(() => import('./pages/spec/PcrPpDuplexNoWindowPage'))
-const PcrPetTriplexMetalisedPage = lazy(() => import('./pages/spec/PcrPetTriplexMetalisedPage'))
-const PcrPpTriplexMetalisedPage = lazy(() => import('./pages/spec/PcrPpTriplexMetalisedPage'))
-const PcrKraftVmpetPage = lazy(() => import('./pages/spec/PcrKraftVmpetPage'))
-const PcrPetTriplexAluminumPage = lazy(() => import('./pages/spec/PcrPetTriplexAluminumPage'))
-const PcrPpTriplexAluminumPage = lazy(() => import('./pages/spec/PcrPpTriplexAluminumPage'))
-const PcrPetKraftQuadlexAluminumPage = lazy(() => import('./pages/spec/PcrPetKraftQuadlexAluminumPage'))
-const PcrPpKraftQuadlexAluminumPage = lazy(() => import('./pages/spec/PcrPpKraftQuadlexAluminumPage'))
-const PcrKraftDuplexLowPage = lazy(() => import('./pages/spec/PcrKraftDuplexLowPage'))
-const MonoPeDuplexClearPage = lazy(() => import('./pages/spec/MonoPeDuplexClearPage'))
-const MonoPpDuplexClearPage = lazy(() => import('./pages/spec/MonoPpDuplexClearPage'))
-const MonoPeDuplexNoWindowPage = lazy(() => import('./pages/spec/MonoPeDuplexNoWindowPage'))
-const MonoPpDuplexNoWindowPage = lazy(() => import('./pages/spec/MonoPpDuplexNoWindowPage'))
-const BioCelloDuplexClearPage = lazy(() => import('./pages/spec/BioCelloDuplexClearPage'))
-const BioCelloTriplexHighestPage = lazy(() => import('./pages/spec/BioCelloTriplexHighestPage'))
-const BioCelloTriplexMetalisedPage = lazy(() => import('./pages/spec/BioCelloTriplexMetalisedPage'))
-const BioKraftVmCelloPage = lazy(() => import('./pages/spec/BioKraftVmCelloPage'))
-const BioKraftPbatLowPage = lazy(() => import('./pages/spec/BioKraftPbatLowPage'))
+const PcrPetDuplexClearPage = lazyWithRetry(() => import('./pages/spec/PcrPetDuplexClearPage'))
+const PcrPpDuplexClearPage = lazyWithRetry(() => import('./pages/spec/PcrPpDuplexClearPage'))
+const PcrPetKraftTriplexClearPage = lazyWithRetry(() => import('./pages/spec/PcrPetKraftTriplexClearPage'))
+const PcrPpKraftTriplexClearPage = lazyWithRetry(() => import('./pages/spec/PcrPpKraftTriplexClearPage'))
+const PcrPetDuplexNoWindowPage = lazyWithRetry(() => import('./pages/spec/PcrPetDuplexNoWindowPage'))
+const PcrPpDuplexNoWindowPage = lazyWithRetry(() => import('./pages/spec/PcrPpDuplexNoWindowPage'))
+const PcrPetTriplexMetalisedPage = lazyWithRetry(() => import('./pages/spec/PcrPetTriplexMetalisedPage'))
+const PcrPpTriplexMetalisedPage = lazyWithRetry(() => import('./pages/spec/PcrPpTriplexMetalisedPage'))
+const PcrKraftVmpetPage = lazyWithRetry(() => import('./pages/spec/PcrKraftVmpetPage'))
+const PcrPetTriplexAluminumPage = lazyWithRetry(() => import('./pages/spec/PcrPetTriplexAluminumPage'))
+const PcrPpTriplexAluminumPage = lazyWithRetry(() => import('./pages/spec/PcrPpTriplexAluminumPage'))
+const PcrPetKraftQuadlexAluminumPage = lazyWithRetry(() => import('./pages/spec/PcrPetKraftQuadlexAluminumPage'))
+const PcrPpKraftQuadlexAluminumPage = lazyWithRetry(() => import('./pages/spec/PcrPpKraftQuadlexAluminumPage'))
+const PcrKraftDuplexLowPage = lazyWithRetry(() => import('./pages/spec/PcrKraftDuplexLowPage'))
+const MonoPeDuplexClearPage = lazyWithRetry(() => import('./pages/spec/MonoPeDuplexClearPage'))
+const MonoPpDuplexClearPage = lazyWithRetry(() => import('./pages/spec/MonoPpDuplexClearPage'))
+const MonoPeDuplexNoWindowPage = lazyWithRetry(() => import('./pages/spec/MonoPeDuplexNoWindowPage'))
+const MonoPpDuplexNoWindowPage = lazyWithRetry(() => import('./pages/spec/MonoPpDuplexNoWindowPage'))
+const BioCelloDuplexClearPage = lazyWithRetry(() => import('./pages/spec/BioCelloDuplexClearPage'))
+const BioCelloTriplexHighestPage = lazyWithRetry(() => import('./pages/spec/BioCelloTriplexHighestPage'))
+const BioCelloTriplexMetalisedPage = lazyWithRetry(() => import('./pages/spec/BioCelloTriplexMetalisedPage'))
+const BioKraftVmCelloPage = lazyWithRetry(() => import('./pages/spec/BioKraftVmCelloPage'))
+const BioKraftPbatLowPage = lazyWithRetry(() => import('./pages/spec/BioKraftPbatLowPage'))
 
 // BioPE Spec Pages - Plant-Based Bio-PE Structures - Lazy loaded
-const BioPePetDuplexClearPage = lazy(() => import('./pages/spec/BioPePetDuplexClearPage'))
-const BioPePpDuplexClearPage = lazy(() => import('./pages/spec/BioPePpDuplexClearPage'))
-const BioPePetKraftTriplexClearPage = lazy(() => import('./pages/spec/BioPePetKraftTriplexClearPage'))
-const BioPePpKraftTriplexClearPage = lazy(() => import('./pages/spec/BioPePpKraftTriplexClearPage'))
-const BioPePetDuplexNoWindowPage = lazy(() => import('./pages/spec/BioPePetDuplexNoWindowPage'))
-const BioPePpDuplexNoWindowPage = lazy(() => import('./pages/spec/BioPePpDuplexNoWindowPage'))
-const BioPePetTriplexMetalisedPage = lazy(() => import('./pages/spec/BioPePetTriplexMetalisedPage'))
-const BioPePpTriplexMetalisedPage = lazy(() => import('./pages/spec/BioPePpTriplexMetalisedPage'))
-const BioPeKraftVmpetPage = lazy(() => import('./pages/spec/BioPeKraftVmpetPage'))
-const BioPePetTriplexAluminumPage = lazy(() => import('./pages/spec/BioPePetTriplexAluminumPage'))
-const BioPePpTriplexAluminumPage = lazy(() => import('./pages/spec/BioPePpTriplexAluminumPage'))
-const BioPePetKraftQuadlexAluminumPage = lazy(() => import('./pages/spec/BioPePetKraftQuadlexAluminumPage'))
-const BioPePpKraftQuadlexAluminumPage = lazy(() => import('./pages/spec/BioPePpKraftQuadlexAluminumPage'))
-const BioPeKraftDuplexLowPage = lazy(() => import('./pages/spec/BioPeKraftDuplexLowPage'))
+const BioPePetDuplexClearPage = lazyWithRetry(() => import('./pages/spec/BioPePetDuplexClearPage'))
+const BioPePpDuplexClearPage = lazyWithRetry(() => import('./pages/spec/BioPePpDuplexClearPage'))
+const BioPePetKraftTriplexClearPage = lazyWithRetry(() => import('./pages/spec/BioPePetKraftTriplexClearPage'))
+const BioPePpKraftTriplexClearPage = lazyWithRetry(() => import('./pages/spec/BioPePpKraftTriplexClearPage'))
+const BioPePetDuplexNoWindowPage = lazyWithRetry(() => import('./pages/spec/BioPePetDuplexNoWindowPage'))
+const BioPePpDuplexNoWindowPage = lazyWithRetry(() => import('./pages/spec/BioPePpDuplexNoWindowPage'))
+const BioPePetTriplexMetalisedPage = lazyWithRetry(() => import('./pages/spec/BioPePetTriplexMetalisedPage'))
+const BioPePpTriplexMetalisedPage = lazyWithRetry(() => import('./pages/spec/BioPePpTriplexMetalisedPage'))
+const BioPeKraftVmpetPage = lazyWithRetry(() => import('./pages/spec/BioPeKraftVmpetPage'))
+const BioPePetTriplexAluminumPage = lazyWithRetry(() => import('./pages/spec/BioPePetTriplexAluminumPage'))
+const BioPePpTriplexAluminumPage = lazyWithRetry(() => import('./pages/spec/BioPePpTriplexAluminumPage'))
+const BioPePetKraftQuadlexAluminumPage = lazyWithRetry(() => import('./pages/spec/BioPePetKraftQuadlexAluminumPage'))
+const BioPePpKraftQuadlexAluminumPage = lazyWithRetry(() => import('./pages/spec/BioPePpKraftQuadlexAluminumPage'))
+const BioPeKraftDuplexLowPage = lazyWithRetry(() => import('./pages/spec/BioPeKraftDuplexLowPage'))
 
 // Team Pages - Lazy loaded
-const RyanWongPage = lazy(() => import('./pages/team/RyanWongPage'))
+const RyanWongPage = lazyWithRetry(() => import('./pages/team/RyanWongPage'))
 
 // Products Pages - SEO Focused - Lazy loaded
-const CompostableCoffeeBagsPage = lazy(() => import('./pages/products/CompostableCoffeeBagsPage'))
-const CompostableStandUpPouchesPage = lazy(() => import('./pages/products/CompostableStandUpPouchesPage'))
-const RecyclableMonoMaterialPage = lazy(() => import('./pages/products/RecyclableMonoMaterialPage'))
-const CoffeeBagsDegassingValvePage = lazy(() => import('./pages/products/CoffeeBagsDegassingValvePage'))
-const LowMOQPackagingPage = lazy(() => import('./pages/products/LowMOQPackagingPage'))
-const CustomLabelsPage = lazy(() => import('./pages/products/CustomLabelsPage'))
-const CustomStickersPage = lazy(() => import('./pages/products/CustomStickersPage'))
-const LabelsAndStickersPage = lazy(() => import('./pages/products/LabelsAndStickersPage'))
-const LabBagsPage = lazy(() => import('./pages/products/LabBagsPage'))
+const CompostableCoffeeBagsPage = lazyWithRetry(() => import('./pages/products/CompostableCoffeeBagsPage'))
+const CompostableStandUpPouchesPage = lazyWithRetry(() => import('./pages/products/CompostableStandUpPouchesPage'))
+const RecyclableMonoMaterialPage = lazyWithRetry(() => import('./pages/products/RecyclableMonoMaterialPage'))
+const CoffeeBagsDegassingValvePage = lazyWithRetry(() => import('./pages/products/CoffeeBagsDegassingValvePage'))
+const LowMOQPackagingPage = lazyWithRetry(() => import('./pages/products/LowMOQPackagingPage'))
+const CustomLabelsPage = lazyWithRetry(() => import('./pages/products/CustomLabelsPage'))
+const CustomStickersPage = lazyWithRetry(() => import('./pages/products/CustomStickersPage'))
+const LabelsAndStickersPage = lazyWithRetry(() => import('./pages/products/LabelsAndStickersPage'))
+const LabBagsPage = lazyWithRetry(() => import('./pages/products/LabBagsPage'))
 
 // Solutions Pages - Persona Based SEO - Lazy loaded
-const StartupFounderPage = lazy(() => import('./pages/solutions/StartupFounderPage'))
-const EcommerceBrandPage = lazy(() => import('./pages/solutions/EcommerceBrandPage'))
-const CorporateSustainabilityPage = lazy(() => import('./pages/solutions/CorporateSustainabilityPage'))
-const FoodManufacturerPage = lazy(() => import('./pages/solutions/FoodManufacturerPage'))
-const ProductDeveloperPage = lazy(() => import('./pages/solutions/ProductDeveloperPage'))
-const CoffeeRoasterPage = lazy(() => import('./pages/solutions/CoffeeRoasterPage'))
-const ArtisanProducerPage = lazy(() => import('./pages/solutions/ArtisanProducerPage'))
-const SnackBrandManagerPage = lazy(() => import('./pages/solutions/SnackBrandManagerPage'))
+const StartupFounderPage = lazyWithRetry(() => import('./pages/solutions/StartupFounderPage'))
+const EcommerceBrandPage = lazyWithRetry(() => import('./pages/solutions/EcommerceBrandPage'))
+const CorporateSustainabilityPage = lazyWithRetry(() => import('./pages/solutions/CorporateSustainabilityPage'))
+const FoodManufacturerPage = lazyWithRetry(() => import('./pages/solutions/FoodManufacturerPage'))
+const ProductDeveloperPage = lazyWithRetry(() => import('./pages/solutions/ProductDeveloperPage'))
+const CoffeeRoasterPage = lazyWithRetry(() => import('./pages/solutions/CoffeeRoasterPage'))
+const ArtisanProducerPage = lazyWithRetry(() => import('./pages/solutions/ArtisanProducerPage'))
+const SnackBrandManagerPage = lazyWithRetry(() => import('./pages/solutions/SnackBrandManagerPage'))
 
 // Topics Pages - AI Search Volume SEO - Lazy loaded
-const EcoFriendlyFoodPackagingPage = lazy(() => import('./pages/topics/EcoFriendlyFoodPackagingPage'))
-const DTCSustainablePackagingPage = lazy(() => import('./pages/topics/DTCSustainablePackagingPage'))
-const GreenCoffeeMaterialsPage = lazy(() => import('./pages/topics/GreenCoffeeMaterialsPage'))
-const DigitalPrintingEcoPackagingPage = lazy(() => import('./pages/topics/DigitalPrintingEcoPackagingPage'))
-const RecyclableSnackPackagingPage = lazy(() => import('./pages/topics/RecyclableSnackPackagingPage'))
-const CustomPrintedSustainablePouchesPage = lazy(() => import('./pages/topics/CustomPrintedSustainablePouchesPage'))
-const EcoPackagingRegulationsPage = lazy(() => import('./pages/topics/EcoPackagingRegulationsPage'))
-const CustomCompostablePouchSuppliersPage = lazy(() => import('./pages/topics/CustomCompostablePouchSuppliersPage'))
-const LowMOQStartupPackagingPage = lazy(() => import('./pages/topics/LowMOQStartupPackagingPage'))
-const CompostableBabyFoodBagsPage = lazy(() => import('./pages/topics/CompostableBabyFoodBagsPage'))
+const EcoFriendlyFoodPackagingPage = lazyWithRetry(() => import('./pages/topics/EcoFriendlyFoodPackagingPage'))
+const DTCSustainablePackagingPage = lazyWithRetry(() => import('./pages/topics/DTCSustainablePackagingPage'))
+const GreenCoffeeMaterialsPage = lazyWithRetry(() => import('./pages/topics/GreenCoffeeMaterialsPage'))
+const DigitalPrintingEcoPackagingPage = lazyWithRetry(() => import('./pages/topics/DigitalPrintingEcoPackagingPage'))
+const RecyclableSnackPackagingPage = lazyWithRetry(() => import('./pages/topics/RecyclableSnackPackagingPage'))
+const CustomPrintedSustainablePouchesPage = lazyWithRetry(() => import('./pages/topics/CustomPrintedSustainablePouchesPage'))
+const EcoPackagingRegulationsPage = lazyWithRetry(() => import('./pages/topics/EcoPackagingRegulationsPage'))
+const CustomCompostablePouchSuppliersPage = lazyWithRetry(() => import('./pages/topics/CustomCompostablePouchSuppliersPage'))
+const LowMOQStartupPackagingPage = lazyWithRetry(() => import('./pages/topics/LowMOQStartupPackagingPage'))
+const CompostableBabyFoodBagsPage = lazyWithRetry(() => import('./pages/topics/CompostableBabyFoodBagsPage'))
 
 // Compostable Education Pages - Lazy loaded
-const BiodegradableVsCompostablePage = lazy(() => import('./pages/compostable/BiodegradableVsCompostablePage'))
-const CompostServiceFinderPage = lazy(() => import('./pages/compostable/CompostServiceFinderPage'))
-const CompostingBenefitsPage = lazy(() => import('./pages/compostable/CompostingBenefitsPage'))
+const BiodegradableVsCompostablePage = lazyWithRetry(() => import('./pages/compostable/BiodegradableVsCompostablePage'))
+const CompostServiceFinderPage = lazyWithRetry(() => import('./pages/compostable/CompostServiceFinderPage'))
+const CompostingBenefitsPage = lazyWithRetry(() => import('./pages/compostable/CompostingBenefitsPage'))
 
 // 404 Page - Lazy loaded
-const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
+const NotFoundPage = lazyWithRetry(() => import('./pages/NotFoundPage'))
 
 // Reviews Page - Lazy loaded
-const ReviewsPage = lazy(() => import('./pages/ReviewsPage'))
+const ReviewsPage = lazyWithRetry(() => import('./pages/ReviewsPage'))
 
 // Cookie Consent Component
 import CookieConsent from './components/CookieConsent'
