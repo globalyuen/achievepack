@@ -1,11 +1,241 @@
-import React, { useState, useTransition, useEffect } from 'react'
+import React, { useState, useTransition, useEffect, useRef } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
-import { ArrowLeft, Leaf, Mail, Phone, Calendar, X } from 'lucide-react'
+import { ArrowLeft, Leaf, Mail, Phone, Calendar, X, BookOpen, FileText, ChevronDown, ChevronRight, Search, Package, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Layers } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { organizationEntity, getAuthorByContentType, generateBreadcrumb } from '../data/schemaEntities'
-import LearnNavigation from './LearnNavigation'
+import { LEARN_PAGES } from './LearnNavigation'
 import SocialShareButtons from './SocialShareButtons'
+
+// Category icons for Learn Menu
+const CATEGORY_ICONS: Record<string, React.ReactNode> = {
+  materials: <Leaf className="h-3.5 w-3.5" />,
+  packaging: <Package className="h-3.5 w-3.5" />,
+  options: <Package className="h-3.5 w-3.5" />,
+  industries: <Factory className="h-3.5 w-3.5" />,
+  products: <ShoppingBag className="h-3.5 w-3.5" />,
+  solutions: <Users className="h-3.5 w-3.5" />,
+  topics: <FileText className="h-3.5 w-3.5" />,
+  caseStudies: <Award className="h-3.5 w-3.5" />,
+  knowledge: <BookOpen className="h-3.5 w-3.5" />,
+  support: <HelpCircle className="h-3.5 w-3.5" />,
+  function: <Zap className="h-3.5 w-3.5" />,
+  lab: <Beaker className="h-3.5 w-3.5" />,
+  usa: <Globe className="h-3.5 w-3.5" />,
+  company: <Award className="h-3.5 w-3.5" />,
+  spec: <Layers className="h-3.5 w-3.5" />,
+}
+
+// SEO Page Header with Hover Mega Menus
+const SEOPageHeader: React.FC = () => {
+  const navigate = useNavigate()
+  const [isPending, startTransition] = useTransition()
+  const [activeMenu, setActiveMenu] = useState<'learn' | 'blog' | null>(null)
+  const menuTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+  const handleMouseEnter = (menu: 'learn' | 'blog') => {
+    if (menuTimeoutRef.current) {
+      clearTimeout(menuTimeoutRef.current)
+      menuTimeoutRef.current = null
+    }
+    setActiveMenu(menu)
+  }
+
+  const handleMouseLeave = () => {
+    menuTimeoutRef.current = setTimeout(() => {
+      setActiveMenu(null)
+    }, 150)
+  }
+
+  const handleNavigation = (to: string) => (e: React.MouseEvent) => {
+    e.preventDefault()
+    setActiveMenu(null)
+    startTransition(() => {
+      navigate(to)
+    })
+  }
+
+  return (
+    <header className="bg-primary-700 text-white sticky top-0 z-40">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="flex items-center justify-between h-14">
+          {/* Logo + Back */}
+          <div className="flex items-center gap-4">
+            <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition">
+              <ArrowLeft className="h-4 w-4" />
+              <Leaf className="h-5 w-5 text-primary-300" />
+              <span className="font-bold text-sm">Achieve Pack</span>
+            </Link>
+          </div>
+
+          {/* Nav Items */}
+          <nav className="flex items-center gap-1">
+            {/* LEARN Menu */}
+            <div
+              className="relative"
+              onMouseEnter={() => handleMouseEnter('learn')}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium hover:bg-primary-600 rounded-lg transition">
+                <BookOpen className="h-4 w-4" />
+                Learn
+                <ChevronDown className="h-3 w-3" />
+              </button>
+            </div>
+
+            {/* BLOG Menu */}
+            <div
+              className="relative"
+              onMouseEnter={() => handleMouseEnter('blog')}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium hover:bg-primary-600 rounded-lg transition">
+                <FileText className="h-4 w-4" />
+                Blog
+                <ChevronDown className="h-3 w-3" />
+              </button>
+            </div>
+
+            {/* Contact */}
+            <a
+              href="https://calendly.com/30-min-free-packaging-consultancy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 px-3 py-2 text-sm font-medium bg-white text-primary-700 rounded-lg hover:bg-primary-50 transition ml-2"
+            >
+              <Calendar className="h-4 w-4" />
+              Book Meeting
+            </a>
+          </nav>
+        </div>
+      </div>
+
+      {/* LEARN Mega Menu */}
+      {activeMenu === 'learn' && (
+        <div
+          className="fixed left-1/2 -translate-x-1/2 top-14 pt-2 z-50"
+          onMouseEnter={() => handleMouseEnter('learn')}
+          onMouseLeave={handleMouseLeave}
+        >
+          <div className="w-[95vw] max-w-[900px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
+            <div className="p-4">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider flex items-center gap-2">
+                  <BookOpen className="h-4 w-4" />
+                  Learn Center
+                </h3>
+              </div>
+              <div className="grid grid-cols-5 gap-3">
+                {Object.entries(LEARN_PAGES).map(([key, category]) => (
+                  <div key={key} className="space-y-1">
+                    <h4 className="text-[10px] font-bold text-neutral-500 uppercase tracking-wider flex items-center gap-1 mb-1.5">
+                      {CATEGORY_ICONS[key]}
+                      {category.title}
+                    </h4>
+                    <ul className="space-y-0.5">
+                      {category.pages.slice(0, 4).map((page) => (
+                        <li key={page.link}>
+                          <a
+                            href={page.link}
+                            onClick={handleNavigation(page.link)}
+                            className="block py-0.5 text-[11px] text-neutral-600 hover:text-primary-600 transition-colors truncate"
+                          >
+                            {page.name}
+                          </a>
+                        </li>
+                      ))}
+                      {category.pages.length > 4 && (
+                        <li>
+                          <a
+                            href="/learn"
+                            onClick={handleNavigation('/learn')}
+                            className="block py-0.5 text-[10px] text-primary-500 hover:text-primary-600 font-medium"
+                          >
+                            +{category.pages.length - 4} more
+                          </a>
+                        </li>
+                      )}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* BLOG Mega Menu */}
+      {activeMenu === 'blog' && (
+        <div
+          className="fixed right-4 top-14 pt-2 z-50"
+          onMouseEnter={() => handleMouseEnter('blog')}
+          onMouseLeave={handleMouseLeave}
+        >
+          <div className="w-[280px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
+            <div className="p-4">
+              <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-3 flex items-center gap-2">
+                <FileText className="h-4 w-4" />
+                Blog Categories
+              </h3>
+              <ul className="space-y-1">
+                <li>
+                  <a
+                    href="/blog"
+                    onClick={handleNavigation('/blog')}
+                    className="flex items-center gap-2 py-2 px-3 rounded-lg text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition"
+                  >
+                    <FileText className="h-4 w-4 text-primary-500" />
+                    All Articles
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/blog?category=Packaging"
+                    onClick={handleNavigation('/blog?category=Packaging')}
+                    className="flex items-center gap-2 py-2 px-3 rounded-lg text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition"
+                  >
+                    <Package className="h-4 w-4 text-primary-500" />
+                    Packaging Tips
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/blog?category=Sustainability"
+                    onClick={handleNavigation('/blog?category=Sustainability')}
+                    className="flex items-center gap-2 py-2 px-3 rounded-lg text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition"
+                  >
+                    <Leaf className="h-4 w-4 text-primary-500" />
+                    Sustainability
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/blog?category=Industry"
+                    onClick={handleNavigation('/blog?category=Industry')}
+                    className="flex items-center gap-2 py-2 px-3 rounded-lg text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition"
+                  >
+                    <Factory className="h-4 w-4 text-primary-500" />
+                    Industry News
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/blog?category=Newsletter"
+                    onClick={handleNavigation('/blog?category=Newsletter')}
+                    className="flex items-center gap-2 py-2 px-3 rounded-lg text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition"
+                  >
+                    <Mail className="h-4 w-4 text-primary-500" />
+                    Newsletter
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
+    </header>
+  )
+}
 
 interface FAQ {
   question: string
@@ -251,26 +481,8 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
       </Helmet>
 
       <div className="min-h-screen bg-neutral-50">
-        {/* Header */}
-        <header className="bg-white border-b sticky top-0 z-50">
-          <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-            <a 
-              href="/" 
-              onClick={handleNavigation('/')}
-              className="flex items-center gap-2 text-neutral-600 hover:text-primary-600 transition-colors text-sm"
-            >
-              <ArrowLeft className="h-4 w-4" /> {t('seoPages.backToHome')}
-            </a>
-            <div className="flex items-center gap-4">
-              <Link to="/" className="flex items-center gap-2">
-                <img src="/ap-logo.svg" alt="Achieve Pack" className="h-10 w-auto" />
-              </Link>
-            </div>
-          </div>
-        </header>
-
-        {/* Learn Navigation with Rotating Featured Articles */}
-        <LearnNavigation />
+        {/* Header with LEARN and BLOG Mega Menus */}
+        <SEOPageHeader />
 
         {/* Hero Section */}
         <section className="bg-primary-700 text-white">

@@ -1,7 +1,8 @@
 import { useState, useRef, useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { ChevronDown, ChevronRight, Layers, Palette, Package, BookOpen, Calendar, FileText, Sparkles } from 'lucide-react'
+import { ChevronDown, ChevronRight, Layers, Palette, Package, BookOpen, Calendar, FileText, Sparkles, Search, Leaf, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe } from 'lucide-react'
 import { useCustomQuote } from '../contexts/CustomQuoteContext'
+import { LEARN_PAGES } from './LearnNavigation'
 
 // Store-related 9:16 ads images pool (for SHAPE/CUSTOM/STOCK menus - left side)
 const STORE_ADS_POOL = [
@@ -118,33 +119,23 @@ const STOCK_CATEGORIES = [
   { name: 'Mailer Bags', link: '/store?category=mailer' },
 ]
 
-// LEARN menu categories
-const LEARN_CATEGORIES = {
-  materials: [
-    { name: 'Home Compostable', link: '/materials/home-compostable' },
-    { name: 'Industrial Compostable', link: '/materials/industrial-compostable' },
-    { name: 'Recyclable Mono PE', link: '/materials/recyclable-mono-pe' },
-    { name: 'Bio-PE', link: '/materials/bio-pe' },
-    { name: 'PCR Recycled', link: '/materials/pcr' },
-  ],
-  options: [
-    { name: 'Digital Printing', link: '/printing/digital-printing' },
-    { name: 'Reclosure Options', link: '/features/reclosure-options' },
-    { name: 'Surface Finishes', link: '/features/surface-finish' },
-    { name: 'Barrier Options', link: '/features/barrier-options' },
-  ],
-  industries: [
-    { name: 'Coffee & Tea', link: '/industry/coffee-tea' },
-    { name: 'Snacks & Food', link: '/industry/snacks-food' },
-    { name: 'Pet Food', link: '/industry/pet-food' },
-    { name: 'Supplements', link: '/industry/supplements-powders' },
-  ],
-  support: [
-    { name: 'FAQs', link: '/support/faqs' },
-    { name: 'Lead Time', link: '/support/lead-time' },
-    { name: 'Workflow', link: '/knowledge/workflow' },
-    { name: 'About Us', link: '/company/about' },
-  ],
+// Category icons for Learn Menu
+const CATEGORY_ICONS: Record<string, React.ReactNode> = {
+  materials: <Leaf className="h-3.5 w-3.5" />,
+  packaging: <Package className="h-3.5 w-3.5" />,
+  options: <Package className="h-3.5 w-3.5" />,
+  industries: <Factory className="h-3.5 w-3.5" />,
+  products: <ShoppingBag className="h-3.5 w-3.5" />,
+  solutions: <Users className="h-3.5 w-3.5" />,
+  topics: <FileText className="h-3.5 w-3.5" />,
+  caseStudies: <Award className="h-3.5 w-3.5" />,
+  knowledge: <BookOpen className="h-3.5 w-3.5" />,
+  support: <HelpCircle className="h-3.5 w-3.5" />,
+  function: <Zap className="h-3.5 w-3.5" />,
+  lab: <Beaker className="h-3.5 w-3.5" />,
+  usa: <Globe className="h-3.5 w-3.5" />,
+  company: <Award className="h-3.5 w-3.5" />,
+  spec: <Layers className="h-3.5 w-3.5" />,
 }
 
 interface MegaMenuDropdownProps {
@@ -390,88 +381,76 @@ export default function MegaMenu() {
           </Link>
           {activeMenu === 'learn' && (
             <div className="fixed left-1/2 -translate-x-1/2 top-16 pt-2 z-50" onMouseEnter={() => handleMouseEnter('learn')} onMouseLeave={handleMouseLeave}>
-              <div className="w-[95vw] max-w-[1200px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
-                <div className="flex">
-                  {/* Left: Categories Grid */}
-                  <div className="flex-shrink-0 w-[200px] lg:w-[280px] grid grid-cols-2 gap-0 border-r border-neutral-100">
-                    <div className="p-4 border-r border-b border-neutral-100">
-                      <h4 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-2">Materials</h4>
-                      <ul className="space-y-1">
-                        {LEARN_CATEGORIES.materials.map((item) => (
-                          <li key={item.name}>
-                            <Link to={item.link} className="block py-1 text-xs text-neutral-600 hover:text-primary-600 transition-colors">{item.name}</Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="p-4 border-b border-neutral-100">
-                      <h4 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-2">Options</h4>
-                      <ul className="space-y-1">
-                        {LEARN_CATEGORIES.options.map((item) => (
-                          <li key={item.name}>
-                            <Link to={item.link} className="block py-1 text-xs text-neutral-600 hover:text-primary-600 transition-colors">{item.name}</Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="p-4 border-r border-neutral-100">
-                      <h4 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-2">Industries</h4>
-                      <ul className="space-y-1">
-                        {LEARN_CATEGORIES.industries.map((item) => (
-                          <li key={item.name}>
-                            <Link to={item.link} className="block py-1 text-xs text-neutral-600 hover:text-primary-600 transition-colors">{item.name}</Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="p-4">
-                      <h4 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-2">Support</h4>
-                      <ul className="space-y-1">
-                        {LEARN_CATEGORIES.support.map((item) => (
-                          <li key={item.name}>
-                            <Link to={item.link} className="block py-1 text-xs text-neutral-600 hover:text-primary-600 transition-colors">{item.name}</Link>
-                          </li>
-                        ))}
-                      </ul>
+              <div className="w-[95vw] max-w-[900px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
+                {/* Compact Category Grid - No Images */}
+                <div className="p-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider flex items-center gap-2">
+                      <BookOpen className="h-4 w-4" />
+                      Learn Center
+                    </h3>
+                    <div className="relative flex-1 max-w-xs ml-4">
+                      <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-neutral-400" />
+                      <input
+                        type="text"
+                        placeholder="Search..."
+                        className="w-full pl-8 pr-3 py-1.5 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary-500"
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') {
+                            const query = (e.target as HTMLInputElement).value
+                            if (query.trim()) {
+                              window.location.href = `/learn?q=${encodeURIComponent(query)}`
+                            }
+                          }
+                        }}
+                      />
                     </div>
                   </div>
-                  
-                  {/* Right: Random Ads Images */}
-                  <div className="flex-1 p-3 lg:p-4">
-                    <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-3">Discover More</h3>
-                    <div className="flex gap-2 lg:gap-3 overflow-x-auto pb-2 scrollbar-hide">
-                      {randomLearnAdsImages.map((ad, index) => (
-                        <Link 
-                          key={`learn-${ad.link}-${index}`} 
-                          to={ad.link} 
-                          className="flex-shrink-0 group"
-                        >
-                          <div 
-                            className="w-[120px] lg:w-[200px] bg-neutral-100 rounded-lg overflow-hidden"
-                            style={{ aspectRatio: '9/16' }}
-                          >
-                            <img
-                              src={ad.image}
-                              alt="Product"
-                              className="w-full h-full object-cover pointer-events-none"
-                              loading="lazy"
-                              decoding="async"
-                            />
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
+                  <div className="grid grid-cols-5 gap-3">
+                    {Object.entries(LEARN_PAGES).map(([key, category]) => (
+                      <div key={key} className="space-y-1">
+                        <h4 className="text-[10px] font-bold text-neutral-500 uppercase tracking-wider flex items-center gap-1 mb-1.5">
+                          {CATEGORY_ICONS[key]}
+                          {category.title}
+                        </h4>
+                        <ul className="space-y-0.5">
+                          {category.pages.slice(0, 4).map((page) => (
+                            <li key={page.link}>
+                              <Link 
+                                to={page.link} 
+                                className="block py-0.5 text-[11px] text-neutral-600 hover:text-primary-600 transition-colors truncate"
+                              >
+                                {page.name}
+                              </Link>
+                            </li>
+                          ))}
+                          {category.pages.length > 4 && (
+                            <li>
+                              <Link 
+                                to="/learn" 
+                                className="block py-0.5 text-[10px] text-primary-500 hover:text-primary-600 font-medium"
+                              >
+                                +{category.pages.length - 4} more
+                              </Link>
+                            </li>
+                          )}
+                        </ul>
+                      </div>
+                    ))}
                   </div>
                 </div>
-                <div className="bg-neutral-50 px-4 py-2 border-t border-neutral-100">
+                <div className="bg-neutral-50 px-4 py-2 border-t border-neutral-100 flex items-center justify-between">
+                  <Link to="/learn" className="text-xs font-semibold text-primary-600 hover:text-primary-700 transition-colors">
+                    Browse All Pages →
+                  </Link>
                   <a
                     href="https://calendly.com/30-min-free-packaging-consultancy"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 text-primary-600 text-sm font-semibold hover:text-primary-700 transition-colors"
+                    className="flex items-center gap-1.5 text-primary-600 text-xs font-semibold hover:text-primary-700 transition-colors"
                   >
-                    <Calendar className="h-4 w-4" />
-                    Book Free Consultation
+                    <Calendar className="h-3.5 w-3.5" />
+                    Book Consultation
                   </a>
                 </div>
               </div>
@@ -487,74 +466,54 @@ export default function MegaMenu() {
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'blog' ? 'rotate-180' : ''}`} />
           </Link>
           {activeMenu === 'blog' && (
-            <div className="fixed left-1/2 -translate-x-1/2 top-16 pt-2 z-50" onMouseEnter={() => handleMouseEnter('blog')} onMouseLeave={handleMouseLeave}>
-              <div className="w-[95vw] max-w-[1200px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
-                <div className="flex">
-                  {/* Left: Blog Categories */}
-                  <div className="flex-shrink-0 w-[140px] lg:w-[180px] bg-neutral-50 p-4 lg:p-5 border-r border-neutral-100">
-                    <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-3">Categories</h3>
-                    <ul className="space-y-0.5">
-                      <li>
-                        <Link to="/blog" className="flex items-center gap-2 py-2 px-3 rounded-lg text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all text-sm font-medium">
-                          <ChevronRight className="h-3 w-3 text-neutral-400" />
-                          All Articles
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/blog?category=packaging" className="flex items-center gap-2 py-2 px-3 rounded-lg text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all text-sm font-medium">
-                          <ChevronRight className="h-3 w-3 text-neutral-400" />
-                          Packaging Tips
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/blog?category=sustainability" className="flex items-center gap-2 py-2 px-3 rounded-lg text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all text-sm font-medium">
-                          <ChevronRight className="h-3 w-3 text-neutral-400" />
-                          Sustainability
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/blog?category=industry" className="flex items-center gap-2 py-2 px-3 rounded-lg text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all text-sm font-medium">
-                          <ChevronRight className="h-3 w-3 text-neutral-400" />
-                          Industry News
-                        </Link>
-                      </li>
-                    </ul>
-                    <div className="mt-4 pt-4 border-t border-neutral-200">
-                      <Link
-                        to="/blog"
-                        className="inline-flex items-center gap-1 text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors"
-                      >
-                        View All Posts →
+            <div className="fixed right-4 top-16 pt-2 z-50" onMouseEnter={() => handleMouseEnter('blog')} onMouseLeave={handleMouseLeave}>
+              <div className="w-[280px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
+                {/* Compact Blog Categories */}
+                <div className="p-4">
+                  <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-3 flex items-center gap-2">
+                    <FileText className="h-4 w-4" />
+                    Blog Categories
+                  </h3>
+                  <ul className="space-y-1">
+                    <li>
+                      <Link to="/blog" className="flex items-center gap-2 py-2 px-3 rounded-lg text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition-all text-sm font-medium">
+                        <ChevronRight className="h-3 w-3 text-neutral-400" />
+                        All Articles
                       </Link>
-                    </div>
-                  </div>
-                  
-                  {/* Right: Random Ads Images */}
-                  <div className="flex-1 p-3 lg:p-4">
-                    <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-3">Featured Products</h3>
-                    <div className="flex gap-2 lg:gap-3 overflow-x-auto pb-2 scrollbar-hide">
-                      {randomLearnAdsImages.map((ad, index) => (
-                        <Link 
-                          key={`blog-${ad.link}-${index}`} 
-                          to={ad.link} 
-                          className="flex-shrink-0 group"
-                        >
-                          <div 
-                            className="w-[120px] lg:w-[200px] bg-neutral-100 rounded-lg overflow-hidden"
-                            style={{ aspectRatio: '9/16' }}
-                          >
-                            <img
-                              src={ad.image}
-                              alt="Product"
-                              className="w-full h-full object-cover pointer-events-none"
-                              loading="lazy"
-                              decoding="async"
-                            />
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
+                    </li>
+                    <li>
+                      <Link to="/blog?category=Packaging" className="flex items-center gap-2 py-2 px-3 rounded-lg text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition-all text-sm font-medium">
+                        <ChevronRight className="h-3 w-3 text-neutral-400" />
+                        Packaging Tips
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/blog?category=Sustainability" className="flex items-center gap-2 py-2 px-3 rounded-lg text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition-all text-sm font-medium">
+                        <ChevronRight className="h-3 w-3 text-neutral-400" />
+                        Sustainability
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/blog?category=Industry" className="flex items-center gap-2 py-2 px-3 rounded-lg text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition-all text-sm font-medium">
+                        <ChevronRight className="h-3 w-3 text-neutral-400" />
+                        Industry News
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/blog?category=Newsletter" className="flex items-center gap-2 py-2 px-3 rounded-lg text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition-all text-sm font-medium">
+                        <ChevronRight className="h-3 w-3 text-neutral-400" />
+                        Newsletter
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+                <div className="bg-neutral-50 px-4 py-2 border-t border-neutral-100">
+                  <Link
+                    to="/blog"
+                    className="text-xs font-semibold text-primary-600 hover:text-primary-700 transition-colors"
+                  >
+                    View All Posts →
+                  </Link>
                 </div>
               </div>
             </div>
