@@ -1635,10 +1635,67 @@ const AdminPage: React.FC = () => {
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <h1 className="text-2xl font-bold text-gray-900">Email Marketing</h1>
-                <div className="text-sm text-gray-500">
-                  Convert any page content to personalized emails
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={() => setShowEmailHistory(!showEmailHistory)}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition-colors ${
+                      showEmailHistory ? 'bg-primary-50 border-primary-300 text-primary-700' : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-50'
+                    }`}
+                  >
+                    <History className="h-4 w-4" />
+                    Send History
+                    {emailHistory.length > 0 && (
+                      <span className="bg-primary-500 text-white text-xs px-1.5 py-0.5 rounded-full">{emailHistory.length}</span>
+                    )}
+                  </button>
+                  <div className="text-sm text-gray-500">
+                    Convert any page content to personalized emails
+                  </div>
                 </div>
               </div>
+
+              {/* Email History Panel */}
+              {showEmailHistory && (
+                <div className="bg-white rounded-xl shadow-sm border p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                      <History className="h-5 w-5 text-blue-500" />
+                      Email Send History
+                    </h3>
+                    <button
+                      onClick={() => fetchData()}
+                      className="text-sm text-primary-600 hover:text-primary-700 flex items-center gap-1"
+                    >
+                      <RefreshCw className="h-3 w-3" /> Refresh
+                    </button>
+                  </div>
+                  {emailHistory.length === 0 ? (
+                    <p className="text-gray-500 text-center py-8">No email campaigns sent yet</p>
+                  ) : (
+                    <div className="space-y-3 max-h-96 overflow-y-auto">
+                      {emailHistory.slice(0, 50).map((activity, index) => (
+                        <div key={activity.id || index} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+                          <div className="p-2 bg-blue-100 text-blue-600 rounded-full">
+                            <Mail className="h-4 w-4" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="font-medium text-gray-900 truncate">{activity.subject || 'Campaign Email'}</p>
+                            <p className="text-sm text-gray-500 truncate">{activity.content?.substring(0, 100)}...</p>
+                            <p className="text-xs text-gray-400 mt-1">
+                              {new Date(activity.created_at).toLocaleString()}
+                            </p>
+                          </div>
+                          <div className="text-right">
+                            <span className="inline-flex items-center gap-1 text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
+                              <CheckCircle className="h-3 w-3" /> Sent
+                            </span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* Left Column - Page Selection & Email Builder */}
