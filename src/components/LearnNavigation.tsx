@@ -39,9 +39,9 @@ const LEARN_PAGES = {
       { name: 'Reclosure Options', link: '/features/reclosure-options', image: '/imgs/illustrated/a_reclosure_options_close_detail_b_4502553.webp' },
       { name: 'Surface Finishes', link: '/features/surface-finish', image: '/imgs/illustrated/a_surface_finish_close_detail_b_2163248.webp' },
       { name: 'Barrier Options', link: '/features/barrier-options', image: '/imgs/illustrated/a_barrier_options_presentation_c_6124347.webp' },
-      { name: 'Low Barrier', link: '/features/low-barrier', image: '/imgs/illustrated/a_lowbarrier_presentation_c_9188452.webp' },
-      { name: 'Medium Barrier', link: '/features/medium-barrier', image: '/imgs/illustrated/a_mediumbarrier_presentation_c_5439721.webp' },
-      { name: 'High Barrier', link: '/features/high-barrier', image: '/imgs/illustrated/a_highbarrier_presentation_c_3827146.webp' },
+      { name: 'Low Barrier', link: '/features/low-barrier', image: '/imgs/seo-photos/a_low_barrier_fresh_produce_5877816.webp' },
+      { name: 'Medium Barrier', link: '/features/medium-barrier', image: '/imgs/seo-photos/a_medium_barrier_balanced_freshness_1094166.webp' },
+      { name: 'High Barrier', link: '/features/high-barrier', image: '/imgs/seo-photos/a_high_barrier_premium_protection_0120312.webp' },
     ]
   },
   industries: {
@@ -193,7 +193,7 @@ const LEARN_PAGES = {
     pages: [
       { name: 'Composting Benefits', link: '/compostable/composting-benefits', image: '/imgs/compostable/benefits/a_achievepack_composting_locator_hero_9733153.webp' },
       { name: 'Composting Service Finder', link: '/compostable/composting-services', image: '/imgs/compostable/finder/a_achievepack_composting_locator_hero_9733153.webp' },
-      { name: 'Biodegradable vs Compostable', link: '/compostable/biodegradable-vs-compostable', image: '/imgs/compostable/vs/hero.webp' },
+      { name: 'Biodegradable vs Compostable', link: '/compostable/biodegradable-vs-compostable', image: '/imgs/compostable/vs/a_hero_biodegradable_vs_compostable_8031695.webp' },
     ]
   },
 }
