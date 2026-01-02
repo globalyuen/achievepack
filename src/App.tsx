@@ -1889,10 +1889,10 @@ function App() {
             </div>
           </div>
 
-          {/* Members for the Planet & Connect with Us */}
+          {/* Members for the Planet | Certifications & Payment | Connect with Us */}
           <div className="border-t border-neutral-800 py-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              {/* Members for the Planet */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+              {/* Left: Members for the Planet */}
               <div className="text-center md:text-left">
                 <h4 className="text-neutral-400 text-sm font-medium mb-4">Members for the planet</h4>
                 <div className="flex items-center justify-center md:justify-start gap-6">
@@ -1923,7 +1923,33 @@ function App() {
                 </div>
               </div>
 
-              {/* Connect with Us */}
+              {/* Center: Certifications, Payment & SSL */}
+              <div className="text-center">
+                <div className="flex flex-col items-center gap-3">
+                  {/* BPI & B Corp Logos */}
+                  <div className="flex items-center justify-center gap-4">
+                    <img src="/imgs/cert/logo-achievepack-BPI.jpg" alt="BPI Certified" className="h-10 w-auto rounded" loading="lazy" decoding="async" />
+                    <img src="/imgs/cert-b.webp" alt="B Corp Certified" className="h-10 w-auto" loading="lazy" decoding="async" />
+                  </div>
+                  {/* Payment Logos */}
+                  <div className="flex items-center justify-center gap-3 text-white/80">
+                    <span className="text-sm font-medium">stripe</span>
+                    <span className="text-sm font-medium">PayPal</span>
+                    <span className="text-xs font-bold bg-white/20 px-1.5 py-0.5 rounded">AMEX</span>
+                    <span className="text-sm font-bold">VISA</span>
+                    <span className="text-sm">●●</span>
+                  </div>
+                  {/* SSL Secure Badge */}
+                  <div className="flex items-center gap-1.5 bg-neutral-800 px-3 py-1.5 rounded">
+                    <svg className="h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                    <span className="text-xs text-neutral-300 font-medium">SSL 100% Secure Transactions</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right: Connect with Us */}
               <div className="text-center md:text-right">
                 <h4 className="text-neutral-400 text-sm font-medium mb-4">Connect with us</h4>
                 <div className="flex items-center justify-center md:justify-end gap-3">
@@ -1964,6 +1990,13 @@ function App() {
                   </a>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Empty row for testimonial and chat icons */}
+          <div className="border-t border-neutral-800 py-6">
+            <div className="flex justify-center items-center gap-8 min-h-[40px]">
+              {/* Space reserved for testimonial icon and chat icon */}
             </div>
           </div>
 

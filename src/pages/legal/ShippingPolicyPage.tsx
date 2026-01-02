@@ -132,15 +132,7 @@ const ShippingPolicyPage: React.FC = () => {
                   Shipping costs are calculated based on order weight, volume, destination, and shipping method. We provide shipping quotes with your order quotation.
                 </p>
                 
-                <div className="bg-primary-50 p-4 rounded-lg">
-                  <h3 className="font-semibold text-primary-800 mb-2">Free Shipping Eligibility</h3>
-                  <ul className="text-sm space-y-1 text-primary-700">
-                    <li>• Orders over <strong>$2,000 USD</strong>: Free express shipping to USA, UK, Australia</li>
-                    <li>• Orders over <strong>$5,000 USD</strong>: Free express shipping worldwide</li>
-                    <li>• Sample orders: Flat rate $25-50 depending on destination</li>
-                  </ul>
-                </div>
-                
+
                 <div className="bg-amber-50 border border-amber-200 p-4 rounded-lg">
                   <h3 className="font-semibold text-amber-800 mb-2">Import Duties & Taxes</h3>
                   <p className="text-sm text-amber-700">
