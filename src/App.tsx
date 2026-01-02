@@ -1809,6 +1809,16 @@ function App() {
               </ul>
             </div>
 
+            {/* Composting */}
+            <div>
+              <h4 className="text-sm font-semibold mb-2">Composting</h4>
+              <ul className="space-y-1 text-neutral-400 text-xs">
+                <li><Link to="/compostable/composting-benefits" className="hover:text-primary-500">Composting Benefits</Link></li>
+                <li><Link to="/compostable/composting-services" className="hover:text-primary-500">Service Finder</Link></li>
+                <li><Link to="/compostable/biodegradable-vs-compostable" className="hover:text-primary-500">Biodegradable vs Compostable</Link></li>
+              </ul>
+            </div>
+
             {/* Structure Specs */}
             <div>
               <h4 className="text-sm font-semibold mb-2">Structure Specs</h4>
@@ -1867,25 +1877,6 @@ function App() {
                 <li><Link to="/knowledge/all-options" className="hover:text-primary-500">All Options</Link></li>
                 <li><Link to="/knowledge/printing-types" className="hover:text-primary-500">Printing Types</Link></li>
               </ul>
-            </div>
-          </div>
-
-          {/* Certification Logos & SSL Badge */}
-          <div className="border-t border-neutral-800 pt-6">
-            <div className="flex flex-col items-center gap-4 mb-6">
-              {/* BPI & B Corp Logos */}
-              <img src="/bpi-bcorp-logos.svg" alt="BPI & B Corp Certified" className="h-12 w-auto" loading="lazy" decoding="async" />
-              
-              {/* Payment Logos */}
-              <img src="/pay-logos.svg" alt="Payment Methods" className="h-8 w-auto" loading="lazy" decoding="async" />
-              
-              {/* SSL Secure Badge */}
-              <div className="flex items-center gap-1.5 bg-neutral-800 px-3 py-1.5 rounded">
-                <svg className="h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
-                <span className="text-xs text-neutral-300 font-medium">SSL 100% Secure Transactions</span>
-              </div>
             </div>
           </div>
 
