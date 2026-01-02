@@ -297,7 +297,8 @@ const ProductDeveloperPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Product"
-        heroImage="/imgs/store/surface/holographic.webp"
+        heroImage="/imgs/seo-photos/a_digital_printing_customization_2717640.webp"
+                heroImageAlt="Digital printing customization for product innovation"
       />
     </>
   )
