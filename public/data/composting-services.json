@@ -1,0 +1,61 @@
+{
+  "lastUpdated": "2026-01-02",
+  "totalServices": 0,
+  "services": [
+    {
+      "id": "example-001",
+      "name": "Example Composting Facility",
+      "type": "industrial",
+      "country": "US",
+      "state": "CA",
+      "city": "San Francisco",
+      "address": "123 Green Street, San Francisco, CA 94102",
+      "zipCode": "94102",
+      "coordinates": {
+        "lat": 37.7749,
+        "lng": -122.4194
+      },
+      "contact": {
+        "phone": "+1-415-555-0100",
+        "email": "info@example.com",
+        "website": "https://example.com"
+      },
+      "certifications": ["BPI", "ASTM D6400"],
+      "acceptedMaterials": [
+        "food scraps",
+        "yard waste",
+        "certified compostable packaging",
+        "paper products"
+      ],
+      "notAccepted": [
+        "plastic bags",
+        "glass",
+        "metal"
+      ],
+      "serviceType": ["drop-off", "pickup", "commercial"],
+      "hours": {
+        "monday": "8:00 AM - 5:00 PM",
+        "tuesday": "8:00 AM - 5:00 PM",
+        "wednesday": "8:00 AM - 5:00 PM",
+        "thursday": "8:00 AM - 5:00 PM",
+        "friday": "8:00 AM - 5:00 PM",
+        "saturday": "9:00 AM - 2:00 PM",
+        "sunday": "Closed"
+      },
+      "pricing": {
+        "residential": "Free with city service",
+        "commercial": "Contact for quote"
+      },
+      "notes": "This is an example entry. Replace with real data.",
+      "verified": false,
+      "featured": false,
+      "addedDate": "2026-01-02"
+    }
+  ],
+  "metadata": {
+    "typeOptions": ["industrial", "home", "community", "municipal"],
+    "serviceTypeOptions": ["drop-off", "pickup", "curbside", "commercial", "residential"],
+    "certificationOptions": ["BPI", "TUV OK Compost", "TUV OK Home", "ASTM D6400", "EN 13432", "DIN CERTCO"],
+    "countryOptions": ["US", "UK", "CA", "AU", "NZ", "DE", "FR", "NL", "IE", "SG", "HK"]
+  }
+}
