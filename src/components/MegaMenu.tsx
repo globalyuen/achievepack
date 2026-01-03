@@ -111,11 +111,11 @@ const CUSTOM_ORDER_TYPES = [
 ]
 
 const CUSTOM_PRODUCTS = [
-  { name: 'Eco Digital Pouches', link: '/store?category=eco-digital', image: '/imgs/store/eco-digital/eco-3ss-clear-zip/1.webp', badge: '🌱 Eco' },
+  { name: 'Eco Digital Pouches', link: '/store?category=eco-digital', image: '/imgs/store/eco-digital/os9CHhTSQoGASvA8lsfm-iHYfG4kddPoZP2wYMh47fs=.webp', badge: '🌱 Eco' },
   { name: 'Conventional Digital', link: '/store?category=conventional-digital', image: '/imgs/store/con-digital/3ss-clear-zip/1.webp', badge: '' },
-  { name: 'Custom Boxes', link: '/store?category=boxes', image: '/imgs/store/box/corrugated-box.webp', badge: '' },
+  { name: 'Custom Boxes', link: '/store?category=boxes', image: '/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp', badge: '' },
   { name: 'Custom Mailer Bags', link: '/store?category=mailer', image: '/imgs/menu/mailer/447849b2-65ea-49fb-86de-1278a636c795_upscayl_3x_upscayl-standard-4x.webp', badge: '' },
-  { name: 'Custom Labels', link: '/products/custom-labels', image: '/imgs/label/label-roll.webp', badge: '' },
+  { name: 'Custom Labels', link: '/products/custom-labels', image: '/imgs/label/custom-label/hero.webp', badge: '' },
 ]
 
 // STOCK menu - reorganized into Order Types and Products
@@ -126,10 +126,10 @@ const STOCK_ORDER_TYPES = [
 ]
 
 const STOCK_PRODUCTS = [
-  { name: 'Zipper Stand Up Pouch', link: '/store?category=eco-stock', image: '/imgs/store/eco-stock/zipper-stand-up.webp', badge: '📦 Ready' },
-  { name: 'Zipper 3 Side Sealed', link: '/store?category=eco-stock', image: '/imgs/store/eco-stock/zipper-3ss.webp', badge: '' },
+  { name: 'Zipper Stand Up Pouch', link: '/store?category=eco-stock', image: '/imgs/illustrated/a_achievepack_standup_pouches_9884402.webp', badge: '📦 Ready' },
+  { name: 'Zipper 3 Side Sealed', link: '/store?category=eco-stock', image: '/imgs/store/eco-stock/flat-bottom/clear/1.webp', badge: '' },
   { name: 'Eco Mailer Bags', link: '/store?category=mailer', image: '/imgs/menu/mailer/a_comparison_compostable_transparent_7910662.webp', badge: '🌱 Eco' },
-  { name: 'Header Bags', link: '/store?category=eco-stock', image: '/imgs/store/eco-stock/header-bag.webp', badge: '' },
+  { name: 'Header Bags', link: '/store?category=eco-stock', image: '/imgs/store/eco-stock/flat-bottom/kraft/1.webp', badge: '' },
 ]
 
 // Category icons for Learn Menu
