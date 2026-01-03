@@ -47,12 +47,16 @@ const ClickableImage: React.FC<{
 
       {isOpen && (
         <div 
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+          className="fixed inset-0 z-[9999] bg-black/90 flex items-center justify-center p-4"
           onClick={() => setIsOpen(false)}
         >
           <button 
-            className="absolute top-4 right-4 text-white hover:text-neutral-300"
-            onClick={() => setIsOpen(false)}
+            className="absolute top-4 right-4 z-[10000] text-white hover:text-neutral-300 bg-black/50 rounded-full p-2"
+            onClick={(e) => {
+              e.stopPropagation()
+              setIsOpen(false)
+            }}
+            aria-label="Close image"
           >
             <X className="h-8 w-8" />
           </button>
@@ -62,6 +66,11 @@ const ClickableImage: React.FC<{
             className="max-w-full max-h-[90vh] object-contain"
             onClick={(e) => e.stopPropagation()}
           />
+          {caption && (
+            <p className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-center bg-black/50 px-4 py-2 rounded-lg max-w-lg">
+              {caption}
+            </p>
+          )}
         </div>
       )}
     </>

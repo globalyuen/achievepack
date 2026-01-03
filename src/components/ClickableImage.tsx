@@ -42,12 +42,16 @@ const ClickableImage: React.FC<ClickableImageProps> = ({
       {/* Lightbox Modal */}
       {isOpen && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90" 
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-90" 
           onClick={() => setIsOpen(false)}
         >
           <button
-            onClick={() => setIsOpen(false)}
-            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-50"
+            onClick={(e) => {
+              e.stopPropagation()
+              setIsOpen(false)
+            }}
+            className="absolute top-4 right-4 z-[10000] text-white hover:text-gray-300 transition-colors bg-black/50 rounded-full p-2"
+            aria-label="Close image"
           >
             <X className="h-8 w-8" />
           </button>
