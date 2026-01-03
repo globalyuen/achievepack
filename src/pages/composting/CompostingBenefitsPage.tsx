@@ -7,13 +7,13 @@ import Footer from '../../components/Footer'
 
 // Image paths
 const IMAGES = {
-  hero: '/imgs/compostable/benefits/a_achievepack_composting_locator_hero_9733153.webp',
-  heroLearn: '/imgs/compostable/benefits/hero.webp',
-  landfill: '/imgs/compostable/benefits/Educational cross-section.webp',
-  commercial: '/imgs/compostable/benefits/Commercial composting facility illustration.webp',
-  benefits: '/imgs/compostable/benefits/Benefits grid showing.webp',
-  premium: '/imgs/compostable/benefits/Premium product photography.webp',
-  heroIllustration: '/imgs/compostable/benefits/hero illustration.webp'
+  hero: '/imgs/composting/benefits/a_achievepack_composting_locator_hero_9733153.webp',
+  heroLearn: '/imgs/composting/benefits/hero.webp',
+  landfill: '/imgs/composting/benefits/Educational cross-section.webp',
+  commercial: '/imgs/composting/benefits/Commercial composting facility illustration.webp',
+  benefits: '/imgs/composting/benefits/Benefits grid showing.webp',
+  premium: '/imgs/composting/benefits/Premium product photography.webp',
+  heroIllustration: '/imgs/composting/benefits/hero illustration.webp'
 }
 
 // Clickable Image Component with lightbox
@@ -110,15 +110,15 @@ const CompostingBenefitsPage: React.FC = () => {
       <Helmet>
         <title>The Composting Benefits for Our Planet – And What It Means for Your Packaging | Achieve Pack</title>
         <meta name="description" content="How composting cuts emissions, protects soil and water, and how Achievepack® compostable packaging fits into the picture. Learn the environmental benefits of commercial composting and certified compostable packaging." />
-        <link rel="canonical" href="https://achievepack.com/compostable/composting-benefits" />
+        <link rel="canonical" href="https://achievepack.com/composting/composting-benefits" />
         <meta name="keywords" content="composting benefits, environmental composting, compostable packaging, reduce emissions, soil health, commercial composting, EN 13432, ASTM D6400, sustainable packaging, organic waste" />
         
         {/* Open Graph */}
         <meta property="og:title" content="The Composting Benefits for Our Planet – And What It Means for Your Packaging" />
         <meta property="og:description" content="How composting cuts emissions, protects soil and water, and how Achievepack® compostable packaging fits into the picture." />
-        <meta property="og:image" content="https://achievepack.com/imgs/compostable/benefits/a_achievepack_composting_locator_hero_9733153.webp" />
+        <meta property="og:image" content="https://achievepack.com/imgs/composting/benefits/a_achievepack_composting_locator_hero_9733153.webp" />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://achievepack.com/compostable/composting-benefits" />
+        <meta property="og:url" content="https://achievepack.com/composting/composting-benefits" />
         
         {/* Article Schema with E-E-A-T signals */}
         <script type="application/ld+json">
@@ -127,7 +127,7 @@ const CompostingBenefitsPage: React.FC = () => {
             "@type": "Article",
             "headline": "The Composting Benefits for Our Planet – And What It Means for Your Packaging",
             "description": "How composting cuts emissions, protects soil and water, and how Achievepack® compostable packaging fits into the picture.",
-            "image": "https://achievepack.com/imgs/compostable/benefits/a_achievepack_composting_locator_hero_9733153.webp",
+            "image": "https://achievepack.com/imgs/composting/benefits/a_achievepack_composting_locator_hero_9733153.webp",
             "author": {
               "@type": "Organization",
               "name": "Achieve Pack",
@@ -144,7 +144,7 @@ const CompostingBenefitsPage: React.FC = () => {
             },
             "datePublished": "2025-01-02",
             "dateModified": new Date().toISOString().split('T')[0],
-            "mainEntityOfPage": "https://achievepack.com/compostable/composting-benefits",
+            "mainEntityOfPage": "https://achievepack.com/composting/composting-benefits",
             "about": [
               { "@type": "Thing", "name": "Composting" },
               { "@type": "Thing", "name": "Sustainable Packaging" },
@@ -271,7 +271,7 @@ const CompostingBenefitsPage: React.FC = () => {
                     Free Consultation
                   </button>
                   <Link
-                    to="/compostable/composting-services"
+                    to="/composting/composting-services"
                     className="flex items-center gap-2 border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition"
                   >
                     <Globe className="h-5 w-5" />
@@ -415,7 +415,7 @@ const CompostingBenefitsPage: React.FC = () => {
                   </div>
                   
                   <p className="text-sm text-neutral-600 italic">
-                    Commercial composting is where Achievepack's solutions fit into the circular economy. Industrial facilities are the infrastructure that makes <Link to="/compostable/biodegradable-vs-compostable" className="text-primary-600 hover:underline">compostable packaging</Link> actually useful.
+                    Commercial composting is where Achievepack's solutions fit into the circular economy. Industrial facilities are the infrastructure that makes <Link to="/composting/biodegradable-vs-compostable" className="text-primary-600 hover:underline">compostable packaging</Link> actually useful.
                   </p>
                 </div>
               </div>
@@ -487,7 +487,7 @@ const CompostingBenefitsPage: React.FC = () => {
             </h2>
             <div className="prose prose-lg max-w-none text-neutral-700">
               <p>
-                This is the critical juncture. For most of its history, "<Link to="/compostable/biodegradable-vs-compostable" className="text-primary-600 hover:underline">compostable packaging</Link>" was a niche concept because infrastructure didn't exist. But as commercial composting facilities have expanded—especially in food-forward cities and regions with strong organics diversion programs—compostable packaging has moved from theoretical to practical.
+                This is the critical juncture. For most of its history, "<Link to="/composting/biodegradable-vs-compostable" className="text-primary-600 hover:underline">compostable packaging</Link>" was a niche concept because infrastructure didn't exist. But as commercial composting facilities have expanded—especially in food-forward cities and regions with strong organics diversion programs—compostable packaging has moved from theoretical to practical.
               </p>
               
               <div className="bg-white p-6 rounded-xl border my-6">
@@ -567,7 +567,7 @@ const CompostingBenefitsPage: React.FC = () => {
               <div className="bg-white p-5 rounded-lg border">
                 <CheckCircle className="h-6 w-6 text-green-500 mb-3" />
                 <h4 className="font-semibold text-neutral-800 mb-2">Works With Infrastructure</h4>
-                <p className="text-sm text-neutral-600">Your packaging now works with the <Link to="/compostable/composting-services" className="text-primary-600 hover:underline">composting systems in your market</Link>, not against them.</p>
+                <p className="text-sm text-neutral-600">Your packaging now works with the <Link to="/composting/composting-services" className="text-primary-600 hover:underline">composting systems in your market</Link>, not against them.</p>
               </div>
               <div className="bg-white p-5 rounded-lg border">
                 <Shield className="h-6 w-6 text-green-500 mb-3" />
@@ -603,12 +603,12 @@ const CompostingBenefitsPage: React.FC = () => {
               
               <div className="bg-white p-5 rounded-lg border-l-4 border-primary-500">
                 <h4 className="font-semibold text-neutral-800 mb-2">2. Partner with Local Infrastructure</h4>
-                <p className="text-neutral-600">Research <Link to="/compostable/composting-services" className="text-primary-600 hover:underline">composting facilities in your key markets</Link>. Some accept food-soiled packaging; others don't yet. Understand the landscape. If your facility is curious about compostable packaging, offer samples. This partnership strengthens the entire system.</p>
+                <p className="text-neutral-600">Research <Link to="/composting/composting-services" className="text-primary-600 hover:underline">composting facilities in your key markets</Link>. Some accept food-soiled packaging; others don't yet. Understand the landscape. If your facility is curious about compostable packaging, offer samples. This partnership strengthens the entire system.</p>
               </div>
               
               <div className="bg-white p-5 rounded-lg border-l-4 border-primary-500">
                 <h4 className="font-semibold text-neutral-800 mb-2">3. Tell the Full Story</h4>
-                <p className="text-neutral-600">Use your website, social media, and customer communications to explain <Link to="/compostable/biodegradable-vs-compostable" className="text-primary-600 hover:underline">why composting matters</Link> and why you chose compostable packaging. Talk to your customers. Most want to make the right choice; they just need context.</p>
+                <p className="text-neutral-600">Use your website, social media, and customer communications to explain <Link to="/composting/biodegradable-vs-compostable" className="text-primary-600 hover:underline">why composting matters</Link> and why you chose compostable packaging. Talk to your customers. Most want to make the right choice; they just need context.</p>
               </div>
               
               <div className="bg-white p-5 rounded-lg border-l-4 border-primary-500">
@@ -628,7 +628,7 @@ const CompostingBenefitsPage: React.FC = () => {
                 Composting is often framed as a back-end waste management question. But for brands, it's actually a <strong className="text-white">front-end strategy question</strong>. When you choose compostable packaging and communicate it clearly, you're participating in a regenerative system. You're reducing emissions, supporting soil health, and building a credible sustainability story.
               </p>
               <p>
-                The infrastructure is growing. Commercial composting capacity in North America is <Link to="/compostable/composting-services" className="text-white underline hover:text-green-200">expanding every year</Link>. Standards are clear. Consumer interest is real. And the environmental gains are measurable.
+                The infrastructure is growing. Commercial composting capacity in North America is <Link to="/composting/composting-services" className="text-white underline hover:text-green-200">expanding every year</Link>. Standards are clear. Consumer interest is real. And the environmental gains are measurable.
               </p>
               <p className="font-semibold text-white text-lg">
                 Your packaging can work with nature, not against it. Let's make that real in 2026.
@@ -689,11 +689,11 @@ const CompostingBenefitsPage: React.FC = () => {
           <section id="faq" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
             <h2 className="text-xl font-bold text-neutral-900 mb-4">Related Resources</h2>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-              <Link to="/compostable/composting-services" className="bg-white p-4 rounded-lg border hover:shadow-md transition group">
+              <Link to="/composting/composting-services" className="bg-white p-4 rounded-lg border hover:shadow-md transition group">
                 <h4 className="font-semibold text-neutral-800 group-hover:text-primary-600">Composting Service Finder</h4>
                 <p className="text-sm text-neutral-600 mt-1">Find facilities near you</p>
               </Link>
-              <Link to="/compostable/biodegradable-vs-compostable" className="bg-white p-4 rounded-lg border hover:shadow-md transition group">
+              <Link to="/composting/biodegradable-vs-compostable" className="bg-white p-4 rounded-lg border hover:shadow-md transition group">
                 <h4 className="font-semibold text-neutral-800 group-hover:text-primary-600">Biodegradable vs Compostable</h4>
                 <p className="text-sm text-neutral-600 mt-1">Understand the difference</p>
               </Link>

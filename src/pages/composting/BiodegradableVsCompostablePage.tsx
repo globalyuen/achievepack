@@ -7,12 +7,12 @@ import Footer from '../../components/Footer'
 
 // Image paths
 const IMAGES = {
-  hero: '/imgs/compostable/vs/a_hero_biodegradable_vs_compostable_8031695.webp',
-  lifecycle: '/imgs/compostable/vs/a_lifecycle_compostable_infographic_2163778.webp',
-  comparison: '/imgs/compostable/vs/a_comparison_three_terms_1644691.webp',
-  greenwashing: '/imgs/compostable/vs/a_greenwashing_spotlight_5460764.webp',
-  productTrust: '/imgs/compostable/vs/a_product_trust_achievepack_5584835.webp',
-  ctaBanner: '/imgs/compostable/vs/a_cta_footer_banner_9735136.webp'
+  hero: '/imgs/composting/vs/a_hero_biodegradable_vs_compostable_8031695.webp',
+  lifecycle: '/imgs/composting/vs/a_lifecycle_compostable_infographic_2163778.webp',
+  comparison: '/imgs/composting/vs/a_comparison_three_terms_1644691.webp',
+  greenwashing: '/imgs/composting/vs/a_greenwashing_spotlight_5460764.webp',
+  productTrust: '/imgs/composting/vs/a_product_trust_achievepack_5584835.webp',
+  ctaBanner: '/imgs/composting/vs/a_cta_footer_banner_9735136.webp'
 }
 
 // Clickable Image Component with lightbox
@@ -109,13 +109,13 @@ const BiodegradableVsCompostablePage: React.FC = () => {
       <Helmet>
         <title>Biodegradable vs Compostable Packaging: How to Avoid Greenwashing | Achieve Pack</title>
         <meta name="description" content="Learn the critical difference between biodegradable and compostable packaging. Expert guide to EN 13432, ASTM D6400 certifications and how to avoid greenwashing. From Achievepack® certified compostable packaging experts." />
-        <link rel="canonical" href="https://achievepack.com/compostable/biodegradable-vs-compostable" />
+        <link rel="canonical" href="https://achievepack.com/composting/biodegradable-vs-compostable" />
         <meta name="keywords" content="biodegradable vs compostable, greenwashing packaging, EN 13432, ASTM D6400, compostable certification, BPI certified, TUV OK Compost, sustainable packaging" />
         
         {/* Open Graph */}
         <meta property="og:title" content="Biodegradable vs Compostable Packaging: How to Avoid Greenwashing" />
         <meta property="og:description" content="A practical guide for coffee roasters and food brands. Learn to identify true compostable packaging from greenwashing." />
-        <meta property="og:image" content="https://achievepack.com/imgs/compostable/vs/a_hero_biodegradable_vs_compostable_8031695.webp" />
+        <meta property="og:image" content="https://achievepack.com/imgs/composting/vs/a_hero_biodegradable_vs_compostable_8031695.webp" />
         <meta property="og:type" content="article" />
         
         {/* Article Schema */}
@@ -125,7 +125,7 @@ const BiodegradableVsCompostablePage: React.FC = () => {
             "@type": "Article",
             "headline": "Biodegradable vs Compostable Packaging: How to Avoid Greenwashing",
             "description": "A practical guide for coffee roasters and food brands to understand the difference between biodegradable and compostable packaging.",
-            "image": "https://achievepack.com/imgs/compostable/vs/a_hero_biodegradable_vs_compostable_8031695.webp",
+            "image": "https://achievepack.com/imgs/composting/vs/a_hero_biodegradable_vs_compostable_8031695.webp",
             "author": {
               "@type": "Organization",
               "name": "Achieve Pack",
@@ -141,7 +141,7 @@ const BiodegradableVsCompostablePage: React.FC = () => {
             },
             "datePublished": "2025-01-02",
             "dateModified": "2025-01-02",
-            "mainEntityOfPage": "https://achievepack.com/compostable/biodegradable-vs-compostable"
+            "mainEntityOfPage": "https://achievepack.com/composting/biodegradable-vs-compostable"
           })}
         </script>
 

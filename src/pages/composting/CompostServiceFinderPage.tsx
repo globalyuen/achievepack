@@ -196,13 +196,13 @@ const CompostServiceFinderPage: React.FC = () => {
       <Helmet>
         <title>Global Composting Service Finder | USA, Canada, Australia, Europe | Achieve Pack</title>
         <meta name="description" content="Find composting services worldwide. Directory of 300+ US facilities plus Canada, Australia & Europe. EN 13432, ASTM D6400, AS 4736 certified compostable packaging accepted." />
-        <link rel="canonical" href="https://achievepack.com/compostable/composting-services" />
+        <link rel="canonical" href="https://achievepack.com/composting/composting-services" />
         <meta name="keywords" content="composting service, compost facility, EN 13432, ASTM D6400, AS 4736, industrial composting, compostable packaging, USA composting, Canada composting, Australia composting, Europe composting" />
         
         {/* Open Graph */}
         <meta property="og:title" content="Global Composting Service Finder - USA, Canada, Australia, Europe" />
         <meta property="og:description" content="Find composting facilities worldwide. 300+ US services plus Canada, Australia & Europe. Support your certified compostable packaging's end-of-life journey." />
-        <meta property="og:image" content="https://achievepack.com/imgs/compostable/vs/a_lifecycle_compostable_infographic_2163778.webp" />
+        <meta property="og:image" content="https://achievepack.com/imgs/composting/vs/a_lifecycle_compostable_infographic_2163778.webp" />
         <meta property="og:type" content="website" />
         
         {/* WebPage Schema with E-E-A-T signals */}
@@ -514,7 +514,7 @@ const CompostServiceFinderPage: React.FC = () => {
               <h2 className="text-2xl md:text-3xl font-bold text-neutral-900">Canada Composting Services by Province</h2>
             </div>
             <p className="text-neutral-700 mb-6">
-              Canada's composting infrastructure is growing, with major national and regional operators accepting certified compostable packaging (<Link to="/compostable/biodegradable-vs-compostable" className="text-primary-600 hover:underline">EN 13432</Link> / <Link to="/company/certificates" className="text-primary-600 hover:underline">ASTM D6400</Link>). For the most current facility information and regional availability, consult these key resources:
+              Canada's composting infrastructure is growing, with major national and regional operators accepting certified compostable packaging (<Link to="/composting/biodegradable-vs-compostable" className="text-primary-600 hover:underline">EN 13432</Link> / <Link to="/company/certificates" className="text-primary-600 hover:underline">ASTM D6400</Link>). For the most current facility information and regional availability, consult these key resources:
             </p>
 
             {/* Canada National Services */}
@@ -821,7 +821,7 @@ const CompostServiceFinderPage: React.FC = () => {
                   Not all composting facilities accept certified compostable packaging. Some focus exclusively on food waste. By asking these questions, you ensure your <Link to="/materials/industrial-compostable" className="text-primary-600 hover:underline">Achievepack packaging</Link> will actually be processed—and you can confidently tell your customers the full story.
                 </p>
                 <p className="text-sm text-neutral-600 mt-3">
-                  Learn more about <Link to="/compostable/biodegradable-vs-compostable" className="text-primary-600 hover:underline">the difference between biodegradable and compostable</Link> packaging.
+                  Learn more about <Link to="/composting/biodegradable-vs-compostable" className="text-primary-600 hover:underline">the difference between biodegradable and compostable</Link> packaging.
                 </p>
               </div>
             </div>
@@ -852,7 +852,7 @@ const CompostServiceFinderPage: React.FC = () => {
           <section id="resources" className="mt-12 scroll-mt-24">
             <h2 className="text-xl font-bold text-neutral-900 mb-4">Related Resources</h2>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-              <Link to="/compostable/biodegradable-vs-compostable" className="bg-white p-4 rounded-lg border hover:shadow-md transition">
+              <Link to="/composting/biodegradable-vs-compostable" className="bg-white p-4 rounded-lg border hover:shadow-md transition">
                 <h4 className="font-semibold text-neutral-800">Biodegradable vs Compostable</h4>
                 <p className="text-sm text-neutral-600 mt-1">Learn the key differences</p>
               </Link>

@@ -1880,9 +1880,9 @@ function App() {
             <div>
               <h4 className="text-sm font-semibold mb-2">Composting</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
-                <li><Link to="/compostable/composting-benefits" className="hover:text-primary-500">Composting Benefits</Link></li>
-                <li><Link to="/compostable/composting-services" className="hover:text-primary-500">Service Finder</Link></li>
-                <li><Link to="/compostable/biodegradable-vs-compostable" className="hover:text-primary-500">Biodegradable vs Compostable</Link></li>
+                <li><Link to="/composting/composting-benefits" className="hover:text-primary-500">Composting Benefits</Link></li>
+                <li><Link to="/composting/composting-services" className="hover:text-primary-500">Service Finder</Link></li>
+                <li><Link to="/composting/biodegradable-vs-compostable" className="hover:text-primary-500">Biodegradable vs Compostable</Link></li>
               </ul>
             </div>
 

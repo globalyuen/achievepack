@@ -5,14 +5,14 @@ import { Leaf, CheckCircle, Award, Calendar, Shield, Recycle, Factory, Package, 
 import { useCalendly } from '../../contexts/CalendlyContext'
 import Footer from '../../components/Footer'
 
-// Image paths - using imgs/compostable/commercial folder
+// Image paths - using imgs/composting/commercial folder
 const IMAGES = {
-  hero: '/imgs/compostable/commercial/a_commercial_composting_methods_hero_8074833.webp',
-  heroLearn: '/imgs/compostable/commercial/hero.webp',
-  collection: '/imgs/compostable/commercial/a_compostable_packaging_collection_3568459.webp',
-  windrow: '/imgs/compostable/commercial/a_windrow_composting_facility_0882621.webp',
-  aeratedPile: '/imgs/compostable/commercial/a_aerated_static_pile_8189931.webp',
-  inVessel: '/imgs/compostable/commercial/a_in_vessel_composting_drum_2386955.webp',
+  hero: '/imgs/composting/commercial/a_commercial_composting_methods_hero_8074833.webp',
+  heroLearn: '/imgs/composting/commercial/hero.webp',
+  collection: '/imgs/composting/commercial/a_compostable_packaging_collection_3568459.webp',
+  windrow: '/imgs/composting/commercial/a_windrow_composting_facility_0882621.webp',
+  aeratedPile: '/imgs/composting/commercial/a_aerated_static_pile_8189931.webp',
+  inVessel: '/imgs/composting/commercial/a_in_vessel_composting_drum_2386955.webp',
 }
 
 // Clickable Image Component with lightbox
@@ -109,15 +109,15 @@ const CommercialCompostingPage: React.FC = () => {
       <Helmet>
         <title>How Commercial Composting Works – And What It Means for Compostable Packaging | Achieve Pack</title>
         <meta name="description" content="A practical guide to windrow, aerated static pile and in-vessel composting from Achievepack® compostable packaging experts. Learn how commercial composting facilities process certified compostable packaging." />
-        <link rel="canonical" href="https://achievepack.com/compostable/commercial-composting" />
+        <link rel="canonical" href="https://achievepack.com/composting/commercial-composting" />
         <meta name="keywords" content="commercial composting, industrial composting, windrow composting, aerated static pile, in-vessel composting, compostable packaging, EN 13432, ASTM D6400, composting facility, organic waste" />
         
         {/* Open Graph */}
         <meta property="og:title" content="How Commercial Composting Works – And What It Means for Compostable Packaging" />
         <meta property="og:description" content="A practical guide to windrow, aerated static pile and in-vessel composting from Achievepack® compostable packaging experts." />
-        <meta property="og:image" content="https://achievepack.com/imgs/compostable/commercial/a_commercial_composting_methods_hero_8074833.webp" />
+        <meta property="og:image" content="https://achievepack.com/imgs/composting/commercial/a_commercial_composting_methods_hero_8074833.webp" />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://achievepack.com/compostable/commercial-composting" />
+        <meta property="og:url" content="https://achievepack.com/composting/commercial-composting" />
         
         {/* Article Schema with E-E-A-T signals */}
         <script type="application/ld+json">
@@ -126,7 +126,7 @@ const CommercialCompostingPage: React.FC = () => {
             "@type": "Article",
             "headline": "How Commercial Composting Works – And What It Means for Compostable Packaging",
             "description": "A practical guide to windrow, aerated static pile and in-vessel composting from Achievepack® compostable packaging experts.",
-            "image": "https://achievepack.com/imgs/compostable/commercial/a_commercial_composting_methods_hero_8074833.webp",
+            "image": "https://achievepack.com/imgs/composting/commercial/a_commercial_composting_methods_hero_8074833.webp",
             "author": {
               "@type": "Organization",
               "name": "Achieve Pack",
@@ -143,7 +143,7 @@ const CommercialCompostingPage: React.FC = () => {
             },
             "datePublished": "2026-01-03",
             "dateModified": new Date().toISOString().split('T')[0],
-            "mainEntityOfPage": "https://achievepack.com/compostable/commercial-composting",
+            "mainEntityOfPage": "https://achievepack.com/composting/commercial-composting",
             "about": [
               { "@type": "Thing", "name": "Commercial Composting" },
               { "@type": "Thing", "name": "Compostable Packaging" },
@@ -278,7 +278,7 @@ const CommercialCompostingPage: React.FC = () => {
                     Free Consultation
                   </button>
                   <Link
-                    to="/compostable/composting-services"
+                    to="/composting/composting-services"
                     className="flex items-center gap-2 border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition"
                   >
                     <Globe className="h-5 w-5" />
@@ -394,7 +394,7 @@ const CommercialCompostingPage: React.FC = () => {
                     Before material ever enters a composting system, it has to be collected and sorted.
                   </p>
                   <p>
-                    Most commercial facilities partner with municipalities or waste haulers who collect organic material from curbside programs—the same way garbage collection works, except separated into a green or brown bin. Some facilities also accept material directly: restaurants and food businesses bring their scraps; individual consumers can drop off yard waste and compostables at <Link to="/compostable/composting-services" className="text-primary-600 hover:underline">local collection points</Link>.
+                    Most commercial facilities partner with municipalities or waste haulers who collect organic material from curbside programs—the same way garbage collection works, except separated into a green or brown bin. Some facilities also accept material directly: restaurants and food businesses bring their scraps; individual consumers can drop off yard waste and compostables at <Link to="/composting/composting-services" className="text-primary-600 hover:underline">local collection points</Link>.
                   </p>
                   <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg">
                     <p className="text-red-800 font-medium">
@@ -578,7 +578,7 @@ const CommercialCompostingPage: React.FC = () => {
               <div className="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg my-6">
                 <h4 className="font-semibold text-amber-800 mb-2">The critical qualifier:</h4>
                 <p className="text-amber-800 mb-0">
-                  The facility in your market <strong>must accept packaging</strong>. Not all commercial composting operations do yet. This is why <Link to="/compostable/composting-services" className="text-primary-600 hover:underline">market research</Link> matters.
+                  The facility in your market <strong>must accept packaging</strong>. Not all commercial composting operations do yet. This is why <Link to="/composting/composting-services" className="text-primary-600 hover:underline">market research</Link> matters.
                 </p>
               </div>
             </div>
@@ -632,7 +632,7 @@ const CommercialCompostingPage: React.FC = () => {
             <div className="space-y-4">
               <div className="bg-white p-5 rounded-lg border-l-4 border-primary-500">
                 <h4 className="font-semibold text-neutral-800 mb-2">1. Research Your Market's Infrastructure</h4>
-                <p className="text-neutral-600">Does your region have <Link to="/compostable/composting-services" className="text-primary-600 hover:underline">commercial facilities that accept packaging</Link>? What method do they use (windrow, aerated, in-vessel)? Some cities have robust programs; others are just starting.</p>
+                <p className="text-neutral-600">Does your region have <Link to="/composting/composting-services" className="text-primary-600 hover:underline">commercial facilities that accept packaging</Link>? What method do they use (windrow, aerated, in-vessel)? Some cities have robust programs; others are just starting.</p>
               </div>
               
               <div className="bg-white p-5 rounded-lg border-l-4 border-primary-500">
@@ -642,7 +642,7 @@ const CommercialCompostingPage: React.FC = () => {
               
               <div className="bg-white p-5 rounded-lg border-l-4 border-primary-500">
                 <h4 className="font-semibold text-neutral-800 mb-2">3. Communicate Clearly</h4>
-                <p className="text-neutral-600">"<Link to="/compostable/biodegradable-vs-compostable" className="text-primary-600 hover:underline">Compostable</Link>" is only meaningful if people know where and how to use it. Label your packaging with instructions: <em>"Compost at your local commercial facility. Compostable in 90–180 days."</em> Make it actionable.</p>
+                <p className="text-neutral-600">"<Link to="/composting/biodegradable-vs-compostable" className="text-primary-600 hover:underline">Compostable</Link>" is only meaningful if people know where and how to use it. Label your packaging with instructions: <em>"Compost at your local commercial facility. Compostable in 90–180 days."</em> Make it actionable.</p>
               </div>
             </div>
           </section>
@@ -700,15 +700,15 @@ const CommercialCompostingPage: React.FC = () => {
           <section id="faq" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
             <h2 className="text-xl font-bold text-neutral-900 mb-4">Related Resources</h2>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-              <Link to="/compostable/composting-benefits" className="bg-white p-4 rounded-lg border hover:shadow-md transition group">
+              <Link to="/composting/composting-benefits" className="bg-white p-4 rounded-lg border hover:shadow-md transition group">
                 <h4 className="font-semibold text-neutral-800 group-hover:text-primary-600">Composting Benefits</h4>
                 <p className="text-sm text-neutral-600 mt-1">Environmental impact explained</p>
               </Link>
-              <Link to="/compostable/composting-services" className="bg-white p-4 rounded-lg border hover:shadow-md transition group">
+              <Link to="/composting/composting-services" className="bg-white p-4 rounded-lg border hover:shadow-md transition group">
                 <h4 className="font-semibold text-neutral-800 group-hover:text-primary-600">Composting Service Finder</h4>
                 <p className="text-sm text-neutral-600 mt-1">Find facilities near you</p>
               </Link>
-              <Link to="/compostable/biodegradable-vs-compostable" className="bg-white p-4 rounded-lg border hover:shadow-md transition group">
+              <Link to="/composting/biodegradable-vs-compostable" className="bg-white p-4 rounded-lg border hover:shadow-md transition group">
                 <h4 className="font-semibold text-neutral-800 group-hover:text-primary-600">Biodegradable vs Compostable</h4>
                 <p className="text-sm text-neutral-600 mt-1">Understand the difference</p>
               </Link>

@@ -254,10 +254,10 @@ const LowMOQStartupPackagingPage = lazyWithRetry(() => import('./pages/topics/Lo
 const CompostableBabyFoodBagsPage = lazyWithRetry(() => import('./pages/topics/CompostableBabyFoodBagsPage'))
 
 // Compostable Education Pages - Lazy loaded
-const BiodegradableVsCompostablePage = lazyWithRetry(() => import('./pages/compostable/BiodegradableVsCompostablePage'))
-const CompostServiceFinderPage = lazyWithRetry(() => import('./pages/compostable/CompostServiceFinderPage'))
-const CompostingBenefitsPage = lazyWithRetry(() => import('./pages/compostable/CompostingBenefitsPage'))
-const CommercialCompostingPage = lazyWithRetry(() => import('./pages/compostable/CommercialCompostingPage'))
+const BiodegradableVsCompostablePage = lazyWithRetry(() => import('./pages/composting/BiodegradableVsCompostablePage'))
+const CompostServiceFinderPage = lazyWithRetry(() => import('./pages/composting/CompostServiceFinderPage'))
+const CompostingBenefitsPage = lazyWithRetry(() => import('./pages/composting/CompostingBenefitsPage'))
+const CommercialCompostingPage = lazyWithRetry(() => import('./pages/composting/CommercialCompostingPage'))
 
 // 404 Page - Lazy loaded
 const NotFoundPage = lazyWithRetry(() => import('./pages/NotFoundPage'))
@@ -440,10 +440,10 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/topics/compostable-baby-food-bags" element={<CompostableBabyFoodBagsPage />} />
 
               {/* Compostable Education Pages */}
-              <Route path="/compostable/biodegradable-vs-compostable" element={<BiodegradableVsCompostablePage />} />
-              <Route path="/compostable/composting-services" element={<CompostServiceFinderPage />} />
-              <Route path="/compostable/composting-benefits" element={<CompostingBenefitsPage />} />
-                            <Route path="/compostable/commercial-composting" element={<CommercialCompostingPage />} />
+              <Route path="/composting/biodegradable-vs-compostable" element={<BiodegradableVsCompostablePage />} />
+              <Route path="/composting/composting-services" element={<CompostServiceFinderPage />} />
+              <Route path="/composting/composting-benefits" element={<CompostingBenefitsPage />} />
+                            <Route path="/composting/commercial-composting" element={<CommercialCompostingPage />} />
 
               {/* Spec Pages - Material Structures */}
               <Route path="/spec/pcr-pet-duplex-clear" element={<PcrPetDuplexClearPage />} />
