@@ -766,6 +766,53 @@ function App() {
         </div>
       </Suspense>
 
+      {/* Discover Products - Horizontal Scrolling Section */}
+      <section className="py-12 bg-white border-b border-neutral-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold text-neutral-900">Discover Products</h2>
+            <Link 
+              to="/store" 
+              className="text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors flex items-center gap-1"
+            >
+              Shop All <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+          <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide -mx-4 px-4">
+            {[
+              { image: '/imgs/menu/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp', link: '/store?category=eco-digital', label: 'Eco Digital' },
+              { image: '/imgs/menu/eco-digital/TKAqlW4KL2xV9glNA91iuD_sYEvp2G29eWT4819Ne1g=.webp', link: '/store?category=eco-digital', label: 'Compostable' },
+              { image: '/imgs/menu/eco-digital/hAGC60SxXYmSdiBTJD3XPhMZBocRVBXZyuV-dvt3r7c=.webp', link: '/store?category=eco-digital', label: 'Recyclable' },
+              { image: '/imgs/menu/corrugated-box/a_hero_kv_black_gold_mailer_4737831.webp', link: '/store?category=boxes', label: 'Custom Boxes' },
+              { image: '/imgs/menu/mailer/447849b2-65ea-49fb-86de-1278a636c795_upscayl_3x_upscayl-standard-4x.webp', link: '/store?category=mailer', label: 'Mailer Bags' },
+              { image: '/imgs/menu/tuck-box/a_hero_kv_tuck_box_3590474.webp', link: '/store?category=boxes', label: 'Tuck Boxes' },
+              { image: '/imgs/menu/eco-digital/os9CHhTSQoGASvA8lsfm-iHYfG4kddPoZP2wYMh47fs=.webp', link: '/store?category=eco-digital', label: 'Stand Up Pouch' },
+              { image: '/imgs/menu/eco-digital/wXqLssPqdR9J0iDhIyQ-NGTDDFm-3DgFKlyQD4ipsEw=.webp', link: '/store?category=eco-digital', label: '3 Side Seal' },
+            ].map((item, index) => (
+              <Link 
+                key={index} 
+                to={item.link} 
+                className="flex-shrink-0 group"
+              >
+                <div 
+                  className="w-[140px] md:w-[180px] bg-neutral-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
+                  style={{ aspectRatio: '9/16' }}
+                >
+                  <img
+                    src={item.image}
+                    alt={item.label}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <p className="text-xs font-medium text-neutral-700 mt-2 text-center group-hover:text-primary-600 transition-colors">{item.label}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Eco Video Showcase */}
       <Suspense fallback={<div className="h-64 bg-green-50" />}>
         <EcoVideoShowcase className="" />

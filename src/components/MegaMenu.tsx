@@ -103,21 +103,33 @@ const SHAPE_CATEGORIES_COL2 = [
 // Combined for backward compat
 const SHAPE_CATEGORIES = [...SHAPE_CATEGORIES_COL1, ...SHAPE_CATEGORIES_COL2]
 
-// CUSTOM menu - Custom printed packaging
-const CUSTOM_CATEGORIES = [
-  { name: 'Eco Digital Pouches', link: '/store?category=eco-digital' },
-  { name: 'Conventional Digital', link: '/store?category=conventional-digital' },
-  { name: 'Custom Boxes', link: '/store?category=boxes' },
-  { name: 'Custom Mailer Bags', link: '/store?category=mailer' },
-  { name: 'Custom Labels', link: '/products/custom-labels' },
-  { name: 'Custom Stickers', link: '/products/custom-stickers' },
+// CUSTOM menu - reorganized into Order Types and Products
+const CUSTOM_ORDER_TYPES = [
+  { name: 'Sample Packs', link: '/store?category=sample', description: 'Test before bulk' },
+  { name: 'Stock Size Pouches', link: '/store?category=eco-digital', description: 'Quick ship sizes' },
+  { name: 'Custom Size Pouches', link: '/store?category=eco-digital&custom=true', description: 'Your exact specs' },
 ]
 
-// STOCK menu - Ready stock items
-const STOCK_CATEGORIES = [
-  { name: 'Zipper Stand Up Pouch', link: '/store?category=eco-stock' },
-  { name: 'Zipper 3 Side Sealed', link: '/store?category=eco-stock' },
-  { name: 'Mailer Bags', link: '/store?category=mailer' },
+const CUSTOM_PRODUCTS = [
+  { name: 'Eco Digital Pouches', link: '/store?category=eco-digital', image: '/imgs/store/eco-digital/eco-3ss-clear-zip/1.webp', badge: '🌱 Eco' },
+  { name: 'Conventional Digital', link: '/store?category=conventional-digital', image: '/imgs/store/con-digital/3ss-clear-zip/1.webp', badge: '' },
+  { name: 'Custom Boxes', link: '/store?category=boxes', image: '/imgs/store/box/corrugated-box.webp', badge: '' },
+  { name: 'Custom Mailer Bags', link: '/store?category=mailer', image: '/imgs/menu/mailer/447849b2-65ea-49fb-86de-1278a636c795_upscayl_3x_upscayl-standard-4x.webp', badge: '' },
+  { name: 'Custom Labels', link: '/products/custom-labels', image: '/imgs/label/label-roll.webp', badge: '' },
+]
+
+// STOCK menu - reorganized into Order Types and Products
+const STOCK_ORDER_TYPES = [
+  { name: 'Sample Packs', link: '/store?category=sample', description: 'Test before bulk' },
+  { name: 'Stock Pouches', link: '/store?category=eco-stock', description: 'Ready to ship' },
+  { name: 'Mailer Bags', link: '/store?category=mailer', description: 'Eco mailers' },
+]
+
+const STOCK_PRODUCTS = [
+  { name: 'Zipper Stand Up Pouch', link: '/store?category=eco-stock', image: '/imgs/store/eco-stock/zipper-stand-up.webp', badge: '📦 Ready' },
+  { name: 'Zipper 3 Side Sealed', link: '/store?category=eco-stock', image: '/imgs/store/eco-stock/zipper-3ss.webp', badge: '' },
+  { name: 'Eco Mailer Bags', link: '/store?category=mailer', image: '/imgs/menu/mailer/a_comparison_compostable_transparent_7910662.webp', badge: '🌱 Eco' },
+  { name: 'Header Bags', link: '/store?category=eco-stock', image: '/imgs/store/eco-stock/header-bag.webp', badge: '' },
 ]
 
 // Category icons for Learn Menu
@@ -369,13 +381,71 @@ export default function MegaMenu() {
           </button>
           {activeMenu === 'custom' && (
             <div className="fixed left-1/2 -translate-x-1/2 top-16 pt-2 z-50" onMouseEnter={() => handleMouseEnter('custom')} onMouseLeave={handleMouseLeave}>
-              <MegaMenuDropdown
-                categories={CUSTOM_CATEGORIES}
-                adsImages={randomStoreAdsImages}
-                shopAllLink="/store?category=eco-digital"
-                shopAllLabel="Shop All Custom Printed"
-                onQuoteClick={openQuoteLightbox}
-              />
+              <div className="w-[95vw] max-w-[1100px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
+                <div className="grid grid-cols-12">
+                  {/* Left: Order Types */}
+                  <div className="col-span-3 bg-neutral-50 p-4 border-r border-neutral-100">
+                    <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-3 flex items-center gap-2">
+                      <Palette className="h-4 w-4" />
+                      Custom Print
+                    </h3>
+                    <ul className="space-y-1">
+                      {CUSTOM_ORDER_TYPES.map((type) => (
+                        <li key={type.name}>
+                          <Link
+                            to={type.link}
+                            className="block py-2 px-3 rounded-lg text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all"
+                          >
+                            <span className="text-sm font-medium block">{type.name}</span>
+                            <span className="text-xs text-neutral-500">{type.description}</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-4 pt-4 border-t border-neutral-200">
+                      <button
+                        onClick={openQuoteLightbox}
+                        className="flex items-center justify-center gap-2 w-full py-2.5 px-3 bg-primary-600 text-white rounded-lg text-sm font-semibold hover:bg-primary-700 transition-colors"
+                      >
+                        <Sparkles className="h-4 w-4" />
+                        Custom Quote
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Right: Products with Hover Images */}
+                  <div className="col-span-9 p-4">
+                    <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-3">Products</h3>
+                    <div className="grid grid-cols-5 gap-3">
+                      {CUSTOM_PRODUCTS.map((product) => (
+                        <Link
+                          key={product.name}
+                          to={product.link}
+                          className="group relative"
+                        >
+                          <div className="aspect-square bg-neutral-100 rounded-lg overflow-hidden mb-2">
+                            <img
+                              src={product.image}
+                              alt={product.name}
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                              loading="lazy"
+                            />
+                          </div>
+                          {product.badge && (
+                            <span className="absolute top-1 left-1 text-xs bg-white/90 px-1.5 py-0.5 rounded">{product.badge}</span>
+                          )}
+                          <span className="text-xs font-medium text-neutral-800 group-hover:text-primary-600 transition-colors line-clamp-2">{product.name}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-neutral-50 px-4 py-2 border-t border-neutral-100">
+                  <Link to="/store?category=eco-digital" className="text-xs font-semibold text-primary-600 hover:text-primary-700 transition-colors">
+                    Shop All Custom Printed →
+                  </Link>
+                </div>
+              </div>
             </div>
           )}
         </div>
@@ -389,13 +459,71 @@ export default function MegaMenu() {
           </button>
           {activeMenu === 'stock' && (
             <div className="fixed left-1/2 -translate-x-1/2 top-16 pt-2 z-50" onMouseEnter={() => handleMouseEnter('stock')} onMouseLeave={handleMouseLeave}>
-              <MegaMenuDropdown
-                categories={STOCK_CATEGORIES}
-                adsImages={randomStoreAdsImages}
-                shopAllLink="/store?category=eco-stock"
-                shopAllLabel="Shop All Stock Pouches"
-                onQuoteClick={openQuoteLightbox}
-              />
+              <div className="w-[95vw] max-w-[1100px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
+                <div className="grid grid-cols-12">
+                  {/* Left: Order Types */}
+                  <div className="col-span-3 bg-neutral-50 p-4 border-r border-neutral-100">
+                    <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-3 flex items-center gap-2">
+                      <Package className="h-4 w-4" />
+                      Stock Items
+                    </h3>
+                    <ul className="space-y-1">
+                      {STOCK_ORDER_TYPES.map((type) => (
+                        <li key={type.name}>
+                          <Link
+                            to={type.link}
+                            className="block py-2 px-3 rounded-lg text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all"
+                          >
+                            <span className="text-sm font-medium block">{type.name}</span>
+                            <span className="text-xs text-neutral-500">{type.description}</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-4 pt-4 border-t border-neutral-200">
+                      <Link
+                        to="/store?category=eco-stock"
+                        className="flex items-center justify-center gap-2 w-full py-2.5 px-3 bg-primary-600 text-white rounded-lg text-sm font-semibold hover:bg-primary-700 transition-colors"
+                      >
+                        <ShoppingBag className="h-4 w-4" />
+                        Shop All
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* Right: Products with Hover Images */}
+                  <div className="col-span-9 p-4">
+                    <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-3">Products</h3>
+                    <div className="grid grid-cols-4 gap-4">
+                      {STOCK_PRODUCTS.map((product) => (
+                        <Link
+                          key={product.name}
+                          to={product.link}
+                          className="group relative"
+                        >
+                          <div className="aspect-square bg-neutral-100 rounded-lg overflow-hidden mb-2">
+                            <img
+                              src={product.image}
+                              alt={product.name}
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                              loading="lazy"
+                            />
+                          </div>
+                          {product.badge && (
+                            <span className="absolute top-1 left-1 text-xs bg-white/90 px-1.5 py-0.5 rounded">{product.badge}</span>
+                          )}
+                          <span className="text-xs font-medium text-neutral-800 group-hover:text-primary-600 transition-colors line-clamp-2">{product.name}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-neutral-50 px-4 py-2 border-t border-neutral-100">
+                  <Link to="/store?category=eco-stock" className="text-xs font-semibold text-primary-600 hover:text-primary-700 transition-colors">
+                    Shop All Stock Pouches →
+                  </Link>
+                </div>
+              </div>
             </div>
           )}
         </div>
