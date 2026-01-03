@@ -699,17 +699,23 @@ const BiodegradableVsCompostablePage: React.FC = () => {
                   <div className="flex flex-col sm:flex-row gap-4">
                     <button
                       onClick={openCalendly}
-                      className="flex items-center justify-center gap-2 bg-white text-green-800 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition"
+                      className="flex items-center justify-center gap-2 bg-white text-green-800 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition shadow-lg"
                     >
                       <Calendar className="h-5 w-5" />
                       Book Free Consultation
                     </button>
                     <Link
-                      to="/store"
-                      className="flex items-center justify-center gap-2 border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition"
+                      to="/store?category=sample"
+                      className="flex items-center justify-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-500 transition"
                     >
                       <Package className="h-5 w-5" />
                       Order Sample Pack
+                    </Link>
+                    <Link
+                      to="/store"
+                      className="flex items-center justify-center gap-2 border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition"
+                    >
+                      Browse Store
                     </Link>
                   </div>
                 </div>

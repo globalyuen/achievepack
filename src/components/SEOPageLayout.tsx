@@ -1,6 +1,6 @@
 import React, { useState, useTransition, useEffect, useRef } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
-import { ArrowLeft, Leaf, Mail, Phone, Calendar, X, BookOpen, FileText, ChevronDown, ChevronRight, Search, Package, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Layers } from 'lucide-react'
+import { ArrowLeft, Leaf, Mail, Phone, Calendar, X, BookOpen, FileText, ChevronDown, ChevronRight, Search, Package, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Layers, ArrowRight } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { organizationEntity, getAuthorByContentType, generateBreadcrumb } from '../data/schemaEntities'
@@ -724,27 +724,37 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                 </section>
               )}
 
-              {/* CTA Section */}
+              {/* CTA Section - 3-Level CTA */}
               <section className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-xl p-8 text-white text-center">
                 <h2 className="text-2xl md:text-3xl font-bold mb-4">{ctaTitle}</h2>
                 <p className="text-primary-100 mb-6 max-w-2xl mx-auto">{ctaDescription}</p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  {/* Level 3: High - Book Consultation */}
                   <a
                     href="https://calendly.com/30-min-free-packaging-consultancy"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 bg-white text-[#15803d] px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition"
+                    className="inline-flex items-center justify-center gap-2 bg-white text-[#15803d] px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition shadow-lg"
                   >
                     <Calendar className="h-4 w-4" />
-                    Book Meeting
+                    Book Free Consultation
                   </a>
-                  <a
-                    href="mailto:ryan@achievepack.com"
+                  {/* Level 2: Medium - Order Sample Pack */}
+                  <Link
+                    to="/store?category=sample"
+                    className="inline-flex items-center justify-center gap-2 bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-400 transition"
+                  >
+                    <Package className="h-4 w-4" />
+                    Order Sample Pack
+                  </Link>
+                  {/* Level 1: Low - Browse Store */}
+                  <Link
+                    to="/store"
                     className="inline-flex items-center justify-center gap-2 border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition"
                   >
-                    <Mail className="h-4 w-4" />
-                    {t('seoPages.emailUs')}
-                  </a>
+                    <ArrowRight className="h-4 w-4" />
+                    Browse Store
+                  </Link>
                 </div>
               </section>
             </main>
