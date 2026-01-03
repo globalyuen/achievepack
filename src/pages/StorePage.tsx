@@ -292,7 +292,7 @@ const StorePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Full Width Navigation: Left Menus | Logo | Right Menus + Actions */}
-            <MegaMenu />
+            <MegaMenu hideLearnBlog />
 
             {/* Center Logo - Absolute positioned */}
             <div className="hidden lg:flex items-center justify-center absolute left-1/2 -translate-x-1/2">

@@ -233,7 +233,11 @@ function MegaMenuDropdown({ categories, adsImages, shopAllLink, shopAllLabel, on
   )
 }
 
-export default function MegaMenu() {
+interface MegaMenuProps {
+  hideLearnBlog?: boolean
+}
+
+export default function MegaMenu({ hideLearnBlog = false }: MegaMenuProps) {
   const [activeMenu, setActiveMenu] = useState<string | null>(null)
   const [activeCategory, setActiveCategory] = useState<string | null>(null)
   const [hoveredPage, setHoveredPage] = useState<{ name: string; link: string; image: string } | null>(null)
@@ -530,7 +534,8 @@ export default function MegaMenu() {
         </div>
       </nav>
 
-      {/* Right Navigation: LEARN | BLOG */}
+      {/* Right Navigation: LEARN | BLOG - conditionally hidden */}
+      {!hideLearnBlog && (
       <nav className="flex items-center">
         {/* LEARN */}
         <div className="relative" onMouseEnter={() => handleMouseEnter('learn')} onMouseLeave={handleMouseLeave}>
@@ -733,6 +738,7 @@ export default function MegaMenu() {
           )}
         </div>
       </nav>
+      )}
     </div>
   )
 }
