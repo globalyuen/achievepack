@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useTransition, useMemo, lazy, Suspens
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom'
-import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield, ShoppingCart, User, Linkedin, ArrowRight, Plus, AlertCircle } from 'lucide-react'
+import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield, ShoppingCart, User, Linkedin, ArrowRight, Plus, AlertCircle, ChevronLeft, ChevronRight } from 'lucide-react'
 import { HeroGrainBackground } from './components/HeroGrainBackground'
 import { CardContainer, CardBody, CardItem } from './components/ui/3d-card'
 import { getImage } from './utils/imageMapper'
@@ -49,6 +49,40 @@ function App() {
   const [selectedProduct, setSelectedProduct] = useState<PouchProduct | null>(null)
   const [isRyanProfileOpen, setIsRyanProfileOpen] = useState(false)
   const [pouchShapeEnlarged, setPouchShapeEnlarged] = useState<{ src: string; index: number } | null>(null)
+  
+  // Discover Products auto-scroll
+  const discoverScrollRef = useRef<HTMLDivElement>(null)
+  const [isDiscoverHovered, setIsDiscoverHovered] = useState(false)
+  
+  useEffect(() => {
+    const scrollContainer = discoverScrollRef.current
+    if (!scrollContainer || isDiscoverHovered) return
+    
+    const scrollSpeed = 0.5 // pixels per frame
+    let animationId: number
+    
+    const autoScroll = () => {
+      if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
+        scrollContainer.scrollLeft = 0
+      } else {
+        scrollContainer.scrollLeft += scrollSpeed
+      }
+      animationId = requestAnimationFrame(autoScroll)
+    }
+    
+    animationId = requestAnimationFrame(autoScroll)
+    return () => cancelAnimationFrame(animationId)
+  }, [isDiscoverHovered])
+  
+  const scrollDiscover = (direction: 'left' | 'right') => {
+    const scrollContainer = discoverScrollRef.current
+    if (!scrollContainer) return
+    const scrollAmount = 400
+    scrollContainer.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth'
+    })
+  }
   
   const pouchShapeImages = [
     '/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.webp',
@@ -778,37 +812,69 @@ function App() {
               Shop All <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
-          <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide -mx-4 px-4">
-            {[
-              { image: '/imgs/menu/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp', link: '/store?category=eco-digital', label: 'Eco Digital' },
-              { image: '/imgs/menu/eco-digital/TKAqlW4KL2xV9glNA91iuD_sYEvp2G29eWT4819Ne1g=.webp', link: '/store?category=eco-digital', label: 'Compostable' },
-              { image: '/imgs/menu/eco-digital/hAGC60SxXYmSdiBTJD3XPhMZBocRVBXZyuV-dvt3r7c=.webp', link: '/store?category=eco-digital', label: 'Recyclable' },
-              { image: '/imgs/menu/corrugated-box/a_hero_kv_black_gold_mailer_4737831.webp', link: '/store?category=boxes', label: 'Custom Boxes' },
-              { image: '/imgs/menu/mailer/447849b2-65ea-49fb-86de-1278a636c795_upscayl_3x_upscayl-standard-4x.webp', link: '/store?category=mailer', label: 'Mailer Bags' },
-              { image: '/imgs/menu/tuck-box/a_hero_kv_tuck_box_3590474.webp', link: '/store?category=boxes', label: 'Tuck Boxes' },
-              { image: '/imgs/menu/eco-digital/os9CHhTSQoGASvA8lsfm-iHYfG4kddPoZP2wYMh47fs=.webp', link: '/store?category=eco-digital', label: 'Stand Up Pouch' },
-              { image: '/imgs/menu/eco-digital/wXqLssPqdR9J0iDhIyQ-NGTDDFm-3DgFKlyQD4ipsEw=.webp', link: '/store?category=eco-digital', label: '3 Side Seal' },
-            ].map((item, index) => (
-              <Link 
-                key={index} 
-                to={item.link} 
-                className="flex-shrink-0 group"
-              >
-                <div 
-                  className="w-[140px] md:w-[180px] bg-neutral-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
-                  style={{ aspectRatio: '9/16' }}
+          
+          {/* Scrollable container with arrows */}
+          <div 
+            className="relative group/scroll"
+            onMouseEnter={() => setIsDiscoverHovered(true)}
+            onMouseLeave={() => setIsDiscoverHovered(false)}
+          >
+            {/* Left Arrow */}
+            <button
+              onClick={() => scrollDiscover('left')}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 opacity-0 group-hover/scroll:opacity-100 transition-opacity duration-300 -translate-x-2"
+              aria-label="Scroll left"
+            >
+              <ChevronLeft className="h-6 w-6 text-neutral-700" />
+            </button>
+            
+            {/* Right Arrow */}
+            <button
+              onClick={() => scrollDiscover('right')}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 opacity-0 group-hover/scroll:opacity-100 transition-opacity duration-300 translate-x-2"
+              aria-label="Scroll right"
+            >
+              <ChevronRight className="h-6 w-6 text-neutral-700" />
+            </button>
+            
+            {/* Scrollable content */}
+            <div 
+              ref={discoverScrollRef}
+              className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide -mx-4 px-4"
+            >
+              {[
+                { image: '/imgs/menu/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp', link: '/store?category=eco-digital', label: 'Eco Digital' },
+                { image: '/imgs/menu/eco-digital/TKAqlW4KL2xV9glNA91iuD_sYEvp2G29eWT4819Ne1g=.webp', link: '/store?category=eco-digital', label: 'Compostable' },
+                { image: '/imgs/menu/eco-digital/hAGC60SxXYmSdiBTJD3XPhMZBocRVBXZyuV-dvt3r7c=.webp', link: '/store?category=eco-digital', label: 'Recyclable' },
+                { image: '/imgs/menu/corrugated-box/a_hero_kv_black_gold_mailer_4737831.webp', link: '/store?category=boxes', label: 'Custom Boxes' },
+                { image: '/imgs/menu/mailer/447849b2-65ea-49fb-86de-1278a636c795_upscayl_3x_upscayl-standard-4x.webp', link: '/store?category=mailer', label: 'Mailer Bags' },
+                { image: '/imgs/menu/tuck-box/a_hero_kv_tuck_box_3590474.webp', link: '/store?category=boxes', label: 'Tuck Boxes' },
+                { image: '/imgs/menu/eco-digital/os9CHhTSQoGASvA8lsfm-iHYfG4kddPoZP2wYMh47fs=.webp', link: '/store?category=eco-digital', label: 'Stand Up Pouch' },
+                { image: '/imgs/menu/eco-digital/wXqLssPqdR9J0iDhIyQ-NGTDDFm-3DgFKlyQD4ipsEw=.webp', link: '/store?category=eco-digital', label: '3 Side Seal' },
+                { image: '/imgs/menu/eco-digital/X5RkmCe76z3hyMvMr6Yvb5RjclkrdDjh2rNvGIRqgWU=.webp', link: '/store?category=eco-digital', label: 'Flat Bottom' },
+                { image: '/imgs/menu/eco-digital/LQ5WGOrIkQPzbXSfWupAIFvVrlyL9lvZoMKc35bbHPw=.webp', link: '/store?category=eco-digital', label: 'Side Gusset' },
+              ].map((item, index) => (
+                <Link 
+                  key={index} 
+                  to={item.link} 
+                  className="flex-shrink-0 group"
                 >
-                  <img
-                    src={item.image}
-                    alt={item.label}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <p className="text-xs font-medium text-neutral-700 mt-2 text-center group-hover:text-primary-600 transition-colors">{item.label}</p>
-              </Link>
-            ))}
+                  <div 
+                    className="w-[140px] md:w-[180px] bg-neutral-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
+                    style={{ aspectRatio: '9/16' }}
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.label}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <p className="text-xs font-medium text-neutral-700 mt-2 text-center group-hover:text-primary-600 transition-colors">{item.label}</p>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>
