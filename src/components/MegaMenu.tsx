@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo } from 'react'
+import { useState, useRef, useMemo, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronDown, ChevronRight, Layers, Palette, Package, BookOpen, Calendar, FileText, Sparkles, Search, Leaf, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Menu, X } from 'lucide-react'
 import { useCustomQuote } from '../contexts/CustomQuoteContext'
@@ -227,6 +227,32 @@ export default function MegaMenu() {
   const [refreshKey, setRefreshKey] = useState(0)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
   const { openQuoteLightbox } = useCustomQuote()
+  
+  // Pre-fill Learn menu with random content when it opens
+  useEffect(() => {
+    if (activeMenu === 'learn' && !activeCategory) {
+      // Get all category keys
+      const categoryKeys = Object.keys(LEARN_PAGES)
+      // Pick a random category
+      const randomCategoryKey = categoryKeys[Math.floor(Math.random() * categoryKeys.length)]
+      setActiveCategory(randomCategoryKey)
+      
+      // Pick a random page from that category to show preview
+      const category = LEARN_PAGES[randomCategoryKey as keyof typeof LEARN_PAGES]
+      if (category && category.pages.length > 0) {
+        const randomPage = category.pages[Math.floor(Math.random() * category.pages.length)]
+        setHoveredPage(randomPage)
+      }
+    }
+  }, [activeMenu])
+  
+  // Reset when menu closes
+  useEffect(() => {
+    if (activeMenu !== 'learn') {
+      setActiveCategory(null)
+      setHoveredPage(null)
+    }
+  }, [activeMenu])
   
   // Randomize 10 store ads images for SHAPE/CUSTOM/STOCK menus
   const randomStoreAdsImages = useMemo(() => {
