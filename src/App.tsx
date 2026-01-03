@@ -843,16 +843,31 @@ function App() {
               className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide -mx-4 px-4"
             >
               {[
+                // Eco Digital
                 { image: '/imgs/menu/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp', link: '/store?category=eco-digital', label: 'Eco Digital' },
                 { image: '/imgs/menu/eco-digital/TKAqlW4KL2xV9glNA91iuD_sYEvp2G29eWT4819Ne1g=.webp', link: '/store?category=eco-digital', label: 'Compostable' },
+                // Pouch Shape Ads
+                { image: '/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp', link: '/packaging/flat-pouches', label: '3 Side Seal' },
+                { image: '/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.webp', link: '/packaging/flat-bottom-bags', label: 'Flat Bottom' },
+                { image: '/imgs/pouch-shape/ads/a_achieve_pack_quad_side_gusset_closeup_9751125.webp', link: '/packaging/side-gusset-bags', label: 'Side Gusset' },
+                // Boxes Ads
+                { image: '/imgs/store/box/corrugated-box/ads/a_hero_kv_black_gold_mailer_4737831.webp', link: '/store?category=boxes', label: 'Custom Boxes' },
+                { image: '/imgs/store/box/tuck-box/ads/a_hero_kv_tuck_box_3590474.webp', link: '/store?category=boxes', label: 'Tuck Boxes' },
+                { image: '/imgs/store/box/corrugated-box/ads/a_foil_stamping_detail_logo_3101304.webp', link: '/store?category=boxes', label: 'Foil Stamping' },
+                // Surface Finish Ads
+                { image: '/imgs/surface/ads/a_achieve_pack_main_kv_six_finishes_3535755.webp', link: '/features/surface-finish', label: 'Surface Finish' },
+                { image: '/imgs/surface/ads/a_embossed_navy_9933981.webp', link: '/features/surface-finish', label: 'Embossed' },
+                { image: '/imgs/surface/ads/a_foil_green_charcoal_7632386.webp', link: '/features/surface-finish', label: 'Foil Print' },
+                // Barrier Ads
+                { image: '/imgs/barrier/ads/a_barrier_levels_7395220.webp', link: '/features/barrier-options', label: 'Barrier Options' },
+                { image: '/imgs/barrier/ads/a_kraft_levels_1_2_3604187.webp', link: '/features/barrier-options', label: 'Kraft Barrier' },
+                // Reclosure Ads
+                { image: '/imgs/reclose/ads/a_reclosure_four_quadrant_overview_3481316.webp', link: '/features/reclosure-options', label: 'Reclosure' },
+                { image: '/imgs/reclose/ads/a_presstoclose_closure_detail_5742103.webp', link: '/features/reclosure-options', label: 'Press to Close' },
+                // More Eco Digital
                 { image: '/imgs/menu/eco-digital/hAGC60SxXYmSdiBTJD3XPhMZBocRVBXZyuV-dvt3r7c=.webp', link: '/store?category=eco-digital', label: 'Recyclable' },
-                { image: '/imgs/menu/corrugated-box/a_hero_kv_black_gold_mailer_4737831.webp', link: '/store?category=boxes', label: 'Custom Boxes' },
-                { image: '/imgs/menu/mailer/447849b2-65ea-49fb-86de-1278a636c795_upscayl_3x_upscayl-standard-4x.webp', link: '/store?category=mailer', label: 'Mailer Bags' },
-                { image: '/imgs/menu/tuck-box/a_hero_kv_tuck_box_3590474.webp', link: '/store?category=boxes', label: 'Tuck Boxes' },
                 { image: '/imgs/menu/eco-digital/os9CHhTSQoGASvA8lsfm-iHYfG4kddPoZP2wYMh47fs=.webp', link: '/store?category=eco-digital', label: 'Stand Up Pouch' },
-                { image: '/imgs/menu/eco-digital/wXqLssPqdR9J0iDhIyQ-NGTDDFm-3DgFKlyQD4ipsEw=.webp', link: '/store?category=eco-digital', label: '3 Side Seal' },
-                { image: '/imgs/menu/eco-digital/X5RkmCe76z3hyMvMr6Yvb5RjclkrdDjh2rNvGIRqgWU=.webp', link: '/store?category=eco-digital', label: 'Flat Bottom' },
-                { image: '/imgs/menu/eco-digital/LQ5WGOrIkQPzbXSfWupAIFvVrlyL9lvZoMKc35bbHPw=.webp', link: '/store?category=eco-digital', label: 'Side Gusset' },
+                { image: '/imgs/menu/mailer/447849b2-65ea-49fb-86de-1278a636c795_upscayl_3x_upscayl-standard-4x.webp', link: '/store?category=mailer', label: 'Mailer Bags' },
               ].map((item, index) => (
                 <Link 
                   key={index} 
