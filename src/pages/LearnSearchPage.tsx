@@ -83,6 +83,9 @@ const ALL_PAGES = [
     { name: 'How Commercial Composting Works', link: '/composting/commercial-composting', image: '/imgs/composting/commercial/hero.webp', category: 'Topics', description: 'A practical guide to windrow, aerated static pile and in-vessel composting from Achievepack® experts', keywords: ['commercial composting', 'industrial composting', 'windrow', 'aerated static pile', 'in-vessel', 'composting facility', 'EN 13432', 'ASTM D6400'] },
       { name: 'Home vs Industrial Compostable', link: '/composting/home-vs-industrial-compostable', image: '/imgs/composting/homevs/a_blog_hero_banner_compostable_choice_5307332.webp', category: 'Topics', description: 'Guide to home compostable vs industrial compostable packaging: certifications, conditions, and procurement decisions', keywords: ['home compostable', 'industrial compostable', 'OK Compost HOME', 'EN 13432', 'backyard composting', 'composting facility', 'certification', 'procurement'] },
   
+  // Bio-PE
+  { name: 'What is Bio-PE', link: '/biope/what-is-bio-pe', image: '/imgs/biope/what/a_hero_bio_pe_article_2212774.webp', category: 'Materials', description: 'Bio-PE sustainable flexible packaging: plant-based polyethylene with carbon benefits and recyclability', keywords: ['bio-PE', 'bio-based polyethylene', 'sugarcane PE', 'plant-based plastic', 'recyclable', 'carbon footprint', 'ASTM D6866'] },
+  
   // Case Studies
   { name: 'Coffee Roastery', link: '/case-studies/coffee-roastery', image: '/imgs/illustrated/a_coffee_roaster_variation_1_6758424.webp', category: 'Case Studies', description: 'How a specialty roaster switched to compostable', keywords: ['case study', 'coffee', 'roastery'] },
   { name: 'Tea Brand', link: '/case-studies/tea-brand', image: '/imgs/illustrated/a_coffee_tea_hero_v1_1905321.webp', category: 'Case Studies', description: 'Premium tea brand sustainability journey', keywords: ['case study', 'tea', 'brand'] },

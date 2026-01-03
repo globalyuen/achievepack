@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { ChevronRight, ChevronDown, Leaf, Package, Factory, FileText, BookOpen, Users, Award, ShoppingBag, Globe, Boxes, HelpCircle, Search, Zap, Beaker, Layers } from 'lucide-react'
+import { ChevronRight, ChevronDown, Leaf, Package, Factory, FileText, BookOpen, Users, Award, ShoppingBag, Globe, Boxes, HelpCircle, Search, Zap, Beaker, Layers, Sprout } from 'lucide-react'
 
 // All SEO pages mapped with illustrated images - COMPLETE LIST
 const LEARN_PAGES = {
@@ -196,6 +196,13 @@ const LEARN_PAGES = {
       { name: 'Composting Service Finder', link: '/composting/composting-services', image: '/imgs/composting/finder/a_achievepack_composting_locator_hero_9733153.webp' },
       { name: 'Biodegradable vs Compostable', link: '/composting/biodegradable-vs-compostable', image: '/imgs/composting/vs/a_hero_biodegradable_vs_compostable_8031695.webp' },
       { name: 'Home vs Industrial Compostable', link: '/composting/home-vs-industrial-compostable', image: '/imgs/composting/homevs/a_blog_hero_banner_compostable_choice_5307332.webp' },
+    ]
+  },
+  biope: {
+    title: 'BioPE',
+    icon: <Sprout className="h-4 w-4" />,
+    pages: [
+      { name: 'What is Bio-PE', link: '/biope/what-is-bio-pe', image: '/imgs/biope/what/a_hero_bio_pe_article_2212774.webp' },
     ]
   },
 }

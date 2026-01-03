@@ -260,6 +260,9 @@ const CompostingBenefitsPage = lazyWithRetry(() => import('./pages/composting/Co
 const CommercialCompostingPage = lazyWithRetry(() => import('./pages/composting/CommercialCompostingPage'))
 const HomeVsIndustrialCompostPage = lazyWithRetry(() => import('./pages/composting/HomeVsIndustrialCompostPage'))
 
+// Bio-PE Pages - Lazy loaded
+const WhatIsBioPEPage = lazyWithRetry(() => import('./pages/biope/WhatIsBioPEPage'))
+
 // 404 Page - Lazy loaded
 const NotFoundPage = lazyWithRetry(() => import('./pages/NotFoundPage'))
 
@@ -446,6 +449,9 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/composting/composting-benefits" element={<CompostingBenefitsPage />} />
                             <Route path="/composting/commercial-composting" element={<CommercialCompostingPage />} />
               <Route path="/composting/home-vs-industrial-compostable" element={<HomeVsIndustrialCompostPage />} />
+
+              {/* Bio-PE Pages */}
+              <Route path="/biope/what-is-bio-pe" element={<WhatIsBioPEPage />} />
 
               {/* Spec Pages - Material Structures */}
               <Route path="/spec/pcr-pet-duplex-clear" element={<PcrPetDuplexClearPage />} />
