@@ -2,13 +2,18 @@ import { useState } from 'react'
 import { Calendar, MessageCircle, X } from 'lucide-react'
 
 export default function FloatingButtons() {
-  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false)
   const [isWhatsAppOpen, setIsWhatsAppOpen] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
 
   const whatsappNumber = '85269704411'
   const whatsappUrl = `https://wa.me/${whatsappNumber}`
   const calendlyUrl = 'https://calendly.com/30-min-free-packaging-consultancy'
+
+  // Open Calendly in new tab (more reliable than iframe)
+  const openCalendly = () => {
+    window.open(calendlyUrl, '_blank', 'noopener,noreferrer')
+    setIsExpanded(false)
+  }
 
   return (
     <>
@@ -17,12 +22,9 @@ export default function FloatingButtons() {
         {/* Expanded Options */}
         {isExpanded && (
           <div className="flex flex-col gap-3 animate-in slide-in-from-bottom-2 duration-200">
-            {/* Book a Meeting Button */}
+            {/* Book a Meeting Button - Opens in new tab */}
             <button
-              onClick={() => {
-                setIsCalendlyOpen(true)
-                setIsExpanded(false)
-              }}
+              onClick={openCalendly}
               className="flex items-center gap-3 bg-primary-600 text-white px-4 py-3 rounded-full shadow-lg hover:bg-primary-700 transition-all hover:scale-105"
             >
               <Calendar className="h-5 w-5" />
@@ -60,47 +62,6 @@ export default function FloatingButtons() {
           )}
         </button>
       </div>
-
-      {/* Calendly Lightbox Modal */}
-      {isCalendlyOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-          {/* Backdrop */}
-          <div 
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-            onClick={() => setIsCalendlyOpen(false)}
-          />
-          
-          {/* Modal Content */}
-          <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-4xl h-[80vh] overflow-hidden">
-            {/* Close Button */}
-            <button
-              onClick={() => setIsCalendlyOpen(false)}
-              className="absolute top-4 right-4 z-10 w-10 h-10 bg-neutral-100 hover:bg-neutral-200 rounded-full flex items-center justify-center transition-colors"
-            >
-              <X className="h-5 w-5 text-neutral-600" />
-            </button>
-
-            {/* Header */}
-            <div className="bg-primary-600 text-white px-6 py-4">
-              <h3 className="text-xl font-semibold flex items-center gap-2">
-                <Calendar className="h-5 w-5" />
-                Book a Free 30-Min Packaging Consultancy
-              </h3>
-              <p className="text-primary-100 text-sm mt-1">
-                Schedule a meeting with our packaging experts
-              </p>
-            </div>
-
-            {/* Calendly Embed */}
-            <iframe
-              src={calendlyUrl}
-              className="w-full h-[calc(100%-80px)]"
-              frameBorder="0"
-              title="Book a Meeting"
-            />
-          </div>
-        </div>
-      )}
 
       {/* WhatsApp Lightbox Modal */}
       {isWhatsAppOpen && (
