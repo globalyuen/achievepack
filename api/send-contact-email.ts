@@ -1,4 +1,19 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
+import { createClient } from '@supabase/supabase-js'
+
+// Initialize Supabase client with service key for server-side operations
+const getSupabase = () => {
+  // @ts-ignore - Vercel environment variables
+  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL
+  // @ts-ignore - Use service key for server-side uploads
+  const supabaseKey = process.env.SUPABASE_SERVICE_KEY || process.env.VITE_SUPABASE_ANON_KEY
+  
+  if (!supabaseUrl || !supabaseKey) {
+    return null
+  }
+  
+  return createClient(supabaseUrl, supabaseKey)
+}
 
 // Verify Cloudflare Turnstile token
 async function verifyTurnstile(token: string, remoteIp: string): Promise<boolean> {
@@ -65,6 +80,79 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(500).json({ error: 'Email service not configured' })
   }
 
+  // Upload attachments to Supabase and get URLs
+  let attachmentUrls: { name: string; url: string; size?: number }[] = []
+  const supabase = getSupabase()
+  
+  if (attachments && attachments.length > 0 && supabase) {
+    try {
+      for (const att of attachments) {
+        // Convert base64 to buffer
+        const buffer = Buffer.from(att.content, 'base64')
+        const fileName = `${Date.now()}_${att.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`
+        
+        // Upload to Supabase Storage
+        const { data, error } = await supabase.storage
+          .from('contact-attachments')
+          .upload(fileName, buffer, {
+            contentType: att.contentType || 'application/octet-stream',
+            upsert: false
+          })
+        
+        if (!error && data) {
+          // Get public URL
+          const { data: urlData } = supabase.storage
+            .from('contact-attachments')
+            .getPublicUrl(fileName)
+          
+          attachmentUrls.push({
+            name: att.name,
+            url: urlData.publicUrl,
+            size: buffer.length
+          })
+        } else {
+          console.error('File upload error:', error)
+        }
+      }
+    } catch (uploadError) {
+      console.error('Attachment upload error:', uploadError)
+    }
+  }
+
+  // Save inquiry to crm_inquiries table
+  let inquiryId: string | null = null
+  if (supabase) {
+    try {
+      const { data: inquiryData, error: inquiryError } = await supabase
+        .from('crm_inquiries')
+        .insert({
+          name,
+          email,
+          company: company || null,
+          phone: phone || null,
+          message: `${subject ? `Subject: ${subject}\n\n` : ''}${message}`,
+          source: 'website',
+          status: 'new',
+          packaging_type: inquiryType === 'quote' ? 'Quote Request' : inquiryType === 'sample' ? 'Sample Request' : inquiryType,
+          attachment_urls: attachmentUrls.length > 0 ? attachmentUrls : null,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        })
+        .select('id')
+        .single()
+      
+      if (inquiryData) {
+        inquiryId = inquiryData.id
+        console.log('Inquiry saved to CRM:', inquiryId)
+      }
+      if (inquiryError) {
+        console.error('CRM save error:', inquiryError)
+      }
+    } catch (crmError) {
+      console.error('CRM error:', crmError)
+    }
+  }
+
   const inquiryTypeLabels: Record<string, string> = {
     quote: '📦 Quote Request',
     sample: '🎁 Sample Request',
@@ -79,7 +167,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     sender: { name: 'AchievePack Contact Form', email: 'noreply@achievepack.com' },
     to: [{ email: ADMIN_EMAIL, name: 'Ryan' }],
     replyTo: { email: email, name: name },
-    subject: `${inquiryLabel}: ${subject || 'New Contact Message'} - ${name}${attachments?.length ? ` [📎 ${attachments.length} files]` : ''}`,
+    subject: `${inquiryLabel}: ${subject || 'New Contact Message'} - ${name}${attachmentUrls.length > 0 ? ` [📎 ${attachmentUrls.length} files]` : ''}`,
     htmlContent: `
       <!DOCTYPE html>
       <html>
@@ -136,10 +224,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
               <div class="label">Message</div>
               <div class="value" style="white-space: pre-wrap;">${message}</div>
             </div>
-            ${attachments?.length ? `
+            ${attachmentUrls.length > 0 ? `
             <div class="field" style="margin-top: 15px;">
-              <div class="label">📎 Attachments (${attachments.length} files)</div>
-              <div class="value" style="font-size: 13px; color: #059669;">Files attached to this email</div>
+              <div class="label">📎 Attachments (${attachmentUrls.length} files)</div>
+              <div class="value">
+                ${attachmentUrls.map(f => `<a href="${f.url}" target="_blank" style="display: block; color: #2563eb; margin: 4px 0;">📄 ${f.name}${f.size ? ` (${Math.round(f.size / 1024)} KB)` : ''}</a>`).join('')}
+              </div>
+            </div>
+            ` : ''}
+            ${inquiryId ? `
+            <div class="field" style="margin-top: 15px; background: #dbeafe;">
+              <div class="label">🔗 View in Admin</div>
+              <div class="value"><a href="https://achievepack.com/ctrl-x9k7m?tab=crm" target="_blank" style="color: #1d4ed8;">Open CRM Dashboard</a></div>
             </div>
             ` : ''}
             <div class="quick-actions">
@@ -157,13 +253,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     `
   }
 
-  // Add attachments if provided
-  if (attachments && attachments.length > 0) {
-    emailToAdmin.attachment = attachments.map((att: { name: string; content: string }) => ({
-      name: att.name,
-      content: att.content
-    }))
-  }
+  // Note: Attachments are now uploaded to Supabase and linked via URLs
+  // No longer attaching files directly to email
 
   // Auto-reply to Customer
   const emailToCustomer = {
