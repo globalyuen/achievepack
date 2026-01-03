@@ -14,9 +14,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
-  const { orderNumber, customerEmail, customerName, items, totalAmount, shippingAddress } = req.body
+  const { orderNumber, customerEmail, customerName, items, totalAmount, shippingAddress, paymentConfirmed } = req.body
   const BREVO_API_KEY = process.env.BREVO_API_KEY
-  const ADMIN_EMAIL = 'ryan@achievepack.com'
+  const ADMIN_EMAIL = 'checkout@achievepack.com'
 
   if (!BREVO_API_KEY) {
     console.error('BREVO_API_KEY not configured')
@@ -37,10 +37,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     : 'Not provided'
 
   // Email to Admin
+  const paymentStatus = paymentConfirmed ? '✅ PAID via Stripe' : '⏳ Payment Pending'
   const emailToAdmin = {
     sender: { name: 'AchievePack Store', email: 'noreply@achievepack.com' },
-    to: [{ email: ADMIN_EMAIL, name: 'Ryan' }],
-    subject: `🛒 New Order: ${orderNumber}`,
+    to: [{ email: ADMIN_EMAIL, name: 'Checkout' }],
+    replyTo: { email: customerEmail || 'checkout@achievepack.com' },
+    subject: `🛒 New Order: ${orderNumber} - ${paymentConfirmed ? 'PAID' : 'Pending'}`,
     htmlContent: `
       <!DOCTYPE html>
       <html>
@@ -60,6 +62,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         <div class="container">
           <div class="header">
             <h1 style="margin:0;">🛒 New Order Received!</h1>
+            <p style="margin:10px 0 0 0;">${paymentStatus}</p>
           </div>
           <div class="content">
             <div class="section">

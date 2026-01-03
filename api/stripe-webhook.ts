@@ -68,7 +68,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const supabase = getSupabase()
 
         // Update order status to 'paid' or 'confirmed'
-        const { data, error } = await supabase
+        const { data: orderData, error } = await supabase
           .from('orders')
           .update({ 
             status: 'confirmed',
@@ -87,8 +87,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           console.log(`Order ${orderNumber} updated to confirmed/paid`)
         }
 
+        // Get order details for email
+        let orderDetails = orderData?.[0]
+        if (!orderDetails) {
+          // Fetch order details if update didn't return data
+          const { data: fetchedOrder } = await supabase
+            .from('orders')
+            .select('*')
+            .eq('order_number', orderNumber)
+            .single()
+          orderDetails = fetchedOrder
+        }
+
         // Also try to update by session_id if order_number didn't match
-        if (!data || data.length === 0) {
+        if (!orderData || orderData.length === 0) {
           // Try updating by matching email and pending_payment status
           const { error: altError } = await supabase
             .from('orders')
@@ -109,19 +121,23 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           }
         }
 
-        // Send confirmation email (optional)
+        // Send confirmation email with full order details
         try {
           // @ts-ignore
-          await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'https://achievepack.com'}/api/send-order-email`, {
+          const emailResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'https://achievepack.com'}/api/send-order-email`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               orderNumber,
               customerEmail,
-              paymentConfirmed: true,
-              totalAmount: amountTotal
+              customerName: orderDetails?.customer_name || session.customer_details?.name || 'Customer',
+              items: orderDetails?.items || [],
+              totalAmount: amountTotal,
+              shippingAddress: orderDetails?.shipping_address || session.shipping_details?.address,
+              paymentConfirmed: true
             })
           })
+          console.log('Email sent for order:', orderNumber, 'Status:', emailResponse.status)
         } catch (emailError) {
           console.error('Email notification error:', emailError)
         }
