@@ -1,6 +1,6 @@
 import { useState, useRef, useMemo, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { ChevronDown, ChevronRight, Layers, Palette, Package, BookOpen, Calendar, FileText, Sparkles, Search, Leaf, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Menu, X } from 'lucide-react'
+import { ChevronDown, ChevronRight, Layers, Palette, Package, BookOpen, Calendar, FileText, Sparkles, Search, Leaf, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Menu, X, Sprout } from 'lucide-react'
 import { useCustomQuote } from '../contexts/CustomQuoteContext'
 import { LEARN_PAGES } from './LearnNavigation'
 import { blogPosts } from '../data/blogData'
@@ -150,6 +150,7 @@ const CATEGORY_ICONS: Record<string, React.ReactNode> = {
   company: <Award className="h-3.5 w-3.5" />,
   spec: <Layers className="h-3.5 w-3.5" />,
   composting: <Leaf className="h-3.5 w-3.5" />,
+  biope: <Sprout className="h-3.5 w-3.5" />,
 }
 
 interface MegaMenuDropdownProps {

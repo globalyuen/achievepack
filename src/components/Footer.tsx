@@ -51,7 +51,6 @@ export default function Footer() {
               <li><Link to="/materials/recyclable-mono-pe" className="hover:text-primary-400">Recyclable Mono PE</Link></li>
               <li><Link to="/materials/recyclable-mono-pp" className="hover:text-primary-400">Recyclable Mono PP</Link></li>
               <li><Link to="/materials/bio-pe" className="hover:text-primary-400">Bio-PE</Link></li>
-              <li><Link to="/learn/biope/what-is-biope" className="hover:text-primary-400">What is Bio-PE?</Link></li>
               <li><Link to="/materials/pcr" className="hover:text-primary-400">PCR Recycled</Link></li>
             </ul>
           </div>
@@ -76,6 +75,16 @@ export default function Footer() {
               <li><Link to="/composting/composting-benefits" className="hover:text-primary-400">Composting Benefits</Link></li>
               <li><Link to="/composting/composting-services" className="hover:text-primary-400">Service Finder</Link></li>
               <li><Link to="/composting/biodegradable-vs-compostable" className="hover:text-primary-400">Biodegradable vs Compostable</Link></li>
+            </ul>
+          </div>
+
+          {/* BioPE */}
+          <div>
+            <h4 className="font-semibold text-sm mb-2">BioPE</h4>
+            <ul className="space-y-1 text-xs text-neutral-400">
+              <li><Link to="/learn/biope/what-is-biope" className="hover:text-primary-400">What is Bio-PE?</Link></li>
+              <li><Link to="/materials/bio-pe" className="hover:text-primary-400">Bio-PE Materials</Link></li>
+              <li><Link to="/spec/biope-pet-duplex-clear" className="hover:text-primary-400">Bio-PE Structures</Link></li>
             </ul>
           </div>
         </div>
