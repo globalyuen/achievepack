@@ -89,6 +89,9 @@ const ALL_PAGES = [
   { name: 'Bio-PE & EPR Regulations', link: '/biope/bio-pe-epr-regulations', image: '/imgs/biope/epr/a_biope_epr_hero_image_8632332.webp', category: 'Materials', description: 'How bio-PE helps brands navigate EPR regulations: lower fees, full recyclability, and carbon benefits for sustainable packaging compliance', keywords: ['bio-PE', 'EPR', 'extended producer responsibility', 'recyclable packaging', 'EPR fees', 'mono-material', 'regulatory compliance'] },
   { name: 'Inside I\'m green™ Bio-PE', link: '/biope/inside-im-green-bio-pe', image: '/imgs/biope/inside/hero.webp', category: 'Materials', description: 'Technical guide to I\'m green™ Bio-PE: sugarcane-based polyethylene with full recyclability, ASTM D6866 verification, and drop-in processing', keywords: ['I\'m green', 'bio-PE', 'sugarcane PE', 'ASTM D6866', 'drop-in', 'recyclable', 'plant-based', 'Braskem'] },
   
+  // PCR
+  { name: 'What Is PCR Plastic?', link: '/pcr/pcr-plastic-guide', image: '/imgs/pcr/guide/hero.webp', category: 'Materials', description: 'Complete guide to PCR (Post-Consumer Recycled) plastic: what it is, how it affects packaging quality, food safety considerations, and practical implementation for SME brands', keywords: ['PCR plastic', 'post-consumer recycled', 'recycled plastic', 'PCR quality', 'PCR food safety', 'recycled content', 'sustainable packaging'] },
+  
   // Case Studies
   { name: 'Coffee Roastery', link: '/case-studies/coffee-roastery', image: '/imgs/illustrated/a_coffee_roaster_variation_1_6758424.webp', category: 'Case Studies', description: 'How a specialty roaster switched to compostable', keywords: ['case study', 'coffee', 'roastery'] },
   { name: 'Tea Brand', link: '/case-studies/tea-brand', image: '/imgs/illustrated/a_coffee_tea_hero_v1_1905321.webp', category: 'Case Studies', description: 'Premium tea brand sustainability journey', keywords: ['case study', 'tea', 'brand'] },
