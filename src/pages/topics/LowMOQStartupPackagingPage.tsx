@@ -74,19 +74,19 @@ const LowMOQStartupPackagingPage: React.FC = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
             <ClickableImage 
-              src="/imgs/store/shape/stand-up-pouch.webp" 
+              src="/imgs/store/pouch shape/stand-up.webp" 
               alt="Stand up pouch for startups" 
               className="w-full h-24 object-cover rounded-lg"
               caption="Stand Up"
             />
             <ClickableImage 
-              src="/imgs/store/shape/flat-bottom-pouch.webp" 
+              src="/imgs/store/pouch shape/flat-bottom.webp" 
               alt="Flat bottom bag" 
               className="w-full h-24 object-cover rounded-lg"
               caption="Flat Bottom"
             />
             <ClickableImage 
-              src="/imgs/store/shape/flat-pouch.webp" 
+              src="/imgs/store/pouch shape/3-side.webp" 
               alt="Flat pouch" 
               className="w-full h-24 object-cover rounded-lg"
               caption="Flat Pouch"
