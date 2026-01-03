@@ -85,6 +85,7 @@ const ALL_PAGES = [
   
   // Bio-PE
   { name: 'What is Bio-PE', link: '/biope/what-is-bio-pe', image: '/imgs/biope/what/a_hero_bio_pe_article_2212774.webp', category: 'Materials', description: 'Bio-PE sustainable flexible packaging: plant-based polyethylene with carbon benefits and recyclability', keywords: ['bio-PE', 'bio-based polyethylene', 'sugarcane PE', 'plant-based plastic', 'recyclable', 'carbon footprint', 'ASTM D6866'] },
+  { name: 'Bio-PE vs Compostable', link: '/biope/bio-pe-vs-compostable', image: '/imgs/biope/vs/a_biope_epr_hero_image_8632332.webp', category: 'Materials', description: 'Bio-PE vs compostable films comparison: infrastructure fit, product residue, climate impact and portfolio strategy guide', keywords: ['bio-PE', 'compostable', 'comparison', 'recyclable', 'infrastructure', 'EPR', 'sustainability', 'portfolio strategy'] },
   
   // Case Studies
   { name: 'Coffee Roastery', link: '/case-studies/coffee-roastery', image: '/imgs/illustrated/a_coffee_roaster_variation_1_6758424.webp', category: 'Case Studies', description: 'How a specialty roaster switched to compostable', keywords: ['case study', 'coffee', 'roastery'] },

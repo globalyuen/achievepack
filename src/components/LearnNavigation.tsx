@@ -203,6 +203,7 @@ const LEARN_PAGES = {
     icon: <Sprout className="h-4 w-4" />,
     pages: [
       { name: 'What is Bio-PE', link: '/biope/what-is-bio-pe', image: '/imgs/biope/what/a_hero_bio_pe_article_2212774.webp' },
+      { name: 'Bio-PE vs Compostable', link: '/biope/bio-pe-vs-compostable', image: '/imgs/biope/vs/a_biope_epr_hero_image_8632332.webp' },
     ]
   },
 }
