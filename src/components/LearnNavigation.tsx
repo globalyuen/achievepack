@@ -204,6 +204,8 @@ const LEARN_PAGES = {
     pages: [
       { name: 'What is Bio-PE', link: '/biope/what-is-bio-pe', image: '/imgs/biope/what/a_hero_bio_pe_article_2212774.webp' },
       { name: 'Bio-PE vs Compostable', link: '/biope/bio-pe-vs-compostable', image: '/imgs/biope/vs/a_biope_epr_hero_image_8632332.webp' },
+      { name: 'Bio-PE & EPR Regulations', link: '/biope/bio-pe-epr-regulations', image: '/imgs/biope/epr/a_biope_epr_hero_image_8632332.webp' },
+      { name: 'Inside I\'m green™ Bio-PE', link: '/biope/inside-im-green-bio-pe', image: '/imgs/biope/inside/hero.webp' },
     ]
   },
 }
