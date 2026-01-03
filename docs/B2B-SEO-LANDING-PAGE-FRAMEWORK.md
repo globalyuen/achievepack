@@ -361,6 +361,29 @@ const faqs = [
 
 ## 🎨 UI 组件库
 
+### Hero Image 规范
+```tsx
+// Hero 图片必须使用圆角
+<ClickableImage 
+  src={IMAGES.hero}
+  alt="Hero image description"
+  className="w-full rounded-xl shadow-2xl"  // 圆角 + 阴影
+/>
+
+// 或者使用 img 标签
+<img 
+  src={heroImage}
+  alt="Hero"
+  className="w-full rounded-xl shadow-lg"  // rounded-xl = 12px 圆角
+  loading="eager"  // Hero 图片不要 lazy load
+/>
+
+// 圆角等级参考:
+// rounded-lg  = 8px  (小图片/缩略图)
+// rounded-xl  = 12px (Hero/大图片) ✓ 推荐
+// rounded-2xl = 16px (卡片/模态框)
+```
+
 ### 颜色语义
 ```
 绿色 (green-*): 正面/推荐/可堆肥
