@@ -88,6 +88,16 @@ export default function Footer() {
               <li><Link to="/spec/biope-pet-duplex-clear" className="hover:text-primary-400">Bio-PE Structures</Link></li>
             </ul>
           </div>
+
+          {/* PCR */}
+          <div>
+            <h4 className="font-semibold text-sm mb-2">PCR</h4>
+            <ul className="space-y-1 text-xs text-neutral-400">
+              <li><Link to="/pcr/pcr-plastic-guide" className="hover:text-primary-400">What Is PCR Plastic?</Link></li>
+              <li><Link to="/materials/pcr" className="hover:text-primary-400">PCR Materials</Link></li>
+              <li><Link to="/spec/pcr-pet-duplex-clear" className="hover:text-primary-400">PCR Structures</Link></li>
+            </ul>
+          </div>
         </div>
 
         {/* Second Row */}
