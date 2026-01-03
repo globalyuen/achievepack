@@ -1,6 +1,18 @@
 // Store category types
 export type StoreCategory = 'sample' | 'conventional-digital' | 'eco-digital' | 'eco-stock' | 'boxes'
 
+// NEW: Product type for Stock vs Custom distinction
+export type ProductType = 'sample' | 'stock' | 'custom'
+
+// NEW: Sub-category for sidebar menu grouping
+export type ProductSubCategory = 
+  | 'samples'                    // Sample category
+  | 'conventional-digital'       // Stock: Conventional Digital (fixed sizes)
+  | 'eco-stock-plain'           // Stock: Eco Stock (no print, plain bags)
+  | 'eco-digital'               // Custom: Eco Digital (custom sizes)
+  | 'eco-stock-custom-print'    // Custom: Eco Stock Custom Print
+  | 'boxes'                     // Custom: Boxes
+
 // Legacy product interface (keeping for backward compatibility)
 export interface PouchProduct {
   id: string
@@ -24,6 +36,8 @@ export interface BaseStoreProduct {
   id: string
   name: string
   category: StoreCategory
+  productType?: ProductType        // 'sample' | 'stock' | 'custom' (optional for backward compat)
+  subCategory?: ProductSubCategory // for sidebar grouping (optional for backward compat)
   description: string
   shortDesc: string
   features: string[]
@@ -36,6 +50,8 @@ export interface BaseStoreProduct {
   minOrder: number
   // YouTube video URL for product demo
   videoUrl?: string
+  // Allow custom size input (for custom products)
+  allowCustomSize?: boolean
 }
 
 // Sample product
@@ -281,12 +297,14 @@ export const PRICING_DATA: Record<string, Record<string, Record<number, number>>
   }
 }
 
-// Sample Products (5)
+// Sample Products (4)
 const SAMPLE_PRODUCTS: SampleProduct[] = [
   {
     id: 'sample-sizing-pack',
     name: 'Sizing Pack (Conventional Plastic)',
     category: 'sample',
+    productType: 'sample',
+    subCategory: 'samples',
     description: 'Free samples in standard sizes with conventional plastic material. Perfect for testing different sizes for your products.',
     shortDesc: 'Free samples + $40 shipping',
     features: ['Multiple Standard Sizes', 'Conventional Plastic', 'Free Samples', 'Fast Shipping'],
@@ -307,6 +325,8 @@ const SAMPLE_PRODUCTS: SampleProduct[] = [
     id: 'sample-assorted-eco',
     name: 'Assorted Eco Pouches Sample',
     category: 'sample',
+    productType: 'sample',
+    subCategory: 'samples',
     description: 'Mixed eco-friendly sample pouches including PCR/Bio, Recyclable, and Compostable materials.',
     shortDesc: 'Free samples + $40 shipping',
     features: ['PCR/Bio Materials', 'Recyclable Options', 'Compostable Options', 'Variety Pack'],
@@ -327,6 +347,8 @@ const SAMPLE_PRODUCTS: SampleProduct[] = [
     id: 'sample-top-film',
     name: 'Custom digital printed top film of your design',
     category: 'sample',
+    productType: 'sample',
+    subCategory: 'samples',
     description: 'Large format digital printed film sample. Perfect for testing print quality and colors.',
     shortDesc: '$20 sample + $40 shipping',
     features: ['760mm x 1000mm', 'Digital Print Quality', 'Color Testing', 'Fast Turnaround'],
@@ -347,6 +369,8 @@ const SAMPLE_PRODUCTS: SampleProduct[] = [
     id: 'sample-hand-sealed',
     name: 'Custom Digital Printed Hand Sealed Pouches',
     category: 'sample',
+    productType: 'sample',
+    subCategory: 'samples',
     description: 'Custom size hand-sealed digital printed pouches. Test your exact specifications before bulk order.',
     shortDesc: '$20 sample + $40 shipping',
     features: ['Custom Sizes', 'Hand Sealed', 'Digital Print', 'Full Customization'],
@@ -1477,4 +1501,51 @@ export const getProductImage = (shape: string): string => {
     'zipper-stand-up': '/imgs/store/pouch shape/stand-up.webp',
   }
   return images[shape] || '/imgs/store/pouch shape/stand-up.webp'
+}
+
+// Helper function to get product type based on category and id
+export const getProductType = (product: StoreProduct): ProductType => {
+  // Check if productType exists on the product
+  if ('productType' in product && product.productType) {
+    return product.productType as ProductType
+  }
+  
+  // Infer from category
+  if (product.category === 'sample') return 'sample'
+  if (product.category === 'conventional-digital') return 'stock'
+  if (product.category === 'eco-stock') {
+    // Check if it's a custom print version
+    if (product.id.includes('-custom')) return 'custom'
+    return 'stock'
+  }
+  if (product.category === 'eco-digital') return 'custom'
+  if (product.category === 'boxes') return 'custom'
+  
+  return 'stock' // default
+}
+
+// Helper function to get sub-category for sidebar menu
+export const getProductSubCategory = (product: StoreProduct): ProductSubCategory => {
+  // Check if subCategory exists on the product
+  if ('subCategory' in product && product.subCategory) {
+    return product.subCategory as ProductSubCategory
+  }
+  
+  // Infer from category and id
+  if (product.category === 'sample') return 'samples'
+  if (product.category === 'conventional-digital') return 'conventional-digital'
+  if (product.category === 'eco-stock') {
+    if (product.id.includes('-custom')) return 'eco-stock-custom-print'
+    return 'eco-stock-plain'
+  }
+  if (product.category === 'eco-digital') return 'eco-digital'
+  if (product.category === 'boxes') return 'boxes'
+  
+  return 'conventional-digital' // default
+}
+
+// Check if product is purchasable (stock) or requires RFQ (custom)
+export const isProductPurchasable = (product: StoreProduct): boolean => {
+  const type = getProductType(product)
+  return type === 'sample' || type === 'stock'
 }

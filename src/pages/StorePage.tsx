@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { ShoppingCart, Search, Star, Truck, Shield, Clock, Grid3X3, List, ChevronDown, User, Globe, Menu, X, Sparkles } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
-import { FEATURED_PRODUCTS, type StoreProduct, type EcoDigitalProduct, type ConventionalProduct } from '../store/productData'
+import { FEATURED_PRODUCTS, type StoreProduct, type EcoDigitalProduct, type ConventionalProduct, getProductType, getProductSubCategory } from '../store/productData'
 import { getProductImage } from '../utils/productImageMapper'
 import type { ShapeType } from '../utils/productImageMapper'
 import MegaMenu from '../components/MegaMenu'
@@ -13,12 +13,67 @@ import { useCustomQuote } from '../contexts/CustomQuoteContext'
 type ViewMode = 'grid' | 'list'
 type SortOption = 'popularity' | 'price-low' | 'price-high' | 'newest'
 
+// NEW: Hierarchical category menu structure
+interface CategoryMenuItem {
+  id: string
+  label: string
+  type: 'all' | 'group' | 'item'
+  icon?: string
+  badge?: string
+  children?: { id: string; label: string; count: number }[]
+}
+
+const CATEGORY_MENU: CategoryMenuItem[] = [
+  { 
+    id: 'all', 
+    label: 'All Products',
+    type: 'all',
+    icon: '🛒'
+  },
+  {
+    id: 'sample-group',
+    label: 'Sample',
+    type: 'group',
+    icon: '📦',
+    children: [
+      { id: 'samples', label: 'Sample Packs', count: 4 },
+    ]
+  },
+  {
+    id: 'stock-group',
+    label: 'Stock Size',
+    type: 'group',
+    icon: '🏷️',
+    badge: 'Buy Now',
+    children: [
+      { id: 'conventional-digital', label: 'Conventional Digital', count: 8 },
+      { id: 'eco-stock-plain', label: 'Eco Stock (Plain)', count: 4 },
+    ]
+  },
+  {
+    id: 'custom-group',
+    label: 'Custom Size',
+    type: 'group',
+    icon: '🎨',
+    badge: 'RFQ',
+    children: [
+      { id: 'eco-digital', label: 'Eco Digital', count: 7 },
+      { id: 'eco-stock-custom-print', label: 'Eco Stock Custom Print', count: 2 },
+      { id: 'boxes', label: 'Custom Boxes', count: 2 },
+    ]
+  },
+]
+
+// Keep legacy categories for backward compatibility with URL params
 const CATEGORIES = [
   { id: 'all', label: 'All Products' },
   { id: 'sample', label: 'Sample' },
+  { id: 'samples', label: 'Sample Packs' },
   { id: 'conventional-digital', label: 'Conventional Digital' },
   { id: 'eco-digital', label: 'Eco Digital' },
   { id: 'eco-stock', label: 'Eco Stock' },
+  { id: 'eco-stock-plain', label: 'Eco Stock (Plain)' },
+  { id: 'eco-stock-custom-print', label: 'Eco Stock Custom Print' },
   { id: 'boxes', label: 'Boxes' },
   { id: 'mailer', label: 'Mailer Bags' },
 ]
@@ -165,7 +220,10 @@ const StorePage: React.FC = () => {
     const internalShape = urlShapeToInternal[selectedShape] || selectedShape
     
     return FEATURED_PRODUCTS.filter(product => {
-      // Special handling for 'mailer' category - filter by shape
+      // Get product's subCategory for filtering
+      const productSubCategory = getProductSubCategory(product)
+      
+      // Special handling for different category filters
       let matchesCategory = false
       if (selectedCategory === 'all') {
         matchesCategory = true
@@ -173,8 +231,18 @@ const StorePage: React.FC = () => {
         // Mailer category filters by shape 'Mailer Bag'
         const productShape = getProductShape(product)
         matchesCategory = productShape === 'Mailer Bag'
+      } else if (selectedCategory === 'samples' || selectedCategory === 'sample') {
+        // Sample category
+        matchesCategory = product.category === 'sample'
+      } else if (selectedCategory === 'eco-stock-plain') {
+        // Eco Stock Plain (no custom print)
+        matchesCategory = product.category === 'eco-stock' && !product.id.includes('-custom')
+      } else if (selectedCategory === 'eco-stock-custom-print') {
+        // Eco Stock Custom Print
+        matchesCategory = product.category === 'eco-stock' && product.id.includes('-custom')
       } else {
-        matchesCategory = product.category === selectedCategory
+        // Standard category match
+        matchesCategory = product.category === selectedCategory || productSubCategory === selectedCategory
       }
       
       const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -543,22 +611,60 @@ const StorePage: React.FC = () => {
           {/* Sidebar Filters - Sticky */}
           <aside className="hidden lg:block w-72 flex-shrink-0">
             <div className="sticky top-[88px]">
-              {/* Category Filter */}
+              {/* NEW: Hierarchical Category Menu */}
               <div className="bg-white border border-neutral-200 rounded-xl p-5 mb-4">
-                <h3 className="font-bold text-neutral-900 mb-4">Category</h3>
-                <ul className="space-y-2">
-                  {CATEGORIES.map(cat => (
-                    <li key={cat.id}>
-                      <button
-                        onClick={() => handleCategoryChange(cat.id)}
-                        className={`w-full text-left py-1.5 text-sm transition ${
-                          selectedCategory === cat.id
-                            ? 'text-primary-600 font-medium'
-                            : 'text-neutral-600 hover:text-neutral-900'
-                        }`}
-                      >
-                        {cat.label}
-                      </button>
+                <h3 className="font-bold text-neutral-900 mb-4">Categories</h3>
+                <ul className="space-y-1">
+                  {CATEGORY_MENU.map(item => (
+                    <li key={item.id}>
+                      {item.type === 'all' ? (
+                        <button
+                          onClick={() => handleCategoryChange('all')}
+                          className={`w-full text-left py-2 px-3 text-sm rounded-lg transition flex items-center gap-2 ${
+                            selectedCategory === 'all'
+                              ? 'bg-primary-50 text-primary-600 font-medium'
+                              : 'text-neutral-600 hover:bg-neutral-50'
+                          }`}
+                        >
+                          <span>{item.icon}</span>
+                          <span>{item.label}</span>
+                        </button>
+                      ) : (
+                        <div className="mb-3">
+                          <div className="flex items-center justify-between py-2 px-3">
+                            <span className="text-xs font-bold text-neutral-400 uppercase flex items-center gap-2">
+                              <span>{item.icon}</span>
+                              {item.label}
+                            </span>
+                            {item.badge && (
+                              <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${
+                                item.badge === 'Buy Now' 
+                                  ? 'bg-green-100 text-green-700' 
+                                  : 'bg-orange-100 text-orange-700'
+                              }`}>
+                                {item.badge}
+                              </span>
+                            )}
+                          </div>
+                          <ul className="ml-4 space-y-1">
+                            {item.children?.map(child => (
+                              <li key={child.id}>
+                                <button
+                                  onClick={() => handleCategoryChange(child.id)}
+                                  className={`w-full text-left py-1.5 px-3 text-sm rounded-lg transition flex items-center justify-between ${
+                                    selectedCategory === child.id
+                                      ? 'bg-primary-50 text-primary-600 font-medium'
+                                      : 'text-neutral-600 hover:bg-neutral-50'
+                                  }`}
+                                >
+                                  <span>{child.label}</span>
+                                  <span className="text-xs text-neutral-400">({child.count})</span>
+                                </button>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                     </li>
                   ))}
                 </ul>

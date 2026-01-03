@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn, MessageCircle, Package, Home, Share2, Copy, X, Sparkles } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
-import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct, type ConventionalProduct, type EcoStockProduct, type BoxProduct, type EcoStockSizeVariant, type EcoStockSizeWithQuantities, type EcoStockQuantityOption, PRICING_DATA, POUCH_SIZES, QUANTITY_OPTIONS } from '../store/productData'
+import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct, type ConventionalProduct, type EcoStockProduct, type BoxProduct, type EcoStockSizeVariant, type EcoStockSizeWithQuantities, type EcoStockQuantityOption, PRICING_DATA, POUCH_SIZES, QUANTITY_OPTIONS, getProductType, isProductPurchasable } from '../store/productData'
 import { calculateEcoPrice, type EcoCalculatorSelections, getMaterialStructureInfo } from '../utils/ecoDigitalCalculator'
 import { getProductImage, getSizeImage, getSurfaceImage, getAdditionalImage, type ShapeType, ClosureType, SurfaceType, EcoSizeType, AdditionalType } from '../utils/productImageMapper'
 import { TESTIMONIALS } from '../data/testimonialsData'
@@ -226,7 +226,7 @@ const generateDynamicDescription = (options: {
 
 const ProductPage: React.FC = () => {
   const { productId } = useParams<{ productId: string }>()
-  const { addToCart, cartCount, setIsCartOpen } = useStore()
+  const { addToCart, addToRfq, cartCount, setIsCartOpen, setActiveCartMode } = useStore()
   const { openQuoteLightbox } = useCustomQuote()
   const navigate = useNavigate()
   const [isPending, startTransition] = useTransition()
@@ -248,6 +248,11 @@ const ProductPage: React.FC = () => {
   const conventionalProduct = isConventionalDigital ? (product as ConventionalProduct) : null
   const ecoStockProduct = (isEcoStock || isBoxes) ? (product as EcoStockProduct | BoxProduct) : null
   
+  // Check if this product is purchasable (stock) or requires RFQ (custom)
+  const productType = product ? getProductType(product) : 'stock'
+  const isPurchasable = product ? isProductPurchasable(product) : true
+  const isCustomProduct = productType === 'custom'
+
   // Conventional Digital product options
   const [selectedConvSize, setSelectedConvSize] = useState('130x180')
   const [selectedConvQuantity, setSelectedConvQuantity] = useState(100)
@@ -740,7 +745,7 @@ const ProductPage: React.FC = () => {
       ? `${ecoProduct.shape} / ${selectedSize} / ${selectedClosure} / ${selectedSurface} / ${selectedQuantity}`
       : 'Standard'
     
-    addToCart({
+    const cartItem = {
       productId: product.id,
       name: product.name,
       image: productImage,
@@ -763,7 +768,20 @@ const ProductPage: React.FC = () => {
       quantity: 1,
       unitPrice: totalPrice,
       totalPrice: totalPrice
-    })
+    }
+    
+    // For custom products, add to RFQ instead of cart
+    if (isCustomProduct) {
+      addToRfq({
+        ...cartItem,
+        isRfqItem: true
+      })
+      setActiveCartMode('rfq')
+      setIsCartOpen(true)
+    } else {
+      addToCart(cartItem)
+      setIsCartOpen(true)
+    }
   }
 
   // Generate Product Schema for SEO with full specifications for AI crawlers
@@ -1921,7 +1939,7 @@ const ProductPage: React.FC = () => {
                 </div>
               )}
               
-              {/* Add to Cart & Share */}
+              {/* Add to Cart / RFQ & Share */}
               <div className="flex gap-2">
                 <button 
                   onClick={() => {
@@ -1949,7 +1967,7 @@ const ProductPage: React.FC = () => {
                       cartSize = ecoStockProduct.sizeInfo
                     }
                     
-                    addToCart({
+                    const cartItem = {
                       productId: product.id,
                       name: product.name,
                       image: product.images[0],
@@ -1957,7 +1975,20 @@ const ProductPage: React.FC = () => {
                       quantity: 1,
                       unitPrice: cartPrice,
                       totalPrice: cartPrice
-                    })
+                    }
+                    
+                    // For custom products (boxes, eco-stock custom print), add to RFQ
+                    if (isCustomProduct) {
+                      addToRfq({
+                        ...cartItem,
+                        isRfqItem: true
+                      })
+                      setActiveCartMode('rfq')
+                      setIsCartOpen(true)
+                    } else {
+                      addToCart(cartItem)
+                      setIsCartOpen(true)
+                    }
                   }} 
                   disabled={
                     (ecoStockProduct.sizeVariants && ecoStockProduct.sizeVariants.length > 0 && !ecoStockProduct.customPrintQuantities && !selectedSizeVariant) ||
@@ -1969,10 +2000,16 @@ const ProductPage: React.FC = () => {
                     (ecoStockProduct.sizeWithQuantities && ecoStockProduct.sizeWithQuantities.length > 0 && (!selectedSizeWithQty || !selectedQtyOption)) ||
                     (ecoStockProduct.customPrintQuantities && ecoStockProduct.customPrintQuantities.length > 0 && !selectedQtyOption)
                       ? 'bg-neutral-300 text-neutral-500 cursor-not-allowed'
-                      : 'bg-green-600 hover:bg-green-700 text-white'
+                      : isCustomProduct 
+                        ? 'bg-amber-500 hover:bg-amber-600 text-white'
+                        : 'bg-green-600 hover:bg-green-700 text-white'
                   }`}
                 >
-                  <ShoppingCart className="h-5 w-5" /> {ecoStockProduct.customPrintQuantities ? '🎨 Add Custom Print Order' : isBoxes ? 'Add to Cart' : '🌱 Add Compostable Bag to Cart'}
+                  {isCustomProduct ? (
+                    <><span className="text-lg">📋</span> {isBoxes ? 'Add to Quote Request' : '🎨 Add Custom Print to RFQ'}</>
+                  ) : (
+                    <><ShoppingCart className="h-5 w-5" /> 🌱 Add Compostable Bag to Cart</>
+                  )}
                 </button>
                 {isBoxes && (
                   <button 
@@ -3066,10 +3103,22 @@ const ProductPage: React.FC = () => {
               </div>
             )}
 
-            {/* Add to Cart */}
+            {/* Add to Cart / RFQ */}
             <div className="flex gap-2">
-              <button onClick={handleAddToCart} disabled={totalPrice <= 0} className="flex-1 py-4 bg-primary-600 hover:bg-primary-700 disabled:bg-neutral-400 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2">
-                <ShoppingCart className="h-5 w-5" /> Add to Cart
+              <button 
+                onClick={handleAddToCart} 
+                disabled={totalPrice <= 0} 
+                className={`flex-1 py-4 font-semibold rounded-xl transition flex items-center justify-center gap-2 ${
+                  isCustomProduct 
+                    ? 'bg-amber-500 hover:bg-amber-600 text-white disabled:bg-neutral-400' 
+                    : 'bg-primary-600 hover:bg-primary-700 text-white disabled:bg-neutral-400'
+                }`}
+              >
+                {isCustomProduct ? (
+                  <><span className="text-lg">📋</span> Add to Quote Request</>
+                ) : (
+                  <><ShoppingCart className="h-5 w-5" /> Add to Cart</>
+                )}
               </button>
               <button 
                 onClick={handleShareClick}

@@ -191,6 +191,7 @@ const LEARN_PAGES = {
     title: 'Composting',
     icon: <Leaf className="h-4 w-4" />,
     pages: [
+      { name: 'Commercial Composting', link: '/compostable/commercial-composting', image: '/imgs/compostable/commercial/hero.webp' },
       { name: 'Composting Benefits', link: '/compostable/composting-benefits', image: '/imgs/compostable/benefits/a_achievepack_composting_locator_hero_9733153.webp' },
       { name: 'Composting Service Finder', link: '/compostable/composting-services', image: '/imgs/compostable/finder/a_achievepack_composting_locator_hero_9733153.webp' },
       { name: 'Biodegradable vs Compostable', link: '/compostable/biodegradable-vs-compostable', image: '/imgs/compostable/vs/a_hero_biodegradable_vs_compostable_8031695.webp' },

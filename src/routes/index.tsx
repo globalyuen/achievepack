@@ -194,6 +194,7 @@ const routes = [
   { path: "/store/product/:productId", element: <LazyRoute component={() => import('../pages/ProductPage')} fallback={<LoadingFallback />} /> },
   { path: "/store/checkout", element: <LazyRoute component={() => import('../pages/CheckoutPage')} fallback={<LoadingFallback />} /> },
   { path: "/store/order-confirmation", element: <LazyRoute component={() => import('../pages/OrderConfirmation')} fallback={<LoadingFallback />} /> },
+  { path: "/store/rfq-confirmation", element: <LazyRoute component={() => import('../pages/RfqConfirmation')} fallback={<LoadingFallback />} /> },
   { path: "/login", element: <LazyRoute component={() => import('../pages/LoginPage')} fallback={<LoadingFallback />} /> },
   { path: "/register", element: <LazyRoute component={() => import('../pages/RegisterPage')} fallback={<LoadingFallback />} /> },
   { path: "/forgot-password", element: <LazyRoute component={() => import('../pages/ForgotPasswordPage')} fallback={<LoadingFallback />} /> },

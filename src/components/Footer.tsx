@@ -169,7 +169,7 @@ export default function Footer() {
         
         <div className="border-t border-neutral-800 pt-4 flex flex-col md:flex-row justify-between items-center gap-2">
           <p className="text-neutral-500 text-xs">
-            © {new Date().getFullYear()} Achieve Pack. All rights reserved.
+            © 2010-2026 Achieve Pack. All rights reserved.
           </p>
           <div className="flex gap-4 text-xs text-neutral-500">
             <Link to="/terms" className="hover:text-primary-400">Terms & Conditions</Link>
