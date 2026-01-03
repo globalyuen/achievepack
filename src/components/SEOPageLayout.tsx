@@ -566,18 +566,14 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                   </a>
                 </div>
               </div>
-              {/* Hero Image - Right, 400px fixed height */}
+              {/* Hero Image - Right, 400px fixed height with rounded corners */}
               {heroImage && (
                 <div className="hidden md:flex justify-end items-center h-[400px]">
                   <img 
                     src={heroImage} 
                     alt={heroImageAlt || heroTitle}
-                    className="h-full w-auto object-cover"
+                    className="h-full w-auto object-cover rounded-xl shadow-2xl"
                     loading="lazy"
-                    style={{
-                      maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.95) 5%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0.95) 95%, transparent 100%)',
-                      WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.95) 5%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0.95) 95%, transparent 100%)'
-                    }}
                   />
                 </div>
               )}
