@@ -190,7 +190,19 @@ const DashboardPage: React.FC = () => {
       fetchData()
     } catch (error: any) {
       console.error('Upload error:', error)
-      setUploadError(error.message || 'Failed to upload artwork')
+      // Check for specific error types
+      if (error.message?.includes('Bucket not found') || error.statusCode === '404') {
+        setUploadError(
+          `Storage not configured. Please send your artwork files directly to:\n\n` +
+          `📧 Email: artwork@achievepack.com\n\n` +
+          `Or use file sharing services:\n` +
+          `• WeTransfer: https://wetransfer.com\n` +
+          `• Dropbox: https://www.dropbox.com\n` +
+          `• Google Drive: https://drive.google.com`
+        )
+      } else {
+        setUploadError(error.message || 'Failed to upload artwork')
+      }
     } finally {
       setUploading(false)
       // Reset input
@@ -255,7 +267,19 @@ const DashboardPage: React.FC = () => {
       fetchData()
     } catch (error: any) {
       console.error('Upload error:', error)
-      setUploadError(error.message || 'Failed to upload artwork')
+      // Check for specific error types
+      if (error.message?.includes('Bucket not found') || error.statusCode === '404') {
+        setUploadError(
+          `Storage not configured. Please send your artwork files directly to:\n\n` +
+          `📧 Email: artwork@achievepack.com\n\n` +
+          `Or use file sharing services:\n` +
+          `• WeTransfer: https://wetransfer.com\n` +
+          `• Dropbox: https://www.dropbox.com\n` +
+          `• Google Drive: https://drive.google.com`
+        )
+      } else {
+        setUploadError(error.message || 'Failed to upload artwork')
+      }
     } finally {
       setUploading(false)
       e.target.value = ''

@@ -43,7 +43,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
-  const { name, email, company, phone, subject, message, inquiryType, turnstileToken } = req.body
+  const { name, email, company, phone, subject, message, inquiryType, turnstileToken, attachments } = req.body
   
   // Get client IP
   const clientIp = (req.headers['x-forwarded-for'] as string)?.split(',')[0] || 
@@ -75,11 +75,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const inquiryLabel = inquiryTypeLabels[inquiryType] || inquiryTypeLabels.other
 
   // Email to Admin (Ryan)
-  const emailToAdmin = {
+  const emailToAdmin: any = {
     sender: { name: 'AchievePack Contact Form', email: 'noreply@achievepack.com' },
     to: [{ email: ADMIN_EMAIL, name: 'Ryan' }],
     replyTo: { email: email, name: name },
-    subject: `${inquiryLabel}: ${subject || 'New Contact Message'} - ${name}`,
+    subject: `${inquiryLabel}: ${subject || 'New Contact Message'} - ${name}${attachments?.length ? ` [📎 ${attachments.length} files]` : ''}`,
     htmlContent: `
       <!DOCTYPE html>
       <html>
@@ -136,6 +136,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
               <div class="label">Message</div>
               <div class="value" style="white-space: pre-wrap;">${message}</div>
             </div>
+            ${attachments?.length ? `
+            <div class="field" style="margin-top: 15px;">
+              <div class="label">📎 Attachments (${attachments.length} files)</div>
+              <div class="value" style="font-size: 13px; color: #059669;">Files attached to this email</div>
+            </div>
+            ` : ''}
             <div class="quick-actions">
               <div class="label" style="margin-bottom: 10px;">Quick Actions</div>
               <a href="mailto:${email}?subject=Re: ${subject || 'Your Inquiry'}" class="button button-secondary">📧 Reply via Email</a>
@@ -149,6 +155,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       </body>
       </html>
     `
+  }
+
+  // Add attachments if provided
+  if (attachments && attachments.length > 0) {
+    emailToAdmin.attachment = attachments.map((att: { name: string; content: string }) => ({
+      name: att.name,
+      content: att.content
+    }))
   }
 
   // Auto-reply to Customer

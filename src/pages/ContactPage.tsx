@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useTransition, useEffect, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link, useNavigate } from 'react-router-dom'
-import { Mail, Phone, MapPin, Clock, MessageCircle, Calendar, Send, ArrowLeft, CheckCircle, Building2, Globe, AlertCircle } from 'lucide-react'
+import { Mail, Phone, MapPin, Clock, MessageCircle, Calendar, Send, ArrowLeft, CheckCircle, Building2, Globe, AlertCircle, Upload, X, FileText, Image } from 'lucide-react'
 import { useCalendly } from '../contexts/CalendlyContext'
 
 const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAACJvySd2iBsvYcJv'
@@ -25,6 +25,8 @@ const ContactPage: React.FC = () => {
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
   const turnstileRef = useRef<HTMLDivElement>(null)
   const turnstileWidgetId = useRef<string | null>(null)
+  const [attachedFiles, setAttachedFiles] = useState<File[]>([])
+  const [fileError, setFileError] = useState('')
 
   // Load Turnstile script
   useEffect(() => {
@@ -80,6 +82,60 @@ const ContactPage: React.FC = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
+  // Handle file selection
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files
+    if (!files) return
+    
+    setFileError('')
+    const newFiles: File[] = []
+    let totalSize = attachedFiles.reduce((sum, f) => sum + f.size, 0)
+    
+    for (const file of Array.from(files)) {
+      // Check individual file size (5MB limit per file)
+      if (file.size > 5 * 1024 * 1024) {
+        setFileError(`File "${file.name}" exceeds 5MB limit`)
+        continue
+      }
+      
+      // Check total size (10MB limit for all attachments)
+      if (totalSize + file.size > 10 * 1024 * 1024) {
+        setFileError('Total attachment size exceeds 10MB limit')
+        break
+      }
+      
+      // Check file count
+      if (attachedFiles.length + newFiles.length >= 5) {
+        setFileError('Maximum 5 files allowed')
+        break
+      }
+      
+      newFiles.push(file)
+      totalSize += file.size
+    }
+    
+    setAttachedFiles(prev => [...prev, ...newFiles])
+    e.target.value = '' // Reset input
+  }
+
+  // Remove attached file
+  const removeFile = (index: number) => {
+    setAttachedFiles(prev => prev.filter((_, i) => i !== index))
+  }
+
+  // Convert file to base64
+  const fileToBase64 = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader()
+      reader.readAsDataURL(file)
+      reader.onload = () => {
+        const base64 = (reader.result as string).split(',')[1]
+        resolve(base64)
+      }
+      reader.onerror = reject
+    })
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
@@ -92,12 +148,23 @@ const ContactPage: React.FC = () => {
     setIsSubmitting(true)
     
     try {
+      // Prepare attachments
+      const attachments = []
+      for (const file of attachedFiles) {
+        const base64Content = await fileToBase64(file)
+        attachments.push({
+          name: file.name,
+          content: base64Content
+        })
+      }
+
       const response = await fetch('/api/send-contact-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
-          turnstileToken
+          turnstileToken,
+          attachments
         })
       })
       
@@ -109,6 +176,7 @@ const ContactPage: React.FC = () => {
       
       setIsSubmitted(true)
       setFormData({ name: '', email: '', company: '', phone: '', subject: '', message: '', inquiryType: 'quote' })
+      setAttachedFiles([])
     } catch (err: any) {
       setError(err.message || 'Failed to send message. Please try again.')
       // Reset Turnstile
@@ -419,6 +487,58 @@ const ContactPage: React.FC = () => {
                         className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-none"
                         placeholder="Tell us about your packaging needs, quantities, timeline..."
                       />
+                    </div>
+
+                    {/* File Attachments */}
+                    <div>
+                      <label className="block text-sm font-medium text-neutral-700 mb-2">Attachments (Optional)</label>
+                      <div className="border-2 border-dashed border-neutral-300 rounded-lg p-4 hover:border-primary-400 transition">
+                        <label className="flex flex-col items-center justify-center cursor-pointer">
+                          <Upload className="h-8 w-8 text-neutral-400 mb-2" />
+                          <span className="text-sm text-neutral-600 text-center">
+                            <span className="text-primary-600 font-medium">Click to upload</span> or drag and drop
+                          </span>
+                          <span className="text-xs text-neutral-500 mt-1">Images, PDFs, AI, EPS (max 5MB each, 10MB total)</span>
+                          <input
+                            type="file"
+                            multiple
+                            accept=".pdf,.png,.jpg,.jpeg,.gif,.ai,.eps,.psd,.doc,.docx"
+                            onChange={handleFileChange}
+                            className="hidden"
+                          />
+                        </label>
+                      </div>
+                      
+                      {/* File Error */}
+                      {fileError && (
+                        <p className="text-sm text-red-600 mt-2">{fileError}</p>
+                      )}
+                      
+                      {/* Attached Files List */}
+                      {attachedFiles.length > 0 && (
+                        <div className="mt-3 space-y-2">
+                          {attachedFiles.map((file, index) => (
+                            <div key={index} className="flex items-center justify-between bg-neutral-50 rounded-lg px-3 py-2">
+                              <div className="flex items-center gap-2 min-w-0">
+                                {file.type.startsWith('image/') ? (
+                                  <Image className="h-4 w-4 text-blue-500 flex-shrink-0" />
+                                ) : (
+                                  <FileText className="h-4 w-4 text-orange-500 flex-shrink-0" />
+                                )}
+                                <span className="text-sm text-neutral-700 truncate">{file.name}</span>
+                                <span className="text-xs text-neutral-400 flex-shrink-0">({(file.size / 1024).toFixed(0)} KB)</span>
+                              </div>
+                              <button
+                                type="button"
+                                onClick={() => removeFile(index)}
+                                className="p-1 hover:bg-neutral-200 rounded transition flex-shrink-0"
+                              >
+                                <X className="h-4 w-4 text-neutral-500" />
+                              </button>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
 
                     {/* Cloudflare Turnstile Widget */}
