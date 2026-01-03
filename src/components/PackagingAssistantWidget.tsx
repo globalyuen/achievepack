@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react'
-import { MessageCircle, X, Send, Loader2, Bot, User, ExternalLink, MapPin, ArrowRight } from 'lucide-react'
+import { MessageCircle, X, Send, Loader2, Bot, User, ExternalLink, MapPin, ArrowRight, Calendar } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 import { FEATURED_PRODUCTS } from '../store/productData'
+import { useCalendly } from '../contexts/CalendlyContext'
 
 interface Message {
   id: string
@@ -32,6 +33,56 @@ const PackagingAssistantWidget: React.FC = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const location = useLocation()
+  const { openCalendly } = useCalendly()
+
+  // Parse message content to make links clickable, especially Calendly booking links
+  const renderMessageContent = useCallback((content: string) => {
+    // Split by Markdown links [text](url) and plain URLs
+    const calendlyRegex = /\[([^\]]+)\]\((https?:\/\/calendly\.com[^)]+)\)/gi
+    const markdownLinkRegex = /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/gi
+    const plainUrlRegex = /(https?:\/\/calendly\.com\/[^\s)]+)/gi
+    
+    // Check if content contains Calendly link
+    const hasCalendlyLink = content.match(calendlyRegex) || content.match(plainUrlRegex)
+    
+    if (hasCalendlyLink) {
+      // Replace Calendly markdown links with button placeholder
+      let processed = content.replace(calendlyRegex, '{{CALENDLY_BUTTON}}')
+      // Replace plain Calendly URLs
+      processed = processed.replace(plainUrlRegex, '{{CALENDLY_BUTTON}}')
+      // Replace other markdown links with clickable links
+      processed = processed.replace(markdownLinkRegex, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">$1</a>')
+      
+      // Split by button placeholder and render
+      const parts = processed.split('{{CALENDLY_BUTTON}}')
+      
+      return (
+        <>
+          {parts.map((part, index) => (
+            <React.Fragment key={index}>
+              <span dangerouslySetInnerHTML={{ __html: part.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>') }} />
+              {index < parts.length - 1 && (
+                <button
+                  onClick={openCalendly}
+                  className="inline-flex items-center gap-1.5 bg-gradient-to-r from-primary-600 to-primary-700 text-white px-3 py-1.5 rounded-lg text-xs font-semibold hover:from-primary-700 hover:to-primary-800 transition-all shadow-sm hover:shadow-md my-1"
+                >
+                  <Calendar className="w-3.5 h-3.5" />
+                  Book Free Consultation
+                </button>
+              )}
+            </React.Fragment>
+          ))}
+        </>
+      )
+    }
+    
+    // Handle regular markdown links and bold text
+    let processed = content
+    processed = processed.replace(markdownLinkRegex, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">$1</a>')
+    processed = processed.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    
+    return <span dangerouslySetInnerHTML={{ __html: processed }} />
+  }, [openCalendly])
 
   // Get current page context
   const pageContext = useMemo((): PageContext => {
@@ -366,7 +417,7 @@ Ask me anything!`
                       : 'bg-white text-neutral-800 border border-neutral-200 rounded-bl-sm shadow-sm'
                   }`}
                 >
-                  <p className="text-sm whitespace-pre-wrap leading-relaxed">{message.content}</p>
+                  <div className="text-sm whitespace-pre-wrap leading-relaxed">{renderMessageContent(message.content)}</div>
                   
                   {message.sources && message.sources.length > 0 && (
                     <div className="mt-2 pt-2 border-t border-neutral-100">
