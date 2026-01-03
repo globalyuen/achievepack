@@ -1,8 +1,9 @@
 import { useState, useRef, useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { ChevronDown, ChevronRight, Layers, Palette, Package, BookOpen, Calendar, FileText, Sparkles, Search, Leaf, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe } from 'lucide-react'
+import { ChevronDown, ChevronRight, Layers, Palette, Package, BookOpen, Calendar, FileText, Sparkles, Search, Leaf, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Menu, X } from 'lucide-react'
 import { useCustomQuote } from '../contexts/CustomQuoteContext'
 import { LEARN_PAGES } from './LearnNavigation'
+import { blogPosts } from '../data/blogData'
 
 // Store-related 9:16 ads images pool (for SHAPE/CUSTOM/STOCK menus - left side)
 const STORE_ADS_POOL = [
@@ -239,8 +240,9 @@ export default function MegaMenu() {
 
   const handleMouseEnter = (menuId: string) => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current)
-    if (activeMenu !== menuId) {
-      setRefreshKey(prev => prev + 1) // Refresh random images when switching menus
+    // Only refresh for store menus, not Learn
+    if (activeMenu !== menuId && (menuId === 'shape' || menuId === 'custom' || menuId === 'stock')) {
+      setRefreshKey(prev => prev + 1)
     }
     setActiveMenu(menuId)
   }
@@ -498,52 +500,76 @@ export default function MegaMenu() {
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'blog' ? 'rotate-180' : ''}`} />
           </Link>
           {activeMenu === 'blog' && (
-            <div className="fixed right-4 top-16 pt-2 z-50" onMouseEnter={() => handleMouseEnter('blog')} onMouseLeave={handleMouseLeave}>
-              <div className="w-[280px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
-                {/* Compact Blog Categories */}
-                <div className="p-4">
-                  <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-3 flex items-center gap-2">
-                    <FileText className="h-4 w-4" />
-                    Blog Categories
-                  </h3>
-                  <ul className="space-y-1">
-                    <li>
-                      <Link to="/blog" className="flex items-center gap-2 py-2 px-3 rounded-lg text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition-all text-sm font-medium">
-                        <ChevronRight className="h-3 w-3 text-neutral-400" />
-                        All Articles
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/blog?category=Packaging" className="flex items-center gap-2 py-2 px-3 rounded-lg text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition-all text-sm font-medium">
-                        <ChevronRight className="h-3 w-3 text-neutral-400" />
-                        Packaging Tips
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/blog?category=Sustainability" className="flex items-center gap-2 py-2 px-3 rounded-lg text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition-all text-sm font-medium">
-                        <ChevronRight className="h-3 w-3 text-neutral-400" />
-                        Sustainability
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/blog?category=Industry" className="flex items-center gap-2 py-2 px-3 rounded-lg text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition-all text-sm font-medium">
-                        <ChevronRight className="h-3 w-3 text-neutral-400" />
-                        Industry News
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/blog?category=Newsletter" className="flex items-center gap-2 py-2 px-3 rounded-lg text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition-all text-sm font-medium">
-                        <ChevronRight className="h-3 w-3 text-neutral-400" />
-                        Newsletter
-                      </Link>
-                    </li>
-                  </ul>
+            <div className="fixed left-1/2 -translate-x-1/2 top-16 pt-2 z-50" onMouseEnter={() => handleMouseEnter('blog')} onMouseLeave={handleMouseLeave}>
+              <div className="w-[95vw] max-w-[900px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
+                <div className="grid grid-cols-12">
+                  {/* Left: Blog Categories */}
+                  <div className="col-span-3 bg-neutral-50 p-3 border-r border-neutral-100">
+                    <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-2 flex items-center gap-2">
+                      <FileText className="h-4 w-4" />
+                      Blog
+                    </h3>
+                    <ul className="space-y-0.5">
+                      <li>
+                        <Link to="/blog" className="flex items-center gap-2 py-1.5 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all">
+                          <ChevronRight className="h-3 w-3 text-neutral-400" />
+                          All Articles
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/blog?category=Packaging" className="flex items-center gap-2 py-1.5 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all">
+                          <ChevronRight className="h-3 w-3 text-neutral-400" />
+                          Packaging Tips
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/blog?category=Sustainability" className="flex items-center gap-2 py-1.5 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all">
+                          <ChevronRight className="h-3 w-3 text-neutral-400" />
+                          Sustainability
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/blog?category=Industry" className="flex items-center gap-2 py-1.5 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all">
+                          <ChevronRight className="h-3 w-3 text-neutral-400" />
+                          Industry News
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/blog?category=Newsletter" className="flex items-center gap-2 py-1.5 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all">
+                          <ChevronRight className="h-3 w-3 text-neutral-400" />
+                          Newsletter
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Right: Latest Blog Posts with Images */}
+                  <div className="col-span-9 p-3">
+                    <h4 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-3">Latest Articles</h4>
+                    <div className="grid grid-cols-3 gap-3">
+                      {blogPosts.slice(0, 6).map((post) => (
+                        <Link
+                          key={post.id}
+                          to={`/blog/${post.slug}`}
+                          className="group"
+                        >
+                          <div className="aspect-[16/10] rounded-lg overflow-hidden mb-2 bg-neutral-100">
+                            <img
+                              src={post.featuredImage}
+                              alt={post.title}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              loading="lazy"
+                            />
+                          </div>
+                          <span className="text-[10px] text-primary-600 font-medium">{post.category}</span>
+                          <h5 className="text-xs font-medium text-neutral-800 line-clamp-2 group-hover:text-primary-600 transition-colors">{post.title}</h5>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 </div>
                 <div className="bg-neutral-50 px-4 py-2 border-t border-neutral-100">
-                  <Link
-                    to="/blog"
-                    className="text-xs font-semibold text-primary-600 hover:text-primary-700 transition-colors"
-                  >
+                  <Link to="/blog" className="text-xs font-semibold text-primary-600 hover:text-primary-700 transition-colors">
                     View All Posts →
                   </Link>
                 </div>
