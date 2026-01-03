@@ -2,13 +2,13 @@ import { useState, useMemo, useTransition, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { blogPosts, blogCategories } from '../../data/blogData';
-import { Calendar, Clock, ArrowRight, Search, ShoppingCart, ArrowLeft } from 'lucide-react';
-import { useStore } from '../../store/StoreContext';
+import { Calendar, Clock, ArrowRight, Search } from 'lucide-react';
+import SiteHeader from '../../components/SiteHeader';
+import StoreFooter from '../../components/StoreFooter';
 
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
-  const { cartCount, setIsCartOpen } = useStore();
   const navigate = useNavigate();
   const [, startTransition] = useTransition();
 
@@ -45,39 +45,8 @@ export default function BlogPage() {
       </Helmet>
 
       <div className="min-h-screen bg-neutral-50">
-        {/* Header */}
-        <header className="bg-green-600 text-white fixed top-0 left-0 right-0 z-50">
-          <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <a href="/" onClick={handleNavigation('/')} className="flex items-center gap-3 hover:opacity-90 transition cursor-pointer">
-                <img 
-                  src="/ap-logo-white.png" 
-                  alt="Achieve Pack" 
-                  className="h-10 w-auto"
-                  loading="eager"
-                  decoding="async"
-                  width="133"
-                  height="40"
-                />
-                <span className="text-2xl font-bold hidden sm:inline">Blog</span>
-              </a>
-            </div>
-            <div className="flex items-center gap-4">
-              <Link to="/store" className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full hover:bg-white/20 transition">
-                <ShoppingCart className="h-5 w-5" />
-                <span className="hidden sm:inline">Store</span>
-                {cartCount > 0 && (
-                  <span className="bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
-                    {cartCount}
-                  </span>
-                )}
-              </Link>
-            </div>
-          </div>
-        </header>
-
-        {/* Spacer for fixed header */}
-        <div className="h-[72px]"></div>
+        {/* Unified Site Header */}
+        <SiteHeader showLanguageSelector={false} />
 
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-green-600 to-green-800 text-white py-16 md:py-24">
@@ -232,6 +201,8 @@ export default function BlogPage() {
             </div>
           </div>
         </section>
+
+        <StoreFooter />
       </div>
     </>
   );

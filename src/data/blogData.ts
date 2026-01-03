@@ -2114,7 +2114,7 @@ export const blogPosts: BlogPost[] = [
     publishDate: "2025-12-31",
     category: "Newsletter",
     tags: ["year in review", "2025", "2026", "thank you", "sustainable packaging", "company update", "new year", "eco packaging", "newsletter"],
-    featuredImage: "/imgs/blog/2025-thank-you/2025-to-2026-growth.webp",
+    featuredImage: "/imgs/newsletter/a_community_collaborative_partnership_growth_2566410.webp",
     readTime: 3,
     metaDescription: "A heartfelt thank you from Achieve Pack and Pouch.eco as we close 2025. Here's to deeper roots and higher growth in sustainable packaging for 2026."
   },

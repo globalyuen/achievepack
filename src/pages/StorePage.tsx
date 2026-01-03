@@ -2,7 +2,7 @@ import React, { useState, useMemo, useCallback, useTransition, useEffect } from 
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
-import { ShoppingCart, Search, Star, Truck, Shield, Clock, Grid3X3, List, ChevronDown, User, Globe, Menu, X, Sparkles, AlertTriangle, Mail } from 'lucide-react'
+import { ShoppingCart, Search, Star, Truck, Shield, Clock, Grid3X3, List, ChevronDown, User, Menu, X, Sparkles, AlertTriangle, Mail } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import { FEATURED_PRODUCTS, type StoreProduct, type EcoDigitalProduct, type ConventionalProduct, getProductType, getProductSubCategory } from '../store/productData'
 import { getProductImage } from '../utils/productImageMapper'
@@ -95,7 +95,7 @@ const SHAPES = [
 ]
 
 const StorePage: React.FC = () => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const { cartCount, setIsCartOpen } = useStore()
   const { openQuoteLightbox } = useCustomQuote()
   const navigate = useNavigate()
@@ -112,7 +112,6 @@ const StorePage: React.FC = () => {
   const [viewMode, setViewMode] = useState<ViewMode>('grid')
   const [sortBy, setSortBy] = useState<SortOption>('popularity')
   const [isSortOpen, setIsSortOpen] = useState(false)
-  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false)
 
@@ -123,11 +122,6 @@ const StorePage: React.FC = () => {
     if (newCategory !== selectedCategory) setSelectedCategory(newCategory)
     if (newShape !== selectedShape) setSelectedShape(newShape)
   }, [searchParams])
-
-  const changeLanguage = (lang: string) => {
-    i18n.changeLanguage(lang)
-    setIsLangMenuOpen(false)
-  }
 
   // Debounced search handler for INP optimization
   const handleSearchChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -334,22 +328,6 @@ const StorePage: React.FC = () => {
               >
                 <User className="h-5 w-5 text-white" />
               </Link>
-              <div className="relative">
-                <button
-                  onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                  className="w-10 h-10 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
-                >
-                  <Globe className="h-5 w-5 text-white" />
-                </button>
-                {isLangMenuOpen && (
-                  <div className="absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-neutral-200 py-1 z-50">
-                    <button onClick={() => changeLanguage('en')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">English</button>
-                    <button onClick={() => changeLanguage('fr')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Français</button>
-                    <button onClick={() => changeLanguage('es')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Español</button>
-                    <button onClick={() => changeLanguage('zh-TW')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">繁體中文</button>
-                  </div>
-                )}
-              </div>
             </div>
 
             {/* Mobile Menu Button */}
@@ -415,17 +393,6 @@ const StorePage: React.FC = () => {
               <div className="border-t border-neutral-100 pt-3">
                 <Link to="/blog" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 text-neutral-700 font-medium">Blog</Link>
                 <Link to="/dashboard" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 text-neutral-700 font-medium">Customer Center</Link>
-              </div>
-              
-              {/* Mobile Language Options */}
-              <div className="py-2 border-t border-neutral-100 my-2">
-                <div className="text-xs text-neutral-500 font-semibold mb-2 uppercase px-1">Language</div>
-                <div className="grid grid-cols-2 gap-2">
-                  <button onClick={() => changeLanguage('en')} className={`text-sm py-1 px-2 rounded ${i18n.language === 'en' ? 'bg-primary-50 text-primary-600' : 'text-neutral-600'}`}>English</button>
-                  <button onClick={() => changeLanguage('fr')} className={`text-sm py-1 px-2 rounded ${i18n.language === 'fr' ? 'bg-primary-50 text-primary-600' : 'text-neutral-600'}`}>Français</button>
-                  <button onClick={() => changeLanguage('es')} className={`text-sm py-1 px-2 rounded ${i18n.language === 'es' ? 'bg-primary-50 text-primary-600' : 'text-neutral-600'}`}>Español</button>
-                  <button onClick={() => changeLanguage('zh-TW')} className={`text-sm py-1 px-2 rounded ${i18n.language === 'zh-TW' ? 'bg-primary-50 text-primary-600' : 'text-neutral-600'}`}>繁體中文</button>
-                </div>
               </div>
 
               <a
