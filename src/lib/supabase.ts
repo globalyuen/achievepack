@@ -82,6 +82,7 @@ export type ArtworkFile = {
   id: string
   user_id: string
   order_id?: string
+  order_number?: string
   name: string
   file_url: string
   file_type: string

@@ -198,6 +198,70 @@ const DashboardPage: React.FC = () => {
     }
   }
 
+  // Artwork upload handler for specific order
+  const handleOrderArtworkUpload = async (e: React.ChangeEvent<HTMLInputElement>, orderId: string, orderNumber: string) => {
+    const files = e.target.files
+    if (!files || files.length === 0) return
+    
+    setUploading(true)
+    setUploadError('')
+    
+    try {
+      for (const file of Array.from(files) as File[]) {
+        // Validate file size (250MB limit)
+        const maxSize = 250 * 1024 * 1024
+        if (file.size > maxSize) {
+          const fileSizeMB = (file.size / (1024 * 1024)).toFixed(1)
+          setUploadError(`File "${file.name}" is too large (${fileSizeMB} MB). Max 250MB.`)
+          continue
+        }
+        
+        // Validate file type
+        const isValid = file.name.match(/\.(ai|eps|pdf|png|jpg|jpeg|tiff|tif|zip|psd)$/i)
+        if (!isValid) {
+          setUploadError(`Invalid file type: ${file.name}. Please upload AI, EPS, PDF, PNG, JPG, TIFF, PSD, or ZIP files.`)
+          continue
+        }
+        
+        // Upload to Supabase Storage
+        const fileName = `${user?.id}/${orderNumber}/${Date.now()}_${file.name}`
+        const { data: uploadData, error: uploadError } = await supabase.storage
+          .from('artworks')
+          .upload(fileName, file)
+        
+        if (uploadError) throw uploadError
+        
+        // Get public URL
+        const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(fileName)
+        
+        // Create artwork record linked to order
+        const { error: dbError } = await supabase.from('artwork_files').insert({
+          user_id: user?.id,
+          order_id: orderId,
+          order_number: orderNumber,
+          name: file.name,
+          file_url: urlData.publicUrl,
+          file_type: file.type || 'unknown',
+          file_size: file.size,
+          status: 'pending_review',
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        })
+        
+        if (dbError) throw dbError
+      }
+      
+      // Refresh artwork list
+      fetchData()
+    } catch (error: any) {
+      console.error('Upload error:', error)
+      setUploadError(error.message || 'Failed to upload artwork')
+    } finally {
+      setUploading(false)
+      e.target.value = ''
+    }
+  }
+
   // Submit revision comment
   const handleSubmitRevision = async () => {
     if (!selectedArtwork || !revisionComment.trim()) return
@@ -1780,8 +1844,72 @@ const DashboardPage: React.FC = () => {
                 </div>
               )}
 
+              {/* Artwork Section for Order */}
+              <div className="border-t border-gray-200 pt-6">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-2">
+                    <Palette className="h-5 w-5 text-purple-600" />
+                    <h3 className="font-semibold text-gray-900">Artwork Files</h3>
+                  </div>
+                  <label className="flex items-center gap-2 px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white text-sm rounded-lg transition cursor-pointer">
+                    <Upload className="h-4 w-4" />
+                    Upload Artwork
+                    <input
+                      type="file"
+                      multiple
+                      accept=".ai,.eps,.pdf,.png,.jpg,.jpeg,.tiff,.tif,.psd,.zip"
+                      onChange={(e) => handleOrderArtworkUpload(e, selectedOrder.id, selectedOrder.order_number)}
+                      className="hidden"
+                      disabled={uploading}
+                    />
+                  </label>
+                </div>
+
+                {/* Linked Artworks */}
+                {artworks.filter(a => a.order_id === selectedOrder.id || a.order_number === selectedOrder.order_number).length > 0 ? (
+                  <div className="space-y-2">
+                    {artworks.filter(a => a.order_id === selectedOrder.id || a.order_number === selectedOrder.order_number).map(artwork => (
+                      <div key={artwork.id} className="flex items-center justify-between bg-purple-50 rounded-lg p-3">
+                        <div className="flex items-center gap-3">
+                          <FileImage className="h-5 w-5 text-purple-600" />
+                          <div>
+                            <p className="text-sm font-medium text-gray-900">{artwork.name}</p>
+                            <p className="text-xs text-gray-500">
+                              {artwork.status === 'pending_review' && '⏳ Pending Review'}
+                              {artwork.status === 'approved' && '✅ Approved'}
+                              {artwork.status === 'revision_needed' && '⚠️ Revision Needed'}
+                            </p>
+                          </div>
+                        </div>
+                        <a
+                          href={artwork.file_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-purple-600 hover:text-purple-700 text-sm font-medium"
+                        >
+                          View
+                        </a>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-center py-6 bg-gray-50 rounded-xl">
+                    <FileImage className="h-10 w-10 mx-auto mb-3 text-gray-300" />
+                    <p className="text-sm text-gray-500">No artwork uploaded for this order</p>
+                    <p className="text-xs text-gray-400 mt-1">Upload your design files to proceed with production</p>
+                  </div>
+                )}
+
+                {uploading && (
+                  <div className="mt-3 flex items-center gap-2 text-sm text-purple-600">
+                    <RefreshCw className="h-4 w-4 animate-spin" />
+                    Uploading artwork...
+                  </div>
+                )}
+              </div>
+
               {/* Order Summary */}
-              <div className="border-t border-gray-200 pt-4">
+              <div className="border-t border-gray-200 pt-4 mt-4">
                 <div className="flex justify-between items-center">
                   <p className="text-lg font-semibold text-gray-900">Total Amount</p>
                   <p className="text-2xl font-bold text-primary-600">${selectedOrder.total_amount?.toLocaleString()}</p>
