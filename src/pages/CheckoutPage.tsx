@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
-import { ArrowLeft, Lock, Loader2, Send, FileText } from 'lucide-react'
+import { ArrowLeft, Lock, Loader2, Send, FileText, CreditCard } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import { supabase } from '../lib/supabase'
 import { useAuth } from '../hooks/useAuth'
@@ -108,11 +108,12 @@ const CheckoutPage: React.FC = () => {
         clearRfq()
         navigate('/store/rfq-confirmation', { state: { rfqNumber: orderNumber } })
       } else {
-        // Normal Checkout Mode: Process payment
+        // Normal Checkout Mode: Create Stripe checkout session
+        // First save order as pending_payment
         const { error: dbError } = await supabase.from('orders').insert({
           user_id: user?.id || null,
           order_number: orderNumber,
-          status: 'pending',
+          status: 'pending_payment',
           total_amount: cartTotal,
           items: cart.map(item => ({
             productId: item.productId,
@@ -140,36 +141,76 @@ const CheckoutPage: React.FC = () => {
           console.error('Database error:', dbError)
         }
 
-        // 2. Send email notifications via Brevo
+        // Create Stripe checkout session
         try {
-          await fetch('/api/send-order-email', {
+          const response = await fetch('/api/create-checkout-session', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              orderNumber,
-              customerEmail: formData.email,
-              customerName: `${formData.firstName} ${formData.lastName}`,
               items: cart,
-              totalAmount: cartTotal,
+              customerEmail: formData.email,
+              orderNumber,
               shippingAddress: {
                 firstName: formData.firstName,
                 lastName: formData.lastName,
                 address: formData.address,
                 city: formData.city,
-                state: '',
-                zipCode: formData.postalCode,
-                country: formData.country
+                country: formData.country,
+                zipCode: formData.postalCode
               }
             })
           })
-        } catch (emailError) {
-          console.error('Email error:', emailError)
-          // Don't block checkout if email fails
-        }
 
-        // 3. Clear cart and redirect
-        clearCart()
-        navigate('/store/order-confirmation', { state: { orderNumber } })
+          const data = await response.json()
+          
+          if (data.error) {
+            throw new Error(data.error)
+          }
+
+          if (data.url) {
+            // Redirect to Stripe Checkout
+            window.location.href = data.url
+            return
+          } else {
+            throw new Error('No checkout URL returned')
+          }
+        } catch (stripeError: any) {
+          console.error('Stripe error:', stripeError)
+          // Fallback: Save order and send email notification
+          try {
+            await fetch('/api/send-order-email', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                orderNumber,
+                customerEmail: formData.email,
+                customerName: `${formData.firstName} ${formData.lastName}`,
+                items: cart,
+                totalAmount: cartTotal,
+                shippingAddress: {
+                  firstName: formData.firstName,
+                  lastName: formData.lastName,
+                  address: formData.address,
+                  city: formData.city,
+                  state: '',
+                  zipCode: formData.postalCode,
+                  country: formData.country
+                }
+              })
+            })
+          } catch (emailError) {
+            console.error('Email error:', emailError)
+          }
+
+          // Clear cart and redirect with note about payment
+          clearCart()
+          navigate('/store/order-confirmation', { 
+            state: { 
+              orderNumber,
+              paymentNote: 'Payment processing is temporarily unavailable. Our team will contact you to complete your order.'
+            } 
+          })
+        }
       }
     } catch (err) {
       console.error('Checkout error:', err)
@@ -244,10 +285,10 @@ const CheckoutPage: React.FC = () => {
                   <input name="firstName" placeholder="First Name" required value={formData.firstName} onChange={handleChange} className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
                   <input name="lastName" placeholder="Last Name" required value={formData.lastName} onChange={handleChange} className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
                   <input name="company" placeholder="Company (Optional)" value={formData.company} onChange={handleChange} className="md:col-span-2 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
-                  <input name="address" placeholder="Address" required={!isRfqMode} value={formData.address} onChange={handleChange} className="md:col-span-2 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
-                  <input name="city" placeholder="City" required={!isRfqMode} value={formData.city} onChange={handleChange} className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
-                  <input name="postalCode" placeholder="Postal Code" required={!isRfqMode} value={formData.postalCode} onChange={handleChange} className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
-                  <input name="country" placeholder="Country" required value={formData.country} onChange={handleChange} className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
+                  <input name="address" placeholder={isRfqMode ? "Address (Optional)" : "Address"} required={!isRfqMode} value={formData.address} onChange={handleChange} className="md:col-span-2 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
+                  <input name="city" placeholder={isRfqMode ? "City (Optional)" : "City"} required={!isRfqMode} value={formData.city} onChange={handleChange} className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
+                  <input name="postalCode" placeholder={isRfqMode ? "Postal Code (Optional)" : "Postal Code"} required={!isRfqMode} value={formData.postalCode} onChange={handleChange} className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
+                  <input name="country" placeholder={isRfqMode ? "Country (Optional)" : "Country"} required={!isRfqMode} value={formData.country} onChange={handleChange} className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
                   <input name="phone" placeholder="Phone" required value={formData.phone} onChange={handleChange} className="p-3 border rounded-lg focus:ring-2 focus:ring-primary-500" />
                 </div>
               </div>
@@ -283,8 +324,8 @@ const CheckoutPage: React.FC = () => {
                   </>
                 ) : (
                   <>
-                    <Lock className="h-5 w-5" />
-                    {isProcessing ? 'Processing...' : `Pay $${activeTotal.toLocaleString()}`}
+                    <CreditCard className="h-5 w-5" />
+                    {isProcessing ? 'Redirecting to Stripe...' : `Pay $${activeTotal.toLocaleString()} with Stripe`}
                   </>
                 )}
               </button>

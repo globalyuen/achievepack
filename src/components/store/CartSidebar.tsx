@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { X, ShoppingBag, Trash2, Heart, Loader2, CheckCircle, Edit3, FileText, Send } from 'lucide-react'
+import { X, ShoppingBag, Trash2, Loader2, CheckCircle, Edit3, FileText, Send, CreditCard, BarChart3 } from 'lucide-react'
 import { useStore, CartItem } from '../../store/StoreContext'
 import { useAuth } from '../../hooks/useAuth'
 import { supabase } from '../../lib/supabase'
@@ -205,39 +205,37 @@ const CartSidebar: React.FC = () => {
                 <span className="font-bold text-primary-600">${cartTotal.toLocaleString()}</span>
               </div>
               
-              {/* Save for Later Button */}
+              {/* Primary: Checkout Now with Stripe */}
+              <Link
+                to="/store/checkout"
+                onClick={() => setIsCartOpen(false)}
+                className="w-full py-3 bg-primary-600 hover:bg-primary-700 text-white text-center font-semibold rounded-xl transition flex items-center justify-center gap-2"
+              >
+                <CreditCard className="h-5 w-5" />
+                Checkout Now
+              </Link>
+              
+              {/* Secondary: Save for Comparison */}
               <button
                 onClick={handleSaveForLater}
                 disabled={saving || saved}
-                className="w-full py-3 bg-amber-500 hover:bg-amber-600 disabled:bg-amber-300 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2"
+                className="w-full py-3 border-2 border-amber-500 text-amber-600 hover:bg-amber-50 disabled:border-amber-300 disabled:text-amber-300 font-semibold rounded-xl transition flex items-center justify-center gap-2"
               >
                 {saved ? (
-                  <><CheckCircle className="h-5 w-5" /> Saved to My Account!</>
+                  <><CheckCircle className="h-5 w-5" /> Saved to Customer Center!</>
                 ) : saving ? (
                   <><Loader2 className="h-5 w-5 animate-spin" /> Saving...</>
                 ) : (
-                  <><Heart className="h-5 w-5" /> Save for Later</>
+                  <><BarChart3 className="h-5 w-5" /> Save for Comparison</>
                 )}
               </button>
               
               {!user && (
                 <p className="text-xs text-center text-neutral-500">
-                  Login required to save items
+                  Login required to save items for comparison
                 </p>
               )}
               
-              <div className="relative flex items-center justify-center">
-                <div className="border-t border-neutral-200 w-full"></div>
-                <span className="absolute bg-white px-3 text-xs text-neutral-400">or</span>
-              </div>
-              
-              <Link
-                to="/store/checkout"
-                onClick={() => setIsCartOpen(false)}
-                className="block w-full py-3 bg-primary-600 hover:bg-primary-700 text-white text-center font-semibold rounded-xl transition"
-              >
-                Proceed to Checkout Now
-              </Link>
               <Link
                 to="/store"
                 onClick={() => setIsCartOpen(false)}
