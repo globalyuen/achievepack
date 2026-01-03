@@ -195,6 +195,7 @@ const LEARN_PAGES = {
       { name: 'Composting Benefits', link: '/composting/composting-benefits', image: '/imgs/composting/benefits/a_achievepack_composting_locator_hero_9733153.webp' },
       { name: 'Composting Service Finder', link: '/composting/composting-services', image: '/imgs/composting/finder/a_achievepack_composting_locator_hero_9733153.webp' },
       { name: 'Biodegradable vs Compostable', link: '/composting/biodegradable-vs-compostable', image: '/imgs/composting/vs/a_hero_biodegradable_vs_compostable_8031695.webp' },
+      { name: 'Home vs Industrial Compostable', link: '/composting/home-vs-industrial-compostable', image: '/imgs/composting/homevs/a_blog_hero_banner_compostable_choice_5307332.webp' },
     ]
   },
 }
