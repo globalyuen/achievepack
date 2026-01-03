@@ -1,9 +1,10 @@
 import React, { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Search, MapPin, ExternalLink, Leaf, ArrowLeft, ChevronDown, Calendar, Package, CheckCircle, AlertTriangle, Globe, Building2, Phone, Mail, HelpCircle, ChevronRight, Users, X } from 'lucide-react'
+import { Search, MapPin, ExternalLink, Leaf, ChevronDown, Calendar, Package, CheckCircle, AlertTriangle, Globe, Building2, Phone, Mail, HelpCircle, ChevronRight, Users, X } from 'lucide-react'
 import { useCalendly } from '../../contexts/CalendlyContext'
 import Footer from '../../components/Footer'
+import { SEOPageHeader } from '../../components/SEOPageLayout'
 
 // Clickable Image Component with lightbox
 const ClickableImage: React.FC<{
@@ -293,18 +294,8 @@ const CompostServiceFinderPage: React.FC = () => {
       </Helmet>
 
       <div className="min-h-screen bg-neutral-50">
-        {/* Header */}
-        <header className="bg-white border-b sticky top-0 z-40">
-          <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-            <Link to="/" className="flex items-center gap-2 text-neutral-600 hover:text-primary-600 transition">
-              <ArrowLeft className="h-5 w-5" /> Back to Home
-            </Link>
-            <Link to="/" className="flex items-center gap-2">
-              <Leaf className="h-6 w-6 text-primary-600" />
-              <span className="text-xl font-bold text-primary-600">AchievePack</span>
-            </Link>
-          </div>
-        </header>
+        {/* SEO Page Header */}
+        <SEOPageHeader />
 
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-green-700 to-green-900 text-white py-16 md:py-20">

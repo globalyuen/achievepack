@@ -1079,4 +1079,5 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   )
 }
 
+export { SEOPageHeader }
 export default SEOPageLayout
