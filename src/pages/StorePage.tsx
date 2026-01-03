@@ -2,7 +2,7 @@ import React, { useState, useMemo, useCallback, useTransition, useEffect } from 
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
-import { ShoppingCart, Search, Star, Truck, Shield, Clock, Grid3X3, List, ChevronDown, User, Globe, Menu, X, Sparkles } from 'lucide-react'
+import { ShoppingCart, Search, Star, Truck, Shield, Clock, Grid3X3, List, ChevronDown, User, Globe, Menu, X, Sparkles, AlertTriangle, Mail } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import { FEATURED_PRODUCTS, type StoreProduct, type EcoDigitalProduct, type ConventionalProduct, getProductType, getProductSubCategory } from '../store/productData'
 import { getProductImage } from '../utils/productImageMapper'
@@ -443,6 +443,27 @@ const StorePage: React.FC = () => {
 
       {/* Spacer for fixed header */}
       <div className="h-16"></div>
+
+      {/* Sandbox Testing Banner */}
+      <div className="bg-amber-50 border-b border-amber-200">
+        <div className="max-w-7xl mx-auto px-4 py-3">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
+            <div className="flex items-center gap-2 text-amber-800">
+              <AlertTriangle className="h-5 w-5 flex-shrink-0" />
+              <span className="font-medium">
+                🚧 Payment system is under testing (Sandbox Mode) - No payments can be processed
+              </span>
+            </div>
+            <a
+              href="mailto:checkout@achievepack.com?subject=Order%20Inquiry&body=Hi%2C%20I%20would%20like%20to%20place%20an%20order.%20Please%20contact%20me."
+              className="inline-flex items-center gap-2 px-4 py-1.5 bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold rounded-full transition-colors whitespace-nowrap"
+            >
+              <Mail className="h-4 w-4" />
+              Contact Us to Order
+            </a>
+          </div>
+        </div>
+      </div>
 
       <main className="max-w-7xl mx-auto px-4 py-8">
         {/* Search Result Header */}
