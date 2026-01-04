@@ -152,6 +152,7 @@ const CATEGORY_ICONS: Record<string, React.ReactNode> = {
   composting: <Leaf className="h-3.5 w-3.5" />,
   biope: <Sprout className="h-3.5 w-3.5" />,
   pcr: <Recycle className="h-3.5 w-3.5" />,
+  recyclable: <Recycle className="h-3.5 w-3.5" />,
 }
 
 interface MegaMenuDropdownProps {
