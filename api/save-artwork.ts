@@ -1,50 +1,58 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { createClient } from '@supabase/supabase-js'
 
-// Initialize Supabase with service key to bypass RLS
-const getSupabase = () => {
-  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL
-  const supabaseKey = process.env.SUPABASE_SERVICE_KEY || process.env.VITE_SUPABASE_ANON_KEY
-  
-  if (!supabaseUrl || !supabaseKey) {
-    throw new Error('Supabase configuration missing')
-  }
-  
-  return createClient(supabaseUrl, supabaseKey)
+// JSON response helpers - always return valid JSON
+const jsonResponse = (res: VercelResponse, data: unknown, status = 200) => {
+  res.setHeader('Content-Type', 'application/json')
+  return res.status(status).json(data)
+}
+
+const errorResponse = (res: VercelResponse, error: string, status = 500, details?: unknown) => {
+  res.setHeader('Content-Type', 'application/json')
+  return res.status(status).json({ success: false, error, details })
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  // Set CORS headers
+  // CORS headers - set first
   res.setHeader('Access-Control-Allow-Credentials', 'true')
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,POST')
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+  res.setHeader('Content-Type', 'application/json')
 
+  // Handle preflight
   if (req.method === 'OPTIONS') {
     return res.status(200).end()
   }
 
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' })
-  }
-
+  // Wrap EVERYTHING in try-catch
   try {
-    const { 
-      userId,
-      orderId,
-      orderNumber,
-      name,
-      fileUrl,
-      fileType,
-      fileSize
-    } = req.body
-
-    if (!userId || !name || !fileUrl) {
-      return res.status(400).json({ error: 'userId, name, and fileUrl are required' })
+    if (req.method !== 'POST') {
+      return errorResponse(res, 'Method not allowed', 405)
     }
 
-    const supabase = getSupabase()
+    // Validate environment - return JSON error instead of throwing
+    const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL
+    const supabaseKey = process.env.SUPABASE_SERVICE_KEY
+    
+    if (!supabaseUrl || !supabaseKey) {
+      return errorResponse(res, 'Server configuration error', 500)
+    }
 
+    // Validate body exists
+    if (!req.body) {
+      return errorResponse(res, 'Empty request body', 400)
+    }
+
+    const { userId, orderId, orderNumber, name, fileUrl, fileType, fileSize } = req.body
+
+    if (!userId || !name || !fileUrl) {
+      return errorResponse(res, 'Missing required fields: userId, name, fileUrl', 400)
+    }
+
+    // Create client and insert
+    const supabase = createClient(supabaseUrl, supabaseKey)
+    
     const { data, error } = await supabase
       .from('artwork_files')
       .insert({
@@ -60,14 +68,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       .select()
 
     if (error) {
-      console.error('Artwork save error:', error)
-      return res.status(500).json({ error: 'Failed to save artwork', details: error.message })
+      console.error('DB insert error:', error)
+      return errorResponse(res, 'Database insert failed', 500, error.message)
     }
 
-    console.log(`Artwork ${name} saved for user ${userId}`)
-    res.status(200).json({ success: true, artwork: data?.[0] })
-  } catch (error: any) {
-    console.error('Save artwork error:', error)
-    res.status(500).json({ error: error.message || 'Failed to save artwork' })
+    return jsonResponse(res, { success: true, artwork: data?.[0] })
+
+  } catch (err: any) {
+    // Catch-all: ANY error returns JSON
+    console.error('Unexpected error:', err)
+    return errorResponse(res, 'Internal server error', 500)
   }
 }
