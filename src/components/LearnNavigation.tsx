@@ -218,6 +218,15 @@ const LEARN_PAGES = {
       { name: 'PCR Materials', link: '/materials/pcr', image: '/imgs/illustrated/a_pcr_card_v1_0334493.webp' },
     ]
   },
+  recyclable: {
+    title: 'Recyclable',
+    icon: <Recycle className="h-4 w-4" />,
+    pages: [
+      { name: 'What Is 100% Recyclable?', link: '/recyclable/what-is-recyclable', image: '/imgs/recyclable/what/hero.webp?v=2' },
+      { name: 'Recyclable Mono-PE', link: '/materials/recyclable-mono-pe', image: '/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp' },
+      { name: 'Recyclable Mono-PP', link: '/materials/recyclable-mono-pp', image: '/imgs/illustrated/a_recyclable_mono_pp_card_v2_2805205.webp' },
+    ]
+  },
 }
 
 // Get first page of each category for featured rotation
