@@ -7,18 +7,18 @@ import Footer from '../../components/Footer'
 import { SEOPageHeader } from '../../components/SEOPageLayout'
 import SocialShareButtons from '../../components/SocialShareButtons'
 
-// Image paths - using imgs/pcr/guide folder
+// Image paths - using imgs/pcr/guide folder (v2 for cache busting)
 const IMAGES = {
-  hero: '/imgs/pcr/guide/hero.webp',
-  materialScience: '/imgs/pcr/guide/a_pcr_material_science_infographic_7982111.webp',
-  closedLoop: '/imgs/pcr/guide/a_pcr_closed_loop_diagram_5799468.webp',
-  barrierPerformance: '/imgs/pcr/guide/a_pcr_barrier_performance_diagram_0887278.webp',
-  appearanceComparison: '/imgs/pcr/guide/a_pcr_appearance_comparison_6887947.webp',
-  designForward: '/imgs/pcr/guide/a_pcr_design_forward_showcase_0687570.webp',
-  safetyCompliance: '/imgs/pcr/guide/a_pcr_safety_compliance_lab_8705893.webp',
-  lineTrial: '/imgs/pcr/guide/a_pcr_line_trial_machinability_5890666.webp',
-  ecoDigitalSolutions: '/imgs/pcr/guide/a_achieve_pack_eco_digital_solutions_2468996.webp',
-  sustainabilityImpact: '/imgs/pcr/guide/a_pcr_sustainability_impact_story_3330780.webp',
+  hero: '/imgs/pcr/guide/hero.webp?v=2',
+  materialScience: '/imgs/pcr/guide/a_pcr_material_science_infographic_7982111.webp?v=2',
+  closedLoop: '/imgs/pcr/guide/a_pcr_closed_loop_diagram_5799468.webp?v=2',
+  barrierPerformance: '/imgs/pcr/guide/a_pcr_barrier_performance_diagram_0887278.webp?v=2',
+  appearanceComparison: '/imgs/pcr/guide/a_pcr_appearance_comparison_6887947.webp?v=2',
+  designForward: '/imgs/pcr/guide/a_pcr_design_forward_showcase_0687570.webp?v=2',
+  safetyCompliance: '/imgs/pcr/guide/a_pcr_safety_compliance_lab_8705893.webp?v=2',
+  lineTrial: '/imgs/pcr/guide/a_pcr_line_trial_machinability_5890666.webp?v=2',
+  ecoDigitalSolutions: '/imgs/pcr/guide/a_achieve_pack_eco_digital_solutions_2468996.webp?v=2',
+  sustainabilityImpact: '/imgs/pcr/guide/a_pcr_sustainability_impact_story_3330780.webp?v=2',
 }
 
 // Clickable Image Component with lightbox
