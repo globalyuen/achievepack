@@ -85,7 +85,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }).toString()
     })
 
-    const session = await stripeResponse.json()
+    const session: any = await stripeResponse.json()
 
     if (session.error) {
       console.error('Stripe error:', session.error)
@@ -94,13 +94,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     console.log(`Stripe checkout session created: ${session.id} for order ${orderNumber}`)
 
-    res.status(200).json({ 
-      sessionId: session.id, 
-      url: session.url 
+    res.status(200).json({
+      sessionId: session.id,
+      url: session.url
     })
   } catch (error: any) {
     console.error('Stripe checkout error:', error)
-    res.status(500).json({ 
+    res.status(500).json({
       error: error.message || 'Failed to create checkout session'
     })
   }

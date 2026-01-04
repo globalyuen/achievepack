@@ -3,7 +3,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node'
 // Verify Cloudflare Turnstile token
 async function verifyTurnstile(token: string, remoteIp: string): Promise<boolean> {
   const TURNSTILE_SECRET = process.env.TURNSTILE_SECRET_KEY
-  
+
   if (!TURNSTILE_SECRET) {
     console.error('TURNSTILE_SECRET_KEY not configured')
     return false
@@ -20,7 +20,7 @@ async function verifyTurnstile(token: string, remoteIp: string): Promise<boolean
       })
     })
 
-    const result = await response.json()
+    const result: any = await response.json()
     console.log('Turnstile verification result:', result)
     return result.success === true
   } catch (error) {
@@ -44,11 +44,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   const { name, email, company, product, quantity, message, sourcePage, turnstileToken } = req.body
-  
+
   // Get client IP
-  const clientIp = (req.headers['x-forwarded-for'] as string)?.split(',')[0] || 
-                   req.headers['x-real-ip'] as string || 
-                   'unknown'
+  const clientIp = (req.headers['x-forwarded-for'] as string)?.split(',')[0] ||
+    req.headers['x-real-ip'] as string ||
+    'unknown'
 
   // Verify Turnstile token
   const isHuman = await verifyTurnstile(turnstileToken || '', clientIp)
@@ -241,9 +241,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(500).json({ error: 'Failed to send email' })
     }
 
-    return res.status(200).json({ 
-      success: true, 
-      message: 'Quote request sent successfully' 
+    return res.status(200).json({
+      success: true,
+      message: 'Quote request sent successfully'
     })
   } catch (error) {
     console.error('Email error:', error)

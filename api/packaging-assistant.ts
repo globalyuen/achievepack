@@ -95,7 +95,7 @@ const PRODUCT_CATALOG = [
   { id: 'sample-assorted-eco', name: 'Assorted Eco Pouches Sample', category: 'sample', basePrice: 40, moq: 1, description: 'Explore our eco-friendly materials: PCR, Bio-based, Recyclable, Compostable pouches.', materials: ['PCR', 'BioPE', 'Mono PE', 'Compostable'], bestFor: ['eco', 'sustainable'] },
   { id: 'sample-top-film', name: 'Custom Digital Printed Top Film', category: 'sample', basePrice: 60, moq: 1, description: 'Sample of custom printed top sealing film for trays.', materials: ['PET/PE'], bestFor: ['lidding', 'trays'] },
   { id: 'sample-hand-sealed', name: 'Custom Digital Printed Hand Sealed Pouches', category: 'sample', basePrice: 60, moq: 1, description: 'Sample of custom printed heat-sealed pouches.', materials: ['Various'], bestFor: ['sachets', 'samples'] },
-  
+
   // Conventional Digital Products (correct IDs from productData.ts)
   { id: 'conven-3ss-clear-xzip', name: '3 Side Seal Pouch – Clear', category: 'conventional-digital', basePrice: 90, moq: 100, description: 'Clear flat pouch for samples and sachets. Low barrier.', shape: '3-side-seal', turnaround: '2-3 weeks', barrier: 'low', bestFor: ['samples', 'sachets', 'dry goods'] },
   { id: 'conven-3ss-clear-zip', name: '3 Side Seal Pouch – Clear, With Zipper', category: 'conventional-digital', basePrice: 100, moq: 100, description: 'Clear flat resealable pouch. Low barrier.', shape: '3-side-seal', turnaround: '2-3 weeks', barrier: 'low', bestFor: ['samples', 'sachets'] },
@@ -105,7 +105,7 @@ const PRODUCT_CATALOG = [
   { id: 'conven-sup-clear-zip', name: 'Stand Up Pouch – Clear, With Zipper', category: 'conventional-digital', basePrice: 100, moq: 100, description: 'Resealable clear stand-up pouch. Best seller for snacks.', shape: 'stand-up', turnaround: '2-3 weeks', barrier: 'low', bestFor: ['snacks', 'candy', 'granola'] },
   { id: 'conven-sup-met-xzip', name: 'Stand Up Pouch – Metalised', category: 'conventional-digital', basePrice: 95, moq: 100, description: 'Metalised stand-up pouch with high barrier protection.', shape: 'stand-up', turnaround: '2-3 weeks', barrier: 'high', bestFor: ['coffee', 'tea', 'nuts'] },
   { id: 'conven-sup-met-zip', name: 'Stand Up Pouch – Metalised, With Zipper', category: 'conventional-digital', basePrice: 100, moq: 100, description: 'Premium metalised stand-up pouch with zipper. HIGH BARRIER - Best for coffee, tea, and moisture-sensitive products.', shape: 'stand-up', turnaround: '2-3 weeks', barrier: 'high', bestFor: ['coffee', 'tea', 'snacks', 'nuts', 'dried fruit'] },
-  
+
   // Eco Digital Products (correct IDs from productData.ts)
   { id: 'eco-3side', name: 'Eco Digital – 3 Side Seal Pouch', category: 'eco-digital', basePrice: 100, moq: 1000, description: 'Eco-friendly 3-side seal flat pouch. Available in PCR, BioPE, Mono PE, Compostable.', materials: ['Mono PE', 'PCR', 'BioPE', 'Compostable'], turnaround: '3-4 weeks', bestFor: ['samples', 'sachets'] },
   { id: 'eco-centerseal', name: 'Eco Digital – Center Seal Pouch', category: 'eco-digital', basePrice: 110, moq: 1000, description: 'Traditional pillow-style eco pouch. Center seal design.', materials: ['Mono PE', 'PCR', 'BioPE'], turnaround: '3-4 weeks', bestFor: ['snacks', 'candy'] },
@@ -114,11 +114,11 @@ const PRODUCT_CATALOG = [
   { id: 'eco-flatbottom', name: 'Eco Digital – Flat Bottom Pouch', category: 'eco-digital', basePrice: 170, moq: 1000, description: 'Eco flat bottom bag with excellent shelf stability. Premium look for coffee and tea.', materials: ['Kraft Paper', 'Mono PE', 'Compostable'], turnaround: '3-4 weeks', barrier: 'high', bestFor: ['coffee', 'tea', 'granola', 'premium snacks'] },
   { id: 'eco-sidegusset', name: 'Eco Digital – Side Gusset Pouch', category: 'eco-digital', basePrice: 150, moq: 1000, description: 'Classic coffee bag style with eco materials. Traditional look.', materials: ['Kraft Paper', 'Mono PE', 'Compostable'], turnaround: '3-4 weeks', barrier: 'high', bestFor: ['coffee', 'tea', 'beans', 'rice'] },
   { id: 'eco-quad', name: 'Eco Digital – Quad Seal Pouch', category: 'eco-digital', basePrice: 155, moq: 1000, description: 'Four-corner sealed eco pouch for maximum shelf impact.', materials: ['Kraft Paper', 'Mono PE'], turnaround: '3-4 weeks', bestFor: ['pet food', 'bulk products'] },
-  
+
   // Eco Stock Products (correct IDs from productData.ts)
   { id: 'eco-stock-header', name: 'Stock Compostable Header Bag', category: 'eco-stock', basePrice: 42, moq: 100, description: 'Ready-made compostable bag with hang hole. Ships in 3-5 days. Perfect for retail display.', materials: ['Compostable'], inStock: true, turnaround: '3-5 days', bestFor: ['retail', 'display', 'quick ship'] },
   { id: 'eco-stock-mailer', name: 'Stock Compostable Mailer Bag', category: 'eco-stock', basePrice: 42, moq: 100, description: 'Compostable shipping mailer for eco-conscious e-commerce. Ships in 3-5 days.', materials: ['Compostable'], inStock: true, turnaround: '3-5 days', bestFor: ['shipping', 'e-commerce', 'mailers'] },
-  
+
   // Custom Printed Boxes Products
   { id: 'box-corrugated-custom', name: 'Custom Printed Corrugated Mailer Boxes', category: 'boxes', basePrice: 514.50, moq: 200, description: 'Premium custom printed corrugated mailer boxes. CMYK printing, matte lamination, gold foil & embossing available. FSC certified recycled paper. Sizes: 500g (130×85×35mm), 1kg (270×85×35mm). Sea freight included.', materials: ['FSC Recycled Paper', 'Grayboard'], turnaround: '30 days + 40-60 days shipping', bestFor: ['coffee', 'tea', 'chocolate', 'gift boxes', 'premium packaging'] },
   { id: 'box-tuck-custom', name: 'Custom Printed Tuck Boxes', category: 'boxes', basePrice: 1105.50, moq: 200, description: 'Premium tuck boxes (cartons) with gold foil stamping and embossing. 250g white card, matte finish. Size: 100g box (81×162×15mm). Perfect for chocolate bars, tea, confectionery. Sea freight included.', materials: ['250g White Card', 'FSC Paper'], turnaround: '30 days + 40-60 days shipping', bestFor: ['chocolate', 'tea', 'confectionery', 'premium gifts', 'luxury packaging'] },
@@ -145,47 +145,47 @@ const FAQ_KNOWLEDGE = [
 // ============ RETRIEVAL LAYER ============
 function findRelevantProducts(question: string): typeof PRODUCT_CATALOG {
   const q = question.toLowerCase()
-  
+
   // Special handling for boxes queries
   if (q.includes('box') || q.includes('carton') || q.includes('corrugated') || q.includes('tuck') || q.includes('rigid') || q.includes('chocolate')) {
-    const boxProducts = PRODUCT_CATALOG.filter(p => 
+    const boxProducts = PRODUCT_CATALOG.filter(p =>
       p.category === 'boxes' ||
       (p as any).bestFor?.some((b: string) => ['chocolate', 'gift boxes', 'premium packaging', 'luxury packaging'].includes(b))
     )
     if (boxProducts.length > 0) return boxProducts.slice(0, 5)
   }
-  
+
   // Special handling for coffee/high barrier queries - prioritize best matches
-  if (q.includes('coffee') || q.includes('roast') || q.includes('bean') || 
-      q.includes('high barrier') || q.includes('moisture') || q.includes('freshness')) {
-    const coffeeProducts = PRODUCT_CATALOG.filter(p => 
+  if (q.includes('coffee') || q.includes('roast') || q.includes('bean') ||
+    q.includes('high barrier') || q.includes('moisture') || q.includes('freshness')) {
+    const coffeeProducts = PRODUCT_CATALOG.filter(p =>
       (p as any).bestFor?.some((b: string) => ['coffee', 'tea'].includes(b)) ||
       (p as any).barrier === 'high' ||
       p.description.toLowerCase().includes('coffee')
     )
     if (coffeeProducts.length > 0) return coffeeProducts.slice(0, 5)
   }
-  
+
   // Special handling for eco/compostable queries
-  if (q.includes('eco') || q.includes('sustainable') || q.includes('compostable') || 
-      q.includes('recyclable') || q.includes('green') || q.includes('biodegradable')) {
-    const ecoProducts = PRODUCT_CATALOG.filter(p => 
+  if (q.includes('eco') || q.includes('sustainable') || q.includes('compostable') ||
+    q.includes('recyclable') || q.includes('green') || q.includes('biodegradable')) {
+    const ecoProducts = PRODUCT_CATALOG.filter(p =>
       p.category.includes('eco') ||
-      (p as any).materials?.some((m: string) => 
+      (p as any).materials?.some((m: string) =>
         ['Compostable', 'BioPE', 'PCR', 'Mono PE'].includes(m)
       )
     )
     if (ecoProducts.length > 0) return ecoProducts.slice(0, 5)
   }
-  
+
   // Special handling for sample queries
   if (q.includes('sample') || q.includes('test') || q.includes('try')) {
     return PRODUCT_CATALOG.filter(p => p.category === 'sample').slice(0, 4)
   }
-  
+
   // General keyword matching with scoring
   const keywords = q.split(/\s+/).filter(w => w.length > 2)
-  
+
   const scored = PRODUCT_CATALOG.map(product => {
     const searchText = `${product.name} ${product.description} ${product.category} ${(product as any).materials?.join(' ') || ''} ${(product as any).shape || ''} ${(product as any).bestFor?.join(' ') || ''}`.toLowerCase()
     let score = 0
@@ -196,7 +196,7 @@ function findRelevantProducts(question: string): typeof PRODUCT_CATALOG {
     })
     return { product, score }
   })
-  
+
   return scored
     .filter(s => s.score > 0)
     .sort((a, b) => b.score - a.score)
@@ -215,7 +215,7 @@ function findRelevantFAQs(question: string): string[] {
 function findRelatedPages(question: string, pageContext?: PageContext): RelatedPage[] {
   const q = question.toLowerCase()
   const pages: RelatedPage[] = []
-  
+
   // Check keywords in question
   if (q.includes('coffee') || q.includes('roast') || q.includes('bean') || q.includes('tea')) {
     pages.push(...(RELATED_PAGES_MAP['coffee'] || []))
@@ -242,9 +242,9 @@ function findRelatedPages(question: string, pageContext?: PageContext): RelatedP
     pages.push(...(RELATED_PAGES_MAP['boxes'] || []))
   }
   // Consultation/Meeting keywords
-  if (q.includes('meeting') || q.includes('book') || q.includes('schedule') || q.includes('consultation') || 
-      q.includes('call') || q.includes('talk') || q.includes('discuss') || q.includes('calendly') || 
-      q.includes('appointment') || q.includes('consult') || q.includes('quote') || q.includes('custom')) {
+  if (q.includes('meeting') || q.includes('book') || q.includes('schedule') || q.includes('consultation') ||
+    q.includes('call') || q.includes('talk') || q.includes('discuss') || q.includes('calendly') ||
+    q.includes('appointment') || q.includes('consult') || q.includes('quote') || q.includes('custom')) {
     pages.push(...(RELATED_PAGES_MAP['consultation'] || []))
   }
   // Page awareness - when user asks about current page, suggest related content
@@ -252,7 +252,7 @@ function findRelatedPages(question: string, pageContext?: PageContext): RelatedP
     // Add consultation as a helpful next step
     pages.push(...(RELATED_PAGES_MAP['consultation'] || []))
   }
-  
+
   // Context-based suggestions if on product page
   if (pageContext?.pageType === 'product' && pageContext.productCategory) {
     if (pageContext.productCategory === 'eco-digital' || pageContext.productCategory === 'eco-stock') {
@@ -264,23 +264,23 @@ function findRelatedPages(question: string, pageContext?: PageContext): RelatedP
     // Always add consultation for product pages
     pages.push({ title: '📅 Book FREE Consultation', url: 'https://calendly.com/30-min-free-packaging-consultancy', description: 'Get expert advice on this product' })
   }
-  
+
   // If on store page, suggest popular categories
   if (pageContext?.pageType === 'store') {
     pages.push(...(RELATED_PAGES_MAP['store'] || []))
   }
-  
+
   // If on materials page, suggest related materials and products
   if (pageContext?.pageType === 'materials') {
     pages.push(...(RELATED_PAGES_MAP['materials'] || []))
     pages.push(...(RELATED_PAGES_MAP['eco'] || []))
   }
-  
+
   // If on industry page, suggest related products and consultation
   if (pageContext?.pageType === 'industry') {
     pages.push(...(RELATED_PAGES_MAP['consultation'] || []))
   }
-  
+
   // If no specific matches, use defaults based on page type
   if (pages.length === 0) {
     if (pageContext?.pageType === 'store') {
@@ -291,11 +291,11 @@ function findRelatedPages(question: string, pageContext?: PageContext): RelatedP
       pages.push(...(RELATED_PAGES_MAP['default'] || []))
     }
   }
-  
+
   // Deduplicate and filter out current page
   const seen = new Set<string>()
   const currentPath = pageContext?.path || ''
-  
+
   return pages
     .filter(p => {
       if (seen.has(p.url) || p.url === currentPath) return false
@@ -308,7 +308,7 @@ function findRelatedPages(question: string, pageContext?: PageContext): RelatedP
 // ============ xAI INTEGRATION ============
 async function callXAI(userQuestion: string, context: string, pageContext?: PageContext): Promise<string> {
   const XAI_API_KEY = process.env.XAI_API_KEY
-  
+
   if (!XAI_API_KEY) {
     return "I'm currently unable to process your request. Please contact us directly at ryan@achievepack.com or WhatsApp +852 6970 4411."
   }
@@ -404,7 +404,7 @@ QUICK FACTS:
       throw new Error(`API error: ${response.status}`)
     }
 
-    const data = await response.json()
+    const data: any = await response.json()
     return data.choices?.[0]?.message?.content || "I couldn't process your request. Please try again."
   } catch (error) {
     console.error('xAI Error:', error)
@@ -441,13 +441,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         relevantProducts = [currentProduct, ...relevantProducts].slice(0, 5)
       }
     }
-    
+
     const relevantFAQs = findRelevantFAQs(question)
 
     const productContext = relevantProducts.length > 0
-      ? `RELEVANT PRODUCTS:\n${relevantProducts.map(p => 
-          `- ${p.name}: ${p.description}. Starting from US$${p.basePrice}. MOQ: ${p.moq} pieces.${(p as any).materials ? ` Materials: ${(p as any).materials.join(', ')}` : ''}${(p as any).turnaround ? ` Turnaround: ${(p as any).turnaround}` : ''}`
-        ).join('\n')}`
+      ? `RELEVANT PRODUCTS:\n${relevantProducts.map(p =>
+        `- ${p.name}: ${p.description}. Starting from US$${p.basePrice}. MOQ: ${p.moq} pieces.${(p as any).materials ? ` Materials: ${(p as any).materials.join(', ')}` : ''}${(p as any).turnaround ? ` Turnaround: ${(p as any).turnaround}` : ''}`
+      ).join('\n')}`
       : 'No specific products matched. Suggest browsing our Store at achievepack.com/store'
 
     const faqContext = relevantFAQs.length > 0
@@ -456,7 +456,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const fullContext = `${productContext}${faqContext}`
     const answer = await callXAI(question, fullContext, pageContext)
-    
+
     // Find related pages based on question and context
     const relatedPages = findRelatedPages(question, pageContext)
 

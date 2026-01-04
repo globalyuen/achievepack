@@ -24,7 +24,7 @@ interface AnalysisResult {
 // Call XAI to analyze inquiry
 async function analyzeWithAI(inquiries: InquiryData[]): Promise<AnalysisResult[]> {
   const XAI_API_KEY = process.env.XAI_API_KEY
-  
+
   if (!XAI_API_KEY) {
     throw new Error('XAI API key not configured')
   }
@@ -90,8 +90,8 @@ Message: ${inq.message || 'N/A'}
         model: 'grok-3-mini-beta',
         messages: [
           { role: 'system', content: systemPrompt },
-          { 
-            role: 'user', 
+          {
+            role: 'user',
             content: `Analyze these ${inquiries.length} inquiries and return a JSON array with analysis for each:
 
 ${inquiryText}
@@ -119,15 +119,15 @@ Return ONLY valid JSON array like:
       throw new Error(`API error: ${response.status}`)
     }
 
-    const data = await response.json()
+    const data: any = await response.json()
     const content = data.choices?.[0]?.message?.content || '[]'
-    
+
     // Extract JSON from response
     const jsonMatch = content.match(/\[[\s\S]*\]/)
     if (jsonMatch) {
       return JSON.parse(jsonMatch[0])
     }
-    
+
     return []
   } catch (error) {
     console.error('AI Analysis Error:', error)
@@ -138,7 +138,7 @@ Return ONLY valid JSON array like:
 // Generate AI insight for analytics data
 async function generateAnalyticsInsight(data: any): Promise<string> {
   const XAI_API_KEY = process.env.XAI_API_KEY
-  
+
   if (!XAI_API_KEY) {
     throw new Error('XAI API key not configured')
   }
@@ -161,8 +161,8 @@ Keep response under 200 words.`
         model: 'grok-3-mini-beta',
         messages: [
           { role: 'system', content: systemPrompt },
-          { 
-            role: 'user', 
+          {
+            role: 'user',
             content: `Analyze this CRM data and provide business insights:
 
 Date Range: ${data.dateRange}
@@ -188,7 +188,7 @@ Provide 3-4 key insights and recommendations.`
       throw new Error(`API error: ${response.status}`)
     }
 
-    const result = await response.json()
+    const result: any = await response.json()
     return result.choices?.[0]?.message?.content || 'Unable to generate insight'
   } catch (error) {
     console.error('Analytics Insight Error:', error)
@@ -211,32 +211,32 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   try {
     const { inquiries, type, data } = req.body
-    
+
     // Handle analytics insight request
     if (type === 'analytics_insight' && data) {
       const insight = await generateAnalyticsInsight(data)
       return res.status(200).json({ success: true, insight })
     }
-    
+
     if (!inquiries || !Array.isArray(inquiries)) {
       return res.status(400).json({ error: 'Invalid inquiries data' })
     }
 
     // Limit batch size to 20 for API efficiency
     const batch = inquiries.slice(0, 20)
-    
+
     const results = await analyzeWithAI(batch)
-    
-    return res.status(200).json({ 
-      success: true, 
+
+    return res.status(200).json({
+      success: true,
       results,
       analyzed: batch.length
     })
   } catch (error) {
     console.error('CRM Analyze Error:', error)
-    return res.status(500).json({ 
-      error: 'Analysis failed', 
-      message: error instanceof Error ? error.message : 'Unknown error' 
+    return res.status(500).json({
+      error: 'Analysis failed',
+      message: error instanceof Error ? error.message : 'Unknown error'
     })
   }
 }

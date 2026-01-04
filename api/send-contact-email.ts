@@ -7,18 +7,18 @@ const getSupabase = () => {
   const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL
   // @ts-ignore - Use service key for server-side uploads
   const supabaseKey = process.env.SUPABASE_SERVICE_KEY || process.env.VITE_SUPABASE_ANON_KEY
-  
+
   if (!supabaseUrl || !supabaseKey) {
     return null
   }
-  
+
   return createClient(supabaseUrl, supabaseKey)
 }
 
 // Verify Cloudflare Turnstile token
 async function verifyTurnstile(token: string, remoteIp: string): Promise<boolean> {
   const TURNSTILE_SECRET = process.env.TURNSTILE_SECRET_KEY
-  
+
   if (!TURNSTILE_SECRET) {
     console.error('TURNSTILE_SECRET_KEY not configured')
     return false
@@ -35,7 +35,7 @@ async function verifyTurnstile(token: string, remoteIp: string): Promise<boolean
       })
     })
 
-    const result = await response.json()
+    const result: any = await response.json()
     console.log('Turnstile verification result:', result)
     return result.success === true
   } catch (error) {
@@ -59,11 +59,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   const { name, email, company, phone, subject, message, inquiryType, turnstileToken, attachments } = req.body
-  
+
   // Get client IP
-  const clientIp = (req.headers['x-forwarded-for'] as string)?.split(',')[0] || 
-                   req.headers['x-real-ip'] as string || 
-                   'unknown'
+  const clientIp = (req.headers['x-forwarded-for'] as string)?.split(',')[0] ||
+    req.headers['x-real-ip'] as string ||
+    'unknown'
 
   // Verify Turnstile token
   const isHuman = await verifyTurnstile(turnstileToken || '', clientIp)
@@ -83,14 +83,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Upload attachments to Supabase and get URLs
   let attachmentUrls: { name: string; url: string; size?: number }[] = []
   const supabase = getSupabase()
-  
+
   if (attachments && attachments.length > 0 && supabase) {
     try {
       for (const att of attachments) {
         // Convert base64 to buffer
         const buffer = Buffer.from(att.content, 'base64')
         const fileName = `${Date.now()}_${att.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`
-        
+
         // Upload to Supabase Storage
         const { data, error } = await supabase.storage
           .from('contact-attachments')
@@ -98,13 +98,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             contentType: att.contentType || 'application/octet-stream',
             upsert: false
           })
-        
+
         if (!error && data) {
           // Get public URL
           const { data: urlData } = supabase.storage
             .from('contact-attachments')
             .getPublicUrl(fileName)
-          
+
           attachmentUrls.push({
             name: att.name,
             url: urlData.publicUrl,
@@ -140,7 +140,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         })
         .select('id')
         .single()
-      
+
       if (inquiryData) {
         inquiryId = inquiryData.id
         console.log('Inquiry saved to CRM:', inquiryId)
@@ -359,9 +359,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(500).json({ error: 'Failed to send email' })
     }
 
-    return res.status(200).json({ 
-      success: true, 
-      message: 'Message sent successfully' 
+    return res.status(200).json({
+      success: true,
+      message: 'Message sent successfully'
     })
   } catch (error) {
     console.error('Email error:', error)

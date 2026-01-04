@@ -48,7 +48,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     // If test email, only send to that address
-    const targetRecipients = testEmail 
+    const targetRecipients = testEmail
       ? [{ email: testEmail, name: 'Test' }]
       : recipients
 
@@ -65,7 +65,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const personalizedHtml = htmlContent
           .replace(/\{\{name\}\}/g, recipientName)
           .replace(/\{\{email_encoded\}\}/g, encodedEmail)
-        
+
         // Personalize subject line with recipient name
         const personalizedSubject = subject.replace(/\{\{name\}\}/g, recipientName)
 
@@ -92,13 +92,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         })
 
         if (response.ok) {
-          const data = await response.json()
+          const data: any = await response.json()
           results.success++
           if (data.messageId) {
             results.messageIds.push(data.messageId)
           }
         } else {
-          const errorData = await response.json()
+          const errorData: any = await response.json()
           results.failed++
           results.errors.push(`${recipient.email}: ${errorData.message || 'Unknown error'}`)
         }
@@ -123,8 +123,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   } catch (error) {
     console.error('Campaign send error:', error)
-    return res.status(500).json({ 
-      error: error instanceof Error ? error.message : 'Failed to send campaign' 
+    return res.status(500).json({
+      error: error instanceof Error ? error.message : 'Failed to send campaign'
     })
   }
 }
