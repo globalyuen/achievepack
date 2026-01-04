@@ -134,13 +134,14 @@ const DashboardPage: React.FC = () => {
     
     try {
       for (const file of Array.from(files) as File[]) {
-        // Validate file size (50MB limit for API)
-        const maxSize = 50 * 1024 * 1024 // 50MB in bytes
+        // Validate file size (3MB limit due to Vercel serverless function body size limit)
+        // Base64 encoding increases size by ~33%, so actual limit is ~4MB after encoding
+        const maxSize = 3 * 1024 * 1024 // 3MB in bytes
         if (file.size > maxSize) {
           const fileSizeMB = (file.size / (1024 * 1024)).toFixed(1)
           setUploadError(
             `File "${file.name}" is too large (${fileSizeMB} MB).\n\n` +
-            `Maximum file size is 50 MB.\n\n` +
+            `Maximum file size for direct upload is 3 MB.\n\n` +
             `For larger files, please use one of these options:\n` +
             `• WeTransfer: https://wetransfer.com\n` +
             `• Dropbox: https://www.dropbox.com\n` +
@@ -183,8 +184,20 @@ const DashboardPage: React.FC = () => {
             originalName: file.name
           })
         })
-        const result = await response.json()
         
+        // Handle non-JSON response (e.g., Request Entity Too Large)
+        const contentType = response.headers.get('content-type')
+        if (!contentType?.includes('application/json')) {
+          const text = await response.text()
+          if (text.includes('Request') || response.status === 413) {
+            throw new Error(
+              `File too large for upload. Please use WeTransfer or Dropbox and share the link with us at ryan@achievepack.com`
+            )
+          }
+          throw new Error(text || 'Upload failed')
+        }
+        
+        const result = await response.json()
         if (!result.success) throw new Error(result.error || 'Failed to upload artwork')
       }
       
@@ -210,11 +223,14 @@ const DashboardPage: React.FC = () => {
     
     try {
       for (const file of Array.from(files) as File[]) {
-        // Validate file size (50MB limit for API)
-        const maxSize = 50 * 1024 * 1024
+        // Validate file size (3MB limit due to Vercel serverless function body size limit)
+        const maxSize = 3 * 1024 * 1024
         if (file.size > maxSize) {
           const fileSizeMB = (file.size / (1024 * 1024)).toFixed(1)
-          setUploadError(`File "${file.name}" is too large (${fileSizeMB} MB). Max 50MB.`)
+          setUploadError(
+            `File "${file.name}" is too large (${fileSizeMB} MB). Max 3MB for direct upload.\n\n` +
+            `For larger files, please use WeTransfer or Dropbox and share the link with us at ryan@achievepack.com`
+          )
           continue
         }
         
@@ -249,8 +265,20 @@ const DashboardPage: React.FC = () => {
             originalName: file.name
           })
         })
-        const result = await response.json()
         
+        // Handle non-JSON response (e.g., Request Entity Too Large)
+        const contentType = response.headers.get('content-type')
+        if (!contentType?.includes('application/json')) {
+          const text = await response.text()
+          if (text.includes('Request') || response.status === 413) {
+            throw new Error(
+              `File too large for upload. Please use WeTransfer or Dropbox and share the link with us at ryan@achievepack.com`
+            )
+          }
+          throw new Error(text || 'Upload failed')
+        }
+        
+        const result = await response.json()
         if (!result.success) throw new Error(result.error || 'Failed to upload artwork')
       }
       
