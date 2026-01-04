@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useTransition, useMemo, lazy, Suspense, useRef } from 'react'
+import { useState, useEffect, useCallback, useTransition, useMemo, lazy, Suspense, useRef, Component, ErrorInfo, ReactNode } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom'
@@ -13,16 +13,61 @@ import type { CalculatorResults } from './utils/calculatorUtils'
 import { useStore } from './store/StoreContext'
 import { FEATURED_PRODUCTS, type PouchProduct } from './store/productData'
 
+// Error boundary to handle chunk loading failures
+class ChunkErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
+  constructor(props: { children: ReactNode }) {
+    super(props)
+    this.state = { hasError: false }
+  }
+
+  static getDerivedStateFromError(_: Error) {
+    return { hasError: true }
+  }
+
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    // Check if it's a chunk loading error
+    if (error.message.includes('Failed to fetch dynamically imported module') ||
+        error.message.includes('Loading chunk') ||
+        error.message.includes('Loading CSS chunk')) {
+      // Clear cache and reload
+      console.log('Chunk loading error detected, reloading page...')
+      window.location.reload()
+    }
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return null // Return nothing, page will reload
+    }
+    return this.props.children
+  }
+}
+
+// Helper function to handle dynamic import with retry
+const lazyWithRetry = (componentImport: () => Promise<any>) =>
+  lazy(async () => {
+    try {
+      return await componentImport()
+    } catch (error: any) {
+      // If chunk fails to load, reload the page
+      if (error.message.includes('Failed to fetch dynamically imported module') ||
+          error.message.includes('Loading chunk')) {
+        window.location.reload()
+      }
+      throw error
+    }
+  })
+
 // Lazy load non-critical components for better performance
-const Calculator = lazy(() => import('./components/Calculator'))
-const BriefTestimonials = lazy(() => import('./components/BriefTestimonials'))
-const TestimonialsWall = lazy(() => import('./components/TestimonialsWall'))
-const FloatingTestimonialVideo = lazy(() => import('./components/FloatingTestimonialVideo'))
-const ClimateAction = lazy(() => import('./components/ClimateAction'))
-const RandomBanner = lazy(() => import('./components/RandomBanner'))
-const EcoVideoShowcase = lazy(() => import('./components/EcoVideoShowcase'))
-const FloatingInfoGraphics = lazy(() => import('./components/FloatingInfoGraphics'))
-const AnimatedTestimonials = lazy(() => import('./components/ui/animated-testimonials').then(m => ({ default: m.AnimatedTestimonials })))
+const Calculator = lazyWithRetry(() => import('./components/Calculator'))
+const BriefTestimonials = lazyWithRetry(() => import('./components/BriefTestimonials'))
+const TestimonialsWall = lazyWithRetry(() => import('./components/TestimonialsWall'))
+const FloatingTestimonialVideo = lazyWithRetry(() => import('./components/FloatingTestimonialVideo'))
+const ClimateAction = lazyWithRetry(() => import('./components/ClimateAction'))
+const RandomBanner = lazyWithRetry(() => import('./components/RandomBanner'))
+const EcoVideoShowcase = lazyWithRetry(() => import('./components/EcoVideoShowcase'))
+const FloatingInfoGraphics = lazyWithRetry(() => import('./components/FloatingInfoGraphics'))
+const AnimatedTestimonials = lazyWithRetry(() => import('./components/ui/animated-testimonials').then(m => ({ default: m.AnimatedTestimonials })))
 
 // Lazy load Google Analytics - not critical for initial render
 const loadGA = () => {
