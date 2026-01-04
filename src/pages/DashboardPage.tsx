@@ -135,7 +135,7 @@ const DashboardPage: React.FC = () => {
     setUploadSuccess('')
     
     try {
-      let uploadedCount = 0
+      const uploadedFiles: string[] = []
       for (const file of Array.from(files) as File[]) {
         // Validate file size (10MB limit for direct storage upload)
         const maxSize = 10 * 1024 * 1024
@@ -207,13 +207,14 @@ const DashboardPage: React.FC = () => {
           // File uploaded successfully, just log API error
           console.warn('Save record API error (file uploaded successfully):', apiErr)
         }
-        uploadedCount++
+        uploadedFiles.push(file.name)
       }
       
-      // Show success message
-      if (uploadedCount > 0) {
-        setUploadSuccess(`${uploadedCount} file${uploadedCount > 1 ? 's' : ''} uploaded successfully!`)
-        setTimeout(() => setUploadSuccess(''), 5000)
+      // Show success message with file names
+      if (uploadedFiles.length > 0) {
+        const fileList = uploadedFiles.join(', ')
+        setUploadSuccess(`✓ ${uploadedFiles.length} file${uploadedFiles.length > 1 ? 's' : ''} uploaded: ${fileList}. Check the list below.`)
+        setTimeout(() => setUploadSuccess(''), 8000)
       }
       
       // Refresh artwork list
@@ -237,7 +238,7 @@ const DashboardPage: React.FC = () => {
     setUploadSuccess('')
     
     try {
-      let uploadedCount = 0
+      const uploadedFiles: string[] = []
       for (const file of Array.from(files) as File[]) {
         // Validate file size (10MB limit for direct storage upload)
         const maxSize = 10 * 1024 * 1024
@@ -307,13 +308,14 @@ const DashboardPage: React.FC = () => {
           // File uploaded successfully, just log API error
           console.warn('Save record API error (file uploaded successfully):', apiErr)
         }
-        uploadedCount++
+        uploadedFiles.push(file.name)
       }
       
-      // Show success message
-      if (uploadedCount > 0) {
-        setUploadSuccess(`${uploadedCount} file${uploadedCount > 1 ? 's' : ''} uploaded successfully!`)
-        setTimeout(() => setUploadSuccess(''), 5000)
+      // Show success message with file names
+      if (uploadedFiles.length > 0) {
+        const fileList = uploadedFiles.join(', ')
+        setUploadSuccess(`✓ ${uploadedFiles.length} file${uploadedFiles.length > 1 ? 's' : ''} uploaded for Order #${orderNumber}: ${fileList}. Check the list below.`)
+        setTimeout(() => setUploadSuccess(''), 8000)
       }
       
       // Refresh artwork list
