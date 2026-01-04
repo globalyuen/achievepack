@@ -44,6 +44,7 @@ const DashboardPage: React.FC = () => {
   // Artwork upload states
   const [uploading, setUploading] = useState(false)
   const [uploadError, setUploadError] = useState('')
+  const [uploadSuccess, setUploadSuccess] = useState('')
   const [selectedArtwork, setSelectedArtwork] = useState<ArtworkFile | null>(null)
   const [revisionComment, setRevisionComment] = useState('')
   const [showRevisionModal, setShowRevisionModal] = useState(false)
@@ -131,8 +132,10 @@ const DashboardPage: React.FC = () => {
     
     setUploading(true)
     setUploadError('')
+    setUploadSuccess('')
     
     try {
+      let uploadedCount = 0
       for (const file of Array.from(files) as File[]) {
         // Validate file size (10MB limit for direct storage upload)
         const maxSize = 10 * 1024 * 1024
@@ -204,6 +207,13 @@ const DashboardPage: React.FC = () => {
           // File uploaded successfully, just log API error
           console.warn('Save record API error (file uploaded successfully):', apiErr)
         }
+        uploadedCount++
+      }
+      
+      // Show success message
+      if (uploadedCount > 0) {
+        setUploadSuccess(`${uploadedCount} file${uploadedCount > 1 ? 's' : ''} uploaded successfully!`)
+        setTimeout(() => setUploadSuccess(''), 5000)
       }
       
       // Refresh artwork list
@@ -224,8 +234,10 @@ const DashboardPage: React.FC = () => {
     
     setUploading(true)
     setUploadError('')
+    setUploadSuccess('')
     
     try {
+      let uploadedCount = 0
       for (const file of Array.from(files) as File[]) {
         // Validate file size (10MB limit for direct storage upload)
         const maxSize = 10 * 1024 * 1024
@@ -295,6 +307,13 @@ const DashboardPage: React.FC = () => {
           // File uploaded successfully, just log API error
           console.warn('Save record API error (file uploaded successfully):', apiErr)
         }
+        uploadedCount++
+      }
+      
+      // Show success message
+      if (uploadedCount > 0) {
+        setUploadSuccess(`${uploadedCount} file${uploadedCount > 1 ? 's' : ''} uploaded successfully!`)
+        setTimeout(() => setUploadSuccess(''), 5000)
       }
       
       // Refresh artwork list
@@ -1268,6 +1287,19 @@ const DashboardPage: React.FC = () => {
                     <p className="text-sm text-red-700 whitespace-pre-line">{uploadError}</p>
                   </div>
                   <button onClick={() => setUploadError('')} className="text-red-600 hover:text-red-800 flex-shrink-0">
+                    <X className="h-4 w-4" />
+                  </button>
+                </div>
+              )}
+
+              {/* Upload Success */}
+              {uploadSuccess && (
+                <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex gap-3">
+                  <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <div className="flex-1">
+                    <p className="text-sm text-green-700">{uploadSuccess}</p>
+                  </div>
+                  <button onClick={() => setUploadSuccess('')} className="text-green-600 hover:text-green-800 flex-shrink-0">
                     <X className="h-4 w-4" />
                   </button>
                 </div>
