@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useTransition, useCallback } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { 
   Package, FileText, Palette, Settings, LogOut, Home, Download, Search, Bell, 
@@ -30,6 +30,7 @@ const DashboardPage: React.FC = () => {
   const navigate = useNavigate()
   const { user, signOut, loading: authLoading } = useAuth()
   const { addToCart, setIsCartOpen } = useStore()
+  const [isPending, startTransition] = useTransition()
   const [orders, setOrders] = useState<Order[]>([])
   const [quotes, setQuotes] = useState<Quote[]>([])
   const [documents, setDocuments] = useState<Document[]>([])
@@ -478,6 +479,13 @@ const DashboardPage: React.FC = () => {
   const activeOrders = orders.filter(o => o.status !== 'delivered' && o.status !== 'cancelled').length
   const pendingQuotes = quotes.filter(q => q.status === 'pending').length
 
+  // Optimized handlers using startTransition to avoid blocking UI (INP improvement)
+  const handleSelectOrder = useCallback((order: Order) => {
+    startTransition(() => {
+      setSelectedOrder(order)
+    })
+  }, [])
+
   if (authLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -763,7 +771,7 @@ const DashboardPage: React.FC = () => {
                         </Link>
                       </div>
                     ) : orders.slice(0, 5).map(order => (
-                      <div key={order.id} className="p-4 hover:bg-gray-50 transition cursor-pointer" onClick={() => setSelectedOrder(order)}>
+                      <div key={order.id} className="p-4 hover:bg-gray-50 transition cursor-pointer" onClick={() => handleSelectOrder(order)}>
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-4">
                             <div className="w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center">
@@ -869,7 +877,7 @@ const DashboardPage: React.FC = () => {
                 ) : (
                   <div className="divide-y divide-gray-100">
                     {orders.map(order => (
-                      <div key={order.id} className="p-5 hover:bg-gray-50 transition cursor-pointer" onClick={() => setSelectedOrder(order)}>
+                      <div key={order.id} className="p-5 hover:bg-gray-50 transition cursor-pointer" onClick={() => handleSelectOrder(order)}>
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-4">
                             <div className="w-12 h-12 bg-primary-50 rounded-lg flex items-center justify-center">

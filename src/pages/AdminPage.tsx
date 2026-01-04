@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect, useMemo, useTransition, useCallback } from 'react'
 import { useNavigate, Link, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, Order, Profile, NewsletterSubscriber, Document, Quote, ArtworkFile, EmailDraft, CRMInquiry, CRMActivity } from '../lib/supabase'
@@ -58,6 +58,7 @@ const AdminPage: React.FC = () => {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const { user, signOut, loading: authLoading } = useAuth()
+  const [isPending, startTransition] = useTransition()
   const [activeTab, setActiveTab] = useState<TabType>('dashboard')
   const [customers, setCustomers] = useState<Profile[]>([])
   const [orders, setOrders] = useState<Order[]>([])
@@ -1125,6 +1126,26 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
     return colors[status] || 'bg-gray-100 text-gray-800'
   }
 
+  // Optimized handlers using startTransition to avoid blocking UI (INP improvement)
+  const handleSelectOrder = useCallback((order: Order) => {
+    startTransition(() => {
+      setSelectedOrder(order)
+      setOrderNotes(order.notes || '')
+    })
+  }, [])
+
+  const handleSelectCustomer = useCallback((customer: Profile) => {
+    startTransition(() => {
+      setSelectedCustomer(customer)
+    })
+  }, [])
+
+  const handleSelectQuote = useCallback((quote: Quote) => {
+    startTransition(() => {
+      setSelectedQuote(quote)
+    })
+  }, [])
+
   if (authLoading) {
     return <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="text-center">
@@ -1456,7 +1477,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                     </thead>
                     <tbody className="divide-y divide-gray-200">
                       {orders.slice(0, 5).map(order => (
-                        <tr key={order.id} className="hover:bg-gray-50 cursor-pointer" onClick={() => setSelectedOrder(order)}>
+                        <tr key={order.id} className="hover:bg-gray-50 cursor-pointer" onClick={() => handleSelectOrder(order)}>
                           <td className="px-6 py-4 text-sm font-medium text-gray-900">{order.order_number}</td>
                           <td className="px-6 py-4 text-sm text-gray-600">{order.customer_name || order.customer_email}</td>
                           <td className="px-6 py-4">
@@ -1569,7 +1590,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                 {/* Mobile Cards View */}
                 <div className="md:hidden divide-y">
                   {filteredOrders.map(order => (
-                    <div key={order.id} className="p-4" onClick={() => setSelectedOrder(order)}>
+                    <div key={order.id} className="p-4" onClick={() => handleSelectOrder(order)}>
                       <div className="flex items-center justify-between mb-2">
                         <span className="text-sm font-bold text-gray-900">{order.order_number}</span>
                         <span className={`px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(order.status)}`}>
@@ -1623,7 +1644,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                           </td>
                           <td className="px-6 py-4">
                             <div className="flex items-center gap-2">
-                              <button onClick={() => setSelectedOrder(order)} className="text-primary-600 hover:text-primary-700">
+                              <button onClick={() => handleSelectOrder(order)} className="text-primary-600 hover:text-primary-700">
                                 <Eye className="h-5 w-5" />
                               </button>
                               <button onClick={() => deleteOrder(order.id)} className="text-red-600 hover:text-red-700">
