@@ -971,15 +971,25 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
 
   const deleteOrder = async (orderId: string) => {
     if (confirm('Are you sure you want to delete this order?')) {
-      const { error } = await supabase.from('orders').delete().eq('id', orderId)
-      if (error) {
+      try {
+        const response = await fetch('/api/delete-order', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ orderId })
+        })
+        const result = await response.json()
+        
+        if (!result.success) {
+          alert(`Failed to delete order: ${result.error || 'Unknown error'}`)
+          return
+        }
+        alert('Order deleted successfully!')
+        fetchData()
+        setSelectedOrder(null)
+      } catch (error: any) {
         console.error('Delete order error:', error)
         alert(`Failed to delete order: ${error.message}`)
-        return
       }
-      alert('Order deleted successfully!')
-      fetchData()
-      setSelectedOrder(null)
     }
   }
 
