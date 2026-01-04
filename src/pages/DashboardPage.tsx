@@ -171,19 +171,22 @@ const DashboardPage: React.FC = () => {
         // Get public URL
         const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(fileName)
         
-        // Create artwork record
-        const { error: dbError } = await supabase.from('artwork_files').insert({
-          user_id: user?.id,
-          name: file.name,
-          file_url: urlData.publicUrl,
-          file_type: file.type || 'unknown',
-          file_size: file.size,
-          status: 'pending_review',
-          created_at: new Date().toISOString(),
-          updated_at: new Date().toISOString()
+        // Create artwork record via API (bypasses RLS)
+        const saveResponse = await fetch('/api/save-artwork', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            userId: user?.id,
+            name: file.name,
+            fileUrl: urlData.publicUrl,
+            fileType: file.type || 'unknown',
+            fileSize: file.size,
+            status: 'pending_review'
+          })
         })
+        const saveResult = await saveResponse.json()
         
-        if (dbError) throw dbError
+        if (!saveResult.success) throw new Error(saveResult.error || 'Failed to save artwork record')
       }
       
       // Refresh artwork list
@@ -246,21 +249,24 @@ const DashboardPage: React.FC = () => {
         // Get public URL
         const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(fileName)
         
-        // Create artwork record linked to order
-        const { error: dbError } = await supabase.from('artwork_files').insert({
-          user_id: user?.id,
-          order_id: orderId,
-          order_number: orderNumber,
-          name: file.name,
-          file_url: urlData.publicUrl,
-          file_type: file.type || 'unknown',
-          file_size: file.size,
-          status: 'pending_review',
-          created_at: new Date().toISOString(),
-          updated_at: new Date().toISOString()
+        // Create artwork record linked to order via API (bypasses RLS)
+        const saveResponse = await fetch('/api/save-artwork', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            userId: user?.id,
+            orderId: orderId,
+            orderNumber: orderNumber,
+            name: file.name,
+            fileUrl: urlData.publicUrl,
+            fileType: file.type || 'unknown',
+            fileSize: file.size,
+            status: 'pending_review'
+          })
         })
+        const saveResult = await saveResponse.json()
         
-        if (dbError) throw dbError
+        if (!saveResult.success) throw new Error(saveResult.error || 'Failed to save artwork record')
       }
       
       // Refresh artwork list
