@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { createClient } from '@supabase/supabase-js'
+// import { createClient } from '@supabase/supabase-js'
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -18,8 +18,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       const url = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL || ''
       const key = process.env.SUPABASE_SERVICE_KEY || ''
       if (url && key) {
-        createClient(url, key)
-        clientStatus = 'success'
+        // createClient(url, key)
+        clientStatus = 'skipped_for_test'
       } else {
         clientStatus = 'missing_credentials'
       }
