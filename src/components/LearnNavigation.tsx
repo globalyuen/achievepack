@@ -212,9 +212,9 @@ const LEARN_PAGES = {
     title: 'PCR',
     icon: <Recycle className="h-4 w-4" />,
     pages: [
-      { name: 'What Is PCR Plastic?', link: '/pcr/pcr-plastic-guide', image: '/imgs/pcr/guide/hero.webp' },
-      { name: '7-Point PCR Checklist', link: '/pcr/7-checklist', image: '/imgs/PCR/7/hero.webp' },
-      { name: 'Realistic PCR Content', link: '/pcr/realistic-pcr-content', image: '/imgs/pcr/real/hero.webp' },
+      { name: 'What Is PCR Plastic?', link: '/pcr/pcr-plastic-guide', image: '/imgs/pcr/guide/hero.webp?v=2' },
+      { name: '7-Point PCR Checklist', link: '/pcr/7-checklist', image: '/imgs/pcr/7/hero.webp?v=2' },
+      { name: 'Realistic PCR Content', link: '/pcr/realistic-pcr-content', image: '/imgs/pcr/real/hero.webp?v=2' },
       { name: 'PCR Materials', link: '/materials/pcr', image: '/imgs/illustrated/a_pcr_card_v1_0334493.webp' },
     ]
   },
