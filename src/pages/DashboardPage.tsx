@@ -134,13 +134,13 @@ const DashboardPage: React.FC = () => {
     
     try {
       for (const file of Array.from(files) as File[]) {
-        // Validate file size (250MB limit)
-        const maxSize = 250 * 1024 * 1024 // 250MB in bytes
+        // Validate file size (50MB limit for API)
+        const maxSize = 50 * 1024 * 1024 // 50MB in bytes
         if (file.size > maxSize) {
           const fileSizeMB = (file.size / (1024 * 1024)).toFixed(1)
           setUploadError(
             `File "${file.name}" is too large (${fileSizeMB} MB).\n\n` +
-            `Maximum file size is 250 MB.\n\n` +
+            `Maximum file size is 50 MB.\n\n` +
             `For larger files, please use one of these options:\n` +
             `• WeTransfer: https://wetransfer.com\n` +
             `• Dropbox: https://www.dropbox.com\n` +
@@ -161,52 +161,38 @@ const DashboardPage: React.FC = () => {
           continue
         }
         
-        // Upload to Supabase Storage
+        // Read file as base64
+        const fileData = await new Promise<string>((resolve, reject) => {
+          const reader = new FileReader()
+          reader.onload = () => resolve(reader.result as string)
+          reader.onerror = reject
+          reader.readAsDataURL(file)
+        })
+        
+        // Upload via API (bypasses RLS)
         const fileName = `${user?.id}/${Date.now()}_${file.name}`
-        const { data: uploadData, error: uploadError } = await supabase.storage
-          .from('artworks')
-          .upload(fileName, file)
-        
-        if (uploadError) throw uploadError
-        
-        // Get public URL
-        const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(fileName)
-        
-        // Create artwork record via API (bypasses RLS)
-        const saveResponse = await fetch('/api/save-artwork', {
+        const response = await fetch('/api/upload-artwork', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             userId: user?.id,
-            name: file.name,
-            fileUrl: urlData.publicUrl,
+            fileName,
+            fileData,
             fileType: file.type || 'unknown',
             fileSize: file.size,
-            status: 'pending_review'
+            originalName: file.name
           })
         })
-        const saveResult = await saveResponse.json()
+        const result = await response.json()
         
-        if (!saveResult.success) throw new Error(saveResult.error || 'Failed to save artwork record')
+        if (!result.success) throw new Error(result.error || 'Failed to upload artwork')
       }
       
       // Refresh artwork list
       fetchData()
     } catch (error: any) {
       console.error('Upload error:', error)
-      // Check for specific error types
-      if (error.message?.includes('Bucket not found') || error.statusCode === '404') {
-        setUploadError(
-          `Storage not configured. Please send your artwork files directly to:\n\n` +
-          `📧 Email: artwork@achievepack.com\n\n` +
-          `Or use file sharing services:\n` +
-          `• WeTransfer: https://wetransfer.com\n` +
-          `• Dropbox: https://www.dropbox.com\n` +
-          `• Google Drive: https://drive.google.com`
-        )
-      } else {
-        setUploadError(error.message || 'Failed to upload artwork')
-      }
+      setUploadError(error.message || 'Failed to upload artwork')
     } finally {
       setUploading(false)
       // Reset input
@@ -224,11 +210,11 @@ const DashboardPage: React.FC = () => {
     
     try {
       for (const file of Array.from(files) as File[]) {
-        // Validate file size (250MB limit)
-        const maxSize = 250 * 1024 * 1024
+        // Validate file size (50MB limit for API)
+        const maxSize = 50 * 1024 * 1024
         if (file.size > maxSize) {
           const fileSizeMB = (file.size / (1024 * 1024)).toFixed(1)
-          setUploadError(`File "${file.name}" is too large (${fileSizeMB} MB). Max 250MB.`)
+          setUploadError(`File "${file.name}" is too large (${fileSizeMB} MB). Max 50MB.`)
           continue
         }
         
@@ -239,54 +225,40 @@ const DashboardPage: React.FC = () => {
           continue
         }
         
-        // Upload to Supabase Storage
+        // Read file as base64
+        const fileData = await new Promise<string>((resolve, reject) => {
+          const reader = new FileReader()
+          reader.onload = () => resolve(reader.result as string)
+          reader.onerror = reject
+          reader.readAsDataURL(file)
+        })
+        
+        // Upload via API (bypasses RLS)
         const fileName = `${user?.id}/${orderNumber}/${Date.now()}_${file.name}`
-        const { data: uploadData, error: uploadError } = await supabase.storage
-          .from('artworks')
-          .upload(fileName, file)
-        
-        if (uploadError) throw uploadError
-        
-        // Get public URL
-        const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(fileName)
-        
-        // Create artwork record linked to order via API (bypasses RLS)
-        const saveResponse = await fetch('/api/save-artwork', {
+        const response = await fetch('/api/upload-artwork', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             userId: user?.id,
-            orderId: orderId,
-            orderNumber: orderNumber,
-            name: file.name,
-            fileUrl: urlData.publicUrl,
+            orderId,
+            orderNumber,
+            fileName,
+            fileData,
             fileType: file.type || 'unknown',
             fileSize: file.size,
-            status: 'pending_review'
+            originalName: file.name
           })
         })
-        const saveResult = await saveResponse.json()
+        const result = await response.json()
         
-        if (!saveResult.success) throw new Error(saveResult.error || 'Failed to save artwork record')
+        if (!result.success) throw new Error(result.error || 'Failed to upload artwork')
       }
       
       // Refresh artwork list
       fetchData()
     } catch (error: any) {
       console.error('Upload error:', error)
-      // Check for specific error types
-      if (error.message?.includes('Bucket not found') || error.statusCode === '404') {
-        setUploadError(
-          `Storage not configured. Please send your artwork files directly to:\n\n` +
-          `📧 Email: artwork@achievepack.com\n\n` +
-          `Or use file sharing services:\n` +
-          `• WeTransfer: https://wetransfer.com\n` +
-          `• Dropbox: https://www.dropbox.com\n` +
-          `• Google Drive: https://drive.google.com`
-        )
-      } else {
-        setUploadError(error.message || 'Failed to upload artwork')
-      }
+      setUploadError(error.message || 'Failed to upload artwork')
     } finally {
       setUploading(false)
       e.target.value = ''
