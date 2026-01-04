@@ -275,6 +275,7 @@ const RecyclableVsPCRPage = lazyWithRetry(() => import('./pages/pcr/RecyclableVs
 // Recyclable SEO Pages - Lazy loaded
 const WhatIsRecyclablePage = lazyWithRetry(() => import('./pages/recyclable/WhatIsRecyclablePage'))
 const RecyclableRoadmapPage = lazyWithRetry(() => import('./pages/recyclable/RecyclableRoadmapPage'))
+const MonoMaterialFoundationPage = lazyWithRetry(() => import('./pages/recyclable/MonoMaterialFoundationPage'))
 
 // 404 Page - Lazy loaded
 const NotFoundPage = lazyWithRetry(() => import('./pages/NotFoundPage'))
@@ -478,6 +479,7 @@ createRoot(document.getElementById('root')!).render(
               {/* Recyclable SEO Pages */}
               <Route path="/recyclable/what-is-recyclable" element={<WhatIsRecyclablePage />} />
               <Route path="/recyclable/roadmap-sme" element={<RecyclableRoadmapPage />} />
+              <Route path="/recyclable/mono-material-foundation" element={<MonoMaterialFoundationPage />} />
 
               {/* Spec Pages - Material Structures */}
               <Route path="/spec/pcr-pet-duplex-clear" element={<PcrPetDuplexClearPage />} />

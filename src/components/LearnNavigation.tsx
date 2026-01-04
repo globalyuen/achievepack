@@ -225,6 +225,7 @@ const LEARN_PAGES = {
     pages: [
       { name: 'What Is 100% Recyclable?', link: '/recyclable/what-is-recyclable', image: '/imgs/recyclable/what/hero.webp?v=2' },
       { name: '3-Step Roadmap for SMEs', link: '/recyclable/roadmap-sme', image: '/imgs/recyclable/roadmap/hero.webp?v=2' },
+      { name: 'Mono-Material Foundation', link: '/recyclable/mono-material-foundation', image: '/imgs/recyclable/foundation/hero.webp?v=2' },
       { name: 'Recyclable Mono-PE', link: '/materials/recyclable-mono-pe', image: '/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp' },
       { name: 'Recyclable Mono-PP', link: '/materials/recyclable-mono-pp', image: '/imgs/illustrated/a_recyclable_mono_pp_card_v2_2805205.webp' },
     ]
