@@ -27,6 +27,9 @@ export type Order = {
   tracking_number?: string
   tracking_url?: string
   carrier?: string
+  notes?: string
+  payment_status?: string
+  stripe_session_id?: string
   created_at: string
   updated_at: string
 }

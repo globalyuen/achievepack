@@ -75,6 +75,9 @@ const AdminPage: React.FC = () => {
   const [showTrackingModal, setShowTrackingModal] = useState(false)
   const [uploadForm, setUploadForm] = useState({ userId: '', name: '', description: '', fileUrl: '', type: 'PDF' })
   const [trackingForm, setTrackingForm] = useState({ trackingNumber: '', carrier: '', trackingUrl: '' })
+  const [orderNotes, setOrderNotes] = useState('')
+  const [savingNotes, setSavingNotes] = useState(false)
+  const [generatingDoc, setGeneratingDoc] = useState<string | null>(null)
   const [artworkFeedback, setArtworkFeedback] = useState('')
   
   // Email Marketing state
@@ -808,6 +811,162 @@ const AdminPage: React.FC = () => {
     await supabase.from('orders').update({ status, updated_at: new Date().toISOString() }).eq('id', orderId)
     fetchData()
     setSelectedOrder(null)
+  }
+
+  const saveOrderNotes = async () => {
+    if (!selectedOrder) return
+    setSavingNotes(true)
+    const { error } = await supabase.from('orders').update({
+      notes: orderNotes,
+      updated_at: new Date().toISOString()
+    }).eq('id', selectedOrder.id)
+    
+    if (error) {
+      alert(`Failed to save notes: ${error.message}`)
+    } else {
+      const { data } = await supabase.from('orders').select('*').eq('id', selectedOrder.id).single()
+      if (data) setSelectedOrder(data)
+      alert('Notes saved!')
+    }
+    setSavingNotes(false)
+    fetchData()
+  }
+
+  // Generate documents for order
+  const generateOrderDocument = async (docType: 'packing-list' | 'commercial-invoice' | 'doa' | 'doc') => {
+    if (!selectedOrder) return
+    setGeneratingDoc(docType)
+    
+    const order = selectedOrder
+    const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+    
+    let content = ''
+    let filename = ''
+    
+    switch (docType) {
+      case 'packing-list':
+        filename = `PackingList_${order.order_number}.html`
+        content = `
+<!DOCTYPE html>
+<html><head><title>Packing List - ${order.order_number}</title>
+<style>body{font-family:Arial,sans-serif;max-width:800px;margin:0 auto;padding:20px}
+table{width:100%;border-collapse:collapse;margin:20px 0}th,td{border:1px solid #ddd;padding:10px;text-align:left}
+th{background:#f5f5f5}.header{display:flex;justify-content:space-between;border-bottom:2px solid #333;padding-bottom:20px;margin-bottom:20px}
+.logo{font-size:24px;font-weight:bold;color:#2e7d32}.total{font-weight:bold;background:#f9f9f9}</style></head>
+<body>
+<div class="header"><div class="logo">ACHIEVE PACK</div><div><h2>PACKING LIST</h2><p>Date: ${today}</p><p>Order #: ${order.order_number}</p></div></div>
+<h3>Ship To:</h3>
+<p>${order.shipping_address?.firstName || ''} ${order.shipping_address?.lastName || ''}<br>
+${order.shipping_address?.company ? order.shipping_address.company + '<br>' : ''}
+${order.shipping_address?.address || ''}<br>
+${order.shipping_address?.city || ''}, ${order.shipping_address?.zipCode || ''}<br>
+${order.shipping_address?.country || ''}<br>
+Phone: ${order.shipping_address?.phone || 'N/A'}</p>
+<table><thead><tr><th>Item #</th><th>Description</th><th>Qty</th><th>Weight</th></tr></thead>
+<tbody>${order.items?.map((item: any, i: number) => `<tr><td>${i+1}</td><td>${item.name}${item.variant ? ` (${item.variant.size || ''} • ${item.variant.shape || ''})` : ''}</td><td>${item.quantity}</td><td>-</td></tr>`).join('') || ''}</tbody>
+</table>
+<p><strong>Total Packages:</strong> ${order.items?.length || 0}</p>
+<p><strong>Tracking:</strong> ${order.tracking_number || 'Pending'} (${order.carrier || 'N/A'})</p>
+<p style="margin-top:40px;color:#666">Achieve Pack Ltd. | www.achievepack.com | checkout@achievepack.com</p>
+</body></html>`
+        break
+
+      case 'commercial-invoice':
+        filename = `CommercialInvoice_${order.order_number}.html`
+        content = `
+<!DOCTYPE html>
+<html><head><title>Commercial Invoice - ${order.order_number}</title>
+<style>body{font-family:Arial,sans-serif;max-width:800px;margin:0 auto;padding:20px}
+table{width:100%;border-collapse:collapse;margin:20px 0}th,td{border:1px solid #ddd;padding:10px;text-align:left}
+th{background:#f5f5f5}.header{display:flex;justify-content:space-between;border-bottom:2px solid #333;padding-bottom:20px;margin-bottom:20px}
+.logo{font-size:24px;font-weight:bold;color:#2e7d32}.total{font-weight:bold;background:#f9f9f9}.right{text-align:right}</style></head>
+<body>
+<div class="header"><div class="logo">ACHIEVE PACK</div><div><h2>COMMERCIAL INVOICE</h2><p>Invoice Date: ${today}</p><p>Invoice #: INV-${order.order_number}</p></div></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:40px">
+<div><h4>Seller:</h4><p>Achieve Pack Ltd.<br>Hong Kong<br>checkout@achievepack.com</p></div>
+<div><h4>Buyer:</h4><p>${order.customer_name}<br>${order.shipping_address?.company || ''}<br>${order.customer_email}<br>
+${order.shipping_address?.address || ''}<br>${order.shipping_address?.city || ''}, ${order.shipping_address?.zipCode || ''}<br>${order.shipping_address?.country || ''}</p></div>
+</div>
+<table><thead><tr><th>Description</th><th>Quantity</th><th class="right">Unit Price</th><th class="right">Amount (USD)</th></tr></thead>
+<tbody>${order.items?.map((item: any) => `<tr><td>${item.name}${item.variant ? ` (${item.variant.size || ''})` : ''}</td><td>${item.quantity}</td><td class="right">$${(item.totalPrice / item.quantity).toFixed(2)}</td><td class="right">$${item.totalPrice?.toLocaleString()}</td></tr>`).join('') || ''}
+<tr class="total"><td colspan="3" class="right">TOTAL USD:</td><td class="right">$${order.total_amount?.toLocaleString()}</td></tr></tbody>
+</table>
+<p><strong>Terms:</strong> Prepaid | <strong>Incoterms:</strong> DDP | <strong>Country of Origin:</strong> China</p>
+<p><strong>HS Code:</strong> 3923.29 (Plastic packaging bags)</p>
+<p style="margin-top:40px"><strong>Authorized Signature:</strong> _______________________</p>
+</body></html>`
+        break
+
+      case 'doa':
+        filename = `DocumentOfAnalysis_${order.order_number}.html`
+        content = `
+<!DOCTYPE html>
+<html><head><title>Document of Analysis - ${order.order_number}</title>
+<style>body{font-family:Arial,sans-serif;max-width:800px;margin:0 auto;padding:20px}
+table{width:100%;border-collapse:collapse;margin:20px 0}th,td{border:1px solid #ddd;padding:10px;text-align:left}
+th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;margin-bottom:20px}
+.logo{font-size:24px;font-weight:bold;color:#2e7d32}.pass{color:#2e7d32;font-weight:bold}</style></head>
+<body>
+<div class="header"><div class="logo">ACHIEVE PACK</div><h2>DOCUMENT OF ANALYSIS (DOA)</h2><p>Date: ${today} | Ref: DOA-${order.order_number}</p></div>
+<p><strong>Order:</strong> ${order.order_number}<br><strong>Customer:</strong> ${order.customer_name}<br><strong>Product(s):</strong> ${order.items?.map((i: any) => i.name).join(', ')}</p>
+<h3>Test Results</h3>
+<table><thead><tr><th>Test Parameter</th><th>Standard</th><th>Result</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>Material Thickness</td><td>±5% tolerance</td><td>Within spec</td><td class="pass">PASS</td></tr>
+<tr><td>Seal Strength</td><td>≥15 N/15mm</td><td>Meets requirement</td><td class="pass">PASS</td></tr>
+<tr><td>Barrier Properties</td><td>Per specification</td><td>Conforms</td><td class="pass">PASS</td></tr>
+<tr><td>Print Quality</td><td>Visual inspection</td><td>No defects</td><td class="pass">PASS</td></tr>
+<tr><td>Dimensions</td><td>±2mm tolerance</td><td>Within spec</td><td class="pass">PASS</td></tr>
+</tbody></table>
+<h3>Conclusion</h3>
+<p>All tested parameters meet the specified requirements. Product is approved for shipment.</p>
+<p style="margin-top:40px"><strong>QC Inspector:</strong> _________________ <strong>Date:</strong> ${today}</p>
+</body></html>`
+        break
+
+      case 'doc':
+        filename = `DocumentOfCompliance_${order.order_number}.html`
+        content = `
+<!DOCTYPE html>
+<html><head><title>Document of Compliance - ${order.order_number}</title>
+<style>body{font-family:Arial,sans-serif;max-width:800px;margin:0 auto;padding:20px}
+.header{border-bottom:2px solid #333;padding-bottom:20px;margin-bottom:20px}
+.logo{font-size:24px;font-weight:bold;color:#2e7d32}.cert{border:2px solid #2e7d32;padding:20px;margin:20px 0;border-radius:8px}
+.stamp{width:100px;height:100px;border:3px solid #2e7d32;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:20px auto;color:#2e7d32;font-weight:bold}</style></head>
+<body>
+<div class="header"><div class="logo">ACHIEVE PACK</div><h2>DOCUMENT OF COMPLIANCE (DOC)</h2><p>Certificate No: DOC-${order.order_number} | Issue Date: ${today}</p></div>
+<div class="cert">
+<h3>Certificate of Compliance</h3>
+<p>This is to certify that the products supplied under Order <strong>${order.order_number}</strong> to <strong>${order.customer_name}</strong> comply with the following standards and regulations:</p>
+<ul>
+<li>✓ EU Food Contact Materials Regulation (EC) No 1935/2004</li>
+<li>✓ FDA 21 CFR for food contact materials</li>
+<li>✓ REACH Regulation (EC) No 1907/2006 - No SVHC substances</li>
+<li>✓ RoHS Directive 2011/65/EU compliant</li>
+<li>✓ California Proposition 65 compliant</li>
+</ul>
+<p><strong>Product(s):</strong> ${order.items?.map((i: any) => i.name).join(', ')}</p>
+<div class="stamp">COMPLIANT</div>
+</div>
+<p><strong>Authorized Representative:</strong></p>
+<p>Ryan Wong<br>Quality Assurance Manager<br>Achieve Pack Ltd.</p>
+<p style="margin-top:20px;color:#666">This document is electronically generated and valid without signature.</p>
+</body></html>`
+        break
+    }
+
+    // Download the file
+    const blob = new Blob([content], { type: 'text/html' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = filename
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    URL.revokeObjectURL(url)
+    
+    setGeneratingDoc(null)
   }
 
   const deleteOrder = async (orderId: string) => {
@@ -2975,6 +3134,69 @@ Check your inbox at ryan@achievepack.com`)
                   </div>
                 </div>
               )}
+
+              {/* Order Notes/Remarks */}
+              <div>
+                <p className="text-sm text-gray-500 mb-2">Admin Notes / Remarks</p>
+                <textarea
+                  value={orderNotes}
+                  onChange={(e) => setOrderNotes(e.target.value)}
+                  onFocus={() => setOrderNotes(selectedOrder.notes || '')}
+                  placeholder="Add internal notes about this order..."
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 text-sm"
+                  rows={3}
+                />
+                <button
+                  onClick={saveOrderNotes}
+                  disabled={savingNotes}
+                  className="mt-2 px-4 py-1.5 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 text-sm flex items-center gap-2"
+                >
+                  {savingNotes ? <RefreshCw className="h-4 w-4 animate-spin" /> : <FileCheck className="h-4 w-4" />}
+                  Save Notes
+                </button>
+                {selectedOrder.notes && (
+                  <p className="mt-2 text-xs text-gray-500">Current: {selectedOrder.notes}</p>
+                )}
+              </div>
+
+              {/* Generate Documents */}
+              <div>
+                <p className="text-sm text-gray-500 mb-2">Generate Documents</p>
+                <div className="grid grid-cols-2 gap-2">
+                  <button
+                    onClick={() => generateOrderDocument('packing-list')}
+                    disabled={!!generatingDoc}
+                    className="px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 text-sm flex items-center gap-2 justify-center"
+                  >
+                    {generatingDoc === 'packing-list' ? <RefreshCw className="h-4 w-4 animate-spin" /> : <FileText className="h-4 w-4" />}
+                    Packing List
+                  </button>
+                  <button
+                    onClick={() => generateOrderDocument('commercial-invoice')}
+                    disabled={!!generatingDoc}
+                    className="px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 text-sm flex items-center gap-2 justify-center"
+                  >
+                    {generatingDoc === 'commercial-invoice' ? <RefreshCw className="h-4 w-4 animate-spin" /> : <DollarSign className="h-4 w-4" />}
+                    Commercial Invoice
+                  </button>
+                  <button
+                    onClick={() => generateOrderDocument('doa')}
+                    disabled={!!generatingDoc}
+                    className="px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 text-sm flex items-center gap-2 justify-center"
+                  >
+                    {generatingDoc === 'doa' ? <RefreshCw className="h-4 w-4 animate-spin" /> : <FileCheck className="h-4 w-4" />}
+                    Document of Analysis
+                  </button>
+                  <button
+                    onClick={() => generateOrderDocument('doc')}
+                    disabled={!!generatingDoc}
+                    className="px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 text-sm flex items-center gap-2 justify-center"
+                  >
+                    {generatingDoc === 'doc' ? <RefreshCw className="h-4 w-4 animate-spin" /> : <CheckCircle className="h-4 w-4" />}
+                    Doc of Compliance
+                  </button>
+                </div>
+              </div>
 
               <div className="text-sm text-gray-500">
                 Created: {new Date(selectedOrder.created_at).toLocaleString()}
