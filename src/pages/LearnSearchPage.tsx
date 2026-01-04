@@ -91,6 +91,7 @@ const ALL_PAGES = [
   
   // PCR
   { name: 'What Is PCR Plastic?', link: '/pcr/pcr-plastic-guide', image: '/imgs/pcr/guide/hero.webp', category: 'Materials', description: 'Complete guide to PCR (Post-Consumer Recycled) plastic: what it is, how it affects packaging quality, food safety considerations, and practical implementation for SME brands', keywords: ['PCR plastic', 'post-consumer recycled', 'recycled plastic', 'PCR quality', 'PCR food safety', 'recycled content', 'sustainable packaging'] },
+  { name: '7 PCR Checklist for SMEs', link: '/pcr/7-checklist', image: '/imgs/PCR/7/hero.webp', category: 'Materials', description: '7 practical things SME brands must check before switching to PCR flexible packaging: quality, supply, line testing, recyclability and communication', keywords: ['PCR checklist', 'PCR switch', 'PCR evaluation', 'PCR supply', 'PCR line testing', 'SME packaging', 'recycled packaging'] },
   
   // Case Studies
   { name: 'Coffee Roastery', link: '/case-studies/coffee-roastery', image: '/imgs/illustrated/a_coffee_roaster_variation_1_6758424.webp', category: 'Case Studies', description: 'How a specialty roaster switched to compostable', keywords: ['case study', 'coffee', 'roastery'] },
