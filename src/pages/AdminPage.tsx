@@ -1049,37 +1049,40 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
       alert('Please enter tracking number')
       return
     }
-    const { error } = await supabase.from('orders').update({
-      tracking_number: trackingForm.trackingNumber,
-      carrier: trackingForm.carrier,
-      tracking_url: trackingForm.trackingUrl,
-      status: 'shipped',
-      updated_at: new Date().toISOString()
-    }).eq('id', selectedOrder.id)
     
-    if (error) {
+    try {
+      const response = await fetch('/api/update-tracking', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          orderId: selectedOrder.id,
+          trackingNumber: trackingForm.trackingNumber,
+          carrier: trackingForm.carrier,
+          trackingUrl: trackingForm.trackingUrl,
+          status: 'shipped'
+        })
+      })
+      const result = await response.json()
+      
+      if (!result.success) {
+        alert(`Failed to update tracking: ${result.error || 'Unknown error'}`)
+        return
+      }
+      
+      setShowTrackingModal(false)
+      setTrackingForm({ trackingNumber: '', carrier: '', trackingUrl: '' })
+      
+      // Update the selected order with fresh data
+      if (result.order) {
+        setSelectedOrder(result.order)
+      }
+      
+      fetchData()
+      alert('Tracking information updated!')
+    } catch (error: any) {
       console.error('Update tracking error:', error)
       alert(`Failed to update tracking: ${error.message}`)
-      return
     }
-    
-    // Fetch updated order data
-    const { data: updatedOrder } = await supabase
-      .from('orders')
-      .select('*')
-      .eq('id', selectedOrder.id)
-      .single()
-    
-    setShowTrackingModal(false)
-    setTrackingForm({ trackingNumber: '', carrier: '', trackingUrl: '' })
-    
-    // Update the selected order with fresh data
-    if (updatedOrder) {
-      setSelectedOrder(updatedOrder)
-    }
-    
-    fetchData()
-    alert('Tracking information updated!')
   }
 
   const deleteDocument = async (id: string) => {
