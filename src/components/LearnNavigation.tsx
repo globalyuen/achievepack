@@ -213,6 +213,8 @@ const LEARN_PAGES = {
     icon: <Recycle className="h-4 w-4" />,
     pages: [
       { name: 'What Is PCR Plastic?', link: '/pcr/pcr-plastic-guide', image: '/imgs/pcr/guide/hero.webp' },
+      { name: '7-Point PCR Checklist', link: '/pcr/7-checklist', image: '/imgs/PCR/7/hero.webp' },
+      { name: 'Realistic PCR Content', link: '/pcr/realistic-pcr-content', image: '/imgs/pcr/real/hero.webp' },
     ]
   },
 }
