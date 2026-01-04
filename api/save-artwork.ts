@@ -1,44 +1,92 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-// import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@supabase/supabase-js'
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  // Set CORS headers
+  res.setHeader('Access-Control-Allow-Credentials', 'true')
   res.setHeader('Access-Control-Allow-Origin', '*')
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,POST')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
 
-  if (req.method === 'OPTIONS') return res.status(200).end()
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end()
+  }
+
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' })
+  }
 
   try {
-    // 1. Test Env Vars
-    const hasUrl = !!process.env.VITE_SUPABASE_URL || !!process.env.SUPABASE_URL
-    const hasKey = !!process.env.SUPABASE_SERVICE_KEY
+    const {
+      userId,
+      orderId,
+      orderNumber,
+      name,
+      fileUrl,
+      fileType,
+      fileSize,
+      status = 'pending_review'
+    } = req.body
 
-    // 2. Test Supabase Client Creation
-    let clientStatus = 'not_attempted'
-    try {
-      const url = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL || ''
-      const key = process.env.SUPABASE_SERVICE_KEY || ''
-      if (url && key) {
-        // createClient(url, key)
-        clientStatus = 'skipped_for_test'
-      } else {
-        clientStatus = 'missing_credentials'
-      }
-    } catch (e: any) {
-      clientStatus = `failed: ${e.message}`
+    if (!userId || !name || !fileUrl) {
+      return res.status(400).json({ error: 'userId, name, and fileUrl are required' })
     }
 
-    // 3. Return Debug Info immediately (bypass actual DB save for now)
-    return res.status(200).json({
-      status: 'debug_mode',
-      env: { hasUrl, hasKey },
-      supabaseClient: clientStatus,
-      receivedBody: req.body ? 'yes' : 'no'
-    })
+    // Initialize Supabase inside try block
+    const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL
+    const supabaseKey = process.env.SUPABASE_SERVICE_KEY || process.env.VITE_SUPABASE_ANON_KEY
+
+    // Debug log (will appear in Vercel logs)
+    console.log('Init Supabase:', { hasUrl: !!supabaseUrl, hasKey: !!supabaseKey })
+
+    if (!supabaseUrl || !supabaseKey) {
+      throw new Error(`Supabase config missing. URL: ${!!supabaseUrl}, Key: ${!!supabaseKey}`)
+    }
+
+    const supabase = createClient(supabaseUrl, supabaseKey)
+
+    // Insert artwork record
+    const artworkData = {
+      user_id: userId,
+      order_id: orderId || null,
+      order_number: orderNumber || null,
+      name: name,
+      file_url: fileUrl,
+      file_type: fileType || 'unknown',
+      file_size: fileSize || 0,
+      status: status,
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString()
+    }
+
+    const { data, error } = await supabase
+      .from('artwork_files')
+      .insert(artworkData)
+      .select()
+
+    if (error) {
+      console.error('Artwork save error:', error)
+      return res.status(200).json({
+        success: false,
+        error: error.message,
+        details: error
+      })
+    }
+
+    console.log(`Artwork ${name} saved for user ${userId}`)
+    res.status(200).json({ success: true, artwork: data?.[0] })
 
   } catch (error: any) {
-    return res.status(200).json({
-      error: 'Top level catch',
-      message: error.message
+    console.error('Save artwork FATAL error:', error)
+    // Return 200 with JSON to prevent 500 HTML response
+    res.status(200).json({
+      success: false,
+      error: error.message || 'Failed to save artwork',
+      stack: error.stack,
+      envDebug: {
+        hasUrl: !!(process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL),
+        hasKey: !!(process.env.SUPABASE_SERVICE_KEY || process.env.VITE_SUPABASE_ANON_KEY)
+      }
     })
   }
 }
