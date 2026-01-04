@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Beaker, FlaskConical, Microscope, Package, Layers, Settings, Shield, CheckCircle, Calendar, Mail, X, ChevronLeft, ChevronRight, Globe, Award, Zap, FileCheck, Building2, Sparkles, Filter, Factory, ClipboardCheck, Droplets } from 'lucide-react'
+import { Beaker, FlaskConical, Microscope, Package, Layers, Settings, Shield, CheckCircle, Calendar, Mail, X, ChevronLeft, ChevronRight, Globe, Award, Zap, FileCheck, Building2, Sparkles, Filter, Factory, ClipboardCheck, Droplets, ChevronDown } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -383,9 +383,53 @@ const LabBagsPage: React.FC = () => {
       )
     },
     {
+      id: 'faq',
+      title: 'Frequently Asked Questions',
+      icon: <Beaker className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4">
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">How are your lab bags sterilized?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Our laboratory bags are gamma sterilized at 25kGy minimum dose. This radiation sterilization process ensures complete sterility while maintaining the structural integrity and performance of the bags. Each batch is validated for sterility assurance.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">What is the advantage of lateral filter bags?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Lateral filter bags feature a side-mounted non-woven filtration membrane that provides instant, particle-free filtrate. This design allows efficient sample separation while maintaining sterility throughout the entire process - ideal for microbiology testing.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">What sizes are available for lab blender bags?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Our standard capacity is 400mL, which is compatible with most laboratory blender/stomacher machines. Custom sizes are available for specific applications. Contact us for your exact requirements.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">Are wire closure bags reusable?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Wire closure bags feature integrated metal wire for secure, reusable sealing. They can be opened and resealed multiple times while maintaining sample integrity. However, they are single-use disposable bags - the reusable closure allows repeated access during testing.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">What certifications do your lab bags have?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Our lab bags are produced in an ISO 9001 certified clean room environment. All bags undergo gamma sterilization (25kGy validated) and meet quality management standards for food safety and pharmaceutical testing applications.</div>
+          </details>
+        </div>
+      )
+    },
+    {
       id: 'cta',
       title: 'Request Lab Bags Quote',
-      icon: <Calendar className="h-5 w-5 text-primary-600" />,
+      icon: <Beaker className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 rounded-2xl p-8 text-white text-center">
           <h3 className="text-2xl font-bold mb-4">Get Your Laboratory Bags Quote</h3>

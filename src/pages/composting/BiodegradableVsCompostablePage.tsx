@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Leaf, AlertTriangle, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Clock, ExternalLink, FileCheck, Search, X, Package } from 'lucide-react'
+import { Leaf, AlertTriangle, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Clock, ExternalLink, FileCheck, Search, X, Package, ChevronDown } from 'lucide-react'
 import { useCalendly } from '../../contexts/CalendlyContext'
 import Footer from '../../components/Footer'
 import { SEOPageHeader } from '../../components/SEOPageLayout'
@@ -667,6 +667,42 @@ const BiodegradableVsCompostablePage: React.FC = () => {
                 <h4 className="font-semibold text-neutral-800">FAQ</h4>
                 <p className="text-sm text-neutral-600 mt-1">Common questions answered</p>
               </Link>
+            </div>
+          </section>
+
+          {/* FAQ Section */}
+          <section className="mb-12 bg-white rounded-xl p-6 md:p-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-8 text-center">
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-4 max-w-3xl mx-auto">
+              <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+                  <span className="font-semibold text-neutral-900 pr-4">What is the difference between biodegradable and compostable packaging?</span>
+                  <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+                </summary>
+                <div className="px-6 pb-6 text-neutral-700">
+                  Biodegradable means a material will eventually break down, but with no timeframe or conditions specified. Compostable means the material will break down within 90-180 days under specific conditions (industrial or home composting) and leave no toxic residue, verified by certifications like EN 13432 or ASTM D6400.
+                </div>
+              </details>
+              <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+                  <span className="font-semibold text-neutral-900 pr-4">What certifications should I look for in compostable packaging?</span>
+                  <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+                </summary>
+                <div className="px-6 pb-6 text-neutral-700">
+                  Look for EN 13432 (EU standard), ASTM D6400 (US standard), BPI Certified (US), TUV OK Compost (industrial), or TUV OK Home (home composting). These certifications require rigorous third-party testing and are verifiable in public databases.
+                </div>
+              </details>
+              <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+                  <span className="font-semibold text-neutral-900 pr-4">How do I identify greenwashing in packaging claims?</span>
+                  <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+                </summary>
+                <div className="px-6 pb-6 text-neutral-700">
+                  Red flags include: vague terms like 'eco-friendly' without certifications, 'biodegradable' claims without timeframes, no third-party certification logos, inability to provide test reports, and claims that aren't verifiable in certification databases like BPI or TUV Austria.
+                </div>
+              </details>
             </div>
           </section>
 

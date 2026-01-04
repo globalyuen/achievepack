@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Recycle, Package, Award, CheckCircle, Shield, Clock, Leaf, MessageCircle, Target, Calendar, ArrowRight, ShoppingCart } from 'lucide-react'
+import { Recycle, Package, Award, CheckCircle, Shield, Clock, Leaf, MessageCircle, Target, Calendar, ArrowRight, ShoppingCart, ChevronDown } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -278,9 +278,53 @@ const RecyclableMonoMaterialPage: React.FC = () => {
       )
     },
     {
+      id: 'faq',
+      title: 'Frequently Asked Questions',
+      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4">
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">What makes mono-material pouches recyclable?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Mono-material pouches are made from a single polymer type (either 100% PE or 100% PP). This allows them to be recycled through existing plastic recycling infrastructure without the need to separate different materials, which is required for multi-layer conventional pouches.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">How do customers recycle mono-PE pouches?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Mono-PE pouches can be recycled at store drop-off locations. Major retailers like Walmart, Target, and Kroger have collection bins for plastic bags and flexible packaging. We can help you add How2Recycle labels to clearly communicate disposal instructions.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">Do mono-material pouches have good barrier properties?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Yes! Our high-barrier mono-PE pouches with EVOH layer can provide 12+ months shelf life for coffee, snacks, and dry goods. The mono-structure doesn't compromise barrier performance - your products stay just as fresh as in conventional packaging.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">Should I choose recyclable or compostable packaging?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">It depends on your customers' access to disposal infrastructure. Choose recyclable if your customers have better access to store drop-off recycling. Choose compostable if they have access to industrial composting facilities or curbside organic collection. We can help you decide based on your target market.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">Can I add PCR content to mono-material pouches?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Yes! We offer mono-material pouches with 30%, 50%, or up to 100% post-consumer recycled (PCR) content. This further reduces virgin plastic use while maintaining recyclability. PCR content is verified through our supply chain.</div>
+          </details>
+        </div>
+      )
+    },
+    {
       id: 'cta',
       title: 'Get Recyclable Mono-Material Pouches',
-      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
+      icon: <Recycle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-r from-blue-50 to-green-50 p-6 rounded-lg border border-blue-200">
           <h4 className="text-xl font-bold text-neutral-900 mb-4">Ready for recyclable packaging?</h4>

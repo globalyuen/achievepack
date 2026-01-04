@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Package, ShoppingCart, Clock, CheckCircle, Leaf, Award, Shield, Target, MessageCircle, Calendar, ArrowRight, Truck, Users, Zap } from 'lucide-react'
+import { Package, ShoppingCart, Clock, CheckCircle, Leaf, Award, Shield, Target, MessageCircle, Calendar, ArrowRight, Truck, Users, Zap, ChevronDown } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -454,9 +454,53 @@ const LowMOQPackagingPage: React.FC = () => {
       )
     },
     {
+      id: 'faq',
+      title: 'Frequently Asked Questions',
+      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4">
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">What is the minimum order quantity for custom printed packaging?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Our minimum order quantity is 100 pieces for digital printed pouches, 1,000 pieces for plate printed packaging, and 50 pieces for stock bags. This makes professional packaging accessible to startups and small-batch producers.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">How long does production take for low MOQ orders?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Digital print orders typically take 2-3 weeks for production plus 5-7 days shipping to USA, for a total lead time of 3-4 weeks from order confirmation to your door.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">Is sustainable packaging available at low MOQ?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Yes! All our low MOQ packaging is available in sustainable options including compostable (ASTM D6400 certified), recyclable mono-material, PCR content (30-50%), and bio-based materials. You don't have to sacrifice sustainability for small quantities.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">Why is digital printing used for low MOQ?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Digital printing (HP Indigo) has no plate costs, making it economical for small orders. You save $500-$2,000 in upfront plate fees. It also offers photo-quality graphics, variable data capability, and faster turnaround than traditional plate printing.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">What is the cost per bag for low MOQ orders?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">For 100-bag digital print orders, costs typically range from $0.85-$1.50 per bag depending on size, material, and finishes. As quantities increase, per-unit costs decrease significantly. Plate printing at 1,000+ bags can be $0.35-$0.65 per bag.</div>
+          </details>
+        </div>
+      )
+    },
+    {
       id: 'cta',
       title: 'Start Your Low MOQ Order',
-      icon: <ShoppingCart className="h-5 w-5 text-primary-600" />,
+      icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
           <div className="bg-gradient-to-br from-primary-600 to-green-600 p-8 rounded-2xl text-white text-center">

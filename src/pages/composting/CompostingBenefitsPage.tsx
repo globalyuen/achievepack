@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Leaf, AlertTriangle, CheckCircle, Award, Calendar, Target, Shield, Recycle, Droplets, TreeDeciduous, Factory, Package, X, ChevronRight, Mail, Phone, Sprout, Globe, Building2 } from 'lucide-react'
+import { Leaf, AlertTriangle, CheckCircle, Award, Calendar, Target, Shield, Recycle, Droplets, TreeDeciduous, Factory, Package, X, ChevronRight, Mail, Phone, Sprout, Globe, Building2, ChevronDown } from 'lucide-react'
 import { useCalendly } from '../../contexts/CalendlyContext'
 import Footer from '../../components/Footer'
 import { SEOPageHeader } from '../../components/SEOPageLayout'
@@ -673,6 +673,51 @@ const CompostingBenefitsPage: React.FC = () => {
                 <Phone className="h-5 w-5" />
                 Contact Us
               </Link>
+            </div>
+          </section>
+
+          {/* FAQ Section */}
+          <section className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100 mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-8 text-center">
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-4 max-w-3xl mx-auto">
+              <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+                  <span className="font-semibold text-neutral-900 pr-4">What are the environmental benefits of composting?</span>
+                  <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+                </summary>
+                <div className="px-6 pb-6 text-neutral-700">
+                  Composting reduces greenhouse gas emissions by preventing methane release from landfills, returns nutrients to soil reducing the need for synthetic fertilizers, improves water retention by up to 20%, reduces municipal waste management costs, and diverts organic waste from overfilled landfills.
+                </div>
+              </details>
+              <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+                  <span className="font-semibold text-neutral-900 pr-4">What happens to organic waste in landfills?</span>
+                  <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+                </summary>
+                <div className="px-6 pb-6 text-neutral-700">
+                  In landfills, organic waste is sealed in an anaerobic environment without oxygen. This causes slow decomposition that releases methane (28x more potent than CO2) and carbon dioxide. Valuable nutrients like nitrogen, phosphorus, and potassium are locked away instead of returning to the soil.
+                </div>
+              </details>
+              <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+                  <span className="font-semibold text-neutral-900 pr-4">What is the difference between backyard and commercial composting?</span>
+                  <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+                </summary>
+                <div className="px-6 pb-6 text-neutral-700">
+                  Backyard composting uses simple bins for household food scraps and yard waste, taking weeks to months to produce compost. Commercial composting operates at city scale with controlled temperatures exceeding 140°F (60°C), can process bones, dairy, and certified compostable packaging in 90-180 days.
+                </div>
+              </details>
+              <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+                  <span className="font-semibold text-neutral-900 pr-4">Can compostable packaging actually be composted?</span>
+                  <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+                </summary>
+                <div className="px-6 pb-6 text-neutral-700">
+                  Yes, but only in commercial composting facilities that reach temperatures exceeding 140°F. Packaging must be certified to EN 13432 (EU) or ASTM D6400 (US) standards. At these temperatures, certified compostable packaging breaks down in 90-180 days alongside food waste.
+                </div>
+              </details>
             </div>
           </section>
 

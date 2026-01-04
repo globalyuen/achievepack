@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Tag, Package, Clock, CheckCircle, Star, Droplets, Pencil, Layers, Palette, Shield, Award, Users, Globe, Calendar, Mail, X, ChevronLeft, ChevronRight, FileCheck, Sparkles, Truck, Zap } from 'lucide-react'
+import { Tag, Package, Clock, CheckCircle, Star, Droplets, Pencil, Layers, Palette, Shield, Award, Users, Globe, Calendar, Mail, X, ChevronLeft, ChevronRight, FileCheck, Sparkles, Truck, Zap, ChevronDown } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -449,9 +449,53 @@ const CustomLabelsPage: React.FC = () => {
       )
     },
     {
+      id: 'faq',
+      title: 'Frequently Asked Questions',
+      icon: <Star className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4">
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">Is there a minimum order quantity for custom labels?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">No! We have no minimum order requirement. You can order as few or as many labels as you need. This makes it perfect for testing designs, small businesses, or sample batches.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">How fast can I get my custom labels?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">After design approval, labels are printed and shipped within 2-3 business days. Our expert team reviews every file before printing to ensure optimal results.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">What materials are available for sheet labels?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">We offer white matte paper for everyday use, waterproof BOPP for moisture-prone environments, oil-resistant materials for food and cosmetics, scratch-resistant options, and writable surfaces for pen and marker use.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">Can I order multiple designs in one order?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Yes! We offer multi-design discounts. Order 3-5 different designs in the same size and material for 5% off, or 6+ designs for 10% off. Great for product lines with multiple SKUs.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">What shapes and sizes are available?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">We offer rectangles, rounded rectangles, circles, ovals, and custom die-cut shapes in various sizes. If you need a specific shape or size, our team can create custom tooling for your requirements.</div>
+          </details>
+        </div>
+      )
+    },
+    {
       id: 'cta',
       title: 'Ready to Order Custom Labels?',
-      icon: <Calendar className="h-5 w-5 text-primary-600" />,
+      icon: <Tag className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 rounded-2xl p-8 text-white text-center">
           <h3 className="text-2xl font-bold mb-4">Get Started Today</h3>

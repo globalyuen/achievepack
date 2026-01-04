@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Tag, Sticker, Layers, Leaf, Palette, Printer, Sparkles, Settings, Truck, Building2, Package, CheckCircle, Star, Calendar, Mail, X, ChevronLeft, ChevronRight, Globe, Award, Zap, FileCheck, Shield, Users, Droplets } from 'lucide-react'
+import { Tag, Sticker, Layers, Leaf, Palette, Printer, Sparkles, Settings, Truck, Building2, Package, CheckCircle, Star, Calendar, Mail, X, ChevronLeft, ChevronRight, Globe, Award, Zap, FileCheck, Shield, Users, Droplets, ChevronDown } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -370,9 +370,53 @@ const LabelsAndStickersPage: React.FC = () => {
       )
     },
     {
+      id: 'faq',
+      title: 'Frequently Asked Questions',
+      icon: <Star className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4">
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">What is the difference between labels and stickers?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Labels are typically functional identifiers designed for product packaging, with focus on information display and brand identity. Stickers can be both functional and decorative, often used for marketing, branding, sealing, and promotional purposes. Both use similar materials and printing methods.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">Do you offer eco-friendly label options?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Yes! We offer PLA-based biodegradable films, FSC-certified paper stocks, and recyclable substrates. Our eco-friendly options work great with our compostable packaging to create a fully sustainable brand experience.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">Can I use custom labels with your stand-up pouches?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Absolutely! Our custom labels are specifically designed to complement our stand-up pouches and flexible packaging. We ensure adhesive compatibility and sizing works perfectly with our pouch surfaces for a cohesive brand presentation.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">What finishing options are available?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">We offer multiple finishes: Matte for sophisticated appeal, Gloss for vibrant shine, UV Coating for durability, Hot Foil Stamping for metallic accents, and Kraft for natural aesthetics. Finishes can dramatically elevate your product's appearance.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">How fast is the turnaround time?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">For sheet labels, turnaround is 2-3 business days after design approval. Roll stickers and larger orders typically take 7-10 days production. Our team reviews every file and provides feedback before printing begins.</div>
+          </details>
+        </div>
+      )
+    },
+    {
       id: 'cta',
       title: 'Ready to Order Custom Labels & Stickers?',
-      icon: <Calendar className="h-5 w-5 text-primary-600" />,
+      icon: <Tag className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 rounded-2xl p-8 text-white text-center">
           <h3 className="text-2xl font-bold mb-4">Get Your Custom Quote Today</h3>

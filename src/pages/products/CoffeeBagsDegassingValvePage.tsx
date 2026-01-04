@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Coffee, Package, Award, CheckCircle, Shield, Clock, Leaf, MessageCircle, Target, Calendar, ShoppingCart } from 'lucide-react'
+import { Coffee, Package, Award, CheckCircle, Shield, Clock, Leaf, MessageCircle, Target, Calendar, ShoppingCart, ChevronDown } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -303,9 +303,53 @@ const CoffeeBagsDegassingValvePage: React.FC = () => {
       )
     },
     {
+      id: 'faq',
+      title: 'Frequently Asked Questions',
+      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4">
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">What is a degassing valve and why do coffee bags need one?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">A degassing valve is a one-way valve that allows CO₂ to escape from the bag while preventing oxygen from entering. Freshly roasted coffee releases CO₂ for 24-72 hours after roasting. Without a valve, the bag would bloat or burst, and you'd have to wait days before packaging. The valve lets you pack immediately after roasting while maintaining freshness.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">Are compostable degassing valves available?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Yes! We offer fully compostable degassing valves made from PLA and other plant-based materials. These maintain ASTM D6400 and EN 13432 certification when used with our compostable coffee bag materials, ensuring the entire package can be industrially composted.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">How long will my coffee stay fresh with a degassing valve?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Shelf life depends on the barrier level of your packaging material. With high-barrier materials (like Kraft + VMPET or Mono-PE + EVOH), properly packaged coffee with a degassing valve can stay fresh for 12+ months. Medium-barrier compostable options typically provide 3-6 months freshness.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">What is the minimum order for coffee bags with valves?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Our minimum order is just 100 pieces for digital printed coffee bags with degassing valves. This makes it perfect for small-batch roasters, sample runs, or testing new packaging designs before scaling up.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">Can I choose where the valve is placed on my bag?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Yes, we offer multiple valve placement options: front center (most visible), back panel (keeps front clean for branding), or top gusset (for flat bottom bags). We'll work with you to determine the best placement for your bag style and design.</div>
+          </details>
+        </div>
+      )
+    },
+    {
       id: 'cta',
       title: 'Order Coffee Bags with Degassing Valves',
-      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
+      icon: <Coffee className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-lg border border-amber-200">
           <h4 className="text-xl font-bold text-neutral-900 mb-4">Ready to package your fresh roast?</h4>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Package, Leaf, Award, CheckCircle, Shield, Clock, Recycle, MessageCircle, Target, Calendar, ArrowRight, ShoppingCart } from 'lucide-react'
+import { Package, Leaf, Award, CheckCircle, Shield, Clock, Recycle, MessageCircle, Target, Calendar, ArrowRight, ShoppingCart, ChevronDown } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -327,9 +327,53 @@ const CompostableStandUpPouchesPage: React.FC = () => {
       )
     },
     {
+      id: 'faq',
+      title: 'Frequently Asked Questions',
+      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4">
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">What certifications do your compostable pouches have?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Our compostable stand-up pouches are certified to ASTM D6400 (USA), EN 13432 (Europe), and AS5810 (Australia). Some materials are also OK Home Compost certified for backyard composting. All certifications are validated through independent testing.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">How long is the shelf life for compostable stand-up pouches?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Shelf life varies by material: Kraft + PLA offers 1-3 months, Kraft + PBAT/PLA provides 3-6 months, NatureFlex gives 6-12 months, and MetPLA Triplex can achieve 12-18 months. We'll help you choose the right material for your product's needs.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">Are the zippers also compostable?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Yes, we offer compostable zipper closures made from PLA-based materials. These zippers maintain the same press-to-close functionality as conventional zippers while being certified compostable along with the rest of the pouch.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">What is the minimum order quantity?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Our minimum order is 100 pieces for digital printed compostable stand-up pouches. For custom sizes, the minimum is 500 pieces. This allows small brands to access premium sustainable packaging without large inventory commitments.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">Can I customize the size and shape?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Absolutely! While we offer standard sizes from 50g to 500g capacity, we can create custom dimensions to fit your exact product requirements. Our team will help optimize dimensions for both product fit and material efficiency.</div>
+          </details>
+        </div>
+      )
+    },
+    {
       id: 'cta',
       title: 'Get Your Compostable Stand-Up Pouches',
-      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
+      icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-r from-primary-50 to-green-50 p-6 rounded-lg border border-primary-200">
           <h4 className="text-xl font-bold text-neutral-900 mb-4">Ready to make the sustainable switch?</h4>

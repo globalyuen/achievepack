@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Coffee, Leaf, Award, CheckCircle, Package, Shield, Clock, Recycle, MessageCircle, Target, Calendar, ArrowRight, ShoppingCart } from 'lucide-react'
+import { Coffee, Leaf, Award, CheckCircle, Package, Shield, Clock, Recycle, MessageCircle, Target, Calendar, ArrowRight, ShoppingCart, ChevronDown } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -372,9 +372,53 @@ const CompostableCoffeeBagsPage: React.FC = () => {
       )
     },
     {
+      id: 'faq',
+      title: 'Frequently Asked Questions',
+      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4">
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">Are compostable coffee bags really compostable?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Yes, our compostable coffee bags are certified to ASTM D6400 (US) and EN 13432 (EU) standards. This means they will fully break down in industrial composting facilities within 180 days. Some of our materials are also home compostable certified.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">Will compostable bags keep my coffee fresh?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Yes! Our compostable coffee bags offer multiple barrier options. Kraft + PLA/PBAT provides 3-6 months freshness, while high-barrier options like MetPLA Triplex can provide 12+ months shelf life. We also offer compostable degassing valves and resealable zippers.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">What is the minimum order for compostable coffee bags?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Our minimum order is just 100 pieces for digital printed compostable coffee bags. This is perfect for specialty roasters, testing new products, or seasonal limited editions.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">Can I get a clear window on compostable bags?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Yes! We use NatureFlex cellulose windows which are fully home compostable. Unlike conventional plastic windows, these won't compromise your bag's compostability certification. They provide excellent clarity to showcase your beans.</div>
+          </details>
+          <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+              <span className="font-semibold text-neutral-900 pr-4">How do customers dispose of compostable coffee bags?</span>
+              <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+            </summary>
+            <div className="px-6 pb-6 text-neutral-700">Customers should dispose of compostable bags through industrial composting facilities or municipal organic waste collection. Home compostable certified bags can go in backyard compost bins. We can help you add clear disposal instructions to your packaging.</div>
+          </details>
+        </div>
+      )
+    },
+    {
       id: 'cta',
       title: 'Get Started with Compostable Coffee Bags',
-      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
+      icon: <Coffee className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-r from-primary-50 to-green-50 p-6 rounded-lg border border-primary-200">
           <h4 className="text-xl font-bold text-neutral-900 mb-4">Ready to switch to compostable?</h4>

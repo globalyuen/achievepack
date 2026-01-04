@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Leaf, CheckCircle, Award, Calendar, Shield, Recycle, Factory, Package, X, ChevronRight, Mail, Phone, Sprout, Globe, Building2, Truck, Settings, Wind, Flame, Clock, Target, Layers, RotateCcw, Users } from 'lucide-react'
+import { Leaf, CheckCircle, Award, Calendar, Shield, Recycle, Factory, Package, X, ChevronRight, Mail, Phone, Sprout, Globe, Building2, Truck, Settings, Wind, Flame, Clock, Target, Layers, RotateCcw, Users, ChevronDown } from 'lucide-react'
 import { useCalendly } from '../../contexts/CalendlyContext'
 import Footer from '../../components/Footer'
 import { SEOPageHeader } from '../../components/SEOPageLayout'
@@ -684,6 +684,51 @@ const CommercialCompostingPage: React.FC = () => {
                 <Phone className="h-5 w-5" />
                 Contact Us
               </Link>
+            </div>
+          </section>
+
+          {/* FAQ Section */}
+          <section className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100 mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-8 text-center">
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-4 max-w-3xl mx-auto">
+              <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+                  <span className="font-semibold text-neutral-900 pr-4">What is commercial composting?</span>
+                  <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+                </summary>
+                <div className="px-6 pb-6 text-neutral-700">
+                  Commercial composting uses the same biology as backyard composting—microorganisms breaking down organic material—but scaled up and carefully controlled. Facilities manage huge volumes of food scraps, yard trimmings and other organics using equipment to regulate temperature, oxygen and moisture so decomposition happens quickly and safely.
+                </div>
+              </details>
+              <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+                  <span className="font-semibold text-neutral-900 pr-4">What are the three main commercial composting methods?</span>
+                  <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+                </summary>
+                <div className="px-6 pb-6 text-neutral-700">
+                  The three primary methods are: 1) Windrow Composting - material arranged in long rows and turned regularly, taking about 4 months; 2) Aerated Static Pile - material mixed with wood chips with forced air, completing in 3 months; 3) In-Vessel Composting - enclosed containers with automated control, finishing in under a month.
+                </div>
+              </details>
+              <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+                  <span className="font-semibold text-neutral-900 pr-4">Can compostable packaging be processed in commercial facilities?</span>
+                  <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+                </summary>
+                <div className="px-6 pb-6 text-neutral-700">
+                  Yes, but only certified compostable packaging meeting standards like EN 13432 or ASTM D6400 should enter the system. These certifications ensure materials will fully biodegrade within 180 days at industrial facility temperatures (140°F / 60°C or higher).
+                </div>
+              </details>
+              <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+                  <span className="font-semibold text-neutral-900 pr-4">How long does commercial composting take?</span>
+                  <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+                </summary>
+                <div className="px-6 pb-6 text-neutral-700">
+                  Processing time varies by method: Windrow composting takes about 4 months, aerated static pile systems complete in approximately 3 months, and in-vessel composting can produce finished compost in under a month.
+                </div>
+              </details>
             </div>
           </section>
 

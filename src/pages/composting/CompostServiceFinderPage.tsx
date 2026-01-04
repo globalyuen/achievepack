@@ -870,6 +870,51 @@ const CompostServiceFinderPage: React.FC = () => {
             </div>
           </section>
 
+          {/* FAQ Section */}
+          <section className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100 mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-8 text-center">
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-4 max-w-3xl mx-auto">
+              <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+                  <span className="font-semibold text-neutral-900 pr-4">How do I find composting services near me?</span>
+                  <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+                </summary>
+                <div className="px-6 pb-6 text-neutral-700">
+                  Use our directory above to search by state or city. You can also check with your local municipality or waste management company for curbside organics collection programs that accept certified compostable packaging.
+                </div>
+              </details>
+              <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+                  <span className="font-semibold text-neutral-900 pr-4">Do all composting facilities accept compostable packaging?</span>
+                  <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+                </summary>
+                <div className="px-6 pb-6 text-neutral-700">
+                  No. Many facilities only accept food scraps and yard waste. Always contact the facility directly to confirm they accept certified compostable packaging (EN 13432, ASTM D6400, or BPI certified). Policies change frequently.
+                </div>
+              </details>
+              <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+                  <span className="font-semibold text-neutral-900 pr-4">What certifications should compostable packaging have?</span>
+                  <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+                </summary>
+                <div className="px-6 pb-6 text-neutral-700">
+                  Look for EN 13432 (EU standard), ASTM D6400 (US standard), AS 4736 (Australia), or BPI certification. These standards ensure the packaging will break down in commercial composting within 90-180 days and leave no toxic residue.
+                </div>
+              </details>
+              <details className="group bg-neutral-50 rounded-xl overflow-hidden">
+                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+                  <span className="font-semibold text-neutral-900 pr-4">What if there's no composting facility in my area?</span>
+                  <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+                </summary>
+                <div className="px-6 pb-6 text-neutral-700">
+                  If composting infrastructure isn't available, consider recyclable mono-material alternatives like mono-PE that align with existing recycling streams. Achieve Pack can recommend solutions that match your market's actual waste infrastructure.
+                </div>
+              </details>
+            </div>
+          </section>
+
           {/* CTA Section - What's Next */}
           <section className="mt-12 bg-gradient-to-r from-green-700 to-green-800 rounded-xl p-8 text-white">
             <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center">What's Next?</h2>
