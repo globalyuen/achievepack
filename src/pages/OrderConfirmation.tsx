@@ -3,7 +3,6 @@ import { Link, useLocation, useSearchParams } from 'react-router-dom'
 import { CheckCircle, Package, Mail, ArrowRight, User, Upload, Loader2 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { useTranslation } from 'react-i18next'
-import { supabase } from '../lib/supabase'
 import { useStore } from '../store/StoreContext'
 
 const OrderConfirmation: React.FC = () => {
@@ -27,19 +26,21 @@ const OrderConfirmation: React.FC = () => {
       if (sessionId && orderNumber && !statusUpdated) {
         setUpdatingStatus(true)
         try {
-          // Update order status to confirmed/paid
-          const { error } = await supabase
-            .from('orders')
-            .update({ 
+          // Update order status via API (bypasses RLS)
+          const response = await fetch('/api/update-order', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              orderNumber,
+              sessionId,
               status: 'confirmed',
-              payment_status: 'paid',
-              stripe_session_id: sessionId,
-              updated_at: new Date().toISOString()
+              paymentStatus: 'paid'
             })
-            .eq('order_number', orderNumber)
+          })
+          const result = await response.json()
 
-          if (error) {
-            console.error('Error updating order status:', error)
+          if (!result.success) {
+            console.error('Error updating order status:', result.error)
           } else {
             console.log(`Order ${orderNumber} updated to confirmed`)
             setStatusUpdated(true)

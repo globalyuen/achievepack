@@ -109,35 +109,45 @@ const CheckoutPage: React.FC = () => {
         navigate('/store/rfq-confirmation', { state: { rfqNumber: orderNumber } })
       } else {
         // Normal Checkout Mode: Create Stripe checkout session
-        // First save order as pending_payment
-        const { error: dbError } = await supabase.from('orders').insert({
-          user_id: user?.id || null,
-          order_number: orderNumber,
-          status: 'pending_payment',
-          total_amount: cartTotal,
-          items: cart.map(item => ({
-            productId: item.productId,
-            name: item.name,
-            variant: item.variant,
-            quantity: item.quantity,
-            unitPrice: item.unitPrice,
-            totalPrice: item.totalPrice
-          })),
-          shipping_address: {
-            firstName: formData.firstName,
-            lastName: formData.lastName,
-            company: formData.company,
-            address: formData.address,
-            city: formData.city,
-            country: formData.country,
-            zipCode: formData.postalCode,
-            phone: formData.phone
-          },
-          customer_email: formData.email,
-          customer_name: `${formData.firstName} ${formData.lastName}`
-        })
-
-        if (dbError) {
+        // First save order as pending_payment via API (bypasses RLS)
+        try {
+          const saveOrderResponse = await fetch('/api/save-order', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              orderNumber,
+              userId: user?.id || null,
+              customerEmail: formData.email,
+              customerName: `${formData.firstName} ${formData.lastName}`,
+              items: cart.map(item => ({
+                productId: item.productId,
+                name: item.name,
+                variant: item.variant,
+                quantity: item.quantity,
+                unitPrice: item.unitPrice,
+                totalPrice: item.totalPrice
+              })),
+              totalAmount: cartTotal,
+              shippingAddress: {
+                firstName: formData.firstName,
+                lastName: formData.lastName,
+                company: formData.company,
+                address: formData.address,
+                city: formData.city,
+                country: formData.country,
+                zipCode: formData.postalCode,
+                phone: formData.phone
+              },
+              status: 'pending_payment'
+            })
+          })
+          const saveOrderResult = await saveOrderResponse.json()
+          if (!saveOrderResult.success) {
+            console.error('Order save error:', saveOrderResult.error)
+          } else {
+            console.log('Order saved successfully:', orderNumber)
+          }
+        } catch (dbError) {
           console.error('Database error:', dbError)
         }
 
