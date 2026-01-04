@@ -179,45 +179,21 @@ const DashboardPage: React.FC = () => {
         const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(uploadData?.path || fileName)
         const fileUrl = urlData.publicUrl
         
-        // Save record via API (bypasses RLS for database)
-        let apiSuccess = false
-        let apiError = ''
-        try {
-          const response = await fetch('/api/save-artwork', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              userId: user?.id,
-              name: file.name,
-              fileUrl,
-              fileType: file.type || 'unknown',
-              fileSize: file.size
-            })
+        // Save record directly to database (not via API)
+        const { error: dbError } = await supabase
+          .from('artwork_files')
+          .insert({
+            user_id: user?.id,
+            name: file.name,
+            file_url: fileUrl,
+            file_type: file.type || 'unknown',
+            file_size: file.size,
+            status: 'pending_review'
           })
-          
-          // Check if response is JSON before parsing
-          const contentType = response.headers.get('content-type')
-          if (contentType?.includes('application/json')) {
-            const result = await response.json()
-            if (result.success) {
-              apiSuccess = true
-            } else {
-              apiError = result.error || 'Unknown API error'
-              console.error('API error:', result)
-            }
-          } else {
-            const text = await response.text()
-            apiError = `Non-JSON response: ${text.substring(0, 100)}`
-            console.error('API returned non-JSON:', text)
-          }
-        } catch (apiErr: any) {
-          apiError = apiErr.message || 'API request failed'
-          console.error('Save record API error:', apiErr)
-        }
         
-        // Show warning if API failed but storage succeeded
-        if (!apiSuccess && apiError) {
-          setUploadError(`File uploaded to storage but failed to save record: ${apiError}. Please contact support.`)
+        if (dbError) {
+          console.error('Database insert error:', dbError)
+          setUploadError(`File uploaded but failed to save record: ${dbError.message}`)
         }
         
         uploadedFiles.push(file.name)
@@ -291,36 +267,24 @@ const DashboardPage: React.FC = () => {
         const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(uploadData?.path || fileName)
         const fileUrl = urlData.publicUrl
         
-        // Save record via API (bypasses RLS for database)
-        try {
-          const response = await fetch('/api/save-artwork', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              userId: user?.id,
-              orderId,
-              orderNumber,
-              name: file.name,
-              fileUrl,
-              fileType: file.type || 'unknown',
-              fileSize: file.size
-            })
+        // Save record directly to database
+        const { error: dbError } = await supabase
+          .from('artwork_files')
+          .insert({
+            user_id: user?.id,
+            order_id: orderId,
+            order_number: orderNumber,
+            name: file.name,
+            file_url: fileUrl,
+            file_type: file.type || 'unknown',
+            file_size: file.size,
+            status: 'pending_review'
           })
-          
-          // Check if response is JSON before parsing
-          const contentType = response.headers.get('content-type')
-          if (contentType?.includes('application/json')) {
-            const result = await response.json()
-            if (!result.success && result.error) {
-              console.warn('API error (file uploaded successfully):', result.error)
-            }
-          } else {
-            console.warn('API returned non-JSON response, but file uploaded successfully')
-          }
-        } catch (apiErr) {
-          // File uploaded successfully, just log API error
-          console.warn('Save record API error (file uploaded successfully):', apiErr)
+        
+        if (dbError) {
+          console.error('Database insert error:', dbError)
         }
+        
         uploadedFiles.push(file.name)
       }
       
