@@ -80,9 +80,9 @@ const DashboardPage: React.FC = () => {
   const fetchData = async () => {
     setLoading(true)
     
-    // Fetch from database
+    // Fetch from database - orders by user_id OR customer_email for better matching
     const [ordersRes, quotesRes, rfqRes, docsRes, artworksRes, savedRes] = await Promise.all([
-      supabase.from('orders').select('*').eq('user_id', user?.id).order('created_at', { ascending: false }),
+      supabase.from('orders').select('*').or(`user_id.eq.${user?.id},customer_email.eq.${user?.email}`).order('created_at', { ascending: false }),
       supabase.from('quotes').select('*').eq('user_id', user?.id).order('created_at', { ascending: false }),
       supabase.from('rfq_submissions').select('*').eq('user_id', user?.id).order('created_at', { ascending: false }),
       supabase.from('documents').select('*').or(`user_id.eq.${user?.id},is_public.eq.true`).order('created_at', { ascending: false }),
