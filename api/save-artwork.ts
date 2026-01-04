@@ -1,8 +1,20 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { createClient } from '@supabase/supabase-js'
 
+// Initialize Supabase with service key to bypass RLS
+const getSupabase = () => {
+  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL
+  const supabaseKey = process.env.SUPABASE_SERVICE_KEY || process.env.VITE_SUPABASE_ANON_KEY
+  
+  if (!supabaseUrl || !supabaseKey) {
+    throw new Error('Supabase configuration missing')
+  }
+  
+  return createClient(supabaseUrl, supabaseKey)
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  // Set CORS headers first
+  // Set CORS headers
   res.setHeader('Access-Control-Allow-Credentials', 'true')
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,POST')
@@ -13,67 +25,55 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   if (req.method !== 'POST') {
-    return res.status(200).json({ success: false, error: 'Method not allowed' })
+    return res.status(405).json({ error: 'Method not allowed' })
   }
 
-  // Wrap everything in try-catch
   try {
-    // Check environment variables first
-    const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL
-    const supabaseKey = process.env.SUPABASE_SERVICE_KEY
-
-    if (!supabaseUrl || !supabaseKey) {
-      return res.status(200).json({ 
-        success: false, 
-        error: 'Server configuration error',
-        debug: { hasUrl: !!supabaseUrl, hasServiceKey: !!supabaseKey }
-      })
-    }
-
-    // Check request body
-    if (!req.body) {
-      return res.status(200).json({ success: false, error: 'Empty request body' })
-    }
-
-    const { userId, orderId, orderNumber, name, fileUrl, fileType, fileSize } = req.body
+    const { 
+      userId,
+      orderId,
+      orderNumber,
+      name,
+      fileUrl,
+      fileType,
+      fileSize,
+      status = 'pending_review'
+    } = req.body
 
     if (!userId || !name || !fileUrl) {
-      return res.status(200).json({ 
-        success: false, 
-        error: 'Missing required fields',
-        received: { hasUserId: !!userId, hasName: !!name, hasFileUrl: !!fileUrl }
-      })
+      return res.status(400).json({ error: 'userId, name, and fileUrl are required' })
     }
 
-    // Create Supabase client
-    const supabase = createClient(supabaseUrl, supabaseKey)
+    const supabase = getSupabase()
 
-    // Insert record
+    // Insert artwork record
+    const artworkData = {
+      user_id: userId,
+      order_id: orderId || null,
+      order_number: orderNumber || null,
+      name: name,
+      file_url: fileUrl,
+      file_type: fileType || 'unknown',
+      file_size: fileSize || 0,
+      status: status,
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString()
+    }
+
     const { data, error } = await supabase
       .from('artwork_files')
-      .insert({
-        user_id: userId,
-        order_id: orderId || null,
-        order_number: orderNumber || null,
-        name: name,
-        file_url: fileUrl,
-        file_type: fileType || 'unknown',
-        file_size: fileSize || 0,
-        status: 'pending_review'
-      })
+      .insert(artworkData)
       .select()
 
     if (error) {
-      return res.status(200).json({ success: false, error: error.message })
+      console.error('Artwork save error:', error)
+      return res.status(500).json({ error: 'Failed to save artwork', details: error.message })
     }
 
-    return res.status(200).json({ success: true, artwork: data?.[0] })
-
-  } catch (err: any) {
-    console.error('API Error:', err)
-    return res.status(200).json({ 
-      success: false, 
-      error: err?.message || 'Unknown error'
-    })
+    console.log(`Artwork ${name} saved for user ${userId}`)
+    res.status(200).json({ success: true, artwork: data?.[0] })
+  } catch (error: any) {
+    console.error('Save artwork error:', error)
+    res.status(500).json({ error: error.message || 'Failed to save artwork' })
   }
 }
