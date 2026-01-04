@@ -124,7 +124,7 @@ const DashboardPage: React.FC = () => {
     return user?.email?.split('@')[0] || 'User'
   }
 
-  // Artwork upload handler
+  // Artwork upload handler - uploads directly to Supabase Storage, then saves record via API
   const handleArtworkUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files
     if (!files || files.length === 0) return
@@ -134,102 +134,17 @@ const DashboardPage: React.FC = () => {
     
     try {
       for (const file of Array.from(files) as File[]) {
-        // Validate file size (3MB limit due to Vercel serverless function body size limit)
-        // Base64 encoding increases size by ~33%, so actual limit is ~4MB after encoding
-        const maxSize = 3 * 1024 * 1024 // 3MB in bytes
+        // Validate file size (10MB limit for direct storage upload)
+        const maxSize = 10 * 1024 * 1024
         if (file.size > maxSize) {
           const fileSizeMB = (file.size / (1024 * 1024)).toFixed(1)
           setUploadError(
             `File "${file.name}" is too large (${fileSizeMB} MB).\n\n` +
-            `Maximum file size for direct upload is 3 MB.\n\n` +
-            `For larger files, please use one of these options:\n` +
+            `Maximum file size is 10 MB.\n\n` +
+            `For larger files, please use:\n` +
             `• WeTransfer: https://wetransfer.com\n` +
-            `• Dropbox: https://www.dropbox.com\n` +
-            `• Google Drive: https://drive.google.com\n\n` +
+            `• Dropbox: https://www.dropbox.com\n\n` +
             `Then share the download link with us at ryan@achievepack.com`
-          )
-          continue
-        }
-        
-        // Validate file type
-        const validTypes = ['application/pdf', 'application/postscript', 'application/illustrator', 
-          'image/png', 'image/jpeg', 'image/tiff', 'application/zip']
-        const isValid = validTypes.some(t => file.type.includes(t.split('/')[1])) || 
-          file.name.match(/\.(ai|eps|pdf|png|jpg|jpeg|tiff|tif|zip|psd)$/i)
-        
-        if (!isValid) {
-          setUploadError(`Invalid file type: ${file.name}. Please upload AI, EPS, PDF, PNG, JPG, TIFF, PSD, or ZIP files.`)
-          continue
-        }
-        
-        // Read file as base64
-        const fileData = await new Promise<string>((resolve, reject) => {
-          const reader = new FileReader()
-          reader.onload = () => resolve(reader.result as string)
-          reader.onerror = reject
-          reader.readAsDataURL(file)
-        })
-        
-        // Upload via API (bypasses RLS)
-        const fileName = `${user?.id}/${Date.now()}_${file.name}`
-        const response = await fetch('/api/upload-artwork', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            userId: user?.id,
-            fileName,
-            fileData,
-            fileType: file.type || 'unknown',
-            fileSize: file.size,
-            originalName: file.name
-          })
-        })
-        
-        // Handle non-JSON response (e.g., Request Entity Too Large)
-        const contentType = response.headers.get('content-type')
-        if (!contentType?.includes('application/json')) {
-          const text = await response.text()
-          if (text.includes('Request') || response.status === 413) {
-            throw new Error(
-              `File too large for upload. Please use WeTransfer or Dropbox and share the link with us at ryan@achievepack.com`
-            )
-          }
-          throw new Error(text || 'Upload failed')
-        }
-        
-        const result = await response.json()
-        if (!result.success) throw new Error(result.error || 'Failed to upload artwork')
-      }
-      
-      // Refresh artwork list
-      fetchData()
-    } catch (error: any) {
-      console.error('Upload error:', error)
-      setUploadError(error.message || 'Failed to upload artwork')
-    } finally {
-      setUploading(false)
-      // Reset input
-      e.target.value = ''
-    }
-  }
-
-  // Artwork upload handler for specific order
-  const handleOrderArtworkUpload = async (e: React.ChangeEvent<HTMLInputElement>, orderId: string, orderNumber: string) => {
-    const files = e.target.files
-    if (!files || files.length === 0) return
-    
-    setUploading(true)
-    setUploadError('')
-    
-    try {
-      for (const file of Array.from(files) as File[]) {
-        // Validate file size (3MB limit due to Vercel serverless function body size limit)
-        const maxSize = 3 * 1024 * 1024
-        if (file.size > maxSize) {
-          const fileSizeMB = (file.size / (1024 * 1024)).toFixed(1)
-          setUploadError(
-            `File "${file.name}" is too large (${fileSizeMB} MB). Max 3MB for direct upload.\n\n` +
-            `For larger files, please use WeTransfer or Dropbox and share the link with us at ryan@achievepack.com`
           )
           continue
         }
@@ -241,45 +156,113 @@ const DashboardPage: React.FC = () => {
           continue
         }
         
-        // Read file as base64
-        const fileData = await new Promise<string>((resolve, reject) => {
-          const reader = new FileReader()
-          reader.onload = () => resolve(reader.result as string)
-          reader.onerror = reject
-          reader.readAsDataURL(file)
+        // Upload directly to Supabase Storage
+        const fileName = `${user?.id}/${Date.now()}_${file.name}`
+        const { error: uploadError } = await supabase.storage
+          .from('artworks')
+          .upload(fileName, file, {
+            cacheControl: '3600',
+            upsert: true
+          })
+        
+        if (uploadError) {
+          throw new Error(uploadError.message || 'Failed to upload file')
+        }
+        
+        // Get public URL
+        const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(fileName)
+        const fileUrl = urlData.publicUrl
+        
+        // Save record via API (bypasses RLS for database)
+        const response = await fetch('/api/save-artwork', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            userId: user?.id,
+            name: file.name,
+            fileUrl,
+            fileType: file.type || 'unknown',
+            fileSize: file.size
+          })
         })
         
-        // Upload via API (bypasses RLS)
+        const result = await response.json()
+        if (!result.success && result.error) throw new Error(result.error)
+      }
+      
+      // Refresh artwork list
+      fetchData()
+    } catch (error: any) {
+      console.error('Upload error:', error)
+      setUploadError(error.message || 'Failed to upload artwork')
+    } finally {
+      setUploading(false)
+      e.target.value = ''
+    }
+  }
+
+  // Artwork upload handler for specific order - uploads directly to Supabase Storage
+  const handleOrderArtworkUpload = async (e: React.ChangeEvent<HTMLInputElement>, orderId: string, orderNumber: string) => {
+    const files = e.target.files
+    if (!files || files.length === 0) return
+    
+    setUploading(true)
+    setUploadError('')
+    
+    try {
+      for (const file of Array.from(files) as File[]) {
+        // Validate file size (10MB limit for direct storage upload)
+        const maxSize = 10 * 1024 * 1024
+        if (file.size > maxSize) {
+          const fileSizeMB = (file.size / (1024 * 1024)).toFixed(1)
+          setUploadError(
+            `File "${file.name}" is too large (${fileSizeMB} MB). Max 10MB.\n\n` +
+            `For larger files, please use WeTransfer or Dropbox and share the link with us.`
+          )
+          continue
+        }
+        
+        // Validate file type
+        const isValid = file.name.match(/\.(ai|eps|pdf|png|jpg|jpeg|tiff|tif|zip|psd)$/i)
+        if (!isValid) {
+          setUploadError(`Invalid file type: ${file.name}. Please upload AI, EPS, PDF, PNG, JPG, TIFF, PSD, or ZIP files.`)
+          continue
+        }
+        
+        // Upload directly to Supabase Storage
         const fileName = `${user?.id}/${orderNumber}/${Date.now()}_${file.name}`
-        const response = await fetch('/api/upload-artwork', {
+        const { error: uploadError } = await supabase.storage
+          .from('artworks')
+          .upload(fileName, file, {
+            cacheControl: '3600',
+            upsert: true
+          })
+        
+        if (uploadError) {
+          throw new Error(uploadError.message || 'Failed to upload file')
+        }
+        
+        // Get public URL
+        const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(fileName)
+        const fileUrl = urlData.publicUrl
+        
+        // Save record via API (bypasses RLS for database)
+        const response = await fetch('/api/save-artwork', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             userId: user?.id,
             orderId,
             orderNumber,
-            fileName,
-            fileData,
+            name: file.name,
+            fileUrl,
             fileType: file.type || 'unknown',
-            fileSize: file.size,
-            originalName: file.name
+            fileSize: file.size
           })
         })
         
-        // Handle non-JSON response (e.g., Request Entity Too Large)
-        const contentType = response.headers.get('content-type')
-        if (!contentType?.includes('application/json')) {
-          const text = await response.text()
-          if (text.includes('Request') || response.status === 413) {
-            throw new Error(
-              `File too large for upload. Please use WeTransfer or Dropbox and share the link with us at ryan@achievepack.com`
-            )
-          }
-          throw new Error(text || 'Upload failed')
-        }
-        
         const result = await response.json()
-        if (!result.success) throw new Error(result.error || 'Failed to upload artwork')
+        if (!result.success && result.error) throw new Error(result.error)
       }
       
       // Refresh artwork list
