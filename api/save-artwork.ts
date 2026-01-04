@@ -5,11 +5,11 @@ import { createClient } from '@supabase/supabase-js'
 const getSupabase = () => {
   const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL
   const supabaseKey = process.env.SUPABASE_SERVICE_KEY || process.env.VITE_SUPABASE_ANON_KEY
-  
+
   if (!supabaseUrl || !supabaseKey) {
     throw new Error('Supabase configuration missing')
   }
-  
+
   return createClient(supabaseUrl, supabaseKey)
 }
 
@@ -29,7 +29,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const { 
+    const {
       userId,
       orderId,
       orderNumber,
@@ -67,13 +67,28 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     if (error) {
       console.error('Artwork save error:', error)
-      return res.status(500).json({ error: 'Failed to save artwork record', details: error.message })
+      // Return 200 with error details to prevent 500 page
+      return res.status(200).json({
+        success: false,
+        error: error.message,
+        details: error
+      })
     }
 
     console.log(`Artwork ${name} saved for user ${userId}`)
     res.status(200).json({ success: true, artwork: data?.[0] })
   } catch (error: any) {
     console.error('Save artwork error:', error)
-    res.status(500).json({ error: error.message || 'Failed to save artwork' })
+    // Return 200 with error details to prevent 500 page
+    res.status(200).json({
+      success: false,
+      error: error.message || 'Failed to save artwork',
+      stack: error.stack,
+      config: {
+        hasUrl: !!(process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL),
+        hasKey: !!(process.env.SUPABASE_SERVICE_KEY || process.env.VITE_SUPABASE_ANON_KEY),
+        keyType: process.env.SUPABASE_SERVICE_KEY ? 'service' : 'anon'
+      }
+    })
   }
 }
