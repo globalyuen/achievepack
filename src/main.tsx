@@ -270,9 +270,11 @@ const InsideImGreenBioPEPage = lazyWithRetry(() => import('./pages/biope/InsideI
 const PCRGuidePage = lazyWithRetry(() => import('./pages/pcr/PCRGuidePage'))
 const PCR7ChecklistPage = lazyWithRetry(() => import('./pages/pcr/PCR7ChecklistPage'))
 const PCRRealisticPage = lazyWithRetry(() => import('./pages/pcr/PCRRealisticPage'))
+const RecyclableVsPCRPage = lazyWithRetry(() => import('./pages/pcr/RecyclableVsPCRPage'))
 
 // Recyclable SEO Pages - Lazy loaded
 const WhatIsRecyclablePage = lazyWithRetry(() => import('./pages/recyclable/WhatIsRecyclablePage'))
+const RecyclableRoadmapPage = lazyWithRetry(() => import('./pages/recyclable/RecyclableRoadmapPage'))
 
 // 404 Page - Lazy loaded
 const NotFoundPage = lazyWithRetry(() => import('./pages/NotFoundPage'))
@@ -471,9 +473,11 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/pcr/pcr-plastic-guide" element={<PCRGuidePage />} />
               <Route path="/pcr/7-checklist" element={<PCR7ChecklistPage />} />
               <Route path="/pcr/realistic-pcr-content" element={<PCRRealisticPage />} />
+              <Route path="/pcr/recyclable-vs-pcr-biobased" element={<RecyclableVsPCRPage />} />
 
               {/* Recyclable SEO Pages */}
               <Route path="/recyclable/what-is-recyclable" element={<WhatIsRecyclablePage />} />
+              <Route path="/recyclable/roadmap-sme" element={<RecyclableRoadmapPage />} />
 
               {/* Spec Pages - Material Structures */}
               <Route path="/spec/pcr-pet-duplex-clear" element={<PcrPetDuplexClearPage />} />

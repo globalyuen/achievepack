@@ -2038,6 +2038,16 @@ function App() {
               </ul>
             </div>
 
+            {/* Recyclable */}
+            <div>
+              <h4 className="text-sm font-semibold mb-2">Recyclable</h4>
+              <ul className="space-y-1 text-neutral-400 text-xs">
+                <li><Link to="/recyclable/what-is-recyclable" className="hover:text-primary-500">What Is 100% Recyclable?</Link></li>
+                <li><Link to="/materials/recyclable-mono-pe" className="hover:text-primary-500">Recyclable Mono-PE</Link></li>
+                <li><Link to="/materials/recyclable-mono-pp" className="hover:text-primary-500">Recyclable Mono-PP</Link></li>
+              </ul>
+            </div>
+
             {/* Structure Specs */}
             <div>
               <h4 className="text-sm font-semibold mb-2">Structure Specs</h4>

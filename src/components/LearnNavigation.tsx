@@ -54,7 +54,7 @@ const LEARN_PAGES = {
       { name: 'Supplements', link: '/industry/supplements-powders', image: '/imgs/illustrated/a_supplements_hero_v1_0434970.webp' },
       { name: 'Baby Food', link: '/industry/baby-food', image: '/imgs/illustrated/a_baby_food_hero_v1_7008467.webp' },
       { name: 'Frozen Food', link: '/industry/frozen-food', image: '/imgs/illustrated/a_frozen_food_hero_v2_0166133.webp' },
-      { name: 'Sauces & Condiments', link: '/industry/sauces-condiments', image: '/imgs/illustrated/a_sauces_condiments_hero_v1_6823941.webp' },
+      { name: 'Sauces & Condiments', link: '/industry/sauces-condiments', image: '/imgs/illustrated/a_snacks_food_hero_v1_9854447.webp' }
     ]
   },
   products: {
@@ -215,6 +215,7 @@ const LEARN_PAGES = {
       { name: 'What Is PCR Plastic?', link: '/pcr/pcr-plastic-guide', image: '/imgs/pcr/guide/hero.webp?v=2' },
       { name: '7-Point PCR Checklist', link: '/pcr/7-checklist', image: '/imgs/pcr/7/hero.webp?v=2' },
       { name: 'Realistic PCR Content', link: '/pcr/realistic-pcr-content', image: '/imgs/pcr/real/hero.webp?v=2' },
+      { name: 'Recyclable vs PCR vs Bio-Based', link: '/pcr/recyclable-vs-pcr-biobased', image: '/imgs/recyclable/vs/hero.webp?v=2' },
       { name: 'PCR Materials', link: '/materials/pcr', image: '/imgs/illustrated/a_pcr_card_v1_0334493.webp' },
     ]
   },
@@ -223,6 +224,7 @@ const LEARN_PAGES = {
     icon: <Recycle className="h-4 w-4" />,
     pages: [
       { name: 'What Is 100% Recyclable?', link: '/recyclable/what-is-recyclable', image: '/imgs/recyclable/what/hero.webp?v=2' },
+      { name: '3-Step Roadmap for SMEs', link: '/recyclable/roadmap-sme', image: '/imgs/recyclable/roadmap/hero.webp?v=2' },
       { name: 'Recyclable Mono-PE', link: '/materials/recyclable-mono-pe', image: '/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp' },
       { name: 'Recyclable Mono-PP', link: '/materials/recyclable-mono-pp', image: '/imgs/illustrated/a_recyclable_mono_pp_card_v2_2805205.webp' },
     ]
