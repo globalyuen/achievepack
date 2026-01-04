@@ -94,8 +94,23 @@ export default function Footer() {
             <h4 className="font-semibold text-sm mb-2">PCR</h4>
             <ul className="space-y-1 text-xs text-neutral-400">
               <li><Link to="/pcr/pcr-plastic-guide" className="hover:text-primary-400">What Is PCR Plastic?</Link></li>
+              <li><Link to="/pcr/7-checklist" className="hover:text-primary-400">PCR 7-Point Checklist</Link></li>
+              <li><Link to="/pcr/realistic-pcr-content" className="hover:text-primary-400">Realistic PCR Content</Link></li>
               <li><Link to="/materials/pcr" className="hover:text-primary-400">PCR Materials</Link></li>
               <li><Link to="/spec/pcr-pet-duplex-clear" className="hover:text-primary-400">PCR Structures</Link></li>
+            </ul>
+          </div>
+
+          {/* Products */}
+          <div>
+            <h4 className="font-semibold text-sm mb-2">Featured Products</h4>
+            <ul className="space-y-1 text-xs text-neutral-400">
+              <li><Link to="/products/compostable-coffee-bags" className="hover:text-primary-400">Compostable Coffee Bags</Link></li>
+              <li><Link to="/products/coffee-bags-degassing-valve" className="hover:text-primary-400">Coffee Bags with Valve</Link></li>
+              <li><Link to="/products/compostable-stand-up-pouches" className="hover:text-primary-400">Compostable Pouches</Link></li>
+              <li><Link to="/products/recyclable-mono-material-pouches" className="hover:text-primary-400">Recyclable Mono-Material</Link></li>
+              <li><Link to="/products/low-moq-packaging" className="hover:text-primary-400">Low MOQ Packaging</Link></li>
+              <li><Link to="/products/labels-and-stickers" className="hover:text-primary-400">Labels & Stickers</Link></li>
             </ul>
           </div>
         </div>
