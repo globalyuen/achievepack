@@ -254,7 +254,7 @@ const SEOPageHeader: React.FC = () => {
       {/* BLOG Mega Menu */}
       {activeMenu === 'blog' && (
         <div
-          className="fixed right-4 top-14 pt-2 z-50"
+          className="fixed right-[calc(50%-500px+200px)] top-14 pt-2 z-50 max-[1100px]:right-4"
           onMouseEnter={() => handleMouseEnter('blog')}
           onMouseLeave={handleMouseLeave}
         >
