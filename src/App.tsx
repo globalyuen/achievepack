@@ -2011,6 +2011,30 @@ function App() {
                 <li><Link to="/composting/composting-benefits" className="hover:text-primary-500">Composting Benefits</Link></li>
                 <li><Link to="/composting/composting-services" className="hover:text-primary-500">Service Finder</Link></li>
                 <li><Link to="/composting/biodegradable-vs-compostable" className="hover:text-primary-500">Biodegradable vs Compostable</Link></li>
+                <li><Link to="/composting/commercial-composting" className="hover:text-primary-500">Commercial Composting</Link></li>
+                <li><Link to="/composting/home-vs-industrial-compostable" className="hover:text-primary-500">Home vs Industrial</Link></li>
+              </ul>
+            </div>
+
+            {/* BioPE */}
+            <div>
+              <h4 className="text-sm font-semibold mb-2">BioPE</h4>
+              <ul className="space-y-1 text-neutral-400 text-xs">
+                <li><Link to="/biope/what-is-bio-pe" className="hover:text-primary-500">What is Bio-PE?</Link></li>
+                <li><Link to="/biope/bio-pe-vs-compostable" className="hover:text-primary-500">Bio-PE vs Compostable</Link></li>
+                <li><Link to="/biope/bio-pe-epr-regulations" className="hover:text-primary-500">Bio-PE & EPR</Link></li>
+                <li><Link to="/biope/inside-im-green-bio-pe" className="hover:text-primary-500">Inside I'm green™</Link></li>
+              </ul>
+            </div>
+
+            {/* PCR */}
+            <div>
+              <h4 className="text-sm font-semibold mb-2">PCR</h4>
+              <ul className="space-y-1 text-neutral-400 text-xs">
+                <li><Link to="/pcr/pcr-plastic-guide" className="hover:text-primary-500">What Is PCR Plastic?</Link></li>
+                <li><Link to="/pcr/7-checklist" className="hover:text-primary-500">PCR 7-Point Checklist</Link></li>
+                <li><Link to="/pcr/realistic-pcr-content" className="hover:text-primary-500">Realistic PCR Content</Link></li>
+                <li><Link to="/materials/pcr" className="hover:text-primary-500">PCR Materials</Link></li>
               </ul>
             </div>
 
