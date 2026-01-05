@@ -5,7 +5,7 @@ import { supabase, Quote, ArtworkFile, Profile } from '../lib/supabase'
 import { 
   Home, FileCheck, Image as ImageIcon, LogOut, Eye, Trash2, ArrowLeft, 
   RefreshCw, CheckCircle, Clock, AlertCircle, MessageSquare, X, 
-  Mail, Globe, Camera, FileText, Link2, Upload, Tag
+  Mail, Globe, Camera, FileText, Link2, Upload, Tag, Search, LayoutGrid, List
 } from 'lucide-react'
 
 type TabType = 'quotes' | 'artwork'
@@ -33,7 +33,10 @@ const AdminManagementPage: React.FC = () => {
   const [artworkProductCode, setArtworkProductCode] = useState('')
   const [artworkLinkType, setArtworkLinkType] = useState<'order' | 'quote' | 'none'>('none')
   const [artworkLinkedId, setArtworkLinkedId] = useState('')
-  const [proofUrl, setProofUrl] = useState('')
+  
+  // Search and view states
+  const [artworkSearch, setArtworkSearch] = useState('')
+  const [artworkViewMode, setArtworkViewMode] = useState<'card' | 'list'>('card')
 
   // Check URL params for tab
   useEffect(() => {
@@ -201,6 +204,32 @@ const AdminManagementPage: React.FC = () => {
   const getCustomer = (userId: string) => {
     return customers.find(c => c.id === userId)
   }
+
+  // Auto-generate customer code from name
+  const generateCustomerCode = (customer: Profile | undefined): string => {
+    if (!customer?.full_name) return ''
+    const words = customer.full_name.toUpperCase().split(' ').filter(w => w.length > 0)
+    if (words.length >= 2) {
+      return words[0].charAt(0) + words[1].charAt(0) + words[0].charAt(1) + '01'
+    } else if (words.length === 1) {
+      return words[0].substring(0, 3) + '01'
+    }
+    return ''
+  }
+
+  // Filter artworks by search
+  const filteredArtworks = artworks.filter(artwork => {
+    if (!artworkSearch.trim()) return true
+    const customer = getCustomer(artwork.user_id)
+    const searchLower = artworkSearch.toLowerCase()
+    return (
+      artwork.name.toLowerCase().includes(searchLower) ||
+      customer?.full_name?.toLowerCase().includes(searchLower) ||
+      customer?.email?.toLowerCase().includes(searchLower) ||
+      artwork.artwork_code?.toLowerCase().includes(searchLower) ||
+      artwork.status.toLowerCase().includes(searchLower)
+    )
+  })
 
   if (authLoading) {
     return <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -440,107 +469,214 @@ const AdminManagementPage: React.FC = () => {
 
           {/* Artwork Tab */}
           {activeTab === 'artwork' && (
-            <div className="space-y-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h1 className="text-2xl font-bold text-gray-900">Artwork Files</h1>
-                  <p className="text-sm text-gray-500 mt-1">Review and manage customer artwork submissions</p>
+            <div className="space-y-4 md:space-y-6">
+              {/* Header with Search and View Toggle */}
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div>
+                    <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Artwork Files</h1>
+                    <p className="text-sm text-gray-500 mt-1">Review and manage customer artwork</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    {/* View Toggle */}
+                    <div className="flex bg-gray-100 rounded-lg p-1">
+                      <button
+                        onClick={() => setArtworkViewMode('card')}
+                        className={`px-3 py-1.5 text-sm font-medium rounded-md transition ${artworkViewMode === 'card' ? 'bg-white shadow text-gray-900' : 'text-gray-500'}`}
+                      >
+                        <LayoutGrid className="h-4 w-4" />
+                      </button>
+                      <button
+                        onClick={() => setArtworkViewMode('list')}
+                        className={`px-3 py-1.5 text-sm font-medium rounded-md transition ${artworkViewMode === 'list' ? 'bg-white shadow text-gray-900' : 'text-gray-500'}`}
+                      >
+                        <List className="h-4 w-4" />
+                      </button>
+                    </div>
+                    <button
+                      onClick={fetchData}
+                      className="flex items-center gap-2 px-3 py-2 bg-white border rounded-lg hover:bg-gray-50 text-sm"
+                    >
+                      <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
+                    </button>
+                  </div>
                 </div>
-                <button
-                  onClick={fetchData}
-                  className="flex items-center gap-2 px-4 py-2 bg-white border rounded-lg hover:bg-gray-50 text-sm"
-                >
-                  <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
-                  Refresh
-                </button>
+
+                {/* Search Bar */}
+                <div className="relative">
+                  <input
+                    type="text"
+                    value={artworkSearch}
+                    onChange={(e) => setArtworkSearch(e.target.value)}
+                    placeholder="Search by filename, customer, code, or status..."
+                    className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                  />
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                  {artworkSearch && (
+                    <button 
+                      onClick={() => setArtworkSearch('')}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                    >
+                      <X className="h-4 w-4" />
+                    </button>
+                  )}
+                </div>
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div className="bg-white rounded-xl p-4 shadow-sm border">
-                  <p className="text-sm text-gray-500">Total Files</p>
-                  <p className="text-2xl font-bold text-gray-900 mt-1">{artworks.length}</p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div className="bg-white rounded-xl p-3 md:p-4 shadow-sm border">
+                  <p className="text-xs md:text-sm text-gray-500">Total</p>
+                  <p className="text-xl md:text-2xl font-bold text-gray-900 mt-1">{artworks.length}</p>
                 </div>
-                <div className="bg-white rounded-xl p-4 shadow-sm border">
-                  <p className="text-sm text-gray-500">Pending Review</p>
-                  <p className="text-2xl font-bold text-blue-600 mt-1">
+                <div className="bg-white rounded-xl p-3 md:p-4 shadow-sm border">
+                  <p className="text-xs md:text-sm text-gray-500">Pending</p>
+                  <p className="text-xl md:text-2xl font-bold text-blue-600 mt-1">
                     {artworks.filter(a => a.status === 'pending_review').length}
                   </p>
                 </div>
-                <div className="bg-white rounded-xl p-4 shadow-sm border">
-                  <p className="text-sm text-gray-500">Approved</p>
-                  <p className="text-2xl font-bold text-green-600 mt-1">
-                    {artworks.filter(a => a.status === 'approved').length}
+                <div className="bg-white rounded-xl p-3 md:p-4 shadow-sm border">
+                  <p className="text-xs md:text-sm text-gray-500">Proof Ready</p>
+                  <p className="text-xl md:text-2xl font-bold text-indigo-600 mt-1">
+                    {artworks.filter(a => a.status === 'proof_ready').length}
                   </p>
                 </div>
-                <div className="bg-white rounded-xl p-4 shadow-sm border">
-                  <p className="text-sm text-gray-500">Need Revision</p>
-                  <p className="text-2xl font-bold text-orange-600 mt-1">
+                <div className="bg-white rounded-xl p-3 md:p-4 shadow-sm border">
+                  <p className="text-xs md:text-sm text-gray-500">Revision</p>
+                  <p className="text-xl md:text-2xl font-bold text-orange-600 mt-1">
                     {artworks.filter(a => a.status === 'revision_needed').length}
                   </p>
                 </div>
               </div>
 
-              {/* Artwork Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {artworks.map(artwork => {
-                  const customer = getCustomer(artwork.user_id)
-                  return (
-                    <div key={artwork.id} className="bg-white rounded-xl shadow-sm border overflow-hidden hover:shadow-md transition">
-                      <div className="p-4">
-                        <div className="flex items-start justify-between mb-3">
-                          <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                              <ImageIcon className="h-5 w-5 text-purple-600" />
+              {/* Card View */}
+              {artworkViewMode === 'card' && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {filteredArtworks.map(artwork => {
+                    const customer = getCustomer(artwork.user_id)
+                    return (
+                      <div key={artwork.id} className="bg-white rounded-xl shadow-sm border overflow-hidden hover:shadow-md transition">
+                        <div className="p-4">
+                          <div className="flex items-start justify-between mb-3">
+                            <div className="flex items-center gap-3 min-w-0">
+                              <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <ImageIcon className="h-5 w-5 text-purple-600" />
+                              </div>
+                              <div className="min-w-0">
+                                <p className="text-sm font-medium text-gray-900 truncate">{artwork.name}</p>
+                                <p className="text-xs text-gray-500">{formatFileSize(artwork.file_size)}</p>
+                              </div>
                             </div>
-                            <div>
-                              <p className="text-sm font-medium text-gray-900 truncate">{artwork.name}</p>
-                              <p className="text-xs text-gray-500">{formatFileSize(artwork.file_size)}</p>
+                            <span className={`px-2 py-1 text-xs font-medium rounded-full flex-shrink-0 ${getStatusColor(artwork.status)}`}>
+                              {artwork.status.replace(/_/g, ' ')}
+                            </span>
+                          </div>
+
+                          {artwork.artwork_code && (
+                            <div className="mb-3">
+                              <span className="font-mono text-xs font-bold text-primary-600 bg-primary-50 px-2 py-1 rounded">
+                                {artwork.artwork_code}
+                              </span>
+                            </div>
+                          )}
+
+                          <div className="space-y-2 mb-3 text-sm">
+                            <div className="flex justify-between">
+                              <span className="text-gray-500">Customer</span>
+                              <span className="text-gray-900 font-medium truncate ml-2">{customer?.full_name || 'Unknown'}</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-gray-500">Date</span>
+                              <span className="text-gray-900">{new Date(artwork.created_at).toLocaleDateString()}</span>
                             </div>
                           </div>
-                          <span className={`px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(artwork.status)}`}>
-                            {artwork.status.replace('_', ' ')}
-                          </span>
-                        </div>
 
-                        <div className="space-y-2 mb-3">
-                          <div>
-                            <p className="text-xs text-gray-500">Customer</p>
-                            <p className="text-sm text-gray-900">{customer?.full_name || 'Unknown'}</p>
-                            <p className="text-xs text-gray-600">{customer?.email}</p>
+                          <div className="flex gap-2">
+                            <button
+                              onClick={() => {
+                                setSelectedArtwork(artwork)
+                                const autoCode = generateCustomerCode(customer)
+                                setArtworkCustomerCode(artwork.customer_code || autoCode)
+                                setArtworkProductCode(artwork.product_code || 'PKG01')
+                              }}
+                              className="flex-1 px-3 py-2 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700 transition"
+                            >
+                              Review
+                            </button>
+                            <a
+                              href={artwork.file_url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="px-3 py-2 border border-gray-300 text-gray-700 text-sm rounded-lg hover:bg-gray-50 transition"
+                            >
+                              ↓
+                            </a>
                           </div>
-                          <div>
-                            <p className="text-xs text-gray-500">Uploaded</p>
-                            <p className="text-sm text-gray-900">{new Date(artwork.created_at).toLocaleDateString()}</p>
-                          </div>
-                        </div>
-
-                        <div className="flex gap-2">
-                          <button
-                            onClick={() => setSelectedArtwork(artwork)}
-                            className="flex-1 px-3 py-2 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700 transition"
-                          >
-                            Review
-                          </button>
-                          <a
-                            href={artwork.file_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="px-3 py-2 border border-gray-300 text-gray-700 text-sm rounded-lg hover:bg-gray-50 transition"
-                          >
-                            Download
-                          </a>
                         </div>
                       </div>
-                    </div>
-                  )
-                })}
-              </div>
+                    )
+                  })}
+                </div>
+              )}
 
-              {artworks.length === 0 && (
-                <div className="text-center py-12 text-gray-500">
+              {/* List View */}
+              {artworkViewMode === 'list' && (
+                <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
+                  <div className="divide-y divide-gray-100">
+                    {filteredArtworks.map(artwork => {
+                      const customer = getCustomer(artwork.user_id)
+                      return (
+                        <div key={artwork.id} className="p-4 hover:bg-gray-50 flex items-center gap-4">
+                          <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <ImageIcon className="h-5 w-5 text-purple-600" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <p className="font-medium text-gray-900 truncate">{artwork.name}</p>
+                              {artwork.artwork_code && (
+                                <span className="font-mono text-xs font-bold text-primary-600 bg-primary-50 px-1.5 py-0.5 rounded">
+                                  {artwork.artwork_code}
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-sm text-gray-500">
+                              {customer?.full_name || 'Unknown'} • {formatFileSize(artwork.file_size)} • {new Date(artwork.created_at).toLocaleDateString()}
+                            </p>
+                          </div>
+                          <span className={`px-2 py-1 text-xs font-medium rounded-full hidden sm:block ${getStatusColor(artwork.status)}`}>
+                            {artwork.status.replace(/_/g, ' ')}
+                          </span>
+                          <div className="flex items-center gap-2">
+                            <button
+                              onClick={() => {
+                                setSelectedArtwork(artwork)
+                                const autoCode = generateCustomerCode(customer)
+                                setArtworkCustomerCode(artwork.customer_code || autoCode)
+                                setArtworkProductCode(artwork.product_code || 'PKG01')
+                              }}
+                              className="px-3 py-1.5 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700"
+                            >
+                              Review
+                            </button>
+                            <a
+                              href={artwork.file_url}
+                              target="_blank"
+                              className="p-1.5 text-gray-500 hover:text-gray-700"
+                            >
+                              <Eye className="h-5 w-5" />
+                            </a>
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {filteredArtworks.length === 0 && (
+                <div className="text-center py-12 text-gray-500 bg-white rounded-xl border">
                   <ImageIcon className="h-12 w-12 mx-auto mb-4 text-gray-300" />
-                  <p>No artwork files uploaded yet</p>
+                  <p>{artworkSearch ? 'No artworks match your search' : 'No artwork files uploaded yet'}</p>
                 </div>
               )}
             </div>
@@ -738,7 +874,6 @@ const AdminManagementPage: React.FC = () => {
                 setArtworkProductCode('');
                 setArtworkLinkType('none');
                 setArtworkLinkedId('');
-                setProofUrl('');
               }} className="text-gray-500 hover:text-gray-700">
                 <X className="h-5 w-5" />
               </button>
@@ -854,22 +989,6 @@ const AdminManagementPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Proof Upload Section */}
-              <div className="bg-green-50 rounded-lg p-4 border border-green-200">
-                <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                  <Upload className="h-5 w-5 text-green-600" />
-                  Proof PDF URL
-                </h3>
-                <input
-                  type="url"
-                  value={proofUrl || selectedArtwork.proof_url || ''}
-                  onChange={(e) => setProofUrl(e.target.value)}
-                  placeholder="https://... (paste proof PDF URL)"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                />
-                <p className="text-xs text-gray-500 mt-1">Upload proof to storage first, then paste URL here</p>
-              </div>
-
               {selectedArtwork.customer_comment && (
                 <div>
                   <p className="text-sm font-medium text-gray-700 mb-2">Customer Comment</p>
@@ -937,7 +1056,6 @@ const AdminManagementPage: React.FC = () => {
                       updateData.linked_quote_id = null;
                     }
                   }
-                  if (proofUrl) updateData.proof_url = proofUrl;
                   
                   await supabase.from('artwork_files').update(updateData).eq('id', selectedArtwork.id);
                   fetchData();
@@ -957,7 +1075,6 @@ const AdminManagementPage: React.FC = () => {
                       admin_feedback: artworkFeedback || null,
                       updated_at: new Date().toISOString()
                     };
-                    if (proofUrl) updateData.proof_url = proofUrl;
                     if (artworkCustomerCode) updateData.customer_code = artworkCustomerCode;
                     if (artworkProductCode) updateData.product_code = artworkProductCode;
                     
