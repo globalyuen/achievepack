@@ -16,7 +16,10 @@ ADD COLUMN IF NOT EXISTS approver_signature TEXT,
 ADD COLUMN IF NOT EXISTS approver_company TEXT,
 ADD COLUMN IF NOT EXISTS approved_date DATE,
 ADD COLUMN IF NOT EXISTS approval_notes TEXT,
-ADD COLUMN IF NOT EXISTS revision_count INTEGER DEFAULT 0;
+ADD COLUMN IF NOT EXISTS revision_count INTEGER DEFAULT 0,
+ADD COLUMN IF NOT EXISTS admin_feedback TEXT,
+ADD COLUMN IF NOT EXISTS quote_number TEXT,
+ADD COLUMN IF NOT EXISTS proof_url TEXT;
 
 -- 2. Add check constraints
 ALTER TABLE public.artwork_files 

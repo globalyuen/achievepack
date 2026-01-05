@@ -598,6 +598,9 @@ const AdminManagementPage: React.FC = () => {
                                 const autoCode = generateCustomerCode(customer)
                                 setArtworkCustomerCode(artwork.customer_code || autoCode)
                                 setArtworkProductCode(artwork.product_code || 'PKG01')
+                                setArtworkLinkType((artwork.link_type as 'order' | 'quote' | 'none') || 'none')
+                                setArtworkLinkedId(artwork.linked_order_id || artwork.linked_quote_id || '')
+                                setArtworkFeedback(artwork.admin_feedback || '')
                               }}
                               className="flex-1 px-3 py-2 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700 transition"
                             >
@@ -657,6 +660,9 @@ const AdminManagementPage: React.FC = () => {
                                     const autoCode = generateCustomerCode(customer)
                                     setArtworkCustomerCode(artwork.customer_code || autoCode)
                                     setArtworkProductCode(artwork.product_code || 'PKG01')
+                                    setArtworkLinkType((artwork.link_type as 'order' | 'quote' | 'none') || 'none')
+                                    setArtworkLinkedId(artwork.linked_order_id || artwork.linked_quote_id || '')
+                                    setArtworkFeedback(artwork.admin_feedback || '')
                                   }}
                                   className="flex-1 px-3 py-1.5 bg-primary-600 text-white text-xs rounded-lg hover:bg-primary-700"
                                 >
@@ -950,7 +956,7 @@ const AdminManagementPage: React.FC = () => {
                 </h3>
                 <div className="space-y-3">
                   <select
-                    value={artworkLinkType || selectedArtwork.link_type || 'none'}
+                    value={artworkLinkType}
                     onChange={(e) => {
                       setArtworkLinkType(e.target.value as 'order' | 'quote' | 'none');
                       setArtworkLinkedId('');
@@ -962,9 +968,9 @@ const AdminManagementPage: React.FC = () => {
                     <option value="quote">Link to Quote</option>
                   </select>
                   
-                  {(artworkLinkType || selectedArtwork.link_type) !== 'none' && (
+                  {artworkLinkType !== 'none' && (
                     <select
-                      value={artworkLinkedId || (artworkLinkType === 'order' ? selectedArtwork.linked_order_id : selectedArtwork.linked_quote_id) || ''}
+                      value={artworkLinkedId}
                       onChange={(e) => setArtworkLinkedId(e.target.value)}
                       className="w-full px-2 md:px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                     >
@@ -1025,30 +1031,36 @@ const AdminManagementPage: React.FC = () => {
               <button
                 onClick={async () => {
                   const updateData: any = {
-                    updated_at: new Date().toISOString()
+                    updated_at: new Date().toISOString(),
+                    admin_feedback: artworkFeedback || null
                   };
                   if (artworkCustomerCode) updateData.customer_code = artworkCustomerCode;
                   if (artworkProductCode) updateData.product_code = artworkProductCode;
-                  if (artworkLinkType) {
-                    updateData.link_type = artworkLinkType;
-                    if (artworkLinkType === 'order' && artworkLinkedId) {
-                      updateData.linked_order_id = artworkLinkedId;
-                      updateData.linked_quote_id = null;
-                      const linkedOrder = orders.find(o => o.id === artworkLinkedId);
-                      if (linkedOrder) updateData.order_number = linkedOrder.order_number;
-                    } else if (artworkLinkType === 'quote' && artworkLinkedId) {
-                      updateData.linked_quote_id = artworkLinkedId;
-                      updateData.linked_order_id = null;
-                      const linkedQuote = quotes.find(q => q.id === artworkLinkedId);
-                      if (linkedQuote) updateData.quote_number = linkedQuote.quote_number;
-                    } else {
-                      updateData.linked_order_id = null;
-                      updateData.linked_quote_id = null;
-                    }
+                  
+                  // Handle link type
+                  updateData.link_type = artworkLinkType || 'none';
+                  if (artworkLinkType === 'order' && artworkLinkedId) {
+                    updateData.linked_order_id = artworkLinkedId;
+                    updateData.linked_quote_id = null;
+                    const linkedOrder = orders.find(o => o.id === artworkLinkedId);
+                    if (linkedOrder) updateData.order_number = linkedOrder.order_number;
+                  } else if (artworkLinkType === 'quote' && artworkLinkedId) {
+                    updateData.linked_quote_id = artworkLinkedId;
+                    updateData.linked_order_id = null;
+                    const linkedQuote = quotes.find(q => q.id === artworkLinkedId);
+                    if (linkedQuote) updateData.quote_number = linkedQuote.quote_number;
+                  } else {
+                    updateData.linked_order_id = null;
+                    updateData.linked_quote_id = null;
                   }
                   
-                  await supabase.from('artwork_files').update(updateData).eq('id', selectedArtwork.id);
-                  fetchData();
+                  const { error } = await supabase.from('artwork_files').update(updateData).eq('id', selectedArtwork.id);
+                  if (error) {
+                    console.error('Save error:', error);
+                    alert('Error saving: ' + error.message);
+                    return;
+                  }
+                  await fetchData();
                   alert('Saved!');
                 }}
                 className="w-full px-4 py-2.5 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition flex items-center justify-center gap-2"
