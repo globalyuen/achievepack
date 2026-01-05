@@ -125,7 +125,7 @@ const DashboardPage: React.FC = () => {
     return user?.email?.split('@')[0] || 'User'
   }
 
-  // Artwork upload handler - uploads directly to Supabase Storage, then saves record via API
+  // Artwork upload handler - uploads directly to Supabase Storage, then saves record directly to Supabase
   const handleArtworkUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files
     if (!files || files.length === 0) return
@@ -179,27 +179,21 @@ const DashboardPage: React.FC = () => {
         const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(uploadData?.path || fileName)
         const fileUrl = urlData.publicUrl
         
-        // Save record via API
-        try {
-          const resp = await fetch('/api/save-artwork', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              userId: user?.id,
-              name: file.name,
-              fileUrl,
-              fileType: file.type || 'unknown',
-              fileSize: file.size
-            })
+        // Save record directly to Supabase (RLS policy allows owner to insert with user_id = auth.uid())
+        const { error: insertError } = await supabase
+          .from('artwork_files')
+          .insert({
+            user_id: user?.id,
+            name: file.name,
+            file_url: fileUrl,
+            file_type: file.type || 'unknown',
+            file_size: file.size,
+            status: 'pending_review'
           })
-          const result = await resp.json()
-          if (!result.success) {
-            console.error('API error:', result.error)
-            setUploadError(`File uploaded but record save failed: ${result.error}`)
-          }
-        } catch (apiErr: any) {
-          console.error('API call failed:', apiErr)
-          setUploadError(`File uploaded but record save failed: ${apiErr.message}`)
+        
+        if (insertError) {
+          console.error('Database insert error:', insertError)
+          setUploadError(`File uploaded but record save failed: ${insertError.message}`)
         }
         
         uploadedFiles.push(file.name)
@@ -273,27 +267,23 @@ const DashboardPage: React.FC = () => {
         const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(uploadData?.path || fileName)
         const fileUrl = urlData.publicUrl
         
-        // Save record via API
-        try {
-          const resp = await fetch('/api/save-artwork', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              userId: user?.id,
-              orderId,
-              orderNumber,
-              name: file.name,
-              fileUrl,
-              fileType: file.type || 'unknown',
-              fileSize: file.size
-            })
+        // Save record directly to Supabase (RLS policy allows owner to insert with user_id = auth.uid())
+        const { error: insertError } = await supabase
+          .from('artwork_files')
+          .insert({
+            user_id: user?.id,
+            order_id: orderId,
+            order_number: orderNumber,
+            name: file.name,
+            file_url: fileUrl,
+            file_type: file.type || 'unknown',
+            file_size: file.size,
+            status: 'pending_review'
           })
-          const result = await resp.json()
-          if (!result.success) {
-            console.error('API error:', result.error)
-          }
-        } catch (apiErr) {
-          console.error('API call failed:', apiErr)
+        
+        if (insertError) {
+          console.error('Database insert error:', insertError)
+          setUploadError(`File uploaded but record save failed: ${insertError.message}`)
         }
         
         uploadedFiles.push(file.name)
