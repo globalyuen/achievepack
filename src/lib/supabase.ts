@@ -90,7 +90,7 @@ export type ArtworkFile = {
   file_url: string
   file_type: string
   file_size: number
-  status: 'pending_review' | 'in_review' | 'prepress' | 'proof_ready' | 'approved' | 'revision_needed'
+  status: 'pending_review' | 'in_review' | 'prepress' | 'proof_ready' | 'approved' | 'revision_needed' | 'in_production'
   proof_url?: string
   admin_feedback?: string
   customer_comment?: string
@@ -98,6 +98,38 @@ export type ArtworkFile = {
   reviewed_at?: string
   created_at: string
   updated_at: string
+  
+  // Coding system
+  customer_code?: string        // "ACM01"
+  product_code?: string         // "PKG01"
+  version_number?: number       // 1, 2, 3
+  artwork_code?: string         // "ACM01-ORD2401-PKG01-V001"
+  
+  // Linking to Order/Quote
+  linked_order_id?: string
+  linked_quote_id?: string
+  link_type?: 'order' | 'quote' | 'none'
+  quote_number?: string
+  
+  // Proof approval workflow
+  approval_type?: 'approve_as_is' | 'not_approved'
+  checklist_verified?: {
+    bag_size?: boolean
+    product_weight?: boolean
+    colors?: boolean
+    text_spelling?: boolean
+    logo_graphics?: boolean
+    upc_barcode?: boolean
+    roll_direction?: boolean
+    closure_type?: boolean
+    add_ons?: boolean
+    quantity?: boolean
+  }
+  approver_signature?: string
+  approver_company?: string
+  approved_date?: string
+  approval_notes?: string
+  revision_count?: number
 }
 
 export type NewsletterSubscriber = {

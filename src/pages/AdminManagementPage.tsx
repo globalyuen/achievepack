@@ -5,7 +5,7 @@ import { supabase, Quote, ArtworkFile, Profile } from '../lib/supabase'
 import { 
   Home, FileCheck, Image as ImageIcon, LogOut, Eye, Trash2, ArrowLeft, 
   RefreshCw, CheckCircle, Clock, AlertCircle, MessageSquare, X, 
-  Mail, Globe, Camera, FileText
+  Mail, Globe, Camera, FileText, Link2, Upload, Tag
 } from 'lucide-react'
 
 type TabType = 'quotes' | 'artwork'
@@ -20,12 +20,20 @@ const AdminManagementPage: React.FC = () => {
   const [quotes, setQuotes] = useState<Quote[]>([])
   const [artworks, setArtworks] = useState<ArtworkFile[]>([])
   const [customers, setCustomers] = useState<Profile[]>([])
+  const [orders, setOrders] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [selectedQuote, setSelectedQuote] = useState<Quote | null>(null)
   const [selectedArtwork, setSelectedArtwork] = useState<ArtworkFile | null>(null)
   const [artworkFeedback, setArtworkFeedback] = useState('')
   const [adminReply, setAdminReply] = useState('')
   const [quotedAmount, setQuotedAmount] = useState('')
+  
+  // Coding assignment states
+  const [artworkCustomerCode, setArtworkCustomerCode] = useState('')
+  const [artworkProductCode, setArtworkProductCode] = useState('')
+  const [artworkLinkType, setArtworkLinkType] = useState<'order' | 'quote' | 'none'>('none')
+  const [artworkLinkedId, setArtworkLinkedId] = useState('')
+  const [proofUrl, setProofUrl] = useState('')
 
   // Check URL params for tab
   useEffect(() => {
@@ -51,11 +59,12 @@ const AdminManagementPage: React.FC = () => {
 
   const fetchData = async () => {
     setLoading(true)
-    const [quotesRes, rfqRes, artworksRes, customersRes] = await Promise.all([
+    const [quotesRes, rfqRes, artworksRes, customersRes, ordersRes] = await Promise.all([
       supabase.from('quotes').select('*').order('created_at', { ascending: false }),
       supabase.from('rfq_submissions').select('*').order('created_at', { ascending: false }),
       supabase.from('artwork_files').select('*').order('created_at', { ascending: false }),
-      supabase.from('profiles').select('*')
+      supabase.from('profiles').select('*'),
+      supabase.from('orders').select('*').order('created_at', { ascending: false })
     ])
     
     // Merge quotes and RFQ submissions
@@ -76,6 +85,7 @@ const AdminManagementPage: React.FC = () => {
     setQuotes(allQuotes)
     setArtworks(artworksRes.data || [])
     setCustomers(customersRes.data || [])
+    setOrders(ordersRes.data || [])
     setLoading(false)
   }
 
@@ -713,8 +723,23 @@ const AdminManagementPage: React.FC = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
           <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6 border-b flex items-center justify-between">
-              <h2 className="text-xl font-bold">Review Artwork</h2>
-              <button onClick={() => { setSelectedArtwork(null); setArtworkFeedback('') }} className="text-gray-500 hover:text-gray-700">
+              <div>
+                <h2 className="text-xl font-bold">Review Artwork</h2>
+                {selectedArtwork.artwork_code && (
+                  <span className="inline-block mt-1 font-mono text-sm font-bold text-primary-600 bg-primary-50 px-2 py-0.5 rounded">
+                    {selectedArtwork.artwork_code}
+                  </span>
+                )}
+              </div>
+              <button onClick={() => { 
+                setSelectedArtwork(null); 
+                setArtworkFeedback('');
+                setArtworkCustomerCode('');
+                setArtworkProductCode('');
+                setArtworkLinkType('none');
+                setArtworkLinkedId('');
+                setProofUrl('');
+              }} className="text-gray-500 hover:text-gray-700">
                 <X className="h-5 w-5" />
               </button>
             </div>
@@ -740,12 +765,135 @@ const AdminManagementPage: React.FC = () => {
                 </span>
               </div>
 
+              {/* Coding Assignment Section */}
+              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                  <Tag className="h-5 w-5 text-primary-600" />
+                  Artwork Coding
+                </h3>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Customer Code</label>
+                    <input
+                      type="text"
+                      value={artworkCustomerCode || selectedArtwork.customer_code || ''}
+                      onChange={(e) => setArtworkCustomerCode(e.target.value.toUpperCase())}
+                      placeholder="ACM01"
+                      maxLength={10}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 font-mono uppercase"
+                    />
+                    <p className="text-xs text-gray-400 mt-1">e.g., ACM01, BTX02</p>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Product Code</label>
+                    <input
+                      type="text"
+                      value={artworkProductCode || selectedArtwork.product_code || ''}
+                      onChange={(e) => setArtworkProductCode(e.target.value.toUpperCase())}
+                      placeholder="PKG01"
+                      maxLength={10}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 font-mono uppercase"
+                    />
+                    <p className="text-xs text-gray-400 mt-1">e.g., PKG01, BAG02</p>
+                  </div>
+                </div>
+                <p className="text-xs text-gray-500 mt-2">
+                  Current version: V{String(selectedArtwork.version_number || 1).padStart(3, '0')}
+                </p>
+              </div>
+
+              {/* Link to Order/Quote Section */}
+              <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                  <Link2 className="h-5 w-5 text-blue-600" />
+                  Link to Order or Quote
+                </h3>
+                <div className="space-y-3">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Link Type</label>
+                    <select
+                      value={artworkLinkType || selectedArtwork.link_type || 'none'}
+                      onChange={(e) => {
+                        setArtworkLinkType(e.target.value as 'order' | 'quote' | 'none');
+                        setArtworkLinkedId('');
+                      }}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    >
+                      <option value="none">No Link</option>
+                      <option value="order">Link to Order</option>
+                      <option value="quote">Link to Quote</option>
+                    </select>
+                  </div>
+                  
+                  {(artworkLinkType || selectedArtwork.link_type) !== 'none' && (
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Select {artworkLinkType === 'order' ? 'Order' : 'Quote'}
+                      </label>
+                      <select
+                        value={artworkLinkedId || (artworkLinkType === 'order' ? selectedArtwork.linked_order_id : selectedArtwork.linked_quote_id) || ''}
+                        onChange={(e) => setArtworkLinkedId(e.target.value)}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                      >
+                        <option value="">Select...</option>
+                        {artworkLinkType === 'order' 
+                          ? orders.map(order => (
+                              <option key={order.id} value={order.id}>
+                                {order.order_number} - {order.customer_name || getCustomer(order.user_id)?.full_name} (${order.total_amount?.toLocaleString() || 0})
+                              </option>
+                            ))
+                          : quotes.map(quote => (
+                              <option key={quote.id} value={quote.id}>
+                                {quote.quote_number} - {getCustomer(quote.user_id)?.full_name} (${quote.total_amount?.toLocaleString() || 0})
+                              </option>
+                            ))
+                        }
+                      </select>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Proof Upload Section */}
+              <div className="bg-green-50 rounded-lg p-4 border border-green-200">
+                <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                  <Upload className="h-5 w-5 text-green-600" />
+                  Proof PDF URL
+                </h3>
+                <input
+                  type="url"
+                  value={proofUrl || selectedArtwork.proof_url || ''}
+                  onChange={(e) => setProofUrl(e.target.value)}
+                  placeholder="https://... (paste proof PDF URL)"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                />
+                <p className="text-xs text-gray-500 mt-1">Upload proof to storage first, then paste URL here</p>
+              </div>
+
               {selectedArtwork.customer_comment && (
                 <div>
                   <p className="text-sm font-medium text-gray-700 mb-2">Customer Comment</p>
                   <div className="bg-blue-50 rounded-lg p-4">
                     <p className="text-sm text-blue-800">{selectedArtwork.customer_comment}</p>
                   </div>
+                </div>
+              )}
+
+              {/* Show approval info if approved */}
+              {selectedArtwork.approval_type && (
+                <div className={`rounded-lg p-4 ${selectedArtwork.approval_type === 'approve_as_is' ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'}`}>
+                  <h4 className="font-semibold mb-2">
+                    {selectedArtwork.approval_type === 'approve_as_is' ? '✅ Customer Approved' : '❌ Customer Requested Changes'}
+                  </h4>
+                  {selectedArtwork.approver_signature && (
+                    <p className="text-sm">Signed by: {selectedArtwork.approver_signature} {selectedArtwork.approver_company ? `(${selectedArtwork.approver_company})` : ''}</p>
+                  )}
+                  {selectedArtwork.approved_date && (
+                    <p className="text-sm">Date: {selectedArtwork.approved_date}</p>
+                  )}
+                  {selectedArtwork.approval_notes && (
+                    <p className="text-sm mt-2 italic">"{selectedArtwork.approval_notes}"</p>
+                  )}
                 </div>
               )}
 
@@ -764,13 +912,64 @@ const AdminManagementPage: React.FC = () => {
                 Uploaded: {new Date(selectedArtwork.created_at).toLocaleString()}
               </div>
 
+              {/* Save Coding & Linking Button */}
+              <button
+                onClick={async () => {
+                  const updateData: any = {
+                    updated_at: new Date().toISOString()
+                  };
+                  if (artworkCustomerCode) updateData.customer_code = artworkCustomerCode;
+                  if (artworkProductCode) updateData.product_code = artworkProductCode;
+                  if (artworkLinkType) {
+                    updateData.link_type = artworkLinkType;
+                    if (artworkLinkType === 'order' && artworkLinkedId) {
+                      updateData.linked_order_id = artworkLinkedId;
+                      updateData.linked_quote_id = null;
+                      const linkedOrder = orders.find(o => o.id === artworkLinkedId);
+                      if (linkedOrder) updateData.order_number = linkedOrder.order_number;
+                    } else if (artworkLinkType === 'quote' && artworkLinkedId) {
+                      updateData.linked_quote_id = artworkLinkedId;
+                      updateData.linked_order_id = null;
+                      const linkedQuote = quotes.find(q => q.id === artworkLinkedId);
+                      if (linkedQuote) updateData.quote_number = linkedQuote.quote_number;
+                    } else {
+                      updateData.linked_order_id = null;
+                      updateData.linked_quote_id = null;
+                    }
+                  }
+                  if (proofUrl) updateData.proof_url = proofUrl;
+                  
+                  await supabase.from('artwork_files').update(updateData).eq('id', selectedArtwork.id);
+                  fetchData();
+                  alert('Artwork coding and linking saved!');
+                }}
+                className="w-full px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition flex items-center justify-center gap-2"
+              >
+                <Tag className="h-5 w-5" />
+                Save Coding & Linking
+              </button>
+
               <div className="grid grid-cols-2 gap-3">
                 <button
-                  onClick={() => updateArtworkStatus(selectedArtwork.id, 'approved', artworkFeedback)}
-                  className="flex items-center justify-center gap-2 px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+                  onClick={async () => {
+                    const updateData: any = { 
+                      status: 'proof_ready',
+                      admin_feedback: artworkFeedback || null,
+                      updated_at: new Date().toISOString()
+                    };
+                    if (proofUrl) updateData.proof_url = proofUrl;
+                    if (artworkCustomerCode) updateData.customer_code = artworkCustomerCode;
+                    if (artworkProductCode) updateData.product_code = artworkProductCode;
+                    
+                    await supabase.from('artwork_files').update(updateData).eq('id', selectedArtwork.id);
+                    fetchData();
+                    setSelectedArtwork(null);
+                    setArtworkFeedback('');
+                  }}
+                  className="flex items-center justify-center gap-2 px-4 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
                 >
-                  <CheckCircle className="h-5 w-5" />
-                  Approve
+                  <FileCheck className="h-5 w-5" />
+                  Set Proof Ready
                 </button>
                 <button
                   onClick={() => updateArtworkStatus(selectedArtwork.id, 'revision_needed', artworkFeedback)}
@@ -778,6 +977,23 @@ const AdminManagementPage: React.FC = () => {
                 >
                   <AlertCircle className="h-5 w-5" />
                   Need Revision
+                </button>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <button
+                  onClick={() => updateArtworkStatus(selectedArtwork.id, 'in_production', artworkFeedback)}
+                  className="flex items-center justify-center gap-2 px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+                >
+                  <CheckCircle className="h-5 w-5" />
+                  Send to Production
+                </button>
+                <button
+                  onClick={() => updateArtworkStatus(selectedArtwork.id, 'prepress', artworkFeedback)}
+                  className="flex items-center justify-center gap-2 px-4 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition"
+                >
+                  <ImageIcon className="h-5 w-5" />
+                  Send to Prepress
                 </button>
               </div>
 

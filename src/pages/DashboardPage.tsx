@@ -6,7 +6,7 @@ import {
   TrendingDown, Users, DollarSign, MoreHorizontal, Plus, RefreshCw, Eye, X, 
   MapPin, Phone, Mail as MailIcon, Truck, ExternalLink, Upload, CheckCircle, 
   Clock, AlertCircle, FileImage, MessageSquare, Send, Heart, Trash2, Globe, 
-  Camera, Info
+  Camera, Info, Circle, PenLine, Link2
 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, Order, Quote, Document, ArtworkFile, SavedCartItem } from '../lib/supabase'
@@ -48,6 +48,25 @@ const DashboardPage: React.FC = () => {
   const [selectedArtwork, setSelectedArtwork] = useState<ArtworkFile | null>(null)
   const [revisionComment, setRevisionComment] = useState('')
   const [showRevisionModal, setShowRevisionModal] = useState(false)
+  
+  // Proof Review Modal states
+  const [showProofReviewModal, setShowProofReviewModal] = useState(false)
+  const [proofChecklist, setProofChecklist] = useState({
+    bag_size: false,
+    product_weight: false,
+    colors: false,
+    text_spelling: false,
+    logo_graphics: false,
+    upc_barcode: false,
+    roll_direction: false,
+    closure_type: false,
+    add_ons: false,
+    quantity: false
+  })
+  const [approvalType, setApprovalType] = useState<'approve_as_is' | 'not_approved' | ''>('')
+  const [approverSignature, setApproverSignature] = useState('')
+  const [approverCompany, setApproverCompany] = useState('')
+  const [approvalNotes, setApprovalNotes] = useState('')
   
   // Saved item edit states
   const [editingItem, setEditingItem] = useState<SavedCartItem | null>(null)
@@ -1398,19 +1417,33 @@ const DashboardPage: React.FC = () => {
                                   </a>
                                 )}
                                 
-                                {/* Approve Button (if proof ready) */}
+                                {/* Approve Button (if proof ready) - opens review modal */}
                                 {artwork.status === 'proof_ready' && (
                                   <button 
-                                    onClick={async () => {
-                                      await supabase.from('artwork_files')
-                                        .update({ status: 'approved', updated_at: new Date().toISOString() })
-                                        .eq('id', artwork.id)
-                                      fetchData()
+                                    onClick={() => {
+                                      setSelectedArtwork(artwork)
+                                      setProofChecklist({
+                                        bag_size: false,
+                                        product_weight: false,
+                                        colors: false,
+                                        text_spelling: false,
+                                        logo_graphics: false,
+                                        upc_barcode: false,
+                                        roll_direction: false,
+                                        closure_type: false,
+                                        add_ons: false,
+                                        quantity: false
+                                      })
+                                      setApprovalType('')
+                                      setApproverSignature('')
+                                      setApproverCompany('')
+                                      setApprovalNotes('')
+                                      setShowProofReviewModal(true)
                                     }}
                                     className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 transition"
                                   >
                                     <CheckCircle className="h-4 w-4" />
-                                    Approve
+                                    Review & Approve Proof
                                   </button>
                                 )}
                                 
@@ -2237,6 +2270,396 @@ const DashboardPage: React.FC = () => {
                 >
                   Cancel
                 </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Proof Review Modal */}
+      {showProofReviewModal && selectedArtwork && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 overflow-y-auto">
+          <div className="bg-white rounded-2xl shadow-xl max-w-4xl w-full max-h-[95vh] overflow-y-auto my-4">
+            {/* Header */}
+            <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between z-10">
+              <div>
+                <h2 className="text-xl font-bold text-gray-900">Press Proof Review & Approval</h2>
+                <p className="text-sm text-gray-500 mt-1">{selectedArtwork.name}</p>
+                {selectedArtwork.artwork_code && (
+                  <span className="inline-block mt-1 font-mono text-sm font-bold text-primary-600 bg-primary-50 px-2 py-0.5 rounded">
+                    {selectedArtwork.artwork_code}
+                  </span>
+                )}
+              </div>
+              <button 
+                onClick={() => setShowProofReviewModal(false)}
+                className="p-2 hover:bg-gray-100 rounded-full transition"
+              >
+                <X className="h-5 w-5 text-gray-500" />
+              </button>
+            </div>
+            
+            <div className="p-6 space-y-6">
+              {/* Company Header */}
+              <div className="bg-gray-900 text-white rounded-xl p-5">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
+                    <span className="text-gray-900 font-bold text-lg">AP</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold">ACHIEVE PACK</h3>
+                    <p className="text-gray-300 text-sm">Premium Flexible Packaging Solutions</p>
+                  </div>
+                </div>
+                <div className="grid md:grid-cols-3 gap-3 text-sm">
+                  <div className="flex items-center gap-2">
+                    <MailIcon className="h-4 w-4 text-gray-400" />
+                    <a href="mailto:ryan@achievepack.com" className="hover:text-primary-300">ryan@achievepack.com</a>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Globe className="h-4 w-4 text-gray-400" />
+                    <a href="https://www.achievepack.com" target="_blank" className="hover:text-primary-300">www.achievepack.com</a>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Phone className="h-4 w-4 text-gray-400" />
+                    <span>+852 6970 4411</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Download Proof Button */}
+              {selectedArtwork.proof_url && (
+                <div className="flex justify-center">
+                  <a 
+                    href={selectedArtwork.proof_url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-8 py-4 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg text-lg"
+                  >
+                    <Download className="h-6 w-6" />
+                    Download Proof PDF to Review
+                  </a>
+                </div>
+              )}
+
+              {/* Important Notices */}
+              <div className="bg-amber-50 border border-amber-200 rounded-xl p-5">
+                <h3 className="font-bold text-amber-900 mb-3 flex items-center gap-2">
+                  <AlertCircle className="h-5 w-5" />
+                  Important Notices - Please Read
+                </h3>
+                <ul className="text-sm text-amber-800 space-y-2 list-disc list-inside">
+                  <li>This proof is an exact duplicate of the original production for this job.</li>
+                  <li>All copy, punctuation and spelling has been proofread by our team.</li>
+                  <li><strong>We will NOT be responsible for any errors after your approval.</strong></li>
+                  <li>Colors shown on screen may differ from the final printed result.</li>
+                  <li>Please ensure all regulatory and legal requirements are met for your product.</li>
+                </ul>
+              </div>
+              
+              {/* Verification Checklist */}
+              <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
+                <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
+                  <FileCheck className="h-5 w-5 text-primary-600" />
+                  Verification Checklist
+                </h3>
+                <p className="text-sm text-gray-600 mb-4">Click each item to confirm you have verified it:</p>
+                
+                <div className="grid md:grid-cols-2 gap-3">
+                  {[
+                    { key: 'bag_size', label: 'Bag Size / Dimensions', desc: 'Tolerance: ±2mm to ±4mm' },
+                    { key: 'product_weight', label: 'Product Weight / Net Content', desc: 'grams, oz, ml' },
+                    { key: 'colors', label: 'Colors (CMYK)', desc: 'Tolerance: ±8% to ±15%' },
+                    { key: 'text_spelling', label: 'Text & Spelling', desc: 'All copy accurate' },
+                    { key: 'logo_graphics', label: 'Logo & Graphics', desc: 'Position and quality' },
+                    { key: 'upc_barcode', label: 'UPC / Barcode', desc: 'Number and scannability' },
+                    { key: 'roll_direction', label: 'Roll / Unwind Direction', desc: 'For machine filling' },
+                    { key: 'closure_type', label: 'Closure Type', desc: 'Zipper, valve, seal' },
+                    { key: 'add_ons', label: 'Add-ons', desc: 'Tear notch, hang hole, etc' },
+                    { key: 'quantity', label: 'Quantity Confirmed', desc: 'Check quantity tolerance' }
+                  ].map(item => (
+                    <button
+                      key={item.key}
+                      type="button"
+                      onClick={() => setProofChecklist(prev => ({ 
+                        ...prev, 
+                        [item.key]: !prev[item.key as keyof typeof prev] 
+                      }))}
+                      className={`flex items-start gap-3 p-3 rounded-lg border-2 transition text-left ${
+                        proofChecklist[item.key as keyof typeof proofChecklist]
+                          ? 'border-green-500 bg-green-50'
+                          : 'border-gray-200 bg-white hover:border-gray-300'
+                      }`}
+                    >
+                      <div className="flex-shrink-0 mt-0.5">
+                        {proofChecklist[item.key as keyof typeof proofChecklist] ? (
+                          <CheckCircle className="h-5 w-5 text-green-600" />
+                        ) : (
+                          <Circle className="h-5 w-5 text-gray-300" />
+                        )}
+                      </div>
+                      <div>
+                        <p className={`font-medium text-sm ${
+                          proofChecklist[item.key as keyof typeof proofChecklist] 
+                            ? 'text-green-800' 
+                            : 'text-gray-700'
+                        }`}>{item.label}</p>
+                        <p className="text-xs text-gray-500">{item.desc}</p>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+                
+                {/* Progress indicator */}
+                <div className="mt-4 pt-4 border-t border-gray-200">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-gray-600">Items verified:</span>
+                    <span className={`font-bold ${
+                      Object.values(proofChecklist).filter(Boolean).length === 10 
+                        ? 'text-green-600' 
+                        : 'text-gray-600'
+                    }`}>
+                      {Object.values(proofChecklist).filter(Boolean).length} / 10
+                    </span>
+                  </div>
+                  <div className="mt-2 h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <div 
+                      className="h-full bg-green-500 transition-all duration-300"
+                      style={{ width: `${(Object.values(proofChecklist).filter(Boolean).length / 10) * 100}%` }}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Terms & Conditions - Collapsible */}
+              <details className="bg-gray-50 border border-gray-200 rounded-xl">
+                <summary className="p-5 cursor-pointer font-bold text-gray-900 flex items-center gap-2">
+                  <FileText className="h-5 w-5" />
+                  Terms & Conditions (Click to expand)
+                </summary>
+                <div className="px-5 pb-5 space-y-4 text-sm text-gray-700">
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Production Lead Time</h4>
+                    <p>10 working days (±1-2 days) from receipt of signed PO, deposit, certificates, authorization letter, and approved artwork.</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Color Tolerances</h4>
+                    <ul className="list-disc list-inside space-y-1">
+                      <li>Kraft Paper: ±15%</li>
+                      <li>White Paper: ±10%</li>
+                      <li>Plastic/Laminated: ±8%</li>
+                      <li>Specialty Materials: ±12%</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Quantity Tolerances</h4>
+                    <p>100-1,000: ±50% | 1,001-5,000: ±30% | 5,001-10,000: ±20% | 10,001-100,000: ±10% | &gt;100,000: ±5%</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Cancellations</h4>
+                    <p>Before production: 10% fee. No cancellations after production starts.</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Intellectual Property</h4>
+                    <p>Customer warrants artwork doesn't infringe IP rights and is liable for all infringement claims.</p>
+                  </div>
+                </div>
+              </details>
+
+              {/* Approval Decision */}
+              <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
+                <h3 className="font-bold text-gray-900 mb-4">Your Decision</h3>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <button
+                    type="button"
+                    onClick={() => setApprovalType('approve_as_is')}
+                    className={`p-5 rounded-xl border-2 transition text-center ${
+                      approvalType === 'approve_as_is'
+                        ? 'border-green-500 bg-green-50'
+                        : 'border-gray-200 bg-white hover:border-green-300'
+                    }`}
+                  >
+                    <CheckCircle className={`h-12 w-12 mx-auto mb-3 ${
+                      approvalType === 'approve_as_is' ? 'text-green-600' : 'text-gray-300'
+                    }`} />
+                    <p className="font-bold text-lg">APPROVE</p>
+                    <p className="text-sm text-gray-500 mt-1">Ready for production</p>
+                  </button>
+                  
+                  <button
+                    type="button"
+                    onClick={() => setApprovalType('not_approved')}
+                    className={`p-5 rounded-xl border-2 transition text-center ${
+                      approvalType === 'not_approved'
+                        ? 'border-red-500 bg-red-50'
+                        : 'border-gray-200 bg-white hover:border-red-300'
+                    }`}
+                  >
+                    <X className={`h-12 w-12 mx-auto mb-3 ${
+                      approvalType === 'not_approved' ? 'text-red-600' : 'text-gray-300'
+                    }`} />
+                    <p className="font-bold text-lg">REQUEST CHANGES</p>
+                    <p className="text-sm text-gray-500 mt-1">Need modifications</p>
+                  </button>
+                </div>
+              </div>
+              
+              {/* Changes Notes (if not approved) */}
+              {approvalType === 'not_approved' && (
+                <div className="bg-red-50 border border-red-200 rounded-xl p-5">
+                  <label className="block font-bold text-red-800 mb-2">
+                    What changes are needed?
+                  </label>
+                  <textarea
+                    value={approvalNotes}
+                    onChange={(e) => setApprovalNotes(e.target.value)}
+                    rows={4}
+                    className="w-full px-4 py-3 border border-red-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
+                    placeholder="Please describe in detail what needs to be changed..."
+                  />
+                </div>
+              )}
+              
+              {/* Customer Acknowledgment & Signature */}
+              <div className="border-2 border-gray-300 rounded-xl p-5 bg-white">
+                <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  <PenLine className="h-5 w-5" />
+                  Customer Acknowledgment & Signature
+                </h3>
+                
+                <div className="bg-gray-50 rounded-lg p-4 mb-4 text-sm text-gray-700">
+                  <p className="font-semibold mb-2">By signing below, I acknowledge and agree that:</p>
+                  <ul className="space-y-1 list-disc list-inside">
+                    <li>I have reviewed the proof and all items in the checklist above</li>
+                    <li>I accept the terms and conditions outlined</li>
+                    <li>I understand the color, size, and quantity tolerances</li>
+                    <li>I accept responsibility for any errors not identified before approval</li>
+                    <li>I authorize ACHIEVE PACK to proceed with production upon approval</li>
+                  </ul>
+                </div>
+                
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                    <input
+                      type="text"
+                      value={approverSignature}
+                      onChange={(e) => setApproverSignature(e.target.value)}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                      placeholder="Your full name"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Company</label>
+                    <input
+                      type="text"
+                      value={approverCompany}
+                      onChange={(e) => setApproverCompany(e.target.value)}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                      placeholder="Company name"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Date</label>
+                    <input
+                      type="text"
+                      value={new Date().toLocaleDateString()}
+                      disabled
+                      className="w-full px-4 py-3 border border-gray-200 bg-gray-100 rounded-lg text-gray-600"
+                    />
+                  </div>
+                </div>
+              </div>
+              
+              {/* Submit Button */}
+              <button
+                onClick={async () => {
+                  if (!approvalType) {
+                    alert('Please select your decision')
+                    return
+                  }
+                  if (!approverSignature.trim()) {
+                    alert('Please enter your name to sign')
+                    return
+                  }
+                  if (approvalType === 'not_approved' && !approvalNotes.trim()) {
+                    alert('Please describe what changes are needed')
+                    return
+                  }
+                  if (Object.values(proofChecklist).filter(Boolean).length < 10) {
+                    alert('Please verify all checklist items before submitting')
+                    return
+                  }
+                  
+                  const newStatus = approvalType === 'approve_as_is' ? 'approved' : 'revision_needed'
+                  
+                  const { error } = await supabase
+                    .from('artwork_files')
+                    .update({
+                      status: newStatus,
+                      approval_type: approvalType,
+                      checklist_verified: proofChecklist,
+                      approver_signature: approverSignature,
+                      approver_company: approverCompany || null,
+                      approved_date: new Date().toISOString().split('T')[0],
+                      approval_notes: approvalNotes || null,
+                      customer_comment: approvalNotes || selectedArtwork.customer_comment,
+                      revision_count: approvalType === 'not_approved' 
+                        ? (selectedArtwork.revision_count || 0) + 1 
+                        : selectedArtwork.revision_count,
+                      updated_at: new Date().toISOString()
+                    })
+                    .eq('id', selectedArtwork.id)
+                  
+                  if (error) {
+                    console.error('Error updating artwork:', error)
+                    alert('Failed to submit. Please try again.')
+                    return
+                  }
+                  
+                  setShowProofReviewModal(false)
+                  setSelectedArtwork(null)
+                  fetchData()
+                }}
+                disabled={!approvalType || !approverSignature.trim() || 
+                  (approvalType === 'not_approved' && !approvalNotes.trim()) ||
+                  Object.values(proofChecklist).filter(Boolean).length < 10}
+                className={`w-full flex items-center justify-center gap-2 px-6 py-4 font-bold text-lg rounded-xl transition ${
+                  approvalType && approverSignature.trim() && 
+                  Object.values(proofChecklist).filter(Boolean).length === 10 &&
+                  (approvalType === 'approve_as_is' || approvalNotes.trim())
+                    ? approvalType === 'approve_as_is'
+                      ? 'bg-green-600 hover:bg-green-700 text-white shadow-lg'
+                      : 'bg-red-600 hover:bg-red-700 text-white shadow-lg'
+                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                }`}
+              >
+                {Object.values(proofChecklist).filter(Boolean).length < 10 ? (
+                  `Please verify all ${10 - Object.values(proofChecklist).filter(Boolean).length} remaining items`
+                ) : !approverSignature.trim() ? (
+                  'Please enter your name to sign'
+                ) : approvalType === 'approve_as_is' ? (
+                  <>
+                    <CheckCircle className="h-6 w-6" />
+                    Confirm Approval - Send to Production
+                  </>
+                ) : approvalType === 'not_approved' ? (
+                  <>
+                    <Send className="h-6 w-6" />
+                    Submit Change Request
+                  </>
+                ) : (
+                  'Please select your decision above'
+                )}
+              </button>
+
+              {/* Contact Footer */}
+              <div className="text-center text-sm text-gray-500 pt-4 border-t">
+                <p>For inquiries or clarifications, contact ACHIEVE PACK at{' '}
+                  <a href="mailto:ryan@achievepack.com" className="text-primary-600 hover:underline">
+                    ryan@achievepack.com
+                  </a>
+                </p>
               </div>
             </div>
           </div>
