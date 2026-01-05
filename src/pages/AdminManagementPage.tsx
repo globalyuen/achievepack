@@ -619,52 +619,58 @@ const AdminManagementPage: React.FC = () => {
                 </div>
               )}
 
-              {/* List View */}
+              {/* List View - Mobile Optimized */}
               {artworkViewMode === 'list' && (
                 <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
                   <div className="divide-y divide-gray-100">
                     {filteredArtworks.map(artwork => {
                       const customer = getCustomer(artwork.user_id)
                       return (
-                        <div key={artwork.id} className="p-4 hover:bg-gray-50 flex items-center gap-4">
-                          <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <ImageIcon className="h-5 w-5 text-purple-600" />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-2 flex-wrap">
-                              <p className="font-medium text-gray-900 truncate">{artwork.name}</p>
-                              {artwork.artwork_code && (
-                                <span className="font-mono text-xs font-bold text-primary-600 bg-primary-50 px-1.5 py-0.5 rounded">
-                                  {artwork.artwork_code}
-                                </span>
-                              )}
+                        <div key={artwork.id} className="p-3 md:p-4 hover:bg-gray-50">
+                          {/* Mobile: Stack layout */}
+                          <div className="flex items-start gap-3">
+                            <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                              <ImageIcon className="h-5 w-5 text-purple-600" />
                             </div>
-                            <p className="text-sm text-gray-500">
-                              {customer?.full_name || 'Unknown'} • {formatFileSize(artwork.file_size)} • {new Date(artwork.created_at).toLocaleDateString()}
-                            </p>
-                          </div>
-                          <span className={`px-2 py-1 text-xs font-medium rounded-full hidden sm:block ${getStatusColor(artwork.status)}`}>
-                            {artwork.status.replace(/_/g, ' ')}
-                          </span>
-                          <div className="flex items-center gap-2">
-                            <button
-                              onClick={() => {
-                                setSelectedArtwork(artwork)
-                                const autoCode = generateCustomerCode(customer)
-                                setArtworkCustomerCode(artwork.customer_code || autoCode)
-                                setArtworkProductCode(artwork.product_code || 'PKG01')
-                              }}
-                              className="px-3 py-1.5 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700"
-                            >
-                              Review
-                            </button>
-                            <a
-                              href={artwork.file_url}
-                              target="_blank"
-                              className="p-1.5 text-gray-500 hover:text-gray-700"
-                            >
-                              <Eye className="h-5 w-5" />
-                            </a>
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-start justify-between gap-2">
+                                <div className="min-w-0 flex-1">
+                                  <p className="font-medium text-gray-900 text-sm truncate">{artwork.name}</p>
+                                  <p className="text-xs text-gray-500 mt-0.5">
+                                    {customer?.full_name || 'Unknown'} • {formatFileSize(artwork.file_size)}
+                                  </p>
+                                  {artwork.artwork_code && (
+                                    <span className="inline-block mt-1 font-mono text-[10px] font-bold text-primary-600 bg-primary-50 px-1.5 py-0.5 rounded">
+                                      {artwork.artwork_code}
+                                    </span>
+                                  )}
+                                </div>
+                                <span className={`px-2 py-0.5 text-[10px] md:text-xs font-medium rounded-full flex-shrink-0 ${getStatusColor(artwork.status)}`}>
+                                  {artwork.status.replace(/_/g, ' ')}
+                                </span>
+                              </div>
+                              {/* Mobile action row */}
+                              <div className="flex gap-2 mt-2">
+                                <button
+                                  onClick={() => {
+                                    setSelectedArtwork(artwork)
+                                    const autoCode = generateCustomerCode(customer)
+                                    setArtworkCustomerCode(artwork.customer_code || autoCode)
+                                    setArtworkProductCode(artwork.product_code || 'PKG01')
+                                  }}
+                                  className="flex-1 px-3 py-1.5 bg-primary-600 text-white text-xs rounded-lg hover:bg-primary-700"
+                                >
+                                  Review
+                                </button>
+                                <a
+                                  href={artwork.file_url}
+                                  target="_blank"
+                                  className="px-3 py-1.5 border border-gray-300 text-gray-700 text-xs rounded-lg hover:bg-gray-50"
+                                >
+                                  ↓
+                                </a>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       )
@@ -854,15 +860,15 @@ const AdminManagementPage: React.FC = () => {
         </div>
       )}
 
-      {/* Artwork Review Modal */}
+      {/* Artwork Review Modal - Mobile Optimized */}
       {selectedArtwork && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-          <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-6 border-b flex items-center justify-between">
+        <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center bg-black/50 p-0 md:p-4">
+          <div className="bg-white rounded-t-2xl md:rounded-xl w-full md:max-w-2xl max-h-[95vh] md:max-h-[90vh] overflow-y-auto">
+            <div className="p-4 md:p-6 border-b flex items-center justify-between sticky top-0 bg-white z-10">
               <div>
-                <h2 className="text-xl font-bold">Review Artwork</h2>
+                <h2 className="text-lg md:text-xl font-bold">Review Artwork</h2>
                 {selectedArtwork.artwork_code && (
-                  <span className="inline-block mt-1 font-mono text-sm font-bold text-primary-600 bg-primary-50 px-2 py-0.5 rounded">
+                  <span className="inline-block mt-1 font-mono text-xs md:text-sm font-bold text-primary-600 bg-primary-50 px-2 py-0.5 rounded">
                     {selectedArtwork.artwork_code}
                   </span>
                 )}
@@ -874,164 +880,148 @@ const AdminManagementPage: React.FC = () => {
                 setArtworkProductCode('');
                 setArtworkLinkType('none');
                 setArtworkLinkedId('');
-              }} className="text-gray-500 hover:text-gray-700">
-                <X className="h-5 w-5" />
+              }} className="text-gray-500 hover:text-gray-700 p-1">
+                <X className="h-6 w-6" />
               </button>
             </div>
 
-            <div className="p-6 space-y-6">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <p className="text-sm text-gray-500">Customer</p>
-                  <p className="font-medium">{getCustomer(selectedArtwork.user_id)?.full_name || 'Unknown'}</p>
-                  <p className="text-sm text-gray-600">{getCustomer(selectedArtwork.user_id)?.email}</p>
+            <div className="p-4 md:p-6 space-y-4 md:space-y-6">
+              {/* Customer & File Info - Stack on mobile */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+                <div className="bg-gray-50 rounded-lg p-3">
+                  <p className="text-xs text-gray-500">Customer</p>
+                  <p className="font-medium text-sm">{getCustomer(selectedArtwork.user_id)?.full_name || 'Unknown'}</p>
+                  <p className="text-xs text-gray-600 truncate">{getCustomer(selectedArtwork.user_id)?.email}</p>
                 </div>
-                <div>
-                  <p className="text-sm text-gray-500">File</p>
-                  <p className="font-medium">{selectedArtwork.name}</p>
-                  <p className="text-sm text-gray-600">{formatFileSize(selectedArtwork.file_size)}</p>
+                <div className="bg-gray-50 rounded-lg p-3">
+                  <p className="text-xs text-gray-500">File</p>
+                  <p className="font-medium text-sm truncate">{selectedArtwork.name}</p>
+                  <p className="text-xs text-gray-600">{formatFileSize(selectedArtwork.file_size)}</p>
                 </div>
               </div>
 
               <div>
-                <p className="text-sm text-gray-500 mb-2">Current Status</p>
-                <span className={`px-3 py-1 text-sm font-medium rounded-full ${getStatusColor(selectedArtwork.status)}`}>
+                <p className="text-xs md:text-sm text-gray-500 mb-2">Current Status</p>
+                <span className={`px-3 py-1 text-xs md:text-sm font-medium rounded-full ${getStatusColor(selectedArtwork.status)}`}>
                   {selectedArtwork.status.replace('_', ' ')}
                 </span>
               </div>
 
               {/* Coding Assignment Section */}
-              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                  <Tag className="h-5 w-5 text-primary-600" />
+              <div className="bg-gray-50 rounded-lg p-3 md:p-4 border border-gray-200">
+                <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm md:text-base">
+                  <Tag className="h-4 w-4 md:h-5 md:w-5 text-primary-600" />
                   Artwork Coding
                 </h3>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Customer Code</label>
+                    <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1">Customer Code</label>
                     <input
                       type="text"
                       value={artworkCustomerCode || selectedArtwork.customer_code || ''}
                       onChange={(e) => setArtworkCustomerCode(e.target.value.toUpperCase())}
                       placeholder="ACM01"
                       maxLength={10}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 font-mono uppercase"
+                      className="w-full px-2 md:px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 font-mono uppercase"
                     />
-                    <p className="text-xs text-gray-400 mt-1">e.g., ACM01, BTX02</p>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Product Code</label>
+                    <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1">Product Code</label>
                     <input
                       type="text"
                       value={artworkProductCode || selectedArtwork.product_code || ''}
                       onChange={(e) => setArtworkProductCode(e.target.value.toUpperCase())}
                       placeholder="PKG01"
                       maxLength={10}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 font-mono uppercase"
+                      className="w-full px-2 md:px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 font-mono uppercase"
                     />
-                    <p className="text-xs text-gray-400 mt-1">e.g., PKG01, BAG02</p>
                   </div>
                 </div>
-                <p className="text-xs text-gray-500 mt-2">
-                  Current version: V{String(selectedArtwork.version_number || 1).padStart(3, '0')}
+                <p className="text-[10px] md:text-xs text-gray-500 mt-2">
+                  Version: V{String(selectedArtwork.version_number || 1).padStart(3, '0')}
                 </p>
               </div>
 
               {/* Link to Order/Quote Section */}
-              <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
-                <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                  <Link2 className="h-5 w-5 text-blue-600" />
-                  Link to Order or Quote
+              <div className="bg-blue-50 rounded-lg p-3 md:p-4 border border-blue-200">
+                <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm md:text-base">
+                  <Link2 className="h-4 w-4 md:h-5 md:w-5 text-blue-600" />
+                  Link to Order/Quote
                 </h3>
                 <div className="space-y-3">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Link Type</label>
-                    <select
-                      value={artworkLinkType || selectedArtwork.link_type || 'none'}
-                      onChange={(e) => {
-                        setArtworkLinkType(e.target.value as 'order' | 'quote' | 'none');
-                        setArtworkLinkedId('');
-                      }}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                    >
-                      <option value="none">No Link</option>
-                      <option value="order">Link to Order</option>
-                      <option value="quote">Link to Quote</option>
-                    </select>
-                  </div>
+                  <select
+                    value={artworkLinkType || selectedArtwork.link_type || 'none'}
+                    onChange={(e) => {
+                      setArtworkLinkType(e.target.value as 'order' | 'quote' | 'none');
+                      setArtworkLinkedId('');
+                    }}
+                    className="w-full px-2 md:px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="none">No Link</option>
+                    <option value="order">Link to Order</option>
+                    <option value="quote">Link to Quote</option>
+                  </select>
                   
                   {(artworkLinkType || selectedArtwork.link_type) !== 'none' && (
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Select {artworkLinkType === 'order' ? 'Order' : 'Quote'}
-                      </label>
-                      <select
-                        value={artworkLinkedId || (artworkLinkType === 'order' ? selectedArtwork.linked_order_id : selectedArtwork.linked_quote_id) || ''}
-                        onChange={(e) => setArtworkLinkedId(e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                      >
-                        <option value="">Select...</option>
-                        {artworkLinkType === 'order' 
-                          ? orders.map(order => (
-                              <option key={order.id} value={order.id}>
-                                {order.order_number} - {order.customer_name || getCustomer(order.user_id)?.full_name} (${order.total_amount?.toLocaleString() || 0})
-                              </option>
-                            ))
-                          : quotes.map(quote => (
-                              <option key={quote.id} value={quote.id}>
-                                {quote.quote_number} - {getCustomer(quote.user_id)?.full_name} (${quote.total_amount?.toLocaleString() || 0})
-                              </option>
-                            ))
-                        }
-                      </select>
-                    </div>
+                    <select
+                      value={artworkLinkedId || (artworkLinkType === 'order' ? selectedArtwork.linked_order_id : selectedArtwork.linked_quote_id) || ''}
+                      onChange={(e) => setArtworkLinkedId(e.target.value)}
+                      className="w-full px-2 md:px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    >
+                      <option value="">Select {artworkLinkType === 'order' ? 'Order' : 'Quote'}...</option>
+                      {artworkLinkType === 'order' 
+                        ? orders.map(order => (
+                            <option key={order.id} value={order.id}>
+                              {order.order_number} - ${order.total_amount?.toLocaleString() || 0}
+                            </option>
+                          ))
+                        : quotes.map(quote => (
+                            <option key={quote.id} value={quote.id}>
+                              {quote.quote_number} - ${quote.total_amount?.toLocaleString() || 0}
+                            </option>
+                          ))
+                      }
+                    </select>
                   )}
                 </div>
               </div>
 
               {selectedArtwork.customer_comment && (
                 <div>
-                  <p className="text-sm font-medium text-gray-700 mb-2">Customer Comment</p>
-                  <div className="bg-blue-50 rounded-lg p-4">
-                    <p className="text-sm text-blue-800">{selectedArtwork.customer_comment}</p>
+                  <p className="text-xs md:text-sm font-medium text-gray-700 mb-2">Customer Comment</p>
+                  <div className="bg-blue-50 rounded-lg p-3">
+                    <p className="text-xs md:text-sm text-blue-800">{selectedArtwork.customer_comment}</p>
                   </div>
                 </div>
               )}
 
               {/* Show approval info if approved */}
               {selectedArtwork.approval_type && (
-                <div className={`rounded-lg p-4 ${selectedArtwork.approval_type === 'approve_as_is' ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'}`}>
-                  <h4 className="font-semibold mb-2">
+                <div className={`rounded-lg p-3 md:p-4 ${selectedArtwork.approval_type === 'approve_as_is' ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'}`}>
+                  <h4 className="font-semibold mb-2 text-sm">
                     {selectedArtwork.approval_type === 'approve_as_is' ? '✅ Customer Approved' : '❌ Customer Requested Changes'}
                   </h4>
                   {selectedArtwork.approver_signature && (
-                    <p className="text-sm">Signed by: {selectedArtwork.approver_signature} {selectedArtwork.approver_company ? `(${selectedArtwork.approver_company})` : ''}</p>
+                    <p className="text-xs md:text-sm">Signed by: {selectedArtwork.approver_signature}</p>
                   )}
                   {selectedArtwork.approved_date && (
-                    <p className="text-sm">Date: {selectedArtwork.approved_date}</p>
-                  )}
-                  {selectedArtwork.approval_notes && (
-                    <p className="text-sm mt-2 italic">"{selectedArtwork.approval_notes}"</p>
+                    <p className="text-xs md:text-sm">Date: {selectedArtwork.approved_date}</p>
                   )}
                 </div>
               )}
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Admin Feedback (Optional)</label>
+                <label className="block text-xs md:text-sm font-medium text-gray-700 mb-2">Admin Feedback</label>
                 <textarea
                   value={artworkFeedback}
                   onChange={(e) => setArtworkFeedback(e.target.value)}
-                  placeholder="Provide feedback for the customer..."
-                  rows={4}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-none"
+                  placeholder="Feedback for customer..."
+                  rows={3}
+                  className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 resize-none"
                 />
               </div>
 
-              <div className="text-sm text-gray-500">
-                Uploaded: {new Date(selectedArtwork.created_at).toLocaleString()}
-              </div>
-
-              {/* Save Coding & Linking Button */}
+              {/* Save Coding Button */}
               <button
                 onClick={async () => {
                   const updateData: any = {
@@ -1059,15 +1049,16 @@ const AdminManagementPage: React.FC = () => {
                   
                   await supabase.from('artwork_files').update(updateData).eq('id', selectedArtwork.id);
                   fetchData();
-                  alert('Artwork coding and linking saved!');
+                  alert('Saved!');
                 }}
-                className="w-full px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition flex items-center justify-center gap-2"
+                className="w-full px-4 py-2.5 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition flex items-center justify-center gap-2"
               >
-                <Tag className="h-5 w-5" />
-                Save Coding & Linking
+                <Tag className="h-4 w-4" />
+                Save Coding
               </button>
 
-              <div className="grid grid-cols-2 gap-3">
+              {/* Action Buttons - 2x2 grid */}
+              <div className="grid grid-cols-2 gap-2">
                 <button
                   onClick={async () => {
                     const updateData: any = { 
@@ -1083,49 +1074,47 @@ const AdminManagementPage: React.FC = () => {
                     setSelectedArtwork(null);
                     setArtworkFeedback('');
                   }}
-                  className="flex items-center justify-center gap-2 px-4 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
+                  className="flex items-center justify-center gap-1.5 px-3 py-2.5 bg-indigo-600 text-white text-xs md:text-sm rounded-lg hover:bg-indigo-700 transition"
                 >
-                  <FileCheck className="h-5 w-5" />
-                  Set Proof Ready
+                  <FileCheck className="h-4 w-4" />
+                  <span className="hidden sm:inline">Set </span>Proof Ready
                 </button>
                 <button
                   onClick={() => updateArtworkStatus(selectedArtwork.id, 'revision_needed', artworkFeedback)}
-                  className="flex items-center justify-center gap-2 px-4 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition"
+                  className="flex items-center justify-center gap-1.5 px-3 py-2.5 bg-orange-600 text-white text-xs md:text-sm rounded-lg hover:bg-orange-700 transition"
                 >
-                  <AlertCircle className="h-5 w-5" />
-                  Need Revision
+                  <AlertCircle className="h-4 w-4" />
+                  Revision
                 </button>
-              </div>
-
-              <div className="grid grid-cols-2 gap-3">
                 <button
                   onClick={() => updateArtworkStatus(selectedArtwork.id, 'in_production', artworkFeedback)}
-                  className="flex items-center justify-center gap-2 px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+                  className="flex items-center justify-center gap-1.5 px-3 py-2.5 bg-green-600 text-white text-xs md:text-sm rounded-lg hover:bg-green-700 transition"
                 >
-                  <CheckCircle className="h-5 w-5" />
-                  Send to Production
+                  <CheckCircle className="h-4 w-4" />
+                  Production
                 </button>
                 <button
                   onClick={() => updateArtworkStatus(selectedArtwork.id, 'prepress', artworkFeedback)}
-                  className="flex items-center justify-center gap-2 px-4 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition"
+                  className="flex items-center justify-center gap-1.5 px-3 py-2.5 bg-purple-600 text-white text-xs md:text-sm rounded-lg hover:bg-purple-700 transition"
                 >
-                  <ImageIcon className="h-5 w-5" />
-                  Send to Prepress
+                  <ImageIcon className="h-4 w-4" />
+                  Prepress
                 </button>
               </div>
 
-              <div className="flex gap-3">
+              {/* Bottom actions */}
+              <div className="flex gap-2 pt-2 border-t">
                 <a
                   href={selectedArtwork.file_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 text-center px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition"
+                  className="flex-1 text-center px-4 py-2 border border-gray-300 text-gray-700 text-sm rounded-lg hover:bg-gray-50"
                 >
-                  Download File
+                  Download
                 </a>
                 <button
                   onClick={() => deleteArtwork(selectedArtwork.id)}
-                  className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
+                  className="px-4 py-2 bg-red-600 text-white text-sm rounded-lg hover:bg-red-700"
                 >
                   Delete
                 </button>
