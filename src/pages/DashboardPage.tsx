@@ -1261,10 +1261,11 @@ const DashboardPage: React.FC = () => {
 
           {/* Artwork Tab */}
           {activeTab === 'artwork' && (
-            <div className="space-y-6">
-              <div className="flex items-center justify-between">
-                <h1 className="text-2xl font-bold text-gray-900">Artwork Files</h1>
-                <label className="flex items-center gap-2 px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition cursor-pointer">
+            <div className="space-y-4 md:space-y-6">
+              {/* Header - Mobile Responsive */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Artwork Files</h1>
+                <label className="flex items-center justify-center gap-2 px-4 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition cursor-pointer w-full sm:w-auto">
                   <Upload className="h-4 w-4" />
                   Upload Artwork
                   <input
@@ -1312,34 +1313,34 @@ const DashboardPage: React.FC = () => {
                 </div>
               )}
 
-              {/* Upload Guidelines */}
-              <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
-                <h3 className="font-semibold text-gray-900 mb-3">Upload Guidelines</h3>
-                <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-600">
+              {/* Upload Guidelines - Mobile Responsive */}
+              <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 md:p-5">
+                <h3 className="font-semibold text-gray-900 mb-3 text-sm md:text-base">Upload Guidelines</h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 text-xs md:text-sm text-gray-600">
                   <div>
-                    <p className="font-medium text-gray-800 mb-1">Accepted Formats:</p>
+                    <p className="font-medium text-gray-800 mb-1">Formats:</p>
                     <p>AI, EPS, PDF, PNG, JPG, TIFF, PSD, ZIP</p>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-800 mb-1">File Size Limit:</p>
-                    <p>Maximum 250 MB per file</p>
+                    <p className="font-medium text-gray-800 mb-1">Max Size:</p>
+                    <p>250 MB per file</p>
                   </div>
                   <div>
                     <p className="font-medium text-gray-800 mb-1">Requirements:</p>
-                    <p>300 DPI minimum, CMYK color mode, 3mm bleed</p>
+                    <p>300 DPI, CMYK, 3mm bleed</p>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-800 mb-1">For Large Files:</p>
-                    <p>Use WeTransfer, Dropbox, or Google Drive</p>
+                    <p className="font-medium text-gray-800 mb-1">Large Files:</p>
+                    <p>Use WeTransfer or Dropbox</p>
                   </div>
                 </div>
               </div>
 
-              {/* Artwork List */}
+              {/* Artwork List - Mobile Responsive */}
               <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
                 {artworks.length === 0 ? (
-                  <div className="p-12 text-center">
-                    <FileImage className="h-12 w-12 mx-auto mb-4 text-gray-300" />
+                  <div className="p-8 md:p-12 text-center">
+                    <FileImage className="h-10 w-10 md:h-12 md:w-12 mx-auto mb-4 text-gray-300" />
                     <p className="text-gray-500">No artwork files uploaded yet</p>
                     <p className="text-sm text-gray-400 mt-2">Upload your design files to get started</p>
                   </div>
@@ -1349,36 +1350,43 @@ const DashboardPage: React.FC = () => {
                       const statusInfo = getArtworkStatus(artwork.status)
                       const StatusIcon = statusInfo.icon
                       return (
-                        <div key={artwork.id} className="p-5 hover:bg-gray-50 transition">
-                          <div className="flex items-start gap-4">
+                        <div key={artwork.id} className="p-4 md:p-5 hover:bg-gray-50 transition">
+                          {/* Mobile: Card Layout */}
+                          <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4">
                             {/* File Icon */}
-                            <div className="w-12 h-12 bg-purple-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <div className="hidden sm:flex w-12 h-12 bg-purple-50 rounded-lg items-center justify-center flex-shrink-0">
                               <FileImage className="h-6 w-6 text-purple-600" />
                             </div>
                             
                             {/* File Info */}
                             <div className="flex-1 min-w-0">
-                              <div className="flex items-start justify-between gap-4">
-                                <div>
-                                  <h3 className="font-semibold text-gray-900 truncate">{artwork.name}</h3>
-                                  <div className="flex items-center gap-3 mt-1 text-sm text-gray-500">
-                                    <span>{formatFileSize(artwork.file_size)}</span>
-                                    <span>•</span>
-                                    <span>{new Date(artwork.created_at).toLocaleDateString()}</span>
+                              {/* Header Row */}
+                              <div className="flex items-start justify-between gap-2">
+                                <div className="flex items-center gap-2 sm:block min-w-0">
+                                  <div className="sm:hidden w-10 h-10 bg-purple-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <FileImage className="h-5 w-5 text-purple-600" />
+                                  </div>
+                                  <div className="min-w-0">
+                                    <h3 className="font-semibold text-gray-900 truncate text-sm sm:text-base">{artwork.name}</h3>
+                                    <div className="flex items-center gap-2 mt-0.5 sm:mt-1 text-xs sm:text-sm text-gray-500">
+                                      <span>{formatFileSize(artwork.file_size)}</span>
+                                      <span>•</span>
+                                      <span>{new Date(artwork.created_at).toLocaleDateString()}</span>
+                                    </div>
                                   </div>
                                 </div>
                                 
                                 {/* Status Badge */}
-                                <span className={`inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium rounded-full ${statusInfo.color}`}>
-                                  <StatusIcon className="h-3.5 w-3.5" />
-                                  {statusInfo.label}
+                                <span className={`inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full flex-shrink-0 ${statusInfo.color}`}>
+                                  <StatusIcon className="h-3 w-3" />
+                                  <span className="hidden sm:inline">{statusInfo.label}</span>
                                 </span>
                               </div>
                               
                               {/* Admin Feedback */}
                               {artwork.admin_feedback && (
                                 <div className="mt-3 bg-gray-50 rounded-lg p-3">
-                                  <p className="text-xs font-medium text-gray-500 mb-1">Achieve Pack Team Feedback:</p>
+                                  <p className="text-xs font-medium text-gray-500 mb-1">Team Feedback:</p>
                                   <p className="text-sm text-gray-700">{artwork.admin_feedback}</p>
                                 </div>
                               )}
@@ -1391,17 +1399,18 @@ const DashboardPage: React.FC = () => {
                                 </div>
                               )}
                               
-                              {/* Action Buttons */}
-                              <div className="mt-4 flex flex-wrap items-center gap-3">
+                              {/* Action Buttons - Mobile Grid */}
+                              <div className="mt-3 sm:mt-4 grid grid-cols-2 sm:flex sm:flex-wrap gap-2 sm:gap-3">
                                 {/* Download Original */}
                                 <a 
                                   href={artwork.file_url} 
                                   target="_blank" 
                                   rel="noopener noreferrer"
-                                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition"
+                                  className="inline-flex items-center justify-center gap-1.5 px-3 py-2 text-xs sm:text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition"
                                 >
                                   <Download className="h-4 w-4" />
-                                  Original File
+                                  <span className="hidden sm:inline">Original</span>
+                                  <span className="sm:hidden">Download</span>
                                 </a>
                                 
                                 {/* Download Proof (if available) */}
@@ -1410,10 +1419,10 @@ const DashboardPage: React.FC = () => {
                                     href={artwork.proof_url} 
                                     target="_blank" 
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition"
+                                    className="inline-flex items-center justify-center gap-1.5 px-3 py-2 text-xs sm:text-sm font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition"
                                   >
                                     <Download className="h-4 w-4" />
-                                    Download Proof
+                                    Proof
                                   </a>
                                 )}
                                 
@@ -1440,10 +1449,11 @@ const DashboardPage: React.FC = () => {
                                       setApprovalNotes('')
                                       setShowProofReviewModal(true)
                                     }}
-                                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 transition"
+                                    className="inline-flex items-center justify-center gap-1.5 px-3 py-2 text-xs sm:text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 transition col-span-2 sm:col-span-1"
                                   >
                                     <CheckCircle className="h-4 w-4" />
-                                    Review & Approve Proof
+                                    <span className="hidden sm:inline">Review & Approve</span>
+                                    <span className="sm:hidden">Approve Proof</span>
                                   </button>
                                 )}
                                 
@@ -1455,15 +1465,15 @@ const DashboardPage: React.FC = () => {
                                         setSelectedArtwork(artwork)
                                         setShowRevisionModal(true)
                                       }}
-                                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-orange-700 bg-orange-100 rounded-lg hover:bg-orange-200 transition"
+                                      className="inline-flex items-center justify-center gap-1.5 px-3 py-2 text-xs sm:text-sm font-medium text-orange-700 bg-orange-100 rounded-lg hover:bg-orange-200 transition"
                                     >
                                       <MessageSquare className="h-4 w-4" />
-                                      Leave Comment
+                                      Comment
                                     </button>
                                     
-                                    <label className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-purple-700 bg-purple-100 rounded-lg hover:bg-purple-200 transition cursor-pointer">
+                                    <label className="inline-flex items-center justify-center gap-1.5 px-3 py-2 text-xs sm:text-sm font-medium text-purple-700 bg-purple-100 rounded-lg hover:bg-purple-200 transition cursor-pointer">
                                       <Upload className="h-4 w-4" />
-                                      Upload Revised
+                                      Upload
                                       <input
                                         type="file"
                                         accept=".ai,.eps,.pdf,.png,.jpg,.jpeg,.tiff,.tif,.psd,.zip"
@@ -1483,33 +1493,33 @@ const DashboardPage: React.FC = () => {
                 )}
               </div>
 
-              {/* Workflow Status Legend */}
-              <div className="bg-white rounded-xl border border-gray-100 p-5">
-                <h3 className="font-semibold text-gray-900 mb-4">Artwork Review Workflow</h3>
-                <div className="flex flex-wrap gap-4">
+              {/* Workflow Status Legend - Mobile Responsive */}
+              <div className="bg-white rounded-xl border border-gray-100 p-4 md:p-5">
+                <h3 className="font-semibold text-gray-900 mb-3 md:mb-4 text-sm md:text-base">Artwork Review Workflow</h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-wrap gap-3 md:gap-4">
                   <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-yellow-400"></span>
-                    <span className="text-sm text-gray-600">Pending Review</span>
+                    <span className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-yellow-400"></span>
+                    <span className="text-xs md:text-sm text-gray-600">Pending</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-blue-400"></span>
-                    <span className="text-sm text-gray-600">In Review</span>
+                    <span className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-blue-400"></span>
+                    <span className="text-xs md:text-sm text-gray-600">In Review</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-purple-400"></span>
-                    <span className="text-sm text-gray-600">Prepress</span>
+                    <span className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-purple-400"></span>
+                    <span className="text-xs md:text-sm text-gray-600">Prepress</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-indigo-400"></span>
-                    <span className="text-sm text-gray-600">Proof Ready</span>
+                    <span className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-indigo-400"></span>
+                    <span className="text-xs md:text-sm text-gray-600">Proof Ready</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-green-400"></span>
-                    <span className="text-sm text-gray-600">Approved</span>
+                    <span className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-green-400"></span>
+                    <span className="text-xs md:text-sm text-gray-600">Approved</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-red-400"></span>
-                    <span className="text-sm text-gray-600">Revision Needed</span>
+                    <span className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-red-400"></span>
+                    <span className="text-xs md:text-sm text-gray-600">Revision</span>
                   </div>
                 </div>
               </div>
