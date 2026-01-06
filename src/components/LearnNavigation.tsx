@@ -9,6 +9,7 @@ const LEARN_PAGES = {
     icon: <Gift className="h-4 w-4" />,
     pages: [
       { name: 'Free Packaging Design Consultation', link: '/free-service/packaging-design-consultation', image: '/imgs/free/design/hero.webp' },
+      { name: 'Free Website Upgrade', link: '/free-service/website-upgrade', image: '/imgs/free/website/hero.webp' },
     ]
   },
   materials: {

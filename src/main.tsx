@@ -262,6 +262,7 @@ const HomeVsIndustrialCompostPage = lazyWithRetry(() => import('./pages/composti
 
 // Free Service Pages - Lazy loaded
 const FreePackagingDesignPage = lazyWithRetry(() => import('./pages/free-service/FreePackagingDesignPage'))
+const FreeWebsiteUpgradePage = lazyWithRetry(() => import('./pages/free-service/FreeWebsiteUpgradePage'))
 
 // Bio-PE Pages - Lazy loaded
 const WhatIsBioPEPage = lazyWithRetry(() => import('./pages/biope/WhatIsBioPEPage'))
@@ -469,6 +470,7 @@ createRoot(document.getElementById('root')!).render(
 
               {/* Free Service Pages */}
               <Route path="/free-service/packaging-design-consultation" element={<FreePackagingDesignPage />} />
+              <Route path="/free-service/website-upgrade" element={<FreeWebsiteUpgradePage />} />
 
               {/* Bio-PE Pages */}
               <Route path="/biope/what-is-bio-pe" element={<WhatIsBioPEPage />} />
