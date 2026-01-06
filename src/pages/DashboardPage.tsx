@@ -111,7 +111,8 @@ const DashboardPage: React.FC = () => {
     setLoading(true)
     
     // Fetch from database - orders by user_id OR customer_email for better matching
-    const [ordersRes, quotesRes, rfqRes, docsRes, artworksRes, savedRes, deletedArtworksRes] = await Promise.all([
+    // Artwork files: match by user_id OR customer_email for cases where CRM contact is assigned
+    const [ordersRes, quotesRes, rfqRes, docsRes, artworksRes, savedRes, deletedArtworksRes, artworksByEmailRes, deletedArtworksByEmailRes] = await Promise.all([
       supabase.from('orders').select('*').or(`user_id.eq.${user?.id},customer_email.eq.${user?.email}`).order('created_at', { ascending: false }),
       supabase.from('quotes').select('*').eq('user_id', user?.id).is('deleted_at', null).order('created_at', { ascending: false }),
       supabase.from('rfq_submissions').select('*').eq('user_id', user?.id).is('deleted_at', null).order('created_at', { ascending: false }),
@@ -120,6 +121,9 @@ const DashboardPage: React.FC = () => {
       supabase.from('saved_cart_items').select('*').eq('user_id', user?.id).order('created_at', { ascending: false }),
       // Fetch deleted artworks for bin
       supabase.from('artwork_files').select('*').eq('user_id', user?.id).not('deleted_at', 'is', null).order('deleted_at', { ascending: false }),
+      // Also fetch artworks by customer_email for CRM contact matching
+      supabase.from('artwork_files').select('*').eq('customer_email', user?.email).is('deleted_at', null).order('created_at', { ascending: false }),
+      supabase.from('artwork_files').select('*').eq('customer_email', user?.email).not('deleted_at', 'is', null).order('deleted_at', { ascending: false }),
     ])
     setOrders(ordersRes.data || [])
     
@@ -141,8 +145,28 @@ const DashboardPage: React.FC = () => {
     
     setQuotes(allQuotes)
     setDocuments(docsRes.data || [])
-    setArtworks(artworksRes.data || [])
-    setDeletedArtworks(deletedArtworksRes.data || [])
+    
+    // Merge artworks by user_id and customer_email, deduplicate by id
+    const artworksByUserId = artworksRes.data || []
+    const artworksByEmail = artworksByEmailRes.data || []
+    const allArtworksMap = new Map<string, ArtworkFile>()
+    artworksByUserId.forEach(a => allArtworksMap.set(a.id, a))
+    artworksByEmail.forEach(a => allArtworksMap.set(a.id, a))
+    const mergedArtworks = Array.from(allArtworksMap.values()).sort(
+      (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+    )
+    setArtworks(mergedArtworks)
+    
+    // Same for deleted artworks
+    const deletedByUserId = deletedArtworksRes.data || []
+    const deletedByEmail = deletedArtworksByEmailRes.data || []
+    const deletedMap = new Map<string, ArtworkFile>()
+    deletedByUserId.forEach(a => deletedMap.set(a.id, a))
+    deletedByEmail.forEach(a => deletedMap.set(a.id, a))
+    const mergedDeleted = Array.from(deletedMap.values()).sort(
+      (a, b) => new Date(b.deleted_at || b.created_at).getTime() - new Date(a.deleted_at || a.created_at).getTime()
+    )
+    setDeletedArtworks(mergedDeleted)
     setSavedItems(savedRes.data || [])
     setLoading(false)
   }

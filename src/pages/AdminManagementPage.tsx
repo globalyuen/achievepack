@@ -505,6 +505,7 @@ const AdminManagementPage: React.FC = () => {
         
         const insertData: any = {
           user_id: actualUserId,
+          customer_email: contactEmail, // Always save email for fallback matching
           name: file.name,
           file_url: fileUrl,
           file_type: file.type || 'unknown',
@@ -1901,6 +1902,9 @@ const AdminManagementPage: React.FC = () => {
                     // Check if this is a CRM Inquiry ID and if there's a matching Website Customer by email
                     const inquiry = inquiries.find(i => i.id === artworkAssignedUserId)
                     if (inquiry && inquiry.email) {
+                      // Always save customer_email for fallback matching in customer center
+                      updateData.customer_email = inquiry.email;
+                      
                       // Find matching Website Customer by email
                       const matchingCustomer = customers.find(c => c.email?.toLowerCase() === inquiry.email?.toLowerCase())
                       if (matchingCustomer) {
@@ -1908,12 +1912,16 @@ const AdminManagementPage: React.FC = () => {
                         updateData.user_id = matchingCustomer.id;
                         console.log('CRM Contact matched to Website Customer:', inquiry.email, '-> user_id:', matchingCustomer.id);
                       } else {
-                        // No matching customer, use inquiry ID (won't show in customer center)
+                        // No matching customer, use inquiry ID but email will enable fallback matching
                         updateData.user_id = artworkAssignedUserId;
-                        console.log('CRM Contact has no matching Website account, using inquiry ID:', artworkAssignedUserId);
+                        console.log('CRM Contact has no matching Website account, saved email for fallback:', inquiry.email);
                       }
                     } else {
-                      // Already a Website Customer ID
+                      // Already a Website Customer ID - also save their email
+                      const customer = customers.find(c => c.id === artworkAssignedUserId)
+                      if (customer?.email) {
+                        updateData.customer_email = customer.email;
+                      }
                       updateData.user_id = artworkAssignedUserId;
                       console.log('Updating artwork user_id to:', artworkAssignedUserId);
                     }
