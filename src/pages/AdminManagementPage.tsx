@@ -1884,8 +1884,25 @@ const AdminManagementPage: React.FC = () => {
                   
                   // Update assigned customer - always update if a customer is selected
                   if (artworkAssignedUserId) {
-                    updateData.user_id = artworkAssignedUserId;
-                    console.log('Updating artwork user_id to:', artworkAssignedUserId);
+                    // Check if this is a CRM Inquiry ID and if there's a matching Website Customer by email
+                    const inquiry = inquiries.find(i => i.id === artworkAssignedUserId)
+                    if (inquiry && inquiry.email) {
+                      // Find matching Website Customer by email
+                      const matchingCustomer = customers.find(c => c.email?.toLowerCase() === inquiry.email?.toLowerCase())
+                      if (matchingCustomer) {
+                        // Use Website Customer ID for proper customer center access
+                        updateData.user_id = matchingCustomer.id;
+                        console.log('CRM Contact matched to Website Customer:', inquiry.email, '-> user_id:', matchingCustomer.id);
+                      } else {
+                        // No matching customer, use inquiry ID (won't show in customer center)
+                        updateData.user_id = artworkAssignedUserId;
+                        console.log('CRM Contact has no matching Website account, using inquiry ID:', artworkAssignedUserId);
+                      }
+                    } else {
+                      // Already a Website Customer ID
+                      updateData.user_id = artworkAssignedUserId;
+                      console.log('Updating artwork user_id to:', artworkAssignedUserId);
+                    }
                   }
                   
                   // Handle link type
