@@ -27,15 +27,9 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-neutral-100' : 'bg-white border-b border-neutral-100'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Top Row: Logo centered + Icons on right */}
-          <div className="hidden lg:flex items-center justify-center h-12 relative">
-            {/* Center Logo */}
-            <Link to="/" className="flex items-center">
-              <img src="/ap-logo.svg" alt="Achieve Pack Logo" className="h-10 w-auto" loading="eager" decoding="async" width="140" height="40" />
-            </Link>
-            
-            {/* Right Icons - Absolute positioned */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center space-x-2">
+          {/* Top Row: Icons only on right */}
+          <div className="hidden lg:flex items-center justify-end h-8">
+            <div className="flex items-center space-x-2">
               <button
                 onClick={() => {
                   if (cartCount === 0) {
@@ -80,10 +74,17 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
             </div>
           </div>
           
-          {/* Bottom Row: Left menus + Right menus (aligned) */}
-          <div className="hidden lg:flex items-center justify-between h-10">
+          {/* Bottom Row: Left menus + LOGO center + Right menus */}
+          <div className="hidden lg:flex items-center justify-between h-14">
             {/* Left Navigation: SHAPE | CUSTOM | STOCK */}
             <MegaMenu hideLearnBlog={hideLearnBlog} />
+            
+            {/* Center Logo - Bigger */}
+            <div className="absolute left-1/2 -translate-x-1/2">
+              <Link to="/" className="flex items-center">
+                <img src="/ap-logo.svg" alt="Achieve Pack Logo" className="h-12 w-auto" loading="eager" decoding="async" width="160" height="48" />
+              </Link>
+            </div>
             
             {/* Right Navigation: LEARN | BLOG | FREE */}
             {!hideLearnBlog && <RightNavMenu />}
@@ -224,7 +225,7 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
       </nav>
 
       {/* Spacer for fixed header */}
-      <div className="h-16 lg:h-[88px]"></div>
+      <div className="h-16 lg:h-[86px]"></div>
     </>
   )
 }
