@@ -565,72 +565,71 @@ function App() {
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-neutral-100' : 'bg-white border-b border-neutral-100'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            {/* Full Width Navigation: Left Menus | Logo | Right Menus + Actions */}
-            <MegaMenu />
-
-            {/* Center Logo - Absolute positioned */}
-            <div className="hidden lg:flex items-center justify-center absolute left-1/2 -translate-x-1/2">
-              <Link to="/" className="flex items-center">
-                <img src="/ap-logo.svg" alt="Achieve Pack Logo" className="h-14 w-auto" loading="eager" decoding="async" width="180" height="56" fetchPriority="high" />
+          {/* Top Row: Logo centered + Icons on right */}
+          <div className="hidden lg:flex items-center justify-center h-12 relative">
+            {/* Center Logo */}
+            <Link to="/" className="flex items-center">
+              <img src="/ap-logo.svg" alt="Achieve Pack Logo" className="h-10 w-auto" loading="eager" decoding="async" width="140" height="40" fetchPriority="high" />
+            </Link>
+            
+            {/* Right Icons - Absolute positioned */}
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center space-x-2">
+              <button
+                onClick={() => {
+                  if (cartCount === 0) {
+                    navigate('/store')
+                  } else {
+                    setIsCartOpen(true)
+                  }
+                }}
+                className="relative w-8 h-8 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
+              >
+                <ShoppingCart className="h-4 w-4 text-white" />
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+                    {cartCount > 99 ? '99+' : cartCount}
+                  </span>
+                )}
+              </button>
+              <Link
+                to="/dashboard"
+                className="w-8 h-8 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
+              >
+                <User className="h-4 w-4 text-white" />
               </Link>
-            </div>
-
-            {/* Mobile Logo */}
-            <div className="lg:hidden flex items-center">
-              <Link to="/" className="flex items-center">
-                <img src="/ap-logo.svg" alt="Achieve Pack Logo" className="h-10 w-auto" loading="eager" decoding="async" width="120" height="40" fetchPriority="high" />
-              </Link>
-            </div>
-
-            {/* Right Side: Two Rows Layout */}
-            <div className="hidden lg:flex flex-col items-end justify-center gap-0.5">
-              {/* Top Row: Icons (Cart, User, Language) */}
-              <div className="flex items-center space-x-2">
+              <div className="relative">
                 <button
-                  onClick={() => {
-                    if (cartCount === 0) {
-                      navigate('/store')
-                    } else {
-                      setIsCartOpen(true)
-                    }
-                  }}
-                  className="relative w-8 h-8 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
-                >
-                  <ShoppingCart className="h-4 w-4 text-white" />
-                  {cartCount > 0 && (
-                    <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">
-                      {cartCount > 99 ? '99+' : cartCount}
-                    </span>
-                  )}
-                </button>
-                <Link
-                  to="/dashboard"
+                  onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
                   className="w-8 h-8 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
                 >
-                  <User className="h-4 w-4 text-white" />
-                </Link>
-                <div className="relative">
-                  <button
-                    onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                    className="w-8 h-8 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
-                  >
-                    <Globe className="h-4 w-4 text-white" />
-                  </button>
-                  {isLangMenuOpen && (
-                    <div className="absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-neutral-200 py-1 z-50">
-                      <button onClick={() => changeLanguage('en')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">English</button>
-                      <button onClick={() => changeLanguage('fr')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Français</button>
-                      <button onClick={() => changeLanguage('es')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Español</button>
-                      <button onClick={() => changeLanguage('zh-TW')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">繁體中文</button>
-                    </div>
-                  )}
-                </div>
+                  <Globe className="h-4 w-4 text-white" />
+                </button>
+                {isLangMenuOpen && (
+                  <div className="absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-neutral-200 py-1 z-50">
+                    <button onClick={() => changeLanguage('en')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">English</button>
+                    <button onClick={() => changeLanguage('fr')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Français</button>
+                    <button onClick={() => changeLanguage('es')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Español</button>
+                    <button onClick={() => changeLanguage('zh-TW')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">繁體中文</button>
+                  </div>
+                )}
               </div>
-              
-              {/* Bottom Row: LEARN | BLOG | FREE menus */}
-              <RightNavMenu />
             </div>
+          </div>
+          
+          {/* Bottom Row: Left menus + Right menus (aligned) */}
+          <div className="hidden lg:flex items-center justify-between h-10">
+            {/* Left Navigation: SHAPE | CUSTOM | STOCK */}
+            <MegaMenu />
+            
+            {/* Right Navigation: LEARN | BLOG | FREE */}
+            <RightNavMenu />
+          </div>
+          
+          {/* Mobile Layout */}
+          <div className="lg:hidden flex items-center justify-between h-16">
+            <Link to="/" className="flex items-center">
+              <img src="/ap-logo.svg" alt="Achieve Pack Logo" className="h-10 w-auto" loading="eager" decoding="async" width="120" height="40" fetchPriority="high" />
+            </Link>
 
             {/* Mobile Menu Button with Store Icon */}
             <div className="lg:hidden flex items-center gap-2">
