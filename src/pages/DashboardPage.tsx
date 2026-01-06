@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useTransition, useCallback } from 'react'
+import React, { useState, useEffect, useTransition, useCallback, useMemo } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { 
   Package, FileText, Palette, Settings, LogOut, Home, Download, Search, Bell, 
@@ -6,7 +6,7 @@ import {
   TrendingDown, Users, DollarSign, MoreHorizontal, Plus, RefreshCw, Eye, X, 
   MapPin, Phone, Mail as MailIcon, Truck, ExternalLink, Upload, CheckCircle, 
   Clock, AlertCircle, FileImage, MessageSquare, Send, Heart, Trash2, Globe, 
-  Camera, Info, Circle, PenLine, Link2
+  Camera, Info, Circle, PenLine, Link2, Sparkles, Star
 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, Order, Quote, Document, ArtworkFile, SavedCartItem } from '../lib/supabase'
@@ -519,6 +519,59 @@ const DashboardPage: React.FC = () => {
     })
   }, [])
 
+  // Generate AI summary of customer center status
+  const aiSummary = useMemo(() => {
+    const parts: string[] = []
+    
+    // Orders summary
+    if (orders.length > 0) {
+      const activeCount = orders.filter(o => o.status !== 'delivered' && o.status !== 'cancelled').length
+      const shippedCount = orders.filter(o => o.status === 'shipped').length
+      if (shippedCount > 0) {
+        parts.push(`${shippedCount} order${shippedCount > 1 ? 's' : ''} on the way`)
+      } else if (activeCount > 0) {
+        parts.push(`${activeCount} active order${activeCount > 1 ? 's' : ''}`)
+      } else {
+        parts.push(`${orders.length} completed order${orders.length > 1 ? 's' : ''}`)
+      }
+    }
+    
+    // Artwork summary
+    if (artworks.length > 0) {
+      const proofReady = artworks.filter(a => a.status === 'proof_ready').length
+      const pendingReview = artworks.filter(a => a.status === 'pending_review').length
+      if (proofReady > 0) {
+        parts.push(`${proofReady} proof${proofReady > 1 ? 's' : ''} ready for approval`)
+      } else if (pendingReview > 0) {
+        parts.push(`${pendingReview} artwork${pendingReview > 1 ? 's' : ''} in review`)
+      } else {
+        parts.push(`${artworks.length} artwork file${artworks.length > 1 ? 's' : ''}`)
+      }
+    }
+    
+    // Quotes summary
+    if (quotes.length > 0) {
+      const pending = quotes.filter(q => q.status === 'pending').length
+      if (pending > 0) {
+        parts.push(`${pending} pending quote${pending > 1 ? 's' : ''}`)
+      }
+    }
+    
+    // Saved items
+    if (savedItems.length > 0) {
+      parts.push(`${savedItems.length} saved item${savedItems.length > 1 ? 's' : ''}`)
+    }
+    
+    if (parts.length === 0) {
+      return "Ready to place your first order!"
+    }
+    
+    // Join with commas and 'and'
+    if (parts.length === 1) return `You have ${parts[0]}.`
+    if (parts.length === 2) return `You have ${parts[0]} and ${parts[1]}.`
+    return `You have ${parts.slice(0, -1).join(', ')}, and ${parts[parts.length - 1]}.`
+  }, [orders, artworks, quotes, savedItems])
+
   if (authLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -726,10 +779,19 @@ const DashboardPage: React.FC = () => {
                 <img src="/ap-logo.svg" alt="Logo" className="h-8 w-auto" />
               </Link>
             </div>
-            <div className="hidden lg:block">
-              <h1 className="text-lg text-gray-600">
-                Hey <span className="font-semibold text-gray-900">{getUserName()}</span> – {t('customerCenter.dashboard.welcome')}
-              </h1>
+            <div className="hidden lg:flex items-center gap-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shadow-sm">
+                <Sparkles className="h-5 w-5 text-white" />
+              </div>
+              <div>
+                <h1 className="text-lg font-semibold text-gray-900">
+                  Welcome back, {getUserName()}!
+                </h1>
+                <p className="text-sm text-gray-500 flex items-center gap-1.5">
+                  <Star className="h-3.5 w-3.5 text-amber-400 fill-amber-400" />
+                  {aiSummary}
+                </p>
+              </div>
             </div>
             <div className="flex items-center gap-4">
               <button className="relative p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-full transition">
