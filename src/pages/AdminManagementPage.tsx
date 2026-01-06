@@ -1799,9 +1799,10 @@ const AdminManagementPage: React.FC = () => {
                   if (artworkCustomerCode) updateData.customer_code = artworkCustomerCode;
                   if (artworkProductCode) updateData.product_code = artworkProductCode;
                   
-                  // Update assigned customer if changed
-                  if (artworkAssignedUserId && artworkAssignedUserId !== selectedArtwork.user_id) {
+                  // Update assigned customer - always update if a customer is selected
+                  if (artworkAssignedUserId) {
                     updateData.user_id = artworkAssignedUserId;
+                    console.log('Updating artwork user_id to:', artworkAssignedUserId);
                   }
                   
                   // Handle link type
