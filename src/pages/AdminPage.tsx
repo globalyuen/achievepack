@@ -1373,26 +1373,42 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
         </div>
 
         {/* Mobile Nav */}
-        <div className="md:hidden flex overflow-x-auto bg-white border-b px-2 py-2 gap-2">
+        <div className="md:hidden flex overflow-x-auto bg-white border-b px-2 py-2 gap-2 sticky top-0 z-30">
           {(['dashboard', 'customers', 'orders', 'documents', 'newsletter', 'crm', 'email-marketing', 'settings'] as TabType[]).map(tab => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap ${
+              className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-all ${
                 activeTab === tab
-                  ? 'bg-primary-500 text-white'
-                  : 'bg-gray-100 text-gray-700'
+                  ? 'bg-primary-500 text-white shadow-sm'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
-              {tab.charAt(0).toUpperCase() + tab.slice(1)}
+              {tab === 'dashboard' && <Home className="h-4 w-4" />}
+              {tab === 'customers' && <Users className="h-4 w-4" />}
+              {tab === 'orders' && <Package className="h-4 w-4" />}
+              {tab === 'documents' && <FileText className="h-4 w-4" />}
+              {tab === 'newsletter' && <Newspaper className="h-4 w-4" />}
+              {tab === 'crm' && <Inbox className="h-4 w-4" />}
+              {tab === 'email-marketing' && <Mail className="h-4 w-4" />}
+              {tab === 'settings' && <Settings className="h-4 w-4" />}
+              <span>{tab === 'email-marketing' ? 'Email' : tab.charAt(0).toUpperCase() + tab.slice(1)}</span>
             </button>
           ))}
+          {/* Direct links to Management page */}
           <Link
-            to="/image-catalog"
-            className="px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap bg-violet-100 text-violet-700 flex items-center gap-1"
+            to="/ctrl-x9k7m/management?tab=quotes"
+            className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap bg-blue-100 text-blue-700 hover:bg-blue-200 transition-all"
           >
-            <Sparkles className="h-4 w-4" />
-            AI Images
+            <FileCheck className="h-4 w-4" />
+            <span>Quotes</span>
+          </Link>
+          <Link
+            to="/ctrl-x9k7m/management?tab=artwork"
+            className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap bg-purple-100 text-purple-700 hover:bg-purple-200 transition-all"
+          >
+            <Image className="h-4 w-4" />
+            <span>Artwork</span>
           </Link>
         </div>
 

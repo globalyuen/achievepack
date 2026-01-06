@@ -6,14 +6,14 @@ import {
   TrendingDown, Users, DollarSign, MoreHorizontal, Plus, RefreshCw, Eye, X, 
   MapPin, Phone, Mail as MailIcon, Truck, ExternalLink, Upload, CheckCircle, 
   Clock, AlertCircle, FileImage, MessageSquare, Send, Heart, Trash2, Globe, 
-  Camera, Info, Circle, PenLine, Link2, Sparkles, Star
+  Camera, Info, Circle, PenLine, Link2, Sparkles, Star, RotateCcw, Archive
 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
-import { supabase, Order, Quote, Document, ArtworkFile, SavedCartItem } from '../lib/supabase'
+import { supabase, Order, Quote, Document, ArtworkFile, SavedCartItem, ArtworkComment } from '../lib/supabase'
 import { useTranslation } from 'react-i18next'
 import { useStore } from '../store/StoreContext'
 
-type TabType = 'dashboard' | 'orders' | 'quotes' | 'documents' | 'artwork' | 'saved' | 'settings'
+type TabType = 'dashboard' | 'orders' | 'quotes' | 'documents' | 'artwork' | 'saved' | 'settings' | 'bin'
 
 const statusColors: Record<string, string> = {
   pending: 'bg-yellow-100 text-yellow-800',
@@ -35,6 +35,7 @@ const DashboardPage: React.FC = () => {
   const [quotes, setQuotes] = useState<Quote[]>([])
   const [documents, setDocuments] = useState<Document[]>([])
   const [artworks, setArtworks] = useState<ArtworkFile[]>([])
+    const [deletedArtworks, setDeletedArtworks] = useState<ArtworkFile[]>([])
   const [savedItems, setSavedItems] = useState<SavedCartItem[]>([])
   const [loading, setLoading] = useState(true)
   const [activeTab, setActiveTab] = useState<TabType>('dashboard')
@@ -48,6 +49,14 @@ const DashboardPage: React.FC = () => {
   const [selectedArtwork, setSelectedArtwork] = useState<ArtworkFile | null>(null)
   const [revisionComment, setRevisionComment] = useState('')
   const [showRevisionModal, setShowRevisionModal] = useState(false)
+  
+  // Artwork comments states (Thread System)
+  const [artworkComments, setArtworkComments] = useState<ArtworkComment[]>([])
+  const [newComment, setNewComment] = useState('')
+  const [loadingComments, setLoadingComments] = useState(false)
+  const [showCommentsArtworkId, setShowCommentsArtworkId] = useState<string | null>(null)
+  const [threadFile, setThreadFile] = useState<File | null>(null)
+  const [uploadingThread, setUploadingThread] = useState(false)
   
   // Proof Review Modal states
   const [showProofReviewModal, setShowProofReviewModal] = useState(false)
@@ -102,13 +111,15 @@ const DashboardPage: React.FC = () => {
     setLoading(true)
     
     // Fetch from database - orders by user_id OR customer_email for better matching
-    const [ordersRes, quotesRes, rfqRes, docsRes, artworksRes, savedRes] = await Promise.all([
+    const [ordersRes, quotesRes, rfqRes, docsRes, artworksRes, savedRes, deletedArtworksRes] = await Promise.all([
       supabase.from('orders').select('*').or(`user_id.eq.${user?.id},customer_email.eq.${user?.email}`).order('created_at', { ascending: false }),
-      supabase.from('quotes').select('*').eq('user_id', user?.id).order('created_at', { ascending: false }),
-      supabase.from('rfq_submissions').select('*').eq('user_id', user?.id).order('created_at', { ascending: false }),
+      supabase.from('quotes').select('*').eq('user_id', user?.id).is('deleted_at', null).order('created_at', { ascending: false }),
+      supabase.from('rfq_submissions').select('*').eq('user_id', user?.id).is('deleted_at', null).order('created_at', { ascending: false }),
       supabase.from('documents').select('*').or(`user_id.eq.${user?.id},is_public.eq.true`).order('created_at', { ascending: false }),
-      supabase.from('artwork_files').select('*').eq('user_id', user?.id).order('created_at', { ascending: false }),
+      supabase.from('artwork_files').select('*').eq('user_id', user?.id).is('deleted_at', null).order('created_at', { ascending: false }),
       supabase.from('saved_cart_items').select('*').eq('user_id', user?.id).order('created_at', { ascending: false }),
+      // Fetch deleted artworks for bin
+      supabase.from('artwork_files').select('*').eq('user_id', user?.id).not('deleted_at', 'is', null).order('deleted_at', { ascending: false }),
     ])
     setOrders(ordersRes.data || [])
     
@@ -131,6 +142,7 @@ const DashboardPage: React.FC = () => {
     setQuotes(allQuotes)
     setDocuments(docsRes.data || [])
     setArtworks(artworksRes.data || [])
+    setDeletedArtworks(deletedArtworksRes.data || [])
     setSavedItems(savedRes.data || [])
     setLoading(false)
   }
@@ -344,6 +356,154 @@ const DashboardPage: React.FC = () => {
       fetchData()
     } catch (error) {
       console.error('Error submitting revision:', error)
+    }
+  }
+  
+  // Fetch comments for selected artwork
+  const fetchArtworkComments = async (artworkId: string) => {
+    setLoadingComments(true)
+    const { data, error } = await supabase
+      .from('artwork_comments')
+      .select('*')
+      .eq('artwork_id', artworkId)
+      .order('created_at', { ascending: true })
+    
+    if (!error && data) {
+      setArtworkComments(data)
+    }
+    setLoadingComments(false)
+  }
+  
+  // Delete artwork (customer can delete their own uploads) - Soft delete
+  const deleteArtwork = async (artworkId: string, artworkName: string) => {
+    if (!confirm(`Move "${artworkName}" to Bin? You can restore it later.`)) return
+    
+    try {
+      // Soft delete - update deleted_at instead of actual delete
+      const { error } = await supabase.from('artwork_files').update({ deleted_at: new Date().toISOString() }).eq('id', artworkId)
+      
+      if (error) {
+        throw new Error(error.message)
+      }
+      
+      // Refresh data
+      fetchData()
+    } catch (error: any) {
+      console.error('Error deleting artwork:', error)
+      alert('Failed to delete artwork: ' + error.message)
+    }
+  }
+  
+  // Restore artwork from bin
+  const restoreArtwork = async (artworkId: string) => {
+    try {
+      const { error } = await supabase.from('artwork_files').update({ deleted_at: null }).eq('id', artworkId)
+      if (error) throw new Error(error.message)
+      fetchData()
+    } catch (error: any) {
+      console.error('Error restoring artwork:', error)
+      alert('Failed to restore artwork: ' + error.message)
+    }
+  }
+  
+  // Permanently delete artwork from bin
+  const permanentlyDeleteArtwork = async (artworkId: string, artworkName: string) => {
+    if (!confirm(`Permanently delete "${artworkName}"? This cannot be undone!`)) return
+    
+    try {
+      const { error } = await supabase.from('artwork_files').delete().eq('id', artworkId)
+      if (error) throw new Error(error.message)
+      fetchData()
+    } catch (error: any) {
+      console.error('Error permanently deleting artwork:', error)
+      alert('Failed to permanently delete artwork: ' + error.message)
+    }
+  }
+  
+  // Add new comment from customer (supports text and file uploads for thread system)
+  const addArtworkComment = async (artworkId: string) => {
+    if (!newComment.trim() && !threadFile) return
+    
+    setUploadingThread(true)
+    try {
+      let fileUrl = ''
+      let fileName = ''
+      let fileSize = 0
+      let fileType = ''
+      let messageType: 'text' | 'file' = 'text'
+      
+      // If there's a file, upload it first
+      if (threadFile) {
+        const ext = threadFile.name.split('.').pop() || 'bin'
+        const storagePath = `threads/${artworkId}/${Date.now()}.${ext}`
+        
+        const { data: uploadData, error: storageError } = await supabase.storage
+          .from('artworks')
+          .upload(storagePath, threadFile, {
+            cacheControl: '3600',
+            upsert: false,
+            contentType: threadFile.type || 'application/octet-stream'
+          })
+        
+        if (storageError) throw new Error(storageError.message)
+        
+        const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(uploadData?.path || storagePath)
+        fileUrl = urlData.publicUrl
+        fileName = threadFile.name
+        fileSize = threadFile.size
+        fileType = threadFile.type || 'unknown'
+        messageType = 'file'
+      }
+      
+      const { error } = await supabase.from('artwork_comments').insert({
+        artwork_id: artworkId,
+        user_id: user?.id,
+        user_email: user?.email,
+        user_name: user?.email?.split('@')[0] || 'Customer',
+        is_admin: false,
+        message: newComment.trim() || (threadFile ? `Uploaded: ${threadFile.name}` : ''),
+        file_url: fileUrl || null,
+        file_name: fileName || null,
+        file_size: fileSize || null,
+        file_type: fileType || null,
+        message_type: messageType
+      })
+      
+      if (!error) {
+        // Send email notification to admin
+        const artwork = artworks.find(a => a.id === artworkId)
+        if (artwork) {
+          try {
+            await fetch('/api/send-artwork-notification', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                type: messageType === 'file' ? 'new_file' : 'new_message',
+                artworkId,
+                artworkName: artwork.name,
+                artworkCode: artwork.artwork_code,
+                customerEmail: user?.email,
+                customerName: user?.email?.split('@')[0],
+                message: newComment.trim() || undefined,
+                isAdmin: false,
+                fileUrl: fileUrl || undefined,
+                fileName: fileName || undefined
+              })
+            })
+          } catch (e) {
+            console.error('Failed to send notification:', e)
+          }
+        }
+        
+        setNewComment('')
+        setThreadFile(null)
+        fetchArtworkComments(artworkId)
+      }
+    } catch (error: any) {
+      console.error('Error adding comment:', error)
+      alert('Error: ' + error.message)
+    } finally {
+      setUploadingThread(false)
     }
   }
   
@@ -743,6 +903,27 @@ const DashboardPage: React.FC = () => {
           >
             <Settings className="h-5 w-5 mr-3" />
             Settings
+          </button>
+
+          <button
+            onClick={() => setActiveTab('bin')}
+            className={`flex items-center justify-between w-full px-4 py-2.5 text-sm font-medium rounded-lg transition ${
+              activeTab === 'bin'
+                ? 'bg-primary-500 text-white'
+                : 'text-gray-700 hover:bg-gray-100'
+            }`}
+          >
+            <div className="flex items-center">
+              <Archive className="h-5 w-5 mr-3" />
+              Bin
+            </div>
+            {deletedArtworks.length > 0 && (
+              <span className={`px-2 py-0.5 text-xs rounded-full ${
+                activeTab === 'bin' ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-600'
+              }`}>
+                {deletedArtworks.length}
+              </span>
+            )}
           </button>
         </nav>
 
@@ -1439,13 +1620,7 @@ const DashboardPage: React.FC = () => {
                               </span>
                             </div>
                             
-                            {/* Admin Feedback */}
-                            {artwork.admin_feedback && (
-                              <div className="bg-gray-50 rounded-lg p-2.5 md:p-3">
-                                <p className="text-[10px] md:text-xs font-medium text-gray-500 mb-0.5">Team Feedback:</p>
-                                <p className="text-xs md:text-sm text-gray-700">{artwork.admin_feedback}</p>
-                              </div>
-                            )}
+                            {/* Internal admin remark - hidden from customer */}
                             
                             {/* Customer Comment */}
                             {artwork.customer_comment && (
@@ -1537,7 +1712,161 @@ const DashboardPage: React.FC = () => {
                                   </label>
                                 </>
                               )}
+                              
+                              {/* Messages Button - Always Show */}
+                              <button
+                                onClick={() => {
+                                  if (showCommentsArtworkId === artwork.id) {
+                                    setShowCommentsArtworkId(null)
+                                    setArtworkComments([])
+                                  } else {
+                                    setShowCommentsArtworkId(artwork.id)
+                                    fetchArtworkComments(artwork.id)
+                                  }
+                                  setNewComment('')
+                                }}
+                                className="flex items-center justify-center gap-1.5 px-2 py-2.5 text-xs font-medium text-primary-700 bg-primary-50 rounded-lg hover:bg-primary-100 transition"
+                              >
+                                <MessageSquare className="h-4 w-4" />
+                                {showCommentsArtworkId === artwork.id ? 'Hide' : 'Messages'}
+                              </button>
+                              
+                              {/* Delete Button - Customer can delete their own artwork */}
+                              <button
+                                onClick={() => deleteArtwork(artwork.id, artwork.name)}
+                                className="flex items-center justify-center gap-1.5 px-2 py-2.5 text-xs font-medium text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition"
+                              >
+                                <Trash2 className="h-4 w-4" />
+                                Delete
+                              </button>
                             </div>
+                            
+                            {/* Thread System - Comment Exchange Section */}
+                            {showCommentsArtworkId === artwork.id && (
+                              <div className="bg-gray-50 rounded-lg p-3 border border-gray-200 mt-2">
+                                <h4 className="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
+                                  <MessageSquare className="h-3.5 w-3.5" />
+                                  Conversation Thread
+                                  <span className="text-[10px] font-normal text-gray-400">({artworkComments.length})</span>
+                                </h4>
+                                
+                                {/* Thread Timeline */}
+                                <div className="space-y-2 max-h-52 overflow-y-auto mb-3 pr-1">
+                                  {loadingComments ? (
+                                    <div className="text-center py-3 text-gray-400 text-xs">
+                                      <RefreshCw className="h-3.5 w-3.5 animate-spin mx-auto mb-1" />
+                                      Loading...
+                                    </div>
+                                  ) : artworkComments.length === 0 ? (
+                                    <div className="text-center py-4 text-gray-400">
+                                      <MessageSquare className="h-6 w-6 mx-auto mb-1 opacity-50" />
+                                      <p className="text-xs">No messages yet. Start the conversation!</p>
+                                    </div>
+                                  ) : (
+                                    artworkComments.map(comment => (
+                                      <div
+                                        key={comment.id}
+                                        className={`p-2.5 rounded-lg text-xs ${
+                                          comment.is_admin
+                                            ? 'bg-primary-50 border-l-3 border-primary-500 ml-3'
+                                            : 'bg-white border-l-3 border-green-500 mr-3 shadow-sm'
+                                        }`}
+                                      >
+                                        <div className="flex items-center justify-between mb-1.5">
+                                          <div className="flex items-center gap-1.5">
+                                            <span className={`px-1.5 py-0.5 rounded text-[10px] font-medium ${
+                                              comment.is_admin ? 'bg-primary-100 text-primary-700' : 'bg-green-100 text-green-700'
+                                            }`}>
+                                              {comment.is_admin ? '🔵 Admin' : '🟢 You'}
+                                            </span>
+                                            {comment.message_type === 'file' && (
+                                              <span className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-blue-100 text-blue-700">
+                                                📎 File
+                                              </span>
+                                            )}
+                                          </div>
+                                          <span className="text-[10px] text-gray-400">
+                                            {new Date(comment.created_at).toLocaleString()}
+                                          </span>
+                                        </div>
+                                        
+                                        {/* File attachment */}
+                                        {comment.file_url && (
+                                          <a
+                                            href={comment.file_url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center gap-2 p-2 mb-1.5 bg-white rounded border border-gray-200 hover:bg-gray-50 transition"
+                                          >
+                                            <FileText className="h-3.5 w-3.5 text-blue-600 flex-shrink-0" />
+                                            <div className="flex-1 min-w-0">
+                                              <p className="text-[11px] font-medium text-blue-600 truncate">{comment.file_name}</p>
+                                              {comment.file_size && (
+                                                <p className="text-[10px] text-gray-400">{formatFileSize(comment.file_size)}</p>
+                                              )}
+                                            </div>
+                                            <span className="text-[10px] text-blue-500">↓</span>
+                                          </a>
+                                        )}
+                                        
+                                        {/* Message text */}
+                                        {comment.message && !comment.message.startsWith('Uploaded:') && (
+                                          <p className="text-gray-700 whitespace-pre-wrap">{comment.message}</p>
+                                        )}
+                                      </div>
+                                    ))
+                                  )}
+                                </div>
+                                
+                                {/* File upload preview */}
+                                {threadFile && (
+                                  <div className="flex items-center gap-2 p-2 mb-2 bg-blue-50 rounded border border-blue-200">
+                                    <FileText className="h-3.5 w-3.5 text-blue-600" />
+                                    <span className="flex-1 text-[11px] text-blue-800 truncate">{threadFile.name}</span>
+                                    <button onClick={() => setThreadFile(null)} className="text-blue-600 hover:text-blue-800">
+                                      <X className="h-3.5 w-3.5" />
+                                    </button>
+                                  </div>
+                                )}
+                                
+                                {/* New Message Input with File Upload */}
+                                <div className="space-y-1.5">
+                                  <div className="flex gap-1.5">
+                                    <input
+                                      type="text"
+                                      value={newComment}
+                                      onChange={(e) => setNewComment(e.target.value)}
+                                      onKeyPress={(e) => e.key === 'Enter' && !uploadingThread && addArtworkComment(artwork.id)}
+                                      placeholder="Type a message..."
+                                      className="flex-1 px-2.5 py-1.5 text-xs border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+                                      disabled={uploadingThread}
+                                    />
+                                    <label className="px-2 py-1.5 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 cursor-pointer transition flex items-center">
+                                      <Upload className="h-3.5 w-3.5" />
+                                      <input
+                                        type="file"
+                                        className="hidden"
+                                        accept=".ai,.eps,.pdf,.png,.jpg,.jpeg,.tiff,.tif,.zip,.psd"
+                                        onChange={(e) => e.target.files?.[0] && setThreadFile(e.target.files[0])}
+                                        disabled={uploadingThread}
+                                      />
+                                    </label>
+                                    <button
+                                      onClick={() => addArtworkComment(artwork.id)}
+                                      disabled={(!newComment.trim() && !threadFile) || uploadingThread}
+                                      className="px-2.5 py-1.5 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition flex items-center"
+                                    >
+                                      {uploadingThread ? (
+                                        <RefreshCw className="h-3.5 w-3.5 animate-spin" />
+                                      ) : (
+                                        <Send className="h-3.5 w-3.5" />
+                                      )}
+                                    </button>
+                                  </div>
+                                  <p className="text-[9px] text-gray-400">Upload: AI, PDF, PNG, JPG, ZIP, PSD</p>
+                                </div>
+                              </div>
+                            )}
                           </div>
                         </div>
                       )
@@ -1778,6 +2107,80 @@ const DashboardPage: React.FC = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          )}
+
+          {/* Bin Tab - Deleted Items */}
+          {activeTab === 'bin' && (
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold text-gray-900">Bin</h1>
+                  <p className="text-sm text-gray-500 mt-1">Recover accidentally deleted items</p>
+                </div>
+                <button
+                  onClick={fetchData}
+                  className="flex items-center gap-2 px-4 py-2 bg-white border rounded-lg hover:bg-gray-50 text-sm"
+                >
+                  <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
+                  Refresh
+                </button>
+              </div>
+
+              {/* Stats */}
+              <div className="bg-white rounded-xl p-4 shadow-sm border">
+                <p className="text-sm text-gray-500">Items in Bin</p>
+                <p className="text-2xl font-bold text-gray-900 mt-1">{deletedArtworks.length}</p>
+              </div>
+
+              {/* Deleted Artworks Section */}
+              {deletedArtworks.length > 0 ? (
+                <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
+                  <div className="px-6 py-4 border-b bg-gray-50">
+                    <h3 className="font-semibold text-gray-900 flex items-center gap-2">
+                      <Image className="h-5 w-5 text-purple-600" />
+                      Deleted Artworks ({deletedArtworks.length})
+                    </h3>
+                  </div>
+                  <div className="divide-y divide-gray-200">
+                    {deletedArtworks.map(artwork => (
+                      <div key={artwork.id} className="px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-gray-50">
+                        <div className="flex items-center gap-3 min-w-0">
+                          <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <Image className="h-5 w-5 text-purple-600" />
+                          </div>
+                          <div className="min-w-0">
+                            <p className="text-sm font-medium text-gray-900 truncate">{artwork.name}</p>
+                            <p className="text-xs text-gray-500">Deleted {new Date(artwork.deleted_at || '').toLocaleDateString()}</p>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2 self-end sm:self-auto">
+                          <button
+                            onClick={() => restoreArtwork(artwork.id)}
+                            className="flex items-center gap-1 px-3 py-1.5 text-sm text-green-700 bg-green-50 rounded-lg hover:bg-green-100 transition"
+                          >
+                            <RotateCcw className="h-4 w-4" />
+                            Restore
+                          </button>
+                          <button
+                            onClick={() => permanentlyDeleteArtwork(artwork.id, artwork.name)}
+                            className="flex items-center gap-1 px-3 py-1.5 text-sm text-red-700 bg-red-50 rounded-lg hover:bg-red-100 transition"
+                          >
+                            <Trash2 className="h-4 w-4" />
+                            Delete Forever
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="text-center py-12 text-gray-500 bg-white rounded-xl border">
+                  <Archive className="h-12 w-12 mx-auto mb-4 text-gray-300" />
+                  <p>Bin is empty</p>
+                  <p className="text-sm mt-1">Deleted items will appear here</p>
+                </div>
+              )}
             </div>
           )}
         </main>

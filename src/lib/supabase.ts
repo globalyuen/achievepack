@@ -32,6 +32,7 @@ export type Order = {
   stripe_session_id?: string
   created_at: string
   updated_at: string
+  deleted_at?: string  // Soft delete for bin/trash
 }
 
 export type Quote = {
@@ -53,6 +54,7 @@ export type Quote = {
   admin_reply?: string
   quoted_amount?: number
   replied_at?: string
+  deleted_at?: string  // Soft delete for bin/trash
 }
 
 export type Document = {
@@ -130,6 +132,25 @@ export type ArtworkFile = {
   approved_date?: string
   approval_notes?: string
   revision_count?: number
+  deleted_at?: string  // Soft delete for bin/trash
+}
+
+// Artwork Comment for customer-admin exchange (Thread System)
+export type ArtworkComment = {
+  id: string
+  artwork_id: string
+  user_id: string
+  user_email?: string
+  user_name?: string
+  is_admin: boolean
+  message: string
+  // File upload fields for thread system
+  file_url?: string
+  file_name?: string
+  file_size?: number
+  file_type?: string
+  message_type: 'text' | 'file' | 'status'
+  created_at: string
 }
 
 export type NewsletterSubscriber = {
