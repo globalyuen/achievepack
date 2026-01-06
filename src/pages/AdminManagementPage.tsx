@@ -261,11 +261,14 @@ const AdminManagementPage: React.FC = () => {
     fileName?: string
   }) => {
     try {
-      await fetch('/api/send-artwork-notification', {
+      console.log('Sending artwork notification:', params)
+      const response = await fetch('/api/send-artwork-notification', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(params)
       })
+      const result = await response.json()
+      console.log('Notification result:', result)
     } catch (e) {
       console.error('Failed to send artwork notification:', e)
     }

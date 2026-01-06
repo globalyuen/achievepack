@@ -474,7 +474,12 @@ const DashboardPage: React.FC = () => {
         const artwork = artworks.find(a => a.id === artworkId)
         if (artwork) {
           try {
-            await fetch('/api/send-artwork-notification', {
+            console.log('Sending notification from customer:', {
+              artworkId,
+              artworkName: artwork.name,
+              customerEmail: user?.email
+            })
+            const resp = await fetch('/api/send-artwork-notification', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
@@ -490,6 +495,8 @@ const DashboardPage: React.FC = () => {
                 fileName: fileName || undefined
               })
             })
+            const result = await resp.json()
+            console.log('Notification result:', result)
           } catch (e) {
             console.error('Failed to send notification:', e)
           }
