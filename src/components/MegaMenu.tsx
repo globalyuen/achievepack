@@ -1,6 +1,6 @@
 import { useState, useRef, useMemo, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { ChevronDown, ChevronRight, Layers, Palette, Package, BookOpen, Calendar, FileText, Sparkles, Search, Leaf, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Menu, X, Sprout, Recycle } from 'lucide-react'
+import { ChevronDown, ChevronRight, Layers, Palette, Package, BookOpen, Calendar, FileText, Sparkles, Search, Leaf, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Menu, X, Sprout, Recycle, Gift } from 'lucide-react'
 import { useCustomQuote } from '../contexts/CustomQuoteContext'
 import { LEARN_PAGES } from './LearnNavigation'
 import { blogPosts } from '../data/blogData'
@@ -153,7 +153,24 @@ const CATEGORY_ICONS: Record<string, React.ReactNode> = {
   biope: <Sprout className="h-3.5 w-3.5" />,
   pcr: <Recycle className="h-3.5 w-3.5" />,
   recyclable: <Recycle className="h-3.5 w-3.5" />,
+  freeService: <Gift className="h-3.5 w-3.5" />,
 }
+
+// Free Service pages for FREE mega menu
+const FREE_SERVICE_PAGES = [
+  {
+    name: 'Free Packaging Design Consultation',
+    link: '/free-service/packaging-design-consultation',
+    image: '/imgs/free/design/hero.webp',
+    description: 'Expert feedback on your packaging design—completely FREE'
+  },
+  {
+    name: 'Free Website Upgrade',
+    link: '/free-service/website-upgrade',
+    image: '/imgs/free/website/hero.webp',
+    description: '20-min strategy call + high-conversion homepage concept'
+  }
+]
 
 interface MegaMenuDropdownProps {
   categories: { name: string; link: string }[]
@@ -744,6 +761,75 @@ export default function MegaMenu({ hideLearnBlog = false }: MegaMenuProps) {
                   <Link to="/blog" className="text-xs font-semibold text-primary-600 hover:text-primary-700 transition-colors">
                     View All Posts →
                   </Link>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* FREE - Glowing Button with Mega Menu */}
+        <div className="relative ml-2" onMouseEnter={() => handleMouseEnter('free')} onMouseLeave={handleMouseLeave}>
+          <button 
+            className={`flex items-center gap-1.5 px-4 py-2 text-sm font-bold rounded-lg transition-all ${
+              activeMenu === 'free' 
+                ? 'bg-green-500 text-white shadow-lg shadow-green-500/50' 
+                : 'bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-lg shadow-green-500/30 hover:shadow-green-500/50 animate-pulse hover:animate-none'
+            }`}
+          >
+            <Gift className="h-4 w-4" />
+            FREE
+            <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'free' ? 'rotate-180' : ''}`} />
+          </button>
+          {activeMenu === 'free' && (
+            <div className="fixed left-1/2 -translate-x-1/2 top-16 pt-2 z-50" onMouseEnter={() => handleMouseEnter('free')} onMouseLeave={handleMouseLeave}>
+              <div className="w-[95vw] max-w-[700px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
+                {/* Header */}
+                <div className="bg-gradient-to-r from-green-500 to-emerald-500 px-6 py-4 text-white">
+                  <div className="flex items-center gap-2 mb-1">
+                    <Gift className="h-5 w-5" />
+                    <h3 className="text-lg font-bold">Free Services</h3>
+                  </div>
+                  <p className="text-sm text-white/90">Expert help at absolutely no cost—just value for your brand</p>
+                </div>
+                
+                {/* Two Hero Images Side by Side */}
+                <div className="p-6">
+                  <div className="grid grid-cols-2 gap-6">
+                    {FREE_SERVICE_PAGES.map((service) => (
+                      <Link
+                        key={service.link}
+                        to={service.link}
+                        className="group block"
+                      >
+                        <div className="aspect-[4/3] rounded-xl overflow-hidden mb-3 bg-neutral-100 shadow-md group-hover:shadow-xl transition-shadow">
+                          <img
+                            src={service.image}
+                            alt={service.name}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            loading="lazy"
+                          />
+                        </div>
+                        <h4 className="text-sm font-bold text-neutral-800 group-hover:text-green-600 transition-colors mb-1">
+                          {service.name}
+                        </h4>
+                        <p className="text-xs text-neutral-500 line-clamp-2">{service.description}</p>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Footer with CTA */}
+                <div className="bg-neutral-50 px-6 py-4 border-t border-neutral-100 flex items-center justify-between">
+                  <span className="text-xs text-neutral-500">100% FREE • No hidden costs • No obligation</span>
+                  <a
+                    href="https://calendly.com/30-min-free-packaging-consultancy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-700 transition-colors shadow-md"
+                  >
+                    <Calendar className="h-4 w-4" />
+                    Book Free Call
+                  </a>
                 </div>
               </div>
             </div>
