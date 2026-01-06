@@ -366,7 +366,7 @@ const DashboardPage: React.FC = () => {
       .from('artwork_comments')
       .select('*')
       .eq('artwork_id', artworkId)
-      .order('created_at', { ascending: true })
+      .order('created_at', { ascending: false })
     
     if (!error && data) {
       setArtworkComments(data)
