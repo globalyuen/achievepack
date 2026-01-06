@@ -1036,6 +1036,69 @@ const DashboardPage: React.FC = () => {
                 </div>
               </div>
 
+              {/* Artwork Overview */}
+              {artworks.length > 0 && (
+                <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
+                  <div className="p-5 border-b border-gray-100 flex items-center justify-between">
+                    <h2 className="font-semibold text-gray-900 flex items-center gap-2">
+                      <Palette className="h-5 w-5 text-purple-600" />
+                      Artwork Overview
+                    </h2>
+                    <button onClick={() => setActiveTab('artwork')} className="text-sm text-primary-600 hover:text-primary-700 flex items-center gap-1">
+                      View All <ChevronRight className="h-4 w-4" />
+                    </button>
+                  </div>
+                  <div className="p-4">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                      <div className="bg-purple-50 rounded-lg p-3 text-center">
+                        <p className="text-2xl font-bold text-purple-700">{artworks.length}</p>
+                        <p className="text-xs text-purple-600">Total Files</p>
+                      </div>
+                      <div className="bg-blue-50 rounded-lg p-3 text-center">
+                        <p className="text-2xl font-bold text-blue-700">{artworks.filter(a => a.status === 'pending_review' || a.status === 'in_review').length}</p>
+                        <p className="text-xs text-blue-600">In Review</p>
+                      </div>
+                      <div className="bg-indigo-50 rounded-lg p-3 text-center">
+                        <p className="text-2xl font-bold text-indigo-700">{artworks.filter(a => a.status === 'proof_ready').length}</p>
+                        <p className="text-xs text-indigo-600">Proof Ready</p>
+                      </div>
+                      <div className="bg-green-50 rounded-lg p-3 text-center">
+                        <p className="text-2xl font-bold text-green-700">{artworks.filter(a => a.status === 'approved' || a.status === 'in_production').length}</p>
+                        <p className="text-xs text-green-600">Approved</p>
+                      </div>
+                    </div>
+                    {/* Recent Artwork Files */}
+                    <div className="mt-4 space-y-2">
+                      {artworks.slice(0, 3).map(artwork => {
+                        const statusInfo = getArtworkStatus(artwork.status)
+                        const StatusIcon = statusInfo.icon
+                        const isImage = artwork.file_type?.startsWith('image/') || /\.(png|jpg|jpeg|gif|webp)$/i.test(artwork.file_url || '')
+                        return (
+                          <div key={artwork.id} className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition">
+                            <div className="w-10 h-10 rounded-lg overflow-hidden bg-gray-100 flex-shrink-0">
+                              {isImage ? (
+                                <img src={artwork.file_url} alt="" className="w-full h-full object-cover" />
+                              ) : (
+                                <div className="w-full h-full flex items-center justify-center bg-purple-50">
+                                  <FileImage className="h-5 w-5 text-purple-400" />
+                                </div>
+                              )}
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <p className="text-sm font-medium text-gray-900 truncate">{artwork.name}</p>
+                              <p className="text-xs text-gray-500">{new Date(artwork.created_at).toLocaleDateString()}</p>
+                            </div>
+                            <span className={`inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded-full ${statusInfo.color}`}>
+                              <StatusIcon className="h-3 w-3" />
+                            </span>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
+                </div>
+              )}
+
               <div className="grid lg:grid-cols-3 gap-6">
                 {/* Recent Orders */}
                 <div className="lg:col-span-2 bg-white rounded-xl border border-gray-100">
