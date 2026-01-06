@@ -28,6 +28,8 @@ const AdminManagementPage: React.FC = () => {
   const [selectedQuote, setSelectedQuote] = useState<Quote | null>(null)
   const [selectedArtwork, setSelectedArtwork] = useState<ArtworkFile | null>(null)
   const [artworkFeedback, setArtworkFeedback] = useState('')
+  const [internalFile, setInternalFile] = useState<File | null>(null)  // Internal remark file
+  const [uploadingInternal, setUploadingInternal] = useState(false)
   const [adminReply, setAdminReply] = useState('')
   const [quotedAmount, setQuotedAmount] = useState('')
   
@@ -1783,21 +1785,87 @@ const AdminManagementPage: React.FC = () => {
                 <textarea
                   value={artworkFeedback}
                   onChange={(e) => setArtworkFeedback(e.target.value)}
-                  placeholder="Feedback for customer..."
+                  placeholder="Internal notes for team..."
                   rows={3}
                   className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 resize-none"
                 />
+                {/* Internal File Upload */}
+                <div className="mt-2 flex items-center gap-2">
+                  <label className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition cursor-pointer">
+                    <Upload className="h-3.5 w-3.5" />
+                    {internalFile ? internalFile.name : 'Attach File'}
+                    <input
+                      type="file"
+                      onChange={(e) => setInternalFile(e.target.files?.[0] || null)}
+                      className="hidden"
+                      accept=".pdf,.ai,.eps,.png,.jpg,.jpeg,.zip,.psd,.doc,.docx,.xls,.xlsx"
+                    />
+                  </label>
+                  {internalFile && (
+                    <button
+                      onClick={() => setInternalFile(null)}
+                      className="text-xs text-red-600 hover:text-red-700"
+                    >
+                      Remove
+                    </button>
+                  )}
+                </div>
+                {/* Show existing internal file if any */}
+                {selectedArtwork.admin_feedback?.includes('[Internal File:') && (
+                  <div className="mt-2 p-2 bg-amber-50 rounded-lg">
+                    <p className="text-xs text-amber-700 font-medium">📎 Attached Internal File:</p>
+                    {(() => {
+                      const match = selectedArtwork.admin_feedback.match(/\[Internal File: (.+?)\]\((.+?)\)/)
+                      if (match) {
+                        return (
+                          <a href={match[2]} target="_blank" rel="noopener noreferrer" className="text-xs text-amber-600 underline hover:text-amber-800">
+                            {match[1]}
+                          </a>
+                        )
+                      }
+                      return null
+                    })()}
+                  </div>
+                )}
               </div>
 
               {/* Save Coding Button */}
               <button
+                disabled={uploadingInternal}
                 onClick={async () => {
-                  const updateData: any = {
-                    updated_at: new Date().toISOString(),
-                    admin_feedback: artworkFeedback || null
-                  };
-                  if (artworkCustomerCode) updateData.customer_code = artworkCustomerCode;
-                  if (artworkProductCode) updateData.product_code = artworkProductCode;
+                  setUploadingInternal(true)
+                  try {
+                    let feedbackText = artworkFeedback || ''
+                    
+                    // Upload internal file if selected
+                    if (internalFile) {
+                      const ext = internalFile.name.split('.').pop() || 'bin'
+                      const storagePath = `internal/${selectedArtwork.id}/${Date.now()}.${ext}`
+                      
+                      const { data: uploadData, error: storageError } = await supabase.storage
+                        .from('artworks')
+                        .upload(storagePath, internalFile, {
+                          cacheControl: '3600',
+                          upsert: false,
+                          contentType: internalFile.type || 'application/octet-stream'
+                        })
+                      
+                      if (storageError) throw new Error(storageError.message)
+                      
+                      const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(uploadData?.path || storagePath)
+                      const fileUrl = urlData.publicUrl
+                      
+                      // Append file info to feedback
+                      feedbackText = feedbackText.replace(/\[Internal File: .+?\]\(.+?\)\s*/g, '') // Remove old file
+                      feedbackText = `${feedbackText}\n[Internal File: ${internalFile.name}](${fileUrl})`.trim()
+                    }
+                    
+                    const updateData: any = {
+                      updated_at: new Date().toISOString(),
+                      admin_feedback: feedbackText || null
+                    };
+                    if (artworkCustomerCode) updateData.customer_code = artworkCustomerCode;
+                    if (artworkProductCode) updateData.product_code = artworkProductCode;
                   
                   // Update assigned customer - always update if a customer is selected
                   if (artworkAssignedUserId) {
@@ -1828,8 +1896,15 @@ const AdminManagementPage: React.FC = () => {
                     alert('Error saving: ' + error.message);
                     return;
                   }
+                  setInternalFile(null)
                   await fetchData();
                   alert('Saved!');
+                  } catch (err: any) {
+                    console.error('Save error:', err)
+                    alert('Error: ' + err.message)
+                  } finally {
+                    setUploadingInternal(false)
+                  }
                 }}
                 className="w-full px-4 py-2.5 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition flex items-center justify-center gap-2"
               >
