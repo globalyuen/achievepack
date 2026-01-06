@@ -5,7 +5,7 @@ import { supabase, Quote, ArtworkFile, Profile } from '../lib/supabase'
 import { 
   Home, FileCheck, Image as ImageIcon, LogOut, Eye, Trash2, ArrowLeft, 
   RefreshCw, CheckCircle, Clock, AlertCircle, MessageSquare, X, 
-  Mail, Globe, Camera, FileText, Link2, Upload, Tag, Search, LayoutGrid, List
+  Mail, Globe, Camera, FileText, Link2, Upload, Tag, Search, LayoutGrid, List, Plus, User
 } from 'lucide-react'
 
 type TabType = 'quotes' | 'artwork'
@@ -37,6 +37,12 @@ const AdminManagementPage: React.FC = () => {
   // Search and view states
   const [artworkSearch, setArtworkSearch] = useState('')
   const [artworkViewMode, setArtworkViewMode] = useState<'card' | 'list'>('card')
+  
+  // Admin upload artwork states
+  const [showUploadModal, setShowUploadModal] = useState(false)
+  const [uploadCustomerId, setUploadCustomerId] = useState('')
+  const [uploading, setUploading] = useState(false)
+  const [uploadError, setUploadError] = useState('')
 
   // Check URL params for tab
   useEffect(() => {
@@ -177,6 +183,81 @@ const AdminManagementPage: React.FC = () => {
       await supabase.from('artwork_files').delete().eq('id', artworkId)
       fetchData()
       setSelectedArtwork(null)
+    }
+  }
+
+  // Admin upload artwork for customer
+  const handleAdminUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files
+    if (!files || files.length === 0) return
+    if (!uploadCustomerId) {
+      setUploadError('Please select a customer first')
+      return
+    }
+    
+    setUploading(true)
+    setUploadError('')
+    
+    try {
+      for (const file of Array.from(files) as File[]) {
+        // Validate file size (10MB limit)
+        const maxSize = 10 * 1024 * 1024
+        if (file.size > maxSize) {
+          setUploadError(`File "${file.name}" is too large. Maximum 10MB.`)
+          continue
+        }
+        
+        // Validate file type
+        const isValid = file.name.match(/\.(ai|eps|pdf|png|jpg|jpeg|tiff|tif|zip|psd)$/i)
+        if (!isValid) {
+          setUploadError(`Invalid file type: ${file.name}`)
+          continue
+        }
+        
+        // Upload to storage
+        const ext = file.name.split('.').pop() || 'bin'
+        const fileName = `${uploadCustomerId}/${Date.now()}.${ext}`
+        const { data: uploadData, error: storageError } = await supabase.storage
+          .from('artworks')
+          .upload(fileName, file, {
+            cacheControl: '3600',
+            upsert: false,
+            contentType: file.type || 'application/octet-stream'
+          })
+        
+        if (storageError) {
+          throw new Error(storageError.message)
+        }
+        
+        // Get public URL
+        const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(uploadData?.path || fileName)
+        const fileUrl = urlData.publicUrl
+        
+        // Insert database record
+        const { error: insertError } = await supabase.from('artwork_files').insert({
+          user_id: uploadCustomerId,
+          name: file.name,
+          file_url: fileUrl,
+          file_type: file.type || 'unknown',
+          file_size: file.size,
+          status: 'pending_review',
+          admin_feedback: 'Uploaded by admin'
+        })
+        
+        if (insertError) {
+          throw new Error(insertError.message)
+        }
+      }
+      
+      fetchData()
+      setShowUploadModal(false)
+      setUploadCustomerId('')
+      alert('Artwork uploaded successfully!')
+    } catch (error: any) {
+      console.error('Upload error:', error)
+      setUploadError(error.message || 'Upload failed')
+    } finally {
+      setUploading(false)
     }
   }
 
@@ -478,6 +559,14 @@ const AdminManagementPage: React.FC = () => {
                     <p className="text-sm text-gray-500 mt-1">Review and manage customer artwork</p>
                   </div>
                   <div className="flex items-center gap-2">
+                    {/* Upload Button */}
+                    <button
+                      onClick={() => setShowUploadModal(true)}
+                      className="flex items-center gap-2 px-3 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition text-sm"
+                    >
+                      <Plus className="h-4 w-4" />
+                      <span className="hidden sm:inline">Upload</span>
+                    </button>
                     {/* View Toggle */}
                     <div className="flex bg-gray-100 rounded-lg p-1">
                       <button
@@ -1131,6 +1220,91 @@ const AdminManagementPage: React.FC = () => {
                   Delete
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Admin Upload Artwork Modal */}
+      {showUploadModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-xl shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between p-4 border-b">
+              <h2 className="text-lg font-semibold text-gray-900">Upload Artwork for Customer</h2>
+              <button onClick={() => { setShowUploadModal(false); setUploadError(''); setUploadCustomerId(''); }} className="text-gray-500 hover:text-gray-700">
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="p-4 space-y-4">
+              {/* Customer Selection */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Select Customer</label>
+                <select
+                  value={uploadCustomerId}
+                  onChange={(e) => setUploadCustomerId(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                >
+                  <option value="">-- Select a customer --</option>
+                  {customers.map(customer => (
+                    <option key={customer.id} value={customer.id}>
+                      {customer.full_name || customer.email} {customer.company ? `(${customer.company})` : ''}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Selected Customer Info */}
+              {uploadCustomerId && (
+                <div className="bg-gray-50 rounded-lg p-3">
+                  <div className="flex items-center gap-2">
+                    <User className="h-5 w-5 text-gray-500" />
+                    <div>
+                      <p className="text-sm font-medium text-gray-900">
+                        {customers.find(c => c.id === uploadCustomerId)?.full_name || 'Unknown'}
+                      </p>
+                      <p className="text-xs text-gray-500">
+                        {customers.find(c => c.id === uploadCustomerId)?.email}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* File Upload */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Artwork File</label>
+                <label className={`flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-lg cursor-pointer transition ${
+                  uploadCustomerId ? 'border-gray-300 hover:border-primary-500 hover:bg-gray-50' : 'border-gray-200 bg-gray-50 cursor-not-allowed'
+                }`}>
+                  <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                    <Upload className={`h-8 w-8 mb-2 ${uploadCustomerId ? 'text-gray-500' : 'text-gray-300'}`} />
+                    <p className={`text-sm ${uploadCustomerId ? 'text-gray-500' : 'text-gray-400'}`}>
+                      {uploading ? 'Uploading...' : 'Click to upload'}
+                    </p>
+                    <p className="text-xs text-gray-400 mt-1">AI, EPS, PDF, PNG, JPG, PSD, ZIP (Max 10MB)</p>
+                  </div>
+                  <input
+                    type="file"
+                    multiple
+                    accept=".ai,.eps,.pdf,.png,.jpg,.jpeg,.tiff,.tif,.psd,.zip"
+                    onChange={handleAdminUpload}
+                    className="hidden"
+                    disabled={!uploadCustomerId || uploading}
+                  />
+                </label>
+              </div>
+
+              {/* Error Message */}
+              {uploadError && (
+                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                  {uploadError}
+                </div>
+              )}
+
+              {/* Note */}
+              <p className="text-xs text-gray-500">
+                The uploaded file will appear in the customer's Customer Center under "Artwork Files".
+              </p>
             </div>
           </div>
         </div>
