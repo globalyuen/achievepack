@@ -543,12 +543,27 @@ const AdminManagementPage: React.FC = () => {
     return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i]
   }
 
-  const getCustomer = (userId: string) => {
-    return customers.find(c => c.id === userId)
+  const getCustomer = (userId: string): { id: string; email?: string; full_name?: string; company?: string } | undefined => {
+    // First check Website Customers (profiles)
+    const customer = customers.find(c => c.id === userId)
+    if (customer) return customer
+    
+    // Then check CRM Inquiries
+    const inquiry = inquiries.find(i => i.id === userId)
+    if (inquiry) {
+      return {
+        id: inquiry.id,
+        email: inquiry.email,
+        full_name: inquiry.name,
+        company: inquiry.company
+      }
+    }
+    
+    return undefined
   }
 
   // Auto-generate customer code from name
-  const generateCustomerCode = (customer: Profile | undefined): string => {
+  const generateCustomerCode = (customer: { full_name?: string } | undefined): string => {
     if (!customer?.full_name) return ''
     const words = customer.full_name.toUpperCase().split(' ').filter(w => w.length > 0)
     if (words.length >= 2) {
