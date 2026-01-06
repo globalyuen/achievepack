@@ -1604,14 +1604,29 @@ const DashboardPage: React.FC = () => {
                     {artworks.map(artwork => {
                       const statusInfo = getArtworkStatus(artwork.status)
                       const StatusIcon = statusInfo.icon
+                      const isImage = artwork.file_type?.startsWith('image/') || /\.(png|jpg|jpeg|gif|webp)$/i.test(artwork.file_url || '')
                       return (
                         <div key={artwork.id} className="p-3 md:p-5 hover:bg-gray-50 transition">
                           {/* Mobile Card Layout */}
                           <div className="space-y-3">
-                            {/* Top Row: Icon + Name + Status */}
+                            {/* Top Row: Image Preview + Name + Status */}
                             <div className="flex items-start gap-3">
-                              <div className="w-10 h-10 md:w-12 md:h-12 bg-purple-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <FileImage className="h-5 w-5 md:h-6 md:w-6 text-purple-600" />
+                              <div className="w-16 h-16 md:w-20 md:h-20 rounded-lg flex-shrink-0 overflow-hidden bg-gray-100">
+                                {isImage ? (
+                                  <img 
+                                    src={artwork.file_url} 
+                                    alt={artwork.name}
+                                    className="w-full h-full object-cover"
+                                    onError={(e) => {
+                                      (e.target as HTMLImageElement).style.display = 'none'
+                                      ;(e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden')
+                                    }}
+                                  />
+                                ) : null}
+                                <div className={`w-full h-full flex flex-col items-center justify-center bg-purple-50 ${isImage ? 'hidden' : ''}`}>
+                                  <FileImage className="h-6 w-6 text-purple-400" />
+                                  <p className="text-[8px] text-purple-400 mt-0.5 text-center px-1">PDF/File</p>
+                                </div>
                               </div>
                               <div className="flex-1 min-w-0">
                                 <h3 className="font-semibold text-gray-900 text-sm md:text-base truncate">{artwork.name}</h3>

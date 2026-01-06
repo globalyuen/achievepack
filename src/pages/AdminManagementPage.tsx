@@ -942,22 +942,36 @@ const AdminManagementPage: React.FC = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {filteredArtworks.map(artwork => {
                     const customer = getCustomer(artwork.user_id)
+                    const isImage = artwork.file_type?.startsWith('image/') || /\.(png|jpg|jpeg|gif|webp)$/i.test(artwork.file_url || '')
                     return (
                       <div key={artwork.id} className="bg-white rounded-xl shadow-sm border overflow-hidden hover:shadow-md transition">
+                        {/* Artwork Preview */}
+                        <div className="relative h-32 bg-gray-100 overflow-hidden">
+                          {isImage ? (
+                            <img 
+                              src={artwork.file_url} 
+                              alt={artwork.name}
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                (e.target as HTMLImageElement).style.display = 'none'
+                                ;(e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden')
+                              }}
+                            />
+                          ) : null}
+                          <div className={`absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-purple-50 to-indigo-100 ${isImage ? 'hidden' : ''}`}>
+                            <ImageIcon className="h-8 w-8 text-purple-400 mb-1" />
+                            <p className="text-[10px] text-purple-500 text-center px-2">Click to preview file</p>
+                          </div>
+                          <span className={`absolute top-2 right-2 px-2 py-0.5 text-[10px] font-medium rounded-full ${getStatusColor(artwork.status)}`}>
+                            {artwork.status.replace(/_/g, ' ')}
+                          </span>
+                        </div>
                         <div className="p-4">
                           <div className="flex items-start justify-between mb-3">
-                            <div className="flex items-center gap-3 min-w-0">
-                              <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <ImageIcon className="h-5 w-5 text-purple-600" />
-                              </div>
-                              <div className="min-w-0">
-                                <p className="text-sm font-medium text-gray-900 truncate">{artwork.name}</p>
-                                <p className="text-xs text-gray-500">{formatFileSize(artwork.file_size)}</p>
-                              </div>
+                            <div className="min-w-0">
+                              <p className="text-sm font-medium text-gray-900 truncate">{artwork.name}</p>
+                              <p className="text-xs text-gray-500">{formatFileSize(artwork.file_size)}</p>
                             </div>
-                            <span className={`px-2 py-1 text-xs font-medium rounded-full flex-shrink-0 ${getStatusColor(artwork.status)}`}>
-                              {artwork.status.replace(/_/g, ' ')}
-                            </span>
                           </div>
 
                           {artwork.artwork_code && (
@@ -1018,12 +1032,27 @@ const AdminManagementPage: React.FC = () => {
                   <div className="divide-y divide-gray-100">
                     {filteredArtworks.map(artwork => {
                       const customer = getCustomer(artwork.user_id)
+                      const isImage = artwork.file_type?.startsWith('image/') || /\.(png|jpg|jpeg|gif|webp)$/i.test(artwork.file_url || '')
                       return (
                         <div key={artwork.id} className="p-3 md:p-4 hover:bg-gray-50">
                           {/* Mobile: Stack layout */}
                           <div className="flex items-start gap-3">
-                            <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                              <ImageIcon className="h-5 w-5 text-purple-600" />
+                            <div className="w-14 h-14 md:w-16 md:h-16 rounded-lg flex-shrink-0 overflow-hidden bg-gray-100">
+                              {isImage ? (
+                                <img 
+                                  src={artwork.file_url} 
+                                  alt={artwork.name}
+                                  className="w-full h-full object-cover"
+                                  onError={(e) => {
+                                    (e.target as HTMLImageElement).style.display = 'none'
+                                    ;(e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden')
+                                  }}
+                                />
+                              ) : null}
+                              <div className={`w-full h-full flex flex-col items-center justify-center bg-purple-50 ${isImage ? 'hidden' : ''}`}>
+                                <ImageIcon className="h-5 w-5 text-purple-400" />
+                                <p className="text-[8px] text-purple-400 mt-0.5">PDF/File</p>
+                              </div>
                             </div>
                             <div className="flex-1 min-w-0">
                               <div className="flex items-start justify-between gap-2">
