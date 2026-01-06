@@ -325,7 +325,7 @@ export default function MegaMenu({ hideLearnBlog = false }: MegaMenuProps) {
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'shape' ? 'rotate-180' : ''}`} />
           </button>
           {activeMenu === 'shape' && (
-            <div className="fixed left-1/2 -translate-x-1/2 top-16 pt-2 z-50" onMouseEnter={() => handleMouseEnter('shape')} onMouseLeave={handleMouseLeave}>
+            <div className="fixed left-1/2 -translate-x-1/2 top-20 pt-2 z-50" onMouseEnter={() => handleMouseEnter('shape')} onMouseLeave={handleMouseLeave}>
               <div className="w-[95vw] max-w-[1200px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
                 <div className="grid grid-cols-12">
                   {/* Left: Categories - Two Columns */}
@@ -404,7 +404,7 @@ export default function MegaMenu({ hideLearnBlog = false }: MegaMenuProps) {
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'custom' ? 'rotate-180' : ''}`} />
           </button>
           {activeMenu === 'custom' && (
-            <div className="fixed left-1/2 -translate-x-1/2 top-16 pt-2 z-50" onMouseEnter={() => handleMouseEnter('custom')} onMouseLeave={handleMouseLeave}>
+            <div className="fixed left-1/2 -translate-x-1/2 top-20 pt-2 z-50" onMouseEnter={() => handleMouseEnter('custom')} onMouseLeave={handleMouseLeave}>
               <div className="w-[95vw] max-w-[1100px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
                 <div className="grid grid-cols-12">
                   {/* Left: Order Types */}
@@ -482,7 +482,7 @@ export default function MegaMenu({ hideLearnBlog = false }: MegaMenuProps) {
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'stock' ? 'rotate-180' : ''}`} />
           </button>
           {activeMenu === 'stock' && (
-            <div className="fixed left-1/2 -translate-x-1/2 top-16 pt-2 z-50" onMouseEnter={() => handleMouseEnter('stock')} onMouseLeave={handleMouseLeave}>
+            <div className="fixed left-1/2 -translate-x-1/2 top-20 pt-2 z-50" onMouseEnter={() => handleMouseEnter('stock')} onMouseLeave={handleMouseLeave}>
               <div className="w-[95vw] max-w-[1100px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
                 <div className="grid grid-cols-12">
                   {/* Left: Order Types */}
@@ -603,7 +603,7 @@ export function RightNavMenu() {
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'learn' ? 'rotate-180' : ''}`} />
           </Link>
           {activeMenu === 'learn' && (
-            <div className="fixed left-1/2 -translate-x-1/2 top-16 pt-2 z-50" onMouseEnter={() => handleMouseEnter('learn')} onMouseLeave={handleMouseLeave}>
+            <div className="fixed left-1/2 -translate-x-1/2 top-20 pt-2 z-50" onMouseEnter={() => handleMouseEnter('learn')} onMouseLeave={handleMouseLeave}>
               <div className="w-[95vw] max-w-[1100px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
                 <div className="grid grid-cols-12">
                   {/* Left: All Categories */}
@@ -728,7 +728,7 @@ export function RightNavMenu() {
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'blog' ? 'rotate-180' : ''}`} />
           </Link>
           {activeMenu === 'blog' && (
-            <div className="fixed left-1/2 -translate-x-1/2 top-16 pt-2 z-50" onMouseEnter={() => handleMouseEnter('blog')} onMouseLeave={handleMouseLeave}>
+            <div className="fixed left-1/2 -translate-x-1/2 top-20 pt-2 z-50" onMouseEnter={() => handleMouseEnter('blog')} onMouseLeave={handleMouseLeave}>
               <div className="w-[95vw] max-w-[900px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
                 <div className="grid grid-cols-12">
                   {/* Left: Blog Categories */}
@@ -820,7 +820,7 @@ export function RightNavMenu() {
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'free' ? 'rotate-180' : ''}`} />
           </button>
           {activeMenu === 'free' && (
-            <div className="fixed left-1/2 -translate-x-1/2 top-16 pt-2 z-50" onMouseEnter={() => handleMouseEnter('free')} onMouseLeave={handleMouseLeave}>
+            <div className="fixed left-1/2 -translate-x-1/2 top-20 pt-2 z-50" onMouseEnter={() => handleMouseEnter('free')} onMouseLeave={handleMouseLeave}>
               <div className="w-[95vw] max-w-[700px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
                 {/* Header */}
                 <div className="bg-gradient-to-r from-green-500 to-emerald-500 px-6 py-4 text-white">
