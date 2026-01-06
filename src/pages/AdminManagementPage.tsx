@@ -1505,7 +1505,7 @@ const AdminManagementPage: React.FC = () => {
                           <optgroup label={`Website Customers (${filteredC.length})`}>
                             {filteredC.map(c => (
                               <option key={c.id} value={c.id}>
-                                {c.full_name || c.email} {c.company ? `(${c.company})` : ''}
+                                {c.email} {c.full_name ? `- ${c.full_name}` : ''} {c.company ? `(${c.company})` : ''}
                               </option>
                             ))}
                           </optgroup>
@@ -1528,7 +1528,10 @@ const AdminManagementPage: React.FC = () => {
                 </select>
                 {(artworkAssignedUserId || selectedArtwork.user_id) && (
                   <p className="text-xs text-gray-600 mt-2">
-                    Current: {getCustomer(artworkAssignedUserId || selectedArtwork.user_id)?.full_name || getCustomer(artworkAssignedUserId || selectedArtwork.user_id)?.email || 'Unknown'}
+                    Current: <span className="font-medium text-amber-700">{getCustomer(artworkAssignedUserId || selectedArtwork.user_id)?.email || 'Unknown Email'}</span>
+                    {getCustomer(artworkAssignedUserId || selectedArtwork.user_id)?.full_name && (
+                      <span className="text-gray-500"> ({getCustomer(artworkAssignedUserId || selectedArtwork.user_id)?.full_name})</span>
+                    )}
                   </p>
                 )}
               </div>
