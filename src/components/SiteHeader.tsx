@@ -1,9 +1,9 @@
 import { useState, useCallback } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { ShoppingCart, User, Globe, Menu, X } from 'lucide-react'
+import { ShoppingCart, User, Globe, Menu, X, Gift } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
-import MegaMenu from './MegaMenu'
+import MegaMenu, { RightNavMenu } from './MegaMenu'
 
 interface SiteHeaderProps {
   showLanguageSelector?: boolean
@@ -28,7 +28,7 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-neutral-100' : 'bg-white border-b border-neutral-100'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Full Width Navigation: Left Menus | Logo | Right Menus + Actions */}
+            {/* Left Navigation: SHAPE | CUSTOM | STOCK */}
             <MegaMenu hideLearnBlog={hideLearnBlog} />
 
             {/* Center Logo - Absolute positioned */}
@@ -45,49 +45,55 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
               </Link>
             </div>
 
-            {/* Right Actions */}
-            <div className="hidden lg:flex items-center space-x-3">
-              <button
-                onClick={() => {
-                  if (cartCount === 0) {
-                    navigate('/store')
-                  } else {
-                    setIsCartOpen(true)
-                  }
-                }}
-                className="relative w-10 h-10 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
-              >
-                <ShoppingCart className="h-5 w-5 text-white" />
-                {cartCount > 0 && (
-                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center">
-                    {cartCount > 99 ? '99+' : cartCount}
-                  </span>
-                )}
-              </button>
-              <Link
-                to="/dashboard"
-                className="w-10 h-10 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
-              >
-                <User className="h-5 w-5 text-white" />
-              </Link>
-              {showLanguageSelector && (
-                <div className="relative">
-                  <button
-                    onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                    className="w-10 h-10 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
-                  >
-                    <Globe className="h-5 w-5 text-white" />
-                  </button>
-                  {isLangMenuOpen && (
-                    <div className="absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-neutral-200 py-1 z-50">
-                      <button onClick={() => changeLanguage('en')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">English</button>
-                      <button onClick={() => changeLanguage('fr')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Français</button>
-                      <button onClick={() => changeLanguage('es')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Español</button>
-                      <button onClick={() => changeLanguage('zh-TW')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">繁體中文</button>
-                    </div>
+            {/* Right Side: Two Rows Layout */}
+            <div className="hidden lg:flex flex-col items-end justify-center gap-0.5">
+              {/* Top Row: Icons (Cart, User, Language) */}
+              <div className="flex items-center space-x-2">
+                <button
+                  onClick={() => {
+                    if (cartCount === 0) {
+                      navigate('/store')
+                    } else {
+                      setIsCartOpen(true)
+                    }
+                  }}
+                  className="relative w-8 h-8 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
+                >
+                  <ShoppingCart className="h-4 w-4 text-white" />
+                  {cartCount > 0 && (
+                    <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+                      {cartCount > 99 ? '99+' : cartCount}
+                    </span>
                   )}
-                </div>
-              )}
+                </button>
+                <Link
+                  to="/dashboard"
+                  className="w-8 h-8 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
+                >
+                  <User className="h-4 w-4 text-white" />
+                </Link>
+                {showLanguageSelector && (
+                  <div className="relative">
+                    <button
+                      onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+                      className="w-8 h-8 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
+                    >
+                      <Globe className="h-4 w-4 text-white" />
+                    </button>
+                    {isLangMenuOpen && (
+                      <div className="absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-neutral-200 py-1 z-50">
+                        <button onClick={() => changeLanguage('en')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">English</button>
+                        <button onClick={() => changeLanguage('fr')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Français</button>
+                        <button onClick={() => changeLanguage('es')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Español</button>
+                        <button onClick={() => changeLanguage('zh-TW')} className="block w-full text-left px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100">繁體中文</button>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+              
+              {/* Bottom Row: LEARN | BLOG | FREE menus */}
+              {!hideLearnBlog && <RightNavMenu />}
             </div>
 
             {/* Mobile Menu Button with Store Icon */}
@@ -168,6 +174,23 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
                     <Link to="/blog?category=Packaging" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Packaging Tips</Link>
                     <Link to="/blog?category=Sustainability" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Sustainability</Link>
                     <Link to="/blog?category=Industry" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Industry News</Link>
+                  </div>
+                </div>
+              )}
+
+              {/* FREE Services Section */}
+              {!hideLearnBlog && (
+                <div className="border-t border-neutral-100 pt-3">
+                  <p className="text-xs font-bold text-green-600 uppercase mb-2 flex items-center gap-1">
+                    <Gift className="h-3 w-3" /> FREE Services
+                  </p>
+                  <div className="space-y-1">
+                    <Link to="/free-service/packaging-design-consultation" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">
+                      🎨 Free Design Consultation
+                    </Link>
+                    <Link to="/free-service/website-upgrade" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">
+                      🌐 Free Website Upgrade
+                    </Link>
                   </div>
                 </div>
               )}

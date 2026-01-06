@@ -552,10 +552,49 @@ export default function MegaMenu({ hideLearnBlog = false }: MegaMenuProps) {
           )}
         </div>
       </nav>
+    </div>
+  )
+}
 
-      {/* Right Navigation: LEARN | BLOG - conditionally hidden */}
-      {!hideLearnBlog && (
-      <nav className="flex items-center">
+// Separate RightNavMenu component for LEARN | BLOG | FREE
+export function RightNavMenu() {
+  const [activeMenu, setActiveMenu] = useState<string | null>(null)
+  const [activeCategory, setActiveCategory] = useState<string | null>(null)
+  const [hoveredPage, setHoveredPage] = useState<{ name: string; link: string; image: string } | null>(null)
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+  
+  // Pre-fill Learn menu with random content when it opens
+  useEffect(() => {
+    if (activeMenu === 'learn' && !activeCategory) {
+      const categoryKeys = Object.keys(LEARN_PAGES)
+      const randomCategoryKey = categoryKeys[Math.floor(Math.random() * categoryKeys.length)]
+      setActiveCategory(randomCategoryKey)
+      const category = LEARN_PAGES[randomCategoryKey as keyof typeof LEARN_PAGES]
+      if (category && category.pages.length > 0) {
+        const randomPage = category.pages[Math.floor(Math.random() * category.pages.length)]
+        setHoveredPage(randomPage)
+      }
+    }
+  }, [activeMenu])
+  
+  useEffect(() => {
+    if (activeMenu !== 'learn') {
+      setActiveCategory(null)
+      setHoveredPage(null)
+    }
+  }, [activeMenu])
+
+  const handleMouseEnter = (menuId: string) => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    setActiveMenu(menuId)
+  }
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => setActiveMenu(null), 150)
+  }
+
+  return (
+    <nav className="flex items-center">
         {/* LEARN */}
         <div className="relative" onMouseEnter={() => handleMouseEnter('learn')} onMouseLeave={handleMouseLeave}>
           <Link to="/learn" className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors ${activeMenu === 'learn' ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'}`}>
@@ -835,8 +874,6 @@ export default function MegaMenu({ hideLearnBlog = false }: MegaMenuProps) {
             </div>
           )}
         </div>
-      </nav>
-      )}
-    </div>
+    </nav>
   )
 }
