@@ -560,7 +560,17 @@ export default function MegaMenu({ hideLearnBlog = false }: MegaMenuProps) {
                       {Object.entries(LEARN_PAGES).map(([key, category]) => (
                         <li key={key}>
                           <button
-                            onMouseEnter={() => { setActiveCategory(key); setHoveredPage(null); }}
+                            onMouseEnter={() => { 
+                              setActiveCategory(key); 
+                              // Auto-select a random page from this category to show preview
+                              const pages = category.pages;
+                              if (pages.length > 0) {
+                                const randomPage = pages[Math.floor(Math.random() * pages.length)];
+                                setHoveredPage(randomPage);
+                              } else {
+                                setHoveredPage(null);
+                              }
+                            }}
                             className={`w-full flex items-center justify-between py-1.5 px-2 rounded-lg text-xs font-medium transition-all ${
                               activeCategory === key ? 'bg-primary-100 text-primary-700' : 'text-neutral-700 hover:bg-neutral-100'
                             }`}
