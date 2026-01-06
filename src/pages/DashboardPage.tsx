@@ -239,6 +239,7 @@ const DashboardPage: React.FC = () => {
           .from('artwork_files')
           .insert({
             user_id: user?.id,
+            customer_email: user?.email, // Always save email for reliable matching
             name: file.name,
             file_url: fileUrl,
             file_type: file.type || 'unknown',
@@ -327,6 +328,7 @@ const DashboardPage: React.FC = () => {
           .from('artwork_files')
           .insert({
             user_id: user?.id,
+            customer_email: user?.email, // Always save email for reliable matching
             order_id: orderId,
             order_number: orderNumber,
             name: file.name,
