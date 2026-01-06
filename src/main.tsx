@@ -260,6 +260,9 @@ const CompostingBenefitsPage = lazyWithRetry(() => import('./pages/composting/Co
 const CommercialCompostingPage = lazyWithRetry(() => import('./pages/composting/CommercialCompostingPage'))
 const HomeVsIndustrialCompostPage = lazyWithRetry(() => import('./pages/composting/HomeVsIndustrialCompostPage'))
 
+// Free Service Pages - Lazy loaded
+const FreePackagingDesignPage = lazyWithRetry(() => import('./pages/free-service/FreePackagingDesignPage'))
+
 // Bio-PE Pages - Lazy loaded
 const WhatIsBioPEPage = lazyWithRetry(() => import('./pages/biope/WhatIsBioPEPage'))
 const BioPEVsCompostablePage = lazyWithRetry(() => import('./pages/biope/BioPEVsCompostablePage'))
@@ -463,6 +466,9 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/composting/composting-benefits" element={<CompostingBenefitsPage />} />
                             <Route path="/composting/commercial-composting" element={<CommercialCompostingPage />} />
               <Route path="/composting/home-vs-industrial-compostable" element={<HomeVsIndustrialCompostPage />} />
+
+              {/* Free Service Pages */}
+              <Route path="/free-service/packaging-design-consultation" element={<FreePackagingDesignPage />} />
 
               {/* Bio-PE Pages */}
               <Route path="/biope/what-is-bio-pe" element={<WhatIsBioPEPage />} />
