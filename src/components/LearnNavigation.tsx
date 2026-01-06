@@ -4,6 +4,13 @@ import { ChevronRight, ChevronDown, Leaf, Package, Factory, FileText, BookOpen, 
 
 // All SEO pages mapped with illustrated images - COMPLETE LIST
 const LEARN_PAGES = {
+  freeService: {
+    title: 'Free Service',
+    icon: <Gift className="h-4 w-4" />,
+    pages: [
+      { name: 'Free Packaging Design Consultation', link: '/free-service/packaging-design-consultation', image: '/imgs/free/design/hero.webp' },
+    ]
+  },
   materials: {
     title: 'Materials',
     icon: <Leaf className="h-4 w-4" />,
@@ -228,13 +235,6 @@ const LEARN_PAGES = {
       { name: 'Mono-Material Foundation', link: '/recyclable/mono-material-foundation', image: '/imgs/recyclable/foundation/hero.webp?v=2' },
       { name: 'Recyclable Mono-PE', link: '/materials/recyclable-mono-pe', image: '/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp' },
       { name: 'Recyclable Mono-PP', link: '/materials/recyclable-mono-pp', image: '/imgs/illustrated/a_recyclable_mono_pp_card_v2_2805205.webp' },
-    ]
-  },
-  freeService: {
-    title: 'Free Service',
-    icon: <Gift className="h-4 w-4" />,
-    pages: [
-      { name: 'Free Packaging Design Consultation', link: '/free-service/packaging-design-consultation', image: '/imgs/free/design/hero.webp' },
     ]
   },
 }
