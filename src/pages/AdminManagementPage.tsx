@@ -489,8 +489,22 @@ const AdminManagementPage: React.FC = () => {
         const fileUrl = urlData.publicUrl
         
         // Insert database record
+        // For CRM inquiry, check if there's a matching Website Customer by email
+        let actualUserId = uploadCustomerId
+        if (uploadContactType === 'inquiry') {
+          const matchingCustomer = customers.find(c => c.email?.toLowerCase() === contactEmail.toLowerCase())
+          if (matchingCustomer) {
+            actualUserId = matchingCustomer.id
+            console.log('CRM Contact matched to Website Customer:', contactEmail, '-> user_id:', matchingCustomer.id)
+          } else {
+            // No matching customer - artwork won't appear in customer center
+            actualUserId = uploadCustomerId
+            console.log('CRM Contact has no matching Website account, using inquiry ID:', uploadCustomerId)
+          }
+        }
+        
         const insertData: any = {
-          user_id: uploadContactType === 'customer' ? uploadCustomerId : user?.id, // For inquiry, use admin's ID
+          user_id: actualUserId,
           name: file.name,
           file_url: fileUrl,
           file_type: file.type || 'unknown',
