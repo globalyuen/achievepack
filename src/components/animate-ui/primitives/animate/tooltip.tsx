@@ -401,8 +401,8 @@ function shallowEqualWithoutChildren(
   const keysB = Object.keys(b).filter((k) => k !== 'children');
   if (keysA.length !== keysB.length) return false;
   for (const k of keysA) {
-    // index access
-    if (a[k as keyof typeof a] !== b[k as keyof typeof b]) return false;
+    // @ts-ignore index
+    if (a[k] !== b[k]) return false;
   }
   return true;
 }

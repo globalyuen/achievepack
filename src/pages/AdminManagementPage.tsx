@@ -16,6 +16,7 @@ import { DataManagementBar } from '../components/ui/DataManagementBar'
 import { CheckCircle as ApproveIcon, XCircle as RejectIcon, Send as SendIcon } from 'lucide-react'
 import { NotificationList, type Notification } from '../components/animate-ui/components/community/notification-list'
 import { PinList, type PinListItem } from '../components/animate-ui/components/community/pin-list'
+import { ArtworkStatusAvatar, AdminWorkQueue, type StatusItem, type WorkItem, type ArtworkStatus } from '../components/animate-ui/components/community/user-presence-avatar'
 
 type TabType = 'quotes' | 'artwork' | 'bin'
 
@@ -228,6 +229,98 @@ const AdminManagementPage: React.FC = () => {
     // Sort: pinned first
     return items.sort((a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0))
   }, [quotes, artworks, pinnedIds])
+  
+  // Artwork status items for ArtworkStatusAvatar
+  const artworkStatusItems: StatusItem[] = useMemo(() => {
+    return artworks.map(a => {
+      const customer = customers.find(c => c.id === a.user_id)
+      return {
+        id: a.id,
+        name: a.name,
+        fallback: a.name.slice(0, 2).toUpperCase(),
+        tooltip: customer?.full_name || customer?.email || 'Unassigned',
+        status: a.status as ArtworkStatus,
+        onClick: () => {
+          setActiveTab('artwork')
+          setSelectedArtwork(a)
+        }
+      }
+    })
+  }, [artworks, customers])
+  
+  // Admin work queue items (items needing attention)
+  const workQueueItems: WorkItem[] = useMemo(() => {
+    const items: WorkItem[] = []
+    
+    // Pending quotes need response
+    quotes.filter(q => q.status === 'pending').forEach(q => {
+      const customer = customers.find(c => c.id === q.user_id)
+      items.push({
+        id: q.id,
+        type: 'quote',
+        name: q.is_rfq ? `RFQ: ${q.quote_number}` : `Quote: ${q.quote_number}`,
+        customerName: customer?.full_name || customer?.email,
+        status: 'pending',
+        urgent: true,
+        onClick: () => {
+          setActiveTab('quotes')
+          setSelectedQuote(q)
+        }
+      })
+    })
+    
+    // Artworks needing review
+    artworks.filter(a => a.status === 'pending_review').forEach(a => {
+      const customer = customers.find(c => c.id === a.user_id)
+      items.push({
+        id: a.id,
+        type: 'artwork',
+        name: a.name,
+        customerName: customer?.full_name || customer?.email,
+        status: 'pending_review',
+        urgent: true,
+        onClick: () => {
+          setActiveTab('artwork')
+          setSelectedArtwork(a)
+        }
+      })
+    })
+    
+    // Artworks in prepress (active work)
+    artworks.filter(a => a.status === 'prepress' || a.status === 'in_review').forEach(a => {
+      const customer = customers.find(c => c.id === a.user_id)
+      items.push({
+        id: a.id,
+        type: 'artwork',
+        name: a.name,
+        customerName: customer?.full_name || customer?.email,
+        status: a.status,
+        urgent: false,
+        onClick: () => {
+          setActiveTab('artwork')
+          setSelectedArtwork(a)
+        }
+      })
+    })
+    
+    // Active orders
+    orders.filter(o => o.status === 'pending' || o.status === 'processing').forEach(o => {
+      const customer = customers.find(c => c.id === o.user_id)
+      items.push({
+        id: o.id,
+        type: 'order',
+        name: `Order #${o.order_number || o.id.slice(0, 8)}`,
+        customerName: customer?.full_name || customer?.email,
+        status: o.status,
+        urgent: o.status === 'pending',
+        onClick: () => {
+          // Navigate to order if applicable
+        }
+      })
+    })
+    
+    return items
+  }, [quotes, artworks, orders, customers])
 
   // Check URL params for tab
   useEffect(() => {
@@ -1022,6 +1115,17 @@ const AdminManagementPage: React.FC = () => {
         </div>
 
         <main className="flex-1 overflow-y-auto p-4 md:p-6">
+          {/* Work Queue Overview - Shows items needing attention */}
+          {workQueueItems.length > 0 && (
+            <div className="mb-6 bg-white rounded-xl p-4 shadow-sm border">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-sm font-semibold text-gray-700">Needs Attention</h3>
+                <span className="text-xs text-gray-500">{workQueueItems.filter(i => i.urgent).length} urgent</span>
+              </div>
+              <AdminWorkQueue items={workQueueItems} maxVisible={12} />
+            </div>
+          )}
+          
           {/* Quotes Tab */}
           {activeTab === 'quotes' && (
             <div className="space-y-6">
@@ -1218,6 +1322,14 @@ const AdminManagementPage: React.FC = () => {
                   </p>
                 </div>
               </div>
+              
+              {/* Artwork Status Overview */}
+              {artworkStatusItems.length > 0 && (
+                <div className="bg-white rounded-xl p-4 shadow-sm border">
+                  <h3 className="text-sm font-semibold text-gray-700 mb-3">Artwork Status Overview</h3>
+                  <ArtworkStatusAvatar items={artworkStatusItems} maxVisible={12} size="sm" />
+                </div>
+              )}
 
               {/* Management Bar with Pagination */}
               <DataManagementBar

@@ -24,6 +24,7 @@ import { DataManagementBar } from '../components/ui/DataManagementBar'
 import { Eye as ViewIcon, Download as DownloadIcon, Upload as UploadIcon } from 'lucide-react'
 import { NotificationList, type Notification } from '../components/animate-ui/components/community/notification-list'
 import { PinList, type PinListItem } from '../components/animate-ui/components/community/pin-list'
+import { ArtworkStatusAvatar, type StatusItem, type ArtworkStatus } from '../components/animate-ui/components/community/user-presence-avatar'
 
 type TabType = 'dashboard' | 'orders' | 'quotes' | 'documents' | 'artwork' | 'saved' | 'settings' | 'bin'
 
@@ -289,6 +290,21 @@ const DashboardPage: React.FC = () => {
     // Sort: pinned first
     return items.sort((a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0))
   }, [orders, quotes, artworks, pinnedIds])
+  
+  // Artwork status items for status overview
+  const artworkStatusItems: StatusItem[] = useMemo(() => {
+    return artworks.map(a => ({
+      id: a.id,
+      name: a.name,
+      fallback: a.name.slice(0, 2).toUpperCase(),
+      tooltip: a.status.replace(/_/g, ' '),
+      status: a.status as ArtworkStatus,
+      onClick: () => {
+        setActiveTab('artwork')
+        setSelectedArtwork(a)
+      }
+    }))
+  }, [artworks])
 
   // Reset page when artworks change
   useEffect(() => {
@@ -1854,6 +1870,14 @@ const DashboardPage: React.FC = () => {
                   </div>
                 </div>
               </details>
+              
+              {/* Artwork Status Overview */}
+              {artworkStatusItems.length > 0 && (
+                <div className="bg-white rounded-xl p-3 md:p-4 border border-gray-100">
+                  <h3 className="text-xs md:text-sm font-semibold text-gray-700 mb-2 md:mb-3">Your Artwork Status</h3>
+                  <ArtworkStatusAvatar items={artworkStatusItems} maxVisible={8} size="sm" />
+                </div>
+              )}
 
               {/* Artwork List - Mobile Optimized */}
               <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
