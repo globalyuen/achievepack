@@ -12,6 +12,8 @@ import {
   TabsList,
   TabsTrigger,
 } from '../components/animate-ui/components/radix/tabs'
+import { DataManagementBar } from '../components/ui/DataManagementBar'
+import { CheckCircle as ApproveIcon, XCircle as RejectIcon, Send as SendIcon } from 'lucide-react'
 
 type TabType = 'quotes' | 'artwork' | 'bin'
 
@@ -64,6 +66,11 @@ const AdminManagementPage: React.FC = () => {
   const [loadingComments, setLoadingComments] = useState(false)
   const [threadFile, setThreadFile] = useState<File | null>(null)
   const [uploadingThread, setUploadingThread] = useState(false)
+  
+  // Pagination states
+  const [artworkPage, setArtworkPage] = useState(1)
+  const [quotePage, setQuotePage] = useState(1)
+  const ITEMS_PER_PAGE = 12
 
   // Check URL params for tab
   useEffect(() => {
@@ -607,6 +614,18 @@ const AdminManagementPage: React.FC = () => {
       artwork.status.toLowerCase().includes(searchLower)
     )
   })
+  
+  // Pagination calculations
+  const artworkTotalPages = Math.max(1, Math.ceil(filteredArtworks.length / ITEMS_PER_PAGE))
+  const paginatedArtworks = filteredArtworks.slice(
+    (artworkPage - 1) * ITEMS_PER_PAGE,
+    artworkPage * ITEMS_PER_PAGE
+  )
+  
+  // Reset page when search changes
+  React.useEffect(() => {
+    setArtworkPage(1)
+  }, [artworkSearch])
 
   if (authLoading) {
     return <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -974,10 +993,35 @@ const AdminManagementPage: React.FC = () => {
                 </div>
               </div>
 
+              {/* Management Bar with Pagination */}
+              <DataManagementBar
+                currentPage={artworkPage}
+                totalPages={artworkTotalPages}
+                onPageChange={setArtworkPage}
+                totalCount={filteredArtworks.length}
+                actions={[
+                  {
+                    icon: ApproveIcon,
+                    label: 'Approve',
+                    colorClass: 'bg-green-200/60 text-green-600',
+                  },
+                  {
+                    icon: RejectIcon,
+                    label: 'Reject',
+                    colorClass: 'bg-red-200/60 text-red-600',
+                  },
+                  {
+                    icon: SendIcon,
+                    label: 'Send Proof',
+                    colorClass: 'bg-blue-200/60 text-blue-600',
+                  },
+                ]}
+              />
+
               {/* Card View */}
               {artworkViewMode === 'card' && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {filteredArtworks.map(artwork => {
+                  {paginatedArtworks.map(artwork => {
                     const customer = getCustomer(artwork.user_id)
                     const isImage = artwork.file_type?.startsWith('image/') || /\.(png|jpg|jpeg|gif|webp)$/i.test(artwork.file_url || '')
                     return (
@@ -1067,7 +1111,7 @@ const AdminManagementPage: React.FC = () => {
               {artworkViewMode === 'list' && (
                 <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
                   <div className="divide-y divide-gray-100">
-                    {filteredArtworks.map(artwork => {
+                    {paginatedArtworks.map(artwork => {
                       const customer = getCustomer(artwork.user_id)
                       const isImage = artwork.file_type?.startsWith('image/') || /\.(png|jpg|jpeg|gif|webp)$/i.test(artwork.file_url || '')
                       return (

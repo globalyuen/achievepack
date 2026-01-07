@@ -20,6 +20,8 @@ import {
   TabsContent,
   TabsContents,
 } from '../components/animate-ui/components/radix/tabs'
+import { DataManagementBar } from '../components/ui/DataManagementBar'
+import { Eye as ViewIcon, Download as DownloadIcon, Upload as UploadIcon } from 'lucide-react'
 
 type TabType = 'dashboard' | 'orders' | 'quotes' | 'documents' | 'artwork' | 'saved' | 'settings' | 'bin'
 
@@ -104,6 +106,23 @@ const DashboardPage: React.FC = () => {
   const [rfqPhotos, setRfqPhotos] = useState<File[]>([])
   const [rfqSubmitting, setRfqSubmitting] = useState(false)
   const [rfqError, setRfqError] = useState('')
+  
+  // Pagination states
+  const [artworkPage, setArtworkPage] = useState(1)
+  const [ordersPage, setOrdersPage] = useState(1)
+  const ITEMS_PER_PAGE = 9
+
+  // Pagination calculations
+  const artworkTotalPages = Math.max(1, Math.ceil(artworks.length / ITEMS_PER_PAGE))
+  const paginatedArtworks = artworks.slice(
+    (artworkPage - 1) * ITEMS_PER_PAGE,
+    artworkPage * ITEMS_PER_PAGE
+  )
+
+  // Reset page when artworks change
+  useEffect(() => {
+    setArtworkPage(1)
+  }, [artworks.length])
 
   useEffect(() => {
     if (!authLoading && !user) {
@@ -1612,7 +1631,7 @@ const DashboardPage: React.FC = () => {
                   </div>
                 ) : (
                   <div className="divide-y divide-gray-100">
-                    {artworks.map(artwork => {
+                    {paginatedArtworks.map(artwork => {
                       const statusInfo = getArtworkStatus(artwork.status)
                       const StatusIcon = statusInfo.icon
                       const isImage = artwork.file_type?.startsWith('image/') || /\.(png|jpg|jpeg|gif|webp)$/i.test(artwork.file_url || '')
@@ -1907,6 +1926,33 @@ const DashboardPage: React.FC = () => {
                   </div>
                 )}
               </div>
+
+              {/* Data Management Bar */}
+              {artworks.length > 0 && (
+                <DataManagementBar
+                  currentPage={artworkPage}
+                  totalPages={artworkTotalPages}
+                  onPageChange={setArtworkPage}
+                  totalCount={artworks.length}
+                  actions={[
+                    {
+                      icon: ViewIcon,
+                      label: 'View',
+                      colorClass: 'bg-blue-200/60 text-blue-600',
+                    },
+                    {
+                      icon: DownloadIcon,
+                      label: 'Download',
+                      colorClass: 'bg-green-200/60 text-green-600',
+                    },
+                    {
+                      icon: UploadIcon,
+                      label: 'Upload New',
+                      colorClass: 'bg-purple-200/60 text-purple-600',
+                    },
+                  ]}
+                />
+              )}
 
               {/* Workflow Status Legend - Compact on Mobile */}
               <div className="bg-white rounded-xl border border-gray-100 p-3 md:p-5">
