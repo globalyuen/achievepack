@@ -10,6 +10,7 @@ import Newsletter from './components/Newsletter'
 import CartSidebar from './components/store/CartSidebar'
 import MegaMenu, { RightNavMenu } from './components/MegaMenu'
 import CoverflowCarousel from './components/CoverflowCarousel'
+import { ProductMotionCarousel } from './components/animate-ui/components/community/motion-carousel'
 import NavAvatarGroup from './components/ui/avatar-group'
 import type { CalculatorResults } from './utils/calculatorUtils'
 import { useStore } from './store/StoreContext'
@@ -1074,7 +1075,7 @@ function App() {
         </div>
       </section>
 
-      {/* Products Section - Shop Products Grid */}
+      {/* Products Section - Shop Products Carousel */}
       <section id="products" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
@@ -1084,79 +1085,20 @@ function App() {
             </p>
           </div>
 
-          {/* Products Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {FEATURED_PRODUCTS.slice(0, 6).map((product) => (
-              <div
-                key={product.id}
-                className="bg-white rounded-xl shadow-card hover:shadow-hover transition-all duration-300 overflow-hidden border border-neutral-100 group cursor-pointer"
-                onClick={() => setSelectedProduct(product)}
-              >
-                {/* Product Image */}
-                <div className="relative h-48 bg-neutral-50 overflow-hidden">
-                  <img
-                    src={product.images[0]}
-                    alt={product.name}
-                    className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
-                  />
-                  {product.badge && (
-                    <span className="absolute top-3 left-3 bg-primary-500 text-white text-xs font-semibold px-2 py-1 rounded-full">
-                      {product.badge}
-                    </span>
-                  )}
-                </div>
-
-                {/* Product Info */}
-                <div className="p-5">
-                  <h3 className="text-lg font-semibold text-neutral-900 mb-2 group-hover:text-primary-600 transition-colors">
-                    {product.name}
-                  </h3>
-                  <p className="text-sm text-neutral-600 mb-3 line-clamp-2">
-                    {product.description}
-                  </p>
-
-                  {/* Rating */}
-                  <div className="flex items-center gap-1 mb-3">
-                    <div className="flex items-center">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className={`h-4 w-4 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-neutral-200'}`}
-                        />
-                      ))}
-                    </div>
-                    <Link to="/reviews" className="text-sm text-neutral-500 hover:text-primary-600 hover:underline transition-colors">({product.reviews})</Link>
-                  </div>
-
-                  {/* Price & CTA */}
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <span className="text-lg font-bold text-primary-600">US${product.basePrice}</span>
-                      <span className="text-xs text-neutral-500 block">for {product.minOrder} pcs</span>
-                    </div>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        addToCart({
-                          productId: product.id,
-                          name: product.name,
-                          image: product.images[0],
-                          variant: { shape: 'stand-up', size: '120x200', barrier: 'clear', finish: 'glossy' },
-                          quantity: 1,
-                          unitPrice: product.basePrice,
-                          totalPrice: product.basePrice
-                        });
-                      }}
-                      className="flex items-center gap-1 bg-primary-500 text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-primary-600 transition-colors"
-                    >
-                      <Plus className="h-4 w-4" />
-                      Add
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          {/* Products Motion Carousel */}
+          <ProductMotionCarousel
+            products={FEATURED_PRODUCTS.slice(0, 8).map((product) => ({
+              id: product.id,
+              name: product.name,
+              description: product.description,
+              image: product.images[0],
+              badge: product.badge,
+              price: product.basePrice,
+              minOrder: product.minOrder,
+              onClick: () => setSelectedProduct(product),
+            }))}
+            options={{ loop: true, align: 'center' }}
+          />
 
           {/* Explore More Button */}
           <div className="text-center mt-10">
