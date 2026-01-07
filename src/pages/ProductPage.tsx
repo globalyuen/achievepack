@@ -335,24 +335,24 @@ const ProductPage: React.FC = () => {
   ]
   
   const SIZE_OPTIONS = [
-    { id: 'XXXS', name: 'XXXS - Extra Extra Extra Small', img: '/imgs/store/size/xxxs.webp', description: 'Capacity: 10-30g / 0.35-1oz. Perfect for single-serve samples and trial sizes.', bestFor: ['Samples', 'Single-serve', 'Trial products'], premium: false },
-    { id: 'XXS', name: 'XXS - Extra Extra Small', img: '/imgs/store/size/xxs.webp', description: 'Capacity: 30-50g / 1-1.75oz. Great for premium samples and small portions.', bestFor: ['Premium samples', 'Small portions'], premium: false },
-    { id: 'XS', name: 'XS - Extra Small', img: '/imgs/store/size/xs.webp', description: 'Capacity: 50-100g / 1.75-3.5oz. Ideal for specialty foods and premium snacks.', bestFor: ['Specialty foods', 'Premium snacks'], premium: false },
-    { id: 'S', name: 'S - Small', img: '/imgs/store/size/s.webp', description: 'Capacity: 100-200g / 3.5-7oz. Standard retail size for coffee, tea, and snacks.', bestFor: ['Retail coffee', 'Tea', 'Snacks'], premium: false },
-    { id: 'L', name: 'L - Large', img: '/imgs/store/size/l.webp', description: 'Capacity: 350-500g / 12-17.5oz. Great for large retail and bulk snacks.', bestFor: ['Large retail', 'Bulk snacks'], premium: false },
-    { id: 'XL', name: 'XL - Extra Large', img: '/imgs/store/size/xl.webp', description: 'Capacity: 500-1000g / 17.5-35oz. Perfect for bulk packaging and value packs.', bestFor: ['Bulk packaging', 'Value packs'], premium: false },
-    { id: 'XXL', name: 'XXL - Extra Extra Large', img: '/imgs/store/size/xxl.webp', description: 'Capacity: 1000-2000g / 35-70oz. Commercial and wholesale sizes.', bestFor: ['Commercial', 'Wholesale'], premium: false }
+    { id: 'XXXS', name: 'XXXS - Extra Extra Extra Small', img: '/imgs/store/size/stand-up/xxxs.webp', description: 'Capacity: 10-30g / 0.35-1oz. Perfect for single-serve samples and trial sizes.', bestFor: ['Samples', 'Single-serve', 'Trial products'], premium: false },
+    { id: 'XXS', name: 'XXS - Extra Extra Small', img: '/imgs/store/size/stand-up/xxs.webp', description: 'Capacity: 30-50g / 1-1.75oz. Great for premium samples and small portions.', bestFor: ['Premium samples', 'Small portions'], premium: false },
+    { id: 'XS', name: 'XS - Extra Small', img: '/imgs/store/size/stand-up/xs.webp', description: 'Capacity: 50-100g / 1.75-3.5oz. Ideal for specialty foods and premium snacks.', bestFor: ['Specialty foods', 'Premium snacks'], premium: false },
+    { id: 'S', name: 'S - Small', img: '/imgs/store/size/stand-up/s.webp', description: 'Capacity: 100-200g / 3.5-7oz. Standard retail size for coffee, tea, and snacks.', bestFor: ['Retail coffee', 'Tea', 'Snacks'], premium: false },
+    { id: 'L', name: 'L - Large', img: '/imgs/store/size/stand-up/l.webp', description: 'Capacity: 350-500g / 12-17.5oz. Great for large retail and bulk snacks.', bestFor: ['Large retail', 'Bulk snacks'], premium: false },
+    { id: 'XL', name: 'XL - Extra Large', img: '/imgs/store/size/stand-up/xl.webp', description: 'Capacity: 500-1000g / 17.5-35oz. Perfect for bulk packaging and value packs.', bestFor: ['Bulk packaging', 'Value packs'], premium: false },
+    { id: 'XXL', name: 'XXL - Extra Extra Large', img: '/imgs/store/size/stand-up/xxl.webp', description: 'Capacity: 1000-2000g / 35-70oz. Commercial and wholesale sizes.', bestFor: ['Commercial', 'Wholesale'], premium: false }
   ]
   
   const BARRIER_OPTIONS_DATA = [
     { id: 'mid', name: 'Mid Barrier (Optional Window)', img: '/imgs/store/barrier/3-clear.webp', description: 'Clear barrier with 6-9 months shelf life. Good moisture and moderate oxygen protection. Optional clear window for product visibility.', bestFor: ['Dry snacks', 'Candy', 'Nuts', 'Product visibility'], premium: false },
-    { id: 'high', name: 'High Barrier (No Window)', img: '/imgs/store/barrier/3-metalised.webp', description: 'Metalised barrier with 9-12 months shelf life. Excellent oxygen and moisture protection. Blocks light to preserve freshness.', bestFor: ['Coffee', 'Tea', 'Spices', 'Sensitive products'], premium: false },
-    { id: 'highest', name: 'Highest Barrier (Aluminum)', img: '/imgs/store/barrier/3-alu.webp', description: 'Aluminum foil barrier with 12-18 months shelf life. Maximum protection against oxygen, moisture, and light.', bestFor: ['Pharmaceuticals', 'Premium coffee', 'Long shelf life'], premium: true }
+    { id: 'high', name: 'High Barrier (No Window)', img: '/imgs/store/barrier/3-foil.webp', description: 'Metalised barrier with 9-12 months shelf life. Excellent oxygen and moisture protection. Blocks light to preserve freshness.', bestFor: ['Coffee', 'Tea', 'Spices', 'Sensitive products'], premium: false },
+    { id: 'highest', name: 'Highest Barrier (Aluminum)', img: '/imgs/store/barrier/3-foil.webp', description: 'Aluminum foil barrier with 12-18 months shelf life. Maximum protection against oxygen, moisture, and light.', bestFor: ['Pharmaceuticals', 'Premium coffee', 'Long shelf life'], premium: true }
   ]
   
   const STIFFNESS_OPTIONS = [
-    { id: 'soft', name: 'Without Paper Lining (Softer)', img: '/imgs/store/stiffness/soft.webp', description: 'More flexible, lighter weight, thinner profile. Standard film construction without added paper layer.', bestFor: ['Flexible products', 'Cost-sensitive', 'Lighter weight'], premium: false },
-    { id: 'stiff', name: 'With Paper Lining (Stiffer)', img: '/imgs/store/stiffness/stiff.webp', description: 'Better standing stability, premium feel. Kraft paper layer adds 50-60 micron / 2 mil thickness.', bestFor: ['Premium brands', 'Retail display', 'Coffee bags'], premium: true }
+    { id: 'soft', name: 'Without Paper Lining (Softer)', img: '/imgs/store/stiff/no-paper.webp', description: 'More flexible, lighter weight, thinner profile. Standard film construction without added paper layer.', bestFor: ['Flexible products', 'Cost-sensitive', 'Lighter weight'], premium: false },
+    { id: 'stiff', name: 'With Paper Lining (Stiffer)', img: '/imgs/store/stiff/with-paper.webp', description: 'Better standing stability, premium feel. Kraft paper layer adds 50-60 micron / 2 mil thickness.', bestFor: ['Premium brands', 'Retail display', 'Coffee bags'], premium: true }
   ]
   
   const ADDITIONAL_OPTIONS = [
