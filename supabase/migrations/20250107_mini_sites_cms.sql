@@ -95,6 +95,11 @@ CREATE POLICY "Anyone can view public mini sites" ON mini_sites
   FOR SELECT TO authenticated
   USING (is_public = true AND status = 'published');
 
+-- Anonymous users can view public published sites (for mobile access without login)
+CREATE POLICY "Anonymous can view public mini sites" ON mini_sites
+  FOR SELECT TO anon
+  USING (is_public = true AND status = 'published');
+
 -- Users can view sites they have access to
 CREATE POLICY "Users can view authorized mini sites" ON mini_sites
   FOR SELECT TO authenticated

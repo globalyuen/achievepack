@@ -341,40 +341,115 @@ const WebsiteEditor: React.FC = () => {
   const [content, setContent] = useState<DemoContent>(DEFAULT_CONTENT)
   const [activeSection, setActiveSection] = useState<'brand' | 'hero' | 'products' | 'collections' | 'mission' | 'subscription'>('brand')
   const [isSaving, setIsSaving] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const [saveStatus, setSaveStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [imagePickerOpen, setImagePickerOpen] = useState(false)
   const [imagePickerTarget, setImagePickerTarget] = useState<{ path: string } | null>(null)
+  const [siteId, setSiteId] = useState<string | null>(null)
 
-  // Load saved content
+  // Load saved content from Supabase first, fallback to localStorage
   useEffect(() => {
-    const saved = localStorage.getItem('achieve_coffee_demo_content')
-    if (saved) {
+    const loadContent = async () => {
       try {
-        setContent({ ...DEFAULT_CONTENT, ...JSON.parse(saved) })
-      } catch (e) {
-        console.error('Failed to load saved content')
+        // Try to load from Supabase mini_sites table
+        const { data, error } = await supabase
+          .from('mini_sites')
+          .select('id, content')
+          .eq('slug', 'achieve-coffee-demo')
+          .single()
+        
+        if (data?.content && !error) {
+          setSiteId(data.id)
+          setContent({ ...DEFAULT_CONTENT, ...data.content })
+          // Also sync to localStorage
+          localStorage.setItem('achieve_coffee_demo_content', JSON.stringify(data.content))
+        } else {
+          // Fallback to localStorage if database fails
+          const saved = localStorage.getItem('achieve_coffee_demo_content')
+          if (saved) {
+            try {
+              setContent({ ...DEFAULT_CONTENT, ...JSON.parse(saved) })
+            } catch (e) {
+              console.error('Failed to load saved content')
+            }
+          }
+        }
+      } catch (err) {
+        console.error('Error loading from Supabase:', err)
+        // Fallback to localStorage
+        const saved = localStorage.getItem('achieve_coffee_demo_content')
+        if (saved) {
+          try {
+            setContent({ ...DEFAULT_CONTENT, ...JSON.parse(saved) })
+          } catch (e) {
+            console.error('Failed to load saved content')
+          }
+        }
       }
+      setIsLoading(false)
     }
+    
+    loadContent()
   }, [])
 
-  // Save content
+  // Save content to Supabase and localStorage
   const handleSave = async () => {
     setIsSaving(true)
     try {
+      // Always save to localStorage for offline/fallback
       localStorage.setItem('achieve_coffee_demo_content', JSON.stringify(content))
+      
+      // Try to save to Supabase
+      if (siteId) {
+        const { error } = await supabase
+          .from('mini_sites')
+          .update({ content, updated_at: new Date().toISOString() })
+          .eq('id', siteId)
+        
+        if (error) {
+          console.error('Failed to save to database:', error)
+          // Still show success since localStorage worked
+        }
+      } else {
+        // Try to upsert by slug if no siteId
+        const { error } = await supabase
+          .from('mini_sites')
+          .upsert({
+            slug: 'achieve-coffee-demo',
+            name: 'Achieve Coffee',
+            content,
+            status: 'published',
+            is_public: true,
+            updated_at: new Date().toISOString()
+          }, { onConflict: 'slug' })
+        
+        if (error) {
+          console.error('Failed to save to database:', error)
+        }
+      }
+      
       setSaveStatus('success')
       setTimeout(() => setSaveStatus('idle'), 3000)
     } catch (e) {
+      console.error('Save error:', e)
       setSaveStatus('error')
     }
     setIsSaving(false)
   }
 
   // Reset to default
-  const handleReset = () => {
+  const handleReset = async () => {
     if (window.confirm('Reset all content to default? This cannot be undone.')) {
       setContent(DEFAULT_CONTENT)
       localStorage.removeItem('achieve_coffee_demo_content')
+      
+      // Also reset in database
+      if (siteId) {
+        await supabase
+          .from('mini_sites')
+          .update({ content: DEFAULT_CONTENT, updated_at: new Date().toISOString() })
+          .eq('id', siteId)
+      }
     }
   }
 

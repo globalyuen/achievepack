@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { ChevronDown, ArrowRight, ArrowLeft } from 'lucide-react'
+import { supabase } from '../../lib/supabase'
 
 // Default demo content - can be overridden by admin settings
 const DEFAULT_CONTENT = {
@@ -306,18 +307,52 @@ const AchieveCoffeeDemoPage: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null)
   const { ref: parallaxRef, offset } = useParallax(0.3)
 
-  // Load content from localStorage (set by admin)
+  // Load content from Supabase first, fallback to localStorage
   useEffect(() => {
-    const savedContent = localStorage.getItem('achieve_coffee_demo_content')
-    if (savedContent) {
+    const loadContent = async () => {
       try {
-        const parsed = JSON.parse(savedContent)
-        setContent({ ...DEFAULT_CONTENT, ...parsed })
-      } catch (e) {
-        console.error('Failed to parse saved content')
+        // Try to load from Supabase mini_sites table
+        const { data, error } = await supabase
+          .from('mini_sites')
+          .select('content')
+          .eq('slug', 'achieve-coffee-demo')
+          .eq('status', 'published')
+          .single()
+        
+        if (data?.content && !error) {
+          // Successfully loaded from database
+          setContent({ ...DEFAULT_CONTENT, ...data.content })
+          // Also sync to localStorage for offline use
+          localStorage.setItem('achieve_coffee_demo_content', JSON.stringify(data.content))
+        } else {
+          // Fallback to localStorage if database fails
+          const savedContent = localStorage.getItem('achieve_coffee_demo_content')
+          if (savedContent) {
+            try {
+              const parsed = JSON.parse(savedContent)
+              setContent({ ...DEFAULT_CONTENT, ...parsed })
+            } catch (e) {
+              console.error('Failed to parse saved content')
+            }
+          }
+        }
+      } catch (err) {
+        console.error('Error loading from Supabase:', err)
+        // Fallback to localStorage
+        const savedContent = localStorage.getItem('achieve_coffee_demo_content')
+        if (savedContent) {
+          try {
+            const parsed = JSON.parse(savedContent)
+            setContent({ ...DEFAULT_CONTENT, ...parsed })
+          } catch (e) {
+            console.error('Failed to parse saved content')
+          }
+        }
       }
+      setIsLoading(false)
     }
-    setIsLoading(false)
+    
+    loadContent()
   }, [])
 
   if (isLoading) {
