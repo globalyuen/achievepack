@@ -11,12 +11,12 @@ import { useCalendly } from '../../contexts/CalendlyContext'
 import Footer from '../../components/Footer'
 import { SEOPageHeader } from '../../components/SEOPageLayout'
 
-// Image paths - reuse existing images
+// Image paths - Customer Center screenshots
 const IMAGES = {
-  hero: '/imgs/free/design/hero.webp',
-  dashboard: '/imgs/free/design/a_process_flow_infographic_5376739.webp',
-  artwork: '/imgs/free/design/a_multi_sku_product_system_6725244.webp',
-  proof: '/imgs/free/design/a_before_after_pouch_beverage_5262540.webp',
+  hero: '/imgs/free/center/hero.png',
+  dashboard: '/imgs/free/center/dashboard-1.png',
+  artwork: '/imgs/free/center/dashboard-2.png',
+  proof: '/imgs/free/center/dashboard-3.png',
   documents: '/imgs/free/design/a_eco_benefits_infographic_8564320.webp'
 }
 
@@ -157,7 +157,7 @@ const FreeCustomerCenterPage: React.FC = () => {
         {/* Open Graph */}
         <meta property="og:title" content="FREE Customer Center for Packaging Management | Achieve Pack" />
         <meta property="og:description" content="Manage orders, artwork, and proofs in one FREE dashboard. Real-time tracking, digital proof approval, and secure document storage." />
-        <meta property="og:image" content="https://achievepack.com/imgs/free/design/hero.webp" />
+        <meta property="og:image" content="https://achievepack.com/imgs/free/center/hero.png" />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://achievepack.com/free-service/customer-center" />
         
@@ -202,7 +202,7 @@ const FreeCustomerCenterPage: React.FC = () => {
             "@type": "Article",
             "headline": "FREE Customer Center for Packaging Management",
             "description": "Complete guide to Achieve Pack's free Customer Center—manage orders, artwork, and proofs in one dashboard.",
-            "image": "https://achievepack.com/imgs/free/design/hero.webp",
+            "image": "https://achievepack.com/imgs/free/center/hero.png",
             "author": {
               "@type": "Organization",
               "name": "Achieve Pack",
