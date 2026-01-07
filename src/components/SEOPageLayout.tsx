@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { motion, useSpring } from 'motion/react'
 import { organizationEntity, getAuthorByContentType, generateBreadcrumb } from '../data/schemaEntities'
 import { LEARN_PAGES } from './LearnNavigation'
-import SocialShareButtons from './SocialShareButtons'
+import { ShareButton } from './animate-ui/components/community/share-button'
 import Footer from './Footer'
 
 // Reading Progress Bar Component
@@ -672,11 +672,15 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                   <p className="text-lg text-neutral-700 leading-relaxed">{introSummary}</p>
                 </div>
                 <div className="flex-shrink-0 pt-1">
-                  <SocialShareButtons 
+                  <ShareButton
                     url={effectiveCanonicalUrl}
                     title={title}
                     description={description}
-                  />
+                    size="sm"
+                    icon="prefix"
+                  >
+                    Share
+                  </ShareButton>
                 </div>
               </div>
             </div>
