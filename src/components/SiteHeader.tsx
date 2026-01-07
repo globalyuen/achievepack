@@ -28,7 +28,7 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-neutral-100' : 'bg-white border-b border-neutral-100'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Top Row: Icons only on right */}
-          <div className="hidden lg:flex items-center justify-end h-8">
+          <div className="hidden lg:flex items-center justify-end h-10 pt-2">
             <div className="flex items-center space-x-2">
               <button
                 onClick={() => {
@@ -225,7 +225,7 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
       </nav>
 
       {/* Spacer for fixed header */}
-      <div className="h-16 lg:h-[86px]"></div>
+      <div className="h-16 lg:h-[88px]"></div>
     </>
   )
 }
