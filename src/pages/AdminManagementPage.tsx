@@ -15,6 +15,7 @@ import {
 import { DataManagementBar } from '../components/ui/DataManagementBar'
 import { CheckCircle as ApproveIcon, XCircle as RejectIcon, Send as SendIcon } from 'lucide-react'
 import { NotificationList, type Notification } from '../components/animate-ui/components/community/notification-list'
+import { PinList, type PinListItem } from '../components/animate-ui/components/community/pin-list'
 
 type TabType = 'quotes' | 'artwork' | 'bin'
 
@@ -147,6 +148,86 @@ const AdminManagementPage: React.FC = () => {
     // Sort by time (most recent first) and limit
     return notifs.slice(0, 6)
   }, [artworks, quotes])
+  
+  // Pinned items state (stored in localStorage)
+  const [pinnedIds, setPinnedIds] = useState<Set<string>>(() => {
+    const saved = localStorage.getItem('admin_pinned_items')
+    return saved ? new Set(JSON.parse(saved)) : new Set()
+  })
+  
+  // Save pinned items to localStorage
+  useEffect(() => {
+    localStorage.setItem('admin_pinned_items', JSON.stringify([...pinnedIds]))
+  }, [pinnedIds])
+  
+  // Handle pin change
+  const handlePinChange = (id: string | number, pinned: boolean) => {
+    setPinnedIds(prev => {
+      const next = new Set(prev)
+      if (pinned) next.add(String(id))
+      else next.delete(String(id))
+      return next
+    })
+  }
+  
+  // Generate pin list items from quotes and artworks
+  const pinListItems: PinListItem[] = useMemo(() => {
+    const items: PinListItem[] = []
+    
+    // Add pending quotes
+    quotes.filter(q => q.status === 'pending').slice(0, 5).forEach(q => {
+      items.push({
+        id: q.id,
+        name: q.is_rfq ? `RFQ: ${q.quote_number}` : `Quote: ${q.quote_number}`,
+        info: q.notes?.slice(0, 40) || 'Awaiting response',
+        type: 'quote',
+        badge: 'Pending',
+        badgeColor: 'bg-yellow-100 text-yellow-700',
+        pinned: pinnedIds.has(q.id),
+        onClick: () => {
+          setActiveTab('quotes')
+          setSelectedQuote(q)
+        }
+      })
+    })
+    
+    // Add pending artworks
+    artworks.filter(a => a.status === 'pending_review').slice(0, 5).forEach(a => {
+      items.push({
+        id: a.id,
+        name: a.name,
+        info: (a as any).customer_email || 'Review needed',
+        type: 'artwork',
+        badge: 'Review',
+        badgeColor: 'bg-purple-100 text-purple-700',
+        pinned: pinnedIds.has(a.id),
+        onClick: () => {
+          setActiveTab('artwork')
+          setSelectedArtwork(a)
+        }
+      })
+    })
+    
+    // Add in-progress artworks
+    artworks.filter(a => a.status === 'in_review' || a.status === 'prepress').slice(0, 3).forEach(a => {
+      items.push({
+        id: a.id,
+        name: a.name,
+        info: a.status === 'prepress' ? 'In Prepress' : 'In Review',
+        type: 'artwork',
+        badge: a.status === 'prepress' ? 'Prepress' : 'Review',
+        badgeColor: 'bg-blue-100 text-blue-700',
+        pinned: pinnedIds.has(a.id),
+        onClick: () => {
+          setActiveTab('artwork')
+          setSelectedArtwork(a)
+        }
+      })
+    })
+    
+    // Sort: pinned first
+    return items.sort((a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0))
+  }, [quotes, artworks, pinnedIds])
 
   // Check URL params for tab
   useEffect(() => {
@@ -793,6 +874,20 @@ const AdminManagementPage: React.FC = () => {
                 )}
               </button>
             </nav>
+            
+            {/* Pin List - Focus Items */}
+            {pinListItems.length > 0 && (
+              <div className="px-1 mt-4 border-t border-gray-100 pt-4">
+                <p className="text-xs font-medium text-gray-500 uppercase tracking-wide px-2 mb-2">Quick Access</p>
+                <PinList
+                  items={pinListItems}
+                  onPinChange={handlePinChange}
+                  labels={{ pinned: 'Pinned', unpinned: 'Recent Items' }}
+                  maxPinned={5}
+                  className="max-h-[280px] overflow-y-auto"
+                />
+              </div>
+            )}
 
             <div className="pb-4 mt-auto">
               {/* Notification Bell */}

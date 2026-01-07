@@ -23,6 +23,7 @@ import {
 import { DataManagementBar } from '../components/ui/DataManagementBar'
 import { Eye as ViewIcon, Download as DownloadIcon, Upload as UploadIcon } from 'lucide-react'
 import { NotificationList, type Notification } from '../components/animate-ui/components/community/notification-list'
+import { PinList, type PinListItem } from '../components/animate-ui/components/community/pin-list'
 
 type TabType = 'dashboard' | 'orders' | 'quotes' | 'documents' | 'artwork' | 'saved' | 'settings' | 'bin'
 
@@ -211,6 +212,83 @@ const DashboardPage: React.FC = () => {
     
     return notifs.slice(0, 6)
   }, [artworks, quotes])
+  
+  // Pinned items state (stored in localStorage)
+  const [pinnedIds, setPinnedIds] = useState<Set<string>>(() => {
+    const saved = localStorage.getItem('customer_pinned_items')
+    return saved ? new Set(JSON.parse(saved)) : new Set()
+  })
+  
+  // Save pinned items to localStorage
+  useEffect(() => {
+    localStorage.setItem('customer_pinned_items', JSON.stringify([...pinnedIds]))
+  }, [pinnedIds])
+  
+  // Handle pin change
+  const handlePinChange = (id: string | number, pinned: boolean) => {
+    setPinnedIds(prev => {
+      const next = new Set(prev)
+      if (pinned) next.add(String(id))
+      else next.delete(String(id))
+      return next
+    })
+  }
+  
+  // Generate pin list items for customer (proof ready, orders, quotes)
+  const pinListItems: PinListItem[] = useMemo(() => {
+    const items: PinListItem[] = []
+    
+    // Artworks needing action (proof ready)
+    artworks.filter(a => a.status === 'proof_ready').slice(0, 4).forEach(a => {
+      items.push({
+        id: a.id,
+        name: a.name,
+        info: 'Review proof',
+        type: 'artwork',
+        badge: 'Action',
+        badgeColor: 'bg-amber-100 text-amber-700',
+        pinned: pinnedIds.has(a.id),
+        onClick: () => {
+          setActiveTab('artwork')
+          setSelectedArtwork(a)
+        }
+      })
+    })
+    
+    // Active orders
+    orders.filter(o => o.status !== 'delivered' && o.status !== 'cancelled').slice(0, 3).forEach(o => {
+      items.push({
+        id: o.id,
+        name: `Order #${o.order_number}`,
+        info: o.status.charAt(0).toUpperCase() + o.status.slice(1),
+        type: 'order',
+        badge: o.status,
+        badgeColor: statusColors[o.status] || 'bg-gray-100 text-gray-600',
+        pinned: pinnedIds.has(o.id),
+        onClick: () => {
+          setActiveTab('orders')
+          setSelectedOrder(o)
+        }
+      })
+    })
+    
+    // Pending quotes
+    quotes.filter(q => q.status === 'pending').slice(0, 3).forEach(q => {
+      items.push({
+        id: q.id,
+        name: q.is_rfq ? `RFQ Request` : `Quote #${q.quote_number}`,
+        info: q.notes?.slice(0, 30) || 'Awaiting response',
+        type: 'quote',
+        badge: 'Pending',
+        badgeColor: 'bg-yellow-100 text-yellow-700',
+        pinned: pinnedIds.has(q.id),
+        onClick: () => setActiveTab('quotes')
+      })
+    })
+    
+    // Sort: pinned first
+    return items.sort((a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0))
+  }, [orders, quotes, artworks, pinnedIds])
 
   // Reset page when artworks change
   useEffect(() => {
@@ -952,6 +1030,20 @@ const DashboardPage: React.FC = () => {
             }}
           />
         </nav>
+        
+        {/* Pin List - Quick Access */}
+        {pinListItems.length > 0 && (
+          <div className="px-3 mt-4 border-t border-gray-100 pt-4">
+            <p className="text-xs font-medium text-gray-500 uppercase tracking-wide px-1 mb-2">Quick Access</p>
+            <PinList
+              items={pinListItems}
+              onPinChange={handlePinChange}
+              labels={{ pinned: 'Pinned', unpinned: 'Recent' }}
+              maxPinned={5}
+              className="max-h-[260px] overflow-y-auto"
+            />
+          </div>
+        )}
 
         {/* User Section */}
         <div className="p-4 border-t border-gray-100">
