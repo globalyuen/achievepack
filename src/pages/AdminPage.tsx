@@ -5,7 +5,7 @@ import { supabase, Order, Profile, NewsletterSubscriber, Document, Quote, Artwor
 import { blogPosts } from '../data/blogData'
 import { Home, Users, Package, Settings, Search, ChevronDown, ChevronLeft, ChevronRight, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox, Send, FileCode, Check, Globe, Filter, MapPin, Factory, Tag, History, Zap, Bell } from 'lucide-react'
 import CRMPanelAdvanced from '../components/admin/CRMPanelAdvanced'
-import WebsiteEditor from '../components/admin/WebsiteEditor'
+import MiniSiteCMS from '../components/admin/MiniSiteCMS'
 import { sendTestEmail, sendBulkEmails, generateEmailTemplate, EmailRecipient } from '../lib/brevo'
 import { QuickAccessSheet, type QuickAccessItem, type QuoteStatus, type InvoiceStatus, type ArtworkQuickStatus } from '../components/ui/QuickAccessSheet'
 import { PinList, type PinListItem } from '../components/animate-ui/components/community/pin-list'
@@ -2073,7 +2073,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                   Preview Demo Site
                 </a>
               </div>
-              <WebsiteEditor />
+              <MiniSiteCMS />
             </div>
           )}
 

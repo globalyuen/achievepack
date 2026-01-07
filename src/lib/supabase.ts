@@ -281,3 +281,92 @@ export type MasterContact = {
   created_at: string
   updated_at: string
 }
+
+// Mini Site CMS
+export type MiniSiteContent = {
+  brand: {
+    name: string
+    tagline: string
+    taglineWords: string[]
+    description: string
+    ctaText: string
+    ctaLink: string
+  }
+  hero: {
+    backgroundImage: string
+    overlayOpacity: number
+  }
+  marquee: {
+    text: string
+    speed: number
+  }
+  products: {
+    id: string
+    name: string
+    price: number
+    type: string
+    origin: string
+    process: string
+    image: string
+  }[]
+  collections: {
+    id: string
+    name: string
+    logo: string
+    description: string
+    bgColor: string
+    images: string[]
+  }[]
+  mission: {
+    title: string
+    content: string
+    image: string
+    coordinates: string
+  }
+  subscription: {
+    title: string
+    steps: string[]
+    discount: string
+  }
+}
+
+export type MiniSite = {
+  id: string
+  name: string
+  slug: string
+  description?: string
+  template: 'coffee-shop' | 'bakery' | 'retail' | 'custom'
+  status: 'draft' | 'published' | 'archived'
+  is_public: boolean
+  content: MiniSiteContent
+  meta_title?: string
+  meta_description?: string
+  favicon_url?: string
+  primary_color?: string
+  secondary_color?: string
+  font_family?: string
+  owner_id?: string
+  created_at: string
+  updated_at: string
+  published_at?: string
+  deleted_at?: string
+}
+
+export type MiniSiteAccess = {
+  id: string
+  site_id: string
+  user_id: string
+  role: 'viewer' | 'editor' | 'admin'
+  can_edit: boolean
+  can_publish: boolean
+  can_manage_access: boolean
+  invited_by?: string
+  invited_at: string
+  accepted_at?: string
+  status: 'pending' | 'active' | 'revoked'
+  created_at: string
+  updated_at: string
+  // Joined fields
+  user_email?: string
+  user_name?: string
+}
