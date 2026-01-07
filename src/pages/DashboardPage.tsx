@@ -1458,67 +1458,102 @@ const DashboardPage: React.FC = () => {
             </div>
           )}
 
-          {/* Orders Tab */}
+          {/* Orders Tab - Unified with Artwork Style */}
           {activeTab === 'orders' && (
-            <div className="space-y-6">
-              <div className="flex items-center justify-between">
-                <h1 className="text-2xl font-bold text-gray-900">My Orders</h1>
-                <div className="flex gap-3">
-                  <Link to="/store" className="flex items-center gap-2 px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition">
-                    <Plus className="h-4 w-4" /> New Order
+            <div className="space-y-3 md:space-y-6">
+              {/* Header - Mobile Responsive */}
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">My Orders</h1>
+                <div className="flex gap-2 sm:gap-3">
+                  <Link to="/store" className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-3 sm:px-4 py-2.5 sm:py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition text-sm">
+                    <Plus className="h-4 w-4" /> <span className="hidden xs:inline">New</span> Order
                   </Link>
                   <button
                     onClick={() => {
                       setActiveTab('quotes')
                       setShowRfqForm(true)
                     }}
-                    className="flex items-center gap-2 px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg transition"
+                    className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-3 sm:px-4 py-2.5 sm:py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg transition text-sm"
                   >
-                    <FileText className="h-4 w-4" /> New Quote
+                    <FileText className="h-4 w-4" /> <span className="hidden xs:inline">New</span> Quote
                   </button>
                 </div>
               </div>
+
+              {/* Orders List - Artwork Style */}
               <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
                 {orders.length === 0 ? (
-                  <div className="p-12 text-center text-gray-400">
-                    <Package className="h-12 w-12 mx-auto mb-4 text-gray-300" />
-                    <p>{t('customerCenter.dashboard.empty.noOrders')}</p>
-                    <Link to="/store" className="inline-block mt-4 text-primary-600 hover:underline">
+                  <div className="p-6 md:p-12 text-center">
+                    <Package className="h-10 w-10 md:h-12 md:w-12 mx-auto mb-3 md:mb-4 text-gray-300" />
+                    <p className="text-sm md:text-base text-gray-500">{t('customerCenter.dashboard.empty.noOrders')}</p>
+                    <Link to="/store" className="inline-block mt-3 md:mt-4 text-primary-600 hover:underline text-sm">
                       {t('customerCenter.dashboard.empty.shopNow')}
                     </Link>
                   </div>
                 ) : (
                   <div className="divide-y divide-gray-100">
                     {orders.map(order => (
-                      <div key={order.id} className="p-5 hover:bg-gray-50 transition cursor-pointer" onClick={() => handleSelectOrder(order)}>
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-4">
-                            <div className="w-12 h-12 bg-primary-50 rounded-lg flex items-center justify-center">
-                              <Package className="h-6 w-6 text-primary-600" />
-                            </div>
-                            <div>
-                              <p className="font-semibold text-gray-900">{order.order_number}</p>
-                              <p className="text-sm text-gray-500">{new Date(order.created_at).toLocaleDateString()}</p>
-                              {/* Show tracking info if available */}
-                              {order.tracking_number && (
-                                <div className="flex items-center gap-2 mt-1">
-                                  <Truck className="h-3.5 w-3.5 text-blue-600" />
-                                  <span className="text-xs text-blue-600 font-medium">
-                                    {order.carrier || 'Tracking'}: {order.tracking_number}
-                                  </span>
-                                </div>
+                      <div key={order.id} className="p-3 md:p-5 hover:bg-gray-50 transition">
+                        <div className="space-y-3">
+                          {/* Top Row: Icon + Info + Status + Actions */}
+                          <div className="flex items-center gap-3">
+                            <div className={`w-14 h-14 md:w-16 md:h-16 rounded-lg flex-shrink-0 flex items-center justify-center ${
+                              order.status === 'delivered' ? 'bg-green-50' :
+                              order.status === 'shipped' ? 'bg-blue-50' :
+                              order.status === 'production' ? 'bg-purple-50' :
+                              'bg-primary-50'
+                            }`}>
+                              {order.status === 'shipped' || order.status === 'delivered' ? (
+                                <Truck className={`h-6 w-6 md:h-7 md:w-7 ${order.status === 'delivered' ? 'text-green-600' : 'text-blue-600'}`} />
+                              ) : (
+                                <Package className={`h-6 w-6 md:h-7 md:w-7 ${
+                                  order.status === 'production' ? 'text-purple-600' : 'text-primary-600'
+                                }`} />
                               )}
                             </div>
-                          </div>
-                          <div className="text-right flex items-center gap-4">
-                            <div>
-                              <p className="text-lg font-bold text-gray-900">${order.total_amount?.toLocaleString()}</p>
-                              <span className={`inline-block px-3 py-1 text-xs font-medium rounded-full ${statusColors[order.status]}`}>
-                                {order.status}
-                              </span>
+                            <div className="flex-1 min-w-0">
+                              <h3 className="font-semibold text-gray-900 text-sm truncate">{order.order_number}</h3>
+                              <div className="flex items-center gap-1.5 text-[11px] text-gray-500 mt-0.5">
+                                <span>${order.total_amount?.toLocaleString()}</span>
+                                <span>•</span>
+                                <span>{new Date(order.created_at).toLocaleDateString()}</span>
+                              </div>
                             </div>
-                            <Eye className="h-5 w-5 text-gray-400" />
+                            <span className={`inline-flex items-center gap-1 px-2 py-1 text-[10px] font-medium rounded-full flex-shrink-0 ${statusColors[order.status]}`}>
+                              <span className="hidden sm:inline">{order.status}</span>
+                              <span className="sm:hidden">{order.status.slice(0, 4)}</span>
+                            </span>
+                            {/* Quick Action Buttons */}
+                            <div className="flex items-center gap-1.5 flex-shrink-0">
+                              <button
+                                onClick={() => handleSelectOrder(order)}
+                                className="w-8 h-8 flex items-center justify-center rounded-full bg-primary-100 text-primary-600 hover:bg-primary-200 transition"
+                                title="View Details"
+                              >
+                                <Eye className="h-4 w-4" />
+                              </button>
+                            </div>
                           </div>
+                          
+                          {/* Tracking Info */}
+                          {order.tracking_number && (
+                            <div className="bg-blue-50 rounded-lg p-2.5 flex items-center gap-2">
+                              <Truck className="h-3.5 w-3.5 text-blue-600 flex-shrink-0" />
+                              <div className="flex-1 min-w-0">
+                                <p className="text-[10px] font-medium text-blue-600">Tracking</p>
+                                <p className="text-xs text-blue-800 truncate">{order.carrier || 'Carrier'}: {order.tracking_number}</p>
+                              </div>
+                              <a
+                                href={`https://www.google.com/search?q=${order.tracking_number}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-600 hover:text-blue-800"
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                <ExternalLink className="h-3.5 w-3.5" />
+                              </a>
+                            </div>
+                          )}
                         </div>
                       </div>
                     ))}
@@ -1528,17 +1563,18 @@ const DashboardPage: React.FC = () => {
             </div>
           )}
 
-          {/* Quotes Tab */}
+          {/* Quotes Tab - Unified with Artwork Style */}
           {activeTab === 'quotes' && (
-            <div className="space-y-6">
-              <div className="flex items-center justify-between">
+            <div className="space-y-3 md:space-y-6">
+              {/* Header - Mobile Responsive */}
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">Quotes & Requests</h1>
-                  <p className="text-sm text-gray-500 mt-1">View your quotes and submit custom packaging requests</p>
+                  <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">Quotes & Requests</h1>
+                  <p className="text-xs sm:text-sm text-gray-500 mt-0.5 sm:mt-1">View quotes and submit requests</p>
                 </div>
                 <button
                   onClick={() => setShowRfqForm(true)}
-                  className="flex items-center gap-2 px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition"
+                  className="flex items-center justify-center gap-2 px-4 py-2.5 sm:py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition text-sm"
                 >
                   <Plus className="h-4 w-4" />
                   New Request
@@ -1731,78 +1767,106 @@ const DashboardPage: React.FC = () => {
                 </div>
               )}
               
+              {/* Quotes List - Artwork Style */}
               <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
                 {quotes.length === 0 ? (
-                  <div className="p-12 text-center text-gray-400">
-                    <FileCheck className="h-12 w-12 mx-auto mb-4 text-gray-300" />
-                    <p>{t('customerCenter.dashboard.empty.noQuotes')}</p>
+                  <div className="p-6 md:p-12 text-center">
+                    <FileCheck className="h-10 w-10 md:h-12 md:w-12 mx-auto mb-3 md:mb-4 text-gray-300" />
+                    <p className="text-sm md:text-base text-gray-500">{t('customerCenter.dashboard.empty.noQuotes')}</p>
                   </div>
                 ) : (
                   <div className="divide-y divide-gray-100">
                     {quotes.map(quote => (
-                      <div key={quote.id} className="p-5 hover:bg-gray-50 transition">
-                        <div className="flex items-start justify-between">
-                          <div className="flex items-start gap-4 flex-1">
-                            <div className={`w-12 h-12 ${quote.is_rfq ? 'bg-blue-50' : 'bg-yellow-50'} rounded-lg flex items-center justify-center flex-shrink-0`}>
-                              <FileCheck className={`h-6 w-6 ${quote.is_rfq ? 'text-blue-600' : 'text-yellow-600'}`} />
+                      <div key={quote.id} className="p-3 md:p-5 hover:bg-gray-50 transition">
+                        <div className="space-y-3">
+                          {/* Top Row: Icon + Info + Status + Actions */}
+                          <div className="flex items-center gap-3">
+                            <div className={`w-14 h-14 md:w-16 md:h-16 rounded-lg flex-shrink-0 flex items-center justify-center ${
+                              quote.is_rfq ? 'bg-blue-50' : 
+                              quote.status === 'accepted' ? 'bg-green-50' : 
+                              quote.status === 'expired' ? 'bg-red-50' : 
+                              'bg-yellow-50'
+                            }`}>
+                              <FileCheck className={`h-6 w-6 md:h-7 md:w-7 ${
+                                quote.is_rfq ? 'text-blue-600' : 
+                                quote.status === 'accepted' ? 'text-green-600' : 
+                                quote.status === 'expired' ? 'text-red-600' : 
+                                'text-yellow-600'
+                              }`} />
                             </div>
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center gap-2">
-                                <p className="font-semibold text-gray-900">{quote.quote_number}</p>
+                                <h3 className="font-semibold text-gray-900 text-sm truncate">{quote.quote_number}</h3>
                                 {quote.is_rfq && (
-                                  <span className="px-2 py-0.5 text-xs font-medium bg-blue-100 text-blue-700 rounded">RFQ</span>
+                                  <span className="px-1.5 py-0.5 text-[9px] sm:text-[10px] font-medium bg-blue-100 text-blue-700 rounded flex-shrink-0">RFQ</span>
                                 )}
                               </div>
-                              <p className="text-sm text-gray-500 mt-1">
-                                {quote.is_rfq ? 'Submitted' : 'Valid until'}: {new Date(quote.is_rfq ? quote.created_at : quote.valid_until).toLocaleDateString()}
-                              </p>
-                              
-                              {/* RFQ Details */}
-                              {quote.is_rfq && (
-                                <div className="mt-3 space-y-2">
-                                  {quote.message && (
-                                    <div className="bg-gray-50 rounded-lg p-3">
-                                      <p className="text-xs font-medium text-gray-500 mb-1">Message:</p>
-                                      <p className="text-sm text-gray-700 whitespace-pre-wrap">{quote.message}</p>
-                                    </div>
-                                  )}
-                                  {quote.website_link && (
-                                    <div className="flex items-center gap-2 text-sm">
-                                      <span className="text-gray-500">Website:</span>
-                                      <a href={quote.website_link} target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline truncate">
-                                        {quote.website_link}
-                                      </a>
-                                    </div>
-                                  )}
-                                  {quote.photo_urls && quote.photo_urls.length > 0 && (
-                                    <div>
-                                      <p className="text-xs font-medium text-gray-500 mb-2">Attached Photos:</p>
-                                      <div className="grid grid-cols-4 gap-2">
-                                        {quote.photo_urls.map((url, idx) => (
-                                          <a key={idx} href={url} target="_blank" rel="noopener noreferrer" className="block">
-                                            <img src={url} alt={`Photo ${idx + 1}`} className="w-full h-20 object-cover rounded border border-gray-200 hover:border-primary-400 transition" />
-                                          </a>
-                                        ))}
-                                      </div>
-                                    </div>
-                                  )}
-                                </div>
-                              )}
-                              
-                              {/* Regular Quote Notes */}
-                              {!quote.is_rfq && quote.notes && (
-                                <p className="text-sm text-gray-600 mt-2">{quote.notes}</p>
-                              )}
+                              <div className="flex items-center gap-1.5 text-[11px] text-gray-500 mt-0.5">
+                                {!quote.is_rfq && quote.total_amount && (
+                                  <>
+                                    <span>${quote.total_amount.toLocaleString()}</span>
+                                    <span>•</span>
+                                  </>
+                                )}
+                                <span>{quote.is_rfq ? 'Submitted' : 'Valid'}: {new Date(quote.is_rfq ? quote.created_at : quote.valid_until).toLocaleDateString()}</span>
+                              </div>
+                            </div>
+                            <span className={`inline-flex items-center gap-1 px-2 py-1 text-[10px] font-medium rounded-full flex-shrink-0 ${statusColors[quote.status] || 'bg-gray-100 text-gray-600'}`}>
+                              <span className="hidden sm:inline">{quote.status}</span>
+                              <span className="sm:hidden">{quote.status.slice(0, 4)}</span>
+                            </span>
+                            {/* Quick Action Buttons */}
+                            <div className="flex items-center gap-1.5 flex-shrink-0">
+                              <button
+                                className="w-8 h-8 flex items-center justify-center rounded-full bg-primary-100 text-primary-600 hover:bg-primary-200 transition"
+                                title="View Details"
+                              >
+                                <Eye className="h-4 w-4" />
+                              </button>
                             </div>
                           </div>
-                          <div className="text-right ml-4">
-                            {!quote.is_rfq && (
-                              <p className="text-lg font-bold text-gray-900">${quote.total_amount?.toLocaleString()}</p>
-                            )}
-                            <span className={`inline-block px-3 py-1 text-xs font-medium rounded-full ${statusColors[quote.status] || 'bg-gray-100 text-gray-600'}`}>
-                              {quote.status}
-                            </span>
-                          </div>
+                          
+                          {/* RFQ Details - Expandable */}
+                          {quote.is_rfq && quote.message && (
+                            <div className="bg-gray-50 rounded-lg p-2.5">
+                              <p className="text-[10px] font-medium text-gray-500 mb-0.5">Message</p>
+                              <p className="text-xs text-gray-700 line-clamp-2">{quote.message}</p>
+                            </div>
+                          )}
+                          
+                          {/* Website Link */}
+                          {quote.is_rfq && quote.website_link && (
+                            <div className="flex items-center gap-2 text-xs">
+                              <Globe className="h-3.5 w-3.5 text-gray-400" />
+                              <a href={quote.website_link} target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline truncate">
+                                {quote.website_link}
+                              </a>
+                            </div>
+                          )}
+                          
+                          {/* Attached Photos */}
+                          {quote.photo_urls && quote.photo_urls.length > 0 && (
+                            <div className="flex gap-2 overflow-x-auto pb-1">
+                              {quote.photo_urls.slice(0, 4).map((url, idx) => (
+                                <a key={idx} href={url} target="_blank" rel="noopener noreferrer" className="flex-shrink-0">
+                                  <img src={url} alt={`Photo ${idx + 1}`} className="w-12 h-12 sm:w-14 sm:h-14 object-cover rounded border border-gray-200 hover:border-primary-400 transition" />
+                                </a>
+                              ))}
+                              {quote.photo_urls.length > 4 && (
+                                <div className="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 bg-gray-100 rounded flex items-center justify-center text-xs text-gray-500">
+                                  +{quote.photo_urls.length - 4}
+                                </div>
+                              )}
+                            </div>
+                          )}
+                          
+                          {/* Regular Quote Notes */}
+                          {!quote.is_rfq && quote.notes && (
+                            <div className="bg-yellow-50 rounded-lg p-2.5">
+                              <p className="text-[10px] font-medium text-yellow-600 mb-0.5">Notes</p>
+                              <p className="text-xs text-yellow-800 line-clamp-2">{quote.notes}</p>
+                            </div>
+                          )}
                         </div>
                       </div>
                     ))}
