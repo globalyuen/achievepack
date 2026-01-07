@@ -189,6 +189,9 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
                     <Link to="/free-service/website-upgrade" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">
                       🌐 Free Website Upgrade
                     </Link>
+                    <Link to="/free-service/packaging-mockup" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">
+                      📦 Free Packaging Mockup
+                    </Link>
                   </div>
                 </div>
               )}

@@ -169,6 +169,12 @@ const FREE_SERVICE_PAGES = [
     link: '/free-service/website-upgrade',
     image: '/imgs/free/website/hero.webp',
     description: '20-min strategy call + high-conversion homepage concept'
+  },
+  {
+    name: 'Free Packaging Mockup',
+    link: '/free-service/packaging-mockup',
+    image: '/imgs/free/mock/hero.webp',
+    description: 'Professional mockups to visualize your packaging design'
   }
 ]
 
