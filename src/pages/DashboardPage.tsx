@@ -12,6 +12,7 @@ import { useAuth } from '../hooks/useAuth'
 import { supabase, Order, Quote, Document, ArtworkFile, SavedCartItem, ArtworkComment } from '../lib/supabase'
 import { useTranslation } from 'react-i18next'
 import { useStore } from '../store/StoreContext'
+import DashboardFilesNav from '../components/ui/files-nav'
 
 type TabType = 'dashboard' | 'orders' | 'quotes' | 'documents' | 'artwork' | 'saved' | 'settings' | 'bin'
 
@@ -815,149 +816,22 @@ const DashboardPage: React.FC = () => {
 
         <hr className="mx-4 my-4 border-gray-100" />
 
-        {/* Navigation */}
-        <nav className="flex-1 px-3 space-y-1">
-          <button
-            onClick={() => setActiveTab('dashboard')}
-            className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition ${
-              activeTab === 'dashboard'
-                ? 'bg-primary-500 text-white'
-                : 'text-gray-700 hover:bg-gray-100'
-            }`}
-          >
-            <LayoutDashboard className="h-5 w-5 mr-3" />
-            Dashboard
-          </button>
-
-          <div className="pt-4 pb-2 px-4">
-            <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Orders</span>
-          </div>
-
-          <button
-            onClick={() => setActiveTab('orders')}
-            className={`flex items-center justify-between w-full px-4 py-2.5 text-sm font-medium rounded-lg transition ${
-              activeTab === 'orders'
-                ? 'bg-primary-500 text-white'
-                : 'text-gray-700 hover:bg-gray-100'
-            }`}
-          >
-            <div className="flex items-center">
-              <ShoppingCart className="h-5 w-5 mr-3" />
-              My Orders
-            </div>
-            {activeOrders > 0 && (
-              <span className={`px-2 py-0.5 text-xs rounded-full ${
-                activeTab === 'orders' ? 'bg-white/20 text-white' : 'bg-primary-100 text-primary-700'
-              }`}>
-                {activeOrders}
-              </span>
-            )}
-          </button>
-
-          <button
-            onClick={() => setActiveTab('quotes')}
-            className={`flex items-center justify-between w-full px-4 py-2.5 text-sm font-medium rounded-lg transition ${
-              activeTab === 'quotes'
-                ? 'bg-primary-500 text-white'
-                : 'text-gray-700 hover:bg-gray-100'
-            }`}
-          >
-            <div className="flex items-center">
-              <FileCheck className="h-5 w-5 mr-3" />
-              Quotes
-            </div>
-            {pendingQuotes > 0 && (
-              <span className={`px-2 py-0.5 text-xs rounded-full ${
-                activeTab === 'quotes' ? 'bg-white/20 text-white' : 'bg-yellow-100 text-yellow-700'
-              }`}>
-                {pendingQuotes}
-              </span>
-            )}
-          </button>
-
-          <div className="pt-4 pb-2 px-4">
-            <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Resources</span>
-          </div>
-
-          <button
-            onClick={() => setActiveTab('documents')}
-            className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition ${
-              activeTab === 'documents'
-                ? 'bg-primary-500 text-white'
-                : 'text-gray-700 hover:bg-gray-100'
-            }`}
-          >
-            <FileText className="h-5 w-5 mr-3" />
-            Documents
-          </button>
-
-          <button
-            onClick={() => setActiveTab('artwork')}
-            className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition ${
-              activeTab === 'artwork'
-                ? 'bg-primary-500 text-white'
-                : 'text-gray-700 hover:bg-gray-100'
-            }`}
-          >
-            <Image className="h-5 w-5 mr-3" />
-            Artwork Files
-          </button>
-
-          <button
-            onClick={() => setActiveTab('saved')}
-            className={`flex items-center justify-between w-full px-4 py-2.5 text-sm font-medium rounded-lg transition ${
-              activeTab === 'saved'
-                ? 'bg-primary-500 text-white'
-                : 'text-gray-700 hover:bg-gray-100'
-            }`}
-          >
-            <div className="flex items-center">
-              <Heart className="h-5 w-5 mr-3" />
-              Saved Items
-            </div>
-            {savedItems.length > 0 && (
-              <span className={`px-2 py-0.5 text-xs rounded-full ${
-                activeTab === 'saved' ? 'bg-white/20 text-white' : 'bg-amber-100 text-amber-700'
-              }`}>
-                {savedItems.length}
-              </span>
-            )}
-          </button>
-
-          <hr className="my-4 border-gray-100" />
-
-          <button
-            onClick={() => setActiveTab('settings')}
-            className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition ${
-              activeTab === 'settings'
-                ? 'bg-primary-500 text-white'
-                : 'text-gray-700 hover:bg-gray-100'
-            }`}
-          >
-            <Settings className="h-5 w-5 mr-3" />
-            Settings
-          </button>
-
-          <button
-            onClick={() => setActiveTab('bin')}
-            className={`flex items-center justify-between w-full px-4 py-2.5 text-sm font-medium rounded-lg transition ${
-              activeTab === 'bin'
-                ? 'bg-primary-500 text-white'
-                : 'text-gray-700 hover:bg-gray-100'
-            }`}
-          >
-            <div className="flex items-center">
-              <Archive className="h-5 w-5 mr-3" />
-              Bin
-            </div>
-            {deletedArtworks.length > 0 && (
-              <span className={`px-2 py-0.5 text-xs rounded-full ${
-                activeTab === 'bin' ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-600'
-              }`}>
-                {deletedArtworks.length}
-              </span>
-            )}
-          </button>
+        {/* Files Navigation */}
+        <nav className="flex-1 px-3 overflow-y-auto">
+          <DashboardFilesNav 
+            activeTab={activeTab}
+            onTabChange={(tab) => setActiveTab(tab as TabType)}
+            counts={{
+              activeOrders: activeOrders,
+              pendingQuotes: pendingQuotes,
+              artworks: artworks.length,
+              proofReady: artworks.filter(a => a.status === 'proof_ready').length,
+              inReview: artworks.filter(a => a.status === 'pending_review' || a.status === 'in_review').length,
+              savedItems: savedItems.length,
+              deletedArtworks: deletedArtworks.length,
+              documents: documents.length,
+            }}
+          />
         </nav>
 
         {/* User Section */}
