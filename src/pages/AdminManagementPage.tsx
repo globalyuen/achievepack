@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { useNavigate, Link, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, Quote, ArtworkFile, Profile, ArtworkComment, CRMInquiry } from '../lib/supabase'
 import { 
   Home, FileCheck, Image as ImageIcon, LogOut, Eye, Trash2, ArrowLeft, 
   RefreshCw, CheckCircle, Clock, AlertCircle, MessageSquare, X, 
-  Mail, Globe, Camera, FileText, Link2, Upload, Tag, Search, LayoutGrid, List, Plus, User, Send, RotateCcw, Archive
+  Mail, Globe, Camera, FileText, Link2, Upload, Tag, Search, LayoutGrid, List, Plus, User, Send, RotateCcw, Archive, Bell
 } from 'lucide-react'
 import {
   Tabs,
@@ -14,6 +14,7 @@ import {
 } from '../components/animate-ui/components/radix/tabs'
 import { DataManagementBar } from '../components/ui/DataManagementBar'
 import { CheckCircle as ApproveIcon, XCircle as RejectIcon, Send as SendIcon } from 'lucide-react'
+import { NotificationList, type Notification } from '../components/animate-ui/components/community/notification-list'
 
 type TabType = 'quotes' | 'artwork' | 'bin'
 
@@ -71,6 +72,81 @@ const AdminManagementPage: React.FC = () => {
   const [artworkPage, setArtworkPage] = useState(1)
   const [quotePage, setQuotePage] = useState(1)
   const ITEMS_PER_PAGE = 12
+  
+  // Notification dropdown state
+  const [showNotifications, setShowNotifications] = useState(false)
+  
+  // Generate notifications from recent activity
+  const notifications: Notification[] = useMemo(() => {
+    const notifs: Notification[] = []
+    const now = Date.now()
+    
+    // Helper to format time ago
+    const timeAgo = (date: string) => {
+      const diff = now - new Date(date).getTime()
+      const mins = Math.floor(diff / 60000)
+      if (mins < 1) return 'just now'
+      if (mins < 60) return `${mins}m ago`
+      const hours = Math.floor(mins / 60)
+      if (hours < 24) return `${hours}h ago`
+      const days = Math.floor(hours / 24)
+      return `${days}d ago`
+    }
+    
+    // Recent pending artworks (customer uploads)
+    artworks
+      .filter(a => a.status === 'pending_review')
+      .slice(0, 3)
+      .forEach(a => {
+        notifs.push({
+          id: `artwork-${a.id}`,
+          title: 'New Artwork Uploaded',
+          subtitle: a.name,
+          time: timeAgo(a.created_at),
+          type: 'upload',
+          onClick: () => {
+            setActiveTab('artwork')
+            setSelectedArtwork(a)
+          }
+        })
+      })
+    
+    // Recent pending quotes
+    quotes
+      .filter(q => q.status === 'pending')
+      .slice(0, 3)
+      .forEach(q => {
+        notifs.push({
+          id: `quote-${q.id}`,
+          title: q.is_rfq ? 'New RFQ Request' : 'New Quote Request',
+          subtitle: q.notes?.slice(0, 50) || 'Awaiting response',
+          time: timeAgo(q.created_at),
+          type: 'default',
+          onClick: () => {
+            setActiveTab('quotes')
+            setSelectedQuote(q)
+          }
+        })
+      })
+    
+    // Recently approved artworks
+    artworks
+      .filter(a => a.status === 'approved' && a.updated_at)
+      .slice(0, 2)
+      .forEach(a => {
+        notifs.push({
+          id: `approved-${a.id}`,
+          title: 'Artwork Approved',
+          subtitle: a.name,
+          time: timeAgo(a.updated_at || a.created_at),
+          type: 'approve',
+          isAdmin: true
+        })
+      })
+    
+    // Sort by time (most recent first) and limit
+    return notifs.slice(0, 6)
+  }, [artworks, quotes])
 
   // Check URL params for tab
   useEffect(() => {
@@ -719,6 +795,35 @@ const AdminManagementPage: React.FC = () => {
             </nav>
 
             <div className="pb-4 mt-auto">
+              {/* Notification Bell */}
+              <div className="relative px-4 mb-2">
+                <button
+                  onClick={() => setShowNotifications(!showNotifications)}
+                  className="relative w-full flex items-center gap-3 px-4 py-2.5 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
+                >
+                  <Bell className="h-5 w-5 text-gray-500" />
+                  <span>Notifications</span>
+                  {notifications.length > 0 && (
+                    <span className="absolute top-1 left-6 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center font-bold">
+                      {notifications.length}
+                    </span>
+                  )}
+                </button>
+                {/* Notification Dropdown */}
+                {showNotifications && (
+                  <div className="absolute bottom-full left-4 mb-2 z-50">
+                    <NotificationList
+                      notifications={notifications}
+                      onViewAll={() => {
+                        setShowNotifications(false)
+                        setActiveTab('artwork')
+                      }}
+                      title="Updates"
+                    />
+                  </div>
+                )}
+              </div>
+              
               <button
                 onClick={handleSignOut}
                 className="flex items-center w-full px-4 py-3 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
@@ -751,6 +856,32 @@ const AdminManagementPage: React.FC = () => {
             <span className="font-bold text-gray-900">Admin</span>
           </Link>
           <div className="flex items-center gap-3">
+            {/* Mobile Notification Bell */}
+            <div className="relative">
+              <button 
+                onClick={() => setShowNotifications(!showNotifications)} 
+                className="relative p-2 text-gray-500 hover:text-gray-700 rounded-lg hover:bg-gray-100 transition"
+              >
+                <Bell className="h-5 w-5" />
+                {notifications.length > 0 && (
+                  <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-red-500 text-white text-[10px] rounded-full flex items-center justify-center font-bold">
+                    {notifications.length}
+                  </span>
+                )}
+              </button>
+              {showNotifications && (
+                <div className="absolute top-full right-0 mt-2 z-50">
+                  <NotificationList
+                    notifications={notifications}
+                    onViewAll={() => {
+                      setShowNotifications(false)
+                      setActiveTab('artwork')
+                    }}
+                    title="Updates"
+                  />
+                </div>
+              )}
+            </div>
             <button onClick={fetchData} className="p-2 text-gray-500 hover:text-gray-700 rounded-lg hover:bg-gray-100 transition">
               <RefreshCw className={`h-5 w-5 ${loading ? 'animate-spin' : ''}`} />
             </button>

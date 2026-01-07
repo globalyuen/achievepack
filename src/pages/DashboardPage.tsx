@@ -22,6 +22,7 @@ import {
 } from '../components/animate-ui/components/radix/tabs'
 import { DataManagementBar } from '../components/ui/DataManagementBar'
 import { Eye as ViewIcon, Download as DownloadIcon, Upload as UploadIcon } from 'lucide-react'
+import { NotificationList, type Notification } from '../components/animate-ui/components/community/notification-list'
 
 type TabType = 'dashboard' | 'orders' | 'quotes' | 'documents' | 'artwork' | 'saved' | 'settings' | 'bin'
 
@@ -118,6 +119,98 @@ const DashboardPage: React.FC = () => {
     (artworkPage - 1) * ITEMS_PER_PAGE,
     artworkPage * ITEMS_PER_PAGE
   )
+  
+  // Notification dropdown state
+  const [showNotifications, setShowNotifications] = useState(false)
+  
+  // Generate notifications from recent activity (customer perspective)
+  const notifications: Notification[] = useMemo(() => {
+    const notifs: Notification[] = []
+    const now = Date.now()
+    
+    // Helper to format time ago
+    const timeAgo = (date: string) => {
+      const diff = now - new Date(date).getTime()
+      const mins = Math.floor(diff / 60000)
+      if (mins < 1) return 'just now'
+      if (mins < 60) return `${mins}m ago`
+      const hours = Math.floor(mins / 60)
+      if (hours < 24) return `${hours}h ago`
+      const days = Math.floor(hours / 24)
+      return `${days}d ago`
+    }
+    
+    // Artworks with proof ready for review
+    artworks
+      .filter(a => a.status === 'proof_ready')
+      .slice(0, 3)
+      .forEach(a => {
+        notifs.push({
+          id: `proof-${a.id}`,
+          title: 'Proof Ready for Review',
+          subtitle: a.name,
+          time: timeAgo(a.updated_at || a.created_at),
+          type: 'proof',
+          isAdmin: true,
+          onClick: () => {
+            setActiveTab('artwork')
+            setSelectedArtwork(a)
+          }
+        })
+      })
+    
+    // Artworks with admin feedback (revision needed)
+    artworks
+      .filter(a => a.status === 'revision_needed')
+      .slice(0, 2)
+      .forEach(a => {
+        notifs.push({
+          id: `feedback-${a.id}`,
+          title: 'Revision Needed',
+          subtitle: a.name,
+          time: timeAgo(a.updated_at || a.created_at),
+          type: 'comment',
+          isAdmin: true,
+          onClick: () => {
+            setActiveTab('artwork')
+            setSelectedArtwork(a)
+          }
+        })
+      })
+    
+    // Approved artworks
+    artworks
+      .filter(a => a.status === 'approved' && a.updated_at)
+      .slice(0, 2)
+      .forEach(a => {
+        notifs.push({
+          id: `approved-${a.id}`,
+          title: 'Artwork Approved',
+          subtitle: a.name,
+          time: timeAgo(a.updated_at || a.created_at),
+          type: 'approve',
+          isAdmin: true
+        })
+      })
+    
+    // Recent quote responses
+    quotes
+      .filter(q => q.admin_reply && q.replied_at)
+      .slice(0, 2)
+      .forEach(q => {
+        notifs.push({
+          id: `quote-${q.id}`,
+          title: 'Quote Response',
+          subtitle: q.admin_reply?.slice(0, 40) || 'Response received',
+          time: timeAgo(q.replied_at || q.created_at),
+          type: 'default',
+          isAdmin: true,
+          onClick: () => setActiveTab('quotes')
+        })
+      })
+    
+    return notifs.slice(0, 6)
+  }, [artworks, quotes])
 
   // Reset page when artworks change
   useEffect(() => {
@@ -862,6 +955,33 @@ const DashboardPage: React.FC = () => {
 
         {/* User Section */}
         <div className="p-4 border-t border-gray-100">
+          {/* Notification Bell in Sidebar */}
+          <div className="relative mb-2">
+            <button
+              onClick={() => setShowNotifications(!showNotifications)}
+              className="relative w-full flex items-center gap-3 px-4 py-2.5 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
+            >
+              <Bell className="h-5 w-5 text-gray-500" />
+              <span>Notifications</span>
+              {notifications.length > 0 && (
+                <span className="absolute top-1.5 left-6 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center font-bold">
+                  {notifications.length}
+                </span>
+              )}
+            </button>
+            {showNotifications && (
+              <div className="absolute bottom-full left-0 mb-2 z-50">
+                <NotificationList
+                  notifications={notifications}
+                  onViewAll={() => {
+                    setShowNotifications(false)
+                    setActiveTab('artwork')
+                  }}
+                  title="Updates"
+                />
+              </div>
+            )}
+          </div>
           <button
             onClick={handleSignOut}
             className="flex items-center w-full px-4 py-2.5 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100 transition"
@@ -908,10 +1028,32 @@ const DashboardPage: React.FC = () => {
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <button className="relative p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-full transition">
-                <Bell className="h-5 w-5" />
-                <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
-              </button>
+              {/* Notification Bell with Dropdown */}
+              <div className="relative">
+                <button 
+                  onClick={() => setShowNotifications(!showNotifications)}
+                  className="relative p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-full transition"
+                >
+                  <Bell className="h-5 w-5" />
+                  {notifications.length > 0 && (
+                    <span className="absolute top-0.5 right-0.5 w-4 h-4 bg-red-500 text-white text-[10px] rounded-full flex items-center justify-center font-bold">
+                      {notifications.length}
+                    </span>
+                  )}
+                </button>
+                {showNotifications && (
+                  <div className="absolute top-full right-0 mt-2 z-50">
+                    <NotificationList
+                      notifications={notifications}
+                      onViewAll={() => {
+                        setShowNotifications(false)
+                        setActiveTab('artwork')
+                      }}
+                      title="Updates"
+                    />
+                  </div>
+                )}
+              </div>
               <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center">
                 <span className="text-primary-600 font-semibold">
                   {user?.email?.charAt(0).toUpperCase()}
