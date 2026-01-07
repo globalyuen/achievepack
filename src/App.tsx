@@ -9,6 +9,7 @@ import { getImage } from './utils/imageMapper'
 import Newsletter from './components/Newsletter'
 import CartSidebar from './components/store/CartSidebar'
 import MegaMenu, { RightNavMenu } from './components/MegaMenu'
+import CoverflowCarousel from './components/CoverflowCarousel'
 import type { CalculatorResults } from './utils/calculatorUtils'
 import { useStore } from './store/StoreContext'
 import { FEATURED_PRODUCTS, type PouchProduct } from './store/productData'
@@ -851,96 +852,47 @@ function App() {
         </div>
       </Suspense>
 
-      {/* Discover Products - Horizontal Scrolling Section */}
-      <section className="py-12 bg-white border-b border-neutral-100">
+      {/* Discover Products - Coverflow Carousel Section */}
+      <section className="py-16 bg-gradient-to-b from-white to-neutral-50 border-b border-neutral-100 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-neutral-900">Discover Products</h2>
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h2 className="text-3xl font-bold text-neutral-900">Discover Products</h2>
+              <p className="text-neutral-600 mt-1">Swipe or drag to explore our eco-friendly packaging</p>
+            </div>
             <Link 
               to="/store" 
-              className="text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors flex items-center gap-1"
+              className="hidden sm:flex text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors items-center gap-1"
             >
               Shop All <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
           
-          {/* Scrollable container with arrows */}
-          <div 
-            className="relative group/scroll"
-            onMouseEnter={() => setIsDiscoverHovered(true)}
-            onMouseLeave={() => setIsDiscoverHovered(false)}
-          >
-            {/* Left Arrow */}
-            <button
-              onClick={() => scrollDiscover('left')}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 opacity-0 group-hover/scroll:opacity-100 transition-opacity duration-300 -translate-x-2"
-              aria-label="Scroll left"
+          <CoverflowCarousel
+            items={[
+              { image: '/imgs/menu/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp', link: '/store?category=eco-digital', label: 'Eco Digital' },
+              { image: '/imgs/menu/eco-digital/TKAqlW4KL2xV9glNA91iuD_sYEvp2G29eWT4819Ne1g=.webp', link: '/store?category=eco-digital', label: 'Compostable' },
+              { image: '/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp', link: '/packaging/flat-pouches', label: '3 Side Seal' },
+              { image: '/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.webp', link: '/packaging/flat-bottom-bags', label: 'Flat Bottom' },
+              { image: '/imgs/pouch-shape/ads/a_achieve_pack_quad_side_gusset_closeup_9751125.webp', link: '/packaging/side-gusset-bags', label: 'Side Gusset' },
+              { image: '/imgs/store/box/corrugated-box/ads/a_hero_kv_black_gold_mailer_4737831.webp', link: '/store?category=boxes', label: 'Custom Boxes' },
+              { image: '/imgs/store/box/tuck-box/ads/a_hero_kv_tuck_box_3590474.webp', link: '/store?category=boxes', label: 'Tuck Boxes' },
+              { image: '/imgs/surface/ads/a_achieve_pack_main_kv_six_finishes_3535755.webp', link: '/features/surface-finish', label: 'Surface Finish' },
+              { image: '/imgs/surface/ads/a_embossed_navy_9933981.webp', link: '/features/surface-finish', label: 'Embossed' },
+              { image: '/imgs/barrier/ads/a_barrier_levels_7395220.webp', link: '/features/barrier-options', label: 'Barrier Options' },
+              { image: '/imgs/reclose/ads/a_reclosure_four_quadrant_overview_3481316.webp', link: '/features/reclosure-options', label: 'Reclosure' },
+              { image: '/imgs/menu/eco-digital/hAGC60SxXYmSdiBTJD3XPhMZBocRVBXZyuV-dvt3r7c=.webp', link: '/store?category=eco-digital', label: 'Recyclable' },
+              { image: '/imgs/menu/mailer/447849b2-65ea-49fb-86de-1278a636c795_upscayl_3x_upscayl-standard-4x.webp', link: '/store?category=mailer', label: 'Mailer Bags' },
+            ]}
+          />
+          
+          <div className="text-center mt-4 sm:hidden">
+            <Link 
+              to="/store" 
+              className="inline-flex text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors items-center gap-1"
             >
-              <ChevronLeft className="h-6 w-6 text-neutral-700" />
-            </button>
-            
-            {/* Right Arrow */}
-            <button
-              onClick={() => scrollDiscover('right')}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 opacity-0 group-hover/scroll:opacity-100 transition-opacity duration-300 translate-x-2"
-              aria-label="Scroll right"
-            >
-              <ChevronRight className="h-6 w-6 text-neutral-700" />
-            </button>
-            
-            {/* Scrollable content */}
-            <div 
-              ref={discoverScrollRef}
-              className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide -mx-4 px-4"
-            >
-              {[
-                // Eco Digital
-                { image: '/imgs/menu/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp', link: '/store?category=eco-digital', label: 'Eco Digital' },
-                { image: '/imgs/menu/eco-digital/TKAqlW4KL2xV9glNA91iuD_sYEvp2G29eWT4819Ne1g=.webp', link: '/store?category=eco-digital', label: 'Compostable' },
-                // Pouch Shape Ads
-                { image: '/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp', link: '/packaging/flat-pouches', label: '3 Side Seal' },
-                { image: '/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.webp', link: '/packaging/flat-bottom-bags', label: 'Flat Bottom' },
-                { image: '/imgs/pouch-shape/ads/a_achieve_pack_quad_side_gusset_closeup_9751125.webp', link: '/packaging/side-gusset-bags', label: 'Side Gusset' },
-                // Boxes Ads
-                { image: '/imgs/store/box/corrugated-box/ads/a_hero_kv_black_gold_mailer_4737831.webp', link: '/store?category=boxes', label: 'Custom Boxes' },
-                { image: '/imgs/store/box/tuck-box/ads/a_hero_kv_tuck_box_3590474.webp', link: '/store?category=boxes', label: 'Tuck Boxes' },
-                { image: '/imgs/store/box/corrugated-box/ads/a_foil_stamping_detail_logo_3101304.webp', link: '/store?category=boxes', label: 'Foil Stamping' },
-                // Surface Finish Ads
-                { image: '/imgs/surface/ads/a_achieve_pack_main_kv_six_finishes_3535755.webp', link: '/features/surface-finish', label: 'Surface Finish' },
-                { image: '/imgs/surface/ads/a_embossed_navy_9933981.webp', link: '/features/surface-finish', label: 'Embossed' },
-                { image: '/imgs/surface/ads/a_foil_green_charcoal_7632386.webp', link: '/features/surface-finish', label: 'Foil Print' },
-                // Barrier Ads
-                { image: '/imgs/barrier/ads/a_barrier_levels_7395220.webp', link: '/features/barrier-options', label: 'Barrier Options' },
-                { image: '/imgs/barrier/ads/a_kraft_levels_1_2_3604187.webp', link: '/features/barrier-options', label: 'Kraft Barrier' },
-                // Reclosure Ads
-                { image: '/imgs/reclose/ads/a_reclosure_four_quadrant_overview_3481316.webp', link: '/features/reclosure-options', label: 'Reclosure' },
-                { image: '/imgs/reclose/ads/a_presstoclose_closure_detail_5742103.webp', link: '/features/reclosure-options', label: 'Press to Close' },
-                // More Eco Digital
-                { image: '/imgs/menu/eco-digital/hAGC60SxXYmSdiBTJD3XPhMZBocRVBXZyuV-dvt3r7c=.webp', link: '/store?category=eco-digital', label: 'Recyclable' },
-                { image: '/imgs/menu/eco-digital/os9CHhTSQoGASvA8lsfm-iHYfG4kddPoZP2wYMh47fs=.webp', link: '/store?category=eco-digital', label: 'Stand Up Pouch' },
-                { image: '/imgs/menu/mailer/447849b2-65ea-49fb-86de-1278a636c795_upscayl_3x_upscayl-standard-4x.webp', link: '/store?category=mailer', label: 'Mailer Bags' },
-              ].map((item, index) => (
-                <Link 
-                  key={index} 
-                  to={item.link} 
-                  className="flex-shrink-0 group"
-                >
-                  <div 
-                    className="w-[140px] md:w-[180px] bg-neutral-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
-                    style={{ aspectRatio: '9/16' }}
-                  >
-                    <img
-                      src={item.image}
-                      alt={item.label}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                  <p className="text-xs font-medium text-neutral-700 mt-2 text-center group-hover:text-primary-600 transition-colors">{item.label}</p>
-                </Link>
-              ))}
-            </div>
+              Shop All Products <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
