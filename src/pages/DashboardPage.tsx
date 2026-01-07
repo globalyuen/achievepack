@@ -1940,9 +1940,9 @@ const DashboardPage: React.FC = () => {
                         <div key={artwork.id} className="p-3 md:p-5 hover:bg-gray-50 transition">
                           {/* Mobile Card Layout */}
                           <div className="space-y-3">
-                            {/* Top Row: Image Preview + Name + Status */}
-                            <div className="flex items-start gap-3">
-                              <div className="w-16 h-16 md:w-20 md:h-20 rounded-lg flex-shrink-0 overflow-hidden bg-gray-100">
+                            {/* Top Row: Image Preview + Name + Status + Quick Actions */}
+                            <div className="flex items-center gap-3">
+                              <div className="w-14 h-14 md:w-16 md:h-16 rounded-lg flex-shrink-0 overflow-hidden bg-gray-100">
                                 {isImage ? (
                                   <img 
                                     src={artwork.file_url} 
@@ -1955,144 +1955,143 @@ const DashboardPage: React.FC = () => {
                                   />
                                 ) : null}
                                 <div className={`w-full h-full flex flex-col items-center justify-center bg-purple-50 ${isImage ? 'hidden' : ''}`}>
-                                  <FileImage className="h-6 w-6 text-purple-400" />
-                                  <p className="text-[8px] text-purple-400 mt-0.5 text-center px-1">PDF/File</p>
+                                  <FileImage className="h-5 w-5 text-purple-400" />
+                                  <p className="text-[7px] text-purple-400 mt-0.5">File</p>
                                 </div>
                               </div>
                               <div className="flex-1 min-w-0">
-                                <h3 className="font-semibold text-gray-900 text-sm md:text-base truncate">{artwork.name}</h3>
-                                <div className="flex items-center gap-2 text-xs text-gray-500 mt-0.5">
+                                <h3 className="font-semibold text-gray-900 text-sm truncate">{artwork.name}</h3>
+                                <div className="flex items-center gap-1.5 text-[11px] text-gray-500 mt-0.5">
                                   <span>{formatFileSize(artwork.file_size)}</span>
                                   <span>•</span>
                                   <span>{new Date(artwork.created_at).toLocaleDateString()}</span>
                                 </div>
                               </div>
-                              <span className={`inline-flex items-center gap-1 px-2 py-1 text-[10px] md:text-xs font-medium rounded-full flex-shrink-0 ${statusInfo.color}`}>
+                              <span className={`inline-flex items-center gap-1 px-2 py-1 text-[10px] font-medium rounded-full flex-shrink-0 ${statusInfo.color}`}>
                                 <StatusIcon className="h-3 w-3" />
                                 <span className="hidden sm:inline">{statusInfo.label}</span>
                               </span>
+                              {/* Quick Action Buttons - Right Side Circular Icons */}
+                              <div className="flex items-center gap-1.5 flex-shrink-0">
+                                <a 
+                                  href={artwork.file_url} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="w-8 h-8 flex items-center justify-center rounded-full bg-green-100 text-green-600 hover:bg-green-200 transition"
+                                  title="Download"
+                                >
+                                  <Download className="h-4 w-4" />
+                                </a>
+                                <button
+                                  onClick={() => {
+                                    if (showCommentsArtworkId === artwork.id) {
+                                      setShowCommentsArtworkId(null)
+                                      setArtworkComments([])
+                                    } else {
+                                      setShowCommentsArtworkId(artwork.id)
+                                      fetchArtworkComments(artwork.id)
+                                    }
+                                    setNewComment('')
+                                  }}
+                                  className={`w-8 h-8 flex items-center justify-center rounded-full transition ${showCommentsArtworkId === artwork.id ? 'bg-primary-200 text-primary-700' : 'bg-primary-100 text-primary-600 hover:bg-primary-200'}`}
+                                  title="Messages"
+                                >
+                                  <MessageSquare className="h-4 w-4" />
+                                </button>
+                                <button
+                                  onClick={() => deleteArtwork(artwork.id, artwork.name)}
+                                  className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-100 text-purple-600 hover:bg-purple-200 transition"
+                                  title="Delete"
+                                >
+                                  <Trash2 className="h-4 w-4" />
+                                </button>
+                              </div>
                             </div>
                             
                             {/* Internal admin remark - hidden from customer */}
                             
                             {/* Customer Comment */}
                             {artwork.customer_comment && (
-                              <div className="bg-blue-50 rounded-lg p-2.5 md:p-3">
-                                <p className="text-[10px] md:text-xs font-medium text-blue-600 mb-0.5">Your Comment:</p>
-                                <p className="text-xs md:text-sm text-blue-800">{artwork.customer_comment}</p>
+                              <div className="bg-blue-50 rounded-lg p-2.5">
+                                <p className="text-[10px] font-medium text-blue-600 mb-0.5">Your Comment:</p>
+                                <p className="text-xs text-blue-800">{artwork.customer_comment}</p>
                               </div>
                             )}
                             
-                            {/* Action Buttons - Full Width Grid */}
-                            <div className="grid grid-cols-2 gap-2">
-                              {/* Download Original */}
-                              <a 
-                                href={artwork.file_url} 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="flex items-center justify-center gap-1.5 px-2 py-2.5 text-xs font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition"
-                              >
-                                <Download className="h-4 w-4" />
-                                Download
-                              </a>
-                              
-                              {/* Download Proof (if available) */}
-                              {artwork.proof_url && (artwork.status === 'proof_ready' || artwork.status === 'approved') && (
-                                <a 
-                                  href={artwork.proof_url} 
-                                  target="_blank" 
-                                  rel="noopener noreferrer"
-                                  className="flex items-center justify-center gap-1.5 px-2 py-2.5 text-xs font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition"
-                                >
-                                  <Download className="h-4 w-4" />
-                                  Proof
-                                </a>
-                              )}
-                              
-                              {/* Approve Button (if proof ready) */}
-                              {artwork.status === 'proof_ready' && (
-                                <button 
-                                  onClick={() => {
-                                    setSelectedArtwork(artwork)
-                                    setProofChecklist({
-                                      bag_size: false,
-                                      product_weight: false,
-                                      colors: false,
-                                      text_spelling: false,
-                                      logo_graphics: false,
-                                      upc_barcode: false,
-                                      roll_direction: false,
-                                      closure_type: false,
-                                      add_ons: false,
-                                      quantity: false
-                                    })
-                                    setApprovalType('')
-                                    setApproverSignature('')
-                                    setApproverCompany('')
-                                    setApprovalNotes('')
-                                    setShowProofReviewModal(true)
-                                  }}
-                                  className="flex items-center justify-center gap-1.5 px-2 py-2.5 text-xs font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 transition col-span-2"
-                                >
-                                  <CheckCircle className="h-4 w-4" />
-                                  Approve Proof
-                                </button>
-                              )}
-                              
-                              {/* Comment & Upload Revised */}
-                              {(artwork.status === 'revision_needed' || artwork.status === 'proof_ready') && (
-                                <>
+                            {/* Conditional Action Buttons - Only show when needed */}
+                            {(artwork.proof_url || artwork.status === 'proof_ready' || artwork.status === 'revision_needed') && (
+                              <div className="flex flex-wrap gap-2">
+                                {/* Download Proof (if available) */}
+                                {artwork.proof_url && (artwork.status === 'proof_ready' || artwork.status === 'approved') && (
+                                  <a 
+                                    href={artwork.proof_url} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition"
+                                  >
+                                    <Download className="h-3.5 w-3.5" />
+                                    Proof
+                                  </a>
+                                )}
+                                
+                                {/* Approve Button (if proof ready) */}
+                                {artwork.status === 'proof_ready' && (
                                   <button 
                                     onClick={() => {
                                       setSelectedArtwork(artwork)
-                                      setShowRevisionModal(true)
+                                      setProofChecklist({
+                                        bag_size: false,
+                                        product_weight: false,
+                                        colors: false,
+                                        text_spelling: false,
+                                        logo_graphics: false,
+                                        upc_barcode: false,
+                                        roll_direction: false,
+                                        closure_type: false,
+                                        add_ons: false,
+                                        quantity: false
+                                      })
+                                      setApprovalType('')
+                                      setApproverSignature('')
+                                      setApproverCompany('')
+                                      setApprovalNotes('')
+                                      setShowProofReviewModal(true)
                                     }}
-                                    className="flex items-center justify-center gap-1.5 px-2 py-2.5 text-xs font-medium text-orange-700 bg-orange-100 rounded-lg hover:bg-orange-200 transition"
+                                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 transition"
                                   >
-                                    <MessageSquare className="h-4 w-4" />
-                                    Comment
+                                    <CheckCircle className="h-3.5 w-3.5" />
+                                    Approve Proof
                                   </button>
-                                  
-                                  <label className="flex items-center justify-center gap-1.5 px-2 py-2.5 text-xs font-medium text-purple-700 bg-purple-100 rounded-lg hover:bg-purple-200 transition cursor-pointer">
-                                    <Upload className="h-4 w-4" />
-                                    Upload New
-                                    <input
-                                      type="file"
-                                      accept=".ai,.eps,.pdf,.png,.jpg,.jpeg,.tiff,.tif,.psd,.zip"
-                                      onChange={handleArtworkUpload}
-                                      className="hidden"
-                                    />
-                                  </label>
-                                </>
-                              )}
-                              
-                              {/* Messages Button - Always Show */}
-                              <button
-                                onClick={() => {
-                                  if (showCommentsArtworkId === artwork.id) {
-                                    setShowCommentsArtworkId(null)
-                                    setArtworkComments([])
-                                  } else {
-                                    setShowCommentsArtworkId(artwork.id)
-                                    fetchArtworkComments(artwork.id)
-                                  }
-                                  setNewComment('')
-                                }}
-                                className="flex items-center justify-center gap-1.5 px-2 py-2.5 text-xs font-medium text-primary-700 bg-primary-50 rounded-lg hover:bg-primary-100 transition"
-                              >
-                                <MessageSquare className="h-4 w-4" />
-                                {showCommentsArtworkId === artwork.id ? 'Hide' : 'Messages'}
-                              </button>
-                              
-                              {/* Delete Button - Customer can delete their own artwork */}
-                              <button
-                                onClick={() => deleteArtwork(artwork.id, artwork.name)}
-                                className="flex items-center justify-center gap-1.5 px-2 py-2.5 text-xs font-medium text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition"
-                              >
-                                <Trash2 className="h-4 w-4" />
-                                Delete
-                              </button>
-                            </div>
+                                )}
+                                
+                                {/* Comment & Upload Revised */}
+                                {(artwork.status === 'revision_needed' || artwork.status === 'proof_ready') && (
+                                  <>
+                                    <button 
+                                      onClick={() => {
+                                        setSelectedArtwork(artwork)
+                                        setShowRevisionModal(true)
+                                      }}
+                                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-orange-700 bg-orange-100 rounded-lg hover:bg-orange-200 transition"
+                                    >
+                                      <MessageSquare className="h-3.5 w-3.5" />
+                                      Comment
+                                    </button>
+                                    
+                                    <label className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-purple-700 bg-purple-100 rounded-lg hover:bg-purple-200 transition cursor-pointer">
+                                      <Upload className="h-3.5 w-3.5" />
+                                      Upload New
+                                      <input
+                                        type="file"
+                                        accept=".ai,.eps,.pdf,.png,.jpg,.jpeg,.tiff,.tif,.psd,.zip"
+                                        onChange={handleArtworkUpload}
+                                        className="hidden"
+                                      />
+                                    </label>
+                                  </>
+                                )}
+                              </div>
+                            )}
                             
                             {/* Thread System - Comment Exchange Section */}
                             {showCommentsArtworkId === artwork.id && (
