@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { Save, Eye, Upload, RefreshCw, ExternalLink, Check, X, Type, Image as ImageIcon, Globe } from 'lucide-react'
+import React, { useState, useEffect, useRef } from 'react'
+import { Save, Eye, Upload, RefreshCw, ExternalLink, Check, X, Type, Image as ImageIcon, Globe, Loader2 } from 'lucide-react'
+import { supabase } from '../../lib/supabase'
 
 // Demo content interface
 interface DemoContent {
@@ -154,6 +155,9 @@ const ImagePickerModal: React.FC<{
   currentImage?: string
 }> = ({ isOpen, onClose, onSelect, currentImage }) => {
   const [customUrl, setCustomUrl] = useState(currentImage || '')
+  const [isUploading, setIsUploading] = useState(false)
+  const [uploadError, setUploadError] = useState('')
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
   const unsplashImages = [
     'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&q=80',
@@ -172,7 +176,69 @@ const ImagePickerModal: React.FC<{
 
   useEffect(() => {
     setCustomUrl(currentImage || '')
+    setUploadError('')
   }, [currentImage, isOpen])
+
+  // Handle file upload
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+
+    // Validate file type
+    const isImage = file.type.startsWith('image/')
+    if (!isImage) {
+      setUploadError('Please select an image file (JPG, PNG, GIF, WebP)')
+      return
+    }
+
+    // Validate file size (5MB limit)
+    const maxSize = 5 * 1024 * 1024
+    if (file.size > maxSize) {
+      setUploadError('Image must be less than 5MB')
+      return
+    }
+
+    setIsUploading(true)
+    setUploadError('')
+
+    try {
+      // Generate unique filename
+      const ext = file.name.split('.').pop() || 'jpg'
+      const fileName = `demo-website/${Date.now()}-${Math.random().toString(36).substring(7)}.${ext}`
+
+      // Upload to Supabase Storage
+      const { data: uploadData, error: uploadError } = await supabase.storage
+        .from('artworks')
+        .upload(fileName, file, {
+          cacheControl: '3600',
+          upsert: false,
+          contentType: file.type
+        })
+
+      if (uploadError) {
+        throw new Error(uploadError.message)
+      }
+
+      // Get public URL
+      const { data: urlData } = supabase.storage
+        .from('artworks')
+        .getPublicUrl(uploadData?.path || fileName)
+
+      const publicUrl = urlData.publicUrl
+
+      // Use the uploaded image
+      onSelect(publicUrl)
+      onClose()
+    } catch (error: any) {
+      console.error('Upload error:', error)
+      setUploadError(error.message || 'Failed to upload image')
+    } finally {
+      setIsUploading(false)
+      if (fileInputRef.current) {
+        fileInputRef.current.value = ''
+      }
+    }
+  }
 
   if (!isOpen) return null
 
@@ -187,6 +253,38 @@ const ImagePickerModal: React.FC<{
         </div>
         
         <div className="p-6 overflow-y-auto max-h-[calc(90vh-80px)]">
+          {/* Upload Image Section */}
+          <div className="mb-6 p-4 border-2 border-dashed border-gray-300 rounded-xl hover:border-primary-400 transition-colors">
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              onChange={handleFileUpload}
+              className="hidden"
+              id="image-upload"
+            />
+            <label
+              htmlFor="image-upload"
+              className="flex flex-col items-center justify-center cursor-pointer py-4"
+            >
+              {isUploading ? (
+                <>
+                  <Loader2 className="w-8 h-8 text-primary-500 animate-spin mb-2" />
+                  <span className="text-sm text-gray-600">Uploading...</span>
+                </>
+              ) : (
+                <>
+                  <Upload className="w-8 h-8 text-gray-400 mb-2" />
+                  <span className="text-sm font-medium text-gray-700">Click to upload image</span>
+                  <span className="text-xs text-gray-500 mt-1">JPG, PNG, GIF, WebP (max 5MB)</span>
+                </>
+              )}
+            </label>
+            {uploadError && (
+              <p className="text-sm text-red-600 text-center mt-2">{uploadError}</p>
+            )}
+          </div>
+
           {/* Custom URL Input */}
           <div className="mb-6">
             <label className="block text-sm font-medium text-gray-700 mb-2">Custom Image URL</label>
