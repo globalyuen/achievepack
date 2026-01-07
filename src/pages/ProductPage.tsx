@@ -1,8 +1,9 @@
 import React, { useState, useMemo, useEffect, useTransition, useCallback } from 'react'
 import { useParams, Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn, MessageCircle, Package, Home, Share2, Copy, X, Sparkles } from 'lucide-react'
+import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn, MessageCircle, Package, Home, Share2, Copy, X, Sparkles, CheckCircle } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
+import PopoverSelect, { SimplePopoverSelect } from '../components/ui/popover-select'
 import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct, type ConventionalProduct, type EcoStockProduct, type BoxProduct, type EcoStockSizeVariant, type EcoStockSizeWithQuantities, type EcoStockQuantityOption, PRICING_DATA, POUCH_SIZES, QUANTITY_OPTIONS, getProductType, isProductPurchasable } from '../store/productData'
 import { calculateEcoPrice, type EcoCalculatorSelections, getMaterialStructureInfo } from '../utils/ecoDigitalCalculator'
 import { getProductImage, getSizeImage, getSurfaceImage, getAdditionalImage, type ShapeType, ClosureType, SurfaceType, EcoSizeType, AdditionalType } from '../utils/productImageMapper'
@@ -2861,15 +2862,14 @@ const ProductPage: React.FC = () => {
                     Compare All Material Options →
                   </button>
                   
-                  {/* Dropdown Option */}
-                  <div className="flex gap-3 items-center">
+                  {/* Mobile: Native Select */}
+                  <div className="md:hidden flex gap-3 items-center">
                     <select value={selectedMaterial} onChange={e => setSelectedMaterial(e.target.value)} className="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                       <option value="PCR or Bio Plastic">PCR or Bio Plastic</option>
                       <option value="Mono Recyclable Plastic">Mono Recyclable Plastic</option>
                       <option value="Biodegradable and Compostable">Biodegradable and Compostable</option>
                     </select>
-                    {/* Material Thumbnail */}
-                    <div className="flex-shrink-0 bg-white rounded-lg p-2 w-16 h-16 flex items-center justify-center border-2 border-primary-600">
+                    <div className="flex-shrink-0 bg-white rounded-lg p-2 w-14 h-14 flex items-center justify-center border-2 border-primary-600">
                       <img 
                         src={selectedMaterial === 'PCR or Bio Plastic' 
                           ? '/imgs/store/eco-material/pcr-or-biope.webp'
@@ -2880,6 +2880,39 @@ const ProductPage: React.FC = () => {
                         alt={selectedMaterial} 
                         className="max-w-full max-h-full object-contain"
                       />
+                    </div>
+                  </div>
+                  
+                  {/* Tablet/Desktop: Popover Grid */}
+                  <div className="hidden md:block">
+                    <div className="grid grid-cols-3 gap-2">
+                      {[
+                        { value: 'PCR or Bio Plastic', label: 'PCR / Bio PE', image: '/imgs/store/eco-material/pcr-or-biope.webp', desc: 'Recycled or plant-based' },
+                        { value: 'Mono Recyclable Plastic', label: 'Mono PE', image: '/imgs/store/eco-material/recycle.webp', desc: 'Fully recyclable' },
+                        { value: 'Biodegradable and Compostable', label: 'Compostable', image: '/imgs/store/eco-material/compostable.webp', desc: 'Certified compostable' },
+                      ].map(mat => (
+                        <button
+                          key={mat.value}
+                          type="button"
+                          onClick={() => setSelectedMaterial(mat.value)}
+                          className={`relative p-3 rounded-xl border-2 transition-all text-left ${
+                            selectedMaterial === mat.value
+                              ? 'border-primary-500 bg-primary-50 ring-2 ring-primary-100'
+                              : 'border-neutral-200 hover:border-primary-300 hover:bg-neutral-50'
+                          }`}
+                        >
+                          <img src={mat.image} alt="" className="w-10 h-10 object-contain mx-auto mb-2" />
+                          <p className={`text-xs font-semibold text-center ${selectedMaterial === mat.value ? 'text-primary-700' : 'text-neutral-800'}`}>
+                            {mat.label}
+                          </p>
+                          <p className="text-[10px] text-neutral-500 text-center mt-0.5">{mat.desc}</p>
+                          {selectedMaterial === mat.value && (
+                            <div className="absolute top-1 right-1 w-4 h-4 bg-primary-500 rounded-full flex items-center justify-center">
+                              <CheckCircle className="w-3 h-3 text-white" />
+                            </div>
+                          )}
+                        </button>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -2977,8 +3010,8 @@ const ProductPage: React.FC = () => {
                     Compare All Surface Options →
                   </button>
                   
-                  {/* Dropdown Option */}
-                  <div className="flex gap-3 items-center">
+                  {/* Mobile: Native Select */}
+                  <div className="md:hidden flex gap-3 items-center">
                     <select value={selectedSurface} onChange={e => setSelectedSurface(e.target.value as SurfaceType)} className="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                       <option value="Glossy">Glossy</option>
                       <option value="Matt">Matt</option>
@@ -2987,13 +3020,47 @@ const ProductPage: React.FC = () => {
                       <option value="Emboss">Emboss</option>
                       <option value="Stamp Foil">Stamp Foil</option>
                     </select>
-                    {/* Surface Preview Thumbnail */}
-                    <div className="flex-shrink-0 bg-white rounded-lg p-2 w-16 h-16 flex items-center justify-center border-2 border-primary-600">
-                      <img 
-                        src={getSurfaceImage(selectedSurface)} 
-                        alt={`${selectedSurface} surface`} 
-                        className="max-w-full max-h-full object-contain"
-                      />
+                    <div className="flex-shrink-0 bg-white rounded-lg p-2 w-14 h-14 flex items-center justify-center border-2 border-primary-600">
+                      <img src={getSurfaceImage(selectedSurface)} alt="" className="max-w-full max-h-full object-contain" />
+                    </div>
+                  </div>
+                  
+                  {/* Tablet/Desktop: Popover Grid */}
+                  <div className="hidden md:block">
+                    <div className="grid grid-cols-3 gap-2">
+                      {[
+                        { value: 'Glossy', label: 'Glossy', desc: 'High shine' },
+                        { value: 'Matt', label: 'Matt', desc: 'No glare' },
+                        { value: 'Metallic', label: 'Metallic', desc: 'Shiny metal look' },
+                        { value: 'Soft Touch', label: 'Soft Touch', desc: 'Premium feel', premium: true },
+                        { value: 'Emboss', label: 'Emboss', desc: '3D texture', premium: true },
+                        { value: 'Stamp Foil', label: 'Stamp Foil', desc: 'Gold/silver foil', premium: true },
+                      ].map(surf => (
+                        <button
+                          key={surf.value}
+                          type="button"
+                          onClick={() => setSelectedSurface(surf.value as SurfaceType)}
+                          className={`relative p-3 rounded-xl border-2 transition-all text-left ${
+                            selectedSurface === surf.value
+                              ? 'border-primary-500 bg-primary-50 ring-2 ring-primary-100'
+                              : 'border-neutral-200 hover:border-primary-300 hover:bg-neutral-50'
+                          }`}
+                        >
+                          <img src={getSurfaceImage(surf.value as SurfaceType)} alt="" className="w-10 h-10 object-contain mx-auto mb-2" />
+                          <div className="flex items-center justify-center gap-1">
+                            <p className={`text-xs font-semibold ${selectedSurface === surf.value ? 'text-primary-700' : 'text-neutral-800'}`}>
+                              {surf.label}
+                            </p>
+                            {surf.premium && <span className="text-[8px] bg-amber-100 text-amber-700 px-1 rounded">+</span>}
+                          </div>
+                          <p className="text-[10px] text-neutral-500 text-center mt-0.5">{surf.desc}</p>
+                          {selectedSurface === surf.value && (
+                            <div className="absolute top-1 right-1 w-4 h-4 bg-primary-500 rounded-full flex items-center justify-center">
+                              <CheckCircle className="w-3 h-3 text-white" />
+                            </div>
+                          )}
+                        </button>
+                      ))}
                     </div>
                   </div>
                 </div>
