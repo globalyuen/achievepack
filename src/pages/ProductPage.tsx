@@ -14,6 +14,15 @@ import { CLOSURE_OPTIONS, SURFACE_OPTIONS, type ClosureOption, type SurfaceOptio
 import StoreFooter from '../components/StoreFooter'
 import { useCustomQuote } from '../contexts/CustomQuoteContext'
 import { Checkbox } from '../components/animate-ui/components/radix/checkbox'
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+} from '../components/animate-ui/components/radix/dropdown-menu'
 
 // SKU-based Dynamic Product Descriptions (Problem → Solution → Features logic)
 // Organized by material type: pcr (PCR/Bio), mono (Mono Recyclable), compost (Biodegradable)
@@ -3081,11 +3090,25 @@ const ProductPage: React.FC = () => {
                   </button>
                   
                   {/* Dropdown Option */}
-                  <select value={selectedBarrier} onChange={e => setSelectedBarrier(e.target.value)} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                    <option value="mid clear mid barrier (Optional Window)">Mid Barrier (Window)</option>
-                    <option value="metalised high barrier (No Window)">High Barrier (No Window)</option>
-                    <option value="Aluminum highest barrier (No Window)">Highest Barrier (No Window)</option>
-                  </select>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger className="w-full flex items-center justify-between p-3 border-2 border-neutral-200 rounded-lg hover:border-primary-300 transition-all bg-white">
+                      <span className="font-medium text-neutral-900">
+                        {selectedBarrier === 'mid clear mid barrier (Optional Window)' ? 'Mid Barrier (Window)' :
+                         selectedBarrier === 'metalised high barrier (No Window)' ? 'High Barrier (No Window)' :
+                         'Highest Barrier (No Window)'}
+                      </span>
+                      <ChevronDown className="h-5 w-5 text-neutral-400" />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-[200px]">
+                      <DropdownMenuLabel>Select Barrier Type</DropdownMenuLabel>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuRadioGroup value={selectedBarrier} onValueChange={setSelectedBarrier}>
+                        <DropdownMenuRadioItem value="mid clear mid barrier (Optional Window)">Mid Barrier (Window)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="metalised high barrier (No Window)">High Barrier (No Window)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="Aluminum highest barrier (No Window)">Highest Barrier (No Window)</DropdownMenuRadioItem>
+                      </DropdownMenuRadioGroup>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </div>
 
                 <div>
@@ -3103,10 +3126,22 @@ const ProductPage: React.FC = () => {
                   </button>
                   
                   {/* Dropdown Option */}
-                  <select value={selectedStiffness} onChange={e => setSelectedStiffness(e.target.value)} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                    <option value="Without Paper Lining (Softer)">Softer (No Paper)</option>
-                    <option value="With Paper Lining (stiffer)">Stiffer (With Paper)</option>
-                  </select>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger className="w-full flex items-center justify-between p-3 border-2 border-neutral-200 rounded-lg hover:border-primary-300 transition-all bg-white">
+                      <span className="font-medium text-neutral-900">
+                        {selectedStiffness === 'Without Paper Lining (Softer)' ? 'Softer (No Paper)' : 'Stiffer (With Paper)'}
+                      </span>
+                      <ChevronDown className="h-5 w-5 text-neutral-400" />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-[200px]">
+                      <DropdownMenuLabel>Select Stiffness</DropdownMenuLabel>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuRadioGroup value={selectedStiffness} onValueChange={setSelectedStiffness}>
+                        <DropdownMenuRadioItem value="Without Paper Lining (Softer)">Softer (No Paper)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="With Paper Lining (stiffer)">Stiffer (With Paper)</DropdownMenuRadioItem>
+                      </DropdownMenuRadioGroup>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </div>
 
                 <div>
@@ -3154,32 +3189,66 @@ const ProductPage: React.FC = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-neutral-700 mb-2">Quantity</label>
-                  <select value={selectedQuantity} onChange={e => setSelectedQuantity(e.target.value)} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                    <option value="1,000 (Digital print)">1,000 (Digital print)</option>
-                    <option value="2,000 (Digital print)">2,000 (Digital print)</option>
-                    <option value="3,000 (Digital print)">3,000 (Digital print)</option>
-                    <option value="5,000 (Flexo print)">5,000 (Flexo print)</option>
-                    <option value="10,000 (Flexo print)">10,000 (Flexo print)</option>
-                  </select>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger className="w-full flex items-center justify-between p-3 border-2 border-neutral-200 rounded-lg hover:border-primary-300 transition-all bg-white">
+                      <span className="font-medium text-neutral-900">{selectedQuantity}</span>
+                      <ChevronDown className="h-5 w-5 text-neutral-400" />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-[200px]">
+                      <DropdownMenuLabel>Select Quantity</DropdownMenuLabel>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuRadioGroup value={selectedQuantity} onValueChange={setSelectedQuantity}>
+                        <DropdownMenuRadioItem value="1,000 (Digital print)">1,000 (Digital print)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="2,000 (Digital print)">2,000 (Digital print)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="3,000 (Digital print)">3,000 (Digital print)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="5,000 (Flexo print)">5,000 (Flexo print)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="10,000 (Flexo print)">10,000 (Flexo print)</DropdownMenuRadioItem>
+                      </DropdownMenuRadioGroup>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-neutral-700 mb-2">Design Count</label>
-                  <select value={selectedDesignCount} onChange={e => setSelectedDesignCount(Number(e.target.value))} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                    <option value={1}>1 Design</option>
-                    <option value={2}>2 Designs</option>
-                    <option value={3}>3 Designs</option>
-                    <option value={4}>4 Designs</option>
-                  </select>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger className="w-full flex items-center justify-between p-3 border-2 border-neutral-200 rounded-lg hover:border-primary-300 transition-all bg-white">
+                      <span className="font-medium text-neutral-900">{selectedDesignCount} Design{selectedDesignCount > 1 ? 's' : ''}</span>
+                      <ChevronDown className="h-5 w-5 text-neutral-400" />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-[200px]">
+                      <DropdownMenuLabel>Select Design Count</DropdownMenuLabel>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuRadioGroup value={String(selectedDesignCount)} onValueChange={(v) => setSelectedDesignCount(Number(v))}>
+                        <DropdownMenuRadioItem value="1">1 Design</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="2">2 Designs</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="3">3 Designs</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="4">4 Designs</DropdownMenuRadioItem>
+                      </DropdownMenuRadioGroup>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-neutral-700 mb-2">Shipping Method</label>
-                  <select value={selectedShipping} onChange={e => setSelectedShipping(e.target.value)} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                    <option value="Air Freight">Air Freight (Faster)</option>
-                    <option value="Sea Freight">Sea Freight (Cheaper)</option>
-                    <option value="Dual Shipping">Dual Shipping (Balanced)</option>
-                  </select>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger className="w-full flex items-center justify-between p-3 border-2 border-neutral-200 rounded-lg hover:border-primary-300 transition-all bg-white">
+                      <span className="font-medium text-neutral-900">
+                        {selectedShipping === 'Air Freight' ? 'Air Freight (Faster)' :
+                         selectedShipping === 'Sea Freight' ? 'Sea Freight (Cheaper)' :
+                         'Dual Shipping (Balanced)'}
+                      </span>
+                      <ChevronDown className="h-5 w-5 text-neutral-400" />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-[200px]">
+                      <DropdownMenuLabel>Select Shipping Method</DropdownMenuLabel>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuRadioGroup value={selectedShipping} onValueChange={setSelectedShipping}>
+                        <DropdownMenuRadioItem value="Air Freight">Air Freight (Faster)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="Sea Freight">Sea Freight (Cheaper)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="Dual Shipping">Dual Shipping (Balanced)</DropdownMenuRadioItem>
+                      </DropdownMenuRadioGroup>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </div>
               </div>
             )}
