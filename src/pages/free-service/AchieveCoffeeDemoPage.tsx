@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { ChevronDown, ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { ChevronDown, ArrowRight, ArrowLeft } from 'lucide-react'
 
 // Default demo content - can be overridden by admin settings
 const DEFAULT_CONTENT = {
@@ -344,8 +345,28 @@ const AchieveCoffeeDemoPage: React.FC = () => {
       </Helmet>
 
       <div className="min-h-screen bg-neutral-950 text-white font-sans">
+        {/* Achieve Pack Return Banner */}
+        <div className="fixed top-0 left-0 right-0 z-[60] bg-primary-600 text-white py-2 px-4">
+          <div className="max-w-7xl mx-auto flex items-center justify-between">
+            <Link 
+              to="/free-service/website-upgrade" 
+              className="flex items-center gap-2 text-sm hover:text-white/80 transition"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Achieve Pack
+            </Link>
+            <span className="text-xs text-white/80 hidden sm:block">This is a demo website created by Achieve Pack</span>
+            <Link 
+              to="/store" 
+              className="text-sm font-medium hover:text-white/80 transition"
+            >
+              Browse Packaging →
+            </Link>
+          </div>
+        </div>
+
         {/* Fixed Navigation */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-neutral-950/80 backdrop-blur-md border-b border-white/10">
+        <nav className="fixed top-[40px] left-0 right-0 z-50 bg-neutral-950/80 backdrop-blur-md border-b border-white/10">
           <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
             <span className="text-xl font-bold tracking-tight">{content.brand.name}</span>
             <div className="hidden md:flex items-center gap-8 text-sm uppercase tracking-wider">

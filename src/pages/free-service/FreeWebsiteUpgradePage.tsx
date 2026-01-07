@@ -294,11 +294,11 @@ const FreeWebsiteUpgradePage: React.FC = () => {
                   
                   {/* Secondary CTA */}
                   <Link 
-                    to="/store"
+                    to="/free-service/achieve-coffee-demo"
                     className="flex items-center justify-center gap-2 border-2 border-neutral-300 text-neutral-700 px-6 py-4 rounded-xl font-semibold hover:border-primary-600 hover:text-primary-600 transition"
                   >
                     <ArrowRight className="h-5 w-5" />
-                    Browse Our Packaging
+                    See Demo
                   </Link>
                 </div>
                 
@@ -622,11 +622,11 @@ const FreeWebsiteUpgradePage: React.FC = () => {
               
               {/* Level 2: Secondary */}
               <Link 
-                to="/store"
+                to="/free-service/achieve-coffee-demo"
                 className="flex items-center justify-center gap-2 bg-primary-600 text-white px-6 py-4 rounded-xl font-semibold hover:bg-primary-700 transition"
               >
-                <Package className="h-5 w-5" />
-                Browse Our Packaging
+                <Sparkles className="h-5 w-5" />
+                See Demo
               </Link>
             </div>
 
