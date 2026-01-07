@@ -5,7 +5,7 @@ import { supabase, Quote, ArtworkFile, Profile, ArtworkComment, CRMInquiry } fro
 import { 
   Home, FileCheck, Image as ImageIcon, LogOut, Eye, Trash2, ArrowLeft, 
   RefreshCw, CheckCircle, Clock, AlertCircle, MessageSquare, X, 
-  Mail, Globe, Camera, FileText, Link2, Upload, Tag, Search, LayoutGrid, List, Plus, User, Send, RotateCcw, Archive, Bell
+  Mail, Globe, Camera, FileText, Link2, Upload, Tag, Search, LayoutGrid, List, Plus, User, Send, RotateCcw, Archive, Bell, Zap
 } from 'lucide-react'
 import {
   Tabs,
@@ -17,6 +17,7 @@ import { CheckCircle as ApproveIcon, XCircle as RejectIcon, Send as SendIcon } f
 import { NotificationList, type Notification } from '../components/animate-ui/components/community/notification-list'
 import { PinList, type PinListItem } from '../components/animate-ui/components/community/pin-list'
 import { ArtworkStatusAvatar, AdminWorkQueue, type StatusItem, type WorkItem, type ArtworkStatus } from '../components/animate-ui/components/community/user-presence-avatar'
+import { QuickAccessSheet, type QuickAccessItem, type QuoteStatus, type InvoiceStatus, type ArtworkQuickStatus } from '../components/ui/QuickAccessSheet'
 
 type TabType = 'quotes' | 'artwork' | 'bin'
 
@@ -321,6 +322,97 @@ const AdminManagementPage: React.FC = () => {
     
     return items
   }, [quotes, artworks, orders, customers])
+  
+  // Quick Access items for sheet (with radial menu status)
+  const quickAccessItems: QuickAccessItem[] = useMemo(() => {
+    const items: QuickAccessItem[] = []
+    
+    // Add quotes
+    quotes.filter(q => q.status === 'pending').slice(0, 8).forEach(q => {
+      const customer = customers.find(c => c.id === q.user_id)
+      items.push({
+        id: q.id,
+        name: q.is_rfq ? `RFQ: ${q.quote_number}` : `Quote: ${q.quote_number}`,
+        info: customer?.full_name || customer?.email || 'Unknown',
+        type: 'quote',
+        status: 'received' as QuoteStatus,
+        onClick: () => {
+          setActiveTab('quotes')
+          setSelectedQuote(q)
+        }
+      })
+    })
+    
+    // Add artworks needing attention
+    artworks.filter(a => ['pending_review', 'in_review', 'prepress', 'proof_ready'].includes(a.status)).slice(0, 8).forEach(a => {
+      const customer = customers.find(c => c.id === a.user_id)
+      items.push({
+        id: a.id,
+        name: a.name,
+        info: customer?.full_name || customer?.email || 'Unknown',
+        type: 'artwork',
+        status: 'received' as ArtworkQuickStatus,
+        onClick: () => {
+          setActiveTab('artwork')
+          setSelectedArtwork(a)
+        }
+      })
+    })
+    
+    // Add active orders as invoices
+    orders.filter(o => ['pending', 'processing', 'production', 'shipped'].includes(o.status)).slice(0, 8).forEach(o => {
+      const customer = customers.find(c => c.id === o.user_id)
+      items.push({
+        id: o.id,
+        name: `Order #${o.order_number || o.id.slice(0, 8)}`,
+        info: customer?.full_name || customer?.email || 'Unknown',
+        type: 'invoice',
+        status: 'pending' as InvoiceStatus,
+        onClick: () => {
+          // Navigate to order details
+        }
+      })
+    })
+    
+    return items
+  }, [quotes, artworks, orders, customers])
+  
+  // Handle quick access status change
+  const handleQuickAccessStatusChange = async (id: string, type: 'quote' | 'invoice' | 'artwork', newStatus: string) => {
+    try {
+      if (type === 'quote') {
+        // For quotes, we map our custom status to the DB status
+        let dbStatus = 'pending'
+        if (newStatus === 'win') dbStatus = 'accepted'
+        else if (newStatus === 'lose') dbStatus = 'rejected'
+        
+        await supabase.from('quotes').update({ status: dbStatus }).eq('id', id)
+        // Also update RFQ if applicable
+        await supabase.from('rfq_submissions').update({ status: dbStatus }).eq('id', id)
+      } else if (type === 'artwork') {
+        // For artwork, map to existing statuses
+        const dbStatus = newStatus === 'confirmed_by_customer' ? 'approved' : 'pending_review'
+        await supabase.from('artwork_files').update({ status: dbStatus }).eq('id', id)
+      } else if (type === 'invoice') {
+        // For orders/invoices
+        let dbStatus = 'pending'
+        if (newStatus === 'deposit_received') dbStatus = 'confirmed'
+        else if (newStatus === 'spec_confirmed') dbStatus = 'confirmed'
+        else if (newStatus === 'in_production') dbStatus = 'production'
+        else if (newStatus === 'production_finished') dbStatus = 'production'
+        else if (newStatus === 'final_payment') dbStatus = 'production'
+        else if (newStatus === 'shipped') dbStatus = 'shipped'
+        else if (newStatus === 'arrived') dbStatus = 'delivered'
+        
+        await supabase.from('orders').update({ status: dbStatus }).eq('id', id)
+      }
+      
+      // Refresh data
+      fetchData()
+    } catch (error) {
+      console.error('Error updating status:', error)
+    }
+  }
 
   // Check URL params for tab
   useEffect(() => {
@@ -967,20 +1059,6 @@ const AdminManagementPage: React.FC = () => {
                 )}
               </button>
             </nav>
-            
-            {/* Pin List - Focus Items */}
-            {pinListItems.length > 0 && (
-              <div className="px-1 mt-4 border-t border-gray-100 pt-4">
-                <p className="text-xs font-medium text-gray-500 uppercase tracking-wide px-2 mb-2">Quick Access</p>
-                <PinList
-                  items={pinListItems}
-                  onPinChange={handlePinChange}
-                  labels={{ pinned: 'Pinned', unpinned: 'Recent Items' }}
-                  maxPinned={5}
-                  className="max-h-[280px] overflow-y-auto"
-                />
-              </div>
-            )}
 
             <div className="pb-4 mt-auto">
               {/* Notification Bell */}
@@ -1044,6 +1122,25 @@ const AdminManagementPage: React.FC = () => {
             <span className="font-bold text-gray-900">Admin</span>
           </Link>
           <div className="flex items-center gap-3">
+            {/* Quick Access Sheet - Right Side */}
+            <QuickAccessSheet
+              items={quickAccessItems}
+              pinListItems={pinListItems}
+              onStatusChange={handleQuickAccessStatusChange}
+              onPinChange={handlePinChange}
+              trigger={
+                <button className="p-2 text-gray-500 hover:text-gray-700 rounded-lg hover:bg-gray-100 transition relative">
+                  <Zap className="h-5 w-5" />
+                  {quickAccessItems.length > 0 && (
+                    <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-primary-500 text-white text-[10px] rounded-full flex items-center justify-center font-bold">
+                      {quickAccessItems.length}
+                    </span>
+                  )}
+                </button>
+              }
+              title="Quick Access"
+              description="Right-click on items to update status"
+            />
             {/* Mobile Notification Bell */}
             <div className="relative">
               <button 

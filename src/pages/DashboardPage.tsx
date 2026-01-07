@@ -6,7 +6,7 @@ import {
   TrendingDown, Users, DollarSign, MoreHorizontal, Plus, RefreshCw, Eye, X, 
   MapPin, Phone, Mail as MailIcon, Truck, ExternalLink, Upload, CheckCircle, 
   Clock, AlertCircle, FileImage, MessageSquare, Send, Heart, Trash2, Globe, 
-  Camera, Info, Circle, PenLine, Link2, Sparkles, Star, RotateCcw, Archive
+  Camera, Info, Circle, PenLine, Link2, Sparkles, Star, RotateCcw, Archive, Zap
 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, Order, Quote, Document, ArtworkFile, SavedCartItem, ArtworkComment } from '../lib/supabase'
@@ -25,6 +25,7 @@ import { Eye as ViewIcon, Download as DownloadIcon, Upload as UploadIcon } from 
 import { NotificationList, type Notification } from '../components/animate-ui/components/community/notification-list'
 import { PinList, type PinListItem } from '../components/animate-ui/components/community/pin-list'
 import { ArtworkStatusAvatar, type StatusItem, type ArtworkStatus } from '../components/animate-ui/components/community/user-presence-avatar'
+import { QuickAccessSheet, type QuickAccessItem, type ArtworkQuickStatus } from '../components/ui/QuickAccessSheet'
 
 type TabType = 'dashboard' | 'orders' | 'quotes' | 'documents' | 'artwork' | 'saved' | 'settings' | 'bin'
 
@@ -303,7 +304,44 @@ const DashboardPage: React.FC = () => {
         setActiveTab('artwork')
         setSelectedArtwork(a)
       }
-    }))
+    }));
+  }, [artworks]);
+    
+  // Quick Access items for customer sheet
+  const quickAccessItems: QuickAccessItem[] = useMemo(() => {
+    const items: QuickAccessItem[] = [];
+      
+    // Artworks needing review (proof ready)
+    artworks.filter(a => a.status === 'proof_ready').slice(0, 5).forEach(a => {
+      items.push({
+        id: a.id,
+        name: a.name,
+        info: 'Review proof',
+        type: 'artwork',
+        status: 'received' as ArtworkQuickStatus,
+        onClick: () => {
+          setActiveTab('artwork');
+          setSelectedArtwork(a);
+        }
+      });
+    });
+      
+    // Artworks with revision needed
+    artworks.filter(a => a.status === 'revision_needed').slice(0, 3).forEach(a => {
+      items.push({
+        id: a.id,
+        name: a.name,
+        info: 'Revision needed',
+        type: 'artwork',
+        status: 'received' as ArtworkQuickStatus,
+        onClick: () => {
+          setActiveTab('artwork');
+          setSelectedArtwork(a);
+        }
+      });
+    });
+      
+    return items;
   }, [artworks])
 
   // Reset page when artworks change
@@ -1046,20 +1084,6 @@ const DashboardPage: React.FC = () => {
             }}
           />
         </nav>
-        
-        {/* Pin List - Quick Access */}
-        {pinListItems.length > 0 && (
-          <div className="px-3 mt-4 border-t border-gray-100 pt-4">
-            <p className="text-xs font-medium text-gray-500 uppercase tracking-wide px-1 mb-2">Quick Access</p>
-            <PinList
-              items={pinListItems}
-              onPinChange={handlePinChange}
-              labels={{ pinned: 'Pinned', unpinned: 'Recent' }}
-              maxPinned={5}
-              className="max-h-[260px] overflow-y-auto"
-            />
-          </div>
-        )}
 
         {/* User Section */}
         <div className="p-4 border-t border-gray-100">
@@ -1136,6 +1160,25 @@ const DashboardPage: React.FC = () => {
               </div>
             </div>
             <div className="flex items-center gap-4">
+              {/* Quick Access Sheet - Right Side */}
+              <QuickAccessSheet
+                items={quickAccessItems}
+                pinListItems={pinListItems}
+                onStatusChange={() => {}}
+                onPinChange={handlePinChange}
+                trigger={
+                  <button className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-full transition relative">
+                    <Zap className="h-5 w-5" />
+                    {quickAccessItems.length > 0 && (
+                      <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-primary-500 text-white text-[10px] rounded-full flex items-center justify-center font-bold">
+                        {quickAccessItems.length}
+                      </span>
+                    )}
+                  </button>
+                }
+                title="Quick Access"
+                description="Your pinned items and recent activity"
+              />
               {/* Notification Bell with Dropdown */}
               <div className="relative">
                 <button 
