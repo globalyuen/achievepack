@@ -12,6 +12,7 @@ import MegaMenu, { RightNavMenu } from './components/MegaMenu'
 import CoverflowCarousel from './components/CoverflowCarousel'
 import { ProductMotionCarousel } from './components/animate-ui/components/community/motion-carousel'
 import NavAvatarGroup from './components/ui/avatar-group'
+import { TextRotate } from './components/ui/TextRotate'
 import type { CalculatorResults } from './utils/calculatorUtils'
 import { useStore } from './store/StoreContext'
 import { FEATURED_PRODUCTS, type PouchProduct } from './store/productData'
@@ -785,7 +786,14 @@ function App() {
                 <span className="text-primary-500"> {t('hero.titleSuffix')}</span>
               </h1>
               <p className="text-xl text-neutral-700 leading-relaxed mb-8 max-w-xl">
-                {t('hero.description')}
+                Transform your business with certified{' '}
+                <TextRotate
+                  words={['eco-friendly', 'compostable', 'PCR', 'BioPE', 'recyclable']}
+                  className="text-primary-600 font-semibold"
+                  interval={2500}
+                  animationType="flip"
+                />{' '}
+                packaging solutions that reduce your environmental impact while delivering exceptional business value.
               </p>
 
               {/* CTA Buttons */}
