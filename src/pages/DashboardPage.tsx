@@ -2152,33 +2152,6 @@ const DashboardPage: React.FC = () => {
                 )}
               </div>
 
-              {/* Data Management Bar */}
-              {artworks.length > 0 && (
-                <DataManagementBar
-                  currentPage={artworkPage}
-                  totalPages={artworkTotalPages}
-                  onPageChange={setArtworkPage}
-                  totalCount={artworks.length}
-                  actions={[
-                    {
-                      icon: ViewIcon,
-                      label: 'View',
-                      colorClass: 'bg-blue-200/60 text-blue-600',
-                    },
-                    {
-                      icon: DownloadIcon,
-                      label: 'Download',
-                      colorClass: 'bg-green-200/60 text-green-600',
-                    },
-                    {
-                      icon: UploadIcon,
-                      label: 'Upload New',
-                      colorClass: 'bg-purple-200/60 text-purple-600',
-                    },
-                  ]}
-                />
-              )}
-
               {/* Workflow Status Legend - Compact on Mobile */}
               <div className="bg-white rounded-xl border border-gray-100 p-3 md:p-5">
                 <h3 className="font-semibold text-gray-900 mb-2 md:mb-4 text-xs md:text-base">Status Legend</h3>
