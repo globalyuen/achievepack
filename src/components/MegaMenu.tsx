@@ -175,6 +175,12 @@ const FREE_SERVICE_PAGES = [
     link: '/free-service/packaging-mockup',
     image: '/imgs/free/mock/hero.webp',
     description: 'Professional mockups to visualize your packaging design'
+  },
+  {
+    name: 'Free Customer Center',
+    link: '/free-service/customer-center',
+    image: '/imgs/free/design/a_process_flow_infographic_5376739.webp',
+    description: 'Track orders, manage artwork, approve proofs—all free'
   }
 ]
 

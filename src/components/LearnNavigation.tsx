@@ -11,6 +11,7 @@ const LEARN_PAGES = {
       { name: 'Free Packaging Design Consultation', link: '/free-service/packaging-design-consultation', image: '/imgs/free/design/hero.webp' },
       { name: 'Free Website Upgrade', link: '/free-service/website-upgrade', image: '/imgs/free/website/hero.webp' },
       { name: 'Free Packaging Mockup', link: '/free-service/packaging-mockup', image: '/imgs/free/mock/hero.webp' },
+      { name: 'Free Customer Center', link: '/free-service/customer-center', image: '/imgs/free/design/a_process_flow_infographic_5376739.webp' },
     ]
   },
   materials: {
