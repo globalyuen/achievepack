@@ -19,6 +19,7 @@ type DropdownMenuContextType = {
   setIsOpen: (o: boolean) => void;
   highlightedValue: string | null;
   setHighlightedValue: (value: string | null) => void;
+  menuId: string;
 };
 
 type DropdownMenuSubContextType = {
@@ -45,10 +46,11 @@ function DropdownMenu(props: DropdownMenuProps) {
   const [highlightedValue, setHighlightedValue] = React.useState<string | null>(
     null,
   );
+  const menuId = React.useId();
 
   return (
     <DropdownMenuProvider
-      value={{ isOpen, setIsOpen, highlightedValue, setHighlightedValue }}
+      value={{ isOpen, setIsOpen, highlightedValue, setHighlightedValue, menuId }}
     >
       <DropdownMenuPrimitive.Root
         data-slot="dropdown-menu"

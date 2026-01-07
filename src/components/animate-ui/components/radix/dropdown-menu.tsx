@@ -18,6 +18,7 @@ import {
   DropdownMenuSubContent as DropdownMenuSubContentPrimitive,
   DropdownMenuSubTrigger as DropdownMenuSubTriggerPrimitive,
   DropdownMenuTrigger as DropdownMenuTriggerPrimitive,
+  useDropdownMenu,
   type DropdownMenuProps as DropdownMenuPrimitiveProps,
   type DropdownMenuContentProps as DropdownMenuContentPrimitiveProps,
   type DropdownMenuGroupProps as DropdownMenuGroupPrimitiveProps,
@@ -161,6 +162,7 @@ function DropdownMenuRadioItem({
   disabled,
   ...props
 }: DropdownMenuRadioItemProps) {
+  const { menuId } = useDropdownMenu();
   return (
     <DropdownMenuHighlightItemPrimitive disabled={disabled}>
       <DropdownMenuRadioItemPrimitive
@@ -172,7 +174,7 @@ function DropdownMenuRadioItem({
         {...props}
       >
         <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
-          <DropdownMenuItemIndicatorPrimitive layoutId="dropdown-menu-item-indicator-radio">
+          <DropdownMenuItemIndicatorPrimitive layoutId={`dropdown-menu-radio-${menuId}`}>
             <CircleIcon className="size-2 fill-current" />
           </DropdownMenuItemIndicatorPrimitive>
         </span>
