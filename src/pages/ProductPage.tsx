@@ -13,6 +13,7 @@ import { getAISellingPoints, hasAISellingPoints, type AISellingPoint } from '../
 import { CLOSURE_OPTIONS, SURFACE_OPTIONS, type ClosureOption, type SurfaceOption } from '../components/SortableOptionsTable'
 import StoreFooter from '../components/StoreFooter'
 import { useCustomQuote } from '../contexts/CustomQuoteContext'
+import { Checkbox } from '../components/animate-ui/components/radix/checkbox'
 
 // SKU-based Dynamic Product Descriptions (Problem → Solution → Features logic)
 // Organized by material type: pcr (PCR/Bio), mono (Mono Recyclable), compost (Biodegradable)
@@ -3123,18 +3124,30 @@ const ProductPage: React.FC = () => {
                   </button>
                   
                   {/* Checkbox Options */}
-                  <div className="grid grid-cols-2 gap-2 text-sm">
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <input type="checkbox" checked={selectedValve === 'Yes'} onChange={e => setSelectedValve(e.target.checked ? 'Yes' : 'No')} className="rounded" />
-                      <span>Valve</span>
+                  <div className="grid grid-cols-2 gap-3 text-sm">
+                    <label className="flex items-center gap-3 cursor-pointer group">
+                      <Checkbox
+                        checked={selectedValve === 'Yes'}
+                        onCheckedChange={(checked) => setSelectedValve(checked ? 'Yes' : 'No')}
+                        className="border-primary-300 data-[state=checked]:bg-primary-600 data-[state=checked]:border-primary-600"
+                      />
+                      <span className="text-neutral-700 group-hover:text-primary-600 transition-colors">Valve</span>
                     </label>
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <input type="checkbox" checked={selectedLaserScoring === 'Yes'} onChange={e => setSelectedLaserScoring(e.target.checked ? 'Yes' : 'No')} className="rounded" />
-                      <span>Laser Tear</span>
+                    <label className="flex items-center gap-3 cursor-pointer group">
+                      <Checkbox
+                        checked={selectedLaserScoring === 'Yes'}
+                        onCheckedChange={(checked) => setSelectedLaserScoring(checked ? 'Yes' : 'No')}
+                        className="border-primary-300 data-[state=checked]:bg-primary-600 data-[state=checked]:border-primary-600"
+                      />
+                      <span className="text-neutral-700 group-hover:text-primary-600 transition-colors">Laser Tear</span>
                     </label>
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <input type="checkbox" checked={selectedHangHole === 'Yes'} onChange={e => setSelectedHangHole(e.target.checked ? 'Yes' : 'No')} className="rounded" />
-                      <span>Hang Hole</span>
+                    <label className="flex items-center gap-3 cursor-pointer group">
+                      <Checkbox
+                        checked={selectedHangHole === 'Yes'}
+                        onCheckedChange={(checked) => setSelectedHangHole(checked ? 'Yes' : 'No')}
+                        className="border-primary-300 data-[state=checked]:bg-primary-600 data-[state=checked]:border-primary-600"
+                      />
+                      <span className="text-neutral-700 group-hover:text-primary-600 transition-colors">Hang Hole</span>
                     </label>
                   </div>
                 </div>
