@@ -315,7 +315,8 @@ const AdminManagementPage: React.FC = () => {
         status: o.status,
         urgent: o.status === 'pending',
         onClick: () => {
-          // Navigate to order if applicable
+          // Navigate to AdminPage orders tab
+          navigate(`/ctrl-x9k7m?tab=orders&order=${o.id}`)
         }
       })
     })
@@ -369,7 +370,8 @@ const AdminManagementPage: React.FC = () => {
         type: 'invoice',
         status: 'pending' as InvoiceStatus,
         onClick: () => {
-          // Navigate to order details
+          // Navigate to AdminPage orders tab
+          navigate(`/ctrl-x9k7m?tab=orders&order=${o.id}`)
         }
       })
     })

@@ -384,6 +384,8 @@ const MiniSiteCMS: React.FC = () => {
   const [imagePickerTarget, setImagePickerTarget] = useState<string>('')
   const [accessModalOpen, setAccessModalOpen] = useState(false)
   const [accessModalSite, setAccessModalSite] = useState<MiniSite | null>(null)
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
+  const [isCreating, setIsCreating] = useState(false)
 
   useEffect(() => {
     fetchData()
@@ -416,6 +418,8 @@ const MiniSiteCMS: React.FC = () => {
 
   const createSite = async () => {
     const slug = `site-${Date.now()}`
+    setIsCreating(true)
+    setErrorMessage(null)
     try {
       const { data, error } = await supabase
         .from('mini_sites')
@@ -431,13 +435,25 @@ const MiniSiteCMS: React.FC = () => {
         .select()
         .single()
 
-      if (error) throw error
+      if (error) {
+        // Check if table doesn't exist
+        if (error.code === '42P01' || error.message?.includes('does not exist')) {
+          setErrorMessage('Database table not found. Please run the migration SQL in Supabase SQL Editor first.')
+        } else if (error.code === '42501' || error.message?.includes('permission')) {
+          setErrorMessage('Permission denied. Please check RLS policies.')
+        } else {
+          setErrorMessage(`Failed to create site: ${error.message}`)
+        }
+        throw error
+      }
       if (data) {
         setSites(prev => [data, ...prev])
         openEditor(data)
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Failed to create site:', error)
+    } finally {
+      setIsCreating(false)
     }
   }
 
@@ -590,12 +606,37 @@ const MiniSiteCMS: React.FC = () => {
           </div>
           <button
             onClick={createSite}
-            className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition text-sm"
+            disabled={isCreating}
+            className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition text-sm disabled:opacity-50"
           >
-            <Plus className="w-4 h-4" />
-            Create New Site
+            {isCreating ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />}
+            {isCreating ? 'Creating...' : 'Create New Site'}
           </button>
         </div>
+
+        {/* Error Message */}
+        {errorMessage && (
+          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg flex items-start gap-3">
+            <X className="w-5 h-5 flex-shrink-0 mt-0.5" />
+            <div>
+              <p className="font-medium">Error</p>
+              <p className="text-sm">{errorMessage}</p>
+              {errorMessage.includes('migration') && (
+                <a 
+                  href="https://supabase.com/dashboard/project/ofobzjpexljkrqsgdgua/sql/new" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-sm text-red-800 underline mt-1 inline-block"
+                >
+                  Open Supabase SQL Editor
+                </a>
+              )}
+            </div>
+            <button onClick={() => setErrorMessage(null)} className="ml-auto text-red-500 hover:text-red-700">
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+        )}
 
         {/* Sites Grid */}
         {loading ? (
@@ -607,8 +648,13 @@ const MiniSiteCMS: React.FC = () => {
             <Globe className="w-12 h-12 text-gray-300 mx-auto mb-4" />
             <h3 className="text-lg font-medium text-gray-900 mb-2">No sites yet</h3>
             <p className="text-gray-500 mb-4">Create your first mini website</p>
-            <button onClick={createSite} className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700">
-              Create Site
+            <button 
+              onClick={createSite} 
+              disabled={isCreating}
+              className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50 inline-flex items-center gap-2"
+            >
+              {isCreating ? <Loader2 className="w-4 h-4 animate-spin" /> : null}
+              {isCreating ? 'Creating...' : 'Create Site'}
             </button>
           </div>
         ) : (

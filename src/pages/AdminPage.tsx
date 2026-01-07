@@ -381,9 +381,21 @@ const AdminPage: React.FC = () => {
   useEffect(() => {
     const preselect = searchParams.get('preselect')
     const tab = searchParams.get('tab')
+    const orderId = searchParams.get('order')
     
     if (tab === 'seo-email' || tab === 'email-marketing') {
       setActiveTab('email-marketing')
+    } else if (tab === 'orders') {
+      setActiveTab('orders')
+      // If order ID is provided, find and select that order
+      if (orderId && orders.length > 0) {
+        const order = orders.find(o => o.id === orderId)
+        if (order) {
+          setSelectedOrder(order)
+        }
+      }
+    } else if (tab) {
+      setActiveTab(tab as TabType)
     }
     
     if (preselect) {
@@ -391,7 +403,7 @@ const AdminPage: React.FC = () => {
       const ids = preselect.split(',').map(id => id.startsWith('inquiry_') ? id : `inquiry_${id}`)
       setSelectedContacts(ids)
     }
-  }, [searchParams])
+  }, [searchParams, orders])
 
   // Enriched contacts with industry and country detection
   const enrichedContacts = useMemo(() => {
