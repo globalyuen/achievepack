@@ -17,7 +17,7 @@ interface CoverflowCarouselProps {
 const DRAG_BUFFER = 50
 const SPRING_OPTIONS = { stiffness: 300, damping: 30 }
 
-export default function CoverflowCarousel({ items, autoScrollInterval = 1000 }: CoverflowCarouselProps) {
+export default function CoverflowCarousel({ items, autoScrollInterval = 2000 }: CoverflowCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(Math.floor(items.length / 2))
   const [isHovered, setIsHovered] = useState(false)
   const [isDragging, setIsDragging] = useState(false)
