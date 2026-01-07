@@ -3,10 +3,40 @@ import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { ArrowLeft, Leaf, Mail, Phone, Calendar, X, BookOpen, FileText, ChevronDown, ChevronRight, Search, Package, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Layers, ArrowRight, ShoppingCart } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
+import { motion, useSpring } from 'motion/react'
 import { organizationEntity, getAuthorByContentType, generateBreadcrumb } from '../data/schemaEntities'
 import { LEARN_PAGES } from './LearnNavigation'
 import SocialShareButtons from './SocialShareButtons'
 import Footer from './Footer'
+
+// Reading Progress Bar Component
+const ReadingProgress: React.FC = () => {
+  const [progress, setProgress] = useState(0)
+  const scaleX = useSpring(0, { stiffness: 100, damping: 30 })
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight
+      const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0
+      scaleX.set(Math.min(1, Math.max(0, scrollPercent)))
+      setProgress(Math.round(scrollPercent * 100))
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll() // Initial call
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [scaleX])
+
+  return (
+    <div className="sticky top-14 z-30 w-full h-1 bg-primary-200/30">
+      <motion.div
+        className="h-full bg-gradient-to-r from-primary-500 via-primary-400 to-accent-500"
+        style={{ scaleX, transformOrigin: 'left' }}
+      />
+    </div>
+  )
+}
 
 // Category icons for Learn Menu
 const CATEGORY_ICONS: Record<string, React.ReactNode> = {
@@ -580,6 +610,9 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
       <div className="min-h-screen bg-neutral-50">
         {/* Header with LEARN and BLOG Mega Menus */}
         <SEOPageHeader />
+        
+        {/* Reading Progress Bar */}
+        <ReadingProgress />
 
         {/* Hero Section */}
         <section className="bg-primary-700 text-white">
