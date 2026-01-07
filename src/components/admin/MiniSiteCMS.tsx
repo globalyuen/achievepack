@@ -421,6 +421,14 @@ const MiniSiteCMS: React.FC = () => {
     setIsCreating(true)
     setErrorMessage(null)
     try {
+      // Get current user
+      const { data: { user } } = await supabase.auth.getUser()
+      if (!user) {
+        setErrorMessage('You must be logged in to create a site')
+        setIsCreating(false)
+        return
+      }
+
       const { data, error } = await supabase
         .from('mini_sites')
         .insert({
@@ -430,17 +438,19 @@ const MiniSiteCMS: React.FC = () => {
           template: 'coffee-shop',
           status: 'draft',
           is_public: false,
-          content: DEFAULT_CONTENT
+          content: DEFAULT_CONTENT,
+          owner_id: user.id
         })
         .select()
         .single()
 
       if (error) {
+        console.error('Supabase error:', error)
         // Check if table doesn't exist
         if (error.code === '42P01' || error.message?.includes('does not exist')) {
           setErrorMessage('Database table not found. Please run the migration SQL in Supabase SQL Editor first.')
-        } else if (error.code === '42501' || error.message?.includes('permission')) {
-          setErrorMessage('Permission denied. Please check RLS policies.')
+        } else if (error.code === '42501' || error.message?.includes('permission') || error.message?.includes('violates row-level security')) {
+          setErrorMessage('Permission denied. Please check RLS policies or make sure you are logged in as admin.')
         } else {
           setErrorMessage(`Failed to create site: ${error.message}`)
         }
