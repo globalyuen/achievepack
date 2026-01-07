@@ -13,6 +13,13 @@ import { supabase, Order, Quote, Document, ArtworkFile, SavedCartItem, ArtworkCo
 import { useTranslation } from 'react-i18next'
 import { useStore } from '../store/StoreContext'
 import DashboardFilesNav from '../components/ui/files-nav'
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+  TabsContents,
+} from '../components/animate-ui/components/radix/tabs'
 
 type TabType = 'dashboard' | 'orders' | 'quotes' | 'documents' | 'artwork' | 'saved' | 'settings' | 'bin'
 
@@ -894,6 +901,47 @@ const DashboardPage: React.FC = () => {
             </div>
           </div>
         </header>
+
+        {/* Main Tabs Navigation */}
+        <div className="bg-white border-b border-gray-100 px-4 md:px-6 py-2 overflow-x-auto">
+          <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as TabType)} className="w-full">
+            <TabsList className="inline-flex gap-1 p-1 bg-gray-100 rounded-lg">
+              <TabsTrigger value="dashboard" className="px-4 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all">
+                Dashboard
+              </TabsTrigger>
+              <TabsTrigger value="orders" className="px-4 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all relative">
+                Orders
+                {activeOrders > 0 && (
+                  <span className="ml-1.5 px-1.5 py-0.5 text-[10px] font-bold bg-primary-100 text-primary-700 rounded-full">
+                    {activeOrders}
+                  </span>
+                )}
+              </TabsTrigger>
+              <TabsTrigger value="artwork" className="px-4 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all relative">
+                Artwork
+                {artworks.filter(a => a.status === 'proof_ready').length > 0 && (
+                  <span className="ml-1.5 px-1.5 py-0.5 text-[10px] font-bold bg-amber-100 text-amber-700 rounded-full">
+                    {artworks.filter(a => a.status === 'proof_ready').length}
+                  </span>
+                )}
+              </TabsTrigger>
+              <TabsTrigger value="quotes" className="px-4 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all relative">
+                Quotes
+                {pendingQuotes > 0 && (
+                  <span className="ml-1.5 px-1.5 py-0.5 text-[10px] font-bold bg-yellow-100 text-yellow-700 rounded-full">
+                    {pendingQuotes}
+                  </span>
+                )}
+              </TabsTrigger>
+              <TabsTrigger value="saved" className="px-4 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all hidden md:flex">
+                Saved
+              </TabsTrigger>
+              <TabsTrigger value="documents" className="px-4 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all hidden md:flex">
+                Documents
+              </TabsTrigger>
+            </TabsList>
+          </Tabs>
+        </div>
 
         {/* Page Content */}
         <main className="p-4 md:p-6">

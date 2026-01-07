@@ -7,6 +7,11 @@ import {
   RefreshCw, CheckCircle, Clock, AlertCircle, MessageSquare, X, 
   Mail, Globe, Camera, FileText, Link2, Upload, Tag, Search, LayoutGrid, List, Plus, User, Send, RotateCcw, Archive
 } from 'lucide-react'
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+} from '../components/animate-ui/components/radix/tabs'
 
 type TabType = 'quotes' | 'artwork' | 'bin'
 
@@ -736,39 +741,39 @@ const AdminManagementPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile Nav */}
-        <div className="md:hidden flex overflow-x-auto bg-white border-b px-2 py-2 gap-2 sticky top-0 z-30">
-          {(['quotes', 'artwork', 'bin'] as TabType[]).map(tab => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium rounded-lg whitespace-nowrap transition-all ${
-                activeTab === tab
-                  ? 'bg-primary-500 text-white shadow-sm'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              {tab === 'quotes' && <FileCheck className="h-4 w-4" />}
-              {tab === 'artwork' && <ImageIcon className="h-4 w-4" />}
-              {tab === 'bin' && <Archive className="h-4 w-4" />}
-              <span>{tab === 'quotes' ? 'Quotes' : tab === 'artwork' ? 'Artwork' : 'Bin'}</span>
-              {tab === 'quotes' && pendingQuotes > 0 && (
-                <span className={`ml-1 px-1.5 py-0.5 text-[10px] font-bold rounded-full ${activeTab === tab ? 'bg-white/20' : 'bg-red-500 text-white'}`}>
-                  {pendingQuotes}
-                </span>
-              )}
-              {tab === 'artwork' && pendingArtworks > 0 && (
-                <span className={`ml-1 px-1.5 py-0.5 text-[10px] font-bold rounded-full ${activeTab === tab ? 'bg-white/20' : 'bg-red-500 text-white'}`}>
-                  {pendingArtworks}
-                </span>
-              )}
-              {tab === 'bin' && (deletedArtworks.length + deletedQuotes.length) > 0 && (
-                <span className={`ml-1 px-1.5 py-0.5 text-[10px] font-bold rounded-full ${activeTab === tab ? 'bg-white/20' : 'bg-gray-500 text-white'}`}>
-                  {deletedArtworks.length + deletedQuotes.length}
-                </span>
-              )}
-            </button>
-          ))}
+        {/* Mobile Nav - Animated Tabs */}
+        <div className="md:hidden bg-white border-b px-4 py-2 sticky top-0 z-30">
+          <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as TabType)} className="w-full">
+            <TabsList className="inline-flex gap-1 p-1 bg-gray-100 rounded-lg w-full">
+              <TabsTrigger value="quotes" className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all">
+                <FileCheck className="h-4 w-4" />
+                <span>Quotes</span>
+                {pendingQuotes > 0 && (
+                  <span className="ml-1 px-1.5 py-0.5 text-[10px] font-bold bg-red-100 text-red-700 rounded-full">
+                    {pendingQuotes}
+                  </span>
+                )}
+              </TabsTrigger>
+              <TabsTrigger value="artwork" className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all">
+                <ImageIcon className="h-4 w-4" />
+                <span>Artwork</span>
+                {pendingArtworks > 0 && (
+                  <span className="ml-1 px-1.5 py-0.5 text-[10px] font-bold bg-red-100 text-red-700 rounded-full">
+                    {pendingArtworks}
+                  </span>
+                )}
+              </TabsTrigger>
+              <TabsTrigger value="bin" className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all">
+                <Archive className="h-4 w-4" />
+                <span>Bin</span>
+                {(deletedArtworks.length + deletedQuotes.length) > 0 && (
+                  <span className="ml-1 px-1.5 py-0.5 text-[10px] font-bold bg-gray-200 text-gray-700 rounded-full">
+                    {deletedArtworks.length + deletedQuotes.length}
+                  </span>
+                )}
+              </TabsTrigger>
+            </TabsList>
+          </Tabs>
         </div>
 
         <main className="flex-1 overflow-y-auto p-4 md:p-6">
