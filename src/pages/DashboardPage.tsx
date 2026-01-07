@@ -1139,12 +1139,19 @@ const DashboardPage: React.FC = () => {
       <div className="flex-1 lg:ml-64 pb-20 lg:pb-0">
         {/* Top Header */}
         <header className="bg-white border-b border-gray-200 sticky top-0 z-40">
-          <div className="flex items-center justify-between px-4 md:px-6 py-3 md:py-4">
-            <div className="flex items-center gap-4 lg:hidden">
+          <div className="flex items-center justify-between px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4">
+            {/* Mobile: Logo + Welcome */}
+            <div className="flex items-center gap-3 lg:hidden">
               <Link to="/" className="flex items-center gap-2">
-                <img src="/ap-logo.svg" alt="Logo" className="h-8 w-auto" />
+                <img src="/ap-logo.svg" alt="Logo" className="h-7 sm:h-8 w-auto" />
               </Link>
+              <div className="hidden xs:block">
+                <p className="text-xs sm:text-sm font-medium text-gray-700 truncate max-w-[120px] sm:max-w-[180px]">
+                  Hi, {getUserName()}!
+                </p>
+              </div>
             </div>
+            {/* Desktop Welcome */}
             <div className="hidden lg:flex items-center gap-3">
               <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shadow-sm">
                 <Sparkles className="h-5 w-5 text-white" />
@@ -1214,84 +1221,84 @@ const DashboardPage: React.FC = () => {
           </div>
         </header>
 
-        {/* Main Tabs Navigation */}
-        <div className="bg-white border-b border-gray-100 px-4 md:px-6 py-2 overflow-x-auto">
+        {/* Main Tabs Navigation - Mobile Optimized */}
+        <div className="bg-white border-b border-gray-100 px-2 sm:px-4 md:px-6 py-1.5 sm:py-2 overflow-x-auto scrollbar-hide">
           <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as TabType)} className="w-full">
-            <TabsList className="inline-flex gap-1 p-1 bg-gray-100 rounded-lg">
-              <TabsTrigger value="dashboard" className="px-4 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all">
-                Dashboard
+            <TabsList className="inline-flex gap-0.5 sm:gap-1 p-0.5 sm:p-1 bg-gray-100 rounded-lg min-w-max">
+              <TabsTrigger value="dashboard" className="px-2.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all whitespace-nowrap">
+                Home
               </TabsTrigger>
-              <TabsTrigger value="orders" className="px-4 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all relative">
+              <TabsTrigger value="orders" className="px-2.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all relative whitespace-nowrap">
                 Orders
                 {activeOrders > 0 && (
-                  <span className="ml-1.5 px-1.5 py-0.5 text-[10px] font-bold bg-primary-100 text-primary-700 rounded-full">
+                  <span className="ml-1 sm:ml-1.5 px-1 sm:px-1.5 py-0.5 text-[9px] sm:text-[10px] font-bold bg-primary-100 text-primary-700 rounded-full">
                     {activeOrders}
                   </span>
                 )}
               </TabsTrigger>
-              <TabsTrigger value="artwork" className="px-4 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all relative">
+              <TabsTrigger value="artwork" className="px-2.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all relative whitespace-nowrap">
                 Artwork
                 {artworks.filter(a => a.status === 'proof_ready').length > 0 && (
-                  <span className="ml-1.5 px-1.5 py-0.5 text-[10px] font-bold bg-amber-100 text-amber-700 rounded-full">
+                  <span className="ml-1 sm:ml-1.5 px-1 sm:px-1.5 py-0.5 text-[9px] sm:text-[10px] font-bold bg-amber-100 text-amber-700 rounded-full">
                     {artworks.filter(a => a.status === 'proof_ready').length}
                   </span>
                 )}
               </TabsTrigger>
-              <TabsTrigger value="quotes" className="px-4 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all relative">
+              <TabsTrigger value="quotes" className="px-2.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all relative whitespace-nowrap">
                 Quotes
                 {pendingQuotes > 0 && (
-                  <span className="ml-1.5 px-1.5 py-0.5 text-[10px] font-bold bg-yellow-100 text-yellow-700 rounded-full">
+                  <span className="ml-1 sm:ml-1.5 px-1 sm:px-1.5 py-0.5 text-[9px] sm:text-[10px] font-bold bg-yellow-100 text-yellow-700 rounded-full">
                     {pendingQuotes}
                   </span>
                 )}
               </TabsTrigger>
-              <TabsTrigger value="saved" className="px-4 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all hidden md:flex">
+              <TabsTrigger value="saved" className="px-2.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all whitespace-nowrap">
                 Saved
               </TabsTrigger>
-              <TabsTrigger value="documents" className="px-4 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all hidden md:flex">
-                Documents
+              <TabsTrigger value="documents" className="px-2.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all whitespace-nowrap">
+                Docs
               </TabsTrigger>
             </TabsList>
           </Tabs>
         </div>
 
         {/* Page Content */}
-        <main className="p-4 md:p-6">
+        <main className="p-3 sm:p-4 md:p-6">
           {/* Dashboard Tab */}
           {activeTab === 'dashboard' && (
-            <div className="space-y-6">
-              {/* Stats Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="bg-white rounded-xl p-6 border border-gray-100">
-                  <p className="text-sm text-gray-500 uppercase tracking-wide">Active Orders</p>
-                  <div className="flex items-end justify-between mt-2">
-                    <p className="text-3xl font-bold text-gray-900">{activeOrders}</p>
-                    <span className="text-sm text-green-600 flex items-center gap-1">
-                      <TrendingUp className="h-4 w-4" />
+            <div className="space-y-4 sm:space-y-6">
+              {/* Stats Cards - 2 cols on mobile */}
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
+                <div className="bg-white rounded-xl p-3 sm:p-4 md:p-6 border border-gray-100">
+                  <p className="text-[10px] sm:text-xs md:text-sm text-gray-500 uppercase tracking-wide">Active Orders</p>
+                  <div className="flex items-end justify-between mt-1 sm:mt-2">
+                    <p className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">{activeOrders}</p>
+                    <span className="text-xs sm:text-sm text-green-600 flex items-center gap-1">
+                      <TrendingUp className="h-3 w-3 sm:h-4 sm:w-4" />
                     </span>
                   </div>
                 </div>
-                <div className="bg-white rounded-xl p-6 border border-gray-100">
-                  <p className="text-sm text-gray-500 uppercase tracking-wide">Total Spent</p>
-                  <div className="flex items-end justify-between mt-2">
-                    <p className="text-3xl font-bold text-gray-900">${totalSpent.toLocaleString()}</p>
+                <div className="bg-white rounded-xl p-3 sm:p-4 md:p-6 border border-gray-100">
+                  <p className="text-[10px] sm:text-xs md:text-sm text-gray-500 uppercase tracking-wide">Total Spent</p>
+                  <div className="flex items-end justify-between mt-1 sm:mt-2">
+                    <p className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">${totalSpent >= 1000 ? (totalSpent/1000).toFixed(1) + 'k' : totalSpent.toLocaleString()}</p>
                   </div>
                 </div>
-                <div className="bg-white rounded-xl p-6 border border-gray-100">
-                  <p className="text-sm text-gray-500 uppercase tracking-wide">Total Orders</p>
-                  <div className="flex items-end justify-between mt-2">
-                    <p className="text-3xl font-bold text-gray-900">{orders.length}</p>
-                    <span className="text-sm text-green-600">+{orders.filter(o => {
+                <div className="bg-white rounded-xl p-3 sm:p-4 md:p-6 border border-gray-100">
+                  <p className="text-[10px] sm:text-xs md:text-sm text-gray-500 uppercase tracking-wide">Total Orders</p>
+                  <div className="flex items-end justify-between mt-1 sm:mt-2">
+                    <p className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">{orders.length}</p>
+                    <span className="text-[10px] sm:text-xs md:text-sm text-green-600 hidden sm:inline">+{orders.filter(o => {
                       const d = new Date(o.created_at)
                       const now = new Date()
                       return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear()
                     }).length} this month</span>
                   </div>
                 </div>
-                <div className="bg-white rounded-xl p-6 border border-gray-100">
-                  <p className="text-sm text-gray-500 uppercase tracking-wide">Documents</p>
-                  <div className="flex items-end justify-between mt-2">
-                    <p className="text-3xl font-bold text-gray-900">{documents.length}</p>
+                <div className="bg-white rounded-xl p-3 sm:p-4 md:p-6 border border-gray-100">
+                  <p className="text-[10px] sm:text-xs md:text-sm text-gray-500 uppercase tracking-wide">Documents</p>
+                  <div className="flex items-end justify-between mt-1 sm:mt-2">
+                    <p className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">{documents.length}</p>
                   </div>
                 </div>
               </div>
@@ -1299,57 +1306,57 @@ const DashboardPage: React.FC = () => {
               {/* Artwork Overview */}
               {artworks.length > 0 && (
                 <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
-                  <div className="p-5 border-b border-gray-100 flex items-center justify-between">
-                    <h2 className="font-semibold text-gray-900 flex items-center gap-2">
-                      <Palette className="h-5 w-5 text-purple-600" />
-                      Artwork Overview
+                  <div className="p-3 sm:p-4 md:p-5 border-b border-gray-100 flex items-center justify-between">
+                    <h2 className="text-sm sm:text-base font-semibold text-gray-900 flex items-center gap-2">
+                      <Palette className="h-4 w-4 sm:h-5 sm:w-5 text-purple-600" />
+                      Artwork
                     </h2>
-                    <button onClick={() => setActiveTab('artwork')} className="text-sm text-primary-600 hover:text-primary-700 flex items-center gap-1">
-                      View All <ChevronRight className="h-4 w-4" />
+                    <button onClick={() => setActiveTab('artwork')} className="text-xs sm:text-sm text-primary-600 hover:text-primary-700 flex items-center gap-1">
+                      View All <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
                     </button>
                   </div>
-                  <div className="p-4">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                      <div className="bg-purple-50 rounded-lg p-3 text-center">
-                        <p className="text-2xl font-bold text-purple-700">{artworks.length}</p>
-                        <p className="text-xs text-purple-600">Total Files</p>
+                  <div className="p-2 sm:p-3 md:p-4">
+                    <div className="grid grid-cols-4 gap-1.5 sm:gap-2 md:gap-3">
+                      <div className="bg-purple-50 rounded-lg p-2 sm:p-3 text-center">
+                        <p className="text-base sm:text-xl md:text-2xl font-bold text-purple-700">{artworks.length}</p>
+                        <p className="text-[9px] sm:text-[10px] md:text-xs text-purple-600">Total</p>
                       </div>
-                      <div className="bg-blue-50 rounded-lg p-3 text-center">
-                        <p className="text-2xl font-bold text-blue-700">{artworks.filter(a => a.status === 'pending_review' || a.status === 'in_review').length}</p>
-                        <p className="text-xs text-blue-600">In Review</p>
+                      <div className="bg-blue-50 rounded-lg p-2 sm:p-3 text-center">
+                        <p className="text-base sm:text-xl md:text-2xl font-bold text-blue-700">{artworks.filter(a => a.status === 'pending_review' || a.status === 'in_review').length}</p>
+                        <p className="text-[9px] sm:text-[10px] md:text-xs text-blue-600">Review</p>
                       </div>
-                      <div className="bg-indigo-50 rounded-lg p-3 text-center">
-                        <p className="text-2xl font-bold text-indigo-700">{artworks.filter(a => a.status === 'proof_ready').length}</p>
-                        <p className="text-xs text-indigo-600">Proof Ready</p>
+                      <div className="bg-indigo-50 rounded-lg p-2 sm:p-3 text-center">
+                        <p className="text-base sm:text-xl md:text-2xl font-bold text-indigo-700">{artworks.filter(a => a.status === 'proof_ready').length}</p>
+                        <p className="text-[9px] sm:text-[10px] md:text-xs text-indigo-600">Proof</p>
                       </div>
-                      <div className="bg-green-50 rounded-lg p-3 text-center">
-                        <p className="text-2xl font-bold text-green-700">{artworks.filter(a => a.status === 'approved' || a.status === 'in_production').length}</p>
-                        <p className="text-xs text-green-600">Approved</p>
+                      <div className="bg-green-50 rounded-lg p-2 sm:p-3 text-center">
+                        <p className="text-base sm:text-xl md:text-2xl font-bold text-green-700">{artworks.filter(a => a.status === 'approved' || a.status === 'in_production').length}</p>
+                        <p className="text-[9px] sm:text-[10px] md:text-xs text-green-600">Done</p>
                       </div>
                     </div>
                     {/* Recent Artwork Files */}
-                    <div className="mt-4 space-y-2">
+                    <div className="mt-3 sm:mt-4 space-y-1 sm:space-y-2">
                       {artworks.slice(0, 3).map(artwork => {
                         const statusInfo = getArtworkStatus(artwork.status)
                         const StatusIcon = statusInfo.icon
                         const isImage = artwork.file_type?.startsWith('image/') || /\.(png|jpg|jpeg|gif|webp)$/i.test(artwork.file_url || '')
                         return (
-                          <div key={artwork.id} className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition">
-                            <div className="w-10 h-10 rounded-lg overflow-hidden bg-gray-100 flex-shrink-0">
+                          <div key={artwork.id} className="flex items-center gap-2 sm:gap-3 p-1.5 sm:p-2 rounded-lg hover:bg-gray-50 transition">
+                            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg overflow-hidden bg-gray-100 flex-shrink-0">
                               {isImage ? (
                                 <img src={artwork.file_url} alt="" className="w-full h-full object-cover" />
                               ) : (
                                 <div className="w-full h-full flex items-center justify-center bg-purple-50">
-                                  <FileImage className="h-5 w-5 text-purple-400" />
+                                  <FileImage className="h-4 w-4 sm:h-5 sm:w-5 text-purple-400" />
                                 </div>
                               )}
                             </div>
                             <div className="flex-1 min-w-0">
-                              <p className="text-sm font-medium text-gray-900 truncate">{artwork.name}</p>
-                              <p className="text-xs text-gray-500">{new Date(artwork.created_at).toLocaleDateString()}</p>
+                              <p className="text-xs sm:text-sm font-medium text-gray-900 truncate">{artwork.name}</p>
+                              <p className="text-[10px] sm:text-xs text-gray-500">{new Date(artwork.created_at).toLocaleDateString()}</p>
                             </div>
-                            <span className={`inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded-full ${statusInfo.color}`}>
-                              <StatusIcon className="h-3 w-3" />
+                            <span className={`inline-flex items-center gap-1 px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-xs font-medium rounded-full ${statusInfo.color}`}>
+                              <StatusIcon className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
                             </span>
                           </div>
                         )
@@ -1359,52 +1366,52 @@ const DashboardPage: React.FC = () => {
                 </div>
               )}
 
-              <div className="grid lg:grid-cols-3 gap-6">
+              <div className="grid lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
                 {/* Recent Orders */}
                 <div className="lg:col-span-2 bg-white rounded-xl border border-gray-100">
-                  <div className="p-5 border-b border-gray-100 flex items-center justify-between">
-                    <h2 className="font-semibold text-gray-900">Recent Orders</h2>
-                    <button onClick={() => setActiveTab('orders')} className="text-sm text-primary-600 hover:text-primary-700 flex items-center gap-1">
-                      See All <ChevronRight className="h-4 w-4" />
+                  <div className="p-3 sm:p-4 md:p-5 border-b border-gray-100 flex items-center justify-between">
+                    <h2 className="text-sm sm:text-base font-semibold text-gray-900">Recent Orders</h2>
+                    <button onClick={() => setActiveTab('orders')} className="text-xs sm:text-sm text-primary-600 hover:text-primary-700 flex items-center gap-1">
+                      See All <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
                     </button>
                   </div>
                   <div className="divide-y divide-gray-50">
                     {orders.length === 0 ? (
-                      <div className="p-8 text-center text-gray-400">
+                      <div className="p-6 sm:p-8 text-center text-gray-400">
                         {t('customerCenter.dashboard.empty.noOrders')}
-                        <Link to="/store" className="block mt-2 text-primary-600 hover:underline">
+                        <Link to="/store" className="block mt-2 text-primary-600 hover:underline text-sm">
                           {t('customerCenter.dashboard.empty.shopNow')}
                         </Link>
                       </div>
                     ) : orders.slice(0, 5).map(order => (
-                      <div key={order.id} className="p-4 hover:bg-gray-50 transition cursor-pointer" onClick={() => handleSelectOrder(order)}>
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-4">
-                            <div className="w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center">
-                              <Package className="h-5 w-5 text-primary-600" />
+                      <div key={order.id} className="p-3 sm:p-4 hover:bg-gray-50 transition cursor-pointer" onClick={() => handleSelectOrder(order)}>
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="flex items-center gap-2 sm:gap-4 flex-1 min-w-0">
+                            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                              <Package className="h-4 w-4 sm:h-5 sm:w-5 text-primary-600" />
                             </div>
-                            <div>
-                              <p className="font-medium text-gray-900">{order.order_number}</p>
-                              <p className="text-sm text-gray-500">{new Date(order.created_at).toLocaleDateString()}</p>
+                            <div className="min-w-0 flex-1">
+                              <p className="text-xs sm:text-sm font-medium text-gray-900 truncate">{order.order_number}</p>
+                              <p className="text-[10px] sm:text-sm text-gray-500">{new Date(order.created_at).toLocaleDateString()}</p>
                               {/* Show tracking info if available */}
                               {order.tracking_number && (
-                                <div className="flex items-center gap-1.5 mt-0.5">
-                                  <Truck className="h-3 w-3 text-blue-600" />
-                                  <span className="text-xs text-blue-600 font-medium truncate">
-                                    {order.carrier || 'Tracking'}: {order.tracking_number}
+                                <div className="flex items-center gap-1 sm:gap-1.5 mt-0.5">
+                                  <Truck className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-blue-600" />
+                                  <span className="text-[9px] sm:text-xs text-blue-600 font-medium truncate">
+                                    {order.carrier || 'Track'}: {order.tracking_number}
                                   </span>
                                 </div>
                               )}
                             </div>
                           </div>
-                          <div className="text-right flex items-center gap-3">
+                          <div className="text-right flex items-center gap-2 sm:gap-3 flex-shrink-0">
                             <div>
-                              <p className="font-semibold text-gray-900">${order.total_amount?.toLocaleString()}</p>
-                              <span className={`inline-block px-2 py-0.5 text-xs font-medium rounded-full ${statusColors[order.status]}`}>
+                              <p className="text-xs sm:text-sm font-semibold text-gray-900">${order.total_amount?.toLocaleString()}</p>
+                              <span className={`inline-block px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-xs font-medium rounded-full ${statusColors[order.status]}`}>
                                 {order.status}
                               </span>
                             </div>
-                            <Eye className="h-5 w-5 text-gray-400" />
+                            <Eye className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 hidden sm:block" />
                           </div>
                         </div>
                       </div>
@@ -1414,35 +1421,35 @@ const DashboardPage: React.FC = () => {
 
                 {/* Quick Actions */}
                 <div className="bg-white rounded-xl border border-gray-100">
-                  <div className="p-5 border-b border-gray-100">
-                    <h2 className="font-semibold text-gray-900">{t('customerCenter.dashboard.sections.quickActions')}</h2>
+                  <div className="p-3 sm:p-4 md:p-5 border-b border-gray-100">
+                    <h2 className="text-sm sm:text-base font-semibold text-gray-900">{t('customerCenter.dashboard.sections.quickActions')}</h2>
                   </div>
-                  <div className="p-4 space-y-3">
-                    <Link to="/store" className="flex items-center gap-4 p-4 border border-gray-200 rounded-lg hover:border-primary-500 hover:bg-primary-50 transition">
-                      <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
-                        <ShoppingCart className="h-5 w-5 text-primary-600" />
+                  <div className="p-2 sm:p-3 md:p-4 space-y-2 sm:space-y-3">
+                    <Link to="/store" className="flex items-center gap-3 sm:gap-4 p-2.5 sm:p-3 md:p-4 border border-gray-200 rounded-lg hover:border-primary-500 hover:bg-primary-50 transition">
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <ShoppingCart className="h-4 w-4 sm:h-5 sm:w-5 text-primary-600" />
                       </div>
-                      <div>
-                        <p className="font-medium text-gray-900">{t('customerCenter.dashboard.actions.newOrder')}</p>
-                        <p className="text-sm text-gray-500">Browse our products</p>
-                      </div>
-                    </Link>
-                    <Link to="/" className="flex items-center gap-4 p-4 border border-gray-200 rounded-lg hover:border-gray-300 hover:bg-gray-50 transition">
-                      <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
-                        <Home className="h-5 w-5 text-gray-600" />
-                      </div>
-                      <div>
-                        <p className="font-medium text-gray-900">{t('customerCenter.backToHome')}</p>
-                        <p className="text-sm text-gray-500">Visit homepage</p>
+                      <div className="min-w-0">
+                        <p className="text-xs sm:text-sm font-medium text-gray-900">{t('customerCenter.dashboard.actions.newOrder')}</p>
+                        <p className="text-[10px] sm:text-sm text-gray-500">Browse products</p>
                       </div>
                     </Link>
-                    <button onClick={() => setActiveTab('documents')} className="flex items-center gap-4 p-4 border border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition w-full text-left">
-                      <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                        <FileText className="h-5 w-5 text-green-600" />
+                    <Link to="/" className="flex items-center gap-3 sm:gap-4 p-2.5 sm:p-3 md:p-4 border border-gray-200 rounded-lg hover:border-gray-300 hover:bg-gray-50 transition">
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Home className="h-4 w-4 sm:h-5 sm:w-5 text-gray-600" />
                       </div>
-                      <div>
-                        <p className="font-medium text-gray-900">View Certificates</p>
-                        <p className="text-sm text-gray-500">Compliance documents</p>
+                      <div className="min-w-0">
+                        <p className="text-xs sm:text-sm font-medium text-gray-900">{t('customerCenter.backToHome')}</p>
+                        <p className="text-[10px] sm:text-sm text-gray-500">Visit homepage</p>
+                      </div>
+                    </Link>
+                    <button onClick={() => setActiveTab('documents')} className="flex items-center gap-3 sm:gap-4 p-2.5 sm:p-3 md:p-4 border border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition w-full text-left">
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <FileText className="h-4 w-4 sm:h-5 sm:w-5 text-green-600" />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-xs sm:text-sm font-medium text-gray-900">View Certificates</p>
+                        <p className="text-[10px] sm:text-sm text-gray-500">Compliance docs</p>
                       </div>
                     </button>
                   </div>
