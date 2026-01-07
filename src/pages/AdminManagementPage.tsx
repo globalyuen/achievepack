@@ -1176,6 +1176,76 @@ const AdminManagementPage: React.FC = () => {
           </div>
         </div>
 
+        {/* Desktop Header */}
+        <header className="hidden md:flex items-center justify-between px-6 py-4 bg-white border-b border-gray-200 sticky top-0 z-40">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shadow-sm">
+              <FileCheck className="h-5 w-5 text-white" />
+            </div>
+            <div>
+              <h1 className="text-lg font-semibold text-gray-900">Admin Management</h1>
+              <p className="text-sm text-gray-500">
+                {pendingQuotes + pendingArtworks > 0 
+                  ? `${pendingQuotes + pendingArtworks} items need attention`
+                  : 'All caught up!'}
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            {/* Quick Access Sheet - Desktop */}
+            <QuickAccessSheet
+              items={quickAccessItems}
+              pinListItems={pinListItems}
+              onStatusChange={handleQuickAccessStatusChange}
+              onPinChange={handlePinChange}
+              trigger={
+                <button className="p-2.5 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition relative">
+                  <Zap className="h-5 w-5" />
+                  {quickAccessItems.length > 0 && (
+                    <span className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-primary-500 text-white text-[10px] rounded-full flex items-center justify-center font-bold">
+                      {quickAccessItems.length}
+                    </span>
+                  )}
+                </button>
+              }
+              title="Quick Access"
+              description="Right-click on items to update status"
+            />
+            {/* Notification Bell */}
+            <div className="relative">
+              <button 
+                onClick={() => setShowNotifications(!showNotifications)}
+                className="p-2.5 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition relative"
+              >
+                <Bell className="h-5 w-5" />
+                {notifications.length > 0 && (
+                  <span className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-red-500 text-white text-[10px] rounded-full flex items-center justify-center font-bold">
+                    {notifications.length}
+                  </span>
+                )}
+              </button>
+              {showNotifications && (
+                <div className="absolute top-full right-0 mt-2 z-50">
+                  <NotificationList
+                    notifications={notifications}
+                    onViewAll={() => {
+                      setShowNotifications(false)
+                      setActiveTab('artwork')
+                    }}
+                    title="Updates"
+                  />
+                </div>
+              )}
+            </div>
+            <button 
+              onClick={fetchData} 
+              className="p-2.5 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition"
+            >
+              <RefreshCw className={`h-5 w-5 ${loading ? 'animate-spin' : ''}`} />
+            </button>
+          </div>
+        </header>
+
         {/* Mobile Nav - Animated Tabs */}
         <div className="md:hidden bg-white border-b px-4 py-2 sticky top-0 z-30">
           <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as TabType)} className="w-full">
