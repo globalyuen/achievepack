@@ -102,6 +102,15 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
               >
                 <ShoppingCart className="h-5 w-5 text-white" />
               </Link>
+              {/* Glowing FREE Button */}
+              <Link
+                to="/free-service/packaging-design-consultation"
+                className="relative w-10 h-10 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center hover:from-green-600 hover:to-emerald-600 transition-all shadow-lg animate-pulse"
+                style={{ boxShadow: '0 0 15px rgba(16, 185, 129, 0.6)' }}
+              >
+                <Gift className="h-5 w-5 text-white" />
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 text-[8px] font-bold text-yellow-900 rounded-full flex items-center justify-center animate-bounce">!</span>
+              </Link>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-neutral-700 hover:text-primary-500 transition-colors"
