@@ -191,20 +191,23 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
                   <p className="text-xs font-bold text-green-600 uppercase mb-2 flex items-center gap-1">
                     <Gift className="h-3 w-3" /> FREE Services
                   </p>
-                  <div className="space-y-1">
-                    <Link to="/free-service/packaging-design-consultation" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">
-                      🎨 Free Design Consultation
+                  <div className="grid grid-cols-2 gap-1">
+                    <Link to="/free-service/packaging-design-consultation" onClick={() => setIsMenuOpen(false)} className="block py-1.5 text-sm text-neutral-700">
+                      🎨 Free Design
                     </Link>
-                    <Link to="/free-service/website-upgrade" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">
-                      🌐 Free Website Upgrade
+                    <Link to="/free-service/website-upgrade" onClick={() => setIsMenuOpen(false)} className="block py-1.5 text-sm text-neutral-700">
+                      🌐 Free Website
                     </Link>
-                    <Link to="/free-service/packaging-mockup" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">
-                      📦 Free Packaging Mockup
+                    <Link to="/free-service/customer-center" onClick={() => setIsMenuOpen(false)} className="block py-1.5 text-sm text-neutral-700">
+                      📊 Free MGT Tool
                     </Link>
-                    <Link to="/free-service/customer-center" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">
-                      📊 Free Customer Center
+                    <Link to="/free-service/packaging-mockup" onClick={() => setIsMenuOpen(false)} className="block py-1.5 text-sm text-neutral-700">
+                      📦 Free Mockup
                     </Link>
                   </div>
+                  <Link to="/free" onClick={() => setIsMenuOpen(false)} className="block py-2 mt-1 text-sm text-green-600 font-medium">
+                    Other Free Services →
+                  </Link>
                 </div>
               )}
 
@@ -212,6 +215,17 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
               <div className="border-t border-neutral-100 pt-3">
                 <Link to="/dashboard" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700 font-medium">Customer Center</Link>
               </div>
+
+              {/* Meet Button */}
+              <a
+                href="https://calendly.com/30-min-free-packaging-consultancy"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMenuOpen(false)}
+                className="block w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-3 rounded-lg font-semibold text-center shadow-md hover:from-green-600 hover:to-emerald-600 transition-all"
+              >
+                📅 Meet With Us
+              </a>
               
               {/* Mobile Language Options - Only show if enabled */}
               {showLanguageSelector && (
@@ -226,14 +240,7 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
                 </div>
               )}
 
-              <a
-                href="https://calendly.com/30-min-free-packaging-consultancy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-colors mt-4 block text-center"
-              >
-                Book Free Consultation
-              </a>
+
             </div>
           </div>
         )}
