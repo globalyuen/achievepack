@@ -5,7 +5,7 @@ import { supabase, Order, Profile, NewsletterSubscriber, Document, Quote, Artwor
 import { blogPosts } from '../data/blogData'
 import { Home, Users, Package, Settings, Search, ChevronDown, ChevronLeft, ChevronRight, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox, Send, FileCode, Check, Globe, Filter, MapPin, Factory, Tag, History, Zap, Bell } from 'lucide-react'
 import CRMPanelAdvanced from '../components/admin/CRMPanelAdvanced'
-import MiniSiteCMS from '../components/admin/MiniSiteCMS'
+import AchieveCoffeeCMS from '../components/admin/AchieveCoffeeCMS'
 import { sendTestEmail, sendBulkEmails, generateEmailTemplate, EmailRecipient } from '../lib/brevo'
 import { QuickAccessSheet, type QuickAccessItem, type QuoteStatus, type InvoiceStatus, type ArtworkQuickStatus } from '../components/ui/QuickAccessSheet'
 import { PinList, type PinListItem } from '../components/animate-ui/components/community/pin-list'
@@ -2070,23 +2070,9 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
             </div>
           )}
 
-          {/* Website Demo Tab */}
+          {/* Achieve Coffee CMS Tab */}
           {activeTab === 'website' && (
-            <div className="space-y-4 md:space-y-6">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                <h1 className="text-xl md:text-2xl font-bold text-gray-900">Website Demo Editor</h1>
-                <a
-                  href="/free-service/achieve-coffee-demo"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-neutral-900 text-white rounded-lg hover:bg-neutral-800 transition-colors text-sm font-medium"
-                >
-                  <ExternalLink className="h-4 w-4" />
-                  Preview Demo Site
-                </a>
-              </div>
-              <MiniSiteCMS />
-            </div>
+            <AchieveCoffeeCMS />
           )}
 
           {/* Newsletter Tab */}
