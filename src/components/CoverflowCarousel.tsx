@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, useSpring, PanInfo } from 'motion/react'
 import { Link } from 'react-router-dom'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
@@ -11,30 +11,54 @@ interface CarouselItem {
 
 interface CoverflowCarouselProps {
   items: CarouselItem[]
+  autoScrollInterval?: number // in milliseconds, default 1000 (1 second per card)
 }
 
 const DRAG_BUFFER = 50
 const SPRING_OPTIONS = { stiffness: 300, damping: 30 }
 
-export default function CoverflowCarousel({ items }: CoverflowCarouselProps) {
+export default function CoverflowCarousel({ items, autoScrollInterval = 1000 }: CoverflowCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(Math.floor(items.length / 2))
+  const [isHovered, setIsHovered] = useState(false)
+  const [isDragging, setIsDragging] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
 
+  // Handle drag with infinite loop
   const handleDragEnd = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    setIsDragging(false)
     const { offset } = info
-    if (offset.x > DRAG_BUFFER && activeIndex > 0) {
-      setActiveIndex(prev => prev - 1)
-    } else if (offset.x < -DRAG_BUFFER && activeIndex < items.length - 1) {
-      setActiveIndex(prev => prev + 1)
+    if (offset.x > DRAG_BUFFER) {
+      // Drag right - go to previous (with wrap)
+      setActiveIndex(prev => prev <= 0 ? items.length - 1 : prev - 1)
+    } else if (offset.x < -DRAG_BUFFER) {
+      // Drag left - go to next (with wrap)
+      setActiveIndex(prev => prev >= items.length - 1 ? 0 : prev + 1)
     }
   }
 
+  const handleDragStart = () => {
+    setIsDragging(true)
+  }
+
+  // Infinite loop navigation
   const handlePrev = () => {
-    if (activeIndex > 0) setActiveIndex(prev => prev - 1)
+    setActiveIndex(prev => prev <= 0 ? items.length - 1 : prev - 1)
   }
 
   const handleNext = () => {
-    if (activeIndex < items.length - 1) setActiveIndex(prev => prev + 1)
+    setActiveIndex(prev => prev >= items.length - 1 ? 0 : prev + 1)
   }
+
+  // Auto-scroll: one card per second, infinite loop
+  useEffect(() => {
+    if (isHovered || isDragging) return
+    
+    const interval = setInterval(() => {
+      setActiveIndex(prev => prev >= items.length - 1 ? 0 : prev + 1)
+    }, autoScrollInterval)
+    
+    return () => clearInterval(interval)
+  }, [isHovered, isDragging, items.length, autoScrollInterval])
 
   // Keyboard navigation
   useEffect(() => {
@@ -44,15 +68,19 @@ export default function CoverflowCarousel({ items }: CoverflowCarouselProps) {
     }
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [activeIndex])
+  }, [])
 
   return (
-    <div className="relative w-full overflow-hidden py-8">
-      {/* Navigation Arrows */}
+    <div 
+      ref={containerRef}
+      className="relative w-full overflow-hidden py-8"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Navigation Arrows - always enabled for infinite loop */}
       <button
         onClick={handlePrev}
-        disabled={activeIndex === 0}
-        className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 md:p-3 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+        className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 md:p-3 transition-all hover:scale-110"
         aria-label="Previous"
       >
         <ChevronLeft className="h-5 w-5 md:h-6 md:w-6 text-neutral-700" />
@@ -60,8 +88,7 @@ export default function CoverflowCarousel({ items }: CoverflowCarouselProps) {
       
       <button
         onClick={handleNext}
-        disabled={activeIndex === items.length - 1}
-        className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 md:p-3 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+        className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 md:p-3 transition-all hover:scale-110"
         aria-label="Next"
       >
         <ChevronRight className="h-5 w-5 md:h-6 md:w-6 text-neutral-700" />
@@ -72,6 +99,7 @@ export default function CoverflowCarousel({ items }: CoverflowCarouselProps) {
         drag="x"
         dragConstraints={{ left: 0, right: 0 }}
         dragElastic={0.1}
+        onDragStart={handleDragStart}
         onDragEnd={handleDragEnd}
         className="flex items-center justify-center cursor-grab active:cursor-grabbing h-[400px] md:h-[500px]"
         style={{ perspective: '1200px' }}

@@ -10,7 +10,6 @@ import Newsletter from './components/Newsletter'
 import CartSidebar from './components/store/CartSidebar'
 import MegaMenu, { RightNavMenu } from './components/MegaMenu'
 import CoverflowCarousel from './components/CoverflowCarousel'
-import { ProductMotionCarousel } from './components/animate-ui/components/community/motion-carousel'
 import NavAvatarGroup from './components/ui/avatar-group'
 import { TextRotate } from './components/ui/TextRotate'
 import type { CalculatorResults } from './utils/calculatorUtils'
@@ -98,40 +97,6 @@ function App() {
   const [selectedProduct, setSelectedProduct] = useState<PouchProduct | null>(null)
   const [isRyanProfileOpen, setIsRyanProfileOpen] = useState(false)
   const [pouchShapeEnlarged, setPouchShapeEnlarged] = useState<{ src: string; index: number } | null>(null)
-  
-  // Discover Products auto-scroll
-  const discoverScrollRef = useRef<HTMLDivElement>(null)
-  const [isDiscoverHovered, setIsDiscoverHovered] = useState(false)
-  
-  useEffect(() => {
-    const scrollContainer = discoverScrollRef.current
-    if (!scrollContainer || isDiscoverHovered) return
-    
-    const scrollSpeed = 0.5 // pixels per frame
-    let animationId: number
-    
-    const autoScroll = () => {
-      if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
-        scrollContainer.scrollLeft = 0
-      } else {
-        scrollContainer.scrollLeft += scrollSpeed
-      }
-      animationId = requestAnimationFrame(autoScroll)
-    }
-    
-    animationId = requestAnimationFrame(autoScroll)
-    return () => cancelAnimationFrame(animationId)
-  }, [isDiscoverHovered])
-  
-  const scrollDiscover = (direction: 'left' | 'right') => {
-    const scrollContainer = discoverScrollRef.current
-    if (!scrollContainer) return
-    const scrollAmount = 400
-    scrollContainer.scrollBy({
-      left: direction === 'left' ? -scrollAmount : scrollAmount,
-      behavior: 'smooth'
-    })
-  }
   
   const pouchShapeImages = [
     '/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.webp',
@@ -1083,29 +1048,29 @@ function App() {
         </div>
       </section>
 
-      {/* Products Section - Shop Products Carousel */}
-      <section id="products" className="py-16 bg-white">
+      {/* Products Section - Coverflow Carousel */}
+      <section id="products" className="py-16 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-4xl font-bold text-neutral-900 mb-4">{t('products.title')}</h2>
-            <p className="text-lg text-neutral-700 max-w-3xl mx-auto">
+          <div className="text-center mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-neutral-900">{t('products.title')}</h2>
+            <p className="text-lg md:text-xl text-neutral-600 mt-2 max-w-3xl mx-auto">
               {t('products.description')}
             </p>
+            <Link 
+              to="/store" 
+              className="inline-flex text-base font-semibold text-primary-600 hover:text-primary-700 transition-colors items-center gap-1 mt-3"
+            >
+              Shop All <ArrowRight className="h-5 w-5" />
+            </Link>
           </div>
 
-          {/* Products Motion Carousel */}
-          <ProductMotionCarousel
-            products={FEATURED_PRODUCTS.slice(0, 8).map((product) => ({
-              id: product.id,
-              name: product.name,
-              description: product.description,
+          {/* Products Coverflow Carousel - same style as Discover Products */}
+          <CoverflowCarousel
+            items={FEATURED_PRODUCTS.slice(0, 10).map((product) => ({
               image: product.images[0],
-              badge: product.badge,
-              price: product.basePrice,
-              minOrder: product.minOrder,
-              onClick: () => setSelectedProduct(product),
+              link: `/store?product=${product.id}`,
+              label: product.name.length > 25 ? product.name.substring(0, 22) + '...' : product.name,
             }))}
-            options={{ loop: true, align: 'center' }}
           />
 
           {/* Explore More Button */}
