@@ -3,9 +3,12 @@ import { useNavigate, Link, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, Order, Profile, NewsletterSubscriber, Document, Quote, ArtworkFile, EmailDraft, CRMInquiry, CRMActivity } from '../lib/supabase'
 import { blogPosts } from '../data/blogData'
-import { Home, Users, Package, Settings, Search, ChevronDown, ChevronLeft, ChevronRight, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox, Send, FileCode, Check, Globe, Filter, MapPin, Factory, Tag, History } from 'lucide-react'
+import { Home, Users, Package, Settings, Search, ChevronDown, ChevronLeft, ChevronRight, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox, Send, FileCode, Check, Globe, Filter, MapPin, Factory, Tag, History, Zap, Bell } from 'lucide-react'
 import CRMPanelAdvanced from '../components/admin/CRMPanelAdvanced'
 import { sendTestEmail, sendBulkEmails, generateEmailTemplate, EmailRecipient } from '../lib/brevo'
+import { QuickAccessSheet, type QuickAccessItem, type QuoteStatus, type InvoiceStatus, type ArtworkQuickStatus } from '../components/ui/QuickAccessSheet'
+import { PinList, type PinListItem } from '../components/animate-ui/components/community/pin-list'
+import { NotificationList, type Notification } from '../components/animate-ui/components/community/notification-list'
 
 // Industry detection keywords
 const INDUSTRY_KEYWORDS: Record<string, string[]> = {
@@ -113,6 +116,13 @@ const AdminPage: React.FC = () => {
   const [showEmailHistory, setShowEmailHistory] = useState(false)
   const [showImageCatalog, setShowImageCatalog] = useState(false)
   const [imageCatalogFilter, setImageCatalogFilter] = useState<string>('all')
+  
+  // Quick Access states
+  const [showNotifications, setShowNotifications] = useState(false)
+  const [pinnedIds, setPinnedIds] = useState<Set<string>>(() => {
+    const saved = localStorage.getItem('admin_main_pinned_items')
+    return saved ? new Set(JSON.parse(saved)) : new Set()
+  })
 
   // Image Catalog for Email
   const imageCatalog = {
@@ -157,6 +167,136 @@ const AdminPage: React.FC = () => {
       navigate('/login')
     }
   }, [user, authLoading, navigate])
+  
+  // Save pinned items to localStorage
+  useEffect(() => {
+    localStorage.setItem('admin_main_pinned_items', JSON.stringify([...pinnedIds]))
+  }, [pinnedIds])
+  
+  // Handle pin change
+  const handlePinChange = (id: string | number, pinned: boolean) => {
+    setPinnedIds(prev => {
+      const next = new Set(prev)
+      if (pinned) next.add(String(id))
+      else next.delete(String(id))
+      return next
+    })
+  }
+  
+  // Generate notifications from recent activity
+  const notifications: Notification[] = useMemo(() => {
+    const notifs: Notification[] = []
+    const now = Date.now()
+    const timeAgo = (date: string) => {
+      const diff = now - new Date(date).getTime()
+      const mins = Math.floor(diff / 60000)
+      if (mins < 1) return 'just now'
+      if (mins < 60) return `${mins}m ago`
+      const hours = Math.floor(mins / 60)
+      if (hours < 24) return `${hours}h ago`
+      const days = Math.floor(hours / 24)
+      return `${days}d ago`
+    }
+    
+    // Pending orders
+    orders.filter(o => o.status === 'pending').slice(0, 3).forEach(o => {
+      notifs.push({
+        id: `order-${o.id}`,
+        title: 'Pending Order',
+        subtitle: `${o.customer_name || o.customer_email}`,
+        time: timeAgo(o.created_at),
+        type: 'default',
+        onClick: () => {
+          setActiveTab('orders')
+          setSelectedOrder(o)
+        }
+      })
+    })
+    
+    return notifs.slice(0, 6)
+  }, [orders])
+  
+  // Pin list items for Quick Access
+  const pinListItems: PinListItem[] = useMemo(() => {
+    const items: PinListItem[] = []
+    
+    // Add pending orders
+    orders.filter(o => o.status === 'pending').slice(0, 5).forEach(o => {
+      items.push({
+        id: o.id,
+        name: `Order #${o.order_number}`,
+        info: o.customer_name || o.customer_email || 'Customer',
+        type: 'order',
+        badge: 'Pending',
+        badgeColor: 'bg-yellow-100 text-yellow-700',
+        pinned: pinnedIds.has(o.id),
+        onClick: () => {
+          setActiveTab('orders')
+          setSelectedOrder(o)
+        }
+      })
+    })
+    
+    // Add recent customers
+    customers.slice(0, 3).forEach(c => {
+      items.push({
+        id: c.id,
+        name: c.full_name || c.email || 'Customer',
+        info: c.company || c.email || '',
+        type: 'custom',
+        pinned: pinnedIds.has(c.id),
+        onClick: () => {
+          setActiveTab('customers')
+          setSelectedCustomer(c)
+        }
+      })
+    })
+    
+    return items.sort((a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0))
+  }, [orders, customers, pinnedIds])
+  
+  // Quick Access items for sheet
+  const quickAccessItems: QuickAccessItem[] = useMemo(() => {
+    const items: QuickAccessItem[] = []
+    
+    // Add pending orders as invoices
+    orders.filter(o => o.status === 'pending' || o.status === 'confirmed').slice(0, 6).forEach(o => {
+      items.push({
+        id: o.id,
+        name: `Order #${o.order_number}`,
+        info: o.customer_name || o.customer_email || 'Customer',
+        type: 'invoice',
+        status: 'pending' as InvoiceStatus,
+        onClick: () => {
+          setActiveTab('orders')
+          setSelectedOrder(o)
+        }
+      })
+    })
+    
+    return items
+  }, [orders])
+  
+  // Handle quick access status change
+  const handleQuickAccessStatusChange = async (id: string, type: 'quote' | 'invoice' | 'artwork', newStatus: string) => {
+    try {
+      if (type === 'invoice') {
+        let dbStatus = 'pending'
+        if (newStatus === 'deposit_received') dbStatus = 'confirmed'
+        else if (newStatus === 'spec_confirmed') dbStatus = 'confirmed'
+        else if (newStatus === 'in_production') dbStatus = 'production'
+        else if (newStatus === 'production_finished') dbStatus = 'production'
+        else if (newStatus === 'final_payment') dbStatus = 'production'
+        else if (newStatus === 'shipped') dbStatus = 'shipped'
+        else if (newStatus === 'arrived') dbStatus = 'delivered'
+        
+        await supabase.from('orders').update({ status: dbStatus }).eq('id', id)
+      }
+      fetchData()
+    } catch (error) {
+      console.error('Error updating status:', error)
+    }
+  }
 
   // Fetch data
   useEffect(() => {
@@ -1411,6 +1551,75 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
             <span>Artwork</span>
           </Link>
         </div>
+
+        {/* Desktop Header */}
+        <header className="hidden md:flex items-center justify-between px-6 py-4 bg-white border-b border-gray-200 sticky top-0 z-40">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shadow-sm">
+              <Home className="h-5 w-5 text-white" />
+            </div>
+            <div>
+              <h1 className="text-lg font-semibold text-gray-900">Admin Dashboard</h1>
+              <p className="text-sm text-gray-500">
+                {pendingOrders > 0 ? `${pendingOrders} pending orders` : 'All systems operational'}
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            {/* Quick Access Sheet */}
+            <QuickAccessSheet
+              items={quickAccessItems}
+              pinListItems={pinListItems}
+              onStatusChange={handleQuickAccessStatusChange}
+              onPinChange={handlePinChange}
+              trigger={
+                <button className="p-2.5 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition relative">
+                  <Zap className="h-5 w-5" />
+                  {quickAccessItems.length > 0 && (
+                    <span className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-primary-500 text-white text-[10px] rounded-full flex items-center justify-center font-bold">
+                      {quickAccessItems.length}
+                    </span>
+                  )}
+                </button>
+              }
+              title="Quick Access"
+              description="Right-click on items to update status"
+            />
+            {/* Notification Bell */}
+            <div className="relative">
+              <button 
+                onClick={() => setShowNotifications(!showNotifications)}
+                className="p-2.5 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition relative"
+              >
+                <Bell className="h-5 w-5" />
+                {notifications.length > 0 && (
+                  <span className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-red-500 text-white text-[10px] rounded-full flex items-center justify-center font-bold">
+                    {notifications.length}
+                  </span>
+                )}
+              </button>
+              {showNotifications && (
+                <div className="absolute top-full right-0 mt-2 z-50">
+                  <NotificationList
+                    notifications={notifications}
+                    onViewAll={() => {
+                      setShowNotifications(false)
+                      setActiveTab('orders')
+                    }}
+                    title="Updates"
+                  />
+                </div>
+              )}
+            </div>
+            {/* Refresh Button */}
+            <button 
+              onClick={fetchData} 
+              className="p-2.5 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition"
+            >
+              <RefreshCw className={`h-5 w-5 ${loading ? 'animate-spin' : ''}`} />
+            </button>
+          </div>
+        </header>
 
         <main className="flex-1 overflow-y-auto p-4 md:p-6">
           {/* Dashboard Tab */}
