@@ -370,3 +370,16 @@ export type MiniSiteAccess = {
   user_email?: string
   user_name?: string
 }
+
+// Customer Activity Log for tracking user behavior
+export type CustomerActivityLog = {
+  id: string
+  user_id?: string
+  user_email: string
+  action_type: 'login' | 'logout' | 'view_dashboard' | 'upload_artwork' | 'submit_rfq' | 'view_order' | 'view_quote' | 'approve_proof' | 'download_document' | 'register' | 'update_profile'
+  action_details?: Record<string, any>
+  page_path?: string
+  ip_address?: string
+  user_agent?: string
+  created_at: string
+}

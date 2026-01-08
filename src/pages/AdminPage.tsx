@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useTransition, useCallback } from 'react'
 import { useNavigate, Link, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
-import { supabase, Order, Profile, NewsletterSubscriber, Document, Quote, ArtworkFile, EmailDraft, CRMInquiry, CRMActivity } from '../lib/supabase'
+import { supabase, Order, Profile, NewsletterSubscriber, Document, Quote, ArtworkFile, EmailDraft, CRMInquiry, CRMActivity, CustomerActivityLog } from '../lib/supabase'
 import { blogPosts } from '../data/blogData'
 import { Home, Users, Package, Settings, Search, ChevronDown, ChevronLeft, ChevronRight, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox, Send, FileCode, Check, Globe, Filter, MapPin, Factory, Tag, History, Zap, Bell, Loader2, Download } from 'lucide-react'
 import CRMPanelAdvanced from '../components/admin/CRMPanelAdvanced'
@@ -118,6 +118,10 @@ const AdminPage: React.FC = () => {
   const [showImageCatalog, setShowImageCatalog] = useState(false)
   const [imageCatalogFilter, setImageCatalogFilter] = useState<string>('all')
   const [uploadingImage, setUploadingImage] = useState(false)
+  
+  // Customer Activity Log state
+  const [customerActivityLog, setCustomerActivityLog] = useState<CustomerActivityLog[]>([])
+  const [loadingActivityLog, setLoadingActivityLog] = useState(false)
   
   // URL Content Extraction
   const [customUrl, setCustomUrl] = useState('')
@@ -1329,8 +1333,35 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
   const handleSelectCustomer = useCallback((customer: Profile) => {
     startTransition(() => {
       setSelectedCustomer(customer)
+      // Fetch activity log for this customer
+      fetchCustomerActivityLog(customer.email)
     })
   }, [])
+  
+  // Fetch customer activity log
+  const fetchCustomerActivityLog = async (email: string) => {
+    setLoadingActivityLog(true)
+    try {
+      const { data, error } = await supabase
+        .from('customer_activity_log')
+        .select('*')
+        .eq('user_email', email)
+        .order('created_at', { ascending: false })
+        .limit(50)
+      
+      if (error) {
+        console.error('Failed to fetch activity log:', error)
+        setCustomerActivityLog([])
+      } else {
+        setCustomerActivityLog(data || [])
+      }
+    } catch (e) {
+      console.error('Error fetching activity log:', e)
+      setCustomerActivityLog([])
+    } finally {
+      setLoadingActivityLog(false)
+    }
+  }
 
   const handleSelectQuote = useCallback((quote: Quote) => {
     startTransition(() => {
@@ -3675,14 +3706,14 @@ Check your inbox at ryan@achievepack.com`)
       {/* Customer Detail Modal */}
       {selectedCustomer && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-          <div className="bg-white rounded-xl max-w-lg w-full">
-            <div className="p-6 border-b flex items-center justify-between">
+          <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+            <div className="p-6 border-b flex items-center justify-between flex-shrink-0">
               <h2 className="text-xl font-bold">Customer Details</h2>
               <button onClick={() => setSelectedCustomer(null)} className="text-gray-500 hover:text-gray-700">
                 ✕
               </button>
             </div>
-            <div className="p-6 space-y-4">
+            <div className="p-6 space-y-4 overflow-y-auto flex-1">
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center">
                   <span className="text-primary-600 font-bold text-2xl">
@@ -3713,8 +3744,60 @@ Check your inbox at ryan@achievepack.com`)
               <div>
                 <p className="text-sm text-gray-500 mb-2">Orders from this customer</p>
                 <p className="text-2xl font-bold text-primary-600">
-                  {orders.filter(o => o.user_id === selectedCustomer.id).length} orders
+                  {orders.filter(o => o.user_id === selectedCustomer.id || o.customer_email === selectedCustomer.email).length} orders
                 </p>
+              </div>
+              
+              {/* Activity Log Section */}
+              <hr />
+              <div>
+                <div className="flex items-center gap-2 mb-3">
+                  <History className="h-5 w-5 text-gray-400" />
+                  <p className="text-sm font-medium text-gray-700">Activity History</p>
+                </div>
+                {loadingActivityLog ? (
+                  <div className="flex items-center justify-center py-4">
+                    <Loader2 className="h-5 w-5 animate-spin text-gray-400" />
+                    <span className="ml-2 text-sm text-gray-500">Loading...</span>
+                  </div>
+                ) : customerActivityLog.length === 0 ? (
+                  <p className="text-sm text-gray-400 py-2">No activity recorded yet</p>
+                ) : (
+                  <div className="space-y-2 max-h-64 overflow-y-auto">
+                    {customerActivityLog.map((activity) => {
+                      const actionLabels: Record<string, { label: string; color: string }> = {
+                        'login': { label: 'Logged in', color: 'bg-blue-100 text-blue-700' },
+                        'logout': { label: 'Logged out', color: 'bg-gray-100 text-gray-700' },
+                        'register': { label: 'Registered', color: 'bg-green-100 text-green-700' },
+                        'upload_artwork': { label: 'Uploaded artwork', color: 'bg-purple-100 text-purple-700' },
+                        'submit_rfq': { label: 'Submitted RFQ', color: 'bg-amber-100 text-amber-700' },
+                        'view_order': { label: 'Viewed order', color: 'bg-indigo-100 text-indigo-700' },
+                        'view_quote': { label: 'Viewed quote', color: 'bg-indigo-100 text-indigo-700' },
+                        'approve_proof': { label: 'Approved proof', color: 'bg-green-100 text-green-700' },
+                        'download_document': { label: 'Downloaded document', color: 'bg-cyan-100 text-cyan-700' },
+                        'view_dashboard': { label: 'Viewed dashboard', color: 'bg-gray-100 text-gray-600' },
+                        'update_profile': { label: 'Updated profile', color: 'bg-yellow-100 text-yellow-700' },
+                      }
+                      const actionInfo = actionLabels[activity.action_type] || { label: activity.action_type, color: 'bg-gray-100 text-gray-700' }
+                      
+                      return (
+                        <div key={activity.id} className="flex items-center gap-3 py-2 px-3 bg-gray-50 rounded-lg text-sm">
+                          <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${actionInfo.color}`}>
+                            {actionInfo.label}
+                          </span>
+                          <span className="text-gray-500 text-xs">
+                            {new Date(activity.created_at).toLocaleString()}
+                          </span>
+                          {activity.action_details && Object.keys(activity.action_details).length > 0 && (
+                            <span className="text-gray-400 text-xs truncate flex-1">
+                              {JSON.stringify(activity.action_details).slice(0, 50)}
+                            </span>
+                          )}
+                        </div>
+                      )
+                    })}
+                  </div>
+                )}
               </div>
             </div>
           </div>

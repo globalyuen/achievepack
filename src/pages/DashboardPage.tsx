@@ -9,7 +9,7 @@ import {
   Camera, Info, Circle, PenLine, Link2, Sparkles, Star, RotateCcw, Archive, Zap
 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
-import { supabase, Order, Quote, Document, ArtworkFile, SavedCartItem, ArtworkComment } from '../lib/supabase'
+import { supabase, Order, Quote, Document, ArtworkFile, SavedCartItem, ArtworkComment, CustomerActivityLog } from '../lib/supabase'
 import { useTranslation } from 'react-i18next'
 import { useStore } from '../store/StoreContext'
 import DashboardFilesNav from '../components/ui/files-nav'
@@ -355,9 +355,80 @@ const DashboardPage: React.FC = () => {
     }
   }, [user, authLoading, navigate])
 
-  useEffect(() => {
-    if (user) fetchData()
+  // Helper function to log customer activity
+  const logActivity = useCallback(async (
+    actionType: CustomerActivityLog['action_type'],
+    actionDetails?: Record<string, any>
+  ) => {
+    if (!user?.email) return
+    try {
+      await supabase.from('customer_activity_log').insert({
+        user_id: user.id,
+        user_email: user.email,
+        action_type: actionType,
+        action_details: actionDetails || {},
+        page_path: window.location.pathname,
+        user_agent: navigator.userAgent
+      })
+    } catch (e) {
+      console.error('Failed to log activity:', e)
+    }
   }, [user])
+
+  // Create profile if it doesn't exist and notify admin of new registration
+  useEffect(() => {
+    const ensureProfileExists = async () => {
+      if (!user) return
+      
+      // Check if profile exists
+      const { data: existingProfile } = await supabase
+        .from('profiles')
+        .select('id')
+        .eq('id', user.id)
+        .single()
+      
+      if (!existingProfile) {
+        // Create profile for new user
+        const { error: insertError } = await supabase.from('profiles').insert({
+          id: user.id,
+          email: user.email,
+          full_name: user.user_metadata?.full_name || user.user_metadata?.name || '',
+          company: user.user_metadata?.company || '',
+          phone: '',
+        })
+        
+        if (!insertError) {
+          console.log('Profile created for new user:', user.email)
+          // Log registration activity
+          logActivity('register', { source: 'email_password' })
+          // Notify admin of new registration
+          try {
+            await fetch('/api/notify-registration', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                email: user.email,
+                fullName: user.user_metadata?.full_name || user.user_metadata?.name || '',
+                company: user.user_metadata?.company || '',
+                userId: user.id,
+                registeredAt: new Date().toISOString()
+              })
+            })
+          } catch (e) {
+            console.error('Failed to send registration notification:', e)
+          }
+        }
+      } else {
+        // Existing user login - log activity
+        logActivity('login')
+      }
+    }
+    
+    if (user) {
+      ensureProfileExists()
+      fetchData()
+    }
+  }, [user, logActivity])
 
   const fetchData = async () => {
     setLoading(true)
@@ -512,6 +583,8 @@ const DashboardPage: React.FC = () => {
         const fileList = uploadedFiles.join(', ')
         setUploadSuccess(`✓ ${uploadedFiles.length} file${uploadedFiles.length > 1 ? 's' : ''} uploaded: ${fileList}. Check the list below.`)
         setTimeout(() => setUploadSuccess(''), 8000)
+        // Log activity
+        logActivity('upload_artwork', { files: uploadedFiles, count: uploadedFiles.length })
       }
       
       // Refresh artwork list
@@ -904,6 +977,9 @@ const DashboardPage: React.FC = () => {
       setRfqForm({ message: '', websiteLink: '' })
       setRfqPhotos([])
       setShowRfqForm(false)
+      
+      // Log activity
+      logActivity('submit_rfq', { hasPhotos: photoUrls.length > 0, hasWebsiteLink: !!rfqForm.websiteLink })
       
       // Show success message with ticket-style notification
       alert(
