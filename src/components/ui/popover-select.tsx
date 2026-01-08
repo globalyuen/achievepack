@@ -83,7 +83,7 @@ export default function PopoverSelect({
           <select 
             value={value} 
             onChange={e => onChange(e.target.value)} 
-            className="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+            className="flex-1 p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10"
           >
             {options.map(opt => (
               <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -286,7 +286,7 @@ export function SimplePopoverSelect({
       <select 
         value={value} 
         onChange={e => onChange(e.target.value)} 
-        className="md:hidden w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+        className="md:hidden w-full p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10"
       >
         {options.map(opt => (
           <option key={opt.value} value={opt.value}>{opt.label}</option>
