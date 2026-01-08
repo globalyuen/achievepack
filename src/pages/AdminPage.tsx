@@ -117,6 +117,7 @@ const AdminPage: React.FC = () => {
   const [showEmailHistory, setShowEmailHistory] = useState(false)
   const [showImageCatalog, setShowImageCatalog] = useState(false)
   const [imageCatalogFilter, setImageCatalogFilter] = useState<string>('all')
+  const [uploadingImage, setUploadingImage] = useState(false)
   
   // Quick Access states
   const [showNotifications, setShowNotifications] = useState(false)
@@ -2522,10 +2523,90 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                               </div>
                             ))}
                           </div>
+                          
+                          {/* File Upload */}
+                          <div className="mb-3">
+                            <label className="flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-primary-50 to-blue-50 border-2 border-dashed border-primary-300 rounded-lg cursor-pointer hover:bg-primary-100 transition-colors">
+                              <input
+                                type="file"
+                                accept="image/*"
+                                className="hidden"
+                                disabled={uploadingImage}
+                                onChange={async (e) => {
+                                  const file = e.target.files?.[0]
+                                  if (!file) return
+                                  
+                                  setUploadingImage(true)
+                                  try {
+                                    // Generate unique filename
+                                    const ext = file.name.split('.').pop() || 'jpg'
+                                    const fileName = `email-${Date.now()}-${Math.random().toString(36).substring(7)}.${ext}`
+                                    const filePath = `email-images/${fileName}`
+                                    
+                                    // Upload to Supabase Storage
+                                    const { error: uploadError } = await supabase.storage
+                                      .from('email-images')
+                                      .upload(filePath, file, {
+                                        cacheControl: '3600',
+                                        upsert: false
+                                      })
+                                    
+                                    if (uploadError) {
+                                      // If bucket doesn't exist, try artwork-files bucket
+                                      const altPath = `email-marketing/${fileName}`
+                                      const { error: altError } = await supabase.storage
+                                        .from('artwork-files')
+                                        .upload(altPath, file, {
+                                          cacheControl: '3600',
+                                          upsert: false
+                                        })
+                                      
+                                      if (altError) throw altError
+                                      
+                                      // Get public URL from artwork-files bucket
+                                      const { data: urlData } = supabase.storage
+                                        .from('artwork-files')
+                                        .getPublicUrl(altPath)
+                                      
+                                      setEmailImages([...emailImages, urlData.publicUrl])
+                                    } else {
+                                      // Get public URL from email-images bucket
+                                      const { data: urlData } = supabase.storage
+                                        .from('email-images')
+                                        .getPublicUrl(filePath)
+                                      
+                                      setEmailImages([...emailImages, urlData.publicUrl])
+                                    }
+                                    
+                                    // Reset file input
+                                    e.target.value = ''
+                                  } catch (error) {
+                                    console.error('Upload error:', error)
+                                    alert('Failed to upload image. Please try again.')
+                                  } finally {
+                                    setUploadingImage(false)
+                                  }
+                                }}
+                              />
+                              {uploadingImage ? (
+                                <>
+                                  <RefreshCw className="h-5 w-5 text-primary-500 animate-spin" />
+                                  <span className="text-sm font-medium text-primary-600">Uploading...</span>
+                                </>
+                              ) : (
+                                <>
+                                  <Upload className="h-5 w-5 text-primary-500" />
+                                  <span className="text-sm font-medium text-primary-600">Upload Image</span>
+                                </>
+                              )}
+                            </label>
+                          </div>
+                          
+                          {/* URL Input */}
                           <div className="flex gap-2">
                             <input
                               type="text"
-                              placeholder="Paste image URL..."
+                              placeholder="Or paste image URL..."
                               id="imageUrlInput"
                               className="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-lg"
                             />
@@ -2542,7 +2623,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                               Add
                             </button>
                           </div>
-                          <p className="text-xs text-gray-500 mt-2">Suggested: /imgs/blog/2025-thank-you/2025-to-2026-growth.webp</p>
+                          <p className="text-xs text-gray-500 mt-2">Upload images directly or use URL. Max 5MB per image.</p>
                         </div>
                       </div>
                     </div>
