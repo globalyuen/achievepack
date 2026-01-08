@@ -2943,11 +2943,23 @@ const ProductPage: React.FC = () => {
                   
                   {/* Dropdown Option */}
                   <div className="flex gap-3 items-start">
-                    <select value={selectedSize} onChange={e => setSelectedSize(e.target.value)} className="flex-1 p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10">
-                      {sizeOptions.map(size => (
-                        <option key={size.value} value={size.value}>{size.label}</option>
-                      ))}
-                    </select>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger className="flex-1 flex items-center justify-between p-3.5 border-2 border-neutral-200 rounded-xl hover:border-primary-300 transition-all bg-white">
+                        <span className="font-medium text-neutral-900">
+                          {sizeOptions.find(s => s.value === selectedSize)?.label || selectedSize}
+                        </span>
+                        <ChevronDown className="h-5 w-5 text-neutral-400" />
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-[280px] max-h-[300px] overflow-y-auto">
+                        <DropdownMenuLabel>{getSizeLabel}</DropdownMenuLabel>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuRadioGroup value={selectedSize} onValueChange={setSelectedSize}>
+                          {sizeOptions.map(size => (
+                            <DropdownMenuRadioItem key={size.value} value={size.value}>{size.label}</DropdownMenuRadioItem>
+                          ))}
+                        </DropdownMenuRadioGroup>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
                     {/* Size Preview Thumbnail */}
                     <div className="flex-shrink-0 bg-white rounded-lg p-2 w-16 h-16 flex items-center justify-center border-2 border-primary-600">
                       <img 
@@ -2975,16 +2987,28 @@ const ProductPage: React.FC = () => {
                   
                   {/* Dropdown Option */}
                   <div className="flex gap-3 items-center">
-                    <select value={selectedClosure} onChange={e => setSelectedClosure(e.target.value as ClosureType)} className="flex-1 p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10">
-                      <option value="No">No Closure</option>
-                      <option value="Regular Zipper">Regular Zipper</option>
-                      <option value="One-Sided Zipper">One-Sided Zipper</option>
-                      <option value="Child Resistant Zipper">Child Resistant Zipper</option>
-                      <option value="Slider">Slider Zipper</option>
-                      <option value="Tin Tie">Tin Tie</option>
-                      <option value="Spout">Spout</option>
-                      <option value="Adhesive Tape">Adhesive Tape</option>
-                    </select>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger className="flex-1 flex items-center justify-between p-3.5 border-2 border-neutral-200 rounded-xl hover:border-primary-300 transition-all bg-white">
+                        <span className="font-medium text-neutral-900">
+                          {selectedClosure === 'No' ? 'No Closure' : selectedClosure}
+                        </span>
+                        <ChevronDown className="h-5 w-5 text-neutral-400" />
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-[200px]">
+                        <DropdownMenuLabel>Select Closure Type</DropdownMenuLabel>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuRadioGroup value={selectedClosure} onValueChange={(v) => setSelectedClosure(v as ClosureType)}>
+                          <DropdownMenuRadioItem value="No">No Closure</DropdownMenuRadioItem>
+                          <DropdownMenuRadioItem value="Regular Zipper">Regular Zipper</DropdownMenuRadioItem>
+                          <DropdownMenuRadioItem value="One-Sided Zipper">One-Sided Zipper</DropdownMenuRadioItem>
+                          <DropdownMenuRadioItem value="Child Resistant Zipper">Child Resistant Zipper</DropdownMenuRadioItem>
+                          <DropdownMenuRadioItem value="Slider">Slider Zipper</DropdownMenuRadioItem>
+                          <DropdownMenuRadioItem value="Tin Tie">Tin Tie</DropdownMenuRadioItem>
+                          <DropdownMenuRadioItem value="Spout">Spout</DropdownMenuRadioItem>
+                          <DropdownMenuRadioItem value="Adhesive Tape">Adhesive Tape</DropdownMenuRadioItem>
+                        </DropdownMenuRadioGroup>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
                     {/* Closure Image Thumbnail */}
                     <div className="flex-shrink-0 bg-white rounded-lg p-2 w-16 h-16 flex items-center justify-center border-2 border-primary-600">
                       <img 
