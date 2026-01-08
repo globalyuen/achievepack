@@ -1107,77 +1107,61 @@ function App() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white rounded-lg p-8 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1 text-center border border-neutral-100">
+            <Link to="/industry/snacks-food" className="bg-white rounded-lg p-8 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1 text-center border border-neutral-100 block">
               <img
                 src={img("solution-food-beverage")}
                 alt="Food & Beverage Packaging"
-                className="w-full h-32 object-cover rounded-lg mb-4 cursor-pointer"
-                onClick={() => {
-                  setModalImage(img("solution-food-beverage"))
-                  setModalAlt('Food & Beverage Packaging')
-                  setIsModalOpen(true)
-                }}
+                className="w-full h-32 object-cover rounded-lg mb-4"
               />
               <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Package className="h-8 w-8 text-primary-500" />
               </div>
               <h3 className="text-xl font-semibold text-neutral-900 mb-3">{t('solutions.items.food.title')}</h3>
               <p className="text-neutral-700">{t('solutions.items.food.desc')}</p>
-            </div>
+              <span className="inline-flex items-center gap-1 text-primary-600 font-medium mt-3 text-sm">Learn more <ArrowRight className="h-4 w-4" /></span>
+            </Link>
 
-            <div className="bg-white rounded-lg p-8 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1 text-center border border-neutral-100">
+            <Link to="/industry/coffee-tea" className="bg-white rounded-lg p-8 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1 text-center border border-neutral-100 block">
               <img
                 src={img("solution-cosmetics")}
                 alt={t('solutions.items.cosmetics.title')}
-                className="w-full h-32 object-cover rounded-lg mb-4 cursor-pointer"
-                onClick={() => {
-                  setModalImage(img("solution-cosmetics"))
-                  setModalAlt(t('solutions.items.cosmetics.title'))
-                  setIsModalOpen(true)
-                }}
+                className="w-full h-32 object-cover rounded-lg mb-4"
               />
               <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="h-8 w-8 text-primary-500" />
               </div>
               <h3 className="text-xl font-semibold text-neutral-900 mb-3">{t('solutions.items.cosmetics.title')}</h3>
               <p className="text-neutral-700">{t('solutions.items.cosmetics.desc')}</p>
-            </div>
+              <span className="inline-flex items-center gap-1 text-primary-600 font-medium mt-3 text-sm">Learn more <ArrowRight className="h-4 w-4" /></span>
+            </Link>
 
-            <div className="bg-white rounded-lg p-8 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1 text-center border border-neutral-100">
+            <Link to="/industry/supplements-powders" className="bg-white rounded-lg p-8 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1 text-center border border-neutral-100 block">
               <img
                 src={img("solution-wellness")}
                 alt={t('solutions.items.health.title')}
-                className="w-full h-32 object-cover rounded-lg mb-4 cursor-pointer"
-                onClick={() => {
-                  setModalImage(img("solution-wellness"))
-                  setModalAlt(t('solutions.items.health.title'))
-                  setIsModalOpen(true)
-                }}
+                className="w-full h-32 object-cover rounded-lg mb-4"
               />
               <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Shield className="h-8 w-8 text-primary-500" />
               </div>
               <h3 className="text-xl font-semibold text-neutral-900 mb-3">{t('solutions.items.health.title')}</h3>
               <p className="text-neutral-700">{t('solutions.items.health.desc')}</p>
-            </div>
+              <span className="inline-flex items-center gap-1 text-primary-600 font-medium mt-3 text-sm">Learn more <ArrowRight className="h-4 w-4" /></span>
+            </Link>
 
-            <div className="bg-white rounded-lg p-8 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1 text-center border border-neutral-100">
+            <Link to="/industry/pet-food" className="bg-white rounded-lg p-8 shadow-card hover:shadow-hover transition-all duration-250 hover:-translate-y-1 text-center border border-neutral-100 block">
               <img
                 src={img("solution-pet-products")}
                 alt={t('solutions.items.pet.title')}
-                className="w-full h-32 object-cover rounded-lg mb-4 cursor-pointer"
-                onClick={() => {
-                  setModalImage(img("solution-pet-products"))
-                  setModalAlt(t('solutions.items.pet.title'))
-                  setIsModalOpen(true)
-                }}
+                className="w-full h-32 object-cover rounded-lg mb-4"
               />
               <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Globe className="h-8 w-8 text-primary-500" />
               </div>
               <h3 className="text-xl font-semibold text-neutral-900 mb-3">{t('solutions.items.pet.title')}</h3>
               <p className="text-neutral-700">{t('solutions.items.pet.desc')}</p>
-            </div>
+              <span className="inline-flex items-center gap-1 text-primary-600 font-medium mt-3 text-sm">Learn more <ArrowRight className="h-4 w-4" /></span>
+            </Link>
           </div>
         </div>
       </section>
@@ -1195,7 +1179,12 @@ function App() {
           <div className="space-y-8">
             {/* Barrier Options */}
             <div className="bg-neutral-50 rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-neutral-900 mb-6">{t('features.barrier.title')}</h3>
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-2xl font-bold text-neutral-900">{t('features.barrier.title')}</h3>
+                <Link to="/features/barrier-options" className="inline-flex items-center gap-1 text-primary-600 font-medium text-sm hover:text-primary-700">
+                  Learn more <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
               <div className="mb-4">
                 <img
                   src={img("feature-barrier-options")}
@@ -1253,7 +1242,12 @@ function App() {
 
             {/* Pouch Shapes */}
             <div className="bg-neutral-50 rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-neutral-900 mb-6">{t('features.shapes.title')}</h3>
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-2xl font-bold text-neutral-900">{t('features.shapes.title')}</h3>
+                <Link to="/knowledge/all-options" className="inline-flex items-center gap-1 text-primary-600 font-medium text-sm hover:text-primary-700">
+                  Learn more <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
               <div className="mb-4">
                 <img
                   src={img("feature-pouch-shapes")}
@@ -1281,7 +1275,12 @@ function App() {
 
             {/* Printing Options */}
             <div className="bg-neutral-50 rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-neutral-900 mb-6">{t('features.printing.title')}</h3>
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-2xl font-bold text-neutral-900">{t('features.printing.title')}</h3>
+                <Link to="/features/surface-finish" className="inline-flex items-center gap-1 text-primary-600 font-medium text-sm hover:text-primary-700">
+                  Learn more <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
               <div className="mb-4">
                 <img
                   src={img("feature-printing-finishes")}
@@ -1335,7 +1334,12 @@ function App() {
 
             {/* Reclosure Options */}
             <div className="bg-neutral-50 rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-neutral-900 mb-6">{t('features.reclosure.title')}</h3>
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-2xl font-bold text-neutral-900">{t('features.reclosure.title')}</h3>
+                <Link to="/features/reclosure-options" className="inline-flex items-center gap-1 text-primary-600 font-medium text-sm hover:text-primary-700">
+                  Learn more <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
               <div className="mb-4">
                 <img
                   src={img("feature-reclosure-solutions")}
