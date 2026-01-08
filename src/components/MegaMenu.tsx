@@ -757,6 +757,12 @@ export function RightNavMenu() {
                         </Link>
                       </li>
                       <li>
+                        <Link to="/blog?category=Newsletter" className="flex items-center gap-2 py-1.5 px-2 rounded-lg text-xs font-medium bg-primary-50 text-primary-700 hover:bg-primary-100 transition-all">
+                          <ChevronRight className="h-3 w-3 text-primary-500" />
+                          Newsletter
+                        </Link>
+                      </li>
+                      <li>
                         <Link to="/blog?category=Packaging" className="flex items-center gap-2 py-1.5 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all">
                           <ChevronRight className="h-3 w-3 text-neutral-400" />
                           Packaging Tips
@@ -774,12 +780,6 @@ export function RightNavMenu() {
                           Industry News
                         </Link>
                       </li>
-                      <li>
-                        <Link to="/blog?category=Newsletter" className="flex items-center gap-2 py-1.5 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all">
-                          <ChevronRight className="h-3 w-3 text-neutral-400" />
-                          Newsletter
-                        </Link>
-                      </li>
                     </ul>
                   </div>
 
@@ -787,7 +787,7 @@ export function RightNavMenu() {
                   <div className="col-span-9 p-3">
                     <h4 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-3">Latest Articles</h4>
                     <div className="grid grid-cols-3 gap-3">
-                      {blogPosts.slice(0, 6).map((post) => (
+                      {[...blogPosts].sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()).slice(0, 6).map((post) => (
                         <Link
                           key={post.id}
                           to={`/blog/${post.slug}`}

@@ -317,6 +317,16 @@ const SEOPageHeader: React.FC = () => {
                 </li>
                 <li>
                   <a
+                    href="/blog?category=Newsletter"
+                    onClick={handleNavigation('/blog?category=Newsletter')}
+                    className="flex items-center gap-2 py-2 px-3 rounded-lg text-sm bg-primary-50 text-primary-700 hover:bg-primary-100 transition"
+                  >
+                    <Mail className="h-4 w-4 text-primary-500" />
+                    Newsletter
+                  </a>
+                </li>
+                <li>
+                  <a
                     href="/blog?category=Packaging"
                     onClick={handleNavigation('/blog?category=Packaging')}
                     className="flex items-center gap-2 py-2 px-3 rounded-lg text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition"
@@ -343,16 +353,6 @@ const SEOPageHeader: React.FC = () => {
                   >
                     <Factory className="h-4 w-4 text-primary-500" />
                     Industry News
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/blog?category=Newsletter"
-                    onClick={handleNavigation('/blog?category=Newsletter')}
-                    className="flex items-center gap-2 py-2 px-3 rounded-lg text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition"
-                  >
-                    <Mail className="h-4 w-4 text-primary-500" />
-                    Newsletter
                   </a>
                 </li>
               </ul>
