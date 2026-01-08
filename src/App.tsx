@@ -840,11 +840,11 @@ function App() {
       </Suspense>
 
       {/* Discover Products - Coverflow Carousel Section */}
-      <section className="py-16 bg-gradient-to-b from-white to-neutral-50 border-b border-neutral-100 overflow-hidden">
+      <section className="py-16 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6">
             <h2 className="text-4xl md:text-5xl font-bold text-neutral-900">Discover Products</h2>
-            <p className="text-lg md:text-xl text-neutral-600 mt-2">Swipe or drag to explore our eco-friendly packaging</p>
+            <p className="text-lg md:text-xl text-neutral-600 mt-2 max-w-3xl mx-auto">Swipe or drag to explore our eco-friendly packaging</p>
             <Link 
               to="/store" 
               className="inline-flex text-base font-semibold text-primary-600 hover:text-primary-700 transition-colors items-center gap-1 mt-3"
