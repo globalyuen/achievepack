@@ -695,7 +695,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
               <div className="sticky top-24 max-h-[calc(100vh-120px)] overflow-y-auto bg-white rounded-xl shadow-sm border border-neutral-100 p-4">
                 <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wide mb-4">{t('seoPages.contents')}</h3>
                 <nav className="space-y-1">
-                  {sections.map((section) => (
+                  {sections.filter(section => section.id !== 'ai-search').map((section) => (
                     <a
                       key={section.id}
                       href={`#${section.id}`}
@@ -720,19 +720,33 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                 <section 
                   key={section.id} 
                   id={section.id}
-                  className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100"
+                  className={section.id === 'ai-search' 
+                    ? 'sr-only' 
+                    : 'bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100'
+                  }
                 >
-                  <div className="flex items-center gap-3 mb-6">
-                    {section.icon && (
-                      <div className="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center">
-                        {section.icon}
+                  {section.id === 'ai-search' ? (
+                    // Hidden AI search section - only for AI/SEO crawlers
+                    <div>
+                      <h2>{section.title}</h2>
+                      <div>{section.content}</div>
+                    </div>
+                  ) : (
+                    // Normal visible section
+                    <>
+                      <div className="flex items-center gap-3 mb-6">
+                        {section.icon && (
+                          <div className="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center">
+                            {section.icon}
+                          </div>
+                        )}
+                        <h2 className="text-2xl font-bold text-neutral-900">{section.title}</h2>
                       </div>
-                    )}
-                    <h2 className="text-2xl font-bold text-neutral-900">{section.title}</h2>
-                  </div>
-                  <div className="prose prose-neutral max-w-none">
-                    {section.content}
-                  </div>
+                      <div className="prose prose-neutral max-w-none">
+                        {section.content}
+                      </div>
+                    </>
+                  )}
                 </section>
               ))}
 
