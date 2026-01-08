@@ -2446,14 +2446,20 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                         <option value="/topics/green-coffee-materials">Green Coffee Materials</option>
                       </optgroup>
                       <optgroup label="Blog Articles">
-                        <option value="/blog/sustainable-packaging-supplier-analysis">Sustainable Packaging Supplier Analysis</option>
-                        <option value="/blog/pet-food-packaging-complete-guide">Pet Food Packaging Complete Guide</option>
-                        <option value="/blog/startup-sustainable-packaging-guide">Startup Sustainable Packaging Guide</option>
-                        <option value="/blog/anz-sustainable-food-packaging-guide">ANZ Sustainable Packaging Guide</option>
-                        <option value="/blog/thank-you-for-2025-heres-to-whats-next">Thank You for 2025 (Newsletter)</option>
+                        {[...blogPosts]
+                          .filter(post => post.category !== 'Newsletter')
+                          .sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime())
+                          .map(post => (
+                            <option key={post.id} value={`/blog/${post.slug}`}>{post.title}</option>
+                          ))}
                       </optgroup>
                       <optgroup label="Newsletter">
-                        <option value="/blog/thank-you-for-2025-heres-to-whats-next">🎄 Thank You for 2025 - New Year Message</option>
+                        {[...blogPosts]
+                          .filter(post => post.category === 'Newsletter')
+                          .sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime())
+                          .map(post => (
+                            <option key={post.id} value={`/blog/${post.slug}`}>📧 {post.title}</option>
+                          ))}
                       </optgroup>
                     </select>
                     {selectedPage && (
