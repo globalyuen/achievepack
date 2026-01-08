@@ -3,7 +3,7 @@ import { useNavigate, Link, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, Order, Profile, NewsletterSubscriber, Document, Quote, ArtworkFile, EmailDraft, CRMInquiry, CRMActivity } from '../lib/supabase'
 import { blogPosts } from '../data/blogData'
-import { Home, Users, Package, Settings, Search, ChevronDown, ChevronLeft, ChevronRight, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox, Send, FileCode, Check, Globe, Filter, MapPin, Factory, Tag, History, Zap, Bell } from 'lucide-react'
+import { Home, Users, Package, Settings, Search, ChevronDown, ChevronLeft, ChevronRight, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox, Send, FileCode, Check, Globe, Filter, MapPin, Factory, Tag, History, Zap, Bell, Loader2, Download } from 'lucide-react'
 import CRMPanelAdvanced from '../components/admin/CRMPanelAdvanced'
 import AchieveCoffeeCMS from '../components/admin/AchieveCoffeeCMS'
 import { sendTestEmail, sendBulkEmails, generateEmailTemplate, EmailRecipient } from '../lib/brevo'
@@ -118,6 +118,10 @@ const AdminPage: React.FC = () => {
   const [showImageCatalog, setShowImageCatalog] = useState(false)
   const [imageCatalogFilter, setImageCatalogFilter] = useState<string>('all')
   const [uploadingImage, setUploadingImage] = useState(false)
+  
+  // URL Content Extraction
+  const [customUrl, setCustomUrl] = useState('')
+  const [extractingUrl, setExtractingUrl] = useState(false)
   
   // Quick Access states
   const [showNotifications, setShowNotifications] = useState(false)
@@ -955,6 +959,37 @@ const AdminPage: React.FC = () => {
     }
     
     return null
+  }
+
+  // Extract content from custom URL
+  const extractUrlContent = async () => {
+    if (!customUrl.trim()) return
+    
+    setExtractingUrl(true)
+    try {
+      const response = await fetch('/api/extract-url-content', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url: customUrl.trim() })
+      })
+      
+      const data = await response.json()
+      
+      if (data.success && data.data) {
+        setEmailSubject(data.data.title || '')
+        setEmailContent(data.data.content || `<p>${data.data.description || ''}</p>`)
+        setEmailImages(data.data.images || [])
+        setSelectedPage(customUrl) // Show the URL as selected
+        alert(`Content extracted successfully!\n\nTitle: ${data.data.title}\nImages found: ${data.data.images?.length || 0}`)
+      } else {
+        alert(`Failed to extract content: ${data.error || 'Unknown error'}`)
+      }
+    } catch (error) {
+      console.error('Extract URL error:', error)
+      alert('Failed to extract content. Please check the URL and try again.')
+    } finally {
+      setExtractingUrl(false)
+    }
   }
 
   const handleSignOut = async () => {
@@ -2278,8 +2313,41 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                   <div className="bg-white rounded-xl shadow-sm border p-4 md:p-6">
                     <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-3 md:mb-4 flex items-center gap-2">
                       <Globe className="h-4 w-4 md:h-5 md:w-5 text-blue-500" />
-                      Select Page
+                      Select Page or Enter URL
                     </h3>
+                    
+                    {/* Custom URL Input */}
+                    <div className="mb-4">
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Extract from URL</label>
+                      <div className="flex gap-2">
+                        <input
+                          type="url"
+                          value={customUrl}
+                          onChange={(e) => setCustomUrl(e.target.value)}
+                          placeholder="https://example.com/article"
+                          className="flex-1 px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm"
+                        />
+                        <button
+                          onClick={extractUrlContent}
+                          disabled={extractingUrl || !customUrl.trim()}
+                          className="px-4 py-2.5 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 text-white font-medium rounded-lg transition flex items-center gap-2 whitespace-nowrap"
+                        >
+                          {extractingUrl ? (
+                            <><Loader2 className="h-4 w-4 animate-spin" /> Extracting...</>
+                          ) : (
+                            <><Download className="h-4 w-4" /> Extract</>
+                          )}
+                        </button>
+                      </div>
+                      <p className="text-xs text-gray-500 mt-1">Paste any URL to automatically extract title, content, and images</p>
+                    </div>
+                    
+                    <div className="relative flex items-center my-4">
+                      <div className="flex-1 border-t border-gray-200"></div>
+                      <span className="px-3 text-xs text-gray-500 bg-white">or select from list</span>
+                      <div className="flex-1 border-t border-gray-200"></div>
+                    </div>
+                    
                     <select
                       value={selectedPage}
                       onChange={(e) => {
