@@ -353,6 +353,17 @@ const ProductPage: React.FC = () => {
     { id: 'XXL', name: 'XXL - Extra Extra Large', img: '/imgs/store/size/stand-up/xxl.webp', description: 'Capacity: 1000-2000g / 35-70oz. Commercial and wholesale sizes.', bestFor: ['Commercial', 'Wholesale'], premium: false }
   ]
   
+  const CLOSURE_OPTIONS = [
+    { id: 'No', name: 'No Closure', img: '/imgs/store/closure/no-zipper.webp', description: 'Simple open-top design. Ideal for heat-sealed products.', bestFor: ['Single-use', 'Heat sealed'], premium: false },
+    { id: 'Regular Zipper', name: 'Regular Zipper', img: '/imgs/store/closure/normal-zipper.webp', description: 'Standard press-to-close zipper. Reusable and convenient.', bestFor: ['Snacks', 'Coffee', 'General use'], premium: false },
+    { id: 'One-Sided Zipper', name: 'One-Sided Zipper', img: '/imgs/store/closure/front-zipper.webp', description: 'Front-facing zipper for easy access. Modern aesthetic.', bestFor: ['Premium products', 'Display'], premium: false },
+    { id: 'Child Resistant Zipper', name: 'Child Resistant', img: '/imgs/store/closure/child-resistant-zipper.webp', description: 'Safety zipper requiring press-and-slide action.', bestFor: ['CBD', 'Supplements', 'Pharmaceuticals'], premium: true },
+    { id: 'Slider', name: 'Slider Zipper', img: '/imgs/store/closure/slider-zipper.webp', description: 'Easy-glide slider for effortless opening and closing.', bestFor: ['Large bags', 'Frequent access'], premium: true },
+    { id: 'Tin Tie', name: 'Tin Tie', img: '/imgs/store/closure/tin-tie.webp', description: 'Traditional fold-over closure with wire tie.', bestFor: ['Coffee', 'Bakery', 'Artisan products'], premium: false },
+    { id: 'Spout', name: 'Spout', img: '/imgs/store/closure/spout.webp', description: 'Screw-cap spout for liquid or powder products.', bestFor: ['Liquids', 'Powders', 'Baby food'], premium: true },
+    { id: 'Adhesive Tape', name: 'Adhesive Tape', img: '/imgs/store/closure/adhesive-tap.webp', description: 'Peel-and-seal adhesive strip for secure closure.', bestFor: ['Shipping bags', 'E-commerce'], premium: false }
+  ]
+  
   const BARRIER_OPTIONS_DATA = [
     { id: 'mid', name: 'Mid Barrier (Optional Window)', img: '/imgs/store/barrier/3-clear.webp', description: 'Clear barrier with 6-9 months shelf life. Good moisture and moderate oxygen protection. Optional clear window for product visibility.', bestFor: ['Dry snacks', 'Candy', 'Nuts', 'Product visibility'], premium: false },
     { id: 'high', name: 'High Barrier (No Window)', img: '/imgs/store/barrier/3-foil.webp', description: 'Metalised barrier with 9-12 months shelf life. Excellent oxygen and moisture protection. Blocks light to preserve freshness.', bestFor: ['Coffee', 'Tea', 'Spices', 'Sensitive products'], premium: false },
@@ -2941,32 +2952,48 @@ const ProductPage: React.FC = () => {
                     Compare All Size Options →
                   </button>
                   
-                  {/* Dropdown Option */}
-                  <div className="flex gap-3 items-start">
-                    <DropdownMenu>
-                      <DropdownMenuTrigger className="flex-1 flex items-center justify-between p-3.5 border-2 border-neutral-200 rounded-xl hover:border-primary-300 transition-all bg-white">
-                        <span className="font-medium text-neutral-900">
-                          {sizeOptions.find(s => s.value === selectedSize)?.label || selectedSize}
-                        </span>
-                        <ChevronDown className="h-5 w-5 text-neutral-400" />
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-[280px] max-h-[300px] overflow-y-auto">
-                        <DropdownMenuLabel>{getSizeLabel}</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuRadioGroup value={selectedSize} onValueChange={setSelectedSize}>
-                          {sizeOptions.map(size => (
-                            <DropdownMenuRadioItem key={size.value} value={size.value}>{size.label}</DropdownMenuRadioItem>
-                          ))}
-                        </DropdownMenuRadioGroup>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                    {/* Size Preview Thumbnail */}
-                    <div className="flex-shrink-0 bg-white rounded-lg p-2 w-16 h-16 flex items-center justify-center border-2 border-primary-600">
+                  {/* Mobile: Native Select */}
+                  <div className="md:hidden flex gap-3 items-center">
+                    <select value={selectedSize} onChange={e => setSelectedSize(e.target.value)} className="flex-1 p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10">
+                      {sizeOptions.map(size => (
+                        <option key={size.value} value={size.value}>{size.label}</option>
+                      ))}
+                    </select>
+                    <div className="flex-shrink-0 bg-white rounded-lg p-2 w-14 h-14 flex items-center justify-center border-2 border-primary-600">
                       <img 
                         src={getSizeImage(selectedSize as EcoSizeType)} 
                         alt={`Size ${selectedSize}`} 
                         className="max-w-full max-h-full object-contain"
                       />
+                    </div>
+                  </div>
+                  
+                  {/* Desktop: Card Grid */}
+                  <div className="hidden md:block">
+                    <div className="grid grid-cols-4 gap-2">
+                      {SIZE_OPTIONS.map(size => (
+                        <button
+                          key={size.id}
+                          type="button"
+                          onClick={() => setSelectedSize(size.id)}
+                          className={`relative p-2 rounded-xl border-2 transition-all text-left ${
+                            selectedSize === size.id
+                              ? 'border-primary-500 bg-primary-50 ring-2 ring-primary-100'
+                              : 'border-neutral-200 hover:border-primary-300 hover:bg-neutral-50'
+                          }`}
+                        >
+                          <img src={size.img} alt="" className="w-full h-12 object-contain mb-1" />
+                          <p className={`text-xs font-semibold text-center ${selectedSize === size.id ? 'text-primary-700' : 'text-neutral-800'}`}>
+                            {size.id}
+                          </p>
+                          <p className="text-[9px] text-neutral-500 text-center truncate">{sizeOptions.find(s => s.value === size.id)?.label.split('/')[0]}</p>
+                          {selectedSize === size.id && (
+                            <div className="absolute top-1 right-1 w-4 h-4 bg-primary-500 rounded-full flex items-center justify-center">
+                              <CheckCircle className="w-3 h-3 text-white" />
+                            </div>
+                          )}
+                        </button>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -2985,47 +3012,52 @@ const ProductPage: React.FC = () => {
                     Compare All Closure Options →
                   </button>
                   
-                  {/* Dropdown Option */}
-                  <div className="flex gap-3 items-center">
-                    <DropdownMenu>
-                      <DropdownMenuTrigger className="flex-1 flex items-center justify-between p-3.5 border-2 border-neutral-200 rounded-xl hover:border-primary-300 transition-all bg-white">
-                        <span className="font-medium text-neutral-900">
-                          {selectedClosure === 'No' ? 'No Closure' : selectedClosure}
-                        </span>
-                        <ChevronDown className="h-5 w-5 text-neutral-400" />
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-[200px]">
-                        <DropdownMenuLabel>Select Closure Type</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuRadioGroup value={selectedClosure} onValueChange={(v) => setSelectedClosure(v as ClosureType)}>
-                          <DropdownMenuRadioItem value="No">No Closure</DropdownMenuRadioItem>
-                          <DropdownMenuRadioItem value="Regular Zipper">Regular Zipper</DropdownMenuRadioItem>
-                          <DropdownMenuRadioItem value="One-Sided Zipper">One-Sided Zipper</DropdownMenuRadioItem>
-                          <DropdownMenuRadioItem value="Child Resistant Zipper">Child Resistant Zipper</DropdownMenuRadioItem>
-                          <DropdownMenuRadioItem value="Slider">Slider Zipper</DropdownMenuRadioItem>
-                          <DropdownMenuRadioItem value="Tin Tie">Tin Tie</DropdownMenuRadioItem>
-                          <DropdownMenuRadioItem value="Spout">Spout</DropdownMenuRadioItem>
-                          <DropdownMenuRadioItem value="Adhesive Tape">Adhesive Tape</DropdownMenuRadioItem>
-                        </DropdownMenuRadioGroup>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                    {/* Closure Image Thumbnail */}
-                    <div className="flex-shrink-0 bg-white rounded-lg p-2 w-16 h-16 flex items-center justify-center border-2 border-primary-600">
+                  {/* Mobile: Native Select */}
+                  <div className="md:hidden flex gap-3 items-center">
+                    <select value={selectedClosure} onChange={e => setSelectedClosure(e.target.value as ClosureType)} className="flex-1 p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10">
+                      {CLOSURE_OPTIONS.map(c => (
+                        <option key={c.id} value={c.id}>{c.name}</option>
+                      ))}
+                    </select>
+                    <div className="flex-shrink-0 bg-white rounded-lg p-2 w-14 h-14 flex items-center justify-center border-2 border-primary-600">
                       <img 
-                        src={
-                          selectedClosure === 'No' ? '/imgs/store/closure/no-zipper.webp' :
-                          selectedClosure === 'Regular Zipper' ? '/imgs/store/closure/normal-zipper.webp' :
-                          selectedClosure === 'One-Sided Zipper' ? '/imgs/store/closure/front-zipper.webp' :
-                          selectedClosure === 'Child Resistant Zipper' ? '/imgs/store/closure/child-resistant-zipper.webp' :
-                          selectedClosure === 'Slider' ? '/imgs/store/closure/slider-zipper.webp' :
-                          selectedClosure === 'Tin Tie' ? '/imgs/store/closure/tin-tie.webp' :
-                          selectedClosure === 'Spout' ? '/imgs/store/closure/spout.webp' :
-                          selectedClosure === 'Adhesive Tape' ? '/imgs/store/closure/adhesive-tap.webp' :
-                          '/imgs/store/closure/no-zipper.webp'
-                        } 
+                        src={CLOSURE_OPTIONS.find(c => c.id === selectedClosure)?.img || '/imgs/store/closure/no-zipper.webp'} 
                         alt={`${selectedClosure} closure`} 
                         className="max-w-full max-h-full object-contain"
                       />
+                    </div>
+                  </div>
+                  
+                  {/* Desktop: Card Grid */}
+                  <div className="hidden md:block">
+                    <div className="grid grid-cols-4 gap-2">
+                      {CLOSURE_OPTIONS.map(closure => (
+                        <button
+                          key={closure.id}
+                          type="button"
+                          onClick={() => setSelectedClosure(closure.id as ClosureType)}
+                          className={`relative p-2 rounded-xl border-2 transition-all text-left ${
+                            selectedClosure === closure.id
+                              ? 'border-primary-500 bg-primary-50 ring-2 ring-primary-100'
+                              : 'border-neutral-200 hover:border-primary-300 hover:bg-neutral-50'
+                          }`}
+                        >
+                          <img src={closure.img} alt="" className="w-full h-12 object-contain mb-1" />
+                          <p className={`text-[10px] font-semibold text-center ${selectedClosure === closure.id ? 'text-primary-700' : 'text-neutral-800'}`}>
+                            {closure.name.length > 12 ? closure.name.split(' ')[0] : closure.name}
+                          </p>
+                          {closure.premium && (
+                            <span className="absolute top-1 left-1 text-[8px] bg-amber-100 text-amber-700 px-1 py-0.5 rounded">
+                              Premium
+                            </span>
+                          )}
+                          {selectedClosure === closure.id && (
+                            <div className="absolute top-1 right-1 w-4 h-4 bg-primary-500 rounded-full flex items-center justify-center">
+                              <CheckCircle className="w-3 h-3 text-white" />
+                            </div>
+                          )}
+                        </button>
+                      ))}
                     </div>
                   </div>
                 </div>
