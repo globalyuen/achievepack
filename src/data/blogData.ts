@@ -2216,6 +2216,108 @@ export const blogPosts: BlogPost[] = [
     featuredImage: "/imgs/newsletter/2025letter.webp",
     readTime: 10,
     metaDescription: "Our 2025 year in review at Achievepack and Pouch.eco. Reflecting on gratitude, growth, and our vision for making sustainable packaging the default in 2026."
+  },
+  {
+    id: "8",
+    slug: "spring-festival-2026-order-deadlines",
+    title: "AchievePack Newsletter: Spring Festival Planning & Important Deadlines",
+    excerpt: "Lunar New Year is nearly here, and our production schedules are completely packed. Prepare now: critical order deadlines before Spring Festival closure. Roto gravure closes January 10, digital printing closes January 20.",
+    content: `
+      <figure class="my-8">
+        <img src="/imgs/newsletter/2026cny/a_newsletter_roto_gravure_updated_0099411.webp" alt="Spring Festival 2026 - Important Order Deadlines" class="w-full rounded-xl" />
+        <figcaption class="text-center text-sm text-neutral-500 mt-3">Prepare Now: Critical Order Deadlines Before Spring Festival Closure</figcaption>
+      </figure>
+
+      <h2>Prepare Now: Critical Order Deadlines Before Spring Festival Closure</h2>
+      <p>Lunar New Year is nearly here, and our production schedules are completely packed. Spring product launches and bestseller restocking require early orders. Deadlines are fast approaching—here's what you need to know.</p>
+
+      <hr class="my-8" />
+
+      <h2>Roto Gravure Printing – Closes January 10, 2026</h2>
+      <figure class="my-8">
+        <img src="/imgs/newsletter/2026cny/a_newsletter_roto_gravure_updated_0099411.webp" alt="Roto Gravure Printing Premium Quality" class="w-full rounded-xl" />
+        <figcaption class="text-center text-sm text-neutral-500 mt-3">Roto gravure delivers the color depth and consistency for premium packaging</figcaption>
+      </figure>
+      
+      <p>Roto gravure delivers the color depth and consistency that makes high-volume packaging stand out. It's the premium choice for spring releases.</p>
+      
+      <p><strong>Our gravure lines close January 11 for Spring Festival maintenance.</strong> Orders placed by January 10 get locked into pre-closure production. That's your window.</p>
+      
+      <blockquote>
+        <strong>Action Required:</strong> Submit your specs today—substrate, design files, volume, delivery date. We'll quote you and confirm your production slot while they last. Gravure slots fill fast at peak season.
+      </blockquote>
+
+      <hr class="my-8" />
+
+      <h2>Digital Printing – Closes January 20, 2026</h2>
+      <figure class="my-8">
+        <img src="/imgs/newsletter/2026cny/a_newsletter_digital_printing_updated_7060373.webp" alt="Digital Printing Fast Turnaround" class="w-full rounded-xl" />
+        <figcaption class="text-center text-sm text-neutral-500 mt-3">Digital printing: faster turnarounds, smaller batches, same quality</figcaption>
+      </figure>
+      
+      <p>Faster turnarounds. Smaller batches. Same quality. Digital printing is ideal for limited editions, design tests, or seasonal packaging adjustments.</p>
+      
+      <p><strong>Final orders are due by January 20</strong> to guarantee delivery before closure. If you need something in the next 2–3 weeks, send your files and volumes. Most quotes return within 24 hours.</p>
+
+      <hr class="my-8" />
+
+      <h2>We Return February 25</h2>
+      <figure class="my-8">
+        <img src="/imgs/newsletter/2026cny/a_newsletter_reopening_updated_9942101.webp" alt="AchievePack Reopens February 25" class="w-full rounded-xl" />
+        <figcaption class="text-center text-sm text-neutral-500 mt-3">Spring Festival break ends February 25 - fresh capacity awaits</figcaption>
+      </figure>
+      
+      <p>Spring Festival break ends <strong>February 25</strong>. AchievePack resumes full operations with fresh capacity.</p>
+      
+      <p>If your timeline allows flexibility, post-holiday orders often move faster. Peak-season volume clears, and production schedules open up.</p>
+
+      <hr class="my-8" />
+
+      <h2>Why AchievePack + pouch.eco?</h2>
+      <p>We don't just print. We build sustainable packaging—<a href="/materials/compostable">plant-based materials</a>, <a href="/materials/pcr-recycled">recycled content</a>, no compromise on durability or impact. Our <a href="https://pouch.eco">pouch.eco</a> line proves you can deliver speed and sustainability at the same scale.</p>
+      
+      <ul>
+        <li><strong>Ultra-low MOQ:</strong> Start with just <a href="/store">100 pieces</a></li>
+        <li><strong>Certified materials:</strong> <a href="/materials/compostable">Compostable</a>, <a href="/materials/recyclable-mono-pe">recyclable</a>, and <a href="/materials/bio-pe">bio-based</a> options</li>
+        <li><strong>Expert support:</strong> Packaging consultants ready to help</li>
+      </ul>
+
+      <hr class="my-8" />
+
+      <h2>Production Slots Are Filling Quickly</h2>
+      <figure class="my-8">
+        <img src="/imgs/newsletter/2026cny/a_newsletter_contact_cta_updated_8638639.webp" alt="Contact AchievePack - Secure Your Production Slot" class="w-full rounded-xl" />
+        <figcaption class="text-center text-sm text-neutral-500 mt-3">Every day brings us closer to closure - secure your slot now</figcaption>
+      </figure>
+      
+      <p><strong>Every day brings us closer to closure.</strong> If you've considered placing an order, now is the time.</p>
+      
+      <ul>
+        <li><a href="/">achievepack.com</a> – Request a quote with your project details</li>
+        <li><a href="https://pouch.eco">pouch.eco</a> – Explore sustainable material options</li>
+      </ul>
+      
+      <p>Our team will help you secure your production timeline and move forward with confidence.</p>
+
+      <hr class="my-8" />
+
+      <blockquote class="text-center">
+        <strong>Plan ahead. Order confidently. Achieve more.</strong>
+      </blockquote>
+      
+      <p class="text-center"><strong>AchievePack & pouch.eco</strong><br/>Your Partner in Sustainable Packaging Solutions</p>
+      
+      <hr class="my-8" />
+      
+      <p class="text-center"><a href="/store">Browse our store</a> | <a href="/contact">Get in touch</a> | <a href="/materials/compostable">Explore materials</a></p>
+    `,
+    author: "Achieve Pack Team",
+    publishDate: "2026-01-08",
+    category: "Newsletter",
+    tags: ["spring festival", "chinese new year", "order deadlines", "roto gravure", "digital printing", "production schedule", "newsletter", "2026", "lunar new year"],
+    featuredImage: "/imgs/newsletter/2026cny/a_newsletter_roto_gravure_updated_0099411.webp",
+    readTime: 3,
+    metaDescription: "AchievePack Spring Festival 2026 order deadlines: Roto gravure closes Jan 10, digital printing closes Jan 20. Plan ahead for sustainable packaging before Lunar New Year closure."
   }
 ];
 
