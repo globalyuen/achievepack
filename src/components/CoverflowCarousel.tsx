@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
-import { motion, useSpring, PanInfo } from 'motion/react'
+import { motion, useSpring, PanInfo, AnimatePresence } from 'motion/react'
 import { Link } from 'react-router-dom'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 
 interface CarouselItem {
   image: string
@@ -11,16 +11,19 @@ interface CarouselItem {
 
 interface CoverflowCarouselProps {
   items: CarouselItem[]
-  autoScrollInterval?: number // in milliseconds, default 1000 (1 second per card)
+  autoScrollInterval?: number // in milliseconds, default 2000 (2 seconds per card)
+  enableLightbox?: boolean // enable click to open lightbox
 }
 
 const DRAG_BUFFER = 50
 const SPRING_OPTIONS = { stiffness: 300, damping: 30 }
 
-export default function CoverflowCarousel({ items, autoScrollInterval = 2000 }: CoverflowCarouselProps) {
+export default function CoverflowCarousel({ items, autoScrollInterval = 2000, enableLightbox = true }: CoverflowCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(Math.floor(items.length / 2))
   const [isHovered, setIsHovered] = useState(false)
   const [isDragging, setIsDragging] = useState(false)
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const [lightboxIndex, setLightboxIndex] = useState(0)
   const containerRef = useRef<HTMLDivElement>(null)
 
   // Handle drag with infinite loop
@@ -49,26 +52,52 @@ export default function CoverflowCarousel({ items, autoScrollInterval = 2000 }: 
     setActiveIndex(prev => prev >= items.length - 1 ? 0 : prev + 1)
   }
 
-  // Auto-scroll: one card per second, infinite loop
+  // Lightbox functions
+  const openLightbox = (index: number) => {
+    if (enableLightbox) {
+      setLightboxIndex(index)
+      setLightboxOpen(true)
+    }
+  }
+
+  const closeLightbox = () => {
+    setLightboxOpen(false)
+  }
+
+  const lightboxPrev = () => {
+    setLightboxIndex(prev => prev <= 0 ? items.length - 1 : prev - 1)
+  }
+
+  const lightboxNext = () => {
+    setLightboxIndex(prev => prev >= items.length - 1 ? 0 : prev + 1)
+  }
+
+  // Auto-scroll: one card per interval, infinite loop (paused when lightbox open)
   useEffect(() => {
-    if (isHovered || isDragging) return
+    if (isHovered || isDragging || lightboxOpen) return
     
     const interval = setInterval(() => {
       setActiveIndex(prev => prev >= items.length - 1 ? 0 : prev + 1)
     }, autoScrollInterval)
     
     return () => clearInterval(interval)
-  }, [isHovered, isDragging, items.length, autoScrollInterval])
+  }, [isHovered, isDragging, lightboxOpen, items.length, autoScrollInterval])
 
-  // Keyboard navigation
+  // Keyboard navigation (including Escape for lightbox)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') handlePrev()
-      if (e.key === 'ArrowRight') handleNext()
+      if (lightboxOpen) {
+        if (e.key === 'Escape') closeLightbox()
+        if (e.key === 'ArrowLeft') lightboxPrev()
+        if (e.key === 'ArrowRight') lightboxNext()
+      } else {
+        if (e.key === 'ArrowLeft') handlePrev()
+        if (e.key === 'ArrowRight') handleNext()
+      }
     }
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [])
+  }, [lightboxOpen])
 
   return (
     <div 
@@ -118,6 +147,8 @@ export default function CoverflowCarousel({ items, autoScrollInterval = 2000 }: 
                 item={item}
                 offset={offset}
                 isActive={index === activeIndex}
+                index={index}
+                onOpenLightbox={openLightbox}
               />
             )
           })}
@@ -139,6 +170,88 @@ export default function CoverflowCarousel({ items, autoScrollInterval = 2000 }: 
           />
         ))}
       </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {lightboxOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center"
+            onClick={closeLightbox}
+          >
+            {/* Close button */}
+            <button
+              onClick={closeLightbox}
+              className="absolute top-4 right-4 z-50 bg-white/10 hover:bg-white/20 rounded-full p-3 transition"
+              aria-label="Close lightbox"
+            >
+              <X className="h-6 w-6 text-white" />
+            </button>
+
+            {/* Navigation arrows */}
+            <button
+              onClick={(e) => { e.stopPropagation(); lightboxPrev(); }}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-50 bg-white/10 hover:bg-white/20 rounded-full p-3 transition"
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="h-8 w-8 text-white" />
+            </button>
+
+            <button
+              onClick={(e) => { e.stopPropagation(); lightboxNext(); }}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-50 bg-white/10 hover:bg-white/20 rounded-full p-3 transition"
+              aria-label="Next image"
+            >
+              <ChevronRight className="h-8 w-8 text-white" />
+            </button>
+
+            {/* Main lightbox image */}
+            <motion.div
+              key={lightboxIndex}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              className="relative max-w-[90vw] max-h-[85vh]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={items[lightboxIndex].image}
+                alt={items[lightboxIndex].label}
+                className="max-w-full max-h-[75vh] object-contain rounded-lg shadow-2xl"
+              />
+              <div className="mt-4 text-center">
+                <p className="text-white text-lg font-semibold">{items[lightboxIndex].label}</p>
+                <p className="text-white/60 text-sm mt-1">{lightboxIndex + 1} / {items.length}</p>
+                <Link
+                  to={items[lightboxIndex].link}
+                  className="inline-block mt-3 px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition"
+                  onClick={closeLightbox}
+                >
+                  View Product →
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Thumbnail strip */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 p-2 bg-black/50 rounded-lg">
+              {items.map((item, index) => (
+                <button
+                  key={index}
+                  onClick={(e) => { e.stopPropagation(); setLightboxIndex(index); }}
+                  className={`w-12 h-12 rounded overflow-hidden transition-all ${
+                    index === lightboxIndex ? 'ring-2 ring-primary-500 scale-110' : 'opacity-60 hover:opacity-100'
+                  }`}
+                >
+                  <img src={item.image} alt={item.label} className="w-full h-full object-cover" />
+                </button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
@@ -147,9 +260,11 @@ interface CoverflowCardProps {
   item: CarouselItem
   offset: number
   isActive: boolean
+  index: number
+  onOpenLightbox: (index: number) => void
 }
 
-function CoverflowCard({ item, offset, isActive }: CoverflowCardProps) {
+function CoverflowCard({ item, offset, isActive, index, onOpenLightbox }: CoverflowCardProps) {
   const absOffset = Math.abs(offset)
   
   // Calculate transforms
@@ -188,10 +303,9 @@ function CoverflowCard({ item, offset, isActive }: CoverflowCardProps) {
         transformStyle: 'preserve-3d',
       }}
     >
-      <Link 
-        to={item.link} 
-        className="block group"
-        onClick={(e) => !isActive && e.preventDefault()}
+      <div 
+        className="block group cursor-pointer"
+        onClick={() => isActive && onOpenLightbox(index)}
       >
         <div 
           className={`
@@ -218,7 +332,7 @@ function CoverflowCard({ item, offset, isActive }: CoverflowCardProps) {
         >
           {item.label}
         </motion.p>
-      </Link>
+      </div>
     </motion.div>
   )
 }
