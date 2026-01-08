@@ -366,8 +366,8 @@ const DashboardPage: React.FC = () => {
     // Artwork files: match by user_id OR customer_email for cases where CRM contact is assigned
     const [ordersRes, quotesRes, rfqRes, docsRes, artworksRes, savedRes, deletedArtworksRes, artworksByEmailRes, deletedArtworksByEmailRes] = await Promise.all([
       supabase.from('orders').select('*').or(`user_id.eq.${user?.id},customer_email.eq.${user?.email}`).order('created_at', { ascending: false }),
-      supabase.from('quotes').select('*').eq('user_id', user?.id).is('deleted_at', null).order('created_at', { ascending: false }),
-      supabase.from('rfq_submissions').select('*').eq('user_id', user?.id).is('deleted_at', null).order('created_at', { ascending: false }),
+      supabase.from('quotes').select('*').or(`user_id.eq.${user?.id},customer_email.eq.${user?.email}`).is('deleted_at', null).order('created_at', { ascending: false }),
+      supabase.from('rfq_submissions').select('*').or(`user_id.eq.${user?.id},customer_email.eq.${user?.email}`).is('deleted_at', null).order('created_at', { ascending: false }),
       supabase.from('documents').select('*').or(`user_id.eq.${user?.id},is_public.eq.true`).order('created_at', { ascending: false }),
       supabase.from('artwork_files').select('*').eq('user_id', user?.id).is('deleted_at', null).order('created_at', { ascending: false }),
       supabase.from('saved_cart_items').select('*').eq('user_id', user?.id).order('created_at', { ascending: false }),
