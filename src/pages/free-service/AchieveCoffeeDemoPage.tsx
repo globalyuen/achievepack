@@ -1,8 +1,27 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { ChevronDown, ArrowRight, ArrowLeft } from 'lucide-react'
+import { ChevronDown, ArrowRight, ArrowLeft, Leaf, Award, MapPin, Check, Recycle, Globe, ShieldCheck, Coffee, ExternalLink, Star, Users } from 'lucide-react'
 import { supabase } from '../../lib/supabase'
+
+// High-quality product images from demo-site/coffee
+const COFFEE_IMAGES = {
+  hero: '/imgs/demo-site/coffee/a_achieve_coffee_kv_flagship_opening_9453786.webp',
+  brandStatement: '/imgs/demo-site/coffee/a_achieve_coffee_kv_brand_statement_8692247.webp',
+  limitedSeries: '/imgs/demo-site/coffee/a_achieve_coffee_kv_limited_series_2884858.webp',
+  brightSeries: '/imgs/demo-site/coffee/a_achieve_coffee_kv_bright_series_0823684.webp',
+  warmSeries: '/imgs/demo-site/coffee/a_achieve_coffee_kv_warm_series_5435371.webp',
+  detail1: '/imgs/demo-site/coffee/a_achieve_detail_01_limited_series_5452944.webp',
+  detail2: '/imgs/demo-site/coffee/a_achieve_detail_02_design_1799169.webp',
+  detail3: '/imgs/demo-site/coffee/a_achieve_detail_03_perspectives_1618831.webp',
+  detail4: '/imgs/demo-site/coffee/a_achieve_detail_04_craftsmanship_5633579.webp',
+  detail5: '/imgs/demo-site/coffee/a_achieve_detail_05_dimensional_3952382.webp',
+  detail6: '/imgs/demo-site/coffee/a_achieve_detail_06_typography_5171494.webp',
+  detail7: '/imgs/demo-site/coffee/a_achieve_detail_07_flatlay_3502987.webp',
+  detail8: '/imgs/demo-site/coffee/a_achieve_detail_08_materials_3186664.webp',
+  detail9: '/imgs/demo-site/coffee/a_achieve_detail_09_signature_0200823.webp',
+  detail10: '/imgs/demo-site/coffee/a_achieve_detail_10_final_masterpiece_6237738.webp'
+}
 
 // Default demo content - can be overridden by admin settings
 const DEFAULT_CONTENT = {
@@ -15,8 +34,8 @@ const DEFAULT_CONTENT = {
     ctaLink: '#shop'
   },
   hero: {
-    backgroundImage: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1920&q=80',
-    overlayOpacity: 0.4
+    backgroundImage: COFFEE_IMAGES.hero,
+    overlayOpacity: 0.5
   },
   marquee: {
     text: 'NEW * FRESH OFF THE TREE * NEW',
@@ -28,27 +47,30 @@ const DEFAULT_CONTENT = {
       name: 'Achieve Signature Blend',
       price: 29.00,
       type: 'Single Origin',
-      origin: 'Ethiopia',
+      origin: 'Ethiopia Yirgacheffe',
       process: 'Natural',
-      image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600&q=80'
+      notes: 'Blueberry, Jasmine, Dark Chocolate',
+      image: COFFEE_IMAGES.detail1
     },
     {
       id: '2',
       name: 'Morning Ritual',
       price: 25.00,
       type: 'Single Origin',
-      origin: 'Colombia',
+      origin: 'Colombia Huila',
       process: 'Washed',
-      image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&q=80'
+      notes: 'Caramel, Red Apple, Hazelnut',
+      image: COFFEE_IMAGES.detail4
     },
     {
       id: '3',
       name: 'Red Honey Reserve',
       price: 34.00,
       type: 'Single Origin',
-      origin: 'Costa Rica',
+      origin: 'Costa Rica Tarrazú',
       process: 'Red Honey',
-      image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80'
+      notes: 'Mango, Brown Sugar, Citrus',
+      image: COFFEE_IMAGES.detail9
     }
   ],
   collections: [
@@ -58,10 +80,11 @@ const DEFAULT_CONTENT = {
       logo: 'LIMITED',
       description: "They're the highest echelon of quality we find with producers we already work with. These coffees are produced in very small quantity which makes them highly limited.",
       bgColor: 'from-amber-900 to-amber-950',
+      image: COFFEE_IMAGES.limitedSeries,
       images: [
-        'https://images.unsplash.com/photo-1587734005433-0a43e5f9e7c4?w=400&q=80',
-        'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&q=80',
-        'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&q=80'
+        COFFEE_IMAGES.detail1,
+        COFFEE_IMAGES.detail2,
+        COFFEE_IMAGES.detail3
       ]
     },
     {
@@ -70,10 +93,11 @@ const DEFAULT_CONTENT = {
       logo: 'BRIGHT',
       description: 'They are developed with bright aromatic flavors in mind. These lighter roasts will require more attention to the extraction details.',
       bgColor: 'from-orange-800 to-orange-950',
+      image: COFFEE_IMAGES.brightSeries,
       images: [
-        'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80',
-        'https://images.unsplash.com/photo-1587734005433-0a43e5f9e7c4?w=400&q=80',
-        'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&q=80'
+        COFFEE_IMAGES.detail4,
+        COFFEE_IMAGES.detail5,
+        COFFEE_IMAGES.detail6
       ]
     },
     {
@@ -82,17 +106,18 @@ const DEFAULT_CONTENT = {
       logo: 'WARM',
       description: 'It showcases the personality of the coffee without adding a burnt taste. These coffees are developed with sweetness, warmth, round body in mind.',
       bgColor: 'from-stone-800 to-stone-950',
+      image: COFFEE_IMAGES.warmSeries,
       images: [
-        'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&q=80',
-        'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80',
-        'https://images.unsplash.com/photo-1587734005433-0a43e5f9e7c4?w=400&q=80'
+        COFFEE_IMAGES.detail7,
+        COFFEE_IMAGES.detail8,
+        COFFEE_IMAGES.detail9
       ]
     }
   ],
   mission: {
     title: 'Our Mission',
     content: "We've been accused of having a one-track mind. And to those accusations we say - thank you. Because we know it's by focusing on one thing that many things happen. And at Achieve, that one thing was always coffee.",
-    image: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1200&q=80',
+    image: COFFEE_IMAGES.brandStatement,
     coordinates: '22.3193° N — 114.1694° E'
   },
   subscription: {
@@ -546,15 +571,219 @@ const AchieveCoffeeDemoPage: React.FC = () => {
           </div>
         </section>
 
+        {/* Sustainable Packaging Section */}
+        <section className="py-32 px-6 bg-gradient-to-b from-neutral-900 to-[#0a1a1a]">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <div>
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="h-[2px] w-12 bg-green-500"></span>
+                  <span className="text-green-500 font-bold tracking-[0.3em] uppercase text-xs">Our Commitment</span>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-bold mb-8">
+                  Compostable<br/>
+                  <span className="text-green-500">Coffee Packaging</span>
+                </h2>
+                <p className="text-xl text-white/60 mb-8 leading-relaxed">
+                  We believe specialty coffee deserves packaging that respects both the craft and our planet. 
+                  Our certified compostable pouches protect your coffee's freshness while breaking down 
+                  naturally within 180 days.
+                </p>
+                
+                <div className="space-y-4 mb-10">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                      <Check className="w-5 h-5 text-green-500" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-white">BPI Certified Compostable</h4>
+                      <p className="text-white/50 text-sm">Meets ASTM D6400 standards for industrial composting</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                      <Check className="w-5 h-5 text-green-500" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-white">Degassing Valve Compatible</h4>
+                      <p className="text-white/50 text-sm">One-way valve releases CO2 while keeping oxygen out</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                      <Check className="w-5 h-5 text-green-500" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-white">Premium Kraft Finish</h4>
+                      <p className="text-white/50 text-sm">Natural aesthetic that communicates quality and sustainability</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Link to Achieve Pack */}
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                  <p className="text-white/70 text-sm mb-4">
+                    Our packaging is proudly supplied by Achieve Pack, specialists in compostable coffee bag solutions with low MOQ.
+                  </p>
+                  <div className="flex flex-wrap gap-4">
+                    <Link 
+                      to="/products/compostable-coffee-bags" 
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-green-400 hover:text-green-300 transition"
+                    >
+                      Compostable Coffee Bags <ExternalLink className="w-4 h-4" />
+                    </Link>
+                    <Link 
+                      to="/industry/coffee-tea" 
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-white/70 hover:text-white transition"
+                    >
+                      Coffee Industry Solutions <ExternalLink className="w-4 h-4" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="relative">
+                <img
+                  src={COFFEE_IMAGES.detail8}
+                  alt="Compostable Coffee Packaging Materials"
+                  className="w-full rounded-3xl shadow-2xl"
+                />
+                <div className="absolute -bottom-6 -right-6 bg-green-500 text-black p-6 rounded-2xl shadow-xl">
+                  <div className="text-3xl font-black">180</div>
+                  <div className="text-xs font-bold uppercase tracking-wider">Days to Compost</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Quality & Sourcing Section */}
+        <section className="py-24 px-6 bg-neutral-950">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold mb-4">Quality at Every Step</h2>
+              <p className="text-white/50 max-w-2xl mx-auto">
+                From farm to cup, we maintain rigorous quality standards and full traceability.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-4 gap-8">
+              <div className="bg-white/5 rounded-2xl p-8 text-center border border-white/10">
+                <Globe className="w-12 h-12 text-amber-500 mx-auto mb-4" />
+                <h3 className="font-bold mb-2">Direct Trade</h3>
+                <p className="text-white/50 text-sm">Sourced directly from farmers in Ethiopia, Colombia, and Costa Rica</p>
+              </div>
+              <div className="bg-white/5 rounded-2xl p-8 text-center border border-white/10">
+                <Award className="w-12 h-12 text-amber-500 mx-auto mb-4" />
+                <h3 className="font-bold mb-2">SCA Certified</h3>
+                <p className="text-white/50 text-sm">All coffees scored 85+ by certified Q graders</p>
+              </div>
+              <div className="bg-white/5 rounded-2xl p-8 text-center border border-white/10">
+                <Recycle className="w-12 h-12 text-green-500 mx-auto mb-4" />
+                <h3 className="font-bold mb-2">Eco Packaging</h3>
+                <p className="text-white/50 text-sm">BPI certified compostable pouches</p>
+              </div>
+              <div className="bg-white/5 rounded-2xl p-8 text-center border border-white/10">
+                <ShieldCheck className="w-12 h-12 text-amber-500 mx-auto mb-4" />
+                <h3 className="font-bold mb-2">Freshness Sealed</h3>
+                <p className="text-white/50 text-sm">Roasted to order with degassing valve technology</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Large Feature Image */}
+        <section className="relative h-[70vh] overflow-hidden">
+          <img
+            src={COFFEE_IMAGES.detail10}
+            alt="Specialty Coffee Final Masterpiece"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+          <div className="absolute inset-0 flex items-center">
+            <div className="max-w-7xl mx-auto px-6 w-full">
+              <div className="max-w-xl">
+                <h2 className="text-4xl md:text-6xl font-bold mb-6">
+                  Taste the<br/>Difference
+                </h2>
+                <p className="text-xl text-white/70 mb-8">
+                  Experience specialty coffee that honors tradition, supports farmers, 
+                  and respects our planet with every cup.
+                </p>
+                <a href="#shop" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-medium rounded-full hover:bg-white/90 transition">
+                  Shop Our Collection <ArrowRight className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Footer */}
-        <footer className="py-16 px-6 bg-neutral-950 border-t border-white/10">
-          <div className="max-w-7xl mx-auto text-center">
-            <span className="text-3xl font-bold tracking-tight block mb-8">
-              {content.brand.name}
-            </span>
-            <p className="text-white/50 text-sm">
-              Demo website created by <a href="https://achievepack.com" className="text-white/70 hover:text-white">Achieve Pack</a> • Free Web Design Service
-            </p>
+        <footer className="py-20 px-6 bg-neutral-950 border-t border-white/10">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid md:grid-cols-4 gap-12 mb-16">
+              <div className="md:col-span-2">
+                <span className="text-3xl font-bold tracking-tight block mb-4">
+                  {content.brand.name}
+                </span>
+                <p className="text-white/50 mb-6 max-w-md">
+                  Specialty coffee roasters committed to quality, sustainability, and the perfect cup.
+                </p>
+                <div className="flex gap-4">
+                  <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition">
+                    <span className="sr-only">Instagram</span>
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  </a>
+                  <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition">
+                    <span className="sr-only">Twitter</span>
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <h4 className="font-bold mb-4 text-white/80">Shop</h4>
+                <ul className="space-y-2 text-white/50 text-sm">
+                  <li><a href="#" className="hover:text-white transition">All Coffee</a></li>
+                  <li><a href="#" className="hover:text-white transition">Limited Series</a></li>
+                  <li><a href="#" className="hover:text-white transition">Bright Series</a></li>
+                  <li><a href="#" className="hover:text-white transition">Warm Series</a></li>
+                  <li><a href="#" className="hover:text-white transition">Subscriptions</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-bold mb-4 text-white/80">Company</h4>
+                <ul className="space-y-2 text-white/50 text-sm">
+                  <li><a href="#" className="hover:text-white transition">Our Story</a></li>
+                  <li><a href="#" className="hover:text-white transition">Sustainability</a></li>
+                  <li><a href="#" className="hover:text-white transition">Wholesale</a></li>
+                  <li><a href="#" className="hover:text-white transition">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            {/* Packaging Credit */}
+            <div className="border-t border-white/10 pt-8 mb-8">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-white/30 text-xs">
+                <div className="flex items-center gap-2">
+                  <Recycle className="w-4 h-4 text-green-500" />
+                  <span>Compostable packaging proudly supplied by</span>
+                  <Link to="/" className="text-white/70 hover:text-white transition font-semibold">Achieve Pack</Link>
+                </div>
+                <div className="flex items-center gap-4">
+                  <Link to="/products/compostable-coffee-bags" className="hover:text-white transition">Coffee Bags</Link>
+                  <span>|</span>
+                  <Link to="/materials/compostable" className="hover:text-white transition">Compostable Materials</Link>
+                  <span>|</span>
+                  <Link to="/industry/coffee-tea" className="hover:text-white transition">Coffee Industry</Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center text-white/30 text-xs">
+              <p>2024 {content.brand.name}. All rights reserved.</p>
+              <p className="mt-2">
+                Demo website created by <Link to="/free-service/website-upgrade" className="text-white/50 hover:text-white">Achieve Pack Free Web Design Service</Link>
+              </p>
+            </div>
           </div>
         </footer>
       </div>

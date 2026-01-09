@@ -1,6 +1,6 @@
 import React, { useState, useTransition, useEffect, useRef, useMemo } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
-import { ArrowLeft, Leaf, Mail, Phone, Calendar, X, BookOpen, FileText, ChevronDown, ChevronRight, Search, Package, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Layers, ArrowRight, ShoppingCart } from 'lucide-react'
+import { ArrowLeft, Leaf, Mail, Phone, Calendar, X, BookOpen, FileText, ChevronDown, ChevronRight, Search, Package, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Layers, ArrowRight, ShoppingCart, Gift, Menu } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { motion, useSpring } from 'motion/react'
@@ -65,6 +65,7 @@ const SEOPageHeader: React.FC = () => {
   const [activeMenu, setActiveMenu] = useState<'learn' | 'blog' | null>(null)
   const [activeCategory, setActiveCategory] = useState<string | null>(null)
   const [hoveredPage, setHoveredPage] = useState<{ name: string; link: string; image: string } | null>(null)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const menuTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   // Get random pages to fill empty space when Learn menu opens
@@ -105,7 +106,8 @@ const SEOPageHeader: React.FC = () => {
   return (
     <header className="bg-primary-700 text-white sticky top-0 z-40">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between h-14">
+        {/* Desktop Layout */}
+        <div className="hidden md:flex items-center justify-between h-14">
           {/* Logo + Back */}
           <div className="flex items-center gap-4">
             <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition">
@@ -115,7 +117,7 @@ const SEOPageHeader: React.FC = () => {
             </Link>
           </div>
 
-          {/* Nav Items */}
+          {/* Nav Items - Desktop */}
           <nav className="flex items-center gap-1">
             {/* LEARN Menu */}
             <div
@@ -164,7 +166,104 @@ const SEOPageHeader: React.FC = () => {
             </a>
           </nav>
         </div>
+
+        {/* Mobile Layout */}
+        <div className="md:hidden flex items-center justify-between h-14">
+          {/* Logo + Back */}
+          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition">
+            <ArrowLeft className="h-4 w-4" />
+            <Leaf className="h-5 w-5 text-primary-300" />
+            <span className="font-bold text-sm">Achieve Pack</span>
+          </Link>
+
+          {/* Mobile Nav Icons */}
+          <div className="flex items-center gap-2">
+            <Link
+              to="/store"
+              className="w-9 h-9 rounded-full bg-primary-500 flex items-center justify-center hover:bg-primary-400 transition"
+            >
+              <ShoppingCart className="h-4 w-4" />
+            </Link>
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="w-9 h-9 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center hover:from-green-600 hover:to-emerald-600 transition shadow-lg"
+              style={{ boxShadow: '0 0 12px rgba(16, 185, 129, 0.5)' }}
+            >
+              {isMobileMenuOpen ? <X className="h-4 w-4" /> : <Gift className="h-4 w-4" />}
+            </button>
+          </div>
+        </div>
       </div>
+
+      {/* Mobile FREE Services Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-white border-t border-neutral-200 shadow-lg">
+          <div className="p-4">
+            <h3 className="text-xs font-bold text-green-600 uppercase tracking-wider mb-3 flex items-center gap-2">
+              <Gift className="h-4 w-4" />
+              FREE Services
+            </h3>
+            <div className="grid grid-cols-2 gap-2">
+              <Link
+                to="/free-service/packaging-design-consultation"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex flex-col items-center p-3 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl border border-green-200 hover:border-green-400 transition"
+              >
+                <span className="text-2xl mb-1">🎨</span>
+                <span className="text-xs font-semibold text-neutral-800 text-center">Free Design</span>
+                <span className="text-[10px] text-neutral-500 text-center">Consultation</span>
+              </Link>
+              <Link
+                to="/free-service/website-upgrade"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex flex-col items-center p-3 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-200 hover:border-blue-400 transition"
+              >
+                <span className="text-2xl mb-1">🌐</span>
+                <span className="text-xs font-semibold text-neutral-800 text-center">Free Website</span>
+                <span className="text-[10px] text-neutral-500 text-center">Upgrade</span>
+              </Link>
+              <Link
+                to="/free-service/customer-center"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex flex-col items-center p-3 bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl border border-purple-200 hover:border-purple-400 transition"
+              >
+                <span className="text-2xl mb-1">📊</span>
+                <span className="text-xs font-semibold text-neutral-800 text-center">Free MGT Tool</span>
+                <span className="text-[10px] text-neutral-500 text-center">Customer Center</span>
+              </Link>
+              <Link
+                to="/free-service/packaging-mockup"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex flex-col items-center p-3 bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl border border-orange-200 hover:border-orange-400 transition"
+              >
+                <span className="text-2xl mb-1">📦</span>
+                <span className="text-xs font-semibold text-neutral-800 text-center">Free Mockup</span>
+                <span className="text-[10px] text-neutral-500 text-center">3D Preview</span>
+              </Link>
+            </div>
+            {/* Quick Links */}
+            <div className="mt-4 pt-4 border-t border-neutral-200 grid grid-cols-2 gap-2">
+              <a
+                href="https://calendly.com/30-min-free-packaging-consultancy"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center justify-center gap-2 px-3 py-2 bg-primary-600 text-white text-xs font-medium rounded-lg"
+              >
+                <Calendar className="h-3 w-3" />
+                Book Meeting
+              </a>
+              <Link
+                to="/free"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center justify-center gap-1 px-3 py-2 bg-green-600 text-white text-xs font-medium rounded-lg"
+              >
+                All Free Services →
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* LEARN Mega Menu */}
       {activeMenu === 'learn' && (

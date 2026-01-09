@@ -17,6 +17,7 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isFreeMenuOpen, setIsFreeMenuOpen] = useState(false)
 
   const changeLanguage = useCallback((lng: string) => {
     i18n.changeLanguage(lng)
@@ -103,14 +104,14 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
                 <ShoppingCart className="h-5 w-5 text-white" />
               </Link>
               {/* Glowing FREE Button */}
-              <Link
-                to="/free-service/packaging-design-consultation"
+              <button
+                onClick={() => setIsFreeMenuOpen(!isFreeMenuOpen)}
                 className="relative w-10 h-10 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center hover:from-green-600 hover:to-emerald-600 transition-all shadow-lg animate-pulse"
                 style={{ boxShadow: '0 0 15px rgba(16, 185, 129, 0.6)' }}
               >
-                <Gift className="h-5 w-5 text-white" />
-                <span className="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 text-[8px] font-bold text-yellow-900 rounded-full flex items-center justify-center animate-bounce">!</span>
-              </Link>
+                {isFreeMenuOpen ? <X className="h-5 w-5 text-white" /> : <Gift className="h-5 w-5 text-white" />}
+                {!isFreeMenuOpen && <span className="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 text-[8px] font-bold text-yellow-900 rounded-full flex items-center justify-center animate-bounce">!</span>}
+              </button>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-neutral-700 hover:text-primary-500 transition-colors"
@@ -121,6 +122,66 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
             </div>
           </div>
         </div>
+
+        {/* Mobile FREE Services Dropdown */}
+        {isFreeMenuOpen && (
+          <div className="lg:hidden bg-white border-t border-neutral-200 shadow-lg">
+            <div className="p-4">
+              <h3 className="text-xs font-bold text-green-600 uppercase tracking-wider mb-3 flex items-center gap-2">
+                <Gift className="h-4 w-4" />
+                FREE Services
+              </h3>
+              <div className="grid grid-cols-2 gap-2">
+                <Link
+                  to="/free-service/packaging-design-consultation"
+                  onClick={() => setIsFreeMenuOpen(false)}
+                  className="flex flex-col items-center p-3 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl border border-green-200 hover:border-green-400 transition"
+                >
+                  <span className="text-2xl mb-1">🎨</span>
+                  <span className="text-xs font-semibold text-neutral-800 text-center">Free Design</span>
+                  <span className="text-[10px] text-neutral-500 text-center">Consultation</span>
+                </Link>
+                <Link
+                  to="/free-service/website-upgrade"
+                  onClick={() => setIsFreeMenuOpen(false)}
+                  className="flex flex-col items-center p-3 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-200 hover:border-blue-400 transition"
+                >
+                  <span className="text-2xl mb-1">🌐</span>
+                  <span className="text-xs font-semibold text-neutral-800 text-center">Free Website</span>
+                  <span className="text-[10px] text-neutral-500 text-center">Upgrade</span>
+                </Link>
+                <Link
+                  to="/free-service/customer-center"
+                  onClick={() => setIsFreeMenuOpen(false)}
+                  className="flex flex-col items-center p-3 bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl border border-purple-200 hover:border-purple-400 transition"
+                >
+                  <span className="text-2xl mb-1">📊</span>
+                  <span className="text-xs font-semibold text-neutral-800 text-center">Free MGT Tool</span>
+                  <span className="text-[10px] text-neutral-500 text-center">Customer Center</span>
+                </Link>
+                <Link
+                  to="/free-service/packaging-mockup"
+                  onClick={() => setIsFreeMenuOpen(false)}
+                  className="flex flex-col items-center p-3 bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl border border-orange-200 hover:border-orange-400 transition"
+                >
+                  <span className="text-2xl mb-1">📦</span>
+                  <span className="text-xs font-semibold text-neutral-800 text-center">Free Mockup</span>
+                  <span className="text-[10px] text-neutral-500 text-center">3D Preview</span>
+                </Link>
+              </div>
+              {/* Quick Link */}
+              <div className="mt-4 pt-4 border-t border-neutral-200">
+                <Link
+                  to="/free"
+                  onClick={() => setIsFreeMenuOpen(false)}
+                  className="flex items-center justify-center gap-1 w-full px-3 py-2 bg-green-600 text-white text-xs font-medium rounded-lg"
+                >
+                  All Free Services →
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Mobile Menu - Complete with Learn & Blog */}
         {isMenuOpen && (

@@ -36,7 +36,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     const { recipients, subject, htmlContent, testEmail } = req.body as SendCampaignRequest
 
+    console.log('📧 Campaign request received:', {
+      testEmail: testEmail || 'none',
+      subject: subject?.substring(0, 50),
+      recipientCount: recipients?.length || 0,
+      hasContent: !!htmlContent
+    })
+
     if (!subject || !htmlContent) {
+      console.error('❌ Missing subject or content')
       return res.status(400).json({ error: 'Missing subject or content' })
     }
 
@@ -49,12 +57,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     // If test email, only send to that address
     const targetRecipients = testEmail
-      ? [{ email: testEmail, name: 'Test' }]
+      ? [{ email: testEmail, name: 'Ryan' }]
       : recipients
 
     if (!targetRecipients || targetRecipients.length === 0) {
+      console.error('❌ No recipients provided')
       return res.status(400).json({ error: 'No recipients provided' })
     }
+
+    console.log(`📤 Sending to ${targetRecipients.length} recipient(s):`, targetRecipients.map(r => r.email))
 
     // Send emails
     for (const recipient of targetRecipients) {
@@ -69,6 +80,22 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         // Personalize subject line with recipient name
         const personalizedSubject = subject.replace(/\{\{name\}\}/g, recipientName)
 
+        const emailPayload = {
+          sender: {
+            email: 'hello@achievepack.com',
+            name: 'Achieve Pack'
+          },
+          to: [{ email: recipient.email, name: recipient.name || recipientName }],
+          subject: personalizedSubject,
+          htmlContent: personalizedHtml,
+          replyTo: {
+            email: 'ryan@achievepack.com',
+            name: 'Ryan Wong'
+          }
+        }
+
+        console.log(`📨 Sending email to ${recipient.email}...`)
+
         const response = await fetch('https://api.brevo.com/v3/smtp/email', {
           method: 'POST',
           headers: {
@@ -76,35 +103,41 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             'api-key': BREVO_API_KEY,
             'content-type': 'application/json'
           },
-          body: JSON.stringify({
-            sender: {
-              email: 'hello@achievepack.com',
-              name: 'Achieve Pack'
-            },
-            to: [{ email: recipient.email, name: recipient.name }],
-            subject: personalizedSubject,
-            htmlContent: personalizedHtml,
-            replyTo: {
-              email: 'ryan@achievepack.com',
-              name: 'Ryan Wong'
-            }
-          })
+          body: JSON.stringify(emailPayload)
         })
 
+        const responseText = await response.text()
+        console.log(`📬 Brevo response for ${recipient.email}:`, response.status, responseText)
+
         if (response.ok) {
-          const data: any = await response.json()
-          results.success++
-          if (data.messageId) {
-            results.messageIds.push(data.messageId)
+          try {
+            const data = JSON.parse(responseText)
+            results.success++
+            if (data.messageId) {
+              results.messageIds.push(data.messageId)
+              console.log(`✅ Email sent successfully to ${recipient.email}, messageId: ${data.messageId}`)
+            }
+          } catch {
+            results.success++
+            console.log(`✅ Email sent to ${recipient.email} (no messageId in response)`)
           }
         } else {
-          const errorData: any = await response.json()
+          let errorMessage = 'Unknown error'
+          try {
+            const errorData = JSON.parse(responseText)
+            errorMessage = errorData.message || errorData.error || JSON.stringify(errorData)
+          } catch {
+            errorMessage = responseText || `HTTP ${response.status}`
+          }
           results.failed++
-          results.errors.push(`${recipient.email}: ${errorData.message || 'Unknown error'}`)
+          results.errors.push(`${recipient.email}: ${errorMessage}`)
+          console.error(`❌ Failed to send to ${recipient.email}:`, errorMessage)
         }
       } catch (error) {
+        const errorMsg = error instanceof Error ? error.message : 'Unknown error'
         results.failed++
-        results.errors.push(`${recipient.email}: ${error instanceof Error ? error.message : 'Unknown error'}`)
+        results.errors.push(`${recipient.email}: ${errorMsg}`)
+        console.error(`❌ Exception sending to ${recipient.email}:`, errorMsg)
       }
 
       // Small delay between emails to respect rate limits
@@ -113,8 +146,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }
     }
 
+    console.log(`📊 Campaign complete: ${results.success} sent, ${results.failed} failed`)
+
     return res.status(200).json({
-      success: true,
+      success: results.success > 0,
       sent: results.success,
       failed: results.failed,
       errors: results.errors.slice(0, 10),
@@ -122,7 +157,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     })
 
   } catch (error) {
-    console.error('Campaign send error:', error)
+    console.error('❌ Campaign send error:', error)
     return res.status(500).json({
       error: error instanceof Error ? error.message : 'Failed to send campaign'
     })

@@ -26,6 +26,7 @@ import { NotificationList, type Notification } from '../components/animate-ui/co
 import { PinList, type PinListItem } from '../components/animate-ui/components/community/pin-list'
 import { ArtworkStatusAvatar, type StatusItem, type ArtworkStatus } from '../components/animate-ui/components/community/user-presence-avatar'
 import { QuickAccessSheet, type QuickAccessItem, type ArtworkQuickStatus } from '../components/ui/QuickAccessSheet'
+import { ImagePreviewPopover } from '../components/animate-ui/components/radix/popover'
 
 type TabType = 'dashboard' | 'orders' | 'quotes' | 'documents' | 'artwork' | 'saved' | 'settings' | 'bin'
 
@@ -2089,23 +2090,24 @@ const DashboardPage: React.FC = () => {
                           <div className="space-y-3">
                             {/* Top Row: Image Preview + Name + Status + Quick Actions */}
                             <div className="flex items-center gap-3">
-                              <div className="w-14 h-14 md:w-16 md:h-16 rounded-lg flex-shrink-0 overflow-hidden bg-gray-100">
-                                {isImage ? (
-                                  <img 
-                                    src={artwork.file_url} 
-                                    alt={artwork.name}
-                                    className="w-full h-full object-cover"
-                                    onError={(e) => {
-                                      (e.target as HTMLImageElement).style.display = 'none'
-                                      ;(e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden')
-                                    }}
-                                  />
-                                ) : null}
-                                <div className={`w-full h-full flex flex-col items-center justify-center bg-purple-50 ${isImage ? 'hidden' : ''}`}>
-                                  <FileImage className="h-5 w-5 text-purple-400" />
-                                  <p className="text-[7px] text-purple-400 mt-0.5">File</p>
+                              {isImage ? (
+                                <ImagePreviewPopover src={artwork.file_url || ''} alt={artwork.name}>
+                                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-lg flex-shrink-0 overflow-hidden bg-gray-100 cursor-pointer hover:ring-2 hover:ring-purple-400 hover:ring-offset-1 transition-all">
+                                    <img 
+                                      src={artwork.file_url} 
+                                      alt={artwork.name}
+                                      className="w-full h-full object-cover"
+                                    />
+                                  </div>
+                                </ImagePreviewPopover>
+                              ) : (
+                                <div className="w-14 h-14 md:w-16 md:h-16 rounded-lg flex-shrink-0 overflow-hidden bg-gray-100">
+                                  <div className="w-full h-full flex flex-col items-center justify-center bg-purple-50">
+                                    <FileImage className="h-5 w-5 text-purple-400" />
+                                    <p className="text-[7px] text-purple-400 mt-0.5">File</p>
+                                  </div>
                                 </div>
-                              </div>
+                              )}
                               <div className="flex-1 min-w-0">
                                 <h3 className="font-semibold text-gray-900 text-sm truncate">{artwork.name}</h3>
                                 <div className="flex items-center gap-1.5 text-[11px] text-gray-500 mt-0.5">

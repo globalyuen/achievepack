@@ -1506,23 +1506,6 @@ const AdminManagementPage: React.FC = () => {
                 totalPages={artworkTotalPages}
                 onPageChange={setArtworkPage}
                 totalCount={filteredArtworks.length}
-                actions={[
-                  {
-                    icon: ApproveIcon,
-                    label: 'Approve',
-                    colorClass: 'bg-green-200/60 text-green-600',
-                  },
-                  {
-                    icon: RejectIcon,
-                    label: 'Reject',
-                    colorClass: 'bg-red-200/60 text-red-600',
-                  },
-                  {
-                    icon: SendIcon,
-                    label: 'Send Proof',
-                    colorClass: 'bg-blue-200/60 text-blue-600',
-                  },
-                ]}
               />
 
               {/* Card View */}
