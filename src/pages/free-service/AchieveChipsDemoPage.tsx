@@ -135,9 +135,9 @@ export default function AchieveChipsDemoPage() {
         <meta name="description" content="Discover Achieve Chips - premium organic potato chips in Fiery Chili Lime, Herb & Garlic, and Sea Salt & Vinegar. Made with certified organic ingredients and packaged in BPI certified compostable bags." />
         <meta name="keywords" content="organic potato chips, compostable packaging, chili lime chips, herb garlic chips, sea salt vinegar chips, sustainable snacks" />
         <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
-          .font-display { font-family: 'Space Grotesk', sans-serif; }
-          .font-serif { font-family: 'Playfair Display', serif; }
+          @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Fredoka+One&display=swap');
+          .font-display { font-family: 'Poppins', sans-serif; }
+          .font-serif { font-family: 'Fredoka One', cursive; }
         `}</style>
       </Helmet>
 
@@ -300,10 +300,10 @@ export default function AchieveChipsDemoPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {PRODUCTS.map((product) => (
-              <div key={product.id} className="group relative bg-gradient-to-b from-gray-50 to-white rounded-3xl p-8 hover:bg-gray-50 transition-all cursor-pointer border border-gray-200 shadow-sm hover:shadow-lg">
-                <div className="aspect-square mb-6 relative overflow-hidden rounded-2xl">
+              <div key={product.id} className="group relative bg-gradient-to-b from-gray-50 to-white rounded-3xl p-6 hover:bg-gray-50 transition-all cursor-pointer border border-gray-200 shadow-sm hover:shadow-lg">
+                <div className="aspect-[4/5] mb-4 relative overflow-hidden rounded-2xl flex items-center justify-center">
                   <div className="absolute inset-0 opacity-20" style={{ backgroundColor: product.color }} />
-                  <img src={product.image} alt={product.name} className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-500 p-4" />
+                  <img src={product.image} alt={product.name} className="w-[130%] h-auto max-w-none object-contain transform group-hover:scale-110 transition-transform duration-500" />
                 </div>
                 <h3 className="text-2xl font-display font-bold mb-2">{product.name}</h3>
                 <p className="text-gray-500 text-sm mb-4 font-display">{product.tagline}</p>
