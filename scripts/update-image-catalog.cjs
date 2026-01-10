@@ -29,7 +29,7 @@ const IMAGE_EXTENSIONS = ['.webp', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.av
 /**
  * Recursively scan directory for images
  */
-function scanDirectory(dir, basePath = '') {
+function scanDirectory(dir, basePath = 'imgs') {
   const categories = {};
   
   if (!fs.existsSync(dir)) {
@@ -41,7 +41,7 @@ function scanDirectory(dir, basePath = '') {
   
   for (const item of items) {
     const itemPath = path.join(dir, item.name);
-    const relativePath = basePath ? `${basePath}/${item.name}` : item.name;
+    const relativePath = `${basePath}/${item.name}`;
     
     if (item.isDirectory()) {
       // Skip hidden directories
@@ -56,8 +56,8 @@ function scanDirectory(dir, basePath = '') {
       // Only process image files
       if (!IMAGE_EXTENSIONS.includes(ext)) continue;
       
-      // Get category (parent directory path)
-      const category = basePath || 'root';
+      // Get category (parent directory path without 'imgs/' prefix)
+      const category = basePath.replace(/^imgs\/?/, '') || 'root';
       
       if (!categories[category]) {
         categories[category] = {
