@@ -2,7 +2,71 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { ChevronDown, ArrowRight, ArrowLeft, Leaf, Award, MapPin, Check, Recycle, Globe, ShieldCheck, Coffee, ExternalLink, Star, Users } from 'lucide-react'
+import { motion, AnimatePresence, useScroll, useTransform, type Variants } from 'motion/react'
 import { supabase } from '../../lib/supabase'
+
+// ═══════════════════════════════════════════════════════════════════════════
+// MOTION ANIMATION VARIANTS - Reusable animation configurations
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Fade in with upward motion - used for hero elements and general reveals
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }
+  }
+}
+
+// Fade in from left - for alternating sections
+const slideInLeft: Variants = {
+  hidden: { opacity: 0, x: -60 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: { duration: 0.7, ease: 'easeOut' }
+  }
+}
+
+// Fade in from right - for alternating sections
+const slideInRight: Variants = {
+  hidden: { opacity: 0, x: 60 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: { duration: 0.7, ease: 'easeOut' }
+  }
+}
+
+// Stagger container - orchestrates children animations
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1
+    }
+  }
+}
+
+// Scale up animation - for feature cards
+const scaleUp: Variants = {
+  hidden: { opacity: 0, scale: 0.85 },
+  visible: { 
+    opacity: 1, 
+    scale: 1,
+    transition: { duration: 0.5, ease: 'easeOut' }
+  }
+}
+
+// Card hover animation preset
+const cardHover = {
+  scale: 1.03,
+  y: -8,
+  transition: { duration: 0.3, ease: 'easeOut' }
+}
 
 // High-quality product images from demo-site/coffee
 const COFFEE_IMAGES = {
@@ -224,32 +288,26 @@ const Marquee: React.FC<{ text: string; speed?: number }> = ({ text, speed = 30 
   )
 }
 
-// Product Card with hover effects
+// Product Card with Motion hover effects
 const ProductCard: React.FC<{
   product: typeof DEFAULT_CONTENT.products[0]
-}> = ({ product }) => {
-  const [isHovered, setIsHovered] = useState(false)
-
+  index: number
+}> = ({ product, index }) => {
   return (
-    <div
+    <motion.div
       className="group relative cursor-pointer"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      variants={fadeInUp}
+      whileHover={cardHover}
+      style={{ willChange: 'transform' }}
     >
-      <div
-        className={`relative overflow-hidden rounded-2xl bg-cream-100/10 backdrop-blur-sm border-2 transition-all duration-300 ${
-          isHovered
-            ? 'border-white/40 scale-[1.02] shadow-2xl shadow-white/10'
-            : 'border-white/20'
-        }`}
-      >
+      <div className="relative overflow-hidden rounded-2xl bg-cream-100/10 backdrop-blur-sm border-2 border-white/20 hover:border-white/40 transition-colors duration-300">
         <div className="aspect-square overflow-hidden">
-          <img
+          <motion.img
             src={product.image}
             alt={product.name}
-            className={`w-full h-full object-cover transition-transform duration-500 ${
-              isHovered ? 'scale-110' : 'scale-100'
-            }`}
+            className="w-full h-full object-cover"
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.5 }}
           />
         </div>
         <div className="p-6 text-white">
@@ -262,16 +320,15 @@ const ProductCard: React.FC<{
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
-// Collection Card with image carousel
+// Collection Card with Motion animations
 const CollectionCard: React.FC<{
   collection: typeof DEFAULT_CONTENT.collections[0]
   isReversed?: boolean
 }> = ({ collection, isReversed = false }) => {
-  const { ref, isVisible } = useScrollReveal()
   const [currentImage, setCurrentImage] = useState(0)
 
   useEffect(() => {
@@ -282,46 +339,60 @@ const CollectionCard: React.FC<{
   }, [collection.images.length])
 
   return (
-    <div
-      ref={ref}
-      className={`grid md:grid-cols-2 gap-8 items-center transition-all duration-700 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-      }`}
+    <motion.div
+      className="grid md:grid-cols-2 gap-8 items-center"
+      variants={isReversed ? slideInRight : slideInLeft}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: '-100px' }}
     >
       <div className={`${isReversed ? 'md:order-2' : ''}`}>
         <div className="flex gap-2 overflow-hidden">
           {collection.images.map((img, i) => (
-            <div
+            <motion.div
               key={i}
-              className={`w-1/3 aspect-[3/4] rounded-xl overflow-hidden transition-all duration-500 ${
-                i === currentImage ? 'scale-105' : 'scale-100 opacity-70'
-              }`}
+              className="w-1/3 aspect-[3/4] rounded-xl overflow-hidden"
+              animate={{
+                scale: i === currentImage ? 1.05 : 1,
+                opacity: i === currentImage ? 1 : 0.7
+              }}
+              transition={{ duration: 0.5 }}
             >
               <img
                 src={img}
                 alt={`${collection.name} ${i + 1}`}
                 className="w-full h-full object-cover"
               />
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-      <div className={`${isReversed ? 'md:order-1' : ''} text-white`}>
+      <motion.div 
+        className={`${isReversed ? 'md:order-1' : ''} text-white`}
+        variants={isReversed ? slideInLeft : slideInRight}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
         <span className="text-xs tracking-[0.4em] text-white/50 mb-2 block">
           {collection.logo}
         </span>
         <h3 className="text-3xl md:text-4xl font-bold mb-4">{collection.name}</h3>
         <p className="text-white/70 leading-relaxed mb-6">{collection.description}</p>
         <div className="flex gap-4">
-          <button className="px-6 py-3 border border-white/30 rounded-full text-sm uppercase tracking-wider hover:bg-white hover:text-black transition-all">
+          <motion.button 
+            className="px-6 py-3 border border-white/30 rounded-full text-sm uppercase tracking-wider hover:bg-white hover:text-black transition-all"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+          >
             Shop
-          </button>
+          </motion.button>
           <button className="px-6 py-3 text-sm uppercase tracking-wider text-white/70 hover:text-white transition-all flex items-center gap-2">
             Learn More <ArrowRight className="w-4 h-4" />
           </button>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   )
 }
 
@@ -465,16 +536,32 @@ const AchieveCoffeeDemoPage: React.FC = () => {
 
           {/* Hero Content */}
           <div className="relative z-10 text-center text-white px-4">
-            <HeroText words={content.brand.taglineWords} />
-            <p className="mt-8 text-lg md:text-xl text-white/70 max-w-xl mx-auto leading-relaxed">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            >
+              <HeroText words={content.brand.taglineWords} />
+            </motion.div>
+            <motion.p 
+              className="mt-8 text-lg md:text-xl text-white/70 max-w-xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+            >
               {content.brand.description}
-            </p>
-            <a
+            </motion.p>
+            <motion.a
               href={content.brand.ctaLink}
               className="inline-flex items-center gap-2 mt-8 px-8 py-4 border-2 border-white/50 rounded-full text-sm uppercase tracking-wider hover:bg-white hover:text-black transition-all duration-300"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
             >
               {content.brand.ctaText}
-            </a>
+            </motion.a>
           </div>
 
           {/* Scroll indicator */}
@@ -491,11 +578,17 @@ const AchieveCoffeeDemoPage: React.FC = () => {
                 A SPECIALTY COFFEE COMPANY
               </span>
             </div>
-            <div className="grid md:grid-cols-3 gap-8">
-              {content.products.map((product) => (
-                <ProductCard key={product.id} product={product} />
+            <motion.div 
+              className="grid md:grid-cols-3 gap-8"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-50px' }}
+            >
+              {content.products.map((product, index) => (
+                <ProductCard key={product.id} product={product} index={index} />
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -550,32 +643,53 @@ const AchieveCoffeeDemoPage: React.FC = () => {
 
         {/* Subscription Section */}
         <section id="subscribe" className="py-24 px-6 bg-neutral-900">
-          <div className="max-w-4xl mx-auto text-center">
+          <motion.div 
+            className="max-w-4xl mx-auto text-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
             <h2 className="text-4xl md:text-5xl font-bold mb-8">
               {content.subscription.title}
             </h2>
-            <div className="flex flex-col md:flex-row justify-center gap-8 mb-12">
+            <motion.div 
+              className="flex flex-col md:flex-row justify-center gap-8 mb-12"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
               {content.subscription.steps.map((step, i) => (
-                <div key={i} className="flex items-center gap-4">
+                <motion.div key={i} className="flex items-center gap-4" variants={fadeInUp}>
                   <span className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-sm">
                     {i + 1}
                   </span>
                   <span className="text-white/70">{step}</span>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
             <p className="text-white/60 mb-8">{content.subscription.discount}</p>
-            <button className="px-8 py-4 bg-white text-black font-medium rounded-full hover:bg-white/90 transition">
+            <motion.button 
+              className="px-8 py-4 bg-white text-black font-medium rounded-full hover:bg-white/90 transition"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+            >
               Subscribe Now
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         </section>
 
-        {/* Sustainable Packaging Section */}
+        {/* Sustainable Packaging Section - with slide animations */}
         <section className="py-32 px-6 bg-gradient-to-b from-neutral-900 to-[#0a1a1a]">
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div>
+              <motion.div
+                variants={slideInLeft}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-100px' }}
+              >
                 <div className="flex items-center gap-3 mb-6">
                   <span className="h-[2px] w-12 bg-green-500"></span>
                   <span className="text-green-500 font-bold tracking-[0.3em] uppercase text-xs">Our Commitment</span>
@@ -590,8 +704,14 @@ const AchieveCoffeeDemoPage: React.FC = () => {
                   naturally within 180 days.
                 </p>
                 
-                <div className="space-y-4 mb-10">
-                  <div className="flex items-start gap-4">
+                <motion.div 
+                  className="space-y-4 mb-10"
+                  variants={staggerContainer}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                >
+                  <motion.div className="flex items-start gap-4" variants={fadeInUp}>
                     <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
                       <Check className="w-5 h-5 text-green-500" />
                     </div>
@@ -599,8 +719,8 @@ const AchieveCoffeeDemoPage: React.FC = () => {
                       <h4 className="font-bold text-white">BPI Certified Compostable</h4>
                       <p className="text-white/50 text-sm">Meets ASTM D6400 standards for industrial composting</p>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-4">
+                  </motion.div>
+                  <motion.div className="flex items-start gap-4" variants={fadeInUp}>
                     <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
                       <Check className="w-5 h-5 text-green-500" />
                     </div>
@@ -608,8 +728,8 @@ const AchieveCoffeeDemoPage: React.FC = () => {
                       <h4 className="font-bold text-white">Degassing Valve Compatible</h4>
                       <p className="text-white/50 text-sm">One-way valve releases CO2 while keeping oxygen out</p>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-4">
+                  </motion.div>
+                  <motion.div className="flex items-start gap-4" variants={fadeInUp}>
                     <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
                       <Check className="w-5 h-5 text-green-500" />
                     </div>
@@ -617,8 +737,8 @@ const AchieveCoffeeDemoPage: React.FC = () => {
                       <h4 className="font-bold text-white">Premium Kraft Finish</h4>
                       <p className="text-white/50 text-sm">Natural aesthetic that communicates quality and sustainability</p>
                     </div>
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
 
                 {/* Link to Achieve Pack */}
                 <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
@@ -640,54 +760,94 @@ const AchieveCoffeeDemoPage: React.FC = () => {
                     </Link>
                   </div>
                 </div>
-              </div>
+              </motion.div>
               
-              <div className="relative">
+              <motion.div 
+                className="relative"
+                variants={slideInRight}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-100px' }}
+              >
                 <img
                   src={COFFEE_IMAGES.detail8}
                   alt="Compostable Coffee Packaging Materials"
                   className="w-full rounded-3xl shadow-2xl"
                 />
-                <div className="absolute -bottom-6 -right-6 bg-green-500 text-black p-6 rounded-2xl shadow-xl">
+                <motion.div 
+                  className="absolute -bottom-6 -right-6 bg-green-500 text-black p-6 rounded-2xl shadow-xl"
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4, type: 'spring', stiffness: 200 }}
+                >
                   <div className="text-3xl font-black">180</div>
                   <div className="text-xs font-bold uppercase tracking-wider">Days to Compost</div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </div>
           </div>
         </section>
 
-        {/* Quality & Sourcing Section */}
+        {/* Quality & Sourcing Section - with stagger animations */}
         <section className="py-24 px-6 bg-neutral-950">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
+            <motion.div 
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
               <h2 className="text-4xl font-bold mb-4">Quality at Every Step</h2>
               <p className="text-white/50 max-w-2xl mx-auto">
                 From farm to cup, we maintain rigorous quality standards and full traceability.
               </p>
-            </div>
-            <div className="grid md:grid-cols-4 gap-8">
-              <div className="bg-white/5 rounded-2xl p-8 text-center border border-white/10">
+            </motion.div>
+            <motion.div 
+              className="grid md:grid-cols-4 gap-8"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-50px' }}
+            >
+              <motion.div 
+                className="bg-white/5 rounded-2xl p-8 text-center border border-white/10"
+                variants={scaleUp}
+                whileHover={cardHover}
+              >
                 <Globe className="w-12 h-12 text-amber-500 mx-auto mb-4" />
                 <h3 className="font-bold mb-2">Direct Trade</h3>
                 <p className="text-white/50 text-sm">Sourced directly from farmers in Ethiopia, Colombia, and Costa Rica</p>
-              </div>
-              <div className="bg-white/5 rounded-2xl p-8 text-center border border-white/10">
+              </motion.div>
+              <motion.div 
+                className="bg-white/5 rounded-2xl p-8 text-center border border-white/10"
+                variants={scaleUp}
+                whileHover={cardHover}
+              >
                 <Award className="w-12 h-12 text-amber-500 mx-auto mb-4" />
                 <h3 className="font-bold mb-2">SCA Certified</h3>
                 <p className="text-white/50 text-sm">All coffees scored 85+ by certified Q graders</p>
-              </div>
-              <div className="bg-white/5 rounded-2xl p-8 text-center border border-white/10">
+              </motion.div>
+              <motion.div 
+                className="bg-white/5 rounded-2xl p-8 text-center border border-white/10"
+                variants={scaleUp}
+                whileHover={cardHover}
+              >
                 <Recycle className="w-12 h-12 text-green-500 mx-auto mb-4" />
                 <h3 className="font-bold mb-2">Eco Packaging</h3>
                 <p className="text-white/50 text-sm">BPI certified compostable pouches</p>
-              </div>
-              <div className="bg-white/5 rounded-2xl p-8 text-center border border-white/10">
+              </motion.div>
+              <motion.div 
+                className="bg-white/5 rounded-2xl p-8 text-center border border-white/10"
+                variants={scaleUp}
+                whileHover={cardHover}
+              >
                 <ShieldCheck className="w-12 h-12 text-amber-500 mx-auto mb-4" />
                 <h3 className="font-bold mb-2">Freshness Sealed</h3>
                 <p className="text-white/50 text-sm">Roasted to order with degassing valve technology</p>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
 

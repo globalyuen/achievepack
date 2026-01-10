@@ -1,8 +1,81 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ShoppingCart, Menu, X, Leaf, Award, MapPin, ArrowRight, ArrowLeft, Check, Facebook, Instagram, Twitter, Phone, Mail, ShieldCheck, Recycle, Globe, ExternalLink, Star, ChevronDown } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useInView, useScroll, useTransform, type Variants } from 'motion/react';
+
+// ═══════════════════════════════════════════════════════════════════════════
+// MOTION ANIMATION VARIANTS - Reusable animation configurations
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Fade in with upward motion - used for hero elements
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }
+  }
+};
+
+// Fade in from left - for alternating sections
+const slideInLeft: Variants = {
+  hidden: { opacity: 0, x: -60 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: { duration: 0.7, ease: 'easeOut' }
+  }
+};
+
+// Fade in from right - for alternating sections
+const slideInRight: Variants = {
+  hidden: { opacity: 0, x: 60 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: { duration: 0.7, ease: 'easeOut' }
+  }
+};
+
+// Stagger container - orchestrates children animations
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1
+    }
+  }
+};
+
+// Scale up animation - for feature cards
+const scaleUp: Variants = {
+  hidden: { opacity: 0, scale: 0.85 },
+  visible: { 
+    opacity: 1, 
+    scale: 1,
+    transition: { duration: 0.5, ease: 'easeOut' }
+  }
+};
+
+// Card hover animation preset
+const cardHover = {
+  scale: 1.03,
+  y: -8,
+  transition: { duration: 0.3, ease: 'easeOut' }
+};
+
+// Stat counter animation
+const statVariant: Variants = {
+  hidden: { opacity: 0, scale: 0.5 },
+  visible: { 
+    opacity: 1, 
+    scale: 1,
+    transition: { type: 'spring', stiffness: 200, damping: 15 }
+  }
+};
 
 /**
  * AI-Enhanced Image Metadata for Maxi Foods
@@ -167,6 +240,17 @@ const SEO_KEYWORDS = [
     'compostable packaging', 'Alberta food', 'non-GMO', 'handcrafted chips',
     'authentic Mexican', 'Canadian made', 'BPI certified', 'sustainable snacks'
 ];
+
+// Parallax hook for scroll-based transforms
+const useParallax = (speed: number = 0.3) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start']
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [0, speed * 200]);
+  return { ref, y };
+};
 
 // Product Catalog with AI-enhanced data
 const PRODUCTS = [
@@ -426,26 +510,32 @@ export default function MaxiFoodsDemoPage() {
                 </div>
             </section>
 
-            {/* Philosophy Section */}
+            {/* Philosophy Section - with stagger animation */}
             <section className="py-24 bg-[#080808]">
                 <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-                    <div className="grid md:grid-cols-3 gap-16 border-y border-white/5 py-20">
-                        <div className="flex flex-col items-center text-center gap-4">
+                    <motion.div 
+                        className="grid md:grid-cols-3 gap-16 border-y border-white/5 py-20"
+                        variants={staggerContainer}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: '-100px' }}
+                    >
+                        <motion.div className="flex flex-col items-center text-center gap-4" variants={scaleUp}>
                             <div className="w-16 h-16 rounded-full bg-[#26c6da]/10 flex items-center justify-center"><Leaf className="w-8 h-8 text-[#26c6da]" /></div>
                             <span className="text-xs font-black tracking-[0.2em] uppercase">ALL-NATURAL INGREDIENTS</span>
                             <p className="text-white/50 text-sm">Non-GMO organic corn flour sourced from trusted Canadian farms</p>
-                        </div>
-                        <div className="flex flex-col items-center text-center gap-4">
+                        </motion.div>
+                        <motion.div className="flex flex-col items-center text-center gap-4" variants={scaleUp}>
                             <div className="w-16 h-16 rounded-full bg-[#26c6da]/10 flex items-center justify-center"><ShieldCheck className="w-8 h-8 text-[#26c6da]" /></div>
                             <span className="text-xs font-black tracking-[0.2em] uppercase">NO PRESERVATIVES</span>
                             <p className="text-white/50 text-sm">Clean label products with zero artificial additives or colorants</p>
-                        </div>
-                        <div className="flex flex-col items-center text-center gap-4">
+                        </motion.div>
+                        <motion.div className="flex flex-col items-center text-center gap-4" variants={scaleUp}>
                             <div className="w-16 h-16 rounded-full bg-[#26c6da]/10 flex items-center justify-center"><Recycle className="w-8 h-8 text-[#26c6da]" /></div>
                             <span className="text-xs font-black tracking-[0.2em] uppercase">COMPOSTABLE PACKAGING</span>
                             <p className="text-white/50 text-sm">Certified compostable pouches that return to earth naturally</p>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </section>
 
@@ -515,31 +605,42 @@ export default function MaxiFoodsDemoPage() {
                 </div>
             </section>
 
-            {/* Sustainability Section - Compostable Packaging Focus */}
+            {/* Sustainability Section - Compostable Packaging Focus with slide animations */}
             <section className="py-32 bg-gradient-to-b from-[#050505] to-[#0a1a1a]">
                 <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
-                        <div>
+                        <motion.div
+                            variants={slideInLeft}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: '-100px' }}
+                        >
                             <div className="flex items-center gap-3 mb-6">
                                 <span className="h-[2px] w-12 bg-green-500"></span>
                                 <span className="text-green-500 font-black tracking-[0.3em] uppercase text-xs">Sustainability Commitment</span>
                             </div>
                             <h2 className="text-5xl md:text-6xl font-display font-extrabold mb-8 tracking-tighter">COMPOSTABLE<br/><span className="text-green-500">PACKAGING</span></h2>
                             <p className="text-xl text-white/60 mb-8 leading-relaxed">We believe great food should come in packaging that respects our planet. Our certified compostable pouches are made from plant-based materials and break down naturally within 180 days in commercial composting facilities.</p>
-                            <div className="space-y-4 mb-10">
-                                <div className="flex items-start gap-4">
+                            <motion.div 
+                                className="space-y-4 mb-10"
+                                variants={staggerContainer}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                            >
+                                <motion.div className="flex items-start gap-4" variants={fadeInUp}>
                                     <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0"><Check className="w-5 h-5 text-green-500" /></div>
                                     <div><h4 className="font-bold text-white">BPI Certified Compostable</h4><p className="text-white/50 text-sm">Meets ASTM D6400 standards for industrial composting</p></div>
-                                </div>
-                                <div className="flex items-start gap-4">
+                                </motion.div>
+                                <motion.div className="flex items-start gap-4" variants={fadeInUp}>
                                     <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0"><Check className="w-5 h-5 text-green-500" /></div>
                                     <div><h4 className="font-bold text-white">Plant-Based Materials</h4><p className="text-white/50 text-sm">Made from renewable resources including PLA and kraft paper</p></div>
-                                </div>
-                                <div className="flex items-start gap-4">
+                                </motion.div>
+                                <motion.div className="flex items-start gap-4" variants={fadeInUp}>
                                     <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0"><Check className="w-5 h-5 text-green-500" /></div>
                                     <div><h4 className="font-bold text-white">Zero Plastic Waste</h4><p className="text-white/50 text-sm">Returns to earth as nutrient-rich compost, not microplastics</p></div>
-                                </div>
-                            </div>
+                                </motion.div>
+                            </motion.div>
                             <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
                                 <p className="text-white/70 text-sm mb-4">Our packaging is proudly supplied by Achieve Pack, specialists in sustainable food packaging solutions.</p>
                                 <div className="flex flex-wrap gap-3">
@@ -547,26 +648,55 @@ export default function MaxiFoodsDemoPage() {
                                     <Link to="/store" className="inline-flex items-center gap-2 text-sm font-semibold text-[#26c6da] hover:text-white transition">Shop Eco Packaging <ExternalLink className="w-4 h-4" /></Link>
                                 </div>
                             </div>
-                        </div>
-                        <div className="relative">
+                        </motion.div>
+                        <motion.div 
+                            className="relative"
+                            variants={slideInRight}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: '-100px' }}
+                        >
                             <img src={MAXI_IMAGES.ecoPackaging.src} alt={MAXI_IMAGES.ecoPackaging.alt} className="w-full rounded-3xl shadow-2xl" />
-                            <div className="absolute -bottom-6 -right-6 bg-green-500 text-black p-6 rounded-2xl shadow-xl">
+                            <motion.div 
+                                className="absolute -bottom-6 -right-6 bg-green-500 text-black p-6 rounded-2xl shadow-xl"
+                                initial={{ scale: 0, opacity: 0 }}
+                                whileInView={{ scale: 1, opacity: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.4, type: 'spring', stiffness: 200 }}
+                            >
                                 <div className="text-3xl font-black">180</div>
                                 <div className="text-xs font-bold uppercase tracking-wider">Days to Compost</div>
-                            </div>
-                        </div>
+                            </motion.div>
+                        </motion.div>
                     </div>
                 </div>
             </section>
 
-            {/* Our Story Section */}
+            {/* Our Story Section - with layout animations */}
             <section className="py-40 bg-white text-black overflow-hidden relative">
                 <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
                     <div className="grid lg:grid-cols-2 gap-24 items-center">
-                        <div className="relative">
-                            <img src={MAXI_IMAGES.organicCertified.src} alt={MAXI_IMAGES.organicCertified.alt} className="w-full rounded-3xl shadow-2xl" />
-                        </div>
-                        <div>
+                        <motion.div 
+                            className="relative"
+                            variants={slideInLeft}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: '-100px' }}
+                        >
+                            <motion.img 
+                                src={MAXI_IMAGES.organicCertified.src} 
+                                alt={MAXI_IMAGES.organicCertified.alt} 
+                                className="w-full rounded-3xl shadow-2xl"
+                                whileHover={{ scale: 1.02 }}
+                                transition={{ duration: 0.4 }}
+                            />
+                        </motion.div>
+                        <motion.div
+                            variants={slideInRight}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: '-100px' }}
+                        >
                             <div className="flex items-center gap-3 mb-6">
                                 <span className="h-[2px] w-12 bg-black"></span>
                                 <span className="text-black/50 font-black tracking-[0.3em] uppercase text-xs">Our Story</span>
@@ -577,12 +707,27 @@ export default function MaxiFoodsDemoPage() {
                                 <p>Founded by <span className="font-bold text-black">Vladimir Gonzalez</span>, a chemical engineer from Mexico who relocated to Canada in 2002. Vladimir's professional background combined with his passion for his roots led to the creation of Maxi Foods.</p>
                                 <p>We are committed to quality, choosing only the best ingredients. Every tortilla, every chip, and every jar of salsa is handcrafted in a professional gluten-free facility in Airdrie, Alberta.</p>
                             </div>
-                            <div className="mt-10 grid grid-cols-3 gap-4">
-                                <div className="text-center p-4 bg-black/5 rounded-xl"><div className="text-3xl font-black text-black">20+</div><div className="text-xs text-black/50 uppercase tracking-wider">Years Experience</div></div>
-                                <div className="text-center p-4 bg-black/5 rounded-xl"><div className="text-3xl font-black text-black">100%</div><div className="text-xs text-black/50 uppercase tracking-wider">Gluten-Free</div></div>
-                                <div className="text-center p-4 bg-black/5 rounded-xl"><div className="text-3xl font-black text-black">0</div><div className="text-xs text-black/50 uppercase tracking-wider">Preservatives</div></div>
-                            </div>
-                        </div>
+                            <motion.div 
+                                className="mt-10 grid grid-cols-3 gap-4"
+                                variants={staggerContainer}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                            >
+                                <motion.div className="text-center p-4 bg-black/5 rounded-xl" variants={statVariant}>
+                                    <div className="text-3xl font-black text-black">20+</div>
+                                    <div className="text-xs text-black/50 uppercase tracking-wider">Years Experience</div>
+                                </motion.div>
+                                <motion.div className="text-center p-4 bg-black/5 rounded-xl" variants={statVariant}>
+                                    <div className="text-3xl font-black text-black">100%</div>
+                                    <div className="text-xs text-black/50 uppercase tracking-wider">Gluten-Free</div>
+                                </motion.div>
+                                <motion.div className="text-center p-4 bg-black/5 rounded-xl" variants={statVariant}>
+                                    <div className="text-3xl font-black text-black">0</div>
+                                    <div className="text-xs text-black/50 uppercase tracking-wider">Preservatives</div>
+                                </motion.div>
+                            </motion.div>
+                        </motion.div>
                     </div>
                 </div>
             </section>
@@ -672,35 +817,63 @@ export default function MaxiFoodsDemoPage() {
                 </div>
             </section>
 
-            {/* Quality Certifications */}
+            {/* Quality Certifications - with stagger animation */}
             <section className="py-24 bg-[#080808]">
                 <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-                    <div className="text-center mb-16">
+                    <motion.div 
+                        className="text-center mb-16"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
                         <h2 className="text-4xl font-display font-extrabold mb-4">CERTIFIED QUALITY</h2>
                         <p className="text-white/50 max-w-2xl mx-auto">Our products meet the highest standards for organic certification, food safety, and sustainable packaging.</p>
-                    </div>
-                    <div className="grid md:grid-cols-4 gap-8">
-                        <div className="bg-white/5 rounded-2xl p-8 text-center border border-white/10">
+                    </motion.div>
+                    <motion.div 
+                        className="grid md:grid-cols-4 gap-8"
+                        variants={staggerContainer}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: '-50px' }}
+                    >
+                        <motion.div 
+                            className="bg-white/5 rounded-2xl p-8 text-center border border-white/10"
+                            variants={scaleUp}
+                            whileHover={cardHover}
+                        >
                             <Award className="w-12 h-12 text-[#26c6da] mx-auto mb-4" />
                             <h3 className="font-bold mb-2">Certified Organic</h3>
                             <p className="text-white/50 text-sm">Canada Organic certified by Pro-Cert</p>
-                        </div>
-                        <div className="bg-white/5 rounded-2xl p-8 text-center border border-white/10">
+                        </motion.div>
+                        <motion.div 
+                            className="bg-white/5 rounded-2xl p-8 text-center border border-white/10"
+                            variants={scaleUp}
+                            whileHover={cardHover}
+                        >
                             <ShieldCheck className="w-12 h-12 text-[#26c6da] mx-auto mb-4" />
                             <h3 className="font-bold mb-2">Gluten-Free Facility</h3>
                             <p className="text-white/50 text-sm">Dedicated gluten-free production</p>
-                        </div>
-                        <div className="bg-white/5 rounded-2xl p-8 text-center border border-white/10">
+                        </motion.div>
+                        <motion.div 
+                            className="bg-white/5 rounded-2xl p-8 text-center border border-white/10"
+                            variants={scaleUp}
+                            whileHover={cardHover}
+                        >
                             <Recycle className="w-12 h-12 text-green-500 mx-auto mb-4" />
                             <h3 className="font-bold mb-2">BPI Certified</h3>
                             <p className="text-white/50 text-sm">Compostable packaging certification</p>
-                        </div>
-                        <div className="bg-white/5 rounded-2xl p-8 text-center border border-white/10">
+                        </motion.div>
+                        <motion.div 
+                            className="bg-white/5 rounded-2xl p-8 text-center border border-white/10"
+                            variants={scaleUp}
+                            whileHover={cardHover}
+                        >
                             <Globe className="w-12 h-12 text-[#26c6da] mx-auto mb-4" />
                             <h3 className="font-bold mb-2">Non-GMO Project</h3>
                             <p className="text-white/50 text-sm">Verified non-GMO ingredients</p>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </section>
 
