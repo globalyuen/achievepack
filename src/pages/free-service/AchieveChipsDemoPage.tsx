@@ -119,7 +119,7 @@ const CHIPS_IMAGES = {
   // Product Photos - Chili Lime (Primary Flavor)
   chiliLime: {
     product1: {
-      src: '/imgs/demo-site/chips/png a_achievepack_chili_lime_chips_6256919 (1).webp',
+      src: '/imgs/demo-site/chips/png%20a_achievepack_chili_lime_chips_6256919%20(1).webp',
       alt: 'Fiery Chili Lime tortilla chips transparent PNG - coral compostable bag cutout for flexible design placement',
       title: 'Fiery Chili Lime Chips - Transparent PNG',
       type: 'cutout'
@@ -159,7 +159,7 @@ const CHIPS_IMAGES = {
   // Product Photos - Herb Garlic
   herbGarlic: {
     product1: {
-      src: '/imgs/demo-site/chips/png a_achievepack_herb_garlic_chips_4271307 (1).webp',
+      src: '/imgs/demo-site/chips/png%20a_achievepack_herb_garlic_chips_4271307%20(1).webp',
       alt: 'Herb Garlic tortilla chips transparent PNG - sage green compostable bag cutout for flexible design placement',
       title: 'Herb & Garlic Chips - Transparent PNG',
       type: 'cutout'
@@ -187,7 +187,7 @@ const CHIPS_IMAGES = {
   // Product Photos - Sea Salt & Vinegar
   seaSaltVinegar: {
     product: {
-      src: '/imgs/demo-site/chips/png a_achievepack_sea salt_chips_6256919 (2).webp',
+      src: '/imgs/demo-site/chips/png%20a_achievepack_sea%20salt_chips_6256919%20(2).webp',
       alt: 'Sea Salt Vinegar tortilla chips transparent PNG - ocean blue compostable bag cutout for flexible design placement',
       title: 'Sea Salt & Vinegar Chips - Transparent PNG',
       type: 'cutout'
