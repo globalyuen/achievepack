@@ -462,7 +462,34 @@ Respond ONLY with valid JSON, no other text.`
           localStorage.setItem(ALT_TEXTS_KEY, JSON.stringify(newAltTexts))
           console.log('Auto-saved to localStorage')
           
-          setUnsavedChanges(true)
+          // Auto-save to Supabase immediately
+          try {
+            const { error } = await supabase
+              .from('image_descriptions')
+              .upsert({
+                path: imagePath,
+                alt_text: parsed.alt || null,
+                title: parsed.title || null,
+                description: parsed.description || null,
+                keywords: parsed.keywords || null,
+                category: parsed.category || null,
+                type: parsed.type || null,
+                colors: parsed.colors || null,
+                seo_priority: parsed.seo_priority || null,
+                updated_at: new Date().toISOString()
+              }, { onConflict: 'path' })
+            
+            if (error) {
+              console.error('Failed to auto-save to Supabase:', error)
+            } else {
+              console.log('Auto-saved to Supabase:', imagePath)
+              setCloudSyncStatus('synced')
+            }
+          } catch (e) {
+            console.error('Supabase auto-save error:', e)
+          }
+          
+          setUnsavedChanges(false)
         } else {
           console.error('No valid JSON found in response:', content)
           alert('Failed to parse xAI response. Check console.')
