@@ -359,18 +359,33 @@ export default function ImageCatalogPage() {
 
   // xAI Vision Analysis function
   const analyzeImageWithXAI = async (imagePath: string) => {
+    const apiKey = import.meta.env.VITE_XAI_API_KEY
+    
+    if (!apiKey) {
+      alert('xAI API Key not configured. Please add VITE_XAI_API_KEY to your .env file.')
+      return
+    }
+    
     setIsAnalyzing(true)
     setAnalyzingImage(imagePath)
     
     try {
-      // Get the full URL for the image
-      const imageUrl = `${window.location.origin}${imagePath}`
+      // Convert image to base64
+      const imageResponse = await fetch(imagePath)
+      const blob = await imageResponse.blob()
+      const base64 = await new Promise<string>((resolve) => {
+        const reader = new FileReader()
+        reader.onloadend = () => resolve(reader.result as string)
+        reader.readAsDataURL(blob)
+      })
+      
+      console.log('Analyzing image:', imagePath)
       
       const response = await fetch('https://api.x.ai/v1/chat/completions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${import.meta.env.VITE_XAI_API_KEY || ''}`
+          'Authorization': `Bearer ${apiKey}`
         },
         body: JSON.stringify({
           model: 'grok-2-vision-1212',
@@ -380,7 +395,7 @@ export default function ImageCatalogPage() {
               content: [
                 {
                   type: 'image_url',
-                  image_url: { url: imageUrl }
+                  image_url: { url: base64 }
                 },
                 {
                   type: 'text',
@@ -411,10 +426,14 @@ Respond ONLY with valid JSON, no other text.`
       })
       
       if (!response.ok) {
-        throw new Error(`API error: ${response.status}`)
+        const errorText = await response.text()
+        console.error('API Response:', response.status, errorText)
+        throw new Error(`API error: ${response.status} - ${errorText}`)
       }
       
       const data = await response.json()
+      console.log('xAI Response:', data)
+      
       const content = data.choices?.[0]?.message?.content
       
       if (content) {
@@ -422,6 +441,7 @@ Respond ONLY with valid JSON, no other text.`
         const jsonMatch = content.match(/\{[\s\S]*\}/)
         if (jsonMatch) {
           const parsed = JSON.parse(jsonMatch[0])
+          console.log('Parsed JSON:', parsed)
           
           // Update AI descriptions
           setAiDescriptions(prev => ({
@@ -438,11 +458,17 @@ Respond ONLY with valid JSON, no other text.`
           }
           
           setUnsavedChanges(true)
+        } else {
+          console.error('No valid JSON found in response:', content)
+          alert('Failed to parse xAI response. Check console.')
         }
+      } else {
+        console.error('No content in response:', data)
+        alert('No content in xAI response. Check console.')
       }
     } catch (error) {
       console.error('xAI analysis failed:', error)
-      alert('Failed to analyze image. Check console for details.')
+      alert(`Failed to analyze image: ${error instanceof Error ? error.message : 'Unknown error'}`)
     } finally {
       setIsAnalyzing(false)
       setAnalyzingImage(null)
