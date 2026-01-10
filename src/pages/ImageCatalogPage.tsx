@@ -507,23 +507,35 @@ Respond ONLY with valid JSON, no other text.`
     }
   }
 
-  // Analyze all images without JSON (newest first)
+  // Analyze all images without JSON (newest first) - Optimized for INP
   const analyzeAllMissingJson = async () => {
+    // Set loading state immediately for responsive UI
+    setIsAnalyzing(true)
+    
+    // Use setTimeout to yield to the main thread, preventing UI blocking
+    await new Promise(resolve => setTimeout(resolve, 0))
+    
     const imagesWithoutJson = allImages.filter(img => !aiDescriptions[img.path])
     
     if (imagesWithoutJson.length === 0) {
+      setIsAnalyzing(false)
       alert('All images already have JSON descriptions!')
       return
     }
     
+    setIsAnalyzing(false) // Reset before confirm dialog
     const confirmAnalyze = confirm(`Analyze ${imagesWithoutJson.length} images without JSON? This will use xAI API credits.`)
     if (!confirmAnalyze) return
     
+    setIsAnalyzing(true)
+    
     for (const img of imagesWithoutJson) {
       await analyzeImageWithXAI(img.path)
-      // Small delay between requests
+      // Yield to main thread between requests for smooth UI
       await new Promise(resolve => setTimeout(resolve, 1000))
     }
+    
+    setIsAnalyzing(false)
   }
 
   // Show loading state
