@@ -10,6 +10,7 @@ import {
 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, Order, Quote, Document, ArtworkFile, SavedCartItem, ArtworkComment, CustomerActivityLog } from '../lib/supabase'
+import { analyzeArtworkWithXAI } from '../lib/artworkAnalysis'
 import { useTranslation } from 'react-i18next'
 import { useStore } from '../store/StoreContext'
 import DashboardFilesNav from '../components/ui/files-nav'
@@ -559,7 +560,7 @@ const DashboardPage: React.FC = () => {
         const fileUrl = urlData.publicUrl
         
         // Save record directly to Supabase (RLS policy allows owner to insert with user_id = auth.uid())
-        const { error: insertError } = await supabase
+        const { data: insertedData, error: insertError } = await supabase
           .from('artwork_files')
           .insert({
             user_id: user?.id,
@@ -570,10 +571,16 @@ const DashboardPage: React.FC = () => {
             file_size: file.size,
             status: 'pending_review'
           })
+          .select()
         
         if (insertError) {
           console.error('Database insert error:', insertError)
           setUploadError(`File uploaded but record save failed: ${insertError.message}`)
+        } else if (insertedData && insertedData[0]) {
+          // Auto-analyze artwork with xAI (fire and forget - don't block UI)
+          analyzeArtworkWithXAI(fileUrl, insertedData[0].id).catch(err => {
+            console.log('Background xAI analysis:', err)
+          })
         }
         
         uploadedFiles.push(file.name)

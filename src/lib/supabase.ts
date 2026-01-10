@@ -133,6 +133,22 @@ export type ArtworkFile = {
   approval_notes?: string
   revision_count?: number
   deleted_at?: string  // Soft delete for bin/trash
+  
+  // AI Analysis (xAI Vision) - Admin only
+  ai_analysis?: {
+    title?: string
+    description?: string
+    alt?: string
+    keywords?: string[]
+    category?: string
+    type?: string
+    colors?: string[]
+    content_detected?: string[]
+    quality_score?: string
+    recommendations?: string[]
+    analyzed_at?: string
+  }
+  customer_email?: string  // For reliable matching
 }
 
 // Artwork Comment for customer-admin exchange (Thread System)

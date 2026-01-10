@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react'
 import { useNavigate, Link, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, Quote, ArtworkFile, Profile, ArtworkComment, CRMInquiry } from '../lib/supabase'
+import { analyzeArtworkWithXAI, getAISearchableText } from '../lib/artworkAnalysis'
 import { 
   Home, FileCheck, Image as ImageIcon, LogOut, Eye, Trash2, ArrowLeft, 
   RefreshCw, CheckCircle, Clock, AlertCircle, MessageSquare, X, 
@@ -872,10 +873,17 @@ const AdminManagementPage: React.FC = () => {
             : `Uploaded by admin for: ${contactName} (${contactEmail})`
         }
         
-        const { error: insertError } = await supabase.from('artwork_files').insert(insertData)
+        const { data: insertedData, error: insertError } = await supabase.from('artwork_files').insert(insertData).select()
         
         if (insertError) {
           throw new Error(insertError.message)
+        }
+        
+        // Auto-analyze artwork with xAI (fire and forget - don't block UI)
+        if (insertedData && insertedData[0]) {
+          analyzeArtworkWithXAI(fileUrl, insertedData[0].id).catch(err => {
+            console.log('Background xAI analysis:', err)
+          })
         }
       }
       
@@ -945,17 +953,19 @@ const AdminManagementPage: React.FC = () => {
     return ''
   }
 
-  // Filter artworks by search
+  // Filter artworks by search (includes AI analysis content)
   const filteredArtworks = artworks.filter(artwork => {
     if (!artworkSearch.trim()) return true
     const customer = getCustomer(artwork.user_id)
     const searchLower = artworkSearch.toLowerCase()
+    const aiSearchText = getAISearchableText(artwork.ai_analysis)
     return (
       artwork.name.toLowerCase().includes(searchLower) ||
       customer?.full_name?.toLowerCase().includes(searchLower) ||
       customer?.email?.toLowerCase().includes(searchLower) ||
       artwork.artwork_code?.toLowerCase().includes(searchLower) ||
-      artwork.status.toLowerCase().includes(searchLower)
+      artwork.status.toLowerCase().includes(searchLower) ||
+      aiSearchText.includes(searchLower)
     )
   })
   
@@ -2113,6 +2123,108 @@ const AdminManagementPage: React.FC = () => {
                 <p className="font-medium text-sm truncate">{selectedArtwork.name}</p>
                 <p className="text-xs text-gray-600">{formatFileSize(selectedArtwork.file_size)}</p>
               </div>
+
+              {/* AI Analysis Section - Admin Only */}
+              {selectedArtwork.ai_analysis && (
+                <div className="bg-purple-50 rounded-lg p-3 md:p-4 border border-purple-200">
+                  <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm md:text-base">
+                    <Zap className="h-4 w-4 md:h-5 md:w-5 text-purple-600" />
+                    AI Analysis
+                    <span className="text-[10px] font-normal text-purple-500">(Admin Only)</span>
+                  </h3>
+                  <div className="space-y-3">
+                    {selectedArtwork.ai_analysis.title && (
+                      <div>
+                        <p className="text-[10px] text-purple-600 font-medium uppercase">Title</p>
+                        <p className="text-sm text-gray-800">{selectedArtwork.ai_analysis.title}</p>
+                      </div>
+                    )}
+                    {selectedArtwork.ai_analysis.description && (
+                      <div>
+                        <p className="text-[10px] text-purple-600 font-medium uppercase">Description</p>
+                        <p className="text-xs text-gray-700 leading-relaxed">{selectedArtwork.ai_analysis.description}</p>
+                      </div>
+                    )}
+                    <div className="grid grid-cols-2 gap-3">
+                      {selectedArtwork.ai_analysis.category && (
+                        <div>
+                          <p className="text-[10px] text-purple-600 font-medium uppercase">Category</p>
+                          <p className="text-xs text-gray-800 capitalize">{selectedArtwork.ai_analysis.category}</p>
+                        </div>
+                      )}
+                      {selectedArtwork.ai_analysis.type && (
+                        <div>
+                          <p className="text-[10px] text-purple-600 font-medium uppercase">Type</p>
+                          <p className="text-xs text-gray-800 capitalize">{selectedArtwork.ai_analysis.type}</p>
+                        </div>
+                      )}
+                      {selectedArtwork.ai_analysis.quality_score && (
+                        <div>
+                          <p className="text-[10px] text-purple-600 font-medium uppercase">Quality</p>
+                          <span className={`inline-block px-2 py-0.5 rounded text-[10px] font-medium capitalize ${
+                            selectedArtwork.ai_analysis.quality_score === 'high' ? 'bg-green-100 text-green-700' :
+                            selectedArtwork.ai_analysis.quality_score === 'medium' ? 'bg-yellow-100 text-yellow-700' :
+                            'bg-red-100 text-red-700'
+                          }`}>
+                            {selectedArtwork.ai_analysis.quality_score}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                    {selectedArtwork.ai_analysis.colors && selectedArtwork.ai_analysis.colors.length > 0 && (
+                      <div>
+                        <p className="text-[10px] text-purple-600 font-medium uppercase">Colors Detected</p>
+                        <div className="flex flex-wrap gap-1 mt-1">
+                          {selectedArtwork.ai_analysis.colors.map((color, idx) => (
+                            <span key={idx} className="px-2 py-0.5 bg-white border border-purple-200 rounded text-[10px] text-gray-700">
+                              {color}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {selectedArtwork.ai_analysis.content_detected && selectedArtwork.ai_analysis.content_detected.length > 0 && (
+                      <div>
+                        <p className="text-[10px] text-purple-600 font-medium uppercase">Content Detected</p>
+                        <div className="flex flex-wrap gap-1 mt-1">
+                          {selectedArtwork.ai_analysis.content_detected.map((item, idx) => (
+                            <span key={idx} className="px-2 py-0.5 bg-purple-100 text-purple-700 rounded text-[10px]">
+                              {item}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {selectedArtwork.ai_analysis.keywords && selectedArtwork.ai_analysis.keywords.length > 0 && (
+                      <div>
+                        <p className="text-[10px] text-purple-600 font-medium uppercase">Keywords</p>
+                        <div className="flex flex-wrap gap-1 mt-1">
+                          {selectedArtwork.ai_analysis.keywords.map((kw, idx) => (
+                            <span key={idx} className="px-2 py-0.5 bg-gray-100 text-gray-600 rounded text-[10px]">
+                              #{kw}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {selectedArtwork.ai_analysis.recommendations && selectedArtwork.ai_analysis.recommendations.length > 0 && (
+                      <div className="bg-white rounded p-2 border border-purple-200">
+                        <p className="text-[10px] text-purple-600 font-medium uppercase mb-1">Recommendations</p>
+                        <ul className="text-xs text-gray-700 space-y-1">
+                          {selectedArtwork.ai_analysis.recommendations.map((rec, idx) => (
+                            <li key={idx} className="flex gap-1">• {rec}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                    {selectedArtwork.ai_analysis.analyzed_at && (
+                      <p className="text-[10px] text-purple-400 text-right">
+                        Analyzed: {new Date(selectedArtwork.ai_analysis.analyzed_at).toLocaleString()}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              )}
 
               <div>
                 <p className="text-xs md:text-sm text-gray-500 mb-2">Current Status</p>
