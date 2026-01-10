@@ -1,7 +1,105 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { ShoppingCart, Menu, X, ArrowLeft, ArrowRight, Check, Leaf, Recycle, ShieldCheck, Award, MapPin, Phone, Mail, Facebook, Instagram, Twitter, ExternalLink, ChevronDown, Globe, Play, Star } from 'lucide-react'
+import { motion, useInView, useScroll, useTransform, AnimatePresence, Variants } from 'motion/react'
+
+// ============================================
+// MOTION ANIMATION VARIANTS - Reusable configs
+// ============================================
+
+// Fade in with upward motion - used for hero elements
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
+  }
+}
+
+// Fade in with scale - used for images
+const fadeInScale: Variants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { 
+    opacity: 1, 
+    scale: 1,
+    transition: { duration: 0.7, ease: 'easeOut' }
+  }
+}
+
+// Stagger container - orchestrates children animations
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1
+    }
+  }
+}
+
+// Stagger children with larger delay - for product cards
+const staggerCards: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2
+    }
+  }
+}
+
+// Card hover animation preset
+const cardHover = {
+  scale: 1.03,
+  y: -8,
+  boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
+  transition: { duration: 0.3 }
+}
+
+// Slide in from left - for sustainability items
+const slideInLeft: Variants = {
+  hidden: { opacity: 0, x: -60 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: { duration: 0.6, ease: 'easeOut' }
+  }
+}
+
+// Slide in from right - for alternating items
+const slideInRight: Variants = {
+  hidden: { opacity: 0, x: 60 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: { duration: 0.6, ease: 'easeOut' }
+  }
+}
+
+// Floating animation for product hero image - continuous subtle motion
+const floating = {
+  y: [0, -15, 0],
+  transition: {
+    duration: 4,
+    repeat: Infinity,
+    ease: 'easeInOut'
+  }
+}
+
+// Stats reveal animation with scale
+const statReveal: Variants = {
+  hidden: { opacity: 0, scale: 0.8, y: 20 },
+  visible: { 
+    opacity: 1, 
+    scale: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: 'easeOut' }
+  }
+}
 
 /**
  * AI-Enhanced Image Metadata - Generated from xAI Grok-2 Vision Analysis
@@ -358,14 +456,19 @@ export default function AchieveChipsDemoPage() {
         </div>
       </nav>
 
-      {/* Hero Section - Dynamic Product Showcase */}
+      {/* Hero Section - Dynamic Product Showcase with Motion animations */}
       <section className="relative min-h-screen pt-32 pb-20 overflow-hidden">
         {/* Animated Background with Film Texture */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100" />
           {/* Film texture overlay */}
           <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `url(${CHIPS_IMAGES.details.texture.src})`, backgroundSize: '400px', backgroundRepeat: 'repeat' }} />
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full blur-[150px] opacity-30" style={{ backgroundColor: activeProduct.color }} />
+          {/* Animated color glow that transitions with active product */}
+          <motion.div 
+            className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full blur-[150px] opacity-30" 
+            animate={{ backgroundColor: activeProduct.color }}
+            transition={{ duration: 0.8, ease: 'easeInOut' }}
+          />
           {/* Decorative flavor image - bottom left */}
           <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] opacity-10 rounded-full overflow-hidden blur-sm">
             <img src={CHIPS_IMAGES.chiliLime.flavor2.src} alt={CHIPS_IMAGES.chiliLime.flavor2.alt} className="w-full h-full object-cover" />
@@ -374,94 +477,192 @@ export default function AchieveChipsDemoPage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[80vh]">
-            {/* Product Info */}
-            <div className="order-2 lg:order-1">
-              {/* Flavor Selector */}
-              <div className="flex gap-3 mb-8">
+            {/* Product Info - Animated container */}
+            <motion.div 
+              className="order-2 lg:order-1"
+              initial="hidden"
+              animate="visible"
+              variants={staggerContainer}
+            >
+              {/* Flavor Selector - fade in */}
+              <motion.div className="flex gap-3 mb-8" variants={fadeInUp}>
                 {PRODUCTS.map((product) => (
-                  <button
+                  <motion.button
                     key={product.id}
                     onClick={() => { setActiveProduct(product); setActiveFlavorIndex(0) }}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                       activeProduct.id === product.id 
                         ? 'bg-gray-900 text-white' 
                         : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
                     }`}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     {product.name}
-                  </button>
+                  </motion.button>
                 ))}
-              </div>
+              </motion.div>
 
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold leading-[0.95] mb-4">
-                <span style={{ color: activeProduct.color }}>{activeProduct.name}</span>
-              </h1>
-              <p className="text-2xl text-gray-500 font-serif italic mb-6">{activeProduct.tagline}</p>
-              <p className="text-lg text-gray-600 max-w-lg mb-8 leading-relaxed font-display">
-                {activeProduct.description}
-              </p>
+              {/* Headline - animated with product change */}
+              <AnimatePresence mode="wait">
+                <motion.h1 
+                  key={activeProduct.id + '-title'}
+                  className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold leading-[0.95] mb-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  <span style={{ color: activeProduct.color }}>{activeProduct.name}</span>
+                </motion.h1>
+              </AnimatePresence>
 
-              {/* Badges */}
-              <div className="flex flex-wrap gap-3 mb-8">
+              {/* Tagline - animated with product change */}
+              <AnimatePresence mode="wait">
+                <motion.p 
+                  key={activeProduct.id + '-tagline'}
+                  className="text-2xl text-gray-500 font-serif italic mb-6"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 20 }}
+                  transition={{ duration: 0.3, delay: 0.1 }}
+                >
+                  {activeProduct.tagline}
+                </motion.p>
+              </AnimatePresence>
+
+              {/* Description - animated with product change */}
+              <AnimatePresence mode="wait">
+                <motion.p 
+                  key={activeProduct.id + '-desc'}
+                  className="text-lg text-gray-600 max-w-lg mb-8 leading-relaxed font-display"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3, delay: 0.15 }}
+                >
+                  {activeProduct.description}
+                </motion.p>
+              </AnimatePresence>
+
+              {/* Badges - staggered animation */}
+              <motion.div className="flex flex-wrap gap-3 mb-8" variants={fadeInUp}>
                 {activeProduct.badges.map((badge, i) => (
-                  <span key={i} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 border border-gray-200 text-sm font-medium font-display text-gray-700">
+                  <motion.span 
+                    key={i} 
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 border border-gray-200 text-sm font-medium font-display text-gray-700"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: i * 0.1 }}
+                    whileHover={{ scale: 1.05, backgroundColor: '#f3f4f6' }}
+                  >
                     <Check className="w-4 h-4 text-green-400" />
                     {badge}
-                  </span>
+                  </motion.span>
                 ))}
-              </div>
+              </motion.div>
 
-              {/* Price & CTA */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-                <div>
+              {/* Price & CTA - with hover effects */}
+              <motion.div 
+                className="flex flex-col sm:flex-row items-start sm:items-center gap-6"
+                variants={fadeInUp}
+              >
+                <motion.div
+                  key={activeProduct.id + '-price'}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
                   <span className="text-4xl font-bold font-display" style={{ color: activeProduct.color }}>${activeProduct.price.toFixed(2)}</span>
                   <span className="text-gray-500 ml-2 font-display">{activeProduct.weight}</span>
-                </div>
-                <button 
+                </motion.div>
+                <motion.button 
                   onClick={() => setCartCount(c => c + 1)}
-                  className="px-8 py-4 rounded-full font-bold text-sm tracking-wide uppercase transition-all transform hover:scale-105 font-display"
+                  className="px-8 py-4 rounded-full font-bold text-sm tracking-wide uppercase font-display"
                   style={{ backgroundColor: activeProduct.color, color: '#fff' }}
+                  whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(0,0,0,0.2)' }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   Add to Cart
-                </button>
-              </div>
-            </div>
+                </motion.button>
+              </motion.div>
+            </motion.div>
 
-            {/* Product Image */}
+            {/* Product Image - with floating animation */}
             <div className="order-1 lg:order-2 relative flex items-center justify-center">
               <div className="relative aspect-square max-w-2xl mx-auto w-full flex items-center justify-center">
-                {/* Glow */}
-                <div className="absolute inset-0 rounded-full blur-[120px] opacity-50" style={{ backgroundColor: activeProduct.color }} />
-                
-                {/* Main Product Image */}
-                <img 
-                  src={activeProduct.image}
-                  alt={activeProduct.name}
-                  className="relative z-10 w-[120%] lg:w-[140%] max-w-none object-contain drop-shadow-2xl transform hover:scale-105 transition-transform duration-500"
+                {/* Animated Glow */}
+                <motion.div 
+                  className="absolute inset-0 rounded-full blur-[120px] opacity-50" 
+                  animate={{ backgroundColor: activeProduct.color }}
+                  transition={{ duration: 0.8 }}
                 />
+                
+                {/* Main Product Image - with floating effect */}
+                <AnimatePresence mode="wait">
+                  <motion.img 
+                    key={activeProduct.id + '-image'}
+                    src={activeProduct.image}
+                    alt={activeProduct.name}
+                    className="relative z-10 w-[120%] lg:w-[140%] max-w-none object-contain drop-shadow-2xl"
+                    initial={{ opacity: 0, scale: 0.9, y: 30 }}
+                    animate={{ 
+                      opacity: 1, 
+                      scale: 1, 
+                      y: [0, -15, 0], // Floating animation
+                    }}
+                    exit={{ opacity: 0, scale: 0.9, y: -30 }}
+                    transition={{ 
+                      opacity: { duration: 0.4 },
+                      scale: { duration: 0.5 },
+                      y: { duration: 4, repeat: Infinity, ease: 'easeInOut' }
+                    }}
+                    whileHover={{ scale: 1.05 }}
+                  />
+                </AnimatePresence>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+        {/* Scroll Indicator - animated bounce */}
+        <motion.div 
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+        >
           <ChevronDown className="w-6 h-6 text-gray-400" />
-        </div>
+        </motion.div>
       </section>
 
-      {/* Flavor Gallery - Full Width */}
+      {/* Flavor Gallery - Full Width with scroll reveal */}
       <section className="py-0 bg-gray-100">
-        <div className="grid grid-cols-3 gap-1">
+        <motion.div 
+          className="grid grid-cols-3 gap-1"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={staggerContainer}
+        >
           {[CHIPS_IMAGES.chiliLime.flavor1, CHIPS_IMAGES.herbGarlic.flavor, CHIPS_IMAGES.seaSaltVinegar.flavor1].map((img, i) => (
-            <div key={i} className="aspect-[4/3] overflow-hidden group">
-              <img src={img.src} alt={img.alt} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-            </div>
+            <motion.div 
+              key={i} 
+              className="aspect-[4/3] overflow-hidden group"
+              variants={fadeInScale}
+            >
+              <motion.img 
+                src={img.src} 
+                alt={img.alt} 
+                className="w-full h-full object-cover"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.7 }}
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
-      {/* Products Section */}
+      {/* Products Section - with staggered card animations */}
       <section id="products" className="py-24 bg-white relative overflow-hidden">
         {/* Background film texture with flavor images */}
         <div className="absolute inset-0">
@@ -476,33 +677,61 @@ export default function AchieveChipsDemoPage() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-16">
+          {/* Section header with scroll animation */}
+          <motion.div 
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={fadeInUp}
+          >
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">Our Collection</h2>
             <p className="text-lg text-gray-500 max-w-2xl mx-auto font-display">Three distinct flavors, one uncompromising standard of quality</p>
-          </div>
+          </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {PRODUCTS.map((product) => (
-              <div key={product.id} className="group relative bg-gradient-to-b from-gray-50 to-white rounded-3xl p-6 hover:bg-gray-50 transition-all cursor-pointer border border-gray-200 shadow-sm hover:shadow-lg">
+          {/* Product cards grid with stagger */}
+          <motion.div 
+            className="grid md:grid-cols-3 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={staggerCards}
+          >
+            {PRODUCTS.map((product, index) => (
+              <motion.div 
+                key={product.id} 
+                className="group relative bg-gradient-to-b from-gray-50 to-white rounded-3xl p-6 cursor-pointer border border-gray-200 shadow-sm"
+                variants={fadeInUp}
+                whileHover={cardHover}
+                style={{ willChange: 'transform' }}
+              >
                 <div className="aspect-[4/5] mb-4 relative overflow-hidden rounded-2xl flex items-center justify-center">
                   <div className="absolute inset-0 opacity-20" style={{ backgroundColor: product.color }} />
-                  <img src={product.image} alt={product.name} className="w-[130%] h-auto max-w-none object-contain transform group-hover:scale-110 transition-transform duration-500" />
+                  <motion.img 
+                    src={product.image} 
+                    alt={product.name} 
+                    className="w-[130%] h-auto max-w-none object-contain"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.5 }}
+                  />
                 </div>
                 <h3 className="text-2xl font-display font-bold mb-2">{product.name}</h3>
                 <p className="text-gray-500 text-sm mb-4 font-display">{product.tagline}</p>
                 <div className="flex items-center justify-between">
                   <span className="text-xl font-bold font-display" style={{ color: product.color }}>${product.price.toFixed(2)}</span>
-                  <button 
+                  <motion.button 
                     onClick={() => setCartCount(c => c + 1)}
-                    className="px-5 py-2 rounded-full text-sm font-medium transition-all font-display"
+                    className="px-5 py-2 rounded-full text-sm font-medium font-display"
                     style={{ backgroundColor: product.color, color: '#fff' }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     Add to Cart
-                  </button>
+                  </motion.button>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -525,15 +754,36 @@ export default function AchieveChipsDemoPage() {
         </div>
       </section>
 
-      {/* Texture & Quality Section */}
+      {/* Texture & Quality Section - with scroll reveal animations */}
       <section className="py-0 relative">
         <div className="grid md:grid-cols-2">
-          <div className="aspect-square md:aspect-auto relative overflow-hidden">
-            <img src={CHIPS_IMAGES.details.crispness.src} alt={CHIPS_IMAGES.details.crispness.alt} className="w-full h-full object-cover" />
+          {/* Image with parallax-like scroll effect */}
+          <motion.div 
+            className="aspect-square md:aspect-auto relative overflow-hidden"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.img 
+              src={CHIPS_IMAGES.details.crispness.src} 
+              alt={CHIPS_IMAGES.details.crispness.alt} 
+              className="w-full h-full object-cover"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.6 }}
+            />
             {/* Decorative overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-          </div>
-          <div className="aspect-square md:aspect-auto bg-gray-50 flex items-center justify-center p-12 md:p-20 relative overflow-hidden">
+          </motion.div>
+
+          {/* Content side with stagger */}
+          <motion.div 
+            className="aspect-square md:aspect-auto bg-gray-50 flex items-center justify-center p-12 md:p-20 relative overflow-hidden"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={staggerContainer}
+          >
             {/* Background texture pattern */}
             <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `url(${CHIPS_IMAGES.details.texture.src})`, backgroundSize: '300px', backgroundRepeat: 'repeat' }} />
             {/* Decorative flavor image */}
@@ -541,57 +791,75 @@ export default function AchieveChipsDemoPage() {
               <img src={CHIPS_IMAGES.seaSaltVinegar.flavor2.src} alt="" className="w-full h-full object-cover rounded-full blur-sm" />
             </div>
             <div className="max-w-md">
-              <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">Perfect Crunch, Every Time</h2>
-              <p className="text-gray-600 text-lg leading-relaxed mb-8 font-display">
+              <motion.h2 
+                className="text-4xl md:text-5xl font-display font-bold mb-6"
+                variants={fadeInUp}
+              >
+                Perfect Crunch, Every Time
+              </motion.h2>
+              <motion.p 
+                className="text-gray-600 text-lg leading-relaxed mb-8 font-display"
+                variants={fadeInUp}
+              >
                 Our proprietary cooking process ensures each chip achieves the ideal golden crispness. 
                 We source only the finest organic potatoes, slice them to precision thickness, and cook them in small batches.
-              </p>
-              <div className="flex gap-4">
-                <div className="text-center">
+              </motion.p>
+              {/* Stats row with individual reveal animations */}
+              <motion.div 
+                className="flex gap-4"
+                variants={staggerContainer}
+              >
+                <motion.div className="text-center" variants={statReveal}>
                   <div className="text-3xl font-bold font-display" style={{ color: '#C75B39' }}>1.2mm</div>
                   <div className="text-xs text-gray-500 uppercase tracking-wider font-display">Slice Thickness</div>
-                </div>
-                <div className="text-center">
+                </motion.div>
+                <motion.div className="text-center" variants={statReveal}>
                   <div className="text-3xl font-bold font-display" style={{ color: '#5B8C5A' }}>180°C</div>
                   <div className="text-xs text-gray-500 uppercase tracking-wider font-display">Perfect Temp</div>
-                </div>
-                <div className="text-center">
+                </motion.div>
+                <motion.div className="text-center" variants={statReveal}>
                   <div className="text-3xl font-bold font-display" style={{ color: '#4A7C9B' }}>48hr</div>
                   <div className="text-xs text-gray-500 uppercase tracking-wider font-display">Quality Check</div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Ingredient Showcase Strip */}
+      {/* Ingredient Showcase Strip - with staggered animations */}
       <section className="py-12 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-amber-50 via-orange-50 to-yellow-50" />
         <div className="absolute inset-0 opacity-[0.08]">
           <img src={CHIPS_IMAGES.story.rawPotato.src} alt="" className="w-full h-full object-cover" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-6">
+        <motion.div 
+          className="relative z-10 max-w-7xl mx-auto px-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={staggerContainer}
+        >
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-            <div className="text-center">
+            <motion.div className="text-center" variants={statReveal}>
               <div className="text-4xl font-serif text-amber-700">100%</div>
               <div className="text-sm text-amber-600 font-display uppercase tracking-wider">Organic Potatoes</div>
-            </div>
+            </motion.div>
             <div className="hidden md:block w-px h-12 bg-amber-300" />
-            <div className="text-center">
+            <motion.div className="text-center" variants={statReveal}>
               <div className="text-4xl font-serif text-amber-700">Real</div>
               <div className="text-sm text-amber-600 font-display uppercase tracking-wider">Spices & Herbs</div>
-            </div>
+            </motion.div>
             <div className="hidden md:block w-px h-12 bg-amber-300" />
-            <div className="text-center">
+            <motion.div className="text-center" variants={statReveal}>
               <div className="text-4xl font-serif text-amber-700">No</div>
               <div className="text-sm text-amber-600 font-display uppercase tracking-wider">Artificial Flavors</div>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
-      {/* Our Story Section */}
+      {/* Our Story Section - with layout animations */}
       <section id="our-story" className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
         {/* Decorative background elements */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] opacity-5">
@@ -605,46 +873,103 @@ export default function AchieveChipsDemoPage() {
         <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: `url(${CHIPS_IMAGES.details.packagingCloseup.src})`, backgroundSize: '500px', backgroundRepeat: 'repeat' }} />
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <span className="text-[#C75B39] text-sm font-bold tracking-[0.3em] uppercase mb-4 block font-display">Our Story</span>
-              <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 leading-tight">
+            {/* Content column with stagger */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={staggerContainer}
+            >
+              <motion.span 
+                className="text-[#C75B39] text-sm font-bold tracking-[0.3em] uppercase mb-4 block font-display"
+                variants={fadeInUp}
+              >
+                Our Story
+              </motion.span>
+              <motion.h2 
+                className="text-4xl md:text-5xl font-display font-bold mb-6 leading-tight"
+                variants={fadeInUp}
+              >
                 From Farm to<br />
                 <span className="text-gray-400">Flavor</span>
-              </h2>
-              <p className="text-gray-600 text-lg leading-relaxed mb-6 font-display">
+              </motion.h2>
+              <motion.p 
+                className="text-gray-600 text-lg leading-relaxed mb-6 font-display"
+                variants={fadeInUp}
+              >
                 It all starts with the potato. We partner directly with organic farms that share our commitment to sustainable agriculture. 
                 Each potato is hand-selected for size, starch content, and flavor profile.
-              </p>
-              <p className="text-gray-600 text-lg leading-relaxed mb-8 font-display">
+              </motion.p>
+              <motion.p 
+                className="text-gray-600 text-lg leading-relaxed mb-8 font-display"
+                variants={fadeInUp}
+              >
                 Our seasonings are crafted from real ingredients - no artificial flavors, no MSG, no compromise. 
                 Just honest, bold taste that you can feel good about.
-              </p>
-              <div className="grid grid-cols-3 gap-6">
-                <div className="text-center p-4 bg-gray-100 rounded-xl">
+              </motion.p>
+              {/* Stats grid with stagger */}
+              <motion.div 
+                className="grid grid-cols-3 gap-6"
+                variants={staggerContainer}
+              >
+                <motion.div 
+                  className="text-center p-4 bg-gray-100 rounded-xl"
+                  variants={statReveal}
+                  whileHover={{ y: -5, boxShadow: '0 10px 20px rgba(0,0,0,0.1)' }}
+                >
                   <div className="text-2xl font-bold font-display text-gray-900">15+</div>
                   <div className="text-xs text-gray-500 uppercase tracking-wider font-display">Farm Partners</div>
-                </div>
-                <div className="text-center p-4 bg-gray-100 rounded-xl">
+                </motion.div>
+                <motion.div 
+                  className="text-center p-4 bg-gray-100 rounded-xl"
+                  variants={statReveal}
+                  whileHover={{ y: -5, boxShadow: '0 10px 20px rgba(0,0,0,0.1)' }}
+                >
                   <div className="text-2xl font-bold font-display text-gray-900">100%</div>
                   <div className="text-xs text-gray-500 uppercase tracking-wider font-display">Organic</div>
-                </div>
-                <div className="text-center p-4 bg-gray-100 rounded-xl">
+                </motion.div>
+                <motion.div 
+                  className="text-center p-4 bg-gray-100 rounded-xl"
+                  variants={statReveal}
+                  whileHover={{ y: -5, boxShadow: '0 10px 20px rgba(0,0,0,0.1)' }}
+                >
                   <div className="text-2xl font-bold font-display text-gray-900">0</div>
                   <div className="text-xs text-gray-500 uppercase tracking-wider font-display">Preservatives</div>
-                </div>
-              </div>
-            </div>
-            <div className="relative">
-              <img src={CHIPS_IMAGES.story.rawPotato.src} alt={CHIPS_IMAGES.story.rawPotato.alt} className="w-full rounded-3xl shadow-2xl" />
-            </div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
+            {/* Image column with reveal */}
+            <motion.div 
+              className="relative"
+              initial={{ opacity: 0, x: 60, scale: 0.95 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+            >
+              <motion.img 
+                src={CHIPS_IMAGES.story.rawPotato.src} 
+                alt={CHIPS_IMAGES.story.rawPotato.alt} 
+                className="w-full rounded-3xl shadow-2xl"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.4 }}
+              />
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Lifestyle Section */}
+      {/* Lifestyle Section - with parallax and reveal */}
       <section className="py-0 relative">
         <div className="relative h-[70vh] overflow-hidden">
-          <img src={CHIPS_IMAGES.lifestyle.premium.src} alt={CHIPS_IMAGES.lifestyle.premium.alt} className="w-full h-full object-cover" />
+          <motion.img 
+            src={CHIPS_IMAGES.lifestyle.premium.src} 
+            alt={CHIPS_IMAGES.lifestyle.premium.alt} 
+            className="w-full h-full object-cover"
+            initial={{ scale: 1.1 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: 'easeOut' }}
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
           {/* Decorative flavor accent */}
           <div className="absolute bottom-0 right-0 w-[300px] h-[300px] opacity-20 mix-blend-soft-light">
@@ -652,65 +977,136 @@ export default function AchieveChipsDemoPage() {
           </div>
           <div className="absolute inset-0 flex items-center">
             <div className="max-w-7xl mx-auto px-6 w-full">
-              <div className="max-w-xl">
-                <h2 className="text-5xl md:text-6xl font-display font-bold mb-6">Elevate Your Snacking</h2>
-                <p className="text-xl text-white/70 mb-8 font-display">Premium ingredients. Sustainable packaging. Uncompromising taste. This is snacking, elevated.</p>
-                <button className="px-8 py-4 bg-gray-900 text-white rounded-full font-bold text-sm uppercase tracking-wide hover:bg-[#C75B39] transition-all font-display">
+              <motion.div 
+                className="max-w-xl"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+                variants={staggerContainer}
+              >
+                <motion.h2 
+                  className="text-5xl md:text-6xl font-display font-bold mb-6"
+                  variants={fadeInUp}
+                >
+                  Elevate Your Snacking
+                </motion.h2>
+                <motion.p 
+                  className="text-xl text-white/70 mb-8 font-display"
+                  variants={fadeInUp}
+                >
+                  Premium ingredients. Sustainable packaging. Uncompromising taste. This is snacking, elevated.
+                </motion.p>
+                <motion.button 
+                  className="px-8 py-4 bg-gray-900 text-white rounded-full font-bold text-sm uppercase tracking-wide font-display"
+                  variants={fadeInUp}
+                  whileHover={{ backgroundColor: '#C75B39', scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
                   Shop All Flavors
-                </button>
-              </div>
+                </motion.button>
+              </motion.div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Sustainability Section */}
+      {/* Sustainability Section - with alternating slide animations */}
       <section id="sustainability" className="py-24 bg-gradient-to-b from-gray-50 to-green-50 relative overflow-hidden">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: `url(${CHIPS_IMAGES.details.packagingCloseup})`, backgroundSize: '600px', backgroundRepeat: 'repeat' }} />
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1">
-              <span className="text-green-400 text-sm font-bold tracking-[0.3em] uppercase mb-4 block font-display">Sustainability</span>
-              <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 leading-tight">
+            {/* Content column with stagger from left */}
+            <motion.div 
+              className="order-2 lg:order-1"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={staggerContainer}
+            >
+              <motion.span 
+                className="text-green-400 text-sm font-bold tracking-[0.3em] uppercase mb-4 block font-display"
+                variants={slideInLeft}
+              >
+                Sustainability
+              </motion.span>
+              <motion.h2 
+                className="text-4xl md:text-5xl font-display font-bold mb-6 leading-tight"
+                variants={slideInLeft}
+              >
                 100% Compostable<br />
                 <span className="text-green-400">Packaging</span>
-              </h2>
-              <p className="text-gray-600 text-lg leading-relaxed mb-8 font-display">
+              </motion.h2>
+              <motion.p 
+                className="text-gray-600 text-lg leading-relaxed mb-8 font-display"
+                variants={slideInLeft}
+              >
                 Every Achieve Chips bag is designed to return to the earth. Our certified compostable packaging breaks down in commercial composting facilities within 180 days, leaving no microplastics behind.
-              </p>
+              </motion.p>
               
-              <div className="space-y-5 mb-10">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
+              {/* Feature list with alternating animations */}
+              <motion.div 
+                className="space-y-5 mb-10"
+                variants={staggerContainer}
+              >
+                {/* Item 1 - slide from left */}
+                <motion.div 
+                  className="flex items-start gap-4"
+                  variants={slideInLeft}
+                  whileHover={{ x: 10 }}
+                >
+                  <motion.div 
+                    className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0"
+                    whileHover={{ scale: 1.1, backgroundColor: 'rgba(34, 197, 94, 0.3)' }}
+                  >
                     <Check className="w-6 h-6 text-green-400" />
-                  </div>
+                  </motion.div>
                   <div>
                     <h4 className="font-bold text-gray-900 text-lg font-display">BPI Certified Compostable</h4>
                     <p className="text-gray-500 font-display">Meets ASTM D6400 standards for industrial composting</p>
                   </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                </motion.div>
+                {/* Item 2 - slide from right */}
+                <motion.div 
+                  className="flex items-start gap-4"
+                  variants={slideInRight}
+                  whileHover={{ x: 10 }}
+                >
+                  <motion.div 
+                    className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0"
+                    whileHover={{ scale: 1.1, backgroundColor: 'rgba(34, 197, 94, 0.3)' }}
+                  >
                     <Check className="w-6 h-6 text-green-400" />
-                  </div>
+                  </motion.div>
                   <div>
                     <h4 className="font-bold text-gray-900 text-lg font-display">Plant-Based Materials</h4>
                     <p className="text-gray-500 font-display">Made from renewable resources including PLA and cellulose</p>
                   </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                </motion.div>
+                {/* Item 3 - slide from left */}
+                <motion.div 
+                  className="flex items-start gap-4"
+                  variants={slideInLeft}
+                  whileHover={{ x: 10 }}
+                >
+                  <motion.div 
+                    className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0"
+                    whileHover={{ scale: 1.1, backgroundColor: 'rgba(34, 197, 94, 0.3)' }}
+                  >
                     <Check className="w-6 h-6 text-green-400" />
-                  </div>
+                  </motion.div>
                   <div>
                     <h4 className="font-bold text-gray-900 text-lg font-display">Zero Plastic Waste</h4>
                     <p className="text-gray-500 font-display">Returns to earth as nutrient-rich compost</p>
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
               
-              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+              <motion.div 
+                className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm"
+                variants={fadeInUp}
+                whileHover={{ y: -5, boxShadow: '0 15px 30px rgba(0,0,0,0.1)' }}
+              >
                 <p className="text-gray-600 text-sm mb-4 font-display">Our eco-friendly packaging is proudly supplied by Achieve Pack, specialists in sustainable food packaging.</p>
                 <div className="flex flex-wrap gap-4">
                   <Link to="/materials/compostable" className="inline-flex items-center gap-2 text-sm font-semibold text-green-400 hover:text-green-300 transition font-display">
@@ -720,21 +1116,42 @@ export default function AchieveChipsDemoPage() {
                     Snack Packaging <ExternalLink className="w-4 h-4" />
                   </Link>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
             
-            <div className="order-1 lg:order-2 relative">
-              <img src={CHIPS_IMAGES.sustainability.compostable.src} alt={CHIPS_IMAGES.sustainability.compostable.alt} className="w-full rounded-3xl shadow-2xl" />
-              <div className="absolute -bottom-6 -right-6 bg-green-500 text-white p-6 rounded-2xl shadow-xl">
+            {/* Image column with reveal from right */}
+            <motion.div 
+              className="order-1 lg:order-2 relative"
+              initial={{ opacity: 0, x: 80, scale: 0.9 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+            >
+              <motion.img 
+                src={CHIPS_IMAGES.sustainability.compostable.src} 
+                alt={CHIPS_IMAGES.sustainability.compostable.alt} 
+                className="w-full rounded-3xl shadow-2xl"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.4 }}
+              />
+              {/* Animated badge */}
+              <motion.div 
+                className="absolute -bottom-6 -right-6 bg-green-500 text-white p-6 rounded-2xl shadow-xl"
+                initial={{ opacity: 0, scale: 0, rotate: -10 }}
+                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 0.5, type: 'spring' }}
+                whileHover={{ scale: 1.05, rotate: 3 }}
+              >
                 <div className="text-3xl font-bold font-display">180</div>
                 <div className="text-xs font-bold uppercase tracking-wider font-display">Days to Compost</div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Certifications */}
+      {/* Certifications - with staggered card animations */}
       <section className="py-20 bg-gray-100 relative overflow-hidden">
         {/* Film grain texture */}
         <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: `url(${CHIPS_IMAGES.lifestyle.scene.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
@@ -748,24 +1165,50 @@ export default function AchieveChipsDemoPage() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
+          {/* Section header */}
+          <motion.div 
+            className="text-center mb-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={fadeInUp}
+          >
             <h2 className="text-3xl font-display font-bold mb-4">Certified Quality</h2>
             <p className="text-gray-500 max-w-2xl mx-auto font-display">Our products meet the highest standards for organic certification and sustainable packaging.</p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          </motion.div>
+          {/* Certification cards with stagger */}
+          <motion.div 
+            className="grid grid-cols-2 md:grid-cols-4 gap-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={staggerCards}
+          >
             {[
               { icon: Award, title: 'USDA Organic', desc: 'Certified organic' },
               { icon: ShieldCheck, title: 'Non-GMO', desc: 'Verified ingredients' },
               { icon: Recycle, title: 'BPI Certified', desc: 'Compostable packaging' },
               { icon: Globe, title: 'Carbon Neutral', desc: 'Offset operations' }
             ].map((cert, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 text-center border border-gray-200 shadow-sm">
-                <cert.icon className="w-10 h-10 mx-auto mb-4" style={{ color: ['#C75B39', '#5B8C5A', '#22c55e', '#4A7C9B'][i] }} />
+              <motion.div 
+                key={i} 
+                className="bg-white rounded-2xl p-6 text-center border border-gray-200 shadow-sm"
+                variants={fadeInUp}
+                whileHover={cardHover}
+                style={{ willChange: 'transform' }}
+              >
+                <motion.div
+                  initial={{ scale: 1 }}
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
+                  <cert.icon className="w-10 h-10 mx-auto mb-4" style={{ color: ['#C75B39', '#5B8C5A', '#22c55e', '#4A7C9B'][i] }} />
+                </motion.div>
                 <h3 className="font-bold mb-1 font-display">{cert.title}</h3>
                 <p className="text-gray-500 text-sm font-display">{cert.desc}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
