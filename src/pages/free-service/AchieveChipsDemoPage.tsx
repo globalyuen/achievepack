@@ -32,7 +32,7 @@ const CHIPS_IMAGES = {
   
   // Product Photos - Sea Salt & Vinegar
   seaSaltVinegar: {
-    product: '/imgs/demo-site/chips/a_achievepack_sea_salt_vinegar_chips_1689612.webp',
+    product: '/imgs/demo-site/chips/png a_achievepack_chili_lime_chips_6256919 (2).webp',
     heroKV: '/imgs/demo-site/chips/a_achievepack_sea_salt_vinegar_hero_kv_6506902.webp',
     flavor1: '/imgs/demo-site/chips/a_achievepack_sea_salt_vinegar_flavor_2559705.webp',
     flavor2: '/imgs/demo-site/chips/a_achievepack_sea_salt_vinegar_flavor_4956454.webp'
