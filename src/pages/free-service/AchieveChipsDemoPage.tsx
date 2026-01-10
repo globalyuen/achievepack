@@ -13,8 +13,8 @@ const CHIPS_IMAGES = {
   
   // Product Photos - Chili Lime (Primary Flavor)
   chiliLime: {
-    product1: '/imgs/demo-site/chips/a_achievepack_chili_lime_chips_6256919 (1).webp',
-    product2: '/imgs/demo-site/chips/a_achievepack_chili_lime_chips_6256919 (2).webp',
+    product1: '/imgs/demo-site/chips/png a_achievepack_chili_lime_chips_6256919 (1).webp',
+    product2: '/imgs/demo-site/chips/png a_achievepack_chili_lime_chips_6256919 (2).webp',
     product3: '/imgs/demo-site/chips/a_achievepack_chili_lime_chips_6256919.webp',
     heroKV: '/imgs/demo-site/chips/a_achievepack_fiery_chili_lime_hero_kv_4003688.webp',
     flavor1: '/imgs/demo-site/chips/a_achievepack_fiery_chili_lime_flavor_6095462.webp',
@@ -24,7 +24,7 @@ const CHIPS_IMAGES = {
   
   // Product Photos - Herb Garlic
   herbGarlic: {
-    product1: '/imgs/demo-site/chips/a_achievepack_herb_garlic_chips_4271307 (1).webp',
+    product1: '/imgs/demo-site/chips/png a_achievepack_herb_garlic_chips_4271307 (1).webp',
     product2: '/imgs/demo-site/chips/a_achievepack_herb_garlic_chips_4271307.webp',
     heroKV: '/imgs/demo-site/chips/a_achievepack_hero_kv_herb_garlic_2110657.webp',
     flavor: '/imgs/demo-site/chips/a_achievepack_herb_garlic_flavor_5832827.webp'
@@ -258,15 +258,15 @@ export default function AchieveChipsDemoPage() {
 
             {/* Product Image */}
             <div className="order-1 lg:order-2 relative">
-              <div className="relative aspect-square max-w-lg mx-auto">
+              <div className="relative aspect-square max-w-2xl mx-auto lg:-mr-20">
                 {/* Glow */}
-                <div className="absolute inset-0 rounded-full blur-[100px] opacity-40" style={{ backgroundColor: activeProduct.color }} />
+                <div className="absolute inset-0 rounded-full blur-[120px] opacity-50" style={{ backgroundColor: activeProduct.color }} />
                 
                 {/* Main Product Image */}
                 <img 
                   src={activeProduct.image}
                   alt={activeProduct.name}
-                  className="relative z-10 w-full h-full object-contain drop-shadow-2xl transform hover:scale-105 transition-transform duration-500"
+                  className="relative z-10 w-full h-full object-contain drop-shadow-2xl transform hover:scale-105 transition-transform duration-500 scale-125 lg:scale-150"
                 />
               </div>
             </div>
