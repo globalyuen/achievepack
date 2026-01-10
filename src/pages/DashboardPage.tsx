@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useTransition, useCallback, useMemo } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { SlidingNumber } from '../components/animate-ui/primitives/texts/sliding-number'
 import { 
   Package, FileText, Palette, Settings, LogOut, Home, Download, Search, Bell, 
   LayoutDashboard, ShoppingCart, FileCheck, Image, ChevronRight, TrendingUp, 
@@ -1371,7 +1372,7 @@ const DashboardPage: React.FC = () => {
                 <div className="bg-white rounded-xl p-3 sm:p-4 md:p-6 border border-gray-100">
                   <p className="text-[10px] sm:text-xs md:text-sm text-gray-500 uppercase tracking-wide">Total Orders</p>
                   <div className="flex items-end justify-between mt-1 sm:mt-2">
-                    <p className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">{orders.length}</p>
+                    <p className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900"><SlidingNumber number={orders.length} /></p>
                     <span className="text-[10px] sm:text-xs md:text-sm text-green-600 hidden sm:inline">+{orders.filter(o => {
                       const d = new Date(o.created_at)
                       const now = new Date()
@@ -1382,7 +1383,7 @@ const DashboardPage: React.FC = () => {
                 <div className="bg-white rounded-xl p-3 sm:p-4 md:p-6 border border-gray-100">
                   <p className="text-[10px] sm:text-xs md:text-sm text-gray-500 uppercase tracking-wide">Documents</p>
                   <div className="flex items-end justify-between mt-1 sm:mt-2">
-                    <p className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">{documents.length}</p>
+                    <p className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900"><SlidingNumber number={documents.length} /></p>
                   </div>
                 </div>
               </div>
@@ -1402,19 +1403,19 @@ const DashboardPage: React.FC = () => {
                   <div className="p-2 sm:p-3 md:p-4">
                     <div className="grid grid-cols-4 gap-1.5 sm:gap-2 md:gap-3">
                       <div className="bg-purple-50 rounded-lg p-2 sm:p-3 text-center">
-                        <p className="text-base sm:text-xl md:text-2xl font-bold text-purple-700">{artworks.length}</p>
+                        <p className="text-base sm:text-xl md:text-2xl font-bold text-purple-700"><SlidingNumber number={artworks.length} /></p>
                         <p className="text-[9px] sm:text-[10px] md:text-xs text-purple-600">Total</p>
                       </div>
                       <div className="bg-blue-50 rounded-lg p-2 sm:p-3 text-center">
-                        <p className="text-base sm:text-xl md:text-2xl font-bold text-blue-700">{artworks.filter(a => a.status === 'pending_review' || a.status === 'in_review').length}</p>
+                        <p className="text-base sm:text-xl md:text-2xl font-bold text-blue-700"><SlidingNumber number={artworks.filter(a => a.status === 'pending_review' || a.status === 'in_review').length} /></p>
                         <p className="text-[9px] sm:text-[10px] md:text-xs text-blue-600">Review</p>
                       </div>
                       <div className="bg-indigo-50 rounded-lg p-2 sm:p-3 text-center">
-                        <p className="text-base sm:text-xl md:text-2xl font-bold text-indigo-700">{artworks.filter(a => a.status === 'proof_ready').length}</p>
+                        <p className="text-base sm:text-xl md:text-2xl font-bold text-indigo-700"><SlidingNumber number={artworks.filter(a => a.status === 'proof_ready').length} /></p>
                         <p className="text-[9px] sm:text-[10px] md:text-xs text-indigo-600">Proof</p>
                       </div>
                       <div className="bg-green-50 rounded-lg p-2 sm:p-3 text-center">
-                        <p className="text-base sm:text-xl md:text-2xl font-bold text-green-700">{artworks.filter(a => a.status === 'approved' || a.status === 'in_production').length}</p>
+                        <p className="text-base sm:text-xl md:text-2xl font-bold text-green-700"><SlidingNumber number={artworks.filter(a => a.status === 'approved' || a.status === 'in_production').length} /></p>
                         <p className="text-[9px] sm:text-[10px] md:text-xs text-green-600">Done</p>
                       </div>
                     </div>

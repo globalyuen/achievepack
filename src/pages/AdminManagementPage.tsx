@@ -3,6 +3,7 @@ import { useNavigate, Link, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, Quote, ArtworkFile, Profile, ArtworkComment, CRMInquiry } from '../lib/supabase'
 import { analyzeArtworkWithXAI, getAISearchableText } from '../lib/artworkAnalysis'
+import { SlidingNumber } from '../components/animate-ui/primitives/texts/sliding-number'
 import { 
   Home, FileCheck, Image as ImageIcon, LogOut, Eye, Trash2, ArrowLeft, 
   RefreshCw, CheckCircle, Clock, AlertCircle, MessageSquare, X, 
@@ -1326,16 +1327,16 @@ const AdminManagementPage: React.FC = () => {
               <div className="flex flex-wrap gap-3">
                 <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
                   <p className="text-sm text-gray-500">Total Quotes</p>
-                  <p className="text-2xl font-bold text-gray-900 mt-1">{quotes.length}</p>
+                  <p className="text-2xl font-bold text-gray-900 mt-1"><SlidingNumber number={quotes.length} /></p>
                 </div>
                 <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
                   <p className="text-sm text-gray-500">Pending</p>
-                  <p className="text-2xl font-bold text-yellow-600 mt-1">{pendingQuotes}</p>
+                  <p className="text-2xl font-bold text-yellow-600 mt-1"><SlidingNumber number={pendingQuotes} /></p>
                 </div>
                 <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
                   <p className="text-sm text-gray-500">RFQ Submissions</p>
                   <p className="text-2xl font-bold text-blue-600 mt-1">
-                    {quotes.filter(q => q.is_rfq).length}
+                    <SlidingNumber number={quotes.filter(q => q.is_rfq).length} />
                   </p>
                 </div>
               </div>
@@ -1480,24 +1481,24 @@ const AdminManagementPage: React.FC = () => {
               <div className="flex flex-wrap gap-3">
                 <div className="w-[160px] flex-shrink-0 bg-white rounded-xl p-3 md:p-4 shadow-sm border">
                   <p className="text-xs md:text-sm text-gray-500">Total</p>
-                  <p className="text-xl md:text-2xl font-bold text-gray-900 mt-1">{artworks.length}</p>
+                  <p className="text-xl md:text-2xl font-bold text-gray-900 mt-1"><SlidingNumber number={artworks.length} /></p>
                 </div>
                 <div className="w-[160px] flex-shrink-0 bg-white rounded-xl p-3 md:p-4 shadow-sm border">
                   <p className="text-xs md:text-sm text-gray-500">Pending</p>
                   <p className="text-xl md:text-2xl font-bold text-blue-600 mt-1">
-                    {artworks.filter(a => a.status === 'pending_review').length}
+                    <SlidingNumber number={artworks.filter(a => a.status === 'pending_review').length} />
                   </p>
                 </div>
                 <div className="w-[160px] flex-shrink-0 bg-white rounded-xl p-3 md:p-4 shadow-sm border">
                   <p className="text-xs md:text-sm text-gray-500">Proof Ready</p>
                   <p className="text-xl md:text-2xl font-bold text-indigo-600 mt-1">
-                    {artworks.filter(a => a.status === 'proof_ready').length}
+                    <SlidingNumber number={artworks.filter(a => a.status === 'proof_ready').length} />
                   </p>
                 </div>
                 <div className="w-[160px] flex-shrink-0 bg-white rounded-xl p-3 md:p-4 shadow-sm border">
                   <p className="text-xs md:text-sm text-gray-500">Revision</p>
                   <p className="text-xl md:text-2xl font-bold text-orange-600 mt-1">
-                    {artworks.filter(a => a.status === 'revision_needed').length}
+                    <SlidingNumber number={artworks.filter(a => a.status === 'revision_needed').length} />
                   </p>
                 </div>
               </div>
@@ -1717,15 +1718,15 @@ const AdminManagementPage: React.FC = () => {
               <div className="flex flex-wrap gap-3">
                 <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
                   <p className="text-sm text-gray-500">Total in Bin</p>
-                  <p className="text-2xl font-bold text-gray-900 mt-1">{deletedArtworks.length + deletedQuotes.length}</p>
+                  <p className="text-2xl font-bold text-gray-900 mt-1"><SlidingNumber number={deletedArtworks.length + deletedQuotes.length} /></p>
                 </div>
                 <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
                   <p className="text-sm text-gray-500">Deleted Artworks</p>
-                  <p className="text-2xl font-bold text-purple-600 mt-1">{deletedArtworks.length}</p>
+                  <p className="text-2xl font-bold text-purple-600 mt-1"><SlidingNumber number={deletedArtworks.length} /></p>
                 </div>
                 <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
                   <p className="text-sm text-gray-500">Deleted Quotes</p>
-                  <p className="text-2xl font-bold text-blue-600 mt-1">{deletedQuotes.length}</p>
+                  <p className="text-2xl font-bold text-blue-600 mt-1"><SlidingNumber number={deletedQuotes.length} /></p>
                 </div>
               </div>
 
