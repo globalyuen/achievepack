@@ -304,8 +304,20 @@ export default function AchieveChipsDemoPage() {
       </section>
 
       {/* Products Section */}
-      <section id="products" className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="products" className="py-24 bg-white relative overflow-hidden">
+        {/* Background film texture with flavor images */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-[500px] h-[500px] opacity-[0.04] -translate-x-1/4 -translate-y-1/4">
+            <img src={CHIPS_IMAGES.chiliLime.flavor3} alt="" className="w-full h-full object-cover rounded-full blur-sm" />
+          </div>
+          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] opacity-[0.04] translate-x-1/4 translate-y-1/4">
+            <img src={CHIPS_IMAGES.herbGarlic.flavor} alt="" className="w-full h-full object-cover rounded-full blur-sm" />
+          </div>
+          <div className="absolute top-1/2 right-0 w-[300px] h-[300px] opacity-[0.03]">
+            <img src={CHIPS_IMAGES.details.texture} alt="" className="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">Our Collection</h2>
             <p className="text-lg text-gray-500 max-w-2xl mx-auto font-display">Three distinct flavors, one uncompromising standard of quality</p>
@@ -356,12 +368,20 @@ export default function AchieveChipsDemoPage() {
       </section>
 
       {/* Texture & Quality Section */}
-      <section className="py-0">
+      <section className="py-0 relative">
         <div className="grid md:grid-cols-2">
           <div className="aspect-square md:aspect-auto relative overflow-hidden">
             <img src={CHIPS_IMAGES.details.crispness} alt="Chip crispness detail" className="w-full h-full object-cover" />
+            {/* Decorative overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
           </div>
-          <div className="aspect-square md:aspect-auto bg-gray-50 flex items-center justify-center p-12 md:p-20">
+          <div className="aspect-square md:aspect-auto bg-gray-50 flex items-center justify-center p-12 md:p-20 relative overflow-hidden">
+            {/* Background texture pattern */}
+            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `url(${CHIPS_IMAGES.details.texture})`, backgroundSize: '300px', backgroundRepeat: 'repeat' }} />
+            {/* Decorative flavor image */}
+            <div className="absolute -bottom-20 -right-20 w-[300px] h-[300px] opacity-[0.06]">
+              <img src={CHIPS_IMAGES.seaSaltVinegar.flavor2} alt="" className="w-full h-full object-cover rounded-full blur-sm" />
+            </div>
             <div className="max-w-md">
               <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">Perfect Crunch, Every Time</h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-8 font-display">
@@ -387,12 +407,44 @@ export default function AchieveChipsDemoPage() {
         </div>
       </section>
 
+      {/* Ingredient Showcase Strip */}
+      <section className="py-12 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-amber-50 via-orange-50 to-yellow-50" />
+        <div className="absolute inset-0 opacity-[0.08]">
+          <img src={CHIPS_IMAGES.story.rawPotato} alt="" className="w-full h-full object-cover" />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+            <div className="text-center">
+              <div className="text-4xl font-serif text-amber-700">100%</div>
+              <div className="text-sm text-amber-600 font-display uppercase tracking-wider">Organic Potatoes</div>
+            </div>
+            <div className="hidden md:block w-px h-12 bg-amber-300" />
+            <div className="text-center">
+              <div className="text-4xl font-serif text-amber-700">Real</div>
+              <div className="text-sm text-amber-600 font-display uppercase tracking-wider">Spices & Herbs</div>
+            </div>
+            <div className="hidden md:block w-px h-12 bg-amber-300" />
+            <div className="text-center">
+              <div className="text-4xl font-serif text-amber-700">No</div>
+              <div className="text-sm text-amber-600 font-display uppercase tracking-wider">Artificial Flavors</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Our Story Section */}
       <section id="our-story" className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
-        {/* Decorative background element */}
+        {/* Decorative background elements */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] opacity-5">
           <img src={CHIPS_IMAGES.sustainability.ecoValues} alt="" className="w-full h-full object-cover rounded-full blur-sm" />
         </div>
+        {/* Additional decorative - flavor image */}
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] opacity-[0.04]">
+          <img src={CHIPS_IMAGES.chiliLime.flavor1} alt="" className="w-full h-full object-cover rounded-full blur-sm" />
+        </div>
+        {/* Texture overlay */}
+        <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: `url(${CHIPS_IMAGES.details.packagingCloseup})`, backgroundSize: '500px', backgroundRepeat: 'repeat' }} />
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -432,10 +484,14 @@ export default function AchieveChipsDemoPage() {
       </section>
 
       {/* Lifestyle Section */}
-      <section className="py-0">
+      <section className="py-0 relative">
         <div className="relative h-[70vh] overflow-hidden">
           <img src={CHIPS_IMAGES.lifestyle.premium} alt="Premium snacking experience" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+          {/* Decorative flavor accent */}
+          <div className="absolute bottom-0 right-0 w-[300px] h-[300px] opacity-20 mix-blend-soft-light">
+            <img src={CHIPS_IMAGES.chiliLime.flavor2} alt="" className="w-full h-full object-cover rounded-tl-full" />
+          </div>
           <div className="absolute inset-0 flex items-center">
             <div className="max-w-7xl mx-auto px-6 w-full">
               <div className="max-w-xl">
@@ -524,6 +580,15 @@ export default function AchieveChipsDemoPage() {
       <section className="py-20 bg-gray-100 relative overflow-hidden">
         {/* Film grain texture */}
         <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: `url(${CHIPS_IMAGES.lifestyle.scene})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
+        {/* Decorative chip textures */}
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+          <div className="absolute top-10 left-10 w-[200px] h-[200px] opacity-[0.03] rotate-12">
+            <img src={CHIPS_IMAGES.details.crispness} alt="" className="w-full h-full object-cover rounded-full" />
+          </div>
+          <div className="absolute bottom-10 right-10 w-[250px] h-[250px] opacity-[0.03] -rotate-12">
+            <img src={CHIPS_IMAGES.details.texture} alt="" className="w-full h-full object-cover rounded-full" />
+          </div>
+        </div>
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-display font-bold mb-4">Certified Quality</h2>
@@ -547,7 +612,16 @@ export default function AchieveChipsDemoPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 pt-20 pb-10 border-t border-gray-200">
+      <footer className="bg-gray-900 pt-20 pb-10 border-t border-gray-200 relative overflow-hidden">
+        {/* Footer background textures */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-0 w-full h-full opacity-[0.03]">
+            <img src={CHIPS_IMAGES.lifestyle.scene} alt="" className="w-full h-full object-cover" />
+          </div>
+          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] opacity-[0.05]">
+            <img src={CHIPS_IMAGES.sustainability.compostable} alt="" className="w-full h-full object-cover rounded-tl-full blur-sm" />
+          </div>
+        </div>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-12 gap-12 mb-16">
             <div className="lg:col-span-4">
