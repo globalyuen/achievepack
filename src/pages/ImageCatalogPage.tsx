@@ -444,18 +444,23 @@ Respond ONLY with valid JSON, no other text.`
           console.log('Parsed JSON:', parsed)
           
           // Update AI descriptions
-          setAiDescriptions(prev => ({
-            ...prev,
+          const newAiDescriptions = {
+            ...aiDescriptions,
             [imagePath]: parsed
-          }))
+          }
+          setAiDescriptions(newAiDescriptions)
           
           // Also update alt text if empty
+          const newAltTexts = { ...altTexts }
           if (!altTexts[imagePath]) {
-            setAltTexts(prev => ({
-              ...prev,
-              [imagePath]: parsed.alt || ''
-            }))
+            newAltTexts[imagePath] = parsed.alt || ''
+            setAltTexts(newAltTexts)
           }
+          
+          // Auto-save to localStorage immediately
+          localStorage.setItem(AI_DESCRIPTIONS_KEY, JSON.stringify(newAiDescriptions))
+          localStorage.setItem(ALT_TEXTS_KEY, JSON.stringify(newAltTexts))
+          console.log('Auto-saved to localStorage')
           
           setUnsavedChanges(true)
         } else {
