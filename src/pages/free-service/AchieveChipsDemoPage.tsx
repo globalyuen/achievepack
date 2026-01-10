@@ -10,7 +10,7 @@ import { ShoppingCart, Menu, X, ArrowLeft, ArrowRight, Check, Leaf, Recycle, Shi
 const CHIPS_IMAGES = {
   // Brand & Logo - recommended for: header, hero section, footer, product packaging
   logo: {
-    src: '/imgs/demo-site/chips/a_achieve_eco_organic_logo_v3_4396707.webp',
+    src: '/imgs/demo-site/chips/chips-logo.webp',
     alt: 'Achieve Eco Organic green leaf brand logo - sustainable organic food brand identity',
     title: 'Achieve Eco Organic Brand Logo',
     type: 'logo'
@@ -325,7 +325,7 @@ export default function AchieveChipsDemoPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <div className="h-12 w-auto">
+            <div className="h-20 w-auto">
               <img src={CHIPS_IMAGES.logo.src} alt={CHIPS_IMAGES.logo.alt} className="h-full w-auto object-contain" />
             </div>
 
@@ -783,7 +783,7 @@ export default function AchieveChipsDemoPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-12 gap-12 mb-16">
             <div className="lg:col-span-4">
-              <img src={CHIPS_IMAGES.logo.src} alt={CHIPS_IMAGES.logo.alt} className="h-16 w-auto mb-6" />
+              <img src={CHIPS_IMAGES.logo.src} alt={CHIPS_IMAGES.logo.alt} className="h-24 w-auto mb-6" />
               <p className="text-gray-400 max-w-sm leading-relaxed mb-6 font-display">
                 Premium organic potato chips crafted with care, packaged sustainably. Because great taste and environmental responsibility go hand in hand.
               </p>
@@ -840,7 +840,7 @@ export default function AchieveChipsDemoPage() {
       {isMenuOpen && (
         <div className="fixed inset-0 z-[100] bg-white p-8 flex flex-col">
           <div className="flex justify-between items-center mb-12">
-            <img src={CHIPS_IMAGES.logo.src} alt={CHIPS_IMAGES.logo.alt} className="h-10" />
+            <img src={CHIPS_IMAGES.logo.src} alt={CHIPS_IMAGES.logo.alt} className="h-16" />
             <button onClick={() => setIsMenuOpen(false)}><X className="w-8 h-8" /></button>
           </div>
           <div className="flex flex-col gap-6">
