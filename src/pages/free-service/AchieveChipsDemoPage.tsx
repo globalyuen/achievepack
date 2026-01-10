@@ -349,42 +349,6 @@ const PRODUCTS = [
     color: '#4A7C9B',
     badges: ['Organic', 'Gluten-Free', 'Compostable Bag'],
     keywords: ['sea salt vinegar chips', 'tangy chips', 'classic flavor', 'gluten-free']
-  },
-  {
-    id: 'original-lightly-salted',
-    name: 'Original',
-    tagline: 'Pure corn, simply perfect',
-    description: 'Our foundation flavor showcasing the pure taste of organic corn. Lightly salted to let the natural sweetness shine through.',
-    price: 4.99,
-    weight: '142g / 5oz',
-    image: CHIPS_IMAGES.details.crispness.src,
-    imageAlt: CHIPS_IMAGES.details.crispness.alt,
-    heroImage: CHIPS_IMAGES.details.crispness.src,
-    heroImageAlt: CHIPS_IMAGES.details.crispness.alt,
-    flavorImages: [
-      { src: CHIPS_IMAGES.details.texture.src, alt: CHIPS_IMAGES.details.texture.alt }
-    ],
-    color: '#D4A574',
-    badges: ['Organic', 'Non-GMO', 'Compostable Bag'],
-    keywords: ['original chips', 'lightly salted', 'organic corn chips', 'natural flavor']
-  },
-  {
-    id: 'variety-pack',
-    name: 'Variety Pack',
-    tagline: 'All flavors, one pack',
-    description: 'Can\'t decide? Get them all! Our variety pack includes one bag of each flavor - perfect for sharing or discovering your new favorite.',
-    price: 19.99,
-    weight: '5 x 142g',
-    image: CHIPS_IMAGES.lifestyle.premium.src,
-    imageAlt: CHIPS_IMAGES.lifestyle.premium.alt,
-    heroImage: CHIPS_IMAGES.lifestyle.premium.src,
-    heroImageAlt: CHIPS_IMAGES.lifestyle.premium.alt,
-    flavorImages: [
-      { src: CHIPS_IMAGES.lifestyle.scene.src, alt: CHIPS_IMAGES.lifestyle.scene.alt }
-    ],
-    color: '#8B5CF6',
-    badges: ['All Flavors', 'Best Value', 'Compostable Bags'],
-    keywords: ['variety pack', 'sampler pack', 'all flavors', 'gift set']
   }
 ]
 
