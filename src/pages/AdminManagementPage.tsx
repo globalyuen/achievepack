@@ -1323,16 +1323,16 @@ const AdminManagementPage: React.FC = () => {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-white rounded-xl p-4 shadow-sm border">
+              <div className="flex flex-wrap gap-3">
+                <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
                   <p className="text-sm text-gray-500">Total Quotes</p>
                   <p className="text-2xl font-bold text-gray-900 mt-1">{quotes.length}</p>
                 </div>
-                <div className="bg-white rounded-xl p-4 shadow-sm border">
+                <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
                   <p className="text-sm text-gray-500">Pending</p>
                   <p className="text-2xl font-bold text-yellow-600 mt-1">{pendingQuotes}</p>
                 </div>
-                <div className="bg-white rounded-xl p-4 shadow-sm border">
+                <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
                   <p className="text-sm text-gray-500">RFQ Submissions</p>
                   <p className="text-2xl font-bold text-blue-600 mt-1">
                     {quotes.filter(q => q.is_rfq).length}
@@ -1477,24 +1477,24 @@ const AdminManagementPage: React.FC = () => {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                <div className="bg-white rounded-xl p-3 md:p-4 shadow-sm border">
+              <div className="flex flex-wrap gap-3">
+                <div className="w-[160px] flex-shrink-0 bg-white rounded-xl p-3 md:p-4 shadow-sm border">
                   <p className="text-xs md:text-sm text-gray-500">Total</p>
                   <p className="text-xl md:text-2xl font-bold text-gray-900 mt-1">{artworks.length}</p>
                 </div>
-                <div className="bg-white rounded-xl p-3 md:p-4 shadow-sm border">
+                <div className="w-[160px] flex-shrink-0 bg-white rounded-xl p-3 md:p-4 shadow-sm border">
                   <p className="text-xs md:text-sm text-gray-500">Pending</p>
                   <p className="text-xl md:text-2xl font-bold text-blue-600 mt-1">
                     {artworks.filter(a => a.status === 'pending_review').length}
                   </p>
                 </div>
-                <div className="bg-white rounded-xl p-3 md:p-4 shadow-sm border">
+                <div className="w-[160px] flex-shrink-0 bg-white rounded-xl p-3 md:p-4 shadow-sm border">
                   <p className="text-xs md:text-sm text-gray-500">Proof Ready</p>
                   <p className="text-xl md:text-2xl font-bold text-indigo-600 mt-1">
                     {artworks.filter(a => a.status === 'proof_ready').length}
                   </p>
                 </div>
-                <div className="bg-white rounded-xl p-3 md:p-4 shadow-sm border">
+                <div className="w-[160px] flex-shrink-0 bg-white rounded-xl p-3 md:p-4 shadow-sm border">
                   <p className="text-xs md:text-sm text-gray-500">Revision</p>
                   <p className="text-xl md:text-2xl font-bold text-orange-600 mt-1">
                     {artworks.filter(a => a.status === 'revision_needed').length}
@@ -1714,16 +1714,16 @@ const AdminManagementPage: React.FC = () => {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-white rounded-xl p-4 shadow-sm border">
+              <div className="flex flex-wrap gap-3">
+                <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
                   <p className="text-sm text-gray-500">Total in Bin</p>
                   <p className="text-2xl font-bold text-gray-900 mt-1">{deletedArtworks.length + deletedQuotes.length}</p>
                 </div>
-                <div className="bg-white rounded-xl p-4 shadow-sm border">
+                <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
                   <p className="text-sm text-gray-500">Deleted Artworks</p>
                   <p className="text-2xl font-bold text-purple-600 mt-1">{deletedArtworks.length}</p>
                 </div>
-                <div className="bg-white rounded-xl p-4 shadow-sm border">
+                <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
                   <p className="text-sm text-gray-500">Deleted Quotes</p>
                   <p className="text-2xl font-bold text-blue-600 mt-1">{deletedQuotes.length}</p>
                 </div>
