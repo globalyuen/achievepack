@@ -257,8 +257,8 @@ export default function AchieveChipsDemoPage() {
             </div>
 
             {/* Product Image */}
-            <div className="order-1 lg:order-2 relative">
-              <div className="relative aspect-square max-w-2xl mx-auto lg:-mr-20">
+            <div className="order-1 lg:order-2 relative flex items-center justify-center">
+              <div className="relative aspect-square max-w-2xl mx-auto w-full flex items-center justify-center">
                 {/* Glow */}
                 <div className="absolute inset-0 rounded-full blur-[120px] opacity-50" style={{ backgroundColor: activeProduct.color }} />
                 
@@ -266,7 +266,7 @@ export default function AchieveChipsDemoPage() {
                 <img 
                   src={activeProduct.image}
                   alt={activeProduct.name}
-                  className="relative z-10 w-full h-full object-contain drop-shadow-2xl transform hover:scale-105 transition-transform duration-500 scale-125 lg:scale-150"
+                  className="relative z-10 w-[120%] lg:w-[140%] max-w-none object-contain drop-shadow-2xl transform hover:scale-105 transition-transform duration-500"
                 />
               </div>
             </div>
