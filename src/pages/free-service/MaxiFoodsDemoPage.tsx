@@ -304,7 +304,7 @@ export default function MaxiFoodsDemoPage() {
             {/* Hero Section - Full Width Impact */}
             <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
                 <div className="absolute inset-0">
-                    <img src={MAXI_IMAGES.hero.src} alt={MAXI_IMAGES.hero.alt} className="w-full h-full object-cover opacity-40" />
+                    <img src={MAXI_IMAGES.hero.src} alt={MAXI_IMAGES.hero.alt} className="w-full h-full object-cover opacity-40" style={{ objectPosition: 'center calc(50% - 200px)' }} />
                     <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
                 </div>
                 <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10 w-full">
@@ -314,7 +314,14 @@ export default function MaxiFoodsDemoPage() {
                                 <span className="h-[2px] w-12 bg-[#26c6da]"></span>
                                 <span className="text-[#26c6da] font-black tracking-[0.3em] uppercase text-xs">Certified Organic</span>
                             </div>
-                            <h1 className="text-6xl md:text-8xl font-display font-extrabold leading-[0.9] mb-8 tracking-tight">
+                            {/* Mexican Colorful MAXI Brand */}
+                            <div className="text-7xl md:text-9xl font-display font-black tracking-tighter mb-4">
+                                <span style={{ color: '#E4002B' }}>M</span>
+                                <span style={{ color: '#FFC72C' }}>A</span>
+                                <span style={{ color: '#00873E' }}>X</span>
+                                <span style={{ color: '#FF6B35' }}>I</span>
+                            </div>
+                            <h1 className="text-5xl md:text-7xl font-display font-extrabold leading-[0.9] mb-8 tracking-tight">
                                 AUTHENTIC<br />
                                 <span className="italic font-serif font-normal text-white/40">Mexican</span><br />
                                 FLAVOR

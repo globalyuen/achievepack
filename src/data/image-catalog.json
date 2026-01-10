@@ -1,9 +1,9 @@
 {
   "generated": "2026-01-10",
-  "total_images": 1049,
-  "total_categories": 110,
+  "total_images": 1058,
+  "total_categories": 111,
   "extensions": {
-    ".webp": 1005,
+    ".webp": 1014,
     ".png": 42,
     ".jpg": 2
   },
@@ -939,6 +939,12 @@
       "count": 25,
       "images": [
         {
+          "filename": "chips-logo.webp",
+          "path": "/imgs/demo-site/chips/chips-logo.webp",
+          "extension": ".webp",
+          "modified": "2026-01-10T09:22:48.151Z"
+        },
+        {
           "filename": "a_achievepack_chili_lime_chips_6256919.webp",
           "path": "/imgs/demo-site/chips/a_achievepack_chili_lime_chips_6256919.webp",
           "extension": ".webp",
@@ -1063,12 +1069,6 @@
           "path": "/imgs/demo-site/chips/a_achievepack_sustainability_eco_values_1081822.webp",
           "extension": ".webp",
           "modified": "2026-01-09T22:28:04.000Z"
-        },
-        {
-          "filename": "a_achieve_eco_organic_logo_v3_4396707.webp",
-          "path": "/imgs/demo-site/chips/a_achieve_eco_organic_logo_v3_4396707.webp",
-          "extension": ".webp",
-          "modified": "2026-01-09T22:05:56.000Z"
         },
         {
           "filename": "png a_achievepack_chili_lime_chips_6256919 (1).webp",
@@ -1259,6 +1259,65 @@
           "path": "/imgs/demo-site/maxi/a_maxi_kv_10_artisan_pride_1798104.webp",
           "extension": ".webp",
           "modified": "2026-01-09T07:34:54.000Z"
+        }
+      ]
+    },
+    "demo-site/maxi/new": {
+      "count": 9,
+      "images": [
+        {
+          "filename": "a_kv_001_hero_organic_2444976.webp",
+          "path": "/imgs/demo-site/maxi/new/a_kv_001_hero_organic_2444976.webp",
+          "extension": ".webp",
+          "modified": "2026-01-10T01:28:34.000Z"
+        },
+        {
+          "filename": "a_kv_002_handcrafted_heritage_2070915.webp",
+          "path": "/imgs/demo-site/maxi/new/a_kv_002_handcrafted_heritage_2070915.webp",
+          "extension": ".webp",
+          "modified": "2026-01-10T01:28:34.000Z"
+        },
+        {
+          "filename": "a_kv_003_premium_quality_5152582.webp",
+          "path": "/imgs/demo-site/maxi/new/a_kv_003_premium_quality_5152582.webp",
+          "extension": ".webp",
+          "modified": "2026-01-10T01:28:34.000Z"
+        },
+        {
+          "filename": "a_kv_004_canadian_pride_0432674.webp",
+          "path": "/imgs/demo-site/maxi/new/a_kv_004_canadian_pride_0432674.webp",
+          "extension": ".webp",
+          "modified": "2026-01-10T01:28:34.000Z"
+        },
+        {
+          "filename": "a_kv_005_flavor_diversity_1642930.webp",
+          "path": "/imgs/demo-site/maxi/new/a_kv_005_flavor_diversity_1642930.webp",
+          "extension": ".webp",
+          "modified": "2026-01-10T01:28:34.000Z"
+        },
+        {
+          "filename": "a_chili_lime_tortilla_chips_2953420.webp",
+          "path": "/imgs/demo-site/maxi/new/a_chili_lime_tortilla_chips_2953420.webp",
+          "extension": ".webp",
+          "modified": "2026-01-10T01:12:22.000Z"
+        },
+        {
+          "filename": "a_jalapeno_lime_tortilla_chips_4049982.webp",
+          "path": "/imgs/demo-site/maxi/new/a_jalapeno_lime_tortilla_chips_4049982.webp",
+          "extension": ".webp",
+          "modified": "2026-01-10T01:12:22.000Z"
+        },
+        {
+          "filename": "a_lime_tortilla_chips_0051449.webp",
+          "path": "/imgs/demo-site/maxi/new/a_lime_tortilla_chips_0051449.webp",
+          "extension": ".webp",
+          "modified": "2026-01-10T01:12:22.000Z"
+        },
+        {
+          "filename": "a_tomatonion_tortilla_chips_4226853.webp",
+          "path": "/imgs/demo-site/maxi/new/a_tomatonion_tortilla_chips_4226853.webp",
+          "extension": ".webp",
+          "modified": "2026-01-10T01:12:22.000Z"
         }
       ]
     },
