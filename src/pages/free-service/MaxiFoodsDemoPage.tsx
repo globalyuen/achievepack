@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ShoppingCart, Menu, X, Leaf, Award, MapPin, ArrowRight, ArrowLeft, Check, Facebook, Instagram, Twitter, Phone, Mail, ShieldCheck, Recycle, Globe, ExternalLink, Star, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence, useInView, useScroll, useTransform, type Variants } from 'motion/react';
 import { ParallaxText } from '../../components/ParallaxText';
+import { ScrollTriggeredCards, MAXI_SCROLL_CARDS } from '../../components/ScrollTriggeredCards';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // MOTION ANIMATION VARIANTS - Reusable animation configurations
@@ -545,6 +546,15 @@ export default function MaxiFoodsDemoPage() {
                         GLUTEN FREE • ORGANIC • COMPOSTABLE • ALBERTA •
                     </ParallaxText>
                 </div>
+            </section>
+
+            {/* Scroll Triggered Feature Cards - Spring Animation */}
+            <section className="py-24 bg-gradient-to-b from-[#0a0a0a] to-[#050505]">
+                <div className="text-center mb-8">
+                    <h2 className="text-3xl md:text-5xl font-display font-extrabold tracking-tight">WHY CHOOSE <span className="text-[#26c6da]">MAXI</span></h2>
+                    <p className="text-white/50 mt-4">Scroll to discover our promise</p>
+                </div>
+                <ScrollTriggeredCards cards={MAXI_SCROLL_CARDS} />
             </section>
 
             {/* Philosophy Section - with stagger animation */}

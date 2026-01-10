@@ -5,6 +5,7 @@ import { ChevronDown, ArrowRight, ArrowLeft, Leaf, Award, MapPin, Check, Recycle
 import { motion, AnimatePresence, useScroll, useTransform, type Variants } from 'motion/react'
 import { supabase } from '../../lib/supabase'
 import { ParallaxText } from '../../components/ParallaxText'
+import { ScrollTriggeredCards, COFFEE_SCROLL_CARDS } from '../../components/ScrollTriggeredCards'
 
 // ═══════════════════════════════════════════════════════════════════════════
 // MOTION ANIMATION VARIANTS - Reusable animation configurations
@@ -609,6 +610,15 @@ const AchieveCoffeeDemoPage: React.FC = () => {
               FRESH ROASTED • COMPOSTABLE • DIRECT TRADE • ACHIEVE •
             </ParallaxText>
           </div>
+        </section>
+
+        {/* Scroll Triggered Feature Cards - Spring Animation */}
+        <section className="py-24 bg-gradient-to-b from-neutral-950 to-neutral-900">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold">Our Coffee Promise</h2>
+            <p className="text-white/50 mt-2">Scroll to discover what makes us special</p>
+          </div>
+          <ScrollTriggeredCards cards={COFFEE_SCROLL_CARDS} />
         </section>
 
         {/* Collections Section */}

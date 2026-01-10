@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { ShoppingCart, Menu, X, ArrowLeft, ArrowRight, Check, Leaf, Recycle, ShieldCheck, Award, MapPin, Phone, Mail, Facebook, Instagram, Twitter, ExternalLink, ChevronDown, Globe, Play, Star } from 'lucide-react'
 import { motion, useInView, useScroll, useTransform, AnimatePresence, Variants } from 'motion/react'
 import { ParallaxText } from '../../components/ParallaxText'
+import { ScrollTriggeredCards, CHIPS_SCROLL_CARDS } from '../../components/ScrollTriggeredCards'
 
 // ============================================
 // MOTION ANIMATION VARIANTS - Reusable configs
@@ -755,6 +756,15 @@ export default function AchieveChipsDemoPage() {
             SEA SALT VINEGAR • GLUTEN FREE • NON-GMO • COMPOSTABLE •
           </ParallaxText>
         </div>
+      </section>
+
+      {/* Scroll Triggered Flavor Cards - Spring Animation */}
+      <section className="py-24 bg-gradient-to-b from-white to-gray-50">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-display font-bold">Our Promise</h2>
+          <p className="text-gray-500 mt-2">Scroll to discover what makes us different</p>
+        </div>
+        <ScrollTriggeredCards cards={CHIPS_SCROLL_CARDS} />
       </section>
 
       {/* Texture & Quality Section - with scroll reveal animations */}
