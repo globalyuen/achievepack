@@ -443,10 +443,16 @@ export default function MaxiFoodsDemoPage() {
                 </div>
             </section>
 
-            {/* DISCOVER YOUR FLAVOR - Product Flavors Showcase */}
+            {/* DISCOVER YOUR FLAVOR - Product Flavors Showcase with scroll animations */}
             <section className="py-32 bg-[#0a0a0a]">
                 <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-                    <div className="text-center mb-16">
+                    <motion.div 
+                        className="text-center mb-16"
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: '-100px' }}
+                        transition={{ duration: 0.7 }}
+                    >
                         <div className="flex items-center justify-center gap-3 mb-6">
                             <span className="h-[2px] w-12 bg-[#26c6da]"></span>
                             <span className="text-[#26c6da] font-black tracking-[0.3em] uppercase text-xs">Flavor Collection</span>
@@ -454,7 +460,7 @@ export default function MaxiFoodsDemoPage() {
                         </div>
                         <h2 className="text-5xl md:text-7xl font-display font-extrabold mb-6 tracking-tighter">DISCOVER YOUR <span className="text-[#26c6da]">FLAVOR</span></h2>
                         <p className="text-xl text-white/50 max-w-2xl mx-auto">From zesty lime to bold jalapeño, each flavor is crafted with authentic Mexican spices and organic ingredients.</p>
-                    </div>
+                    </motion.div>
                     
                     {/* Product Cards Grid */}
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -498,16 +504,28 @@ export default function MaxiFoodsDemoPage() {
                 </div>
             </section>
 
-            {/* Full Width Image Banner */}
+            {/* Full Width Image Banner with scroll animation */}
             <section className="py-0">
-                <div className="relative h-[60vh] overflow-hidden">
+                <motion.div 
+                    className="relative h-[60vh] overflow-hidden"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, margin: '-100px' }}
+                    transition={{ duration: 0.8 }}
+                >
                     <img src={MAXI_IMAGES.handcrafted.src} alt={MAXI_IMAGES.handcrafted.alt} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-12 max-w-7xl mx-auto">
+                    <motion.div 
+                        className="absolute bottom-0 left-0 right-0 p-12 max-w-7xl mx-auto"
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7, delay: 0.2 }}
+                    >
                         <h2 className="text-4xl md:text-6xl font-display font-extrabold mb-4 tracking-tight">HANDCRAFTED WITH PASSION</h2>
                         <p className="text-xl text-white/70 max-w-xl">Every chip is made in small batches using traditional stone-ground techniques, ensuring authentic flavor and perfect crunch.</p>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
             </section>
 
             {/* Philosophy Section - with stagger animation */}
@@ -539,17 +557,33 @@ export default function MaxiFoodsDemoPage() {
                 </div>
             </section>
 
-            {/* Product Showcase - Large Images */}
+            {/* Product Showcase - Large Images with scroll animations */}
             <section id="products" className="py-32">
                 <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-                    <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
+                    <motion.div 
+                        className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8"
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: '-100px' }}
+                        transition={{ duration: 0.7 }}
+                    >
                         <div className="max-w-2xl">
                             <h2 className="text-5xl md:text-7xl font-display font-extrabold mb-8 tracking-tighter uppercase leading-none">THE MODERN <br /><span className="text-[#26c6da]">STAPLES.</span></h2>
                             <p className="text-lg text-white/40 font-light max-w-lg">Taste the heritage. Handcrafted corn tortilla chips and salsas inspired by UNESCO Intangible Cultural Heritage traditions.</p>
                         </div>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-8 mb-16">
-                        <div className="relative aspect-[4/5] rounded-3xl overflow-hidden group">
+                    </motion.div>
+                    <motion.div 
+                        className="grid md:grid-cols-2 gap-8 mb-16"
+                        variants={staggerContainer}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: '-50px' }}
+                    >
+                        <motion.div 
+                            className="relative aspect-[4/5] rounded-3xl overflow-hidden group"
+                            variants={fadeInUp}
+                            whileHover={cardHover}
+                        >
                             <img src={MAXI_IMAGES.crispyDetail.src} alt={MAXI_IMAGES.crispyDetail.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                             <div className="absolute bottom-0 left-0 right-0 p-8">
@@ -561,8 +595,12 @@ export default function MaxiFoodsDemoPage() {
                                     <button onClick={() => setCartCount(c => c + 1)} className="bg-[#26c6da] text-black px-6 py-3 rounded-full font-bold text-sm hover:bg-white transition">Add to Cart</button>
                                 </div>
                             </div>
-                        </div>
-                        <div className="relative aspect-[4/5] rounded-3xl overflow-hidden group">
+                        </motion.div>
+                        <motion.div 
+                            className="relative aspect-[4/5] rounded-3xl overflow-hidden group"
+                            variants={fadeInUp}
+                            whileHover={cardHover}
+                        >
                             <img src={MAXI_IMAGES.lifestyleTaste.src} alt={MAXI_IMAGES.lifestyleTaste.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                             <div className="absolute bottom-0 left-0 right-0 p-8">
@@ -574,34 +612,52 @@ export default function MaxiFoodsDemoPage() {
                                     <button onClick={() => setCartCount(c => c + 1)} className="bg-[#26c6da] text-black px-6 py-3 rounded-full font-bold text-sm hover:bg-white transition">Add to Cart</button>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div className="grid md:grid-cols-3 gap-6">
-                        <div className="relative aspect-square rounded-2xl overflow-hidden group bg-[#111]">
+                        </motion.div>
+                    </motion.div>
+                    <motion.div 
+                        className="grid md:grid-cols-3 gap-6"
+                        variants={staggerContainer}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: '-50px' }}
+                    >
+                        <motion.div 
+                            className="relative aspect-square rounded-2xl overflow-hidden group bg-[#111]"
+                            variants={fadeInUp}
+                            whileHover={cardHover}
+                        >
                             <img src={MAXI_IMAGES.pureIngredients.src} alt={MAXI_IMAGES.pureIngredients.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                             <div className="absolute bottom-0 left-0 right-0 p-6">
                                 <h3 className="text-xl font-bold mb-1">Tomatonion Organic Yellow Chips</h3>
                                 <span className="text-[#26c6da] font-display">$7.49</span>
                             </div>
-                        </div>
-                        <div className="relative aspect-square rounded-2xl overflow-hidden group bg-[#111]">
+                        </motion.div>
+                        <motion.div 
+                            className="relative aspect-square rounded-2xl overflow-hidden group bg-[#111]"
+                            variants={fadeInUp}
+                            whileHover={cardHover}
+                        >
                             <img src={MAXI_IMAGES.goldenHour.src} alt={MAXI_IMAGES.goldenHour.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                             <div className="absolute bottom-0 left-0 right-0 p-6">
                                 <h3 className="text-xl font-bold mb-1">Pico de Gallo Salsa</h3>
                                 <span className="text-[#26c6da] font-display">$8.99</span>
                             </div>
-                        </div>
-                        <div className="relative aspect-square rounded-2xl overflow-hidden group bg-[#111]">
+                        </motion.div>
+                        <motion.div 
+                            className="relative aspect-square rounded-2xl overflow-hidden group bg-[#111]"
+                            variants={fadeInUp}
+                            whileHover={cardHover}
+                        >
                             <img src={MAXI_IMAGES.artisanPride.src} alt={MAXI_IMAGES.artisanPride.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                             <div className="absolute bottom-0 left-0 right-0 p-6">
                                 <h3 className="text-xl font-bold mb-1">Salsa Verde</h3>
                                 <span className="text-[#26c6da] font-display">$8.99</span>
                             </div>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </section>
 
@@ -735,15 +791,27 @@ export default function MaxiFoodsDemoPage() {
             {/* NEW: Heritage Gallery - Using new KV images */}
             <section className="py-32 bg-gradient-to-b from-[#0a0a0a] to-[#050505]">
                 <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-                    <div className="text-center mb-16">
+                    <motion.div 
+                        className="text-center mb-16"
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: '-100px' }}
+                        transition={{ duration: 0.7 }}
+                    >
                         <h2 className="text-4xl md:text-5xl font-display font-extrabold mb-4 tracking-tight">MEXICAN <span className="italic font-serif font-normal text-white/40">Heritage</span></h2>
                         <p className="text-white/50 max-w-xl mx-auto">Bringing UNESCO Cultural Heritage traditions to your table with every chip.</p>
-                    </div>
+                    </motion.div>
                     
                     {/* Masonry-style Gallery */}
-                    <div className="grid md:grid-cols-3 gap-4">
+                    <motion.div 
+                        className="grid md:grid-cols-3 gap-4"
+                        variants={staggerContainer}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: '-50px' }}
+                    >
                         {/* Column 1 */}
-                        <div className="space-y-4">
+                        <motion.div className="space-y-4" variants={fadeInUp}>
                             <motion.div 
                                 whileHover={{ scale: 1.02 }}
                                 className="relative rounded-2xl overflow-hidden aspect-[3/4]"
@@ -764,10 +832,10 @@ export default function MaxiFoodsDemoPage() {
                                     <span className="text-xs font-bold uppercase tracking-widest text-white/80">Made in Canada</span>
                                 </div>
                             </motion.div>
-                        </div>
+                        </motion.div>
                         
                         {/* Column 2 */}
-                        <div className="space-y-4">
+                        <motion.div className="space-y-4" variants={fadeInUp}>
                             <motion.div 
                                 whileHover={{ scale: 1.02 }}
                                 className="relative rounded-2xl overflow-hidden aspect-square"
@@ -788,10 +856,10 @@ export default function MaxiFoodsDemoPage() {
                                     <span className="text-xs font-bold uppercase tracking-widest text-[#26c6da]">Artisan Quality</span>
                                 </div>
                             </motion.div>
-                        </div>
+                        </motion.div>
                         
                         {/* Column 3 */}
-                        <div className="space-y-4">
+                        <motion.div className="space-y-4" variants={fadeInUp}>
                             <motion.div 
                                 whileHover={{ scale: 1.02 }}
                                 className="relative rounded-2xl overflow-hidden aspect-[3/4]"
@@ -812,8 +880,8 @@ export default function MaxiFoodsDemoPage() {
                                     <span className="text-xs font-bold uppercase tracking-widest text-[#26c6da]">Flavor Diversity</span>
                                 </div>
                             </motion.div>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </section>
 
@@ -879,15 +947,35 @@ export default function MaxiFoodsDemoPage() {
 
             {/* Large Feature Image */}
             <section className="relative h-[80vh] overflow-hidden">
-                <img src={MAXI_IMAGES.glutenFree.src} alt={MAXI_IMAGES.glutenFree.alt} className="w-full h-full object-cover" />
+                <motion.div
+                    className="absolute inset-0"
+                    initial={{ scale: 1.1 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1.2, ease: 'easeOut' }}
+                >
+                    <img src={MAXI_IMAGES.glutenFree.src} alt={MAXI_IMAGES.glutenFree.alt} className="w-full h-full object-cover" />
+                </motion.div>
                 <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
                 <div className="absolute inset-0 flex items-center">
                     <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
-                        <div className="max-w-xl">
+                        <motion.div 
+                            className="max-w-xl"
+                            initial={{ opacity: 0, x: -50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
+                        >
                             <h2 className="text-5xl md:text-7xl font-display font-extrabold mb-6 tracking-tight">TASTE THE DIFFERENCE</h2>
                             <p className="text-xl text-white/70 mb-8">When you choose Maxi Foods, you're choosing authentic Mexican heritage, clean ingredients, and a commitment to sustainability.</p>
-                            <button className="bg-white text-black px-10 py-5 rounded-full font-extrabold text-sm tracking-widest uppercase hover:bg-[#26c6da] transition-all">FIND A STORE NEAR YOU</button>
-                        </div>
+                            <motion.button 
+                                className="bg-white text-black px-10 py-5 rounded-full font-extrabold text-sm tracking-widest uppercase hover:bg-[#26c6da] transition-all"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.98 }}
+                            >
+                                FIND A STORE NEAR YOU
+                            </motion.button>
+                        </motion.div>
                     </div>
                 </div>
             </section>

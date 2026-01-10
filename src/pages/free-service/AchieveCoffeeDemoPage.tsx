@@ -628,7 +628,13 @@ const AchieveCoffeeDemoPage: React.FC = () => {
           >
             <div className="absolute inset-0 bg-neutral-950/70" />
           </div>
-          <div className="relative z-10 max-w-4xl mx-auto px-6 py-24 text-center">
+          <motion.div 
+            className="relative z-10 max-w-4xl mx-auto px-6 py-24 text-center"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="text-4xl md:text-6xl font-bold mb-8">
               {content.mission.title}
             </h2>
@@ -638,7 +644,7 @@ const AchieveCoffeeDemoPage: React.FC = () => {
             <span className="text-white/40 text-sm tracking-widest">
               {content.mission.coordinates}
             </span>
-          </div>
+          </motion.div>
         </section>
 
         {/* Subscription Section */}
@@ -853,15 +859,29 @@ const AchieveCoffeeDemoPage: React.FC = () => {
 
         {/* Large Feature Image */}
         <section className="relative h-[70vh] overflow-hidden">
-          <img
-            src={COFFEE_IMAGES.detail10}
-            alt="Specialty Coffee Final Masterpiece"
-            className="w-full h-full object-cover"
-          />
+          <motion.div
+            className="absolute inset-0"
+            initial={{ scale: 1.1 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: 'easeOut' }}
+          >
+            <img
+              src={COFFEE_IMAGES.detail10}
+              alt="Specialty Coffee Final Masterpiece"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
           <div className="absolute inset-0 flex items-center">
             <div className="max-w-7xl mx-auto px-6 w-full">
-              <div className="max-w-xl">
+              <motion.div 
+                className="max-w-xl"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
                 <h2 className="text-4xl md:text-6xl font-bold mb-6">
                   Taste the<br/>Difference
                 </h2>
@@ -869,10 +889,15 @@ const AchieveCoffeeDemoPage: React.FC = () => {
                   Experience specialty coffee that honors tradition, supports farmers, 
                   and respects our planet with every cup.
                 </p>
-                <a href="#shop" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-medium rounded-full hover:bg-white/90 transition">
+                <motion.a 
+                  href="#shop" 
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-medium rounded-full hover:bg-white/90 transition"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                >
                   Shop Our Collection <ArrowRight className="w-5 h-5" />
-                </a>
-              </div>
+                </motion.a>
+              </motion.div>
             </div>
           </div>
         </section>
