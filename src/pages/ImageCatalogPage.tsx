@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Search, Grid3X3, List, Folder, ArrowLeft, Copy, Check, ExternalLink, Save, Download, FileText, X, Sparkles, Tag, Eye, Code, Lock, LogOut, Cloud, CloudOff } from 'lucide-react'
+import { Search, Grid3X3, List, Folder, ArrowLeft, Copy, Check, ExternalLink, Save, Download, FileText, X, Sparkles, Tag, Eye, Code, Lock, LogOut, Cloud, CloudOff, Zap, Clock, AlertCircle } from 'lucide-react'
 import imageCatalog from '../data/image-catalog.json'
 import aiDescriptionsData from '../data/image-ai-descriptions.json'
 import { useAuth } from '../hooks/useAuth'
@@ -12,6 +12,7 @@ interface ImageInfo {
   filename: string
   path: string
   extension: string
+  modified?: string
 }
 
 interface CategoryData {
@@ -49,6 +50,10 @@ export default function ImageCatalogPage() {
   const [unsavedChanges, setUnsavedChanges] = useState(false)
   const [saveMessage, setSaveMessage] = useState<string | null>(null)
   const [showOnlyEmpty, setShowOnlyEmpty] = useState(false)
+  const [showOnlyNoJson, setShowOnlyNoJson] = useState(false)
+  const [sortByNewest, setSortByNewest] = useState(true)
+  const [isAnalyzing, setIsAnalyzing] = useState(false)
+  const [analyzingImage, setAnalyzingImage] = useState<string | null>(null)
   const [isSavingToCloud, setIsSavingToCloud] = useState(false)
   const [cloudSyncStatus, setCloudSyncStatus] = useState<'synced' | 'pending' | 'error'>('synced')
     const [aiDescriptions, setAiDescriptions] = useState<Record<string, AIDescription>>(preloadedDescriptions)
@@ -71,8 +76,15 @@ export default function ImageCatalogPage() {
   const fileCategories = imageCatalog.categories as Record<string, CategoryData>
   const totalImages = imageCatalog.total_images
 
-  // Get all images from file catalog
-  const allImages: ImageInfo[] = Object.values(fileCategories).flatMap(cat => cat.images)
+  // Get all images from file catalog - sorted by modification time
+  const allImages: ImageInfo[] = Object.values(fileCategories)
+    .flatMap(cat => cat.images)
+    .sort((a, b) => {
+      if (!sortByNewest) return a.filename.localeCompare(b.filename)
+      const dateA = a.modified ? new Date(a.modified).getTime() : 0
+      const dateB = b.modified ? new Date(b.modified).getTime() : 0
+      return dateB - dateA // Newest first
+    })
 
   // Build AI-based categories dynamically
   const getAICategories = () => {
@@ -180,6 +192,11 @@ export default function ImageCatalogPage() {
     } else {
       // Show all images when no category selected
       images = allImages
+    }
+
+    // Filter to show only images without JSON description
+    if (showOnlyNoJson) {
+      images = images.filter(img => !aiDescriptions[img.path])
     }
 
     // Filter to show only empty alt texts if enabled
@@ -340,6 +357,117 @@ export default function ImageCatalogPage() {
     setUnsavedChanges(true)
   }
 
+  // xAI Vision Analysis function
+  const analyzeImageWithXAI = async (imagePath: string) => {
+    setIsAnalyzing(true)
+    setAnalyzingImage(imagePath)
+    
+    try {
+      // Get the full URL for the image
+      const imageUrl = `${window.location.origin}${imagePath}`
+      
+      const response = await fetch('https://api.x.ai/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_XAI_API_KEY || ''}`
+        },
+        body: JSON.stringify({
+          model: 'grok-2-vision-1212',
+          messages: [
+            {
+              role: 'user',
+              content: [
+                {
+                  type: 'image_url',
+                  image_url: { url: imageUrl }
+                },
+                {
+                  type: 'text',
+                  text: `Analyze this image and provide a JSON response with the following structure:
+{
+  "title": "Short descriptive title (max 60 chars)",
+  "description": "Detailed description of the image content and context (100-200 words)",
+  "alt": "SEO-friendly alt text for accessibility (max 125 chars)",
+  "keywords": ["keyword1", "keyword2", "keyword3", "keyword4", "keyword5"],
+  "category": "one of: product, lifestyle, marketing, certification, sustainability, technical, branding, scene, detail",
+  "type": "one of: product, scene, hero, infographic, logo, certification, detail, cutout",
+  "colors": ["primary color", "secondary color"],
+  "seo_priority": "high, medium, or low",
+  "usage": {
+    "recommended_placement": ["suggested page sections"],
+    "background": "background compatibility notes",
+    "size": "recommended display size"
+  }
+}
+
+Respond ONLY with valid JSON, no other text.`
+                }
+              ]
+            }
+          ],
+          max_tokens: 1000
+        })
+      })
+      
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status}`)
+      }
+      
+      const data = await response.json()
+      const content = data.choices?.[0]?.message?.content
+      
+      if (content) {
+        // Parse the JSON response
+        const jsonMatch = content.match(/\{[\s\S]*\}/)
+        if (jsonMatch) {
+          const parsed = JSON.parse(jsonMatch[0])
+          
+          // Update AI descriptions
+          setAiDescriptions(prev => ({
+            ...prev,
+            [imagePath]: parsed
+          }))
+          
+          // Also update alt text if empty
+          if (!altTexts[imagePath]) {
+            setAltTexts(prev => ({
+              ...prev,
+              [imagePath]: parsed.alt || ''
+            }))
+          }
+          
+          setUnsavedChanges(true)
+        }
+      }
+    } catch (error) {
+      console.error('xAI analysis failed:', error)
+      alert('Failed to analyze image. Check console for details.')
+    } finally {
+      setIsAnalyzing(false)
+      setAnalyzingImage(null)
+    }
+  }
+
+  // Analyze all images without JSON (newest first)
+  const analyzeAllMissingJson = async () => {
+    const imagesWithoutJson = allImages.filter(img => !aiDescriptions[img.path])
+    
+    if (imagesWithoutJson.length === 0) {
+      alert('All images already have JSON descriptions!')
+      return
+    }
+    
+    const confirmAnalyze = confirm(`Analyze ${imagesWithoutJson.length} images without JSON? This will use xAI API credits.`)
+    if (!confirmAnalyze) return
+    
+    for (const img of imagesWithoutJson) {
+      await analyzeImageWithXAI(img.path)
+      // Small delay between requests
+      await new Promise(resolve => setTimeout(resolve, 1000))
+    }
+  }
+
   // Show loading state
   if (authLoading) {
     return (
@@ -397,7 +525,28 @@ export default function ImageCatalogPage() {
                   showOnlyEmpty ? 'bg-orange-100 text-orange-700 border border-orange-300' : 'bg-neutral-100 text-neutral-600 border border-neutral-200'
                 }`}
               >
-                {showOnlyEmpty ? 'Show All' : 'Missing Alt Only'}
+                {showOnlyEmpty ? 'Show All' : 'Missing Alt'}
+              </button>
+
+              {/* Filter no JSON */}
+              <button
+                onClick={() => setShowOnlyNoJson(!showOnlyNoJson)}
+                className={`px-3 py-2 rounded-lg text-sm font-medium transition ${
+                  showOnlyNoJson ? 'bg-purple-100 text-purple-700 border border-purple-300' : 'bg-neutral-100 text-neutral-600 border border-neutral-200'
+                }`}
+              >
+                {showOnlyNoJson ? 'Show All' : 'No JSON'}
+              </button>
+
+              {/* Sort toggle */}
+              <button
+                onClick={() => setSortByNewest(!sortByNewest)}
+                className={`px-3 py-2 rounded-lg text-sm font-medium transition flex items-center gap-1 ${
+                  sortByNewest ? 'bg-blue-100 text-blue-700 border border-blue-300' : 'bg-neutral-100 text-neutral-600 border border-neutral-200'
+                }`}
+              >
+                <Clock className="h-4 w-4" />
+                {sortByNewest ? 'Newest First' : 'A-Z'}
               </button>
 
               {/* View Toggle */}
@@ -422,7 +571,21 @@ export default function ImageCatalogPage() {
                 className="px-3 py-2 rounded-lg bg-blue-100 text-blue-700 text-sm font-medium hover:bg-blue-200 transition flex items-center gap-1"
               >
                 <FileText className="h-4 w-4" />
-                Auto Fill Empty
+                Auto Fill
+              </button>
+
+              {/* xAI Analyze */}
+              <button
+                onClick={analyzeAllMissingJson}
+                disabled={isAnalyzing}
+                className={`px-3 py-2 rounded-lg text-sm font-medium transition flex items-center gap-1 ${
+                  isAnalyzing 
+                    ? 'bg-yellow-100 text-yellow-700 cursor-not-allowed' 
+                    : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600'
+                }`}
+              >
+                <Zap className="h-4 w-4" />
+                {isAnalyzing ? `Analyzing...` : 'xAI Analyze All'}
               </button>
 
               {/* Save */}
@@ -537,6 +700,21 @@ export default function ImageCatalogPage() {
                               <p className="text-xs text-neutral-500 font-mono">{img.path}</p>
                             </div>
                             <div className="flex items-center gap-1">
+                              {/* xAI Analyze single image */}
+                              {!aiDescriptions[img.path] && (
+                                <button
+                                  onClick={() => analyzeImageWithXAI(img.path)}
+                                  disabled={isAnalyzing}
+                                  className={`p-1 rounded transition ${
+                                    analyzingImage === img.path 
+                                      ? 'text-yellow-500 animate-pulse' 
+                                      : 'text-purple-400 hover:text-purple-600 hover:bg-purple-50'
+                                  }`}
+                                  title="Analyze with xAI"
+                                >
+                                  <Zap className="h-4 w-4" />
+                                </button>
+                              )}
                               {aiDescriptions[img.path] && (
                                 <button
                                   onClick={() => copyJsonToClipboard(img.path)}
@@ -562,6 +740,14 @@ export default function ImageCatalogPage() {
                               </button>
                             </div>
                           </div>
+                          
+                          {/* Modified time indicator */}
+                          {img.modified && (
+                            <div className="text-xs text-neutral-400 mb-1 flex items-center gap-1">
+                              <Clock className="h-3 w-3" />
+                              {new Date(img.modified).toLocaleDateString()}
+                            </div>
+                          )}
                           
                           {/* Alt Text Input */}
                           <div className="relative">

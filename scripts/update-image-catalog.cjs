@@ -66,10 +66,15 @@ function scanDirectory(dir, basePath = '') {
         };
       }
       
+      // Get file stats for modification time
+      const stats = fs.statSync(itemPath);
+      const mtime = stats.mtime.toISOString();
+      
       categories[category].images.push({
         filename: item.name,
         path: `/${relativePath}`,
-        extension: ext
+        extension: ext,
+        modified: mtime
       });
       categories[category].count++;
     }
@@ -79,7 +84,7 @@ function scanDirectory(dir, basePath = '') {
 }
 
 /**
- * Sort categories and images alphabetically
+ * Sort categories and images by modification time (newest first)
  */
 function sortCatalog(categories) {
   const sorted = {};
@@ -89,7 +94,7 @@ function sortCatalog(categories) {
     sorted[key] = {
       count: categories[key].count,
       images: categories[key].images.sort((a, b) => 
-        a.filename.localeCompare(b.filename)
+        new Date(b.modified) - new Date(a.modified) // Newest first
       )
     };
   }
