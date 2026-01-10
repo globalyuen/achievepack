@@ -4,67 +4,194 @@ import { Link } from 'react-router-dom'
 import { ShoppingCart, Menu, X, ArrowLeft, ArrowRight, Check, Leaf, Recycle, ShieldCheck, Award, MapPin, Phone, Mail, Facebook, Instagram, Twitter, ExternalLink, ChevronDown, Globe, Play, Star } from 'lucide-react'
 
 /**
- * Image Analysis JSON - Structured mapping of all chip images
- * This helps understand what to build and where to place images
+ * AI-Enhanced Image Metadata - Generated from xAI Grok-2 Vision Analysis
+ * Each image includes SEO-optimized alt text, keywords, and usage recommendations
  */
 const CHIPS_IMAGES = {
-  // Brand & Logo
-  logo: '/imgs/demo-site/chips/a_achieve_eco_organic_logo_v3_4396707.webp',
+  // Brand & Logo - recommended for: header, hero section, footer, product packaging
+  logo: {
+    src: '/imgs/demo-site/chips/a_achieve_eco_organic_logo_v3_4396707.webp',
+    alt: 'Achieve Eco Organic green leaf brand logo - sustainable organic food brand identity',
+    title: 'Achieve Eco Organic Brand Logo',
+    type: 'logo'
+  },
   
   // Product Photos - Chili Lime (Primary Flavor)
   chiliLime: {
-    product1: '/imgs/demo-site/chips/png a_achievepack_chili_lime_chips_6256919 (1).webp',
-    product2: '/imgs/demo-site/chips/png a_achievepack_chili_lime_chips_6256919 (2).webp',
-    product3: '/imgs/demo-site/chips/a_achievepack_chili_lime_chips_6256919.webp',
-    heroKV: '/imgs/demo-site/chips/a_achievepack_fiery_chili_lime_hero_kv_4003688.webp',
-    flavor1: '/imgs/demo-site/chips/a_achievepack_fiery_chili_lime_flavor_6095462.webp',
-    flavor2: '/imgs/demo-site/chips/a_achievepack_fiery_chili_lime_flavor_7320560.webp',
-    flavor3: '/imgs/demo-site/chips/a_achievepack_fiery_chili_lime_flavor_7414560.webp'
+    product1: {
+      src: '/imgs/demo-site/chips/png a_achievepack_chili_lime_chips_6256919 (1).webp',
+      alt: 'Fiery Chili Lime tortilla chips transparent PNG - coral compostable bag cutout for flexible design placement',
+      title: 'Fiery Chili Lime Chips - Transparent PNG',
+      type: 'cutout'
+    },
+    product2: {
+      src: '/imgs/demo-site/chips/a_achievepack_chili_lime_chips_6256919.webp',
+      alt: 'Achieve Eco Fiery Chili Lime tortilla chips coral compostable bag with chili peppers lime - bold spicy gluten-free non-GMO organic snack',
+      title: 'Fiery Chili Lime Tortilla Chips Package',
+      type: 'product'
+    },
+    heroKV: {
+      src: '/imgs/demo-site/chips/a_achievepack_fiery_chili_lime_hero_kv_4003688.webp',
+      alt: 'Fiery Chili Lime tortilla chips hero key visual - dynamic product shot with flying chips chili peppers lime burst',
+      title: 'Fiery Chili Lime Hero Key Visual',
+      type: 'hero'
+    },
+    flavor1: {
+      src: '/imgs/demo-site/chips/a_achievepack_fiery_chili_lime_flavor_6095462.webp',
+      alt: 'Fiery Chili Lime chips with fresh chili peppers lime wedges cilantro - spicy flavor lifestyle scene',
+      title: 'Fiery Chili Lime Chips Flavor Scene',
+      type: 'scene'
+    },
+    flavor2: {
+      src: '/imgs/demo-site/chips/a_achievepack_fiery_chili_lime_flavor_7320560.webp',
+      alt: 'Chili Lime tortilla chips overhead with fresh lime slices red chilies herbs - appetizing snack display',
+      title: 'Chili Lime Chips with Fresh Ingredients Display',
+      type: 'scene'
+    },
+    flavor3: {
+      src: '/imgs/demo-site/chips/a_achievepack_fiery_chili_lime_flavor_7414560.webp',
+      alt: 'Chili Lime chips serving suggestion with salsa and fresh garnishes - party snack presentation',
+      title: 'Chili Lime Chips Serving Suggestion',
+      type: 'scene'
+    }
   },
   
   // Product Photos - Herb Garlic
   herbGarlic: {
-    product1: '/imgs/demo-site/chips/png a_achievepack_herb_garlic_chips_4271307 (1).webp',
-    product2: '/imgs/demo-site/chips/a_achievepack_herb_garlic_chips_4271307.webp',
-    heroKV: '/imgs/demo-site/chips/a_achievepack_hero_kv_herb_garlic_2110657.webp',
-    flavor: '/imgs/demo-site/chips/a_achievepack_herb_garlic_flavor_5832827.webp'
+    product1: {
+      src: '/imgs/demo-site/chips/png a_achievepack_herb_garlic_chips_4271307 (1).webp',
+      alt: 'Herb Garlic tortilla chips transparent PNG - sage green compostable bag cutout for flexible design placement',
+      title: 'Herb & Garlic Chips - Transparent PNG',
+      type: 'cutout'
+    },
+    product2: {
+      src: '/imgs/demo-site/chips/a_achievepack_herb_garlic_chips_4271307.webp',
+      alt: 'Achieve Eco Herb Garlic tortilla chips sage green compostable bag with rosemary thyme garlic - savory aromatic gluten-free organic snack',
+      title: 'Herb & Garlic Tortilla Chips Package',
+      type: 'product'
+    },
+    heroKV: {
+      src: '/imgs/demo-site/chips/a_achievepack_hero_kv_herb_garlic_2110657.webp',
+      alt: 'Herb Garlic tortilla chips hero key visual - dynamic product shot with flying chips fresh herbs garlic',
+      title: 'Herb & Garlic Hero Key Visual',
+      type: 'hero'
+    },
+    flavor: {
+      src: '/imgs/demo-site/chips/a_achievepack_herb_garlic_flavor_5832827.webp',
+      alt: 'Herb Garlic chips with fresh rosemary thyme garlic bulbs - savory flavor lifestyle scene on rustic wood',
+      title: 'Herb & Garlic Chips Fresh Ingredients Scene',
+      type: 'scene'
+    }
   },
   
   // Product Photos - Sea Salt & Vinegar
   seaSaltVinegar: {
-    product: '/imgs/demo-site/chips/png a_achievepack_sea salt_chips_6256919 (2).webp',
-    heroKV: '/imgs/demo-site/chips/a_achievepack_sea_salt_vinegar_hero_kv_6506902.webp',
-    flavor1: '/imgs/demo-site/chips/a_achievepack_sea_salt_vinegar_flavor_2559705.webp',
-    flavor2: '/imgs/demo-site/chips/a_achievepack_sea_salt_vinegar_flavor_4956454.webp'
+    product: {
+      src: '/imgs/demo-site/chips/png a_achievepack_sea salt_chips_6256919 (2).webp',
+      alt: 'Sea Salt Vinegar tortilla chips transparent PNG - ocean blue compostable bag cutout for flexible design placement',
+      title: 'Sea Salt & Vinegar Chips - Transparent PNG',
+      type: 'cutout'
+    },
+    heroKV: {
+      src: '/imgs/demo-site/chips/a_achievepack_sea_salt_vinegar_hero_kv_6506902.webp',
+      alt: 'Sea Salt Vinegar tortilla chips hero key visual - dynamic product shot with flying chips salt crystals splash',
+      title: 'Sea Salt & Vinegar Hero Key Visual',
+      type: 'hero'
+    },
+    flavor1: {
+      src: '/imgs/demo-site/chips/a_achievepack_sea_salt_vinegar_flavor_2559705.webp',
+      alt: 'Sea Salt Vinegar chips with salt crystals vinegar bottle - tangy classic flavor scene cool blue tones',
+      title: 'Sea Salt & Vinegar Flavor Scene',
+      type: 'scene'
+    },
+    flavor2: {
+      src: '/imgs/demo-site/chips/a_achievepack_sea_salt_vinegar_flavor_4956454.webp',
+      alt: 'Sea Salt Vinegar chips serving scene with drinks and snack pairings - entertaining lifestyle shot',
+      title: 'Sea Salt & Vinegar Chips Serving Scene',
+      type: 'scene'
+    }
   },
   
-  // Detail & Texture Shots
+  // Detail & Texture Shots - recommended for: quality section, background texture, about product
   details: {
-    crispness: '/imgs/demo-site/chips/a_achievepack_chip_detail_crispness_4865766.webp',
-    texture: '/imgs/demo-site/chips/a_achievepack_chips_texture_closeup_0138482.webp',
-    packageTexture: '/imgs/demo-site/chips/a_achievepack_detail_package_texture_9710514.webp',
-    packagingCloseup: '/imgs/demo-site/chips/a_achievepack_packaging_detail_closeup_9071897.webp'
+    crispness: {
+      src: '/imgs/demo-site/chips/a_achievepack_chip_detail_crispness_4865766.webp',
+      alt: 'Tortilla chip crispness macro close-up showing golden texture and quality - artisanal corn chip detail',
+      title: 'Tortilla Chip Crispness Close-Up Detail',
+      type: 'detail'
+    },
+    texture: {
+      src: '/imgs/demo-site/chips/a_achievepack_chips_texture_closeup_0138482.webp',
+      alt: 'Artisanal tortilla chips texture close-up showing handcrafted quality and golden roasted finish',
+      title: 'Artisanal Tortilla Chips Texture Close-Up',
+      type: 'detail'
+    },
+    packageTexture: {
+      src: '/imgs/demo-site/chips/a_achievepack_detail_package_texture_9710514.webp',
+      alt: 'Compostable packaging material texture close-up - kraft paper eco-friendly sustainable packaging surface',
+      title: 'Compostable Package Material Texture Detail',
+      type: 'detail'
+    },
+    packagingCloseup: {
+      src: '/imgs/demo-site/chips/a_achievepack_packaging_detail_closeup_9071897.webp',
+      alt: 'Compostable chip packaging close-up showing eco-friendly certification and sustainable material texture',
+      title: 'Compostable Packaging Detail Close-Up',
+      type: 'detail'
+    }
   },
   
-  // Lifestyle & Brand Story
+  // Lifestyle & Brand Story - recommended for: about section, brand story, lifestyle gallery
   lifestyle: {
-    premium: '/imgs/demo-site/chips/a_achievepack_lifestyle_premium_enjoyment_0668152.webp',
-    scene: '/imgs/demo-site/chips/a_achievepack_lifestyle_scene_7839522.webp'
+    premium: {
+      src: '/imgs/demo-site/chips/a_achievepack_lifestyle_premium_enjoyment_0668152.webp',
+      alt: 'Premium tortilla chips lifestyle enjoyment - person snacking in relaxed home setting warm lighting',
+      title: 'Premium Chips Lifestyle Enjoyment Scene',
+      type: 'scene'
+    },
+    scene: {
+      src: '/imgs/demo-site/chips/a_achievepack_lifestyle_scene_7839522.webp',
+      alt: 'Friends enjoying tortilla chips at social gathering - party snacking lifestyle community moment',
+      title: 'Social Gathering Chips Lifestyle Scene',
+      type: 'scene'
+    }
   },
   
-  // Ingredients & Origin Story
+  // Ingredients & Origin Story - recommended for: ingredient story, about section, sourcing transparency
   story: {
-    rawPotato: '/imgs/demo-site/chips/a_achievepack_raw_material_story_potato_8563355.webp'
+    rawPotato: {
+      src: '/imgs/demo-site/chips/a_achievepack_raw_material_story_potato_8563355.webp',
+      alt: 'Organic corn raw material for tortilla chips - fresh corn cobs farm to chip ingredient story',
+      title: 'Organic Corn Raw Material Story',
+      type: 'scene'
+    }
   },
   
-  // Sustainability
+  // Sustainability - recommended for: sustainability section, eco credentials, packaging info
   sustainability: {
-    compostable: '/imgs/demo-site/chips/a_achievepack_sustainability_composable_4433734.webp',
-    ecoValues: '/imgs/demo-site/chips/a_achievepack_sustainability_eco_values_1081822.webp'
+    compostable: {
+      src: '/imgs/demo-site/chips/a_achievepack_sustainability_composable_4433734.webp',
+      alt: 'Compostable packaging sustainability - lifecycle from package to compost earth-friendly decomposition',
+      title: 'Compostable Packaging Sustainability Feature',
+      type: 'infographic'
+    },
+    ecoValues: {
+      src: '/imgs/demo-site/chips/a_achievepack_sustainability_eco_values_1081822.webp',
+      alt: 'Eco values sustainability messaging - organic compostable carbon-neutral brand commitments',
+      title: 'Eco Values Sustainability Messaging',
+      type: 'infographic'
+    }
   }
 }
 
-// Product Catalog
+// SEO Keywords from AI Analysis
+const SEO_KEYWORDS = [
+  'organic tortilla chips', 'compostable packaging', 'gluten-free chips',
+  'non-GMO snacks', 'chili lime chips', 'herb garlic chips', 'sea salt vinegar chips',
+  'sustainable snacks', 'eco-friendly packaging', 'BPI certified compostable',
+  'plant-based packaging', 'artisanal chips', 'premium organic snacks'
+]
+
+// Product Catalog - Enhanced with AI metadata
 const PRODUCTS = [
   {
     id: 'fiery-chili-lime',
@@ -73,11 +200,18 @@ const PRODUCTS = [
     description: 'Our signature flavor combines authentic chili spices with bright lime zest. Each chip delivers a perfect balance of heat, tangy citrus, and satisfying crunch.',
     price: 5.99,
     weight: '142g / 5oz',
-    image: CHIPS_IMAGES.chiliLime.product1,
-    heroImage: CHIPS_IMAGES.chiliLime.heroKV,
-    flavorImages: [CHIPS_IMAGES.chiliLime.flavor1, CHIPS_IMAGES.chiliLime.flavor2, CHIPS_IMAGES.chiliLime.flavor3],
+    image: CHIPS_IMAGES.chiliLime.product1.src,
+    imageAlt: CHIPS_IMAGES.chiliLime.product1.alt,
+    heroImage: CHIPS_IMAGES.chiliLime.heroKV.src,
+    heroImageAlt: CHIPS_IMAGES.chiliLime.heroKV.alt,
+    flavorImages: [
+      { src: CHIPS_IMAGES.chiliLime.flavor1.src, alt: CHIPS_IMAGES.chiliLime.flavor1.alt },
+      { src: CHIPS_IMAGES.chiliLime.flavor2.src, alt: CHIPS_IMAGES.chiliLime.flavor2.alt },
+      { src: CHIPS_IMAGES.chiliLime.flavor3.src, alt: CHIPS_IMAGES.chiliLime.flavor3.alt }
+    ],
     color: '#C75B39',
-    badges: ['Organic', 'Vegan', 'Compostable Bag']
+    badges: ['Organic', 'Vegan', 'Compostable Bag'],
+    keywords: ['chili lime chips', 'tortilla chips', 'spicy snack', 'compostable packaging', 'gluten-free', 'non-GMO', 'organic chips']
   },
   {
     id: 'herb-garlic',
@@ -86,11 +220,16 @@ const PRODUCTS = [
     description: 'A sophisticated blend of Mediterranean herbs and slow-roasted garlic. Savory, aromatic, and impossibly addictive.',
     price: 5.99,
     weight: '142g / 5oz',
-    image: CHIPS_IMAGES.herbGarlic.product1,
-    heroImage: CHIPS_IMAGES.herbGarlic.heroKV,
-    flavorImages: [CHIPS_IMAGES.herbGarlic.flavor],
+    image: CHIPS_IMAGES.herbGarlic.product1.src,
+    imageAlt: CHIPS_IMAGES.herbGarlic.product1.alt,
+    heroImage: CHIPS_IMAGES.herbGarlic.heroKV.src,
+    heroImageAlt: CHIPS_IMAGES.herbGarlic.heroKV.alt,
+    flavorImages: [
+      { src: CHIPS_IMAGES.herbGarlic.flavor.src, alt: CHIPS_IMAGES.herbGarlic.flavor.alt }
+    ],
     color: '#5B8C5A',
-    badges: ['Organic', 'Non-GMO', 'Compostable Bag']
+    badges: ['Organic', 'Non-GMO', 'Compostable Bag'],
+    keywords: ['herb garlic chips', 'savory chips', 'tortilla chips', 'rosemary', 'organic snack']
   },
   {
     id: 'sea-salt-vinegar',
@@ -99,11 +238,17 @@ const PRODUCTS = [
     description: 'The timeless combination elevated with hand-harvested sea salt and aged apple cider vinegar. Bold, bright, and utterly craveable.',
     price: 5.99,
     weight: '142g / 5oz',
-    image: CHIPS_IMAGES.seaSaltVinegar.product,
-    heroImage: CHIPS_IMAGES.seaSaltVinegar.heroKV,
-    flavorImages: [CHIPS_IMAGES.seaSaltVinegar.flavor1, CHIPS_IMAGES.seaSaltVinegar.flavor2],
+    image: CHIPS_IMAGES.seaSaltVinegar.product.src,
+    imageAlt: CHIPS_IMAGES.seaSaltVinegar.product.alt,
+    heroImage: CHIPS_IMAGES.seaSaltVinegar.heroKV.src,
+    heroImageAlt: CHIPS_IMAGES.seaSaltVinegar.heroKV.alt,
+    flavorImages: [
+      { src: CHIPS_IMAGES.seaSaltVinegar.flavor1.src, alt: CHIPS_IMAGES.seaSaltVinegar.flavor1.alt },
+      { src: CHIPS_IMAGES.seaSaltVinegar.flavor2.src, alt: CHIPS_IMAGES.seaSaltVinegar.flavor2.alt }
+    ],
     color: '#4A7C9B',
-    badges: ['Organic', 'Gluten-Free', 'Compostable Bag']
+    badges: ['Organic', 'Gluten-Free', 'Compostable Bag'],
+    keywords: ['sea salt vinegar chips', 'tangy chips', 'classic flavor', 'gluten-free']
   }
 ]
 
@@ -126,7 +271,7 @@ export default function AchieveChipsDemoPage() {
       setActiveFlavorIndex(prev => (prev + 1) % activeProduct.flavorImages.length)
     }, 3000)
     return () => clearInterval(interval)
-  }, [activeProduct])
+  }, [activeProduct.flavorImages.length])
 
   // Auto-rotate hero products every 4 seconds
   useEffect(() => {
@@ -145,8 +290,8 @@ export default function AchieveChipsDemoPage() {
     <div className="min-h-screen bg-white text-gray-900 font-sans">
       <Helmet>
         <title>Achieve Chips | Premium Organic Potato Chips | Compostable Packaging</title>
-        <meta name="description" content="Discover Achieve Chips - premium organic potato chips in Fiery Chili Lime, Herb & Garlic, and Sea Salt & Vinegar. Made with certified organic ingredients and packaged in BPI certified compostable bags." />
-        <meta name="keywords" content="organic potato chips, compostable packaging, chili lime chips, herb garlic chips, sea salt vinegar chips, sustainable snacks" />
+        <meta name="description" content="Discover Achieve Chips - premium organic tortilla chips in Fiery Chili Lime, Herb & Garlic, and Sea Salt & Vinegar. Made with certified organic ingredients and packaged in BPI certified compostable bags. Gluten-free, non-GMO, sustainable snacks." />
+        <meta name="keywords" content={SEO_KEYWORDS.join(', ')} />
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Fredoka+One&display=swap');
           .font-display { font-family: 'Poppins', sans-serif; }
@@ -181,7 +326,7 @@ export default function AchieveChipsDemoPage() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="h-12 w-auto">
-              <img src={CHIPS_IMAGES.logo} alt="Achieve Chips" className="h-full w-auto object-contain" />
+              <img src={CHIPS_IMAGES.logo.src} alt={CHIPS_IMAGES.logo.alt} className="h-full w-auto object-contain" />
             </div>
 
             {/* Desktop Nav */}
@@ -219,11 +364,11 @@ export default function AchieveChipsDemoPage() {
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100" />
           {/* Film texture overlay */}
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `url(${CHIPS_IMAGES.details.texture})`, backgroundSize: '400px', backgroundRepeat: 'repeat' }} />
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `url(${CHIPS_IMAGES.details.texture.src})`, backgroundSize: '400px', backgroundRepeat: 'repeat' }} />
           <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full blur-[150px] opacity-30" style={{ backgroundColor: activeProduct.color }} />
           {/* Decorative flavor image - bottom left */}
           <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] opacity-10 rounded-full overflow-hidden blur-sm">
-            <img src={CHIPS_IMAGES.chiliLime.flavor2} alt="" className="w-full h-full object-cover" />
+            <img src={CHIPS_IMAGES.chiliLime.flavor2.src} alt={CHIPS_IMAGES.chiliLime.flavor2.alt} className="w-full h-full object-cover" />
           </div>
         </div>
 
@@ -310,7 +455,7 @@ export default function AchieveChipsDemoPage() {
         <div className="grid grid-cols-3 gap-1">
           {[CHIPS_IMAGES.chiliLime.flavor1, CHIPS_IMAGES.herbGarlic.flavor, CHIPS_IMAGES.seaSaltVinegar.flavor1].map((img, i) => (
             <div key={i} className="aspect-[4/3] overflow-hidden group">
-              <img src={img} alt="Flavor detail" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <img src={img.src} alt={img.alt} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
             </div>
           ))}
         </div>
@@ -321,13 +466,13 @@ export default function AchieveChipsDemoPage() {
         {/* Background film texture with flavor images */}
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-[500px] h-[500px] opacity-[0.04] -translate-x-1/4 -translate-y-1/4">
-            <img src={CHIPS_IMAGES.chiliLime.flavor3} alt="" className="w-full h-full object-cover rounded-full blur-sm" />
+            <img src={CHIPS_IMAGES.chiliLime.flavor3.src} alt="" className="w-full h-full object-cover rounded-full blur-sm" />
           </div>
           <div className="absolute bottom-0 right-0 w-[400px] h-[400px] opacity-[0.04] translate-x-1/4 translate-y-1/4">
-            <img src={CHIPS_IMAGES.herbGarlic.flavor} alt="" className="w-full h-full object-cover rounded-full blur-sm" />
+            <img src={CHIPS_IMAGES.herbGarlic.flavor.src} alt="" className="w-full h-full object-cover rounded-full blur-sm" />
           </div>
           <div className="absolute top-1/2 right-0 w-[300px] h-[300px] opacity-[0.03]">
-            <img src={CHIPS_IMAGES.details.texture} alt="" className="w-full h-full object-cover" />
+            <img src={CHIPS_IMAGES.details.texture.src} alt="" className="w-full h-full object-cover" />
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -364,7 +509,7 @@ export default function AchieveChipsDemoPage() {
       {/* Film Strip Banner - Flavor Showcase */}
       <section className="py-8 bg-gradient-to-r from-[#C75B39] via-[#5B8C5A] to-[#4A7C9B] relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <img src={CHIPS_IMAGES.details.packageTexture} alt="" className="w-full h-full object-cover" />
+          <img src={CHIPS_IMAGES.details.packageTexture.src} alt="" className="w-full h-full object-cover" />
         </div>
         <div className="flex animate-marquee whitespace-nowrap">
           {[...Array(6)].map((_, i) => (
@@ -384,16 +529,16 @@ export default function AchieveChipsDemoPage() {
       <section className="py-0 relative">
         <div className="grid md:grid-cols-2">
           <div className="aspect-square md:aspect-auto relative overflow-hidden">
-            <img src={CHIPS_IMAGES.details.crispness} alt="Chip crispness detail" className="w-full h-full object-cover" />
+            <img src={CHIPS_IMAGES.details.crispness.src} alt={CHIPS_IMAGES.details.crispness.alt} className="w-full h-full object-cover" />
             {/* Decorative overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
           </div>
           <div className="aspect-square md:aspect-auto bg-gray-50 flex items-center justify-center p-12 md:p-20 relative overflow-hidden">
             {/* Background texture pattern */}
-            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `url(${CHIPS_IMAGES.details.texture})`, backgroundSize: '300px', backgroundRepeat: 'repeat' }} />
+            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `url(${CHIPS_IMAGES.details.texture.src})`, backgroundSize: '300px', backgroundRepeat: 'repeat' }} />
             {/* Decorative flavor image */}
             <div className="absolute -bottom-20 -right-20 w-[300px] h-[300px] opacity-[0.06]">
-              <img src={CHIPS_IMAGES.seaSaltVinegar.flavor2} alt="" className="w-full h-full object-cover rounded-full blur-sm" />
+              <img src={CHIPS_IMAGES.seaSaltVinegar.flavor2.src} alt="" className="w-full h-full object-cover rounded-full blur-sm" />
             </div>
             <div className="max-w-md">
               <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">Perfect Crunch, Every Time</h2>
@@ -424,7 +569,7 @@ export default function AchieveChipsDemoPage() {
       <section className="py-12 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-amber-50 via-orange-50 to-yellow-50" />
         <div className="absolute inset-0 opacity-[0.08]">
-          <img src={CHIPS_IMAGES.story.rawPotato} alt="" className="w-full h-full object-cover" />
+          <img src={CHIPS_IMAGES.story.rawPotato.src} alt="" className="w-full h-full object-cover" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
@@ -450,14 +595,14 @@ export default function AchieveChipsDemoPage() {
       <section id="our-story" className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
         {/* Decorative background elements */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] opacity-5">
-          <img src={CHIPS_IMAGES.sustainability.ecoValues} alt="" className="w-full h-full object-cover rounded-full blur-sm" />
+          <img src={CHIPS_IMAGES.sustainability.ecoValues.src} alt="" className="w-full h-full object-cover rounded-full blur-sm" />
         </div>
         {/* Additional decorative - flavor image */}
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] opacity-[0.04]">
-          <img src={CHIPS_IMAGES.chiliLime.flavor1} alt="" className="w-full h-full object-cover rounded-full blur-sm" />
+          <img src={CHIPS_IMAGES.chiliLime.flavor1.src} alt="" className="w-full h-full object-cover rounded-full blur-sm" />
         </div>
         {/* Texture overlay */}
-        <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: `url(${CHIPS_IMAGES.details.packagingCloseup})`, backgroundSize: '500px', backgroundRepeat: 'repeat' }} />
+        <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: `url(${CHIPS_IMAGES.details.packagingCloseup.src})`, backgroundSize: '500px', backgroundRepeat: 'repeat' }} />
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -490,7 +635,7 @@ export default function AchieveChipsDemoPage() {
               </div>
             </div>
             <div className="relative">
-              <img src={CHIPS_IMAGES.story.rawPotato} alt="Fresh organic potatoes" className="w-full rounded-3xl shadow-2xl" />
+              <img src={CHIPS_IMAGES.story.rawPotato.src} alt={CHIPS_IMAGES.story.rawPotato.alt} className="w-full rounded-3xl shadow-2xl" />
             </div>
           </div>
         </div>
@@ -499,11 +644,11 @@ export default function AchieveChipsDemoPage() {
       {/* Lifestyle Section */}
       <section className="py-0 relative">
         <div className="relative h-[70vh] overflow-hidden">
-          <img src={CHIPS_IMAGES.lifestyle.premium} alt="Premium snacking experience" className="w-full h-full object-cover" />
+          <img src={CHIPS_IMAGES.lifestyle.premium.src} alt={CHIPS_IMAGES.lifestyle.premium.alt} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
           {/* Decorative flavor accent */}
           <div className="absolute bottom-0 right-0 w-[300px] h-[300px] opacity-20 mix-blend-soft-light">
-            <img src={CHIPS_IMAGES.chiliLime.flavor2} alt="" className="w-full h-full object-cover rounded-tl-full" />
+            <img src={CHIPS_IMAGES.chiliLime.flavor2.src} alt="" className="w-full h-full object-cover rounded-tl-full" />
           </div>
           <div className="absolute inset-0 flex items-center">
             <div className="max-w-7xl mx-auto px-6 w-full">
@@ -579,7 +724,7 @@ export default function AchieveChipsDemoPage() {
             </div>
             
             <div className="order-1 lg:order-2 relative">
-              <img src={CHIPS_IMAGES.sustainability.compostable} alt="Compostable packaging" className="w-full rounded-3xl shadow-2xl" />
+              <img src={CHIPS_IMAGES.sustainability.compostable.src} alt={CHIPS_IMAGES.sustainability.compostable.alt} className="w-full rounded-3xl shadow-2xl" />
               <div className="absolute -bottom-6 -right-6 bg-green-500 text-white p-6 rounded-2xl shadow-xl">
                 <div className="text-3xl font-bold font-display">180</div>
                 <div className="text-xs font-bold uppercase tracking-wider font-display">Days to Compost</div>
@@ -592,14 +737,14 @@ export default function AchieveChipsDemoPage() {
       {/* Certifications */}
       <section className="py-20 bg-gray-100 relative overflow-hidden">
         {/* Film grain texture */}
-        <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: `url(${CHIPS_IMAGES.lifestyle.scene})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
+        <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: `url(${CHIPS_IMAGES.lifestyle.scene.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
         {/* Decorative chip textures */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
           <div className="absolute top-10 left-10 w-[200px] h-[200px] opacity-[0.03] rotate-12">
-            <img src={CHIPS_IMAGES.details.crispness} alt="" className="w-full h-full object-cover rounded-full" />
+            <img src={CHIPS_IMAGES.details.crispness.src} alt="" className="w-full h-full object-cover rounded-full" />
           </div>
           <div className="absolute bottom-10 right-10 w-[250px] h-[250px] opacity-[0.03] -rotate-12">
-            <img src={CHIPS_IMAGES.details.texture} alt="" className="w-full h-full object-cover rounded-full" />
+            <img src={CHIPS_IMAGES.details.texture.src} alt="" className="w-full h-full object-cover rounded-full" />
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-6">
@@ -629,16 +774,16 @@ export default function AchieveChipsDemoPage() {
         {/* Footer background textures */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-0 w-full h-full opacity-[0.03]">
-            <img src={CHIPS_IMAGES.lifestyle.scene} alt="" className="w-full h-full object-cover" />
+            <img src={CHIPS_IMAGES.lifestyle.scene.src} alt="" className="w-full h-full object-cover" />
           </div>
           <div className="absolute bottom-0 right-0 w-[400px] h-[400px] opacity-[0.05]">
-            <img src={CHIPS_IMAGES.sustainability.compostable} alt="" className="w-full h-full object-cover rounded-tl-full blur-sm" />
+            <img src={CHIPS_IMAGES.sustainability.compostable.src} alt="" className="w-full h-full object-cover rounded-tl-full blur-sm" />
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-12 gap-12 mb-16">
             <div className="lg:col-span-4">
-              <img src={CHIPS_IMAGES.logo} alt="Achieve Chips" className="h-16 w-auto mb-6" />
+              <img src={CHIPS_IMAGES.logo.src} alt={CHIPS_IMAGES.logo.alt} className="h-16 w-auto mb-6" />
               <p className="text-gray-400 max-w-sm leading-relaxed mb-6 font-display">
                 Premium organic potato chips crafted with care, packaged sustainably. Because great taste and environmental responsibility go hand in hand.
               </p>
@@ -695,7 +840,7 @@ export default function AchieveChipsDemoPage() {
       {isMenuOpen && (
         <div className="fixed inset-0 z-[100] bg-white p-8 flex flex-col">
           <div className="flex justify-between items-center mb-12">
-            <img src={CHIPS_IMAGES.logo} alt="Achieve Chips" className="h-10" />
+            <img src={CHIPS_IMAGES.logo.src} alt={CHIPS_IMAGES.logo.alt} className="h-10" />
             <button onClick={() => setIsMenuOpen(false)}><X className="w-8 h-8" /></button>
           </div>
           <div className="flex flex-col gap-6">
