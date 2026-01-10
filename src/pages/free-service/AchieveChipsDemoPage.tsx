@@ -601,27 +601,24 @@ export default function AchieveChipsDemoPage() {
                 />
                 
                 {/* Main Product Image - with floating effect, using heroImage for dynamic KV */}
-                <AnimatePresence mode="wait">
-                  <motion.img 
-                    key={activeProduct.id + '-image'}
-                    src={activeProduct.heroImage}
-                    alt={activeProduct.heroImageAlt}
-                    className="relative z-10 w-[120%] lg:w-[140%] max-w-none object-contain drop-shadow-2xl"
-                    initial={{ opacity: 0, scale: 0.9, y: 30 }}
-                    animate={{ 
-                      opacity: 1, 
-                      scale: 1, 
-                      y: [0, -15, 0], // Floating animation
-                    }}
-                    exit={{ opacity: 0, scale: 0.9, y: -30 }}
-                    transition={{ 
-                      opacity: { duration: 0.4 },
-                      scale: { duration: 0.5 },
-                      y: { duration: 4, repeat: Infinity, ease: 'easeInOut' }
-                    }}
-                    whileHover={{ scale: 1.05 }}
-                  />
-                </AnimatePresence>
+                <motion.img 
+                  key={activeProduct.id}
+                  src={activeProduct.heroImage}
+                  alt={activeProduct.heroImageAlt}
+                  className="relative z-10 w-[120%] lg:w-[140%] max-w-none object-contain drop-shadow-2xl"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ 
+                    opacity: 1, 
+                    scale: 1, 
+                    y: [0, -15, 0], // Floating animation
+                  }}
+                  transition={{ 
+                    opacity: { duration: 0.3 },
+                    scale: { duration: 0.3 },
+                    y: { duration: 4, repeat: Infinity, ease: 'easeInOut' }
+                  }}
+                  whileHover={{ scale: 1.05 }}
+                />
               </div>
             </div>
           </div>
