@@ -187,7 +187,7 @@ const CHIPS_IMAGES = {
   // Product Photos - Sea Salt & Vinegar
   seaSaltVinegar: {
     product: {
-      src: '/imgs/demo-site/chips/png-a_achievepack_sea%20salt_chips_6256919.webp',
+      src: '/imgs/demo-site/chips/png-a_achievepack_sea_salt_chips_6256919.webp',
       alt: 'Sea Salt Vinegar tortilla chips transparent PNG - ocean blue compostable bag cutout for flexible design placement',
       title: 'Sea Salt & Vinegar Chips - Transparent PNG',
       type: 'cutout'
