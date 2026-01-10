@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { ChevronDown, ArrowRight, ArrowLeft, Leaf, Award, MapPin, Check, Recycle, Globe, ShieldCheck, Coffee, ExternalLink, Star, Users } from 'lucide-react'
 import { motion, AnimatePresence, useScroll, useTransform, type Variants } from 'motion/react'
 import { supabase } from '../../lib/supabase'
+import { ParallaxText } from '../../components/ParallaxText'
 
 // ═══════════════════════════════════════════════════════════════════════════
 // MOTION ANIMATION VARIANTS - Reusable animation configurations
@@ -592,8 +593,23 @@ const AchieveCoffeeDemoPage: React.FC = () => {
           </div>
         </section>
 
-        {/* Marquee */}
-        <Marquee text={content.marquee.text} speed={content.marquee.speed} />
+        {/* Scroll Velocity Parallax Text - Brand Showcase */}
+        <section className="py-16 bg-neutral-950 overflow-hidden">
+          <div className="space-y-6">
+            <ParallaxText 
+              baseVelocity={-5} 
+              textClassName="text-5xl md:text-7xl font-bold uppercase tracking-tight text-amber-500"
+            >
+              ACHIEVE COFFEE • SPECIALTY COFFEE • SINGLE ORIGIN •
+            </ParallaxText>
+            <ParallaxText 
+              baseVelocity={5} 
+              textClassName="text-5xl md:text-7xl font-bold uppercase tracking-tight text-white/20"
+            >
+              FRESH ROASTED • COMPOSTABLE • DIRECT TRADE • ACHIEVE •
+            </ParallaxText>
+          </div>
+        </section>
 
         {/* Collections Section */}
         <section id="collections" className="py-24 px-6 bg-gradient-to-b from-neutral-950 to-neutral-900">

@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ShoppingCart, Menu, X, Leaf, Award, MapPin, ArrowRight, ArrowLeft, Check, Facebook, Instagram, Twitter, Phone, Mail, ShieldCheck, Recycle, Globe, ExternalLink, Star, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence, useInView, useScroll, useTransform, type Variants } from 'motion/react';
+import { ParallaxText } from '../../components/ParallaxText';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // MOTION ANIMATION VARIANTS - Reusable animation configurations
@@ -526,6 +527,24 @@ export default function MaxiFoodsDemoPage() {
                         <p className="text-xl text-white/70 max-w-xl">Every chip is made in small batches using traditional stone-ground techniques, ensuring authentic flavor and perfect crunch.</p>
                     </motion.div>
                 </motion.div>
+            </section>
+
+            {/* Scroll Velocity Parallax Text - Brand Showcase */}
+            <section className="py-16 bg-[#0a0a0a] overflow-hidden">
+                <div className="space-y-6">
+                    <ParallaxText 
+                        baseVelocity={-4} 
+                        textClassName="text-6xl md:text-8xl font-display font-black uppercase tracking-tighter text-[#26c6da]"
+                    >
+                        MAXI FOODS • AUTHENTIC MEXICAN • HANDCRAFTED •
+                    </ParallaxText>
+                    <ParallaxText 
+                        baseVelocity={4} 
+                        textClassName="text-6xl md:text-8xl font-display font-black uppercase tracking-tighter text-white/20"
+                    >
+                        GLUTEN FREE • ORGANIC • COMPOSTABLE • ALBERTA •
+                    </ParallaxText>
+                </div>
             </section>
 
             {/* Philosophy Section - with stagger animation */}

@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { ShoppingCart, Menu, X, ArrowLeft, ArrowRight, Check, Leaf, Recycle, ShieldCheck, Award, MapPin, Phone, Mail, Facebook, Instagram, Twitter, ExternalLink, ChevronDown, Globe, Play, Star } from 'lucide-react'
 import { motion, useInView, useScroll, useTransform, AnimatePresence, Variants } from 'motion/react'
+import { ParallaxText } from '../../components/ParallaxText'
 
 // ============================================
 // MOTION ANIMATION VARIANTS - Reusable configs
@@ -735,22 +736,24 @@ export default function AchieveChipsDemoPage() {
         </div>
       </section>
 
-      {/* Film Strip Banner - Flavor Showcase */}
-      <section className="py-8 bg-gradient-to-r from-[#C75B39] via-[#5B8C5A] to-[#4A7C9B] relative overflow-hidden">
+      {/* Scroll Velocity Parallax Text - Brand Showcase */}
+      <section className="py-12 bg-gradient-to-r from-[#C75B39] via-[#5B8C5A] to-[#4A7C9B] relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <img src={CHIPS_IMAGES.details.packageTexture.src} alt="" className="w-full h-full object-cover" />
         </div>
-        <div className="flex animate-marquee whitespace-nowrap">
-          {[...Array(6)].map((_, i) => (
-            <div key={i} className="flex items-center gap-8 mx-8">
-              <span className="text-white/90 text-lg font-display font-bold uppercase tracking-wider">Fiery Chili Lime</span>
-              <span className="text-white/50">|</span>
-              <span className="text-white/90 text-lg font-display font-bold uppercase tracking-wider">Herb & Garlic</span>
-              <span className="text-white/50">|</span>
-              <span className="text-white/90 text-lg font-display font-bold uppercase tracking-wider">Sea Salt & Vinegar</span>
-              <span className="text-white/50">|</span>
-            </div>
-          ))}
+        <div className="relative z-10 space-y-4">
+          <ParallaxText 
+            baseVelocity={-3} 
+            textClassName="text-5xl md:text-7xl font-display font-black uppercase tracking-tight text-white/90"
+          >
+            ACHIEVE ECO ORGANIC • FIERY CHILI LIME • HERB & GARLIC •
+          </ParallaxText>
+          <ParallaxText 
+            baseVelocity={3} 
+            textClassName="text-5xl md:text-7xl font-display font-black uppercase tracking-tight text-white/30"
+          >
+            SEA SALT VINEGAR • GLUTEN FREE • NON-GMO • COMPOSTABLE •
+          </ParallaxText>
         </div>
       </section>
 
