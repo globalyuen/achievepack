@@ -598,12 +598,12 @@ export default function AchieveChipsDemoPage() {
                   transition={{ duration: 0.8 }}
                 />
                 
-                {/* Main Product Image - with floating effect */}
+                {/* Main Product Image - with floating effect, using heroImage for dynamic KV */}
                 <AnimatePresence mode="wait">
                   <motion.img 
                     key={activeProduct.id + '-image'}
-                    src={activeProduct.image}
-                    alt={activeProduct.name}
+                    src={activeProduct.heroImage}
+                    alt={activeProduct.heroImageAlt}
                     className="relative z-10 w-[120%] lg:w-[140%] max-w-none object-contain drop-shadow-2xl"
                     initial={{ opacity: 0, scale: 0.9, y: 30 }}
                     animate={{ 
