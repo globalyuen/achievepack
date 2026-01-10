@@ -830,6 +830,11 @@ Respond ONLY with valid JSON, no other text.`
                           className="w-full aspect-square bg-neutral-100 relative"
                         >
                           <img src={img.path} alt={altTexts[img.path] || img.filename} className="w-full h-full object-cover" loading="lazy" />
+                          {aiDescriptions[img.path] && (
+                            <div className="absolute top-2 left-2 w-5 h-5 bg-purple-500 rounded-full flex items-center justify-center">
+                              <Sparkles className="h-3 w-3 text-white" />
+                            </div>
+                          )}
                           {altTexts[img.path]?.trim() && (
                             <div className="absolute top-2 right-2 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center">
                               <Check className="h-3 w-3 text-white" />
@@ -838,13 +843,55 @@ Respond ONLY with valid JSON, no other text.`
                         </button>
                         <div className="p-2 space-y-2">
                           <p className="text-xs text-neutral-700 truncate" title={img.filename}>{img.filename}</p>
-                          <input
-                            type="text"
-                            value={altTexts[img.path] || ''}
-                            onChange={(e) => handleAltTextChange(img.path, e.target.value)}
-                            placeholder="Alt text..."
-                            className="w-full px-2 py-1 border border-neutral-200 rounded text-xs focus:outline-none focus:ring-1 focus:ring-primary-500"
-                          />
+                          {/* Alt text input - directly editable */}
+                          <div className="relative">
+                            <input
+                              type="text"
+                              value={altTexts[img.path] || aiDescriptions[img.path]?.alt || ''}
+                              onChange={(e) => handleAltTextChange(img.path, e.target.value)}
+                              placeholder="Alt text for AI to reuse..."
+                              className={`w-full px-2 py-1.5 border rounded text-xs focus:outline-none focus:ring-1 focus:ring-primary-500 ${
+                                aiDescriptions[img.path] 
+                                  ? 'border-purple-300 bg-purple-50' 
+                                  : altTexts[img.path]?.trim() 
+                                    ? 'border-green-300 bg-green-50' 
+                                    : 'border-neutral-200 bg-white'
+                              }`}
+                            />
+                          </div>
+                          {/* Quick action buttons */}
+                          <div className="flex items-center gap-1">
+                            {!aiDescriptions[img.path] && (
+                              <button
+                                onClick={() => analyzeImageWithXAI(img.path)}
+                                disabled={isAnalyzing}
+                                className={`flex-1 py-1 rounded text-xs flex items-center justify-center gap-1 ${
+                                  analyzingImage === img.path 
+                                    ? 'bg-yellow-100 text-yellow-700 animate-pulse' 
+                                    : 'bg-purple-100 text-purple-700 hover:bg-purple-200'
+                                }`}
+                                title="Analyze with xAI"
+                              >
+                                <Zap className="h-3 w-3" />
+                                {analyzingImage === img.path ? '...' : 'xAI'}
+                              </button>
+                            )}
+                            <button
+                              onClick={() => autoGenerateAlt(img.path, img.filename)}
+                              className="flex-1 py-1 rounded bg-blue-100 text-blue-700 hover:bg-blue-200 text-xs flex items-center justify-center gap-1"
+                              title="Auto-generate from filename"
+                            >
+                              <FileText className="h-3 w-3" />
+                              Auto
+                            </button>
+                            <button
+                              onClick={() => copyToClipboard(img.path)}
+                              className="py-1 px-2 rounded bg-neutral-100 text-neutral-600 hover:bg-neutral-200 text-xs"
+                              title="Copy path"
+                            >
+                              {copiedPath === img.path ? <Check className="h-3 w-3 text-green-500" /> : <Copy className="h-3 w-3" />}
+                            </button>
+                          </div>
                         </div>
                       </div>
                     ))}
