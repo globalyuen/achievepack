@@ -373,18 +373,18 @@ export default function AchieveChipsDemoPage() {
     return () => clearInterval(interval)
   }, [activeProduct.flavorImages.length])
 
-  // Auto-rotate hero products every 4 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveProduct(prev => {
-        const currentIndex = PRODUCTS.findIndex(p => p.id === prev.id)
-        const nextIndex = (currentIndex + 1) % PRODUCTS.length
-        return PRODUCTS[nextIndex]
-      })
-      setActiveFlavorIndex(0)
-    }, 4000)
-    return () => clearInterval(interval)
-  }, [])
+  // Auto-rotate hero products - DISABLED for debugging
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setActiveProduct(prev => {
+  //       const currentIndex = PRODUCTS.findIndex(p => p.id === prev.id)
+  //       const nextIndex = (currentIndex + 1) % PRODUCTS.length
+  //       return PRODUCTS[nextIndex]
+  //     })
+  //     setActiveFlavorIndex(0)
+  //   }, 4000)
+  //   return () => clearInterval(interval)
+  // }, [])
 
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans">
