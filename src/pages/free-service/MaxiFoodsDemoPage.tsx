@@ -1,24 +1,224 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { ShoppingCart, Menu, X, Leaf, Award, MapPin, ArrowRight, ArrowLeft, Check, Facebook, Instagram, Twitter, Phone, Mail, ShieldCheck, Recycle, Globe, ExternalLink } from 'lucide-react';
+import { ShoppingCart, Menu, X, Leaf, Award, MapPin, ArrowRight, ArrowLeft, Check, Facebook, Instagram, Twitter, Phone, Mail, ShieldCheck, Recycle, Globe, ExternalLink, Star, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
-// High-quality product images from demo-site/maxi
+/**
+ * AI-Enhanced Image Metadata for Maxi Foods
+ * Generated based on image content analysis for SEO and accessibility
+ */
 const MAXI_IMAGES = {
-    hero: '/imgs/demo-site/maxi/a_maxi_kv_01_organic_hero_8096653.webp',
-    handcrafted: '/imgs/demo-site/maxi/a_maxi_kv_02_handcrafted_4900198.webp',
-    organicCertified: '/imgs/demo-site/maxi/a_maxi_kv_03_organic_certified_8962139.webp',
-    ecoPackaging: '/imgs/demo-site/maxi/a_maxi_kv_04_eco_packaging_9533320.webp',
-    glutenFree: '/imgs/demo-site/maxi/a_maxi_kv_05_gluten_free_5682305.webp',
-    canadianPride: '/imgs/demo-site/maxi/a_maxi_kv_06_canadian_pride_9877688.webp',
-    crispyDetail: '/imgs/demo-site/maxi/a_maxi_kv_07_crispy_detail_7197894.webp',
-    lifestyleTaste: '/imgs/demo-site/maxi/a_maxi_kv_08_lifestyle_taste_5164277.webp',
-    pureIngredients: '/imgs/demo-site/maxi/a_maxi_kv_09_pure_ingredients_5982490.webp',
-    artisanPride: '/imgs/demo-site/maxi/a_maxi_kv_10_artisan_pride_1798104.webp',
-    organicBadge: '/imgs/demo-site/maxi/a_maxi_foods_image_3_organic_badge_5115408.webp',
-    goldenHour: '/imgs/demo-site/maxi/a_maxi_foods_image_7_golden_hour_5440987.webp'
+    // Original Key Visuals with AI-enhanced metadata
+    hero: {
+        src: '/imgs/demo-site/maxi/a_maxi_kv_01_organic_hero_8096653.webp',
+        alt: 'Maxi Foods organic tortilla chips hero banner - authentic Mexican heritage handcrafted in Alberta Canada',
+        title: 'Organic Hero - Maxi Foods',
+        type: 'hero',
+        usage: 'Primary hero section background'
+    },
+    handcrafted: {
+        src: '/imgs/demo-site/maxi/a_maxi_kv_02_handcrafted_4900198.webp',
+        alt: 'Handcrafted organic tortilla chips process - traditional stone-ground Mexican technique',
+        title: 'Handcrafted Process',
+        type: 'scene',
+        usage: 'About section, process showcase'
+    },
+    organicCertified: {
+        src: '/imgs/demo-site/maxi/a_maxi_kv_03_organic_certified_8962139.webp',
+        alt: 'Canada Organic certified tortilla chips - Pro-Cert certified gluten-free facility',
+        title: 'Organic Certified',
+        type: 'certification',
+        usage: 'Certification section, trust building'
+    },
+    ecoPackaging: {
+        src: '/imgs/demo-site/maxi/a_maxi_kv_04_eco_packaging_9533320.webp',
+        alt: 'Compostable eco-friendly packaging for organic tortilla chips - BPI certified sustainable pouches',
+        title: 'Eco Packaging',
+        type: 'product',
+        usage: 'Sustainability section, packaging showcase'
+    },
+    glutenFree: {
+        src: '/imgs/demo-site/maxi/a_maxi_kv_05_gluten_free_5682305.webp',
+        alt: 'Gluten-free organic tortilla chips - dedicated gluten-free production facility',
+        title: 'Gluten Free',
+        type: 'feature',
+        usage: 'Feature section, dietary benefits'
+    },
+    canadianPride: {
+        src: '/imgs/demo-site/maxi/a_maxi_kv_06_canadian_pride_9877688.webp',
+        alt: 'Canadian made organic tortilla chips - proudly handcrafted in Airdrie Alberta',
+        title: 'Canadian Pride',
+        type: 'scene',
+        usage: 'About section, origin story'
+    },
+    crispyDetail: {
+        src: '/imgs/demo-site/maxi/a_maxi_kv_07_crispy_detail_7197894.webp',
+        alt: 'Crispy organic tortilla chip texture close-up - perfect golden crunch quality',
+        title: 'Crispy Detail',
+        type: 'detail',
+        usage: 'Product detail, quality showcase'
+    },
+    lifestyleTaste: {
+        src: '/imgs/demo-site/maxi/a_maxi_kv_08_lifestyle_taste_5164277.webp',
+        alt: 'Lifestyle scene enjoying organic tortilla chips with fresh salsa - authentic Mexican snacking',
+        title: 'Lifestyle Taste',
+        type: 'lifestyle',
+        usage: 'Product cards, lifestyle marketing'
+    },
+    pureIngredients: {
+        src: '/imgs/demo-site/maxi/a_maxi_kv_09_pure_ingredients_5982490.webp',
+        alt: 'Pure natural ingredients for organic tortilla chips - non-GMO corn and real spices',
+        title: 'Pure Ingredients',
+        type: 'ingredients',
+        usage: 'Ingredient story, quality messaging'
+    },
+    artisanPride: {
+        src: '/imgs/demo-site/maxi/a_maxi_kv_10_artisan_pride_1798104.webp',
+        alt: 'Artisan craft organic tortilla chips - small batch handmade Mexican heritage',
+        title: 'Artisan Pride',
+        type: 'scene',
+        usage: 'Heritage story, artisan quality'
+    },
+    organicBadge: {
+        src: '/imgs/demo-site/maxi/a_maxi_foods_image_3_organic_badge_5115408.webp',
+        alt: 'Canada Organic certification badge - certified organic tortilla chips',
+        title: 'Organic Badge',
+        type: 'badge',
+        usage: 'Trust signals, certification display'
+    },
+    goldenHour: {
+        src: '/imgs/demo-site/maxi/a_maxi_foods_image_7_golden_hour_5440987.webp',
+        alt: 'Fresh organic salsa in golden hour light - handmade Mexican pico de gallo',
+        title: 'Golden Hour Salsa',
+        type: 'product',
+        usage: 'Salsa products, food photography'
+    },
+
+    // NEW Images from maxi/new folder
+    newHeroOrganic: {
+        src: '/imgs/demo-site/maxi/new/a_kv_001_hero_organic_2444976.webp',
+        alt: 'Premium organic tortilla chips hero showcase - Maxi Foods authentic Mexican flavor',
+        title: 'New Hero Organic',
+        type: 'hero',
+        usage: 'Alternative hero, product showcase'
+    },
+    newHandcraftedHeritage: {
+        src: '/imgs/demo-site/maxi/new/a_kv_002_handcrafted_heritage_2070915.webp',
+        alt: 'Handcrafted heritage tortilla chips - UNESCO cultural heritage Mexican tradition',
+        title: 'Handcrafted Heritage',
+        type: 'scene',
+        usage: 'Heritage section, cultural story'
+    },
+    newPremiumQuality: {
+        src: '/imgs/demo-site/maxi/new/a_kv_003_premium_quality_5152582.webp',
+        alt: 'Premium quality organic tortilla chips - small batch artisan production',
+        title: 'Premium Quality',
+        type: 'quality',
+        usage: 'Quality section, premium positioning'
+    },
+    newCanadianPride: {
+        src: '/imgs/demo-site/maxi/new/a_kv_004_canadian_pride_0432674.webp',
+        alt: 'Canadian pride organic chips - proudly made in Alberta with local ingredients',
+        title: 'New Canadian Pride',
+        type: 'scene',
+        usage: 'Origin story, Canadian identity'
+    },
+    newFlavorDiversity: {
+        src: '/imgs/demo-site/maxi/new/a_kv_005_flavor_diversity_1642930.webp',
+        alt: 'Diverse flavor range organic tortilla chips - lime chili jalapeno tomatonion varieties',
+        title: 'Flavor Diversity',
+        type: 'collection',
+        usage: 'Flavor showcase, product range'
+    },
+    chiliLimeChips: {
+        src: '/imgs/demo-site/maxi/new/a_chili_lime_tortilla_chips_2953420.webp',
+        alt: 'Chili Lime organic tortilla chips - bold spicy citrus Mexican flavor in compostable packaging',
+        title: 'Chili Lime Chips',
+        type: 'product',
+        usage: 'Product card, flavor highlight'
+    },
+    jalapenoLimeChips: {
+        src: '/imgs/demo-site/maxi/new/a_jalapeno_lime_tortilla_chips_4049982.webp',
+        alt: 'Jalapeno Lime organic tortilla chips - authentic Mexican heat with citrus kick',
+        title: 'Jalapeno Lime Chips',
+        type: 'product',
+        usage: 'Product card, spicy flavor'
+    },
+    limeChips: {
+        src: '/imgs/demo-site/maxi/new/a_lime_tortilla_chips_0051449.webp',
+        alt: 'Lime organic white tortilla chips - zesty refreshing Mexican flavor',
+        title: 'Lime Chips',
+        type: 'product',
+        usage: 'Product card, classic lime'
+    },
+    tomatonionChips: {
+        src: '/imgs/demo-site/maxi/new/a_tomatonion_tortilla_chips_4226853.webp',
+        alt: 'Tomatonion organic yellow tortilla chips - tomato onion savory Mexican blend',
+        title: 'Tomatonion Chips',
+        type: 'product',
+        usage: 'Product card, savory flavor'
+    }
 };
+
+// SEO Keywords from image analysis
+const SEO_KEYWORDS = [
+    'organic tortilla chips', 'Mexican food', 'gluten-free chips', 'vegan snacks',
+    'compostable packaging', 'Alberta food', 'non-GMO', 'handcrafted chips',
+    'authentic Mexican', 'Canadian made', 'BPI certified', 'sustainable snacks'
+];
+
+// Product Catalog with AI-enhanced data
+const PRODUCTS = [
+    {
+        id: 'lime-white',
+        name: 'Lime Organic White Corn Chips',
+        tagline: 'Zesty & Refreshing',
+        description: 'Handcrafted using non-GMO organic white corn flour. Bright citrus notes with perfect crunch.',
+        price: 7.49,
+        weight: '283g',
+        image: MAXI_IMAGES.limeChips,
+        badge: 'Bestseller',
+        color: '#4ade80',
+        keywords: ['lime chips', 'white corn', 'citrus', 'organic']
+    },
+    {
+        id: 'chili-lime',
+        name: 'Chili-Lime Organic Yellow Corn',
+        tagline: 'Bold Heat Meets Citrus',
+        description: 'The perfect balance of spicy and tangy. Authentic Mexican flavor with real chili and lime.',
+        price: 7.49,
+        weight: '283g',
+        image: MAXI_IMAGES.chiliLimeChips,
+        badge: 'Spicy',
+        color: '#ef4444',
+        keywords: ['chili lime', 'spicy chips', 'yellow corn', 'Mexican']
+    },
+    {
+        id: 'jalapeno-lime',
+        name: 'Jalapeño Lime Organic Chips',
+        tagline: 'Authentic Mexican Heat',
+        description: 'Real jalapeño flavor with a citrus kick. For those who love bold, authentic Mexican spice.',
+        price: 7.49,
+        weight: '283g',
+        image: MAXI_IMAGES.jalapenoLimeChips,
+        badge: 'Hot',
+        color: '#22c55e',
+        keywords: ['jalapeno', 'hot chips', 'Mexican heat', 'organic']
+    },
+    {
+        id: 'tomatonion',
+        name: 'Tomatonion Organic Yellow Chips',
+        tagline: 'Savory & Rich',
+        description: 'A unique blend of sun-ripened tomato and sweet onion. Savory satisfaction in every bite.',
+        price: 7.49,
+        weight: '283g',
+        image: MAXI_IMAGES.tomatonionChips,
+        badge: 'Unique',
+        color: '#f97316',
+        keywords: ['tomato onion', 'savory', 'yellow corn', 'unique flavor']
+    }
+];
 
 export default function MaxiFoodsDemoPage() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -104,7 +304,7 @@ export default function MaxiFoodsDemoPage() {
             {/* Hero Section - Full Width Impact */}
             <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
                 <div className="absolute inset-0">
-                    <img src={MAXI_IMAGES.hero} alt="Organic Tortilla Chips Hero" className="w-full h-full object-cover opacity-40" />
+                    <img src={MAXI_IMAGES.hero.src} alt={MAXI_IMAGES.hero.alt} className="w-full h-full object-cover opacity-40" />
                     <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
                 </div>
                 <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10 w-full">
@@ -151,7 +351,7 @@ export default function MaxiFoodsDemoPage() {
                         <motion.div initial={{ opacity: 0, scale: 0.9, rotate: 5 }} animate={{ opacity: 1, scale: 1, rotate: 0 }} transition={{ duration: 1.2, delay: 0.3 }} className="relative hidden lg:block">
                             <div className="relative z-10 aspect-[4/5] max-w-md mx-auto">
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#26c6da]/20 to-transparent rounded-[2rem] blur-2xl -z-10 translate-y-10 scale-90"></div>
-                                <img src={MAXI_IMAGES.ecoPackaging} alt="Maxi Foods Premium Tortilla Chips in Compostable Packaging" className="w-full h-full object-contain filter drop-shadow-[0_25px_50px_rgba(0,0,0,0.5)]" />
+                                <img src={MAXI_IMAGES.ecoPackaging.src} alt={MAXI_IMAGES.ecoPackaging.alt} className="w-full h-full object-contain filter drop-shadow-[0_25px_50px_rgba(0,0,0,0.5)]" />
                             </div>
                             <motion.div animate={{ y: [0, -10, 0] }} transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }} className="absolute top-10 right-0 bg-white text-black px-6 py-6 rounded-full flex flex-col items-center justify-center border-8 border-black shadow-xl">
                                 <span className="text-[10px] font-black uppercase tracking-tighter">Handcrafted in</span>
@@ -165,7 +365,7 @@ export default function MaxiFoodsDemoPage() {
             {/* Full Width Image Banner */}
             <section className="py-0">
                 <div className="relative h-[60vh] overflow-hidden">
-                    <img src={MAXI_IMAGES.handcrafted} alt="Handcrafted Organic Tortilla Chips Process" className="w-full h-full object-cover" />
+                    <img src={MAXI_IMAGES.handcrafted.src} alt={MAXI_IMAGES.handcrafted.alt} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-12 max-w-7xl mx-auto">
                         <h2 className="text-4xl md:text-6xl font-display font-extrabold mb-4 tracking-tight">HANDCRAFTED WITH PASSION</h2>
@@ -208,7 +408,7 @@ export default function MaxiFoodsDemoPage() {
                     </div>
                     <div className="grid md:grid-cols-2 gap-8 mb-16">
                         <div className="relative aspect-[4/5] rounded-3xl overflow-hidden group">
-                            <img src={MAXI_IMAGES.crispyDetail} alt="Crispy Organic Tortilla Chips Detail" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                            <img src={MAXI_IMAGES.crispyDetail.src} alt={MAXI_IMAGES.crispyDetail.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                             <div className="absolute bottom-0 left-0 right-0 p-8">
                                 <span className="inline-block bg-white/10 backdrop-blur-md text-white text-xs uppercase font-black px-4 py-2 rounded-full mb-4">Organic</span>
@@ -221,7 +421,7 @@ export default function MaxiFoodsDemoPage() {
                             </div>
                         </div>
                         <div className="relative aspect-[4/5] rounded-3xl overflow-hidden group">
-                            <img src={MAXI_IMAGES.lifestyleTaste} alt="Chili-Lime Tortilla Chips Lifestyle" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                            <img src={MAXI_IMAGES.lifestyleTaste.src} alt={MAXI_IMAGES.lifestyleTaste.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                             <div className="absolute bottom-0 left-0 right-0 p-8">
                                 <span className="inline-block bg-white/10 backdrop-blur-md text-white text-xs uppercase font-black px-4 py-2 rounded-full mb-4">Spicy</span>
@@ -236,7 +436,7 @@ export default function MaxiFoodsDemoPage() {
                     </div>
                     <div className="grid md:grid-cols-3 gap-6">
                         <div className="relative aspect-square rounded-2xl overflow-hidden group bg-[#111]">
-                            <img src={MAXI_IMAGES.pureIngredients} alt="Tomatonion Organic Chips" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            <img src={MAXI_IMAGES.pureIngredients.src} alt={MAXI_IMAGES.pureIngredients.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                             <div className="absolute bottom-0 left-0 right-0 p-6">
                                 <h3 className="text-xl font-bold mb-1">Tomatonion Organic Yellow Chips</h3>
@@ -244,7 +444,7 @@ export default function MaxiFoodsDemoPage() {
                             </div>
                         </div>
                         <div className="relative aspect-square rounded-2xl overflow-hidden group bg-[#111]">
-                            <img src={MAXI_IMAGES.goldenHour} alt="Fresh Pico de Gallo Salsa" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            <img src={MAXI_IMAGES.goldenHour.src} alt={MAXI_IMAGES.goldenHour.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                             <div className="absolute bottom-0 left-0 right-0 p-6">
                                 <h3 className="text-xl font-bold mb-1">Pico de Gallo Salsa</h3>
@@ -252,7 +452,7 @@ export default function MaxiFoodsDemoPage() {
                             </div>
                         </div>
                         <div className="relative aspect-square rounded-2xl overflow-hidden group bg-[#111]">
-                            <img src={MAXI_IMAGES.artisanPride} alt="Salsa Verde" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            <img src={MAXI_IMAGES.artisanPride.src} alt={MAXI_IMAGES.artisanPride.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                             <div className="absolute bottom-0 left-0 right-0 p-6">
                                 <h3 className="text-xl font-bold mb-1">Salsa Verde</h3>
@@ -297,7 +497,7 @@ export default function MaxiFoodsDemoPage() {
                             </div>
                         </div>
                         <div className="relative">
-                            <img src={MAXI_IMAGES.ecoPackaging} alt="Compostable Eco-Friendly Packaging" className="w-full rounded-3xl shadow-2xl" />
+                            <img src={MAXI_IMAGES.ecoPackaging.src} alt={MAXI_IMAGES.ecoPackaging.alt} className="w-full rounded-3xl shadow-2xl" />
                             <div className="absolute -bottom-6 -right-6 bg-green-500 text-black p-6 rounded-2xl shadow-xl">
                                 <div className="text-3xl font-black">180</div>
                                 <div className="text-xs font-bold uppercase tracking-wider">Days to Compost</div>
@@ -312,7 +512,7 @@ export default function MaxiFoodsDemoPage() {
                 <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
                     <div className="grid lg:grid-cols-2 gap-24 items-center">
                         <div className="relative">
-                            <img src={MAXI_IMAGES.organicCertified} alt="Vladimir Gonzalez - Founder of Maxi Foods" className="w-full rounded-3xl shadow-2xl" />
+                            <img src={MAXI_IMAGES.organicCertified.src} alt={MAXI_IMAGES.organicCertified.alt} className="w-full rounded-3xl shadow-2xl" />
                         </div>
                         <div>
                             <div className="flex items-center gap-3 mb-6">
@@ -330,6 +530,146 @@ export default function MaxiFoodsDemoPage() {
                                 <div className="text-center p-4 bg-black/5 rounded-xl"><div className="text-3xl font-black text-black">100%</div><div className="text-xs text-black/50 uppercase tracking-wider">Gluten-Free</div></div>
                                 <div className="text-center p-4 bg-black/5 rounded-xl"><div className="text-3xl font-black text-black">0</div><div className="text-xs text-black/50 uppercase tracking-wider">Preservatives</div></div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* NEW: Product Flavors Showcase - Using all new product images */}
+            <section className="py-32 bg-[#0a0a0a]">
+                <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+                    <div className="text-center mb-16">
+                        <div className="flex items-center justify-center gap-3 mb-6">
+                            <span className="h-[2px] w-12 bg-[#26c6da]"></span>
+                            <span className="text-[#26c6da] font-black tracking-[0.3em] uppercase text-xs">Flavor Collection</span>
+                            <span className="h-[2px] w-12 bg-[#26c6da]"></span>
+                        </div>
+                        <h2 className="text-5xl md:text-7xl font-display font-extrabold mb-6 tracking-tighter">DISCOVER YOUR <span className="text-[#26c6da]">FLAVOR</span></h2>
+                        <p className="text-xl text-white/50 max-w-2xl mx-auto">From zesty lime to bold jalapeño, each flavor is crafted with authentic Mexican spices and organic ingredients.</p>
+                    </div>
+                    
+                    {/* Product Cards Grid */}
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {PRODUCTS.map((product, index) => (
+                            <motion.div
+                                key={product.id}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: index * 0.1 }}
+                                viewport={{ once: true }}
+                                className="group relative rounded-3xl overflow-hidden bg-gradient-to-b from-white/5 to-transparent border border-white/10 hover:border-[#26c6da]/50 transition-all duration-500"
+                            >
+                                <div className="aspect-square overflow-hidden">
+                                    <img 
+                                        src={product.image.src} 
+                                        alt={product.image.alt} 
+                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                    />
+                                </div>
+                                <div className="absolute top-4 left-4">
+                                    <span className="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider" style={{ backgroundColor: product.color, color: 'black' }}>
+                                        {product.badge}
+                                    </span>
+                                </div>
+                                <div className="p-6">
+                                    <h3 className="text-lg font-bold mb-2">{product.name}</h3>
+                                    <p className="text-white/50 text-sm mb-4">{product.tagline}</p>
+                                    <div className="flex items-center justify-between">
+                                        <span className="text-2xl font-display text-[#26c6da]">${product.price.toFixed(2)}</span>
+                                        <button 
+                                            onClick={() => setCartCount(c => c + 1)}
+                                            className="bg-white/10 hover:bg-[#26c6da] text-white hover:text-black px-4 py-2 rounded-full text-xs font-bold transition-all"
+                                        >
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* NEW: Heritage Gallery - Using new KV images */}
+            <section className="py-32 bg-gradient-to-b from-[#0a0a0a] to-[#050505]">
+                <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl md:text-5xl font-display font-extrabold mb-4 tracking-tight">MEXICAN <span className="italic font-serif font-normal text-white/40">Heritage</span></h2>
+                        <p className="text-white/50 max-w-xl mx-auto">Bringing UNESCO Cultural Heritage traditions to your table with every chip.</p>
+                    </div>
+                    
+                    {/* Masonry-style Gallery */}
+                    <div className="grid md:grid-cols-3 gap-4">
+                        {/* Column 1 */}
+                        <div className="space-y-4">
+                            <motion.div 
+                                whileHover={{ scale: 1.02 }}
+                                className="relative rounded-2xl overflow-hidden aspect-[3/4]"
+                            >
+                                <img src={MAXI_IMAGES.newHeroOrganic.src} alt={MAXI_IMAGES.newHeroOrganic.alt} className="w-full h-full object-cover" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                                <div className="absolute bottom-4 left-4 right-4">
+                                    <span className="text-xs font-bold uppercase tracking-widest text-[#26c6da]">Premium Quality</span>
+                                </div>
+                            </motion.div>
+                            <motion.div 
+                                whileHover={{ scale: 1.02 }}
+                                className="relative rounded-2xl overflow-hidden aspect-square"
+                            >
+                                <img src={MAXI_IMAGES.canadianPride.src} alt={MAXI_IMAGES.canadianPride.alt} className="w-full h-full object-cover" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                                <div className="absolute bottom-4 left-4">
+                                    <span className="text-xs font-bold uppercase tracking-widest text-white/80">Made in Canada</span>
+                                </div>
+                            </motion.div>
+                        </div>
+                        
+                        {/* Column 2 */}
+                        <div className="space-y-4">
+                            <motion.div 
+                                whileHover={{ scale: 1.02 }}
+                                className="relative rounded-2xl overflow-hidden aspect-square"
+                            >
+                                <img src={MAXI_IMAGES.newHandcraftedHeritage.src} alt={MAXI_IMAGES.newHandcraftedHeritage.alt} className="w-full h-full object-cover" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                                <div className="absolute bottom-4 left-4">
+                                    <span className="text-xs font-bold uppercase tracking-widest text-white/80">Handcrafted</span>
+                                </div>
+                            </motion.div>
+                            <motion.div 
+                                whileHover={{ scale: 1.02 }}
+                                className="relative rounded-2xl overflow-hidden aspect-[3/4]"
+                            >
+                                <img src={MAXI_IMAGES.newPremiumQuality.src} alt={MAXI_IMAGES.newPremiumQuality.alt} className="w-full h-full object-cover" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                                <div className="absolute bottom-4 left-4">
+                                    <span className="text-xs font-bold uppercase tracking-widest text-[#26c6da]">Artisan Quality</span>
+                                </div>
+                            </motion.div>
+                        </div>
+                        
+                        {/* Column 3 */}
+                        <div className="space-y-4">
+                            <motion.div 
+                                whileHover={{ scale: 1.02 }}
+                                className="relative rounded-2xl overflow-hidden aspect-[3/4]"
+                            >
+                                <img src={MAXI_IMAGES.newCanadianPride.src} alt={MAXI_IMAGES.newCanadianPride.alt} className="w-full h-full object-cover" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                                <div className="absolute bottom-4 left-4">
+                                    <span className="text-xs font-bold uppercase tracking-widest text-white/80">Alberta Pride</span>
+                                </div>
+                            </motion.div>
+                            <motion.div 
+                                whileHover={{ scale: 1.02 }}
+                                className="relative rounded-2xl overflow-hidden aspect-square"
+                            >
+                                <img src={MAXI_IMAGES.newFlavorDiversity.src} alt={MAXI_IMAGES.newFlavorDiversity.alt} className="w-full h-full object-cover" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                                <div className="absolute bottom-4 left-4">
+                                    <span className="text-xs font-bold uppercase tracking-widest text-[#26c6da]">Flavor Diversity</span>
+                                </div>
+                            </motion.div>
                         </div>
                     </div>
                 </div>
@@ -369,7 +709,7 @@ export default function MaxiFoodsDemoPage() {
 
             {/* Large Feature Image */}
             <section className="relative h-[80vh] overflow-hidden">
-                <img src={MAXI_IMAGES.glutenFree} alt="Gluten Free Organic Tortilla Chips" className="w-full h-full object-cover" />
+                <img src={MAXI_IMAGES.glutenFree.src} alt={MAXI_IMAGES.glutenFree.alt} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
                 <div className="absolute inset-0 flex items-center">
                     <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
