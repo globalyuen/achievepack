@@ -2077,25 +2077,25 @@ const DashboardPage: React.FC = () => {
                 </div>
               )}
 
-              {/* Artwork List - Mobile Optimized */}
-              <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
+              {/* Artwork Cards - Fixed 300px width */}
+              <div className="rounded-xl overflow-hidden">
                 {artworks.length === 0 ? (
-                  <div className="p-6 md:p-12 text-center">
+                  <div className="p-6 md:p-12 text-center bg-white border border-gray-100 rounded-xl">
                     <FileImage className="h-10 w-10 md:h-12 md:w-12 mx-auto mb-3 md:mb-4 text-gray-300" />
                     <p className="text-sm md:text-base text-gray-500">No artwork files uploaded yet</p>
                     <p className="text-xs md:text-sm text-gray-400 mt-1 md:mt-2">Upload your design files to get started</p>
                   </div>
                 ) : (
-                  <div className="divide-y divide-gray-100">
+                  <div className="flex flex-wrap gap-4">
                     {paginatedArtworks.map(artwork => {
                       const statusInfo = getArtworkStatus(artwork.status)
                       const StatusIcon = statusInfo.icon
                       const isImage = artwork.file_type?.startsWith('image/') || /\.(png|jpg|jpeg|gif|webp)$/i.test(artwork.file_url || '')
                       return (
-                        <div key={artwork.id} className="p-3 md:p-5 hover:bg-gray-50 transition">
-                          {/* Mobile Card Layout */}
-                          <div className="space-y-3">
-                            {/* Top Row: Image Preview + Name + Status + Quick Actions */}
+                        <div key={artwork.id} className="w-[300px] flex-shrink-0 bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-md transition">
+                          {/* Card Layout */}
+                          <div className="space-y-3 p-3">
+                            {/* Top Row: Image Preview + Name + Status */}
                             <div className="flex items-center gap-3">
                               {isImage ? (
                                 <ImagePreviewPopover src={artwork.file_url || ''} alt={artwork.name}>

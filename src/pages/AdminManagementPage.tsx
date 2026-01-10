@@ -1520,12 +1520,12 @@ const AdminManagementPage: React.FC = () => {
 
               {/* Card View */}
               {artworkViewMode === 'card' && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="flex flex-wrap gap-4">
                   {paginatedArtworks.map(artwork => {
                     const customer = getCustomer(artwork.user_id)
                     const isImage = artwork.file_type?.startsWith('image/') || /\.(png|jpg|jpeg|gif|webp)$/i.test(artwork.file_url || '')
                     return (
-                      <div key={artwork.id} className="bg-white rounded-xl shadow-sm border overflow-hidden hover:shadow-md transition">
+                      <div key={artwork.id} className="w-[300px] flex-shrink-0 bg-white rounded-xl shadow-sm border overflow-hidden hover:shadow-md transition">
                         {/* Artwork Preview */}
                         <div className="relative h-32 bg-gray-100 overflow-hidden">
                           {isImage ? (
