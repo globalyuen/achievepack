@@ -308,7 +308,7 @@ export default function MaxiFoodsDemoPage() {
                     <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
                 </div>
                 <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10 w-full">
-                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+                    <div className="max-w-4xl">
                         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}>
                             <div className="flex items-center gap-3 mb-8">
                                 <span className="h-[2px] w-12 bg-[#26c6da]"></span>
@@ -348,16 +348,61 @@ export default function MaxiFoodsDemoPage() {
                                 </div>
                             </div>
                         </motion.div>
-                        <motion.div initial={{ opacity: 0, scale: 0.9, rotate: 5 }} animate={{ opacity: 1, scale: 1, rotate: 0 }} transition={{ duration: 1.2, delay: 0.3 }} className="relative hidden lg:block">
-                            <div className="relative z-10 aspect-[4/5] max-w-md mx-auto">
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#26c6da]/20 to-transparent rounded-[2rem] blur-2xl -z-10 translate-y-10 scale-90"></div>
-                                <img src={MAXI_IMAGES.ecoPackaging.src} alt={MAXI_IMAGES.ecoPackaging.alt} className="w-full h-full object-contain filter drop-shadow-[0_25px_50px_rgba(0,0,0,0.5)]" />
-                            </div>
-                            <motion.div animate={{ y: [0, -10, 0] }} transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }} className="absolute top-10 right-0 bg-white text-black px-6 py-6 rounded-full flex flex-col items-center justify-center border-8 border-black shadow-xl">
-                                <span className="text-[10px] font-black uppercase tracking-tighter">Handcrafted in</span>
-                                <span className="text-lg font-black leading-tight">ALBERTA</span>
+                    </div>
+                </div>
+            </section>
+
+            {/* DISCOVER YOUR FLAVOR - Product Flavors Showcase */}
+            <section className="py-32 bg-[#0a0a0a]">
+                <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+                    <div className="text-center mb-16">
+                        <div className="flex items-center justify-center gap-3 mb-6">
+                            <span className="h-[2px] w-12 bg-[#26c6da]"></span>
+                            <span className="text-[#26c6da] font-black tracking-[0.3em] uppercase text-xs">Flavor Collection</span>
+                            <span className="h-[2px] w-12 bg-[#26c6da]"></span>
+                        </div>
+                        <h2 className="text-5xl md:text-7xl font-display font-extrabold mb-6 tracking-tighter">DISCOVER YOUR <span className="text-[#26c6da]">FLAVOR</span></h2>
+                        <p className="text-xl text-white/50 max-w-2xl mx-auto">From zesty lime to bold jalapeño, each flavor is crafted with authentic Mexican spices and organic ingredients.</p>
+                    </div>
+                    
+                    {/* Product Cards Grid */}
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {PRODUCTS.map((product, index) => (
+                            <motion.div
+                                key={product.id}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: index * 0.1 }}
+                                viewport={{ once: true }}
+                                className="group relative rounded-3xl overflow-hidden bg-gradient-to-b from-white/5 to-transparent border border-white/10 hover:border-[#26c6da]/50 transition-all duration-500"
+                            >
+                                <div className="aspect-square overflow-hidden">
+                                    <img 
+                                        src={product.image.src} 
+                                        alt={product.image.alt} 
+                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                    />
+                                </div>
+                                <div className="absolute top-4 left-4">
+                                    <span className="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider" style={{ backgroundColor: product.color, color: 'black' }}>
+                                        {product.badge}
+                                    </span>
+                                </div>
+                                <div className="p-6">
+                                    <h3 className="text-lg font-bold mb-2">{product.name}</h3>
+                                    <p className="text-white/50 text-sm mb-4">{product.tagline}</p>
+                                    <div className="flex items-center justify-between">
+                                        <span className="text-2xl font-display text-[#26c6da]">${product.price.toFixed(2)}</span>
+                                        <button 
+                                            onClick={() => setCartCount(c => c + 1)}
+                                            className="bg-white/10 hover:bg-[#26c6da] text-white hover:text-black px-4 py-2 rounded-full text-xs font-bold transition-all"
+                                        >
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
                             </motion.div>
-                        </motion.div>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -531,61 +576,6 @@ export default function MaxiFoodsDemoPage() {
                                 <div className="text-center p-4 bg-black/5 rounded-xl"><div className="text-3xl font-black text-black">0</div><div className="text-xs text-black/50 uppercase tracking-wider">Preservatives</div></div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* NEW: Product Flavors Showcase - Using all new product images */}
-            <section className="py-32 bg-[#0a0a0a]">
-                <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-                    <div className="text-center mb-16">
-                        <div className="flex items-center justify-center gap-3 mb-6">
-                            <span className="h-[2px] w-12 bg-[#26c6da]"></span>
-                            <span className="text-[#26c6da] font-black tracking-[0.3em] uppercase text-xs">Flavor Collection</span>
-                            <span className="h-[2px] w-12 bg-[#26c6da]"></span>
-                        </div>
-                        <h2 className="text-5xl md:text-7xl font-display font-extrabold mb-6 tracking-tighter">DISCOVER YOUR <span className="text-[#26c6da]">FLAVOR</span></h2>
-                        <p className="text-xl text-white/50 max-w-2xl mx-auto">From zesty lime to bold jalapeño, each flavor is crafted with authentic Mexican spices and organic ingredients.</p>
-                    </div>
-                    
-                    {/* Product Cards Grid */}
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {PRODUCTS.map((product, index) => (
-                            <motion.div
-                                key={product.id}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: index * 0.1 }}
-                                viewport={{ once: true }}
-                                className="group relative rounded-3xl overflow-hidden bg-gradient-to-b from-white/5 to-transparent border border-white/10 hover:border-[#26c6da]/50 transition-all duration-500"
-                            >
-                                <div className="aspect-square overflow-hidden">
-                                    <img 
-                                        src={product.image.src} 
-                                        alt={product.image.alt} 
-                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                                    />
-                                </div>
-                                <div className="absolute top-4 left-4">
-                                    <span className="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider" style={{ backgroundColor: product.color, color: 'black' }}>
-                                        {product.badge}
-                                    </span>
-                                </div>
-                                <div className="p-6">
-                                    <h3 className="text-lg font-bold mb-2">{product.name}</h3>
-                                    <p className="text-white/50 text-sm mb-4">{product.tagline}</p>
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-2xl font-display text-[#26c6da]">${product.price.toFixed(2)}</span>
-                                        <button 
-                                            onClick={() => setCartCount(c => c + 1)}
-                                            className="bg-white/10 hover:bg-[#26c6da] text-white hover:text-black px-4 py-2 rounded-full text-xs font-bold transition-all"
-                                        >
-                                            Add to Cart
-                                        </button>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        ))}
                     </div>
                 </div>
             </section>
