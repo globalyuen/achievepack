@@ -551,7 +551,7 @@ const FreeWebsiteUpgradePage: React.FC = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {/* Coffee Demo Card */}
               <div className="group relative bg-neutral-900 rounded-3xl overflow-hidden shadow-2xl transition-transform hover:-translate-y-2">
                 <div className="aspect-[16/10] overflow-hidden">
@@ -598,6 +598,32 @@ const FreeWebsiteUpgradePage: React.FC = () => {
                   <Link
                     to="/free-service/maxi-foods-demo"
                     className="inline-flex items-center gap-2 bg-[#26c6da] text-black px-6 py-3 rounded-full font-bold transition hover:bg-white"
+                  >
+                    Enter Demo Site <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Achieve Chips Demo Card */}
+              <div className="group relative bg-[#0A0A0A] rounded-3xl overflow-hidden shadow-2xl transition-transform hover:-translate-y-2 border border-white/5">
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img
+                    src="/imgs/demo-site/chips/a_achievepack_fiery_chili_lime_hero_kv_4003688.webp"
+                    alt="Achieve Chips Organic Snacks Demo"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                </div>
+                <div className="absolute bottom-0 left-0 p-8 text-white">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="bg-[#C75B39] text-white text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Snacks</span>
+                    <span className="text-xs text-white/60 font-medium italic">Organic Chips</span>
+                  </div>
+                  <h3 className="text-3xl font-bold mb-3">Achieve Chips</h3>
+                  <p className="text-white/70 text-sm mb-6 max-w-sm">Premium organic potato chips with bold flavors and 100% compostable packaging. Modern e-commerce design.</p>
+                  <Link
+                    to="/free-service/achieve-chips-demo"
+                    className="inline-flex items-center gap-2 bg-[#C75B39] text-white px-6 py-3 rounded-full font-bold transition hover:bg-white hover:text-black"
                   >
                     Enter Demo Site <ArrowRight className="h-4 w-4" />
                   </Link>
