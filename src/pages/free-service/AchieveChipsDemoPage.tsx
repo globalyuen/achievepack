@@ -138,6 +138,13 @@ export default function AchieveChipsDemoPage() {
           @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Fredoka+One&display=swap');
           .font-display { font-family: 'Poppins', sans-serif; }
           .font-serif { font-family: 'Fredoka One', cursive; }
+          @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-marquee {
+            animation: marquee 20s linear infinite;
+          }
         `}</style>
       </Helmet>
 
@@ -195,10 +202,16 @@ export default function AchieveChipsDemoPage() {
 
       {/* Hero Section - Dynamic Product Showcase */}
       <section className="relative min-h-screen pt-32 pb-20 overflow-hidden">
-        {/* Animated Background */}
+        {/* Animated Background with Film Texture */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100" />
+          {/* Film texture overlay */}
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `url(${CHIPS_IMAGES.details.texture})`, backgroundSize: '400px', backgroundRepeat: 'repeat' }} />
           <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full blur-[150px] opacity-30" style={{ backgroundColor: activeProduct.color }} />
+          {/* Decorative flavor image - bottom left */}
+          <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] opacity-10 rounded-full overflow-hidden blur-sm">
+            <img src={CHIPS_IMAGES.chiliLime.flavor2} alt="" className="w-full h-full object-cover" />
+          </div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -323,6 +336,25 @@ export default function AchieveChipsDemoPage() {
         </div>
       </section>
 
+      {/* Film Strip Banner - Flavor Showcase */}
+      <section className="py-8 bg-gradient-to-r from-[#C75B39] via-[#5B8C5A] to-[#4A7C9B] relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <img src={CHIPS_IMAGES.details.packageTexture} alt="" className="w-full h-full object-cover" />
+        </div>
+        <div className="flex animate-marquee whitespace-nowrap">
+          {[...Array(6)].map((_, i) => (
+            <div key={i} className="flex items-center gap-8 mx-8">
+              <span className="text-white/90 text-lg font-display font-bold uppercase tracking-wider">Fiery Chili Lime</span>
+              <span className="text-white/50">|</span>
+              <span className="text-white/90 text-lg font-display font-bold uppercase tracking-wider">Herb & Garlic</span>
+              <span className="text-white/50">|</span>
+              <span className="text-white/90 text-lg font-display font-bold uppercase tracking-wider">Sea Salt & Vinegar</span>
+              <span className="text-white/50">|</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Texture & Quality Section */}
       <section className="py-0">
         <div className="grid md:grid-cols-2">
@@ -356,7 +388,11 @@ export default function AchieveChipsDemoPage() {
       </section>
 
       {/* Our Story Section */}
-      <section id="our-story" className="py-24 bg-gradient-to-b from-white to-gray-50">
+      <section id="our-story" className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+        {/* Decorative background element */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] opacity-5">
+          <img src={CHIPS_IMAGES.sustainability.ecoValues} alt="" className="w-full h-full object-cover rounded-full blur-sm" />
+        </div>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -415,7 +451,9 @@ export default function AchieveChipsDemoPage() {
       </section>
 
       {/* Sustainability Section */}
-      <section id="sustainability" className="py-24 bg-gradient-to-b from-gray-50 to-green-50">
+      <section id="sustainability" className="py-24 bg-gradient-to-b from-gray-50 to-green-50 relative overflow-hidden">
+        {/* Background pattern */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: `url(${CHIPS_IMAGES.details.packagingCloseup})`, backgroundSize: '600px', backgroundRepeat: 'repeat' }} />
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1">
@@ -483,7 +521,9 @@ export default function AchieveChipsDemoPage() {
       </section>
 
       {/* Certifications */}
-      <section className="py-20 bg-gray-100">
+      <section className="py-20 bg-gray-100 relative overflow-hidden">
+        {/* Film grain texture */}
+        <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: `url(${CHIPS_IMAGES.lifestyle.scene})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-display font-bold mb-4">Certified Quality</h2>
