@@ -71,6 +71,7 @@ const AdminPage = lazyWithRetry(() => import('./pages/AdminPage'))
 const AdminManagementPage = lazyWithRetry(() => import('./pages/AdminManagementPage'))
 const CustomerMapPage = lazyWithRetry(() => import('./pages/CustomerMapPage'))
 const ImageCatalogPage = lazyWithRetry(() => import('./pages/ImageCatalogPage'))
+const ArtworkHubPage = lazyWithRetry(() => import('./pages/ArtworkHubPage'))
 const UnsubscribePage = lazyWithRetry(() => import('./pages/UnsubscribePage'))
 
 // Industry Pages - Lazy loaded
@@ -325,6 +326,7 @@ createRoot(document.getElementById('root')!).render(
                       <Route path="/ctrl-x9k7m/management" element={<AdminManagementPage />} />
                       <Route path="/ctrl-x9k7m/customer-map" element={<CustomerMapPage />} />
                       <Route path="/image-catalog" element={<ImageCatalogPage />} />
+                      <Route path="/ctrl-x9k7m/artwork-hub" element={<ArtworkHubPage />} />
                       <Route path="/unsubscribe" element={<UnsubscribePage />} />
 
                       {/* Industry Pages */}

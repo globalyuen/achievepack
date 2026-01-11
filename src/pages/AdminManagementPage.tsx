@@ -7,7 +7,7 @@ import { SlidingNumber } from '../components/animate-ui/primitives/texts/sliding
 import { 
   Home, FileCheck, Image as ImageIcon, LogOut, Eye, Trash2, ArrowLeft, 
   RefreshCw, CheckCircle, Clock, AlertCircle, MessageSquare, X, 
-  Mail, Globe, Camera, FileText, Link2, Upload, Tag, Search, LayoutGrid, List, Plus, User, Send, RotateCcw, Archive, Bell, Zap
+  Mail, Globe, Camera, FileText, Link2, Upload, Tag, Search, LayoutGrid, List, Plus, User, Send, RotateCcw, Archive, Bell, Zap, Palette
 } from 'lucide-react'
 import {
   Tabs,
@@ -880,12 +880,7 @@ const AdminManagementPage: React.FC = () => {
           throw new Error(insertError.message)
         }
         
-        // Auto-analyze artwork with xAI (fire and forget - don't block UI)
-        if (insertedData && insertedData[0]) {
-          analyzeArtworkWithXAI(fileUrl, insertedData[0].id).catch(err => {
-            console.log('Background xAI analysis:', err)
-          })
-        }
+        // NOTE: xAI auto-analysis disabled - use Artwork Hub for manual JSON management
       }
       
       fetchData()
@@ -1071,6 +1066,17 @@ const AdminManagementPage: React.FC = () => {
                   </span>
                 )}
               </button>
+
+              <div className="pt-4 mt-4 border-t border-gray-200">
+                <p className="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Tools</p>
+                <Link
+                  to="/ctrl-x9k7m/artwork-hub"
+                  className="flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 text-gray-900 hover:bg-primary-50 hover:text-primary-600"
+                >
+                  <Palette className="flex-shrink-0 w-5 h-5 mr-4" />
+                  Artwork Hub
+                </Link>
+              </div>
             </nav>
 
             <div className="pb-4 mt-auto">

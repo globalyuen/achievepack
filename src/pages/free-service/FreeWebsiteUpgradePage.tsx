@@ -7,9 +7,97 @@ import {
   MessageCircle, Users, Lightbulb, Rocket, Code, Layout, Zap, Mail,
   FileText, Building, Award
 } from 'lucide-react'
+import { motion, Variants, AnimatePresence } from 'motion/react'
 import { useCalendly } from '../../contexts/CalendlyContext'
 import Footer from '../../components/Footer'
 import { SEOPageHeader } from '../../components/SEOPageLayout'
+
+// ============================================
+// MOTION ANIMATION VARIANTS - Same as Demo Site
+// ============================================
+
+// Fade in with upward motion
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
+  }
+}
+
+// Fade in with scale
+const fadeInScale: Variants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { 
+    opacity: 1, 
+    scale: 1,
+    transition: { duration: 0.7, ease: 'easeOut' }
+  }
+}
+
+// Stagger container
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1
+    }
+  }
+}
+
+// Stagger children with larger delay - for cards
+const staggerCards: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2
+    }
+  }
+}
+
+// Card hover animation
+const cardHover = {
+  scale: 1.03,
+  y: -8,
+  boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
+  transition: { duration: 0.3 }
+}
+
+// Slide in from left
+const slideInLeft: Variants = {
+  hidden: { opacity: 0, x: -60 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: { duration: 0.6, ease: 'easeOut' }
+  }
+}
+
+// Slide in from right
+const slideInRight: Variants = {
+  hidden: { opacity: 0, x: 60 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: { duration: 0.6, ease: 'easeOut' }
+  }
+}
+
+// Stats reveal animation
+const statReveal: Variants = {
+  hidden: { opacity: 0, scale: 0.8, y: 20 },
+  visible: { 
+    opacity: 1, 
+    scale: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: 'easeOut' }
+  }
+}
 
 // Image paths - using imgs/free/website folder
 const IMAGES = {
@@ -265,55 +353,79 @@ const FreeWebsiteUpgradePage: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-primary-100/50 via-transparent to-green-100/30" />
           <div className="max-w-7xl mx-auto px-4 relative">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+              <motion.div
+                variants={staggerContainer}
+                initial="hidden"
+                animate="visible"
+              >
+                <motion.div 
+                  variants={fadeInUp}
+                  className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-semibold mb-6"
+                >
                   <Gift className="h-4 w-4" />
                   100% FREE — No Hidden Fees
-                </div>
+                </motion.div>
 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 mb-6 leading-tight">
+                <motion.h1 
+                  variants={fadeInUp}
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 mb-6 leading-tight"
+                >
                   Your Packaging Upgraded.<br />
                   <span className="text-primary-600">Now It's Your Website's Turn.</span>
-                </h1>
+                </motion.h1>
 
-                <p className="text-xl text-neutral-600 mb-8 leading-relaxed">
+                <motion.p 
+                  variants={fadeInUp}
+                  className="text-xl text-neutral-600 mb-8 leading-relaxed"
+                >
                   Get AchievePack's <strong className="text-green-600">FREE</strong> website upgrade:
                   a 20-minute strategy call + high-conversion homepage concept.
                   <span className="text-green-700 font-semibold"> Zero pitch. Zero cost.</span> Just helping turn great design into real sales.
-                </p>
+                </motion.p>
 
-                <div className="flex flex-col sm:flex-row gap-4">
+                <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
                   {/* Primary CTA */}
-                  <button
+                  <motion.button
                     onClick={openCalendly}
                     className="flex items-center justify-center gap-2 bg-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-green-700 transition shadow-lg hover:shadow-xl"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     <Calendar className="h-5 w-5" />
                     Book Your FREE Upgrade Now
-                  </button>
+                  </motion.button>
 
                   {/* Secondary CTA */}
-                  <button
+                  <motion.button
                     onClick={() => document.getElementById('demos')?.scrollIntoView({ behavior: 'smooth' })}
                     className="flex items-center justify-center gap-2 border-2 border-neutral-300 text-neutral-700 px-6 py-4 rounded-xl font-semibold hover:border-primary-600 hover:text-primary-600 transition"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     <ArrowRight className="h-5 w-5" />
                     See Demos
-                  </button>
-                </div>
+                  </motion.button>
+                </motion.div>
 
-                <p className="text-sm text-neutral-500 mt-4">
+                <motion.p 
+                  variants={fadeInUp}
+                  className="text-sm text-neutral-500 mt-4"
+                >
                   Typical response time: 24 hours. Calls available Mon–Fri.
-                </p>
-              </div>
+                </motion.p>
+              </motion.div>
 
-              <div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: 60 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
+              >
                 <ClickableImage
                   src={IMAGES.hero}
                   alt="Free Website Upgrade Service - Transform your sustainable packaging brand online"
                   className="w-full rounded-2xl shadow-2xl"
                 />
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -321,24 +433,30 @@ const FreeWebsiteUpgradePage: React.FC = () => {
         {/* E-E-A-T Trust Signals */}
         <section className="py-12 bg-white border-y border-neutral-100">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-              <div className="p-4">
+            <motion.div 
+              className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <motion.div variants={statReveal} className="p-4">
                 <div className="text-3xl font-bold text-primary-600 mb-1">500+</div>
                 <div className="text-sm text-neutral-600">Brands Served Since 2011</div>
-              </div>
-              <div className="p-4">
+              </motion.div>
+              <motion.div variants={statReveal} className="p-4">
                 <div className="text-3xl font-bold text-green-600 mb-1">100%</div>
                 <div className="text-sm text-neutral-600">FREE, No Hidden Costs</div>
-              </div>
-              <div className="p-4">
+              </motion.div>
+              <motion.div variants={statReveal} className="p-4">
                 <div className="text-3xl font-bold text-amber-600 mb-1">10-20</div>
                 <div className="text-sm text-neutral-600">Days to First Draft</div>
-              </div>
-              <div className="p-4">
+              </motion.div>
+              <motion.div variants={statReveal} className="p-4">
                 <div className="text-3xl font-bold text-purple-600 mb-1">React</div>
                 <div className="text-sm text-neutral-600">High-Performance Code</div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
 
@@ -466,23 +584,34 @@ const FreeWebsiteUpgradePage: React.FC = () => {
               />
             </div>
 
-            <div className="grid md:grid-cols-4 gap-6">
+            <motion.div 
+              className="grid md:grid-cols-4 gap-6"
+              variants={staggerCards}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               {[
                 { step: '01', title: 'Book Your Call', desc: 'Schedule a FREE 20-minute strategy session. Tell us about your brand and goals.', icon: Calendar },
                 { step: '02', title: 'Share Your Story', desc: 'Complete a brief questionnaire. Send your logo, packaging images, and brand materials.', icon: FileText },
                 { step: '03', title: 'We Design', desc: 'Our team creates your high-conversion homepage concept within 10-20 business days.', icon: Layout },
                 { step: '04', title: 'You Decide', desc: 'Review your draft. Want to continue? Great. Want to DIY? You keep everything. No pressure.', icon: Rocket }
               ].map((item, idx) => (
-                <div key={idx} className="bg-white rounded-xl p-6 shadow-sm border border-neutral-100">
+                <motion.div 
+                  key={idx} 
+                  className="bg-white rounded-xl p-6 shadow-sm border border-neutral-100"
+                  variants={fadeInUp}
+                  whileHover={cardHover}
+                >
                   <div className="flex items-center gap-3 mb-4">
                     <span className="text-4xl font-bold text-primary-200">{item.step}</span>
                     <item.icon className="h-6 w-6 text-primary-600" />
                   </div>
                   <h3 className="text-lg font-bold text-neutral-900 mb-2">{item.title}</h3>
                   <p className="text-neutral-600 text-sm">{item.desc}</p>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -495,7 +624,13 @@ const FreeWebsiteUpgradePage: React.FC = () => {
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <motion.div 
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+              variants={staggerCards}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               {[
                 { icon: MessageCircle, title: '20-Minute Strategy Call', desc: 'Deep-dive into your brand positioning, target audience, and conversion goals.' },
                 { icon: Layout, title: 'High-Conversion Homepage', desc: 'A professionally designed homepage concept with 1-2 key modules tailored to your brand.' },
@@ -504,15 +639,20 @@ const FreeWebsiteUpgradePage: React.FC = () => {
                 { icon: FileText, title: 'Launch Checklist', desc: 'Step-by-step guide to get your new site live quickly and efficiently.' },
                 { icon: Shield, title: 'No Hidden Agenda', desc: 'FREE means FREE. Clear boundaries. No surprise upsells. Your data stays yours.' }
               ].map((item, idx) => (
-                <div key={idx} className="bg-white rounded-xl p-6 shadow-sm border border-neutral-100 hover:border-primary-300 transition">
+                <motion.div 
+                  key={idx} 
+                  className="bg-white rounded-xl p-6 shadow-sm border border-neutral-100 hover:border-primary-300 transition"
+                  variants={fadeInUp}
+                  whileHover={cardHover}
+                >
                   <div className="p-3 bg-green-100 rounded-lg w-fit mb-4">
                     <item.icon className="h-6 w-6 text-green-600" />
                   </div>
                   <h3 className="text-lg font-bold text-neutral-900 mb-2">{item.title}</h3>
                   <p className="text-neutral-600">{item.desc}</p>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -551,9 +691,19 @@ const FreeWebsiteUpgradePage: React.FC = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <motion.div 
+              className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+              variants={staggerCards}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               {/* Coffee Demo Card */}
-              <div className="group relative bg-neutral-900 rounded-3xl overflow-hidden shadow-2xl transition-transform hover:-translate-y-2">
+              <motion.div 
+                className="group relative bg-neutral-900 rounded-3xl overflow-hidden shadow-2xl"
+                variants={fadeInUp}
+                whileHover={{ y: -12, transition: { duration: 0.3 } }}
+              >
                 <div className="aspect-[16/10] overflow-hidden">
                   <img
                     src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&q=80"
@@ -576,10 +726,14 @@ const FreeWebsiteUpgradePage: React.FC = () => {
                     Enter Demo Site <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Maxi Foods Demo Card */}
-              <div className="group relative bg-[#050505] rounded-3xl overflow-hidden shadow-2xl transition-transform hover:-translate-y-2 border border-white/5">
+              <motion.div 
+                className="group relative bg-[#050505] rounded-3xl overflow-hidden shadow-2xl border border-white/5"
+                variants={fadeInUp}
+                whileHover={{ y: -12, transition: { duration: 0.3 } }}
+              >
                 <div className="aspect-[16/10] overflow-hidden">
                   <img
                     src="/imgs/maxi-foods-packaging.jpg"
@@ -602,10 +756,14 @@ const FreeWebsiteUpgradePage: React.FC = () => {
                     Enter Demo Site <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Achieve Chips Demo Card */}
-              <div className="group relative bg-[#0A0A0A] rounded-3xl overflow-hidden shadow-2xl transition-transform hover:-translate-y-2 border border-white/5">
+              <motion.div 
+                className="group relative bg-[#0A0A0A] rounded-3xl overflow-hidden shadow-2xl border border-white/5"
+                variants={fadeInUp}
+                whileHover={{ y: -12, transition: { duration: 0.3 } }}
+              >
                 <div className="aspect-[16/10] overflow-hidden">
                   <img
                     src="/imgs/demo-site/chips/a_achievepack_fiery_chili_lime_hero_kv_4003688.webp"
@@ -628,8 +786,8 @@ const FreeWebsiteUpgradePage: React.FC = () => {
                     Enter Demo Site <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
 
