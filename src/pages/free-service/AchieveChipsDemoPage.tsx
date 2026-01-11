@@ -420,27 +420,34 @@ export default function AchieveChipsDemoPage() {
         </div>
       </div>
 
-      {/* Navigation */}
-      <nav className={`fixed top-[40px] w-full z-50 transition-all duration-500 ${scrolled ? 'bg-white/95 backdrop-blur-xl shadow-md py-3' : 'bg-transparent py-5'}`}>
+      {/* Navigation - Oscar Style: thin bar with light green bg */}
+      <nav className={`fixed top-[40px] w-full z-50 transition-all duration-500 ${scrolled ? 'bg-[#e8f5e9]/95 backdrop-blur-xl shadow-sm py-2' : 'bg-[#e8f5e9] py-2'}`}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <div className="h-20 w-auto">
+            <div className="h-14 w-auto">
               <img src={CHIPS_IMAGES.logo.src} alt={CHIPS_IMAGES.logo.alt} className="h-full w-auto object-contain" />
             </div>
 
-            {/* Desktop Nav */}
+            {/* Desktop Nav - Center menu items */}
             <div className="hidden md:flex items-center space-x-8">
               {['Products', 'Our Story', 'Sustainability', 'Where to Buy'].map((item) => (
-                <a key={item} href={`#${item.toLowerCase().replace(' ', '-')}`} className="text-sm font-medium tracking-wide hover:text-[#C75B39] transition-colors font-display">
+                <a key={item} href={`#${item.toLowerCase().replace(' ', '-')}`} className="text-sm font-medium tracking-wide text-[#2e7d32] hover:text-[#1b5e20] transition-colors font-display">
                   {item}
                 </a>
               ))}
-              <div className="h-5 w-px bg-gray-300 mx-2"></div>
-              <button className="relative p-2 hover:text-[#C75B39] transition-colors">
-                <ShoppingCart className="w-5 h-5" />
+            </div>
+
+            {/* Right side buttons - Oscar style */}
+            <div className="hidden md:flex items-center gap-3">
+              <button className="px-4 py-2 text-sm font-medium text-[#2e7d32] border border-[#2e7d32] rounded-lg hover:bg-[#2e7d32]/5 transition-colors font-display">
+                Login
+              </button>
+              <button className="relative px-4 py-2 text-sm font-medium text-white bg-[#2e7d32] rounded-lg hover:bg-[#1b5e20] transition-colors font-display flex items-center gap-2">
+                <ShoppingCart className="w-4 h-4" />
+                Shop Now
                 {cartCount > 0 && (
-                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#C75B39] text-white rounded-full text-[10px] font-bold flex items-center justify-center">
+                  <span className="absolute -top-2 -right-2 w-5 h-5 bg-[#C75B39] text-white rounded-full text-[10px] font-bold flex items-center justify-center">
                     {cartCount}
                   </span>
                 )}
@@ -449,8 +456,8 @@ export default function AchieveChipsDemoPage() {
 
             {/* Mobile Nav Toggle */}
             <div className="md:hidden flex items-center gap-4">
-              <button className="relative p-2"><ShoppingCart className="w-5 h-5" /></button>
-              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-1">
+              <button className="relative p-2 text-[#2e7d32]"><ShoppingCart className="w-5 h-5" /></button>
+              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-1 text-[#2e7d32]">
                 {isMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
               </button>
             </div>
@@ -458,159 +465,115 @@ export default function AchieveChipsDemoPage() {
         </div>
       </nav>
 
-      {/* Hero Section - Dynamic Product Showcase with Motion animations */}
-      <section className="relative min-h-screen pt-32 pb-20 overflow-hidden">
-        {/* Animated Background with Film Texture */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100" />
-          {/* Film texture overlay */}
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `url(${CHIPS_IMAGES.details.texture.src})`, backgroundSize: '400px', backgroundRepeat: 'repeat' }} />
-          {/* Animated color glow that transitions with active product */}
+      {/* Hero Section - Oscar Style: Centered layout with geometric shapes */}
+      <section className="relative min-h-screen pt-28 pb-20 overflow-hidden">
+        {/* Oscar-style Background with geometric shapes */}
+        <div className="absolute inset-0 bg-white">
+          {/* Semi-transparent geometric circles - Oscar style */}
+          <div className="absolute top-20 left-10 w-[300px] h-[300px] rounded-full bg-[#e8f5e9]/40" />
+          <div className="absolute top-40 right-20 w-[200px] h-[200px] rounded-full bg-[#e8f5e9]/30" />
+          <div className="absolute bottom-20 left-1/4 w-[400px] h-[400px] rounded-full bg-[#e8f5e9]/20" />
+          <div className="absolute -bottom-20 right-10 w-[250px] h-[125px] rounded-t-full bg-[#e8f5e9]/35" />
+          <div className="absolute top-1/3 -left-10 w-[150px] h-[75px] rounded-r-full bg-[#c8e6c9]/25" />
+          {/* Product color accent - subtle */}
           <motion.div 
-            className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full blur-[150px] opacity-30" 
+            className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full blur-[200px] opacity-10" 
             animate={{ backgroundColor: activeProduct.color }}
             transition={{ duration: 0.8, ease: 'easeInOut' }}
           />
-          {/* Decorative flavor image - bottom left */}
-          <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] opacity-10 rounded-full overflow-hidden blur-sm">
-            <img src={CHIPS_IMAGES.chiliLime.flavor2.src} alt={CHIPS_IMAGES.chiliLime.flavor2.alt} className="w-full h-full object-cover" />
-          </div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[80vh]">
-            {/* Product Info - Animated container */}
+        <div className="relative z-10 max-w-5xl mx-auto px-6">
+          {/* Oscar-style centered content */}
+          <motion.div 
+            className="text-center flex flex-col items-center"
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+          >
+            {/* Oscar-style small badge at top */}
             <motion.div 
-              className="order-2 lg:order-1"
-              initial="hidden"
-              animate="visible"
-              variants={staggerContainer}
+              className="inline-flex items-center px-4 py-1.5 rounded-full border border-[#81c784] text-[#2e7d32] text-sm font-medium mb-8"
+              variants={fadeInUp}
             >
-              {/* Flavor Selector - fade in */}
-              <motion.div className="flex gap-3 mb-8" variants={fadeInUp}>
-                {PRODUCTS.map((product) => (
-                  <motion.button
-                    key={product.id}
-                    onClick={() => { setActiveProduct(product); setActiveFlavorIndex(0) }}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                      activeProduct.id === product.id 
-                        ? 'bg-gray-900 text-white' 
-                        : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
-                    }`}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    {product.name}
-                  </motion.button>
-                ))}
-              </motion.div>
-
-              {/* Headline - animated with product change */}
-              <AnimatePresence mode="wait">
-                <motion.h1 
-                  key={activeProduct.id + '-title'}
-                  className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold leading-[0.95] mb-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <span style={{ color: activeProduct.color }}>{activeProduct.name}</span>
-                </motion.h1>
-              </AnimatePresence>
-
-              {/* Tagline - animated with product change */}
-              <AnimatePresence mode="wait">
-                <motion.p 
-                  key={activeProduct.id + '-tagline'}
-                  className="text-2xl text-gray-500 font-serif italic mb-6"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 20 }}
-                  transition={{ duration: 0.3, delay: 0.1 }}
-                >
-                  {activeProduct.tagline}
-                </motion.p>
-              </AnimatePresence>
-
-              {/* Description - animated with product change */}
-              <AnimatePresence mode="wait">
-                <motion.p 
-                  key={activeProduct.id + '-desc'}
-                  className="text-lg text-gray-600 max-w-lg mb-8 leading-relaxed font-display"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3, delay: 0.15 }}
-                >
-                  {activeProduct.description}
-                </motion.p>
-              </AnimatePresence>
-
-              {/* Badges - staggered animation */}
-              <motion.div className="flex flex-wrap gap-3 mb-8" variants={fadeInUp}>
-                {activeProduct.badges.map((badge, i) => (
-                  <motion.span 
-                    key={i} 
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 border border-gray-200 text-sm font-medium font-display text-gray-700"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: i * 0.1 }}
-                    whileHover={{ scale: 1.05, backgroundColor: '#f3f4f6' }}
-                  >
-                    <Check className="w-4 h-4 text-green-400" />
-                    {badge}
-                  </motion.span>
-                ))}
-              </motion.div>
-
-              {/* Price & CTA - with hover effects */}
-              <motion.div 
-                className="flex flex-col sm:flex-row items-start sm:items-center gap-6"
-                variants={fadeInUp}
-              >
-                <motion.div
-                  key={activeProduct.id + '-price'}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <span className="text-4xl font-bold font-display" style={{ color: activeProduct.color }}>${activeProduct.price.toFixed(2)}</span>
-                  <span className="text-gray-500 ml-2 font-display">{activeProduct.weight}</span>
-                </motion.div>
-                <motion.button 
-                  onClick={() => setCartCount(c => c + 1)}
-                  className="px-8 py-4 rounded-full font-bold text-sm tracking-wide uppercase font-display"
-                  style={{ backgroundColor: activeProduct.color, color: '#fff' }}
-                  whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(0,0,0,0.2)' }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Add to Cart
-                </motion.button>
-              </motion.div>
+              <Leaf className="w-4 h-4 mr-2" />
+              Premium Organic Chips by Achieve Eco
             </motion.div>
 
-            {/* Product Image - with floating animation */}
-            <div className="order-1 lg:order-2 relative flex items-center justify-center">
-              <div className="relative aspect-square max-w-2xl mx-auto w-full flex items-center justify-center">
-                {/* Animated Glow */}
+            {/* Flavor Selector Pills - centered */}
+            <motion.div className="flex flex-wrap justify-center gap-3 mb-8" variants={fadeInUp}>
+              {PRODUCTS.map((product) => (
+                <motion.button
+                  key={product.id}
+                  onClick={() => { setActiveProduct(product); setActiveFlavorIndex(0) }}
+                  className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
+                    activeProduct.id === product.id 
+                      ? 'bg-[#2e7d32] text-white shadow-lg' 
+                      : 'bg-[#e8f5e9] hover:bg-[#c8e6c9] text-[#2e7d32]'
+                  }`}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {product.name}
+                </motion.button>
+              ))}
+            </motion.div>
+
+            {/* Oscar-style large headline with highlighted word */}
+            <AnimatePresence mode="wait">
+              <motion.h1 
+                key={activeProduct.id + '-title'}
+                className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-tight mb-6 text-[#1b5e20]"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+              >
+                Discover the Taste of{' '}
+                <span 
+                  className="relative inline-block px-3"
+                  style={{ backgroundColor: `${activeProduct.color}25` }}
+                >
+                  <span style={{ color: activeProduct.color }}>{activeProduct.name}</span>
+                </span>
+              </motion.h1>
+            </AnimatePresence>
+
+            {/* Oscar-style subtitle paragraph */}
+            <AnimatePresence mode="wait">
+              <motion.p 
+                key={activeProduct.id + '-desc'}
+                className="text-lg text-[#558b2f] max-w-2xl mx-auto mb-8 leading-relaxed font-display"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3, delay: 0.15 }}
+              >
+                {activeProduct.description}
+              </motion.p>
+            </AnimatePresence>
+
+            {/* Product Image - centered with floating animation */}
+            <div className="relative w-full max-w-md mx-auto mb-10">
+              <div className="relative aspect-square flex items-center justify-center">
+                {/* Subtle glow behind product */}
                 <motion.div 
-                  className="absolute inset-0 rounded-full blur-[120px] opacity-50" 
+                  className="absolute inset-10 rounded-full blur-[80px] opacity-30" 
                   animate={{ backgroundColor: activeProduct.color }}
                   transition={{ duration: 0.8 }}
                 />
                 
-                {/* Main Product Image - with floating effect, using heroImage for dynamic KV */}
+                {/* Main Product Image - floating */}
                 <motion.img 
                   key={activeProduct.id}
                   src={activeProduct.heroImage}
                   alt={activeProduct.heroImageAlt}
-                  className="relative z-10 w-[120%] lg:w-[140%] max-w-none object-contain drop-shadow-2xl"
+                  className="relative z-10 w-full h-full object-contain drop-shadow-2xl"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ 
                     opacity: 1, 
                     scale: 1, 
-                    y: [0, -15, 0], // Floating animation
+                    y: [0, -15, 0],
                   }}
                   transition={{ 
                     opacity: { duration: 0.3 },
@@ -621,16 +584,69 @@ export default function AchieveChipsDemoPage() {
                 />
               </div>
             </div>
-          </div>
+
+            {/* Oscar-style CTA section - input + button (adapted for shop) */}
+            <motion.div 
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6"
+              variants={fadeInUp}
+            >
+              <motion.div
+                key={activeProduct.id + '-price'}
+                className="flex items-center gap-2 px-6 py-3 bg-white border border-[#c8e6c9] rounded-full"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+              >
+                <span className="text-2xl font-bold text-[#2e7d32]">${activeProduct.price.toFixed(2)}</span>
+                <span className="text-[#558b2f] text-sm">{activeProduct.weight}</span>
+              </motion.div>
+              <motion.button 
+                onClick={() => setCartCount(c => c + 1)}
+                className="px-8 py-3 rounded-full font-bold text-sm tracking-wide text-white bg-[#66bb6a] hover:bg-[#4caf50] transition-colors font-display flex items-center gap-2"
+                whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(102,187,106,0.3)' }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <ShoppingCart className="w-4 h-4" />
+                Add to Cart
+              </motion.button>
+            </motion.div>
+
+            {/* Badges - Oscar style with green theme */}
+            <motion.div className="flex flex-wrap justify-center gap-2 mb-8" variants={fadeInUp}>
+              {activeProduct.badges.map((badge, i) => (
+                <motion.span 
+                  key={i} 
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#e8f5e9] text-[#2e7d32] text-xs font-medium"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: i * 0.1 }}
+                >
+                  <Check className="w-3 h-3" />
+                  {badge}
+                </motion.span>
+              ))}
+            </motion.div>
+
+            {/* Oscar-style credit line */}
+            <motion.p 
+              className="text-sm text-[#81c784] font-display"
+              variants={fadeInUp}
+            >
+              Demo site created by{' '}
+              <Link to="/free-service/website-upgrade" className="text-[#2e7d32] hover:underline font-medium">
+                Achieve Pack
+              </Link>
+            </motion.p>
+          </motion.div>
         </div>
 
-        {/* Scroll Indicator - animated bounce */}
+        {/* Scroll Indicator - Oscar green theme */}
         <motion.div 
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
         >
-          <ChevronDown className="w-6 h-6 text-gray-400" />
+          <ChevronDown className="w-6 h-6 text-[#81c784]" />
         </motion.div>
       </section>
 
