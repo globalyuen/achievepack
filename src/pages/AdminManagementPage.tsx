@@ -57,6 +57,7 @@ const AdminManagementPage: React.FC = () => {
   // Search and view states
   const [artworkSearch, setArtworkSearch] = useState('')
   const [artworkViewMode, setArtworkViewMode] = useState<'card' | 'list'>('card')
+  const [hoveredArtworkId, setHoveredArtworkId] = useState<string | null>(null)
   
   // Admin upload artwork states
   const [showUploadModal, setShowUploadModal] = useState(false)
@@ -1628,78 +1629,221 @@ const AdminManagementPage: React.FC = () => {
                 </div>
               )}
 
-              {/* List View - Mobile Optimized */}
+              {/* List View - Redesigned with inline actions and hover preview */}
               {artworkViewMode === 'list' && (
                 <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
+                  {/* Table Header - Desktop */}
+                  <div className="hidden md:grid md:grid-cols-[60px_1fr_120px_200px_140px] gap-3 px-4 py-3 bg-gray-50 border-b text-xs font-medium text-gray-500">
+                    <div>Preview</div>
+                    <div>File Info</div>
+                    <div>Status</div>
+                    <div>Quick Actions</div>
+                    <div className="text-right">Actions</div>
+                  </div>
                   <div className="divide-y divide-gray-100">
                     {paginatedArtworks.map(artwork => {
                       const customer = getCustomer(artwork.user_id)
                       const isImage = artwork.file_type?.startsWith('image/') || /\.(png|jpg|jpeg|gif|webp)$/i.test(artwork.file_url || '')
+                      const isHovered = hoveredArtworkId === artwork.id
                       return (
-                        <div key={artwork.id} className="p-3 md:p-4 hover:bg-gray-50">
+                        <div key={artwork.id} className="p-3 md:p-4 hover:bg-gray-50 relative">
+                          {/* Desktop: Grid layout */}
+                          <div className="hidden md:grid md:grid-cols-[60px_1fr_120px_200px_140px] gap-3 items-center">
+                            {/* Thumbnail with hover preview */}
+                            <div 
+                              className="relative"
+                              onMouseEnter={() => setHoveredArtworkId(artwork.id)}
+                              onMouseLeave={() => setHoveredArtworkId(null)}
+                            >
+                              <div className="w-12 h-12 rounded-lg overflow-hidden bg-gray-100 cursor-pointer">
+                                {isImage ? (
+                                  <img 
+                                    src={artwork.file_url} 
+                                    alt={artwork.name}
+                                    className="w-full h-full object-cover"
+                                  />
+                                ) : (
+                                  <div className="w-full h-full flex items-center justify-center bg-purple-50">
+                                    <ImageIcon className="h-5 w-5 text-purple-400" />
+                                  </div>
+                                )}
+                              </div>
+                              {/* Hover Preview Popup */}
+                              {isHovered && isImage && (
+                                <div className="absolute left-16 top-0 z-50 bg-white rounded-xl shadow-2xl border p-2 animate-in fade-in zoom-in-95 duration-200">
+                                  <img 
+                                    src={artwork.file_url} 
+                                    alt={artwork.name}
+                                    className="w-64 h-64 object-contain rounded-lg"
+                                  />
+                                  <p className="text-xs text-gray-500 mt-2 text-center truncate max-w-64">{artwork.name}</p>
+                                </div>
+                              )}
+                            </div>
+                            
+                            {/* File Info */}
+                            <div className="min-w-0">
+                              <p className="font-medium text-gray-900 text-sm truncate">{artwork.name}</p>
+                              <p className="text-xs text-gray-500">
+                                {customer?.full_name || 'Unknown'} • {formatFileSize(artwork.file_size)}
+                              </p>
+                              {artwork.artwork_code && (
+                                <span className="inline-block mt-1 font-mono text-[10px] font-bold text-primary-600 bg-primary-50 px-1.5 py-0.5 rounded">
+                                  {artwork.artwork_code}
+                                </span>
+                              )}
+                            </div>
+                            
+                            {/* Status */}
+                            <div>
+                              <span className={`px-2 py-1 text-[10px] font-medium rounded-full ${getStatusColor(artwork.status)}`}>
+                                {artwork.status.replace(/_/g, ' ')}
+                              </span>
+                            </div>
+                            
+                            {/* Quick Status Buttons */}
+                            <div className="flex flex-wrap gap-1">
+                              <button
+                                onClick={() => updateArtworkStatus(artwork.id, 'proof_ready')}
+                                className={`px-2 py-1 text-[10px] rounded-md transition ${artwork.status === 'proof_ready' ? 'bg-indigo-600 text-white' : 'bg-indigo-50 text-indigo-700 hover:bg-indigo-100'}`}
+                                title="Set Proof Ready"
+                              >
+                                Proof
+                              </button>
+                              <button
+                                onClick={() => updateArtworkStatus(artwork.id, 'revision_needed')}
+                                className={`px-2 py-1 text-[10px] rounded-md transition ${artwork.status === 'revision_needed' ? 'bg-orange-600 text-white' : 'bg-orange-50 text-orange-700 hover:bg-orange-100'}`}
+                                title="Needs Revision"
+                              >
+                                Revision
+                              </button>
+                              <button
+                                onClick={() => updateArtworkStatus(artwork.id, 'in_production')}
+                                className={`px-2 py-1 text-[10px] rounded-md transition ${artwork.status === 'in_production' ? 'bg-green-600 text-white' : 'bg-green-50 text-green-700 hover:bg-green-100'}`}
+                                title="In Production"
+                              >
+                                Prod
+                              </button>
+                              <button
+                                onClick={() => updateArtworkStatus(artwork.id, 'prepress')}
+                                className={`px-2 py-1 text-[10px] rounded-md transition ${artwork.status === 'prepress' ? 'bg-blue-600 text-white' : 'bg-blue-50 text-blue-700 hover:bg-blue-100'}`}
+                                title="Prepress"
+                              >
+                                Pre
+                              </button>
+                            </div>
+                            
+                            {/* Action Buttons */}
+                            <div className="flex items-center justify-end gap-1">
+                              <button
+                                onClick={() => {
+                                  setSelectedArtwork(artwork)
+                                  const autoCode = generateCustomerCode(customer)
+                                  setArtworkCustomerCode(artwork.customer_code || autoCode)
+                                  setArtworkProductCode(artwork.product_code || 'PKG01')
+                                  setArtworkLinkType((artwork.link_type as 'order' | 'quote' | 'none') || 'none')
+                                  setArtworkLinkedId(artwork.linked_order_id || artwork.linked_quote_id || '')
+                                  setArtworkAssignedUserId(artwork.user_id || '')
+                                  setArtworkFeedback(artwork.admin_feedback || '')
+                                  fetchArtworkComments(artwork.id)
+                                }}
+                                className="p-1.5 text-primary-600 hover:bg-primary-50 rounded-lg transition"
+                                title="Review Details"
+                              >
+                                <MessageSquare className="h-4 w-4" />
+                              </button>
+                              <a
+                                href={artwork.file_url}
+                                target="_blank"
+                                className="p-1.5 text-gray-600 hover:bg-gray-100 rounded-lg transition"
+                                title="Download"
+                              >
+                                <FileText className="h-4 w-4" />
+                              </a>
+                              <button
+                                onClick={() => deleteArtwork(artwork.id)}
+                                className="p-1.5 text-red-600 hover:bg-red-50 rounded-lg transition"
+                                title="Delete"
+                              >
+                                <Trash2 className="h-4 w-4" />
+                              </button>
+                            </div>
+                          </div>
+                          
                           {/* Mobile: Stack layout */}
-                          <div className="flex items-start gap-3">
-                            <div className="w-14 h-14 md:w-16 md:h-16 rounded-lg flex-shrink-0 overflow-hidden bg-gray-100">
-                              {isImage ? (
+                          <div className="md:hidden">
+                            <div className="flex items-start gap-3">
+                              {/* Thumbnail */}
+                              <div 
+                                className="relative"
+                                onClick={() => setHoveredArtworkId(isHovered ? null : artwork.id)}
+                              >
+                                <div className="w-14 h-14 rounded-lg overflow-hidden bg-gray-100">
+                                  {isImage ? (
+                                    <img src={artwork.file_url} alt={artwork.name} className="w-full h-full object-cover" />
+                                  ) : (
+                                    <div className="w-full h-full flex items-center justify-center bg-purple-50">
+                                      <ImageIcon className="h-5 w-5 text-purple-400" />
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
+                              
+                              <div className="flex-1 min-w-0">
+                                <div className="flex items-start justify-between gap-2">
+                                  <div className="min-w-0">
+                                    <p className="font-medium text-gray-900 text-sm truncate">{artwork.name}</p>
+                                    <p className="text-xs text-gray-500">{customer?.full_name || 'Unknown'}</p>
+                                  </div>
+                                  <span className={`px-2 py-0.5 text-[10px] font-medium rounded-full ${getStatusColor(artwork.status)}`}>
+                                    {artwork.status.replace(/_/g, ' ')}
+                                  </span>
+                                </div>
+                                
+                                {/* Mobile Quick Actions */}
+                                <div className="flex flex-wrap gap-1 mt-2">
+                                  <button
+                                    onClick={() => updateArtworkStatus(artwork.id, 'proof_ready')}
+                                    className="px-2 py-1 text-[10px] bg-indigo-50 text-indigo-700 rounded-md"
+                                  >
+                                    Proof
+                                  </button>
+                                  <button
+                                    onClick={() => updateArtworkStatus(artwork.id, 'revision_needed')}
+                                    className="px-2 py-1 text-[10px] bg-orange-50 text-orange-700 rounded-md"
+                                  >
+                                    Revision
+                                  </button>
+                                  <button
+                                    onClick={() => {
+                                      setSelectedArtwork(artwork)
+                                      fetchArtworkComments(artwork.id)
+                                    }}
+                                    className="px-2 py-1 text-[10px] bg-primary-50 text-primary-700 rounded-md"
+                                  >
+                                    Review
+                                  </button>
+                                  <a
+                                    href={artwork.file_url}
+                                    target="_blank"
+                                    className="px-2 py-1 text-[10px] bg-gray-100 text-gray-700 rounded-md"
+                                  >
+                                    ↓
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            {/* Mobile hover preview */}
+                            {isHovered && isImage && (
+                              <div className="mt-3 p-2 bg-gray-50 rounded-lg">
                                 <img 
                                   src={artwork.file_url} 
                                   alt={artwork.name}
-                                  className="w-full h-full object-cover"
-                                  onError={(e) => {
-                                    (e.target as HTMLImageElement).style.display = 'none'
-                                    ;(e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden')
-                                  }}
+                                  className="w-full h-48 object-contain rounded-lg"
                                 />
-                              ) : null}
-                              <div className={`w-full h-full flex flex-col items-center justify-center bg-purple-50 ${isImage ? 'hidden' : ''}`}>
-                                <ImageIcon className="h-5 w-5 text-purple-400" />
-                                <p className="text-[8px] text-purple-400 mt-0.5">PDF/File</p>
                               </div>
-                            </div>
-                            <div className="flex-1 min-w-0">
-                              <div className="flex items-start justify-between gap-2">
-                                <div className="min-w-0 flex-1">
-                                  <p className="font-medium text-gray-900 text-sm truncate">{artwork.name}</p>
-                                  <p className="text-xs text-gray-500 mt-0.5">
-                                    {customer?.full_name || 'Unknown'} • {formatFileSize(artwork.file_size)}
-                                  </p>
-                                  {artwork.artwork_code && (
-                                    <span className="inline-block mt-1 font-mono text-[10px] font-bold text-primary-600 bg-primary-50 px-1.5 py-0.5 rounded">
-                                      {artwork.artwork_code}
-                                    </span>
-                                  )}
-                                </div>
-                                <span className={`px-2 py-0.5 text-[10px] md:text-xs font-medium rounded-full flex-shrink-0 ${getStatusColor(artwork.status)}`}>
-                                  {artwork.status.replace(/_/g, ' ')}
-                                </span>
-                              </div>
-                              {/* Mobile action row */}
-                              <div className="flex gap-2 mt-2">
-                                <button
-                                  onClick={() => {
-                                    setSelectedArtwork(artwork)
-                                    const autoCode = generateCustomerCode(customer)
-                                    setArtworkCustomerCode(artwork.customer_code || autoCode)
-                                    setArtworkProductCode(artwork.product_code || 'PKG01')
-                                    setArtworkLinkType((artwork.link_type as 'order' | 'quote' | 'none') || 'none')
-                                    setArtworkLinkedId(artwork.linked_order_id || artwork.linked_quote_id || '')
-                                    setArtworkAssignedUserId(artwork.user_id || '')
-                                    setArtworkFeedback(artwork.admin_feedback || '')
-                                    fetchArtworkComments(artwork.id)
-                                  }}
-                                  className="flex-1 px-3 py-1.5 bg-primary-600 text-white text-xs rounded-lg hover:bg-primary-700"
-                                >
-                                  Review
-                                </button>
-                                <a
-                                  href={artwork.file_url}
-                                  target="_blank"
-                                  className="px-3 py-1.5 border border-gray-300 text-gray-700 text-xs rounded-lg hover:bg-gray-50"
-                                >
-                                  ↓
-                                </a>
-                              </div>
-                            </div>
+                            )}
                           </div>
                         </div>
                       )
