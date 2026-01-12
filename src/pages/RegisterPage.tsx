@@ -10,7 +10,7 @@ const RegisterPage: React.FC = () => {
   const { sendOtp, verifyOtp, signInWithGoogle } = useAuth()
   
   const [email, setEmail] = useState('')
-  const [otpCode, setOtpCode] = useState(['', '', '', '', '', ''])
+  const [otpCode, setOtpCode] = useState(['', '', '', '', '', '', '', ''])
   const [step, setStep] = useState<'email' | 'otp'>('email')
   const [loading, setLoading] = useState(false)
   const [sendingOtp, setSendingOtp] = useState(false)
@@ -55,23 +55,23 @@ const RegisterPage: React.FC = () => {
   const handleOtpChange = (index: number, value: string) => {
     if (value.length > 1) {
       // Handle paste
-      const digits = value.replace(/\D/g, '').slice(0, 6).split('')
+      const digits = value.replace(/\D/g, '').slice(0, 8).split('')
       const newOtp = [...otpCode]
       digits.forEach((digit, i) => {
-        if (index + i < 6) {
+        if (index + i < 8) {
           newOtp[index + i] = digit
         }
       })
       setOtpCode(newOtp)
       // Focus last filled or next empty
-      const nextIndex = Math.min(index + digits.length, 5)
+      const nextIndex = Math.min(index + digits.length, 7)
       otpRefs.current[nextIndex]?.focus()
     } else {
       const newOtp = [...otpCode]
       newOtp[index] = value.replace(/\D/g, '')
       setOtpCode(newOtp)
       // Auto focus next
-      if (value && index < 5) {
+      if (value && index < 7) {
         otpRefs.current[index + 1]?.focus()
       }
     }
@@ -87,8 +87,8 @@ const RegisterPage: React.FC = () => {
   // Handle verify OTP
   const handleVerifyOtp = async () => {
     const code = otpCode.join('')
-    if (code.length !== 6) {
-      setError('Please enter the 6-digit code')
+    if (code.length !== 8) {
+      setError('Please enter the 8-digit code')
       return
     }
     
@@ -137,7 +137,7 @@ const RegisterPage: React.FC = () => {
             <p className="text-neutral-600 mt-2">
               {step === 'email' 
                 ? 'Enter your email to receive a verification code' 
-                : `We sent a 6-digit code to ${email}`
+                : `We sent an 8-digit code to ${email}`
               }
             </p>
           </div>
@@ -217,11 +217,11 @@ const RegisterPage: React.FC = () => {
                     ref={el => otpRefs.current[index] = el}
                     type="text"
                     inputMode="numeric"
-                    maxLength={6}
+                    maxLength={8}
                     value={digit}
                     onChange={(e) => handleOtpChange(index, e.target.value)}
                     onKeyDown={(e) => handleOtpKeyDown(index, e)}
-                    className="w-12 h-14 text-center text-2xl font-bold border border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="w-10 h-12 text-center text-xl font-bold border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                     autoFocus={index === 0}
                   />
                 ))}
@@ -244,7 +244,7 @@ const RegisterPage: React.FC = () => {
               {/* Verify Button */}
               <button
                 onClick={handleVerifyOtp}
-                disabled={loading || otpCode.join('').length !== 6}
+                disabled={loading || otpCode.join('').length !== 8}
                 className="w-full py-4 bg-neutral-900 hover:bg-neutral-800 disabled:bg-neutral-400 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition flex items-center justify-center gap-2"
               >
                 {loading ? (
@@ -261,7 +261,7 @@ const RegisterPage: React.FC = () => {
               <button
                 onClick={() => {
                   setStep('email')
-                  setOtpCode(['', '', '', '', '', ''])
+                  setOtpCode(['', '', '', '', '', '', '', ''])
                   setError('')
                 }}
                 className="w-full text-center text-neutral-600 hover:text-neutral-900 text-sm"
