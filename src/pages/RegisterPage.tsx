@@ -100,7 +100,9 @@ const RegisterPage: React.FC = () => {
       }
       setTurnstileToken('')
     } else {
-      setSuccess(true)
+      // Registration successful - redirect directly (no email confirmation needed)
+      setLoading(false)
+      navigate(redirectTo)
     }
   }
 
