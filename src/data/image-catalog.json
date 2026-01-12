@@ -1,10 +1,10 @@
 {
   "generated": "2026-01-11",
-  "total_images": 1058,
-  "total_categories": 111,
+  "total_images": 1086,
+  "total_categories": 112,
   "extensions": {
     ".webp": 1014,
-    ".png": 42,
+    ".png": 70,
     ".jpg": 2
   },
   "categories": {
@@ -727,6 +727,179 @@
           "path": "/imgs/cert/cert-din-home-compost.png",
           "extension": ".png",
           "modified": "2025-12-07T09:02:28.344Z"
+        }
+      ]
+    },
+    "clien-logos": {
+      "count": 28,
+      "images": [
+        {
+          "filename": "create.png",
+          "path": "/imgs/clien-logos/create.png",
+          "extension": ".png",
+          "modified": "2026-01-11T16:10:18.126Z"
+        },
+        {
+          "filename": "guest.png",
+          "path": "/imgs/clien-logos/guest.png",
+          "extension": ".png",
+          "modified": "2026-01-11T16:09:46.615Z"
+        },
+        {
+          "filename": "prime.png",
+          "path": "/imgs/clien-logos/prime.png",
+          "extension": ".png",
+          "modified": "2026-01-11T16:09:21.665Z"
+        },
+        {
+          "filename": "alia.png",
+          "path": "/imgs/clien-logos/alia.png",
+          "extension": ".png",
+          "modified": "2026-01-11T16:08:09.129Z"
+        },
+        {
+          "filename": "moom.png",
+          "path": "/imgs/clien-logos/moom.png",
+          "extension": ".png",
+          "modified": "2026-01-11T16:07:43.176Z"
+        },
+        {
+          "filename": "tra-my.png",
+          "path": "/imgs/clien-logos/tra-my.png",
+          "extension": ".png",
+          "modified": "2026-01-11T16:07:16.128Z"
+        },
+        {
+          "filename": "honestea.png",
+          "path": "/imgs/clien-logos/honestea.png",
+          "extension": ".png",
+          "modified": "2026-01-11T16:06:41.806Z"
+        },
+        {
+          "filename": "oovo.png",
+          "path": "/imgs/clien-logos/oovo.png",
+          "extension": ".png",
+          "modified": "2026-01-11T16:06:15.898Z"
+        },
+        {
+          "filename": "red-hot.png",
+          "path": "/imgs/clien-logos/red-hot.png",
+          "extension": ".png",
+          "modified": "2026-01-11T16:05:49.933Z"
+        },
+        {
+          "filename": "happy-jack.png",
+          "path": "/imgs/clien-logos/happy-jack.png",
+          "extension": ".png",
+          "modified": "2026-01-11T16:05:23.684Z"
+        },
+        {
+          "filename": "freshfield.png",
+          "path": "/imgs/clien-logos/freshfield.png",
+          "extension": ".png",
+          "modified": "2026-01-11T16:04:56.174Z"
+        },
+        {
+          "filename": "simply.png",
+          "path": "/imgs/clien-logos/simply.png",
+          "extension": ".png",
+          "modified": "2026-01-11T16:04:27.082Z"
+        },
+        {
+          "filename": "caffeine.png",
+          "path": "/imgs/clien-logos/caffeine.png",
+          "extension": ".png",
+          "modified": "2026-01-11T16:04:01.110Z"
+        },
+        {
+          "filename": "winand.png",
+          "path": "/imgs/clien-logos/winand.png",
+          "extension": ".png",
+          "modified": "2026-01-11T16:03:33.480Z"
+        },
+        {
+          "filename": "nuditea.png",
+          "path": "/imgs/clien-logos/nuditea.png",
+          "extension": ".png",
+          "modified": "2026-01-11T16:03:03.289Z"
+        },
+        {
+          "filename": "cocktails.png",
+          "path": "/imgs/clien-logos/cocktails.png",
+          "extension": ".png",
+          "modified": "2026-01-11T16:02:29.987Z"
+        },
+        {
+          "filename": "kakejo.png",
+          "path": "/imgs/clien-logos/kakejo.png",
+          "extension": ".png",
+          "modified": "2026-01-11T16:01:54.444Z"
+        },
+        {
+          "filename": "hike.png",
+          "path": "/imgs/clien-logos/hike.png",
+          "extension": ".png",
+          "modified": "2026-01-11T16:01:18.461Z"
+        },
+        {
+          "filename": "fodilicious.png",
+          "path": "/imgs/clien-logos/fodilicious.png",
+          "extension": ".png",
+          "modified": "2026-01-11T16:00:43.743Z"
+        },
+        {
+          "filename": "knowrish.png",
+          "path": "/imgs/clien-logos/knowrish.png",
+          "extension": ".png",
+          "modified": "2026-01-11T16:00:05.341Z"
+        },
+        {
+          "filename": "green-urban.png",
+          "path": "/imgs/clien-logos/green-urban.png",
+          "extension": ".png",
+          "modified": "2026-01-11T15:59:27.752Z"
+        },
+        {
+          "filename": "superfood.png",
+          "path": "/imgs/clien-logos/superfood.png",
+          "extension": ".png",
+          "modified": "2026-01-11T15:58:38.331Z"
+        },
+        {
+          "filename": "mavella.png",
+          "path": "/imgs/clien-logos/mavella.png",
+          "extension": ".png",
+          "modified": "2026-01-11T15:58:09.309Z"
+        },
+        {
+          "filename": "mordern.png",
+          "path": "/imgs/clien-logos/mordern.png",
+          "extension": ".png",
+          "modified": "2026-01-11T15:57:36.488Z"
+        },
+        {
+          "filename": "humble.png",
+          "path": "/imgs/clien-logos/humble.png",
+          "extension": ".png",
+          "modified": "2026-01-11T15:56:58.814Z"
+        },
+        {
+          "filename": "tworivers.png",
+          "path": "/imgs/clien-logos/tworivers.png",
+          "extension": ".png",
+          "modified": "2026-01-11T15:56:27.537Z"
+        },
+        {
+          "filename": "sustenir.png",
+          "path": "/imgs/clien-logos/sustenir.png",
+          "extension": ".png",
+          "modified": "2026-01-11T15:55:54.259Z"
+        },
+        {
+          "filename": "morlife.png",
+          "path": "/imgs/clien-logos/morlife.png",
+          "extension": ".png",
+          "modified": "2026-01-11T15:55:25.545Z"
         }
       ]
     },

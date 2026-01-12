@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, ReactNode } from 'react'
 import {
   motion,
   useScroll,
@@ -18,7 +18,7 @@ function wrap(min: number, max: number, v: number): number {
 }
 
 interface ParallaxTextProps {
-  children: string
+  children: ReactNode
   baseVelocity?: number
   className?: string
   textClassName?: string

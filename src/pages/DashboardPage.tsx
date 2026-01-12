@@ -436,21 +436,85 @@ const DashboardPage: React.FC = () => {
   const fetchData = async () => {
     setLoading(true)
     
+    // Build query conditions - handle cases where user_id might not match but email does
+    const userId = user?.id
+    const userEmail = user?.email
+    
     // Fetch from database - orders by user_id OR customer_email for better matching
-    // Artwork files: match by user_id OR customer_email for cases where CRM contact is assigned
-    const [ordersRes, quotesRes, rfqRes, docsRes, artworksRes, savedRes, deletedArtworksRes, artworksByEmailRes, deletedArtworksByEmailRes] = await Promise.all([
-      supabase.from('orders').select('*').or(`user_id.eq.${user?.id},customer_email.eq.${user?.email}`).order('created_at', { ascending: false }),
-      supabase.from('quotes').select('*').or(`user_id.eq.${user?.id},customer_email.eq.${user?.email}`).is('deleted_at', null).order('created_at', { ascending: false }),
-      supabase.from('rfq_submissions').select('*').or(`user_id.eq.${user?.id},customer_email.eq.${user?.email}`).is('deleted_at', null).order('created_at', { ascending: false }),
-      supabase.from('documents').select('*').or(`user_id.eq.${user?.id},is_public.eq.true`).order('created_at', { ascending: false }),
-      supabase.from('artwork_files').select('*').eq('user_id', user?.id).is('deleted_at', null).order('created_at', { ascending: false }),
-      supabase.from('saved_cart_items').select('*').eq('user_id', user?.id).order('created_at', { ascending: false }),
-      // Fetch deleted artworks for bin
-      supabase.from('artwork_files').select('*').eq('user_id', user?.id).not('deleted_at', 'is', null).order('deleted_at', { ascending: false }),
-      // Also fetch artworks by customer_email for CRM contact matching
-      supabase.from('artwork_files').select('*').eq('customer_email', user?.email).is('deleted_at', null).order('created_at', { ascending: false }),
-      supabase.from('artwork_files').select('*').eq('customer_email', user?.email).not('deleted_at', 'is', null).order('deleted_at', { ascending: false }),
-    ])
+    // Use separate queries for better reliability when user_id or email might be undefined
+    const queries = []
+    
+    // Orders: Fetch by both user_id and customer_email
+    if (userId && userEmail) {
+      queries.push(supabase.from('orders').select('*').or(`user_id.eq.${userId},customer_email.ilike.${userEmail}`).order('created_at', { ascending: false }))
+    } else if (userEmail) {
+      queries.push(supabase.from('orders').select('*').ilike('customer_email', userEmail).order('created_at', { ascending: false }))
+    } else if (userId) {
+      queries.push(supabase.from('orders').select('*').eq('user_id', userId).order('created_at', { ascending: false }))
+    } else {
+      queries.push(Promise.resolve({ data: [], error: null }))
+    }
+    
+    // Quotes
+    if (userId && userEmail) {
+      queries.push(supabase.from('quotes').select('*').or(`user_id.eq.${userId},customer_email.ilike.${userEmail}`).is('deleted_at', null).order('created_at', { ascending: false }))
+    } else if (userEmail) {
+      queries.push(supabase.from('quotes').select('*').ilike('customer_email', userEmail).is('deleted_at', null).order('created_at', { ascending: false }))
+    } else if (userId) {
+      queries.push(supabase.from('quotes').select('*').eq('user_id', userId).is('deleted_at', null).order('created_at', { ascending: false }))
+    } else {
+      queries.push(Promise.resolve({ data: [], error: null }))
+    }
+    
+    // RFQ submissions
+    if (userId && userEmail) {
+      queries.push(supabase.from('rfq_submissions').select('*').or(`user_id.eq.${userId},customer_email.ilike.${userEmail}`).is('deleted_at', null).order('created_at', { ascending: false }))
+    } else if (userEmail) {
+      queries.push(supabase.from('rfq_submissions').select('*').ilike('customer_email', userEmail).is('deleted_at', null).order('created_at', { ascending: false }))
+    } else if (userId) {
+      queries.push(supabase.from('rfq_submissions').select('*').eq('user_id', userId).is('deleted_at', null).order('created_at', { ascending: false }))
+    } else {
+      queries.push(Promise.resolve({ data: [], error: null }))
+    }
+    
+    // Documents
+    if (userId) {
+      queries.push(supabase.from('documents').select('*').or(`user_id.eq.${userId},is_public.eq.true`).order('created_at', { ascending: false }))
+    } else {
+      queries.push(supabase.from('documents').select('*').eq('is_public', true).order('created_at', { ascending: false }))
+    }
+    
+    // Artworks by user_id
+    if (userId) {
+      queries.push(supabase.from('artwork_files').select('*').eq('user_id', userId).is('deleted_at', null).order('created_at', { ascending: false }))
+    } else {
+      queries.push(Promise.resolve({ data: [], error: null }))
+    }
+    
+    // Saved items
+    if (userId) {
+      queries.push(supabase.from('saved_cart_items').select('*').eq('user_id', userId).order('created_at', { ascending: false }))
+    } else {
+      queries.push(Promise.resolve({ data: [], error: null }))
+    }
+    
+    // Deleted artworks by user_id
+    if (userId) {
+      queries.push(supabase.from('artwork_files').select('*').eq('user_id', userId).not('deleted_at', 'is', null).order('deleted_at', { ascending: false }))
+    } else {
+      queries.push(Promise.resolve({ data: [], error: null }))
+    }
+    
+    // Artworks by customer_email
+    if (userEmail) {
+      queries.push(supabase.from('artwork_files').select('*').ilike('customer_email', userEmail).is('deleted_at', null).order('created_at', { ascending: false }))
+      queries.push(supabase.from('artwork_files').select('*').ilike('customer_email', userEmail).not('deleted_at', 'is', null).order('deleted_at', { ascending: false }))
+    } else {
+      queries.push(Promise.resolve({ data: [], error: null }))
+      queries.push(Promise.resolve({ data: [], error: null }))
+    }
+
+    const [ordersRes, quotesRes, rfqRes, docsRes, artworksRes, savedRes, deletedArtworksRes, artworksByEmailRes, deletedArtworksByEmailRes] = await Promise.all(queries)
     setOrders(ordersRes.data || [])
     
     // Merge quotes and RFQ submissions
@@ -738,20 +802,30 @@ const DashboardPage: React.FC = () => {
   const deleteArtwork = async (artworkId: string, artworkName: string) => {
     if (!confirm(`Move "${artworkName}" to Bin? You can restore it later.`)) return
     
-    try {
-      // Soft delete - update deleted_at instead of actual delete
-      const { error } = await supabase.from('artwork_files').update({ deleted_at: new Date().toISOString() }).eq('id', artworkId)
-      
-      if (error) {
-        throw new Error(error.message)
+    // Use setTimeout to avoid blocking UI during INP measurement
+    setTimeout(async () => {
+      try {
+        // Soft delete - update deleted_at instead of actual delete
+        const { error } = await supabase.from('artwork_files').update({ deleted_at: new Date().toISOString() }).eq('id', artworkId)
+        
+        if (error) {
+          throw new Error(error.message)
+        }
+        
+        // Optimistic UI update - remove from list immediately
+        setArtworks(prev => prev.filter(a => a.id !== artworkId))
+        
+        // Background refresh for consistency
+        startTransition(() => {
+          fetchData()
+        })
+      } catch (error: any) {
+        console.error('Error deleting artwork:', error)
+        alert('Failed to delete artwork: ' + error.message)
+        // Refresh to restore state on error
+        fetchData()
       }
-      
-      // Refresh data
-      fetchData()
-    } catch (error: any) {
-      console.error('Error deleting artwork:', error)
-      alert('Failed to delete artwork: ' + error.message)
-    }
+    }, 0)
   }
   
   // Restore artwork from bin
@@ -1991,12 +2065,12 @@ const DashboardPage: React.FC = () => {
           {/* Artwork Tab */}
           {activeTab === 'artwork' && (
             <div className="space-y-3 md:space-y-6">
-              {/* Header - Mobile Responsive */}
-              <div className="flex flex-col gap-3">
+              {/* Header - Compact Top Bar */}
+              <div className="flex flex-wrap items-center gap-3 md:gap-4">
                 <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">Artwork Files</h1>
-                <label className="flex items-center justify-center gap-2 px-4 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition cursor-pointer text-sm md:text-base">
-                  <Upload className="h-5 w-5" />
-                  Upload Artwork
+                <label className="flex items-center gap-2 px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition cursor-pointer text-sm">
+                  <Upload className="h-4 w-4" />
+                  Upload
                   <input
                     type="file"
                     multiple
@@ -2006,14 +2080,25 @@ const DashboardPage: React.FC = () => {
                     disabled={uploading}
                   />
                 </label>
+                {/* Upload Guidelines - Inline Compact */}
+                <details className="bg-gray-100 rounded-lg overflow-hidden">
+                  <summary className="px-3 py-2 text-sm text-gray-700 cursor-pointer flex items-center gap-1">
+                    <Info className="h-4 w-4" />
+                    <span>Guidelines</span>
+                  </summary>
+                  <div className="px-3 pb-2 text-xs text-gray-600 max-w-xs">
+                    <p><strong>Formats:</strong> AI, EPS, PDF, PNG, JPG, TIFF, PSD, ZIP</p>
+                    <p><strong>Max:</strong> 250MB | <strong>Specs:</strong> 300 DPI, CMYK, 3mm bleed</p>
+                  </div>
+                </details>
               </div>
 
               {/* Upload Error */}
               {uploadError && (
-                <div className="bg-red-50 border border-red-200 rounded-lg p-3 md:p-4 flex gap-2 md:gap-3">
-                  <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0" />
+                <div className="bg-red-50 border border-red-200 rounded-lg p-3 flex gap-2 max-w-lg">
+                  <AlertCircle className="h-4 w-4 text-red-600 flex-shrink-0 mt-0.5" />
                   <div className="flex-1 min-w-0">
-                    <p className="text-xs md:text-sm text-red-700 whitespace-pre-line break-words">{uploadError}</p>
+                    <p className="text-xs text-red-700 whitespace-pre-line break-words">{uploadError}</p>
                   </div>
                   <button onClick={() => setUploadError('')} className="text-red-600 hover:text-red-800 flex-shrink-0">
                     <X className="h-4 w-4" />
@@ -2023,10 +2108,10 @@ const DashboardPage: React.FC = () => {
 
               {/* Upload Success */}
               {uploadSuccess && (
-                <div className="bg-green-50 border border-green-200 rounded-lg p-3 md:p-4 flex gap-2 md:gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
+                <div className="bg-green-50 border border-green-200 rounded-lg p-3 flex gap-2 max-w-lg">
+                  <CheckCircle className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
                   <div className="flex-1 min-w-0">
-                    <p className="text-xs md:text-sm text-green-700 break-words">{uploadSuccess}</p>
+                    <p className="text-xs text-green-700 break-words">{uploadSuccess}</p>
                   </div>
                   <button onClick={() => setUploadSuccess('')} className="text-green-600 hover:text-green-800 flex-shrink-0">
                     <X className="h-4 w-4" />
@@ -2036,43 +2121,15 @@ const DashboardPage: React.FC = () => {
 
               {/* Uploading Indicator */}
               {uploading && (
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 md:p-4 flex items-center gap-2 md:gap-3">
-                  <RefreshCw className="h-5 w-5 text-blue-600 animate-spin flex-shrink-0" />
-                  <p className="text-xs md:text-sm text-blue-700">Uploading artwork files...</p>
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 flex items-center gap-2 max-w-md">
+                  <RefreshCw className="h-4 w-4 text-blue-600 animate-spin flex-shrink-0" />
+                  <p className="text-xs text-blue-700">Uploading artwork files...</p>
                 </div>
               )}
 
-              {/* Upload Guidelines - Collapsible on Mobile */}
-              <details className="bg-gray-50 border border-gray-200 rounded-xl overflow-hidden">
-                <summary className="p-3 md:p-4 font-semibold text-gray-900 text-sm md:text-base cursor-pointer flex items-center justify-between">
-                  <span>Upload Guidelines</span>
-                  <ChevronRight className="h-4 w-4 text-gray-500 transform transition-transform" />
-                </summary>
-                <div className="px-3 pb-3 md:px-4 md:pb-4">
-                  <div className="grid grid-cols-2 gap-2 md:gap-4 text-xs md:text-sm text-gray-600">
-                    <div>
-                      <p className="font-medium text-gray-800">Formats:</p>
-                      <p>AI, EPS, PDF, PNG, JPG, TIFF, PSD, ZIP</p>
-                    </div>
-                    <div>
-                      <p className="font-medium text-gray-800">Max Size:</p>
-                      <p>250 MB per file</p>
-                    </div>
-                    <div>
-                      <p className="font-medium text-gray-800">Requirements:</p>
-                      <p>300 DPI, CMYK, 3mm bleed</p>
-                    </div>
-                    <div>
-                      <p className="font-medium text-gray-800">Large Files:</p>
-                      <p>Use WeTransfer or Dropbox</p>
-                    </div>
-                  </div>
-                </div>
-              </details>
-              
               {/* Artwork Status Overview */}
               {artworkStatusItems.length > 0 && (
-                <div className="bg-white rounded-xl p-3 md:p-4 border border-gray-100">
+                <div className="bg-white rounded-xl p-3 md:p-4 border border-gray-100 max-w-2xl">
                   <h3 className="text-xs md:text-sm font-semibold text-gray-700 mb-2 md:mb-3">Your Artwork Status</h3>
                   <ArtworkStatusAvatar items={artworkStatusItems} maxVisible={8} size="sm" />
                 </div>
@@ -2094,13 +2151,13 @@ const DashboardPage: React.FC = () => {
                       const isImage = artwork.file_type?.startsWith('image/') || /\.(png|jpg|jpeg|gif|webp)$/i.test(artwork.file_url || '')
                       return (
                         <div key={artwork.id} className="w-[300px] flex-shrink-0 bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-md transition">
-                          {/* Card Layout */}
-                          <div className="space-y-3 p-3">
-                            {/* Top Row: Image Preview + Name + Status */}
-                            <div className="flex items-center gap-3">
+                          {/* Card Layout - Clear Structure */}
+                          <div className="p-4">
+                            {/* Row 1: Image Preview + Info */}
+                            <div className="flex items-start gap-3 mb-3">
                               {isImage ? (
                                 <ImagePreviewPopover src={artwork.file_url || ''} alt={artwork.name}>
-                                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-lg flex-shrink-0 overflow-hidden bg-gray-100 cursor-pointer hover:ring-2 hover:ring-purple-400 hover:ring-offset-1 transition-all">
+                                  <div className="w-16 h-16 rounded-lg flex-shrink-0 overflow-hidden bg-gray-100 cursor-pointer hover:ring-2 hover:ring-purple-400 hover:ring-offset-1 transition-all">
                                     <img 
                                       src={artwork.file_url} 
                                       alt={artwork.name}
@@ -2109,67 +2166,68 @@ const DashboardPage: React.FC = () => {
                                   </div>
                                 </ImagePreviewPopover>
                               ) : (
-                                <div className="w-14 h-14 md:w-16 md:h-16 rounded-lg flex-shrink-0 overflow-hidden bg-gray-100">
+                                <div className="w-16 h-16 rounded-lg flex-shrink-0 overflow-hidden bg-gray-100">
                                   <div className="w-full h-full flex flex-col items-center justify-center bg-purple-50">
-                                    <FileImage className="h-5 w-5 text-purple-400" />
-                                    <p className="text-[7px] text-purple-400 mt-0.5">File</p>
+                                    <FileImage className="h-6 w-6 text-purple-400" />
+                                    <p className="text-[8px] text-purple-400 mt-0.5">File</p>
                                   </div>
                                 </div>
                               )}
                               <div className="flex-1 min-w-0">
-                                <h3 className="font-semibold text-gray-900 text-sm truncate">{artwork.name}</h3>
-                                <div className="flex items-center gap-1.5 text-[11px] text-gray-500 mt-0.5">
+                                <h3 className="font-semibold text-gray-900 text-sm leading-tight mb-1">{artwork.name}</h3>
+                                <div className="text-[11px] text-gray-500 mb-2">
                                   <span>{formatFileSize(artwork.file_size)}</span>
-                                  <span>•</span>
+                                  <span className="mx-1">•</span>
                                   <span>{new Date(artwork.created_at).toLocaleDateString()}</span>
                                 </div>
+                                <span className={`inline-flex items-center gap-1 px-2 py-1 text-[10px] font-medium rounded-full ${statusInfo.color}`}>
+                                  <StatusIcon className="h-3 w-3" />
+                                  {statusInfo.label}
+                                </span>
                               </div>
-                              <span className={`inline-flex items-center gap-1 px-2 py-1 text-[10px] font-medium rounded-full flex-shrink-0 ${statusInfo.color}`}>
-                                <StatusIcon className="h-3 w-3" />
-                                <span className="hidden sm:inline">{statusInfo.label}</span>
-                              </span>
-                              {/* Quick Action Buttons - Right Side Circular Icons */}
-                              <div className="flex items-center gap-1.5 flex-shrink-0">
-                                <a 
-                                  href={artwork.file_url} 
-                                  target="_blank" 
-                                  rel="noopener noreferrer"
-                                  className="w-8 h-8 flex items-center justify-center rounded-full bg-green-100 text-green-600 hover:bg-green-200 transition"
-                                  title="Download"
-                                >
-                                  <Download className="h-4 w-4" />
-                                </a>
-                                <button
-                                  onClick={() => {
-                                    if (showCommentsArtworkId === artwork.id) {
-                                      setShowCommentsArtworkId(null)
-                                      setArtworkComments([])
-                                    } else {
-                                      setShowCommentsArtworkId(artwork.id)
-                                      fetchArtworkComments(artwork.id)
-                                    }
-                                    setNewComment('')
-                                  }}
-                                  className={`w-8 h-8 flex items-center justify-center rounded-full transition ${showCommentsArtworkId === artwork.id ? 'bg-primary-200 text-primary-700' : 'bg-primary-100 text-primary-600 hover:bg-primary-200'}`}
-                                  title="Messages"
-                                >
-                                  <MessageSquare className="h-4 w-4" />
-                                </button>
-                                <button
-                                  onClick={() => deleteArtwork(artwork.id, artwork.name)}
-                                  className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-100 text-purple-600 hover:bg-purple-200 transition"
-                                  title="Delete"
-                                >
-                                  <Trash2 className="h-4 w-4" />
-                                </button>
-                              </div>
+                            </div>
+                            
+                            {/* Row 2: Action Buttons */}
+                            <div className="flex items-center justify-end gap-2 pt-3 border-t border-gray-100">
+                              <a 
+                                href={artwork.file_url} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="w-9 h-9 flex items-center justify-center rounded-full bg-green-100 text-green-600 hover:bg-green-200 transition"
+                                title="Download"
+                              >
+                                <Download className="h-4 w-4" />
+                              </a>
+                              <button
+                                onClick={() => {
+                                  if (showCommentsArtworkId === artwork.id) {
+                                    setShowCommentsArtworkId(null)
+                                    setArtworkComments([])
+                                  } else {
+                                    setShowCommentsArtworkId(artwork.id)
+                                    fetchArtworkComments(artwork.id)
+                                  }
+                                  setNewComment('')
+                                }}
+                                className={`w-9 h-9 flex items-center justify-center rounded-full transition ${showCommentsArtworkId === artwork.id ? 'bg-primary-200 text-primary-700' : 'bg-primary-100 text-primary-600 hover:bg-primary-200'}`}
+                                title="Messages"
+                              >
+                                <MessageSquare className="h-4 w-4" />
+                              </button>
+                              <button
+                                onClick={() => deleteArtwork(artwork.id, artwork.name)}
+                                className="w-9 h-9 flex items-center justify-center rounded-full bg-purple-100 text-purple-600 hover:bg-purple-200 transition"
+                                title="Delete"
+                              >
+                              <Trash2 className="h-4 w-4" />
+                              </button>
                             </div>
                             
                             {/* Internal admin remark - hidden from customer */}
                             
                             {/* Customer Comment */}
                             {artwork.customer_comment && (
-                              <div className="bg-blue-50 rounded-lg p-2.5">
+                              <div className="bg-blue-50 rounded-lg p-2.5 mt-3">
                                 <p className="text-[10px] font-medium text-blue-600 mb-0.5">Your Comment:</p>
                                 <p className="text-xs text-blue-800">{artwork.customer_comment}</p>
                               </div>

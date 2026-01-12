@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { Mail, Lock, Eye, EyeOff, ArrowLeft, Loader2, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { useTranslation } from 'react-i18next'
@@ -10,6 +10,8 @@ const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAA
 const LoginPage: React.FC = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
+  const redirectTo = searchParams.get('redirect') || '/dashboard'
   const { signIn, signInWithGoogle } = useAuth()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -130,11 +132,11 @@ const LoginPage: React.FC = () => {
       }
       setTurnstileToken('')
     } else {
-      // Redirect admin to /admin, others to /dashboard
+      // Redirect admin to /admin, others to redirect param or /dashboard
       if (email.toLowerCase() === ADMIN_EMAIL) {
         navigate('/ctrl-x9k7m')
       } else {
-        navigate('/dashboard')
+        navigate(redirectTo)
       }
     }
   }

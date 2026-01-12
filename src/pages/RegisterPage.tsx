@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { Mail, Lock, User, Building, Eye, EyeOff, ArrowLeft, Loader2 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { useTranslation } from 'react-i18next'
@@ -9,6 +9,8 @@ const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAA
 const RegisterPage: React.FC = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
+  const redirectTo = searchParams.get('redirect') || '/dashboard'
   const { signUp, signInWithGoogle } = useAuth()
   const [formData, setFormData] = useState({ email: '', password: '', fullName: '', company: '' })
   const [showPassword, setShowPassword] = useState(false)
@@ -111,7 +113,7 @@ const RegisterPage: React.FC = () => {
           </div>
           <h1 className="text-2xl font-bold text-neutral-900 mb-2">{t('customerCenter.register.checkEmail')}</h1>
           <p className="text-neutral-600 mb-6">{t('customerCenter.register.confirmationSent')} <strong>{formData.email}</strong></p>
-          <Link to="/login" className="text-primary-600 hover:underline">{t('customerCenter.register.signIn')}</Link>
+          <Link to={`/login?redirect=${encodeURIComponent(redirectTo)}`} className="text-primary-600 hover:underline">{t('customerCenter.register.signIn')}</Link>
         </div>
       </div>
     )

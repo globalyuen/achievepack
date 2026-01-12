@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, startTransition, useCallback } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { X, ShoppingBag, Trash2, Loader2, CheckCircle, Edit3, FileText, Send, CreditCard, BarChart3 } from 'lucide-react'
 import { useStore, CartItem } from '../../store/StoreContext'
@@ -47,6 +47,13 @@ const CartSidebar: React.FC = () => {
   const [saved, setSaved] = useState(false)
   const [sendingRfq, setSendingRfq] = useState(false)
   const [rfqSent, setRfqSent] = useState(false)
+
+  // Optimized close handler - use startTransition to avoid blocking UI
+  const handleCloseCart = useCallback(() => {
+    startTransition(() => {
+      setIsCartOpen(false)
+    })
+  }, [setIsCartOpen])
 
   // Calculate RFQ total (for display purposes only)
   const rfqTotal = rfqCart.reduce((sum, item) => sum + item.totalPrice, 0)
@@ -99,7 +106,7 @@ const CartSidebar: React.FC = () => {
   return (
     <>
       {/* Overlay */}
-      <div className="fixed inset-0 bg-black/50 z-[100]" onClick={() => setIsCartOpen(false)} />
+      <div className="fixed inset-0 bg-black/50 z-[100]" onClick={handleCloseCart} />
       
       {/* Sidebar */}
       <div className="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl z-[101] flex flex-col">
@@ -109,7 +116,7 @@ const CartSidebar: React.FC = () => {
             <h2 className="text-xl font-bold">
               {activeCartMode === 'cart' ? 'Shopping Cart' : 'Quote Request'}
             </h2>
-            <button onClick={() => setIsCartOpen(false)} className="p-2 hover:bg-neutral-100 rounded-full transition">
+            <button onClick={handleCloseCart} className="p-2 hover:bg-neutral-100 rounded-full transition">
               <X className="h-6 w-6" />
             </button>
           </div>
@@ -147,7 +154,7 @@ const CartSidebar: React.FC = () => {
             <div className="flex-1 flex flex-col items-center justify-center text-neutral-400">
               <ShoppingBag className="h-16 w-16 mb-4" />
               <p>Your cart is empty</p>
-              <Link to="/store" onClick={() => setIsCartOpen(false)} className="mt-4 text-primary-600 hover:underline">
+              <Link to="/store" onClick={handleCloseCart} className="mt-4 text-primary-600 hover:underline">
                 Continue Shopping
               </Link>
             </div>
@@ -158,7 +165,7 @@ const CartSidebar: React.FC = () => {
                 <div key={item.id} className="flex gap-4 bg-neutral-50 rounded-lg p-3">
                   <Link 
                     to={generateEditUrl(item)}
-                    onClick={() => setIsCartOpen(false)}
+                    onClick={handleCloseCart}
                     className="flex-shrink-0 hover:opacity-80 transition"
                   >
                     <img src={item.image} alt={item.name} className="w-20 h-20 object-contain rounded-lg bg-white" />
@@ -166,7 +173,7 @@ const CartSidebar: React.FC = () => {
                   <div className="flex-1 min-w-0">
                     <Link 
                       to={generateEditUrl(item)}
-                      onClick={() => setIsCartOpen(false)}
+                      onClick={handleCloseCart}
                       className="block hover:text-primary-600 transition"
                     >
                       <h3 className="font-medium text-neutral-900 truncate">{item.name}</h3>
@@ -183,7 +190,7 @@ const CartSidebar: React.FC = () => {
                       <div className="flex items-center gap-1">
                         <Link
                           to={generateEditUrl(item)}
-                          onClick={() => setIsCartOpen(false)}
+                          onClick={handleCloseCart}
                           className="text-primary-500 hover:text-primary-700 p-1"
                           title="Edit configuration"
                         >
@@ -208,7 +215,7 @@ const CartSidebar: React.FC = () => {
               {/* Primary: Checkout Now with Stripe */}
               <Link
                 to="/store/checkout"
-                onClick={() => setIsCartOpen(false)}
+                onClick={handleCloseCart}
                 className="w-full py-3 bg-primary-600 hover:bg-primary-700 text-white text-center font-semibold rounded-xl transition flex items-center justify-center gap-2"
               >
                 <CreditCard className="h-5 w-5" />
@@ -238,7 +245,7 @@ const CartSidebar: React.FC = () => {
               
               <Link
                 to="/store"
-                onClick={() => setIsCartOpen(false)}
+                onClick={handleCloseCart}
                 className="block w-full py-3 border border-neutral-300 hover:bg-neutral-50 text-neutral-700 text-center font-medium rounded-xl transition"
               >
                 Continue Shopping
@@ -257,7 +264,7 @@ const CartSidebar: React.FC = () => {
               <p className="text-sm text-center mt-2 px-8">
                 Custom size products require a quote. Add custom products to get a personalized quote.
               </p>
-              <Link to="/store" onClick={() => setIsCartOpen(false)} className="mt-4 text-amber-600 hover:underline">
+              <Link to="/store" onClick={handleCloseCart} className="mt-4 text-amber-600 hover:underline">
                 Browse Custom Products
               </Link>
             </div>
@@ -268,7 +275,7 @@ const CartSidebar: React.FC = () => {
                   <div key={item.id} className="flex gap-4 bg-amber-50 rounded-lg p-3 border border-amber-200">
                     <Link 
                       to={generateEditUrl(item)}
-                      onClick={() => setIsCartOpen(false)}
+                      onClick={handleCloseCart}
                       className="flex-shrink-0 hover:opacity-80 transition"
                     >
                       <img src={item.image} alt={item.name} className="w-20 h-20 object-contain rounded-lg bg-white" />
@@ -276,7 +283,7 @@ const CartSidebar: React.FC = () => {
                     <div className="flex-1 min-w-0">
                       <Link 
                         to={generateEditUrl(item)}
-                        onClick={() => setIsCartOpen(false)}
+                        onClick={handleCloseCart}
                         className="block hover:text-amber-700 transition"
                       >
                         <h3 className="font-medium text-neutral-900 truncate">{item.name}</h3>
@@ -298,7 +305,7 @@ const CartSidebar: React.FC = () => {
                         <div className="flex items-center gap-1">
                           <Link
                             to={generateEditUrl(item)}
-                            onClick={() => setIsCartOpen(false)}
+                            onClick={handleCloseCart}
                             className="text-amber-500 hover:text-amber-700 p-1"
                             title="Edit configuration"
                           >
@@ -325,7 +332,7 @@ const CartSidebar: React.FC = () => {
                 
                 <Link
                   to="/store/checkout?mode=rfq"
-                  onClick={() => setIsCartOpen(false)}
+                  onClick={handleCloseCart}
                   className="block w-full py-3 bg-amber-500 hover:bg-amber-600 text-white text-center font-semibold rounded-xl transition flex items-center justify-center gap-2"
                 >
                   <Send className="h-5 w-5" />
@@ -341,7 +348,7 @@ const CartSidebar: React.FC = () => {
                 
                 <Link
                   to="/store"
-                  onClick={() => setIsCartOpen(false)}
+                  onClick={handleCloseCart}
                   className="block w-full py-3 border border-neutral-300 hover:bg-neutral-50 text-neutral-700 text-center font-medium rounded-xl transition"
                 >
                   Continue Shopping

@@ -16,7 +16,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const { orderNumber, customerEmail, customerName, items, totalAmount, shippingAddress, paymentConfirmed } = req.body
   const BREVO_API_KEY = process.env.BREVO_API_KEY
-  const ADMIN_EMAIL = 'checkout@achievepack.com'
+  // Send to both admin emails for order notifications
+  const ADMIN_EMAILS = [
+    { email: 'checkout@achievepack.com', name: 'Checkout' },
+    { email: 'ryan@achievepack.com', name: 'Ryan' }
+  ]
+
+  console.log('send-order-email called with:', { orderNumber, customerEmail, customerName, paymentConfirmed })
 
   if (!BREVO_API_KEY) {
     console.error('BREVO_API_KEY not configured')
@@ -36,11 +42,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
        ${shippingAddress.country}`
     : 'Not provided'
 
-  // Email to Admin
+  // Email to Admin (multiple recipients)
   const paymentStatus = paymentConfirmed ? '✅ PAID via Stripe' : '⏳ Payment Pending'
   const emailToAdmin = {
     sender: { name: 'AchievePack Store', email: 'noreply@achievepack.com' },
-    to: [{ email: ADMIN_EMAIL, name: 'Checkout' }],
+    to: ADMIN_EMAILS,
     replyTo: { email: customerEmail || 'checkout@achievepack.com' },
     subject: `🛒 New Order: ${orderNumber} - ${paymentConfirmed ? 'PAID' : 'Pending'}`,
     htmlContent: `
@@ -150,17 +156,26 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const results = await Promise.all([
-      fetch('https://api.brevo.com/v3/smtp/email', {
-        method: 'POST',
-        headers: {
-          'accept': 'application/json',
-          'api-key': BREVO_API_KEY,
-          'content-type': 'application/json'
-        },
-        body: JSON.stringify(emailToAdmin)
-      }),
-      fetch('https://api.brevo.com/v3/smtp/email', {
+    console.log('Sending admin notification to:', ADMIN_EMAILS.map(e => e.email).join(', '))
+    console.log('Sending customer confirmation to:', customerEmail)
+    
+    // Send admin email
+    const adminResult = await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: {
+        'accept': 'application/json',
+        'api-key': BREVO_API_KEY,
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(emailToAdmin)
+    })
+    const adminResponse = await adminResult.json().catch(() => ({}))
+    console.log('Admin email result:', adminResult.status, adminResponse)
+    
+    // Send customer email (only if valid email provided)
+    let customerResponse = null
+    if (customerEmail && customerEmail.includes('@')) {
+      const customerResult = await fetch('https://api.brevo.com/v3/smtp/email', {
         method: 'POST',
         headers: {
           'accept': 'application/json',
@@ -169,14 +184,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         },
         body: JSON.stringify(emailToCustomer)
       })
-    ])
+      customerResponse = await customerResult.json().catch(() => ({}))
+      console.log('Customer email result:', customerResult.status, customerResponse)
+    } else {
+      console.log('Skipping customer email - invalid email:', customerEmail)
+    }
 
-    const responses = await Promise.all(results.map(r => r.json().catch(() => ({}))))
-    console.log('Email responses:', responses)
-
-    return res.status(200).json({ success: true, message: 'Emails sent successfully' })
-  } catch (error) {
-    console.error('Email error:', error)
-    return res.status(500).json({ error: 'Failed to send email' })
+    return res.status(200).json({ 
+      success: true, 
+      message: 'Emails sent successfully',
+      adminEmail: adminResponse,
+      customerEmail: customerResponse
+    })
+  } catch (error: any) {
+    console.error('Email error:', error?.message || error)
+    return res.status(500).json({ error: 'Failed to send email', details: error?.message })  
   }
 }

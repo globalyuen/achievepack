@@ -13,6 +13,35 @@ const getSupabase = () => {
   return createClient(supabaseUrl, supabaseKey)
 }
 
+// Send order confirmation emails
+async function sendOrderEmails(order: any) {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://achievepack.com'
+  
+  try {
+    console.log('Sending order emails for:', order.order_number)
+    const response = await fetch(`${baseUrl}/api/send-order-email`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        orderNumber: order.order_number,
+        customerEmail: order.customer_email,
+        customerName: order.customer_name,
+        items: order.items || [],
+        totalAmount: order.total_amount,
+        shippingAddress: order.shipping_address,
+        paymentConfirmed: true
+      })
+    })
+    
+    const result = await response.json().catch(() => ({}))
+    console.log('Email API response:', response.status, result)
+    return response.ok
+  } catch (error) {
+    console.error('Failed to send order emails:', error)
+    return false
+  }
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Set CORS headers
   res.setHeader('Access-Control-Allow-Credentials', 'true')
@@ -65,6 +94,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     console.log(`Order ${orderNumber} updated to ${status}`)
+    
+    // Send confirmation emails when payment is confirmed
+    if (paymentStatus === 'paid' && data[0]) {
+      console.log('Payment confirmed, sending order emails...')
+      await sendOrderEmails(data[0])
+    }
+    
     res.status(200).json({ success: true, order: data[0] })
   } catch (error: any) {
     console.error('Update order error:', error)

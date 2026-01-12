@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect, useMemo, startTransition } from 'react'
 import { useNavigate, Link, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, Quote, ArtworkFile, Profile, ArtworkComment, CRMInquiry } from '../lib/supabase'
@@ -571,15 +571,22 @@ const AdminManagementPage: React.FC = () => {
 
   const deleteQuote = async (quoteId: string) => {
     if (confirm('Move this quote to Bin? You can restore it later.')) {
-      const quote = quotes.find(q => q.id === quoteId)
-      const deleteData = { deleted_at: new Date().toISOString() }
-      if (quote?.is_rfq) {
-        await supabase.from('rfq_submissions').update(deleteData).eq('id', quoteId)
-      } else {
-        await supabase.from('quotes').update(deleteData).eq('id', quoteId)
-      }
-      fetchData()
-      setSelectedQuote(null)
+      // Close modal immediately for responsive UI
+      startTransition(() => {
+        setSelectedQuote(null)
+      })
+      
+      // Defer heavy operations
+      setTimeout(async () => {
+        const quote = quotes.find(q => q.id === quoteId)
+        const deleteData = { deleted_at: new Date().toISOString() }
+        if (quote?.is_rfq) {
+          await supabase.from('rfq_submissions').update(deleteData).eq('id', quoteId)
+        } else {
+          await supabase.from('quotes').update(deleteData).eq('id', quoteId)
+        }
+        fetchData()
+      }, 0)
     }
   }
 
@@ -664,9 +671,16 @@ const AdminManagementPage: React.FC = () => {
 
   const deleteArtwork = async (artworkId: string) => {
     if (confirm('Move this artwork to Bin? You can restore it later.')) {
-      await supabase.from('artwork_files').update({ deleted_at: new Date().toISOString() }).eq('id', artworkId)
-      fetchData()
-      setSelectedArtwork(null)
+      // Close modal immediately for responsive UI
+      startTransition(() => {
+        setSelectedArtwork(null)
+      })
+      
+      // Defer heavy operations
+      setTimeout(async () => {
+        await supabase.from('artwork_files').update({ deleted_at: new Date().toISOString() }).eq('id', artworkId)
+        fetchData()
+      }, 0)
     }
   }
 

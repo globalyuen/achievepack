@@ -151,20 +151,6 @@ export default function TestimonialsWall() {
 
           {TESTIMONIALS.slice(4).map((testimonial) => renderTestimonialCard(testimonial))}
         </div>
-
-        {/* Client Logos Section */}
-        <div className="mt-16 text-center">
-          <p className="text-sm font-medium text-neutral-500 uppercase tracking-wider mb-6">
-            {t('testimonials.wallOfLove.trustedBy')}
-          </p>
-          <div className="flex justify-center">
-            <img
-              src="/imgs/testimonials-client-logos.webp"
-              alt="Our Client Logos"
-              className="max-w-full h-auto opacity-80 hover:opacity-100 transition-opacity duration-500"
-            />
-          </div>
-        </div>
       </div>
 
       {/* Testimonial Popup Modal with 600px Pouch */}

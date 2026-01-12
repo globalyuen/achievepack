@@ -209,7 +209,7 @@ const AdminPage: React.FC = () => {
     }
     
     // Pending orders
-    orders.filter(o => o.status === 'pending').slice(0, 3).forEach(o => {
+    orders.filter(o => ['pending', 'pending_payment', 'confirmed'].includes(o.status)).slice(0, 3).forEach(o => {
       notifs.push({
         id: `order-${o.id}`,
         title: 'Pending Order',
@@ -231,7 +231,7 @@ const AdminPage: React.FC = () => {
     const items: PinListItem[] = []
     
     // Add pending orders
-    orders.filter(o => o.status === 'pending').slice(0, 5).forEach(o => {
+    orders.filter(o => ['pending', 'pending_payment', 'confirmed'].includes(o.status)).slice(0, 5).forEach(o => {
       items.push({
         id: o.id,
         name: `Order #${o.order_number}`,
@@ -270,7 +270,7 @@ const AdminPage: React.FC = () => {
     const items: QuickAccessItem[] = []
     
     // Add pending orders as invoices
-    orders.filter(o => o.status === 'pending' || o.status === 'confirmed').slice(0, 6).forEach(o => {
+    orders.filter(o => ['pending', 'pending_payment', 'confirmed', 'processing'].includes(o.status)).slice(0, 6).forEach(o => {
       items.push({
         id: o.id,
         name: `Order #${o.order_number}`,
@@ -347,7 +347,7 @@ const AdminPage: React.FC = () => {
     
     const [customersRes, ordersRes, subscribersRes, documentsRes, draftsRes, emailHistoryRes] = await Promise.all([
       supabase.from('profiles').select('*').order('created_at', { ascending: false }),
-      supabase.from('orders').select('*').order('created_at', { ascending: false }),
+      supabase.from('orders').select('*').neq('status', 'deleted').order('created_at', { ascending: false }),
       supabase.from('newsletter_subscribers').select('*').order('created_at', { ascending: false }),
       supabase.from('documents').select('*').order('created_at', { ascending: false }),
       supabase.from('email_drafts').select('*').order('updated_at', { ascending: false }),
@@ -1164,7 +1164,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
   }
 
   const deleteOrder = async (orderId: string) => {
-    if (confirm('Are you sure you want to delete this order?')) {
+    if (confirm('Move this order to Bin? You can restore it later.')) {
       try {
         const response = await fetch('/api/delete-order', {
           method: 'POST',
@@ -1177,9 +1177,8 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
           alert(`Failed to delete order: ${result.error || 'Unknown error'}`)
           return
         }
-        alert('Order deleted successfully!')
+        alert('Order moved to Bin!')
         fetchData()
-        setSelectedOrder(null)
       } catch (error: any) {
         console.error('Delete order error:', error)
         alert(`Failed to delete order: ${error.message}`)
@@ -1382,7 +1381,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
 
   // Stats
   const totalRevenue = orders.reduce((sum, o) => sum + (o.total_amount || 0), 0)
-  const pendingOrders = orders.filter(o => o.status === 'pending').length
+  const pendingOrders = orders.filter(o => ['pending', 'pending_payment', 'confirmed'].includes(o.status)).length
   const completedOrders = orders.filter(o => o.status === 'delivered').length
 
   return (
@@ -1968,7 +1967,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                               <button onClick={() => handleSelectOrder(order)} className="text-primary-600 hover:text-primary-700">
                                 <Eye className="h-5 w-5" />
                               </button>
-                              <button onClick={() => deleteOrder(order.id)} className="text-red-600 hover:text-red-700">
+                              <button onClick={() => setTimeout(() => deleteOrder(order.id), 0)} className="text-red-600 hover:text-red-700">
                                 <Trash2 className="h-5 w-5" />
                               </button>
                             </div>
@@ -3697,7 +3696,15 @@ Check your inbox at ryan@achievepack.com`)
                   {selectedOrder.tracking_number ? 'Update Tracking' : 'Add Tracking'}
                 </button>
                 <button
-                  onClick={() => deleteOrder(selectedOrder.id)}
+                  onClick={() => {
+                    const orderId = selectedOrder.id
+                    // Close modal immediately for responsive UI
+                    startTransition(() => {
+                      setSelectedOrder(null)
+                    })
+                    // Defer confirm and heavy operations
+                    setTimeout(() => deleteOrder(orderId), 0)
+                  }}
                   className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
                 >
                   <Trash2 className="h-4 w-4" />

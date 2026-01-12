@@ -7,6 +7,8 @@ import { HeroGrainBackground } from './components/HeroGrainBackground'
 import { CardContainer, CardBody, CardItem } from './components/ui/3d-card'
 import { getImage } from './utils/imageMapper'
 import Newsletter from './components/Newsletter'
+import { ParallaxText } from './components/ParallaxText'
+import { CLIENT_LOGOS } from './data/clientLogos'
 import CartSidebar from './components/store/CartSidebar'
 import MegaMenu, { RightNavMenu } from './components/MegaMenu'
 import CoverflowCarousel from './components/CoverflowCarousel'
@@ -15,6 +17,7 @@ import { TextRotate } from './components/ui/TextRotate'
 import type { CalculatorResults } from './utils/calculatorUtils'
 import { useStore } from './store/StoreContext'
 import { FEATURED_PRODUCTS, type PouchProduct } from './store/productData'
+import ReadingProgress from './components/ReadingProgress'
 
 // Error boundary to handle chunk loading failures
 class ChunkErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
@@ -63,13 +66,14 @@ const lazyWithRetry = (componentImport: () => Promise<any>) =>
 
 // Lazy load non-critical components for better performance
 const Calculator = lazyWithRetry(() => import('./components/Calculator'))
-const BriefTestimonials = lazyWithRetry(() => import('./components/BriefTestimonials'))
+const TestimonialsCoverflow = lazyWithRetry(() => import('./components/TestimonialsCoverflow'))
 const TestimonialsWall = lazyWithRetry(() => import('./components/TestimonialsWall'))
 const FloatingTestimonialVideo = lazyWithRetry(() => import('./components/FloatingTestimonialVideo'))
 const ClimateAction = lazyWithRetry(() => import('./components/ClimateAction'))
 const RandomBanner = lazyWithRetry(() => import('./components/RandomBanner'))
 const EcoVideoShowcase = lazyWithRetry(() => import('./components/EcoVideoShowcase'))
 const FloatingInfoGraphics = lazyWithRetry(() => import('./components/FloatingInfoGraphics'))
+const FloatingLeaves = lazyWithRetry(() => import('./components/FloatingLeaves'))
 const AnimatedTestimonials = lazyWithRetry(() => import('./components/ui/animated-testimonials').then(m => ({ default: m.AnimatedTestimonials })))
 
 // Lazy load Google Analytics - not critical for initial render
@@ -529,6 +533,9 @@ function App() {
           })}
         </script>
       </Helmet>
+
+      {/* Reading Progress Bar */}
+      <ReadingProgress />
       
     <div className="min-h-screen bg-neutral-50 font-sans">
       {/* Navigation */}
@@ -622,7 +629,7 @@ function App() {
                 <span className="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 text-[8px] font-bold text-yellow-900 rounded-full flex items-center justify-center animate-bounce">!</span>
               </Link>
               <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                onClick={() => startTransition(() => setIsMenuOpen(!isMenuOpen))}
                 className="text-neutral-700 hover:text-primary-500 transition-colors"
                 aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
               >
@@ -762,7 +769,7 @@ function App() {
               <p className="text-xl text-neutral-700 leading-relaxed mb-8 max-w-xl">
                 Transform your business with certified{' '}
                 <TextRotate
-                  words={['eco-friendly', 'compostable', 'PCR', 'BioPE', 'recyclable']}
+                  words={['eco-friendly', 'compostable', 'PCR', 'BioPE', 'recyclable', 'FSC']}
                   className="text-primary-600 font-semibold"
                   interval={2500}
                   animationType="flip"
@@ -829,6 +836,8 @@ function App() {
         </div>
       </section>
 
+
+
       {/* 3D Eco Pouch Material Experience - Disabled */}
 
       {/* Random Banner with Floating Infographic Icons - Below Hero */}
@@ -880,10 +889,109 @@ function App() {
         <EcoVideoShowcase className="" />
       </Suspense>
 
-      {/* Brief Testimonials - Avatar Row */}
-      <Suspense fallback={<div className="h-24" />}>
-        <BriefTestimonials />
+      {/* Success Stories - Coverflow Testimonials */}
+      <Suspense fallback={<div className="h-96 bg-neutral-50" />}>
+        <TestimonialsCoverflow />
       </Suspense>
+
+      {/* Trusted Clients Logo Marquee */}
+      <section className="py-12 bg-gradient-to-b from-neutral-50 to-white overflow-hidden">
+        <div className="text-center mb-8">
+          <p className="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-2">Trusted by Industry Leaders</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-neutral-900">500+ Brands Choose Achieve Pack</h2>
+        </div>
+        
+        {/* Strip 1 - Deep Forest Green */}
+        <div className="relative -rotate-1 mb-4">
+          <div className="bg-[#1b4332] py-4">
+            <ParallaxText baseVelocity={-2} textClassName="flex items-center gap-12">
+              {CLIENT_LOGOS.slice(0, 10).map((logo) => (
+                logo.website ? (
+                  <a
+                    key={logo.id}
+                    href={logo.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-shrink-0 h-12 w-32 flex items-center justify-center opacity-90 hover:opacity-100 transition-opacity cursor-pointer"
+                    title={logo.name}
+                  >
+                    <img src={logo.image} alt={logo.name} className="h-full w-auto object-contain brightness-0 invert" loading="lazy" />
+                  </a>
+                ) : (
+                  <div 
+                    key={logo.id} 
+                    className="flex-shrink-0 h-12 w-32 flex items-center justify-center opacity-80"
+                    title={logo.name}
+                  >
+                    <img src={logo.image} alt={logo.name} className="h-full w-auto object-contain brightness-0 invert" loading="lazy" />
+                  </div>
+                )
+              ))}
+            </ParallaxText>
+          </div>
+        </div>
+
+        {/* Strip 2 - Vibrant Green */}
+        <div className="relative rotate-1 mb-4">
+          <div className="bg-[#2d6a4f] py-4">
+            <ParallaxText baseVelocity={3} textClassName="flex items-center gap-12">
+              {CLIENT_LOGOS.slice(10, 19).map((logo) => (
+                logo.website ? (
+                  <a
+                    key={logo.id}
+                    href={logo.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-shrink-0 h-12 w-32 flex items-center justify-center opacity-90 hover:opacity-100 transition-opacity cursor-pointer"
+                    title={logo.name}
+                  >
+                    <img src={logo.image} alt={logo.name} className="h-full w-auto object-contain brightness-0 invert" loading="lazy" />
+                  </a>
+                ) : (
+                  <div 
+                    key={logo.id} 
+                    className="flex-shrink-0 h-12 w-32 flex items-center justify-center opacity-80"
+                    title={logo.name}
+                  >
+                    <img src={logo.image} alt={logo.name} className="h-full w-auto object-contain brightness-0 invert" loading="lazy" />
+                  </div>
+                )
+              ))}
+            </ParallaxText>
+          </div>
+        </div>
+
+        {/* Strip 3 - Fresh Emerald Green */}
+        <div className="relative -rotate-1">
+          <div className="bg-[#40916c] py-4">
+            <ParallaxText baseVelocity={-2.5} textClassName="flex items-center gap-12">
+              {CLIENT_LOGOS.slice(19, 28).map((logo) => (
+                logo.website ? (
+                  <a
+                    key={logo.id}
+                    href={logo.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-shrink-0 h-12 w-32 flex items-center justify-center opacity-90 hover:opacity-100 transition-opacity cursor-pointer"
+                    title={logo.name}
+                  >
+                    <img src={logo.image} alt={logo.name} className="h-full w-auto object-contain brightness-0 invert" loading="lazy" />
+                  </a>
+                ) : (
+                  <div 
+                    key={logo.id} 
+                    className="flex-shrink-0 h-12 w-32 flex items-center justify-center opacity-80"
+                    title={logo.name}
+                  >
+                    <img src={logo.image} alt={logo.name} className="h-full w-auto object-contain brightness-0 invert" loading="lazy" />
+                  </div>
+                )
+              ))}
+            </ParallaxText>
+          </div>
+        </div>
+      </section>
+
 
       {/* YouTube Shorts Section - Hidden for now */}
       {/* <YouTubeShorts /> */}
@@ -891,8 +999,12 @@ function App() {
       {/* Instagram Feed Section - Removed for performance, icon in footer */}
 
       {/* About Section */}
-      <section id="about" className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="about" className="py-16 bg-white relative overflow-hidden">
+        {/* Floating Leaves Background */}
+        <Suspense fallback={null}>
+          <FloatingLeaves variant="light" density="medium" />
+        </Suspense>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7">
               <h2 className="text-4xl font-bold text-neutral-900 mb-6">{t('about.title')}</h2>
@@ -968,8 +1080,12 @@ function App() {
       </section>
 
       {/* Benefits Section */}
-      <section id="benefits" className="py-16 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="benefits" className="py-16 bg-neutral-50 relative overflow-hidden">
+        {/* Floating Leaves Background */}
+        <Suspense fallback={null}>
+          <FloatingLeaves variant="neutral" density="low" />
+        </Suspense>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-8">
             <h2 className="text-4xl font-bold text-neutral-900 mb-4">{t('benefits.title')}</h2>
             <p className="text-lg text-neutral-700 max-w-3xl mx-auto">
@@ -1058,8 +1174,12 @@ function App() {
       </section>
 
       {/* Products Section - Coverflow Carousel */}
-      <section id="products" className="py-16 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="products" className="py-16 bg-white overflow-hidden relative">
+        {/* Floating Leaves Background */}
+        <Suspense fallback={null}>
+          <FloatingLeaves variant="green" density="high" />
+        </Suspense>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-6">
             <h2 className="text-4xl md:text-5xl font-bold text-neutral-900">{t('products.title')}</h2>
             <p className="text-lg md:text-xl text-neutral-600 mt-2 max-w-3xl mx-auto">
@@ -1097,8 +1217,12 @@ function App() {
       </section>
 
       {/* Solutions Section */}
-      <section id="solutions" className="py-16 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="solutions" className="py-16 bg-neutral-50 relative overflow-hidden">
+        {/* Floating Leaves Background */}
+        <Suspense fallback={null}>
+          <FloatingLeaves variant="warm" density="low" pattern="diagonal" />
+        </Suspense>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-neutral-900 mb-4">{t('solutions.title')}</h2>
             <p className="text-lg text-neutral-700 max-w-3xl mx-auto">
@@ -1167,8 +1291,12 @@ function App() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="features" className="py-16 bg-white relative overflow-hidden">
+        {/* Floating Leaves Background */}
+        <Suspense fallback={null}>
+          <FloatingLeaves variant="accent" density="medium" pattern="wave" />
+        </Suspense>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-neutral-900 mb-4">{t('features.title')}</h2>
             <p className="text-lg text-neutral-700 max-w-3xl mx-auto">
@@ -1391,8 +1519,12 @@ function App() {
       </section>
 
       {/* Process Section */}
-      <section id="process" className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="process" className="py-16 bg-white relative overflow-hidden">
+        {/* Floating Leaves Background */}
+        <Suspense fallback={null}>
+          <FloatingLeaves variant="cool" density="low" pattern="cluster" />
+        </Suspense>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-neutral-900 mb-4">{t('process.title')}</h2>
             <p className="text-lg text-neutral-700 max-w-3xl mx-auto">
@@ -1441,8 +1573,12 @@ function App() {
       </Suspense>
 
       {/* Meet Our Team Section */}
-      <section id="team" className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="team" className="py-16 bg-white relative overflow-hidden">
+        {/* Floating Leaves Background */}
+        <Suspense fallback={null}>
+          <FloatingLeaves variant="soft" density="medium" pattern="scattered" />
+        </Suspense>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-neutral-900 mb-4">{t('team.title')}</h2>
             <p className="text-lg text-neutral-700 max-w-3xl mx-auto">
@@ -1550,8 +1686,12 @@ function App() {
       </section>
 
       {/* FAQ Section - Enhanced with AI Hints and Carousel */}
-      <section id="faq" className="py-16 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="faq" className="py-16 bg-white relative overflow-hidden">
+        {/* Floating Leaves Background */}
+        <Suspense fallback={null}>
+          <FloatingLeaves variant="light" density="low" pattern="corners" />
+        </Suspense>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-neutral-900 mb-4">{t('faq.title')}</h2>
             <p className="text-lg text-neutral-700 mb-6">
@@ -1597,8 +1737,12 @@ function App() {
       </Suspense>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="contact" className="py-16 bg-neutral-50 relative overflow-hidden">
+        {/* Floating Leaves Background */}
+        <Suspense fallback={null}>
+          <FloatingLeaves variant="green" density="medium" pattern="wave" />
+        </Suspense>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-neutral-900 mb-4">{t('contact.title')}</h2>
             <p className="text-lg text-neutral-700 max-w-3xl mx-auto">

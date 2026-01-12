@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
-import { ArrowLeft, Lock, Loader2, Send, FileText, CreditCard } from 'lucide-react'
+import { ArrowLeft, Lock, Loader2, Send, FileText, CreditCard, User, LogIn } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import { supabase } from '../lib/supabase'
 import { useAuth } from '../hooks/useAuth'
@@ -15,7 +15,7 @@ const generateOrderNumber = (isRfq: boolean = false) => {
 
 const CheckoutPage: React.FC = () => {
   const { cart, cartTotal, clearCart, rfqCart, clearRfq } = useStore()
-  const { user } = useAuth()
+  const { user, loading: authLoading } = useAuth()
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const [isProcessing, setIsProcessing] = useState(false)
@@ -32,6 +32,13 @@ const CheckoutPage: React.FC = () => {
   const activeTotal = isRfqMode 
     ? rfqCart.reduce((sum, item) => sum + item.totalPrice, 0)
     : cartTotal
+
+  // Pre-fill email when user logs in
+  useEffect(() => {
+    if (user?.email && !formData.email) {
+      setFormData(prev => ({ ...prev, email: user.email || '' }))
+    }
+  }, [user])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -248,6 +255,64 @@ const CheckoutPage: React.FC = () => {
           )}
           <Link to="/store" className="text-primary-600 hover:underline">Continue Shopping</Link>
         </div>
+      </div>
+    )
+  }
+
+  // Show loading while checking auth
+  if (authLoading) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-neutral-50">
+        <Loader2 className="h-8 w-8 animate-spin text-primary-500 mb-4" />
+        <p className="text-neutral-600">Loading...</p>
+      </div>
+    )
+  }
+
+  // Require login before checkout
+  if (!user) {
+    return (
+      <div className="min-h-screen bg-neutral-50">
+        <header className="bg-white border-b">
+          <div className="max-w-7xl mx-auto px-4 py-4">
+            <Link to="/store" className="flex items-center gap-2 text-neutral-600 hover:text-primary-600 transition">
+              <ArrowLeft className="h-5 w-5" /> Back to Store
+            </Link>
+          </div>
+        </header>
+        
+        <main className="max-w-lg mx-auto px-4 py-16">
+          <div className="bg-white rounded-2xl p-8 shadow-sm text-center">
+            <div className="w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <User className="h-10 w-10 text-primary-600" />
+            </div>
+            <h1 className="text-2xl font-bold mb-3">Sign In to Continue</h1>
+            <p className="text-neutral-600 mb-8">
+              Please create an account or sign in to complete your checkout. This helps us process your order and send you updates.
+            </p>
+            
+            <div className="space-y-3">
+              <Link
+                to={`/login?redirect=${encodeURIComponent('/store/checkout' + (isRfqMode ? '?mode=rfq' : ''))}`}
+                className="w-full py-3 px-6 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition flex items-center justify-center gap-2"
+              >
+                <LogIn className="h-5 w-5" />
+                Sign In
+              </Link>
+              <Link
+                to={`/register?redirect=${encodeURIComponent('/store/checkout' + (isRfqMode ? '?mode=rfq' : ''))}`}
+                className="w-full py-3 px-6 border-2 border-primary-600 text-primary-600 font-semibold rounded-xl hover:bg-primary-50 transition flex items-center justify-center gap-2"
+              >
+                <User className="h-5 w-5" />
+                Create Account
+              </Link>
+            </div>
+            
+            <p className="text-sm text-neutral-500 mt-6">
+              Your cart ({activeItems.length} item{activeItems.length > 1 ? 's' : ''}) will be saved
+            </p>
+          </div>
+        </main>
       </div>
     )
   }
