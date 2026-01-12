@@ -103,7 +103,7 @@ const PrivacyPolicyPage: React.FC = () => {
                   <h2 className="text-2xl font-bold text-neutral-900">Introduction</h2>
                 </div>
                 <div className="prose prose-neutral max-w-none">
-                  <p>METASTONE PTE. LTD. (also referred to as "Achieve Pack", "we", "our" and "us") is committed to protecting the privacy of our users. This Privacy Policy explains how we collect, use, and share information about you when you use our websites and other online services (collectively, the "Services").</p>
+                  <p>ACHIEVE PACK COMPANY (also referred to as "Achieve Pack", "we", "our" and "us") is committed to protecting the privacy of our users. This Privacy Policy explains how we collect, use, and share information about you when you use our websites and other online services (collectively, the "Services").</p>
                   <p>By using the Services, you agree to the collection, use, and sharing of your information as described in this Privacy Policy. If you do not agree with our policies and practices, do not use the Services.</p>
                 </div>
               </section>
