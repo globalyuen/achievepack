@@ -18,8 +18,7 @@ const StorePage = lazy(() => import('../pages/StorePage'));
 const ProductPage = lazy(() => import('../pages/ProductPage'));
 const CheckoutPage = lazy(() => import('../pages/CheckoutPage'));
 const OrderConfirmation = lazy(() => import('../pages/OrderConfirmation'));
-const LoginPage = lazy(() => import('../pages/LoginPage'));
-const RegisterPage = lazy(() => import('../pages/RegisterPage'));
+const SignInPage = lazy(() => import('../pages/SignInPage'));
 const ForgotPasswordPage = lazy(() => import('../pages/ForgotPasswordPage'));
 const ResetPasswordPage = lazy(() => import('../pages/ResetPasswordPage'));
 const DashboardPage = lazy(() => import('../pages/DashboardPage'));
@@ -195,8 +194,7 @@ const routes = [
   { path: "/store/checkout", element: <LazyRoute component={() => import('../pages/CheckoutPage')} fallback={<LoadingFallback />} /> },
   { path: "/store/order-confirmation", element: <LazyRoute component={() => import('../pages/OrderConfirmation')} fallback={<LoadingFallback />} /> },
   { path: "/store/rfq-confirmation", element: <LazyRoute component={() => import('../pages/RfqConfirmation')} fallback={<LoadingFallback />} /> },
-  { path: "/login", element: <LazyRoute component={() => import('../pages/LoginPage')} fallback={<LoadingFallback />} /> },
-  { path: "/register", element: <LazyRoute component={() => import('../pages/RegisterPage')} fallback={<LoadingFallback />} /> },
+  { path: "/signin", element: <LazyRoute component={() => import('../pages/SignInPage')} fallback={<LoadingFallback />} /> },
   { path: "/forgot-password", element: <LazyRoute component={() => import('../pages/ForgotPasswordPage')} fallback={<LoadingFallback />} /> },
   { path: "/reset-password", element: <LazyRoute component={() => import('../pages/ResetPasswordPage')} fallback={<LoadingFallback />} /> },
   { path: "/dashboard", element: <LazyRoute component={() => import('../pages/DashboardPage')} fallback={<LoadingFallback />} /> },

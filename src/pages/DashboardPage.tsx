@@ -354,7 +354,7 @@ const DashboardPage: React.FC = () => {
 
   useEffect(() => {
     if (!authLoading && !user) {
-      navigate('/login')
+      navigate('/signin')
     }
   }, [user, authLoading, navigate])
 

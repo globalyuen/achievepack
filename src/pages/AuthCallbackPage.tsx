@@ -14,7 +14,7 @@ const AuthCallbackPage: React.FC = () => {
       
       if (error) {
         console.error('Auth callback error:', error)
-        navigate('/login?error=auth_failed')
+        navigate('/signin?error=auth_failed')
         return
       }
 
@@ -44,7 +44,7 @@ const AuthCallbackPage: React.FC = () => {
           navigate('/dashboard')
         }
       } else {
-        navigate('/login')
+        navigate('/signin')
       }
     }
 

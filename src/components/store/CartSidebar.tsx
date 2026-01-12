@@ -63,7 +63,7 @@ const CartSidebar: React.FC = () => {
     if (!user) {
       // Redirect to login if not logged in
       setIsCartOpen(false)
-      navigate('/login', { state: { from: '/dashboard', message: 'Please login to save items for later' } })
+      navigate('/signin', { state: { from: '/dashboard', message: 'Please login to save items for later' } })
       return
     }
     

@@ -165,7 +165,7 @@ const LoginPage: React.FC = () => {
               Sign in to Achieve Pack
             </h1>
             <p className="text-neutral-600">
-              Don't have an account? <Link to="/register" className="text-primary-600 hover:text-primary-700 font-medium">Create a free account</Link>
+              Don't have an account? <Link to="/signin" className="text-primary-600 hover:text-primary-700 font-medium">Create a free account</Link>
             </p>
           </div>
 

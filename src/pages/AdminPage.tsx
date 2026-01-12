@@ -174,7 +174,7 @@ const AdminPage: React.FC = () => {
   // Check if user is admin
   useEffect(() => {
     if (!authLoading && (!user || user.email !== ADMIN_EMAIL)) {
-      navigate('/login')
+      navigate('/signin')
     }
   }, [user, authLoading, navigate])
   

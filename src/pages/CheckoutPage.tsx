@@ -293,14 +293,14 @@ const CheckoutPage: React.FC = () => {
             
             <div className="space-y-3">
               <Link
-                to={`/login?redirect=${encodeURIComponent('/store/checkout' + (isRfqMode ? '?mode=rfq' : ''))}`}
+                to={`/signin?redirect=${encodeURIComponent('/store/checkout' + (isRfqMode ? '?mode=rfq' : ''))}`}
                 className="w-full py-3 px-6 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition flex items-center justify-center gap-2"
               >
                 <LogIn className="h-5 w-5" />
                 Sign In
               </Link>
               <Link
-                to={`/register?redirect=${encodeURIComponent('/store/checkout' + (isRfqMode ? '?mode=rfq' : ''))}`}
+                to={`/signin?redirect=${encodeURIComponent('/store/checkout' + (isRfqMode ? '?mode=rfq' : ''))}`}
                 className="w-full py-3 px-6 border-2 border-primary-600 text-primary-600 font-semibold rounded-xl hover:bg-primary-50 transition flex items-center justify-center gap-2"
               >
                 <User className="h-5 w-5" />

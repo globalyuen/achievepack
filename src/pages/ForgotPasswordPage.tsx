@@ -43,7 +43,7 @@ const ForgotPasswordPage: React.FC = () => {
             Click the link in the email to reset your password. If you don't see it, check your spam folder.
           </p>
           <Link
-            to="/login"
+            to="/signin"
             className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -58,7 +58,7 @@ const ForgotPasswordPage: React.FC = () => {
     <div className="min-h-screen bg-white flex items-center justify-center p-8">
       <div className="max-w-md w-full">
         <Link
-          to="/login"
+          to="/signin"
           className="inline-flex items-center gap-2 text-neutral-600 hover:text-primary-600 mb-8 transition"
         >
           <ArrowLeft className="h-5 w-5" />
@@ -113,7 +113,7 @@ const ForgotPasswordPage: React.FC = () => {
 
         <p className="text-center mt-6 text-neutral-600 text-sm">
           Remember your password?{' '}
-          <Link to="/login" className="text-primary-600 hover:text-primary-700 font-medium">
+          <Link to="/signin" className="text-primary-600 hover:text-primary-700 font-medium">
             Sign in
           </Link>
         </p>

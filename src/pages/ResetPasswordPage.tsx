@@ -16,7 +16,7 @@ const ResetPasswordPage: React.FC = () => {
   useEffect(() => {
     // Check if user came from password reset email
     if (!session) {
-      navigate('/login')
+      navigate('/signin')
     }
   }, [session, navigate])
 
