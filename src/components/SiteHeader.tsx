@@ -49,7 +49,7 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
                 )}
               </button>
               <Link
-                to="/dashboard"
+                to="/signin"
                 className="w-8 h-8 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
               >
                 <User className="h-4 w-4 text-white" />
@@ -274,7 +274,7 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
 
               {/* Other Links */}
               <div className="border-t border-neutral-100 pt-3">
-                <Link to="/dashboard" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700 font-medium">Customer Center</Link>
+                <Link to="/signin" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700 font-medium">Customer Center</Link>
               </div>
 
               {/* Meet Button */}
