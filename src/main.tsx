@@ -59,8 +59,7 @@ const ProductPage = lazyWithRetry(() => import('./pages/ProductPage'))
 const CheckoutPage = lazyWithRetry(() => import('./pages/CheckoutPage'))
 const OrderConfirmation = lazyWithRetry(() => import('./pages/OrderConfirmation'))
 const RfqConfirmation = lazyWithRetry(() => import('./pages/RfqConfirmation'))
-const LoginPage = lazyWithRetry(() => import('./pages/LoginPage'))
-const RegisterPage = lazyWithRetry(() => import('./pages/RegisterPage'))
+const SignInPage = lazyWithRetry(() => import('./pages/SignInPage'))
 const ForgotPasswordPage = lazyWithRetry(() => import('./pages/ForgotPasswordPage'))
 const ResetPasswordPage = lazyWithRetry(() => import('./pages/ResetPasswordPage'))
 const AuthCallbackPage = lazyWithRetry(() => import('./pages/AuthCallbackPage'))
@@ -315,8 +314,7 @@ createRoot(document.getElementById('root')!).render(
                       <Route path="/store/checkout" element={<CheckoutPage />} />
                       <Route path="/store/order-confirmation" element={<OrderConfirmation />} />
                       <Route path="/store/rfq-confirmation" element={<RfqConfirmation />} />
-                      <Route path="/login" element={<LoginPage />} />
-                      <Route path="/register" element={<RegisterPage />} />
+                      <Route path="/signin" element={<SignInPage />} />
                       <Route path="/forgot-password" element={<ForgotPasswordPage />} />
                       <Route path="/reset-password" element={<ResetPasswordPage />} />
                       <Route path="/auth/callback" element={<AuthCallbackPage />} />
