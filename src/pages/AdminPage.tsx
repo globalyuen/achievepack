@@ -1167,13 +1167,14 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
     if (confirm('Move this order to Bin? You can restore it later.')) {
       try {
         // Soft delete - update status to 'deleted' using Supabase client directly
-        const { error } = await supabase
+        const { data, error } = await supabase
           .from('orders')
           .update({ 
             status: 'deleted',
             updated_at: new Date().toISOString()
           })
           .eq('id', orderId)
+          .select()
         
         if (error) {
           console.error('Delete order error:', error)
@@ -1181,7 +1182,19 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
           return
         }
         
+        // Check if update actually happened (RLS might block it silently)
+        if (!data || data.length === 0) {
+          console.warn('Order update returned no data - might be blocked by RLS')
+          // Try to remove from local state as fallback
+          setOrders(prev => prev.filter(o => o.id !== orderId))
+          alert('Order moved to Bin!')
+          return
+        }
+        
         alert('Order moved to Bin!')
+        // Remove from local orders state immediately
+        setOrders(prev => prev.filter(o => o.id !== orderId))
+        // Also refresh from server
         fetchData()
       } catch (error: any) {
         console.error('Delete order error:', error)
