@@ -1,213 +1,282 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
-import { Mail, Lock, User, Building, Eye, EyeOff, ArrowLeft, Loader2 } from 'lucide-react'
+import { Mail, ArrowLeft, Loader2 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
-import { useTranslation } from 'react-i18next'
-
-const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAACJvySd2iBsvYcJv'
 
 const RegisterPage: React.FC = () => {
-  const { t } = useTranslation()
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const redirectTo = searchParams.get('redirect') || '/dashboard'
-  const { signUp, signInWithGoogle } = useAuth()
-  const [formData, setFormData] = useState({ email: '', password: '', fullName: '', company: '' })
-  const [showPassword, setShowPassword] = useState(false)
+  const { sendOtp, verifyOtp, signInWithGoogle } = useAuth()
+  
+  const [email, setEmail] = useState('')
+  const [otpCode, setOtpCode] = useState(['', '', '', '', '', ''])
+  const [step, setStep] = useState<'email' | 'otp'>('email')
   const [loading, setLoading] = useState(false)
-  const [googleLoading, setGoogleLoading] = useState(false)
+  const [sendingOtp, setSendingOtp] = useState(false)
   const [error, setError] = useState('')
-  const [success, setSuccess] = useState(false)
-  const [turnstileToken, setTurnstileToken] = useState('')
-  const turnstileRef = useRef<HTMLDivElement>(null)
-  const turnstileWidgetId = useRef<string | null>(null)
+  const [countdown, setCountdown] = useState(0)
+  
+  const otpRefs = useRef<(HTMLInputElement | null)[]>([])
 
-  // Load Turnstile script
-  useEffect(() => {
-    if (typeof window !== 'undefined' && !(window as any).turnstile) {
-      const script = document.createElement('script')
-      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad'
-      script.async = true
-      script.defer = true
-      document.head.appendChild(script)
-    }
-  }, [])
-
-  // Render Turnstile widget
-  useEffect(() => {
-    const renderWidget = () => {
-      if (turnstileRef.current && (window as any).turnstile) {
-        if (turnstileWidgetId.current) {
-          try { (window as any).turnstile.remove(turnstileWidgetId.current) } catch (e) {}
-        }
-        turnstileWidgetId.current = (window as any).turnstile.render(turnstileRef.current, {
-          sitekey: TURNSTILE_SITE_KEY,
-          callback: (token: string) => setTurnstileToken(token),
-          'error-callback': () => setError('Verification failed. Please refresh.'),
-          theme: 'light',
-          size: 'flexible'
-        })
-      }
+  // Handle send OTP
+  const handleSendOtp = async () => {
+    if (!email) {
+      setError('Please enter your email address')
+      return
     }
     
-    if ((window as any).turnstile) {
-      renderWidget()
-    } else {
-      const checkTurnstile = setInterval(() => {
-        if ((window as any).turnstile) {
-          clearInterval(checkTurnstile)
-          renderWidget()
-        }
-      }, 100)
-      return () => clearInterval(checkTurnstile)
-    }
-    
-    return () => {
-      if (turnstileWidgetId.current && (window as any).turnstile) {
-        try { (window as any).turnstile.remove(turnstileWidgetId.current) } catch (e) {}
-      }
-    }
-  }, [])
-
-  const handleGoogleSignIn = async () => {
-    setGoogleLoading(true)
+    setSendingOtp(true)
     setError('')
-    const { error } = await signInWithGoogle()
+    
+    const { error } = await sendOtp(email)
+    
     if (error) {
       setError(error.message)
-      setGoogleLoading(false)
+      setSendingOtp(false)
+    } else {
+      setStep('otp')
+      setSendingOtp(false)
+      // Start countdown
+      setCountdown(60)
+      const timer = setInterval(() => {
+        setCountdown(prev => {
+          if (prev <= 1) {
+            clearInterval(timer)
+            return 0
+          }
+          return prev - 1
+        })
+      }, 1000)
     }
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    
-    // Verify Turnstile token
-    if (!turnstileToken) {
-      setError('Please complete the security verification.')
+  // Handle OTP input change
+  const handleOtpChange = (index: number, value: string) => {
+    if (value.length > 1) {
+      // Handle paste
+      const digits = value.replace(/\D/g, '').slice(0, 6).split('')
+      const newOtp = [...otpCode]
+      digits.forEach((digit, i) => {
+        if (index + i < 6) {
+          newOtp[index + i] = digit
+        }
+      })
+      setOtpCode(newOtp)
+      // Focus last filled or next empty
+      const nextIndex = Math.min(index + digits.length, 5)
+      otpRefs.current[nextIndex]?.focus()
+    } else {
+      const newOtp = [...otpCode]
+      newOtp[index] = value.replace(/\D/g, '')
+      setOtpCode(newOtp)
+      // Auto focus next
+      if (value && index < 5) {
+        otpRefs.current[index + 1]?.focus()
+      }
+    }
+  }
+
+  // Handle OTP keydown
+  const handleOtpKeyDown = (index: number, e: React.KeyboardEvent) => {
+    if (e.key === 'Backspace' && !otpCode[index] && index > 0) {
+      otpRefs.current[index - 1]?.focus()
+    }
+  }
+
+  // Handle verify OTP
+  const handleVerifyOtp = async () => {
+    const code = otpCode.join('')
+    if (code.length !== 6) {
+      setError('Please enter the 6-digit code')
       return
     }
     
     setLoading(true)
     setError('')
-    const { error } = await signUp(formData.email, formData.password, { full_name: formData.fullName, company: formData.company })
+    
+    const { error } = await verifyOtp(email, code)
+    
     if (error) {
       setError(error.message)
       setLoading(false)
-      // Reset Turnstile on error
-      if ((window as any).turnstile && turnstileWidgetId.current) {
-        (window as any).turnstile.reset(turnstileWidgetId.current)
-      }
-      setTurnstileToken('')
     } else {
-      // Registration successful - redirect directly (no email confirmation needed)
-      setLoading(false)
       navigate(redirectTo)
     }
   }
 
-  if (success) {
-    return (
-      <div className="min-h-screen bg-neutral-50 flex items-center justify-center p-4">
-        <div className="max-w-md w-full bg-white rounded-2xl p-8 shadow-lg text-center">
-          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Mail className="h-8 w-8 text-green-600" />
-          </div>
-          <h1 className="text-2xl font-bold text-neutral-900 mb-2">{t('customerCenter.register.checkEmail')}</h1>
-          <p className="text-neutral-600 mb-6">{t('customerCenter.register.confirmationSent')} <strong>{formData.email}</strong></p>
-          <Link to={`/login?redirect=${encodeURIComponent(redirectTo)}`} className="text-primary-600 hover:underline">{t('customerCenter.register.signIn')}</Link>
-        </div>
-      </div>
-    )
+  // Handle Google sign in
+  const handleGoogleSignIn = async () => {
+    setLoading(true)
+    setError('')
+    const { error } = await signInWithGoogle()
+    if (error) {
+      setError(error.message)
+      setLoading(false)
+    }
+  }
+
+  // Resend OTP
+  const handleResendOtp = async () => {
+    if (countdown > 0) return
+    await handleSendOtp()
   }
 
   return (
     <div className="min-h-screen bg-neutral-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full">
         <Link to="/" className="flex items-center gap-2 text-neutral-600 hover:text-primary-600 mb-8">
-          <ArrowLeft className="h-5 w-5" /> {t('customerCenter.backToHome')}
+          <ArrowLeft className="h-5 w-5" /> Back to Home
         </Link>
+        
         <div className="bg-white rounded-2xl p-8 shadow-lg">
           <div className="text-center mb-8">
-            <h1 className="text-2xl font-bold text-neutral-900">{t('customerCenter.register.title')}</h1>
-            <p className="text-neutral-600">{t('customerCenter.register.subtitle')}</p>
+            <h1 className="text-2xl font-bold text-neutral-900">
+              {step === 'email' ? 'Sign In / Register' : 'Enter Verification Code'}
+            </h1>
+            <p className="text-neutral-600 mt-2">
+              {step === 'email' 
+                ? 'Enter your email to receive a verification code' 
+                : `We sent a 6-digit code to ${email}`
+              }
+            </p>
           </div>
-          {error && <div className="bg-red-50 text-red-600 p-3 rounded-lg mb-6 text-sm">{error}</div>}
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-neutral-700 mb-1">{t('customerCenter.register.fullName')}</label>
-              <div className="relative">
-                <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-neutral-400" />
-                <input type="text" value={formData.fullName} onChange={(e) => setFormData({...formData, fullName: e.target.value})} className="w-full pl-10 pr-4 py-3 border rounded-lg" placeholder="John Doe" required />
+          
+          {error && (
+            <div className="bg-red-50 text-red-600 p-3 rounded-lg mb-6 text-sm">
+              {error}
+            </div>
+          )}
+          
+          {step === 'email' ? (
+            <div className="space-y-4">
+              {/* Email Input */}
+              <div>
+                <div className="relative">
+                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-neutral-400" />
+                  <input 
+                    type="email" 
+                    value={email} 
+                    onChange={(e) => setEmail(e.target.value)}
+                    onKeyDown={(e) => e.key === 'Enter' && handleSendOtp()}
+                    className="w-full pl-12 pr-4 py-4 border border-neutral-200 rounded-xl text-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" 
+                    placeholder="Enter your email"
+                    autoFocus
+                  />
+                </div>
               </div>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-neutral-700 mb-1">{t('customerCenter.register.company')}</label>
-              <div className="relative">
-                <Building className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-neutral-400" />
-                <input type="text" value={formData.company} onChange={(e) => setFormData({...formData, company: e.target.value})} className="w-full pl-10 pr-4 py-3 border rounded-lg" placeholder="Your Company" />
-              </div>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-neutral-700 mb-1">{t('customerCenter.register.email')}</label>
-              <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-neutral-400" />
-                <input type="email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="w-full pl-10 pr-4 py-3 border rounded-lg" placeholder="you@example.com" required />
-              </div>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-neutral-700 mb-1">{t('customerCenter.register.password')}</label>
-              <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-neutral-400" />
-                <input type={showPassword ? 'text' : 'password'} value={formData.password} onChange={(e) => setFormData({...formData, password: e.target.value})} className="w-full pl-10 pr-12 py-3 border rounded-lg" placeholder="Min 6 characters" required minLength={6} />
-                <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400">
-                  {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
-                </button>
-              </div>
-            </div>
-            
-            {/* Cloudflare Turnstile Widget */}
-            <div className="flex justify-center my-4">
-              <div ref={turnstileRef} className="cf-turnstile w-full max-w-[300px]" />
-            </div>
-            
-            <button type="submit" disabled={loading || googleLoading || !turnstileToken} className="w-full py-3 bg-primary-600 hover:bg-primary-700 disabled:bg-neutral-400 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition flex items-center justify-center gap-2">
-              {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : t('customerCenter.register.createAccount')}
-            </button>
-          </form>
+              
+              {/* Send Code Button */}
+              <button
+                onClick={handleSendOtp}
+                disabled={sendingOtp || !email}
+                className="w-full py-4 bg-neutral-900 hover:bg-neutral-800 disabled:bg-neutral-400 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition flex items-center justify-center gap-2"
+              >
+                {sendingOtp ? (
+                  <>
+                    <Loader2 className="h-5 w-5 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  'Get Verification Code'
+                )}
+              </button>
 
-          {/* Divider */}
-          <div className="relative my-6">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-neutral-300"></div>
-            </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-white text-neutral-500">Or continue with</span>
-            </div>
-          </div>
+              {/* Divider */}
+              <div className="relative my-6">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-neutral-200"></div>
+                </div>
+                <div className="relative flex justify-center text-sm">
+                  <span className="px-4 bg-white text-neutral-500">Or continue with</span>
+                </div>
+              </div>
 
-          {/* Google Sign Up Button */}
-          <button
-            type="button"
-            onClick={handleGoogleSignIn}
-            disabled={loading || googleLoading}
-            className="w-full py-3 bg-white border border-neutral-300 hover:bg-neutral-50 disabled:bg-neutral-100 text-neutral-700 font-medium rounded-lg transition flex items-center justify-center gap-3"
-          >
-            {googleLoading ? (
-              <Loader2 className="h-5 w-5 animate-spin" />
-            ) : (
-              <svg className="w-5 h-5" viewBox="0 0 24 24">
-                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-              </svg>
-            )}
-            Continue with Google
-          </button>
-
-          <p className="text-center mt-6 text-neutral-600">
-            {t('customerCenter.register.hasAccount')} <Link to="/login" className="text-primary-600 hover:underline font-medium">{t('customerCenter.register.signIn')}</Link>
+              {/* Google Sign In */}
+              <button
+                onClick={handleGoogleSignIn}
+                disabled={loading}
+                className="w-full py-3 bg-white border border-neutral-300 hover:bg-neutral-50 disabled:bg-neutral-100 text-neutral-700 font-medium rounded-xl transition flex items-center justify-center gap-3"
+              >
+                <svg className="w-5 h-5" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                </svg>
+                Continue with Google
+              </button>
+            </div>
+          ) : (
+            <div className="space-y-6">
+              {/* OTP Input */}
+              <div className="flex justify-center gap-2">
+                {otpCode.map((digit, index) => (
+                  <input
+                    key={index}
+                    ref={el => otpRefs.current[index] = el}
+                    type="text"
+                    inputMode="numeric"
+                    maxLength={6}
+                    value={digit}
+                    onChange={(e) => handleOtpChange(index, e.target.value)}
+                    onKeyDown={(e) => handleOtpKeyDown(index, e)}
+                    className="w-12 h-14 text-center text-2xl font-bold border border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    autoFocus={index === 0}
+                  />
+                ))}
+              </div>
+              
+              {/* Resend */}
+              <div className="text-center">
+                {countdown > 0 ? (
+                  <p className="text-neutral-500 text-sm">Resend code in {countdown}s</p>
+                ) : (
+                  <button
+                    onClick={handleResendOtp}
+                    className="text-primary-600 hover:underline text-sm font-medium"
+                  >
+                    Resend Code
+                  </button>
+                )}
+              </div>
+              
+              {/* Verify Button */}
+              <button
+                onClick={handleVerifyOtp}
+                disabled={loading || otpCode.join('').length !== 6}
+                className="w-full py-4 bg-neutral-900 hover:bg-neutral-800 disabled:bg-neutral-400 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition flex items-center justify-center gap-2"
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="h-5 w-5 animate-spin" />
+                    Verifying...
+                  </>
+                ) : (
+                  'Continue'
+                )}
+              </button>
+              
+              {/* Back to email */}
+              <button
+                onClick={() => {
+                  setStep('email')
+                  setOtpCode(['', '', '', '', '', ''])
+                  setError('')
+                }}
+                className="w-full text-center text-neutral-600 hover:text-neutral-900 text-sm"
+              >
+                Use a different email
+              </button>
+            </div>
+          )}
+          
+          {/* Terms and Privacy */}
+          <p className="text-center text-xs text-neutral-500 mt-6">
+            By signing in, you agree to our{' '}
+            <Link to="/terms" className="text-primary-600 hover:underline">Terms of Service</Link>
+            {' '}and{' '}
+            <Link to="/privacy" className="text-primary-600 hover:underline">Privacy Policy</Link>
           </p>
         </div>
       </div>

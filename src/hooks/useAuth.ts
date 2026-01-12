@@ -77,5 +77,24 @@ export const useAuth = () => {
     return await supabase.auth.updateUser({ password: newPassword })
   }
 
-  return { session, user, loading, signIn, signInWithGoogle, signUp, signOut, resetPassword, updatePassword }
+  // Send OTP code to email
+  const sendOtp = async (email: string) => {
+    return await supabase.auth.signInWithOtp({
+      email,
+      options: {
+        shouldCreateUser: true
+      }
+    })
+  }
+
+  // Verify OTP code
+  const verifyOtp = async (email: string, token: string) => {
+    return await supabase.auth.verifyOtp({
+      email,
+      token,
+      type: 'email'
+    })
+  }
+
+  return { session, user, loading, signIn, signInWithGoogle, signUp, signOut, resetPassword, updatePassword, sendOtp, verifyOtp }
 }
