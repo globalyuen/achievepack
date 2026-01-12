@@ -461,7 +461,7 @@ const TermsOfUsePage: React.FC = () => {
                   <p>For questions or concerns regarding these Terms or the Services, contact:</p>
                   <div className="bg-white rounded-lg p-6 mt-4">
                     <p className="font-semibold text-lg mb-2">Achieve Pack – Customer Centre</p>
-                    <p>Email: <a href="mailto:ryan@achievepack.com" className="text-primary-600 hover:underline">ryan@achievepack.com</a></p>
+                    <p>Email: <a href="mailto:support@achievepack.com" className="text-primary-600 hover:underline">support@achievepack.com</a></p>
                     <p>Website: <a href="https://achievepack.com" className="text-primary-600 hover:underline">achievepack.com</a></p>
                   </div>
                 </div>
