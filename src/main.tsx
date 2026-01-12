@@ -66,6 +66,7 @@ const ResetPasswordPage = lazyWithRetry(() => import('./pages/ResetPasswordPage'
 const AuthCallbackPage = lazyWithRetry(() => import('./pages/AuthCallbackPage'))
 const DashboardPage = lazyWithRetry(() => import('./pages/DashboardPage'))
 const TermsPage = lazyWithRetry(() => import('./pages/TermsPage'))
+const TermsOfUsePage = lazyWithRetry(() => import('./pages/legal/TermsOfUsePage'))
 const ContactPage = lazyWithRetry(() => import('./pages/ContactPage'))
 const AdminPage = lazyWithRetry(() => import('./pages/AdminPage'))
 const AdminManagementPage = lazyWithRetry(() => import('./pages/AdminManagementPage'))
@@ -321,6 +322,7 @@ createRoot(document.getElementById('root')!).render(
                       <Route path="/auth/callback" element={<AuthCallbackPage />} />
                       <Route path="/dashboard" element={<DashboardPage />} />
                       <Route path="/terms" element={<TermsPage />} />
+                      <Route path="/terms-of-use" element={<TermsOfUsePage />} />
                       <Route path="/contact" element={<ContactPage />} />
                       <Route path="/ctrl-x9k7m" element={<AdminPage />} />
                       <Route path="/ctrl-x9k7m/management" element={<AdminManagementPage />} />
