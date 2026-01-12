@@ -1166,17 +1166,21 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
   const deleteOrder = async (orderId: string) => {
     if (confirm('Move this order to Bin? You can restore it later.')) {
       try {
-        const response = await fetch('/api/delete-order', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ orderId })
-        })
-        const result = await response.json()
+        // Soft delete - update status to 'deleted' using Supabase client directly
+        const { error } = await supabase
+          .from('orders')
+          .update({ 
+            status: 'deleted',
+            updated_at: new Date().toISOString()
+          })
+          .eq('id', orderId)
         
-        if (!result.success) {
-          alert(`Failed to delete order: ${result.error || 'Unknown error'}`)
+        if (error) {
+          console.error('Delete order error:', error)
+          alert(`Failed to delete order: ${error.message}`)
           return
         }
+        
         alert('Order moved to Bin!')
         fetchData()
       } catch (error: any) {
