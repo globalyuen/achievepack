@@ -1,10 +1,10 @@
 {
-  "generated": "2026-01-11",
-  "total_images": 1086,
-  "total_categories": 112,
+  "generated": "2026-01-13",
+  "total_images": 1087,
+  "total_categories": 113,
   "extensions": {
     ".webp": 1014,
-    ".png": 70,
+    ".png": 71,
     ".jpg": 2
   },
   "categories": {
@@ -400,6 +400,17 @@
           "path": "/imgs/biope/what/a_what_is_bio_pe_2246523.webp",
           "extension": ".webp",
           "modified": "2026-01-03T03:42:00.000Z"
+        }
+      ]
+    },
+    "bkg": {
+      "count": 1,
+      "images": [
+        {
+          "filename": "leaf1.png",
+          "path": "/imgs/bkg/leaf1.png",
+          "extension": ".png",
+          "modified": "2026-01-12T01:32:33.731Z"
         }
       ]
     },

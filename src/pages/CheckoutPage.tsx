@@ -117,6 +117,7 @@ const CheckoutPage: React.FC = () => {
       } else {
         // Normal Checkout Mode: Create Stripe checkout session
         // First save order as pending_payment via API (bypasses RLS)
+        let orderSaved = false
         try {
           const saveOrderResponse = await fetch('/api/save-order', {
             method: 'POST',
@@ -151,11 +152,22 @@ const CheckoutPage: React.FC = () => {
           const saveOrderResult = await saveOrderResponse.json()
           if (!saveOrderResult.success) {
             console.error('Order save error:', saveOrderResult.error)
-          } else {
-            console.log('Order saved successfully:', orderNumber)
+            throw new Error(saveOrderResult.error || 'Failed to save order')
           }
-        } catch (dbError) {
+          console.log('Order saved successfully:', orderNumber)
+          orderSaved = true
+        } catch (dbError: any) {
           console.error('Database error:', dbError)
+          setError('Unable to process your order. Please try again or contact support.')
+          setIsProcessing(false)
+          return // STOP - don't proceed to Stripe if order wasn't saved
+        }
+
+        // Only proceed to Stripe if order was saved successfully
+        if (!orderSaved) {
+          setError('Unable to process your order. Please try again.')
+          setIsProcessing(false)
+          return
         }
 
         // Create Stripe checkout session

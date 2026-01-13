@@ -21,6 +21,9 @@ const getSupabase = () => {
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  console.log('=== SAVE-ORDER API CALLED ===')
+  console.log('Method:', req.method)
+  
   // Set CORS headers
   res.setHeader('Access-Control-Allow-Credentials', 'true')
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -36,6 +39,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
+    console.log('Request body:', JSON.stringify(req.body, null, 2))
+    
     const { 
       orderNumber,
       userId,
@@ -47,11 +52,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       status = 'pending_payment'
     } = req.body
 
+    console.log('Parsed order:', { orderNumber, customerEmail, customerName, itemCount: items?.length, totalAmount })
+
     if (!orderNumber) {
+      console.error('Missing order number')
       return res.status(400).json({ error: 'Order number is required' })
     }
 
-    const supabase = getSupabase()
+    let supabase
+    try {
+      supabase = getSupabase()
+      console.log('Supabase client created successfully')
+    } catch (configError: any) {
+      console.error('Supabase config error:', configError.message)
+      return res.status(500).json({ success: false, error: 'Database configuration error: ' + configError.message })
+    }
 
     // Insert or update order
     const orderData = {
