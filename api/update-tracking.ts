@@ -1,19 +1,9 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { createClient } from '@supabase/supabase-js'
 
-// Initialize Supabase with service key to bypass RLS
-const getSupabase = () => {
-  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL
-  const supabaseKey = process.env.SUPABASE_SERVICE_KEY || process.env.VITE_SUPABASE_ANON_KEY
-  
-  if (!supabaseUrl || !supabaseKey) {
-    throw new Error('Supabase configuration missing')
-  }
-  
-  return createClient(supabaseUrl, supabaseKey)
-}
-
+// Use native fetch to call Supabase REST API (no external dependencies)
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  console.log('=== UPDATE-TRACKING API CALLED ===')
+  
   // Set CORS headers
   res.setHeader('Access-Control-Allow-Credentials', 'true')
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -25,10 +15,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' })
+    return res.status(405).json({ success: false, error: 'Method not allowed' })
   }
 
   try {
+    const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL
+    const supabaseKey = process.env.SUPABASE_SERVICE_KEY
+
+    if (!supabaseUrl || !supabaseKey) {
+      console.error('Missing Supabase config')
+      return res.status(500).json({ success: false, error: 'Database configuration missing' })
+    }
+
     const { 
       orderId,
       trackingNumber,
@@ -37,25 +35,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       status = 'shipped'
     } = req.body
 
+    console.log('Updating tracking for order:', orderId)
+
     if (!orderId) {
-      return res.status(400).json({ error: 'orderId is required' })
+      return res.status(400).json({ success: false, error: 'orderId is required' })
     }
 
-    const supabase = getSupabase()
-
-    // First, check if carrier column exists by trying to get the order
-    const { data: existingOrder, error: fetchError } = await supabase
-      .from('orders')
-      .select('*')
-      .eq('id', orderId)
-      .single()
-
-    if (fetchError) {
-      console.error('Fetch order error:', fetchError)
-      return res.status(500).json({ error: 'Failed to fetch order', details: fetchError.message })
-    }
-
-    // Build update object based on what columns exist
+    // Build update data
     const updateData: Record<string, any> = {
       tracking_number: trackingNumber || null,
       tracking_url: trackingUrl || null,
@@ -63,47 +49,65 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       updated_at: new Date().toISOString()
     }
 
-    // Only add carrier if the column exists in the existing order or if it's a new field
-    // We'll try to update and handle any column errors
     if (carrier !== undefined) {
       updateData.carrier = carrier
     }
 
-    const { data, error } = await supabase
-      .from('orders')
-      .update(updateData)
-      .eq('id', orderId)
-      .select()
+    console.log('Update data:', JSON.stringify(updateData))
 
-    if (error) {
+    // Call Supabase REST API to update order
+    const response = await fetch(`${supabaseUrl}/rest/v1/orders?id=eq.${orderId}`, {
+      method: 'PATCH',
+      headers: {
+        'apikey': supabaseKey,
+        'Authorization': `Bearer ${supabaseKey}`,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=representation'
+      },
+      body: JSON.stringify(updateData)
+    })
+
+    const responseText = await response.text()
+    console.log('Supabase response status:', response.status)
+    console.log('Supabase response:', responseText)
+
+    if (!response.ok) {
       // If carrier column doesn't exist, try without it
-      if (error.message?.includes('carrier')) {
-        console.log('Carrier column not found, updating without it')
+      if (responseText.includes('carrier')) {
+        console.log('Carrier column not found, retrying without it')
         delete updateData.carrier
-        
-        const { data: retryData, error: retryError } = await supabase
-          .from('orders')
-          .update(updateData)
-          .eq('id', orderId)
-          .select()
-        
-        if (retryError) {
-          console.error('Update tracking error (retry):', retryError)
-          return res.status(500).json({ error: 'Failed to update tracking', details: retryError.message })
+
+        const retryResponse = await fetch(`${supabaseUrl}/rest/v1/orders?id=eq.${orderId}`, {
+          method: 'PATCH',
+          headers: {
+            'apikey': supabaseKey,
+            'Authorization': `Bearer ${supabaseKey}`,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=representation'
+          },
+          body: JSON.stringify(updateData)
+        })
+
+        const retryText = await retryResponse.text()
+        if (!retryResponse.ok) {
+          console.error('Update tracking error (retry):', retryText)
+          return res.status(500).json({ success: false, error: 'Failed to update tracking', details: retryText })
         }
-        
+
+        const retryData = retryText ? JSON.parse(retryText) : null
         console.log(`Tracking updated for order ${orderId} (without carrier)`)
         return res.status(200).json({ success: true, order: retryData?.[0] })
       }
-      
-      console.error('Update tracking error:', error)
-      return res.status(500).json({ error: 'Failed to update tracking', details: error.message })
+
+      console.error('Update tracking error:', responseText)
+      return res.status(500).json({ success: false, error: 'Failed to update tracking', details: responseText })
     }
 
+    const data = responseText ? JSON.parse(responseText) : null
     console.log(`Tracking updated for order ${orderId}`)
     res.status(200).json({ success: true, order: data?.[0] })
   } catch (error: any) {
     console.error('Update tracking error:', error)
-    res.status(500).json({ error: error.message || 'Failed to update tracking' })
+    res.status(500).json({ success: false, error: error.message || 'Failed to update tracking' })
   }
 }
