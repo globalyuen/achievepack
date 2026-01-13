@@ -896,6 +896,28 @@ const AdminManagementPage: React.FC = () => {
         }
         
         // NOTE: xAI auto-analysis disabled - use Artwork Hub for manual JSON management
+        
+        // Send email notification to both artwork@achievepack.com and customer
+        try {
+          await fetch('/api/send-admin-artwork-email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              customerName: contactName,
+              customerEmail: contactEmail,
+              adminEmail: user?.email || ADMIN_EMAIL,
+              fileName: file.name,
+              fileUrl: fileUrl,
+              fileType: file.type || 'unknown',
+              fileSize: file.size,
+              uploadedBy: 'admin'
+            })
+          })
+          console.log('Email notification sent for artwork upload:', file.name)
+        } catch (emailError) {
+          console.error('Email notification failed:', emailError)
+          // Don't fail the upload if email fails
+        }
       }
       
       fetchData()
@@ -903,7 +925,7 @@ const AdminManagementPage: React.FC = () => {
       setUploadCustomerId('')
       setContactSearch('')
       setUploadContactType('customer')
-      alert(`Artwork uploaded successfully for ${contactName}!`)
+      alert(`Artwork uploaded successfully for ${contactName}! Email notification sent.`)
     } catch (error: any) {
       console.error('Upload error:', error)
       setUploadError(error.message || 'Upload failed')

@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
+import type { ChangeEvent } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { 
   Search, Grid3X3, List, Folder, ArrowLeft, Copy, Check, ExternalLink, 
   Save, Download, X, Sparkles, Tag, Code, LogOut, Cloud, CloudOff, 
-  Clock, Edit3, Plus, Trash2, Eye, Filter, RefreshCw
+  Clock, Edit3, Plus, Trash2, Eye, Filter, RefreshCw, Upload, Users
 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, ArtworkFile } from '../lib/supabase'
@@ -33,6 +34,13 @@ export default function ArtworkHubPage() {
   const [saveMessage, setSaveMessage] = useState<string | null>(null)
   const [showOnlyNoJson, setShowOnlyNoJson] = useState(false)
   const [sortByNewest, setSortByNewest] = useState(true)
+  
+  // Upload states
+  const [showUploadModal, setShowUploadModal] = useState(false)
+  const [uploading, setUploading] = useState(false)
+  const [uploadError, setUploadError] = useState('')
+  const [selectedCustomer, setSelectedCustomer] = useState('')
+  const [customers, setCustomers] = useState<{id: string, email: string, full_name: string}[]>([])
   
   // Edit form state
   const [editForm, setEditForm] = useState<ArtworkAIAnalysis>({
@@ -94,10 +102,106 @@ export default function ArtworkHubPage() {
       })
       
       setArtworks(enrichedArtworks)
+      
+      // Also set customers list for upload
+      setCustomers(profiles?.map(p => ({ id: p.id, email: p.email, full_name: p.full_name })) || [])
     } catch (error) {
       console.error('Error fetching artworks:', error)
     } finally {
       setLoading(false)
+    }
+  }
+
+  // Admin upload artwork for customer
+  const handleAdminUpload = async (e: ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files
+    if (!files || files.length === 0) return
+    if (!selectedCustomer) {
+      setUploadError('Please select a customer first')
+      return
+    }
+    
+    setUploading(true)
+    setUploadError('')
+    
+    const customer = customers.find(c => c.id === selectedCustomer)
+    if (!customer) {
+      setUploadError('Customer not found')
+      setUploading(false)
+      return
+    }
+    
+    try {
+      for (const file of Array.from(files) as File[]) {
+        // Validate file size (10MB limit)
+        const maxSize = 10 * 1024 * 1024
+        if (file.size > maxSize) {
+          setUploadError(`File "${file.name}" is too large (max 10MB)`)
+          continue
+        }
+        
+        // Validate file type
+        const isValid = file.name.match(/\.(ai|eps|pdf|png|jpg|jpeg|tiff|tif|zip|psd)$/i)
+        if (!isValid) {
+          setUploadError(`Invalid file type: ${file.name}`)
+          continue
+        }
+        
+        // Upload to Supabase Storage
+        const ext = file.name.split('.').pop() || 'bin'
+        const fileName = `${selectedCustomer}/${Date.now()}.${ext}`
+        const { data: uploadData, error: uploadError } = await supabase.storage
+          .from('artworks')
+          .upload(fileName, file, {
+            cacheControl: '3600',
+            upsert: false,
+            contentType: file.type || 'application/octet-stream'
+          })
+        
+        if (uploadError) throw new Error(uploadError.message)
+        
+        // Get public URL
+        const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(uploadData?.path || fileName)
+        const fileUrl = urlData.publicUrl
+        
+        // Save record to database
+        await supabase.from('artwork_files').insert({
+          user_id: selectedCustomer,
+          customer_email: customer.email,
+          name: file.name,
+          file_url: fileUrl,
+          file_type: file.type || 'unknown',
+          file_size: file.size,
+          status: 'pending_review'
+        })
+        
+        // Send email notification (to both admin and customer)
+        fetch('/api/send-admin-artwork-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            customerName: customer.full_name || customer.email.split('@')[0],
+            customerEmail: customer.email,
+            adminEmail: ADMIN_EMAIL,
+            fileName: file.name,
+            fileUrl: fileUrl,
+            fileType: file.type,
+            fileSize: file.size,
+            uploadedBy: 'admin'
+          })
+        }).catch(err => console.error('Email notification failed:', err))
+      }
+      
+      // Refresh list and close modal
+      fetchArtworks()
+      setShowUploadModal(false)
+      setSelectedCustomer('')
+      e.target.value = ''
+    } catch (error: any) {
+      console.error('Upload error:', error)
+      setUploadError(error.message || 'Upload failed')
+    } finally {
+      setUploading(false)
     }
   }
 
@@ -383,6 +487,15 @@ export default function ArtworkHubPage() {
               >
                 <RefreshCw className="h-4 w-4" />
                 Refresh
+              </button>
+
+              {/* Upload for Customer */}
+              <button
+                onClick={() => setShowUploadModal(true)}
+                className="px-3 py-2 rounded-lg bg-purple-600 text-white text-sm font-medium hover:bg-purple-700 transition flex items-center gap-1"
+              >
+                <Upload className="h-4 w-4" />
+                Upload
               </button>
 
               {/* Export */}
@@ -812,6 +925,86 @@ Check color profile"
                 <Save className="h-4 w-4" />
                 {saveMessage || 'Save JSON'}
               </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Upload Modal */}
+      {showUploadModal && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={() => setShowUploadModal(false)}>
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full" onClick={e => e.stopPropagation()}>
+            <div className="p-6 border-b border-neutral-200">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                    <Upload className="h-5 w-5 text-purple-600" />
+                  </div>
+                  <div>
+                    <h2 className="text-lg font-semibold text-neutral-900">Upload Artwork</h2>
+                    <p className="text-sm text-neutral-500">Upload for a customer</p>
+                  </div>
+                </div>
+                <button onClick={() => setShowUploadModal(false)} className="p-2 hover:bg-neutral-100 rounded-lg">
+                  <X className="h-5 w-5 text-neutral-500" />
+                </button>
+              </div>
+            </div>
+            
+            <div className="p-6 space-y-4">
+              {uploadError && (
+                <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+                  {uploadError}
+                </div>
+              )}
+              
+              <div>
+                <label className="block text-sm font-medium text-neutral-700 mb-2">Select Customer</label>
+                <select
+                  value={selectedCustomer}
+                  onChange={(e) => setSelectedCustomer(e.target.value)}
+                  className="w-full px-4 py-2.5 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                >
+                  <option value="">Choose a customer...</option>
+                  {customers.map(c => (
+                    <option key={c.id} value={c.id}>
+                      {c.full_name || c.email} {c.full_name && `(${c.email})`}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-neutral-700 mb-2">Upload Files</label>
+                <label className={`flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-xl cursor-pointer transition ${
+                  selectedCustomer ? 'border-purple-300 bg-purple-50 hover:bg-purple-100' : 'border-neutral-300 bg-neutral-50 cursor-not-allowed'
+                }`}>
+                  <input
+                    type="file"
+                    multiple
+                    accept=".ai,.eps,.pdf,.png,.jpg,.jpeg,.tiff,.tif,.zip,.psd"
+                    onChange={handleAdminUpload}
+                    disabled={!selectedCustomer || uploading}
+                    className="hidden"
+                  />
+                  {uploading ? (
+                    <>
+                      <RefreshCw className="h-8 w-8 text-purple-500 animate-spin mb-2" />
+                      <span className="text-sm text-purple-600">Uploading...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Upload className="h-8 w-8 text-purple-400 mb-2" />
+                      <span className="text-sm text-purple-600 font-medium">Click to upload files</span>
+                      <span className="text-xs text-neutral-500 mt-1">AI, EPS, PDF, PNG, JPG, TIFF, PSD, ZIP</span>
+                    </>
+                  )}
+                </label>
+              </div>
+              
+              <p className="text-xs text-neutral-500 text-center">
+                Both admin and customer will receive email notifications
+              </p>
             </div>
           </div>
         </div>
