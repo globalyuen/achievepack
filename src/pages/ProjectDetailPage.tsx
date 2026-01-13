@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
-import { supabase, Project, Profile, Quote, ArtworkFile, Order, Document, ProjectComment } from '../lib/supabase'
+import { supabase, Project, Profile, Quote, ArtworkFile, Order, Document, ArtworkComment } from '../lib/supabase'
 import { useAuth } from '../hooks/useAuth'
 import {
     ArrowLeft, User, FileText, FileCheck, Image as ImageIcon,
@@ -28,7 +28,7 @@ const ProjectDetailPage: React.FC = () => {
     const [artworks, setArtworks] = useState<ArtworkFile[]>([])
     const [orders, setOrders] = useState<Order[]>([])
     const [documents, setDocuments] = useState<Document[]>([])
-    const [comments, setComments] = useState<ProjectComment[]>([])
+    const [comments, setComments] = useState<ArtworkComment[]>([])
     const [newComment, setNewComment] = useState('')
     const [sendingComment, setSendingComment] = useState(false)
     const [showUploadModal, setShowUploadModal] = useState(false)
@@ -467,7 +467,7 @@ const CustomerTab: React.FC<{ customer: Profile | null, project: Project }> = ({
     </div>
 )
 
-const OverviewTab: React.FC<{ project: Project, quotes: Quote[], artworks: ArtworkFile[], orders: Order[], comments: ProjectComment[] }> = ({ project, quotes, artworks, orders, comments }) => (
+const OverviewTab: React.FC<{ project: Project, quotes: Quote[], artworks: ArtworkFile[], orders: Order[], comments: ArtworkComment[] }> = ({ project, quotes, artworks, orders, comments }) => (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-2 duration-500">
         <div className="grid grid-cols-4 gap-6">
             <div className="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm flex flex-col items-center text-center">

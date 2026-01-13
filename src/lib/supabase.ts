@@ -441,6 +441,24 @@ export type MiniSiteAccess = {
   user_name?: string
 }
 
+// Project Comment for project communication
+export type ProjectComment = {
+  id: string
+  project_id: string
+  user_id?: string
+  user_email?: string
+  user_name?: string
+  is_admin: boolean
+  message: string
+  // File upload fields for thread system
+  file_url?: string
+  file_name?: string
+  file_size?: number
+  file_type?: string
+  message_type: 'text' | 'file' | 'status'
+  created_at: string
+}
+
 // Customer Activity Log for tracking user behavior
 export type CustomerActivityLog = {
   id: string
