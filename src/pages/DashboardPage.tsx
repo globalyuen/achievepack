@@ -1700,7 +1700,7 @@ const DashboardPage: React.FC = () => {
                         complete: 'Complete'
                       }
                       const stages = ['rfq', 'artwork', 'order', 'production', 'shipping', 'complete']
-                      const currentStageIndex = stages.indexOf(project.current_stage)
+                      const currentStageIndex = stages.indexOf(project.status)
                       
                       return (
                         <div key={project.id} className="p-3 sm:p-4 hover:bg-gray-50 transition">
@@ -1716,14 +1716,14 @@ const DashboardPage: React.FC = () => {
                                 </span>
                               )}
                             </div>
-                            <span className={`px-2 py-0.5 text-[10px] sm:text-xs font-medium rounded-full ${stageColors[project.current_stage] || 'bg-gray-100 text-gray-600'}`}>
-                              {stageLabels[project.current_stage] || project.current_stage}
+                            <span className={`px-2 py-0.5 text-[10px] sm:text-xs font-medium rounded-full ${stageColors[project.status] || 'bg-gray-100 text-gray-600'}`}>
+                              {stageLabels[project.status] || project.status}
                             </span>
                           </div>
                           {/* Progress Timeline */}
                           <div className="flex items-center gap-1 mt-2">
                             {stages.map((stage, idx) => {
-                              const isCompleted = idx < currentStageIndex || project.current_stage === 'complete'
+                              const isCompleted = idx < currentStageIndex || project.status === 'complete'
                               const isCurrent = idx === currentStageIndex
                               // Skip RFQ for stock orders
                               if (stage === 'rfq' && project.project_type === 'stock') return null

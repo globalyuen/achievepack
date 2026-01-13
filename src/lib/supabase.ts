@@ -10,36 +10,30 @@ export const supabase = createClient(supabaseUrl || '', supabaseAnonKey || '')
 // PRJ-YYYY-NNNN format for all order stages
 // ===========================================
 
+// Project Status matches database "status" column
+export type ProjectStatus = 'rfq' | 'artwork' | 'order' | 'production' | 'shipping' | 'complete'
 export type ProjectType = 'rfq' | 'stock' | 'custom'
-export type ProjectStage = 'rfq' | 'artwork' | 'order' | 'production' | 'shipping' | 'complete'
 
 export type Project = {
   id: string
   project_code: string  // "PRJ-2024-0001" 统一编码
-  user_id: string
+  user_id?: string
   customer_email?: string
   customer_name?: string
   
   // Project type determines workflow
   // rfq: RFQ → Artwork → Custom Order → Shipping → Doc
-  // stock: Stock Order → Shipping → Doc
+  // stock: Stock Order → Shipping → Doc  
   // custom: Custom Order → Shipping → Doc (no RFQ)
   project_type: ProjectType
   
-  // Current stage in workflow
-  current_stage: ProjectStage
+  // Current status in workflow (database column: "status")
+  status: ProjectStatus
   
-  // Stage completion flags
-  rfq_completed: boolean
-  artwork_completed: boolean
-  order_completed: boolean
-  shipping_completed: boolean
-  
-  notes?: string
   created_at: string
   updated_at: string
   
-  // Aggregated data from related tables (from project_summary view)
+  // Aggregated data from related tables (computed in queries)
   quote_count?: number
   artwork_count?: number
   order_count?: number

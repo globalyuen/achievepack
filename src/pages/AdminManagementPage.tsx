@@ -1934,19 +1934,19 @@ const AdminManagementPage: React.FC = () => {
                 <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
                   <p className="text-sm text-gray-500">RFQ Stage</p>
                   <p className="text-2xl font-bold text-yellow-600 mt-1">
-                    <SlidingNumber number={projects.filter(p => p.current_stage === 'rfq').length} />
+                    <SlidingNumber number={projects.filter(p => p.status === 'rfq').length} />
                   </p>
                 </div>
                 <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
                   <p className="text-sm text-gray-500">Production</p>
                   <p className="text-2xl font-bold text-purple-600 mt-1">
-                    <SlidingNumber number={projects.filter(p => p.current_stage === 'production').length} />
+                    <SlidingNumber number={projects.filter(p => p.status === 'production').length} />
                   </p>
                 </div>
                 <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
                   <p className="text-sm text-gray-500">Shipping</p>
                   <p className="text-2xl font-bold text-blue-600 mt-1">
-                    <SlidingNumber number={projects.filter(p => p.current_stage === 'shipping').length} />
+                    <SlidingNumber number={projects.filter(p => p.status === 'shipping').length} />
                   </p>
                 </div>
               </div>
@@ -1979,7 +1979,7 @@ const AdminManagementPage: React.FC = () => {
                           complete: 'bg-green-100 text-green-700'
                         }
                         const stages = ['rfq', 'artwork', 'order', 'production', 'shipping', 'complete']
-                        const currentStageIndex = stages.indexOf(project.current_stage)
+                        const currentStageIndex = stages.indexOf(project.status)
                         const progressPercent = Math.round(((currentStageIndex + 1) / stages.length) * 100)
                         
                         return (
@@ -2003,8 +2003,8 @@ const AdminManagementPage: React.FC = () => {
                               </span>
                             </td>
                             <td className="px-6 py-4">
-                              <span className={`px-2 py-1 text-xs font-medium rounded-full ${stageColors[project.current_stage] || 'bg-gray-100 text-gray-600'}`}>
-                                {project.current_stage?.charAt(0).toUpperCase() + project.current_stage?.slice(1)}
+                              <span className={`px-2 py-1 text-xs font-medium rounded-full ${stageColors[project.status] || 'bg-gray-100 text-gray-600'}`}>
+                                {project.status?.charAt(0).toUpperCase() + project.status?.slice(1)}
                               </span>
                             </td>
                             <td className="px-6 py-4">
@@ -2025,11 +2025,11 @@ const AdminManagementPage: React.FC = () => {
                             </td>
                             <td className="px-6 py-4">
                               <select
-                                value={project.current_stage}
+                                value={project.status}
                                 onChange={async (e) => {
                                   const newStage = e.target.value
                                   await supabase.from('projects').update({ 
-                                    current_stage: newStage,
+                                    status: newStage,
                                     updated_at: new Date().toISOString()
                                   }).eq('id', project.id)
                                   fetchData()
