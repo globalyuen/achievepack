@@ -35,7 +35,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' })
+    return res.status(405).json({ success: false, error: 'Method not allowed' })
   }
 
   try {
@@ -56,7 +56,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     if (!orderNumber) {
       console.error('Missing order number')
-      return res.status(400).json({ error: 'Order number is required' })
+      return res.status(400).json({ success: false, error: 'Order number is required' })
     }
 
     let supabase
@@ -101,7 +101,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       
       if (insertError) {
         console.error('Order insert error:', insertError)
-        return res.status(500).json({ error: 'Failed to save order', details: insertError.message })
+        return res.status(500).json({ success: false, error: 'Failed to save order', details: insertError.message })
       }
       
       console.log(`Order ${orderNumber} created successfully`)
@@ -112,6 +112,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     res.status(200).json({ success: true, order: data?.[0] })
   } catch (error: any) {
     console.error('Save order error:', error)
-    res.status(500).json({ error: error.message || 'Failed to save order' })
+    res.status(500).json({ success: false, error: error.message || 'Failed to save order' })
   }
 }
