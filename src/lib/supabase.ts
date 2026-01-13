@@ -28,6 +28,8 @@ export type Order = {
   tracking_number?: string
   tracking_url?: string
   carrier?: string
+  shipping_images?: string[]  // Array of image URLs for shipping photos
+  shipping_notes?: string     // Admin notes visible to customer about shipping
   notes?: string
   payment_status?: string
   stripe_session_id?: string

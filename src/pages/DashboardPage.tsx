@@ -1436,32 +1436,68 @@ const DashboardPage: React.FC = () => {
                     <p className="text-blue-100 text-xs sm:text-sm">Track your shipments below</p>
                   </div>
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-3">
                   {orders.filter(o => o.tracking_number && o.status !== 'delivered').map(order => (
-                    <div key={order.id} className="bg-white/10 backdrop-blur rounded-lg p-3 flex items-center justify-between gap-3">
-                      <div className="flex items-center gap-3 min-w-0">
-                        <Package className="h-4 w-4 flex-shrink-0" />
-                        <div className="min-w-0">
-                          <p className="font-medium text-sm truncate">{order.order_number}</p>
-                          <p className="text-blue-100 text-xs truncate">
-                            {order.carrier || 'Carrier'}: {order.tracking_number}
+                    <div key={order.id} className="bg-white/10 backdrop-blur rounded-lg p-3">
+                      <div className="flex items-center justify-between gap-3">
+                        <div className="flex items-center gap-3 min-w-0">
+                          <Package className="h-4 w-4 flex-shrink-0" />
+                          <div className="min-w-0">
+                            <p className="font-medium text-sm truncate">{order.order_number}</p>
+                            <p className="text-blue-100 text-xs truncate">
+                              {order.carrier || 'Carrier'}: {order.tracking_number}
+                            </p>
+                          </div>
+                        </div>
+                        {order.tracking_url ? (
+                          <a 
+                            href={order.tracking_url} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="flex-shrink-0 px-3 py-1.5 bg-white text-blue-600 rounded-lg text-xs sm:text-sm font-medium hover:bg-blue-50 transition-colors flex items-center gap-1"
+                          >
+                            <ExternalLink className="h-3 w-3" />
+                            Track
+                          </a>
+                        ) : (
+                          <span className="flex-shrink-0 px-3 py-1.5 bg-white/20 rounded-lg text-xs sm:text-sm">
+                            {order.status === 'shipped' ? 'In Transit' : order.status}
+                          </span>
+                        )}
+                      </div>
+                      {/* Shipping Notes from Admin */}
+                      {order.shipping_notes && (
+                        <div className="mt-2 bg-white/10 rounded-lg p-2">
+                          <p className="text-xs text-blue-100 flex items-start gap-1">
+                            <MessageSquare className="h-3 w-3 mt-0.5 flex-shrink-0" />
+                            <span>{order.shipping_notes}</span>
                           </p>
                         </div>
-                      </div>
-                      {order.tracking_url ? (
-                        <a 
-                          href={order.tracking_url} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="flex-shrink-0 px-3 py-1.5 bg-white text-blue-600 rounded-lg text-xs sm:text-sm font-medium hover:bg-blue-50 transition-colors flex items-center gap-1"
-                        >
-                          <ExternalLink className="h-3 w-3" />
-                          Track
-                        </a>
-                      ) : (
-                        <span className="flex-shrink-0 px-3 py-1.5 bg-white/20 rounded-lg text-xs sm:text-sm">
-                          {order.status === 'shipped' ? 'In Transit' : order.status}
-                        </span>
+                      )}
+                      {/* Shipping Images from Admin */}
+                      {order.shipping_images && order.shipping_images.length > 0 && (
+                        <div className="mt-2">
+                          <p className="text-xs text-blue-100 mb-1.5 flex items-center gap-1">
+                            <Camera className="h-3 w-3" /> Shipment Photos
+                          </p>
+                          <div className="flex gap-2 overflow-x-auto pb-1">
+                            {order.shipping_images.map((img, idx) => (
+                              <a 
+                                key={idx} 
+                                href={img} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="flex-shrink-0 block"
+                              >
+                                <img 
+                                  src={img} 
+                                  alt={`Shipment ${idx + 1}`} 
+                                  className="h-16 w-16 sm:h-20 sm:w-20 object-cover rounded-lg border-2 border-white/30 hover:border-white transition-colors"
+                                />
+                              </a>
+                            ))}
+                          </div>
+                        </div>
                       )}
                     </div>
                   ))}

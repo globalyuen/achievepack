@@ -79,7 +79,9 @@ const AdminPage: React.FC = () => {
   const [showUploadModal, setShowUploadModal] = useState(false)
   const [showTrackingModal, setShowTrackingModal] = useState(false)
   const [uploadForm, setUploadForm] = useState({ userId: '', name: '', description: '', fileUrl: '', type: 'PDF' })
-  const [trackingForm, setTrackingForm] = useState({ trackingNumber: '', carrier: '', trackingUrl: '' })
+  const [trackingForm, setTrackingForm] = useState({ trackingNumber: '', carrier: '', trackingUrl: '', shippingNotes: '' })
+  const [shippingImages, setShippingImages] = useState<File[]>([])
+  const [uploadingShippingImages, setUploadingShippingImages] = useState(false)
   const [orderNotes, setOrderNotes] = useState('')
   const [savingNotes, setSavingNotes] = useState(false)
   const [generatingDoc, setGeneratingDoc] = useState<string | null>(null)
@@ -1296,6 +1298,35 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
     }
     
     try {
+      setUploadingShippingImages(true)
+      
+      // Upload shipping images to Supabase Storage
+      let imageUrls: string[] = selectedOrder.shipping_images || []
+      
+      if (shippingImages.length > 0) {
+        for (const file of shippingImages) {
+          const fileExt = file.name.split('.').pop()
+          const fileName = `${selectedOrder.id}/${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`
+          
+          const { data, error } = await supabase.storage
+            .from('shipping-images')
+            .upload(fileName, file)
+          
+          if (error) {
+            console.error('Error uploading image:', error)
+            continue
+          }
+          
+          const { data: urlData } = supabase.storage
+            .from('shipping-images')
+            .getPublicUrl(fileName)
+          
+          if (urlData?.publicUrl) {
+            imageUrls.push(urlData.publicUrl)
+          }
+        }
+      }
+      
       const response = await fetch('/api/update-tracking', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -1304,6 +1335,8 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
           trackingNumber: trackingForm.trackingNumber,
           carrier: trackingForm.carrier,
           trackingUrl: trackingForm.trackingUrl,
+          shippingImages: imageUrls,
+          shippingNotes: trackingForm.shippingNotes,
           status: 'shipped'
         })
       })
@@ -1315,7 +1348,8 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
       }
       
       setShowTrackingModal(false)
-      setTrackingForm({ trackingNumber: '', carrier: '', trackingUrl: '' })
+      setTrackingForm({ trackingNumber: '', carrier: '', trackingUrl: '', shippingNotes: '' })
+      setShippingImages([])
       
       // Update the selected order with fresh data
       if (result.order) {
@@ -1327,6 +1361,8 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
     } catch (error: any) {
       console.error('Update tracking error:', error)
       alert(`Failed to update tracking: ${error.message}`)
+    } finally {
+      setUploadingShippingImages(false)
     }
   }
 
@@ -3653,7 +3689,7 @@ Check your inbox at ryan@achievepack.com`)
               {selectedOrder.tracking_number && (
                 <div>
                   <p className="text-sm text-gray-500 mb-2">Tracking Information</p>
-                  <div className="bg-blue-50 rounded-lg p-4 space-y-2">
+                  <div className="bg-blue-50 rounded-lg p-4 space-y-3">
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-sm text-gray-600">Carrier</p>
@@ -3675,6 +3711,30 @@ Check your inbox at ryan@achievepack.com`)
                         Track Package
                         <ExternalLink className="h-4 w-4" />
                       </a>
+                    )}
+                    {/* Shipping Notes */}
+                    {selectedOrder.shipping_notes && (
+                      <div className="bg-white rounded-lg p-3 border border-blue-200">
+                        <p className="text-xs text-gray-500 mb-1 flex items-center gap-1">
+                          <MessageSquare className="h-3 w-3" /> Message to Customer
+                        </p>
+                        <p className="text-sm text-gray-700">{selectedOrder.shipping_notes}</p>
+                      </div>
+                    )}
+                    {/* Shipping Images */}
+                    {selectedOrder.shipping_images && selectedOrder.shipping_images.length > 0 && (
+                      <div>
+                        <p className="text-xs text-gray-500 mb-2 flex items-center gap-1">
+                          <Image className="h-3 w-3" /> Shipping Photos ({selectedOrder.shipping_images.length})
+                        </p>
+                        <div className="flex gap-2 overflow-x-auto pb-1">
+                          {selectedOrder.shipping_images.map((img, idx) => (
+                            <a key={idx} href={img} target="_blank" rel="noopener noreferrer" className="flex-shrink-0">
+                              <img src={img} alt={`Shipping ${idx + 1}`} className="h-20 w-20 object-cover rounded-lg border border-gray-200 hover:border-primary-400 transition-colors" />
+                            </a>
+                          ))}
+                        </div>
+                      </div>
                     )}
                   </div>
                 </div>
@@ -3756,8 +3816,10 @@ Check your inbox at ryan@achievepack.com`)
                     setTrackingForm({
                       trackingNumber: selectedOrder.tracking_number || '',
                       carrier: selectedOrder.carrier || '',
-                      trackingUrl: selectedOrder.tracking_url || ''
+                      trackingUrl: selectedOrder.tracking_url || '',
+                      shippingNotes: selectedOrder.shipping_notes || ''
                     })
+                    setShippingImages([])
                     setShowTrackingModal(true)
                   }}
                   className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
@@ -3986,14 +4048,14 @@ Check your inbox at ryan@achievepack.com`)
       {/* Add Tracking Modal */}
       {showTrackingModal && selectedOrder && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-          <div className="bg-white rounded-xl max-w-lg w-full">
-            <div className="p-6 border-b flex items-center justify-between">
+          <div className="bg-white rounded-xl max-w-lg w-full max-h-[90vh] overflow-hidden flex flex-col">
+            <div className="p-6 border-b flex items-center justify-between flex-shrink-0">
               <h2 className="text-xl font-bold">Add Tracking Information</h2>
               <button onClick={() => setShowTrackingModal(false)} className="text-gray-500 hover:text-gray-700">
                 <X className="h-5 w-5" />
               </button>
             </div>
-            <div className="p-6 space-y-4">
+            <div className="p-6 space-y-4 overflow-y-auto flex-1">
               <div className="bg-gray-50 rounded-lg p-4 mb-4">
                 <p className="text-sm text-gray-600">Order Number</p>
                 <p className="font-semibold text-lg">{selectedOrder.order_number}</p>
@@ -4039,20 +4101,96 @@ Check your inbox at ryan@achievepack.com`)
                 />
               </div>
 
+              {/* Shipping Images Upload */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <Image className="h-4 w-4 inline mr-1" />
+                  Shipping Photos (Visible to Customer)
+                </label>
+                <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 hover:border-primary-400 transition-colors">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    multiple
+                    onChange={(e) => {
+                      if (e.target.files) {
+                        setShippingImages(prev => [...prev, ...Array.from(e.target.files!)])
+                      }
+                    }}
+                    className="hidden"
+                    id="shipping-images-upload"
+                  />
+                  <label htmlFor="shipping-images-upload" className="cursor-pointer flex flex-col items-center">
+                    <Upload className="h-8 w-8 text-gray-400 mb-2" />
+                    <span className="text-sm text-gray-600">Click to upload photos</span>
+                    <span className="text-xs text-gray-400 mt-1">Show customer what's being shipped</span>
+                  </label>
+                </div>
+                {/* Preview uploaded images */}
+                {(shippingImages.length > 0 || (selectedOrder.shipping_images && selectedOrder.shipping_images.length > 0)) && (
+                  <div className="mt-3 grid grid-cols-3 gap-2">
+                    {/* Existing images */}
+                    {selectedOrder.shipping_images?.map((url, idx) => (
+                      <div key={`existing-${idx}`} className="relative group">
+                        <img src={url} alt={`Shipping ${idx + 1}`} className="w-full h-20 object-cover rounded-lg" />
+                        <span className="absolute bottom-1 left-1 bg-green-500 text-white text-[10px] px-1 rounded">Saved</span>
+                      </div>
+                    ))}
+                    {/* New images to upload */}
+                    {shippingImages.map((file, idx) => (
+                      <div key={`new-${idx}`} className="relative group">
+                        <img src={URL.createObjectURL(file)} alt={`New ${idx + 1}`} className="w-full h-20 object-cover rounded-lg" />
+                        <button
+                          onClick={() => setShippingImages(prev => prev.filter((_, i) => i !== idx))}
+                          className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+                        >
+                          <X className="h-3 w-3" />
+                        </button>
+                        <span className="absolute bottom-1 left-1 bg-blue-500 text-white text-[10px] px-1 rounded">New</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Shipping Notes for Customer */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <MessageSquare className="h-4 w-4 inline mr-1" />
+                  Message to Customer (Optional)
+                </label>
+                <textarea
+                  value={trackingForm.shippingNotes}
+                  onChange={(e) => setTrackingForm({ ...trackingForm, shippingNotes: e.target.value })}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 text-sm"
+                  rows={2}
+                  placeholder="e.g., Package includes 2 boxes, shipped via air freight..."
+                />
+              </div>
+
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-sm text-blue-800">
                 <p className="font-medium">⚠️ Note:</p>
                 <p>Adding tracking will automatically update order status to "Shipped"</p>
+                <p className="text-xs mt-1">Photos and message will be visible to the customer.</p>
               </div>
 
               <div className="flex gap-3 pt-4">
                 <button
                   onClick={updateTracking}
-                  className="flex-1 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700"
+                  disabled={uploadingShippingImages}
+                  className="flex-1 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50 flex items-center justify-center gap-2"
                 >
-                  Save Tracking Info
+                  {uploadingShippingImages ? (
+                    <><RefreshCw className="h-4 w-4 animate-spin" /> Uploading...</>
+                  ) : (
+                    'Save Tracking Info'
+                  )}
                 </button>
                 <button
-                  onClick={() => setShowTrackingModal(false)}
+                  onClick={() => {
+                    setShowTrackingModal(false)
+                    setShippingImages([])
+                  }}
                   className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
                 >
                   Cancel

@@ -32,6 +32,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       trackingNumber,
       carrier,
       trackingUrl,
+      shippingImages,
+      shippingNotes,
       status = 'shipped'
     } = req.body
 
@@ -55,6 +57,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     if (carrier !== undefined) {
       updateData.carrier = carrier
+    }
+
+    // Add shipping images if provided
+    if (shippingImages !== undefined) {
+      updateData.shipping_images = shippingImages
+    }
+
+    // Add shipping notes if provided
+    if (shippingNotes !== undefined) {
+      updateData.shipping_notes = shippingNotes
     }
 
     console.log('Update data:', JSON.stringify(updateData))
