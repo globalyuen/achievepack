@@ -346,7 +346,7 @@ const AdminPage: React.FC = () => {
     }
     
     const [customersRes, ordersRes, subscribersRes, documentsRes, draftsRes, emailHistoryRes] = await Promise.all([
-      supabase.from('profiles').select('*').order('created_at', { ascending: false }),
+      supabase.from('profiles').select('*').is('deleted_at', null).order('created_at', { ascending: false }),
       supabase.from('orders').select('*').neq('status', 'deleted').order('created_at', { ascending: false }),
       supabase.from('newsletter_subscribers').select('*').order('created_at', { ascending: false }),
       supabase.from('documents').select('*').order('created_at', { ascending: false }),
@@ -1203,6 +1203,42 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
     }
   }
 
+  // Delete customer (soft delete - move to bin)
+  const deleteCustomer = async (customerId: string, customerEmail: string) => {
+    if (confirm(`Move this customer (${customerEmail}) to Bin? You can restore it later.`)) {
+      try {
+        const { data, error } = await supabase
+          .from('profiles')
+          .update({ 
+            deleted_at: new Date().toISOString()
+          })
+          .eq('id', customerId)
+          .select()
+        
+        if (error) {
+          console.error('Delete customer error:', error)
+          alert(`Failed to delete customer: ${error.message}`)
+          return
+        }
+        
+        if (!data || data.length === 0) {
+          console.warn('Customer update returned no data - might be blocked by RLS')
+          setCustomers(prev => prev.filter(c => c.id !== customerId))
+          alert('Customer moved to Bin!')
+          return
+        }
+        
+        alert('Customer moved to Bin!')
+        setCustomers(prev => prev.filter(c => c.id !== customerId))
+        setSelectedCustomer(null)
+        fetchData()
+      } catch (error: any) {
+        console.error('Delete customer error:', error)
+        alert(`Failed to delete customer: ${error.message}`)
+      }
+    }
+  }
+
   const toggleSubscription = async (id: string, currentStatus: boolean) => {
     const { error } = await supabase.from('newsletter_subscribers').update({ 
       subscribed: !currentStatus, 
@@ -1844,19 +1880,26 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                 {/* Mobile Cards View */}
                 <div className="md:hidden divide-y">
                   {filteredCustomers.map(customer => (
-                    <div key={customer.id} className="p-4" onClick={() => setSelectedCustomer(customer)}>
+                    <div key={customer.id} className="p-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center flex-shrink-0">
+                        <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center flex-shrink-0" onClick={() => setSelectedCustomer(customer)}>
                           <span className="text-primary-600 font-semibold">
                             {customer.full_name?.charAt(0) || customer.email?.charAt(0) || '?'}
                           </span>
                         </div>
-                        <div className="flex-1 min-w-0">
+                        <div className="flex-1 min-w-0" onClick={() => setSelectedCustomer(customer)}>
                           <p className="text-sm font-medium text-gray-900 truncate">{customer.full_name || 'No name'}</p>
                           <p className="text-xs text-gray-500 truncate">{customer.email}</p>
                           {customer.company && <p className="text-xs text-gray-400 truncate">{customer.company}</p>}
                         </div>
-                        <Eye className="h-5 w-5 text-gray-400" />
+                        <div className="flex items-center gap-2">
+                          <button onClick={() => setSelectedCustomer(customer)} className="p-1">
+                            <Eye className="h-5 w-5 text-gray-400" />
+                          </button>
+                          <button onClick={() => deleteCustomer(customer.id, customer.email)} className="p-1">
+                            <Trash2 className="h-5 w-5 text-red-400" />
+                          </button>
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -1899,12 +1942,22 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                             {customer.created_at ? new Date(customer.created_at).toLocaleDateString() : '-'}
                           </td>
                           <td className="px-6 py-4">
-                            <button
-                              onClick={() => setSelectedCustomer(customer)}
-                              className="text-primary-600 hover:text-primary-700"
-                            >
-                              <Eye className="h-5 w-5" />
-                            </button>
+                            <div className="flex items-center gap-2">
+                              <button
+                                onClick={() => setSelectedCustomer(customer)}
+                                className="text-primary-600 hover:text-primary-700"
+                                title="View Details"
+                              >
+                                <Eye className="h-5 w-5" />
+                              </button>
+                              <button
+                                onClick={() => deleteCustomer(customer.id, customer.email)}
+                                className="text-red-500 hover:text-red-700"
+                                title="Move to Bin"
+                              >
+                                <Trash2 className="h-5 w-5" />
+                              </button>
+                            </div>
                           </td>
                         </tr>
                       ))}

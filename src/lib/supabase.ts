@@ -12,6 +12,7 @@ export type Profile = {
   company: string
   phone: string
   created_at: string
+  deleted_at?: string  // Soft delete for bin/trash
 }
 
 export type Order = {
