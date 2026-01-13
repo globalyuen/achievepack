@@ -69,6 +69,7 @@ const TermsOfUsePage = lazyWithRetry(() => import('./pages/legal/TermsOfUsePage'
 const ContactPage = lazyWithRetry(() => import('./pages/ContactPage'))
 const AdminPage = lazyWithRetry(() => import('./pages/AdminPage'))
 const AdminManagementPage = lazyWithRetry(() => import('./pages/AdminManagementPage'))
+const ProjectDetailPage = lazyWithRetry(() => import('./pages/ProjectDetailPage'))
 const CustomerMapPage = lazyWithRetry(() => import('./pages/CustomerMapPage'))
 const ImageCatalogPage = lazyWithRetry(() => import('./pages/ImageCatalogPage'))
 const ArtworkHubPage = lazyWithRetry(() => import('./pages/ArtworkHubPage'))
@@ -323,6 +324,7 @@ createRoot(document.getElementById('root')!).render(
                       <Route path="/terms-of-use" element={<TermsOfUsePage />} />
                       <Route path="/contact" element={<ContactPage />} />
                       <Route path="/ctrl-x9k7m" element={<AdminPage />} />
+                      <Route path="/ctrl-x9k7m/projects/:projectId" element={<ProjectDetailPage />} />
                       <Route path="/ctrl-x9k7m/management" element={<AdminManagementPage />} />
                       <Route path="/ctrl-x9k7m/customer-map" element={<CustomerMapPage />} />
                       <Route path="/image-catalog" element={<ImageCatalogPage />} />
@@ -482,7 +484,7 @@ createRoot(document.getElementById('root')!).render(
                       <Route path="/free-service/packaging-mockup" element={<FreeMockupPage />} />
                       <Route path="/free-service/customer-center" element={<FreeCustomerCenterPage />} />
                       <Route path="/free-service/maxi-foods-demo" element={<MaxiFoodsDemoPage />} />
-                                            <Route path="/free-service/achieve-chips-demo" element={<AchieveChipsDemoPage />} />
+                      <Route path="/free-service/achieve-chips-demo" element={<AchieveChipsDemoPage />} />
 
                       {/* Bio-PE Pages */}
                       <Route path="/biope/what-is-bio-pe" element={<WhatIsBioPEPage />} />
