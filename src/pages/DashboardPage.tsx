@@ -1423,6 +1423,53 @@ const DashboardPage: React.FC = () => {
 
         {/* Page Content */}
         <main className="p-3 sm:p-4 md:p-6">
+          {/* Tracking Banner - Show prominently when orders have tracking */}
+          {orders.filter(o => o.tracking_number && o.status !== 'delivered').length > 0 && (
+            <div className="mb-4 sm:mb-6">
+              <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl p-4 sm:p-5 text-white shadow-lg">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="p-2 bg-white/20 rounded-lg">
+                    <Truck className="h-5 w-5 sm:h-6 sm:w-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-base sm:text-lg">Your Orders Are On The Way!</h3>
+                    <p className="text-blue-100 text-xs sm:text-sm">Track your shipments below</p>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  {orders.filter(o => o.tracking_number && o.status !== 'delivered').map(order => (
+                    <div key={order.id} className="bg-white/10 backdrop-blur rounded-lg p-3 flex items-center justify-between gap-3">
+                      <div className="flex items-center gap-3 min-w-0">
+                        <Package className="h-4 w-4 flex-shrink-0" />
+                        <div className="min-w-0">
+                          <p className="font-medium text-sm truncate">{order.order_number}</p>
+                          <p className="text-blue-100 text-xs truncate">
+                            {order.carrier || 'Carrier'}: {order.tracking_number}
+                          </p>
+                        </div>
+                      </div>
+                      {order.tracking_url ? (
+                        <a 
+                          href={order.tracking_url} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="flex-shrink-0 px-3 py-1.5 bg-white text-blue-600 rounded-lg text-xs sm:text-sm font-medium hover:bg-blue-50 transition-colors flex items-center gap-1"
+                        >
+                          <ExternalLink className="h-3 w-3" />
+                          Track
+                        </a>
+                      ) : (
+                        <span className="flex-shrink-0 px-3 py-1.5 bg-white/20 rounded-lg text-xs sm:text-sm">
+                          {order.status === 'shipped' ? 'In Transit' : order.status}
+                        </span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Dashboard Tab */}
           {activeTab === 'dashboard' && (
             <div className="space-y-4 sm:space-y-6">
