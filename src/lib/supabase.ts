@@ -20,19 +20,19 @@ export type Project = {
   user_id?: string
   customer_email?: string
   customer_name?: string
-
+  
   // Project type determines workflow
   // rfq: RFQ → Artwork → Custom Order → Shipping → Doc
   // stock: Stock Order → Shipping → Doc  
   // custom: Custom Order → Shipping → Doc (no RFQ)
   project_type: ProjectType
-
+  
   // Current status in workflow (database column: "status")
   status: ProjectStatus
-
+  
   created_at: string
   updated_at: string
-
+  
   // Aggregated data from related tables (computed in queries)
   quote_count?: number
   artwork_count?: number
@@ -74,7 +74,7 @@ export type Order = {
   created_at: string
   updated_at: string
   deleted_at?: string  // Soft delete for bin/trash
-
+  
   // Project linking
   project_id?: string
   order_type?: 'stock' | 'custom'
@@ -100,7 +100,7 @@ export type Quote = {
   quoted_amount?: number
   replied_at?: string
   deleted_at?: string  // Soft delete for bin/trash
-
+  
   // Project linking
   project_id?: string
 }
@@ -114,7 +114,7 @@ export type Document = {
   file_url: string
   is_public: boolean
   created_at: string
-
+  
   // Project linking
   project_id?: string
 }
@@ -151,19 +151,19 @@ export type ArtworkFile = {
   reviewed_at?: string
   created_at: string
   updated_at: string
-
+  
   // Coding system
   customer_code?: string        // "ACM01"
   product_code?: string         // "PKG01"
   version_number?: number       // 1, 2, 3
   artwork_code?: string         // "ACM01-ORD2401-PKG01-V001"
-
+  
   // Linking to Order/Quote
   linked_order_id?: string
   linked_quote_id?: string
   link_type?: 'order' | 'quote' | 'none'
   quote_number?: string
-
+  
   // Proof approval workflow
   approval_type?: 'approve_as_is' | 'not_approved'
   checklist_verified?: {
@@ -184,7 +184,7 @@ export type ArtworkFile = {
   approval_notes?: string
   revision_count?: number
   deleted_at?: string  // Soft delete for bin/trash
-
+  
   // AI Analysis (xAI Vision) - Admin only
   ai_analysis?: {
     title?: string
@@ -200,7 +200,7 @@ export type ArtworkFile = {
     analyzed_at?: string
   }
   customer_email?: string  // For reliable matching
-
+  
   // Project linking
   project_id?: string
 }
@@ -215,22 +215,6 @@ export type ArtworkComment = {
   is_admin: boolean
   message: string
   // File upload fields for thread system
-  file_url?: string
-  file_name?: string
-  file_size?: number
-  file_type?: string
-  message_type: 'text' | 'file' | 'status'
-  created_at: string
-}
-
-export type ProjectComment = {
-  id: string
-  project_id: string
-  user_id: string
-  user_email?: string
-  user_name?: string
-  is_admin: boolean
-  message: string
   file_url?: string
   file_name?: string
   file_size?: number
