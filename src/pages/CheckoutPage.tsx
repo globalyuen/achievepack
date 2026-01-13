@@ -116,7 +116,7 @@ const CheckoutPage: React.FC = () => {
         navigate('/store/rfq-confirmation', { state: { rfqNumber: orderNumber } })
       } else {
         // Normal Checkout Mode: Create Stripe checkout session
-        // First save order as pending_payment via API (bypasses RLS)
+        // First save order as pending via API (bypasses RLS)
         let orderSaved = false
         try {
           const saveOrderResponse = await fetch('/api/save-order', {
@@ -146,7 +146,7 @@ const CheckoutPage: React.FC = () => {
                 zipCode: formData.postalCode,
                 phone: formData.phone
               },
-              status: 'pending_payment'
+              status: 'pending'
             })
           })
           const saveOrderResult = await saveOrderResponse.json()
