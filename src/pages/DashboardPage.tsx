@@ -7,7 +7,8 @@ import {
   TrendingDown, Users, DollarSign, MoreHorizontal, Plus, RefreshCw, Eye, X, 
   MapPin, Phone, Mail as MailIcon, Truck, ExternalLink, Upload, CheckCircle, 
   Clock, AlertCircle, FileImage, MessageSquare, Send, Heart, Trash2, Globe, 
-  Camera, Info, Circle, PenLine, Link2, Sparkles, Star, RotateCcw, Archive, Zap
+  Camera, Info, Circle, PenLine, Link2, Sparkles, Star, RotateCcw, Archive, Zap,
+  LayoutGrid, List
 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, Order, Quote, Document, ArtworkFile, SavedCartItem, ArtworkComment, CustomerActivityLog } from '../lib/supabase'
@@ -56,6 +57,7 @@ const DashboardPage: React.FC = () => {
   const [savedItems, setSavedItems] = useState<SavedCartItem[]>([])
   const [loading, setLoading] = useState(true)
   const [activeTab, setActiveTab] = useState<TabType>('dashboard')
+  const [orderViewMode, setOrderViewMode] = useState<'list' | 'card'>('card')
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null)
   
@@ -1706,7 +1708,24 @@ const DashboardPage: React.FC = () => {
               {/* Header - Mobile Responsive */}
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                 <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">My Orders</h1>
-                <div className="flex gap-2 sm:gap-3">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  {/* View Toggle */}
+                  <div className="flex bg-gray-100 rounded-lg p-1">
+                    <button
+                      onClick={() => setOrderViewMode('list')}
+                      className={`p-1.5 rounded-md transition ${orderViewMode === 'list' ? 'bg-white shadow-sm text-primary-600' : 'text-gray-500 hover:text-gray-700'}`}
+                      title="List View"
+                    >
+                      <List className="h-4 w-4" />
+                    </button>
+                    <button
+                      onClick={() => setOrderViewMode('card')}
+                      className={`p-1.5 rounded-md transition ${orderViewMode === 'card' ? 'bg-white shadow-sm text-primary-600' : 'text-gray-500 hover:text-gray-700'}`}
+                      title="Card View"
+                    >
+                      <LayoutGrid className="h-4 w-4" />
+                    </button>
+                  </div>
                   <Link to="/store" className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-3 sm:px-4 py-2.5 sm:py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition text-sm">
                     <Plus className="h-4 w-4" /> <span className="hidden xs:inline">New</span> Order
                   </Link>
@@ -1722,7 +1741,7 @@ const DashboardPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Orders List - Artwork Style */}
+              {/* Orders List */}
               <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
                 {orders.length === 0 ? (
                   <div className="p-6 md:p-12 text-center">
@@ -1732,68 +1751,126 @@ const DashboardPage: React.FC = () => {
                       {t('customerCenter.dashboard.empty.shopNow')}
                     </Link>
                   </div>
-                ) : (
+                ) : orderViewMode === 'list' ? (
+                  /* List View */
                   <div className="divide-y divide-gray-100">
                     {orders.map(order => (
-                      <div key={order.id} className="p-3 md:p-5 hover:bg-gray-50 transition">
-                        <div className="space-y-3">
-                          {/* Top Row: Icon + Info + Status + Actions */}
-                          <div className="flex items-center gap-3">
-                            <div className={`w-14 h-14 md:w-16 md:h-16 rounded-lg flex-shrink-0 flex items-center justify-center ${
-                              order.status === 'delivered' ? 'bg-green-50' :
-                              order.status === 'shipped' ? 'bg-blue-50' :
-                              order.status === 'production' ? 'bg-purple-50' :
-                              'bg-primary-50'
-                            }`}>
+                      <div key={order.id} className="p-3 md:p-4 hover:bg-gray-50 transition cursor-pointer" onClick={() => handleSelectOrder(order)}>
+                        <div className="flex items-center gap-3">
+                          {/* Thumbnail - Show shipping image or icon */}
+                          <div className={`w-12 h-12 rounded-lg flex-shrink-0 overflow-hidden ${
+                            order.shipping_images && order.shipping_images.length > 0 ? '' : 
+                            order.status === 'delivered' ? 'bg-green-50 flex items-center justify-center' :
+                            order.status === 'shipped' ? 'bg-blue-50 flex items-center justify-center' :
+                            'bg-gray-100 flex items-center justify-center'
+                          }`}>
+                            {order.shipping_images && order.shipping_images.length > 0 ? (
+                              <img src={order.shipping_images[0]} alt="Shipment" className="w-full h-full object-cover" />
+                            ) : order.status === 'shipped' || order.status === 'delivered' ? (
+                              <Truck className={`h-5 w-5 ${order.status === 'delivered' ? 'text-green-600' : 'text-blue-600'}`} />
+                            ) : (
+                              <Package className="h-5 w-5 text-gray-400" />
+                            )}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2">
+                              <h3 className="font-medium text-gray-900 text-sm">{order.order_number}</h3>
+                              <span className={`px-1.5 py-0.5 text-[10px] font-medium rounded-full ${statusColors[order.status]}`}>
+                                {order.status}
+                              </span>
+                            </div>
+                            <div className="flex items-center gap-2 text-xs text-gray-500 mt-0.5">
+                              <span>${order.total_amount?.toLocaleString()}</span>
+                              <span>•</span>
+                              <span>{new Date(order.created_at).toLocaleDateString()}</span>
+                              {order.tracking_number && (
+                                <>
+                                  <span>•</span>
+                                  <span className="text-blue-600 flex items-center gap-0.5">
+                                    <Truck className="h-3 w-3" /> {order.carrier || 'Tracking'}
+                                  </span>
+                                </>
+                              )}
+                            </div>
+                            {order.shipping_notes && (
+                              <p className="text-xs text-gray-600 mt-1 line-clamp-1 flex items-center gap-1">
+                                <MessageSquare className="h-3 w-3 text-blue-500 flex-shrink-0" />
+                                {order.shipping_notes}
+                              </p>
+                            )}
+                          </div>
+                          {order.shipping_images && order.shipping_images.length > 1 && (
+                            <div className="flex-shrink-0 flex items-center gap-0.5">
+                              <Camera className="h-3 w-3 text-gray-400" />
+                              <span className="text-[10px] text-gray-500">{order.shipping_images.length}</span>
+                            </div>
+                          )}
+                          <Eye className="h-4 w-4 text-gray-400 flex-shrink-0" />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  /* Card View */
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+                    {orders.map(order => (
+                      <div key={order.id} className="border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition cursor-pointer bg-white" onClick={() => handleSelectOrder(order)}>
+                        {/* Card Header with Image or Icon */}
+                        <div className={`h-28 relative ${
+                          order.shipping_images && order.shipping_images.length > 0 ? '' :
+                          order.status === 'delivered' ? 'bg-gradient-to-br from-green-50 to-green-100' :
+                          order.status === 'shipped' ? 'bg-gradient-to-br from-blue-50 to-blue-100' :
+                          order.status === 'production' ? 'bg-gradient-to-br from-purple-50 to-purple-100' :
+                          'bg-gradient-to-br from-gray-50 to-gray-100'
+                        }`}>
+                          {order.shipping_images && order.shipping_images.length > 0 ? (
+                            <>
+                              <img src={order.shipping_images[0]} alt="Shipment" className="w-full h-full object-cover" />
+                              {order.shipping_images.length > 1 && (
+                                <div className="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] px-1.5 py-0.5 rounded-full flex items-center gap-0.5">
+                                  <Camera className="h-2.5 w-2.5" /> +{order.shipping_images.length - 1}
+                                </div>
+                              )}
+                            </>
+                          ) : (
+                            <div className="absolute inset-0 flex items-center justify-center">
                               {order.status === 'shipped' || order.status === 'delivered' ? (
-                                <Truck className={`h-6 w-6 md:h-7 md:w-7 ${order.status === 'delivered' ? 'text-green-600' : 'text-blue-600'}`} />
+                                <Truck className={`h-10 w-10 ${order.status === 'delivered' ? 'text-green-300' : 'text-blue-300'}`} />
                               ) : (
-                                <Package className={`h-6 w-6 md:h-7 md:w-7 ${
-                                  order.status === 'production' ? 'text-purple-600' : 'text-primary-600'
+                                <Package className={`h-10 w-10 ${
+                                  order.status === 'production' ? 'text-purple-300' : 'text-gray-300'
                                 }`} />
                               )}
                             </div>
-                            <div className="flex-1 min-w-0">
-                              <h3 className="font-semibold text-gray-900 text-sm truncate">{order.order_number}</h3>
-                              <div className="flex items-center gap-1.5 text-[11px] text-gray-500 mt-0.5">
-                                <span>${order.total_amount?.toLocaleString()}</span>
-                                <span>•</span>
-                                <span>{new Date(order.created_at).toLocaleDateString()}</span>
-                              </div>
-                            </div>
-                            <span className={`inline-flex items-center gap-1 px-2 py-1 text-[10px] font-medium rounded-full flex-shrink-0 ${statusColors[order.status]}`}>
-                              <span className="hidden sm:inline">{order.status}</span>
-                              <span className="sm:hidden">{order.status.slice(0, 4)}</span>
+                          )}
+                          {/* Status Badge */}
+                          <div className="absolute top-2 right-2">
+                            <span className={`px-2 py-0.5 text-[10px] font-medium rounded-full ${statusColors[order.status]}`}>
+                              {order.status}
                             </span>
-                            {/* Quick Action Buttons */}
-                            <div className="flex items-center gap-1.5 flex-shrink-0">
-                              <button
-                                onClick={() => handleSelectOrder(order)}
-                                className="w-8 h-8 flex items-center justify-center rounded-full bg-primary-100 text-primary-600 hover:bg-primary-200 transition"
-                                title="View Details"
-                              >
-                                <Eye className="h-4 w-4" />
-                              </button>
-                            </div>
                           </div>
+                        </div>
+                        {/* Card Content */}
+                        <div className="p-3">
+                          <div className="flex items-center justify-between mb-1">
+                            <h3 className="font-semibold text-gray-900 text-sm truncate">{order.order_number}</h3>
+                            <span className="text-sm font-medium text-gray-900">${order.total_amount?.toLocaleString()}</span>
+                          </div>
+                          <p className="text-xs text-gray-500 mb-2">{new Date(order.created_at).toLocaleDateString()}</p>
                           
                           {/* Tracking Info */}
                           {order.tracking_number && (
-                            <div className="bg-blue-50 rounded-lg p-2.5 flex items-center gap-2">
-                              <Truck className="h-3.5 w-3.5 text-blue-600 flex-shrink-0" />
-                              <div className="flex-1 min-w-0">
-                                <p className="text-[10px] font-medium text-blue-600">Tracking</p>
-                                <p className="text-xs text-blue-800 truncate">{order.carrier || 'Carrier'}: {order.tracking_number}</p>
-                              </div>
-                              <a
-                                href={`https://www.google.com/search?q=${order.tracking_number}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-600 hover:text-blue-800"
-                                onClick={(e) => e.stopPropagation()}
-                              >
-                                <ExternalLink className="h-3.5 w-3.5" />
-                              </a>
+                            <div className="bg-blue-50 rounded-lg px-2 py-1.5 mb-2 flex items-center gap-1.5">
+                              <Truck className="h-3 w-3 text-blue-600 flex-shrink-0" />
+                              <span className="text-[11px] text-blue-700 truncate">{order.carrier}: {order.tracking_number}</span>
+                            </div>
+                          )}
+                          
+                          {/* Admin Notes */}
+                          {order.shipping_notes && (
+                            <div className="bg-gray-50 rounded-lg px-2 py-1.5 flex items-start gap-1.5">
+                              <MessageSquare className="h-3 w-3 text-gray-500 mt-0.5 flex-shrink-0" />
+                              <p className="text-[11px] text-gray-600 line-clamp-2">{order.shipping_notes}</p>
                             </div>
                           )}
                         </div>
