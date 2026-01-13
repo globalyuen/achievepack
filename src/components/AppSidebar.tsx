@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import {
   Home, Package, FileText, Image, Trash2, LogOut, Plus, Search, Star, 
   ShoppingBag, FileCheck, Folder, ChevronDown, Settings, Users, Mail, 
-  Newspaper, Inbox, BarChart3, Palette, BookmarkCheck
+  Newspaper, Inbox, BarChart3, Palette, BookmarkCheck, Globe
 } from 'lucide-react'
 import {
   Sidebar,
@@ -112,18 +112,26 @@ const adminMenuItems = [
     ]
   },
   {
-    group: 'Management',
+    group: 'Sales & Orders',
     collapsible: true,
     defaultOpen: true,
     items: [
       { id: 'customers', label: 'Customers', icon: Users, countKey: 'customers' },
       { id: 'orders', label: 'Orders', icon: Package, countKey: 'orders' },
       { id: 'quotes', label: 'Quotes & RFQs', icon: FileCheck },
-      { id: 'artwork', label: 'Artwork Files', icon: Image },
     ]
   },
   {
-    group: 'CRM & Marketing',
+    group: 'Design & Artwork',
+    collapsible: true,
+    defaultOpen: true,
+    items: [
+      { id: 'artwork', label: 'Artwork Files', icon: Image },
+      { id: 'artwork-proof', label: 'Proof Approval', icon: Palette },
+    ]
+  },
+  {
+    group: 'Marketing & CRM',
     collapsible: true,
     items: [
       { id: 'crm', label: 'CRM Inbox', icon: Inbox },
@@ -132,10 +140,12 @@ const adminMenuItems = [
     ]
   },
   {
-    group: 'Resources',
+    group: 'Content & Resources',
     collapsible: true,
     items: [
       { id: 'documents', label: 'Documents', icon: FileText },
+      { id: 'website-demos', label: 'Demo Sites', icon: Globe },
+      { id: 'projects', label: 'Projects', icon: Folder },
     ]
   },
   {

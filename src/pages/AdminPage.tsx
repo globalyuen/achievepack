@@ -6,6 +6,7 @@ import { blogPosts } from '../data/blogData'
 import { Home, Users, Package, Settings, Search, ChevronDown, ChevronLeft, ChevronRight, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox, Send, FileCode, Check, Globe, Filter, MapPin, Factory, Tag, History, Zap, Bell, Loader2, Download } from 'lucide-react'
 import CRMPanelAdvanced from '../components/admin/CRMPanelAdvanced'
 import AchieveCoffeeCMS from '../components/admin/AchieveCoffeeCMS'
+import WebsiteDemoCMS from '../components/admin/WebsiteDemoCMS'
 import { sendTestEmail, sendBulkEmails, generateEmailTemplate, EmailRecipient } from '../lib/brevo'
 import { QuickAccessSheet, type QuickAccessItem, type QuoteStatus, type InvoiceStatus, type ArtworkQuickStatus } from '../components/ui/QuickAccessSheet'
 import { PinList, type PinListItem } from '../components/animate-ui/components/community/pin-list'
@@ -54,7 +55,7 @@ function detectIndustry(text: string): string {
   return 'Other'
 }
 
-type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'artwork' | 'documents' | 'newsletter' | 'crm' | 'email-marketing' | 'website' | 'settings'
+type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'artwork' | 'artwork-proof' | 'documents' | 'newsletter' | 'crm' | 'email-marketing' | 'website' | 'website-demos' | 'projects' | 'settings'
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
 
@@ -76,6 +77,7 @@ const AdminPage: React.FC = () => {
   const [selectedQuote, setSelectedQuote] = useState<Quote | null>(null)
   const [selectedArtwork, setSelectedArtwork] = useState<ArtworkFile | null>(null)
   const [documents, setDocuments] = useState<Document[]>([])
+  const [projects, setProjects] = useState<any[]>([])
   const [showUploadModal, setShowUploadModal] = useState(false)
   const [showTrackingModal, setShowTrackingModal] = useState(false)
   const [uploadForm, setUploadForm] = useState({ userId: '', name: '', description: '', fileUrl: '', type: 'PDF' })
@@ -347,14 +349,15 @@ const AdminPage: React.FC = () => {
       }
     }
     
-    const [customersRes, ordersRes, subscribersRes, documentsRes, draftsRes, emailHistoryRes, quotesRes] = await Promise.all([
+    const [customersRes, ordersRes, subscribersRes, documentsRes, draftsRes, emailHistoryRes, quotesRes, projectsRes] = await Promise.all([
       supabase.from('profiles').select('*').is('deleted_at', null).order('created_at', { ascending: false }),
       supabase.from('orders').select('*').neq('status', 'deleted').order('created_at', { ascending: false }),
       supabase.from('newsletter_subscribers').select('*').order('created_at', { ascending: false }),
       supabase.from('documents').select('*').order('created_at', { ascending: false }),
       supabase.from('email_drafts').select('*').order('updated_at', { ascending: false }),
       supabase.from('crm_activities').select('*').eq('type', 'email').order('created_at', { ascending: false }).limit(100),
-      supabase.from('quotes').select('*').order('created_at', { ascending: false })
+      supabase.from('quotes').select('*').order('created_at', { ascending: false }),
+      supabase.from('projects').select('*').order('created_at', { ascending: false })
     ])
     
     // Debug: Log data counts
@@ -385,6 +388,7 @@ const AdminPage: React.FC = () => {
     setOrders(ordersRes.data || [])
     setSubscribers(subscribersRes.data || [])
     setDocuments(documentsRes.data || [])
+    setProjects(projectsRes.data || [])
     setEmailDrafts(draftsRes.data || [])
     setInquiries(allInquiries)
     setEmailHistory(emailHistoryRes.data || [])
@@ -1372,14 +1376,35 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
 
   const deleteDocument = async (id: string) => {
     if (confirm('Are you sure you want to delete this document?')) {
-      const { error } = await supabase.from('documents').delete().eq('id', id)
-      if (error) {
-        console.error('Delete document error:', error)
-        alert(`Failed to delete document: ${error.message}`)
-        return
+      try {
+        // Optimistically remove the document from the UI first to improve responsiveness
+        setDocuments(prev => prev.filter(doc => doc.id !== id))
+        
+        // Perform the actual deletion asynchronously without blocking UI
+        const { error } = await supabase.from('documents').delete().eq('id', id)
+        
+        if (error) {
+          console.error('Delete document error:', error)
+          // If deletion fails, restore the document in the UI
+          fetchData() // Re-fetch to restore correct state
+          alert(`Failed to delete document: ${error.message}`)
+          return
+        }
+        
+        // Success notification
+        alert('Document deleted successfully!')
+        
+        // Update UI state without blocking - using startTransition to avoid INP issues
+        startTransition(() => {
+          // The document is already removed from UI, but we can still update other related data if needed
+          // Only re-fetch if necessary for data consistency
+        })
+      } catch (err) {
+        console.error('Unexpected error during document deletion:', err)
+        alert('An unexpected error occurred while deleting the document.')
+        // Re-fetch data to ensure UI consistency
+        fetchData()
       }
-      alert('Document deleted successfully!')
-      fetchData()
     }
   }
 
@@ -1609,15 +1634,15 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
               </button>
 
               <button
-                onClick={() => setActiveTab('website')}
+                onClick={() => setActiveTab('website-demos')}
                 className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
-                  activeTab === 'website'
+                  activeTab === 'website-demos'
                     ? 'bg-primary-500 text-white'
                     : 'text-gray-900 hover:bg-primary-50 hover:text-primary-600'
                 }`}
               >
                 <Globe className="flex-shrink-0 w-5 h-5 mr-4" />
-                Website Demo
+                Demo Sites
               </button>
 
               <button
@@ -1702,7 +1727,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
 
         {/* Mobile Nav */}
         <div className="md:hidden flex overflow-x-auto bg-white border-b px-2 py-2 gap-2 sticky top-0 z-30">
-          {(['dashboard', 'customers', 'orders', 'documents', 'newsletter', 'crm', 'email-marketing', 'website', 'settings'] as TabType[]).map(tab => (
+          {(['dashboard', 'customers', 'orders', 'documents', 'newsletter', 'crm', 'email-marketing', 'website', 'website-demos', 'artwork', 'artwork-proof', 'projects', 'settings'] as TabType[]).map(tab => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -1721,7 +1746,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
               {tab === 'email-marketing' && <Mail className="h-4 w-4" />}
               {tab === 'website' && <Globe className="h-4 w-4" />}
               {tab === 'settings' && <Settings className="h-4 w-4" />}
-              <span>{tab === 'email-marketing' ? 'Email' : tab.charAt(0).toUpperCase() + tab.slice(1)}</span>
+              <span>{tab === 'email-marketing' ? 'Email' : tab === 'website-demos' ? 'Demo Sites' : tab.charAt(0).toUpperCase() + tab.slice(1)}</span>
             </button>
           ))}
           {/* Direct links to Management page */}
@@ -1878,6 +1903,92 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                 </div>
               </div>
 
+              {/* Needs Attention Section */}
+              <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
+                <div className="px-6 py-4 border-b">
+                  <h2 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                    <AlertCircle className="h-5 w-5 text-red-500" />
+                    Needs Attention
+                    <span className="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
+                      {quotes.filter(q => q.status === 'pending').length + 
+                       (artworks ? artworks.filter(a => a.status === 'pending_review' || a.status === 'in_review' || a.status === 'revision_needed').length : 0) + 
+                       orders.filter(o => o.status === 'pending' || o.status === 'confirmed').length}
+                    </span>
+                  </h2>
+                </div>
+                <div className="p-4 space-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {/* Quotes Need Attention */}
+                    <div className="border rounded-lg p-4 hover:bg-gray-50">
+                      <div className="flex items-center justify-between">
+                        <h3 className="font-medium text-gray-900 flex items-center gap-2">
+                          <FileText className="h-4 w-4 text-yellow-500" />
+                          Quotes
+                        </h3>
+                        <span className="bg-yellow-100 text-yellow-800 text-xs font-medium px-2 py-1 rounded-full">
+                          {quotes.filter(q => q.status === 'pending').length}
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-500 mt-1">Pending for review</p>
+                      {quotes.filter(q => q.status === 'pending').slice(0, 3).map(quote => {
+                        const customer = customers.find(c => c.id === quote.user_id)
+                        return (
+                          <div key={quote.id} className="mt-2 text-sm p-2 bg-yellow-50 rounded">
+                            <p className="font-medium">#{quote.quote_number}</p>
+                            <p className="text-gray-600 truncate">{customer?.full_name || 'Unknown'}</p>
+                          </div>
+                        )
+                      })}
+                    </div>
+                    
+                    {/* Artworks Need Attention */}
+                    <div className="border rounded-lg p-4 hover:bg-gray-50">
+                      <div className="flex items-center justify-between">
+                        <h3 className="font-medium text-gray-900 flex items-center gap-2">
+                          <Image className="h-4 w-4 text-purple-500" />
+                          Artworks
+                        </h3>
+                        <span className="bg-purple-100 text-purple-800 text-xs font-medium px-2 py-1 rounded-full">
+                          {artworks ? artworks.filter(a => a.status === 'pending_review' || a.status === 'in_review' || a.status === 'revision_needed').length : 0}
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-500 mt-1">Pending approval</p>
+                      {artworks && artworks.filter(a => a.status === 'pending_review' || a.status === 'in_review' || a.status === 'revision_needed').slice(0, 3).map(artwork => {
+                        const customer = customers.find(c => c.id === artwork.user_id)
+                        return (
+                          <div key={artwork.id} className="mt-2 text-sm p-2 bg-purple-50 rounded">
+                            <p className="font-medium">{artwork.name || artwork.id}</p>
+                            <p className="text-gray-600 truncate">{customer?.full_name || 'Unknown'}</p>
+                          </div>
+                        )
+                      })}
+                    </div>
+                    
+                    {/* Orders Need Attention */}
+                    <div className="border rounded-lg p-4 hover:bg-gray-50">
+                      <div className="flex items-center justify-between">
+                        <h3 className="font-medium text-gray-900 flex items-center gap-2">
+                          <Package className="h-4 w-4 text-blue-500" />
+                          Orders
+                        </h3>
+                        <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded-full">
+                          {orders.filter(o => o.status === 'pending' || o.status === 'confirmed').length}
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-500 mt-1">Need processing</p>
+                      {orders.filter(o => o.status === 'pending' || o.status === 'confirmed').slice(0, 3).map(order => {
+                        return (
+                          <div key={order.id} className="mt-2 text-sm p-2 bg-blue-50 rounded">
+                            <p className="font-medium">#{order.order_number}</p>
+                            <p className="text-gray-600 truncate">{order.customer_name}</p>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
               {/* Recent Orders */}
               <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
                 <div className="px-6 py-4 border-b">
@@ -2412,6 +2523,11 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
             <AchieveCoffeeCMS />
           )}
 
+          {/* Website Demo CMS Tab */}
+          {activeTab === 'website-demos' && (
+            <WebsiteDemoCMS />
+          )}
+
           {/* Newsletter Tab */}
           {activeTab === 'newsletter' && (
             <div className="space-y-4 md:space-y-6">
@@ -2540,6 +2656,179 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
             </div>
           )}
 
+          {/* Projects Tab */}
+          {activeTab === 'projects' && (
+            <div className="space-y-4 md:space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <h1 className="text-xl md:text-2xl font-bold text-gray-900">Projects</h1>
+                <button
+                  onClick={fetchData}
+                  className="flex items-center justify-center gap-2 px-4 py-2 bg-white border rounded-lg hover:bg-gray-50 text-sm w-full sm:w-auto"
+                >
+                  <RefreshCw className="h-4 w-4" />
+                  Refresh
+                </button>
+              </div>
+              
+              {/* Stats Cards */}
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+                <div className="bg-white rounded-xl p-4 md:p-6 shadow-sm border">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-xs md:text-sm text-gray-500">Total Projects</p>
+                      <p className="text-xl md:text-3xl font-bold text-gray-900 mt-1">{projects.length}</p>
+                    </div>
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                      <Package className="h-5 w-5 md:h-6 md:w-6 text-blue-600" />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-xl p-4 md:p-6 shadow-sm border">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-xs md:text-sm text-gray-500">RFQ Stage</p>
+                      <p className="text-xl md:text-3xl font-bold text-yellow-600 mt-1">{projects.filter(p => p.status === 'rfq').length}</p>
+                    </div>
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+                      <FileText className="h-5 w-5 md:h-6 md:w-6 text-yellow-600" />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-xl p-4 md:p-6 shadow-sm border">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-xs md:text-sm text-gray-500">Artwork Stage</p>
+                      <p className="text-xl md:text-3xl font-bold text-purple-600 mt-1">{projects.filter(p => p.status === 'artwork').length}</p>
+                    </div>
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                      <Image className="h-5 w-5 md:h-6 md:w-6 text-purple-600" />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-xl p-4 md:p-6 shadow-sm border">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-xs md:text-sm text-gray-500">Completed</p>
+                      <p className="text-xl md:text-3xl font-bold text-green-600 mt-1">{projects.filter(p => p.status === 'complete').length}</p>
+                    </div>
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-green-100 rounded-full flex items-center justify-center">
+                      <CheckCircle className="h-5 w-5 md:h-6 md:w-6 text-green-600" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Projects Table */}
+              <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Project Code</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customer</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stage</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Progress</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Updated</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-white divide-y divide-gray-200">
+                      {projects.map(project => {
+                        const customer = customers.find(c => c.id === project.user_id) || 
+                                      customers.find(c => c.email?.toLowerCase() === project.customer_email?.toLowerCase())
+                        const stageColors: Record<string, string> = {
+                          rfq: 'bg-yellow-100 text-yellow-700',
+                          artwork: 'bg-purple-100 text-purple-700',
+                          order: 'bg-blue-100 text-blue-700',
+                          production: 'bg-indigo-100 text-indigo-700',
+                          shipping: 'bg-cyan-100 text-cyan-700',
+                          complete: 'bg-green-100 text-green-700'
+                        }
+                        const stages = ['rfq', 'artwork', 'order', 'production', 'shipping', 'complete']
+                        const currentStageIndex = stages.indexOf(project.status)
+                        const progressPercent = Math.round(((currentStageIndex + 1) / stages.length) * 100)
+                        
+                        return (
+                          <tr key={project.id} className="hover:bg-gray-50">
+                            <td className="px-6 py-4 whitespace-nowrap">
+                              <span className="text-sm font-mono font-bold text-primary-600">{project.project_code}</span>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap">
+                              <div>
+                                <p className="text-sm font-medium text-gray-900">{customer?.full_name || project.customer_name || 'Unknown'}</p>
+                                <p className="text-xs text-gray-500">{customer?.email || project.customer_email}</p>
+                              </div>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap">
+                              <span className={`px-2 py-1 text-xs font-medium rounded ${
+                                project.project_type === 'stock' ? 'bg-green-100 text-green-700' :
+                                project.project_type === 'custom' ? 'bg-purple-100 text-purple-700' :
+                                'bg-yellow-100 text-yellow-700'
+                              }`}>
+                                {project.project_type?.toUpperCase() || 'CUSTOM'}
+                              </span>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap">
+                              <span className={`px-2 py-1 text-xs font-medium rounded-full ${stageColors[project.status] || 'bg-gray-100 text-gray-600'}`}>
+                                {project.status?.charAt(0).toUpperCase() + project.status?.slice(1)}
+                              </span>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap">
+                              <div className="w-24">
+                                <div className="flex items-center gap-2">
+                                  <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div 
+                                      className="h-full bg-primary-500 rounded-full transition-all"
+                                      style={{ width: `${progressPercent}%` }}
+                                    />
+                                  </div>
+                                  <span className="text-xs text-gray-500">{progressPercent}%</span>
+                                </div>
+                              </div>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              {new Date(project.updated_at).toLocaleDateString()}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                              <select
+                                value={project.status}
+                                onChange={async (e) => {
+                                  const newStage = e.target.value
+                                  await supabase.from('projects').update({ 
+                                    status: newStage,
+                                    updated_at: new Date().toISOString()
+                                  }).eq('id', project.id)
+                                  fetchData()
+                                }}
+                                className="text-sm border border-gray-300 rounded-lg px-2 py-1 focus:ring-2 focus:ring-primary-500"
+                              >
+                                <option value="rfq">RFQ</option>
+                                <option value="artwork">Artwork</option>
+                                <option value="order">Order</option>
+                                <option value="production">Production</option>
+                                <option value="shipping">Shipping</option>
+                                <option value="complete">Complete</option>
+                              </select>
+                            </td>
+                          </tr>
+                        )
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+                {projects.length === 0 && (
+                  <div className="text-center py-12 text-gray-500">
+                    No projects found
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+          
           {/* Email Marketing Tab */}
           {activeTab === 'email-marketing' && (
             <div className="space-y-4 md:space-y-6">

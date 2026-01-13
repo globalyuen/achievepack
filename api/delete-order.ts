@@ -54,11 +54,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       console.log(`Order ${orderId} permanently deleted`)
       return res.status(200).json({ success: true, action: 'permanently_deleted' })
     } else {
-      // Soft delete - mark status as 'deleted'
+      // Soft delete - mark status as cancelled and set deleted_at
       const { data, error } = await supabase
         .from('orders')
         .update({ 
-          status: 'deleted',
+          status: 'cancelled',
+          deleted_at: new Date().toISOString(),
           updated_at: new Date().toISOString()
         })
         .eq('id', orderId)
