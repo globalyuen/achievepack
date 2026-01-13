@@ -347,13 +347,14 @@ const AdminPage: React.FC = () => {
       }
     }
     
-    const [customersRes, ordersRes, subscribersRes, documentsRes, draftsRes, emailHistoryRes] = await Promise.all([
+    const [customersRes, ordersRes, subscribersRes, documentsRes, draftsRes, emailHistoryRes, quotesRes] = await Promise.all([
       supabase.from('profiles').select('*').is('deleted_at', null).order('created_at', { ascending: false }),
       supabase.from('orders').select('*').neq('status', 'deleted').order('created_at', { ascending: false }),
       supabase.from('newsletter_subscribers').select('*').order('created_at', { ascending: false }),
       supabase.from('documents').select('*').order('created_at', { ascending: false }),
       supabase.from('email_drafts').select('*').order('updated_at', { ascending: false }),
-      supabase.from('crm_activities').select('*').eq('type', 'email').order('created_at', { ascending: false }).limit(100)
+      supabase.from('crm_activities').select('*').eq('type', 'email').order('created_at', { ascending: false }).limit(100),
+      supabase.from('quotes').select('*').order('created_at', { ascending: false })
     ])
     
     // Debug: Log data counts
@@ -362,7 +363,8 @@ const AdminPage: React.FC = () => {
       orders: ordersRes.data?.length || 0,
       subscribers: subscribersRes.data?.length || 0,
       inquiries: allInquiries.length,
-      emailHistory: emailHistoryRes.data?.length || 0
+      emailHistory: emailHistoryRes.data?.length || 0,
+      quotes: quotesRes.data?.length || 0
     })
     
     // Debug: Log inquiry sources
@@ -377,6 +379,7 @@ const AdminPage: React.FC = () => {
     // Check for errors
     if (customersRes.error) console.error('Customers error:', customersRes.error)
     if (subscribersRes.error) console.error('Subscribers error:', subscribersRes.error)
+    if (quotesRes.error) console.error('Quotes error:', quotesRes.error)
     
     setCustomers(customersRes.data || [])
     setOrders(ordersRes.data || [])
@@ -385,6 +388,7 @@ const AdminPage: React.FC = () => {
     setEmailDrafts(draftsRes.data || [])
     setInquiries(allInquiries)
     setEmailHistory(emailHistoryRes.data || [])
+    setQuotes(quotesRes.data || [])
     setLoading(false)
   }
 
@@ -1616,13 +1620,17 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                 Website Demo
               </button>
 
-              <Link
-                to="/ctrl-x9k7m/management?tab=quotes"
-                className="flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 text-gray-900 hover:bg-yellow-50 hover:text-yellow-600"
+              <button
+                onClick={() => setActiveTab('quotes')}
+                className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
+                  activeTab === 'quotes'
+                    ? 'bg-yellow-500 text-white'
+                    : 'text-gray-900 hover:bg-yellow-50 hover:text-yellow-600'
+                }`}
               >
                 <MessageSquare className="flex-shrink-0 w-5 h-5 mr-4" />
                 Quotes & RFQ
-              </Link>
+              </button>
 
               <Link
                 to="/ctrl-x9k7m/management?tab=artwork"
@@ -1717,13 +1725,15 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
             </button>
           ))}
           {/* Direct links to Management page */}
-          <Link
-            to="/ctrl-x9k7m/management?tab=quotes"
-            className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap bg-blue-100 text-blue-700 hover:bg-blue-200 transition-all"
+          <button
+            onClick={() => setActiveTab('quotes')}
+            className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-all ${
+              activeTab === 'quotes' ? 'bg-yellow-500 text-white' : 'bg-yellow-100 text-yellow-700 hover:bg-yellow-200'
+            }`}
           >
             <FileCheck className="h-4 w-4" />
             <span>Quotes</span>
-          </Link>
+          </button>
           <Link
             to="/ctrl-x9k7m/management?tab=artwork"
             className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap bg-purple-100 text-purple-700 hover:bg-purple-200 transition-all"
@@ -2246,6 +2256,121 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                     <div className="text-center py-12 text-gray-500">
                       No documents uploaded yet
                     </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Quotes & RFQ Tab */}
+          {activeTab === 'quotes' && (
+            <div className="space-y-4 md:space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <h1 className="text-xl md:text-2xl font-bold text-gray-900">Quotes & RFQ Requests</h1>
+                <button
+                  onClick={fetchData}
+                  className="flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-lg transition"
+                >
+                  <RefreshCw className="h-4 w-4" />
+                  Refresh
+                </button>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
+                {/* Desktop Table View */}
+                <div className="hidden md:block overflow-x-auto">
+                  <table className="w-full">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Quote #</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Customer</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Amount</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Notes</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200">
+                      {quotes.map(quote => {
+                        const customer = customers.find(c => c.id === quote.user_id)
+                        return (
+                          <tr key={quote.id} className="hover:bg-gray-50">
+                            <td className="px-6 py-4 text-sm font-medium text-gray-900">{quote.quote_number}</td>
+                            <td className="px-6 py-4">
+                              <div>
+                                <p className="text-sm font-medium text-gray-900">{customer?.full_name || 'Unknown'}</p>
+                                <p className="text-xs text-gray-500">{customer?.email || '-'}</p>
+                              </div>
+                            </td>
+                            <td className="px-6 py-4">
+                              <span className={`px-2 py-1 text-xs font-medium rounded-full ${
+                                quote.status === 'accepted' ? 'bg-green-100 text-green-700' :
+                                quote.status === 'pending' ? 'bg-yellow-100 text-yellow-700' :
+                                quote.status === 'expired' ? 'bg-red-100 text-red-700' :
+                                'bg-gray-100 text-gray-700'
+                              }`}>
+                                {quote.status}
+                              </span>
+                            </td>
+                            <td className="px-6 py-4 text-sm text-gray-900">
+                              {quote.total_amount > 0 ? `$${quote.total_amount.toLocaleString()}` : 'TBD'}
+                            </td>
+                            <td className="px-6 py-4 text-sm text-gray-500">
+                              {new Date(quote.created_at).toLocaleDateString()}
+                            </td>
+                            <td className="px-6 py-4 text-sm text-gray-600 max-w-xs">
+                              <p className="line-clamp-2">{quote.notes || '-'}</p>
+                            </td>
+                          </tr>
+                        )
+                      })}
+                    </tbody>
+                  </table>
+                  {quotes.length === 0 && (
+                    <div className="text-center py-12 text-gray-500">
+                      No quotes or RFQ requests yet
+                    </div>
+                  )}
+                </div>
+
+                {/* Mobile Cards View */}
+                <div className="md:hidden divide-y">
+                  {quotes.map(quote => {
+                    const customer = customers.find(c => c.id === quote.user_id)
+                    return (
+                      <div key={quote.id} className="p-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-sm font-bold text-gray-900">{quote.quote_number}</span>
+                          <span className={`px-2 py-1 text-xs font-medium rounded-full ${
+                            quote.status === 'accepted' ? 'bg-green-100 text-green-700' :
+                            quote.status === 'pending' ? 'bg-yellow-100 text-yellow-700' :
+                            quote.status === 'expired' ? 'bg-red-100 text-red-700' :
+                            'bg-gray-100 text-gray-700'
+                          }`}>
+                            {quote.status}
+                          </span>
+                        </div>
+                        <div className="text-sm text-gray-600 mb-1">
+                          {customer?.full_name || customer?.email || 'Unknown Customer'}
+                        </div>
+                        <div className="flex items-center justify-between text-sm">
+                          <span className="font-medium text-gray-900">
+                            {quote.total_amount > 0 ? `$${quote.total_amount.toLocaleString()}` : 'TBD'}
+                          </span>
+                          <span className="text-xs text-gray-500">
+                            {new Date(quote.created_at).toLocaleDateString()}
+                          </span>
+                        </div>
+                        {quote.notes && (
+                          <p className="mt-2 text-xs text-gray-600 bg-gray-50 p-2 rounded line-clamp-3">
+                            {quote.notes}
+                          </p>
+                        )}
+                      </div>
+                    )
+                  })}
+                  {quotes.length === 0 && (
+                    <div className="text-center py-12 text-gray-500 text-sm">No quotes or RFQ requests yet</div>
                   )}
                 </div>
               </div>
