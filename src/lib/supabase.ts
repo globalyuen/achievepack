@@ -5,6 +5,50 @@ const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 
 export const supabase = createClient(supabaseUrl || '', supabaseAnonKey || '')
 
+// ===========================================
+// Unified Project Tracking System
+// PRJ-YYYY-NNNN format for all order stages
+// ===========================================
+
+export type ProjectType = 'rfq' | 'stock' | 'custom'
+export type ProjectStage = 'rfq' | 'artwork' | 'order' | 'production' | 'shipping' | 'complete'
+
+export type Project = {
+  id: string
+  project_code: string  // "PRJ-2024-0001" 统一编码
+  user_id: string
+  customer_email?: string
+  customer_name?: string
+  
+  // Project type determines workflow
+  // rfq: RFQ → Artwork → Custom Order → Shipping → Doc
+  // stock: Stock Order → Shipping → Doc
+  // custom: Custom Order → Shipping → Doc (no RFQ)
+  project_type: ProjectType
+  
+  // Current stage in workflow
+  current_stage: ProjectStage
+  
+  // Stage completion flags
+  rfq_completed: boolean
+  artwork_completed: boolean
+  order_completed: boolean
+  shipping_completed: boolean
+  
+  notes?: string
+  created_at: string
+  updated_at: string
+  
+  // Aggregated data from related tables (from project_summary view)
+  quote_count?: number
+  artwork_count?: number
+  order_count?: number
+  document_count?: number
+  quotes?: Quote[]
+  artworks?: ArtworkFile[]
+  orders?: Order[]
+}
+
 export type Profile = {
   id: string
   email: string
@@ -36,6 +80,10 @@ export type Order = {
   created_at: string
   updated_at: string
   deleted_at?: string  // Soft delete for bin/trash
+  
+  // Project linking
+  project_id?: string
+  order_type?: 'stock' | 'custom'
 }
 
 export type Quote = {
@@ -58,6 +106,9 @@ export type Quote = {
   quoted_amount?: number
   replied_at?: string
   deleted_at?: string  // Soft delete for bin/trash
+  
+  // Project linking
+  project_id?: string
 }
 
 export type Document = {
@@ -69,6 +120,9 @@ export type Document = {
   file_url: string
   is_public: boolean
   created_at: string
+  
+  // Project linking
+  project_id?: string
 }
 
 export type ImageDescription = {
@@ -152,6 +206,9 @@ export type ArtworkFile = {
     analyzed_at?: string
   }
   customer_email?: string  // For reliable matching
+  
+  // Project linking
+  project_id?: string
 }
 
 // Artwork Comment for customer-admin exchange (Thread System)

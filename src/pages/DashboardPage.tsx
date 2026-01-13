@@ -11,7 +11,7 @@ import {
   LayoutGrid, List
 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
-import { supabase, Order, Quote, Document, ArtworkFile, SavedCartItem, ArtworkComment, CustomerActivityLog } from '../lib/supabase'
+import { supabase, Order, Quote, Document, ArtworkFile, SavedCartItem, ArtworkComment, CustomerActivityLog, Project } from '../lib/supabase'
 import { analyzeArtworkWithXAI } from '../lib/artworkAnalysis'
 import { useTranslation } from 'react-i18next'
 import { useStore } from '../store/StoreContext'
@@ -31,7 +31,7 @@ import { ArtworkStatusAvatar, type StatusItem, type ArtworkStatus } from '../com
 import { QuickAccessSheet, type QuickAccessItem, type ArtworkQuickStatus } from '../components/ui/QuickAccessSheet'
 import { ImagePreviewPopover } from '../components/animate-ui/components/radix/popover'
 
-type TabType = 'dashboard' | 'orders' | 'quotes' | 'documents' | 'artwork' | 'saved' | 'settings' | 'bin'
+type TabType = 'dashboard' | 'rfq' | 'artwork' | 'stock' | 'custom' | 'shipping' | 'documents' | 'saved' | 'settings' | 'bin'
 
 const statusColors: Record<string, string> = {
   pending: 'bg-yellow-100 text-yellow-800',
@@ -50,6 +50,7 @@ const DashboardPage: React.FC = () => {
   const { addToCart, setIsCartOpen } = useStore()
   const [isPending, startTransition] = useTransition()
   const [orders, setOrders] = useState<Order[]>([])
+  const [projects, setProjects] = useState<Project[]>([])
   const [quotes, setQuotes] = useState<Quote[]>([])
   const [documents, setDocuments] = useState<Document[]>([])
   const [artworks, setArtworks] = useState<ArtworkFile[]>([])
@@ -213,7 +214,7 @@ const DashboardPage: React.FC = () => {
           time: timeAgo(q.replied_at || q.created_at),
           type: 'default',
           isAdmin: true,
-          onClick: () => setActiveTab('quotes')
+          onClick: () => setActiveTab('rfq')
         })
       })
     
@@ -273,7 +274,7 @@ const DashboardPage: React.FC = () => {
         badgeColor: statusColors[o.status] || 'bg-gray-100 text-gray-600',
         pinned: pinnedIds.has(o.id),
         onClick: () => {
-          setActiveTab('orders')
+          setActiveTab('custom')
           setSelectedOrder(o)
         }
       })
@@ -289,7 +290,7 @@ const DashboardPage: React.FC = () => {
         badge: 'Pending',
         badgeColor: 'bg-yellow-100 text-yellow-700',
         pinned: pinnedIds.has(q.id),
-        onClick: () => setActiveTab('quotes')
+        onClick: () => setActiveTab('rfq')
       })
     })
     
@@ -515,8 +516,19 @@ const DashboardPage: React.FC = () => {
       queries.push(Promise.resolve({ data: [], error: null }))
       queries.push(Promise.resolve({ data: [], error: null }))
     }
+    
+    // Projects - fetch by user_id or customer_email
+    if (userId && userEmail) {
+      queries.push(supabase.from('projects').select('*').or(`user_id.eq.${userId},customer_email.ilike.${userEmail}`).order('created_at', { ascending: false }))
+    } else if (userEmail) {
+      queries.push(supabase.from('projects').select('*').ilike('customer_email', userEmail).order('created_at', { ascending: false }))
+    } else if (userId) {
+      queries.push(supabase.from('projects').select('*').eq('user_id', userId).order('created_at', { ascending: false }))
+    } else {
+      queries.push(Promise.resolve({ data: [], error: null }))
+    }
 
-    const [ordersRes, quotesRes, rfqRes, docsRes, artworksRes, savedRes, deletedArtworksRes, artworksByEmailRes, deletedArtworksByEmailRes] = await Promise.all(queries)
+    const [ordersRes, quotesRes, rfqRes, docsRes, artworksRes, savedRes, deletedArtworksRes, artworksByEmailRes, deletedArtworksByEmailRes, projectsRes] = await Promise.all(queries)
     setOrders(ordersRes.data || [])
     
     // Merge quotes and RFQ submissions
@@ -560,6 +572,7 @@ const DashboardPage: React.FC = () => {
     )
     setDeletedArtworks(mergedDeleted)
     setSavedItems(savedRes.data || [])
+    setProjects(projectsRes.data || [])
     setLoading(false)
   }
 
@@ -1424,11 +1437,11 @@ const DashboardPage: React.FC = () => {
               <TabsTrigger value="dashboard" className="px-2.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all whitespace-nowrap">
                 Home
               </TabsTrigger>
-              <TabsTrigger value="orders" className="px-2.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all relative whitespace-nowrap">
-                Orders
-                {activeOrders > 0 && (
-                  <span className="ml-1 sm:ml-1.5 px-1 sm:px-1.5 py-0.5 text-[9px] sm:text-[10px] font-bold bg-primary-100 text-primary-700 rounded-full">
-                    {activeOrders}
+              <TabsTrigger value="rfq" className="px-2.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all relative whitespace-nowrap">
+                RFQ
+                {quotes.filter(q => q.is_rfq && q.status === 'pending').length > 0 && (
+                  <span className="ml-1 sm:ml-1.5 px-1 sm:px-1.5 py-0.5 text-[9px] sm:text-[10px] font-bold bg-yellow-100 text-yellow-700 rounded-full">
+                    {quotes.filter(q => q.is_rfq && q.status === 'pending').length}
                   </span>
                 )}
               </TabsTrigger>
@@ -1440,19 +1453,32 @@ const DashboardPage: React.FC = () => {
                   </span>
                 )}
               </TabsTrigger>
-              <TabsTrigger value="quotes" className="px-2.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all relative whitespace-nowrap">
-                Quotes
-                {pendingQuotes > 0 && (
-                  <span className="ml-1 sm:ml-1.5 px-1 sm:px-1.5 py-0.5 text-[9px] sm:text-[10px] font-bold bg-yellow-100 text-yellow-700 rounded-full">
-                    {pendingQuotes}
+              <TabsTrigger value="stock" className="px-2.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all relative whitespace-nowrap">
+                Stock
+                {orders.filter(o => o.order_type === 'stock' && !['delivered', 'cancelled'].includes(o.status)).length > 0 && (
+                  <span className="ml-1 sm:ml-1.5 px-1 sm:px-1.5 py-0.5 text-[9px] sm:text-[10px] font-bold bg-green-100 text-green-700 rounded-full">
+                    {orders.filter(o => o.order_type === 'stock' && !['delivered', 'cancelled'].includes(o.status)).length}
                   </span>
                 )}
               </TabsTrigger>
-              <TabsTrigger value="saved" className="px-2.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all whitespace-nowrap">
-                Saved
+              <TabsTrigger value="custom" className="px-2.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all relative whitespace-nowrap">
+                Custom
+                {orders.filter(o => o.order_type !== 'stock' && !['delivered', 'cancelled'].includes(o.status)).length > 0 && (
+                  <span className="ml-1 sm:ml-1.5 px-1 sm:px-1.5 py-0.5 text-[9px] sm:text-[10px] font-bold bg-purple-100 text-purple-700 rounded-full">
+                    {orders.filter(o => o.order_type !== 'stock' && !['delivered', 'cancelled'].includes(o.status)).length}
+                  </span>
+                )}
+              </TabsTrigger>
+              <TabsTrigger value="shipping" className="px-2.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all relative whitespace-nowrap">
+                Shipping
+                {orders.filter(o => o.tracking_number && o.status !== 'delivered').length > 0 && (
+                  <span className="ml-1 sm:ml-1.5 px-1 sm:px-1.5 py-0.5 text-[9px] sm:text-[10px] font-bold bg-blue-100 text-blue-700 rounded-full">
+                    {orders.filter(o => o.tracking_number && o.status !== 'delivered').length}
+                  </span>
+                )}
               </TabsTrigger>
               <TabsTrigger value="documents" className="px-2.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all whitespace-nowrap">
-                Docs
+                Doc
               </TabsTrigger>
             </TabsList>
           </Tabs>
@@ -1645,12 +1671,88 @@ const DashboardPage: React.FC = () => {
                 </div>
               )}
 
+              {/* Projects Timeline - Unified Order Tracking */}
+              {projects.length > 0 && (
+                <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
+                  <div className="p-3 sm:p-4 md:p-5 border-b border-gray-100 flex items-center justify-between">
+                    <h2 className="text-sm sm:text-base font-semibold text-gray-900 flex items-center gap-2">
+                      <FileText className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
+                      Active Projects
+                    </h2>
+                    <span className="text-xs text-gray-500">{projects.length} project{projects.length > 1 ? 's' : ''}</span>
+                  </div>
+                  <div className="divide-y divide-gray-50">
+                    {projects.slice(0, 5).map(project => {
+                      const stageColors: Record<string, string> = {
+                        rfq: 'bg-yellow-100 text-yellow-700',
+                        artwork: 'bg-purple-100 text-purple-700',
+                        order: 'bg-blue-100 text-blue-700',
+                        production: 'bg-indigo-100 text-indigo-700',
+                        shipping: 'bg-cyan-100 text-cyan-700',
+                        complete: 'bg-green-100 text-green-700'
+                      }
+                      const stageLabels: Record<string, string> = {
+                        rfq: 'RFQ',
+                        artwork: 'Artwork',
+                        order: 'Order',
+                        production: 'Production',
+                        shipping: 'Shipping',
+                        complete: 'Complete'
+                      }
+                      const stages = ['rfq', 'artwork', 'order', 'production', 'shipping', 'complete']
+                      const currentStageIndex = stages.indexOf(project.current_stage)
+                      
+                      return (
+                        <div key={project.id} className="p-3 sm:p-4 hover:bg-gray-50 transition">
+                          <div className="flex items-center justify-between gap-3 mb-2">
+                            <div className="flex items-center gap-2 min-w-0">
+                              <span className="text-xs sm:text-sm font-mono font-bold text-primary-600">{project.project_code}</span>
+                              {project.project_type && (
+                                <span className={`px-1.5 py-0.5 text-[9px] sm:text-[10px] font-medium rounded ${
+                                  project.project_type === 'stock' ? 'bg-green-50 text-green-600' : 
+                                  project.project_type === 'custom' ? 'bg-purple-50 text-purple-600' : 'bg-yellow-50 text-yellow-600'
+                                }`}>
+                                  {project.project_type.toUpperCase()}
+                                </span>
+                              )}
+                            </div>
+                            <span className={`px-2 py-0.5 text-[10px] sm:text-xs font-medium rounded-full ${stageColors[project.current_stage] || 'bg-gray-100 text-gray-600'}`}>
+                              {stageLabels[project.current_stage] || project.current_stage}
+                            </span>
+                          </div>
+                          {/* Progress Timeline */}
+                          <div className="flex items-center gap-1 mt-2">
+                            {stages.map((stage, idx) => {
+                              const isCompleted = idx < currentStageIndex || project.current_stage === 'complete'
+                              const isCurrent = idx === currentStageIndex
+                              // Skip RFQ for stock orders
+                              if (stage === 'rfq' && project.project_type === 'stock') return null
+                              return (
+                                <div key={stage} className="flex items-center flex-1">
+                                  <div className={`h-1.5 sm:h-2 flex-1 rounded-full ${
+                                    isCompleted ? 'bg-green-500' : isCurrent ? 'bg-blue-500' : 'bg-gray-200'
+                                  }`} />
+                                  {idx < stages.length - 1 && <div className="w-0.5 sm:w-1" />}
+                                </div>
+                              )
+                            })}
+                          </div>
+                          <p className="text-[10px] sm:text-xs text-gray-400 mt-1.5">
+                            Updated {new Date(project.updated_at).toLocaleDateString()}
+                          </p>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              )}
+
               <div className="grid lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
                 {/* Recent Orders */}
                 <div className="lg:col-span-2 bg-white rounded-xl border border-gray-100">
                   <div className="p-3 sm:p-4 md:p-5 border-b border-gray-100 flex items-center justify-between">
                     <h2 className="text-sm sm:text-base font-semibold text-gray-900">Recent Orders</h2>
-                    <button onClick={() => setActiveTab('orders')} className="text-xs sm:text-sm text-primary-600 hover:text-primary-700 flex items-center gap-1">
+                    <button onClick={() => setActiveTab('custom')} className="text-xs sm:text-sm text-primary-600 hover:text-primary-700 flex items-center gap-1">
                       See All <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
                     </button>
                   </div>
@@ -1737,8 +1839,8 @@ const DashboardPage: React.FC = () => {
             </div>
           )}
 
-          {/* Orders Tab - Unified with Artwork Style */}
-          {activeTab === 'orders' && (
+          {/* Orders Tab - Show for stock, custom, and shipping */}
+          {(activeTab === 'stock' || activeTab === 'custom' || activeTab === 'shipping') && (
             <div className="space-y-3 md:space-y-6">
               {/* Header - Mobile Responsive */}
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
@@ -1766,7 +1868,7 @@ const DashboardPage: React.FC = () => {
                   </Link>
                   <button
                     onClick={() => {
-                      setActiveTab('quotes')
+                      setActiveTab('rfq')
                       setShowRfqForm(true)
                     }}
                     className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-3 sm:px-4 py-2.5 sm:py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg transition text-sm"
@@ -1917,8 +2019,8 @@ const DashboardPage: React.FC = () => {
             </div>
           )}
 
-          {/* Quotes Tab - Unified with Artwork Style */}
-          {activeTab === 'quotes' && (
+          {/* RFQ Tab - Request for Quote */}
+          {activeTab === 'rfq' && (
             <div className="space-y-3 md:space-y-6">
               {/* Header - Mobile Responsive */}
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
@@ -3830,8 +3932,8 @@ const DashboardPage: React.FC = () => {
             <span className="text-[10px] font-medium">Home</span>
           </button>
           <button
-            onClick={() => setActiveTab('orders')}
-            className={`flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-lg transition relative ${activeTab === 'orders' ? 'text-primary-600' : 'text-gray-500'}`}
+            onClick={() => setActiveTab('custom')}
+            className={`flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-lg transition relative ${(activeTab === 'stock' || activeTab === 'custom') ? 'text-primary-600' : 'text-gray-500'}`}
           >
             <ShoppingCart className="h-5 w-5" />
             <span className="text-[10px] font-medium">Orders</span>
@@ -3849,11 +3951,11 @@ const DashboardPage: React.FC = () => {
             <span className="text-[10px] font-medium">Artwork</span>
           </button>
           <button
-            onClick={() => setActiveTab('quotes')}
-            className={`flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-lg transition relative ${activeTab === 'quotes' ? 'text-primary-600' : 'text-gray-500'}`}
+            onClick={() => setActiveTab('rfq')}
+            className={`flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-lg transition relative ${activeTab === 'rfq' ? 'text-primary-600' : 'text-gray-500'}`}
           >
             <FileCheck className="h-5 w-5" />
-            <span className="text-[10px] font-medium">Quotes</span>
+            <span className="text-[10px] font-medium">RFQ</span>
             {pendingQuotes > 0 && (
               <span className="absolute -top-0.5 right-1 w-4 h-4 bg-yellow-500 text-white text-[9px] font-bold rounded-full flex items-center justify-center">
                 {pendingQuotes}
