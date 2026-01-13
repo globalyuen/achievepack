@@ -68,7 +68,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(500).json({ success: false, error: 'Database configuration error: ' + configError.message })
     }
 
-    // Insert or update order
+    // Insert order directly (simpler approach)
     const orderData = {
       order_number: orderNumber,
       user_id: userId || null,
@@ -77,38 +77,27 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       items: items || [],
       total_amount: totalAmount || 0,
       shipping_address: shippingAddress || {},
-      status: status,
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString()
+      status: status
     }
 
-    // Try to upsert (insert or update if exists)
+    console.log('Inserting order data:', JSON.stringify(orderData, null, 2))
+
     const { data, error } = await supabase
       .from('orders')
-      .upsert(orderData, { 
-        onConflict: 'order_number',
-        ignoreDuplicates: false
-      })
+      .insert(orderData)
       .select()
 
     if (error) {
-      console.error('Order save error:', error)
-      // Try insert without upsert
-      const { data: insertData, error: insertError } = await supabase
-        .from('orders')
-        .insert(orderData)
-        .select()
-      
-      if (insertError) {
-        console.error('Order insert error:', insertError)
-        return res.status(500).json({ success: false, error: 'Failed to save order', details: insertError.message })
-      }
-      
-      console.log(`Order ${orderNumber} created successfully`)
-      return res.status(200).json({ success: true, order: insertData?.[0] })
+      console.error('Order insert error:', JSON.stringify(error, null, 2))
+      return res.status(500).json({ 
+        success: false, 
+        error: 'Failed to save order: ' + error.message,
+        code: error.code,
+        details: error.details
+      })
     }
 
-    console.log(`Order ${orderNumber} saved successfully`)
+    console.log(`Order ${orderNumber} saved successfully:`, data?.[0]?.id)
     res.status(200).json({ success: true, order: data?.[0] })
   } catch (error: any) {
     console.error('Save order error:', error)
