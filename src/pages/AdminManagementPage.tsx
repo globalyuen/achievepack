@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, startTransition } from 'react'
 import { useNavigate, Link, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
-import { supabase, Quote, ArtworkFile, Profile, ArtworkComment, CRMInquiry } from '../lib/supabase'
+import { supabase, Quote, ArtworkFile, Profile, ArtworkComment, CRMInquiry, Project } from '../lib/supabase'
 import { analyzeArtworkWithXAI, getAISearchableText } from '../lib/artworkAnalysis'
 import { SlidingNumber } from '../components/animate-ui/primitives/texts/sliding-number'
 import { 
@@ -21,7 +21,7 @@ import { PinList, type PinListItem } from '../components/animate-ui/components/c
 import { ArtworkStatusAvatar, AdminWorkQueue, type StatusItem, type WorkItem, type ArtworkStatus } from '../components/animate-ui/components/community/user-presence-avatar'
 import { QuickAccessSheet, type QuickAccessItem, type QuoteStatus, type InvoiceStatus, type ArtworkQuickStatus } from '../components/ui/QuickAccessSheet'
 
-type TabType = 'quotes' | 'artwork' | 'bin'
+type TabType = 'quotes' | 'artwork' | 'projects' | 'bin'
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
 
@@ -37,6 +37,7 @@ const AdminManagementPage: React.FC = () => {
   const [customers, setCustomers] = useState<Profile[]>([])
   const [inquiries, setInquiries] = useState<CRMInquiry[]>([])
   const [orders, setOrders] = useState<any[]>([])
+  const [projects, setProjects] = useState<Project[]>([])
   const [loading, setLoading] = useState(true)
   const [selectedQuote, setSelectedQuote] = useState<Quote | null>(null)
   const [selectedArtwork, setSelectedArtwork] = useState<ArtworkFile | null>(null)
@@ -443,7 +444,7 @@ const AdminManagementPage: React.FC = () => {
 
   const fetchData = async () => {
     setLoading(true)
-    const [quotesRes, rfqRes, artworksRes, customersRes, ordersRes, inquiriesRes, deletedArtworksRes, deletedQuotesRes, deletedRfqRes] = await Promise.all([
+    const [quotesRes, rfqRes, artworksRes, customersRes, ordersRes, inquiriesRes, deletedArtworksRes, deletedQuotesRes, deletedRfqRes, projectsRes] = await Promise.all([
       supabase.from('quotes').select('*').is('deleted_at', null).order('created_at', { ascending: false }),
       supabase.from('rfq_submissions').select('*').is('deleted_at', null).order('created_at', { ascending: false }),
       supabase.from('artwork_files').select('*').is('deleted_at', null).order('created_at', { ascending: false }),
@@ -453,7 +454,9 @@ const AdminManagementPage: React.FC = () => {
       // Fetch deleted items for bin
       supabase.from('artwork_files').select('*').not('deleted_at', 'is', null).order('deleted_at', { ascending: false }),
       supabase.from('quotes').select('*').not('deleted_at', 'is', null).order('deleted_at', { ascending: false }),
-      supabase.from('rfq_submissions').select('*').not('deleted_at', 'is', null).order('deleted_at', { ascending: false })
+      supabase.from('rfq_submissions').select('*').not('deleted_at', 'is', null).order('deleted_at', { ascending: false }),
+      // Fetch all projects for admin view
+      supabase.from('projects').select('*').order('created_at', { ascending: false })
     ])
     
     // Merge quotes and RFQ submissions
@@ -490,6 +493,7 @@ const AdminManagementPage: React.FC = () => {
     setCustomers(customersRes.data || [])
     setInquiries(inquiriesRes.data || [])
     setOrders(ordersRes.data || [])
+    setProjects(projectsRes.data || [])
     setLoading(false)
   }
 
@@ -1088,6 +1092,23 @@ const AdminManagementPage: React.FC = () => {
               </button>
 
               <button
+                onClick={() => setActiveTab('projects')}
+                className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
+                  activeTab === 'projects'
+                    ? 'bg-primary-500 text-white'
+                    : 'text-gray-900 hover:bg-primary-50 hover:text-primary-600'
+                }`}
+              >
+                <FileText className="flex-shrink-0 w-5 h-5 mr-4" />
+                Projects
+                {projects.length > 0 && (
+                  <span className="ml-auto bg-blue-500 text-white text-xs px-2 py-0.5 rounded-full">
+                    {projects.length}
+                  </span>
+                )}
+              </button>
+
+              <button
                 onClick={() => setActiveTab('bin')}
                 className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
                   activeTab === 'bin'
@@ -1323,6 +1344,10 @@ const AdminManagementPage: React.FC = () => {
                     {pendingArtworks}
                   </span>
                 )}
+              </TabsTrigger>
+              <TabsTrigger value="projects" className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all">
+                <FileText className="h-4 w-4" />
+                <span>Projects</span>
               </TabsTrigger>
               <TabsTrigger value="bin" className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all">
                 <Archive className="h-4 w-4" />
@@ -1880,6 +1905,159 @@ const AdminManagementPage: React.FC = () => {
                   <p>{artworkSearch ? 'No artworks match your search' : 'No artwork files uploaded yet'}</p>
                 </div>
               )}
+            </div>
+          )}
+
+          {/* Projects Tab - Unified Order Tracking */}
+          {activeTab === 'projects' && (
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold text-gray-900">Projects</h1>
+                  <p className="text-sm text-gray-500 mt-1">Unified order tracking across all customers</p>
+                </div>
+                <button
+                  onClick={fetchData}
+                  className="flex items-center gap-2 px-4 py-2 bg-white border rounded-lg hover:bg-gray-50 text-sm"
+                >
+                  <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
+                  Refresh
+                </button>
+              </div>
+
+              {/* Stats */}
+              <div className="flex flex-wrap gap-3">
+                <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
+                  <p className="text-sm text-gray-500">Total Projects</p>
+                  <p className="text-2xl font-bold text-gray-900 mt-1"><SlidingNumber number={projects.length} /></p>
+                </div>
+                <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
+                  <p className="text-sm text-gray-500">RFQ Stage</p>
+                  <p className="text-2xl font-bold text-yellow-600 mt-1">
+                    <SlidingNumber number={projects.filter(p => p.current_stage === 'rfq').length} />
+                  </p>
+                </div>
+                <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
+                  <p className="text-sm text-gray-500">Production</p>
+                  <p className="text-2xl font-bold text-purple-600 mt-1">
+                    <SlidingNumber number={projects.filter(p => p.current_stage === 'production').length} />
+                  </p>
+                </div>
+                <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
+                  <p className="text-sm text-gray-500">Shipping</p>
+                  <p className="text-2xl font-bold text-blue-600 mt-1">
+                    <SlidingNumber number={projects.filter(p => p.current_stage === 'shipping').length} />
+                  </p>
+                </div>
+              </div>
+
+              {/* Projects List */}
+              <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Project Code</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Customer</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Type</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Stage</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Progress</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Updated</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200">
+                      {projects.map(project => {
+                        const customer = customers.find(c => c.id === project.user_id) || 
+                                        customers.find(c => c.email?.toLowerCase() === project.customer_email?.toLowerCase())
+                        const stageColors: Record<string, string> = {
+                          rfq: 'bg-yellow-100 text-yellow-700',
+                          artwork: 'bg-purple-100 text-purple-700',
+                          order: 'bg-blue-100 text-blue-700',
+                          production: 'bg-indigo-100 text-indigo-700',
+                          shipping: 'bg-cyan-100 text-cyan-700',
+                          complete: 'bg-green-100 text-green-700'
+                        }
+                        const stages = ['rfq', 'artwork', 'order', 'production', 'shipping', 'complete']
+                        const currentStageIndex = stages.indexOf(project.current_stage)
+                        const progressPercent = Math.round(((currentStageIndex + 1) / stages.length) * 100)
+                        
+                        return (
+                          <tr key={project.id} className="hover:bg-gray-50">
+                            <td className="px-6 py-4">
+                              <span className="text-sm font-mono font-bold text-primary-600">{project.project_code}</span>
+                            </td>
+                            <td className="px-6 py-4">
+                              <div>
+                                <p className="text-sm font-medium text-gray-900">{customer?.full_name || project.customer_name || 'Unknown'}</p>
+                                <p className="text-xs text-gray-500">{customer?.email || project.customer_email}</p>
+                              </div>
+                            </td>
+                            <td className="px-6 py-4">
+                              <span className={`px-2 py-1 text-xs font-medium rounded ${
+                                project.project_type === 'stock' ? 'bg-green-100 text-green-700' :
+                                project.project_type === 'custom' ? 'bg-purple-100 text-purple-700' :
+                                'bg-yellow-100 text-yellow-700'
+                              }`}>
+                                {project.project_type?.toUpperCase() || 'CUSTOM'}
+                              </span>
+                            </td>
+                            <td className="px-6 py-4">
+                              <span className={`px-2 py-1 text-xs font-medium rounded-full ${stageColors[project.current_stage] || 'bg-gray-100 text-gray-600'}`}>
+                                {project.current_stage?.charAt(0).toUpperCase() + project.current_stage?.slice(1)}
+                              </span>
+                            </td>
+                            <td className="px-6 py-4">
+                              <div className="w-24">
+                                <div className="flex items-center gap-2">
+                                  <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div 
+                                      className="h-full bg-primary-500 rounded-full transition-all"
+                                      style={{ width: `${progressPercent}%` }}
+                                    />
+                                  </div>
+                                  <span className="text-xs text-gray-500">{progressPercent}%</span>
+                                </div>
+                              </div>
+                            </td>
+                            <td className="px-6 py-4 text-sm text-gray-500">
+                              {new Date(project.updated_at).toLocaleDateString()}
+                            </td>
+                            <td className="px-6 py-4">
+                              <select
+                                value={project.current_stage}
+                                onChange={async (e) => {
+                                  const newStage = e.target.value
+                                  await supabase.from('projects').update({ 
+                                    current_stage: newStage,
+                                    updated_at: new Date().toISOString()
+                                  }).eq('id', project.id)
+                                  fetchData()
+                                }}
+                                className="text-sm border border-gray-300 rounded-lg px-2 py-1 focus:ring-2 focus:ring-primary-500"
+                              >
+                                <option value="rfq">RFQ</option>
+                                <option value="artwork">Artwork</option>
+                                <option value="order">Order</option>
+                                <option value="production">Production</option>
+                                <option value="shipping">Shipping</option>
+                                <option value="complete">Complete</option>
+                              </select>
+                            </td>
+                          </tr>
+                        )
+                      })}
+                    </tbody>
+                  </table>
+                  {projects.length === 0 && (
+                    <div className="text-center py-12 text-gray-500">
+                      <FileText className="h-12 w-12 mx-auto mb-3 text-gray-300" />
+                      <p>No projects found</p>
+                      <p className="text-xs mt-1">Projects will appear here when created</p>
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
           )}
 
