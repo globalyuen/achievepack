@@ -41,12 +41,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(400).json({ success: false, error: 'orderId is required' })
     }
 
-    // Build update data
+    // Build update data - don't force status change, let database constraint handle it
     const updateData: Record<string, any> = {
       tracking_number: trackingNumber || null,
       tracking_url: trackingUrl || null,
-      status: status,
       updated_at: new Date().toISOString()
+    }
+
+    // Only update status if explicitly provided and not 'shipped' (may not be in DB constraint)
+    if (status && status !== 'shipped') {
+      updateData.status = status
     }
 
     if (carrier !== undefined) {
