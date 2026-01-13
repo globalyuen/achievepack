@@ -1,0 +1,9 @@
+{
+  "name": "achieve-pack-api",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.86.2",
+    "@vercel/node": "^3.0.0"
+  }
+}
