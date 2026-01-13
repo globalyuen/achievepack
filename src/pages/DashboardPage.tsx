@@ -648,6 +648,20 @@ const DashboardPage: React.FC = () => {
           analyzeArtworkWithXAI(fileUrl, insertedData[0].id).catch(err => {
             console.log('Background xAI analysis:', err)
           })
+          
+          // Send email notification to artwork@achievepack.com
+          fetch('/api/send-artwork-email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              customerName: user?.user_metadata?.full_name || user?.user_metadata?.name || user?.email?.split('@')[0] || 'Customer',
+              customerEmail: user?.email,
+              fileName: file.name,
+              fileUrl: fileUrl,
+              fileType: file.type,
+              fileSize: file.size
+            })
+          }).then(() => console.log('Artwork email notification sent')).catch(err => console.error('Failed to send artwork email:', err))
         }
         
         uploadedFiles.push(file.name)
