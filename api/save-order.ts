@@ -4,9 +4,16 @@ import { createClient } from '@supabase/supabase-js'
 // Initialize Supabase with service key to bypass RLS
 const getSupabase = () => {
   const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL
-  const supabaseKey = process.env.SUPABASE_SERVICE_KEY || process.env.VITE_SUPABASE_ANON_KEY
+  const supabaseKey = process.env.SUPABASE_SERVICE_KEY
+  
+  console.log('Supabase config:', { 
+    urlExists: !!supabaseUrl, 
+    keyExists: !!supabaseKey,
+    urlPrefix: supabaseUrl?.substring(0, 30)
+  })
   
   if (!supabaseUrl || !supabaseKey) {
+    console.error('Missing Supabase config:', { supabaseUrl: !!supabaseUrl, supabaseKey: !!supabaseKey })
     throw new Error('Supabase configuration missing')
   }
   
