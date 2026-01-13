@@ -1,25 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { createClient } from '@supabase/supabase-js'
 
-// Initialize Supabase with service key to bypass RLS
-const getSupabase = () => {
-  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL
-  const supabaseKey = process.env.SUPABASE_SERVICE_KEY
-  
-  console.log('Supabase config:', { 
-    urlExists: !!supabaseUrl, 
-    keyExists: !!supabaseKey,
-    urlPrefix: supabaseUrl?.substring(0, 30)
-  })
-  
-  if (!supabaseUrl || !supabaseKey) {
-    console.error('Missing Supabase config:', { supabaseUrl: !!supabaseUrl, supabaseKey: !!supabaseKey })
-    throw new Error('Supabase configuration missing')
-  }
-  
-  return createClient(supabaseUrl, supabaseKey)
-}
-
+// Use native fetch to call Supabase REST API (no external dependencies)
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   console.log('=== SAVE-ORDER API CALLED ===')
   console.log('Method:', req.method)
@@ -39,6 +20,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
+    const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL
+    const supabaseKey = process.env.SUPABASE_SERVICE_KEY
+
+    console.log('Supabase config:', { 
+      urlExists: !!supabaseUrl, 
+      keyExists: !!supabaseKey
+    })
+
+    if (!supabaseUrl || !supabaseKey) {
+      console.error('Missing Supabase config')
+      return res.status(500).json({ success: false, error: 'Database configuration missing' })
+    }
+
     console.log('Request body:', JSON.stringify(req.body, null, 2))
     
     const { 
@@ -59,16 +53,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(400).json({ success: false, error: 'Order number is required' })
     }
 
-    let supabase
-    try {
-      supabase = getSupabase()
-      console.log('Supabase client created successfully')
-    } catch (configError: any) {
-      console.error('Supabase config error:', configError.message)
-      return res.status(500).json({ success: false, error: 'Database configuration error: ' + configError.message })
-    }
-
-    // Insert order directly (simpler approach)
+    // Prepare order data
     const orderData = {
       order_number: orderNumber,
       user_id: userId || null,
@@ -80,24 +65,36 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       status: status
     }
 
-    console.log('Inserting order data:', JSON.stringify(orderData, null, 2))
+    console.log('Inserting order via REST API...')
 
-    const { data, error } = await supabase
-      .from('orders')
-      .insert(orderData)
-      .select()
+    // Call Supabase REST API directly using fetch
+    const response = await fetch(`${supabaseUrl}/rest/v1/orders`, {
+      method: 'POST',
+      headers: {
+        'apikey': supabaseKey,
+        'Authorization': `Bearer ${supabaseKey}`,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=representation'
+      },
+      body: JSON.stringify(orderData)
+    })
 
-    if (error) {
-      console.error('Order insert error:', JSON.stringify(error, null, 2))
+    const responseText = await response.text()
+    console.log('Supabase response status:', response.status)
+    console.log('Supabase response:', responseText)
+
+    if (!response.ok) {
+      console.error('Order insert error:', responseText)
       return res.status(500).json({ 
         success: false, 
-        error: 'Failed to save order: ' + error.message,
-        code: error.code,
-        details: error.details
+        error: 'Failed to save order',
+        details: responseText
       })
     }
 
+    const data = responseText ? JSON.parse(responseText) : null
     console.log(`Order ${orderNumber} saved successfully:`, data?.[0]?.id)
+    
     res.status(200).json({ success: true, order: data?.[0] })
   } catch (error: any) {
     console.error('Save order error:', error)
