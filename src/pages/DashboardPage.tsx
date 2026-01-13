@@ -1025,6 +1025,7 @@ const DashboardPage: React.FC = () => {
       }
       
       // Create RFQ record - try different approaches
+      let quoteNumber = `RFQ-${Date.now()}`
       try {
         // First try: Insert into rfq_submissions table
         const { error: dbError } = await supabase.from('rfq_submissions').insert({
@@ -1044,7 +1045,7 @@ const DashboardPage: React.FC = () => {
         try {
           await supabase.from('quotes').insert({
             user_id: user?.id,
-            quote_number: `RFQ-${Date.now()}`,
+            quote_number: quoteNumber,
             status: 'pending',
             total_amount: 0,
             valid_until: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
@@ -1054,8 +1055,28 @@ const DashboardPage: React.FC = () => {
         } catch (fallbackError) {
           // If both fail, send email notification as last resort
           console.error('All save methods failed, user will be notified:', fallbackError)
-          throw new Error('Unable to save RFQ. Please contact us at ryan@achievepack.com with your requirements.')
+          throw new Error('Unable to save RFQ. Please contact us at rfq@achievepack.com with your requirements.')
         }
+      }
+      
+      // Send email notification to rfq@achievepack.com
+      try {
+        await fetch('/api/send-rfq-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            customerName: user?.user_metadata?.full_name || user?.user_metadata?.name || user?.email?.split('@')[0] || 'Customer',
+            customerEmail: user?.email,
+            message: rfqForm.message,
+            websiteLink: rfqForm.websiteLink || null,
+            photoUrls: photoUrls,
+            quoteNumber: quoteNumber
+          })
+        })
+        console.log('RFQ email notification sent')
+      } catch (emailError) {
+        console.error('Failed to send RFQ email:', emailError)
+        // Don't fail the submission if email fails
       }
       
       // Reset form
