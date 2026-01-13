@@ -2016,17 +2016,40 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                 {/* Mobile Cards View */}
                 <div className="md:hidden divide-y">
                   {filteredOrders.map(order => (
-                    <div key={order.id} className="p-4" onClick={() => handleSelectOrder(order)}>
-                      <div className="flex items-center justify-between mb-2">
+                    <div key={order.id} className="p-4">
+                      <div className="flex items-center justify-between mb-2" onClick={() => handleSelectOrder(order)}>
                         <span className="text-sm font-bold text-gray-900">{order.order_number}</span>
                         <span className={`px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(order.status)}`}>
                           {order.status}
                         </span>
                       </div>
-                      <div className="text-sm text-gray-600 mb-1">{order.customer_name}</div>
-                      <div className="flex items-center justify-between">
+                      <div className="text-sm text-gray-600 mb-1" onClick={() => handleSelectOrder(order)}>{order.customer_name}</div>
+                      <div className="flex items-center justify-between mb-2" onClick={() => handleSelectOrder(order)}>
                         <span className="text-sm font-medium text-gray-900">${order.total_amount?.toLocaleString()}</span>
                         <span className="text-xs text-gray-500">{new Date(order.created_at).toLocaleDateString()}</span>
+                      </div>
+                      {/* Mobile Actions */}
+                      <div className="flex items-center gap-2 pt-2 border-t border-gray-100">
+                        <button
+                          onClick={() => {
+                            setSelectedOrder(order)
+                            setTrackingForm({
+                              trackingNumber: order.tracking_number || '',
+                              carrier: order.carrier || '',
+                              trackingUrl: order.tracking_url || '',
+                              shippingNotes: order.shipping_notes || ''
+                            })
+                            setShippingImages([])
+                            setShowTrackingModal(true)
+                          }}
+                          className={`flex items-center gap-1 px-2 py-1 text-xs rounded-lg ${order.tracking_number ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-700'}`}
+                        >
+                          <Truck className="h-3 w-3" />
+                          {order.tracking_number ? 'Update' : 'Add Tracking'}
+                        </button>
+                        <button onClick={() => handleSelectOrder(order)} className="flex items-center gap-1 px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded-lg">
+                          <Eye className="h-3 w-3" /> View
+                        </button>
                       </div>
                     </div>
                   ))}
@@ -2070,6 +2093,23 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                           </td>
                           <td className="px-6 py-4">
                             <div className="flex items-center gap-2">
+                              <button
+                                onClick={() => {
+                                  setSelectedOrder(order)
+                                  setTrackingForm({
+                                    trackingNumber: order.tracking_number || '',
+                                    carrier: order.carrier || '',
+                                    trackingUrl: order.tracking_url || '',
+                                    shippingNotes: order.shipping_notes || ''
+                                  })
+                                  setShippingImages([])
+                                  setShowTrackingModal(true)
+                                }}
+                                className={`p-1.5 rounded-lg ${order.tracking_number ? 'text-blue-600 hover:bg-blue-50' : 'text-gray-400 hover:bg-gray-100 hover:text-gray-600'}`}
+                                title={order.tracking_number ? 'Update Tracking' : 'Add Tracking'}
+                              >
+                                <Truck className="h-5 w-5" />
+                              </button>
                               <button onClick={() => handleSelectOrder(order)} className="text-primary-600 hover:text-primary-700">
                                 <Eye className="h-5 w-5" />
                               </button>
