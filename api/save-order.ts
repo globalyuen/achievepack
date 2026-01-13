@@ -43,7 +43,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       items,
       totalAmount,
       shippingAddress,
-      status = 'pending_payment'
+      status = 'pending'
     } = req.body
 
     console.log('Parsed order:', { orderNumber, customerEmail, customerName, itemCount: items?.length, totalAmount })
