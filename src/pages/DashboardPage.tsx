@@ -459,22 +459,22 @@ const DashboardPage: React.FC = () => {
     
     // Quotes
     if (userId && userEmail) {
-      queries.push(supabase.from('quotes').select('*').or(`user_id.eq.${userId},customer_email.ilike.${userEmail}`).is('deleted_at', null).order('created_at', { ascending: false }))
+      queries.push(supabase.from('quotes').select('*').or(`user_id.eq.${userId},customer_email.ilike.${userEmail}`).order('created_at', { ascending: false }))
     } else if (userEmail) {
-      queries.push(supabase.from('quotes').select('*').ilike('customer_email', userEmail).is('deleted_at', null).order('created_at', { ascending: false }))
+      queries.push(supabase.from('quotes').select('*').ilike('customer_email', userEmail).order('created_at', { ascending: false }))
     } else if (userId) {
-      queries.push(supabase.from('quotes').select('*').eq('user_id', userId).is('deleted_at', null).order('created_at', { ascending: false }))
+      queries.push(supabase.from('quotes').select('*').eq('user_id', userId).order('created_at', { ascending: false }))
     } else {
       queries.push(Promise.resolve({ data: [], error: null }))
     }
     
     // RFQ submissions
     if (userId && userEmail) {
-      queries.push(supabase.from('rfq_submissions').select('*').or(`user_id.eq.${userId},customer_email.ilike.${userEmail}`).is('deleted_at', null).order('created_at', { ascending: false }))
+      queries.push(supabase.from('rfq_submissions').select('*').or(`user_id.eq.${userId},customer_email.ilike.${userEmail}`).order('created_at', { ascending: false }))
     } else if (userEmail) {
-      queries.push(supabase.from('rfq_submissions').select('*').ilike('customer_email', userEmail).is('deleted_at', null).order('created_at', { ascending: false }))
+      queries.push(supabase.from('rfq_submissions').select('*').ilike('customer_email', userEmail).order('created_at', { ascending: false }))
     } else if (userId) {
-      queries.push(supabase.from('rfq_submissions').select('*').eq('user_id', userId).is('deleted_at', null).order('created_at', { ascending: false }))
+      queries.push(supabase.from('rfq_submissions').select('*').eq('user_id', userId).order('created_at', { ascending: false }))
     } else {
       queries.push(Promise.resolve({ data: [], error: null }))
     }
