@@ -11,17 +11,6 @@ import { sendTestEmail, sendBulkEmails, generateEmailTemplate, EmailRecipient } 
 import { QuickAccessSheet, type QuickAccessItem, type QuoteStatus, type InvoiceStatus, type ArtworkQuickStatus } from '../components/ui/QuickAccessSheet'
 import { PinList, type PinListItem } from '../components/animate-ui/components/community/pin-list'
 import { NotificationList, type Notification } from '../components/animate-ui/components/community/notification-list'
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogFooter,
-  DialogTitle,
-  DialogDescription,
-  DialogBody,
-  DialogClose,
-} from '@/components/animate-ui/components/radix/dialog'
-import { FilterDropdown, type FilterOption } from '@/components/ui/FilterDropdown'
 
 // Industry detection keywords
 const INDUSTRY_KEYWORDS: Record<string, string[]> = {
@@ -66,7 +55,7 @@ function detectIndustry(text: string): string {
   return 'Other'
 }
 
-type TabType = 'dashboard' | 'orders' | 'quotes' | 'artwork' | 'artwork-proof' | 'documents' | 'newsletter' | 'crm' | 'email-marketing' | 'website' | 'website-demos' | 'projects' | 'settings'
+type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'artwork' | 'artwork-proof' | 'documents' | 'newsletter' | 'crm' | 'email-marketing' | 'website' | 'website-demos' | 'projects' | 'settings'
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
 
@@ -271,7 +260,8 @@ const AdminPage: React.FC = () => {
         type: 'custom',
         pinned: pinnedIds.has(c.id),
         onClick: () => {
-          window.location.href = '/ctrl-x9k7m/management?tab=customers'
+          setActiveTab('customers')
+          setSelectedCustomer(c)
         }
       })
     })
@@ -1557,7 +1547,20 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                 Dashboard
               </button>
 
-
+              <button
+                onClick={() => setActiveTab('customers')}
+                className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
+                  activeTab === 'customers'
+                    ? 'bg-primary-500 text-white'
+                    : 'text-gray-900 hover:bg-primary-50 hover:text-primary-600'
+                }`}
+              >
+                <Users className="flex-shrink-0 w-5 h-5 mr-4" />
+                Customers
+                <span className="ml-auto bg-gray-200 text-gray-700 text-xs px-2 py-0.5 rounded-full">
+                  {customers.length}
+                </span>
+              </button>
 
               <button
                 onClick={() => setActiveTab('orders')}
@@ -1724,7 +1727,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
 
         {/* Mobile Nav */}
         <div className="md:hidden flex overflow-x-auto bg-white border-b px-2 py-2 gap-2 sticky top-0 z-30">
-          {(['dashboard', 'orders', 'documents', 'newsletter', 'crm', 'email-marketing', 'website', 'website-demos', 'artwork', 'artwork-proof', 'projects', 'settings'] as TabType[]).map(tab => (
+          {(['dashboard', 'customers', 'orders', 'documents', 'newsletter', 'crm', 'email-marketing', 'website', 'website-demos', 'artwork', 'artwork-proof', 'projects', 'settings'] as TabType[]).map(tab => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -1735,7 +1738,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
               }`}
             >
               {tab === 'dashboard' && <Home className="h-4 w-4" />}
-
+              {tab === 'customers' && <Users className="h-4 w-4" />}
               {tab === 'orders' && <Package className="h-4 w-4" />}
               {tab === 'documents' && <FileText className="h-4 w-4" />}
               {tab === 'newsletter' && <Newspaper className="h-4 w-4" />}
@@ -2025,7 +2028,105 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
             </div>
           )}
 
-
+          {/* Customers Tab */}
+          {activeTab === 'customers' && (
+            <div className="space-y-4 md:space-y-6">
+              <h1 className="text-xl md:text-2xl font-bold text-gray-900">Customers</h1>
+              
+              <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
+                {/* Mobile Cards View */}
+                <div className="md:hidden divide-y">
+                  {filteredCustomers.map(customer => (
+                    <div key={customer.id} className="p-4">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center flex-shrink-0" onClick={() => setSelectedCustomer(customer)}>
+                          <span className="text-primary-600 font-semibold">
+                            {customer.full_name?.charAt(0) || customer.email?.charAt(0) || '?'}
+                          </span>
+                        </div>
+                        <div className="flex-1 min-w-0" onClick={() => setSelectedCustomer(customer)}>
+                          <p className="text-sm font-medium text-gray-900 truncate">{customer.full_name || 'No name'}</p>
+                          <p className="text-xs text-gray-500 truncate">{customer.email}</p>
+                          {customer.company && <p className="text-xs text-gray-400 truncate">{customer.company}</p>}
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <button onClick={() => setSelectedCustomer(customer)} className="p-1">
+                            <Eye className="h-5 w-5 text-gray-400" />
+                          </button>
+                          <button onClick={() => deleteCustomer(customer.id, customer.email)} className="p-1">
+                            <Trash2 className="h-5 w-5 text-red-400" />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                  {filteredCustomers.length === 0 && (
+                    <div className="text-center py-12 text-gray-500 text-sm">No customers found</div>
+                  )}
+                </div>
+                {/* Desktop Table View */}
+                <div className="hidden md:block overflow-x-auto">
+                  <table className="w-full">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Customer</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Company</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Phone</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Joined</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200">
+                      {filteredCustomers.map(customer => (
+                        <tr key={customer.id} className="hover:bg-gray-50">
+                          <td className="px-6 py-4">
+                            <div className="flex items-center">
+                              <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center">
+                                <span className="text-primary-600 font-semibold">
+                                  {customer.full_name?.charAt(0) || customer.email?.charAt(0) || '?'}
+                                </span>
+                              </div>
+                              <div className="ml-3">
+                                <p className="text-sm font-medium text-gray-900">{customer.full_name || 'No name'}</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td className="px-6 py-4 text-sm text-gray-600">{customer.email}</td>
+                          <td className="px-6 py-4 text-sm text-gray-600">{customer.company || '-'}</td>
+                          <td className="px-6 py-4 text-sm text-gray-600">{customer.phone || '-'}</td>
+                          <td className="px-6 py-4 text-sm text-gray-500">
+                            {customer.created_at ? new Date(customer.created_at).toLocaleDateString() : '-'}
+                          </td>
+                          <td className="px-6 py-4">
+                            <div className="flex items-center gap-2">
+                              <button
+                                onClick={() => setSelectedCustomer(customer)}
+                                className="text-primary-600 hover:text-primary-700"
+                                title="View Details"
+                              >
+                                <Eye className="h-5 w-5" />
+                              </button>
+                              <button
+                                onClick={() => deleteCustomer(customer.id, customer.email)}
+                                className="text-red-500 hover:text-red-700"
+                                title="Move to Bin"
+                              >
+                                <Trash2 className="h-5 w-5" />
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                  {filteredCustomers.length === 0 && (
+                    <div className="text-center py-12 text-gray-500">No customers found</div>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Orders Tab */}
           {activeTab === 'orders' && (
@@ -2693,25 +2794,25 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                               {new Date(project.updated_at).toLocaleDateString()}
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                              <FilterDropdown
+                              <select
                                 value={project.status}
-                                onChange={async (newStage) => {
+                                onChange={async (e) => {
+                                  const newStage = e.target.value
                                   await supabase.from('projects').update({ 
                                     status: newStage,
                                     updated_at: new Date().toISOString()
                                   }).eq('id', project.id)
                                   fetchData()
                                 }}
-                                options={[
-                                  { value: 'rfq', label: 'RFQ' },
-                                  { value: 'artwork', label: 'Artwork' },
-                                  { value: 'order', label: 'Order' },
-                                  { value: 'production', label: 'Production' },
-                                  { value: 'shipping', label: 'Shipping' },
-                                  { value: 'complete', label: 'Complete' },
-                                ]}
-                                size="sm"
-                              />
+                                className="text-sm border border-gray-300 rounded-lg px-2 py-1 focus:ring-2 focus:ring-primary-500"
+                              >
+                                <option value="rfq">RFQ</option>
+                                <option value="artwork">Artwork</option>
+                                <option value="order">Order</option>
+                                <option value="production">Production</option>
+                                <option value="shipping">Shipping</option>
+                                <option value="complete">Complete</option>
+                              </select>
                             </td>
                           </tr>
                         )
@@ -3352,67 +3453,57 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
 
                     {/* Advanced Filters */}
                     {showAdvancedFilters && (
-                      <div className="flex flex-wrap gap-2 mb-3 p-3 bg-gray-50 rounded-lg">
-                        <FilterDropdown
+                      <div className="grid grid-cols-2 gap-2 mb-3 p-3 bg-gray-50 rounded-lg">
+                        <select
                           value={industryFilter}
-                          onChange={(v) => { setIndustryFilter(v); setContactPage(1) }}
-                          options={[
-                            { value: 'all', label: 'All Industries' },
-                            ...filterOptions.industries.map(i => ({ value: i, label: i }))
-                          ]}
-                          placeholder="Industry"
-                          size="sm"
-                        />
-                        <FilterDropdown
+                          onChange={(e) => { setIndustryFilter(e.target.value); setContactPage(1) }}
+                          className="text-xs border rounded-lg px-2 py-1.5"
+                        >
+                          <option value="all">All Industries</option>
+                          {filterOptions.industries.map(i => <option key={i} value={i}>{i}</option>)}
+                        </select>
+                        <select
                           value={countryFilter}
-                          onChange={(v) => { setCountryFilter(v); setContactPage(1) }}
-                          options={[
-                            { value: 'all', label: 'All Countries' },
-                            ...filterOptions.countries.map(c => ({ value: c, label: c }))
-                          ]}
-                          placeholder="Country"
-                          size="sm"
-                        />
-                        <FilterDropdown
+                          onChange={(e) => { setCountryFilter(e.target.value); setContactPage(1) }}
+                          className="text-xs border rounded-lg px-2 py-1.5"
+                        >
+                          <option value="all">All Countries</option>
+                          {filterOptions.countries.map(c => <option key={c} value={c}>{c}</option>)}
+                        </select>
+                        <select
                           value={statusFilter}
-                          onChange={(v) => { setStatusFilter(v); setContactPage(1) }}
-                          options={[
-                            { value: 'all', label: 'All Status' },
-                            { value: 'new', label: 'New' },
-                            { value: 'contacted', label: 'Contacted' },
-                            { value: 'quoted', label: 'Quoted' },
-                            { value: 'follow_up', label: 'Follow Up' },
-                            { value: 'won', label: 'Won' },
-                            { value: 'lost', label: 'Lost' },
-                          ]}
-                          placeholder="Status"
-                          size="sm"
-                        />
-                        <FilterDropdown
+                          onChange={(e) => { setStatusFilter(e.target.value); setContactPage(1) }}
+                          className="text-xs border rounded-lg px-2 py-1.5"
+                        >
+                          <option value="all">All Status</option>
+                          <option value="new">New</option>
+                          <option value="contacted">Contacted</option>
+                          <option value="quoted">Quoted</option>
+                          <option value="follow_up">Follow Up</option>
+                          <option value="won">Won</option>
+                          <option value="lost">Lost</option>
+                        </select>
+                        <select
                           value={customerTypeFilter}
-                          onChange={(v) => { setCustomerTypeFilter(v); setContactPage(1) }}
-                          options={[
-                            { value: 'all', label: 'All Types' },
-                            { value: 'lead', label: 'Leads' },
-                            { value: 'sample', label: 'Sample (<$100)' },
-                            { value: 'customer', label: 'Customer (≥$100)' },
-                          ]}
-                          placeholder="Type"
-                          size="sm"
-                        />
-                        <FilterDropdown
+                          onChange={(e) => { setCustomerTypeFilter(e.target.value); setContactPage(1) }}
+                          className="text-xs border rounded-lg px-2 py-1.5"
+                        >
+                          <option value="all">All Types</option>
+                          <option value="lead">Leads</option>
+                          <option value="sample">Sample (&lt;$100)</option>
+                          <option value="customer">Customer (≥$100)</option>
+                        </select>
+                        <select
                           value={dateRangeFilter}
-                          onChange={(v) => { setDateRangeFilter(v as any); setContactPage(1) }}
-                          options={[
-                            { value: 'all', label: 'All Time' },
-                            { value: '7days', label: 'Last 7 Days' },
-                            { value: '30days', label: 'Last 30 Days' },
-                            { value: '90days', label: 'Last 90 Days' },
-                            { value: '1year', label: 'Last Year' },
-                          ]}
-                          placeholder="Date Range"
-                          size="sm"
-                        />
+                          onChange={(e) => { setDateRangeFilter(e.target.value as any); setContactPage(1) }}
+                          className="text-xs border rounded-lg px-2 py-1.5"
+                        >
+                          <option value="all">All Time</option>
+                          <option value="7days">Last 7 Days</option>
+                          <option value="30days">Last 30 Days</option>
+                          <option value="90days">Last 90 Days</option>
+                          <option value="1year">Last Year</option>
+                        </select>
                         <button
                           onClick={() => {
                             setIndustryFilter('all')
@@ -3421,9 +3512,9 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                             setCustomerTypeFilter('all')
                             setDateRangeFilter('all')
                           }}
-                          className="text-xs text-gray-500 hover:text-gray-700 px-2 py-1"
+                          className="text-xs text-gray-500 hover:text-gray-700"
                         >
-                          Clear All
+                          Clear Filters
                         </button>
                       </div>
                     )}
@@ -3606,21 +3697,19 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                                 <span className="text-gray-500">
                                   Page {contactPage} of {totalContactPages} ({filteredContacts.length} contacts)
                                 </span>
-                                <FilterDropdown
-                                  value={String(contactPageSize)}
-                                  onChange={(v) => { setContactPageSize(Number(v)); setContactPage(1) }}
-                                  options={[
-                                    { value: '25', label: '25' },
-                                    { value: '50', label: '50' },
-                                    { value: '100', label: '100' },
-                                    { value: '200', label: '200' },
-                                    { value: '500', label: '500' },
-                                    { value: '1000', label: '1000' },
-                                    { value: '10000', label: 'All' },
-                                  ]}
-                                  size="sm"
-                                  triggerClassName="w-16"
-                                />
+                                <select
+                                  value={contactPageSize}
+                                  onChange={(e) => { setContactPageSize(Number(e.target.value)); setContactPage(1) }}
+                                  className="border rounded px-1 py-0.5 text-xs"
+                                >
+                                  <option value={25}>25</option>
+                                  <option value={50}>50</option>
+                                  <option value={100}>100</option>
+                                  <option value={200}>200</option>
+                                  <option value={500}>500</option>
+                                  <option value={1000}>1000</option>
+                                  <option value={10000}>All</option>
+                                </select>
                               </div>
                               <div className="flex items-center gap-1">
                                 <button
@@ -3888,18 +3977,22 @@ Check your inbox at ryan@achievepack.com`)
           )}
 
           {/* Email Preview Modal */}
-          <Dialog open={showEmailPreview} onOpenChange={setShowEmailPreview}>
-            <DialogContent from="center" className="max-w-4xl max-h-[95vh] p-0">
-              <div className="p-4 border-b flex items-center justify-between bg-white rounded-t-xl">
-                <div className="flex items-center gap-3">
-                  <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
+          {showEmailPreview && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+              <div className="bg-gray-100 rounded-xl max-w-4xl w-full max-h-[95vh] overflow-hidden flex flex-col shadow-2xl">
+                <div className="p-4 border-b flex items-center justify-between bg-white">
+                  <div className="flex items-center gap-3">
+                    <div className="flex gap-1.5">
+                      <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                    </div>
+                    <h2 className="text-sm font-medium text-gray-700">Email Preview - {emailSubject}</h2>
                   </div>
-                  <h2 className="text-sm font-medium text-gray-700">Email Preview - {emailSubject}</h2>
+                  <button onClick={() => setShowEmailPreview(false)} className="text-gray-500 hover:text-gray-700">
+                    <X className="h-5 w-5" />
+                  </button>
                 </div>
-              </div>
                 
                 {/* Email Client Header */}
                 <div className="p-4 bg-gray-50 border-b text-sm">
@@ -3933,12 +4026,13 @@ Check your inbox at ryan@achievepack.com`)
                 </div>
                 
                 {/* Actions */}
-                <div className="p-4 border-t bg-white flex gap-3 rounded-b-xl">
-                  <DialogClose asChild>
-                    <button className="flex-1 py-2.5 border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors font-medium">
-                      ← Edit Content
-                    </button>
-                  </DialogClose>
+                <div className="p-4 border-t bg-white flex gap-3">
+                  <button
+                    onClick={() => setShowEmailPreview(false)}
+                    className="flex-1 py-2.5 border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors font-medium"
+                  >
+                    ← Edit Content
+                  </button>
                   <button
                     onClick={async () => {
                       setTestEmailSending(true)
@@ -3966,20 +4060,23 @@ Check your inbox at ryan@achievepack.com`)
                     Send to {selectedContacts.length}
                   </button>
                 </div>
-            </DialogContent>
-          </Dialog>
+              </div>
+            </div>
+          )}
         </main>
       </div>
 
       {/* Order Detail Modal */}
-      <Dialog open={!!selectedOrder} onOpenChange={(open) => !open && setSelectedOrder(null)}>
-        <DialogContent from="right" className="max-w-2xl max-h-[90vh]">
-          <DialogHeader>
-            <DialogTitle>Order {selectedOrder?.order_number}</DialogTitle>
-            <DialogDescription>View and manage order details</DialogDescription>
-          </DialogHeader>
-          {selectedOrder && (
-          <DialogBody className="space-y-6">
+      {selectedOrder && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+          <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6 border-b flex items-center justify-between">
+              <h2 className="text-xl font-bold">Order {selectedOrder.order_number}</h2>
+              <button onClick={() => setSelectedOrder(null)} className="text-gray-500 hover:text-gray-700">
+                ✕
+              </button>
+            </div>
+            <div className="p-6 space-y-6">
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <p className="text-sm text-gray-500">Customer</p>
@@ -3988,20 +4085,18 @@ Check your inbox at ryan@achievepack.com`)
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Status</p>
-                  <FilterDropdown
+                  <select
                     value={selectedOrder.status}
-                    onChange={(v) => updateOrderStatus(selectedOrder.id, v)}
-                    options={[
-                      { value: 'pending', label: 'Pending' },
-                      { value: 'confirmed', label: 'Confirmed' },
-                      { value: 'production', label: 'Production' },
-                      { value: 'shipped', label: 'Shipped' },
-                      { value: 'delivered', label: 'Delivered' },
-                      { value: 'cancelled', label: 'Cancelled' },
-                    ]}
-                    triggerClassName={getStatusColor(selectedOrder.status)}
-                    size="sm"
-                  />
+                    onChange={(e) => updateOrderStatus(selectedOrder.id, e.target.value)}
+                    className={`mt-1 px-3 py-1 rounded-lg border ${getStatusColor(selectedOrder.status)}`}
+                  >
+                    <option value="pending">Pending</option>
+                    <option value="confirmed">Confirmed</option>
+                    <option value="production">Production</option>
+                    <option value="shipped">Shipped</option>
+                    <option value="delivered">Delivered</option>
+                    <option value="cancelled">Cancelled</option>
+                  </select>
                 </div>
               </div>
 
@@ -4202,20 +4297,22 @@ Check your inbox at ryan@achievepack.com`)
                   Delete Order
                 </button>
               </div>
-          </DialogBody>
-          )}
-        </DialogContent>
-      </Dialog>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Customer Detail Modal */}
-      <Dialog open={!!selectedCustomer} onOpenChange={(open) => !open && setSelectedCustomer(null)}>
-        <DialogContent from="right" className="max-w-2xl max-h-[90vh]">
-          <DialogHeader>
-            <DialogTitle>Customer Details</DialogTitle>
-            <DialogDescription>{selectedCustomer?.email}</DialogDescription>
-          </DialogHeader>
-          {selectedCustomer && (
-          <DialogBody className="space-y-4">
+      {selectedCustomer && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+          <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+            <div className="p-6 border-b flex items-center justify-between flex-shrink-0">
+              <h2 className="text-xl font-bold">Customer Details</h2>
+              <button onClick={() => setSelectedCustomer(null)} className="text-gray-500 hover:text-gray-700">
+                ✕
+              </button>
+            </div>
+            <div className="p-6 space-y-4 overflow-y-auto flex-1">
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center">
                   <span className="text-primary-600 font-bold text-2xl">
@@ -4301,19 +4398,22 @@ Check your inbox at ryan@achievepack.com`)
                   </div>
                 )}
               </div>
-          </DialogBody>
-          )}
-        </DialogContent>
-      </Dialog>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Upload Document Modal */}
-      <Dialog open={showUploadModal} onOpenChange={setShowUploadModal}>
-        <DialogContent from="top">
-          <DialogHeader>
-            <DialogTitle>Upload Document</DialogTitle>
-            <DialogDescription>Add a new document to the system</DialogDescription>
-          </DialogHeader>
-          <DialogBody className="space-y-4">
+      {showUploadModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+          <div className="bg-white rounded-xl max-w-lg w-full">
+            <div className="p-6 border-b flex items-center justify-between">
+              <h2 className="text-xl font-bold">Upload Document</h2>
+              <button onClick={() => setShowUploadModal(false)} className="text-gray-500 hover:text-gray-700">
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="p-6 space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Customer</label>
                 <select
@@ -4343,17 +4443,16 @@ Check your inbox at ryan@achievepack.com`)
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Document Type</label>
-                <FilterDropdown
+                <select
                   value={uploadForm.type}
-                  onChange={(v) => setUploadForm({ ...uploadForm, type: v })}
-                  options={[
-                    { value: 'PDF', label: 'PDF' },
-                    { value: 'DOC', label: 'DOC' },
-                    { value: 'IMAGE', label: 'IMAGE' },
-                    { value: 'EXCEL', label: 'EXCEL' },
-                  ]}
-                  placeholder="Select type"
-                />
+                  onChange={(e) => setUploadForm({ ...uploadForm, type: e.target.value })}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500"
+                >
+                  <option value="PDF">PDF</option>
+                  <option value="DOC">DOC</option>
+                  <option value="IMAGE">IMAGE</option>
+                  <option value="EXCEL">EXCEL</option>
+                </select>
               </div>
 
               <div>
@@ -4381,36 +4480,36 @@ Check your inbox at ryan@achievepack.com`)
                 </p>
               </div>
 
-          </DialogBody>
-          <DialogFooter>
-            <DialogClose asChild>
-              <button className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">
-                Cancel
-              </button>
-            </DialogClose>
-            <button
-              onClick={uploadDocument}
-              className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700"
-            >
-              Upload Document
-            </button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+              <div className="flex gap-3 pt-4">
+                <button
+                  onClick={uploadDocument}
+                  className="flex-1 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700"
+                >
+                  Upload Document
+                </button>
+                <button
+                  onClick={() => setShowUploadModal(false)}
+                  className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Add Tracking Modal */}
-      <Dialog open={showTrackingModal && !!selectedOrder} onOpenChange={(open) => {
-        if (!open) {
-          setShowTrackingModal(false)
-          setShippingImages([])
-        }
-      }}>
-        <DialogContent from="bottom" className="max-w-lg">
-          <DialogHeader>
-            <DialogTitle>Add Tracking Information</DialogTitle>
-            <DialogDescription>Order: {selectedOrder?.order_number}</DialogDescription>
-          </DialogHeader>
-          <DialogBody className="space-y-4">
+      {showTrackingModal && selectedOrder && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+          <div className="bg-white rounded-xl max-w-lg w-full max-h-[90vh] overflow-hidden flex flex-col">
+            <div className="p-6 border-b flex items-center justify-between flex-shrink-0">
+              <h2 className="text-xl font-bold">Add Tracking Information</h2>
+              <button onClick={() => setShowTrackingModal(false)} className="text-gray-500 hover:text-gray-700">
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="p-6 space-y-4 overflow-y-auto flex-1">
               <div className="bg-gray-50 rounded-lg p-4 mb-4">
                 <p className="text-sm text-gray-600">Order Number</p>
                 <p className="font-semibold text-lg">{selectedOrder.order_number}</p>
@@ -4419,20 +4518,19 @@ Check your inbox at ryan@achievepack.com`)
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Carrier</label>
-                <FilterDropdown
+                <select
                   value={trackingForm.carrier}
-                  onChange={(v) => setTrackingForm({ ...trackingForm, carrier: v })}
-                  options={[
-                    { value: '', label: 'Select carrier' },
-                    { value: 'DHL', label: 'DHL' },
-                    { value: 'FedEx', label: 'FedEx' },
-                    { value: 'UPS', label: 'UPS' },
-                    { value: 'SF Express', label: 'SF Express' },
-                    { value: 'China Post', label: 'China Post' },
-                    { value: 'Other', label: 'Other' },
-                  ]}
-                  placeholder="Select carrier"
-                />
+                  onChange={(e) => setTrackingForm({ ...trackingForm, carrier: e.target.value })}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500"
+                >
+                  <option value="">Select carrier</option>
+                  <option value="DHL">DHL</option>
+                  <option value="FedEx">FedEx</option>
+                  <option value="UPS">UPS</option>
+                  <option value="SF Express">SF Express</option>
+                  <option value="China Post">China Post</option>
+                  <option value="Other">Other</option>
+                </select>
               </div>
 
               <div>
@@ -4529,41 +4627,53 @@ Check your inbox at ryan@achievepack.com`)
                 <p>Adding tracking will automatically update order status to "Shipped"</p>
                 <p className="text-xs mt-1">Photos and message will be visible to the customer.</p>
               </div>
-          </DialogBody>
-          <DialogFooter>
-            <DialogClose asChild>
-              <button className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">
-                Cancel
-              </button>
-            </DialogClose>
-            <button
-              onClick={updateTracking}
-              disabled={uploadingShippingImages}
-              className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50 flex items-center justify-center gap-2"
-            >
-              {uploadingShippingImages ? (
-                <><RefreshCw className="h-4 w-4 animate-spin" /> Uploading...</>
-              ) : (
-                'Save Tracking Info'
-              )}
-            </button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+
+              <div className="flex gap-3 pt-4">
+                <button
+                  onClick={updateTracking}
+                  disabled={uploadingShippingImages}
+                  className="flex-1 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50 flex items-center justify-center gap-2"
+                >
+                  {uploadingShippingImages ? (
+                    <><RefreshCw className="h-4 w-4 animate-spin" /> Uploading...</>
+                  ) : (
+                    'Save Tracking Info'
+                  )}
+                </button>
+                <button
+                  onClick={() => {
+                    setShowTrackingModal(false)
+                    setShippingImages([])
+                  }}
+                  className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Image Catalog Modal */}
-      <Dialog open={showImageCatalog} onOpenChange={setShowImageCatalog}>
-        <DialogContent from="center" className="max-w-4xl max-h-[85vh]">
-          <DialogHeader className="bg-gradient-to-r from-primary-500 to-primary-600 text-white border-0">
-            <DialogTitle className="text-white flex items-center gap-2">
-              <Image className="h-5 w-5" />
-              Image Catalog
-            </DialogTitle>
-            <DialogDescription className="text-primary-100">Select an image to insert into your email</DialogDescription>
-          </DialogHeader>
-          <DialogBody className="p-0">
+      {showImageCatalog && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[80vh] overflow-hidden">
+            <div className="flex items-center justify-between p-6 border-b bg-gradient-to-r from-primary-500 to-primary-600">
+              <div>
+                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                  <Image className="h-6 w-6" />
+                  Image Catalog
+                </h2>
+                <p className="text-primary-100 text-sm">Select an image to insert into your email</p>
+              </div>
+              <button onClick={() => setShowImageCatalog(false)} className="text-white hover:bg-white/20 p-2 rounded-lg">
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            
             {/* Category Filter */}
-            <div className="flex flex-wrap gap-2 p-4 bg-gray-50 border-b sticky top-0 z-10">
+            <div className="flex flex-wrap gap-2 p-4 bg-gray-50 border-b">
               <button
                 onClick={() => setImageCatalogFilter('all')}
                 className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${imageCatalogFilter === 'all' ? 'bg-primary-500 text-white' : 'bg-white border text-gray-600 hover:bg-gray-100'}`}
@@ -4576,8 +4686,9 @@ Check your inbox at ryan@achievepack.com`)
                 >{cat}</button>
               ))}
             </div>
+            
             {/* Image Grid */}
-            <div className="p-6 overflow-y-auto" style={{maxHeight: 'calc(85vh - 250px)'}}>
+            <div className="p-6 overflow-y-auto" style={{maxHeight: 'calc(80vh - 200px)'}}>
               {(imageCatalogFilter === 'all' ? Object.entries(imageCatalog) : [[imageCatalogFilter, imageCatalog[imageCatalogFilter as keyof typeof imageCatalog]]]).map(([category, images]) => (
                 <div key={String(category)} className="mb-6">
                   <h3 className="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
@@ -4617,17 +4728,18 @@ Check your inbox at ryan@achievepack.com`)
                 </div>
               ))}
             </div>
-          </DialogBody>
-          <DialogFooter className="bg-gray-50">
-            <p className="text-xs text-gray-500 mr-auto">Click on an image to insert it into your email content</p>
-            <DialogClose asChild>
-              <button className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 text-sm font-medium">
-                Close
-              </button>
-            </DialogClose>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+            
+            {/* Footer */}
+            <div className="p-4 border-t bg-gray-50 flex items-center justify-between">
+              <p className="text-xs text-gray-500">Click on an image to insert it into your email content</p>
+              <button
+                onClick={() => setShowImageCatalog(false)}
+                className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 text-sm font-medium"
+              >Close</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
