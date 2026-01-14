@@ -60,7 +60,7 @@ function detectIndustry(text: string): string {
   return 'Other'
 }
 
-type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'quote-management' | 'artwork' | 'artwork-proof' | 'image-catalog' | 'documents' | 'newsletter' | 'crm' | 'email-marketing' | 'website' | 'website-demos' | 'projects' | 'settings' | 'recycle-bin'
+type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'quote-management' | 'artwork' | 'artwork-proof' | 'image-catalog' | 'documents' | 'newsletter' | 'crm' | 'email-marketing' | 'website' | 'website-demos' | 'settings' | 'recycle-bin'
 
 // Sidebar menu structure with collapsible groups
 const sidebarMenuItems = [
@@ -97,7 +97,6 @@ const sidebarMenuItems = [
     items: [
       { id: 'orders', label: 'Orders', icon: Package, countKey: 'pendingOrders' },
       { id: 'documents', label: 'Documents', icon: FileText, countKey: 'documents' },
-      { id: 'projects', label: 'Projects', icon: Folder },
     ]
   },
   {
@@ -2484,13 +2483,22 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
             <div className="space-y-4 md:space-y-6">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                 <h1 className="text-xl md:text-2xl font-bold text-gray-900">Quote Management</h1>
-                <button
-                  onClick={fetchData}
-                  className="flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-lg transition"
-                >
-                  <RefreshCw className="h-4 w-4" />
-                  Refresh
-                </button>
+                <div className="flex items-center gap-2">
+                  <Link
+                    to="/ctrl-x9k7m/management?tab=quotes"
+                    className="flex items-center gap-2 px-4 py-2 text-sm bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition"
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                    Full Workflow
+                  </Link>
+                  <button
+                    onClick={fetchData}
+                    className="flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-lg transition"
+                  >
+                    <RefreshCw className="h-4 w-4" />
+                    Refresh
+                  </button>
+                </div>
               </div>
 
               {/* Stats */}
@@ -2588,13 +2596,22 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
             <div className="space-y-4 md:space-y-6">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                 <h1 className="text-xl md:text-2xl font-bold text-gray-900">Artwork Files</h1>
-                <button
-                  onClick={fetchData}
-                  className="flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-lg transition"
-                >
-                  <RefreshCw className="h-4 w-4" />
-                  Refresh
-                </button>
+                <div className="flex items-center gap-2">
+                  <Link
+                    to="/ctrl-x9k7m/management?tab=artwork"
+                    className="flex items-center gap-2 px-4 py-2 text-sm bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition"
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                    Full Workflow
+                  </Link>
+                  <button
+                    onClick={fetchData}
+                    className="flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-lg transition"
+                  >
+                    <RefreshCw className="h-4 w-4" />
+                    Refresh
+                  </button>
+                </div>
               </div>
 
               {/* Stats */}
@@ -2926,179 +2943,6 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
             </div>
           )}
 
-          {/* Projects Tab */}
-          {activeTab === 'projects' && (
-            <div className="space-y-4 md:space-y-6">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                <h1 className="text-xl md:text-2xl font-bold text-gray-900">Projects</h1>
-                <button
-                  onClick={fetchData}
-                  className="flex items-center justify-center gap-2 px-4 py-2 bg-white border rounded-lg hover:bg-gray-50 text-sm w-full sm:w-auto"
-                >
-                  <RefreshCw className="h-4 w-4" />
-                  Refresh
-                </button>
-              </div>
-              
-              {/* Stats Cards */}
-              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-                <div className="bg-white rounded-xl p-4 md:p-6 shadow-sm border">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-xs md:text-sm text-gray-500">Total Projects</p>
-                      <p className="text-xl md:text-3xl font-bold text-gray-900 mt-1">{projects.length}</p>
-                    </div>
-                    <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                      <Package className="h-5 w-5 md:h-6 md:w-6 text-blue-600" />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-xl p-4 md:p-6 shadow-sm border">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-xs md:text-sm text-gray-500">RFQ Stage</p>
-                      <p className="text-xl md:text-3xl font-bold text-yellow-600 mt-1">{projects.filter(p => p.status === 'rfq').length}</p>
-                    </div>
-                    <div className="w-10 h-10 md:w-12 md:h-12 bg-yellow-100 rounded-full flex items-center justify-center">
-                      <FileText className="h-5 w-5 md:h-6 md:w-6 text-yellow-600" />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-xl p-4 md:p-6 shadow-sm border">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-xs md:text-sm text-gray-500">Artwork Stage</p>
-                      <p className="text-xl md:text-3xl font-bold text-purple-600 mt-1">{projects.filter(p => p.status === 'artwork').length}</p>
-                    </div>
-                    <div className="w-10 h-10 md:w-12 md:h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                      <Image className="h-5 w-5 md:h-6 md:w-6 text-purple-600" />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-xl p-4 md:p-6 shadow-sm border">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-xs md:text-sm text-gray-500">Completed</p>
-                      <p className="text-xl md:text-3xl font-bold text-green-600 mt-1">{projects.filter(p => p.status === 'complete').length}</p>
-                    </div>
-                    <div className="w-10 h-10 md:w-12 md:h-12 bg-green-100 rounded-full flex items-center justify-center">
-                      <CheckCircle className="h-5 w-5 md:h-6 md:w-6 text-green-600" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Projects Table */}
-              <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
-                <div className="overflow-x-auto">
-                  <table className="w-full">
-                    <thead className="bg-gray-50">
-                      <tr>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Project Code</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customer</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stage</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Progress</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Updated</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody className="bg-white divide-y divide-gray-200">
-                      {projects.map(project => {
-                        const customer = customers.find(c => c.id === project.user_id) || 
-                                      customers.find(c => c.email?.toLowerCase() === project.customer_email?.toLowerCase())
-                        const stageColors: Record<string, string> = {
-                          rfq: 'bg-yellow-100 text-yellow-700',
-                          artwork: 'bg-purple-100 text-purple-700',
-                          order: 'bg-blue-100 text-blue-700',
-                          production: 'bg-indigo-100 text-indigo-700',
-                          shipping: 'bg-cyan-100 text-cyan-700',
-                          complete: 'bg-green-100 text-green-700'
-                        }
-                        const stages = ['rfq', 'artwork', 'order', 'production', 'shipping', 'complete']
-                        const currentStageIndex = stages.indexOf(project.status)
-                        const progressPercent = Math.round(((currentStageIndex + 1) / stages.length) * 100)
-                        
-                        return (
-                          <tr key={project.id} className="hover:bg-gray-50">
-                            <td className="px-6 py-4 whitespace-nowrap">
-                              <span className="text-sm font-mono font-bold text-primary-600">{project.project_code}</span>
-                            </td>
-                            <td className="px-6 py-4 whitespace-nowrap">
-                              <div>
-                                <p className="text-sm font-medium text-gray-900">{customer?.full_name || project.customer_name || 'Unknown'}</p>
-                                <p className="text-xs text-gray-500">{customer?.email || project.customer_email}</p>
-                              </div>
-                            </td>
-                            <td className="px-6 py-4 whitespace-nowrap">
-                              <span className={`px-2 py-1 text-xs font-medium rounded ${
-                                project.project_type === 'stock' ? 'bg-green-100 text-green-700' :
-                                project.project_type === 'custom' ? 'bg-purple-100 text-purple-700' :
-                                'bg-yellow-100 text-yellow-700'
-                              }`}>
-                                {project.project_type?.toUpperCase() || 'CUSTOM'}
-                              </span>
-                            </td>
-                            <td className="px-6 py-4 whitespace-nowrap">
-                              <span className={`px-2 py-1 text-xs font-medium rounded-full ${stageColors[project.status] || 'bg-gray-100 text-gray-600'}`}>
-                                {project.status?.charAt(0).toUpperCase() + project.status?.slice(1)}
-                              </span>
-                            </td>
-                            <td className="px-6 py-4 whitespace-nowrap">
-                              <div className="w-24">
-                                <div className="flex items-center gap-2">
-                                  <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
-                                    <div 
-                                      className="h-full bg-primary-500 rounded-full transition-all"
-                                      style={{ width: `${progressPercent}%` }}
-                                    />
-                                  </div>
-                                  <span className="text-xs text-gray-500">{progressPercent}%</span>
-                                </div>
-                              </div>
-                            </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                              {new Date(project.updated_at).toLocaleDateString()}
-                            </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                              <select
-                                value={project.status}
-                                onChange={async (e) => {
-                                  const newStage = e.target.value
-                                  await supabase.from('projects').update({ 
-                                    status: newStage,
-                                    updated_at: new Date().toISOString()
-                                  }).eq('id', project.id)
-                                  fetchData()
-                                }}
-                                className="text-sm border border-gray-300 rounded-lg px-2 py-1 focus:ring-2 focus:ring-primary-500"
-                              >
-                                <option value="rfq">RFQ</option>
-                                <option value="artwork">Artwork</option>
-                                <option value="order">Order</option>
-                                <option value="production">Production</option>
-                                <option value="shipping">Shipping</option>
-                                <option value="complete">Complete</option>
-                              </select>
-                            </td>
-                          </tr>
-                        )
-                      })}
-                    </tbody>
-                  </table>
-                </div>
-                {projects.length === 0 && (
-                  <div className="text-center py-12 text-gray-500">
-                    No projects found
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-          
           {/* Email Marketing Tab */}
           {activeTab === 'email-marketing' && (
             <div className="space-y-4 md:space-y-6">
@@ -4610,7 +4454,7 @@ Check your inbox at ryan@achievepack.com`)
                 </div>
               </div>
               <hr />
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-4 gap-4">
                 <div>
                   <p className="text-sm text-gray-500 mb-2">Orders</p>
                   <p className="text-2xl font-bold text-primary-600">
@@ -4627,6 +4471,12 @@ Check your inbox at ryan@achievepack.com`)
                   <p className="text-sm text-gray-500 mb-2">Artworks</p>
                   <p className="text-2xl font-bold text-purple-600">
                     {artworks.filter(a => a.user_id === selectedCustomer.id || customers.find(c => c.id === a.user_id)?.email === selectedCustomer.email).length}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500 mb-2">Projects</p>
+                  <p className="text-2xl font-bold text-blue-600">
+                    {projects.filter(p => p.user_id === selectedCustomer.id || (p as any).user_email === selectedCustomer.email).length}
                   </p>
                 </div>
               </div>
@@ -4687,6 +4537,30 @@ Check your inbox at ryan@achievepack.com`)
                           <span className="font-medium">{artwork.name || artwork.id}</span>
                           <span className={`px-2 py-0.5 rounded-full text-xs ${artwork.status === 'approved' ? 'bg-green-100 text-green-700' : artwork.status === 'pending_review' ? 'bg-yellow-100 text-yellow-700' : 'bg-blue-100 text-blue-700'}`}>{artwork.status}</span>
                           <span className="text-gray-500 text-xs">{new Date(artwork.created_at).toLocaleDateString()}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              )}
+              
+              {/* Related Projects */}
+              {projects.filter(p => p.user_id === selectedCustomer.id || (p as any).user_email === selectedCustomer.email).length > 0 && (
+                <>
+                  <hr />
+                  <div>
+                    <p className="text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+                      <Folder className="h-4 w-4" /> Projects
+                    </p>
+                    <div className="space-y-2 max-h-48 overflow-y-auto">
+                      {projects.filter(p => p.user_id === selectedCustomer.id || (p as any).user_email === selectedCustomer.email).map(project => (
+                        <div key={project.id} className="p-3 bg-blue-50 rounded-lg">
+                          <div className="flex items-center justify-between mb-1">
+                            <span className="font-medium text-sm">{project.name}</span>
+                            <span className={`px-2 py-0.5 rounded-full text-xs ${project.status === 'completed' ? 'bg-green-100 text-green-700' : project.status === 'in_progress' ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-700'}`}>{project.status}</span>
+                          </div>
+                          {project.description && <p className="text-xs text-gray-600 line-clamp-2">{project.description}</p>}
+                          <p className="text-xs text-gray-400 mt-1">{new Date(project.created_at).toLocaleDateString()}</p>
                         </div>
                       ))}
                     </div>
