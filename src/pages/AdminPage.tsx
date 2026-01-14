@@ -2479,6 +2479,285 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
             </div>
           )}
 
+          {/* Quote Management Tab */}
+          {activeTab === 'quote-management' && (
+            <div className="space-y-4 md:space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <h1 className="text-xl md:text-2xl font-bold text-gray-900">Quote Management</h1>
+                <button
+                  onClick={fetchData}
+                  className="flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-lg transition"
+                >
+                  <RefreshCw className="h-4 w-4" />
+                  Refresh
+                </button>
+              </div>
+
+              {/* Stats */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div className="bg-white rounded-xl p-4 shadow-sm border">
+                  <p className="text-xs text-gray-500">Total Quotes</p>
+                  <p className="text-2xl font-bold text-gray-900">{quotes.length}</p>
+                </div>
+                <div className="bg-white rounded-xl p-4 shadow-sm border">
+                  <p className="text-xs text-gray-500">Pending</p>
+                  <p className="text-2xl font-bold text-yellow-600">{quotes.filter(q => q.status === 'pending').length}</p>
+                </div>
+                <div className="bg-white rounded-xl p-4 shadow-sm border">
+                  <p className="text-xs text-gray-500">Accepted</p>
+                  <p className="text-2xl font-bold text-green-600">{quotes.filter(q => q.status === 'accepted').length}</p>
+                </div>
+                <div className="bg-white rounded-xl p-4 shadow-sm border">
+                  <p className="text-xs text-gray-500">Total Value</p>
+                  <p className="text-2xl font-bold text-primary-600">${quotes.reduce((sum, q) => sum + (q.total_amount || 0), 0).toLocaleString()}</p>
+                </div>
+              </div>
+
+              {/* Quote List */}
+              <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Quote #</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Customer</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Amount</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200">
+                      {quotes.map(quote => {
+                        const customer = customers.find(c => c.id === quote.user_id)
+                        return (
+                          <tr key={quote.id} className="hover:bg-gray-50">
+                            <td className="px-6 py-4 text-sm font-medium text-gray-900">{quote.quote_number}</td>
+                            <td className="px-6 py-4">
+                              <div>
+                                <p className="text-sm font-medium text-gray-900">{customer?.full_name || 'Unknown'}</p>
+                                <p className="text-xs text-gray-500">{customer?.email || '-'}</p>
+                              </div>
+                            </td>
+                            <td className="px-6 py-4">
+                              <select
+                                value={quote.status}
+                                onChange={async (e) => {
+                                  const newStatus = e.target.value
+                                  await supabase.from('quotes').update({ status: newStatus }).eq('id', quote.id)
+                                  fetchData()
+                                }}
+                                className={`px-2 py-1 text-xs font-medium rounded-lg border-0 ${quote.status === 'accepted' ? 'bg-green-100 text-green-700' : quote.status === 'pending' ? 'bg-yellow-100 text-yellow-700' : quote.status === 'expired' ? 'bg-red-100 text-red-700' : 'bg-gray-100 text-gray-700'}`}
+                              >
+                                <option value="pending">Pending</option>
+                                <option value="sent">Sent</option>
+                                <option value="accepted">Accepted</option>
+                                <option value="rejected">Rejected</option>
+                                <option value="expired">Expired</option>
+                              </select>
+                            </td>
+                            <td className="px-6 py-4 text-sm text-gray-900">
+                              {quote.total_amount > 0 ? `$${quote.total_amount.toLocaleString()}` : 'TBD'}
+                            </td>
+                            <td className="px-6 py-4 text-sm text-gray-500">
+                              {new Date(quote.created_at).toLocaleDateString()}
+                            </td>
+                            <td className="px-6 py-4">
+                              <button
+                                onClick={() => handleSelectQuote(quote)}
+                                className="text-primary-600 hover:text-primary-700"
+                              >
+                                <Eye className="h-5 w-5" />
+                              </button>
+                            </td>
+                          </tr>
+                        )
+                      })}
+                    </tbody>
+                  </table>
+                  {quotes.length === 0 && (
+                    <div className="text-center py-12 text-gray-500">No quotes yet</div>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Artwork Files Tab */}
+          {activeTab === 'artwork' && (
+            <div className="space-y-4 md:space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <h1 className="text-xl md:text-2xl font-bold text-gray-900">Artwork Files</h1>
+                <button
+                  onClick={fetchData}
+                  className="flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-lg transition"
+                >
+                  <RefreshCw className="h-4 w-4" />
+                  Refresh
+                </button>
+              </div>
+
+              {/* Stats */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div className="bg-white rounded-xl p-4 shadow-sm border">
+                  <p className="text-xs text-gray-500">Total Artworks</p>
+                  <p className="text-2xl font-bold text-gray-900">{artworks.length}</p>
+                </div>
+                <div className="bg-white rounded-xl p-4 shadow-sm border">
+                  <p className="text-xs text-gray-500">Pending Review</p>
+                  <p className="text-2xl font-bold text-yellow-600">{artworks.filter(a => a.status === 'pending_review').length}</p>
+                </div>
+                <div className="bg-white rounded-xl p-4 shadow-sm border">
+                  <p className="text-xs text-gray-500">In Production</p>
+                  <p className="text-2xl font-bold text-blue-600">{artworks.filter(a => a.status === 'in_production').length}</p>
+                </div>
+                <div className="bg-white rounded-xl p-4 shadow-sm border">
+                  <p className="text-xs text-gray-500">Approved</p>
+                  <p className="text-2xl font-bold text-green-600">{artworks.filter(a => a.status === 'approved').length}</p>
+                </div>
+              </div>
+
+              {/* Artwork List */}
+              <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">File</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Customer</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Uploaded</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200">
+                      {artworks.map(artwork => {
+                        const customer = customers.find(c => c.id === artwork.user_id)
+                        return (
+                          <tr key={artwork.id} className="hover:bg-gray-50">
+                            <td className="px-6 py-4">
+                              <div className="flex items-center gap-3">
+                                <div className="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center">
+                                  <Image className="h-6 w-6 text-purple-600" />
+                                </div>
+                                <div>
+                                  <p className="text-sm font-medium text-gray-900">{artwork.name || artwork.id}</p>
+                                  <p className="text-xs text-gray-500">{artwork.file_url?.split('/').pop() || 'No file'}</p>
+                                </div>
+                              </div>
+                            </td>
+                            <td className="px-6 py-4">
+                              <div>
+                                <p className="text-sm font-medium text-gray-900">{customer?.full_name || 'Unknown'}</p>
+                                <p className="text-xs text-gray-500">{customer?.email || '-'}</p>
+                              </div>
+                            </td>
+                            <td className="px-6 py-4">
+                              <select
+                                value={artwork.status}
+                                onChange={async (e) => {
+                                  const newStatus = e.target.value
+                                  await supabase.from('artwork_files').update({ status: newStatus }).eq('id', artwork.id)
+                                  fetchData()
+                                }}
+                                className={`px-2 py-1 text-xs font-medium rounded-lg border-0 ${artwork.status === 'approved' ? 'bg-green-100 text-green-700' : artwork.status === 'pending_review' ? 'bg-yellow-100 text-yellow-700' : artwork.status === 'in_production' ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-700'}`}
+                              >
+                                <option value="pending_review">Pending Review</option>
+                                <option value="in_review">In Review</option>
+                                <option value="prepress">Prepress</option>
+                                <option value="proof_ready">Proof Ready</option>
+                                <option value="revision_needed">Revision Needed</option>
+                                <option value="approved">Approved</option>
+                                <option value="in_production">In Production</option>
+                              </select>
+                            </td>
+                            <td className="px-6 py-4 text-sm text-gray-500">
+                              {new Date(artwork.created_at).toLocaleDateString()}
+                            </td>
+                            <td className="px-6 py-4">
+                              <div className="flex items-center gap-2">
+                                {artwork.file_url && (
+                                  <a
+                                    href={artwork.file_url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-primary-600 hover:text-primary-700"
+                                  >
+                                    <Download className="h-5 w-5" />
+                                  </a>
+                                )}
+                                <button
+                                  onClick={() => setSelectedArtwork(artwork)}
+                                  className="text-primary-600 hover:text-primary-700"
+                                >
+                                  <Eye className="h-5 w-5" />
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                        )
+                      })}
+                    </tbody>
+                  </table>
+                  {artworks.length === 0 && (
+                    <div className="text-center py-12 text-gray-500">No artwork files yet</div>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Artwork Proof Approval Tab */}
+          {activeTab === 'artwork-proof' && (
+            <div className="space-y-4 md:space-y-6">
+              <h1 className="text-xl md:text-2xl font-bold text-gray-900">Proof Approval</h1>
+              <div className="bg-white rounded-xl shadow-sm border p-6">
+                <div className="text-center py-12">
+                  <Palette className="h-12 w-12 text-gray-300 mx-auto mb-4" />
+                  <p className="text-gray-500">Proof approval workflow coming soon</p>
+                  <p className="text-sm text-gray-400 mt-2">Manage customer proof approvals and revisions</p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* AI Image Catalog Tab */}
+          {activeTab === 'image-catalog' && (
+            <div className="space-y-4 md:space-y-6">
+              <h1 className="text-xl md:text-2xl font-bold text-gray-900">AI Image Catalog</h1>
+              <div className="bg-white rounded-xl shadow-sm border p-6">
+                <div className="text-center py-12">
+                  <Sparkles className="h-12 w-12 text-gray-300 mx-auto mb-4" />
+                  <p className="text-gray-500">AI Image Catalog</p>
+                  <p className="text-sm text-gray-400 mt-2">Browse and manage AI-generated images</p>
+                  <a
+                    href="/image-catalog"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700"
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                    Open Full Catalog
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Recycle Bin Tab */}
+          {activeTab === 'recycle-bin' && (
+            <div className="space-y-4 md:space-y-6">
+              <h1 className="text-xl md:text-2xl font-bold text-gray-900">Recycle Bin</h1>
+              <div className="bg-white rounded-xl shadow-sm border p-6">
+                <div className="text-center py-12">
+                  <Trash2 className="h-12 w-12 text-gray-300 mx-auto mb-4" />
+                  <p className="text-gray-500">Recycle Bin is empty</p>
+                  <p className="text-sm text-gray-400 mt-2">Deleted items will appear here for 30 days</p>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* CRM Tab */}
           {activeTab === 'crm' && (
             <div className="space-y-4 md:space-y-6">
@@ -4331,12 +4610,89 @@ Check your inbox at ryan@achievepack.com`)
                 </div>
               </div>
               <hr />
-              <div>
-                <p className="text-sm text-gray-500 mb-2">Orders from this customer</p>
-                <p className="text-2xl font-bold text-primary-600">
-                  {orders.filter(o => o.user_id === selectedCustomer.id || o.customer_email === selectedCustomer.email).length} orders
-                </p>
+              <div className="grid grid-cols-3 gap-4">
+                <div>
+                  <p className="text-sm text-gray-500 mb-2">Orders</p>
+                  <p className="text-2xl font-bold text-primary-600">
+                    {orders.filter(o => o.user_id === selectedCustomer.id || o.customer_email === selectedCustomer.email).length}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500 mb-2">Quotes</p>
+                  <p className="text-2xl font-bold text-yellow-600">
+                    {quotes.filter(q => q.user_id === selectedCustomer.id || customers.find(c => c.id === q.user_id)?.email === selectedCustomer.email).length}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500 mb-2">Artworks</p>
+                  <p className="text-2xl font-bold text-purple-600">
+                    {artworks.filter(a => a.user_id === selectedCustomer.id || customers.find(c => c.id === a.user_id)?.email === selectedCustomer.email).length}
+                  </p>
+                </div>
               </div>
+              
+              {/* Related Orders */}
+              {orders.filter(o => o.user_id === selectedCustomer.id || o.customer_email === selectedCustomer.email).length > 0 && (
+                <>
+                  <hr />
+                  <div>
+                    <p className="text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+                      <Package className="h-4 w-4" /> Recent Orders
+                    </p>
+                    <div className="space-y-2 max-h-40 overflow-y-auto">
+                      {orders.filter(o => o.user_id === selectedCustomer.id || o.customer_email === selectedCustomer.email).slice(0, 5).map(order => (
+                        <div key={order.id} className="flex items-center justify-between p-2 bg-gray-50 rounded-lg text-sm">
+                          <span className="font-medium">{order.order_number}</span>
+                          <span className={`px-2 py-0.5 rounded-full text-xs ${getStatusColor(order.status)}`}>{order.status}</span>
+                          <span className="text-gray-500">${order.total_amount?.toLocaleString()}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              )}
+              
+              {/* Related Quotes */}
+              {quotes.filter(q => q.user_id === selectedCustomer.id || customers.find(c => c.id === q.user_id)?.email === selectedCustomer.email).length > 0 && (
+                <>
+                  <hr />
+                  <div>
+                    <p className="text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+                      <FileCheck className="h-4 w-4" /> Recent Quotes
+                    </p>
+                    <div className="space-y-2 max-h-40 overflow-y-auto">
+                      {quotes.filter(q => q.user_id === selectedCustomer.id || customers.find(c => c.id === q.user_id)?.email === selectedCustomer.email).slice(0, 5).map(quote => (
+                        <div key={quote.id} className="flex items-center justify-between p-2 bg-yellow-50 rounded-lg text-sm">
+                          <span className="font-medium">{quote.quote_number}</span>
+                          <span className={`px-2 py-0.5 rounded-full text-xs ${quote.status === 'accepted' ? 'bg-green-100 text-green-700' : quote.status === 'pending' ? 'bg-yellow-100 text-yellow-700' : 'bg-gray-100 text-gray-700'}`}>{quote.status}</span>
+                          <span className="text-gray-500">{quote.total_amount > 0 ? `$${quote.total_amount.toLocaleString()}` : 'TBD'}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              )}
+              
+              {/* Related Artworks */}
+              {artworks.filter(a => a.user_id === selectedCustomer.id || customers.find(c => c.id === a.user_id)?.email === selectedCustomer.email).length > 0 && (
+                <>
+                  <hr />
+                  <div>
+                    <p className="text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+                      <Image className="h-4 w-4" /> Recent Artworks
+                    </p>
+                    <div className="space-y-2 max-h-40 overflow-y-auto">
+                      {artworks.filter(a => a.user_id === selectedCustomer.id || customers.find(c => c.id === a.user_id)?.email === selectedCustomer.email).slice(0, 5).map(artwork => (
+                        <div key={artwork.id} className="flex items-center justify-between p-2 bg-purple-50 rounded-lg text-sm">
+                          <span className="font-medium">{artwork.name || artwork.id}</span>
+                          <span className={`px-2 py-0.5 rounded-full text-xs ${artwork.status === 'approved' ? 'bg-green-100 text-green-700' : artwork.status === 'pending_review' ? 'bg-yellow-100 text-yellow-700' : 'bg-blue-100 text-blue-700'}`}>{artwork.status}</span>
+                          <span className="text-gray-500 text-xs">{new Date(artwork.created_at).toLocaleDateString()}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              )}
               
               {/* Activity Log Section */}
               <hr />
