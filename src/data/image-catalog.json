@@ -1,9 +1,9 @@
 {
   "generated": "2026-01-14",
-  "total_images": 1087,
-  "total_categories": 113,
+  "total_images": 1097,
+  "total_categories": 114,
   "extensions": {
-    ".webp": 1014,
+    ".webp": 1024,
     ".png": 71,
     ".jpg": 2
   },
@@ -1069,6 +1069,71 @@
           "path": "/imgs/composting/homevs/a_temperature_process_control_chart_2705421.webp",
           "extension": ".webp",
           "modified": "2026-01-03T01:58:18.000Z"
+        }
+      ]
+    },
+    "composting/plastic-free": {
+      "count": 10,
+      "images": [
+        {
+          "filename": "a_biobased_percentage_meter_4122763.webp",
+          "path": "/imgs/composting/plastic-free/a_biobased_percentage_meter_4122763.webp",
+          "extension": ".webp",
+          "modified": "2026-01-14T07:04:52.000Z"
+        },
+        {
+          "filename": "a_certification_language_chart_7782264.webp",
+          "path": "/imgs/composting/plastic-free/a_certification_language_chart_7782264.webp",
+          "extension": ".webp",
+          "modified": "2026-01-14T07:04:52.000Z"
+        },
+        {
+          "filename": "a_conventional_vs_compostable_2073987.webp",
+          "path": "/imgs/composting/plastic-free/a_conventional_vs_compostable_2073987.webp",
+          "extension": ".webp",
+          "modified": "2026-01-14T07:04:52.000Z"
+        },
+        {
+          "filename": "a_customer_friendly_comparison_8810350.webp",
+          "path": "/imgs/composting/plastic-free/a_customer_friendly_comparison_8810350.webp",
+          "extension": ".webp",
+          "modified": "2026-01-14T07:04:52.000Z"
+        },
+        {
+          "filename": "a_lifecycle_journey_compostable_1656229.webp",
+          "path": "/imgs/composting/plastic-free/a_lifecycle_journey_compostable_1656229.webp",
+          "extension": ".webp",
+          "modified": "2026-01-14T07:04:52.000Z"
+        },
+        {
+          "filename": "a_material_icons_grid_7488489.webp",
+          "path": "/imgs/composting/plastic-free/a_material_icons_grid_7488489.webp",
+          "extension": ".webp",
+          "modified": "2026-01-14T07:04:52.000Z"
+        },
+        {
+          "filename": "a_plastic_free_vs_compostable_split_2649647.webp",
+          "path": "/imgs/composting/plastic-free/a_plastic_free_vs_compostable_split_2649647.webp",
+          "extension": ".webp",
+          "modified": "2026-01-14T07:04:52.000Z"
+        },
+        {
+          "filename": "a_product_hero_callouts_0826521.webp",
+          "path": "/imgs/composting/plastic-free/a_product_hero_callouts_0826521.webp",
+          "extension": ".webp",
+          "modified": "2026-01-14T07:04:52.000Z"
+        },
+        {
+          "filename": "a_three_layer_bag_cutaway_0455201.webp",
+          "path": "/imgs/composting/plastic-free/a_three_layer_bag_cutaway_0455201.webp",
+          "extension": ".webp",
+          "modified": "2026-01-14T07:04:52.000Z"
+        },
+        {
+          "filename": "hero.webp",
+          "path": "/imgs/composting/plastic-free/hero.webp",
+          "extension": ".webp",
+          "modified": "2026-01-14T07:04:52.000Z"
         }
       ]
     },

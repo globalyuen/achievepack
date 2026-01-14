@@ -260,6 +260,7 @@ const CompostServiceFinderPage = lazyWithRetry(() => import('./pages/composting/
 const CompostingBenefitsPage = lazyWithRetry(() => import('./pages/composting/CompostingBenefitsPage'))
 const CommercialCompostingPage = lazyWithRetry(() => import('./pages/composting/CommercialCompostingPage'))
 const HomeVsIndustrialCompostPage = lazyWithRetry(() => import('./pages/composting/HomeVsIndustrialCompostPage'))
+const PlasticFreePage = lazyWithRetry(() => import('./pages/composting/PlasticFreePage'))
 
 // Free Service Pages - Lazy loaded
 const FreePackagingDesignPage = lazyWithRetry(() => import('./pages/free-service/FreePackagingDesignPage'))
@@ -474,6 +475,7 @@ createRoot(document.getElementById('root')!).render(
                       <Route path="/composting/composting-benefits" element={<CompostingBenefitsPage />} />
                       <Route path="/composting/commercial-composting" element={<CommercialCompostingPage />} />
                       <Route path="/composting/home-vs-industrial-compostable" element={<HomeVsIndustrialCompostPage />} />
+                      <Route path="/composting/plastic-free" element={<PlasticFreePage />} />
 
                       {/* Free Service Pages */}
                       <Route path="/free-service/packaging-design-consultation" element={<FreePackagingDesignPage />} />
