@@ -72,38 +72,22 @@ const sidebarMenuItems = [
     ]
   },
   {
-    group: 'Quotes & RFQ',
-    collapsible: true,
-    defaultOpen: true,
+    group: 'Order',
     items: [
-      { id: 'quotes', label: 'All Requests', icon: FileCheck, countKey: 'pendingQuotes' },
-      { id: 'quote-management', label: 'Quote Management', icon: MessageSquare },
+      { id: 'order-management', label: 'Order Management', icon: Package, externalLink: '/ctrl-x9k7m/management?tab=artwork' },
     ]
   },
   {
-    group: 'Artwork & Design',
-    collapsible: true,
-    defaultOpen: true,
-    items: [
-      { id: 'artwork', label: 'Artwork Files', icon: Image, countKey: 'pendingArtworks' },
-      { id: 'artwork-proof', label: 'Proof Approval', icon: Palette },
-      { id: 'image-catalog', label: 'AI Image Catalog', icon: Sparkles },
-    ]
-  },
-  {
-    group: 'Sales & Operations',
-    collapsible: true,
-    defaultOpen: true,
-    items: [
-      { id: 'orders', label: 'Orders', icon: Package, countKey: 'pendingOrders' },
-      { id: 'documents', label: 'Documents', icon: FileText, countKey: 'documents' },
-    ]
-  },
-  {
-    group: 'Marketing & CRM',
-    collapsible: true,
+    group: 'CRM',
     items: [
       { id: 'crm', label: 'CRM / Inquiries', icon: Inbox },
+    ]
+  },
+  {
+    group: 'Marketing',
+    collapsible: true,
+    defaultOpen: true,
+    items: [
       { id: 'email-marketing', label: 'Email Marketing', icon: Send },
       { id: 'newsletter', label: 'Newsletter', icon: Newspaper, countKey: 'subscribers' },
     ]
@@ -112,8 +96,10 @@ const sidebarMenuItems = [
     group: 'Content',
     collapsible: true,
     items: [
-      { id: 'website-demos', label: 'Demo Sites', icon: Globe },
       { id: 'website', label: 'Website CMS', icon: FileCode },
+      { id: 'website-demos', label: 'Demo Sites', icon: Globe },
+      { id: 'mockup', label: 'Mock Up', icon: Image, comingSoon: true },
+      { id: 'design', label: 'Design', icon: Palette, comingSoon: true },
     ]
   },
   {
@@ -1621,6 +1607,36 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                             : item.countKey === 'documents' ? documents.length
                             : item.countKey === 'subscribers' ? activeSubscribers
                             : null
+                          
+                          // Handle external links
+                          if ((item as any).externalLink) {
+                            return (
+                              <Link
+                                key={item.id}
+                                to={(item as any).externalLink}
+                                className="flex items-center w-full px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                              >
+                                <Icon className="flex-shrink-0 w-4 h-4 mr-3" />
+                                {item.label}
+                                <ExternalLink className="ml-auto h-3 w-3 text-gray-400" />
+                              </Link>
+                            )
+                          }
+                          
+                          // Handle coming soon items
+                          if ((item as any).comingSoon) {
+                            return (
+                              <div
+                                key={item.id}
+                                className="flex items-center w-full px-4 py-2 text-sm font-medium rounded-lg text-gray-400 cursor-not-allowed"
+                              >
+                                <Icon className="flex-shrink-0 w-4 h-4 mr-3" />
+                                {item.label}
+                                <span className="ml-auto text-[10px] px-1.5 py-0.5 rounded bg-gray-100 text-gray-500">Soon</span>
+                              </div>
+                            )
+                          }
+                          
                           return (
                             <button
                               key={item.id}
@@ -1667,6 +1683,36 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                             : item.countKey === 'documents' ? documents.length
                             : item.countKey === 'subscribers' ? activeSubscribers
                             : null
+                          
+                          // Handle external links
+                          if ((item as any).externalLink) {
+                            return (
+                              <Link
+                                key={item.id}
+                                to={(item as any).externalLink}
+                                className="flex items-center w-full px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                              >
+                                <Icon className="flex-shrink-0 w-4 h-4 mr-3" />
+                                {item.label}
+                                <ExternalLink className="ml-auto h-3 w-3 text-gray-400" />
+                              </Link>
+                            )
+                          }
+                          
+                          // Handle coming soon items
+                          if ((item as any).comingSoon) {
+                            return (
+                              <div
+                                key={item.id}
+                                className="flex items-center w-full px-4 py-2 text-sm font-medium rounded-lg text-gray-400 cursor-not-allowed"
+                              >
+                                <Icon className="flex-shrink-0 w-4 h-4 mr-3" />
+                                {item.label}
+                                <span className="ml-auto text-[10px] px-1.5 py-0.5 rounded bg-gray-100 text-gray-500">Soon</span>
+                              </div>
+                            )
+                          }
+                          
                           return (
                             <button
                               key={item.id}
@@ -1739,8 +1785,23 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
 
         {/* Mobile Nav */}
         <div className="md:hidden flex overflow-x-auto bg-white border-b px-2 py-2 gap-2 sticky top-0 z-30">
-          {sidebarMenuItems.flatMap(group => group.items).map(item => {
+          {sidebarMenuItems.flatMap(group => group.items).filter(item => !(item as any).comingSoon).map(item => {
             const Icon = item.icon
+            
+            // Handle external links in mobile
+            if ((item as any).externalLink) {
+              return (
+                <Link
+                  key={item.id}
+                  to={(item as any).externalLink}
+                  className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-all bg-gray-100 text-gray-700 hover:bg-gray-200"
+                >
+                  <Icon className="h-4 w-4" />
+                  <span>{item.label}</span>
+                </Link>
+              )
+            }
+            
             return (
               <button
                 key={item.id}
