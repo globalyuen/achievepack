@@ -3,7 +3,7 @@ import { useNavigate, Link, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, Order, Profile, NewsletterSubscriber, Document, Quote, ArtworkFile, EmailDraft, CRMInquiry, CRMActivity, CustomerActivityLog } from '../lib/supabase'
 import { blogPosts } from '../data/blogData'
-import { Home, Users, Package, Settings, Search, ChevronDown, ChevronLeft, ChevronRight, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox, Send, FileCode, Check, Globe, Filter, MapPin, Factory, Tag, History, Zap, Bell, Loader2, Download } from 'lucide-react'
+import { Home, Users, Package, Settings, Search, ChevronDown, ChevronLeft, ChevronRight, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox, Send, FileCode, Check, Globe, Filter, MapPin, Factory, Tag, History, Zap, Bell, Loader2, Download, Folder, Palette } from 'lucide-react'
 import CRMPanelAdvanced from '../components/admin/CRMPanelAdvanced'
 import AchieveCoffeeCMS from '../components/admin/AchieveCoffeeCMS'
 import WebsiteDemoCMS from '../components/admin/WebsiteDemoCMS'
@@ -11,6 +11,11 @@ import { sendTestEmail, sendBulkEmails, generateEmailTemplate, EmailRecipient } 
 import { QuickAccessSheet, type QuickAccessItem, type QuoteStatus, type InvoiceStatus, type ArtworkQuickStatus } from '../components/ui/QuickAccessSheet'
 import { PinList, type PinListItem } from '../components/animate-ui/components/community/pin-list'
 import { NotificationList, type Notification } from '../components/animate-ui/components/community/notification-list'
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from '@radix-ui/react-collapsible'
 
 // Industry detection keywords
 const INDUSTRY_KEYWORDS: Record<string, string[]> = {
@@ -55,7 +60,71 @@ function detectIndustry(text: string): string {
   return 'Other'
 }
 
-type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'artwork' | 'artwork-proof' | 'documents' | 'newsletter' | 'crm' | 'email-marketing' | 'website' | 'website-demos' | 'projects' | 'settings'
+type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'quote-management' | 'artwork' | 'artwork-proof' | 'image-catalog' | 'documents' | 'newsletter' | 'crm' | 'email-marketing' | 'website' | 'website-demos' | 'projects' | 'settings' | 'recycle-bin'
+
+// Sidebar menu structure with collapsible groups
+const sidebarMenuItems = [
+  {
+    group: 'Main',
+    items: [
+      { id: 'dashboard', label: 'Dashboard', icon: Home },
+      { id: 'customers', label: 'Customer', icon: Users, countKey: 'customers' },
+    ]
+  },
+  {
+    group: 'Quotes & RFQ',
+    collapsible: true,
+    defaultOpen: true,
+    items: [
+      { id: 'quotes', label: 'All Requests', icon: FileCheck, countKey: 'pendingQuotes' },
+      { id: 'quote-management', label: 'Quote Management', icon: MessageSquare },
+    ]
+  },
+  {
+    group: 'Artwork & Design',
+    collapsible: true,
+    defaultOpen: true,
+    items: [
+      { id: 'artwork', label: 'Artwork Files', icon: Image, countKey: 'pendingArtworks' },
+      { id: 'artwork-proof', label: 'Proof Approval', icon: Palette },
+      { id: 'image-catalog', label: 'AI Image Catalog', icon: Sparkles },
+    ]
+  },
+  {
+    group: 'Sales & Operations',
+    collapsible: true,
+    defaultOpen: true,
+    items: [
+      { id: 'orders', label: 'Orders', icon: Package, countKey: 'pendingOrders' },
+      { id: 'documents', label: 'Documents', icon: FileText, countKey: 'documents' },
+      { id: 'projects', label: 'Projects', icon: Folder },
+    ]
+  },
+  {
+    group: 'Marketing & CRM',
+    collapsible: true,
+    items: [
+      { id: 'crm', label: 'CRM / Inquiries', icon: Inbox },
+      { id: 'email-marketing', label: 'Email Marketing', icon: Send },
+      { id: 'newsletter', label: 'Newsletter', icon: Newspaper, countKey: 'subscribers' },
+    ]
+  },
+  {
+    group: 'Content',
+    collapsible: true,
+    items: [
+      { id: 'website-demos', label: 'Demo Sites', icon: Globe },
+      { id: 'website', label: 'Website CMS', icon: FileCode },
+    ]
+  },
+  {
+    group: 'System',
+    items: [
+      { id: 'settings', label: 'Settings', icon: Settings },
+      { id: 'recycle-bin', label: 'Recycle Bin', icon: Trash2 },
+    ]
+  }
+]
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
 
@@ -1534,158 +1603,102 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
           </div>
 
           <div className="flex flex-col flex-1 px-3 mt-6">
-            <nav className="flex-1 space-y-2">
-              <button
-                onClick={() => setActiveTab('dashboard')}
-                className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
-                  activeTab === 'dashboard'
-                    ? 'bg-primary-500 text-white'
-                    : 'text-gray-900 hover:bg-primary-50 hover:text-primary-600'
-                }`}
-              >
-                <Home className="flex-shrink-0 w-5 h-5 mr-4" />
-                Dashboard
-              </button>
-
-              <button
-                onClick={() => setActiveTab('customers')}
-                className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
-                  activeTab === 'customers'
-                    ? 'bg-primary-500 text-white'
-                    : 'text-gray-900 hover:bg-primary-50 hover:text-primary-600'
-                }`}
-              >
-                <Users className="flex-shrink-0 w-5 h-5 mr-4" />
-                Customers
-                <span className="ml-auto bg-gray-200 text-gray-700 text-xs px-2 py-0.5 rounded-full">
-                  {customers.length}
-                </span>
-              </button>
-
-              <button
-                onClick={() => setActiveTab('orders')}
-                className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
-                  activeTab === 'orders'
-                    ? 'bg-primary-500 text-white'
-                    : 'text-gray-900 hover:bg-primary-50 hover:text-primary-600'
-                }`}
-              >
-                <Package className="flex-shrink-0 w-5 h-5 mr-4" />
-                Orders
-                {pendingOrders > 0 && (
-                  <span className="ml-auto bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">
-                    {pendingOrders}
-                  </span>
-                )}
-              </button>
-
-              <button
-                onClick={() => setActiveTab('documents')}
-                className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
-                  activeTab === 'documents'
-                    ? 'bg-primary-500 text-white'
-                    : 'text-gray-900 hover:bg-primary-50 hover:text-primary-600'
-                }`}
-              >
-                <FileText className="flex-shrink-0 w-5 h-5 mr-4" />
-                Documents
-                <span className="ml-auto bg-gray-200 text-gray-700 text-xs px-2 py-0.5 rounded-full">
-                  {documents.length}
-                </span>
-              </button>
-
-              <button
-                onClick={() => setActiveTab('newsletter')}
-                className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
-                  activeTab === 'newsletter'
-                    ? 'bg-primary-500 text-white'
-                    : 'text-gray-900 hover:bg-primary-50 hover:text-primary-600'
-                }`}
-              >
-                <Newspaper className="flex-shrink-0 w-5 h-5 mr-4" />
-                Newsletter
-                <span className="ml-auto bg-gray-200 text-gray-700 text-xs px-2 py-0.5 rounded-full">
-                  {activeSubscribers}
-                </span>
-              </button>
-
-              <button
-                onClick={() => setActiveTab('crm')}
-                className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
-                  activeTab === 'crm'
-                    ? 'bg-primary-500 text-white'
-                    : 'text-gray-900 hover:bg-primary-50 hover:text-primary-600'
-                }`}
-              >
-                <Inbox className="flex-shrink-0 w-5 h-5 mr-4" />
-                CRM / Inquiries
-              </button>
-
-              <button
-                onClick={() => setActiveTab('email-marketing')}
-                className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
-                  activeTab === 'email-marketing'
-                    ? 'bg-primary-500 text-white'
-                    : 'text-gray-900 hover:bg-primary-50 hover:text-primary-600'
-                }`}
-              >
-                <Send className="flex-shrink-0 w-5 h-5 mr-4" />
-                Email Marketing
-              </button>
-
-              <button
-                onClick={() => setActiveTab('website-demos')}
-                className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
-                  activeTab === 'website-demos'
-                    ? 'bg-primary-500 text-white'
-                    : 'text-gray-900 hover:bg-primary-50 hover:text-primary-600'
-                }`}
-              >
-                <Globe className="flex-shrink-0 w-5 h-5 mr-4" />
-                Demo Sites
-              </button>
-
-              <button
-                onClick={() => setActiveTab('quotes')}
-                className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
-                  activeTab === 'quotes'
-                    ? 'bg-yellow-500 text-white'
-                    : 'text-gray-900 hover:bg-yellow-50 hover:text-yellow-600'
-                }`}
-              >
-                <MessageSquare className="flex-shrink-0 w-5 h-5 mr-4" />
-                Quotes & RFQ
-              </button>
-
-              <Link
-                to="/ctrl-x9k7m/management?tab=artwork"
-                className="flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 text-gray-900 hover:bg-purple-50 hover:text-purple-600"
-              >
-                <Image className="flex-shrink-0 w-5 h-5 mr-4" />
-                Artwork Files
-              </Link>
-
-              <Link
-                to="/image-catalog"
-                className="flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 text-gray-900 hover:bg-violet-50 hover:text-violet-600"
-              >
-                <Sparkles className="flex-shrink-0 w-5 h-5 mr-4" />
-                AI Image Catalog
-              </Link>
-
-              <hr className="border-gray-200 my-4" />
-
-              <button
-                onClick={() => setActiveTab('settings')}
-                className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
-                  activeTab === 'settings'
-                    ? 'bg-primary-500 text-white'
-                    : 'text-gray-900 hover:bg-primary-50 hover:text-primary-600'
-                }`}
-              >
-                <Settings className="flex-shrink-0 w-5 h-5 mr-4" />
-                Settings
-              </button>
+            <nav className="flex-1 space-y-1">
+              {sidebarMenuItems.map((group, groupIndex) => (
+                <div key={group.group} className={groupIndex > 0 ? 'mt-2' : ''}>
+                  {group.collapsible ? (
+                    <Collapsible defaultOpen={group.defaultOpen} className="group/collapsible">
+                      <CollapsibleTrigger className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider hover:text-gray-700">
+                        <span>{group.group}</span>
+                        <ChevronDown className="h-3.5 w-3.5 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-180" />
+                      </CollapsibleTrigger>
+                      <CollapsibleContent className="space-y-1 mt-1">
+                        {group.items.map((item) => {
+                          const Icon = item.icon
+                          const count = item.countKey === 'customers' ? customers.length
+                            : item.countKey === 'pendingQuotes' ? quotes.filter(q => q.status === 'pending').length
+                            : item.countKey === 'pendingArtworks' ? artworks.filter(a => a.status === 'pending_review').length
+                            : item.countKey === 'pendingOrders' ? pendingOrders
+                            : item.countKey === 'documents' ? documents.length
+                            : item.countKey === 'subscribers' ? activeSubscribers
+                            : null
+                          return (
+                            <button
+                              key={item.id}
+                              onClick={() => setActiveTab(item.id as TabType)}
+                              className={`flex items-center w-full px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                                activeTab === item.id
+                                  ? 'bg-primary-500 text-white shadow-sm'
+                                  : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
+                              }`}
+                            >
+                              <Icon className="flex-shrink-0 w-4 h-4 mr-3" />
+                              {item.label}
+                              {count !== null && count > 0 && (
+                                <span className={`ml-auto text-xs px-2 py-0.5 rounded-full ${
+                                  activeTab === item.id
+                                    ? 'bg-white/20 text-white'
+                                    : item.countKey === 'pendingOrders' || item.countKey === 'pendingQuotes' || item.countKey === 'pendingArtworks'
+                                      ? 'bg-red-100 text-red-700'
+                                      : 'bg-gray-200 text-gray-600'
+                                }`}>
+                                  {count}
+                                </span>
+                              )}
+                            </button>
+                          )
+                        })}
+                      </CollapsibleContent>
+                    </Collapsible>
+                  ) : (
+                    <>
+                      {group.group !== 'Main' && (
+                        <div className="px-3 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                          {group.group}
+                        </div>
+                      )}
+                      {group.group === 'System' && <hr className="border-gray-200 my-2" />}
+                      <div className="space-y-1">
+                        {group.items.map((item) => {
+                          const Icon = item.icon
+                          const count = item.countKey === 'customers' ? customers.length
+                            : item.countKey === 'pendingQuotes' ? quotes.filter(q => q.status === 'pending').length
+                            : item.countKey === 'pendingArtworks' ? artworks.filter(a => a.status === 'pending_review').length
+                            : item.countKey === 'pendingOrders' ? pendingOrders
+                            : item.countKey === 'documents' ? documents.length
+                            : item.countKey === 'subscribers' ? activeSubscribers
+                            : null
+                          return (
+                            <button
+                              key={item.id}
+                              onClick={() => setActiveTab(item.id as TabType)}
+                              className={`flex items-center w-full px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                                activeTab === item.id
+                                  ? 'bg-primary-500 text-white shadow-sm'
+                                  : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
+                              }`}
+                            >
+                              <Icon className="flex-shrink-0 w-4 h-4 mr-3" />
+                              {item.label}
+                              {count !== null && count > 0 && (
+                                <span className={`ml-auto text-xs px-2 py-0.5 rounded-full ${
+                                  activeTab === item.id
+                                    ? 'bg-white/20 text-white'
+                                    : item.countKey === 'pendingOrders' || item.countKey === 'pendingQuotes' || item.countKey === 'pendingArtworks'
+                                      ? 'bg-red-100 text-red-700'
+                                      : 'bg-gray-200 text-gray-600'
+                                }`}>
+                                  {count}
+                                </span>
+                              )}
+                            </button>
+                          )
+                        })}
+                      </div>
+                    </>
+                  )}
+                </div>
+              ))}
             </nav>
 
             <div className="pb-4 mt-auto">
@@ -1727,45 +1740,23 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
 
         {/* Mobile Nav */}
         <div className="md:hidden flex overflow-x-auto bg-white border-b px-2 py-2 gap-2 sticky top-0 z-30">
-          {(['dashboard', 'customers', 'orders', 'documents', 'newsletter', 'crm', 'email-marketing', 'website', 'website-demos', 'artwork', 'artwork-proof', 'projects', 'settings'] as TabType[]).map(tab => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-all ${
-                activeTab === tab
-                  ? 'bg-primary-500 text-white shadow-sm'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              {tab === 'dashboard' && <Home className="h-4 w-4" />}
-              {tab === 'customers' && <Users className="h-4 w-4" />}
-              {tab === 'orders' && <Package className="h-4 w-4" />}
-              {tab === 'documents' && <FileText className="h-4 w-4" />}
-              {tab === 'newsletter' && <Newspaper className="h-4 w-4" />}
-              {tab === 'crm' && <Inbox className="h-4 w-4" />}
-              {tab === 'email-marketing' && <Mail className="h-4 w-4" />}
-              {tab === 'website' && <Globe className="h-4 w-4" />}
-              {tab === 'settings' && <Settings className="h-4 w-4" />}
-              <span>{tab === 'email-marketing' ? 'Email' : tab === 'website-demos' ? 'Demo Sites' : tab.charAt(0).toUpperCase() + tab.slice(1)}</span>
-            </button>
-          ))}
-          {/* Direct links to Management page */}
-          <button
-            onClick={() => setActiveTab('quotes')}
-            className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-all ${
-              activeTab === 'quotes' ? 'bg-yellow-500 text-white' : 'bg-yellow-100 text-yellow-700 hover:bg-yellow-200'
-            }`}
-          >
-            <FileCheck className="h-4 w-4" />
-            <span>Quotes</span>
-          </button>
-          <Link
-            to="/ctrl-x9k7m/management?tab=artwork"
-            className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap bg-purple-100 text-purple-700 hover:bg-purple-200 transition-all"
-          >
-            <Image className="h-4 w-4" />
-            <span>Artwork</span>
-          </Link>
+          {sidebarMenuItems.flatMap(group => group.items).map(item => {
+            const Icon = item.icon
+            return (
+              <button
+                key={item.id}
+                onClick={() => setActiveTab(item.id as TabType)}
+                className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-all ${
+                  activeTab === item.id
+                    ? 'bg-primary-500 text-white shadow-sm'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                <Icon className="h-4 w-4" />
+                <span>{item.label}</span>
+              </button>
+            )
+          })}
         </div>
 
         {/* Desktop Header */}
