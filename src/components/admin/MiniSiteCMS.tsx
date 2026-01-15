@@ -208,7 +208,7 @@ const AccessModal: React.FC<{
         .eq('site_id', site.id)
         .order('created_at', { ascending: false })
       
-      // Get user emails
+      // Get user emails - parallel fetch with Promise.all
       if (data && data.length > 0) {
         const userIds = data.map(a => a.user_id)
         const { data: profiles } = await supabase

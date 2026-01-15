@@ -53,6 +53,28 @@ const PageLoader = () => (
   </div>
 )
 
+// P2: Route preload map for hover prefetching
+const routeImportMap: Record<string, () => Promise<any>> = {
+  '/store': () => import('./pages/StorePage'),
+  '/blog': () => import('./pages/blog/BlogPage'),
+  '/dashboard': () => import('./pages/DashboardPage'),
+  '/packaging/stand-up-pouches': () => import('./pages/packaging/StandUpPouchesPage'),
+  '/packaging/flat-bottom-bags': () => import('./pages/packaging/FlatBottomBagsPage'),
+  '/materials/compostable': () => import('./pages/materials/CompostablePage'),
+  '/materials/recyclable-mono-pe': () => import('./pages/materials/RecyclableMonoPEPage'),
+  '/features/reclosure-options': () => import('./pages/features/ReclosureOptionsPage'),
+  '/features/surface-finish': () => import('./pages/features/SurfaceFinishPage'),
+  '/features/barrier-options': () => import('./pages/features/BarrierOptionsPage'),
+}
+
+// Export preload function for use in navigation components
+export const preloadRoute = (path: string) => {
+  const importFn = routeImportMap[path]
+  if (importFn) {
+    importFn().catch(() => {}) // Silently preload
+  }
+}
+
 // Lazy load all pages for better code splitting
 const StorePage = lazyWithRetry(() => import('./pages/StorePage'))
 const ProductPage = lazyWithRetry(() => import('./pages/ProductPage'))
