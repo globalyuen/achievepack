@@ -271,6 +271,7 @@ const FreeMockupPage = lazyWithRetry(() => import('./pages/free-service/FreeMock
 const FreeCustomerCenterPage = lazyWithRetry(() => import('./pages/free-service/FreeCustomerCenterPage'))
 const MaxiFoodsDemoPage = lazyWithRetry(() => import('./pages/free-service/MaxiFoodsDemoPage'))
 const AchieveChipsDemoPage = lazyWithRetry(() => import('./pages/free-service/AchieveChipsDemoPage'))
+const Product3DShowcasePage = lazyWithRetry(() => import('./pages/Product3DShowcasePage'))
 
 // Bio-PE Pages - Lazy loaded
 const WhatIsBioPEPage = lazyWithRetry(() => import('./pages/biope/WhatIsBioPEPage'))
@@ -486,7 +487,8 @@ createRoot(document.getElementById('root')!).render(
                       <Route path="/free-service/packaging-mockup" element={<FreeMockupPage />} />
                       <Route path="/free-service/customer-center" element={<FreeCustomerCenterPage />} />
                       <Route path="/free-service/maxi-foods-demo" element={<MaxiFoodsDemoPage />} />
-                                            <Route path="/free-service/achieve-chips-demo" element={<AchieveChipsDemoPage />} />
+                      <Route path="/free-service/achieve-chips-demo" element={<AchieveChipsDemoPage />} />
+                      <Route path="/3d-showcase" element={<Product3DShowcasePage />} />
 
                       {/* Bio-PE Pages */}
                       <Route path="/biope/what-is-bio-pe" element={<WhatIsBioPEPage />} />

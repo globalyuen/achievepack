@@ -19,6 +19,11 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // Optimize lucide-react tree-shaking
+  optimizeDeps: {
+    include: ['lucide-react'],
+    exclude: ['@vercel/analytics', '@vercel/speed-insights'],
+  },
   build: {
     // Target modern browsers for smaller bundles
     target: 'es2020',

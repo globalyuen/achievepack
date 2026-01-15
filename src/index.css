@@ -154,3 +154,54 @@ section {
   content-visibility: auto;
   contain-intrinsic-size: auto 500px;
 }
+
+/* P0 Performance: Product cards optimization */
+.product-card {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 400px;
+  contain: layout style paint;
+}
+
+/* P0 Performance: Options/spec rows optimization */
+.options-row, .spec-row {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 60px;
+}
+
+/* P0 Performance: FAQ items optimization */
+.faq-item {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 80px;
+}
+
+/* P0 Performance: Testimonial cards */
+.testimonial-card {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 300px;
+}
+
+/* P0 Performance: Case study cards */
+.case-study-card {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 450px;
+}
+
+/* Blob animation for 3D Showcase */
+@keyframes blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(20px, -30px) scale(1.1); }
+  50% { transform: translate(-20px, 20px) scale(0.9); }
+  75% { transform: translate(30px, 10px) scale(1.05); }
+}
+
+.animate-blob {
+  animation: blob 10s infinite ease-in-out;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}

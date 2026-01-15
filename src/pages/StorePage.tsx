@@ -689,7 +689,7 @@ const StorePage: React.FC = () => {
                 {sortedProducts.map(product => (
                   <div
                     key={product.id}
-                    className="bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-neutral-200 hover:shadow-lg hover:border-neutral-300 transition group relative"
+                    className="product-card bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-neutral-200 hover:shadow-lg hover:border-neutral-300 transition group relative"
                   >
                     {/* Custom Quote Button */}
                     <button
@@ -737,7 +737,7 @@ const StorePage: React.FC = () => {
                 {sortedProducts.map(product => (
                   <div
                     key={product.id}
-                    className="flex flex-col sm:flex-row bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-neutral-200 hover:shadow-lg hover:border-neutral-300 transition group relative"
+                    className="product-card flex flex-col sm:flex-row bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-neutral-200 hover:shadow-lg hover:border-neutral-300 transition group relative"
                   >
                     {/* Custom Quote Button */}
                     <button
