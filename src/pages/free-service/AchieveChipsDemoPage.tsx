@@ -465,25 +465,34 @@ export default function AchieveChipsDemoPage() {
         </div>
       </nav>
 
-      {/* Hero Section - Oscar Style: Centered layout with geometric shapes */}
+      {/* Hero Section - Full Page Background with Rotating Product Images */}
       <section className="relative min-h-screen pt-28 pb-20 overflow-hidden">
-        {/* Oscar-style Background with geometric shapes */}
-        <div className="absolute inset-0 bg-white">
-          {/* Semi-transparent geometric circles - Oscar style */}
-          <div className="absolute top-20 left-10 w-[300px] h-[300px] rounded-full bg-[#e8f5e9]/40" />
-          <div className="absolute top-40 right-20 w-[200px] h-[200px] rounded-full bg-[#e8f5e9]/30" />
-          <div className="absolute bottom-20 left-1/4 w-[400px] h-[400px] rounded-full bg-[#e8f5e9]/20" />
-          <div className="absolute -bottom-20 right-10 w-[250px] h-[125px] rounded-t-full bg-[#e8f5e9]/35" />
-          <div className="absolute top-1/3 -left-10 w-[150px] h-[75px] rounded-r-full bg-[#c8e6c9]/25" />
-          {/* Product color accent - subtle */}
+        {/* Full Page Background - Rotating Hero Product Images */}
+        <AnimatePresence mode="wait">
           <motion.div 
-            className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full blur-[200px] opacity-10" 
-            animate={{ backgroundColor: activeProduct.color }}
-            transition={{ duration: 0.8, ease: 'easeInOut' }}
-          />
-        </div>
+            key={activeProduct.id + '-bg'}
+            className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            {/* Hero Background Image */}
+            <div className="absolute inset-0">
+              <img 
+                src={activeProduct.flavorImages[activeFlavorIndex]?.src || activeProduct.heroImage}
+                alt={activeProduct.flavorImages[activeFlavorIndex]?.alt || activeProduct.heroImageAlt}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            {/* Dark overlay for text readability */}
+            <div className="absolute inset-0 bg-black/50" />
+            {/* Gradient overlay for better text contrast */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60" />
+          </motion.div>
+        </AnimatePresence>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-6">
+        <div className="relative z-10 max-w-5xl mx-auto px-6 min-h-[calc(100vh-7rem)] flex flex-col justify-center">
           {/* Oscar-style centered content */}
           <motion.div 
             className="text-center flex flex-col items-center"
@@ -493,7 +502,7 @@ export default function AchieveChipsDemoPage() {
           >
             {/* Oscar-style small badge at top */}
             <motion.div 
-              className="inline-flex items-center px-4 py-1.5 rounded-full border border-[#81c784] text-[#2e7d32] text-sm font-medium mb-8"
+              className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium mb-8"
               variants={fadeInUp}
             >
               <Leaf className="w-4 h-4 mr-2" />
@@ -506,10 +515,10 @@ export default function AchieveChipsDemoPage() {
                 <motion.button
                   key={product.id}
                   onClick={() => { setActiveProduct(product); setActiveFlavorIndex(0) }}
-                  className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
+                  className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all backdrop-blur-sm ${
                     activeProduct.id === product.id 
-                      ? 'bg-[#2e7d32] text-white shadow-lg' 
-                      : 'bg-[#e8f5e9] hover:bg-[#c8e6c9] text-[#2e7d32]'
+                      ? 'bg-white text-[#2e7d32] shadow-lg' 
+                      : 'bg-white/20 hover:bg-white/30 text-white border border-white/30'
                   }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -519,11 +528,11 @@ export default function AchieveChipsDemoPage() {
               ))}
             </motion.div>
 
-            {/* Oscar-style large headline with highlighted word */}
+            {/* Large headline with highlighted word */}
             <AnimatePresence mode="wait">
               <motion.h1 
                 key={activeProduct.id + '-title'}
-                className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-tight mb-6 text-[#1b5e20]"
+                className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-tight mb-6 text-white drop-shadow-2xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
@@ -531,19 +540,18 @@ export default function AchieveChipsDemoPage() {
               >
                 Discover the Taste of{' '}
                 <span 
-                  className="relative inline-block px-3"
-                  style={{ backgroundColor: `${activeProduct.color}25` }}
+                  className="relative inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-lg"
                 >
-                  <span style={{ color: activeProduct.color }}>{activeProduct.name}</span>
+                  {activeProduct.name}
                 </span>
               </motion.h1>
             </AnimatePresence>
 
-            {/* Oscar-style subtitle paragraph */}
+            {/* Subtitle paragraph */}
             <AnimatePresence mode="wait">
               <motion.p 
                 key={activeProduct.id + '-desc'}
-                className="text-lg text-[#558b2f] max-w-2xl mx-auto mb-8 leading-relaxed font-display"
+                className="text-lg text-white/90 max-w-2xl mx-auto mb-8 leading-relaxed font-display drop-shadow-lg"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -553,46 +561,14 @@ export default function AchieveChipsDemoPage() {
               </motion.p>
             </AnimatePresence>
 
-            {/* Product Image - centered with floating animation */}
-            <div className="relative w-full max-w-md mx-auto mb-10">
-              <div className="relative aspect-square flex items-center justify-center">
-                {/* Subtle glow behind product */}
-                <motion.div 
-                  className="absolute inset-10 rounded-full blur-[80px] opacity-30" 
-                  animate={{ backgroundColor: activeProduct.color }}
-                  transition={{ duration: 0.8 }}
-                />
-                
-                {/* Main Product Image - floating */}
-                <motion.img 
-                  key={activeProduct.id}
-                  src={activeProduct.heroImage}
-                  alt={activeProduct.heroImageAlt}
-                  className="relative z-10 w-full h-full object-contain drop-shadow-2xl"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ 
-                    opacity: 1, 
-                    scale: 1, 
-                    y: [0, -15, 0],
-                  }}
-                  transition={{ 
-                    opacity: { duration: 0.3 },
-                    scale: { duration: 0.3 },
-                    y: { duration: 4, repeat: Infinity, ease: 'easeInOut' }
-                  }}
-                  whileHover={{ scale: 1.05 }}
-                />
-              </div>
-            </div>
-
-            {/* Oscar-style CTA section - input + button (adapted for shop) */}
+            {/* CTA section - Price + Add to Cart */}
             <motion.div 
               className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6"
               variants={fadeInUp}
             >
               <motion.div
                 key={activeProduct.id + '-price'}
-                className="flex items-center gap-2 px-6 py-3 bg-white border border-[#c8e6c9] rounded-full"
+                className="flex items-center gap-2 px-6 py-3 bg-white/90 backdrop-blur-md rounded-full shadow-xl"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3 }}
@@ -602,8 +578,8 @@ export default function AchieveChipsDemoPage() {
               </motion.div>
               <motion.button 
                 onClick={() => setCartCount(c => c + 1)}
-                className="px-8 py-3 rounded-full font-bold text-sm tracking-wide text-white bg-[#66bb6a] hover:bg-[#4caf50] transition-colors font-display flex items-center gap-2"
-                whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(102,187,106,0.3)' }}
+                className="px-8 py-3 rounded-full font-bold text-sm tracking-wide text-white bg-[#66bb6a] hover:bg-[#4caf50] transition-colors font-display flex items-center gap-2 shadow-xl"
+                whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(102,187,106,0.5)' }}
                 whileTap={{ scale: 0.95 }}
               >
                 <ShoppingCart className="w-4 h-4" />
@@ -611,12 +587,12 @@ export default function AchieveChipsDemoPage() {
               </motion.button>
             </motion.div>
 
-            {/* Badges - Oscar style with green theme */}
+            {/* Badges */}
             <motion.div className="flex flex-wrap justify-center gap-2 mb-8" variants={fadeInUp}>
               {activeProduct.badges.map((badge, i) => (
                 <motion.span 
                   key={i} 
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#e8f5e9] text-[#2e7d32] text-xs font-medium"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-xs font-medium"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: i * 0.1 }}
@@ -627,26 +603,26 @@ export default function AchieveChipsDemoPage() {
               ))}
             </motion.div>
 
-            {/* Oscar-style credit line */}
+            {/* Credit line */}
             <motion.p 
-              className="text-sm text-[#81c784] font-display"
+              className="text-sm text-white/70 font-display backdrop-blur-sm"
               variants={fadeInUp}
             >
               Demo site created by{' '}
-              <Link to="/free-service/website-upgrade" className="text-[#2e7d32] hover:underline font-medium">
+              <Link to="/free-service/website-upgrade" className="text-white hover:underline font-medium">
                 Achieve Pack
               </Link>
             </motion.p>
           </motion.div>
         </div>
 
-        {/* Scroll Indicator - Oscar green theme */}
+        {/* Scroll Indicator */}
         <motion.div 
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
         >
-          <ChevronDown className="w-6 h-6 text-[#81c784]" />
+          <ChevronDown className="w-6 h-6 text-white/80" />
         </motion.div>
       </section>
 
