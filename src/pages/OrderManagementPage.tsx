@@ -1240,7 +1240,7 @@ const OrderManagementPage: React.FC = () => {
                 }`}
               >
                 <FileCheck className="flex-shrink-0 w-5 h-5 mr-4" />
-                Quotes & RFQ
+                RFQ & Order
                 {pendingQuotes > 0 && (
                   <span className="ml-auto bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">
                     {pendingQuotes}
@@ -1598,7 +1598,7 @@ const OrderManagementPage: React.FC = () => {
                         : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200'
                     }`}
                   >
-                    RFQ / Quotes
+                    RFQ & Order
                   </button>
                   <button
                     onClick={() => setQuoteSubTab('orders')}
@@ -1613,7 +1613,7 @@ const OrderManagementPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* RFQ / Quotes Sub-tab Content */}
+              {/* RFQ & Order Sub-tab Content */}
               {quoteSubTab === 'rfq' && (
                 <div className="space-y-6">
                   {/* Stats */}
