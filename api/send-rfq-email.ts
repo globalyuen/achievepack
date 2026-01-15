@@ -20,8 +20,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     message, 
     websiteLink, 
     photoUrls,
-    quoteNumber 
+    quoteNumber,
+    rfqNumber, // Support both parameter names
+    configurationLink, // Configuration link for calculator
+    items, // Store items
+    estimatedTotal, // Estimated total
+    notes, // Additional notes
+    company, // Company name
+    contactInfo // Contact info
   } = req.body
+
+  // Use either quoteNumber or rfqNumber (support both)
+  const referenceNumber = quoteNumber || rfqNumber || `RFQ-${Date.now().toString(36).toUpperCase()}`
 
   const BREVO_API_KEY = process.env.BREVO_API_KEY
   const RFQ_EMAIL = 'rfq@achievepack.com'
@@ -53,7 +63,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     sender: { name: 'AchievePack RFQ System', email: 'noreply@achievepack.com' },
     to: [{ email: RFQ_EMAIL, name: 'RFQ Team' }],
     replyTo: { email: customerEmail, name: customerName },
-    subject: `📦 New RFQ Request: ${quoteNumber} from ${customerName}`,
+    subject: `📦 New RFQ Request: ${referenceNumber} from ${customerName}`,
     htmlContent: `
       <!DOCTYPE html>
       <html>
@@ -80,7 +90,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           </div>
           <div class="content">
             <div style="margin-bottom: 20px;">
-              <span class="quote-badge">${quoteNumber}</span>
+              <span class="quote-badge">${referenceNumber}</span>
             </div>
             
             <div class="field">
@@ -100,16 +110,52 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
               </div>
             ` : ''}
             
+            ${configurationLink ? `
+              <div class="field">
+                <div class="label">Configuration Link</div>
+                <div class="value"><a href="${configurationLink}" target="_blank" style="color: #2563eb; font-weight: 600;">View Selected Configuration →</a></div>
+              </div>
+            ` : ''}
+            
+            ${company ? `
+              <div class="field">
+                <div class="label">Company</div>
+                <div class="value">${company}</div>
+              </div>
+            ` : ''}
+            
+            ${items && items.length > 0 ? `
+              <div class="field">
+                <div class="label">Requested Items (${items.length})</div>
+                <div class="value">
+                  ${items.map((item: any) => `
+                    <div style="padding: 8px; margin: 4px 0; background: white; border-radius: 4px;">
+                      <strong>${item.name}</strong><br>
+                      ${item.variant ? `Variant: ${item.variant}<br>` : ''}
+                      Quantity: ${item.quantity}${item.customSize ? ` | Size: ${item.customSize}` : ''}
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            ` : ''}
+            
+            ${estimatedTotal ? `
+              <div class="field">
+                <div class="label">Estimated Total</div>
+                <div class="value" style="font-size: 18px; font-weight: 600; color: #059669;">$${estimatedTotal.toLocaleString()}</div>
+              </div>
+            ` : ''}
+            
             ${photosHtml}
             
             <div class="message-box">
               <div class="label" style="margin-bottom: 8px;">Request Details</div>
-              ${message}
+              ${message || notes || 'No additional notes provided'}
             </div>
             
             <div class="quick-actions">
               <p style="margin: 0 0 10px; font-weight: 600; color: #065f46;">Quick Actions:</p>
-              <a href="mailto:${customerEmail}?subject=Re: Your RFQ Request ${quoteNumber}" class="button">📧 Reply to Customer</a>
+              <a href="mailto:${customerEmail}?subject=Re: Your RFQ Request ${referenceNumber}" class="button">📧 Reply to Customer</a>
               <a href="https://achievepack.com/ctrl-x9k7m/management?tab=quotes" class="button" style="background: #2563eb;">📋 View in Admin</a>
             </div>
             
@@ -155,7 +201,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const customerConfirmation: any = {
       sender: { name: 'AchievePack', email: 'noreply@achievepack.com' },
       to: [{ email: customerEmail, name: customerName }],
-      subject: `✅ RFQ Request Received - ${quoteNumber}`,
+      subject: `✅ RFQ Request Received - ${referenceNumber}`,
       htmlContent: `
         <!DOCTYPE html>
         <html>
@@ -177,7 +223,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             <div class="header">
               <div class="check-icon">✅</div>
               <h1 style="margin: 10px 0 0; font-size: 22px;">Request Received!</h1>
-              <p style="margin: 10px 0 0; opacity: 0.9; font-size: 14px;">Reference: ${quoteNumber}</p>
+              <p style="margin: 10px 0 0; opacity: 0.9; font-size: 14px;">Reference: ${referenceNumber}</p>
             </div>
             <div class="content">
               <p>Hi ${customerName || 'there'},</p>
@@ -198,6 +244,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                   <div class="step-text">You'll receive your quote within 24 business hours</div>
                 </div>
               </div>
+              
+              ${configurationLink ? `
+                <div style="background: #dbeafe; padding: 15px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #2563eb;">
+                  <p style="margin: 0 0 8px; font-weight: 600; color: #1e40af;">📋 Your Configuration</p>
+                  <p style="margin: 0;"><a href="${configurationLink}" target="_blank" style="color: #2563eb; font-weight: 600;">View your selected configuration →</a></p>
+                </div>
+              ` : ''}
               
               <p>If you have any questions in the meantime, feel free to reply to this email or contact us at <a href="mailto:rfq@achievepack.com">rfq@achievepack.com</a>.</p>
               
@@ -228,7 +281,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(200).json({ 
       success: true, 
       message: 'RFQ email sent successfully',
-      quoteNumber 
+      quoteNumber: referenceNumber 
     })
 
   } catch (error: any) {
