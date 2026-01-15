@@ -23,6 +23,8 @@ import { QuickAccessSheet, type QuickAccessItem, type QuoteStatus, type InvoiceS
 
 type TabType = 'quotes' | 'artwork' | 'projects' | 'customers' | 'bin'
 type QuoteSubTab = 'rfq' | 'orders'
+type OrderDetailTab = 'order' | 'artwork' | 'production' | 'shipping'
+type QuoteDetailTab = 'rfq' | 'orders' | 'artwork' | 'shipping'
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
 
@@ -43,6 +45,9 @@ const OrderManagementPage: React.FC = () => {
   const [loading, setLoading] = useState(true)
   const [selectedQuote, setSelectedQuote] = useState<Quote | null>(null)
   const [selectedOrder, setSelectedOrder] = useState<any | null>(null)
+  const [orderDetailTab, setOrderDetailTab] = useState<OrderDetailTab>('order')
+  const [quoteDetailTab, setQuoteDetailTab] = useState<QuoteDetailTab>('rfq')
+  const [showHelpModal, setShowHelpModal] = useState(false)
   const [selectedArtwork, setSelectedArtwork] = useState<ArtworkFile | null>(null)
   const [artworkFeedback, setArtworkFeedback] = useState('')
   const [internalFile, setInternalFile] = useState<File | null>(null)  // Internal remark file
@@ -389,6 +394,91 @@ const OrderManagementPage: React.FC = () => {
     return items
   }, [quotes, artworks, orders, customers])
   
+  // Order update functions
+  const updateOrderStatus = async (orderId: string, newStatus: string) => {
+    try {
+      await supabase.from('orders').update({ 
+        status: newStatus,
+        updated_at: new Date().toISOString()
+      }).eq('id', orderId)
+      
+      // Update local state
+      setOrders(prev => prev.map(o => o.id === orderId ? { ...o, status: newStatus } : o))
+      if (selectedOrder?.id === orderId) {
+        setSelectedOrder({ ...selectedOrder, status: newStatus })
+      }
+    } catch (error) {
+      console.error('Error updating order status:', error)
+      alert('Failed to update order status')
+    }
+  }
+
+  const updateOrderPaymentStatus = async (orderId: string, paymentStatus: string) => {
+    try {
+      await supabase.from('orders').update({ 
+        payment_status: paymentStatus,
+        updated_at: new Date().toISOString()
+      }).eq('id', orderId)
+      
+      setOrders(prev => prev.map(o => o.id === orderId ? { ...o, payment_status: paymentStatus } : o))
+      if (selectedOrder?.id === orderId) {
+        setSelectedOrder({ ...selectedOrder, payment_status: paymentStatus })
+      }
+    } catch (error) {
+      console.error('Error updating payment status:', error)
+      alert('Failed to update payment status')
+    }
+  }
+
+  const updateOrderShippingInfo = async (orderId: string, data: { tracking_number?: string; tracking_url?: string; carrier?: string; shipping_notes?: string }) => {
+    try {
+      await supabase.from('orders').update({ 
+        ...data,
+        updated_at: new Date().toISOString()
+      }).eq('id', orderId)
+      
+      setOrders(prev => prev.map(o => o.id === orderId ? { ...o, ...data } : o))
+      if (selectedOrder?.id === orderId) {
+        setSelectedOrder({ ...selectedOrder, ...data })
+      }
+    } catch (error) {
+      console.error('Error updating shipping info:', error)
+      alert('Failed to update shipping info')
+    }
+  }
+
+  // Get related data for orders and quotes
+  const getOrderArtworks = (order: any) => {
+    if (!order) return []
+    return artworks.filter(a => 
+      a.linked_order_id === order.id ||
+      a.order_id === order.id ||
+      a.order_number === order.order_number ||
+      (order.project_id && a.project_id === order.project_id)
+    )
+  }
+
+  const getSiblingOrders = (order: any) => {
+    if (!order || !order.project_id) return []
+    return orders.filter(o => o.id !== order.id && o.project_id === order.project_id)
+  }
+
+  const getQuoteOrders = (quote: Quote) => {
+    if (!quote) return []
+    return orders.filter(o => 
+      o.project_id === quote.project_id ||
+      o.user_id === quote.user_id
+    ).slice(0, 10)
+  }
+
+  const getQuoteArtworks = (quote: Quote) => {
+    if (!quote) return []
+    return artworks.filter(a => 
+      a.linked_quote_id === quote.id ||
+      (quote.project_id && a.project_id === quote.project_id)
+    )
+  }
+
   // Handle quick access status change
   const handleQuickAccessStatusChange = async (id: string, type: 'quote' | 'invoice' | 'artwork', newStatus: string) => {
     try {
@@ -406,7 +496,7 @@ const OrderManagementPage: React.FC = () => {
         const dbStatus = newStatus === 'confirmed_by_customer' ? 'approved' : 'pending_review'
         await supabase.from('artwork_files').update({ status: dbStatus }).eq('id', id)
       } else if (type === 'invoice') {
-        // For orders/invoices
+        // For orders/invoices - use the new updateOrderStatus function
         let dbStatus = 'pending'
         if (newStatus === 'deposit_received') dbStatus = 'confirmed'
         else if (newStatus === 'spec_confirmed') dbStatus = 'confirmed'
@@ -416,7 +506,7 @@ const OrderManagementPage: React.FC = () => {
         else if (newStatus === 'shipped') dbStatus = 'shipped'
         else if (newStatus === 'arrived') dbStatus = 'delivered'
         
-        await supabase.from('orders').update({ status: dbStatus }).eq('id', id)
+        await updateOrderStatus(id, dbStatus)
       }
       
       // Refresh data
@@ -1518,7 +1608,10 @@ const OrderManagementPage: React.FC = () => {
                                 <td className="px-6 py-4">
                                   <div className="flex items-center gap-2">
                                     <div className="group relative">
-                                      <button onClick={() => setSelectedQuote(quote)} className="text-primary-600 hover:text-primary-700">
+                                      <button onClick={() => {
+                                        setSelectedQuote(quote)
+                                        setQuoteDetailTab('rfq')
+                                      }} className="text-primary-600 hover:text-primary-700">
                                         <Eye className="h-5 w-5" />
                                       </button>
                                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
@@ -1638,7 +1731,10 @@ const OrderManagementPage: React.FC = () => {
                                 <td className="px-6 py-4">
                                   <div className="flex items-center gap-2">
                                     <div className="group relative">
-                                      <button onClick={() => setSelectedOrder(order)} className="text-primary-600 hover:text-primary-700">
+                                      <button onClick={() => {
+                                        setSelectedOrder(order)
+                                        setOrderDetailTab('order')
+                                      }} className="text-primary-600 hover:text-primary-700">
                                         <Eye className="h-5 w-5" />
                                       </button>
                                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
@@ -2481,8 +2577,9 @@ const OrderManagementPage: React.FC = () => {
       {/* Quote Detail Modal */}
       {selectedQuote && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-          <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-6 border-b flex items-center justify-between">
+          <div className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            {/* Header */}
+            <div className="p-6 border-b flex items-center justify-between sticky top-0 bg-white z-10">
               <div>
                 <h2 className="text-xl font-bold">{selectedQuote.quote_number}</h2>
                 {selectedQuote.is_rfq && (
@@ -2496,153 +2593,689 @@ const OrderManagementPage: React.FC = () => {
               </button>
             </div>
 
-            <div className="p-6 space-y-6">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <p className="text-sm text-gray-500">Customer</p>
-                  <p className="font-medium">{getCustomer(selectedQuote.user_id)?.full_name || 'Unknown'}</p>
-                  <p className="text-sm text-gray-600">{getCustomer(selectedQuote.user_id)?.email}</p>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">Status</p>
-                  <select
-                    value={selectedQuote.status}
-                    onChange={(e) => updateQuoteStatus(selectedQuote.id, e.target.value)}
-                    className={`mt-1 px-3 py-1 rounded-lg border ${getStatusColor(selectedQuote.status)}`}
-                  >
-                    <option value="pending">Pending</option>
-                    <option value="accepted">Accepted</option>
-                    <option value="rejected">Rejected</option>
-                    <option value="expired">Expired</option>
-                  </select>
-                </div>
+            {/* Tab Navigation */}
+            <div className="border-b bg-gray-50 px-6">
+              <div className="flex gap-6">
+                <button
+                  onClick={() => setQuoteDetailTab('rfq')}
+                  className={`px-4 py-3 text-sm font-medium border-b-2 -mb-px transition-colors ${
+                    quoteDetailTab === 'rfq'
+                      ? 'border-primary-600 text-primary-600'
+                      : 'border-transparent text-gray-500 hover:text-gray-700'
+                  }`}
+                >
+                  <FileCheck className="inline h-4 w-4 mr-2" />
+                  RFQ Details
+                </button>
+                <button
+                  onClick={() => setQuoteDetailTab('orders')}
+                  className={`px-4 py-3 text-sm font-medium border-b-2 -mb-px transition-colors ${
+                    quoteDetailTab === 'orders'
+                      ? 'border-primary-600 text-primary-600'
+                      : 'border-transparent text-gray-500 hover:text-gray-700'
+                  }`}
+                >
+                  <Package className="inline h-4 w-4 mr-2" />
+                  Orders ({getQuoteOrders(selectedQuote).length})
+                </button>
+                <button
+                  onClick={() => setQuoteDetailTab('artwork')}
+                  className={`px-4 py-3 text-sm font-medium border-b-2 -mb-px transition-colors ${
+                    quoteDetailTab === 'artwork'
+                      ? 'border-primary-600 text-primary-600'
+                      : 'border-transparent text-gray-500 hover:text-gray-700'
+                  }`}
+                >
+                  <ImageIcon className="inline h-4 w-4 mr-2" />
+                  Artwork ({getQuoteArtworks(selectedQuote).length})
+                </button>
+                <button
+                  onClick={() => setQuoteDetailTab('shipping')}
+                  className={`px-4 py-3 text-sm font-medium border-b-2 -mb-px transition-colors ${
+                    quoteDetailTab === 'shipping'
+                      ? 'border-primary-600 text-primary-600'
+                      : 'border-transparent text-gray-500 hover:text-gray-700'
+                  }`}
+                >
+                  <Truck className="inline h-4 w-4 mr-2" />
+                  Shipping
+                </button>
               </div>
+            </div>
 
-              {selectedQuote.is_rfq && (
-                <>
-                  {selectedQuote.message && (
+            {/* Tab Content */}
+            <div className="p-6">
+              {/* RFQ Details Tab */}
+              {quoteDetailTab === 'rfq' && (
+                <div className="space-y-6">
+                  <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <p className="text-sm font-medium text-gray-700 mb-2">Customer Message</p>
-                      <div className="bg-gray-50 rounded-lg p-4">
-                        <p className="text-sm text-gray-700 whitespace-pre-wrap">{selectedQuote.message}</p>
+                      <p className="text-sm text-gray-500">Customer</p>
+                      <p className="font-medium">{getCustomer(selectedQuote.user_id)?.full_name || 'Unknown'}</p>
+                      <p className="text-sm text-gray-600">{getCustomer(selectedQuote.user_id)?.email}</p>
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500">Status</p>
+                      <select
+                        value={selectedQuote.status}
+                        onChange={(e) => updateQuoteStatus(selectedQuote.id, e.target.value)}
+                        className={`mt-1 px-3 py-1 rounded-lg border ${getStatusColor(selectedQuote.status)}`}
+                      >
+                        <option value="pending">Pending</option>
+                        <option value="accepted">Accepted</option>
+                        <option value="rejected">Rejected</option>
+                        <option value="expired">Expired</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {selectedQuote.is_rfq && (
+                    <>
+                      {selectedQuote.message && (
+                        <div>
+                          <p className="text-sm font-medium text-gray-700 mb-2">Customer Message</p>
+                          <div className="bg-gray-50 rounded-lg p-4">
+                            <p className="text-sm text-gray-700 whitespace-pre-wrap">{selectedQuote.message}</p>
+                          </div>
+                        </div>
+                      )}
+
+                      {selectedQuote.website_link && (
+                        <div>
+                          <p className="text-sm font-medium text-gray-700 mb-2">Product Website</p>
+                          <a 
+                            href={selectedQuote.website_link} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-primary-600 hover:underline flex items-center gap-2"
+                          >
+                            <Globe className="h-4 w-4" />
+                            {selectedQuote.website_link}
+                          </a>
+                        </div>
+                      )}
+
+                      {selectedQuote.photo_urls && selectedQuote.photo_urls.length > 0 && (
+                        <div>
+                          <p className="text-sm font-medium text-gray-700 mb-2">Reference Images ({selectedQuote.photo_urls.length})</p>
+                          <div className="grid grid-cols-3 gap-3">
+                            {selectedQuote.photo_urls.map((url, idx) => (
+                              <a key={idx} href={url} target="_blank" rel="noopener noreferrer" className="block">
+                                <img 
+                                  src={url} 
+                                  alt={`Reference ${idx + 1}`} 
+                                  className="w-full h-32 object-cover rounded-lg border border-gray-200 hover:border-primary-400 transition"
+                                />
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </>
+                  )}
+
+                  {!selectedQuote.is_rfq && selectedQuote.total_amount !== undefined && (
+                    <div className="bg-green-50 rounded-lg p-4">
+                      <p className="text-sm text-gray-600">Total Amount</p>
+                      <p className="text-2xl font-bold text-green-600">${selectedQuote.total_amount.toLocaleString()}</p>
+                    </div>
+                  )}
+
+                  {/* Show existing admin reply if present */}
+                  {(selectedQuote.admin_reply || (selectedQuote as any).quoted_amount) && (
+                    <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                      <p className="text-sm font-semibold text-blue-800 mb-2">Previous Admin Reply</p>
+                      {selectedQuote.admin_reply && (
+                        <p className="text-sm text-blue-900 whitespace-pre-wrap mb-2">{selectedQuote.admin_reply}</p>
+                      )}
+                      {(selectedQuote as any).quoted_amount && (
+                        <div className="flex items-center gap-2 mt-2">
+                          <span className="text-sm text-blue-700">Quoted Amount:</span>
+                          <span className="text-lg font-bold text-blue-900">${(selectedQuote as any).quoted_amount.toLocaleString()}</span>
+                        </div>
+                      )}
+                      {(selectedQuote as any).replied_at && (
+                        <p className="text-xs text-blue-600 mt-2">Replied: {new Date((selectedQuote as any).replied_at).toLocaleString()}</p>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Admin Reply Section */}
+                  <div className="border-t pt-4">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <Mail className="inline h-4 w-4 mr-1" />
+                      Admin Reply to Customer
+                    </label>
+                    <textarea
+                      value={adminReply}
+                      onChange={(e) => setAdminReply(e.target.value)}
+                      placeholder="Enter your reply to the customer...\n\nExample:\n- Pricing details\n- Product recommendations\n- Timeline estimates\n- Next steps"
+                      rows={6}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-none"
+                    />
+                    
+                    {/* Quoted Amount (optional) */}
+                    <div className="mt-3">
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Quoted Amount (Optional)
+                      </label>
+                      <div className="flex items-center gap-2">
+                        <span className="text-gray-500">$</span>
+                        <input
+                          type="number"
+                          value={quotedAmount}
+                          onChange={(e) => setQuotedAmount(e.target.value)}
+                          placeholder="0.00"
+                          step="0.01"
+                          min="0"
+                          className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Send Reply Button */}
+                    <button
+                      onClick={sendQuoteReply}
+                      disabled={!adminReply.trim()}
+                      className="w-full mt-3 px-4 py-3 bg-primary-600 hover:bg-primary-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-medium rounded-lg transition flex items-center justify-center gap-2"
+                    >
+                      <Mail className="h-5 w-5" />
+                      Send Reply to Customer
+                    </button>
+                  </div>
+
+                  <div className="text-sm text-gray-500">
+                    Created: {new Date(selectedQuote.created_at).toLocaleString()}
+                  </div>
+
+                  <button
+                    onClick={() => deleteQuote(selectedQuote.id)}
+                    className="w-full px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
+                  >
+                    Delete {selectedQuote.is_rfq ? 'Request' : 'Quote'}
+                  </button>
+                </div>
+              )}
+
+              {/* Orders Tab */}
+              {quoteDetailTab === 'orders' && (
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="font-semibold text-gray-900">Related Orders</h3>
+                    <span className="text-sm text-gray-500">{getQuoteOrders(selectedQuote).length} orders</span>
+                  </div>
+                  {getQuoteOrders(selectedQuote).length > 0 ? (
+                    <div className="space-y-3">
+                      {getQuoteOrders(selectedQuote).map(order => (
+                        <div key={order.id} className="border rounded-lg p-4 hover:bg-gray-50 transition">
+                          <div className="flex items-start justify-between">
+                            <div>
+                              <p className="font-medium text-gray-900">Order #{order.order_number || order.id.slice(0, 8)}</p>
+                              <p className="text-sm text-gray-600 mt-1">Total: ${order.total_amount?.toLocaleString() || '0'}</p>
+                              <div className="flex gap-2 mt-2">
+                                <span className={`px-2 py-0.5 text-xs font-medium rounded-full ${
+                                  order.status === 'delivered' ? 'bg-green-100 text-green-700' :
+                                  order.status === 'shipped' ? 'bg-blue-100 text-blue-700' :
+                                  order.status === 'production' ? 'bg-purple-100 text-purple-700' :
+                                  'bg-yellow-100 text-yellow-700'
+                                }`}>
+                                  {order.status || 'pending'}
+                                </span>
+                                {order.payment_status && (
+                                  <span className="px-2 py-0.5 text-xs font-medium rounded-full bg-gray-100 text-gray-700">
+                                    {order.payment_status}
+                                  </span>
+                                )}
+                              </div>
+                            </div>
+                            <button
+                              onClick={() => {
+                                setSelectedOrder(order)
+                                setOrderDetailTab('order')
+                              }}
+                              className="px-3 py-1.5 text-sm text-primary-600 hover:bg-primary-50 rounded-lg transition"
+                            >
+                              View
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="text-center py-12 text-gray-500">
+                      <Package className="h-12 w-12 mx-auto mb-3 text-gray-300" />
+                      <p>No orders linked to this RFQ yet</p>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Artwork Tab */}
+              {quoteDetailTab === 'artwork' && (
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="font-semibold text-gray-900">Related Artwork</h3>
+                    <span className="text-sm text-gray-500">{getQuoteArtworks(selectedQuote).length} files</span>
+                  </div>
+                  {getQuoteArtworks(selectedQuote).length > 0 ? (
+                    <div className="grid grid-cols-2 gap-3">
+                      {getQuoteArtworks(selectedQuote).map(artwork => (
+                        <div key={artwork.id} className="border rounded-lg p-3 hover:bg-gray-50 transition">
+                          <div className="flex items-center gap-3">
+                            <div className="w-12 h-12 bg-purple-100 rounded flex items-center justify-center flex-shrink-0">
+                              <ImageIcon className="h-6 w-6 text-purple-600" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <p className="text-sm font-medium text-gray-900 truncate">{artwork.name}</p>
+                              <span className={`inline-block mt-1 px-2 py-0.5 text-xs font-medium rounded-full ${getStatusColor(artwork.status)}`}>
+                                {artwork.status.replace(/_/g, ' ')}
+                              </span>
+                            </div>
+                          </div>
+                          <button
+                            onClick={() => setSelectedArtwork(artwork)}
+                            className="w-full mt-2 px-3 py-1.5 text-sm text-primary-600 hover:bg-primary-50 rounded-lg transition"
+                          >
+                            Review
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="text-center py-12 text-gray-500">
+                      <ImageIcon className="h-12 w-12 mx-auto mb-3 text-gray-300" />
+                      <p>No artwork files linked to this RFQ</p>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Shipping Tab */}
+              {quoteDetailTab === 'shipping' && (
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="font-semibold text-gray-900">Shipping Status</h3>
+                  </div>
+                  <div className="text-center py-12 text-gray-500">
+                    <Truck className="h-12 w-12 mx-auto mb-3 text-gray-300" />
+                    <p>Shipping information will appear here once orders are created</p>
+                    <p className="text-sm mt-2">Check the Orders tab to see order details</p>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Order Detail Modal - New 4-Tab View */}
+      {selectedOrder && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+          <div className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            {/* Header */}
+            <div className="p-6 border-b flex items-center justify-between sticky top-0 bg-white z-10">
+              <div>
+                <h2 className="text-xl font-bold">Order #{selectedOrder.order_number || selectedOrder.id.slice(0, 8)}</h2>
+                <p className="text-sm text-gray-500 mt-1">Total: ${selectedOrder.total_amount?.toLocaleString() || '0'}</p>
+              </div>
+              <button onClick={() => setSelectedOrder(null)} className="text-gray-500 hover:text-gray-700">
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            {/* Tab Navigation */}
+            <div className="border-b bg-gray-50 px-6">
+              <div className="flex gap-6">
+                <button
+                  onClick={() => setOrderDetailTab('order')}
+                  className={`px-4 py-3 text-sm font-medium border-b-2 -mb-px transition-colors ${
+                    orderDetailTab === 'order'
+                      ? 'border-primary-600 text-primary-600'
+                      : 'border-transparent text-gray-500 hover:text-gray-700'
+                  }`}
+                >
+                  <Package className="inline h-4 w-4 mr-2" />
+                  Order
+                </button>
+                <button
+                  onClick={() => setOrderDetailTab('artwork')}
+                  className={`px-4 py-3 text-sm font-medium border-b-2 -mb-px transition-colors ${
+                    orderDetailTab === 'artwork'
+                      ? 'border-primary-600 text-primary-600'
+                      : 'border-transparent text-gray-500 hover:text-gray-700'
+                  }`}
+                >
+                  <ImageIcon className="inline h-4 w-4 mr-2" />
+                  Artwork ({getOrderArtworks(selectedOrder).length})
+                </button>
+                <button
+                  onClick={() => setOrderDetailTab('production')}
+                  className={`px-4 py-3 text-sm font-medium border-b-2 -mb-px transition-colors ${
+                    orderDetailTab === 'production'
+                      ? 'border-primary-600 text-primary-600'
+                      : 'border-transparent text-gray-500 hover:text-gray-700'
+                  }`}
+                >
+                  <CheckCircle className="inline h-4 w-4 mr-2" />
+                  Production
+                </button>
+                <button
+                  onClick={() => setOrderDetailTab('shipping')}
+                  className={`px-4 py-3 text-sm font-medium border-b-2 -mb-px transition-colors ${
+                    orderDetailTab === 'shipping'
+                      ? 'border-primary-600 text-primary-600'
+                      : 'border-transparent text-gray-500 hover:text-gray-700'
+                  }`}
+                >
+                  <Truck className="inline h-4 w-4 mr-2" />
+                  Shipping
+                </button>
+              </div>
+            </div>
+
+            {/* Tab Content */}
+            <div className="p-6">
+              {/* Order Tab */}
+              {orderDetailTab === 'order' && (
+                <div className="space-y-6">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <p className="text-sm text-gray-500">Customer</p>
+                      <p className="font-medium">{getCustomer(selectedOrder.user_id)?.full_name || 'Unknown'}</p>
+                      <p className="text-sm text-gray-600">{getCustomer(selectedOrder.user_id)?.email}</p>
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500">Order Status</p>
+                      <select
+                        value={selectedOrder.status || 'pending'}
+                        onChange={(e) => updateOrderStatus(selectedOrder.id, e.target.value)}
+                        className="mt-1 px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+                      >
+                        <option value="pending">Pending</option>
+                        <option value="confirmed">Confirmed</option>
+                        <option value="production">Production</option>
+                        <option value="shipped">Shipped</option>
+                        <option value="delivered">Delivered</option>
+                        <option value="cancelled">Cancelled</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <p className="text-sm text-gray-500">Payment Status</p>
+                      <select
+                        value={selectedOrder.payment_status || 'unpaid'}
+                        onChange={(e) => updateOrderPaymentStatus(selectedOrder.id, e.target.value)}
+                        className="mt-1 px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+                      >
+                        <option value="unpaid">Unpaid</option>
+                        <option value="deposit_paid">Deposit Paid</option>
+                        <option value="paid">Fully Paid</option>
+                      </select>
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500">Created</p>
+                      <p className="font-medium mt-1">{new Date(selectedOrder.created_at).toLocaleString()}</p>
+                    </div>
+                  </div>
+
+                  {selectedOrder.items && selectedOrder.items.length > 0 && (
+                    <div>
+                      <p className="text-sm font-medium text-gray-700 mb-3">Order Items</p>
+                      <div className="space-y-2">
+                        {selectedOrder.items.map((item: any, idx: number) => (
+                          <div key={idx} className="border rounded-lg p-3 bg-gray-50">
+                            <div className="flex justify-between items-start">
+                              <div>
+                                <p className="font-medium text-sm">{item.name || 'Product'}</p>
+                                <p className="text-xs text-gray-600 mt-1">Qty: {item.quantity || 1}</p>
+                              </div>
+                              <p className="font-medium text-sm">${item.price?.toLocaleString() || '0'}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="mt-4 pt-4 border-t">
+                        <div className="flex justify-between text-lg font-bold">
+                          <span>Total</span>
+                          <span className="text-green-600">${selectedOrder.total_amount?.toLocaleString() || '0'}</span>
+                        </div>
                       </div>
                     </div>
                   )}
 
-                  {selectedQuote.website_link && (
-                    <div>
-                      <p className="text-sm font-medium text-gray-700 mb-2">Product Website</p>
-                      <a 
-                        href={selectedQuote.website_link} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-primary-600 hover:underline flex items-center gap-2"
-                      >
-                        <Globe className="h-4 w-4" />
-                        {selectedQuote.website_link}
-                      </a>
+                  {/* Sibling Orders */}
+                  {getSiblingOrders(selectedOrder).length > 0 && (
+                    <div className="border-t pt-4">
+                      <p className="text-sm font-medium text-gray-700 mb-2">Related Orders in Project</p>
+                      <div className="space-y-2">
+                        {getSiblingOrders(selectedOrder).map(siblingOrder => (
+                          <div key={siblingOrder.id} className="text-sm flex items-center justify-between p-2 bg-gray-50 rounded">
+                            <span className="text-gray-700">Order #{siblingOrder.order_number || siblingOrder.id.slice(0, 8)}</span>
+                            <span className={`px-2 py-0.5 text-xs rounded-full ${
+                              siblingOrder.status === 'delivered' ? 'bg-green-100 text-green-700' :
+                              siblingOrder.status === 'shipped' ? 'bg-blue-100 text-blue-700' :
+                              'bg-yellow-100 text-yellow-700'
+                            }`}>
+                              {siblingOrder.status}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   )}
+                </div>
+              )}
 
-                  {selectedQuote.photo_urls && selectedQuote.photo_urls.length > 0 && (
+              {/* Artwork Tab */}
+              {orderDetailTab === 'artwork' && (
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="font-semibold text-gray-900">Linked Artwork Files</h3>
+                    <span className="text-sm text-gray-500">{getOrderArtworks(selectedOrder).length} files</span>
+                  </div>
+                  {getOrderArtworks(selectedOrder).length > 0 ? (
+                    <div className="grid grid-cols-2 gap-3">
+                      {getOrderArtworks(selectedOrder).map(artwork => (
+                        <div key={artwork.id} className="border rounded-lg p-3 hover:bg-gray-50 transition">
+                          <div className="flex items-center gap-3">
+                            <div className="w-12 h-12 bg-purple-100 rounded flex items-center justify-center flex-shrink-0">
+                              <ImageIcon className="h-6 w-6 text-purple-600" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <p className="text-sm font-medium text-gray-900 truncate">{artwork.name}</p>
+                              <span className={`inline-block mt-1 px-2 py-0.5 text-xs font-medium rounded-full ${getStatusColor(artwork.status)}`}>
+                                {artwork.status.replace(/_/g, ' ')}
+                              </span>
+                            </div>
+                          </div>
+                          <button
+                            onClick={() => setSelectedArtwork(artwork)}
+                            className="w-full mt-2 px-3 py-1.5 text-sm text-primary-600 hover:bg-primary-50 rounded-lg transition"
+                          >
+                            Review
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="text-center py-12 text-gray-500">
+                      <ImageIcon className="h-12 w-12 mx-auto mb-3 text-gray-300" />
+                      <p>No artwork files linked to this order</p>
+                      <p className="text-sm mt-1">Artwork will appear here when uploaded</p>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Production Tab */}
+              {orderDetailTab === 'production' && (
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-4">Production Status</h3>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3">
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
+                          ['confirmed', 'production', 'shipped', 'delivered'].includes(selectedOrder.status) ? 'bg-green-100' : 'bg-gray-100'
+                        }`}>
+                          {['confirmed', 'production', 'shipped', 'delivered'].includes(selectedOrder.status) ? (
+                            <CheckCircle className="h-5 w-5 text-green-600" />
+                          ) : (
+                            <Clock className="h-5 w-5 text-gray-400" />
+                          )}
+                        </div>
+                        <div className="flex-1">
+                          <p className="font-medium">Order Confirmed</p>
+                          <p className="text-sm text-gray-500">Order approved and ready for production</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
+                          ['production', 'shipped', 'delivered'].includes(selectedOrder.status) ? 'bg-green-100' : 'bg-gray-100'
+                        }`}>
+                          {['production', 'shipped', 'delivered'].includes(selectedOrder.status) ? (
+                            <CheckCircle className="h-5 w-5 text-green-600" />
+                          ) : (
+                            <Clock className="h-5 w-5 text-gray-400" />
+                          )}
+                        </div>
+                        <div className="flex-1">
+                          <p className="font-medium">In Production</p>
+                          <p className="text-sm text-gray-500">Product is being manufactured</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
+                          ['shipped', 'delivered'].includes(selectedOrder.status) ? 'bg-green-100' : 'bg-gray-100'
+                        }`}>
+                          {['shipped', 'delivered'].includes(selectedOrder.status) ? (
+                            <CheckCircle className="h-5 w-5 text-green-600" />
+                          ) : (
+                            <Clock className="h-5 w-5 text-gray-400" />
+                          )}
+                        </div>
+                        <div className="flex-1">
+                          <p className="font-medium">Ready to Ship</p>
+                          <p className="text-sm text-gray-500">Production complete, preparing shipment</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="border-t pt-4">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Production Notes</label>
+                    <textarea
+                      placeholder="Add internal production notes..."
+                      rows={4}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+                    />
+                    <button className="mt-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition text-sm">
+                      Save Notes
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Shipping Tab */}
+              {orderDetailTab === 'shipping' && (
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-4">Shipping Information</h3>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Tracking Number</label>
+                        <input
+                          type="text"
+                          defaultValue={selectedOrder.tracking_number || ''}
+                          onChange={(e) => {
+                            const trackingNumber = e.target.value
+                            setTimeout(() => {
+                              updateOrderShippingInfo(selectedOrder.id, { tracking_number: trackingNumber })
+                            }, 1000)
+                          }}
+                          placeholder="Enter tracking number"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Carrier</label>
+                        <select
+                          defaultValue={selectedOrder.carrier || ''}
+                          onChange={(e) => updateOrderShippingInfo(selectedOrder.id, { carrier: e.target.value })}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+                        >
+                          <option value="">Select Carrier</option>
+                          <option value="UPS">UPS</option>
+                          <option value="FedEx">FedEx</option>
+                          <option value="DHL">DHL</option>
+                          <option value="USPS">USPS</option>
+                          <option value="Other">Other</option>
+                        </select>
+                      </div>
+                    </div>
+
                     <div>
-                      <p className="text-sm font-medium text-gray-700 mb-2">Reference Images ({selectedQuote.photo_urls.length})</p>
+                      <label className="block text-sm font-medium text-gray-700 mb-2 mt-4">Tracking URL</label>
+                      <input
+                        type="url"
+                        defaultValue={selectedOrder.tracking_url || ''}
+                        onChange={(e) => {
+                          const trackingUrl = e.target.value
+                          setTimeout(() => {
+                            updateOrderShippingInfo(selectedOrder.id, { tracking_url: trackingUrl })
+                          }, 1000)
+                        }}
+                        placeholder="https://tracking.example.com/..."
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+                      />
+                    </div>
+
+                    {selectedOrder.tracking_url && (
+                      <div className="mt-4">
+                        <a
+                          href={selectedOrder.tracking_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm"
+                        >
+                          <Truck className="h-4 w-4" />
+                          Track Shipment
+                        </a>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="border-t pt-4">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Shipping Notes</label>
+                    <textarea
+                      defaultValue={selectedOrder.shipping_notes || ''}
+                      onChange={(e) => {
+                        const notes = e.target.value
+                        setTimeout(() => {
+                          updateOrderShippingInfo(selectedOrder.id, { shipping_notes: notes })
+                        }, 1000)
+                      }}
+                      placeholder="Add shipping notes (visible to customer)..."
+                      rows={4}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+                    />
+                  </div>
+
+                  {selectedOrder.shipping_images && selectedOrder.shipping_images.length > 0 && (
+                    <div className="border-t pt-4">
+                      <p className="text-sm font-medium text-gray-700 mb-2">Shipping Photos</p>
                       <div className="grid grid-cols-3 gap-3">
-                        {selectedQuote.photo_urls.map((url, idx) => (
-                          <a key={idx} href={url} target="_blank" rel="noopener noreferrer" className="block">
-                            <img 
-                              src={url} 
-                              alt={`Reference ${idx + 1}`} 
-                              className="w-full h-32 object-cover rounded-lg border border-gray-200 hover:border-primary-400 transition"
-                            />
+                        {selectedOrder.shipping_images.map((url: string, idx: number) => (
+                          <a key={idx} href={url} target="_blank" rel="noopener noreferrer">
+                            <img src={url} alt={`Shipping ${idx + 1}`} className="w-full h-24 object-cover rounded-lg border" />
                           </a>
                         ))}
                       </div>
                     </div>
                   )}
-                </>
-              )}
-
-              {!selectedQuote.is_rfq && selectedQuote.total_amount !== undefined && (
-                <div className="bg-green-50 rounded-lg p-4">
-                  <p className="text-sm text-gray-600">Total Amount</p>
-                  <p className="text-2xl font-bold text-green-600">${selectedQuote.total_amount.toLocaleString()}</p>
                 </div>
               )}
-
-              {/* Show existing admin reply if present */}
-              {(selectedQuote.admin_reply || (selectedQuote as any).quoted_amount) && (
-                <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
-                  <p className="text-sm font-semibold text-blue-800 mb-2">Previous Admin Reply</p>
-                  {selectedQuote.admin_reply && (
-                    <p className="text-sm text-blue-900 whitespace-pre-wrap mb-2">{selectedQuote.admin_reply}</p>
-                  )}
-                  {(selectedQuote as any).quoted_amount && (
-                    <div className="flex items-center gap-2 mt-2">
-                      <span className="text-sm text-blue-700">Quoted Amount:</span>
-                      <span className="text-lg font-bold text-blue-900">${(selectedQuote as any).quoted_amount.toLocaleString()}</span>
-                    </div>
-                  )}
-                  {(selectedQuote as any).replied_at && (
-                    <p className="text-xs text-blue-600 mt-2">Replied: {new Date((selectedQuote as any).replied_at).toLocaleString()}</p>
-                  )}
-                </div>
-              )}
-
-              {/* Admin Reply Section */}
-              <div className="border-t pt-4">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  <Mail className="inline h-4 w-4 mr-1" />
-                  Admin Reply to Customer
-                </label>
-                <textarea
-                  value={adminReply}
-                  onChange={(e) => setAdminReply(e.target.value)}
-                  placeholder="Enter your reply to the customer...\n\nExample:\n- Pricing details\n- Product recommendations\n- Timeline estimates\n- Next steps"
-                  rows={6}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-none"
-                />
-                
-                {/* Quoted Amount (optional) */}
-                <div className="mt-3">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Quoted Amount (Optional)
-                  </label>
-                  <div className="flex items-center gap-2">
-                    <span className="text-gray-500">$</span>
-                    <input
-                      type="number"
-                      value={quotedAmount}
-                      onChange={(e) => setQuotedAmount(e.target.value)}
-                      placeholder="0.00"
-                      step="0.01"
-                      min="0"
-                      className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-                    />
-                  </div>
-                </div>
-
-                {/* Send Reply Button */}
-                <button
-                  onClick={sendQuoteReply}
-                  disabled={!adminReply.trim()}
-                  className="w-full mt-3 px-4 py-3 bg-primary-600 hover:bg-primary-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-medium rounded-lg transition flex items-center justify-center gap-2"
-                >
-                  <Mail className="h-5 w-5" />
-                  Send Reply to Customer
-                </button>
-              </div>
-
-              <div className="text-sm text-gray-500">
-                Created: {new Date(selectedQuote.created_at).toLocaleString()}
-              </div>
-
-              <button
-                onClick={() => deleteQuote(selectedQuote.id)}
-                className="w-full px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
-              >
-                Delete {selectedQuote.is_rfq ? 'Request' : 'Quote'}
-              </button>
             </div>
           </div>
         </div>
@@ -3467,22 +4100,106 @@ const OrderManagementPage: React.FC = () => {
         </div>
       )}
 
-      {/* Floating Help Button */}
-      <Link
-        to="/ctrl-x9k7m/order-workflow"
+      {/* Floating Help Button - Opens Modal */}
+      <button
+        onClick={() => setShowHelpModal(true)}
         className="fixed left-6 bottom-6 z-50 group"
       >
         <div className="relative">
-          <button className="w-14 h-14 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group-hover:scale-110">
+          <div className="w-14 h-14 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group-hover:scale-110">
             <HelpCircle className="h-6 w-6" />
-          </button>
+          </div>
           {/* Tooltip */}
           <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
             订单工作流说明
             <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-gray-900"></div>
           </div>
         </div>
-      </Link>
+      </button>
+
+      {/* Help Modal */}
+      {showHelpModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+          <div className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6 border-b flex items-center justify-between sticky top-0 bg-white z-10">
+              <h2 className="text-xl font-bold">订单工作流说明</h2>
+              <button onClick={() => setShowHelpModal(false)} className="text-gray-500 hover:text-gray-700">
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="p-6 space-y-6">
+              {/* RFQ Stage */}
+              <div className="border-l-4 border-yellow-500 pl-4">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">1. RFQ / 报价请求</h3>
+                <p className="text-gray-700 mb-3">客户提交询价，管理员回复报价</p>
+                <ul className="space-y-1 text-sm text-gray-600">
+                  <li>• 查看所有待处理的 RFQ</li>
+                  <li>• 回复报价并发送邮件</li>
+                  <li>• 状态: pending → accepted/rejected</li>
+                  <li>• 可以查看客户上传的参考图片和网站链接</li>
+                </ul>
+              </div>
+
+              {/* Artwork Stage */}
+              <div className="border-l-4 border-purple-500 pl-4">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">2. Artwork / 设计稿</h3>
+                <p className="text-gray-700 mb-3">客户上传设计稿，管理员审核并提供反馈</p>
+                <ul className="space-y-1 text-sm text-gray-600">
+                  <li>• 审核客户上传的设计文件</li>
+                  <li>• 设置状态: pending_review → proof_ready → in_production</li>
+                  <li>• 与客户通过 Thread System 沟通修改</li>
+                  <li>• 为设计稿分配编码 (Customer Code + Product Code)</li>
+                </ul>
+              </div>
+
+              {/* Order Stage */}
+              <div className="border-l-4 border-blue-500 pl-4">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">3. Order / 订单</h3>
+                <p className="text-gray-700 mb-3">客户下单，管理员处理订单和支付</p>
+                <ul className="space-y-1 text-sm text-gray-600">
+                  <li>• 查看订单详情和商品列表</li>
+                  <li>• 更新订单状态: pending → confirmed → production</li>
+                  <li>• 管理支付状态: unpaid → deposit_paid → paid</li>
+                  <li>• 查看关联的 Artwork 和同项目其他订单</li>
+                </ul>
+              </div>
+
+              {/* Production Stage */}
+              <div className="border-l-4 border-indigo-500 pl-4">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">4. Production / 生产</h3>
+                <p className="text-gray-700 mb-3">订单进入生产阶段</p>
+                <ul className="space-y-1 text-sm text-gray-600">
+                  <li>• 跟踪生产进度</li>
+                  <li>• 添加内部生产备注</li>
+                  <li>• 状态: production → ready to ship</li>
+                </ul>
+              </div>
+
+              {/* Shipping Stage */}
+              <div className="border-l-4 border-green-500 pl-4">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">5. Shipping / 物流</h3>
+                <p className="text-gray-700 mb-3">添加物流信息，客户可以追踪包裹</p>
+                <ul className="space-y-1 text-sm text-gray-600">
+                  <li>• 输入 Tracking Number 和 Carrier</li>
+                  <li>• 提供 Tracking URL 链接</li>
+                  <li>• 添加物流备注 (对客户可见)</li>
+                  <li>• 状态: shipped → delivered</li>
+                </ul>
+              </div>
+
+              <div className="bg-blue-50 rounded-lg p-4 border border-blue-200 mt-6">
+                <h4 className="font-semibold text-blue-900 mb-2">💡 提示</h4>
+                <ul className="space-y-1 text-sm text-blue-800">
+                  <li>• <strong>Quick Access</strong>: 右上角闪电图标快速访问待处理项目</li>
+                  <li>• <strong>Work Queue</strong>: 页面顶部显示需要注意的任务</li>
+                  <li>• <strong>Project 关联</strong>: 使用 project_id 串联整个流程</li>
+                  <li>• <strong>状态更新</strong>: 在 Quick Access 中右键点击可快速更新状态</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
