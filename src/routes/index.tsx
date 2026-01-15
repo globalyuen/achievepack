@@ -25,7 +25,7 @@ const DashboardPage = lazy(() => import('../pages/DashboardPage'));
 const TermsPage = lazy(() => import('../pages/TermsPage'));
 const ContactPage = lazy(() => import('../pages/ContactPage'));
 const AdminPage = lazy(() => import('../pages/AdminPage'));
-const AdminManagementPage = lazy(() => import('../pages/AdminManagementPage'));
+const OrderManagementPage = lazy(() => import('../pages/OrderManagementPage'));
 
 // Industry Pages
 const CoffeeTeaPage = lazy(() => import('../pages/industry/CoffeeTeaPage'));
@@ -201,7 +201,7 @@ const routes = [
   { path: "/terms", element: <LazyRoute component={() => import('../pages/TermsPage')} fallback={<LoadingFallback />} /> },
   { path: "/contact", element: <LazyRoute component={() => import('../pages/ContactPage')} fallback={<LoadingFallback />} /> },
   { path: "/ctrl-x9k7m", element: <LazyRoute component={() => import('../pages/AdminPage')} fallback={<LoadingFallback />} /> },
-  { path: "/ctrl-x9k7m/management", element: <LazyRoute component={() => import('../pages/AdminManagementPage')} fallback={<LoadingFallback />} /> },
+  { path: "/ctrl-x9k7m/management", element: <LazyRoute component={() => import('../pages/OrderManagementPage')} fallback={<LoadingFallback />} /> },
 
   // Industry Pages
   { path: "/industry/coffee-tea", element: <LazyRoute component={() => import('../pages/industry/CoffeeTeaPage')} fallback={<LoadingFallback />} /> },

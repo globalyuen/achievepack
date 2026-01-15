@@ -68,7 +68,7 @@ const TermsPage = lazyWithRetry(() => import('./pages/TermsPage'))
 const TermsOfUsePage = lazyWithRetry(() => import('./pages/legal/TermsOfUsePage'))
 const ContactPage = lazyWithRetry(() => import('./pages/ContactPage'))
 const AdminPage = lazyWithRetry(() => import('./pages/AdminPage'))
-const AdminManagementPage = lazyWithRetry(() => import('./pages/AdminManagementPage'))
+const OrderManagementPage = lazyWithRetry(() => import('./pages/OrderManagementPage'))
 const CustomerMapPage = lazyWithRetry(() => import('./pages/CustomerMapPage'))
 const ImageCatalogPage = lazyWithRetry(() => import('./pages/ImageCatalogPage'))
 const ArtworkHubPage = lazyWithRetry(() => import('./pages/ArtworkHubPage'))
@@ -324,7 +324,7 @@ createRoot(document.getElementById('root')!).render(
                       <Route path="/terms-of-use" element={<TermsOfUsePage />} />
                       <Route path="/contact" element={<ContactPage />} />
                       <Route path="/ctrl-x9k7m" element={<AdminPage />} />
-                      <Route path="/ctrl-x9k7m/management" element={<AdminManagementPage />} />
+                      <Route path="/ctrl-x9k7m/management" element={<OrderManagementPage />} />
                       <Route path="/ctrl-x9k7m/customer-map" element={<CustomerMapPage />} />
                       <Route path="/image-catalog" element={<ImageCatalogPage />} />
                       <Route path="/ctrl-x9k7m/artwork-hub" element={<ArtworkHubPage />} />

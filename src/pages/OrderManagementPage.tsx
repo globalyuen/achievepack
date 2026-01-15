@@ -26,7 +26,7 @@ type QuoteSubTab = 'rfq' | 'orders'
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
 
-const AdminManagementPage: React.FC = () => {
+const OrderManagementPage: React.FC = () => {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const { user, signOut, loading: authLoading } = useAuth()
@@ -3470,4 +3470,4 @@ const AdminManagementPage: React.FC = () => {
   )
 }
 
-export default AdminManagementPage
+export default OrderManagementPage
