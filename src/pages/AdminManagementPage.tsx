@@ -1277,7 +1277,7 @@ const AdminManagementPage: React.FC = () => {
               <FileCheck className="h-5 w-5 text-white" />
             </div>
             <div>
-              <h1 className="text-lg font-semibold text-gray-900">Admin Management</h1>
+              <h1 className="text-lg font-semibold text-gray-900">Website Orders</h1>
               <p className="text-sm text-gray-500">
                 {pendingQuotes + pendingArtworks > 0 
                   ? `${pendingQuotes + pendingArtworks} items need attention`
@@ -1400,8 +1400,8 @@ const AdminManagementPage: React.FC = () => {
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">Quotes & Customer Requests</h1>
-                  <p className="text-sm text-gray-500 mt-1">Manage all quotes and RFQ submissions</p>
+                  <h1 className="text-2xl font-bold text-gray-900">RFQ & Store Orders</h1>
+                  <p className="text-sm text-gray-500 mt-1">Manage all RFQ submissions and store orders from website</p>
                 </div>
                 <button
                   onClick={fetchData}
