@@ -7,7 +7,7 @@ import { SlidingNumber } from '../components/animate-ui/primitives/texts/sliding
 import { 
   Home, FileCheck, Image as ImageIcon, LogOut, Eye, Trash2, ArrowLeft, 
   RefreshCw, CheckCircle, Clock, AlertCircle, MessageSquare, X, 
-  Mail, Globe, Camera, FileText, Link2, Upload, Tag, Search, LayoutGrid, List, Plus, User, Send, RotateCcw, Archive, Bell, Zap, Palette
+  Mail, Globe, Camera, FileText, Link2, Upload, Tag, Search, LayoutGrid, List, Plus, User, Send, RotateCcw, Archive, Bell, Zap, Palette, Info, Package, Truck
 } from 'lucide-react'
 import {
   Tabs,
@@ -22,6 +22,7 @@ import { ArtworkStatusAvatar, AdminWorkQueue, type StatusItem, type WorkItem, ty
 import { QuickAccessSheet, type QuickAccessItem, type QuoteStatus, type InvoiceStatus, type ArtworkQuickStatus } from '../components/ui/QuickAccessSheet'
 
 type TabType = 'quotes' | 'artwork' | 'projects' | 'customers' | 'bin'
+type QuoteSubTab = 'rfq' | 'orders'
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
 
@@ -30,6 +31,7 @@ const AdminManagementPage: React.FC = () => {
   const [searchParams] = useSearchParams()
   const { user, signOut, loading: authLoading } = useAuth()
   const [activeTab, setActiveTab] = useState<TabType>('quotes')
+  const [quoteSubTab, setQuoteSubTab] = useState<QuoteSubTab>('rfq')
   const [quotes, setQuotes] = useState<Quote[]>([])
   const [artworks, setArtworks] = useState<ArtworkFile[]>([])
     const [deletedArtworks, setDeletedArtworks] = useState<ArtworkFile[]>([])
@@ -40,6 +42,7 @@ const AdminManagementPage: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([])
   const [loading, setLoading] = useState(true)
   const [selectedQuote, setSelectedQuote] = useState<Quote | null>(null)
+  const [selectedOrder, setSelectedOrder] = useState<any | null>(null)
   const [selectedArtwork, setSelectedArtwork] = useState<ArtworkFile | null>(null)
   const [artworkFeedback, setArtworkFeedback] = useState('')
   const [internalFile, setInternalFile] = useState<File | null>(null)  // Internal remark file
@@ -319,8 +322,9 @@ const AdminManagementPage: React.FC = () => {
         status: o.status,
         urgent: o.status === 'pending',
         onClick: () => {
-          // Navigate to AdminPage orders tab
-          navigate(`/ctrl-x9k7m?tab=orders&order=${o.id}`)
+          setActiveTab('quotes')
+          setQuoteSubTab('orders')
+          setSelectedOrder(o)
         }
       })
     })
@@ -343,6 +347,7 @@ const AdminManagementPage: React.FC = () => {
         status: 'received' as QuoteStatus,
         onClick: () => {
           setActiveTab('quotes')
+          setQuoteSubTab('rfq')
           setSelectedQuote(q)
         }
       })
@@ -374,8 +379,9 @@ const AdminManagementPage: React.FC = () => {
         type: 'invoice',
         status: 'pending' as InvoiceStatus,
         onClick: () => {
-          // Navigate to AdminPage orders tab
-          navigate(`/ctrl-x9k7m?tab=orders&order=${o.id}`)
+          setActiveTab('quotes')
+          setQuoteSubTab('orders')
+          setSelectedOrder(o)
         }
       })
     })
@@ -1395,110 +1401,264 @@ const AdminManagementPage: React.FC = () => {
             </div>
           )}
           
-          {/* Quotes Tab */}
+          {/* Quotes Tab with Sub-tabs */}
           {activeTab === 'quotes' && (
             <div className="space-y-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h1 className="text-2xl font-bold text-gray-900">RFQ & Store Orders</h1>
-                  <p className="text-sm text-gray-500 mt-1">Manage all RFQ submissions and store orders from website</p>
+              {/* Header with Sub-tab Navigation */}
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h1 className="text-2xl font-bold text-gray-900">Website Orders</h1>
+                    <p className="text-sm text-gray-500 mt-1">Manage RFQ & store orders from website</p>
+                  </div>
+                  <button
+                    onClick={fetchData}
+                    className="flex items-center gap-2 px-4 py-2 bg-white border rounded-lg hover:bg-gray-50 text-sm"
+                  >
+                    <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
+                    Refresh
+                  </button>
                 </div>
-                <button
-                  onClick={fetchData}
-                  className="flex items-center gap-2 px-4 py-2 bg-white border rounded-lg hover:bg-gray-50 text-sm"
-                >
-                  <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
-                  Refresh
-                </button>
+
+                {/* Sub-tab Navigation */}
+                <div className="flex items-center gap-2 border-b border-gray-200">
+                  <button
+                    onClick={() => setQuoteSubTab('rfq')}
+                    className={`px-4 py-2 text-sm font-medium border-b-2 -mb-px transition-colors ${
+                      quoteSubTab === 'rfq'
+                        ? 'border-primary-600 text-primary-600'
+                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200'
+                    }`}
+                  >
+                    RFQ / Quotes
+                  </button>
+                  <button
+                    onClick={() => setQuoteSubTab('orders')}
+                    className={`px-4 py-2 text-sm font-medium border-b-2 -mb-px transition-colors ${
+                      quoteSubTab === 'orders'
+                        ? 'border-primary-600 text-primary-600'
+                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200'
+                    }`}
+                  >
+                    Store Orders
+                  </button>
+                </div>
               </div>
 
-              {/* Stats */}
-              <div className="flex flex-wrap gap-3">
-                <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
-                  <p className="text-sm text-gray-500">Total Quotes</p>
-                  <p className="text-2xl font-bold text-gray-900 mt-1"><SlidingNumber number={quotes.length} /></p>
-                </div>
-                <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
-                  <p className="text-sm text-gray-500">Pending</p>
-                  <p className="text-2xl font-bold text-yellow-600 mt-1"><SlidingNumber number={pendingQuotes} /></p>
-                </div>
-                <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
-                  <p className="text-sm text-gray-500">RFQ Submissions</p>
-                  <p className="text-2xl font-bold text-blue-600 mt-1">
-                    <SlidingNumber number={quotes.filter(q => q.is_rfq).length} />
-                  </p>
-                </div>
-              </div>
+              {/* RFQ / Quotes Sub-tab Content */}
+              {quoteSubTab === 'rfq' && (
+                <div className="space-y-6">
+                  {/* Stats */}
+                  <div className="flex flex-wrap gap-3">
+                    <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
+                      <p className="text-sm text-gray-500">Total RFQ/Quotes</p>
+                      <p className="text-2xl font-bold text-gray-900 mt-1"><SlidingNumber number={quotes.length} /></p>
+                    </div>
+                    <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
+                      <p className="text-sm text-gray-500">Pending</p>
+                      <p className="text-2xl font-bold text-yellow-600 mt-1"><SlidingNumber number={pendingQuotes} /></p>
+                    </div>
+                    <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
+                      <p className="text-sm text-gray-500">RFQ Submissions</p>
+                      <p className="text-2xl font-bold text-blue-600 mt-1">
+                        <SlidingNumber number={quotes.filter(q => q.is_rfq).length} />
+                      </p>
+                    </div>
+                  </div>
 
-              {/* Quotes Table */}
-              <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
-                <div className="overflow-x-auto">
-                  <table className="w-full">
-                    <thead className="bg-gray-50">
-                      <tr>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Quote #</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Customer</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Type</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Amount</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Created</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-gray-200">
-                      {quotes.map(quote => {
-                        const customer = getCustomer(quote.user_id)
-                        return (
-                          <tr key={quote.id} className="hover:bg-gray-50">
-                            <td className="px-6 py-4 text-sm font-medium text-gray-900">{quote.quote_number}</td>
-                            <td className="px-6 py-4">
-                              <div>
-                                <p className="text-sm font-medium text-gray-900">{customer?.full_name || 'Unknown'}</p>
-                                <p className="text-xs text-gray-500">{customer?.email}</p>
-                              </div>
-                            </td>
-                            <td className="px-6 py-4">
-                              {quote.is_rfq ? (
-                                <span className="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-700 rounded">
-                                  RFQ
-                                </span>
-                              ) : (
-                                <span className="px-2 py-1 text-xs font-medium bg-green-100 text-green-700 rounded">
-                                  Quote
-                                </span>
-                              )}
-                            </td>
-                            <td className="px-6 py-4 text-sm font-medium text-gray-900">
-                              {quote.is_rfq ? '-' : `$${quote.total_amount?.toLocaleString()}`}
-                            </td>
-                            <td className="px-6 py-4">
-                              <span className={`px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(quote.status)}`}>
-                                {quote.status}
-                              </span>
-                            </td>
-                            <td className="px-6 py-4 text-sm text-gray-500">
-                              {new Date(quote.created_at).toLocaleDateString()}
-                            </td>
-                            <td className="px-6 py-4">
-                              <div className="flex items-center gap-2">
-                                <button onClick={() => setSelectedQuote(quote)} className="text-primary-600 hover:text-primary-700">
-                                  <Eye className="h-5 w-5" />
-                                </button>
-                                <button onClick={() => deleteQuote(quote.id)} className="text-red-600 hover:text-red-700">
-                                  <Trash2 className="h-5 w-5" />
-                                </button>
-                              </div>
-                            </td>
+                  {/* RFQ/Quotes Table */}
+                  <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
+                    <div className="overflow-x-auto">
+                      <table className="w-full">
+                        <thead className="bg-gray-50">
+                          <tr>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Quote #</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Customer</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Type</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Amount</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Created</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
                           </tr>
-                        )
-                      })}
-                    </tbody>
-                  </table>
-                  {quotes.length === 0 && (
-                    <div className="text-center py-12 text-gray-500">No quotes found</div>
-                  )}
+                        </thead>
+                        <tbody className="divide-y divide-gray-200">
+                          {quotes.map(quote => {
+                            const customer = getCustomer(quote.user_id)
+                            return (
+                              <tr key={quote.id} className="hover:bg-gray-50">
+                                <td className="px-6 py-4 text-sm font-medium text-gray-900">{quote.quote_number}</td>
+                                <td className="px-6 py-4">
+                                  <div>
+                                    <p className="text-sm font-medium text-gray-900">{customer?.full_name || 'Unknown'}</p>
+                                    <p className="text-xs text-gray-500">{customer?.email}</p>
+                                  </div>
+                                </td>
+                                <td className="px-6 py-4">
+                                  {quote.is_rfq ? (
+                                    <span className="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-700 rounded">
+                                      RFQ
+                                    </span>
+                                  ) : (
+                                    <span className="px-2 py-1 text-xs font-medium bg-green-100 text-green-700 rounded">
+                                      Quote
+                                    </span>
+                                  )}
+                                </td>
+                                <td className="px-6 py-4 text-sm font-medium text-gray-900">
+                                  {quote.is_rfq ? '-' : `$${quote.total_amount?.toLocaleString()}`}
+                                </td>
+                                <td className="px-6 py-4">
+                                  <span className={`px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(quote.status)}`}>
+                                    {quote.status}
+                                  </span>
+                                </td>
+                                <td className="px-6 py-4 text-sm text-gray-500">
+                                  {new Date(quote.created_at).toLocaleDateString()}
+                                </td>
+                                <td className="px-6 py-4">
+                                  <div className="flex items-center gap-2">
+                                    <div className="group relative">
+                                      <button onClick={() => setSelectedQuote(quote)} className="text-primary-600 hover:text-primary-700">
+                                        <Eye className="h-5 w-5" />
+                                      </button>
+                                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                                        查看详情并回复报价
+                                      </div>
+                                    </div>
+                                    <div className="group relative">
+                                      <button onClick={() => deleteQuote(quote.id)} className="text-red-600 hover:text-red-700">
+                                        <Trash2 className="h-5 w-5" />
+                                      </button>
+                                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                                        移至回收站
+                                      </div>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+                            )
+                          })}
+                        </tbody>
+                      </table>
+                      {quotes.length === 0 && (
+                        <div className="text-center py-12 text-gray-500">No RFQ or quotes found</div>
+                      )}
+                    </div>
+                  </div>
                 </div>
-              </div>
+              )}
+
+              {/* Store Orders Sub-tab Content */}
+              {quoteSubTab === 'orders' && (
+                <div className="space-y-6">
+                  {/* Stats */}
+                  <div className="flex flex-wrap gap-3">
+                    <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
+                      <p className="text-sm text-gray-500">Total Orders</p>
+                      <p className="text-2xl font-bold text-gray-900 mt-1"><SlidingNumber number={orders.length} /></p>
+                    </div>
+                    <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
+                      <p className="text-sm text-gray-500">Pending</p>
+                      <p className="text-2xl font-bold text-yellow-600 mt-1">
+                        <SlidingNumber number={orders.filter(o => o.status === 'pending').length} />
+                      </p>
+                    </div>
+                    <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
+                      <p className="text-sm text-gray-500">In Production</p>
+                      <p className="text-2xl font-bold text-blue-600 mt-1">
+                        <SlidingNumber number={orders.filter(o => o.status === 'production' || o.status === 'confirmed').length} />
+                      </p>
+                    </div>
+                    <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
+                      <p className="text-sm text-gray-500">Shipped</p>
+                      <p className="text-2xl font-bold text-green-600 mt-1">
+                        <SlidingNumber number={orders.filter(o => o.status === 'shipped' || o.status === 'delivered').length} />
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Store Orders Table */}
+                  <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
+                    <div className="overflow-x-auto">
+                      <table className="w-full">
+                        <thead className="bg-gray-50">
+                          <tr>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Order #</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Customer</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Total</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Payment</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Created</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-gray-200">
+                          {orders.map(order => {
+                            const customer = getCustomer(order.user_id)
+                            return (
+                              <tr key={order.id} className="hover:bg-gray-50">
+                                <td className="px-6 py-4 text-sm font-medium text-gray-900">
+                                  Order #{order.order_number || order.id.slice(0, 8)}
+                                </td>
+                                <td className="px-6 py-4">
+                                  <div>
+                                    <p className="text-sm font-medium text-gray-900">
+                                      {customer?.full_name || order.customer_email?.split('@')[0] || 'Unknown'}
+                                    </p>
+                                    <p className="text-xs text-gray-500">{customer?.email || order.customer_email}</p>
+                                  </div>
+                                </td>
+                                <td className="px-6 py-4 text-sm font-medium text-gray-900">
+                                  ${order.total_amount?.toLocaleString() || '0'}
+                                </td>
+                                <td className="px-6 py-4">
+                                  <span className={`px-2 py-1 text-xs font-medium rounded-full ${
+                                    order.status === 'delivered' ? 'bg-green-100 text-green-700' :
+                                    order.status === 'shipped' ? 'bg-blue-100 text-blue-700' :
+                                    order.status === 'production' || order.status === 'confirmed' ? 'bg-purple-100 text-purple-700' :
+                                    order.status === 'pending' ? 'bg-yellow-100 text-yellow-700' :
+                                    order.status === 'cancelled' ? 'bg-red-100 text-red-700' :
+                                    'bg-gray-100 text-gray-700'
+                                  }`}>
+                                    {order.status || 'pending'}
+                                  </span>
+                                </td>
+                                <td className="px-6 py-4">
+                                  <span className={`px-2 py-1 text-xs font-medium rounded-full ${
+                                    order.payment_status === 'paid' ? 'bg-green-100 text-green-700' :
+                                    order.payment_status === 'deposit_paid' ? 'bg-blue-100 text-blue-700' :
+                                    'bg-gray-100 text-gray-700'
+                                  }`}>
+                                    {order.payment_status || 'unpaid'}
+                                  </span>
+                                </td>
+                                <td className="px-6 py-4 text-sm text-gray-500">
+                                  {new Date(order.created_at).toLocaleDateString()}
+                                </td>
+                                <td className="px-6 py-4">
+                                  <div className="flex items-center gap-2">
+                                    <div className="group relative">
+                                      <button onClick={() => setSelectedOrder(order)} className="text-primary-600 hover:text-primary-700">
+                                        <Eye className="h-5 w-5" />
+                                      </button>
+                                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                                        查看订单详情和追踪
+                                      </div>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+                            )
+                          })}
+                        </tbody>
+                      </table>
+                      {orders.length === 0 && (
+                        <div className="text-center py-12 text-gray-500">No store orders found</div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           )}
 
