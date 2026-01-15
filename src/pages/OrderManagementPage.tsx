@@ -1570,13 +1570,21 @@ const OrderManagementPage: React.FC = () => {
                   </span>
                 )}
               </TabsTrigger>
+              <TabsTrigger value="customers" className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all">
+                <User className="h-4 w-4" />
+                <span>Customers</span>
+              </TabsTrigger>
               <TabsTrigger value="projects" className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all">
                 <FileText className="h-4 w-4" />
                 <span>Projects</span>
               </TabsTrigger>
-              <TabsTrigger value="customers" className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all">
-                <User className="h-4 w-4" />
-                <span>Customers</span>
+              <TabsTrigger value="production" className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all">
+                <CheckCircle className="h-4 w-4" />
+                <span>Production</span>
+              </TabsTrigger>
+              <TabsTrigger value="shipping" className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all">
+                <Truck className="h-4 w-4" />
+                <span>Shipping</span>
               </TabsTrigger>
               <TabsTrigger value="bin" className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm transition-all">
                 <Archive className="h-4 w-4" />
