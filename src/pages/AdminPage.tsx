@@ -74,7 +74,7 @@ const sidebarMenuItems = [
   {
     group: 'Order',
     items: [
-      { id: 'order-management', label: 'Website Orders', icon: Package, externalLink: '/ctrl-x9k7m/management?tab=quotes' },
+      { id: 'order-management', label: 'Website Orders', icon: Package, externalLink: '/ctrl-x9k7m/order-workflow' },
     ]
   },
   {
