@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, startTransition } from 'react'
 import { useNavigate, Link, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
-import { supabase, Quote, ArtworkFile, Profile, ArtworkComment, CRMInquiry, Project } from '../lib/supabase'
+import { supabase, Quote, ArtworkFile, Profile, ArtworkComment, CRMInquiry, Project, ProductionJob, ShippingRecord } from '../lib/supabase'
 import { analyzeArtworkWithXAI, getAISearchableText } from '../lib/artworkAnalysis'
 import { SlidingNumber } from '../components/animate-ui/primitives/texts/sliding-number'
 import { 
@@ -25,6 +25,7 @@ type TabType = 'quotes' | 'artwork' | 'projects' | 'customers' | 'bin'
 type QuoteSubTab = 'rfq' | 'orders'
 type OrderDetailTab = 'order' | 'artwork' | 'production' | 'shipping'
 type QuoteDetailTab = 'rfq' | 'orders' | 'artwork' | 'shipping'
+type ProjectModalTab = 'overview' | 'customer' | 'rfq' | 'artwork' | 'orders' | 'production' | 'shipping'
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
 
@@ -48,6 +49,11 @@ const OrderManagementPage: React.FC = () => {
   const [orderDetailTab, setOrderDetailTab] = useState<OrderDetailTab>('order')
   const [quoteDetailTab, setQuoteDetailTab] = useState<QuoteDetailTab>('rfq')
   const [showHelpModal, setShowHelpModal] = useState(false)
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+  const [showProjectModal, setShowProjectModal] = useState(false)
+  const [projectModalTab, setProjectModalTab] = useState<ProjectModalTab>('overview')
+  const [productionJobs, setProductionJobs] = useState<ProductionJob[]>([])
+  const [shippingRecords, setShippingRecords] = useState<ShippingRecord[]>([])
   const [selectedArtwork, setSelectedArtwork] = useState<ArtworkFile | null>(null)
   const [artworkFeedback, setArtworkFeedback] = useState('')
   const [internalFile, setInternalFile] = useState<File | null>(null)  // Internal remark file
@@ -540,7 +546,7 @@ const OrderManagementPage: React.FC = () => {
 
   const fetchData = async () => {
     setLoading(true)
-    const [quotesRes, rfqRes, artworksRes, customersRes, ordersRes, inquiriesRes, deletedArtworksRes, deletedQuotesRes, deletedRfqRes, projectsRes] = await Promise.all([
+    const [quotesRes, rfqRes, artworksRes, customersRes, ordersRes, inquiriesRes, deletedArtworksRes, deletedQuotesRes, deletedRfqRes, projectsRes, productionRes, shippingRes] = await Promise.all([
       supabase.from('quotes').select('*').is('deleted_at', null).order('created_at', { ascending: false }),
       supabase.from('rfq_submissions').select('*').is('deleted_at', null).order('created_at', { ascending: false }),
       supabase.from('artwork_files').select('*').is('deleted_at', null).order('created_at', { ascending: false }),
@@ -552,7 +558,11 @@ const OrderManagementPage: React.FC = () => {
       supabase.from('quotes').select('*').not('deleted_at', 'is', null).order('deleted_at', { ascending: false }),
       supabase.from('rfq_submissions').select('*').not('deleted_at', 'is', null).order('deleted_at', { ascending: false }),
       // Fetch all projects for admin view
-      supabase.from('projects').select('*').order('created_at', { ascending: false })
+      supabase.from('projects').select('*').order('created_at', { ascending: false }),
+      // Fetch production jobs
+      supabase.from('production_jobs').select('*').order('created_at', { ascending: false }),
+      // Fetch shipping records
+      supabase.from('shipping_records').select('*').order('created_at', { ascending: false })
     ])
     
     // Merge quotes and RFQ submissions
@@ -590,6 +600,8 @@ const OrderManagementPage: React.FC = () => {
     setInquiries(inquiriesRes.data || [])
     setOrders(ordersRes.data || [])
     setProjects(projectsRes.data || [])
+    setProductionJobs(productionRes.data || [])
+    setShippingRecords(shippingRes.data || [])
     setLoading(false)
   }
 
@@ -617,6 +629,72 @@ const OrderManagementPage: React.FC = () => {
   const handleSignOut = async () => {
     await signOut()
     navigate('/')
+  }
+
+  // =====================================================
+  // Helper Functions for Project Management
+  // =====================================================
+  
+  // Get production jobs for a project
+  const getProjectProduction = (projectId: string) => {
+    return productionJobs.filter(job => job.project_id === projectId)
+  }
+  
+  // Get shipping records for a project
+  const getProjectShipping = (projectId: string) => {
+    return shippingRecords.filter(record => record.project_id === projectId)
+  }
+  
+  // Get RFQs for a project
+  const getProjectRFQs = (projectId: string) => {
+    return quotes.filter(q => q.project_id === projectId)
+  }
+  
+  // Get artworks for a project
+  const getProjectArtworks = (projectId: string) => {
+    return artworks.filter(a => a.project_id === projectId)
+  }
+  
+  // Get orders for a project
+  const getProjectOrders = (projectId: string) => {
+    return orders.filter(o => o.project_id === projectId)
+  }
+  
+  // Assign item to project
+  const assignToProject = async (itemType: 'rfq' | 'order' | 'artwork', itemId: string, projectId: string | null) => {
+    try {
+      const updateData = { project_id: projectId }
+      
+      switch (itemType) {
+        case 'rfq':
+          const quote = quotes.find(q => q.id === itemId)
+          if (quote?.is_rfq) {
+            await supabase.from('rfq_submissions').update(updateData).eq('id', itemId)
+          } else {
+            await supabase.from('quotes').update(updateData).eq('id', itemId)
+          }
+          break
+        case 'order':
+          await supabase.from('orders').update(updateData).eq('id', itemId)
+          break
+        case 'artwork':
+          await supabase.from('artwork_files').update(updateData).eq('id', itemId)
+          break
+      }
+      
+      await fetchData()
+      return true
+    } catch (error) {
+      console.error('Error assigning to project:', error)
+      return false
+    }
+  }
+  
+  // Open project modal
+  const openProjectModal = (project: Project) => {
+    setSelectedProject(project)
+    setProjectModalTab('overview')
+    setShowProjectModal(true)
   }
 
   const updateQuoteStatus = async (quoteId: string, status: string) => {
@@ -1567,6 +1645,7 @@ const OrderManagementPage: React.FC = () => {
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Type</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Amount</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Project</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Created</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
                           </tr>
@@ -1601,6 +1680,33 @@ const OrderManagementPage: React.FC = () => {
                                   <span className={`px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(quote.status)}`}>
                                     {quote.status}
                                   </span>
+                                </td>
+                                <td className="px-6 py-4">
+                                  {quote.project_id ? (
+                                    <button
+                                      onClick={() => {
+                                        const project = projects.find(p => p.id === quote.project_id)
+                                        if (project) openProjectModal(project)
+                                      }}
+                                      className="text-xs font-mono text-primary-600 hover:text-primary-700 hover:underline"
+                                    >
+                                      {projects.find(p => p.id === quote.project_id)?.project_code || 'View'}
+                                    </button>
+                                  ) : (
+                                    <button
+                                      onClick={async () => {
+                                        const projectId = prompt('Enter Project ID to link (or leave empty to create new):')
+                                        if (projectId === '') {
+                                          alert('Creating new project is not implemented yet. Please create project first in Projects tab.')
+                                        } else if (projectId) {
+                                          await assignToProject('rfq', quote.id, projectId)
+                                        }
+                                      }}
+                                      className="text-xs text-gray-400 hover:text-primary-600"
+                                    >
+                                      + Link
+                                    </button>
+                                  )}
                                 </td>
                                 <td className="px-6 py-4 text-sm text-gray-500">
                                   {new Date(quote.created_at).toLocaleDateString()}
@@ -1681,6 +1787,7 @@ const OrderManagementPage: React.FC = () => {
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Total</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Payment</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Project</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Created</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
                           </tr>
@@ -1724,6 +1831,33 @@ const OrderManagementPage: React.FC = () => {
                                   }`}>
                                     {order.payment_status || 'unpaid'}
                                   </span>
+                                </td>
+                                <td className="px-6 py-4">
+                                  {order.project_id ? (
+                                    <button
+                                      onClick={() => {
+                                        const project = projects.find(p => p.id === order.project_id)
+                                        if (project) openProjectModal(project)
+                                      }}
+                                      className="text-xs font-mono text-primary-600 hover:text-primary-700 hover:underline"
+                                    >
+                                      {projects.find(p => p.id === order.project_id)?.project_code || 'View'}
+                                    </button>
+                                  ) : (
+                                    <button
+                                      onClick={async () => {
+                                        const projectId = prompt('Enter Project ID to link (or leave empty to create new):')
+                                        if (projectId === '') {
+                                          alert('Creating new project is not implemented yet. Please create project first in Projects tab.')
+                                        } else if (projectId) {
+                                          await assignToProject('order', order.id, projectId)
+                                        }
+                                      }}
+                                      className="text-xs text-gray-400 hover:text-primary-600"
+                                    >
+                                      + Link
+                                    </button>
+                                  )}
                                 </td>
                                 <td className="px-6 py-4 text-sm text-gray-500">
                                   {new Date(order.created_at).toLocaleDateString()}
@@ -1917,6 +2051,32 @@ const OrderManagementPage: React.FC = () => {
                             <div className="flex justify-between">
                               <span className="text-gray-500">Date</span>
                               <span className="text-gray-900">{new Date(artwork.created_at).toLocaleDateString()}</span>
+                            </div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-500">Project</span>
+                              {artwork.project_id ? (
+                                <button
+                                  onClick={() => {
+                                    const project = projects.find(p => p.id === artwork.project_id)
+                                    if (project) openProjectModal(project)
+                                  }}
+                                  className="text-xs font-mono text-primary-600 hover:text-primary-700 hover:underline"
+                                >
+                                  {projects.find(p => p.id === artwork.project_id)?.project_code || 'View'}
+                                </button>
+                              ) : (
+                                <button
+                                  onClick={async () => {
+                                    const projectId = prompt('Enter Project ID to link:')
+                                    if (projectId) {
+                                      await assignToProject('artwork', artwork.id, projectId)
+                                    }
+                                  }}
+                                  className="text-xs text-gray-400 hover:text-primary-600"
+                                >
+                                  + Link
+                                </button>
+                              )}
                             </div>
                           </div>
 
@@ -2301,25 +2461,33 @@ const OrderManagementPage: React.FC = () => {
                               {new Date(project.updated_at).toLocaleDateString()}
                             </td>
                             <td className="px-6 py-4">
-                              <select
-                                value={project.status}
-                                onChange={async (e) => {
-                                  const newStage = e.target.value
-                                  await supabase.from('projects').update({ 
-                                    status: newStage,
-                                    updated_at: new Date().toISOString()
-                                  }).eq('id', project.id)
-                                  fetchData()
-                                }}
-                                className="text-sm border border-gray-300 rounded-lg px-2 py-1 focus:ring-2 focus:ring-primary-500"
-                              >
-                                <option value="rfq">RFQ</option>
-                                <option value="artwork">Artwork</option>
-                                <option value="order">Order</option>
-                                <option value="production">Production</option>
-                                <option value="shipping">Shipping</option>
-                                <option value="complete">Complete</option>
-                              </select>
+                              <div className="flex items-center gap-2">
+                                <select
+                                  value={project.status}
+                                  onChange={async (e) => {
+                                    const newStage = e.target.value
+                                    await supabase.from('projects').update({ 
+                                      status: newStage,
+                                      updated_at: new Date().toISOString()
+                                    }).eq('id', project.id)
+                                    fetchData()
+                                  }}
+                                  className="text-sm border border-gray-300 rounded-lg px-2 py-1 focus:ring-2 focus:ring-primary-500"
+                                >
+                                  <option value="rfq">RFQ</option>
+                                  <option value="artwork">Artwork</option>
+                                  <option value="order">Order</option>
+                                  <option value="production">Production</option>
+                                  <option value="shipping">Shipping</option>
+                                  <option value="complete">Complete</option>
+                                </select>
+                                <button
+                                  onClick={() => openProjectModal(project)}
+                                  className="px-3 py-1 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700 transition-colors"
+                                >
+                                  Manage
+                                </button>
+                              </div>
                             </td>
                           </tr>
                         )
@@ -4196,6 +4364,427 @@ const OrderManagementPage: React.FC = () => {
                   <li>• <strong>状态更新</strong>: 在 Quick Access 中右键点击可快速更新状态</li>
                 </ul>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Project Management Modal */}
+      {showProjectModal && selectedProject && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+          <div className="bg-white rounded-xl max-w-6xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+            {/* Modal Header */}
+            <div className="p-6 border-b flex items-center justify-between bg-white">
+              <div>
+                <h2 className="text-xl font-bold">Project Management</h2>
+                <p className="text-sm text-gray-500 mt-1">{selectedProject.project_code}</p>
+              </div>
+              <button onClick={() => setShowProjectModal(false)} className="text-gray-500 hover:text-gray-700">
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            {/* Tab Navigation */}
+            <div className="border-b px-6 bg-gray-50">
+              <div className="flex gap-1 overflow-x-auto">
+                {[
+                  { id: 'overview', label: 'Overview', icon: Eye },
+                  { id: 'customer', label: 'Customer', icon: User },
+                  { id: 'rfq', label: 'RFQ', icon: FileText },
+                  { id: 'artwork', label: 'Artwork', icon: ImageIcon },
+                  { id: 'orders', label: 'Orders', icon: Package },
+                  { id: 'production', label: 'Production', icon: Palette },
+                  { id: 'shipping', label: 'Shipping', icon: Truck }
+                ].map(tab => {
+                  const Icon = tab.icon
+                  return (
+                    <button
+                      key={tab.id}
+                      onClick={() => setProjectModalTab(tab.id as ProjectModalTab)}
+                      className={`px-4 py-3 text-sm font-medium flex items-center gap-2 border-b-2 transition-colors ${
+                        projectModalTab === tab.id
+                          ? 'border-primary-600 text-primary-600'
+                          : 'border-transparent text-gray-600 hover:text-gray-900'
+                      }`}
+                    >
+                      <Icon className="h-4 w-4" />
+                      {tab.label}
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+
+            {/* Tab Content */}
+            <div className="flex-1 overflow-y-auto p-6">
+              {/* Overview Tab */}
+              {projectModalTab === 'overview' && (
+                <div className="space-y-6">
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="bg-gray-50 rounded-lg p-4">
+                      <p className="text-sm text-gray-500">Project Type</p>
+                      <p className="text-lg font-semibold mt-1">{selectedProject.project_type?.toUpperCase()}</p>
+                    </div>
+                    <div className="bg-gray-50 rounded-lg p-4">
+                      <p className="text-sm text-gray-500">Current Stage</p>
+                      <p className="text-lg font-semibold mt-1">{selectedProject.status?.charAt(0).toUpperCase() + selectedProject.status?.slice(1)}</p>
+                    </div>
+                    <div className="bg-gray-50 rounded-lg p-4">
+                      <p className="text-sm text-gray-500">Created</p>
+                      <p className="text-lg font-semibold mt-1">{new Date(selectedProject.created_at).toLocaleDateString()}</p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-semibold mb-3">Project Summary</h3>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="border rounded-lg p-4">
+                        <p className="text-sm text-gray-500">RFQs</p>
+                        <p className="text-2xl font-bold text-yellow-600">{getProjectRFQs(selectedProject.id).length}</p>
+                      </div>
+                      <div className="border rounded-lg p-4">
+                        <p className="text-sm text-gray-500">Artworks</p>
+                        <p className="text-2xl font-bold text-purple-600">{getProjectArtworks(selectedProject.id).length}</p>
+                      </div>
+                      <div className="border rounded-lg p-4">
+                        <p className="text-sm text-gray-500">Orders</p>
+                        <p className="text-2xl font-bold text-blue-600">{getProjectOrders(selectedProject.id).length}</p>
+                      </div>
+                      <div className="border rounded-lg p-4">
+                        <p className="text-sm text-gray-500">Production Jobs</p>
+                        <p className="text-2xl font-bold text-indigo-600">{getProjectProduction(selectedProject.id).length}</p>
+                      </div>
+                      <div className="border rounded-lg p-4">
+                        <p className="text-sm text-gray-500">Shipping Records</p>
+                        <p className="text-2xl font-bold text-cyan-600">{getProjectShipping(selectedProject.id).length}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Customer Tab */}
+              {projectModalTab === 'customer' && (
+                <div className="space-y-6">
+                  {(() => {
+                    const customer = customers.find(c => c.id === selectedProject.user_id) || 
+                                    customers.find(c => c.email?.toLowerCase() === selectedProject.customer_email?.toLowerCase())
+                    
+                    return (
+                      <div>
+                        <div className="flex items-center justify-between mb-4">
+                          <h3 className="text-lg font-semibold">Customer Information</h3>
+                          <button
+                            onClick={() => {
+                              const newEmail = prompt('Enter new customer email:', selectedProject.customer_email || '')
+                              if (newEmail && newEmail !== selectedProject.customer_email) {
+                                supabase.from('projects').update({ 
+                                  customer_email: newEmail,
+                                  updated_at: new Date().toISOString()
+                                }).eq('id', selectedProject.id).then(() => fetchData())
+                              }
+                            }}
+                            className="px-3 py-1 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700"
+                          >
+                            Amend Customer
+                          </button>
+                        </div>
+                        
+                        {customer ? (
+                          <div className="border rounded-lg p-6 space-y-4">
+                            <div>
+                              <p className="text-sm text-gray-500">Name</p>
+                              <p className="text-lg font-medium">{customer.full_name || 'N/A'}</p>
+                            </div>
+                            <div>
+                              <p className="text-sm text-gray-500">Email</p>
+                              <p className="text-lg font-medium">{customer.email}</p>
+                            </div>
+                            <div>
+                              <p className="text-sm text-gray-500">Company</p>
+                              <p className="text-lg font-medium">{customer.company || 'N/A'}</p>
+                            </div>
+                            <div>
+                              <p className="text-sm text-gray-500">Phone</p>
+                              <p className="text-lg font-medium">{customer.phone || 'N/A'}</p>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="border rounded-lg p-6 bg-yellow-50 border-yellow-200">
+                            <p className="text-sm text-yellow-800">Customer not found in system</p>
+                            <p className="text-xs text-yellow-600 mt-1">Email: {selectedProject.customer_email}</p>
+                          </div>
+                        )}
+                      </div>
+                    )
+                  })()}
+                </div>
+              )}
+
+              {/* RFQ Tab */}
+              {projectModalTab === 'rfq' && (
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-semibold">Related RFQs</h3>
+                    <button
+                      onClick={async () => {
+                        const rfqId = prompt('Enter RFQ ID to link:')
+                        if (rfqId) {
+                          await assignToProject('rfq', rfqId, selectedProject.id)
+                        }
+                      }}
+                      className="px-3 py-1 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700"
+                    >
+                      + Add RFQ
+                    </button>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    {getProjectRFQs(selectedProject.id).map(rfq => (
+                      <div key={rfq.id} className="border rounded-lg p-4 hover:bg-gray-50">
+                        <div className="flex items-center justify-between">
+                          <div className="flex-1">
+                            <p className="font-medium">{rfq.quote_number}</p>
+                            <p className="text-sm text-gray-500 mt-1">{rfq.notes?.slice(0, 100)}</p>
+                            <p className="text-xs text-gray-400 mt-1">{new Date(rfq.created_at).toLocaleDateString()}</p>
+                          </div>
+                          <span className={`px-2 py-1 text-xs font-medium rounded ${
+                            rfq.status === 'pending' ? 'bg-yellow-100 text-yellow-700' :
+                            rfq.status === 'accepted' ? 'bg-green-100 text-green-700' :
+                            'bg-gray-100 text-gray-700'
+                          }`}>
+                            {rfq.status}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                    {getProjectRFQs(selectedProject.id).length === 0 && (
+                      <div className="text-center py-8 text-gray-500">
+                        <FileText className="h-12 w-12 mx-auto mb-2 text-gray-300" />
+                        <p>No RFQs linked to this project</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Artwork Tab */}
+              {projectModalTab === 'artwork' && (
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-semibold">Related Artworks</h3>
+                    <button
+                      onClick={async () => {
+                        const artworkId = prompt('Enter Artwork ID to link:')
+                        if (artworkId) {
+                          await assignToProject('artwork', artworkId, selectedProject.id)
+                        }
+                      }}
+                      className="px-3 py-1 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700"
+                    >
+                      + Add Artwork
+                    </button>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-4">
+                    {getProjectArtworks(selectedProject.id).map(artwork => (
+                      <div key={artwork.id} className="border rounded-lg p-4 hover:bg-gray-50">
+                        <div className="flex items-start gap-3">
+                          {artwork.file_type?.startsWith('image/') && artwork.file_url && (
+                            <img src={artwork.file_url} alt={artwork.name} className="w-16 h-16 object-cover rounded" />
+                          )}
+                          <div className="flex-1 min-w-0">
+                            <p className="font-medium truncate">{artwork.name}</p>
+                            <p className="text-xs text-gray-500 mt-1">{artwork.customer_code || 'No code'}</p>
+                            <span className={`inline-block mt-2 px-2 py-1 text-xs font-medium rounded ${
+                              artwork.status === 'pending_review' ? 'bg-yellow-100 text-yellow-700' :
+                              artwork.status === 'approved' ? 'bg-green-100 text-green-700' :
+                              artwork.status === 'proof_ready' ? 'bg-blue-100 text-blue-700' :
+                              'bg-gray-100 text-gray-700'
+                            }`}>
+                              {artwork.status}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    {getProjectArtworks(selectedProject.id).length === 0 && (
+                      <div className="col-span-2 text-center py-8 text-gray-500">
+                        <ImageIcon className="h-12 w-12 mx-auto mb-2 text-gray-300" />
+                        <p>No artworks linked to this project</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Orders Tab */}
+              {projectModalTab === 'orders' && (
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-semibold">Related Orders</h3>
+                    <button
+                      onClick={async () => {
+                        const orderId = prompt('Enter Order ID to link:')
+                        if (orderId) {
+                          await assignToProject('order', orderId, selectedProject.id)
+                        }
+                      }}
+                      className="px-3 py-1 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700"
+                    >
+                      + Add Order
+                    </button>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    {getProjectOrders(selectedProject.id).map(order => (
+                      <div key={order.id} className="border rounded-lg p-4 hover:bg-gray-50">
+                        <div className="flex items-center justify-between">
+                          <div className="flex-1">
+                            <p className="font-medium">Order #{order.order_number || order.id.slice(0, 8)}</p>
+                            <p className="text-sm text-gray-500 mt-1">Total: ${order.total_amount || '0'}</p>
+                            <p className="text-xs text-gray-400 mt-1">{new Date(order.created_at).toLocaleDateString()}</p>
+                          </div>
+                          <div className="text-right">
+                            <span className={`inline-block px-2 py-1 text-xs font-medium rounded ${
+                              order.status === 'pending' ? 'bg-yellow-100 text-yellow-700' :
+                              order.status === 'confirmed' ? 'bg-blue-100 text-blue-700' :
+                              order.status === 'production' ? 'bg-purple-100 text-purple-700' :
+                              order.status === 'shipped' ? 'bg-green-100 text-green-700' :
+                              'bg-gray-100 text-gray-700'
+                            }`}>
+                              {order.status}
+                            </span>
+                            <p className="text-xs text-gray-500 mt-2">Payment: {order.payment_status || 'unpaid'}</p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    {getProjectOrders(selectedProject.id).length === 0 && (
+                      <div className="text-center py-8 text-gray-500">
+                        <Package className="h-12 w-12 mx-auto mb-2 text-gray-300" />
+                        <p>No orders linked to this project</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Production Tab */}
+              {projectModalTab === 'production' && (
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-semibold">Production Jobs</h3>
+                    <button
+                      onClick={async () => {
+                        const productionNumber = `PROD-${Date.now().toString().slice(-8)}`
+                        const productName = prompt('Enter product name:')
+                        if (productName) {
+                          await supabase.from('production_jobs').insert({
+                            project_id: selectedProject.id,
+                            production_number: productionNumber,
+                            product_name: productName,
+                            status: 'pending'
+                          })
+                          await fetchData()
+                        }
+                      }}
+                      className="px-3 py-1 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700"
+                    >
+                      + Create Production Job
+                    </button>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    {getProjectProduction(selectedProject.id).map(job => (
+                      <div key={job.id} className="border rounded-lg p-4 hover:bg-gray-50">
+                        <div className="flex items-center justify-between">
+                          <div className="flex-1">
+                            <p className="font-medium">{job.production_number}</p>
+                            <p className="text-sm text-gray-500 mt-1">{job.product_name || 'Unnamed Product'}</p>
+                            {job.quantity && <p className="text-xs text-gray-400 mt-1">Qty: {job.quantity} {job.unit}</p>}
+                            <p className="text-xs text-gray-400 mt-1">{new Date(job.created_at).toLocaleDateString()}</p>
+                          </div>
+                          <span className={`px-2 py-1 text-xs font-medium rounded ${
+                            job.status === 'pending' ? 'bg-yellow-100 text-yellow-700' :
+                            job.status === 'in_progress' ? 'bg-blue-100 text-blue-700' :
+                            job.status === 'quality_check' ? 'bg-purple-100 text-purple-700' :
+                            job.status === 'completed' ? 'bg-green-100 text-green-700' :
+                            'bg-gray-100 text-gray-700'
+                          }`}>
+                            {job.status.replace('_', ' ')}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                    {getProjectProduction(selectedProject.id).length === 0 && (
+                      <div className="text-center py-8 text-gray-500">
+                        <Palette className="h-12 w-12 mx-auto mb-2 text-gray-300" />
+                        <p>No production jobs for this project</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Shipping Tab */}
+              {projectModalTab === 'shipping' && (
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-semibold">Shipping Records</h3>
+                    <button
+                      onClick={async () => {
+                        const shippingNumber = `SHIP-${Date.now().toString().slice(-8)}`
+                        const carrier = prompt('Enter carrier (UPS/FedEx/DHL):')
+                        if (carrier) {
+                          await supabase.from('shipping_records').insert({
+                            project_id: selectedProject.id,
+                            shipping_number: shippingNumber,
+                            carrier: carrier,
+                            status: 'preparing'
+                          })
+                          await fetchData()
+                        }
+                      }}
+                      className="px-3 py-1 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700"
+                    >
+                      + Create Shipping Record
+                    </button>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    {getProjectShipping(selectedProject.id).map(record => (
+                      <div key={record.id} className="border rounded-lg p-4 hover:bg-gray-50">
+                        <div className="flex items-center justify-between">
+                          <div className="flex-1">
+                            <p className="font-medium">{record.shipping_number}</p>
+                            <p className="text-sm text-gray-500 mt-1">Carrier: {record.carrier || 'N/A'}</p>
+                            {record.tracking_number && (
+                              <p className="text-xs text-gray-400 mt-1">Tracking: {record.tracking_number}</p>
+                            )}
+                            <p className="text-xs text-gray-400 mt-1">{new Date(record.created_at).toLocaleDateString()}</p>
+                          </div>
+                          <span className={`px-2 py-1 text-xs font-medium rounded ${
+                            record.status === 'preparing' ? 'bg-yellow-100 text-yellow-700' :
+                            record.status === 'shipped' ? 'bg-blue-100 text-blue-700' :
+                            record.status === 'in_transit' ? 'bg-purple-100 text-purple-700' :
+                            record.status === 'delivered' ? 'bg-green-100 text-green-700' :
+                            'bg-gray-100 text-gray-700'
+                          }`}>
+                            {record.status.replace('_', ' ')}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                    {getProjectShipping(selectedProject.id).length === 0 && (
+                      <div className="text-center py-8 text-gray-500">
+                        <Truck className="h-12 w-12 mx-auto mb-2 text-gray-300" />
+                        <p>No shipping records for this project</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

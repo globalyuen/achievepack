@@ -471,3 +471,53 @@ export type CustomerActivityLog = {
   user_agent?: string
   created_at: string
 }
+
+// Production Job for tracking manufacturing progress
+export type ProductionJob = {
+  id: string
+  project_id?: string
+  order_id?: string
+  production_number: string
+  status: 'pending' | 'in_progress' | 'quality_check' | 'completed' | 'on_hold'
+  product_name?: string
+  quantity?: number
+  unit?: string
+  current_stage?: string
+  stages_completed?: string[]
+  started_at?: string
+  estimated_completion?: string
+  completed_at?: string
+  notes?: string
+  internal_notes?: string
+  assigned_to?: string
+  created_at: string
+  updated_at: string
+}
+
+// Shipping Record for tracking deliveries
+export type ShippingRecord = {
+  id: string
+  project_id?: string
+  order_id?: string
+  production_job_id?: string
+  shipping_number: string
+  status: 'preparing' | 'shipped' | 'in_transit' | 'delivered' | 'returned' | 'cancelled'
+  carrier?: string
+  tracking_number?: string
+  tracking_url?: string
+  package_count?: number
+  total_weight?: number
+  weight_unit?: string
+  dimensions?: string
+  shipping_address?: any
+  shipped_at?: string
+  estimated_delivery?: string
+  delivered_at?: string
+  shipping_images?: string[]
+  packing_list_url?: string
+  invoice_url?: string
+  shipping_notes?: string
+  internal_notes?: string
+  created_at: string
+  updated_at: string
+}
