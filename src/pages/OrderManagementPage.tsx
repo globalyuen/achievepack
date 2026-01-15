@@ -21,7 +21,7 @@ import { PinList, type PinListItem } from '../components/animate-ui/components/c
 import { ArtworkStatusAvatar, AdminWorkQueue, type StatusItem, type WorkItem, type ArtworkStatus } from '../components/animate-ui/components/community/user-presence-avatar'
 import { QuickAccessSheet, type QuickAccessItem, type QuoteStatus, type InvoiceStatus, type ArtworkQuickStatus } from '../components/ui/QuickAccessSheet'
 
-type TabType = 'quotes' | 'artwork' | 'projects' | 'customers' | 'bin'
+type TabType = 'quotes' | 'artwork' | 'projects' | 'customers' | 'production' | 'shipping' | 'bin'
 type QuoteSubTab = 'rfq' | 'orders'
 type OrderDetailTab = 'order' | 'artwork' | 'production' | 'shipping'
 type QuoteDetailTab = 'rfq' | 'orders' | 'artwork' | 'shipping'
@@ -1295,6 +1295,40 @@ const OrderManagementPage: React.FC = () => {
                 {customers.length > 0 && (
                   <span className="ml-auto bg-blue-500 text-white text-xs px-2 py-0.5 rounded-full">
                     {customers.length}
+                  </span>
+                )}
+              </button>
+
+              <button
+                onClick={() => setActiveTab('production')}
+                className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
+                  activeTab === 'production'
+                    ? 'bg-primary-500 text-white'
+                    : 'text-gray-900 hover:bg-primary-50 hover:text-primary-600'
+                }`}
+              >
+                <CheckCircle className="flex-shrink-0 w-5 h-5 mr-4" />
+                Production
+                {productionJobs.length > 0 && (
+                  <span className="ml-auto bg-blue-500 text-white text-xs px-2 py-0.5 rounded-full">
+                    {productionJobs.length}
+                  </span>
+                )}
+              </button>
+
+              <button
+                onClick={() => setActiveTab('shipping')}
+                className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
+                  activeTab === 'shipping'
+                    ? 'bg-primary-500 text-white'
+                    : 'text-gray-900 hover:bg-primary-50 hover:text-primary-600'
+                }`}
+              >
+                <Truck className="flex-shrink-0 w-5 h-5 mr-4" />
+                Shipping
+                {shippingRecords.length > 0 && (
+                  <span className="ml-auto bg-blue-500 text-white text-xs px-2 py-0.5 rounded-full">
+                    {shippingRecords.length}
                   </span>
                 )}
               </button>
@@ -2594,6 +2628,285 @@ const OrderManagementPage: React.FC = () => {
                       <User className="h-12 w-12 mx-auto mb-3 text-gray-300" />
                       <p>No customers found</p>
                       <p className="text-xs mt-1">Customer accounts will appear here when created</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Production Tab */}
+          {activeTab === 'production' && (
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold text-gray-900">Production Jobs</h1>
+                  <p className="text-sm text-gray-500 mt-1">Track manufacturing progress and manage production tasks</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={async () => {
+                      const productionNumber = `PROD-${Date.now().toString().slice(-8)}`
+                      const productName = prompt('Enter product name:')
+                      if (productName) {
+                        await supabase.from('production_jobs').insert({
+                          production_number: productionNumber,
+                          product_name: productName,
+                          status: 'pending'
+                        })
+                        await fetchData()
+                      }
+                    }}
+                    className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 text-sm"
+                  >
+                    <Plus className="h-4 w-4" />
+                    Create Job
+                  </button>
+                  <button
+                    onClick={fetchData}
+                    className="flex items-center gap-2 px-4 py-2 bg-white border rounded-lg hover:bg-gray-50 text-sm"
+                  >
+                    <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
+                    Refresh
+                  </button>
+                </div>
+              </div>
+
+              {/* Stats */}
+              <div className="flex flex-wrap gap-3">
+                <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
+                  <p className="text-sm text-gray-500">Total Jobs</p>
+                  <p className="text-2xl font-bold text-gray-900 mt-1"><SlidingNumber number={productionJobs.length} /></p>
+                </div>
+                <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
+                  <p className="text-sm text-gray-500">In Progress</p>
+                  <p className="text-2xl font-bold text-blue-600 mt-1">
+                    <SlidingNumber number={productionJobs.filter(j => j.status === 'in_progress').length} />
+                  </p>
+                </div>
+                <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
+                  <p className="text-sm text-gray-500">Completed</p>
+                  <p className="text-2xl font-bold text-green-600 mt-1">
+                    <SlidingNumber number={productionJobs.filter(j => j.status === 'completed').length} />
+                  </p>
+                </div>
+              </div>
+
+              {/* Production Jobs List */}
+              <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Job Number</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Product</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Quantity</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Created</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200">
+                      {productionJobs.map(job => (
+                        <tr key={job.id} className="hover:bg-gray-50">
+                          <td className="px-6 py-4">
+                            <p className="text-sm font-mono font-medium text-gray-900">{job.production_number}</p>
+                          </td>
+                          <td className="px-6 py-4">
+                            <p className="text-sm text-gray-900">{job.product_name || 'N/A'}</p>
+                          </td>
+                          <td className="px-6 py-4">
+                            <p className="text-sm text-gray-900">{job.quantity ? `${job.quantity} ${job.unit || 'pcs'}` : 'N/A'}</p>
+                          </td>
+                          <td className="px-6 py-4">
+                            <select
+                              value={job.status}
+                              onChange={async (e) => {
+                                await supabase.from('production_jobs').update({ status: e.target.value }).eq('id', job.id)
+                                fetchData()
+                              }}
+                              className={`text-xs px-2 py-1 rounded-lg border font-medium ${
+                                job.status === 'pending' ? 'bg-yellow-50 border-yellow-200 text-yellow-700' :
+                                job.status === 'in_progress' ? 'bg-blue-50 border-blue-200 text-blue-700' :
+                                job.status === 'quality_check' ? 'bg-purple-50 border-purple-200 text-purple-700' :
+                                job.status === 'completed' ? 'bg-green-50 border-green-200 text-green-700' :
+                                'bg-gray-50 border-gray-200 text-gray-700'
+                              }`}
+                            >
+                              <option value="pending">Pending</option>
+                              <option value="in_progress">In Progress</option>
+                              <option value="quality_check">Quality Check</option>
+                              <option value="completed">Completed</option>
+                              <option value="on_hold">On Hold</option>
+                            </select>
+                          </td>
+                          <td className="px-6 py-4">
+                            <p className="text-sm text-gray-500">{new Date(job.created_at).toLocaleDateString()}</p>
+                          </td>
+                          <td className="px-6 py-4 text-sm">
+                            <button 
+                              onClick={() => {
+                                const project = projects.find(p => p.id === job.project_id)
+                                if (project) openProjectModal(project)
+                              }}
+                              className="text-primary-600 hover:text-primary-900 font-medium"
+                            >
+                              View Project
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                  {productionJobs.length === 0 && (
+                    <div className="text-center py-12 text-gray-500">
+                      <CheckCircle className="h-12 w-12 mx-auto mb-3 text-gray-300" />
+                      <p>No production jobs found</p>
+                      <p className="text-xs mt-1">Create a new production job to get started</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Shipping Tab */}
+          {activeTab === 'shipping' && (
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold text-gray-900">Shipping Records</h1>
+                  <p className="text-sm text-gray-500 mt-1">Track shipments and manage delivery status</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={async () => {
+                      const shippingNumber = `SHIP-${Date.now().toString().slice(-8)}`
+                      const carrier = prompt('Enter carrier name (e.g., DHL, FedEx):')
+                      if (carrier) {
+                        await supabase.from('shipping_records').insert({
+                          shipping_number: shippingNumber,
+                          carrier: carrier,
+                          status: 'preparing'
+                        })
+                        await fetchData()
+                      }
+                    }}
+                    className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 text-sm"
+                  >
+                    <Plus className="h-4 w-4" />
+                    Create Shipment
+                  </button>
+                  <button
+                    onClick={fetchData}
+                    className="flex items-center gap-2 px-4 py-2 bg-white border rounded-lg hover:bg-gray-50 text-sm"
+                  >
+                    <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
+                    Refresh
+                  </button>
+                </div>
+              </div>
+
+              {/* Stats */}
+              <div className="flex flex-wrap gap-3">
+                <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
+                  <p className="text-sm text-gray-500">Total Shipments</p>
+                  <p className="text-2xl font-bold text-gray-900 mt-1"><SlidingNumber number={shippingRecords.length} /></p>
+                </div>
+                <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
+                  <p className="text-sm text-gray-500">In Transit</p>
+                  <p className="text-2xl font-bold text-blue-600 mt-1">
+                    <SlidingNumber number={shippingRecords.filter(s => s.status === 'in_transit' || s.status === 'shipped').length} />
+                  </p>
+                </div>
+                <div className="w-[200px] flex-shrink-0 bg-white rounded-xl p-4 shadow-sm border">
+                  <p className="text-sm text-gray-500">Delivered</p>
+                  <p className="text-2xl font-bold text-green-600 mt-1">
+                    <SlidingNumber number={shippingRecords.filter(s => s.status === 'delivered').length} />
+                  </p>
+                </div>
+              </div>
+
+              {/* Shipping Records List */}
+              <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Tracking Number</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Carrier</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Shipped</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200">
+                      {shippingRecords.map(record => (
+                        <tr key={record.id} className="hover:bg-gray-50">
+                          <td className="px-6 py-4">
+                            <p className="text-sm font-mono font-medium text-gray-900">{record.tracking_number || record.shipping_number}</p>
+                          </td>
+                          <td className="px-6 py-4">
+                            <p className="text-sm text-gray-900">{record.carrier || 'N/A'}</p>
+                          </td>
+                          <td className="px-6 py-4">
+                            <select
+                              value={record.status}
+                              onChange={async (e) => {
+                                await supabase.from('shipping_records').update({ status: e.target.value }).eq('id', record.id)
+                                fetchData()
+                              }}
+                              className={`text-xs px-2 py-1 rounded-lg border font-medium ${
+                                record.status === 'preparing' ? 'bg-gray-50 border-gray-200 text-gray-700' :
+                                record.status === 'shipped' || record.status === 'in_transit' ? 'bg-blue-50 border-blue-200 text-blue-700' :
+                                record.status === 'delivered' ? 'bg-green-50 border-green-200 text-green-700' :
+                                'bg-red-50 border-red-200 text-red-700'
+                              }`}
+                            >
+                              <option value="preparing">Preparing</option>
+                              <option value="shipped">Shipped</option>
+                              <option value="in_transit">In Transit</option>
+                              <option value="delivered">Delivered</option>
+                              <option value="returned">Returned</option>
+                              <option value="cancelled">Cancelled</option>
+                            </select>
+                          </td>
+                          <td className="px-6 py-4">
+                            <p className="text-sm text-gray-500">
+                              {record.shipped_at ? new Date(record.shipped_at).toLocaleDateString() : 'Not yet'}
+                            </p>
+                          </td>
+                          <td className="px-6 py-4 text-sm">
+                            {record.tracking_url ? (
+                              <a
+                                href={record.tracking_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-primary-600 hover:text-primary-900 font-medium"
+                              >
+                                Track
+                              </a>
+                            ) : (
+                              <button 
+                                onClick={() => {
+                                  const project = projects.find(p => p.id === record.project_id)
+                                  if (project) openProjectModal(project)
+                                }}
+                                className="text-primary-600 hover:text-primary-900 font-medium"
+                              >
+                                View Project
+                              </button>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                  {shippingRecords.length === 0 && (
+                    <div className="text-center py-12 text-gray-500">
+                      <Truck className="h-12 w-12 mx-auto mb-3 text-gray-300" />
+                      <p>No shipping records found</p>
+                      <p className="text-xs mt-1">Create a new shipment to get started</p>
                     </div>
                   )}
                 </div>
