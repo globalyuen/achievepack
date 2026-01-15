@@ -410,8 +410,8 @@ function App() {
     <>
       <Helmet>
         <html lang={currentLang} />
-        <title>{t('seo.home.title', 'Achieve Pack - Sustainable Eco-Friendly Packaging Solutions')}</title>
-        <meta name="description" content={t('seo.home.description', 'Transform your business with certified eco-friendly packaging. Compostable, recyclable, and bio-based pouches with low MOQ from 100 pieces. 70% less plastic.')} />
+        <title>{t('seo.home.title', 'Certified Compostable Packaging | Low MOQ from 100pcs - Achieve Pack')}</title>
+        <meta name="description" content={t('seo.home.description', 'Transform your brand with EN13432 certified compostable packaging. Coffee bags, food pouches, pet treat bags. Low MOQ from 100pcs, 2-3 week sampling, trusted by 500+ global brands.')} />
         <link rel="canonical" href={baseUrl} />
         
         {/* hreflang for multi-language */}
@@ -774,7 +774,7 @@ function App() {
                   interval={2500}
                   animationType="flip"
                 />{' '}
-                packaging solutions that reduce your environmental impact while delivering exceptional business value.
+                packaging solutions. From <Link to="/industry/coffee-tea" className="text-primary-600 hover:underline">coffee bags with degassing valves</Link> to <Link to="/packaging/stand-up-pouches" className="text-primary-600 hover:underline">custom printed food pouches</Link>, reduce your environmental impact while delivering exceptional business value.
               </p>
 
               {/* CTA Buttons */}
@@ -852,13 +852,15 @@ function App() {
       <section className="py-16 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6">
-            <h2 className="text-4xl md:text-5xl font-bold text-neutral-900">Discover Products</h2>
-            <p className="text-lg md:text-xl text-neutral-600 mt-2 max-w-3xl mx-auto">Swipe or drag to explore our eco-friendly packaging</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-neutral-900">Shop Compostable & Recyclable Packaging</h2>
+            <p className="text-lg md:text-xl text-neutral-600 mt-2 max-w-3xl mx-auto">
+              <Link to="/materials/compostable" className="text-primary-600 hover:underline">EN13432 certified compostable pouches</Link>, <Link to="/industry/coffee-tea" className="text-primary-600 hover:underline">coffee bags</Link>, and <Link to="/packaging/custom-boxes" className="text-primary-600 hover:underline">custom boxes</Link> with <Link to="/solutions/startup-founder" className="text-primary-600 hover:underline">low MOQ from 100pcs</Link>
+            </p>
             <Link 
               to="/store" 
               className="inline-flex text-base font-semibold text-primary-600 hover:text-primary-700 transition-colors items-center gap-1 mt-3"
             >
-              Shop All <ArrowRight className="h-5 w-5" />
+              Browse all eco-friendly packaging options <ArrowRight className="h-5 w-5" />
             </Link>
           </div>
           
@@ -898,7 +900,7 @@ function App() {
       <section className="py-12 bg-gradient-to-b from-neutral-50 to-white overflow-hidden">
         <div className="text-center mb-8">
           <p className="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-2">Trusted by Industry Leaders</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-neutral-900">500+ Brands Choose Achieve Pack</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-neutral-900">Why 500+ Global Brands Choose Achieve Pack</h2>
         </div>
         
         {/* Strip 1 - Deep Forest Green */}
@@ -1016,18 +1018,18 @@ function App() {
               </p>
 
               <div className="grid sm:grid-cols-3 gap-4">
-                <div className="flex items-center space-x-3">
+                <Link to="/materials/compostable" className="flex items-center space-x-3 hover:bg-primary-50 p-2 rounded-lg transition-colors">
                   <CheckCircle className="h-6 w-6 text-success flex-shrink-0" />
                   <span className="text-neutral-700 font-medium">{t('about.certs.en13432')}</span>
-                </div>
-                <div className="flex items-center space-x-3">
+                </Link>
+                <Link to="/company/certificates" className="flex items-center space-x-3 hover:bg-primary-50 p-2 rounded-lg transition-colors">
                   <CheckCircle className="h-6 w-6 text-success flex-shrink-0" />
                   <span className="text-neutral-700 font-medium">{t('about.certs.astm')}</span>
-                </div>
-                <div className="flex items-center space-x-3">
+                </Link>
+                <Link to="/materials/pcr" className="flex items-center space-x-3 hover:bg-primary-50 p-2 rounded-lg transition-colors">
                   <CheckCircle className="h-6 w-6 text-success flex-shrink-0" />
                   <span className="text-neutral-700 font-medium">{t('about.certs.grs')}</span>
-                </div>
+                </Link>
               </div>
             </div>
 
@@ -1074,6 +1076,74 @@ function App() {
                   }}
                 />
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What is Compostable Packaging - SEO Definition Block */}
+      <section className="py-16 bg-gradient-to-b from-primary-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-6 text-center">What is Compostable Packaging?</h2>
+            <p className="text-lg text-neutral-700 leading-relaxed mb-8">
+              Compostable packaging is certified material that fully biodegrades into natural elements within 180 days under industrial composting conditions. Unlike regular plastics, compostable pouches break down into water, CO₂, and biomass, leaving no microplastics. Achieve Pack's compostable bags are certified to <Link to="/learn/composting/home-vs-industrial-compost" className="text-primary-600 hover:underline font-medium">EN13432</Link> and <Link to="/materials/compostable" className="text-primary-600 hover:underline font-medium">ASTM D6400</Link> standards, ensuring genuine environmental credentials.
+            </p>
+            
+            {/* Comparison Table - Featured Snippet Optimized */}
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse bg-white rounded-xl shadow-lg overflow-hidden">
+                <thead className="bg-primary-600 text-white">
+                  <tr>
+                    <th className="px-4 py-3 text-left text-sm font-semibold">Feature</th>
+                    <th className="px-4 py-3 text-center text-sm font-semibold">Compostable</th>
+                    <th className="px-4 py-3 text-center text-sm font-semibold">Recyclable Mono-PE</th>
+                    <th className="px-4 py-3 text-center text-sm font-semibold">Traditional Plastic</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-neutral-200">
+                  <tr className="hover:bg-neutral-50">
+                    <td className="px-4 py-3 text-sm font-medium text-neutral-900">Decomposition</td>
+                    <td className="px-4 py-3 text-sm text-center text-primary-600 font-medium">180 days in composting</td>
+                    <td className="px-4 py-3 text-sm text-center text-neutral-600">Requires recycling facility</td>
+                    <td className="px-4 py-3 text-sm text-center text-neutral-500">Hundreds of years</td>
+                  </tr>
+                  <tr className="hover:bg-neutral-50">
+                    <td className="px-4 py-3 text-sm font-medium text-neutral-900">Material Source</td>
+                    <td className="px-4 py-3 text-sm text-center text-primary-600 font-medium">Plant-based (corn, sugarcane)</td>
+                    <td className="px-4 py-3 text-sm text-center text-neutral-600">Single polymer (PE/PP)</td>
+                    <td className="px-4 py-3 text-sm text-center text-neutral-500">Petroleum-based</td>
+                  </tr>
+                  <tr className="hover:bg-neutral-50">
+                    <td className="px-4 py-3 text-sm font-medium text-neutral-900">Certifications</td>
+                    <td className="px-4 py-3 text-sm text-center text-primary-600 font-medium">EN13432, ASTM D6400</td>
+                    <td className="px-4 py-3 text-sm text-center text-neutral-600">ISO 15270</td>
+                    <td className="px-4 py-3 text-sm text-center text-neutral-500">None</td>
+                  </tr>
+                  <tr className="hover:bg-neutral-50">
+                    <td className="px-4 py-3 text-sm font-medium text-neutral-900">Best For</td>
+                    <td className="px-4 py-3 text-sm text-center text-primary-600 font-medium">Coffee, snacks, dry goods</td>
+                    <td className="px-4 py-3 text-sm text-center text-neutral-600">All dry products</td>
+                    <td className="px-4 py-3 text-sm text-center text-neutral-500">General use</td>
+                  </tr>
+                  <tr className="hover:bg-neutral-50">
+                    <td className="px-4 py-3 text-sm font-medium text-neutral-900">MOQ at Achieve Pack</td>
+                    <td className="px-4 py-3 text-sm text-center text-primary-600 font-semibold">100 pieces</td>
+                    <td className="px-4 py-3 text-sm text-center text-primary-600 font-semibold">100 pieces</td>
+                    <td className="px-4 py-3 text-sm text-center text-neutral-500">5,000+ typical</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <div className="mt-8 text-center">
+              <Link
+                to="/learn/composting/biodegradable-vs-compostable"
+                className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold"
+              >
+                Learn more about compostable vs biodegradable packaging
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </div>
