@@ -7,7 +7,7 @@ import { SlidingNumber } from '../components/animate-ui/primitives/texts/sliding
 import { 
   Home, FileCheck, Image as ImageIcon, LogOut, Eye, Trash2, ArrowLeft, 
   RefreshCw, CheckCircle, Clock, AlertCircle, MessageSquare, X, 
-  Mail, Globe, Camera, FileText, Link2, Upload, Tag, Search, LayoutGrid, List, Plus, User, Send, RotateCcw, Archive, Bell, Zap, Palette, Info, Package, Truck
+  Mail, Globe, Camera, FileText, Link2, Upload, Tag, Search, LayoutGrid, List, Plus, User, Send, RotateCcw, Archive, Bell, Zap, Palette, Info, Package, Truck, HelpCircle
 } from 'lucide-react'
 import {
   Tabs,
@@ -3466,6 +3466,23 @@ const OrderManagementPage: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* Floating Help Button */}
+      <Link
+        to="/ctrl-x9k7m/order-workflow"
+        className="fixed left-6 bottom-6 z-50 group"
+      >
+        <div className="relative">
+          <button className="w-14 h-14 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group-hover:scale-110">
+            <HelpCircle className="h-6 w-6" />
+          </button>
+          {/* Tooltip */}
+          <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            订单工作流说明
+            <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-gray-900"></div>
+          </div>
+        </div>
+      </Link>
     </div>
   )
 }
