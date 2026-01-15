@@ -1266,23 +1266,6 @@ const OrderManagementPage: React.FC = () => {
               </button>
 
               <button
-                onClick={() => setActiveTab('projects')}
-                className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
-                  activeTab === 'projects'
-                    ? 'bg-primary-500 text-white'
-                    : 'text-gray-900 hover:bg-primary-50 hover:text-primary-600'
-                }`}
-              >
-                <FileText className="flex-shrink-0 w-5 h-5 mr-4" />
-                Projects
-                {projects.length > 0 && (
-                  <span className="ml-auto bg-blue-500 text-white text-xs px-2 py-0.5 rounded-full">
-                    {projects.length}
-                  </span>
-                )}
-              </button>
-
-              <button
                 onClick={() => setActiveTab('customers')}
                 className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
                   activeTab === 'customers'
@@ -1295,6 +1278,23 @@ const OrderManagementPage: React.FC = () => {
                 {customers.length > 0 && (
                   <span className="ml-auto bg-blue-500 text-white text-xs px-2 py-0.5 rounded-full">
                     {customers.length}
+                  </span>
+                )}
+              </button>
+
+              <button
+                onClick={() => setActiveTab('projects')}
+                className={`flex items-center w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
+                  activeTab === 'projects'
+                    ? 'bg-primary-500 text-white'
+                    : 'text-gray-900 hover:bg-primary-50 hover:text-primary-600'
+                }`}
+              >
+                <FileText className="flex-shrink-0 w-5 h-5 mr-4" />
+                Projects
+                {projects.length > 0 && (
+                  <span className="ml-auto bg-blue-500 text-white text-xs px-2 py-0.5 rounded-full">
+                    {projects.length}
                   </span>
                 )}
               </button>
@@ -2387,13 +2387,39 @@ const OrderManagementPage: React.FC = () => {
                   <h1 className="text-2xl font-bold text-gray-900">Projects</h1>
                   <p className="text-sm text-gray-500 mt-1">Unified order tracking across all customers</p>
                 </div>
-                <button
-                  onClick={fetchData}
-                  className="flex items-center gap-2 px-4 py-2 bg-white border rounded-lg hover:bg-gray-50 text-sm"
-                >
-                  <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
-                  Refresh
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => {
+                      const projectCode = `PRJ-${Date.now().toString().slice(-8)}`
+                      const customerEmail = prompt('Enter customer email:')
+                      if (customerEmail) {
+                        // Perform async operation outside startTransition
+                        supabase.from('projects').insert({
+                          project_code: projectCode,
+                          customer_email: customerEmail,
+                          status: 'rfq',
+                          project_type: 'custom'
+                        }).then(() => {
+                          // Use startTransition for UI updates only
+                          startTransition(() => {
+                            fetchData()
+                          })
+                        })
+                      }
+                    }}
+                    className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 text-sm"
+                  >
+                    <Plus className="h-4 w-4" />
+                    Create Project
+                  </button>
+                  <button
+                    onClick={fetchData}
+                    className="flex items-center gap-2 px-4 py-2 bg-white border rounded-lg hover:bg-gray-50 text-sm"
+                  >
+                    <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
+                    Refresh
+                  </button>
+                </div>
               </div>
 
               {/* Stats */}
@@ -2645,16 +2671,21 @@ const OrderManagementPage: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <button
-                    onClick={async () => {
+                    onClick={() => {
                       const productionNumber = `PROD-${Date.now().toString().slice(-8)}`
                       const productName = prompt('Enter product name:')
                       if (productName) {
-                        await supabase.from('production_jobs').insert({
+                        // Perform async operation outside startTransition
+                        supabase.from('production_jobs').insert({
                           production_number: productionNumber,
                           product_name: productName,
                           status: 'pending'
+                        }).then(() => {
+                          // Use startTransition for UI updates only
+                          startTransition(() => {
+                            fetchData()
+                          })
                         })
-                        await fetchData()
                       }
                     }}
                     className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 text-sm"
@@ -2780,16 +2811,21 @@ const OrderManagementPage: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <button
-                    onClick={async () => {
+                    onClick={() => {
                       const shippingNumber = `SHIP-${Date.now().toString().slice(-8)}`
                       const carrier = prompt('Enter carrier name (e.g., DHL, FedEx):')
                       if (carrier) {
-                        await supabase.from('shipping_records').insert({
+                        // Perform async operation outside startTransition
+                        supabase.from('shipping_records').insert({
                           shipping_number: shippingNumber,
                           carrier: carrier,
                           status: 'preparing'
+                        }).then(() => {
+                          // Use startTransition for UI updates only
+                          startTransition(() => {
+                            fetchData()
+                          })
                         })
-                        await fetchData()
                       }
                     }}
                     className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 text-sm"
