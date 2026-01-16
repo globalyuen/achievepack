@@ -11,9 +11,9 @@ export default function StoreFooter() {
               <img src="/ap-logo-white.webp" alt="Achieve Pack" className="h-8 w-auto" loading="lazy" decoding="async" width="106" height="32" />
             </Link>
             {/* B Corp Logo */}
-            <a href="https://www.bcorporation.net/" target="_blank" rel="noopener noreferrer" className="block mb-4">
+            <Link to="/company/b-corp" className="block mb-4">
               <img src="/bcorp.svg" alt="Certified B Corporation" className="h-16 md:h-20 w-auto" loading="lazy" decoding="async" />
-            </a>
+            </Link>
             <p className="text-neutral-400 text-sm mb-4">Premium custom printed pouches with eco-friendly options.</p>
             <div className="space-y-1 text-xs text-neutral-500">
               <p>Free worldwide shipping</p>

@@ -1990,9 +1990,9 @@ function App() {
                 <span className="text-base font-bold">{t('footer.brand')}</span>
               </div>
               {/* B Corp Logo */}
-              <a href="https://www.bcorporation.net/" target="_blank" rel="noopener noreferrer" className="block mb-3">
+              <Link to="/company/b-corp" className="block mb-3">
                 <img src="/bcorp.svg" alt="Certified B Corporation" className="h-16 md:h-20 w-auto" loading="lazy" decoding="async" />
-              </a>
+              </Link>
               <p className="text-neutral-400 text-xs mb-3">
                 {t('footer.tagline')}
               </p>
