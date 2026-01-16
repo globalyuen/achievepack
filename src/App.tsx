@@ -1989,6 +1989,10 @@ function App() {
                 <Leaf className="h-5 w-5 text-primary-500" />
                 <span className="text-base font-bold">{t('footer.brand')}</span>
               </div>
+              {/* B Corp Logo */}
+              <a href="https://www.bcorporation.net/" target="_blank" rel="noopener noreferrer" className="block mb-3">
+                <img src="/bcorp.svg" alt="Certified B Corporation" className="h-16 md:h-20 w-auto" loading="lazy" decoding="async" />
+              </a>
               <p className="text-neutral-400 text-xs mb-3">
                 {t('footer.tagline')}
               </p>

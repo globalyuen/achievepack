@@ -7,9 +7,13 @@ export default function StoreFooter() {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-8">
           {/* Store Info */}
           <div className="col-span-2 md:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-4">
+            <Link to="/" className="flex items-center gap-2 mb-3">
               <img src="/ap-logo-white.webp" alt="Achieve Pack" className="h-8 w-auto" loading="lazy" decoding="async" width="106" height="32" />
             </Link>
+            {/* B Corp Logo */}
+            <a href="https://www.bcorporation.net/" target="_blank" rel="noopener noreferrer" className="block mb-4">
+              <img src="/bcorp.svg" alt="Certified B Corporation" className="h-16 md:h-20 w-auto" loading="lazy" decoding="async" />
+            </a>
             <p className="text-neutral-400 text-sm mb-4">Premium custom printed pouches with eco-friendly options.</p>
             <div className="space-y-1 text-xs text-neutral-500">
               <p>Free worldwide shipping</p>
