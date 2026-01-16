@@ -272,7 +272,7 @@ export default function ReviewsPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Logo & Description */}
             <div>
-              <img src="/ap-logo-white.svg" alt="Achieve Pack" className="h-8 w-auto mb-4" />
+              <img src="/ap-logo-white.webp" alt="Achieve Pack" className="h-8 w-auto mb-4" />
               <p className="text-neutral-400 text-sm">
                 Sustainable packaging solutions for forward-thinking brands.
               </p>

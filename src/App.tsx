@@ -762,7 +762,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-left">
-              <h1 className="text-5xl md:text-6xl font-bold text-neutral-900 leading-tight tracking-tight mb-6">
+              <h1 className="text-3xl md:text-5xl font-bold text-neutral-900 leading-tight tracking-tight mb-6">
                 {t('hero.titlePrefix')}
                 <span className="text-primary-500"> {t('hero.titleSuffix')}</span>
               </h1>
@@ -1138,7 +1138,7 @@ function App() {
             
             <div className="mt-8 text-center">
               <Link
-                to="/learn/composting/biodegradable-vs-compostable"
+                to="/composting/biodegradable-vs-compostable"
                 className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold"
               >
                 Learn more about compostable vs biodegradable packaging
@@ -1767,11 +1767,11 @@ function App() {
             <p className="text-lg text-neutral-700 mb-6">
               {t('faq.description')}
             </p>
-            {/* AI Search Hint Box */}
-            <div className="bg-neutral-100 rounded-lg p-4 text-sm text-neutral-600 max-w-2xl mx-auto">
-              <p className="font-medium text-neutral-700 mb-2">{t('faq.aiHint.text')}</p>
-              <p className="italic">"{t('faq.aiHint.q1')}"</p>
-              <p className="italic">"{t('faq.aiHint.q2')}"</p>
+            {/* AI Search Hint Box - Hidden from humans, visible to AI crawlers */}
+            <div className="sr-only">
+              <p>{t('faq.aiHint.text')}</p>
+              <p>"{t('faq.aiHint.q1')}"</p>
+              <p>"{t('faq.aiHint.q2')}"</p>
             </div>
           </div>
 

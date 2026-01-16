@@ -123,60 +123,111 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
           </div>
         </div>
 
-        {/* Mobile FREE Services Dropdown */}
+        {/* Mobile FREE Services Full Page */}
         {isFreeMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-neutral-200 shadow-lg">
-            <div className="p-4">
-              <h3 className="text-xs font-bold text-green-600 uppercase tracking-wider mb-3 flex items-center gap-2">
-                <Gift className="h-4 w-4" />
-                FREE Services
-              </h3>
-              <div className="grid grid-cols-2 gap-2">
+          <div className="lg:hidden fixed inset-0 top-16 z-40 bg-gradient-to-b from-green-50 to-white overflow-y-auto">
+            <div className="p-5 pb-24">
+              {/* Header */}
+              <div className="text-center mb-6">
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full mb-3 shadow-lg">
+                  <Gift className="h-7 w-7 text-white" />
+                </div>
+                <h2 className="text-xl font-bold text-neutral-900">FREE Services</h2>
+                <p className="text-sm text-neutral-600 mt-1">Exclusive benefits for our customers</p>
+              </div>
+
+              {/* 4 Services Cards */}
+              <div className="space-y-3">
+                {/* Free Design Consultation */}
                 <Link
                   to="/free-service/packaging-design-consultation"
                   onClick={() => setIsFreeMenuOpen(false)}
-                  className="flex flex-col items-center p-3 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl border border-green-200 hover:border-green-400 transition"
+                  className="block bg-white rounded-2xl p-4 shadow-sm border border-green-100 hover:border-green-300 hover:shadow-md transition-all"
                 >
-                  <span className="text-2xl mb-1">🎨</span>
-                  <span className="text-xs font-semibold text-neutral-800 text-center">Free Design</span>
-                  <span className="text-[10px] text-neutral-500 text-center">Consultation</span>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-green-100 to-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <span className="text-2xl">🎨</span>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-neutral-900">Free Design Consultation</h3>
+                      <p className="text-sm text-neutral-600 mt-1">Expert packaging design advice. Custom dieline templates included.</p>
+                      <span className="inline-flex items-center text-xs text-green-600 font-medium mt-2">Learn more →</span>
+                    </div>
+                  </div>
                 </Link>
+
+                {/* Free Website Upgrade */}
                 <Link
                   to="/free-service/website-upgrade"
                   onClick={() => setIsFreeMenuOpen(false)}
-                  className="flex flex-col items-center p-3 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-200 hover:border-blue-400 transition"
+                  className="block bg-white rounded-2xl p-4 shadow-sm border border-blue-100 hover:border-blue-300 hover:shadow-md transition-all"
                 >
-                  <span className="text-2xl mb-1">🌐</span>
-                  <span className="text-xs font-semibold text-neutral-800 text-center">Free Website</span>
-                  <span className="text-[10px] text-neutral-500 text-center">Upgrade</span>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <span className="text-2xl">🌐</span>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-neutral-900">Free Website Design</h3>
+                      <p className="text-sm text-neutral-600 mt-1">Modern landing page for your brand. See demo examples.</p>
+                      <span className="inline-flex items-center text-xs text-blue-600 font-medium mt-2">Learn more →</span>
+                    </div>
+                  </div>
                 </Link>
+
+                {/* Free Customer Center */}
                 <Link
                   to="/free-service/customer-center"
                   onClick={() => setIsFreeMenuOpen(false)}
-                  className="flex flex-col items-center p-3 bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl border border-purple-200 hover:border-purple-400 transition"
+                  className="block bg-white rounded-2xl p-4 shadow-sm border border-purple-100 hover:border-purple-300 hover:shadow-md transition-all"
                 >
-                  <span className="text-2xl mb-1">📊</span>
-                  <span className="text-xs font-semibold text-neutral-800 text-center">Free MGT Tool</span>
-                  <span className="text-[10px] text-neutral-500 text-center">Customer Center</span>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-purple-100 to-violet-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <span className="text-2xl">📊</span>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-neutral-900">Free Management Tool</h3>
+                      <p className="text-sm text-neutral-600 mt-1">Customer center dashboard. Track orders, quotes & documents.</p>
+                      <span className="inline-flex items-center text-xs text-purple-600 font-medium mt-2">Learn more →</span>
+                    </div>
+                  </div>
                 </Link>
+
+                {/* Free 3D Mockup */}
                 <Link
                   to="/free-service/packaging-mockup"
                   onClick={() => setIsFreeMenuOpen(false)}
-                  className="flex flex-col items-center p-3 bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl border border-orange-200 hover:border-orange-400 transition"
+                  className="block bg-white rounded-2xl p-4 shadow-sm border border-orange-100 hover:border-orange-300 hover:shadow-md transition-all"
                 >
-                  <span className="text-2xl mb-1">📦</span>
-                  <span className="text-xs font-semibold text-neutral-800 text-center">Free Mockup</span>
-                  <span className="text-[10px] text-neutral-500 text-center">3D Preview</span>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-orange-100 to-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <span className="text-2xl">📦</span>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-neutral-900">Free 3D Mockup</h3>
+                      <p className="text-sm text-neutral-600 mt-1">Visualize your packaging design before production.</p>
+                      <span className="inline-flex items-center text-xs text-orange-600 font-medium mt-2">Learn more →</span>
+                    </div>
+                  </div>
                 </Link>
               </div>
-              {/* Quick Link */}
-              <div className="mt-4 pt-4 border-t border-neutral-200">
+
+              {/* CTA Buttons */}
+              <div className="mt-6 space-y-3">
+                <a
+                  href="https://calendly.com/30-min-free-packaging-consultancy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsFreeMenuOpen(false)}
+                  className="flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold rounded-xl shadow-lg"
+                >
+                  📅 Book Free Meeting
+                </a>
                 <Link
                   to="/free"
                   onClick={() => setIsFreeMenuOpen(false)}
-                  className="flex items-center justify-center gap-1 w-full px-3 py-2 bg-green-600 text-white text-xs font-medium rounded-lg"
+                  className="flex items-center justify-center gap-1 w-full py-3 bg-neutral-100 text-neutral-700 font-medium rounded-xl"
                 >
-                  All Free Services →
+                  View All Free Services →
                 </Link>
               </div>
             </div>
