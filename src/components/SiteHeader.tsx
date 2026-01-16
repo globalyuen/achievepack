@@ -17,7 +17,6 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isFreeMenuOpen, setIsFreeMenuOpen] = useState(false)
 
   const changeLanguage = useCallback((lng: string) => {
     i18n.changeLanguage(lng)
@@ -103,15 +102,15 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
               >
                 <ShoppingCart className="h-5 w-5 text-white" />
               </Link>
-              {/* Glowing FREE Button */}
-              <button
-                onClick={() => setIsFreeMenuOpen(!isFreeMenuOpen)}
+              {/* Glowing FREE Button - Links to /free page */}
+              <Link
+                to="/free"
                 className="relative w-10 h-10 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center hover:from-green-600 hover:to-emerald-600 transition-all shadow-lg animate-pulse"
                 style={{ boxShadow: '0 0 15px rgba(16, 185, 129, 0.6)' }}
               >
-                {isFreeMenuOpen ? <X className="h-5 w-5 text-white" /> : <Gift className="h-5 w-5 text-white" />}
-                {!isFreeMenuOpen && <span className="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 text-[8px] font-bold text-yellow-900 rounded-full flex items-center justify-center animate-bounce">!</span>}
-              </button>
+                <Gift className="h-5 w-5 text-white" />
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 text-[8px] font-bold text-yellow-900 rounded-full flex items-center justify-center animate-bounce">!</span>
+              </Link>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-neutral-700 hover:text-primary-500 transition-colors"
@@ -122,117 +121,6 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
             </div>
           </div>
         </div>
-
-        {/* Mobile FREE Services Full Page */}
-        {isFreeMenuOpen && (
-          <div className="lg:hidden fixed inset-0 top-16 z-40 bg-gradient-to-b from-green-50 to-white overflow-y-auto">
-            <div className="p-5 pb-24">
-              {/* Header */}
-              <div className="text-center mb-6">
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full mb-3 shadow-lg">
-                  <Gift className="h-7 w-7 text-white" />
-                </div>
-                <h2 className="text-xl font-bold text-neutral-900">FREE Services</h2>
-                <p className="text-sm text-neutral-600 mt-1">Exclusive benefits for our customers</p>
-              </div>
-
-              {/* 4 Services Cards */}
-              <div className="space-y-3">
-                {/* Free Design Consultation */}
-                <Link
-                  to="/free-service/packaging-design-consultation"
-                  onClick={() => setIsFreeMenuOpen(false)}
-                  className="block bg-white rounded-2xl p-4 shadow-sm border border-green-100 hover:border-green-300 hover:shadow-md transition-all"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-100 to-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <span className="text-2xl">🎨</span>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-bold text-neutral-900">Free Design Consultation</h3>
-                      <p className="text-sm text-neutral-600 mt-1">Expert packaging design advice. Custom dieline templates included.</p>
-                      <span className="inline-flex items-center text-xs text-green-600 font-medium mt-2">Learn more →</span>
-                    </div>
-                  </div>
-                </Link>
-
-                {/* Free Website Upgrade */}
-                <Link
-                  to="/free-service/website-upgrade"
-                  onClick={() => setIsFreeMenuOpen(false)}
-                  className="block bg-white rounded-2xl p-4 shadow-sm border border-blue-100 hover:border-blue-300 hover:shadow-md transition-all"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <span className="text-2xl">🌐</span>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-bold text-neutral-900">Free Website Design</h3>
-                      <p className="text-sm text-neutral-600 mt-1">Modern landing page for your brand. See demo examples.</p>
-                      <span className="inline-flex items-center text-xs text-blue-600 font-medium mt-2">Learn more →</span>
-                    </div>
-                  </div>
-                </Link>
-
-                {/* Free Customer Center */}
-                <Link
-                  to="/free-service/customer-center"
-                  onClick={() => setIsFreeMenuOpen(false)}
-                  className="block bg-white rounded-2xl p-4 shadow-sm border border-purple-100 hover:border-purple-300 hover:shadow-md transition-all"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-purple-100 to-violet-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <span className="text-2xl">📊</span>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-bold text-neutral-900">Free Management Tool</h3>
-                      <p className="text-sm text-neutral-600 mt-1">Customer center dashboard. Track orders, quotes & documents.</p>
-                      <span className="inline-flex items-center text-xs text-purple-600 font-medium mt-2">Learn more →</span>
-                    </div>
-                  </div>
-                </Link>
-
-                {/* Free 3D Mockup */}
-                <Link
-                  to="/free-service/packaging-mockup"
-                  onClick={() => setIsFreeMenuOpen(false)}
-                  className="block bg-white rounded-2xl p-4 shadow-sm border border-orange-100 hover:border-orange-300 hover:shadow-md transition-all"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-orange-100 to-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <span className="text-2xl">📦</span>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-bold text-neutral-900">Free 3D Mockup</h3>
-                      <p className="text-sm text-neutral-600 mt-1">Visualize your packaging design before production.</p>
-                      <span className="inline-flex items-center text-xs text-orange-600 font-medium mt-2">Learn more →</span>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-
-              {/* CTA Buttons */}
-              <div className="mt-6 space-y-3">
-                <a
-                  href="https://calendly.com/30-min-free-packaging-consultancy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setIsFreeMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold rounded-xl shadow-lg"
-                >
-                  📅 Book Free Meeting
-                </a>
-                <Link
-                  to="/free"
-                  onClick={() => setIsFreeMenuOpen(false)}
-                  className="flex items-center justify-center gap-1 w-full py-3 bg-neutral-100 text-neutral-700 font-medium rounded-xl"
-                >
-                  View All Free Services →
-                </Link>
-              </div>
-            </div>
-          </div>
-        )}
 
         {/* Mobile Menu - Complete with Learn & Blog */}
         {isMenuOpen && (

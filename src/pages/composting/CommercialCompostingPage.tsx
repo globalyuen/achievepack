@@ -415,7 +415,7 @@ const CommercialCompostingPage: React.FC = () => {
                     Windrow systems are simple, cost-effective, and able to handle large volumes. <strong>Operators regularly turn the piles with machinery</strong> to ensure all material gets heat, moisture, and oxygen.
                   </p>
                   <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-                    <div className="grid grid-cols-2 gap-4 text-sm">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                       <div className="flex items-center gap-2">
                         <Clock className="h-5 w-5 text-green-600" />
                         <span><strong>Timeline:</strong> ~4 months</span>
@@ -452,7 +452,7 @@ const CommercialCompostingPage: React.FC = () => {
                     Aerated static pile composting mixes organic matter with coarser materials like wood chips or shredded paper to create air pockets and improve oxygen flow. Some facilities add <strong>perforated pipes and blowers</strong> to actively push air into the mass.
                   </p>
                   <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-                    <div className="grid grid-cols-2 gap-4 text-sm">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                       <div className="flex items-center gap-2">
                         <Clock className="h-5 w-5 text-blue-600" />
                         <span><strong>Timeline:</strong> ~3 months</span>

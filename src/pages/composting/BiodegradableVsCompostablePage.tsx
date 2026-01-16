@@ -31,7 +31,7 @@ const ClickableImage: React.FC<{
         <img 
           src={src} 
           alt={alt} 
-          className={`${className} transition-transform group-hover:scale-[1.02]`}
+          className={`${className} transition-transform group-hover:scale-[1.02] max-w-full`}
           loading="lazy"
         />
         {caption && (
@@ -72,10 +72,10 @@ const ImageTextRow: React.FC<{
   imageLeft?: boolean
 }> = ({ image, imageAlt, imageCaption, children, imageLeft = true }) => {
   return (
-    <div className={`grid md:grid-cols-2 gap-8 items-center ${imageLeft ? '' : 'md:flex-row-reverse'}`}>
+    <div className={`grid md:grid-cols-2 gap-8 items-center overflow-hidden ${imageLeft ? '' : 'md:flex-row-reverse'}`}>
       {imageLeft ? (
         <>
-          <div className="order-2 md:order-1">
+          <div className="order-2 md:order-1 max-w-full overflow-hidden">
             <ClickableImage 
               src={image} 
               alt={imageAlt}
@@ -88,7 +88,7 @@ const ImageTextRow: React.FC<{
       ) : (
         <>
           <div className="order-1 md:order-1">{children}</div>
-          <div className="order-2 md:order-2">
+          <div className="order-2 md:order-2 max-w-full overflow-hidden">
             <ClickableImage 
               src={image} 
               alt={imageAlt}
@@ -181,7 +181,7 @@ const BiodegradableVsCompostablePage: React.FC = () => {
         </script>
       </Helmet>
 
-      <div className="min-h-screen bg-neutral-50">
+      <div className="min-h-screen bg-neutral-50 overflow-x-hidden">
         {/* SEO Page Header */}
         <SEOPageHeader />
 
@@ -248,7 +248,7 @@ const BiodegradableVsCompostablePage: React.FC = () => {
             </aside>
 
             {/* Main Content Area */}
-            <main className="lg:col-span-3 space-y-8">
+            <main className="lg:col-span-3 space-y-8 overflow-hidden">
           
           {/* Introduction */}
           <section id="intro" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
@@ -401,7 +401,7 @@ const BiodegradableVsCompostablePage: React.FC = () => {
             </h2>
             
             <div className="overflow-x-auto">
-              <table className="w-full text-sm border-collapse bg-white rounded-xl overflow-hidden shadow-lg">
+              <table className="w-full text-sm border-collapse bg-white rounded-xl overflow-hidden shadow-lg" style={{ minWidth: '600px' }}>
                 <thead>
                   <tr className="bg-neutral-800 text-white">
                     <th className="text-left p-4 font-semibold">Criteria</th>
@@ -420,7 +420,7 @@ const BiodegradableVsCompostablePage: React.FC = () => {
                   <tr className="border-b bg-neutral-50">
                     <td className="p-4 font-medium">Certification Required</td>
                     <td className="p-4">❌ No</td>
-                    <td className="p-4 bg-green-50">✅ Yes (EN 13432, ASTM D6400)</td>
+                    <td className="p-4 bg-green-50 whitespace-nowrap">✅ Yes (EN 13432, ASTM D6400)</td>
                     <td className="p-4">❌ No</td>
                   </tr>
                   <tr className="border-b">
@@ -500,7 +500,7 @@ const BiodegradableVsCompostablePage: React.FC = () => {
                   { flag: 'Claims without timeframes', tip: '"Biodegradable" without "within X days" is a red flag' },
                   { flag: 'No certificate number provided', tip: 'All certified products have verifiable registration numbers' },
                   { flag: 'Cannot provide test reports', tip: 'Ask for third-party lab reports—they should be readily available' },
-                  { flag: 'Not listed in certification databases', tip: 'Verify at products.bpiworld.org or www.tuv-at.be/green-marks' }
+                  { flag: 'Not listed in certification databases', tip: 'Verify at BPI or TÜV Austria green marks' }
                 ].map((item, idx) => (
                   <div key={idx} className="bg-white p-4 rounded-lg border border-neutral-200 shadow-sm">
                     <div className="flex items-start gap-3">
@@ -596,7 +596,7 @@ const BiodegradableVsCompostablePage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 mt-4 pt-4 border-t">
+                <div className="flex flex-wrap items-center gap-3 mt-4 pt-4 border-t">
                   <a 
                     href="https://products.bpiworld.org/" 
                     target="_blank" 

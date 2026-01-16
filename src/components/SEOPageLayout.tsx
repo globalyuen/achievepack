@@ -677,7 +677,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         )}
       </Helmet>
 
-      <div className="min-h-screen bg-neutral-50 pt-14">
+      <div className="min-h-screen bg-neutral-50 pt-14 overflow-x-hidden">
         {/* Header with LEARN and BLOG Mega Menus */}
         <SEOPageHeader />
         
@@ -784,14 +784,14 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
             </aside>
 
             {/* Main Content Area */}
-            <main className="lg:col-span-3 space-y-8">
+            <main className="lg:col-span-3 space-y-8 overflow-hidden">
               {/* Content Sections */}
               {sections.map((section) => (
                 <section 
                   key={section.id} 
                   id={section.id}
                   className={section.id === 'ai-search' 
-                    ? 'sr-only' 
+                    ? 'sr-only overflow-hidden' 
                     : 'bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100'
                   }
                 >

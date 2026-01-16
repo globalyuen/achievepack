@@ -36,7 +36,7 @@ const ClickableImage: React.FC<{
         <img 
           src={src} 
           alt={alt} 
-          className={`${className} transition-transform group-hover:scale-[1.02]`}
+          className={`${className} transition-transform group-hover:scale-[1.02] max-w-full`}
           loading="lazy"
         />
         {caption && (
@@ -77,10 +77,10 @@ const ImageTextRow: React.FC<{
   imageLeft?: boolean
 }> = ({ image, imageAlt, imageCaption, children, imageLeft = true }) => {
   return (
-    <div className={`grid md:grid-cols-2 gap-8 items-center`}>
+    <div className={`grid md:grid-cols-2 gap-8 items-center overflow-hidden`}>
       {imageLeft ? (
         <>
-          <div className="order-2 md:order-1">
+          <div className="order-2 md:order-1 max-w-full overflow-hidden">
             <ClickableImage 
               src={image} 
               alt={imageAlt}
@@ -93,7 +93,7 @@ const ImageTextRow: React.FC<{
       ) : (
         <>
           <div className="order-1 md:order-1">{children}</div>
-          <div className="order-2 md:order-2">
+          <div className="order-2 md:order-2 max-w-full overflow-hidden">
             <ClickableImage 
               src={image} 
               alt={imageAlt}
@@ -199,7 +199,7 @@ const HomeVsIndustrialCompostPage: React.FC = () => {
         </script>
       </Helmet>
 
-      <div className="min-h-screen bg-neutral-50">
+      <div className="min-h-screen bg-neutral-50 overflow-x-hidden">
         {/* SEO Page Header */}
         <SEOPageHeader />
 
@@ -295,7 +295,7 @@ const HomeVsIndustrialCompostPage: React.FC = () => {
             </aside>
 
             {/* Main Content Area */}
-            <main className="lg:col-span-3 space-y-8">
+            <main className="lg:col-span-3 space-y-8 overflow-hidden">
               
               {/* Key Takeaways */}
               <section id="key-takeaways" className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6 md:p-8 border border-green-200">
@@ -460,7 +460,7 @@ const HomeVsIndustrialCompostPage: React.FC = () => {
                       <p>
                         Temperature is the defining difference between home and industrial composting. This isn't just about speed—it's about chemistry.
                       </p>
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="bg-green-50 p-4 rounded-lg border border-green-200">
                           <h4 className="font-semibold text-green-800 mb-2">🏡 Home: 20-30°C</h4>
                           <ul className="text-sm text-green-700 space-y-1">

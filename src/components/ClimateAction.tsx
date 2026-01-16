@@ -102,7 +102,7 @@ export default function ClimateAction() {
               </p>
 
               {/* Impact Stats */}
-              <div className="grid grid-cols-2 gap-6 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <div className="text-3xl font-bold text-green-400 mb-2">0.5%</div>
                   <div className="text-sm text-neutral-300">{t('climate.stats.revenue')}</div>

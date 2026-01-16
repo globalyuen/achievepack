@@ -394,7 +394,7 @@ const WhatIsBioPEPage: React.FC = () => {
                         Because bio-PE is chemically identical to fossil PE, it delivers the <strong>same performance across all critical dimensions</strong>. 
                         Procurement teams benefit from operational familiarity and equipment compatibility.
                       </p>
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
                           <h4 className="font-semibold text-blue-800 mb-2">✓ Barrier Properties</h4>
                           <p className="text-sm text-blue-700">Same moisture and oxygen protection as conventional PE</p>

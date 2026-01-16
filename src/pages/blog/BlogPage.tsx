@@ -35,11 +35,11 @@ export default function BlogPage() {
   return (
     <>
       <Helmet>
-        <title>Blog | Achieve Pack - Sustainable Packaging Insights</title>
-        <meta name="description" content="Explore our blog for insights on eco-friendly packaging, sustainable materials, industry guides, and tips for choosing the right packaging solutions." />
+        <title>Packaging Insights You'll Actually Use | Achieve Pack Blog</title>
+        <meta name="description" content="Real talk about eco-friendly packaging—no fluff, no greenwashing. Guides, comparisons, and the stuff your packaging supplier won't tell you." />
         <link rel="canonical" href="https://achievepack.com/blog" />
-        <meta property="og:title" content="Blog | Achieve Pack - Sustainable Packaging Insights" />
-        <meta property="og:description" content="Expert insights on eco-friendly packaging, compostable pouches, and sustainable packaging solutions." />
+        <meta property="og:title" content="Packaging Insights You'll Actually Use | Achieve Pack Blog" />
+        <meta property="og:description" content="Real talk about eco-friendly packaging—guides, comparisons, and the stuff your packaging supplier won't tell you." />
         <meta property="og:url" content="https://achievepack.com/blog" />
         <meta property="og:type" content="website" />
       </Helmet>
@@ -53,10 +53,10 @@ export default function BlogPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Sustainable Packaging Blog
+                The Packaging Stuff Nobody Tells You
               </h1>
               <p className="text-xl text-green-100 max-w-2xl mx-auto">
-                Expert insights, guides, and news on eco-friendly packaging solutions
+                Real talk about materials, suppliers, and what actually works—from people who've been doing this since 2011
               </p>
             </div>
           </div>
@@ -178,17 +178,17 @@ export default function BlogPage() {
         <section className="bg-green-600 text-white py-12">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              Ready to Switch to Sustainable Packaging?
+              Done Reading? Let's Get You Some Pouches.
             </h2>
             <p className="text-green-100 mb-6">
-              Get started with eco-friendly pouches. Low MOQ from 100 pieces.
+              Start with just 100 pieces. Test before you commit. See why 500+ brands made the switch.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/store"
                 className="inline-flex items-center justify-center px-6 py-3 bg-white text-green-600 font-semibold rounded-lg hover:bg-green-50 transition-colors"
               >
-                Shop Now
+                Browse the Shop
               </Link>
               <a
                 href="https://achievepack.com"
@@ -196,7 +196,7 @@ export default function BlogPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors"
               >
-                Get Custom Quote
+                Talk to a Human
               </a>
             </div>
           </div>

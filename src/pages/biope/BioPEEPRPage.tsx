@@ -234,7 +234,7 @@ const BioPEEPRPage: React.FC = () => {
                 </div>
 
                 {/* Trust badges */}
-                <div className="flex items-center gap-4 mt-8 text-sm text-blue-200">
+                <div className="flex flex-wrap items-center gap-3 mt-8 text-sm text-blue-200">
                   <div className="flex items-center gap-1">
                     <CheckCircle className="h-4 w-4 text-green-400" />
                     <span>EPR Compliant</span>
@@ -404,7 +404,7 @@ const BioPEEPRPage: React.FC = () => {
                 <p>
                   Mono-PE structures are straightforward. Single polyethylene layers are easy to collect, easy to sort, easy to recycle. No surprises, no contamination risks.
                 </p>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="bg-red-50 p-4 rounded-lg">
                     <h4 className="font-semibold text-red-800 mb-2">Multi-Layer Risk</h4>
                     <ul className="text-sm text-red-700 space-y-1">
