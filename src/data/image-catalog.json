@@ -1,11 +1,12 @@
 {
   "generated": "2026-01-16",
-  "total_images": 1097,
-  "total_categories": 114,
+  "total_images": 1103,
+  "total_categories": 115,
   "extensions": {
-    ".webp": 1024,
+    ".webp": 1029,
     ".png": 71,
-    ".jpg": 2
+    ".jpg": 2,
+    ".svg": 1
   },
   "categories": {
     "4-infograhic": {
@@ -911,6 +912,47 @@
           "path": "/imgs/clien-logos/morlife.png",
           "extension": ".png",
           "modified": "2026-01-11T15:55:25.545Z"
+        }
+      ]
+    },
+    "company/b-corp": {
+      "count": 6,
+      "images": [
+        {
+          "filename": "bcorp.svg",
+          "path": "/imgs/company/b-corp/bcorp.svg",
+          "extension": ".svg",
+          "modified": "2026-01-16T12:27:33.394Z"
+        },
+        {
+          "filename": "a_accessibility_small_orders_5518437.webp",
+          "path": "/imgs/company/b-corp/a_accessibility_small_orders_5518437.webp",
+          "extension": ".webp",
+          "modified": "2026-01-16T05:56:40.000Z"
+        },
+        {
+          "filename": "a_bcorp_carbon_removal_0762256.webp",
+          "path": "/imgs/company/b-corp/a_bcorp_carbon_removal_0762256.webp",
+          "extension": ".webp",
+          "modified": "2026-01-16T05:56:40.000Z"
+        },
+        {
+          "filename": "a_global_impact_scale_0632354.webp",
+          "path": "/imgs/company/b-corp/a_global_impact_scale_0632354.webp",
+          "extension": ".webp",
+          "modified": "2026-01-16T05:56:40.000Z"
+        },
+        {
+          "filename": "a_impact_transparency_metrics_1979516.webp",
+          "path": "/imgs/company/b-corp/a_impact_transparency_metrics_1979516.webp",
+          "extension": ".webp",
+          "modified": "2026-01-16T05:56:40.000Z"
+        },
+        {
+          "filename": "a_packaging_transformation_sustainable_8931589.webp",
+          "path": "/imgs/company/b-corp/a_packaging_transformation_sustainable_8931589.webp",
+          "extension": ".webp",
+          "modified": "2026-01-16T05:56:40.000Z"
         }
       ]
     },

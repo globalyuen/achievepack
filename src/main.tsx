@@ -161,6 +161,7 @@ const CookiePolicyPage = lazyWithRetry(() => import('./pages/legal/CookiePolicyP
 const AboutPage = lazyWithRetry(() => import('./pages/company/AboutPage'))
 const FactoryTourPage = lazyWithRetry(() => import('./pages/company/FactoryTourPage'))
 const CertificatesPage = lazyWithRetry(() => import('./pages/company/CertificatesPage'))
+const BCorpPage = lazyWithRetry(() => import('./pages/company/BCorpPage'))
 
 // Knowledge Pages - Lazy loaded
 const AllOptionsPage = lazyWithRetry(() => import('./pages/knowledge/AllOptionsPage'))
@@ -418,6 +419,7 @@ createRoot(document.getElementById('root')!).render(
 
                       {/* Company Pages */}
                       <Route path="/company/about" element={<AboutPage />} />
+                      <Route path="/company/b-corp" element={<BCorpPage />} />
                       <Route path="/company/factory-tour" element={<FactoryTourPage />} />
                       <Route path="/company/certificates" element={<CertificatesPage />} />
 

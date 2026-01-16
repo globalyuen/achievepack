@@ -183,6 +183,7 @@ const LEARN_PAGES = {
     icon: <Award className="h-4 w-4" />,
     pages: [
       { name: 'About Us', link: '/company/about', image: '/imgs/illustrated/a_corporate_sustainability_variation_1_1739210.webp' },
+      { name: 'Our Impact (B Corp)', link: '/company/b-corp', image: '/imgs/company/b-corp/a_packaging_transformation_sustainable_8931589.webp' },
       { name: 'Factory Tour', link: '/company/factory-tour', image: '/imgs/illustrated/a_lowmoq_warm_3372406.webp' },
       { name: 'Certificates', link: '/company/certificates', image: '/imgs/illustrated/a_compostable_v3_9254998.webp' },
     ]
