@@ -1989,10 +1989,15 @@ function App() {
                 <Leaf className="h-5 w-5 text-primary-500" />
                 <span className="text-base font-bold">{t('footer.brand')}</span>
               </div>
-              {/* B Corp Logo */}
-              <Link to="/company/b-corp" className="block mb-3">
-                <img src="/bcorp.svg" alt="Certified B Corporation" className="h-16 md:h-20 w-auto" loading="lazy" decoding="async" />
-              </Link>
+              {/* B Corp & BPI Logos */}
+              <div className="flex items-center gap-3 mb-3">
+                <Link to="/company/b-corp">
+                  <img src="/bcorp.svg" alt="Certified B Corporation" className="h-16 md:h-20 w-auto" loading="lazy" decoding="async" />
+                </Link>
+                <a href="https://products.bpiworld.org/companies/achieve-pack-company" target="_blank" rel="noopener noreferrer">
+                  <img src="/imgs/bpi.svg" alt="BPI Certified" className="h-16 md:h-20 w-auto" loading="lazy" decoding="async" />
+                </a>
+              </div>
               <p className="text-neutral-400 text-xs mb-3">
                 {t('footer.tagline')}
               </p>

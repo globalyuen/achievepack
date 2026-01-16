@@ -10,10 +10,15 @@ export default function StoreFooter() {
             <Link to="/" className="flex items-center gap-2 mb-3">
               <img src="/ap-logo-white.webp" alt="Achieve Pack" className="h-8 w-auto" loading="lazy" decoding="async" width="106" height="32" />
             </Link>
-            {/* B Corp Logo */}
-            <Link to="/company/b-corp" className="block mb-4">
-              <img src="/bcorp.svg" alt="Certified B Corporation" className="h-16 md:h-20 w-auto" loading="lazy" decoding="async" />
-            </Link>
+            {/* B Corp & BPI Logos */}
+            <div className="flex items-center gap-3 mb-4">
+              <Link to="/company/b-corp">
+                <img src="/bcorp.svg" alt="Certified B Corporation" className="h-16 md:h-20 w-auto" loading="lazy" decoding="async" />
+              </Link>
+              <a href="https://products.bpiworld.org/companies/achieve-pack-company" target="_blank" rel="noopener noreferrer">
+                <img src="/imgs/bpi.svg" alt="BPI Certified" className="h-16 md:h-20 w-auto" loading="lazy" decoding="async" />
+              </a>
+            </div>
             <p className="text-neutral-400 text-sm mb-4">Premium custom printed pouches with eco-friendly options.</p>
             <div className="space-y-1 text-xs text-neutral-500">
               <p>Free worldwide shipping</p>

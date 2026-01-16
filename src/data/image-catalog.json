@@ -1,12 +1,12 @@
 {
   "generated": "2026-01-16",
-  "total_images": 1103,
-  "total_categories": 115,
+  "total_images": 1111,
+  "total_categories": 116,
   "extensions": {
-    ".webp": 1029,
-    ".png": 71,
+    ".webp": 1034,
+    ".png": 72,
     ".jpg": 2,
-    ".svg": 1
+    ".svg": 3
   },
   "categories": {
     "4-infograhic": {
@@ -953,6 +953,53 @@
           "path": "/imgs/company/b-corp/a_packaging_transformation_sustainable_8931589.webp",
           "extension": ".webp",
           "modified": "2026-01-16T05:56:40.000Z"
+        }
+      ]
+    },
+    "company/bpi": {
+      "count": 7,
+      "images": [
+        {
+          "filename": "hero.png",
+          "path": "/imgs/company/bpi/hero.png",
+          "extension": ".png",
+          "modified": "2026-01-16T14:30:01.070Z"
+        },
+        {
+          "filename": "bpi.svg",
+          "path": "/imgs/company/bpi/bpi.svg",
+          "extension": ".svg",
+          "modified": "2026-01-16T14:14:03.624Z"
+        },
+        {
+          "filename": "a_astm_compliance_standards_verification_3487759.webp",
+          "path": "/imgs/company/bpi/a_astm_compliance_standards_verification_3487759.webp",
+          "extension": ".webp",
+          "modified": "2026-01-16T06:28:20.000Z"
+        },
+        {
+          "filename": "a_bpi_certification_verification_badge_3065504.webp",
+          "path": "/imgs/company/bpi/a_bpi_certification_verification_badge_3065504.webp",
+          "extension": ".webp",
+          "modified": "2026-01-16T06:28:20.000Z"
+        },
+        {
+          "filename": "a_brand_benefits_market_impact_retail_8555955.webp",
+          "path": "/imgs/company/bpi/a_brand_benefits_market_impact_retail_8555955.webp",
+          "extension": ".webp",
+          "modified": "2026-01-16T06:28:20.000Z"
+        },
+        {
+          "filename": "a_composting_process_breakdown_timeline_0954692.webp",
+          "path": "/imgs/company/bpi/a_composting_process_breakdown_timeline_0954692.webp",
+          "extension": ".webp",
+          "modified": "2026-01-16T06:28:20.000Z"
+        },
+        {
+          "filename": "bpipouch.webp",
+          "path": "/imgs/company/bpi/bpipouch.webp",
+          "extension": ".webp",
+          "modified": "2026-01-16T06:28:20.000Z"
         }
       ]
     },
@@ -4198,8 +4245,14 @@
       ]
     },
     "root": {
-      "count": 34,
+      "count": 35,
       "images": [
+        {
+          "filename": "bpi.svg",
+          "path": "/imgs/bpi.svg",
+          "extension": ".svg",
+          "modified": "2026-01-16T14:14:03.624Z"
+        },
         {
           "filename": "maxi-foods-packaging.jpg",
           "path": "/imgs/maxi-foods-packaging.jpg",
