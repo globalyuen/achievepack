@@ -7,6 +7,7 @@ import { Home, Users, Package, Settings, Search, ChevronDown, ChevronLeft, Chevr
 import CRMPanelAdvanced from '../components/admin/CRMPanelAdvanced'
 import AchieveCoffeeCMS from '../components/admin/AchieveCoffeeCMS'
 import WebsiteDemoCMS from '../components/admin/WebsiteDemoCMS'
+import ImageHubCarousel from '../components/admin/ImageHubCarousel'
 import { sendTestEmail, sendBulkEmails, generateEmailTemplate, EmailRecipient } from '../lib/brevo'
 import { QuickAccessSheet, type QuickAccessItem, type QuoteStatus, type InvoiceStatus, type ArtworkQuickStatus } from '../components/ui/QuickAccessSheet'
 import { PinList, type PinListItem } from '../components/animate-ui/components/community/pin-list'
@@ -96,6 +97,7 @@ const sidebarMenuItems = [
     group: 'Content',
     collapsible: true,
     items: [
+      { id: 'image-catalog', label: 'Image Hub', icon: Folder },
       { id: 'website', label: 'Website CMS', icon: FileCode },
       { id: 'website-demos', label: 'Demo Sites', icon: Globe },
       { id: 'mockup', label: 'Mock Up', icon: Image, comingSoon: true },
@@ -2801,25 +2803,7 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
 
           {/* AI Image Catalog Tab */}
           {activeTab === 'image-catalog' && (
-            <div className="space-y-4 md:space-y-6">
-              <h1 className="text-xl md:text-2xl font-bold text-gray-900">AI Image Catalog</h1>
-              <div className="bg-white rounded-xl shadow-sm border p-6">
-                <div className="text-center py-12">
-                  <Sparkles className="h-12 w-12 text-gray-300 mx-auto mb-4" />
-                  <p className="text-gray-500">AI Image Catalog</p>
-                  <p className="text-sm text-gray-400 mt-2">Browse and manage AI-generated images</p>
-                  <a
-                    href="/image-catalog"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700"
-                  >
-                    <ExternalLink className="h-4 w-4" />
-                    Open Full Catalog
-                  </a>
-                </div>
-              </div>
-            </div>
+            <ImageHubCarousel />
           )}
 
           {/* Recycle Bin Tab */}

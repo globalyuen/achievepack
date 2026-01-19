@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, ReactNode, useEffect, useRef } from 'react'
-import { X, Mail, Phone, MessageCircle, Calendar, Send, CheckCircle, Package, Sparkles, AlertCircle } from 'lucide-react'
+import { X, Mail, Phone, MessageCircle, Calendar, Send, CheckCircle, Package, Sparkles, AlertCircle, Lock } from 'lucide-react'
 import { supabase } from '../lib/supabase'
+import { useAuth } from '../hooks/useAuth'
 
 // Cloudflare Turnstile Site Key (get from Cloudflare Dashboard)
 const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAACJvySd2iBsvYcJv'
@@ -22,6 +23,7 @@ export function useCustomQuote() {
 }
 
 export function CustomQuoteProvider({ children }: { children: ReactNode }) {
+  const { user } = useAuth()
   const [isOpen, setIsOpen] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
@@ -37,6 +39,13 @@ export function CustomQuoteProvider({ children }: { children: ReactNode }) {
   const [error, setError] = useState('')
   const turnstileRef = useRef<HTMLDivElement>(null)
   const turnstileWidgetId = useRef<string | null>(null)
+
+  // Pre-fill email when user is logged in
+  useEffect(() => {
+    if (user?.email) {
+      setFormData(prev => ({ ...prev, email: user.email || '' }))
+    }
+  }, [user])
 
   // Load Turnstile script
   useEffect(() => {
@@ -333,10 +342,23 @@ export function CustomQuoteProvider({ children }: { children: ReactNode }) {
                           name="email"
                           required
                           value={formData.email}
-                          onChange={handleChange}
-                          className="w-full px-4 py-2.5 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition"
+                          onChange={user ? undefined : handleChange}
+                          readOnly={!!user}
+                          className={`w-full px-4 py-2.5 border rounded-lg transition ${
+                            user 
+                              ? 'bg-neutral-100 text-neutral-600 cursor-not-allowed border-neutral-200' 
+                              : 'border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500'
+                          }`}
                           placeholder="you@company.com"
                         />
+                        {user && (
+                          <p className="text-xs text-neutral-500 mt-1.5 flex items-start gap-1">
+                            <Lock className="h-3 w-3 mt-0.5 flex-shrink-0" />
+                            <span>
+                              This email will be used for all quote communications. To use a different email, please <a href="/signin" className="text-primary-600 hover:underline">log out</a> and sign in with another email.
+                            </span>
+                          </p>
+                        )}
                       </div>
                     </div>
 

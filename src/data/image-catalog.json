@@ -1,9 +1,9 @@
 {
-  "generated": "2026-01-16",
-  "total_images": 1111,
-  "total_categories": 116,
+  "generated": "2026-01-19",
+  "total_images": 1116,
+  "total_categories": 117,
   "extensions": {
-    ".webp": 1034,
+    ".webp": 1039,
     ".png": 72,
     ".jpg": 2,
     ".svg": 3
@@ -3958,6 +3958,41 @@
           "path": "/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.webp",
           "extension": ".webp",
           "modified": "2025-12-22T20:08:00.000Z"
+        }
+      ]
+    },
+    "pouch-shape/k-seal": {
+      "count": 5,
+      "images": [
+        {
+          "filename": "a_u_seal_vs_k_seal_pouch_comparison_3250912.webp",
+          "path": "/imgs/pouch-shape/k-seal/a_u_seal_vs_k_seal_pouch_comparison_3250912.webp",
+          "extension": ".webp",
+          "modified": "2026-01-19T04:05:33.523Z"
+        },
+        {
+          "filename": "hero.webp",
+          "path": "/imgs/pouch-shape/k-seal/hero.webp",
+          "extension": ".webp",
+          "modified": "2026-01-19T04:05:33.523Z"
+        },
+        {
+          "filename": "a_kseal_gusset_grain_cereal_4708928.webp",
+          "path": "/imgs/pouch-shape/k-seal/a_kseal_gusset_grain_cereal_4708928.webp",
+          "extension": ".webp",
+          "modified": "2026-01-19T03:48:38.323Z"
+        },
+        {
+          "filename": "a_achievepack_detail_08_flat_lay_seal_2058466.webp",
+          "path": "/imgs/pouch-shape/k-seal/a_achievepack_detail_08_flat_lay_seal_2058466.webp",
+          "extension": ".webp",
+          "modified": "2026-01-18T19:34:40.000Z"
+        },
+        {
+          "filename": "b1d23d15-f49f-460a-9ecf-90415fd46000.webp",
+          "path": "/imgs/pouch-shape/k-seal/b1d23d15-f49f-460a-9ecf-90415fd46000.webp",
+          "extension": ".webp",
+          "modified": "2026-01-18T19:34:40.000Z"
         }
       ]
     },

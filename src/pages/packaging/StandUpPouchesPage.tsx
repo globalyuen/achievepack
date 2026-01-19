@@ -100,6 +100,29 @@ const StandUpPouchesPage: React.FC = () => {
               <p className="text-xs text-primary-600 mt-2">Best for: granola, nuts, pasta, candy</p>
             </div>
           </div>
+          
+          {/* K-Seal Feature Link */}
+          <div className="bg-gradient-to-r from-primary-50 to-green-50 border border-primary-200 rounded-xl p-5 mt-6">
+            <div className="flex flex-col md:flex-row gap-4 items-center">
+              <div className="flex-shrink-0">
+                <ClickableImage
+                  src="/imgs/pouch-shape/k-seal/hero.webp"
+                  alt="K-seal bottom stand up pouch for heavy products"
+                  className="w-32 h-32 object-cover rounded-lg shadow-md"
+                />
+              </div>
+              <div className="flex-1">
+                <h4 className="font-bold text-primary-800 text-lg mb-2">Need Heavy-Duty Packaging? Try K-Seal Bottom</h4>
+                <p className="text-sm text-neutral-700 mb-3">
+                  K-seal stand-up pouches provide superior stability for heavier products. The diagonal bottom seal creates more internal volume and a cleaner shelf presence for dense items like pet food, grains, and powders.
+                </p>
+                <Link to="/knowledge/k-seal-stand-up-pouches" className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold text-sm">
+                  Learn about K-Seal Pouches
+                  <Package className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       )
     },

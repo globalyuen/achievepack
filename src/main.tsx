@@ -162,6 +162,7 @@ const AboutPage = lazyWithRetry(() => import('./pages/company/AboutPage'))
 const FactoryTourPage = lazyWithRetry(() => import('./pages/company/FactoryTourPage'))
 const CertificatesPage = lazyWithRetry(() => import('./pages/company/CertificatesPage'))
 const BCorpPage = lazyWithRetry(() => import('./pages/company/BCorpPage'))
+const BPICertifiedPage = lazyWithRetry(() => import('./pages/company/BPICertifiedPage'))
 
 // Knowledge Pages - Lazy loaded
 const AllOptionsPage = lazyWithRetry(() => import('./pages/knowledge/AllOptionsPage'))
@@ -169,6 +170,7 @@ const SizeGuidePage = lazyWithRetry(() => import('./pages/knowledge/SizeGuidePag
 const PouchSizingPage = lazyWithRetry(() => import('./pages/knowledge/PouchSizingPage'))
 const PrintingTypesPage = lazyWithRetry(() => import('./pages/knowledge/PrintingTypesPage'))
 const WorkflowPage = lazyWithRetry(() => import('./pages/knowledge/WorkflowPage'))
+const KSealStandUpPouchesPage = lazyWithRetry(() => import('./pages/knowledge/KSealStandUpPouchesPage'))
 
 // Support Pages - Lazy loaded
 const FAQsPage = lazyWithRetry(() => import('./pages/support/FAQsPage'))
@@ -420,6 +422,7 @@ createRoot(document.getElementById('root')!).render(
                       {/* Company Pages */}
                       <Route path="/company/about" element={<AboutPage />} />
                       <Route path="/company/b-corp" element={<BCorpPage />} />
+                      <Route path="/company/bpi-certified" element={<BPICertifiedPage />} />
                       <Route path="/company/factory-tour" element={<FactoryTourPage />} />
                       <Route path="/company/certificates" element={<CertificatesPage />} />
 
@@ -432,6 +435,7 @@ createRoot(document.getElementById('root')!).render(
                       <Route path="/knowledge/pouch-sizing" element={<PouchSizingPage />} />
                       <Route path="/knowledge/printing-types" element={<PrintingTypesPage />} />
                       <Route path="/knowledge/workflow" element={<WorkflowPage />} />
+                      <Route path="/knowledge/k-seal-stand-up-pouches" element={<KSealStandUpPouchesPage />} />
 
                       {/* Support Pages */}
                       <Route path="/support/faqs" element={<FAQsPage />} />

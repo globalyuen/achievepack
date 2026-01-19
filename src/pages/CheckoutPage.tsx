@@ -361,9 +361,16 @@ const CheckoutPage: React.FC = () => {
                   required 
                   placeholder="Email" 
                   value={formData.email} 
-                  onChange={handleChange} 
-                  className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500" 
+                  readOnly
+                  className="w-full p-3 border rounded-lg bg-neutral-100 text-neutral-600 cursor-not-allowed" 
                 />
+                <p className="text-xs text-neutral-500 mt-2 flex items-start gap-1.5">
+                  <Lock className="h-3.5 w-3.5 mt-0.5 flex-shrink-0" />
+                  <span>
+                    This email will be used for all order communications with Achieve Pack. 
+                    To use a different email, please <a href="/signin" className="text-primary-600 hover:underline">log out</a> and sign in with your preferred email address.
+                  </span>
+                </p>
               </div>
 
               <div>

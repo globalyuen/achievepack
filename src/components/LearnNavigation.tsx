@@ -3,28 +3,17 @@ import { Link, useLocation } from 'react-router-dom'
 import { ChevronRight, ChevronDown, Leaf, Package, Factory, FileText, BookOpen, Users, Award, ShoppingBag, Globe, Boxes, HelpCircle, Search, Zap, Beaker, Layers, Sprout, Recycle, Gift } from 'lucide-react'
 
 // All SEO pages mapped with illustrated images - COMPLETE LIST
+// Ordered by importance: Company first, then Products, Materials, Industries...
 const LEARN_PAGES = {
-  freeService: {
-    title: 'Free Service',
-    icon: <Gift className="h-4 w-4" />,
+  company: {
+    title: 'Company',
+    icon: <Award className="h-4 w-4" />,
     pages: [
-      { name: 'Free Packaging Design Consultation', link: '/free-service/packaging-design-consultation', image: '/imgs/free/design/hero.webp' },
-      { name: 'Free Website Upgrade', link: '/free-service/website-upgrade', image: '/imgs/free/website/hero.webp' },
-      { name: 'Free Packaging Mockup', link: '/free-service/packaging-mockup', image: '/imgs/free/mock/hero.webp' },
-      { name: 'Free Customer Center', link: '/free-service/customer-center', image: '/imgs/free/design/a_process_flow_infographic_5376739.webp' },
-    ]
-  },
-  materials: {
-    title: 'Materials',
-    icon: <Leaf className="h-4 w-4" />,
-    pages: [
-      { name: 'Compostable Overview', link: '/materials/compostable', image: '/imgs/illustrated/a_compostable_v3_9254998.webp' },
-      { name: 'Home Compostable', link: '/materials/home-compostable', image: '/imgs/illustrated/a_home_compostable_card_v1_2166648.webp' },
-      { name: 'Industrial Compostable', link: '/materials/industrial-compostable', image: '/imgs/illustrated/a_industrial_compostable_card_v1_5916306.webp' },
-      { name: 'Recyclable Mono PE', link: '/materials/recyclable-mono-pe', image: '/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp' },
-      { name: 'Recyclable Mono PP', link: '/materials/recyclable-mono-pp', image: '/imgs/illustrated/a_recyclable_mono_pp_card_v2_2805205.webp' },
-      { name: 'Bio-PE', link: '/materials/bio-pe', image: '/imgs/illustrated/a_bio_pe_card_v3_4603248.webp' },
-      { name: 'PCR Recycled', link: '/materials/pcr', image: '/imgs/illustrated/a_pcr_card_v1_0334493.webp' },
+      { name: 'About Us', link: '/company/about', image: '/imgs/illustrated/a_corporate_sustainability_variation_1_1739210.webp' },
+      { name: 'Our Impact (B Corp)', link: '/company/b-corp', image: '/imgs/company/b-corp/a_packaging_transformation_sustainable_8931589.webp' },
+      { name: 'BPI Certified', link: '/company/bpi-certified', image: '/imgs/company/bpi/hero.png' },
+      { name: 'Certificates', link: '/company/certificates', image: '/imgs/illustrated/a_compostable_v3_9254998.webp' },
+      { name: 'Factory Tour', link: '/company/factory-tour', image: '/imgs/illustrated/a_lowmoq_warm_3372406.webp' },
     ]
   },
   packaging: {
@@ -40,18 +29,17 @@ const LEARN_PAGES = {
       { name: 'Custom Boxes', link: '/packaging/custom-boxes', image: '/imgs/illustrated/a_achievepack_custom_boxes_6574270.webp' },
     ]
   },
-  options: {
-    title: 'Options & Features',
-    icon: <Package className="h-4 w-4" />,
+  materials: {
+    title: 'Materials',
+    icon: <Leaf className="h-4 w-4" />,
     pages: [
-      { name: 'Digital Printing', link: '/printing/digital-printing', image: '/imgs/illustrated/a_digital_printing_close_detail_b_7761926.webp' },
-      { name: 'Plate Printing', link: '/printing/plate-printing', image: '/imgs/illustrated/a_plate_printing_close_detail_b_8707945.webp' },
-      { name: 'Reclosure Options', link: '/features/reclosure-options', image: '/imgs/illustrated/a_reclosure_options_close_detail_b_4502553.webp' },
-      { name: 'Surface Finishes', link: '/features/surface-finish', image: '/imgs/illustrated/a_surface_finish_close_detail_b_2163248.webp' },
-      { name: 'Barrier Options', link: '/features/barrier-options', image: '/imgs/illustrated/a_barrier_options_presentation_c_6124347.webp' },
-      { name: 'Low Barrier', link: '/features/low-barrier', image: '/imgs/seo-photos/a_low_barrier_fresh_produce_5877816.webp' },
-      { name: 'Medium Barrier', link: '/features/medium-barrier', image: '/imgs/seo-photos/a_medium_barrier_balanced_freshness_1094166.webp' },
-      { name: 'High Barrier', link: '/features/high-barrier', image: '/imgs/seo-photos/a_high_barrier_premium_protection_0120312.webp' },
+      { name: 'Compostable Overview', link: '/materials/compostable', image: '/imgs/illustrated/a_compostable_v3_9254998.webp' },
+      { name: 'Home Compostable', link: '/materials/home-compostable', image: '/imgs/illustrated/a_home_compostable_card_v1_2166648.webp' },
+      { name: 'Industrial Compostable', link: '/materials/industrial-compostable', image: '/imgs/illustrated/a_industrial_compostable_card_v1_5916306.webp' },
+      { name: 'Recyclable Mono PE', link: '/materials/recyclable-mono-pe', image: '/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp' },
+      { name: 'Recyclable Mono PP', link: '/materials/recyclable-mono-pp', image: '/imgs/illustrated/a_recyclable_mono_pp_card_v2_2805205.webp' },
+      { name: 'Bio-PE', link: '/materials/bio-pe', image: '/imgs/illustrated/a_bio_pe_card_v3_4603248.webp' },
+      { name: 'PCR Recycled', link: '/materials/pcr', image: '/imgs/illustrated/a_pcr_card_v1_0334493.webp' },
     ]
   },
   industries: {
@@ -68,7 +56,7 @@ const LEARN_PAGES = {
     ]
   },
   products: {
-    title: 'Products',
+    title: 'Featured Products',
     icon: <ShoppingBag className="h-4 w-4" />,
     pages: [
       { name: 'Compostable Coffee Bags', link: '/products/compostable-coffee-bags', image: '/imgs/illustrated/a_coffee_roaster_variation_1_6758424.webp' },
@@ -76,6 +64,83 @@ const LEARN_PAGES = {
       { name: 'Recyclable Mono Pouches', link: '/products/recyclable-mono-material-pouches', image: '/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp' },
       { name: 'Coffee Bags with Valve', link: '/products/coffee-bags-degassing-valve', image: '/imgs/illustrated/a_topic_03_coffee_materials_var_c_6491567.webp' },
       { name: 'Low MOQ Packaging', link: '/products/low-moq-packaging', image: '/imgs/illustrated/a_lowmoq_warm_3372406.webp' },
+    ]
+  },
+  knowledge: {
+    title: 'Knowledge Base',
+    icon: <BookOpen className="h-4 w-4" />,
+    pages: [
+      { name: 'All Options', link: '/knowledge/all-options', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
+      { name: 'Pouch Sizing', link: '/knowledge/pouch-sizing', image: '/imgs/illustrated/a_pouch_sizing_guide_card_v3_5278730.webp' },
+      { name: 'Size Guide', link: '/knowledge/size-guide', image: '/imgs/illustrated/a_size_guide_card_v2_9433535.webp' },
+      { name: 'Printing Types', link: '/knowledge/printing-types', image: '/imgs/illustrated/a_printing_types_card_v2_6243973.webp' },
+      { name: 'K-Seal Stand Up Pouches', link: '/knowledge/k-seal-stand-up-pouches', image: '/imgs/pouch-shape/k-seal/hero.webp' },
+      { name: 'Workflow', link: '/knowledge/workflow', image: '/imgs/illustrated/a_lowmoq_warm_3372406.webp' },
+    ]
+  },
+  support: {
+    title: 'Support',
+    icon: <HelpCircle className="h-4 w-4" />,
+    pages: [
+      { name: 'FAQs', link: '/support/faqs', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
+      { name: 'Lead Time', link: '/support/lead-time', image: '/imgs/illustrated/a_lowmoq_warm_3372406.webp' },
+    ]
+  },
+  composting: {
+    title: 'Composting',
+    icon: <Leaf className="h-4 w-4" />,
+    pages: [
+      { name: 'Commercial Composting', link: '/composting/commercial-composting', image: '/imgs/composting/commercial/hero.webp' },
+      { name: 'Composting Benefits', link: '/composting/composting-benefits', image: '/imgs/composting/benefits/a_achievepack_composting_locator_hero_9733153.webp' },
+      { name: 'Composting Service Finder', link: '/composting/composting-services', image: '/imgs/composting/finder/a_achievepack_composting_locator_hero_9733153.webp' },
+      { name: 'Biodegradable vs Compostable', link: '/composting/biodegradable-vs-compostable', image: '/imgs/composting/vs/a_hero_biodegradable_vs_compostable_8031695.webp' },
+      { name: 'Home vs Industrial Compostable', link: '/composting/home-vs-industrial-compostable', image: '/imgs/composting/homevs/a_blog_hero_banner_compostable_choice_5307332.webp' },
+      { name: 'Plastic-Free vs Compostable', link: '/composting/plastic-free', image: '/imgs/composting/plastic-free/hero.webp' },
+    ]
+  },
+  biope: {
+    title: 'BioPE',
+    icon: <Sprout className="h-4 w-4" />,
+    pages: [
+      { name: 'What is Bio-PE', link: '/biope/what-is-bio-pe', image: '/imgs/biope/what/a_hero_bio_pe_article_2212774.webp' },
+      { name: 'Bio-PE vs Compostable', link: '/biope/bio-pe-vs-compostable', image: '/imgs/biope/vs/a_biope_epr_hero_image_8632332.webp' },
+      { name: 'Bio-PE & EPR Regulations', link: '/biope/bio-pe-epr-regulations', image: '/imgs/biope/epr/a_biope_epr_hero_image_8632332.webp' },
+      { name: 'Inside I\'m green™ Bio-PE', link: '/biope/inside-im-green-bio-pe', image: '/imgs/biope/inside/hero.webp' },
+    ]
+  },
+  pcr: {
+    title: 'PCR',
+    icon: <Recycle className="h-4 w-4" />,
+    pages: [
+      { name: 'What Is PCR Plastic?', link: '/pcr/pcr-plastic-guide', image: '/imgs/pcr/guide/hero.webp?v=2' },
+      { name: '7-Point PCR Checklist', link: '/pcr/7-checklist', image: '/imgs/pcr/7/hero.webp?v=2' },
+      { name: 'Realistic PCR Content', link: '/pcr/realistic-pcr-content', image: '/imgs/pcr/real/hero.webp?v=2' },
+      { name: 'Recyclable vs PCR vs Bio-Based', link: '/pcr/recyclable-vs-pcr-biobased', image: '/imgs/recyclable/vs/hero.webp?v=2' },
+      { name: 'PCR Materials', link: '/materials/pcr', image: '/imgs/illustrated/a_pcr_card_v1_0334493.webp' },
+    ]
+  },
+  freeService: {
+    title: 'Free Service',
+    icon: <Gift className="h-4 w-4" />,
+    pages: [
+      { name: 'Free Packaging Design Consultation', link: '/free-service/packaging-design-consultation', image: '/imgs/free/design/hero.webp' },
+      { name: 'Free Website Upgrade', link: '/free-service/website-upgrade', image: '/imgs/free/website/hero.webp' },
+      { name: 'Free Packaging Mockup', link: '/free-service/packaging-mockup', image: '/imgs/free/mock/hero.webp' },
+      { name: 'Free Customer Center', link: '/free-service/customer-center', image: '/imgs/free/design/a_process_flow_infographic_5376739.webp' },
+    ]
+  },
+  options: {
+    title: 'Options & Features',
+    icon: <Package className="h-4 w-4" />,
+    pages: [
+      { name: 'Digital Printing', link: '/printing/digital-printing', image: '/imgs/illustrated/a_digital_printing_close_detail_b_7761926.webp' },
+      { name: 'Plate Printing', link: '/printing/plate-printing', image: '/imgs/illustrated/a_plate_printing_close_detail_b_8707945.webp' },
+      { name: 'Reclosure Options', link: '/features/reclosure-options', image: '/imgs/illustrated/a_reclosure_options_close_detail_b_4502553.webp' },
+      { name: 'Surface Finishes', link: '/features/surface-finish', image: '/imgs/illustrated/a_surface_finish_close_detail_b_2163248.webp' },
+      { name: 'Barrier Options', link: '/features/barrier-options', image: '/imgs/illustrated/a_barrier_options_presentation_c_6124347.webp' },
+      { name: 'Low Barrier', link: '/features/low-barrier', image: '/imgs/seo-photos/a_low_barrier_fresh_produce_5877816.webp' },
+      { name: 'Medium Barrier', link: '/features/medium-barrier', image: '/imgs/seo-photos/a_medium_barrier_balanced_freshness_1094166.webp' },
+      { name: 'High Barrier', link: '/features/high-barrier', image: '/imgs/seo-photos/a_high_barrier_premium_protection_0120312.webp' },
     ]
   },
   solutions: {
@@ -126,25 +191,6 @@ const LEARN_PAGES = {
       { name: 'Outdoor Snacks', link: '/case-studies/outdoor-snacks', image: '/imgs/illustrated/a_snack_brand_variation_1_5605894.webp' },
     ]
   },
-  knowledge: {
-    title: 'Knowledge Base',
-    icon: <BookOpen className="h-4 w-4" />,
-    pages: [
-      { name: 'All Options', link: '/knowledge/all-options', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
-      { name: 'Pouch Sizing', link: '/knowledge/pouch-sizing', image: '/imgs/illustrated/a_pouch_sizing_guide_card_v3_5278730.webp' },
-      { name: 'Size Guide', link: '/knowledge/size-guide', image: '/imgs/illustrated/a_size_guide_card_v2_9433535.webp' },
-      { name: 'Printing Types', link: '/knowledge/printing-types', image: '/imgs/illustrated/a_printing_types_card_v2_6243973.webp' },
-      { name: 'Workflow', link: '/knowledge/workflow', image: '/imgs/illustrated/a_lowmoq_warm_3372406.webp' },
-    ]
-  },
-  support: {
-    title: 'Support',
-    icon: <HelpCircle className="h-4 w-4" />,
-    pages: [
-      { name: 'FAQs', link: '/support/faqs', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
-      { name: 'Lead Time', link: '/support/lead-time', image: '/imgs/illustrated/a_lowmoq_warm_3372406.webp' },
-    ]
-  },
   function: {
     title: 'Function',
     icon: <Zap className="h-4 w-4" />,
@@ -178,16 +224,6 @@ const LEARN_PAGES = {
       { name: 'Labeling Guide USA', link: '/usa/labeling-guide', image: '/imgs/illustrated/a_corporate_sustainability_variation_1_1739210.webp' },
     ]
   },
-  company: {
-    title: 'Company',
-    icon: <Award className="h-4 w-4" />,
-    pages: [
-      { name: 'About Us', link: '/company/about', image: '/imgs/illustrated/a_corporate_sustainability_variation_1_1739210.webp' },
-      { name: 'Our Impact (B Corp)', link: '/company/b-corp', image: '/imgs/company/b-corp/a_packaging_transformation_sustainable_8931589.webp' },
-      { name: 'Factory Tour', link: '/company/factory-tour', image: '/imgs/illustrated/a_lowmoq_warm_3372406.webp' },
-      { name: 'Certificates', link: '/company/certificates', image: '/imgs/illustrated/a_compostable_v3_9254998.webp' },
-    ]
-  },
   spec: {
     title: 'Structure Spec',
     icon: <Layers className="h-4 w-4" />,
@@ -196,39 +232,6 @@ const LEARN_PAGES = {
       { name: 'Bio-PE PET Duplex Clear', link: '/spec/biope-pet-duplex-clear', image: '/imgs/illustrated/a_bio_pe_card_v3_4603248.webp' },
       { name: 'Bio-Cello Duplex Clear', link: '/spec/bio-cello-duplex-clear', image: '/imgs/illustrated/a_compostable_v3_9254998.webp' },
       { name: 'Mono PE Duplex Clear', link: '/spec/mono-pe-duplex-clear', image: '/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp' },
-    ]
-  },
-  composting: {
-    title: 'Composting',
-    icon: <Leaf className="h-4 w-4" />,
-    pages: [
-      { name: 'Commercial Composting', link: '/composting/commercial-composting', image: '/imgs/composting/commercial/hero.webp' },
-      { name: 'Composting Benefits', link: '/composting/composting-benefits', image: '/imgs/composting/benefits/a_achievepack_composting_locator_hero_9733153.webp' },
-      { name: 'Composting Service Finder', link: '/composting/composting-services', image: '/imgs/composting/finder/a_achievepack_composting_locator_hero_9733153.webp' },
-      { name: 'Biodegradable vs Compostable', link: '/composting/biodegradable-vs-compostable', image: '/imgs/composting/vs/a_hero_biodegradable_vs_compostable_8031695.webp' },
-      { name: 'Home vs Industrial Compostable', link: '/composting/home-vs-industrial-compostable', image: '/imgs/composting/homevs/a_blog_hero_banner_compostable_choice_5307332.webp' },
-      { name: 'Plastic-Free vs Compostable', link: '/composting/plastic-free', image: '/imgs/composting/plastic-free/hero.webp' },
-    ]
-  },
-  biope: {
-    title: 'BioPE',
-    icon: <Sprout className="h-4 w-4" />,
-    pages: [
-      { name: 'What is Bio-PE', link: '/biope/what-is-bio-pe', image: '/imgs/biope/what/a_hero_bio_pe_article_2212774.webp' },
-      { name: 'Bio-PE vs Compostable', link: '/biope/bio-pe-vs-compostable', image: '/imgs/biope/vs/a_biope_epr_hero_image_8632332.webp' },
-      { name: 'Bio-PE & EPR Regulations', link: '/biope/bio-pe-epr-regulations', image: '/imgs/biope/epr/a_biope_epr_hero_image_8632332.webp' },
-      { name: 'Inside I\'m green™ Bio-PE', link: '/biope/inside-im-green-bio-pe', image: '/imgs/biope/inside/hero.webp' },
-    ]
-  },
-  pcr: {
-    title: 'PCR',
-    icon: <Recycle className="h-4 w-4" />,
-    pages: [
-      { name: 'What Is PCR Plastic?', link: '/pcr/pcr-plastic-guide', image: '/imgs/pcr/guide/hero.webp?v=2' },
-      { name: '7-Point PCR Checklist', link: '/pcr/7-checklist', image: '/imgs/pcr/7/hero.webp?v=2' },
-      { name: 'Realistic PCR Content', link: '/pcr/realistic-pcr-content', image: '/imgs/pcr/real/hero.webp?v=2' },
-      { name: 'Recyclable vs PCR vs Bio-Based', link: '/pcr/recyclable-vs-pcr-biobased', image: '/imgs/recyclable/vs/hero.webp?v=2' },
-      { name: 'PCR Materials', link: '/materials/pcr', image: '/imgs/illustrated/a_pcr_card_v1_0334493.webp' },
     ]
   },
   recyclable: {

@@ -2258,74 +2258,37 @@ function App() {
             </div>
           </div>
 
-          {/* Members for the Planet | Certifications & Payment | Connect with Us */}
+          {/* Certifications, Payment & Connect with Us - All Centered */}
           <div className="border-t border-neutral-800 py-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-              {/* Left: Members for the Planet */}
-              <div className="text-center md:text-left">
-                <h4 className="text-neutral-400 text-sm font-medium mb-4">Members for the planet</h4>
-                <div className="flex items-center justify-center md:justify-start gap-6">
-                  {/* 1% For The Planet Logo */}
-                  <a href="https://www.onepercentfortheplanet.org/" target="_blank" rel="noopener noreferrer" className="opacity-90 hover:opacity-100 transition-opacity">
-                    <svg className="h-12 w-auto" viewBox="0 0 200 60" fill="currentColor">
-                      <g fill="#fff">
-                        <circle cx="25" cy="30" r="22" stroke="#fff" strokeWidth="2" fill="none"/>
-                        <text x="25" y="36" textAnchor="middle" fontSize="20" fontWeight="bold" fill="#fff">1%</text>
-                        <text x="70" y="24" fontSize="9" fill="#fff">FOR THE</text>
-                        <text x="70" y="38" fontSize="12" fontWeight="bold" fill="#fff">PLANET</text>
-                        <text x="70" y="48" fontSize="6" fill="#999">MEMBER</text>
-                      </g>
-                    </svg>
-                  </a>
-                  {/* Leave No Trace Logo */}
-                  <a href="https://lnt.org/" target="_blank" rel="noopener noreferrer" className="opacity-90 hover:opacity-100 transition-opacity">
-                    <svg className="h-10 w-auto" viewBox="0 0 100 40" fill="currentColor">
-                      <g fill="#fff">
-                        <path d="M15 20c0-8 6-14 14-14s14 6 14 14-6 14-14 14-14-6-14-14z" stroke="#fff" strokeWidth="1.5" fill="none"/>
-                        <path d="M22 12c2-2 6-2 8 0s2 6 0 8c3 2 3 6 1 8s-6 2-8 0" stroke="#fff" strokeWidth="1" fill="none"/>
-                        <text x="52" y="18" fontSize="7" fill="#fff">Leave</text>
-                        <text x="52" y="26" fontSize="7" fontWeight="bold" fill="#fff">No</text>
-                        <text x="52" y="34" fontSize="7" fill="#fff">Trace</text>
-                      </g>
-                    </svg>
-                  </a>
-                </div>
+            <div className="flex flex-col items-center gap-4">
+              {/* BPI & B Corp Logos */}
+              <img src="/bpi-bcorp-logos.svg" alt="BPI & B Corp Certified" className="h-12 w-auto" loading="lazy" decoding="async" />
+              {/* 1% Carbon Removal */}
+              <a 
+                href="https://climate.stripe.com/WPsfbU" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-xs text-primary-300 hover:text-primary-200 transition-colors"
+              >
+                <svg className="h-4 w-4 text-green-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9z"/>
+                  <path d="M12 8v8M8 12h8"/>
+                </svg>
+                <span>At Achieve Pack pouch.eco, we contribute 1% of our revenue to carbon removal</span>
+              </a>
+              {/* Payment Logos */}
+              <img src="/pay-logos.svg" alt="Payment Methods" className="h-8 w-auto" loading="lazy" decoding="async" />
+              {/* SSL Secure Badge */}
+              <div className="flex items-center gap-1.5 bg-neutral-800 px-3 py-1.5 rounded">
+                <svg className="h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                <span className="text-xs text-neutral-300 font-medium">SSL 100% Secure Transactions</span>
               </div>
-
-              {/* Center: Certifications, Carbon Commitment, Payment & SSL */}
-              <div className="text-center">
-                <div className="flex flex-col items-center gap-3">
-                  {/* BPI & B Corp Logos */}
-                  <img src="/bpi-bcorp-logos.svg" alt="BPI & B Corp Certified" className="h-12 w-auto" loading="lazy" decoding="async" />
-                  {/* 1% Carbon Removal */}
-                  <a 
-                    href="https://climate.stripe.com/WPsfbU" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-xs text-primary-300 hover:text-primary-200 transition-colors"
-                  >
-                    <svg className="h-4 w-4 text-green-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9z"/>
-                      <path d="M12 8v8M8 12h8"/>
-                    </svg>
-                    <span>At Achieve Pack pouch.eco, we contribute 1% of our revenue to carbon removal</span>
-                  </a>
-                  {/* Payment Logos */}
-                  <img src="/pay-logos.svg" alt="Payment Methods" className="h-8 w-auto" loading="lazy" decoding="async" />
-                  {/* SSL Secure Badge */}
-                  <div className="flex items-center gap-1.5 bg-neutral-800 px-3 py-1.5 rounded">
-                    <svg className="h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                    </svg>
-                    <span className="text-xs text-neutral-300 font-medium">SSL 100% Secure Transactions</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right: Connect with Us */}
-              <div className="text-center md:text-right">
-                <h4 className="text-neutral-400 text-sm font-medium mb-4">Connect with us</h4>
-                <div className="flex items-center justify-center md:justify-end gap-3">
+              {/* Connect with Us */}
+              <div className="text-center mt-2">
+                <h4 className="text-neutral-400 text-sm font-medium mb-3">Connect with us</h4>
+                <div className="flex items-center justify-center gap-3">
                   {/* Instagram */}
                   <a href="https://www.instagram.com/pouch_eco/" target="_blank" rel="noopener noreferrer" 
                      className="w-10 h-10 rounded-full border-2 border-white/80 flex items-center justify-center text-white/80 hover:border-white hover:text-white hover:bg-white/10 transition-all">

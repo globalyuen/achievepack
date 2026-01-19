@@ -3259,6 +3259,9 @@ const ProductPage: React.FC = () => {
                         <DropdownMenuRadioItem value="3,000 (Digital print)">3,000 (Digital print)</DropdownMenuRadioItem>
                         <DropdownMenuRadioItem value="5,000 (Flexo print)">5,000 (Flexo print)</DropdownMenuRadioItem>
                         <DropdownMenuRadioItem value="10,000 (Flexo print)">10,000 (Flexo print)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="20,000 (Flexo print)">20,000 (Flexo print)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="30,000 (Flexo print)">30,000 (Flexo print)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="50,000 (Flexo print)">50,000 (Flexo print)</DropdownMenuRadioItem>
                       </DropdownMenuRadioGroup>
                     </DropdownMenuContent>
                   </DropdownMenu>

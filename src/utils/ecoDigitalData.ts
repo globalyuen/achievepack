@@ -274,13 +274,14 @@ export const QUANTITY_FACTORS: Record<string, {
   '500 (Digital print)': { cost: 80.00, weight: 0.00, print_method: 'digital', multiplier: 1.80 },
   '1,000 (Digital print)': { cost: 0.00, weight: 0.00, print_method: 'digital', multiplier: 1.00 },
   '2,000 (Digital print)': { cost: -30.00, weight: 0.00, print_method: 'digital', multiplier: 0.70 },
-  '5,000 (Digital print)': { cost: -50.00, weight: 0.00, print_method: 'digital', multiplier: 0.50 },
-  '10,000 (Digital print)': { cost: -65.00, weight: 0.00, print_method: 'digital', multiplier: 0.35 },
-  '10,000 (Plate print)': { cost: -75.00, weight: 0.00, print_method: 'plate', multiplier: 0.25 },
-  '20,000 (Plate print)': { cost: -80.00, weight: 0.00, print_method: 'plate', multiplier: 0.20 },
-  '50,000 (Plate print)': { cost: -84.00, weight: 0.00, print_method: 'plate', multiplier: 0.16 },
-  '100,000 (Plate print)': { cost: -87.00, weight: 0.00, print_method: 'plate', multiplier: 0.13 },
-  '500,000 (Plate print)': { cost: -90.00, weight: 0.00, print_method: 'plate', multiplier: 0.10 },
+  '3,000 (Digital print)': { cost: -40.00, weight: 0.00, print_method: 'digital', multiplier: 0.60 },
+  '5,000 (Flexo print)': { cost: -50.00, weight: 0.00, print_method: 'flexo', multiplier: 0.50 },
+  '10,000 (Flexo print)': { cost: -65.00, weight: 0.00, print_method: 'flexo', multiplier: 0.35 },
+  '20,000 (Flexo print)': { cost: -80.00, weight: 0.00, print_method: 'flexo', multiplier: 0.20 },
+  '30,000 (Flexo print)': { cost: -82.00, weight: 0.00, print_method: 'flexo', multiplier: 0.18 },
+  '50,000 (Flexo print)': { cost: -84.00, weight: 0.00, print_method: 'flexo', multiplier: 0.16 },
+  '100,000 (Flexo print)': { cost: -87.00, weight: 0.00, print_method: 'flexo', multiplier: 0.13 },
+  '500,000 (Flexo print)': { cost: -90.00, weight: 0.00, print_method: 'flexo', multiplier: 0.10 },
 }
 
 // ZIPPER_FACTORS
