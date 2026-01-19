@@ -75,6 +75,7 @@ const LEARN_PAGES = {
       { name: 'Size Guide', link: '/knowledge/size-guide', image: '/imgs/illustrated/a_size_guide_card_v2_9433535.webp' },
       { name: 'Printing Types', link: '/knowledge/printing-types', image: '/imgs/illustrated/a_printing_types_card_v2_6243973.webp' },
       { name: 'K-Seal Stand Up Pouches', link: '/knowledge/k-seal-stand-up-pouches', image: '/imgs/pouch-shape/k-seal/hero.webp' },
+            { name: 'White Ink Underprint', link: '/knowledge/white-ink-underprint', image: '/imgs/knowledge/white-ink/hero.webp' },
       { name: 'Workflow', link: '/knowledge/workflow', image: '/imgs/illustrated/a_lowmoq_warm_3372406.webp' },
     ]
   },

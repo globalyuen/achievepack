@@ -1,9 +1,9 @@
 {
   "generated": "2026-01-19",
-  "total_images": 1116,
-  "total_categories": 117,
+  "total_images": 1120,
+  "total_categories": 118,
   "extensions": {
-    ".webp": 1039,
+    ".webp": 1043,
     ".png": 72,
     ".jpg": 2,
     ".svg": 3
@@ -2926,6 +2926,35 @@
           "path": "/imgs/illustrated/a_topic_04_digital_print_var_c_4560298.webp",
           "extension": ".webp",
           "modified": "2025-12-24T20:55:54.000Z"
+        }
+      ]
+    },
+    "knowledge/white-ink": {
+      "count": 4,
+      "images": [
+        {
+          "filename": "a_yellow_gold_printing_infographic_data_9646530.webp",
+          "path": "/imgs/knowledge/white-ink/a_yellow_gold_printing_infographic_data_9646530.webp",
+          "extension": ".webp",
+          "modified": "2026-01-18T20:42:44.000Z"
+        },
+        {
+          "filename": "a_yellow_gold_printing_minimalist_design_7513529.webp",
+          "path": "/imgs/knowledge/white-ink/a_yellow_gold_printing_minimalist_design_7513529.webp",
+          "extension": ".webp",
+          "modified": "2026-01-18T20:42:44.000Z"
+        },
+        {
+          "filename": "a_yellow_gold_printing_technical_diagram_5145887.webp",
+          "path": "/imgs/knowledge/white-ink/a_yellow_gold_printing_technical_diagram_5145887.webp",
+          "extension": ".webp",
+          "modified": "2026-01-18T20:42:44.000Z"
+        },
+        {
+          "filename": "hero.webp",
+          "path": "/imgs/knowledge/white-ink/hero.webp",
+          "extension": ".webp",
+          "modified": "2026-01-18T20:42:44.000Z"
         }
       ]
     },
