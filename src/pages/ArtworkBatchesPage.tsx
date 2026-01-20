@@ -118,9 +118,9 @@ const ArtworkBatchesPage: React.FC = () => {
       setNewBatchCustomerEmail('')
       setNewBatchCustomerName('')
       setSelectedBatch(data)
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error creating batch:', err)
-      alert('Failed to create batch')
+      alert(`Failed to create batch: ${err?.message || err}`)
     } finally {
       setCreating(false)
     }
