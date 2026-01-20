@@ -2039,6 +2039,9 @@ function App() {
                 <li><Link to="/features/reclosure-options" className="hover:text-primary-500">{t('footer.links.reclosureOptions')}</Link></li>
                 <li><Link to="/features/surface-finish" className="hover:text-primary-500">{t('footer.links.surfaceFinishes')}</Link></li>
                 <li><Link to="/features/barrier-options" className="hover:text-primary-500">{t('footer.links.barrierOptions')}</Link></li>
+                <li><Link to="/features/low-barrier" className="hover:text-primary-500">Low Barrier</Link></li>
+                <li><Link to="/features/medium-barrier" className="hover:text-primary-500">Medium Barrier</Link></li>
+                <li><Link to="/features/high-barrier" className="hover:text-primary-500">High Barrier</Link></li>
               </ul>
             </div>
 
@@ -2160,6 +2163,7 @@ function App() {
                 <li><Link to="/composting/biodegradable-vs-compostable" className="hover:text-primary-500">Biodegradable vs Compostable</Link></li>
                 <li><Link to="/composting/commercial-composting" className="hover:text-primary-500">Commercial Composting</Link></li>
                 <li><Link to="/composting/home-vs-industrial-compostable" className="hover:text-primary-500">Home vs Industrial</Link></li>
+                <li><Link to="/composting/plastic-free" className="hover:text-primary-500">Plastic-Free vs Compostable</Link></li>
               </ul>
             </div>
 
@@ -2181,6 +2185,7 @@ function App() {
                 <li><Link to="/pcr/pcr-plastic-guide" className="hover:text-primary-500">What Is PCR Plastic?</Link></li>
                 <li><Link to="/pcr/7-checklist" className="hover:text-primary-500">PCR 7-Point Checklist</Link></li>
                 <li><Link to="/pcr/realistic-pcr-content" className="hover:text-primary-500">Realistic PCR Content</Link></li>
+                <li><Link to="/pcr/recyclable-vs-pcr-biobased" className="hover:text-primary-500">Recyclable vs PCR vs Bio-Based</Link></li>
                 <li><Link to="/materials/pcr" className="hover:text-primary-500">PCR Materials</Link></li>
               </ul>
             </div>
@@ -2190,6 +2195,8 @@ function App() {
               <h4 className="text-sm font-semibold mb-2">Recyclable</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
                 <li><Link to="/recyclable/what-is-recyclable" className="hover:text-primary-500">What Is 100% Recyclable?</Link></li>
+                <li><Link to="/recyclable/roadmap-sme" className="hover:text-primary-500">3-Step SME Roadmap</Link></li>
+                <li><Link to="/recyclable/mono-material-foundation" className="hover:text-primary-500">Mono-Material Foundation</Link></li>
                 <li><Link to="/materials/recyclable-mono-pe" className="hover:text-primary-500">Recyclable Mono-PE</Link></li>
                 <li><Link to="/materials/recyclable-mono-pp" className="hover:text-primary-500">Recyclable Mono-PP</Link></li>
               </ul>
@@ -2244,6 +2251,17 @@ function App() {
               </ul>
             </div>
 
+            {/* Free Services */}
+            <div>
+              <h4 className="text-sm font-semibold mb-2">Free Services</h4>
+              <ul className="space-y-1 text-neutral-400 text-xs">
+                <li><Link to="/free-service/packaging-design-consultation" className="hover:text-primary-500">Free Design Consultation</Link></li>
+                <li><Link to="/free-service/website-upgrade" className="hover:text-primary-500">Free Website Upgrade</Link></li>
+                <li><Link to="/free-service/packaging-mockup" className="hover:text-primary-500">Free Packaging Mockup</Link></li>
+                <li><Link to="/free-service/customer-center" className="hover:text-primary-500">Free Customer Center</Link></li>
+              </ul>
+            </div>
+
             {/* Knowledge */}
             <div>
               <h4 className="text-sm font-semibold mb-2">Knowledge</h4>
@@ -2252,6 +2270,9 @@ function App() {
                 <li><Link to="/knowledge/size-guide" className="hover:text-primary-500">Size Reference</Link></li>
                 <li><Link to="/knowledge/all-options" className="hover:text-primary-500">All Options</Link></li>
                 <li><Link to="/knowledge/printing-types" className="hover:text-primary-500">Printing Types</Link></li>
+                <li><Link to="/knowledge/k-seal-stand-up-pouches" className="hover:text-primary-500">K-Seal Pouches</Link></li>
+                <li><Link to="/knowledge/white-ink-underprint" className="hover:text-primary-500">White Ink Underprint</Link></li>
+                <li><Link to="/knowledge/fin-seal-lap-seal" className="hover:text-primary-500">Fin vs Lap Seal</Link></li>
               </ul>
             </div>
           </div>
