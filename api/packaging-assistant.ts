@@ -17,6 +17,171 @@ interface RelatedPage {
   description: string
 }
 
+// ============ COMPLETE SEO PAGES DATABASE ============
+// Auto-synced with LearnNavigation.tsx LEARN_PAGES
+const ALL_SEO_PAGES: { name: string; url: string; keywords: string[]; category: string }[] = [
+  // Company
+  { name: 'About Us', url: '/company/about', keywords: ['about', 'company', 'who we are', 'achievepack'], category: 'Company' },
+  { name: 'Our Impact (B Corp)', url: '/company/b-corp', keywords: ['b corp', 'bcorp', 'impact', 'certification', 'sustainability'], category: 'Company' },
+  { name: 'BPI Certified', url: '/company/bpi-certified', keywords: ['bpi', 'certified', 'biodegradable', 'certification'], category: 'Company' },
+  { name: 'Certificates', url: '/company/certificates', keywords: ['certificate', 'certification', 'en13432', 'astm', 'ok compost'], category: 'Company' },
+  { name: 'Factory Tour', url: '/company/factory-tour', keywords: ['factory', 'tour', 'manufacturing', 'production'], category: 'Company' },
+  // Packaging Shapes
+  { name: 'Stand Up Pouches', url: '/packaging/stand-up-pouches', keywords: ['stand up', 'standup', 'sup', 'pouch', 'doypack'], category: 'Packaging' },
+  { name: 'Flat Bottom Bags', url: '/packaging/flat-bottom-bags', keywords: ['flat bottom', 'box pouch', 'block bottom', 'coffee bag'], category: 'Packaging' },
+  { name: 'Side Gusset Bags', url: '/packaging/side-gusset-bags', keywords: ['side gusset', 'gusset', 'coffee bag', 'traditional'], category: 'Packaging' },
+  { name: 'Flat Pouches', url: '/packaging/flat-pouches', keywords: ['flat', '3 side seal', 'three side seal', 'sachet'], category: 'Packaging' },
+  { name: 'Spout Pouches', url: '/packaging/spout-pouches', keywords: ['spout', 'liquid', 'juice', 'sauce', 'baby food'], category: 'Packaging' },
+  { name: 'Vacuum Pouches', url: '/packaging/vacuum-pouches', keywords: ['vacuum', 'vacuum seal', 'meat', 'cheese'], category: 'Packaging' },
+  { name: 'Custom Boxes', url: '/packaging/custom-boxes', keywords: ['box', 'carton', 'corrugated', 'tuck box', 'packaging box'], category: 'Packaging' },
+  // Materials
+  { name: 'Compostable Overview', url: '/materials/compostable', keywords: ['compostable', 'compost', 'biodegradable', 'eco', 'sustainable'], category: 'Materials' },
+  { name: 'Home Compostable', url: '/materials/home-compostable', keywords: ['home compost', 'ok compost home', 'backyard', 'garden compost'], category: 'Materials' },
+  { name: 'Industrial Compostable', url: '/materials/industrial-compostable', keywords: ['industrial compost', 'commercial compost', 'facility'], category: 'Materials' },
+  { name: 'Recyclable Mono PE', url: '/materials/recyclable-mono-pe', keywords: ['mono pe', 'recyclable', 'pe', 'polyethylene', 'mono material'], category: 'Materials' },
+  { name: 'Recyclable Mono PP', url: '/materials/recyclable-mono-pp', keywords: ['mono pp', 'recyclable', 'pp', 'polypropylene'], category: 'Materials' },
+  { name: 'Bio-PE', url: '/materials/bio-pe', keywords: ['bio pe', 'biope', 'bio-based', 'sugarcane', 'i\'m green', 'plant based'], category: 'Materials' },
+  { name: 'PCR Recycled', url: '/materials/pcr', keywords: ['pcr', 'post consumer', 'recycled', 'recycled content'], category: 'Materials' },
+  // Industries
+  { name: 'Coffee & Tea', url: '/industry/coffee-tea', keywords: ['coffee', 'tea', 'roaster', 'cafe', 'beans', 'loose leaf'], category: 'Industries' },
+  { name: 'Snacks & Food', url: '/industry/snacks-food', keywords: ['snacks', 'snack', 'chips', 'nuts', 'dried fruit', 'food'], category: 'Industries' },
+  { name: 'Pet Food', url: '/industry/pet-food', keywords: ['pet', 'dog', 'cat', 'pet food', 'treats', 'animal'], category: 'Industries' },
+  { name: 'Supplements', url: '/industry/supplements-powders', keywords: ['supplement', 'protein', 'powder', 'vitamins', 'health'], category: 'Industries' },
+  { name: 'Baby Food', url: '/industry/baby-food', keywords: ['baby', 'infant', 'toddler', 'baby food', 'puree'], category: 'Industries' },
+  { name: 'Frozen Food', url: '/industry/frozen-food', keywords: ['frozen', 'freeze', 'ice cream', 'cold storage'], category: 'Industries' },
+  { name: 'Sauces & Condiments', url: '/industry/sauces-condiments', keywords: ['sauce', 'condiment', 'ketchup', 'mayonnaise'], category: 'Industries' },
+  // Composting (including plastic-free)
+  { name: 'Commercial Composting', url: '/composting/commercial-composting', keywords: ['commercial', 'industrial', 'facility', 'composting'], category: 'Composting' },
+  { name: 'Composting Benefits', url: '/composting/composting-benefits', keywords: ['benefits', 'advantage', 'why compost'], category: 'Composting' },
+  { name: 'Composting Service Finder', url: '/composting/composting-services', keywords: ['service', 'finder', 'locate', 'near me'], category: 'Composting' },
+  { name: 'Biodegradable vs Compostable', url: '/composting/biodegradable-vs-compostable', keywords: ['biodegradable', 'difference', 'vs', 'comparison'], category: 'Composting' },
+  { name: 'Home vs Industrial Compostable', url: '/composting/home-vs-industrial-compostable', keywords: ['home', 'industrial', 'difference', 'comparison'], category: 'Composting' },
+  { name: 'Plastic-Free vs Compostable', url: '/composting/plastic-free', keywords: ['plastic free', 'plastic-free', 'no plastic', 'pla', 'pbat', 'bioplastic'], category: 'Composting' },
+  // BioPE
+  { name: 'What is Bio-PE', url: '/biope/what-is-bio-pe', keywords: ['what is', 'bio pe', 'biope', 'explanation'], category: 'BioPE' },
+  { name: 'Bio-PE vs Compostable', url: '/biope/bio-pe-vs-compostable', keywords: ['vs', 'comparison', 'difference'], category: 'BioPE' },
+  { name: 'Bio-PE & EPR Regulations', url: '/biope/bio-pe-epr-regulations', keywords: ['epr', 'regulation', 'law', 'compliance'], category: 'BioPE' },
+  { name: 'Inside I\'m green™ Bio-PE', url: '/biope/inside-im-green-bio-pe', keywords: ['i\'m green', 'im green', 'braskem', 'sugarcane'], category: 'BioPE' },
+  // PCR
+  { name: 'What Is PCR Plastic?', url: '/pcr/pcr-plastic-guide', keywords: ['what is pcr', 'guide', 'explanation'], category: 'PCR' },
+  { name: '7-Point PCR Checklist', url: '/pcr/7-checklist', keywords: ['checklist', '7 point', 'steps'], category: 'PCR' },
+  { name: 'Realistic PCR Content', url: '/pcr/realistic-pcr-content', keywords: ['realistic', 'percentage', 'content'], category: 'PCR' },
+  { name: 'Recyclable vs PCR vs Bio-Based', url: '/pcr/recyclable-vs-pcr-biobased', keywords: ['recyclable', 'vs', 'comparison', 'bio-based'], category: 'PCR' },
+  // Recyclable
+  { name: 'What Is 100% Recyclable?', url: '/recyclable/what-is-recyclable', keywords: ['100% recyclable', 'fully recyclable', 'explanation'], category: 'Recyclable' },
+  { name: '3-Step Roadmap for SMEs', url: '/recyclable/roadmap-sme', keywords: ['roadmap', 'sme', 'small business', 'steps'], category: 'Recyclable' },
+  { name: 'Mono-Material Foundation', url: '/recyclable/mono-material-foundation', keywords: ['mono material', 'foundation', 'basics'], category: 'Recyclable' },
+  // Free Service
+  { name: 'Free Packaging Design Consultation', url: '/free-service/packaging-design-consultation', keywords: ['free', 'design', 'consultation', 'advice'], category: 'Free Service' },
+  { name: 'Free Website Upgrade', url: '/free-service/website-upgrade', keywords: ['free', 'website', 'upgrade'], category: 'Free Service' },
+  { name: 'Free Packaging Mockup', url: '/free-service/packaging-mockup', keywords: ['free', 'mockup', '3d', 'render'], category: 'Free Service' },
+  { name: 'Free Customer Center', url: '/free-service/customer-center', keywords: ['free', 'customer', 'center', 'portal'], category: 'Free Service' },
+  // Options & Features
+  { name: 'Digital Printing', url: '/printing/digital-printing', keywords: ['digital', 'printing', 'cmyk', 'low moq'], category: 'Printing' },
+  { name: 'Plate Printing', url: '/printing/plate-printing', keywords: ['plate', 'gravure', 'rotogravure', 'flexo'], category: 'Printing' },
+  { name: 'Reclosure Options', url: '/features/reclosure-options', keywords: ['zipper', 'resealable', 'reclosure', 'zip'], category: 'Features' },
+  { name: 'Surface Finishes', url: '/features/surface-finish', keywords: ['matte', 'glossy', 'finish', 'lamination'], category: 'Features' },
+  { name: 'Barrier Options', url: '/features/barrier-options', keywords: ['barrier', 'moisture', 'oxygen', 'protection'], category: 'Features' },
+  { name: 'Low Barrier', url: '/features/low-barrier', keywords: ['low barrier', 'clear', 'window'], category: 'Features' },
+  { name: 'Medium Barrier', url: '/features/medium-barrier', keywords: ['medium barrier', 'balanced'], category: 'Features' },
+  { name: 'High Barrier', url: '/features/high-barrier', keywords: ['high barrier', 'metalized', 'aluminium', 'coffee'], category: 'Features' },
+  // Solutions
+  { name: 'Startup Founder', url: '/solutions/startup-founder', keywords: ['startup', 'founder', 'small business', 'new business'], category: 'Solutions' },
+  { name: 'Ecommerce Brand', url: '/solutions/ecommerce-brand', keywords: ['ecommerce', 'online', 'dtc', 'd2c', 'direct to consumer'], category: 'Solutions' },
+  { name: 'Corporate Sustainability', url: '/solutions/corporate-sustainability', keywords: ['corporate', 'enterprise', 'esg', 'sustainability'], category: 'Solutions' },
+  { name: 'Food Manufacturer', url: '/solutions/food-manufacturer', keywords: ['manufacturer', 'food production', 'cpg'], category: 'Solutions' },
+  { name: 'Product Developer', url: '/solutions/product-developer', keywords: ['product developer', 'r&d', 'innovation'], category: 'Solutions' },
+  { name: 'Coffee Roaster', url: '/solutions/coffee-roaster', keywords: ['coffee roaster', 'roastery', 'specialty coffee'], category: 'Solutions' },
+  { name: 'Artisan Producer', url: '/solutions/artisan-producer', keywords: ['artisan', 'handmade', 'craft', 'small batch'], category: 'Solutions' },
+  { name: 'Snack Brand Manager', url: '/solutions/snack-brand-manager', keywords: ['snack brand', 'brand manager', 'cpg'], category: 'Solutions' },
+  // Topics
+  { name: 'Eco Food Packaging', url: '/topics/eco-friendly-food-packaging', keywords: ['eco', 'food packaging', 'sustainable'], category: 'Topics' },
+  { name: 'DTC Packaging', url: '/topics/dtc-sustainable-packaging', keywords: ['dtc', 'd2c', 'direct to consumer', 'ecommerce'], category: 'Topics' },
+  { name: 'Coffee Materials', url: '/topics/green-coffee-materials', keywords: ['coffee', 'green', 'materials'], category: 'Topics' },
+  { name: 'Digital Printing Guide', url: '/topics/digital-printing-eco-packaging', keywords: ['digital printing', 'guide', 'eco'], category: 'Topics' },
+  { name: 'Recyclable Snack Packaging', url: '/topics/recyclable-snack-packaging', keywords: ['recyclable', 'snack', 'chips'], category: 'Topics' },
+  { name: 'Custom Printed Pouches', url: '/topics/custom-printed-sustainable-pouches', keywords: ['custom', 'printed', 'pouches'], category: 'Topics' },
+  { name: 'Packaging Regulations', url: '/topics/eco-packaging-regulations', keywords: ['regulation', 'law', 'compliance', 'epr'], category: 'Topics' },
+  { name: 'Compostable Suppliers', url: '/topics/compostable-pouch-suppliers', keywords: ['supplier', 'manufacturer', 'compostable'], category: 'Topics' },
+  { name: 'Low MOQ Startup', url: '/topics/low-moq-startup-packaging', keywords: ['low moq', 'startup', 'small order'], category: 'Topics' },
+  { name: 'Baby Food Bags', url: '/topics/compostable-baby-food-bags', keywords: ['baby', 'baby food', 'compostable'], category: 'Topics' },
+  // Function
+  { name: 'Microwave Steam Bags', url: '/function/microwave-steam-bags', keywords: ['microwave', 'steam', 'heat', 'cooking'], category: 'Function' },
+  { name: 'Carbon Neutral Bags', url: '/function/carbon-neutral-bags', keywords: ['carbon neutral', 'carbon offset', 'climate'], category: 'Function' },
+  { name: 'Spout Pouches Juice', url: '/function/spout-pouches-juice', keywords: ['spout', 'juice', 'beverage', 'liquid'], category: 'Function' },
+  { name: 'Child-Resistant Bags', url: '/function/child-resistant-bags', keywords: ['child resistant', 'child proof', 'cannabis', 'pharmaceutical'], category: 'Function' },
+  { name: 'Digital Printed Retort Bags', url: '/function/digital-printed-retort-bags', keywords: ['retort', 'sterilization', 'autoclave', 'ready meal'], category: 'Function' },
+  { name: 'Pre-Zippered Rollstock', url: '/function/pre-zippered-rollstock', keywords: ['rollstock', 'roll', 'pre-zippered', 'ffs'], category: 'Function' },
+  { name: 'Rice Paper Bags', url: '/function/rice-paper-bags', keywords: ['rice paper', 'paper', 'natural look'], category: 'Function' },
+  { name: 'PVA Water-Soluble Bags', url: '/function/pva-water-soluble-bags', keywords: ['pva', 'water soluble', 'dissolvable'], category: 'Function' },
+  // Knowledge
+  { name: 'All Options', url: '/knowledge/all-options', keywords: ['options', 'all', 'overview'], category: 'Knowledge' },
+  { name: 'Pouch Sizing', url: '/knowledge/pouch-sizing', keywords: ['sizing', 'size', 'dimensions', 'capacity'], category: 'Knowledge' },
+  { name: 'Size Guide', url: '/knowledge/size-guide', keywords: ['size guide', 'chart', 'dimensions'], category: 'Knowledge' },
+  { name: 'Printing Types', url: '/knowledge/printing-types', keywords: ['printing', 'types', 'digital', 'gravure'], category: 'Knowledge' },
+  { name: 'K-Seal Stand Up Pouches', url: '/knowledge/k-seal-stand-up-pouches', keywords: ['k-seal', 'kseal', 'stand up'], category: 'Knowledge' },
+  { name: 'White Ink Underprint', url: '/knowledge/white-ink-underprint', keywords: ['white ink', 'underprint', 'printing'], category: 'Knowledge' },
+  { name: 'Fin Seal vs Lap Seal', url: '/knowledge/fin-seal-lap-seal', keywords: ['fin seal', 'lap seal', 'seal type'], category: 'Knowledge' },
+  { name: 'Workflow', url: '/knowledge/workflow', keywords: ['workflow', 'process', 'order', 'how to'], category: 'Knowledge' },
+  // Case Studies
+  { name: 'Coffee Roastery Case Study', url: '/case-studies/coffee-roastery', keywords: ['coffee', 'roastery', 'case study'], category: 'Case Studies' },
+  { name: 'Tea Brand Case Study', url: '/case-studies/tea-brand', keywords: ['tea', 'brand', 'case study'], category: 'Case Studies' },
+  { name: 'Superfood Brand Case Study', url: '/case-studies/superfood-brand', keywords: ['superfood', 'health', 'case study'], category: 'Case Studies' },
+  { name: 'Pet Treats Case Study', url: '/case-studies/pet-treats', keywords: ['pet', 'treats', 'case study'], category: 'Case Studies' },
+  { name: 'Chocolate Brand Case Study', url: '/case-studies/chocolate-brand', keywords: ['chocolate', 'confectionery', 'case study'], category: 'Case Studies' },
+  // Lab
+  { name: 'Lateral Filter Bags', url: '/lab/lateral-filter-bags', keywords: ['filter', 'lab', 'lateral'], category: 'Lab' },
+  { name: 'Wire Closure Bags', url: '/lab/wire-closure-bags', keywords: ['wire', 'closure', 'lab'], category: 'Lab' },
+  { name: 'Lab Blender Bags', url: '/lab/lab-blender-bags', keywords: ['blender', 'lab', 'stomacher'], category: 'Lab' },
+  // USA Market
+  { name: 'Compostable Packaging USA', url: '/usa/compostable-packaging', keywords: ['usa', 'us', 'america', 'compostable'], category: 'USA' },
+  { name: 'Coffee Packaging USA', url: '/usa/coffee-packaging', keywords: ['usa', 'us', 'america', 'coffee'], category: 'USA' },
+  { name: 'Snacks Packaging USA', url: '/usa/snacks-packaging', keywords: ['usa', 'us', 'america', 'snacks'], category: 'USA' },
+  { name: 'Labeling Guide USA', url: '/usa/labeling-guide', keywords: ['usa', 'labeling', 'ftc', 'green guides'], category: 'USA' },
+  // Spec
+  { name: 'PCR PET Duplex Clear', url: '/spec/pcr-pet-duplex-clear', keywords: ['pcr', 'pet', 'spec', 'clear'], category: 'Spec' },
+  { name: 'Bio-PE PET Duplex Clear', url: '/spec/biope-pet-duplex-clear', keywords: ['biope', 'pet', 'spec', 'clear'], category: 'Spec' },
+  { name: 'Bio-Cello Duplex Clear', url: '/spec/bio-cello-duplex-clear', keywords: ['bio-cello', 'natureflex', 'clear'], category: 'Spec' },
+  { name: 'Mono PE Duplex Clear', url: '/spec/mono-pe-duplex-clear', keywords: ['mono pe', 'recyclable', 'clear'], category: 'Spec' },
+]
+
+// Search SEO pages by question - intelligent matching
+function searchSEOPages(question: string): RelatedPage[] {
+  const q = question.toLowerCase()
+  const words = q.split(/\s+/).filter(w => w.length > 2)
+  
+  const scored = ALL_SEO_PAGES.map(page => {
+    let score = 0
+    const searchText = `${page.name.toLowerCase()} ${page.keywords.join(' ')} ${page.category.toLowerCase()}`
+    
+    // Check each word and keyword
+    words.forEach(word => {
+      if (searchText.includes(word)) score += 1
+      // Exact keyword match gets higher score
+      if (page.keywords.some(k => k.includes(word) || word.includes(k))) score += 2
+      // Name match gets highest score
+      if (page.name.toLowerCase().includes(word)) score += 3
+    })
+    
+    // Boost for full phrase matches
+    page.keywords.forEach(keyword => {
+      if (q.includes(keyword)) score += 5
+    })
+    
+    return { page, score }
+  })
+  
+  return scored
+    .filter(s => s.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3)
+    .map(s => ({
+      title: s.page.name,
+      url: s.page.url,
+      description: `Learn about ${s.page.name} - ${s.page.category}`
+    }))
+}
+
 // ============ RELATED PAGES DATABASE ============
 const RELATED_PAGES_MAP: Record<string, RelatedPage[]> = {
   // Coffee related
@@ -28,61 +193,37 @@ const RELATED_PAGES_MAP: Record<string, RelatedPage[]> = {
   // Eco/Sustainable
   'eco': [
     { title: 'Compostable Materials', url: '/materials/compostable', description: 'Certified compostable options' },
-    { title: 'Recyclable Materials', url: '/materials/recyclable', description: 'PE recyclable pouches' },
-    { title: 'PCR & Bio-based', url: '/materials/pcr-bio', description: 'Recycled content options' },
+    { title: 'Recyclable Mono PE', url: '/materials/recyclable-mono-pe', description: 'PE recyclable pouches' },
+    { title: 'PCR Recycled', url: '/materials/pcr', description: 'Recycled content options' },
   ],
   // Pet food
   'pet': [
     { title: 'Pet Food Packaging', url: '/industry/pet-food', description: 'Durable pet food solutions' },
     { title: 'Stand Up Pouches', url: '/packaging/stand-up-pouches', description: 'Great shelf presence' },
-    { title: 'Quad Seal Bags', url: '/packaging/quad-seal-bags', description: 'Heavy duty options' },
   ],
   // Snacks
   'snacks': [
-    { title: 'Snacks Packaging', url: '/industry/snacks', description: 'Chips, nuts, dried fruits' },
+    { title: 'Snacks & Food Packaging', url: '/industry/snacks-food', description: 'Chips, nuts, dried fruits' },
     { title: 'Stand Up Pouches', url: '/packaging/stand-up-pouches', description: 'Best seller for snacks' },
-    { title: '3 Side Seal Pouches', url: '/packaging/flat-pouches', description: 'Cost-effective option' },
   ],
   // Samples
   'sample': [
     { title: 'Product Store', url: '/store', description: 'Browse all sample packs' },
     { title: 'Sizing Pack', url: '/store/product/sample-sizing-pack', description: 'Test different sizes' },
-    { title: 'Eco Samples', url: '/store/product/sample-assorted-eco', description: 'Try eco materials' },
   ],
   // Pricing/MOQ
   'pricing': [
     { title: 'Product Store', url: '/store', description: 'See all prices' },
     { title: 'Sample Packs', url: '/store?category=sample', description: 'Start with samples' },
-    { title: 'Eco Digital', url: '/store?category=eco-digital', description: 'Eco-friendly options' },
-  ],
-  // General store
-  'store': [
-    { title: 'Stand Up Pouches', url: '/packaging/stand-up-pouches', description: 'Most popular shape' },
-    { title: 'Compostable Materials', url: '/materials/compostable', description: 'Eco-friendly options' },
-    { title: 'Coffee Packaging', url: '/industry/coffee-tea', description: 'For roasters & cafes' },
-  ],
-  // Materials
-  'materials': [
-    { title: 'Material Comparison', url: '/materials/compostable', description: 'Compare eco options' },
-    { title: 'Kraft Paper', url: '/materials/kraft-paper', description: 'Natural look materials' },
-    { title: 'Product Store', url: '/store', description: 'See products by material' },
-  ],
-  // Custom Boxes
-  'boxes': [
-    { title: 'Corrugated Mailer Boxes', url: '/store/product/box-corrugated-custom', description: 'FSC certified rigid boxes' },
-    { title: 'Tuck Boxes', url: '/store/product/box-tuck-custom', description: 'Gold foil & embossing' },
-    { title: 'Product Store', url: '/store?category=boxes', description: 'Browse all boxes' },
   ],
   // Consultation/Meeting/Book
   'consultation': [
     { title: '📅 Book FREE Consultation', url: 'https://calendly.com/30-min-free-packaging-consultancy', description: '30-min video call with our team' },
     { title: 'Product Store', url: '/store', description: 'Browse products first' },
-    { title: 'Sample Packs', url: '/store?category=sample', description: 'Try before full order' },
   ],
   // Default
   'default': [
     { title: 'Product Store', url: '/store', description: 'Browse all products' },
-    { title: 'Sample Packs', url: '/store?category=sample', description: 'Try before you buy' },
     { title: '📅 FREE Consultation', url: 'https://calendly.com/30-min-free-packaging-consultancy', description: 'Book a call with us' },
   ],
 }
@@ -214,9 +355,15 @@ function findRelevantFAQs(question: string): string[] {
 // ============ RELATED PAGES FINDER ============
 function findRelatedPages(question: string, pageContext?: PageContext): RelatedPage[] {
   const q = question.toLowerCase()
-  const pages: RelatedPage[] = []
+  let pages: RelatedPage[] = []
 
-  // Check keywords in question
+  // FIRST: Search all SEO pages intelligently based on user's question
+  const seoMatches = searchSEOPages(question)
+  if (seoMatches.length > 0) {
+    pages.push(...seoMatches)
+  }
+
+  // THEN: Add category-specific matches from RELATED_PAGES_MAP
   if (q.includes('coffee') || q.includes('roast') || q.includes('bean') || q.includes('tea')) {
     pages.push(...(RELATED_PAGES_MAP['coffee'] || []))
   }
@@ -235,21 +382,10 @@ function findRelatedPages(question: string, pageContext?: PageContext): RelatedP
   if (q.includes('price') || q.includes('cost') || q.includes('moq') || q.includes('how much')) {
     pages.push(...(RELATED_PAGES_MAP['pricing'] || []))
   }
-  if (q.includes('material') || q.includes('barrier') || q.includes('kraft')) {
-    pages.push(...(RELATED_PAGES_MAP['materials'] || []))
-  }
-  if (q.includes('box') || q.includes('carton') || q.includes('corrugated') || q.includes('tuck') || q.includes('chocolate')) {
-    pages.push(...(RELATED_PAGES_MAP['boxes'] || []))
-  }
   // Consultation/Meeting keywords
   if (q.includes('meeting') || q.includes('book') || q.includes('schedule') || q.includes('consultation') ||
     q.includes('call') || q.includes('talk') || q.includes('discuss') || q.includes('calendly') ||
     q.includes('appointment') || q.includes('consult') || q.includes('quote') || q.includes('custom')) {
-    pages.push(...(RELATED_PAGES_MAP['consultation'] || []))
-  }
-  // Page awareness - when user asks about current page, suggest related content
-  if (q.includes('page') || q.includes('looking') || q.includes('viewing') || q.includes('where am i') || q.includes('what is this')) {
-    // Add consultation as a helpful next step
     pages.push(...(RELATED_PAGES_MAP['consultation'] || []))
   }
 
