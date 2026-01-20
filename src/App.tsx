@@ -1087,7 +1087,7 @@ function App() {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-6 text-center">What is Compostable Packaging?</h2>
             <p className="text-lg text-neutral-700 leading-relaxed mb-8">
-              Compostable packaging is certified material that fully biodegrades into natural elements within 180 days under industrial composting conditions. Unlike regular plastics, compostable pouches break down into water, CO₂, and biomass, leaving no microplastics. Achieve Pack's compostable bags are certified to <Link to="/learn/composting/home-vs-industrial-compost" className="text-primary-600 hover:underline font-medium">EN13432</Link> and <Link to="/materials/compostable" className="text-primary-600 hover:underline font-medium">ASTM D6400</Link> standards, ensuring genuine environmental credentials.
+              Compostable packaging is certified material that fully biodegrades into natural elements within 180 days under industrial composting conditions. Unlike regular plastics, compostable pouches break down into water, CO₂, and biomass, leaving no microplastics. Achieve Pack's compostable bags are certified to <Link to="/composting/home-vs-industrial-compostable" className="text-primary-600 hover:underline font-medium">EN13432</Link> and <Link to="/materials/compostable" className="text-primary-600 hover:underline font-medium">ASTM D6400</Link> standards, ensuring genuine environmental credentials.
             </p>
             
             {/* Comparison Table - Featured Snippet Optimized */}

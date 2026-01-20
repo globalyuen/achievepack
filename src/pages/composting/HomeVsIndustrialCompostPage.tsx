@@ -610,7 +610,7 @@ const HomeVsIndustrialCompostPage: React.FC = () => {
                         </li>
                       </ul>
                       <p className="text-sm text-neutral-500 italic">
-                        Verify all certifications at <a href="https://www.tuv-at.be/green-marks" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">tuv-at.be/green-marks</a>
+                        Verify all certifications at <Link to="/company/certificates" className="text-primary-600 hover:underline">Achieve Pack's Certificates Page</Link>
                       </p>
                     </div>
                   </div>
