@@ -1,9 +1,9 @@
 {
-  "generated": "2026-01-19",
-  "total_images": 1120,
-  "total_categories": 118,
+  "generated": "2026-01-20",
+  "total_images": 1129,
+  "total_categories": 119,
   "extensions": {
-    ".webp": 1043,
+    ".webp": 1052,
     ".png": 72,
     ".jpg": 2,
     ".svg": 3
@@ -2926,6 +2926,65 @@
           "path": "/imgs/illustrated/a_topic_04_digital_print_var_c_4560298.webp",
           "extension": ".webp",
           "modified": "2025-12-24T20:55:54.000Z"
+        }
+      ]
+    },
+    "knowledge/fin-lap": {
+      "count": 9,
+      "images": [
+        {
+          "filename": "a_achievepack_fin_seal_closeup_4789782.webp",
+          "path": "/imgs/knowledge/fin-lap/a_achievepack_fin_seal_closeup_4789782.webp",
+          "extension": ".webp",
+          "modified": "2026-01-19T20:00:28.000Z"
+        },
+        {
+          "filename": "a_achievepack_lap_seal_closeup_4443649.webp",
+          "path": "/imgs/knowledge/fin-lap/a_achievepack_lap_seal_closeup_4443649.webp",
+          "extension": ".webp",
+          "modified": "2026-01-19T20:00:28.000Z"
+        },
+        {
+          "filename": "a_dualfunctioncomparison_4626735.webp",
+          "path": "/imgs/knowledge/fin-lap/a_dualfunctioncomparison_4626735.webp",
+          "extension": ".webp",
+          "modified": "2026-01-19T20:00:28.000Z"
+        },
+        {
+          "filename": "a_finsealdetailmacro_5790758.webp",
+          "path": "/imgs/knowledge/fin-lap/a_finsealdetailmacro_5790758.webp",
+          "extension": ".webp",
+          "modified": "2026-01-19T20:00:28.000Z"
+        },
+        {
+          "filename": "a_herobannerkvcomposition_4408900.webp",
+          "path": "/imgs/knowledge/fin-lap/a_herobannerkvcomposition_4408900.webp",
+          "extension": ".webp",
+          "modified": "2026-01-19T20:00:28.000Z"
+        },
+        {
+          "filename": "a_lapsealdetailmacro_5567269.webp",
+          "path": "/imgs/knowledge/fin-lap/a_lapsealdetailmacro_5567269.webp",
+          "extension": ".webp",
+          "modified": "2026-01-19T20:00:28.000Z"
+        },
+        {
+          "filename": "a_realistic_lap_fin_seals_gray_6719723.webp",
+          "path": "/imgs/knowledge/fin-lap/a_realistic_lap_fin_seals_gray_6719723.webp",
+          "extension": ".webp",
+          "modified": "2026-01-19T20:00:28.000Z"
+        },
+        {
+          "filename": "a_technical_diagram_white_studio_2824694.webp",
+          "path": "/imgs/knowledge/fin-lap/a_technical_diagram_white_studio_2824694.webp",
+          "extension": ".webp",
+          "modified": "2026-01-19T20:00:28.000Z"
+        },
+        {
+          "filename": "hero.webp",
+          "path": "/imgs/knowledge/fin-lap/hero.webp",
+          "extension": ".webp",
+          "modified": "2026-01-19T20:00:28.000Z"
         }
       ]
     },

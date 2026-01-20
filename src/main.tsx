@@ -172,6 +172,7 @@ const PrintingTypesPage = lazyWithRetry(() => import('./pages/knowledge/Printing
 const WorkflowPage = lazyWithRetry(() => import('./pages/knowledge/WorkflowPage'))
 const KSealStandUpPouchesPage = lazyWithRetry(() => import('./pages/knowledge/KSealStandUpPouchesPage'))
 const WhiteInkUnderprintPage = lazyWithRetry(() => import('./pages/knowledge/WhiteInkUnderprintPage'))
+const FinSealLapSealPage = lazyWithRetry(() => import('./pages/knowledge/FinSealLapSealPage'))
 
 // Support Pages - Lazy loaded
 const FAQsPage = lazyWithRetry(() => import('./pages/support/FAQsPage'))
@@ -438,6 +439,7 @@ createRoot(document.getElementById('root')!).render(
                       <Route path="/knowledge/workflow" element={<WorkflowPage />} />
                       <Route path="/knowledge/k-seal-stand-up-pouches" element={<KSealStandUpPouchesPage />} />
                       <Route path="/knowledge/white-ink-underprint" element={<WhiteInkUnderprintPage />} />
+                                            <Route path="/knowledge/fin-seal-lap-seal" element={<FinSealLapSealPage />} />
 
                       {/* Support Pages */}
                       <Route path="/support/faqs" element={<FAQsPage />} />
