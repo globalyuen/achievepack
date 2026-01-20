@@ -1,13 +1,168 @@
 import { useState, useCallback } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { ShoppingCart, User, Globe, Menu, X, Gift } from 'lucide-react'
+import { ShoppingCart, User, Globe, Menu, X, Gift, Search, ChevronDown, ChevronRight } from 'lucide-react'
+import { LEARN_PAGES } from './LearnNavigation'
 import { useStore } from '../store/StoreContext'
 import MegaMenu, { RightNavMenu } from './MegaMenu'
 
 interface SiteHeaderProps {
   showLanguageSelector?: boolean
   hideLearnBlog?: boolean
+}
+
+// Mobile Learn Section - Optimized for 100+ SEO pages
+function MobileLearnSection({ setIsMenuOpen }: { setIsMenuOpen: (open: boolean) => void }) {
+  const [expandedCategory, setExpandedCategory] = useState<string | null>(null)
+  const [searchQuery, setSearchQuery] = useState('')
+  const navigate = useNavigate()
+  
+  // Get total page count
+  const totalPages = Object.values(LEARN_PAGES).reduce((sum, cat) => sum + cat.pages.length, 0)
+  
+  // Filter pages by search
+  const filteredPages = searchQuery.trim()
+    ? Object.entries(LEARN_PAGES).flatMap(([key, cat]) => 
+        cat.pages.filter(p => 
+          p.name.toLowerCase().includes(searchQuery.toLowerCase())
+        ).map(p => ({ ...p, category: cat.title }))
+      ).slice(0, 8)
+    : []
+  
+  const handleSearch = () => {
+    if (searchQuery.trim()) {
+      setIsMenuOpen(false)
+      navigate(`/learn?q=${encodeURIComponent(searchQuery)}`)
+    }
+  }
+  
+  // Popular quick links
+  const popularLinks = [
+    { name: 'Compostable', link: '/materials/compostable' },
+    { name: 'Coffee Bags', link: '/products/compostable-coffee-bags' },
+    { name: 'Stand Up', link: '/packaging/stand-up-pouches' },
+    { name: 'Recyclable', link: '/materials/recyclable-mono-pe' },
+    { name: 'Bio-PE', link: '/materials/bio-pe' },
+  ]
+  
+  return (
+    <div className="border-t border-neutral-100 pt-3">
+      {/* Header with page count */}
+      <div className="flex items-center justify-between mb-2">
+        <p className="text-xs font-bold text-primary-600 uppercase flex items-center gap-1">
+          📚 Learn Center
+        </p>
+        <span className="text-[10px] text-neutral-400 bg-neutral-100 px-1.5 py-0.5 rounded">
+          {totalPages} articles
+        </span>
+      </div>
+      
+      {/* Search Box */}
+      <div className="relative mb-2">
+        <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
+        <input
+          type="text"
+          placeholder="Search topics..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+          className="w-full pl-8 pr-3 py-2 text-sm border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+        />
+      </div>
+      
+      {/* Search Results */}
+      {searchQuery.trim() && filteredPages.length > 0 && (
+        <div className="mb-2 bg-white border border-neutral-200 rounded-lg shadow-sm max-h-48 overflow-y-auto">
+          {filteredPages.map((page) => (
+            <Link
+              key={page.link}
+              to={page.link}
+              onClick={() => setIsMenuOpen(false)}
+              className="flex items-center justify-between px-3 py-2 text-sm hover:bg-primary-50 border-b border-neutral-100 last:border-0"
+            >
+              <span className="text-neutral-800 truncate">{page.name}</span>
+              <span className="text-[10px] text-neutral-400 ml-2 flex-shrink-0">{page.category}</span>
+            </Link>
+          ))}
+          {filteredPages.length === 8 && (
+            <button
+              onClick={handleSearch}
+              className="w-full px-3 py-2 text-xs text-primary-600 font-medium hover:bg-primary-50 text-center"
+            >
+              View all results →
+            </button>
+          )}
+        </div>
+      )}
+      
+      {/* Popular Quick Links */}
+      {!searchQuery.trim() && (
+        <div className="flex gap-1.5 overflow-x-auto pb-2 -mx-4 px-4 scrollbar-hide mb-2">
+          {popularLinks.map((item) => (
+            <Link
+              key={item.link}
+              to={item.link}
+              onClick={() => setIsMenuOpen(false)}
+              className="flex-shrink-0 px-2.5 py-1 text-xs bg-primary-50 text-primary-700 rounded-full whitespace-nowrap"
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+      )}
+      
+      {/* Category Accordion */}
+      {!searchQuery.trim() && (
+        <div className="space-y-0.5 max-h-64 overflow-y-auto">
+          {Object.entries(LEARN_PAGES).map(([key, category]) => (
+            <div key={key} className="border border-neutral-100 rounded-lg overflow-hidden">
+              <button
+                onClick={() => setExpandedCategory(expandedCategory === key ? null : key)}
+                className={`w-full flex items-center justify-between px-3 py-2 text-sm font-medium transition-colors ${
+                  expandedCategory === key ? 'bg-primary-50 text-primary-700' : 'bg-white text-neutral-700'
+                }`}
+              >
+                <span className="flex items-center gap-2">
+                  {category.icon}
+                  {category.title}
+                </span>
+                <span className="flex items-center gap-1">
+                  <span className="text-[10px] text-neutral-400">{category.pages.length}</span>
+                  <ChevronDown className={`h-4 w-4 transition-transform ${expandedCategory === key ? 'rotate-180' : ''}`} />
+                </span>
+              </button>
+              
+              {/* Expanded Pages */}
+              {expandedCategory === key && (
+                <div className="bg-neutral-50 border-t border-neutral-100">
+                  {category.pages.map((page) => (
+                    <Link
+                      key={page.link}
+                      to={page.link}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="flex items-center gap-2 px-3 py-1.5 text-sm text-neutral-600 hover:text-primary-600 hover:bg-primary-50"
+                    >
+                      <ChevronRight className="h-3 w-3 text-neutral-400" />
+                      <span className="truncate">{page.name}</span>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+      
+      {/* View All Link */}
+      <Link
+        to="/learn"
+        onClick={() => setIsMenuOpen(false)}
+        className="block mt-2 py-2 text-sm text-primary-600 font-medium text-center bg-primary-50 rounded-lg"
+      >
+        Browse All {totalPages} Articles →
+      </Link>
+    </div>
+  )
 }
 
 export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog = false }: SiteHeaderProps) {
@@ -140,34 +295,9 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
                 </div>
               </div>
               
-              {/* Learn Section - Expandable Categories */}
+              {/* Learn Section - Mobile Optimized with Search & Accordion */}
               {!hideLearnBlog && (
-                <div className="border-t border-neutral-100 pt-3">
-                  <p className="text-xs font-bold text-primary-600 uppercase mb-2 flex items-center gap-1">
-                    📚 Learn Center
-                  </p>
-                  <div className="space-y-2">
-                    <div>
-                      <p className="text-xs font-medium text-neutral-500 uppercase mb-1">Materials</p>
-                      <div className="grid grid-cols-2 gap-1">
-                        <Link to="/materials/compostable" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Compostable</Link>
-                        <Link to="/materials/home-compostable" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Home Compostable</Link>
-                        <Link to="/materials/recyclable-mono-pe" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Recyclable Mono PE</Link>
-                        <Link to="/materials/bio-pe" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Bio-PE</Link>
-                      </div>
-                    </div>
-                    <div>
-                      <p className="text-xs font-medium text-neutral-500 uppercase mb-1">Industries</p>
-                      <div className="grid grid-cols-2 gap-1">
-                        <Link to="/industry/coffee-tea" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Coffee & Tea</Link>
-                        <Link to="/industry/snacks-food" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Snacks & Food</Link>
-                        <Link to="/industry/pet-food" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Pet Food</Link>
-                        <Link to="/industry/supplements-powders" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Supplements</Link>
-                      </div>
-                    </div>
-                    <Link to="/learn" onClick={() => setIsMenuOpen(false)} className="block py-2 text-sm text-primary-600 font-medium">View All Learn Pages →</Link>
-                  </div>
-                </div>
+                <MobileLearnSection setIsMenuOpen={setIsMenuOpen} />
               )}
 
               {/* Blog Section */}
