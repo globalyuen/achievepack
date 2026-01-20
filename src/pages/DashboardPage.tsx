@@ -121,13 +121,45 @@ const DashboardPage: React.FC = () => {
   const [artworkPage, setArtworkPage] = useState(1)
   const [ordersPage, setOrdersPage] = useState(1)
   const ITEMS_PER_PAGE = 9
+  
+  // Artwork search state
+  const [artworkSearchQuery, setArtworkSearchQuery] = useState('')
+  const [analyzingArtworkId, setAnalyzingArtworkId] = useState<string | null>(null)
 
-  // Pagination calculations
-  const artworkTotalPages = Math.max(1, Math.ceil(artworks.length / ITEMS_PER_PAGE))
-  const paginatedArtworks = artworks.slice(
+  // Filter artworks by search query (name + AI analysis keywords)
+  const filteredArtworks = useMemo(() => {
+    if (!artworkSearchQuery.trim()) return artworks
+    const q = artworkSearchQuery.toLowerCase().trim()
+    return artworks.filter(artwork => {
+      // Search in file name
+      if (artwork.name.toLowerCase().includes(q)) return true
+      // Search in AI analysis
+      if (artwork.ai_analysis) {
+        const ai = artwork.ai_analysis
+        if (ai.title?.toLowerCase().includes(q)) return true
+        if (ai.description?.toLowerCase().includes(q)) return true
+        if (ai.category?.toLowerCase().includes(q)) return true
+        if (ai.keywords?.some(k => k.toLowerCase().includes(q))) return true
+        if (ai.colors?.some(c => c.toLowerCase().includes(q))) return true
+        if (ai.content_detected?.some(c => c.toLowerCase().includes(q))) return true
+      }
+      // Search in customer comment
+      if (artwork.customer_comment?.toLowerCase().includes(q)) return true
+      return false
+    })
+  }, [artworks, artworkSearchQuery])
+
+  // Pagination calculations (use filtered artworks)
+  const artworkTotalPages = Math.max(1, Math.ceil(filteredArtworks.length / ITEMS_PER_PAGE))
+  const paginatedArtworks = filteredArtworks.slice(
     (artworkPage - 1) * ITEMS_PER_PAGE,
     artworkPage * ITEMS_PER_PAGE
   )
+  
+  // Reset page when search changes
+  useEffect(() => {
+    setArtworkPage(1)
+  }, [artworkSearchQuery])
   
   // Notification dropdown state
   const [showNotifications, setShowNotifications] = useState(false)
@@ -2377,6 +2409,25 @@ const DashboardPage: React.FC = () => {
                     disabled={uploading}
                   />
                 </label>
+                {/* Artwork Search Box */}
+                <div className="relative flex-1 min-w-[200px] max-w-md">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                  <input
+                    type="text"
+                    value={artworkSearchQuery}
+                    onChange={(e) => setArtworkSearchQuery(e.target.value)}
+                    placeholder="Search artwork by name, color, keyword..."
+                    className="w-full pl-9 pr-8 py-2 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                  />
+                  {artworkSearchQuery && (
+                    <button
+                      onClick={() => setArtworkSearchQuery('')}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                    >
+                      <X className="h-4 w-4" />
+                    </button>
+                  )}
+                </div>
                 {/* Upload Guidelines - Inline Compact */}
                 <details className="bg-gray-100 rounded-lg overflow-hidden">
                   <summary className="px-3 py-2 text-sm text-gray-700 cursor-pointer flex items-center gap-1">
@@ -2389,6 +2440,16 @@ const DashboardPage: React.FC = () => {
                   </div>
                 </details>
               </div>
+
+              {/* Search Results Count */}
+              {artworkSearchQuery && (
+                <div className="text-sm text-gray-500">
+                  Found {filteredArtworks.length} artwork{filteredArtworks.length !== 1 ? 's' : ''} matching "{artworkSearchQuery}"
+                  {filteredArtworks.length === 0 && (
+                    <span className="ml-2 text-gray-400">• Try different keywords or check AI analysis</span>
+                  )}
+                </div>
+              )}
 
               {/* Upload Error */}
               {uploadError && (
@@ -2477,10 +2538,48 @@ const DashboardPage: React.FC = () => {
                                   <span className="mx-1">•</span>
                                   <span>{new Date(artwork.created_at).toLocaleDateString()}</span>
                                 </div>
-                                <span className={`inline-flex items-center gap-1 px-2 py-1 text-[10px] font-medium rounded-full ${statusInfo.color}`}>
-                                  <StatusIcon className="h-3 w-3" />
-                                  {statusInfo.label}
-                                </span>
+                                <div className="flex flex-wrap items-center gap-1.5">
+                                  <span className={`inline-flex items-center gap-1 px-2 py-1 text-[10px] font-medium rounded-full ${statusInfo.color}`}>
+                                    <StatusIcon className="h-3 w-3" />
+                                    {statusInfo.label}
+                                  </span>
+                                  {/* AI Analysis Badge */}
+                                  {artwork.ai_analysis?.analyzed_at ? (
+                                    <span className="inline-flex items-center gap-1 px-2 py-1 text-[10px] font-medium rounded-full bg-indigo-100 text-indigo-700" title={`AI: ${artwork.ai_analysis.category || 'Analyzed'} • ${artwork.ai_analysis.keywords?.slice(0, 3).join(', ') || ''}`}>
+                                      <Sparkles className="h-3 w-3" />
+                                      AI ✓
+                                    </span>
+                                  ) : analyzingArtworkId === artwork.id ? (
+                                    <span className="inline-flex items-center gap-1 px-2 py-1 text-[10px] font-medium rounded-full bg-yellow-100 text-yellow-700">
+                                      <RefreshCw className="h-3 w-3 animate-spin" />
+                                      Analyzing...
+                                    </span>
+                                  ) : (
+                                    <button
+                                      onClick={async () => {
+                                        const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(artwork.file_url || '')
+                                        if (!isImage) {
+                                          alert('AI analysis is only available for image files (PNG, JPG, TIFF, etc.)')
+                                          return
+                                        }
+                                        setAnalyzingArtworkId(artwork.id)
+                                        try {
+                                          await analyzeArtworkWithXAI(artwork.file_url, artwork.id)
+                                          fetchData() // Refresh to show analysis
+                                        } catch (err) {
+                                          console.error('AI analysis failed:', err)
+                                        } finally {
+                                          setAnalyzingArtworkId(null)
+                                        }
+                                      }}
+                                      className="inline-flex items-center gap-1 px-2 py-1 text-[10px] font-medium rounded-full bg-gray-100 text-gray-500 hover:bg-indigo-100 hover:text-indigo-600 transition"
+                                      title="Run AI analysis"
+                                    >
+                                      <Sparkles className="h-3 w-3" />
+                                      Analyze
+                                    </button>
+                                  )}
+                                </div>
                               </div>
                             </div>
                             
