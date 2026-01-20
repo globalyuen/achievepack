@@ -89,10 +89,14 @@ const ArtworkBatchesPage: React.FC = () => {
 
   // Create new batch
   const handleCreateBatch = async () => {
-    if (!newBatchName.trim() || !newBatchPassword.trim()) return
+    if (!newBatchName.trim() || !newBatchPassword.trim()) {
+      alert('Please enter batch name and password')
+      return
+    }
     
     setCreating(true)
     try {
+      console.log('Creating batch...', { name: newBatchName, user: user?.id })
       const { data, error } = await supabase
         .from('artwork_batches')
         .insert({
@@ -104,7 +108,7 @@ const ArtworkBatchesPage: React.FC = () => {
           total_items: 0,
           approved_count: 0,
           rejected_count: 0,
-          created_by: user?.id
+          created_by: user?.id || null
         })
         .select()
         .single()
