@@ -521,3 +521,74 @@ export type ShippingRecord = {
   created_at: string
   updated_at: string
 }
+
+// Artwork Batch for proof review workflow
+export type ArtworkBatch = {
+  id: string
+  batch_name: string              // e.g. "91"
+  password: string                // Admin-set password for customer access
+  status: 'pending' | 'partial' | 'approved' | 'rejected'
+  customer_name?: string          // For email notification
+  customer_email?: string
+  
+  // Overall approval
+  overall_comment?: string
+  approved_by_name?: string
+  approved_by_company?: string
+  approved_at?: string
+  
+  // Stats
+  total_items: number
+  approved_count: number
+  rejected_count: number
+  
+  created_by: string              // Admin user id
+  created_at: string
+  updated_at: string
+}
+
+export type ArtworkBatchItem = {
+  id: string
+  batch_id: string
+  artwork_id?: string             // Link to existing artwork_files
+  
+  // File info (can be standalone or linked)
+  name: string
+  file_url: string
+  file_type?: string
+  file_size?: number
+  
+  // AI Analysis
+  ai_analysis?: {
+    title?: string
+    description?: string
+    keywords?: string[]
+    category?: string
+    colors?: string[]
+    content_detected?: string[]
+    quality_score?: string
+    analyzed_at?: string
+  }
+  
+  // Customer review
+  status: 'pending' | 'approved' | 'rejected' | 'revision_needed'
+  customer_comment?: string
+  
+  // Approval details
+  approval_type?: 'approve_as_is' | 'approve_with_changes' | 'not_approved'
+  
+  // Checklist (customer verified)
+  checklist?: {
+    size?: boolean
+    correct_colours?: boolean
+    eyespot_size_location?: boolean
+    weight_description?: boolean
+    correct_upc_barcode?: boolean
+    roll_direction?: boolean
+    add_ons?: boolean
+    fin_lap_seal?: boolean
+  }
+  
+  created_at: string
+  updated_at: string
+}

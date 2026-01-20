@@ -79,6 +79,12 @@ const sidebarMenuItems = [
     ]
   },
   {
+    group: 'Artwork',
+    items: [
+      { id: 'artwork-batches', label: 'Artwork Batches', icon: Folder, externalLink: '/ctrl-x9k7m/artwork-batches' },
+    ]
+  },
+  {
     group: 'CRM',
     items: [
       { id: 'crm', label: 'CRM / Inquiries', icon: Inbox },

@@ -324,6 +324,10 @@ const NotFoundPage = lazyWithRetry(() => import('./pages/NotFoundPage'))
 // Reviews Page - Lazy loaded
 const ReviewsPage = lazyWithRetry(() => import('./pages/ReviewsPage'))
 
+// Artwork Batch Pages - Lazy loaded
+const ArtworkBatchesPage = lazyWithRetry(() => import('./pages/ArtworkBatchesPage'))
+const ArtworkReviewPage = lazyWithRetry(() => import('./pages/ArtworkReviewPage'))
+
 // Cookie Consent Component
 import CookieConsent from './components/CookieConsent'
 
@@ -359,6 +363,8 @@ createRoot(document.getElementById('root')!).render(
                       <Route path="/ctrl-x9k7m/customer-map" element={<CustomerMapPage />} />
                       <Route path="/image-catalog" element={<ImageCatalogPage />} />
                       <Route path="/ctrl-x9k7m/artwork-hub" element={<ArtworkHubPage />} />
+                      <Route path="/ctrl-x9k7m/artwork-batches" element={<ArtworkBatchesPage />} />
+                      <Route path="/artwork-review/:batchId" element={<ArtworkReviewPage />} />
                       <Route path="/unsubscribe" element={<UnsubscribePage />} />
 
                       {/* Industry Pages */}
