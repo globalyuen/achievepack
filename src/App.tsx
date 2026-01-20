@@ -615,14 +615,14 @@ function App() {
             <div className="lg:hidden flex items-center gap-2">
               <Link
                 to="/store"
-                className="w-10 h-10 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
+                className="w-11 h-11 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors active:scale-95"
               >
                 <ShoppingCart className="h-5 w-5 text-white" />
               </Link>
               {/* Glowing FREE Button */}
               <Link
                 to="/free-service/packaging-design-consultation"
-                className="relative w-10 h-10 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center hover:from-green-600 hover:to-emerald-600 transition-all shadow-lg animate-pulse"
+                className="relative w-11 h-11 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center hover:from-green-600 hover:to-emerald-600 transition-all shadow-lg animate-pulse active:scale-95"
                 style={{ boxShadow: '0 0 15px rgba(16, 185, 129, 0.6)' }}
               >
                 <Gift className="h-5 w-5 text-white" />
@@ -630,129 +630,127 @@ function App() {
               </Link>
               <button
                 onClick={() => startTransition(() => setIsMenuOpen(!isMenuOpen))}
-                className="text-neutral-700 hover:text-primary-500 transition-colors"
+                className="w-11 h-11 flex items-center justify-center rounded-lg hover:bg-neutral-100 active:bg-neutral-200 transition-colors"
                 aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
               >
-                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {isMenuOpen ? <X className="h-6 w-6 text-neutral-700" /> : <Menu className="h-6 w-6 text-neutral-700" />}
               </button>
             </div>
           </div>
         </div>
 
-        {/* Mobile Menu - Complete with Learn & Blog */}
-        {isMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-neutral-200 max-h-[80vh] overflow-y-auto">
-            <div className="px-4 py-4 space-y-3">
-              {/* Shop Section */}
-              <Link to="/store" onClick={() => setIsMenuOpen(false)} className="block w-full text-left text-base font-semibold text-neutral-900 py-2">
-                🛒 Shop All
+      </nav>
+
+      {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <div 
+          className="lg:hidden fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
+          onClick={() => setIsMenuOpen(false)}
+        />
+      )}
+
+      {/* Mobile Menu - Slide-in Panel */}
+      <div className={`lg:hidden fixed top-16 right-0 bottom-0 z-50 w-full max-w-sm bg-white shadow-2xl transform transition-transform duration-300 ease-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className="h-full flex flex-col">
+          <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 pb-24">
+            {/* Shop Section */}
+            <Link to="/store" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 w-full text-left text-base font-semibold text-neutral-900 py-3 px-2 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
+              🛒 Shop All Products
+            </Link>
+            <div className="border-t border-neutral-100 pt-3">
+              <p className="text-xs font-bold text-primary-600 uppercase mb-2 px-2">Pouch Shapes</p>
+              <div className="grid grid-cols-2 gap-1">
+                <Link to="/store?shape=stand-up" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Stand Up Pouch</Link>
+                <Link to="/store?shape=flat-bottom" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Box Bottom Pouch</Link>
+                <Link to="/store?shape=side-gusset" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Side Gusset Pouch</Link>
+                <Link to="/store?shape=3-side-seal" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">3 Side Seal Pouch</Link>
+              </div>
+            </div>
+            
+            {/* Learn Section */}
+            <div className="border-t border-neutral-100 pt-3">
+              <p className="text-xs font-bold text-primary-600 uppercase mb-2 px-2 flex items-center gap-1">
+                📚 Learn Center
+              </p>
+              <div className="space-y-2">
+                <div>
+                  <p className="text-xs font-medium text-neutral-500 uppercase mb-1 px-2">Materials</p>
+                  <div className="grid grid-cols-2 gap-1">
+                    <Link to="/materials/compostable" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Compostable</Link>
+                    <Link to="/materials/home-compostable" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Home Compostable</Link>
+                    <Link to="/materials/recyclable-mono-pe" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Recyclable Mono PE</Link>
+                    <Link to="/materials/bio-pe" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Bio-PE</Link>
+                  </div>
+                </div>
+                <div>
+                  <p className="text-xs font-medium text-neutral-500 uppercase mb-1 px-2">Packaging Shapes</p>
+                  <div className="grid grid-cols-2 gap-1">
+                    <Link to="/packaging/stand-up-pouches" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Stand Up Pouches</Link>
+                    <Link to="/packaging/flat-bottom-bags" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Flat Bottom Bags</Link>
+                    <Link to="/packaging/side-gusset-bags" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Side Gusset Bags</Link>
+                    <Link to="/packaging/spout-pouches" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Spout Pouches</Link>
+                  </div>
+                </div>
+                <div>
+                  <p className="text-xs font-medium text-neutral-500 uppercase mb-1 px-2">Industries</p>
+                  <div className="grid grid-cols-2 gap-1">
+                    <Link to="/industry/coffee-tea" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Coffee & Tea</Link>
+                    <Link to="/industry/snacks-food" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Snacks & Food</Link>
+                    <Link to="/industry/pet-food" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Pet Food</Link>
+                    <Link to="/industry/supplements-powders" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Supplements</Link>
+                  </div>
+                </div>
+                <Link to="/learn" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-primary-600 font-medium rounded-lg hover:bg-primary-50 active:bg-primary-100">View All Learn Pages →</Link>
+              </div>
+            </div>
+
+            {/* Blog Section */}
+            <div className="border-t border-neutral-100 pt-3">
+              <p className="text-xs font-bold text-primary-600 uppercase mb-2 px-2 flex items-center gap-1">
+                📝 Blog
+              </p>
+              <div className="grid grid-cols-2 gap-1">
+                <Link to="/blog" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">All Articles</Link>
+                <Link to="/blog?category=Packaging" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Packaging Tips</Link>
+                <Link to="/blog?category=Sustainability" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Sustainability</Link>
+                <Link to="/blog?category=Industry" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Industry News</Link>
+              </div>
+            </div>
+
+            {/* Other Links */}
+            <div className="border-t border-neutral-100 pt-3">
+              <Link to="/signin" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 py-3 px-2 text-neutral-700 font-medium rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
+                <User className="h-4 w-4" />
+                Customer Center
               </Link>
-              <div className="border-t border-neutral-100 pt-3">
-                <p className="text-xs font-bold text-primary-600 uppercase mb-2">Pouch Shapes</p>
-                <div className="grid grid-cols-2 gap-1">
-                  <Link to="/store?shape=stand-up" onClick={() => setIsMenuOpen(false)} className="block py-2 text-sm text-neutral-700">Stand Up Pouch</Link>
-                  <Link to="/store?shape=flat-bottom" onClick={() => setIsMenuOpen(false)} className="block py-2 text-sm text-neutral-700">Box Bottom Pouch</Link>
-                  <Link to="/store?shape=side-gusset" onClick={() => setIsMenuOpen(false)} className="block py-2 text-sm text-neutral-700">Side Gusset Pouch</Link>
-                  <Link to="/store?shape=3-side-seal" onClick={() => setIsMenuOpen(false)} className="block py-2 text-sm text-neutral-700">3 Side Seal Pouch</Link>
-                </div>
+            </div>
+            
+            {/* Mobile Language Options */}
+            <div className="py-2 border-t border-neutral-100">
+              <div className="text-xs text-neutral-500 font-semibold mb-2 uppercase px-2">Language</div>
+              <div className="grid grid-cols-4 gap-2 px-2">
+                <button onClick={() => changeLanguage('en')} className={`text-sm py-2 px-3 rounded-lg ${i18n.language === 'en' ? 'bg-primary-100 text-primary-600 font-medium' : 'text-neutral-600 hover:bg-neutral-50'}`}>EN</button>
+                <button onClick={() => changeLanguage('fr')} className={`text-sm py-2 px-3 rounded-lg ${i18n.language === 'fr' ? 'bg-primary-100 text-primary-600 font-medium' : 'text-neutral-600 hover:bg-neutral-50'}`}>FR</button>
+                <button onClick={() => changeLanguage('es')} className={`text-sm py-2 px-3 rounded-lg ${i18n.language === 'es' ? 'bg-primary-100 text-primary-600 font-medium' : 'text-neutral-600 hover:bg-neutral-50'}`}>ES</button>
+                <button onClick={() => changeLanguage('zh-TW')} className={`text-sm py-2 px-3 rounded-lg ${i18n.language === 'zh-TW' ? 'bg-primary-100 text-primary-600 font-medium' : 'text-neutral-600 hover:bg-neutral-50'}`}>中文</button>
               </div>
-              
-              {/* Learn Section - Expandable Categories */}
-              <div className="border-t border-neutral-100 pt-3">
-                <p className="text-xs font-bold text-primary-600 uppercase mb-2 flex items-center gap-1">
-                  📚 Learn Center
-                </p>
-                <div className="space-y-2">
-                  <div>
-                    <p className="text-xs font-medium text-neutral-500 uppercase mb-1">Materials</p>
-                    <div className="grid grid-cols-2 gap-1">
-                      <Link to="/materials/compostable" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Compostable</Link>
-                      <Link to="/materials/home-compostable" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Home Compostable</Link>
-                      <Link to="/materials/recyclable-mono-pe" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Recyclable Mono PE</Link>
-                      <Link to="/materials/bio-pe" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Bio-PE</Link>
-                    </div>
-                  </div>
-                  <div>
-                    <p className="text-xs font-medium text-neutral-500 uppercase mb-1">Packaging Shapes</p>
-                    <div className="grid grid-cols-2 gap-1">
-                      <Link to="/packaging/stand-up-pouches" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Stand Up Pouches</Link>
-                      <Link to="/packaging/flat-bottom-bags" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Flat Bottom Bags</Link>
-                      <Link to="/packaging/side-gusset-bags" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Side Gusset Bags</Link>
-                      <Link to="/packaging/spout-pouches" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Spout Pouches</Link>
-                    </div>
-                  </div>
-                  <div>
-                    <p className="text-xs font-medium text-neutral-500 uppercase mb-1">Industries</p>
-                    <div className="grid grid-cols-2 gap-1">
-                      <Link to="/industry/coffee-tea" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Coffee & Tea</Link>
-                      <Link to="/industry/snacks-food" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Snacks & Food</Link>
-                      <Link to="/industry/pet-food" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Pet Food</Link>
-                      <Link to="/industry/supplements-powders" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Supplements</Link>
-                    </div>
-                  </div>
-                  <div>
-                    <p className="text-xs font-medium text-neutral-500 uppercase mb-1">Solutions</p>
-                    <div className="grid grid-cols-2 gap-1">
-                      <Link to="/solutions/startup-founder" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Startup Founder</Link>
-                      <Link to="/solutions/ecommerce-brand" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Ecommerce Brand</Link>
-                      <Link to="/solutions/coffee-roaster" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Coffee Roaster</Link>
-                      <Link to="/solutions/food-manufacturer" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Food Manufacturer</Link>
-                    </div>
-                  </div>
-                  <div>
-                    <p className="text-xs font-medium text-neutral-500 uppercase mb-1">Features</p>
-                    <div className="grid grid-cols-2 gap-1">
-                      <Link to="/printing/digital-printing" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Digital Printing</Link>
-                      <Link to="/features/reclosure-options" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Reclosure Options</Link>
-                      <Link to="/features/barrier-options" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Barrier Options</Link>
-                      <Link to="/features/surface-finish" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Surface Finishes</Link>
-                    </div>
-                  </div>
-                  <Link to="/learn" onClick={() => setIsMenuOpen(false)} className="block py-2 text-sm text-primary-600 font-medium">View All Learn Pages →</Link>
-                </div>
-              </div>
-
-              {/* Blog Section */}
-              <div className="border-t border-neutral-100 pt-3">
-                <p className="text-xs font-bold text-primary-600 uppercase mb-2 flex items-center gap-1">
-                  📝 Blog
-                </p>
-                <div className="grid grid-cols-2 gap-1">
-                  <Link to="/blog" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">All Articles</Link>
-                  <Link to="/blog?category=Packaging" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Packaging Tips</Link>
-                  <Link to="/blog?category=Sustainability" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Sustainability</Link>
-                  <Link to="/blog?category=Industry" onClick={() => setIsMenuOpen(false)} className="block py-1 text-sm text-neutral-700">Industry News</Link>
-                </div>
-              </div>
-
-              {/* Other Links */}
-              <div className="border-t border-neutral-100 pt-3">
-                <Link to="/signin" onClick={() => setIsMenuOpen(false)} className="block py-2 text-neutral-700 font-medium">Customer Center</Link>
-              </div>
-              
-              {/* Mobile Language Options */}
-              <div className="py-2 border-t border-neutral-100 my-2">
-                <div className="text-xs text-neutral-500 font-semibold mb-2 uppercase px-1">Language</div>
-                <div className="grid grid-cols-4 gap-2">
-                  <button onClick={() => changeLanguage('en')} className={`text-xs py-1 px-2 rounded ${i18n.language === 'en' ? 'bg-primary-50 text-primary-600' : 'text-neutral-600'}`}>EN</button>
-                  <button onClick={() => changeLanguage('fr')} className={`text-xs py-1 px-2 rounded ${i18n.language === 'fr' ? 'bg-primary-50 text-primary-600' : 'text-neutral-600'}`}>FR</button>
-                  <button onClick={() => changeLanguage('es')} className={`text-xs py-1 px-2 rounded ${i18n.language === 'es' ? 'bg-primary-50 text-primary-600' : 'text-neutral-600'}`}>ES</button>
-                  <button onClick={() => changeLanguage('zh-TW')} className={`text-xs py-1 px-2 rounded ${i18n.language === 'zh-TW' ? 'bg-primary-50 text-primary-600' : 'text-neutral-600'}`}>中文</button>
-                </div>
-              </div>
-
-              <a
-                href="https://calendly.com/30-min-free-packaging-consultancy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-colors mt-4 block text-center"
-              >
-                Book Free Consultation
-              </a>
             </div>
           </div>
-        )}
-      </nav>
+
+          {/* Fixed Bottom CTA */}
+          <div className="absolute bottom-0 left-0 right-0 p-4 bg-white border-t border-neutral-100 shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
+            <a
+              href="https://calendly.com/30-min-free-packaging-consultancy"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMenuOpen(false)}
+              className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-4 rounded-xl font-semibold text-center shadow-lg hover:from-green-600 hover:to-emerald-600 active:scale-[0.98] transition-all"
+            >
+              📅 Book Free Consultation
+            </a>
+          </div>
+        </div>
+      </div>
 
       {/* Hero Section */}
       <section id="hero" className="pt-24 pb-16 relative overflow-hidden">
