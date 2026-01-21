@@ -52,7 +52,10 @@ const ArtworkBatchesPage: React.FC = () => {
   const [showJsonModal, setShowJsonModal] = useState(false)
   const [selectedItemJson, setSelectedItemJson] = useState<ArtworkBatchItem | null>(null)
 
-  // Fetch batches
+  // Batch item counts (actual count from database)
+  const [batchItemCounts, setBatchItemCounts] = useState<Record<string, number>>({})
+
+  // Fetch batches with actual item counts
   const fetchBatches = useCallback(async () => {
     setLoading(true)
     try {
@@ -63,6 +66,32 @@ const ArtworkBatchesPage: React.FC = () => {
       
       if (error) throw error
       setBatches(data || [])
+
+      // Fetch actual item counts for each batch
+      if (data && data.length > 0) {
+        const { data: countData, error: countError } = await supabase
+          .from('artwork_batch_items')
+          .select('batch_id')
+        
+        if (!countError && countData) {
+          const counts: Record<string, number> = {}
+          countData.forEach(item => {
+            counts[item.batch_id] = (counts[item.batch_id] || 0) + 1
+          })
+          setBatchItemCounts(counts)
+          
+          // Also update total_items in database for any out-of-sync batches
+          data.forEach(async (batch) => {
+            const actualCount = counts[batch.id] || 0
+            if (batch.total_items !== actualCount) {
+              await supabase
+                .from('artwork_batches')
+                .update({ total_items: actualCount })
+                .eq('id', batch.id)
+            }
+          })
+        }
+      }
     } catch (err) {
       console.error('Error fetching batches:', err)
     } finally {
@@ -595,7 +624,7 @@ const ArtworkBatchesPage: React.FC = () => {
                         <ChevronRight className="h-4 w-4 text-gray-400" />
                       </div>
                       <div className="flex items-center gap-2 mt-1">
-                        <span className="text-xs text-gray-500">{batch.total_items} files</span>
+                        <span className="text-xs text-gray-500">{batchItemCounts[batch.id] ?? batch.total_items} files</span>
                         <span className="text-xs text-gray-400">•</span>
                         {getStatusBadge(batch.status)}
                       </div>
@@ -619,7 +648,7 @@ const ArtworkBatchesPage: React.FC = () => {
                     <div>
                       <h2 className="text-xl font-bold text-gray-900">Batch {selectedBatch.batch_name}</h2>
                       <p className="text-sm text-gray-500 mt-1">
-                        {selectedBatch.total_items} artworks • Created {new Date(selectedBatch.created_at).toLocaleDateString()}
+                        {batchItems.length} artworks • Created {new Date(selectedBatch.created_at).toLocaleDateString()}
                       </p>
                       {selectedBatch.customer_name && (
                         <p className="text-sm text-gray-600 mt-1">
