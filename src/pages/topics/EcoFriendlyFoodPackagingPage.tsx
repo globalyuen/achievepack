@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Leaf, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Globe, Factory, Recycle } from 'lucide-react'
+import { Leaf, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Globe, Factory, Recycle, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -252,6 +252,130 @@ const EcoFriendlyFoodPackagingPage: React.FC = () => {
               <Package className="h-5 w-5" />
               Order Sample Pack
             </Link>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">探索各行業如何運用環保食品包裝提升品牌價值。</p>
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+              <div className="flex items-center gap-2 mb-3">
+                <ShoppingBag className="h-5 w-5 text-green-600" />
+                <h4 className="font-semibold text-green-800">有機健康食品</h4>
+              </div>
+              <p className="text-sm text-green-700">有機品牌使用可堆肥包裝強化天然定位，消費者認同度提升40%。</p>
+            </div>
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-5 rounded-xl border border-blue-200">
+              <div className="flex items-center gap-2 mb-3">
+                <TrendingUp className="h-5 w-5 text-blue-600" />
+                <h4 className="font-semibold text-blue-800">連鎖超市通路</h4>
+              </div>
+              <p className="text-sm text-blue-700">大型零售商要求可回收包裝，符合EPR法規並減少塑料稅負擔。</p>
+            </div>
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="h-5 w-5 text-purple-600" />
+                <h4 className="font-semibold text-purple-800">高端精品食品</h4>
+              </div>
+              <p className="text-sm text-purple-700">精品食品品牌採用生物基材料展現ESG承諾，吸引環保意識消費者。</p>
+            </div>
+          </div>
+          <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
+            <p className="text-sm text-amber-800"><strong>成功案例：</strong>某有機零食品牌轉用TUV認證可堆肥包裝後，在Whole Foods的銷售增長35%，品牌好感度提升28%。</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'market-data',
+      title: '市場數據 Market Intelligence',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">環保食品包裝市場持續高速成長。</p>
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-primary-600">73%</div>
+              <p className="text-sm text-neutral-600 mt-1">消費者願為環保包裝支付溢價</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-green-600">9.2%</div>
+              <p className="text-sm text-neutral-600 mt-1">可持續包裝市場年複合增長率</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-blue-600">85%</div>
+              <p className="text-sm text-neutral-600 mt-1">零售商已設定包裝可持續目標</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-purple-600">2027</div>
+              <p className="text-sm text-neutral-600 mt-1">歐盟全面包裝法規生效年份</p>
+            </div>
+          </div>
+          <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
+            <h4 className="font-semibold text-neutral-800 mb-2">市場趨勢分析</h4>
+            <p className="text-sm text-neutral-600">食品行業正經歷包裝革命。消費者對greenwashing越來越敏感，要求第三方認證背書。擁有明確環保包裝策略的品牌在市場中獲得明顯競爭優勢。</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">比較不同環保材料特性，選擇最適合您食品的包裝方案。</p>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse bg-white rounded-lg overflow-hidden">
+              <thead className="bg-primary-600 text-white">
+                <tr>
+                  <th className="p-3 text-left text-sm">材料類型</th>
+                  <th className="p-3 text-left text-sm">阻隔性</th>
+                  <th className="p-3 text-left text-sm">保質期</th>
+                  <th className="p-3 text-left text-sm">最適食品</th>
+                  <th className="p-3 text-left text-sm">價格區間</th>
+                </tr>
+              </thead>
+              <tbody className="text-sm">
+                <tr className="border-b border-neutral-200">
+                  <td className="p-3 font-medium">可堆肥材料</td>
+                  <td className="p-3"><span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">中高</span></td>
+                  <td className="p-3">12-18個月</td>
+                  <td className="p-3">有機零食、天然食品</td>
+                  <td className="p-3">$$$</td>
+                </tr>
+                <tr className="border-b border-neutral-200 bg-neutral-50">
+                  <td className="p-3 font-medium">可回收Mono-PE</td>
+                  <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">高</span></td>
+                  <td className="p-3">18-24個月</td>
+                  <td className="p-3">薯片、堅果、餅乾</td>
+                  <td className="p-3">$$</td>
+                </tr>
+                <tr className="border-b border-neutral-200">
+                  <td className="p-3 font-medium">生物基PE</td>
+                  <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">高</span></td>
+                  <td className="p-3">18-24個月</td>
+                  <td className="p-3">主流食品品牌</td>
+                  <td className="p-3">$$$</td>
+                </tr>
+                <tr className="border-b border-neutral-200 bg-neutral-50">
+                  <td className="p-3 font-medium">PCR再生塑料</td>
+                  <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">高</span></td>
+                  <td className="p-3">18-24個月</td>
+                  <td className="p-3">大眾市場食品</td>
+                  <td className="p-3">$$</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+            <p className="text-sm text-green-800"><strong>專家建議：</strong>選擇環保食品包裝時，首先考慮產品的阻隔需求和保質期要求，其次評估目標市場的回收基礎設施和法規要求，最後平衡成本與品牌定位。</p>
           </div>
         </div>
       )

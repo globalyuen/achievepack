@@ -1,5 +1,5 @@
 import React from 'react'
-import { Package, Droplets, CheckCircle, Shield, Utensils, MessageCircle, Target, Calendar, Mail, Download } from 'lucide-react'
+import { Package, Droplets, CheckCircle, Shield, Utensils, MessageCircle, Target, Calendar, Mail, Download, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Leaf } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
@@ -221,6 +221,216 @@ const SaucesCondimentsPage: React.FC = () => {
               <Link to="/contact" className="block w-full bg-white text-red-600 px-4 py-2 rounded-lg font-semibold hover:bg-red-50 transition">
                 Request Samples
               </Link>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-red-50 to-orange-50 p-5 rounded-xl border border-red-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Droplets className="h-5 w-5 text-red-600" />
+                <h4 className="font-semibold text-neutral-900">Artisan Sauce Brands</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">Hot sauce, BBQ, and specialty sauce brands requiring premium, leak-proof packaging.</p>
+              <ul className="text-xs text-neutral-500 space-y-1">
+                <li>• Hot sauce & chili sauce</li>
+                <li>• BBQ & marinades</li>
+                <li>• Pasta sauce & pesto</li>
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-amber-50 to-yellow-50 p-5 rounded-xl border border-amber-200">
+              <div className="flex items-center gap-2 mb-3">
+                <ShoppingBag className="h-5 w-5 text-amber-600" />
+                <h4 className="font-semibold text-neutral-900">Natural Food Companies</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">Organic honey, nut butters, and natural spreads seeking sustainable packaging.</p>
+              <ul className="text-xs text-neutral-500 space-y-1">
+                <li>• Honey & maple syrup</li>
+                <li>• Nut butters & tahini</li>
+                <li>• Jams & preserves</li>
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="h-5 w-5 text-green-600" />
+                <h4 className="font-semibold text-neutral-900">Eco-Conscious Brands</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">Brands using refill pouches to reduce plastic waste and appeal to eco-conscious consumers.</p>
+              <ul className="text-xs text-neutral-500 space-y-1">
+                <li>• Refill pouches for bottles</li>
+                <li>• Bulk packaging</li>
+                <li>• Zero-waste products</li>
+              </ul>
+            </div>
+          </div>
+          <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+            <h4 className="font-semibold text-neutral-900 mb-3">🏆 Customer Success: Mama's Hot Sauce Co.</h4>
+            <p className="text-sm text-neutral-600 mb-3">Switched from glass bottles to spout pouches, reducing packaging costs by 40% and shipping weight by 70%, while achieving Whole Foods placement.</p>
+            <div className="flex flex-wrap gap-4 text-xs">
+              <span className="bg-white px-3 py-1 rounded-full border">✓ 40% Cost Reduction</span>
+              <span className="bg-white px-3 py-1 rounded-full border">✓ Whole Foods Placement</span>
+              <span className="bg-white px-3 py-1 rounded-full border">✓ 70% Lighter Shipping</span>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'market-data',
+      title: '市場數據 Market Intelligence',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-gradient-to-br from-primary-500 to-primary-600 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">$245B</div>
+              <div className="text-sm opacity-90">Sauces & Condiments 2027</div>
+            </div>
+            <div className="bg-gradient-to-br from-red-500 to-orange-500 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">5.8%</div>
+              <div className="text-sm opacity-90">CAGR 2024-2027</div>
+            </div>
+            <div className="bg-gradient-to-br from-green-500 to-emerald-500 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">80%</div>
+              <div className="text-sm opacity-90">Less Plastic vs Bottles</div>
+            </div>
+            <div className="bg-gradient-to-br from-blue-500 to-indigo-500 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">56%</div>
+              <div className="text-sm opacity-90">Prefer Refill Pouches</div>
+            </div>
+          </div>
+          <div className="bg-white p-4 rounded-xl border border-neutral-200">
+            <h4 className="font-semibold text-neutral-900 mb-3">Sauce Packaging Format Comparison</h4>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-neutral-200">
+                    <th className="text-left py-2 font-medium">Format</th>
+                    <th className="text-center py-2 font-medium">Plastic Use</th>
+                    <th className="text-center py-2 font-medium">Shipping Weight</th>
+                    <th className="text-center py-2 font-medium">Cost Index</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">Glass Bottle</td>
+                    <td className="text-center py-2">None</td>
+                    <td className="text-center py-2">Heavy (100%)</td>
+                    <td className="text-center py-2">1.5x</td>
+                  </tr>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">Plastic Bottle</td>
+                    <td className="text-center py-2">High</td>
+                    <td className="text-center py-2">Medium (50%)</td>
+                    <td className="text-center py-2">1.0x</td>
+                  </tr>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">Spout Pouch</td>
+                    <td className="text-center py-2">80% Less</td>
+                    <td className="text-center py-2">Light (30%)</td>
+                    <td className="text-center py-2">0.8x</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div className="bg-green-50 p-4 rounded-xl border border-green-200">
+            <h4 className="font-semibold text-green-800 mb-2">🌍 Environmental Impact</h4>
+            <p className="text-sm text-green-700">Switching from bottles to spout pouches reduces packaging plastic by 80%, shipping weight by 70%, and carbon footprint by 60%. Refill pouches extend these benefits even further.</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border border-neutral-200 rounded-xl overflow-hidden">
+              <thead className="bg-neutral-100">
+                <tr>
+                  <th className="text-left p-3 font-semibold">Feature</th>
+                  <th className="text-center p-3 font-semibold text-red-700">Spout Pouch</th>
+                  <th className="text-center p-3 font-semibold text-blue-700">Refill Pouch</th>
+                  <th className="text-center p-3 font-semibold text-green-700">Sachet</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Best For</td>
+                  <td className="text-center p-3">✅ Retail sauces</td>
+                  <td className="text-center p-3">✅ Eco refills</td>
+                  <td className="text-center p-3">✅ Foodservice</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Size Range</td>
+                  <td className="text-center p-3">100ml - 2L</td>
+                  <td className="text-center p-3">200ml - 2L</td>
+                  <td className="text-center p-3">10ml - 50ml</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Hot-Fill Capable</td>
+                  <td className="text-center p-3">✅ Up to 85°C</td>
+                  <td className="text-center p-3">✅ Up to 85°C</td>
+                  <td className="text-center p-3">✅ Up to 85°C</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Retort Option</td>
+                  <td className="text-center p-3">✅ 121°C</td>
+                  <td className="text-center p-3">✅ 121°C</td>
+                  <td className="text-center p-3">✅ 121°C</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Reclosable</td>
+                  <td className="text-center p-3">✅ Cap closure</td>
+                  <td className="text-center p-3">❌ Single use</td>
+                  <td className="text-center p-3">❌ Single use</td>
+                </tr>
+                <tr>
+                  <td className="p-3 font-medium">Price Point</td>
+                  <td className="text-center p-3">💰💰💰</td>
+                  <td className="text-center p-3">💰💰</td>
+                  <td className="text-center p-3">💰</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="bg-amber-50 p-5 rounded-xl border border-amber-200">
+            <h4 className="font-semibold text-amber-800 mb-3">💡 Decision Guide for Sauce Brands</h4>
+            <div className="grid md:grid-cols-3 gap-4 text-sm">
+              <div>
+                <p className="font-medium text-amber-900">Choose Spout Pouch if:</p>
+                <ul className="text-amber-700 mt-1 space-y-1">
+                  <li>• Primary retail product</li>
+                  <li>• Multiple uses needed</li>
+                  <li>• Premium positioning</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-amber-900">Choose Refill Pouch if:</p>
+                <ul className="text-amber-700 mt-1 space-y-1">
+                  <li>• Eco-conscious branding</li>
+                  <li>• Subscription model</li>
+                  <li>• Bottle refill system</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-amber-900">Choose Sachets if:</p>
+                <ul className="text-amber-700 mt-1 space-y-1">
+                  <li>• Foodservice distribution</li>
+                  <li>• Single-serve portions</li>
+                  <li>• Travel/sample sizes</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Printer, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Palette, Layers, Image } from 'lucide-react'
+import { Printer, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Palette, Layers, Image, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -242,6 +242,183 @@ const DigitalPrintingEcoPackagingPage: React.FC = () => {
               <Printer className="h-5 w-5" />
               Explore Print Options
             </Link>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Digital printing on eco packaging serves <strong>brands across industries</strong> requiring low MOQ, fast turnaround, and premium quality.
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-purple-50 to-indigo-50 p-5 rounded-xl border border-purple-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Printer className="h-5 w-5 text-purple-600" />
+                <h4 className="font-semibold text-purple-800">Multi-SKU Brands</h4>
+              </div>
+              <p className="text-sm text-purple-700">Brands with many product variations benefiting from no plate costs and easy design changes.</p>
+            </div>
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Palette className="h-5 w-5 text-green-600" />
+                <h4 className="font-semibold text-green-800">Premium Food Brands</h4>
+              </div>
+              <p className="text-sm text-green-700">Artisan products requiring photo-quality graphics on sustainable packaging.</p>
+            </div>
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Zap className="h-5 w-5 text-amber-600" />
+                <h4 className="font-semibold text-amber-800">Startups & Testing</h4>
+              </div>
+              <p className="text-sm text-amber-700">New brands testing packaging concepts with low risk through small batch digital runs.</p>
+            </div>
+          </div>
+
+          <div className="bg-neutral-50 p-5 rounded-xl border border-neutral-200">
+            <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+              <Sparkles className="h-5 w-5 text-primary-600" />
+              Customer Success: Specialty Tea Brand
+            </h4>
+            <p className="text-sm text-neutral-600 mb-3">
+              A specialty tea company launched 12 SKUs simultaneously using digital printing on compostable pouches. Without plate costs, they saved $6,000 in setup fees and got all products to market in 15 days.
+            </p>
+            <div className="flex gap-4 text-xs">
+              <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full">12 SKUs Launched</span>
+              <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full">$6K Saved</span>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'market-data',
+      title: '市場數據 Market Intelligence',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Understand the <strong>digital printing and sustainable packaging market</strong> to optimize your production strategy.
+          </p>
+          
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-primary-600 mb-1">42%</div>
+              <div className="text-sm text-neutral-600">Growth in digital package printing</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-purple-600 mb-1">30%</div>
+              <div className="text-sm text-neutral-600">Less waste than flexographic</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-green-600 mb-1">1200</div>
+              <div className="text-sm text-neutral-600">DPI resolution quality</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-amber-600 mb-1">10-15</div>
+              <div className="text-sm text-neutral-600">Days turnaround time</div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-r from-purple-50 to-indigo-50 p-5 rounded-xl border border-purple-200">
+            <h4 className="font-semibold text-purple-800 mb-3 flex items-center gap-2">
+              <TrendingUp className="h-5 w-5" />
+              Digital Printing Trends 2024-2026
+            </h4>
+            <div className="grid md:grid-cols-2 gap-4 text-sm">
+              <div>
+                <h5 className="font-medium text-purple-700 mb-2">Technology Advances</h5>
+                <ul className="text-purple-600 space-y-1">
+                  <li>• HP Indigo expanding eco substrate range</li>
+                  <li>• Water-based digital inks development</li>
+                  <li>• Variable data for personalization</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-medium text-purple-700 mb-2">Market Shifts</h5>
+                <ul className="text-purple-600 space-y-1">
+                  <li>• Short runs becoming standard</li>
+                  <li>• Brands demanding faster turnaround</li>
+                  <li>• Design iteration as competitive advantage</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Compare <strong>digital printable eco materials</strong> for optimal print results and sustainability.
+          </p>
+          
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-primary-600 text-white">
+                  <th className="p-3 text-left rounded-tl-lg">Material</th>
+                  <th className="p-3 text-left">Print Quality</th>
+                  <th className="p-3 text-left">Color Vibrancy</th>
+                  <th className="p-3 text-left">Finish Options</th>
+                  <th className="p-3 text-left">Sustainability</th>
+                  <th className="p-3 text-left rounded-tr-lg">Cost Level</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-neutral-200 hover:bg-neutral-50">
+                  <td className="p-3 font-medium">PLA Clear Film</td>
+                  <td className="p-3"><span className="text-green-600">★★★★★</span></td>
+                  <td className="p-3">Excellent</td>
+                  <td className="p-3">All finishes</td>
+                  <td className="p-3"><span className="text-green-600">✓ Compostable</span></td>
+                  <td className="p-3">$$$</td>
+                </tr>
+                <tr className="border-b border-neutral-200 bg-neutral-50 hover:bg-neutral-100">
+                  <td className="p-3 font-medium">Kraft Paper</td>
+                  <td className="p-3"><span className="text-green-600">★★★★</span></td>
+                  <td className="p-3">Warm, natural</td>
+                  <td className="p-3">Foil, emboss</td>
+                  <td className="p-3"><span className="text-green-600">✓ Compostable</span></td>
+                  <td className="p-3">$$</td>
+                </tr>
+                <tr className="border-b border-neutral-200 hover:bg-neutral-50">
+                  <td className="p-3 font-medium">Mono-PE</td>
+                  <td className="p-3"><span className="text-green-600">★★★★★</span></td>
+                  <td className="p-3">Maximum</td>
+                  <td className="p-3">All finishes</td>
+                  <td className="p-3"><span className="text-green-600">✓ Recyclable</span></td>
+                  <td className="p-3">$$</td>
+                </tr>
+                <tr className="hover:bg-neutral-50">
+                  <td className="p-3 font-medium">PCR Film</td>
+                  <td className="p-3"><span className="text-green-600">★★★★</span></td>
+                  <td className="p-3">Good (w/ white)</td>
+                  <td className="p-3">Most finishes</td>
+                  <td className="p-3"><span className="text-green-600">✓ Recycled content</span></td>
+                  <td className="p-3">$$</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="bg-purple-50 p-5 rounded-xl border border-purple-200">
+            <h4 className="font-semibold text-purple-800 mb-2 flex items-center gap-2">
+              <ShoppingBag className="h-5 w-5" />
+              Print Selection Advice
+            </h4>
+            <p className="text-sm text-purple-700">
+              For best digital print results: <strong>PLA Clear or Mono-PE</strong> for vibrant photo-quality images, <strong>Kraft Paper</strong> for natural aesthetics with excellent foil stamping. All materials print beautifully from our HP Indigo presses.
+            </p>
           </div>
         </div>
       )

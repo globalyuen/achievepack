@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Sparkles, Eye, Package, CheckCircle, Clock, Target, Shield, Calendar, Mail, Download, X, ChevronLeft, ChevronRight, Image } from 'lucide-react'
+import { Sparkles, Eye, Package, CheckCircle, Clock, Target, Shield, Calendar, Mail, Download, X, ChevronLeft, ChevronRight, Image, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
@@ -323,6 +323,158 @@ const SurfaceFinishPage: React.FC = () => {
                 Request Samples
               </Link>
             </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">不同行業對表面處理有不同需求，選擇正確的塗層是品牌差異化的關鍵。</p>
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-amber-50 to-yellow-50 p-5 rounded-xl border border-amber-200">
+              <div className="flex items-center gap-2 mb-3">
+                <ShoppingBag className="h-5 w-5 text-amber-600" />
+                <h4 className="font-semibold text-amber-800">高端食品品牌</h4>
+              </div>
+              <p className="text-sm text-amber-700 mb-3">軟觸感塗層、燙金工藝提升品牌價値感。</p>
+              <div className="text-xs text-amber-600 bg-amber-100 px-2 py-1 rounded inline-block">佔比: 40%</div>
+            </div>
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="h-5 w-5 text-green-600" />
+                <h4 className="font-semibold text-green-800">有機天然品牌</h4>
+              </div>
+              <p className="text-sm text-green-700 mb-3">啞光處理、牌紙外觀傳達自然環保理念。</p>
+              <div className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded inline-block">佔比: 35%</div>
+            </div>
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-5 rounded-xl border border-blue-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Package className="h-5 w-5 text-blue-600" />
+                <h4 className="font-semibold text-blue-800">零售食品</h4>
+              </div>
+              <p className="text-sm text-blue-700 mb-3">光面處理、鮮豔色彩增強貨架吸引力。</p>
+              <div className="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded inline-block">佔比: 25%</div>
+            </div>
+          </div>
+          <div className="bg-neutral-50 p-4 rounded-lg mt-4">
+            <h5 className="font-semibold text-neutral-800 mb-2">客戶成功案例</h5>
+            <p className="text-sm text-neutral-600">「從普通光面升級到軟觸感+燙金LOGO後，我們的產品零售價提升了15%，客戶評價高度賛賞包裝質感。」— 精品堅果品牌創辦人</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'market-data',
+      title: '市場數據 Market Intelligence',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">高端表面處理市場持續增長，消費者對包裝質感的要求越來越高。</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold text-primary-600 mb-1">67%</div>
+              <div className="text-xs text-neutral-500">消費者重視包裝觸感</div>
+              <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
+                <TrendingUp className="h-3 w-3" />
+                <span>增長中</span>
+              </div>
+            </div>
+            <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold text-blue-600 mb-1">$12B</div>
+              <div className="text-xs text-neutral-500">全球包裝印刷加工市場</div>
+              <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
+                <TrendingUp className="h-3 w-3" />
+                <span>年增長 4.5%</span>
+              </div>
+            </div>
+            <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold text-green-600 mb-1">85%</div>
+              <div className="text-xs text-neutral-500">品牌重視包裝差異化</div>
+              <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
+                <TrendingUp className="h-3 w-3" />
+                <span>穩定</span>
+              </div>
+            </div>
+            <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold text-amber-600 mb-1">25%</div>
+              <div className="text-xs text-neutral-500">軟觸感塗層增長</div>
+              <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
+                <TrendingUp className="h-3 w-3" />
+                <span>快速增長</span>
+              </div>
+            </div>
+          </div>
+          <div className="bg-blue-50 p-4 rounded-lg">
+            <h5 className="font-semibold text-blue-800 mb-2">市場趨勢洞察</h5>
+            <p className="text-sm text-blue-700">軟觸感塗層因其獨特的觸感體驗成為高端品牌新寵，尤其在咖啡、堅果、寵物食品等類別增長明顯，預計到2026年市場份額將達剀30%。</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">不同表面處理的效果對比，幫助您選擇最適合的解決方案。</p>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-neutral-100">
+                  <th className="text-left p-3 border font-semibold">表面處理</th>
+                  <th className="text-left p-3 border font-semibold">視覺效果</th>
+                  <th className="text-left p-3 border font-semibold">觸感體驗</th>
+                  <th className="text-left p-3 border font-semibold">適用品牌</th>
+                  <th className="text-left p-3 border font-semibold">成本影響</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="hover:bg-green-50">
+                  <td className="p-3 border"><span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-medium">光面</span></td>
+                  <td className="p-3 border">鮮豔、高光澤</td>
+                  <td className="p-3 border">平滑</td>
+                  <td className="p-3 border">零售食品、飲料</td>
+                  <td className="p-3 border text-green-600 font-medium">基準價</td>
+                </tr>
+                <tr className="hover:bg-blue-50">
+                  <td className="p-3 border"><span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium">啞光</span></td>
+                  <td className="p-3 border">優雅、精緻</td>
+                  <td className="p-3 border">平滑</td>
+                  <td className="p-3 border">高端品牌、有機</td>
+                  <td className="p-3 border text-green-600 font-medium">基準價</td>
+                </tr>
+                <tr className="hover:bg-amber-50">
+                  <td className="p-3 border"><span className="px-2 py-1 bg-amber-100 text-amber-700 rounded text-xs font-medium">軟觸感</span></td>
+                  <td className="p-3 border">高級、奠重</td>
+                  <td className="p-3 border">絲絨、濡滑</td>
+                  <td className="p-3 border">奢華品牌、美妆</td>
+                  <td className="p-3 border text-amber-600 font-medium">+10-15%</td>
+                </tr>
+                <tr className="hover:bg-purple-50">
+                  <td className="p-3 border"><span className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-medium">局部UV</span></td>
+                  <td className="p-3 border">對比、突出</td>
+                  <td className="p-3 border">紋理</td>
+                  <td className="p-3 border">品牌強調</td>
+                  <td className="p-3 border text-purple-600 font-medium">+$0.02-0.05/個</td>
+                </tr>
+                <tr className="hover:bg-primary-50">
+                  <td className="p-3 border"><span className="px-2 py-1 bg-primary-100 text-primary-700 rounded text-xs font-medium">燙金</span></td>
+                  <td className="p-3 border">金屬、奢華</td>
+                  <td className="p-3 border">光滑</td>
+                  <td className="p-3 border">高端奢華品</td>
+                  <td className="p-3 border text-primary-600 font-medium">+$0.05-0.15/個</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="bg-amber-50 p-4 rounded-lg">
+            <h5 className="font-semibold text-amber-800 mb-2">選型建議</h5>
+            <p className="text-sm text-amber-700">選擇表面處理時，建議從品牌定位、目標客戶群和預算三個維度考慮。多種處理組合可以提升包裝層次感，例如啞光+局部UV+燙金LOGO組合。</p>
           </div>
         </div>
       )

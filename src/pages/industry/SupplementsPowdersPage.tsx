@@ -1,5 +1,5 @@
 import React from 'react'
-import { Package, Leaf, Shield, CheckCircle, Award, Beaker, MessageCircle, Target, Calendar, Mail, Download } from 'lucide-react'
+import { Package, Leaf, Shield, CheckCircle, Award, Beaker, MessageCircle, Target, Calendar, Mail, Download, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
@@ -268,6 +268,216 @@ const SupplementsPowdersPage: React.FC = () => {
               <Link to="/contact" className="block w-full bg-white text-purple-600 px-4 py-2 rounded-lg font-semibold hover:bg-purple-50 transition">
                 Request Samples
               </Link>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-purple-50 to-violet-50 p-5 rounded-xl border border-purple-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Beaker className="h-5 w-5 text-purple-600" />
+                <h4 className="font-semibold text-neutral-900">Protein Brands</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">Whey, plant-based, and collagen protein brands requiring high-barrier moisture protection.</p>
+              <ul className="text-xs text-neutral-500 space-y-1">
+                <li>• Whey protein isolate</li>
+                <li>• Plant-based protein</li>
+                <li>• Collagen peptides</li>
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Leaf className="h-5 w-5 text-green-600" />
+                <h4 className="font-semibold text-neutral-900">Superfood Companies</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">Organic greens, adaptogens, and functional mushroom brands with eco-conscious positioning.</p>
+              <ul className="text-xs text-neutral-500 space-y-1">
+                <li>• Green powders & spirulina</li>
+                <li>• Adaptogen blends</li>
+                <li>• Mushroom supplements</li>
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-5 rounded-xl border border-blue-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="h-5 w-5 text-blue-600" />
+                <h4 className="font-semibold text-neutral-900">Sports Nutrition Startups</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">Pre-workout, BCAA, and recovery brands starting with low MOQ to test market fit.</p>
+              <ul className="text-xs text-neutral-500 space-y-1">
+                <li>• Pre-workout formulas</li>
+                <li>• BCAA & amino acids</li>
+                <li>• Recovery blends</li>
+              </ul>
+            </div>
+          </div>
+          <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+            <h4 className="font-semibold text-neutral-900 mb-3">🏆 Customer Success: PureGreen Superfoods</h4>
+            <p className="text-sm text-neutral-600 mb-3">Launched with our compostable kraft pouches, achieving USDA Organic certification and 300% growth on Amazon with eco-conscious wellness consumers.</p>
+            <div className="flex flex-wrap gap-4 text-xs">
+              <span className="bg-white px-3 py-1 rounded-full border">✓ USDA Organic Certified</span>
+              <span className="bg-white px-3 py-1 rounded-full border">✓ 300% Amazon Growth</span>
+              <span className="bg-white px-3 py-1 rounded-full border">✓ Zero Clumping Issues</span>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'market-data',
+      title: '市場數據 Market Intelligence',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-gradient-to-br from-primary-500 to-primary-600 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">$230B</div>
+              <div className="text-sm opacity-90">Supplement Market 2027</div>
+            </div>
+            <div className="bg-gradient-to-br from-purple-500 to-violet-500 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">8.9%</div>
+              <div className="text-sm opacity-90">CAGR 2024-2027</div>
+            </div>
+            <div className="bg-gradient-to-br from-green-500 to-emerald-500 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">67%</div>
+              <div className="text-sm opacity-90">Prefer Eco Packaging</div>
+            </div>
+            <div className="bg-gradient-to-br from-blue-500 to-indigo-500 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">$25B</div>
+              <div className="text-sm opacity-90">Protein Powder Market</div>
+            </div>
+          </div>
+          <div className="bg-white p-4 rounded-xl border border-neutral-200">
+            <h4 className="font-semibold text-neutral-900 mb-3">Supplement Packaging Performance Comparison</h4>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-neutral-200">
+                    <th className="text-left py-2 font-medium">Material Type</th>
+                    <th className="text-center py-2 font-medium">MVTR (g/m²/24hr)</th>
+                    <th className="text-center py-2 font-medium">Powder Protection</th>
+                    <th className="text-center py-2 font-medium">Shelf Life</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">High-Barrier Metallized</td>
+                    <td className="text-center py-2">&lt; 0.5</td>
+                    <td className="text-center py-2">⭐⭐⭐⭐⭐</td>
+                    <td className="text-center py-2">24+ months</td>
+                  </tr>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">Kraft + PLA (Compostable)</td>
+                    <td className="text-center py-2">&lt; 2.0</td>
+                    <td className="text-center py-2">⭐⭐⭐⭐</td>
+                    <td className="text-center py-2">12-18 months</td>
+                  </tr>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">Recyclable Mono-PE</td>
+                    <td className="text-center py-2">&lt; 1.5</td>
+                    <td className="text-center py-2">⭐⭐⭐⭐</td>
+                    <td className="text-center py-2">18-24 months</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div className="bg-green-50 p-4 rounded-xl border border-green-200">
+            <h4 className="font-semibold text-green-800 mb-2">🌍 Environmental Impact</h4>
+            <p className="text-sm text-green-700">Switching from rigid plastic tubs to flexible pouches reduces packaging material by 70% and shipping weight by 60%. Compostable options decompose completely in 90-180 days.</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border border-neutral-200 rounded-xl overflow-hidden">
+              <thead className="bg-neutral-100">
+                <tr>
+                  <th className="text-left p-3 font-semibold">Feature</th>
+                  <th className="text-center p-3 font-semibold text-purple-700">High-Barrier</th>
+                  <th className="text-center p-3 font-semibold text-green-700">Compostable</th>
+                  <th className="text-center p-3 font-semibold text-blue-700">Recyclable PE</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Best For Supplements</td>
+                  <td className="text-center p-3">✅ Protein, collagen</td>
+                  <td className="text-center p-3">✅ Superfoods, greens</td>
+                  <td className="text-center p-3">✅ All powder types</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Moisture Protection</td>
+                  <td className="text-center p-3">⭐⭐⭐⭐⭐</td>
+                  <td className="text-center p-3">⭐⭐⭐⭐</td>
+                  <td className="text-center p-3">⭐⭐⭐⭐</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Oxygen Barrier</td>
+                  <td className="text-center p-3">Excellent</td>
+                  <td className="text-center p-3">Good</td>
+                  <td className="text-center p-3">Good</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Child-Resistant Option</td>
+                  <td className="text-center p-3">✅ Available</td>
+                  <td className="text-center p-3">✅ Available</td>
+                  <td className="text-center p-3">✅ Available</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">End-of-Life</td>
+                  <td className="text-center p-3">🗑️ Landfill</td>
+                  <td className="text-center p-3">🌱 Compostable</td>
+                  <td className="text-center p-3">♻️ Recyclable</td>
+                </tr>
+                <tr>
+                  <td className="p-3 font-medium">Price Point</td>
+                  <td className="text-center p-3">💰💰💰</td>
+                  <td className="text-center p-3">💰💰💰</td>
+                  <td className="text-center p-3">💰💰</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="bg-amber-50 p-5 rounded-xl border border-amber-200">
+            <h4 className="font-semibold text-amber-800 mb-3">💡 Decision Guide for Supplement Brands</h4>
+            <div className="grid md:grid-cols-3 gap-4 text-sm">
+              <div>
+                <p className="font-medium text-amber-900">Choose High-Barrier if:</p>
+                <ul className="text-amber-700 mt-1 space-y-1">
+                  <li>• Protein powders</li>
+                  <li>• Maximum shelf life</li>
+                  <li>• Hygroscopic ingredients</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-amber-900">Choose Compostable if:</p>
+                <ul className="text-amber-700 mt-1 space-y-1">
+                  <li>• Organic/natural brand</li>
+                  <li>• Superfood positioning</li>
+                  <li>• Eco-conscious market</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-amber-900">Choose Recyclable if:</p>
+                <ul className="text-amber-700 mt-1 space-y-1">
+                  <li>• Balance eco + performance</li>
+                  <li>• Cost-effective option</li>
+                  <li>• Mainstream distribution</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Lightbulb, Beaker, Rocket, Zap, Clock, CheckCircle, Calendar, MessageCircle, Package, Target, Sparkles, Repeat } from 'lucide-react'
+import { Lightbulb, Beaker, Rocket, Zap, Clock, CheckCircle, Calendar, MessageCircle, Package, Target, Sparkles, Repeat, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -253,6 +253,183 @@ const ProductDeveloperPage: React.FC = () => {
               <Package className="h-5 w-5" />
               Explore Materials
             </Link>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Our rapid prototyping and innovation-friendly approach serves <strong>product developers across multiple industries</strong> bringing novel products to market.
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Beaker className="h-5 w-5 text-purple-600" />
+                <h4 className="font-semibold text-purple-800">R&D Teams</h4>
+              </div>
+              <p className="text-sm text-purple-700">Rapid iteration cycles with no plate costs for testing multiple packaging concepts simultaneously.</p>
+            </div>
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-5 rounded-xl border border-blue-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Rocket className="h-5 w-5 text-blue-600" />
+                <h4 className="font-semibold text-blue-800">Innovation Labs</h4>
+              </div>
+              <p className="text-sm text-blue-700">Cutting-edge materials and technologies for breakthrough product presentations.</p>
+            </div>
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Lightbulb className="h-5 w-5 text-amber-600" />
+                <h4 className="font-semibold text-amber-800">Consumer Goods Companies</h4>
+              </div>
+              <p className="text-sm text-amber-700">Market testing support with low MOQ and fast turnaround for concept validation.</p>
+            </div>
+          </div>
+
+          <div className="bg-neutral-50 p-5 rounded-xl border border-neutral-200">
+            <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+              <Sparkles className="h-5 w-5 text-primary-600" />
+              Customer Success: Beverage Innovation Team
+            </h4>
+            <p className="text-sm text-neutral-600 mb-3">
+              A beverage company's innovation team tested 8 packaging concepts in 3 weeks using our digital printing. They identified the winning design through consumer research before committing to full production tooling.
+            </p>
+            <div className="flex gap-4 text-xs">
+              <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full">8 Concepts Tested</span>
+              <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full">3 Week Timeline</span>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'market-data',
+      title: '市場數據 Market Intelligence',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Stay ahead with <strong>latest product innovation and packaging market data</strong> to inform your development decisions.
+          </p>
+          
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-primary-600 mb-1">67%</div>
+              <div className="text-sm text-neutral-600">Products fail due to poor packaging first impression</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-purple-600 mb-1">4.2x</div>
+              <div className="text-sm text-neutral-600">Faster time-to-market with digital prototyping</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-blue-600 mb-1">82%</div>
+              <div className="text-sm text-neutral-600">Consumers prefer sustainable innovation</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-green-600 mb-1">$48B</div>
+              <div className="text-sm text-neutral-600">Global smart packaging market by 2026</div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-200">
+            <h4 className="font-semibold text-purple-800 mb-3 flex items-center gap-2">
+              <TrendingUp className="h-5 w-5" />
+              Innovation Trends 2024-2026
+            </h4>
+            <div className="grid md:grid-cols-2 gap-4 text-sm">
+              <div>
+                <h5 className="font-medium text-purple-700 mb-2">Emerging Technologies</h5>
+                <ul className="text-purple-600 space-y-1">
+                  <li>• NFC/RFID smart packaging integration</li>
+                  <li>• AR-enabled consumer experiences</li>
+                  <li>• Active packaging for freshness extension</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-medium text-purple-700 mb-2">Material Innovation</h5>
+                <ul className="text-purple-600 space-y-1">
+                  <li>• Seaweed and algae-based films</li>
+                  <li>• Mushroom mycelium packaging</li>
+                  <li>• Edible and dissolvable packaging</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Compare <strong>innovative packaging materials</strong> to select the right option for your product development needs.
+          </p>
+          
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-primary-600 text-white">
+                  <th className="p-3 text-left rounded-tl-lg">Material</th>
+                  <th className="p-3 text-left">Innovation Level</th>
+                  <th className="p-3 text-left">Prototype Speed</th>
+                  <th className="p-3 text-left">Sustainability</th>
+                  <th className="p-3 text-left">Best Use Case</th>
+                  <th className="p-3 text-left rounded-tr-lg">Cost Level</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-neutral-200 hover:bg-neutral-50">
+                  <td className="p-3 font-medium">PLA/PBAT Compostable</td>
+                  <td className="p-3"><span className="text-purple-600">★★★★★</span></td>
+                  <td className="p-3"><span className="text-green-600">48hrs</span></td>
+                  <td className="p-3"><span className="text-green-600">✓ Excellent</span></td>
+                  <td className="p-3">Eco-conscious launches</td>
+                  <td className="p-3">$$$</td>
+                </tr>
+                <tr className="border-b border-neutral-200 bg-neutral-50 hover:bg-neutral-100">
+                  <td className="p-3 font-medium">Metallic/Holographic Films</td>
+                  <td className="p-3"><span className="text-purple-600">★★★★</span></td>
+                  <td className="p-3"><span className="text-green-600">48hrs</span></td>
+                  <td className="p-3"><span className="text-yellow-600">~ Moderate</span></td>
+                  <td className="p-3">Premium positioning</td>
+                  <td className="p-3">$$$</td>
+                </tr>
+                <tr className="border-b border-neutral-200 hover:bg-neutral-50">
+                  <td className="p-3 font-medium">Bio-PE (Sugarcane)</td>
+                  <td className="p-3"><span className="text-purple-600">★★★★</span></td>
+                  <td className="p-3"><span className="text-green-600">48hrs</span></td>
+                  <td className="p-3"><span className="text-green-600">✓ Good</span></td>
+                  <td className="p-3">Drop-in sustainable</td>
+                  <td className="p-3">$$</td>
+                </tr>
+                <tr className="hover:bg-neutral-50">
+                  <td className="p-3 font-medium">Smart/NFC Enabled</td>
+                  <td className="p-3"><span className="text-purple-600">★★★★★</span></td>
+                  <td className="p-3"><span className="text-amber-600">1-2 weeks</span></td>
+                  <td className="p-3"><span className="text-yellow-600">~ Variable</span></td>
+                  <td className="p-3">Consumer engagement</td>
+                  <td className="p-3">$$$$</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="bg-purple-50 p-5 rounded-xl border border-purple-200">
+            <h4 className="font-semibold text-purple-800 mb-2 flex items-center gap-2">
+              <ShoppingBag className="h-5 w-5" />
+              Expert Selection Advice
+            </h4>
+            <p className="text-sm text-purple-700">
+              For rapid concept testing: Start with <strong>standard sustainable materials</strong> to validate the concept, then upgrade to premium or smart materials for production. Our digital printing allows easy material switches between prototype iterations.
+            </p>
           </div>
         </div>
       )

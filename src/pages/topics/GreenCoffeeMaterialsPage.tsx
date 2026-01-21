@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Leaf, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Coffee, Droplets, Wind, Thermometer } from 'lucide-react'
+import { Leaf, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Coffee, Droplets, Wind, Thermometer, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -241,6 +241,137 @@ const GreenCoffeeMaterialsPage: React.FC = () => {
               <Coffee className="h-5 w-5" />
               Coffee Industry Guide
             </Link>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">探索不同咨啡品牌如何運用環保包裝提升市場競爭力。</p>
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+              <div className="flex items-center gap-2 mb-3">
+                <ShoppingBag className="h-5 w-5 text-green-600" />
+                <h4 className="font-semibold text-green-800">精品單品烘焙商</h4>
+              </div>
+              <p className="text-sm text-green-700">精品咨啡品牌採用家庭可堆肥包裝，強化工匠定位，吸引環保意識消費者。</p>
+            </div>
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-5 rounded-xl border border-blue-200">
+              <div className="flex items-center gap-2 mb-3">
+                <TrendingUp className="h-5 w-5 text-blue-600" />
+                <h4 className="font-semibold text-blue-800">商業咨啡烘焙廠</h4>
+              </div>
+              <p className="text-sm text-blue-700">大型烘焙廠使用可回收Mono-PE包裝，平衡成本與市場需求，滿足零售通路要求。</p>
+            </div>
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="h-5 w-5 text-purple-600" />
+                <h4 className="font-semibold text-purple-800">B Corp認證品牌</h4>
+              </div>
+              <p className="text-sm text-purple-700">B Corp品牌採用甘蔗基Bio-PE，展現碳中和承諾，強化ESG報告數據。</p>
+            </div>
+          </div>
+          <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
+            <p className="text-sm text-amber-800"><strong>成功案例：</strong>某精品咨啡品牌將包裝全面轉換為家庭可堆肥材料後，品牌認同度提升32%，在高端零售通路銷售增長45%。</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'market-data',
+      title: '市場數據 Market Intelligence',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">環保咨啡包裝市場持續擴大，消費者需求強勁。</p>
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-primary-600">68%</div>
+              <p className="text-sm text-neutral-600 mt-1">咨啡消費者重視包裝可持續性</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-green-600">$320B</div>
+              <p className="text-sm text-neutral-600 mt-1">全球咨啡市場規模(2025)</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-blue-600">12.5%</div>
+              <p className="text-sm text-neutral-600 mt-1">可持續咨啡包裝年增長率</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-purple-600">85%</div>
+              <p className="text-sm text-neutral-600 mt-1">精品咨啡店已轉用環保包裝</p>
+            </div>
+          </div>
+          <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
+            <h4 className="font-semibold text-neutral-800 mb-2">市場趨勢分析</h4>
+            <p className="text-sm text-neutral-600">咨啡行業是環保包裝採用的先驅者。消費者對塑料咨啡袋的負面印象日益加深，轉用可堆肥或可回收包裝已成為品牌差異化的重要策略。</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">根據咨啡類型和品牌定位選擇最合適的環保材料。</p>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse bg-white rounded-lg overflow-hidden">
+              <thead className="bg-amber-700 text-white">
+                <tr>
+                  <th className="p-3 text-left text-sm">材料類型</th>
+                  <th className="p-3 text-left text-sm">咨啡保鮮期</th>
+                  <th className="p-3 text-left text-sm">最適咨啡類型</th>
+                  <th className="p-3 text-left text-sm">套用對象</th>
+                  <th className="p-3 text-left text-sm">單位成本</th>
+                </tr>
+              </thead>
+              <tbody className="text-sm">
+                <tr className="border-b border-neutral-200">
+                  <td className="p-3 font-medium">TUV家庭可堆肥</td>
+                  <td className="p-3">6-12個月</td>
+                  <td className="p-3">精品單品、限量版</td>
+                  <td className="p-3">高端烘焙商</td>
+                  <td className="p-3"><span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">$$$</span></td>
+                </tr>
+                <tr className="border-b border-neutral-200 bg-neutral-50">
+                  <td className="p-3 font-medium">高阻隔可堆肥</td>
+                  <td className="p-3">12-18個月</td>
+                  <td className="p-3">中深烘焙、啡豆</td>
+                  <td className="p-3">專業烘焙廠</td>
+                  <td className="p-3"><span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">$$$</span></td>
+                </tr>
+                <tr className="border-b border-neutral-200">
+                  <td className="p-3 font-medium">可回收Mono-PE</td>
+                  <td className="p-3">18-24個月</td>
+                  <td className="p-3">商業拼配、大包裝</td>
+                  <td className="p-3">零售通路品牌</td>
+                  <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">$$</span></td>
+                </tr>
+                <tr className="border-b border-neutral-200 bg-neutral-50">
+                  <td className="p-3 font-medium">甘蔗基Bio-PE</td>
+                  <td className="p-3">18-24個月</td>
+                  <td className="p-3">各種咨啡類型</td>
+                  <td className="p-3">B Corp/ESG品牌</td>
+                  <td className="p-3"><span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">$$$</span></td>
+                </tr>
+                <tr className="border-b border-neutral-200">
+                  <td className="p-3 font-medium">Kraft+PLA內襯</td>
+                  <td className="p-3">6-9個月</td>
+                  <td className="p-3">淡烘焙、有機咨啡</td>
+                  <td className="p-3">自然風格品牌</td>
+                  <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">$$</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+            <p className="text-sm text-green-800"><strong>專家建議：</strong>選擇咨啡包裝材料時，須綜合考慮烘焙程度、銷售週期、目標通路和品牌定位。精品烘焙商可選擇可堆肥材料，商業品牌可優先考慮可回收方案。</p>
           </div>
         </div>
       )

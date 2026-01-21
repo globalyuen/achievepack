@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Package, Leaf, Shield, CheckCircle, Zap, MessageCircle, Target, Calendar, Phone, Download, Mail } from 'lucide-react'
+import { Package, Leaf, Shield, CheckCircle, Zap, MessageCircle, Target, Calendar, Phone, Download, Mail, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -320,6 +320,216 @@ const SnacksFoodPage: React.FC = () => {
               <Link to="/contact" className="block w-full bg-white text-primary-600 px-4 py-2 rounded-lg font-semibold hover:bg-primary-50 transition">
                 Request Samples
               </Link>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-orange-50 to-amber-50 p-5 rounded-xl border border-orange-200">
+              <div className="flex items-center gap-2 mb-3">
+                <ShoppingBag className="h-5 w-5 text-orange-600" />
+                <h4 className="font-semibold text-neutral-900">Artisan Snack Brands</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">Small-batch chips, popcorn, and specialty snacks requiring premium shelf presentation.</p>
+              <ul className="text-xs text-neutral-500 space-y-1">
+                <li>• Craft potato chips & crisps</li>
+                <li>• Gourmet popcorn varieties</li>
+                <li>• Artisan pretzels & crackers</li>
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-yellow-50 to-amber-50 p-5 rounded-xl border border-yellow-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="h-5 w-5 text-yellow-600" />
+                <h4 className="font-semibold text-neutral-900">Health Food Companies</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">Organic and natural snacks with clean-label positioning and eco-conscious packaging.</p>
+              <ul className="text-xs text-neutral-500 space-y-1">
+                <li>• Organic trail mix & nuts</li>
+                <li>• Protein bars & bites</li>
+                <li>• Superfood snacks</li>
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-red-50 to-pink-50 p-5 rounded-xl border border-red-200">
+              <div className="flex items-center gap-2 mb-3">
+                <TrendingUp className="h-5 w-5 text-red-600" />
+                <h4 className="font-semibold text-neutral-900">Growing E-commerce Brands</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">Direct-to-consumer snack brands scaling from startup to national distribution.</p>
+              <ul className="text-xs text-neutral-500 space-y-1">
+                <li>• Subscription box snacks</li>
+                <li>• Amazon FBA products</li>
+                <li>• DTC jerky & meat snacks</li>
+              </ul>
+            </div>
+          </div>
+          <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+            <h4 className="font-semibold text-neutral-900 mb-3">🏆 Customer Success: NutriVie Organic Nuts</h4>
+            <p className="text-sm text-neutral-600 mb-3">Transitioned from conventional plastic to compostable pouches, achieving B-Corp certification and increasing customer loyalty by 35% within 6 months.</p>
+            <div className="flex flex-wrap gap-4 text-xs">
+              <span className="bg-white px-3 py-1 rounded-full border">✓ B-Corp Certified</span>
+              <span className="bg-white px-3 py-1 rounded-full border">✓ 35% Customer Loyalty Increase</span>
+              <span className="bg-white px-3 py-1 rounded-full border">✓ Zero Waste Packaging</span>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'market-data',
+      title: '市場數據 Market Intelligence',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-gradient-to-br from-primary-500 to-primary-600 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">$72B</div>
+              <div className="text-sm opacity-90">Global Snack Food Market 2027</div>
+            </div>
+            <div className="bg-gradient-to-br from-orange-500 to-amber-500 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">6.2%</div>
+              <div className="text-sm opacity-90">Annual Market Growth</div>
+            </div>
+            <div className="bg-gradient-to-br from-green-500 to-emerald-500 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">68%</div>
+              <div className="text-sm opacity-90">Prefer Sustainable Brands</div>
+            </div>
+            <div className="bg-gradient-to-br from-blue-500 to-indigo-500 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">45%</div>
+              <div className="text-sm opacity-90">Pay Premium for Eco</div>
+            </div>
+          </div>
+          <div className="bg-white p-4 rounded-xl border border-neutral-200">
+            <h4 className="font-semibold text-neutral-900 mb-3">Snack Packaging Performance Comparison</h4>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-neutral-200">
+                    <th className="text-left py-2 font-medium">Material Type</th>
+                    <th className="text-center py-2 font-medium">OTR (cc/m²/24hr)</th>
+                    <th className="text-center py-2 font-medium">Grease Barrier</th>
+                    <th className="text-center py-2 font-medium">Shelf Life</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">Kraft + PLA (Compostable)</td>
+                    <td className="text-center py-2">&lt; 1.5</td>
+                    <td className="text-center py-2">Medium</td>
+                    <td className="text-center py-2">6-9 months</td>
+                  </tr>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">Mono-PE (Recyclable)</td>
+                    <td className="text-center py-2">&lt; 1.0</td>
+                    <td className="text-center py-2">Excellent</td>
+                    <td className="text-center py-2">12+ months</td>
+                  </tr>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">Metallized Film</td>
+                    <td className="text-center py-2">&lt; 0.5</td>
+                    <td className="text-center py-2">Excellent</td>
+                    <td className="text-center py-2">18+ months</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div className="bg-green-50 p-4 rounded-xl border border-green-200">
+            <h4 className="font-semibold text-green-800 mb-2">🌍 Environmental Impact of Switching</h4>
+            <p className="text-sm text-green-700">Switching to sustainable snack packaging can reduce plastic waste by up to 80%, with compostable options breaking down in commercial composting within 90-180 days.</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border border-neutral-200 rounded-xl overflow-hidden">
+              <thead className="bg-neutral-100">
+                <tr>
+                  <th className="text-left p-3 font-semibold">Feature</th>
+                  <th className="text-center p-3 font-semibold text-green-700">Compostable</th>
+                  <th className="text-center p-3 font-semibold text-blue-700">Recyclable PE</th>
+                  <th className="text-center p-3 font-semibold text-purple-700">PCR Content</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Best For</td>
+                  <td className="text-center p-3">✅ Dry snacks, granola</td>
+                  <td className="text-center p-3">✅ Chips, greasy snacks</td>
+                  <td className="text-center p-3">✅ All snack types</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Grease Resistance</td>
+                  <td className="text-center p-3">Medium</td>
+                  <td className="text-center p-3">Excellent</td>
+                  <td className="text-center p-3">Excellent</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Barrier Performance</td>
+                  <td className="text-center p-3">Medium-High</td>
+                  <td className="text-center p-3">High</td>
+                  <td className="text-center p-3">High</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Clear Window</td>
+                  <td className="text-center p-3">❌ Limited</td>
+                  <td className="text-center p-3">✅ Full clarity</td>
+                  <td className="text-center p-3">✅ Available</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">End-of-Life</td>
+                  <td className="text-center p-3">🌱 Compostable</td>
+                  <td className="text-center p-3">♻️ Recyclable</td>
+                  <td className="text-center p-3">♻️ Recyclable</td>
+                </tr>
+                <tr>
+                  <td className="p-3 font-medium">Price Point</td>
+                  <td className="text-center p-3">💰💰💰</td>
+                  <td className="text-center p-3">💰💰</td>
+                  <td className="text-center p-3">💰💰</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="bg-amber-50 p-5 rounded-xl border border-amber-200">
+            <h4 className="font-semibold text-amber-800 mb-3">💡 Decision Guide for Snack Brands</h4>
+            <div className="grid md:grid-cols-3 gap-4 text-sm">
+              <div>
+                <p className="font-medium text-amber-900">Choose Compostable if:</p>
+                <ul className="text-amber-700 mt-1 space-y-1">
+                  <li>• Dry, non-greasy products</li>
+                  <li>• Organic/natural positioning</li>
+                  <li>• Farmers market distribution</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-amber-900">Choose Mono-PE if:</p>
+                <ul className="text-amber-700 mt-1 space-y-1">
+                  <li>• Chips and oily snacks</li>
+                  <li>• Need clear window</li>
+                  <li>• Extended shelf life needed</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-amber-900">Choose PCR if:</p>
+                <ul className="text-amber-700 mt-1 space-y-1">
+                  <li>• Corporate sustainability goals</li>
+                  <li>• Cost-effective eco option</li>
+                  <li>• Flexible material choice</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

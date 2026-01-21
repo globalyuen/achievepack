@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Leaf, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Globe, ShoppingCart, Truck, TrendingUp } from 'lucide-react'
+import { Leaf, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Globe, ShoppingCart, Truck, TrendingUp, Factory, BarChart3, ArrowLeftRight, ShoppingBag, Sparkles } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -232,6 +232,183 @@ const DTCSustainablePackagingPage: React.FC = () => {
               <Package className="h-5 w-5" />
               Shop Sample Packs
             </Link>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Our sustainable packaging solutions serve <strong>DTC brands across diverse categories</strong> delivering exceptional unboxing experiences.
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Leaf className="h-5 w-5 text-green-600" />
+                <h4 className="font-semibold text-green-800">Wellness & Supplements</h4>
+              </div>
+              <p className="text-sm text-green-700">Protein powders, vitamins, and wellness products with certified compostable packaging that reinforces health positioning.</p>
+            </div>
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
+              <div className="flex items-center gap-2 mb-3">
+                <ShoppingCart className="h-5 w-5 text-amber-600" />
+                <h4 className="font-semibold text-amber-800">Food & Snacks</h4>
+              </div>
+              <p className="text-sm text-amber-700">Artisan foods, coffee subscriptions, and specialty snacks seeking Instagram-worthy sustainable packaging.</p>
+            </div>
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Award className="h-5 w-5 text-purple-600" />
+                <h4 className="font-semibold text-purple-800">Beauty & Personal Care</h4>
+              </div>
+              <p className="text-sm text-purple-700">Clean beauty brands with refill pouches and samples in eco-friendly packaging.</p>
+            </div>
+          </div>
+
+          <div className="bg-neutral-50 p-5 rounded-xl border border-neutral-200">
+            <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+              <Sparkles className="h-5 w-5 text-primary-600" />
+              Customer Success: DTC Protein Brand
+            </h4>
+            <p className="text-sm text-neutral-600 mb-3">
+              A direct-to-consumer protein brand launched with 500 compostable pouches and scaled to 10,000/month within a year. The sustainable packaging became a key differentiator, with 45% of customers citing it as a purchase factor.
+            </p>
+            <div className="flex gap-4 text-xs">
+              <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full">500 to 10K/month</span>
+              <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full">45% Purchase Driver</span>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'market-data',
+      title: '市場數據 Market Intelligence',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Make data-driven packaging decisions with <strong>latest DTC and e-commerce market insights</strong>.
+          </p>
+          
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-primary-600 mb-1">78%</div>
+              <div className="text-sm text-neutral-600">DTC consumers value sustainable packaging</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-green-600 mb-1">$165B</div>
+              <div className="text-sm text-neutral-600">Global DTC market by 2027</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-amber-600 mb-1">52%</div>
+              <div className="text-sm text-neutral-600">Share unboxing on social media</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-purple-600 mb-1">23%</div>
+              <div className="text-sm text-neutral-600">Premium for sustainable brands</div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+            <h4 className="font-semibold text-green-800 mb-3 flex items-center gap-2">
+              <TrendingUp className="h-5 w-5" />
+              DTC Packaging Trends 2024-2026
+            </h4>
+            <div className="grid md:grid-cols-2 gap-4 text-sm">
+              <div>
+                <h5 className="font-medium text-green-700 mb-2">Consumer Expectations</h5>
+                <ul className="text-green-600 space-y-1">
+                  <li>• Unboxing experience as brand moment</li>
+                  <li>• Authentic sustainability credentials</li>
+                  <li>• QR codes for brand storytelling</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-medium text-green-700 mb-2">Brand Strategies</h5>
+                <ul className="text-green-600 space-y-1">
+                  <li>• Packaging as Instagram content</li>
+                  <li>• Certified claims for trust</li>
+                  <li>• Subscription-friendly formats</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Compare <strong>DTC-friendly sustainable materials</strong> to find the right fit for your brand.
+          </p>
+          
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-primary-600 text-white">
+                  <th className="p-3 text-left rounded-tl-lg">Material</th>
+                  <th className="p-3 text-left">Sustainability</th>
+                  <th className="p-3 text-left">E-Commerce</th>
+                  <th className="p-3 text-left">Brand Impact</th>
+                  <th className="p-3 text-left">Min. Order</th>
+                  <th className="p-3 text-left rounded-tr-lg">Cost Level</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-neutral-200 hover:bg-neutral-50">
+                  <td className="p-3 font-medium">Kraft + PLA Compostable</td>
+                  <td className="p-3"><span className="text-green-600">★★★★★</span></td>
+                  <td className="p-3"><span className="text-green-600">✓ Durable</span></td>
+                  <td className="p-3">Natural, authentic</td>
+                  <td className="p-3">100 pcs</td>
+                  <td className="p-3">$$$</td>
+                </tr>
+                <tr className="border-b border-neutral-200 bg-neutral-50 hover:bg-neutral-100">
+                  <td className="p-3 font-medium">Recyclable Mono-PE</td>
+                  <td className="p-3"><span className="text-green-600">★★★★</span></td>
+                  <td className="p-3"><span className="text-green-600">✓ Excellent</span></td>
+                  <td className="p-3">Premium, modern</td>
+                  <td className="p-3">100 pcs</td>
+                  <td className="p-3">$$</td>
+                </tr>
+                <tr className="border-b border-neutral-200 hover:bg-neutral-50">
+                  <td className="p-3 font-medium">Bio-PE Film</td>
+                  <td className="p-3"><span className="text-green-600">★★★★</span></td>
+                  <td className="p-3"><span className="text-green-600">✓ Excellent</span></td>
+                  <td className="p-3">Eco story</td>
+                  <td className="p-3">100 pcs</td>
+                  <td className="p-3">$$</td>
+                </tr>
+                <tr className="hover:bg-neutral-50">
+                  <td className="p-3 font-medium">PCR Content Film</td>
+                  <td className="p-3"><span className="text-green-600">★★★</span></td>
+                  <td className="p-3"><span className="text-green-600">✓ Excellent</span></td>
+                  <td className="p-3">Circular economy</td>
+                  <td className="p-3">100 pcs</td>
+                  <td className="p-3">$$</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="bg-green-50 p-5 rounded-xl border border-green-200">
+            <h4 className="font-semibold text-green-800 mb-2 flex items-center gap-2">
+              <ShoppingBag className="h-5 w-5" />
+              DTC Selection Advice
+            </h4>
+            <p className="text-sm text-green-700">
+              For DTC brands: <strong>Kraft + PLA Compostable</strong> tells the strongest sustainability story and photographs beautifully. <strong>Recyclable Mono-PE</strong> offers the best value for brands prioritizing e-commerce durability and vibrant graphics.
+            </p>
           </div>
         </div>
       )

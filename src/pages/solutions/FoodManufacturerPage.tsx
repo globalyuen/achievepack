@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { FileCheck, Globe, Shield, AlertTriangle, CheckCircle, Calendar, MessageCircle, Award, Target, Scale, BookOpen } from 'lucide-react'
+import { FileCheck, Globe, Shield, AlertTriangle, CheckCircle, Calendar, MessageCircle, Award, Target, Scale, BookOpen, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -257,6 +257,183 @@ const FoodManufacturerPage: React.FC = () => {
               <Scale className="h-5 w-5" />
               View Compliant Materials
             </Link>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Our regulatory-compliant packaging serves <strong>food manufacturers across diverse segments</strong> requiring multi-market certification and comprehensive documentation.
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-5 rounded-xl border border-blue-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Globe className="h-5 w-5 text-blue-600" />
+                <h4 className="font-semibold text-blue-800">Export Food Brands</h4>
+              </div>
+              <p className="text-sm text-blue-700">Multi-market compliant packaging with FDA, EFSA, and FSANZ certifications for international distribution.</p>
+            </div>
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Shield className="h-5 w-5 text-green-600" />
+                <h4 className="font-semibold text-green-800">Private Label Manufacturers</h4>
+              </div>
+              <p className="text-sm text-green-700">Complete documentation packages for retailer compliance audits and food safety requirements.</p>
+            </div>
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Award className="h-5 w-5 text-amber-600" />
+                <h4 className="font-semibold text-amber-800">Organic Certified Producers</h4>
+              </div>
+              <p className="text-sm text-amber-700">Packaging that meets organic certification requirements while maintaining food safety standards.</p>
+            </div>
+          </div>
+
+          <div className="bg-neutral-50 p-5 rounded-xl border border-neutral-200">
+            <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+              <Sparkles className="h-5 w-5 text-primary-600" />
+              Customer Success: Global Snack Exporter
+            </h4>
+            <p className="text-sm text-neutral-600 mb-3">
+              A major snack manufacturer needed packaging compliant with 12 different country regulations. We provided unified documentation for FDA, EFSA, and Asia-Pacific markets, reducing compliance review time by 60%.
+            </p>
+            <div className="flex gap-4 text-xs">
+              <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full">12 Markets Certified</span>
+              <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full">60% Faster Compliance</span>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'market-data',
+      title: '市場數據 Market Intelligence',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Stay informed with <strong>latest regulatory and compliance market data</strong> to future-proof your packaging decisions.
+          </p>
+          
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-primary-600 mb-1">47%</div>
+              <div className="text-sm text-neutral-600">Brands planning EPR compliance by 2025</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-green-600 mb-1">$2.1B</div>
+              <div className="text-sm text-neutral-600">Global food packaging compliance market</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-blue-600 mb-1">28%</div>
+              <div className="text-sm text-neutral-600">Growth in sustainable certified packaging</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-amber-600 mb-1">15+</div>
+              <div className="text-sm text-neutral-600">New packaging regulations since 2023</div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-r from-primary-50 to-green-50 p-5 rounded-xl border border-primary-200">
+            <h4 className="font-semibold text-primary-800 mb-3 flex items-center gap-2">
+              <TrendingUp className="h-5 w-5" />
+              Regulatory Trends 2024-2026
+            </h4>
+            <div className="grid md:grid-cols-2 gap-4 text-sm">
+              <div>
+                <h5 className="font-medium text-primary-700 mb-2">Growing Requirements</h5>
+                <ul className="text-primary-600 space-y-1">
+                  <li>• EU PPWR mandatory recycled content targets</li>
+                  <li>• Expanded EPR schemes in Asia-Pacific</li>
+                  <li>• Stricter PFAS restrictions in food contact</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-medium text-primary-700 mb-2">Emerging Standards</h5>
+                <ul className="text-primary-600 space-y-1">
+                  <li>• Digital product passports for packaging</li>
+                  <li>• Carbon footprint labeling requirements</li>
+                  <li>• Harmonized global compostability standards</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Compare <strong>compliant packaging materials</strong> to select the right option for your regulatory requirements and markets.
+          </p>
+          
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-primary-600 text-white">
+                  <th className="p-3 text-left rounded-tl-lg">Material</th>
+                  <th className="p-3 text-left">FDA/EFSA</th>
+                  <th className="p-3 text-left">Compostable Cert</th>
+                  <th className="p-3 text-left">EPR Friendly</th>
+                  <th className="p-3 text-left">Best Markets</th>
+                  <th className="p-3 text-left rounded-tr-lg">Cost Level</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-neutral-200 hover:bg-neutral-50">
+                  <td className="p-3 font-medium">Kraft + PLA Compostable</td>
+                  <td className="p-3"><span className="text-green-600">✓ Full</span></td>
+                  <td className="p-3"><span className="text-green-600">✓ EN13432/ASTM</span></td>
+                  <td className="p-3"><span className="text-green-600">✓ Excellent</span></td>
+                  <td className="p-3">EU, US, AU</td>
+                  <td className="p-3">$$$</td>
+                </tr>
+                <tr className="border-b border-neutral-200 bg-neutral-50 hover:bg-neutral-100">
+                  <td className="p-3 font-medium">Recyclable Mono-PE</td>
+                  <td className="p-3"><span className="text-green-600">✓ Full</span></td>
+                  <td className="p-3"><span className="text-neutral-400">— N/A</span></td>
+                  <td className="p-3"><span className="text-green-600">✓ Good</span></td>
+                  <td className="p-3">US, UK, AU</td>
+                  <td className="p-3">$$</td>
+                </tr>
+                <tr className="border-b border-neutral-200 hover:bg-neutral-50">
+                  <td className="p-3 font-medium">PCR Content Film</td>
+                  <td className="p-3"><span className="text-green-600">✓ Full</span></td>
+                  <td className="p-3"><span className="text-neutral-400">— N/A</span></td>
+                  <td className="p-3"><span className="text-green-600">✓ Excellent</span></td>
+                  <td className="p-3">UK, EU</td>
+                  <td className="p-3">$$</td>
+                </tr>
+                <tr className="hover:bg-neutral-50">
+                  <td className="p-3 font-medium">Bio-PE Film</td>
+                  <td className="p-3"><span className="text-green-600">✓ Full</span></td>
+                  <td className="p-3"><span className="text-neutral-400">— N/A</span></td>
+                  <td className="p-3"><span className="text-yellow-600">~ Partial</span></td>
+                  <td className="p-3">Global</td>
+                  <td className="p-3">$$$</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="bg-blue-50 p-5 rounded-xl border border-blue-200">
+            <h4 className="font-semibold text-blue-800 mb-2 flex items-center gap-2">
+              <ShoppingBag className="h-5 w-5" />
+              Expert Selection Advice
+            </h4>
+            <p className="text-sm text-blue-700">
+              For multi-market export: Choose <strong>Kraft + PLA Compostable</strong> for EU/AU markets with strict compostability requirements, or <strong>PCR Content</strong> for UK Plastic Packaging Tax compliance. Our team can help you navigate specific market requirements.
+            </p>
           </div>
         </div>
       )

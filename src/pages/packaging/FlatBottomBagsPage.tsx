@@ -1,5 +1,5 @@
 import React from 'react'
-import { Package, Leaf, CheckCircle, Award, BoxSelect, Target, Shield, Calendar, Phone, Download, Mail, MessageCircle } from 'lucide-react'
+import { Package, Leaf, CheckCircle, Award, BoxSelect, Target, Shield, Calendar, Phone, Download, Mail, MessageCircle, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useTranslation } from 'react-i18next'
@@ -248,6 +248,217 @@ const FlatBottomBagsPage: React.FC = () => {
               <Link to="/packaging/stand-up-pouches" className="inline-block border-2 border-neutral-300 text-neutral-700 px-4 py-2 rounded-lg font-semibold hover:border-amber-300 transition">
                 Compare Options
               </Link>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
+              <div className="flex items-center gap-2 mb-3">
+                <ShoppingBag className="h-5 w-5 text-amber-600" />
+                <h4 className="font-semibold text-neutral-900">Specialty Coffee Roasters</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">Premium flat bottom bags with 5-panel branding and degassing valves.</p>
+              <ul className="text-xs text-neutral-500 space-y-1">
+                <li>• Single-origin coffees</li>
+                <li>• Artisan roasters</li>
+                <li>• Gift box packaging</li>
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-purple-50 to-violet-50 p-5 rounded-xl border border-purple-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="h-5 w-5 text-purple-600" />
+                <h4 className="font-semibold text-neutral-900">Premium Pet Food Brands</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">Heavy-duty flat bottom bags with stable base for larger kibble bags.</p>
+              <ul className="text-xs text-neutral-500 space-y-1">
+                <li>• Premium dog food</li>
+                <li>• Natural cat food</li>
+                <li>• Grain-free formulas</li>
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Leaf className="h-5 w-5 text-green-600" />
+                <h4 className="font-semibold text-neutral-900">Superfood & Protein Brands</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">High-barrier flat bottom bags for powder supplements with maximum shelf presence.</p>
+              <ul className="text-xs text-neutral-500 space-y-1">
+                <li>• Protein powders</li>
+                <li>• Superfood blends</li>
+                <li>• Collagen peptides</li>
+              </ul>
+            </div>
+          </div>
+          <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+            <h4 className="font-semibold text-neutral-900 mb-3">🏆 Customer Success: Mountain Peak Coffee Co.</h4>
+            <p className="text-sm text-neutral-600 mb-3">Upgraded from stand-up pouches to flat bottom bags, increasing retail sell-through by 40% and premium price positioning with 5-panel branding.</p>
+            <div className="flex flex-wrap gap-4 text-xs">
+              <span className="bg-white px-3 py-1 rounded-full border">✓ 40% Sales Increase</span>
+              <span className="bg-white px-3 py-1 rounded-full border">✓ Premium Positioning</span>
+              <span className="bg-white px-3 py-1 rounded-full border">✓ 5-Panel Branding</span>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'market-data',
+      title: '市場數據 Market Intelligence',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-gradient-to-br from-primary-500 to-primary-600 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">$12B</div>
+              <div className="text-sm opacity-90">Coffee Packaging 2027</div>
+            </div>
+            <div className="bg-gradient-to-br from-amber-500 to-orange-500 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">25%</div>
+              <div className="text-sm opacity-90">Premium Price Lift</div>
+            </div>
+            <div className="bg-gradient-to-br from-green-500 to-emerald-500 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">5</div>
+              <div className="text-sm opacity-90">Printable Panels</div>
+            </div>
+            <div className="bg-gradient-to-br from-blue-500 to-indigo-500 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">20%</div>
+              <div className="text-sm opacity-90">More Volume vs SUP</div>
+            </div>
+          </div>
+          <div className="bg-white p-4 rounded-xl border border-neutral-200">
+            <h4 className="font-semibold text-neutral-900 mb-3">Flat Bottom vs Stand-Up Pouch Comparison</h4>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-neutral-200">
+                    <th className="text-left py-2 font-medium">Feature</th>
+                    <th className="text-center py-2 font-medium">Flat Bottom</th>
+                    <th className="text-center py-2 font-medium">Stand-Up Pouch</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">Printable Panels</td>
+                    <td className="text-center py-2">5 panels</td>
+                    <td className="text-center py-2">2-3 panels</td>
+                  </tr>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">Shelf Stability</td>
+                    <td className="text-center py-2">⭐⭐⭐⭐⭐</td>
+                    <td className="text-center py-2">⭐⭐⭐⭐</td>
+                  </tr>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">Volume for Footprint</td>
+                    <td className="text-center py-2">+15-20%</td>
+                    <td className="text-center py-2">Baseline</td>
+                  </tr>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">Price Premium</td>
+                    <td className="text-center py-2">+15-25%</td>
+                    <td className="text-center py-2">Baseline</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div className="bg-green-50 p-4 rounded-xl border border-green-200">
+            <h4 className="font-semibold text-green-800 mb-2">🌍 Environmental Impact</h4>
+            <p className="text-sm text-green-700">Flat bottom bags use 60% less material than rigid containers while providing premium presentation. Compostable options available for eco-conscious brands.</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border border-neutral-200 rounded-xl overflow-hidden">
+              <thead className="bg-neutral-100">
+                <tr>
+                  <th className="text-left p-3 font-semibold">Feature</th>
+                  <th className="text-center p-3 font-semibold text-green-700">Kraft Compostable</th>
+                  <th className="text-center p-3 font-semibold text-blue-700">Paper-Based</th>
+                  <th className="text-center p-3 font-semibold text-purple-700">High-Barrier</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Best For</td>
+                  <td className="text-center p-3">✅ Premium coffee</td>
+                  <td className="text-center p-3">✅ Dry goods, rice</td>
+                  <td className="text-center p-3">✅ Max freshness</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Barrier Level</td>
+                  <td className="text-center p-3">Medium-High</td>
+                  <td className="text-center p-3">Medium</td>
+                  <td className="text-center p-3">Very High</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Shelf Life</td>
+                  <td className="text-center p-3">6-12 months</td>
+                  <td className="text-center p-3">6-9 months</td>
+                  <td className="text-center p-3">18-24 months</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Premium Look</td>
+                  <td className="text-center p-3">⭐⭐⭐⭐⭐</td>
+                  <td className="text-center p-3">⭐⭐⭐⭐</td>
+                  <td className="text-center p-3">⭐⭐⭐⭐</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">End-of-Life</td>
+                  <td className="text-center p-3">🌱 Compostable</td>
+                  <td className="text-center p-3">♻️ Recyclable</td>
+                  <td className="text-center p-3">🗑️ Landfill</td>
+                </tr>
+                <tr>
+                  <td className="p-3 font-medium">Price Point</td>
+                  <td className="text-center p-3">💰💰💰</td>
+                  <td className="text-center p-3">💰💰</td>
+                  <td className="text-center p-3">💰💰💰</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="bg-amber-50 p-5 rounded-xl border border-amber-200">
+            <h4 className="font-semibold text-amber-800 mb-3">💡 Decision Guide for Flat Bottom Bags</h4>
+            <div className="grid md:grid-cols-3 gap-4 text-sm">
+              <div>
+                <p className="font-medium text-amber-900">Choose Kraft Compostable if:</p>
+                <ul className="text-amber-700 mt-1 space-y-1">
+                  <li>• Premium coffee brand</li>
+                  <li>• Eco-conscious market</li>
+                  <li>• Natural look desired</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-amber-900">Choose Paper-Based if:</p>
+                <ul className="text-amber-700 mt-1 space-y-1">
+                  <li>• Dry goods, grains</li>
+                  <li>• Cost optimization</li>
+                  <li>• Recyclable preference</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-amber-900">Choose High-Barrier if:</p>
+                <ul className="text-amber-700 mt-1 space-y-1">
+                  <li>• Maximum shelf life</li>
+                  <li>• Sensitive products</li>
+                  <li>• Long distribution chains</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

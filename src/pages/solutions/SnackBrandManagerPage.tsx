@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Cookie, Leaf, Package, BarChart3, CheckCircle, Calendar, MessageCircle, Award, Target, Shield, FileCheck, Layers } from 'lucide-react'
+import { Cookie, Leaf, Package, BarChart3, CheckCircle, Calendar, MessageCircle, Award, Target, Shield, FileCheck, Layers, Factory, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -276,6 +276,183 @@ const SnackBrandManagerPage: React.FC = () => {
               <Leaf className="h-5 w-5" />
               Explore Materials
             </Link>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Our sustainable snack packaging solutions serve <strong>brand managers across the natural and organic food sector</strong> with verified credentials and retail-ready designs.
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-lime-50 to-green-50 p-5 rounded-xl border border-lime-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Leaf className="h-5 w-5 text-lime-600" />
+                <h4 className="font-semibold text-lime-800">Organic Snack Brands</h4>
+              </div>
+              <p className="text-sm text-lime-700">Certified compostable packaging that aligns with organic positioning and natural retailer requirements.</p>
+            </div>
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Cookie className="h-5 w-5 text-amber-600" />
+                <h4 className="font-semibold text-amber-800">Better-For-You Snacks</h4>
+              </div>
+              <p className="text-sm text-amber-700">Premium sustainable packaging for health-conscious snack products targeting wellness consumers.</p>
+            </div>
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-5 rounded-xl border border-blue-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Package className="h-5 w-5 text-blue-600" />
+                <h4 className="font-semibold text-blue-800">Multi-Product Lines</h4>
+              </div>
+              <p className="text-sm text-blue-700">Unified sustainable packaging across chips, granola, nuts, and bars with consistent brand presentation.</p>
+            </div>
+          </div>
+
+          <div className="bg-neutral-50 p-5 rounded-xl border border-neutral-200">
+            <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+              <Sparkles className="h-5 w-5 text-primary-600" />
+              Customer Success: Organic Granola Brand
+            </h4>
+            <p className="text-sm text-neutral-600 mb-3">
+              A growing granola brand transitioned 5 SKUs to compostable packaging. With our documentation support, they secured placement in Whole Foods and saw 23% increase in repeat purchases from eco-conscious consumers.
+            </p>
+            <div className="flex gap-4 text-xs">
+              <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full">5 SKUs Converted</span>
+              <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full">23% Repeat Purchase Lift</span>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'market-data',
+      title: '市場數據 Market Intelligence',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Make informed decisions with <strong>latest snack packaging and sustainability market data</strong>.
+          </p>
+          
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-primary-600 mb-1">73%</div>
+              <div className="text-sm text-neutral-600">Consumers willing to pay more for sustainable snacks</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-green-600 mb-1">$86B</div>
+              <div className="text-sm text-neutral-600">Global healthy snacks market by 2027</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-amber-600 mb-1">41%</div>
+              <div className="text-sm text-neutral-600">Snack buyers checking packaging sustainability</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-blue-600 mb-1">8.4%</div>
+              <div className="text-sm text-neutral-600">Annual growth in organic snack category</div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-r from-lime-50 to-green-50 p-5 rounded-xl border border-lime-200">
+            <h4 className="font-semibold text-lime-800 mb-3 flex items-center gap-2">
+              <TrendingUp className="h-5 w-5" />
+              Snack Packaging Trends 2024-2026
+            </h4>
+            <div className="grid md:grid-cols-2 gap-4 text-sm">
+              <div>
+                <h5 className="font-medium text-lime-700 mb-2">Consumer Preferences</h5>
+                <ul className="text-lime-600 space-y-1">
+                  <li>• Resealable options for portion control</li>
+                  <li>• Transparent windows for product visibility</li>
+                  <li>• QR codes linking to sourcing stories</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-medium text-lime-700 mb-2">Retailer Requirements</h5>
+                <ul className="text-lime-600 space-y-1">
+                  <li>• Sustainable packaging mandates by 2025</li>
+                  <li>• How2Recycle labeling requirements</li>
+                  <li>• Recyclability documentation for buyers</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Compare <strong>sustainable snack packaging materials</strong> to select the right option for each product line.
+          </p>
+          
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-primary-600 text-white">
+                  <th className="p-3 text-left rounded-tl-lg">Material</th>
+                  <th className="p-3 text-left">Sustainability</th>
+                  <th className="p-3 text-left">Barrier Level</th>
+                  <th className="p-3 text-left">Best For</th>
+                  <th className="p-3 text-left">Retailer Fit</th>
+                  <th className="p-3 text-left rounded-tr-lg">Cost Level</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-neutral-200 hover:bg-neutral-50">
+                  <td className="p-3 font-medium">Kraft + PLA Compostable</td>
+                  <td className="p-3"><span className="text-green-600">★★★★★</span></td>
+                  <td className="p-3">Medium-High</td>
+                  <td className="p-3">Granola, dried fruit</td>
+                  <td className="p-3">Whole Foods, Sprouts</td>
+                  <td className="p-3">$$$</td>
+                </tr>
+                <tr className="border-b border-neutral-200 bg-neutral-50 hover:bg-neutral-100">
+                  <td className="p-3 font-medium">Recyclable Mono-PE</td>
+                  <td className="p-3"><span className="text-green-600">★★★★</span></td>
+                  <td className="p-3">High</td>
+                  <td className="p-3">Chips, crisps</td>
+                  <td className="p-3">Target, Kroger</td>
+                  <td className="p-3">$$</td>
+                </tr>
+                <tr className="border-b border-neutral-200 hover:bg-neutral-50">
+                  <td className="p-3 font-medium">PCR Content Film</td>
+                  <td className="p-3"><span className="text-green-600">★★★</span></td>
+                  <td className="p-3">High</td>
+                  <td className="p-3">Nuts, seeds</td>
+                  <td className="p-3">Mainstream retail</td>
+                  <td className="p-3">$$</td>
+                </tr>
+                <tr className="hover:bg-neutral-50">
+                  <td className="p-3 font-medium">Bio-PE Film</td>
+                  <td className="p-3"><span className="text-green-600">★★★★</span></td>
+                  <td className="p-3">High</td>
+                  <td className="p-3">Protein bars</td>
+                  <td className="p-3">Natural grocers</td>
+                  <td className="p-3">$$$</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="bg-lime-50 p-5 rounded-xl border border-lime-200">
+            <h4 className="font-semibold text-lime-800 mb-2 flex items-center gap-2">
+              <ShoppingBag className="h-5 w-5" />
+              Expert Selection Advice
+            </h4>
+            <p className="text-sm text-lime-700">
+              For multi-product portfolios: Use <strong>Kraft + PLA Compostable</strong> for flagship organic lines, <strong>Recyclable Mono-PE</strong> for mainstream products requiring high barrier. We can help you create a tiered sustainability strategy that balances cost and environmental credentials.
+            </p>
           </div>
         </div>
       )

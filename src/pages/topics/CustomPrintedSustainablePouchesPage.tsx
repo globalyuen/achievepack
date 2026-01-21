@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Printer, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Palette, Sparkles, Layers } from 'lucide-react'
+import { Printer, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Palette, Sparkles, Layers, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -189,6 +189,183 @@ const CustomPrintedSustainablePouchesPage: React.FC = () => {
               <Package className="h-5 w-5" />
               Browse Products
             </Link>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Custom printed sustainable pouches serve <strong>brands across industries</strong> seeking premium presentation without compromising eco credentials.
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Palette className="h-5 w-5 text-purple-600" />
+                <h4 className="font-semibold text-purple-800">Premium Food Brands</h4>
+              </div>
+              <p className="text-sm text-purple-700">Artisan products requiring photo-quality graphics and premium finishes on sustainable materials.</p>
+            </div>
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Award className="h-5 w-5 text-green-600" />
+                <h4 className="font-semibold text-green-800">Organic & Natural</h4>
+              </div>
+              <p className="text-sm text-green-700">Brands emphasizing natural aesthetics with kraft, matte finishes, and earth-tone designs.</p>
+            </div>
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-5 rounded-xl border border-blue-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Package className="h-5 w-5 text-blue-600" />
+                <h4 className="font-semibold text-blue-800">DTC Startups</h4>
+              </div>
+              <p className="text-sm text-blue-700">Low MOQ custom printing enabling startups to launch with professional branded packaging.</p>
+            </div>
+          </div>
+
+          <div className="bg-neutral-50 p-5 rounded-xl border border-neutral-200">
+            <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+              <Sparkles className="h-5 w-5 text-primary-600" />
+              Customer Success: Premium Coffee Brand
+            </h4>
+            <p className="text-sm text-neutral-600 mb-3">
+              A specialty coffee roaster achieved Instagram-viral unboxing with our matte-finished compostable pouches featuring metallic foil stamping. The premium presentation justified a 25% price increase.
+            </p>
+            <div className="flex gap-4 text-xs">
+              <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full">Foil Stamping</span>
+              <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full">25% Price Premium</span>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'market-data',
+      title: '市場數據 Market Intelligence',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Understand the <strong>custom sustainable packaging market</strong> to maximize your brand impact.
+          </p>
+          
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-primary-600 mb-1">74%</div>
+              <div className="text-sm text-neutral-600">Consumers prefer brands with eco packaging</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-purple-600 mb-1">3.5x</div>
+              <div className="text-sm text-neutral-600">Higher engagement with premium finishes</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-green-600 mb-1">100</div>
+              <div className="text-sm text-neutral-600">Piece minimum for custom printing</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-blue-600 mb-1">10-15</div>
+              <div className="text-sm text-neutral-600">Days for digital print orders</div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-200">
+            <h4 className="font-semibold text-purple-800 mb-3 flex items-center gap-2">
+              <TrendingUp className="h-5 w-5" />
+              Custom Printing Trends 2024-2026
+            </h4>
+            <div className="grid md:grid-cols-2 gap-4 text-sm">
+              <div>
+                <h5 className="font-medium text-purple-700 mb-2">Design Trends</h5>
+                <ul className="text-purple-600 space-y-1">
+                  <li>• Minimalist designs with premium finishes</li>
+                  <li>• QR codes for digital brand experiences</li>
+                  <li>• Sustainability messaging integration</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-medium text-purple-700 mb-2">Technology Advances</h5>
+                <ul className="text-purple-600 space-y-1">
+                  <li>• HP Indigo for photo-quality eco prints</li>
+                  <li>• Water-based inks for full compostability</li>
+                  <li>• Variable data for personalization</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Compare <strong>printable sustainable materials</strong> to achieve your desired look and performance.
+          </p>
+          
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-primary-600 text-white">
+                  <th className="p-3 text-left rounded-tl-lg">Material</th>
+                  <th className="p-3 text-left">Print Quality</th>
+                  <th className="p-3 text-left">Finishes</th>
+                  <th className="p-3 text-left">Best Look</th>
+                  <th className="p-3 text-left">Sustainability</th>
+                  <th className="p-3 text-left rounded-tr-lg">Cost Level</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-neutral-200 hover:bg-neutral-50">
+                  <td className="p-3 font-medium">Kraft Paper + PLA</td>
+                  <td className="p-3"><span className="text-green-600">★★★★</span></td>
+                  <td className="p-3">Foil, emboss</td>
+                  <td className="p-3">Natural, artisan</td>
+                  <td className="p-3"><span className="text-green-600">✓ Compostable</span></td>
+                  <td className="p-3">$$</td>
+                </tr>
+                <tr className="border-b border-neutral-200 bg-neutral-50 hover:bg-neutral-100">
+                  <td className="p-3 font-medium">PLA Clear Film</td>
+                  <td className="p-3"><span className="text-green-600">★★★★★</span></td>
+                  <td className="p-3">All finishes</td>
+                  <td className="p-3">Premium, modern</td>
+                  <td className="p-3"><span className="text-green-600">✓ Compostable</span></td>
+                  <td className="p-3">$$$</td>
+                </tr>
+                <tr className="border-b border-neutral-200 hover:bg-neutral-50">
+                  <td className="p-3 font-medium">Recyclable Mono-PE</td>
+                  <td className="p-3"><span className="text-green-600">★★★★★</span></td>
+                  <td className="p-3">All finishes</td>
+                  <td className="p-3">Vibrant, glossy</td>
+                  <td className="p-3"><span className="text-green-600">✓ Recyclable</span></td>
+                  <td className="p-3">$$</td>
+                </tr>
+                <tr className="hover:bg-neutral-50">
+                  <td className="p-3 font-medium">PCR Content Film</td>
+                  <td className="p-3"><span className="text-green-600">★★★★</span></td>
+                  <td className="p-3">Most finishes</td>
+                  <td className="p-3">Clean, professional</td>
+                  <td className="p-3"><span className="text-green-600">✓ Recycled content</span></td>
+                  <td className="p-3">$$</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="bg-purple-50 p-5 rounded-xl border border-purple-200">
+            <h4 className="font-semibold text-purple-800 mb-2 flex items-center gap-2">
+              <ShoppingBag className="h-5 w-5" />
+              Design Selection Advice
+            </h4>
+            <p className="text-sm text-purple-700">
+              For premium brand positioning: <strong>Kraft + foil stamping</strong> for artisan appeal, <strong>PLA clear + matte finish</strong> for modern luxury, <strong>Mono-PE + spot UV</strong> for vibrant shelf impact. All materials support photo-quality digital printing from 100 pieces.
+            </p>
           </div>
         </div>
       )

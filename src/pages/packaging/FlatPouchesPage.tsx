@@ -1,5 +1,5 @@
 import React from 'react'
-import { Package, CheckCircle, Scissors, FileText, Target, Shield, Calendar, Mail, Download } from 'lucide-react'
+import { Package, CheckCircle, Scissors, FileText, Target, Shield, Calendar, Mail, Download, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useTranslation } from 'react-i18next'
@@ -255,6 +255,146 @@ const FlatPouchesPage: React.FC = () => {
                 Request Samples
               </Link>
             </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6">
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
+              <div className="flex items-center gap-2 mb-3">
+                <ShoppingBag className="h-5 w-5 text-amber-600" />
+                <h4 className="font-semibold text-neutral-900">食品調味料 Food & Condiments</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">醬料包、糖包、調味包、香料包</p>
+              <div className="text-xs text-amber-700 bg-amber-100 px-2 py-1 rounded inline-block">佔比 45%</div>
+            </div>
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-5 rounded-xl border border-blue-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="h-5 w-5 text-blue-600" />
+                <h4 className="font-semibold text-neutral-900">美容樣品 Cosmetic Samples</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">面膜精華、乳液樣品、洗護試用</p>
+              <div className="text-xs text-blue-700 bg-blue-100 px-2 py-1 rounded inline-block">佔比 30%</div>
+            </div>
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+              <div className="flex items-center gap-2 mb-3">
+                <TrendingUp className="h-5 w-5 text-green-600" />
+                <h4 className="font-semibold text-neutral-900">醫藥保健 Pharmaceutical</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">藥品分裝、保健品試用、營養補充劑</p>
+              <div className="text-xs text-green-700 bg-green-100 px-2 py-1 rounded inline-block">佔比 25%</div>
+            </div>
+          </div>
+          <div className="bg-white p-4 rounded-lg border border-neutral-200">
+            <h4 className="font-semibold text-neutral-900 mb-3">客戶成功案例 Success Story</h4>
+            <p className="text-sm text-neutral-600">「我們的醬料品牌轉用三邊封小包裝後，單位成本降低35%，且完美適配餐飲渠道的即用需求，大幅提升了市場覆蓋率。」</p>
+            <p className="text-xs text-neutral-500 mt-2">— 調味品生產商，月出貨量 200萬包</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'market-data',
+      title: '市場數據 Market Intelligence',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="bg-gradient-to-br from-primary-500 to-primary-600 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">$8.2B</div>
+              <div className="text-sm opacity-90">全球小包裝市場規模</div>
+              <div className="text-xs opacity-75 mt-1">2024年估值</div>
+            </div>
+            <div className="bg-gradient-to-br from-green-500 to-green-600 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">6.8%</div>
+              <div className="text-sm opacity-90">年複合增長率</div>
+              <div className="text-xs opacity-75 mt-1">2024-2030</div>
+            </div>
+            <div className="bg-gradient-to-br from-amber-500 to-amber-600 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">35%</div>
+              <div className="text-sm opacity-90">餐飲市場佔比</div>
+              <div className="text-xs opacity-75 mt-1">最大終端應用</div>
+            </div>
+            <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">150億</div>
+              <div className="text-sm opacity-90">亞太年消費量</div>
+              <div className="text-xs opacity-75 mt-1">全球最大市場</div>
+            </div>
+          </div>
+          <div className="bg-neutral-50 p-4 rounded-lg">
+            <h4 className="font-semibold text-neutral-900 mb-3">市場趨勢洞察</h4>
+            <div className="grid md:grid-cols-2 gap-4 text-sm">
+              <div className="flex items-start gap-2">
+                <TrendingUp className="h-4 w-4 text-green-500 mt-0.5" />
+                <span><strong>單次用量市場</strong>：便利性需求推動小包裝持續增長</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <TrendingUp className="h-4 w-4 text-green-500 mt-0.5" />
+                <span><strong>可堆肥材料</strong>：PLA等環保材料需求年增25%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-neutral-100">
+                  <th className="border border-neutral-200 px-4 py-2 text-left">材料類型</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-center">阻隔性</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-center">成本</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-center">環保性</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-left">推薦應用</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="border border-neutral-200 px-4 py-2 font-medium">PET/PE 透明</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">⭐⭐⭐</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">💰</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">可回收</td>
+                  <td className="border border-neutral-200 px-4 py-2">糖包、乾燥食品</td>
+                </tr>
+                <tr className="bg-neutral-50">
+                  <td className="border border-neutral-200 px-4 py-2 font-medium">鋁箔複合</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">⭐⭐⭐⭐⭐</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">💰💰</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">難回收</td>
+                  <td className="border border-neutral-200 px-4 py-2">醬料、藥品</td>
+                </tr>
+                <tr>
+                  <td className="border border-neutral-200 px-4 py-2 font-medium">牛皮紙複合</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">⭐⭐⭐</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">💰💰</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">天然外觀</td>
+                  <td className="border border-neutral-200 px-4 py-2">茶包、香料</td>
+                </tr>
+                <tr className="bg-green-50">
+                  <td className="border border-neutral-200 px-4 py-2 font-medium">PLA 可堆肥</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">⭐⭐</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">💰💰💰</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">🌱 可堆肥</td>
+                  <td className="border border-neutral-200 px-4 py-2">有機食品、樣品</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="bg-primary-50 p-4 rounded-lg">
+            <h4 className="font-semibold text-primary-800 mb-2">選材建議</h4>
+            <p className="text-sm text-primary-700">三邊封袋適合對成本敏感的單次使用場景。如需液體包裝選鋁箔材質；如有環保要求選PLA可堆肥材料。</p>
           </div>
         </div>
       )

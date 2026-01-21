@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Package, Leaf, Shield, CheckCircle, Heart, MessageCircle, Target, Calendar, Phone, Download, Mail } from 'lucide-react'
+import { Package, Leaf, Shield, CheckCircle, Heart, MessageCircle, Target, Calendar, Phone, Download, Mail, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -256,6 +256,216 @@ const PetFoodPage: React.FC = () => {
           </div>
           
           <p className="mt-4">See how other pet brands solved their packaging challenges: <Link to="/case-studies/pet-treats" className="text-primary-600 hover:underline font-semibold">Pet Treats Case Study →</Link></p>
+        </div>
+      )
+    },
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Heart className="h-5 w-5 text-purple-600" />
+                <h4 className="font-semibold text-neutral-900">Premium Pet Food Brands</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">Natural and organic pet food brands requiring sustainable, high-barrier packaging.</p>
+              <ul className="text-xs text-neutral-500 space-y-1">
+                <li>• Grain-free kibble</li>
+                <li>• Limited ingredient diets</li>
+                <li>• Organic pet food</li>
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-orange-50 to-amber-50 p-5 rounded-xl border border-orange-200">
+              <div className="flex items-center gap-2 mb-3">
+                <ShoppingBag className="h-5 w-5 text-orange-600" />
+                <h4 className="font-semibold text-neutral-900">Dog Treat Startups</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">Growing treat brands scaling from farmers markets to retail distribution.</p>
+              <ul className="text-xs text-neutral-500 space-y-1">
+                <li>• Single-ingredient treats</li>
+                <li>• Freeze-dried snacks</li>
+                <li>• Training treats</li>
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="h-5 w-5 text-green-600" />
+                <h4 className="font-semibold text-neutral-900">Pet Supplement Companies</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">Nutraceutical brands offering joint health, CBD, and wellness products for pets.</p>
+              <ul className="text-xs text-neutral-500 space-y-1">
+                <li>• Joint supplements</li>
+                <li>• CBD pet products</li>
+                <li>• Skin & coat formulas</li>
+              </ul>
+            </div>
+          </div>
+          <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+            <h4 className="font-semibold text-neutral-900 mb-3">🏆 Customer Success: Pawsome Bites Dog Treats</h4>
+            <p className="text-sm text-neutral-600 mb-3">Switched to compostable kraft pouches, achieving carbon-neutral packaging status and winning "Best Eco Pet Brand" at Global Pet Expo 2024.</p>
+            <div className="flex flex-wrap gap-4 text-xs">
+              <span className="bg-white px-3 py-1 rounded-full border">✓ Carbon Neutral Packaging</span>
+              <span className="bg-white px-3 py-1 rounded-full border">✓ Global Pet Expo Award</span>
+              <span className="bg-white px-3 py-1 rounded-full border">✓ 50% Customer Growth</span>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'market-data',
+      title: '市場數據 Market Intelligence',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-gradient-to-br from-primary-500 to-primary-600 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">$11.2B</div>
+              <div className="text-sm opacity-90">Pet Food Packaging 2024</div>
+            </div>
+            <div className="bg-gradient-to-br from-purple-500 to-pink-500 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">8.3%</div>
+              <div className="text-sm opacity-90">Sustainable Packaging CAGR</div>
+            </div>
+            <div className="bg-gradient-to-br from-green-500 to-emerald-500 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">71%</div>
+              <div className="text-sm opacity-90">Pet Owners Want Eco</div>
+            </div>
+            <div className="bg-gradient-to-br from-blue-500 to-indigo-500 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">$143B</div>
+              <div className="text-sm opacity-90">US Pet Industry 2024</div>
+            </div>
+          </div>
+          <div className="bg-white p-4 rounded-xl border border-neutral-200">
+            <h4 className="font-semibold text-neutral-900 mb-3">Pet Food Packaging Performance Comparison</h4>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-neutral-200">
+                    <th className="text-left py-2 font-medium">Material Type</th>
+                    <th className="text-center py-2 font-medium">MVTR (g/m²/24hr)</th>
+                    <th className="text-center py-2 font-medium">Weight Capacity</th>
+                    <th className="text-center py-2 font-medium">Shelf Life</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">Kraft + PLA (Compostable)</td>
+                    <td className="text-center py-2">&lt; 2.5</td>
+                    <td className="text-center py-2">Up to 2kg</td>
+                    <td className="text-center py-2">6-12 months</td>
+                  </tr>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">Mono-PE (Recyclable)</td>
+                    <td className="text-center py-2">&lt; 2.0</td>
+                    <td className="text-center py-2">Up to 10kg</td>
+                    <td className="text-center py-2">12-18 months</td>
+                  </tr>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">Heavy-Duty Laminate</td>
+                    <td className="text-center py-2">&lt; 1.0</td>
+                    <td className="text-center py-2">Up to 20kg</td>
+                    <td className="text-center py-2">18-24 months</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div className="bg-green-50 p-4 rounded-xl border border-green-200">
+            <h4 className="font-semibold text-green-800 mb-2">🌍 Environmental Impact</h4>
+            <p className="text-sm text-green-700">The pet industry generates 300 million pounds of plastic packaging waste annually. Switching to sustainable options can reduce brand carbon footprint by 40-65%.</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border border-neutral-200 rounded-xl overflow-hidden">
+              <thead className="bg-neutral-100">
+                <tr>
+                  <th className="text-left p-3 font-semibold">Feature</th>
+                  <th className="text-center p-3 font-semibold text-green-700">Compostable</th>
+                  <th className="text-center p-3 font-semibold text-blue-700">Recyclable PE</th>
+                  <th className="text-center p-3 font-semibold text-purple-700">PCR Content</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Best For Pet Products</td>
+                  <td className="text-center p-3">✅ Treats, supplements</td>
+                  <td className="text-center p-3">✅ Kibble, bulk food</td>
+                  <td className="text-center p-3">✅ All pet products</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Weight Capacity</td>
+                  <td className="text-center p-3">Up to 2kg</td>
+                  <td className="text-center p-3">Up to 10kg</td>
+                  <td className="text-center p-3">Up to 10kg</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Odor Barrier</td>
+                  <td className="text-center p-3">Good</td>
+                  <td className="text-center p-3">Excellent</td>
+                  <td className="text-center p-3">Excellent</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Resealable Options</td>
+                  <td className="text-center p-3">✅ Zipper</td>
+                  <td className="text-center p-3">✅ Slider/Zipper</td>
+                  <td className="text-center p-3">✅ Slider/Zipper</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">End-of-Life</td>
+                  <td className="text-center p-3">🌱 Compostable</td>
+                  <td className="text-center p-3">♻️ Recyclable</td>
+                  <td className="text-center p-3">♻️ Recyclable</td>
+                </tr>
+                <tr>
+                  <td className="p-3 font-medium">Price Point</td>
+                  <td className="text-center p-3">💰💰💰</td>
+                  <td className="text-center p-3">💰💰</td>
+                  <td className="text-center p-3">💰💰</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="bg-amber-50 p-5 rounded-xl border border-amber-200">
+            <h4 className="font-semibold text-amber-800 mb-3">💡 Decision Guide for Pet Brands</h4>
+            <div className="grid md:grid-cols-3 gap-4 text-sm">
+              <div>
+                <p className="font-medium text-amber-900">Choose Compostable if:</p>
+                <ul className="text-amber-700 mt-1 space-y-1">
+                  <li>• Premium/natural positioning</li>
+                  <li>• Treats under 500g</li>
+                  <li>• Eco-conscious pet parents</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-amber-900">Choose Mono-PE if:</p>
+                <ul className="text-amber-700 mt-1 space-y-1">
+                  <li>• Large format kibble bags</li>
+                  <li>• Heavy-duty requirements</li>
+                  <li>• Maximum shelf life</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-amber-900">Choose PCR if:</p>
+                <ul className="text-amber-700 mt-1 space-y-1">
+                  <li>• Corporate sustainability goals</li>
+                  <li>• Flexible sizing options</li>
+                  <li>• Circular economy focus</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       )
     }

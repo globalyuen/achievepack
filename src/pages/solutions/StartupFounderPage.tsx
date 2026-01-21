@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Rocket, Leaf, Award, CheckCircle, Clock, Shield, Target, Calendar, MessageCircle, Package, Zap, Users } from 'lucide-react'
+import { Rocket, Leaf, Award, CheckCircle, Clock, Shield, Target, Calendar, MessageCircle, Package, Zap, Users, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -329,6 +329,183 @@ const StartupFounderPage: React.FC = () => {
           <p className="mt-6 text-sm opacity-80">
             Or email directly: <a href="mailto:ryan@achievepack.com" className="underline">ryan@achievepack.com</a>
           </p>
+        </div>
+      )
+    },
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Our startup-friendly packaging solutions serve <strong>founders across diverse DTC and wellness categories</strong> with low MOQ and premium sustainable options.
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Rocket className="h-5 w-5 text-amber-600" />
+                <h4 className="font-semibold text-amber-800">Wellness & Supplements</h4>
+              </div>
+              <p className="text-sm text-amber-700">Protein powders, vitamins, and wellness products with certified sustainable packaging from 100 pieces.</p>
+            </div>
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Leaf className="h-5 w-5 text-green-600" />
+                <h4 className="font-semibold text-green-800">Organic Food Startups</h4>
+              </div>
+              <p className="text-sm text-green-700">Teas, coffees, and organic snacks with compostable certification for eco-conscious consumers.</p>
+            </div>
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Award className="h-5 w-5 text-purple-600" />
+                <h4 className="font-semibold text-purple-800">Kickstarter Projects</h4>
+              </div>
+              <p className="text-sm text-purple-700">Crowdfunded products with fast turnaround to meet campaign fulfillment deadlines.</p>
+            </div>
+          </div>
+
+          <div className="bg-neutral-50 p-5 rounded-xl border border-neutral-200">
+            <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+              <Sparkles className="h-5 w-5 text-primary-600" />
+              Customer Success: DTC Protein Brand
+            </h4>
+            <p className="text-sm text-neutral-600 mb-3">
+              A first-time founder launched their protein powder brand with just 500 compostable pouches. Free design support helped create professional packaging that secured their first wholesale account within 3 months.
+            </p>
+            <div className="flex gap-4 text-xs">
+              <span className="px-3 py-1 bg-amber-100 text-amber-700 rounded-full">500 Piece Launch</span>
+              <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full">First Wholesale in 3 Months</span>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'market-data',
+      title: '市場數據 Market Intelligence',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Launch with confidence using <strong>latest DTC and startup packaging market insights</strong>.
+          </p>
+          
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-primary-600 mb-1">78%</div>
+              <div className="text-sm text-neutral-600">DTC consumers value sustainable packaging</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-green-600 mb-1">$165B</div>
+              <div className="text-sm text-neutral-600">Global DTC market size by 2027</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-amber-600 mb-1">52%</div>
+              <div className="text-sm text-neutral-600">Millennials prefer eco-friendly startups</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-purple-600 mb-1">3.2x</div>
+              <div className="text-sm text-neutral-600">Higher engagement with sustainable brands</div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
+            <h4 className="font-semibold text-amber-800 mb-3 flex items-center gap-2">
+              <TrendingUp className="h-5 w-5" />
+              Startup Packaging Trends 2024-2026
+            </h4>
+            <div className="grid md:grid-cols-2 gap-4 text-sm">
+              <div>
+                <h5 className="font-medium text-amber-700 mb-2">Success Factors</h5>
+                <ul className="text-amber-600 space-y-1">
+                  <li>• Unboxing experience drives social shares</li>
+                  <li>• Sustainability story increases conversion</li>
+                  <li>• Low MOQ enables faster market testing</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-medium text-amber-700 mb-2">Investment Trends</h5>
+                <ul className="text-amber-600 space-y-1">
+                  <li>• VCs prioritizing sustainable supply chains</li>
+                  <li>• Premium packaging commands higher prices</li>
+                  <li>• Certification logos build consumer trust</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Compare <strong>startup-friendly packaging materials</strong> to select the right option for your launch stage.
+          </p>
+          
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-primary-600 text-white">
+                  <th className="p-3 text-left rounded-tl-lg">Material</th>
+                  <th className="p-3 text-left">Sustainability</th>
+                  <th className="p-3 text-left">Min. Order</th>
+                  <th className="p-3 text-left">Best Stage</th>
+                  <th className="p-3 text-left">Investor Appeal</th>
+                  <th className="p-3 text-left rounded-tr-lg">Cost Level</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-neutral-200 hover:bg-neutral-50">
+                  <td className="p-3 font-medium">Kraft + PLA Compostable</td>
+                  <td className="p-3"><span className="text-green-600">★★★★★</span></td>
+                  <td className="p-3">100 pcs</td>
+                  <td className="p-3">Launch & Scale</td>
+                  <td className="p-3"><span className="text-green-600">✓ Excellent</span></td>
+                  <td className="p-3">$$$</td>
+                </tr>
+                <tr className="border-b border-neutral-200 bg-neutral-50 hover:bg-neutral-100">
+                  <td className="p-3 font-medium">Recyclable Mono-PE</td>
+                  <td className="p-3"><span className="text-green-600">★★★★</span></td>
+                  <td className="p-3">100 pcs</td>
+                  <td className="p-3">Growth Stage</td>
+                  <td className="p-3"><span className="text-green-600">✓ Good</span></td>
+                  <td className="p-3">$$</td>
+                </tr>
+                <tr className="border-b border-neutral-200 hover:bg-neutral-50">
+                  <td className="p-3 font-medium">PCR Content Film</td>
+                  <td className="p-3"><span className="text-green-600">★★★</span></td>
+                  <td className="p-3">100 pcs</td>
+                  <td className="p-3">Scale Stage</td>
+                  <td className="p-3"><span className="text-yellow-600">~ Good</span></td>
+                  <td className="p-3">$$</td>
+                </tr>
+                <tr className="hover:bg-neutral-50">
+                  <td className="p-3 font-medium">Premium Kraft Paper</td>
+                  <td className="p-3"><span className="text-green-600">★★★★</span></td>
+                  <td className="p-3">100 pcs</td>
+                  <td className="p-3">Premium Launch</td>
+                  <td className="p-3"><span className="text-green-600">✓ Excellent</span></td>
+                  <td className="p-3">$$</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="bg-amber-50 p-5 rounded-xl border border-amber-200">
+            <h4 className="font-semibold text-amber-800 mb-2 flex items-center gap-2">
+              <ShoppingBag className="h-5 w-5" />
+              Expert Selection Advice
+            </h4>
+            <p className="text-sm text-amber-700">
+              For first-time founders: Start with <strong>Kraft + PLA Compostable</strong> if sustainability is core to your brand story, or <strong>Premium Kraft Paper</strong> for a natural, artisan aesthetic. Both options are available from just 100 pieces with free design support.
+            </p>
+          </div>
         </div>
       )
     }

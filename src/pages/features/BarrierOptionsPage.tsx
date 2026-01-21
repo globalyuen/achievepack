@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Shield, Thermometer, Package, CheckCircle, Clock, Target, Calendar, Mail, Download, X, ChevronLeft, ChevronRight, Image } from 'lucide-react'
+import { Shield, Thermometer, Package, CheckCircle, Clock, Target, Calendar, Mail, Download, X, ChevronLeft, ChevronRight, Image, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
@@ -319,6 +319,144 @@ const BarrierOptionsPage: React.FC = () => {
                 Request Testing
               </Link>
             </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">不同行業對阻隔性能有不同需求，選擇正確的阻隔級別是產品成功的關鍵。</p>
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+              <div className="flex items-center gap-2 mb-3">
+                <ShoppingBag className="h-5 w-5 text-green-600" />
+                <h4 className="font-semibold text-green-800">食品飲料行業</h4>
+              </div>
+              <p className="text-sm text-green-700 mb-3">咖啡、堅果、零食、寵物食品等需要精準的氧氣和水分阻隔。</p>
+              <div className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded inline-block">佔比: 65%</div>
+            </div>
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-5 rounded-xl border border-blue-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="h-5 w-5 text-blue-600" />
+                <h4 className="font-semibold text-blue-800">保健品行業</h4>
+              </div>
+              <p className="text-sm text-blue-700 mb-3">維生素、蛋白粉、營養補充劑等需要高阻隔保護活性成分。</p>
+              <div className="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded inline-block">佔比: 20%</div>
+            </div>
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Package className="h-5 w-5 text-purple-600" />
+                <h4 className="font-semibold text-purple-800">嬰幼兒食品</h4>
+              </div>
+              <p className="text-sm text-purple-700 mb-3">嬰兒食品、輔食等需要最高級別的安全阻隔保護。</p>
+              <div className="text-xs text-purple-600 bg-purple-100 px-2 py-1 rounded inline-block">佔比: 15%</div>
+            </div>
+          </div>
+          <div className="bg-neutral-50 p-4 rounded-lg mt-4">
+            <h5 className="font-semibold text-neutral-800 mb-2">客戶成功案例</h5>
+            <p className="text-sm text-neutral-600">「從低阻隔升級到中阻隔後，我們的咖啡產品貨架期從3個月延長到9個月，客戶滿意度提升40%。」— 精品咖啡品牌創辦人</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'market-data',
+      title: '市場數據 Market Intelligence',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">阻隔包裝市場持續增長，了解市場趨勢幫助您做出更好的選擇。</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold text-primary-600 mb-1">$42B</div>
+              <div className="text-xs text-neutral-500">全球阻隔包裝市場規模</div>
+              <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
+                <TrendingUp className="h-3 w-3" />
+                <span>年增長 5.8%</span>
+              </div>
+            </div>
+            <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold text-blue-600 mb-1">72%</div>
+              <div className="text-xs text-neutral-500">品牌考慮環保阻隔</div>
+              <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
+                <TrendingUp className="h-3 w-3" />
+                <span>增長中</span>
+              </div>
+            </div>
+            <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold text-green-600 mb-1">85%</div>
+              <div className="text-xs text-neutral-500">消費者重視產品新鮮度</div>
+              <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
+                <TrendingUp className="h-3 w-3" />
+                <span>穩定</span>
+              </div>
+            </div>
+            <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold text-amber-600 mb-1">30%</div>
+              <div className="text-xs text-neutral-500">可回收阻隔材料增長</div>
+              <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
+                <TrendingUp className="h-3 w-3" />
+                <span>快速增長</span>
+              </div>
+            </div>
+          </div>
+          <div className="bg-blue-50 p-4 rounded-lg">
+            <h5 className="font-semibold text-blue-800 mb-2">市場趨勢洞察</h5>
+            <p className="text-sm text-blue-700">可持續阻隔包裝需求快速增長，Mono-PE + EVOH 結構因其可回收性成為市場新寵，預計到2027年將佔高阻隔市場的45%份額。</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">不同阻隔材料的性能對比，幫助您選擇最適合的解決方案。</p>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-neutral-100">
+                  <th className="text-left p-3 border font-semibold">阻隔級別</th>
+                  <th className="text-left p-3 border font-semibold">OTR 氧氣透過率</th>
+                  <th className="text-left p-3 border font-semibold">MVTR 水蒸氣透過率</th>
+                  <th className="text-left p-3 border font-semibold">推薦材料</th>
+                  <th className="text-left p-3 border font-semibold">成本指數</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="hover:bg-green-50">
+                  <td className="p-3 border"><span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-medium">低阻隔</span></td>
+                  <td className="p-3 border">50-100 cc/m²/day</td>
+                  <td className="p-3 border">10-20 g/m²/day</td>
+                  <td className="p-3 border">Kraft + PLA、Mono-PE</td>
+                  <td className="p-3 border text-green-600 font-medium">$</td>
+                </tr>
+                <tr className="hover:bg-blue-50">
+                  <td className="p-3 border"><span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium">中阻隔</span></td>
+                  <td className="p-3 border">5-20 cc/m²/day</td>
+                  <td className="p-3 border">2-5 g/m²/day</td>
+                  <td className="p-3 border">Mono-PE、Bio-PE</td>
+                  <td className="p-3 border text-blue-600 font-medium">$$</td>
+                </tr>
+                <tr className="hover:bg-primary-50">
+                  <td className="p-3 border"><span className="px-2 py-1 bg-primary-100 text-primary-700 rounded text-xs font-medium">高阻隔</span></td>
+                  <td className="p-3 border">&lt;1 cc/m²/day</td>
+                  <td className="p-3 border">&lt;1 g/m²/day</td>
+                  <td className="p-3 border">Mono-PE + EVOH、PCR</td>
+                  <td className="p-3 border text-primary-600 font-medium">$$$</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="bg-amber-50 p-4 rounded-lg">
+            <h5 className="font-semibold text-amber-800 mb-2">選材建議</h5>
+            <p className="text-sm text-amber-700">選擇阻隔級別時，建議從產品特性、目標貨架期和預算三個維度綜合考慮。我們提供免費的貨架期測試服務，幫助您確定最佳阻隔方案。</p>
           </div>
         </div>
       )

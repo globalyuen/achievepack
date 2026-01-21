@@ -1,5 +1,5 @@
 import React from 'react'
-import { Package, Snowflake, Truck, CheckCircle, ThermometerSnowflake, MessageCircle, Target, Shield, Calendar, Mail, Download } from 'lucide-react'
+import { Package, Snowflake, Truck, CheckCircle, ThermometerSnowflake, MessageCircle, Target, Shield, Calendar, Mail, Download, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Leaf } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
@@ -209,6 +209,216 @@ const FrozenFoodPage: React.FC = () => {
               <Link to="/contact" className="block w-full bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition">
                 Request Samples
               </Link>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-5 rounded-xl border border-blue-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Snowflake className="h-5 w-5 text-blue-600" />
+                <h4 className="font-semibold text-neutral-900">Frozen Snack Brands</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">Dumplings, appetizers, and Asian frozen foods requiring cold-crack resistant packaging.</p>
+              <ul className="text-xs text-neutral-500 space-y-1">
+                <li>• Dumplings & potstickers</li>
+                <li>• Frozen appetizers</li>
+                <li>• Asian frozen foods</li>
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-purple-50 to-violet-50 p-5 rounded-xl border border-purple-200">
+              <div className="flex items-center gap-2 mb-3">
+                <ShoppingBag className="h-5 w-5 text-purple-600" />
+                <h4 className="font-semibold text-neutral-900">Frozen Dessert Makers</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">Ice cream brands, mochi, and novelty frozen treats needing premium presentation.</p>
+              <ul className="text-xs text-neutral-500 space-y-1">
+                <li>• Ice cream bites & bars</li>
+                <li>• Mochi ice cream</li>
+                <li>• Frozen fruit novelties</li>
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="h-5 w-5 text-green-600" />
+                <h4 className="font-semibold text-neutral-900">Meal Prep Companies</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">Ready-to-heat meal brands with microwave-safe, steam-release packaging needs.</p>
+              <ul className="text-xs text-neutral-500 space-y-1">
+                <li>• Frozen ready meals</li>
+                <li>• Meal prep portions</li>
+                <li>• Steam-in-bag vegetables</li>
+              </ul>
+            </div>
+          </div>
+          <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+            <h4 className="font-semibold text-neutral-900 mb-3">🏆 Customer Success: Arctic Bites Dumplings</h4>
+            <p className="text-sm text-neutral-600 mb-3">Switched to our recyclable frozen pouches, achieving Costco placement and 150% sales growth with packaging that stays flexible at -40°C.</p>
+            <div className="flex flex-wrap gap-4 text-xs">
+              <span className="bg-white px-3 py-1 rounded-full border">✓ Costco Placement</span>
+              <span className="bg-white px-3 py-1 rounded-full border">✓ 150% Sales Growth</span>
+              <span className="bg-white px-3 py-1 rounded-full border">✓ -40°C Tested</span>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'market-data',
+      title: '市場數據 Market Intelligence',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-gradient-to-br from-primary-500 to-primary-600 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">$380B</div>
+              <div className="text-sm opacity-90">Frozen Food Market 2027</div>
+            </div>
+            <div className="bg-gradient-to-br from-blue-500 to-cyan-500 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">5.1%</div>
+              <div className="text-sm opacity-90">CAGR 2024-2027</div>
+            </div>
+            <div className="bg-gradient-to-br from-green-500 to-emerald-500 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">64%</div>
+              <div className="text-sm opacity-90">Prefer Resealable</div>
+            </div>
+            <div className="bg-gradient-to-br from-purple-500 to-violet-500 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">42%</div>
+              <div className="text-sm opacity-90">Seek Eco Options</div>
+            </div>
+          </div>
+          <div className="bg-white p-4 rounded-xl border border-neutral-200">
+            <h4 className="font-semibold text-neutral-900 mb-3">Frozen Food Packaging Performance Comparison</h4>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-neutral-200">
+                    <th className="text-left py-2 font-medium">Material Type</th>
+                    <th className="text-center py-2 font-medium">Min Temp</th>
+                    <th className="text-center py-2 font-medium">MVTR (g/m²/24hr)</th>
+                    <th className="text-center py-2 font-medium">Seal Strength</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">PE/PA Laminate</td>
+                    <td className="text-center py-2">-40°C</td>
+                    <td className="text-center py-2">&lt; 1.0</td>
+                    <td className="text-center py-2">&gt;15 N/15mm</td>
+                  </tr>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">Recyclable Mono-PE</td>
+                    <td className="text-center py-2">-35°C</td>
+                    <td className="text-center py-2">&lt; 2.0</td>
+                    <td className="text-center py-2">&gt;12 N/15mm</td>
+                  </tr>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">Standard PE</td>
+                    <td className="text-center py-2">-20°C</td>
+                    <td className="text-center py-2">&lt; 3.0</td>
+                    <td className="text-center py-2">&gt;10 N/15mm</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div className="bg-green-50 p-4 rounded-xl border border-green-200">
+            <h4 className="font-semibold text-green-800 mb-2">🌍 Environmental Impact</h4>
+            <p className="text-sm text-green-700">Recyclable frozen food packaging can reduce plastic waste by up to 40%. Proper packaging also reduces food waste by preventing freezer burn, saving millions of tons of food annually.</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border border-neutral-200 rounded-xl overflow-hidden">
+              <thead className="bg-neutral-100">
+                <tr>
+                  <th className="text-left p-3 font-semibold">Feature</th>
+                  <th className="text-center p-3 font-semibold text-blue-700">PE/PA Laminate</th>
+                  <th className="text-center p-3 font-semibold text-green-700">Recyclable PE</th>
+                  <th className="text-center p-3 font-semibold text-purple-700">PCR Content</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Best For Frozen</td>
+                  <td className="text-center p-3">✅ All frozen products</td>
+                  <td className="text-center p-3">✅ Most frozen products</td>
+                  <td className="text-center p-3">✅ Standard frozen</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Cold-Crack Resistance</td>
+                  <td className="text-center p-3">Excellent (-40°C)</td>
+                  <td className="text-center p-3">Good (-35°C)</td>
+                  <td className="text-center p-3">Good (-30°C)</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Freezer Burn Prevention</td>
+                  <td className="text-center p-3">⭐⭐⭐⭐⭐</td>
+                  <td className="text-center p-3">⭐⭐⭐⭐</td>
+                  <td className="text-center p-3">⭐⭐⭐⭐</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Microwave Safe</td>
+                  <td className="text-center p-3">✅ Options available</td>
+                  <td className="text-center p-3">✅ Options available</td>
+                  <td className="text-center p-3">✅ Options available</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">End-of-Life</td>
+                  <td className="text-center p-3">🗑️ Landfill</td>
+                  <td className="text-center p-3">♻️ Recyclable</td>
+                  <td className="text-center p-3">♻️ Recyclable</td>
+                </tr>
+                <tr>
+                  <td className="p-3 font-medium">Price Point</td>
+                  <td className="text-center p-3">💰💰</td>
+                  <td className="text-center p-3">💰💰</td>
+                  <td className="text-center p-3">💰💰</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="bg-amber-50 p-5 rounded-xl border border-amber-200">
+            <h4 className="font-semibold text-amber-800 mb-3">💡 Decision Guide for Frozen Food Brands</h4>
+            <div className="grid md:grid-cols-3 gap-4 text-sm">
+              <div>
+                <p className="font-medium text-amber-900">Choose PE/PA if:</p>
+                <ul className="text-amber-700 mt-1 space-y-1">
+                  <li>• Extreme cold (-40°C)</li>
+                  <li>• Maximum barrier needed</li>
+                  <li>• Premium ice cream/desserts</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-amber-900">Choose Recyclable PE if:</p>
+                <ul className="text-amber-700 mt-1 space-y-1">
+                  <li>• Sustainability goals</li>
+                  <li>• Standard freezer temps</li>
+                  <li>• Consumer-facing products</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-amber-900">Choose PCR if:</p>
+                <ul className="text-amber-700 mt-1 space-y-1">
+                  <li>• Corporate ESG goals</li>
+                  <li>• Circular economy focus</li>
+                  <li>• Cost-effective eco option</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

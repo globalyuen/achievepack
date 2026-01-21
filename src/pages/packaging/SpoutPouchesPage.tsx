@@ -1,5 +1,5 @@
 import React from 'react'
-import { Droplets, Package, CheckCircle, Shield, Settings, MessageCircle, Target, Calendar, Phone, Download, Mail } from 'lucide-react'
+import { Droplets, Package, CheckCircle, Shield, Settings, MessageCircle, Target, Calendar, Phone, Download, Mail, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Leaf } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useTranslation } from 'react-i18next'
@@ -351,6 +351,217 @@ const SpoutPouchesPage: React.FC = () => {
               <Link to="/industry/baby-food" className="inline-block border-2 border-neutral-300 text-neutral-700 px-4 py-2 rounded-lg font-semibold hover:border-blue-300 transition">
                 View Industry Pages
               </Link>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-pink-50 to-rose-50 p-5 rounded-xl border border-pink-200">
+              <div className="flex items-center gap-2 mb-3">
+                <ShoppingBag className="h-5 w-5 text-pink-600" />
+                <h4 className="font-semibold text-neutral-900">Baby Food Brands</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">Safe, portable spout pouches with child-safe caps for infant nutrition.</p>
+              <ul className="text-xs text-neutral-500 space-y-1">
+                <li>• Fruit & vegetable purées</li>
+                <li>• Yogurt smoothies</li>
+                <li>• Toddler meals</li>
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-red-50 to-orange-50 p-5 rounded-xl border border-red-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Droplets className="h-5 w-5 text-red-600" />
+                <h4 className="font-semibold text-neutral-900">Sauce & Condiment Makers</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">Hot-fill capable spout pouches for sauces, dressings, and condiments.</p>
+              <ul className="text-xs text-neutral-500 space-y-1">
+                <li>• Ketchup & mayonnaise</li>
+                <li>• Hot sauces</li>
+                <li>• Salad dressings</li>
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="h-5 w-5 text-green-600" />
+                <h4 className="font-semibold text-neutral-900">Eco-Conscious Brands</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">Refill pouches using 70% less plastic than rigid bottles.</p>
+              <ul className="text-xs text-neutral-500 space-y-1">
+                <li>• Bottle refill systems</li>
+                <li>• Cleaning products</li>
+                <li>• Personal care refills</li>
+              </ul>
+            </div>
+          </div>
+          <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+            <h4 className="font-semibold text-neutral-900 mb-3">🏆 Customer Success: Little Sprouts Baby Food</h4>
+            <p className="text-sm text-neutral-600 mb-3">Launched organic baby food line with our BPA-free spout pouches, achieving Clean Label certification and 200% growth in first year.</p>
+            <div className="flex flex-wrap gap-4 text-xs">
+              <span className="bg-white px-3 py-1 rounded-full border">✓ Clean Label Certified</span>
+              <span className="bg-white px-3 py-1 rounded-full border">✓ 200% YoY Growth</span>
+              <span className="bg-white px-3 py-1 rounded-full border">✓ 70% Less Plastic</span>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'market-data',
+      title: '市場數據 Market Intelligence',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-gradient-to-br from-primary-500 to-primary-600 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">$3.8B</div>
+              <div className="text-sm opacity-90">Spout Pouch Market 2027</div>
+            </div>
+            <div className="bg-gradient-to-br from-pink-500 to-rose-500 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">8.5%</div>
+              <div className="text-sm opacity-90">CAGR 2024-2027</div>
+            </div>
+            <div className="bg-gradient-to-br from-green-500 to-emerald-500 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">70%</div>
+              <div className="text-sm opacity-90">Less Plastic vs Bottles</div>
+            </div>
+            <div className="bg-gradient-to-br from-blue-500 to-indigo-500 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">60%</div>
+              <div className="text-sm opacity-90">Shipping Cost Savings</div>
+            </div>
+          </div>
+          <div className="bg-white p-4 rounded-xl border border-neutral-200">
+            <h4 className="font-semibold text-neutral-900 mb-3">Spout Pouch vs Rigid Bottle Comparison</h4>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-neutral-200">
+                    <th className="text-left py-2 font-medium">Feature</th>
+                    <th className="text-center py-2 font-medium">Spout Pouch</th>
+                    <th className="text-center py-2 font-medium">Rigid Bottle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">Plastic Usage</td>
+                    <td className="text-center py-2">70% less</td>
+                    <td className="text-center py-2">Baseline</td>
+                  </tr>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">Shipping Weight</td>
+                    <td className="text-center py-2">60% lighter</td>
+                    <td className="text-center py-2">Baseline</td>
+                  </tr>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">Storage Efficiency</td>
+                    <td className="text-center py-2">Flat before fill</td>
+                    <td className="text-center py-2">Same volume</td>
+                  </tr>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">Carbon Footprint</td>
+                    <td className="text-center py-2">50% lower</td>
+                    <td className="text-center py-2">Baseline</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div className="bg-green-50 p-4 rounded-xl border border-green-200">
+            <h4 className="font-semibold text-green-800 mb-2">🌍 Environmental Impact</h4>
+            <p className="text-sm text-green-700">Spout pouches use 70% less plastic than rigid bottles, ship flat to reduce transportation emissions, and can be produced with Bio-PE or PCR content for enhanced sustainability.</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border border-neutral-200 rounded-xl overflow-hidden">
+              <thead className="bg-neutral-100">
+                <tr>
+                  <th className="text-left p-3 font-semibold">Feature</th>
+                  <th className="text-center p-3 font-semibold text-blue-700">Standard</th>
+                  <th className="text-center p-3 font-semibold text-green-700">Bio-PE</th>
+                  <th className="text-center p-3 font-semibold text-purple-700">PCR Content</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Best For</td>
+                  <td className="text-center p-3">✅ All liquids</td>
+                  <td className="text-center p-3">✅ Eco-conscious</td>
+                  <td className="text-center p-3">✅ ESG goals</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Hot-Fill Capable</td>
+                  <td className="text-center p-3">✅ Up to 85°C</td>
+                  <td className="text-center p-3">✅ Up to 85°C</td>
+                  <td className="text-center p-3">✅ Up to 85°C</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Retort Capable</td>
+                  <td className="text-center p-3">✅ 121°C option</td>
+                  <td className="text-center p-3">❌ Not available</td>
+                  <td className="text-center p-3">✅ 121°C option</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Bio-Content</td>
+                  <td className="text-center p-3">0%</td>
+                  <td className="text-center p-3">30-50%</td>
+                  <td className="text-center p-3">0% (recycled)</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Recyclability</td>
+                  <td className="text-center p-3">⚠️ Limited</td>
+                  <td className="text-center p-3">♻️ PE streams</td>
+                  <td className="text-center p-3">♻️ PE streams</td>
+                </tr>
+                <tr>
+                  <td className="p-3 font-medium">Price Point</td>
+                  <td className="text-center p-3">💰💰</td>
+                  <td className="text-center p-3">💰💰💰</td>
+                  <td className="text-center p-3">💰💰</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="bg-amber-50 p-5 rounded-xl border border-amber-200">
+            <h4 className="font-semibold text-amber-800 mb-3">💡 Decision Guide for Spout Pouches</h4>
+            <div className="grid md:grid-cols-3 gap-4 text-sm">
+              <div>
+                <p className="font-medium text-amber-900">Choose Standard if:</p>
+                <ul className="text-amber-700 mt-1 space-y-1">
+                  <li>• Cost optimization</li>
+                  <li>• Retort processing</li>
+                  <li>• Maximum barrier</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-amber-900">Choose Bio-PE if:</p>
+                <ul className="text-amber-700 mt-1 space-y-1">
+                  <li>• Eco-conscious brand</li>
+                  <li>• Renewable sourcing</li>
+                  <li>• Premium positioning</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-amber-900">Choose PCR if:</p>
+                <ul className="text-amber-700 mt-1 space-y-1">
+                  <li>• Corporate ESG</li>
+                  <li>• Circular economy</li>
+                  <li>• Cost-effective eco</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

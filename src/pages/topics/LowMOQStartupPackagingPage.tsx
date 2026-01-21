@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Rocket, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, TrendingUp, DollarSign, Clock } from 'lucide-react'
+import { Rocket, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, TrendingUp, DollarSign, Clock, Factory, BarChart3, ArrowLeftRight, ShoppingBag, Sparkles } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -197,6 +197,130 @@ const LowMOQStartupPackagingPage: React.FC = () => {
               <Package className="h-5 w-5" />
               Browse Sample Packs
             </Link>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">了解不同類型的創業品牌如何利用低MOQ包裝成功上市。</p>
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+              <div className="flex items-center gap-2 mb-3">
+                <ShoppingBag className="h-5 w-5 text-green-600" />
+                <h4 className="font-semibold text-green-800">Kickstarter專案</h4>
+              </div>
+              <p className="text-sm text-green-700">眾籌專案使用100件起訂的專業包裝，提升專案可信度，平均募資額增加40%。</p>
+            </div>
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-5 rounded-xl border border-blue-200">
+              <div className="flex items-center gap-2 mb-3">
+                <TrendingUp className="h-5 w-5 text-blue-600" />
+                <h4 className="font-semibold text-blue-800">DTC電商品牌</h4>
+              </div>
+              <p className="text-sm text-blue-700">新創電商品牌先用小訂單測試市場，用數據驗證後再擴大生產規模。</p>
+            </div>
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="h-5 w-5 text-purple-600" />
+                <h4 className="font-semibold text-purple-800">農夫市集賣家</h4>
+              </div>
+              <p className="text-sm text-purple-700">小批量生產商用低MOQ包裝打造專業形象，增加新鮮食品的陳列吸引力。</p>
+            </div>
+          </div>
+          <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
+            <p className="text-sm text-amber-800"><strong>成功案例：</strong>某新創健康零食品牌用200件起訂測試3種不同設計，確定最佳方案後擴大至5000件訂單，節省$15,000多餘庫存成本。</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'market-data',
+      title: '市場數據 Market Intelligence',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">創業包裝市場數據證明低MOQ的價值。</p>
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-primary-600">10K+</div>
+              <p className="text-sm text-neutral-600 mt-1">傳統供應商常見MOQ</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-green-600">100</div>
+              <p className="text-sm text-neutral-600 mt-1">我們的數位印刷MOQ</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-blue-600">67%</div>
+              <p className="text-sm text-neutral-600 mt-1">創業公司測試後援大訂單</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-purple-600">$0</div>
+              <p className="text-sm text-neutral-600 mt-1">數位印刷製版費用</p>
+            </div>
+          </div>
+          <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
+            <h4 className="font-semibold text-neutral-800 mb-2">創業成功統計</h4>
+            <p className="text-sm text-neutral-600">研究顯示，使用專業包裝的創業品牌在客戶第一印象評分上平均高出35%。低MOQ讓新創公司可以在有限資金下享有專業包裝的優勢。</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">比較不同包裝方案的成本與優勢，選擇最適合創業階段的方案。</p>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse bg-white rounded-lg overflow-hidden">
+              <thead className="bg-purple-600 text-white">
+                <tr>
+                  <th className="p-3 text-left text-sm">包裝方案</th>
+                  <th className="p-3 text-left text-sm">MOQ</th>
+                  <th className="p-3 text-left text-sm">生產時間</th>
+                  <th className="p-3 text-left text-sm">製版費</th>
+                  <th className="p-3 text-left text-sm">最適階段</th>
+                </tr>
+              </thead>
+              <tbody className="text-sm">
+                <tr className="border-b border-neutral-200">
+                  <td className="p-3 font-medium">數位印刷訂製</td>
+                  <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">100件</span></td>
+                  <td className="p-3">10-15天</td>
+                  <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">$0</span></td>
+                  <td className="p-3">產品測試/創業初期</td>
+                </tr>
+                <tr className="border-b border-neutral-200 bg-neutral-50">
+                  <td className="p-3 font-medium">現貨+標籤</td>
+                  <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">1件</span></td>
+                  <td className="p-3">3-5天</td>
+                  <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">$0</span></td>
+                  <td className="p-3">極早期/結構測試</td>
+                </tr>
+                <tr className="border-b border-neutral-200">
+                  <td className="p-3 font-medium">柔版印刷</td>
+                  <td className="p-3"><span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">3000件</span></td>
+                  <td className="p-3">20-25天</td>
+                  <td className="p-3"><span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">$300-800</span></td>
+                  <td className="p-3">成長期/量產</td>
+                </tr>
+                <tr className="border-b border-neutral-200 bg-neutral-50">
+                  <td className="p-3 font-medium">凹版印刷</td>
+                  <td className="p-3"><span className="bg-red-100 text-red-800 px-2 py-1 rounded">10000件</span></td>
+                  <td className="p-3">25-35天</td>
+                  <td className="p-3"><span className="bg-red-100 text-red-800 px-2 py-1 rounded">$1000+</span></td>
+                  <td className="p-3">大規模生產</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+            <p className="text-sm text-green-800"><strong>專家建議：</strong>創業初期建議從數位印刷開始，用小訂單驗證市場反應和設計效果。當月銷量穩定超過3000件時，切換到柔版印刷可節省約30%成本。</p>
           </div>
         </div>
       )

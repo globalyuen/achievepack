@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Factory, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Truck, Globe, Clock, Users } from 'lucide-react'
+import { Factory, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Truck, Globe, Clock, Users, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -233,6 +233,183 @@ const CustomCompostablePouchSuppliersPage: React.FC = () => {
               <Package className="h-5 w-5" />
               Order Sample Pack
             </Link>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Users className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Brands across industries trust our <strong>custom compostable packaging capabilities</strong> for their sustainability transitions.
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Package className="h-5 w-5 text-green-600" />
+                <h4 className="font-semibold text-green-800">Food & Beverage</h4>
+              </div>
+              <p className="text-sm text-green-700">Coffee roasters, snack brands, tea companies seeking certified compostable alternatives to conventional packaging.</p>
+            </div>
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Award className="h-5 w-5 text-purple-600" />
+                <h4 className="font-semibold text-purple-800">Wellness & Supplements</h4>
+              </div>
+              <p className="text-sm text-purple-700">Health brands needing low MOQ compostable pouches for proteins, vitamins, and herbal products.</p>
+            </div>
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Globe className="h-5 w-5 text-amber-600" />
+                <h4 className="font-semibold text-amber-800">International Exporters</h4>
+              </div>
+              <p className="text-sm text-amber-700">Brands exporting to EU, UK, and Australia where compostable packaging regulations are advancing.</p>
+            </div>
+          </div>
+
+          <div className="bg-neutral-50 p-5 rounded-xl border border-neutral-200">
+            <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+              <Sparkles className="h-5 w-5 text-primary-600" />
+              Supplier Success Story
+            </h4>
+            <p className="text-sm text-neutral-600 mb-3">
+              A specialty food distributor consolidated their sustainable packaging suppliers to work exclusively with Achieve Pack. With unified certifications across 15 product lines, they reduced compliance complexity by 70%.
+            </p>
+            <div className="flex gap-4 text-xs">
+              <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full">15 Product Lines</span>
+              <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full">70% Less Compliance Work</span>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'market-data',
+      title: '市場數據 Market Intelligence',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Understand the <strong>compostable packaging supplier landscape</strong> to make informed sourcing decisions.
+          </p>
+          
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-primary-600 mb-1">34%</div>
+              <div className="text-sm text-neutral-600">Annual growth in compostable pouch demand</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-green-600 mb-1">$4.2B</div>
+              <div className="text-sm text-neutral-600">Global compostable packaging market by 2028</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-amber-600 mb-1">67%</div>
+              <div className="text-sm text-neutral-600">Brands planning compostable transition</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-purple-600 mb-1">100+</div>
+              <div className="text-sm text-neutral-600">Our minimum order quantity</div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+            <h4 className="font-semibold text-green-800 mb-3 flex items-center gap-2">
+              <TrendingUp className="h-5 w-5" />
+              Supplier Selection Trends 2024-2026
+            </h4>
+            <div className="grid md:grid-cols-2 gap-4 text-sm">
+              <div>
+                <h5 className="font-medium text-green-700 mb-2">What Brands Look For</h5>
+                <ul className="text-green-600 space-y-1">
+                  <li>• Third-party verified certifications</li>
+                  <li>• Low MOQ for testing and launches</li>
+                  <li>• Full documentation for marketing</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-medium text-green-700 mb-2">Red Flags to Avoid</h5>
+                <ul className="text-green-600 space-y-1">
+                  <li>• Vague "biodegradable" claims</li>
+                  <li>• No certificate copies available</li>
+                  <li>• Extremely long lead times</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Compare <strong>compostable packaging options</strong> to select the right material for your products.
+          </p>
+          
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-primary-600 text-white">
+                  <th className="p-3 text-left rounded-tl-lg">Material</th>
+                  <th className="p-3 text-left">Certification</th>
+                  <th className="p-3 text-left">Barrier</th>
+                  <th className="p-3 text-left">Customization</th>
+                  <th className="p-3 text-left">Lead Time</th>
+                  <th className="p-3 text-left rounded-tr-lg">Cost Level</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-neutral-200 hover:bg-neutral-50">
+                  <td className="p-3 font-medium">Kraft + PLA (Industrial)</td>
+                  <td className="p-3"><span className="text-green-600">✓ EN13432/ASTM</span></td>
+                  <td className="p-3">Medium-High</td>
+                  <td className="p-3">Full custom print</td>
+                  <td className="p-3">10-15 days</td>
+                  <td className="p-3">$$</td>
+                </tr>
+                <tr className="border-b border-neutral-200 bg-neutral-50 hover:bg-neutral-100">
+                  <td className="p-3 font-medium">PLA Film (Home Compost)</td>
+                  <td className="p-3"><span className="text-green-600">✓ TUV OK Home</span></td>
+                  <td className="p-3">Medium</td>
+                  <td className="p-3">Full custom print</td>
+                  <td className="p-3">10-15 days</td>
+                  <td className="p-3">$$$</td>
+                </tr>
+                <tr className="border-b border-neutral-200 hover:bg-neutral-50">
+                  <td className="p-3 font-medium">PBAT/PLA Blend</td>
+                  <td className="p-3"><span className="text-green-600">✓ EN13432</span></td>
+                  <td className="p-3">High</td>
+                  <td className="p-3">Full custom print</td>
+                  <td className="p-3">15-20 days</td>
+                  <td className="p-3">$$$</td>
+                </tr>
+                <tr className="hover:bg-neutral-50">
+                  <td className="p-3 font-medium">Cellulose-Based Film</td>
+                  <td className="p-3"><span className="text-green-600">✓ TUV OK Home</span></td>
+                  <td className="p-3">Low-Medium</td>
+                  <td className="p-3">Limited print</td>
+                  <td className="p-3">20-25 days</td>
+                  <td className="p-3">$$$$</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="bg-green-50 p-5 rounded-xl border border-green-200">
+            <h4 className="font-semibold text-green-800 mb-2 flex items-center gap-2">
+              <ShoppingBag className="h-5 w-5" />
+              Supplier Selection Advice
+            </h4>
+            <p className="text-sm text-green-700">
+              When choosing a compostable pouch supplier: Verify certifications are current, request samples before large orders, ensure they can provide documentation for your marketing claims. <strong>Kraft + PLA</strong> is the most cost-effective option for most food applications.
+            </p>
           </div>
         </div>
       )

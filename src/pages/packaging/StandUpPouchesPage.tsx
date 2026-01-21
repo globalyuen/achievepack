@@ -1,5 +1,5 @@
 import React from 'react'
-import { Package, Leaf, Shield, CheckCircle, Zap, Award, MessageCircle, BookOpen, Building2, Target, Calendar, Phone, Download, Mail } from 'lucide-react'
+import { Package, Leaf, Shield, CheckCircle, Zap, Award, MessageCircle, BookOpen, Building2, Target, Calendar, Phone, Download, Mail, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useTranslation } from 'react-i18next'
@@ -467,6 +467,216 @@ const StandUpPouchesPage: React.FC = () => {
           <p className="text-sm text-neutral-600 mt-4">
             Over 500 brands trust Achieve Pack for their stand-up pouch needs. <a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">Book a free consultation</a> to discuss your requirements.
           </p>
+        </div>
+      )
+    },
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
+              <div className="flex items-center gap-2 mb-3">
+                <ShoppingBag className="h-5 w-5 text-amber-600" />
+                <h4 className="font-semibold text-neutral-900">Coffee & Tea Brands</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">SUPs with degassing valves and high-barrier for freshly roasted coffee.</p>
+              <ul className="text-xs text-neutral-500 space-y-1">
+                <li>• Specialty roasters</li>
+                <li>• Loose-leaf tea brands</li>
+                <li>• Matcha & specialty teas</li>
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Leaf className="h-5 w-5 text-green-600" />
+                <h4 className="font-semibold text-neutral-900">Snack Food Companies</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">Resealable pouches with clear windows for retail shelf impact.</p>
+              <ul className="text-xs text-neutral-500 space-y-1">
+                <li>• Granola & trail mix</li>
+                <li>• Chips & crisps</li>
+                <li>• Dried fruits & nuts</li>
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-purple-50 to-violet-50 p-5 rounded-xl border border-purple-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="h-5 w-5 text-purple-600" />
+                <h4 className="font-semibold text-neutral-900">Pet Treat Brands</h4>
+              </div>
+              <p className="text-sm text-neutral-600 mb-3">Heavy-duty zippers and odor barriers for pet food freshness.</p>
+              <ul className="text-xs text-neutral-500 space-y-1">
+                <li>• Dog training treats</li>
+                <li>• Cat snacks</li>
+                <li>• Freeze-dried treats</li>
+              </ul>
+            </div>
+          </div>
+          <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+            <h4 className="font-semibold text-neutral-900 mb-3">🏆 Customer Success: Bean & Bole Coffee</h4>
+            <p className="text-sm text-neutral-600 mb-3">Switched to our compostable SUPs with degassing valves, reducing packaging carbon footprint by 65% while maintaining 12-month shelf life for specialty coffee.</p>
+            <div className="flex flex-wrap gap-4 text-xs">
+              <span className="bg-white px-3 py-1 rounded-full border">✓ 65% Carbon Reduction</span>
+              <span className="bg-white px-3 py-1 rounded-full border">✓ 12-Month Shelf Life</span>
+              <span className="bg-white px-3 py-1 rounded-full border">✓ Premium Brand Image</span>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'market-data',
+      title: '市場數據 Market Intelligence',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-gradient-to-br from-primary-500 to-primary-600 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">$48B</div>
+              <div className="text-sm opacity-90">Flexible Packaging 2027</div>
+            </div>
+            <div className="bg-gradient-to-br from-green-500 to-emerald-500 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">7.2%</div>
+              <div className="text-sm opacity-90">Stand-Up Pouch CAGR</div>
+            </div>
+            <div className="bg-gradient-to-br from-amber-500 to-orange-500 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">75%</div>
+              <div className="text-sm opacity-90">Less Material vs Rigid</div>
+            </div>
+            <div className="bg-gradient-to-br from-blue-500 to-indigo-500 text-white p-4 rounded-xl text-center">
+              <div className="text-3xl font-bold">60%</div>
+              <div className="text-sm opacity-90">Shipping Cost Savings</div>
+            </div>
+          </div>
+          <div className="bg-white p-4 rounded-xl border border-neutral-200">
+            <h4 className="font-semibold text-neutral-900 mb-3">Stand-Up Pouch Performance by Closure Type</h4>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-neutral-200">
+                    <th className="text-left py-2 font-medium">Closure Type</th>
+                    <th className="text-center py-2 font-medium">Reseal Count</th>
+                    <th className="text-center py-2 font-medium">Best For</th>
+                    <th className="text-center py-2 font-medium">Cost Index</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">Press-to-Close Zipper</td>
+                    <td className="text-center py-2">100+ times</td>
+                    <td className="text-center py-2">Snacks, coffee</td>
+                    <td className="text-center py-2">1.0x</td>
+                  </tr>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">Slider Zipper</td>
+                    <td className="text-center py-2">200+ times</td>
+                    <td className="text-center py-2">Premium, cheese</td>
+                    <td className="text-center py-2">1.3x</td>
+                  </tr>
+                  <tr className="border-b border-neutral-100">
+                    <td className="py-2">Tin Tie</td>
+                    <td className="text-center py-2">50+ times</td>
+                    <td className="text-center py-2">Coffee, bakery</td>
+                    <td className="text-center py-2">1.1x</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div className="bg-green-50 p-4 rounded-xl border border-green-200">
+            <h4 className="font-semibold text-green-800 mb-2">🌍 Environmental Impact</h4>
+            <p className="text-sm text-green-700">Stand-up pouches use 75% less material than rigid containers and reduce transportation emissions by 60% due to lighter weight and compact shipping.</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border border-neutral-200 rounded-xl overflow-hidden">
+              <thead className="bg-neutral-100">
+                <tr>
+                  <th className="text-left p-3 font-semibold">Feature</th>
+                  <th className="text-center p-3 font-semibold text-green-700">Compostable</th>
+                  <th className="text-center p-3 font-semibold text-blue-700">Mono-PE</th>
+                  <th className="text-center p-3 font-semibold text-purple-700">PCR Content</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Best Applications</td>
+                  <td className="text-center p-3">✅ Coffee, dry goods</td>
+                  <td className="text-center p-3">✅ All food types</td>
+                  <td className="text-center p-3">✅ All food types</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Barrier Level</td>
+                  <td className="text-center p-3">Medium-High</td>
+                  <td className="text-center p-3">High</td>
+                  <td className="text-center p-3">High</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Clear Window</td>
+                  <td className="text-center p-3">✅ PLA window</td>
+                  <td className="text-center p-3">✅ Full clarity</td>
+                  <td className="text-center p-3">✅ Available</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">Shelf Life</td>
+                  <td className="text-center p-3">6-12 months</td>
+                  <td className="text-center p-3">12-18 months</td>
+                  <td className="text-center p-3">12-18 months</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-medium">End-of-Life</td>
+                  <td className="text-center p-3">🌱 Compostable</td>
+                  <td className="text-center p-3">♻️ Recyclable</td>
+                  <td className="text-center p-3">♻️ Recyclable</td>
+                </tr>
+                <tr>
+                  <td className="p-3 font-medium">Price Point</td>
+                  <td className="text-center p-3">💰💰💰</td>
+                  <td className="text-center p-3">💰💰</td>
+                  <td className="text-center p-3">💰💰</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="bg-amber-50 p-5 rounded-xl border border-amber-200">
+            <h4 className="font-semibold text-amber-800 mb-3">💡 Decision Guide for Stand-Up Pouches</h4>
+            <div className="grid md:grid-cols-3 gap-4 text-sm">
+              <div>
+                <p className="font-medium text-amber-900">Choose Compostable if:</p>
+                <ul className="text-amber-700 mt-1 space-y-1">
+                  <li>• Eco-conscious brand image</li>
+                  <li>• Coffee or dry products</li>
+                  <li>• Premium positioning</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-amber-900">Choose Mono-PE if:</p>
+                <ul className="text-amber-700 mt-1 space-y-1">
+                  <li>• Maximum shelf life</li>
+                  <li>• Full clarity window</li>
+                  <li>• Cost optimization</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-amber-900">Choose PCR if:</p>
+                <ul className="text-amber-700 mt-1 space-y-1">
+                  <li>• Corporate ESG goals</li>
+                  <li>• Circular economy focus</li>
+                  <li>• Balance cost & eco</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       )
     }

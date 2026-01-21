@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Baby, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Heart, AlertTriangle, FileCheck } from 'lucide-react'
+import { Baby, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Heart, AlertTriangle, FileCheck, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -260,6 +260,183 @@ const CompostableBabyFoodBagsPage: React.FC = () => {
               <Baby className="h-5 w-5" />
               Baby Food Guide
             </Link>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Our certified compostable baby food packaging serves <strong>brands committed to the health of babies and the planet</strong>.
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-pink-50 to-rose-50 p-5 rounded-xl border border-pink-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Baby className="h-5 w-5 text-pink-600" />
+                <h4 className="font-semibold text-pink-800">Organic Baby Food Brands</h4>
+              </div>
+              <p className="text-sm text-pink-700">Premium compostable pouches that align with organic certification and health-conscious parent expectations.</p>
+            </div>
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Heart className="h-5 w-5 text-green-600" />
+                <h4 className="font-semibold text-green-800">Baby Snack Companies</h4>
+              </div>
+              <p className="text-sm text-green-700">Resealable pouches for puffs, teething biscuits, and toddler snacks with certified safe materials.</p>
+            </div>
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-5 rounded-xl border border-blue-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Package className="h-5 w-5 text-blue-600" />
+                <h4 className="font-semibold text-blue-800">Baby Formula Packaging</h4>
+              </div>
+              <p className="text-sm text-blue-700">High barrier compostable sachets and pouches for infant formula and supplements.</p>
+            </div>
+          </div>
+
+          <div className="bg-neutral-50 p-5 rounded-xl border border-neutral-200">
+            <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
+              <Sparkles className="h-5 w-5 text-primary-600" />
+              Customer Success: Organic Baby Puree Brand
+            </h4>
+            <p className="text-sm text-neutral-600 mb-3">
+              An organic baby food startup switched to our TUV-certified compostable spout pouches. Parent feedback was overwhelmingly positive, and the brand saw 40% increase in repeat purchases from eco-conscious families.
+            </p>
+            <div className="flex gap-4 text-xs">
+              <span className="px-3 py-1 bg-pink-100 text-pink-700 rounded-full">TUV Certified</span>
+              <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full">40% Repeat Purchase Increase</span>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'market-data',
+      title: '市場數據 Market Intelligence',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Understand the <strong>baby food packaging market trends</strong> driving sustainable packaging adoption.
+          </p>
+          
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-primary-600 mb-1">89%</div>
+              <div className="text-sm text-neutral-600">Parents prioritize safe packaging materials</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-pink-600 mb-1">$76B</div>
+              <div className="text-sm text-neutral-600">Global baby food market by 2027</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-green-600 mb-1">67%</div>
+              <div className="text-sm text-neutral-600">Parents willing to pay more for eco-friendly</div>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
+              <div className="text-3xl font-bold text-blue-600 mb-1">12%</div>
+              <div className="text-sm text-neutral-600">Annual growth in organic baby food</div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-r from-pink-50 to-rose-50 p-5 rounded-xl border border-pink-200">
+            <h4 className="font-semibold text-pink-800 mb-3 flex items-center gap-2">
+              <TrendingUp className="h-5 w-5" />
+              Baby Food Packaging Trends 2024-2026
+            </h4>
+            <div className="grid md:grid-cols-2 gap-4 text-sm">
+              <div>
+                <h5 className="font-medium text-pink-700 mb-2">Parent Preferences</h5>
+                <ul className="text-pink-600 space-y-1">
+                  <li>• BPA-free and phthalate-free materials</li>
+                  <li>• Clear compostability certifications</li>
+                  <li>• Transparent ingredient sourcing</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-medium text-pink-700 mb-2">Regulatory Trends</h5>
+                <ul className="text-pink-600 space-y-1">
+                  <li>• Stricter food contact regulations</li>
+                  <li>• Enhanced migration testing requirements</li>
+                  <li>• Plastic reduction mandates</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">
+            Compare <strong>baby food safe packaging materials</strong> to select the right option for your products.
+          </p>
+          
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-primary-600 text-white">
+                  <th className="p-3 text-left rounded-tl-lg">Material</th>
+                  <th className="p-3 text-left">Food Safety</th>
+                  <th className="p-3 text-left">Compostable</th>
+                  <th className="p-3 text-left">Barrier Level</th>
+                  <th className="p-3 text-left">Best For</th>
+                  <th className="p-3 text-left rounded-tr-lg">Cost Level</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-neutral-200 hover:bg-neutral-50">
+                  <td className="p-3 font-medium">Kraft + PLA Compostable</td>
+                  <td className="p-3"><span className="text-green-600">✓ FDA/EU Certified</span></td>
+                  <td className="p-3"><span className="text-green-600">✓ TUV/EN13432</span></td>
+                  <td className="p-3">Medium-High</td>
+                  <td className="p-3">Purees, snacks</td>
+                  <td className="p-3">$$$</td>
+                </tr>
+                <tr className="border-b border-neutral-200 bg-neutral-50 hover:bg-neutral-100">
+                  <td className="p-3 font-medium">PLA Spout Pouch</td>
+                  <td className="p-3"><span className="text-green-600">✓ FDA/EU Certified</span></td>
+                  <td className="p-3"><span className="text-green-600">✓ Industrial</span></td>
+                  <td className="p-3">High</td>
+                  <td className="p-3">Liquid purees</td>
+                  <td className="p-3">$$$</td>
+                </tr>
+                <tr className="border-b border-neutral-200 hover:bg-neutral-50">
+                  <td className="p-3 font-medium">Recyclable Mono-PE</td>
+                  <td className="p-3"><span className="text-green-600">✓ FDA/EU Certified</span></td>
+                  <td className="p-3"><span className="text-neutral-400">— Recyclable</span></td>
+                  <td className="p-3">High</td>
+                  <td className="p-3">Dry snacks</td>
+                  <td className="p-3">$$</td>
+                </tr>
+                <tr className="hover:bg-neutral-50">
+                  <td className="p-3 font-medium">Home Compostable Film</td>
+                  <td className="p-3"><span className="text-green-600">✓ FDA/EU Certified</span></td>
+                  <td className="p-3"><span className="text-green-600">✓ TUV OK Home</span></td>
+                  <td className="p-3">Medium</td>
+                  <td className="p-3">Short shelf-life</td>
+                  <td className="p-3">$$$$</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="bg-pink-50 p-5 rounded-xl border border-pink-200">
+            <h4 className="font-semibold text-pink-800 mb-2 flex items-center gap-2">
+              <ShoppingBag className="h-5 w-5" />
+              Expert Selection Advice
+            </h4>
+            <p className="text-sm text-pink-700">
+              For baby food: Prioritize <strong>TUV-certified materials</strong> with complete migration testing documentation. Kraft + PLA is ideal for most applications, while PLA spout pouches work best for liquid purees requiring easy squeeze dispensing.
+            </p>
           </div>
         </div>
       )
