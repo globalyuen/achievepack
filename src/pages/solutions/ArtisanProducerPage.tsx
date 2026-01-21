@@ -220,138 +220,138 @@ const ArtisanProducerPage: React.FC = () => {
     },
     {
       id: 'industry-scenarios',
-      title: '行業應用場景 Industry Applications',
+      title: 'Industry Applications',
       icon: <Factory className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
-          <p className="text-neutral-700">不同類型的手工產品對包裝有不同需求，選擇正確的包裝是品牌成功的關鍵。</p>
+          <p className="text-neutral-700">DifferenttypesArtisanProductforPackaginghaveDifferentRequirements，choosechoosecorrectPackagingisBrandSuccesskey。</p>
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-gradient-to-br from-rose-50 to-orange-50 p-5 rounded-xl border border-rose-200">
               <div className="flex items-center gap-2 mb-3">
                 <ShoppingBag className="h-5 w-5 text-rose-600" />
-                <h4 className="font-semibold text-rose-800">手工食品生產者</h4>
+                <h4 className="font-semibold text-rose-800">ArtisanfoodProducers</h4>
               </div>
-              <p className="text-sm text-rose-700 mb-3">巧克力、果醬、烘焙食品等手工精制產品。</p>
-              <div className="text-xs text-rose-600 bg-rose-100 px-2 py-1 rounded inline-block">佔比: 45%</div>
+              <p className="text-sm text-rose-700 mb-3">Chocolate、Jam、Baked Goodsetc.ArtisanSpecialtyproductionProduct。</p>
+              <div className="text-xs text-rose-600 bg-rose-100 px-2 py-1 rounded inline-block">Share:: 45%</div>
             </div>
             <div className="bg-gradient-to-br from-amber-50 to-yellow-50 p-5 rounded-xl border border-amber-200">
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles className="h-5 w-5 text-amber-600" />
-                <h4 className="font-semibold text-amber-800">農夫市集攻商</h4>
+                <h4 className="font-semibold text-amber-800">farmers market vendormerchant</h4>
               </div>
-              <p className="text-sm text-amber-700 mb-3">農市產品、有機食品、在地特產等。</p>
-              <div className="text-xs text-amber-600 bg-amber-100 px-2 py-1 rounded inline-block">佔比: 35%</div>
+              <p className="text-sm text-amber-700 mb-3">farmers marketProduct、Organicfood、inlocal specialtiesetc.。</p>
+              <div className="text-xs text-amber-600 bg-amber-100 px-2 py-1 rounded inline-block">Share:: 35%</div>
             </div>
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
               <div className="flex items-center gap-2 mb-3">
                 <Package className="h-5 w-5 text-green-600" />
-                <h4 className="font-semibold text-green-800">小批量品牌</h4>
+                <h4 className="font-semibold text-green-800">small batchBrand</h4>
               </div>
-              <p className="text-sm text-green-700 mb-3">限量版、季節性產品、新品測試等。</p>
-              <div className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded inline-block">佔比: 20%</div>
+              <p className="text-sm text-green-700 mb-3">limited edition、seasonalfocusedProduct、newproductstestetc.。</p>
+              <div className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded inline-block">Share:: 20%</div>
             </div>
           </div>
           <div className="bg-neutral-50 p-4 rounded-lg mt-4">
-            <h5 className="font-semibold text-neutral-800 mb-2">客戶成功案例</h5>
-            <p className="text-sm text-neutral-600">「從100件起訂讓我可以測試不同的產品和設計，無需擔心庫存壓力。現在我的手工果醬在農夫市集非常受歡迎。」— 手工果醬品牌創辦人</p>
+            <h5 className="font-semibold text-neutral-800 mb-2">Customer Success Story</h5>
+            <p className="text-sm text-neutral-600">「from100 unitsOrderLetIcanWithtestDifferentProductanddesigns，without inventory pressure。nowinIArtisan jamsinvery popular at farmers markets。」— Artisan jamsBrandFounder</p>
           </div>
         </div>
       )
     },
     {
       id: 'market-data',
-      title: '市場數據 Market Intelligence',
+      title: 'Market Data & Intelligence',
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
-          <p className="text-neutral-700">手工食品市場持續增長，消費者對手工精製產品的需求越來越高。</p>
+          <p className="text-neutral-700">ArtisanfoodMarketcontinuedgrowth，ConsumersforArtisanSpecialtyMakeProductRequirementsincreasinglyHigh。</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
               <div className="text-3xl font-bold text-primary-600 mb-1">$28B</div>
-              <div className="text-xs text-neutral-500">手工食品市場規模</div>
+              <div className="text-xs text-neutral-500">ArtisanfoodMarketSize</div>
               <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
                 <TrendingUp className="h-3 w-3" />
-                <span>年增長 8.5%</span>
+                <span>yeargrowth 8.5%</span>
               </div>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
               <div className="text-3xl font-bold text-rose-600 mb-1">67%</div>
-              <div className="text-xs text-neutral-500">消費者偏好手工產品</div>
+              <div className="text-xs text-neutral-500">ConsumerspreferenceArtisanProduct</div>
               <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
                 <TrendingUp className="h-3 w-3" />
-                <span>增長中</span>
+                <span>growthMedium</span>
               </div>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
               <div className="text-3xl font-bold text-amber-600 mb-1">45%</div>
-              <div className="text-xs text-neutral-500">願意支付溢價</div>
+              <div className="text-xs text-neutral-500">willingIntentPaymentPremium</div>
               <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
                 <TrendingUp className="h-3 w-3" />
-                <span>穩定</span>
+                <span>stable</span>
               </div>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
               <div className="text-3xl font-bold text-green-600 mb-1">100</div>
-              <div className="text-xs text-neutral-500">最低起訂量</div>
+              <div className="text-xs text-neutral-500">maximumlowOrdervolume</div>
               <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
                 <TrendingUp className="h-3 w-3" />
-                <span>靈活</span>
+                <span>Flexible</span>
               </div>
             </div>
           </div>
           <div className="bg-blue-50 p-4 rounded-lg">
-            <h5 className="font-semibold text-blue-800 mb-2">市場趨勢洞察</h5>
-            <p className="text-sm text-blue-700">手工食品市場不斷擴大，消費者越來越重視產品的真實性和品牌故事。環保包裝在農夫市集等渠道特別受歡迎。</p>
+            <h5 className="font-semibold text-blue-800 mb-2">Market Trend Insights</h5>
+            <p className="text-sm text-blue-700">ArtisanfoodMarketnotBreakexpand，Consumersincreasinglyfocused onProductRealfocusedandBrandStory。Eco-friendlyPackaginginFarmers Marketetc.ChannelSpecialTypeReceiveWelcome。</p>
           </div>
         </div>
       )
     },
     {
       id: 'material-comparison',
-      title: '材料對比 Material Comparison',
+      title: 'Material Comparison',
       icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
-          <p className="text-neutral-700">不同包裝材料的特點對比，幫助您選擇最適合手工產品的解決方案。</p>
+          <p className="text-neutral-700">DifferentPackagingMaterialFeaturesContrast，HelpYouchoosechoosemaximumsuitableSuitableArtisanProductSolution。</p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="bg-neutral-100">
-                  <th className="text-left p-3 border font-semibold">包裝類型</th>
-                  <th className="text-left p-3 border font-semibold">最低起訂</th>
-                  <th className="text-left p-3 border font-semibold">環保認證</th>
-                  <th className="text-left p-3 border font-semibold">適用場景</th>
-                  <th className="text-left p-3 border font-semibold">成本</th>
+                  <th className="text-left p-3 border font-semibold">Packaging Type</th>
+                  <th className="text-left p-3 border font-semibold">maximumlowOrder</th>
+                  <th className="text-left p-3 border font-semibold">Eco-friendlyCertification</th>
+                  <th className="text-left p-3 border font-semibold">suitableusedScenario</th>
+                  <th className="text-left p-3 border font-semibold">Cost</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="hover:bg-green-50">
-                  <td className="p-3 border"><span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-medium">牍紙可堆肥</span></td>
-                  <td className="p-3 border">100件</td>
+                  <td className="p-3 border"><span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-medium">PaperboardcanCompostable</span></td>
+                  <td className="p-3 border">100 units</td>
                   <td className="p-3 border">★★★★★</td>
-                  <td className="p-3 border">農夫市集、有機店</td>
+                  <td className="p-3 border">Farmers Market、OrganicStore</td>
                   <td className="p-3 border text-green-600 font-medium">$$</td>
                 </tr>
                 <tr className="hover:bg-blue-50">
-                  <td className="p-3 border"><span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium">可回收透明</span></td>
-                  <td className="p-3 border">100件</td>
+                  <td className="p-3 border"><span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium">RecyclableTransparent</span></td>
+                  <td className="p-3 border">100 units</td>
                   <td className="p-3 border">★★★★</td>
-                  <td className="p-3 border">精品店、零售</td>
+                  <td className="p-3 border">SpecialtyproductsStore、retail</td>
                   <td className="p-3 border text-blue-600 font-medium">$</td>
                 </tr>
                 <tr className="hover:bg-amber-50">
-                  <td className="p-3 border"><span className="px-2 py-1 bg-amber-100 text-amber-700 rounded text-xs font-medium">牍紙開窗</span></td>
-                  <td className="p-3 border">100件</td>
+                  <td className="p-3 border"><span className="px-2 py-1 bg-amber-100 text-amber-700 rounded text-xs font-medium">PaperboardWith Window</span></td>
+                  <td className="p-3 border">100 units</td>
                   <td className="p-3 border">★★★★</td>
-                  <td className="p-3 border">展示商品、包裝礙物</td>
+                  <td className="p-3 border">Displaymerchantproducts、PackagingBlockMaterial</td>
                   <td className="p-3 border text-amber-600 font-medium">$$</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div className="bg-amber-50 p-4 rounded-lg">
-            <h5 className="font-semibold text-amber-800 mb-2">選材建議</h5>
-            <p className="text-sm text-amber-700">對於手工食品生產者，建議優先考慮牍紙包裝，能夠傳達手工、自然的品牌形象。開窗設計可以展示產品，提升購買欲望。</p>
+            <h5 className="font-semibold text-amber-800 mb-2">Material Selection Guide</h5>
+            <p className="text-sm text-amber-700">forinArtisanfoodProducers，RecommendationPriorityconsiderationsPaperboardPackaging，performanceEnough to SpreadreachingArtisan、SelfNaturalBrandimage。With WindowdesignscanWithDisplayProduct，improvePurchase Desire。</p>
           </div>
         </div>
       )

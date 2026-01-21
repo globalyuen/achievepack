@@ -6,14 +6,14 @@ import { useCalendly } from '../../contexts/CalendlyContext'
 
 // Gallery images from /imgs/function/roll/
 const rollstockGallery = [
-  { src: '/imgs/function/roll/hero.webp', title: 'Achieve Pack® Pre-Zippered Rollstock', desc: 'Achieve Pack® 预拉链卷膜' },
-  { src: '/imgs/function/roll/a_kv2_how_it_works_7440796.webp', title: 'How Pre-Zippered Rollstock Works', desc: '预拉链卷膜如何工作' },
-  { src: '/imgs/function/roll/a_achievepack_zipper_technology_4352447.webp', title: 'Zipper Technology Detail', desc: '拉链技术细节' },
-  { src: '/imgs/function/roll/a_kv4_no_equipment_5802224.webp', title: 'No New Equipment Required', desc: '无需新增设备' },
-  { src: '/imgs/function/roll/a_achievepack_cost_optimization_2620198.webp', title: 'Cost & Material Savings', desc: '成本与材料优势' },
-  { src: '/imgs/function/roll/a_kv6_efficiency_9836360.webp', title: 'Production Efficiency', desc: '产线效率' },
-  { src: '/imgs/function/roll/a_achievepack_versatility_9776242.webp', title: 'Flexible Applications', desc: '多种应用形式' },
-  { src: '/imgs/function/roll/a_achievepack_partnership_cta_8348442.webp', title: 'Design Your System with Achieve Pack', desc: '和 Achieve Pack 一起设计' },
+  { src: '/imgs/function/roll/hero.webp', title: 'Achieve Pack® Pre-Zippered Rollstock', desc: 'Achieve Pack® Pre-Zipper Roll Film' },
+  { src: '/imgs/function/roll/a_kv2_how_it_works_7440796.webp', title: 'How Pre-Zippered Rollstock Works', desc: 'Pre-Zipper Roll FilmIfWhatWork' },
+  { src: '/imgs/function/roll/a_achievepack_zipper_technology_4352447.webp', title: 'Zipper Technology Detail', desc: 'ZipperTechnologyDetails' },
+  { src: '/imgs/function/roll/a_kv4_no_equipment_5802224.webp', title: 'No New Equipment Required', desc: 'NoRequireNewIncreaseEquipment' },
+  { src: '/imgs/function/roll/a_achievepack_cost_optimization_2620198.webp', title: 'Cost & Material Savings', desc: 'CostAndMaterialExcellentTrend' },
+  { src: '/imgs/function/roll/a_kv6_efficiency_9836360.webp', title: 'Production Efficiency', desc: 'ProduceLineEfficiency' },
+  { src: '/imgs/function/roll/a_achievepack_versatility_9776242.webp', title: 'Flexible Applications', desc: 'MultipleApplicationFormStyle' },
+  { src: '/imgs/function/roll/a_achievepack_partnership_cta_8348442.webp', title: 'Design Your System with Achieve Pack', desc: 'And Achieve Pack TogetherDesign' },
 ]
 
 const PreZipperedRollstockPage: React.FC = () => {
@@ -56,7 +56,7 @@ const PreZipperedRollstockPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
-            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge 点击放大</div>
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge Click to enlarge</div>
           </button>
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-neutral-900">{title}</h3>
@@ -78,7 +78,7 @@ const PreZipperedRollstockPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group md:order-2"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
-            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge 点击放大</div>
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge Click to enlarge</div>
           </button>
         </>
       )}
@@ -97,7 +97,7 @@ const PreZipperedRollstockPage: React.FC = () => {
               <strong>Convert your rollstock into resealable pouches without new equipment</strong> — Achieve Pack® pre-zippered rollstock allows brands to upgrade standard packaging to resealable pouches on existing VFFS/HFFS lines.
             </p>
             <p className="text-neutral-700">
-              无需更换设备，就能把卷膜升级为可重复密封包装 — Achieve Pack® 预拉链卷膜让品牌可以在现有 VFFS/HFFS 设备上生产可重复封口的袋子
+              NoRequireMoreChangeEquipment，ThenCanHandleRollFilmRiseGradeForCanRepeatedSealedPackaging — Achieve Pack® Pre-Zipper Roll FilmLetBrandCanWithInExisting VFFS/HFFS EquipmentUpProductionCanRepeatedSealOfBagChild
             </p>
           </div>
           
@@ -105,9 +105,9 @@ const PreZipperedRollstockPage: React.FC = () => {
             image="/imgs/function/roll/hero.webp"
             imageAlt="Achieve Pack Pre-Zippered Rollstock Hero"
             title="Achieve Pack® Pre-Zippered Rollstock"
-            titleCn="Achieve Pack® 预拉链卷膜"
+            titleCn="Achieve Pack® Pre-Zipper Roll Film"
             content="Our pre-zippered rollstock features zippers applied transversely to the film roll before it reaches your production line. Run it on existing VFFS or HFFS equipment with minimal adjustments to produce cut-to-open, recloseable pouches from standard rollstock."
-            contentCn="我们的预拉链卷膜在进入生产线之前，已经将拉链横向预先焊接在卷膜上。只需微调，即可在现有 VFFS 或 HFFS 设备上运行，用普通卷膜就能做出剪开可重复封口的包装袋。"
+            contentCn="OurPre-Zipper Roll FilmInEnterProductionLineOfBefore，AlreadyThroughWillZipperHorizontalTowardPre-WeldConnectInOn Roll Film。OnlyNeeds Adjustment，ImmediatelyCanInExisting VFFS Or HFFS EquipmentUpShipLine，UseRegularRollFilmThenCanDoOutCutOpenCanRepeatedSealOfPackagingBag。"
             imageLeft={true}
             index={0}
           />
@@ -124,9 +124,9 @@ const PreZipperedRollstockPage: React.FC = () => {
             image="/imgs/function/roll/a_kv2_how_it_works_7440796.webp"
             imageAlt="How Pre-Zippered Rollstock Works"
             title="Pre-Applied Zipper Technology"
-            titleCn="Achieve Pack® 预拉链卷膜如何工作"
+            titleCn="Achieve Pack® Pre-Zipper Roll FilmIfWhatWork"
             content="The zipper is applied transversely to the film roll before it reaches your line. Run it on existing VFFS or HFFS equipment with minimal adjustments. Produce cut-to-open, recloseable pouches from standard rollstock without investing in new inline zipper systems."
-            contentCn="拉链在进线前横向预先焊接在卷膜上。只需微调，即可在现有 VFFS 或 HFFS 设备上运行。用普通卷膜就能做出剪开可重复封口的包装袋，无需投资新的在线拉链系统。"
+            contentCn="ZipperInIntoLineBeforeHorizontalTowardPre-WeldConnectInOn Roll Film。OnlyNeeds Adjustment，ImmediatelyCanInExisting VFFS Or HFFS EquipmentUpShipLine。UseRegularRollFilmThenCanDoOutCutOpenCanRepeatedSealOfPackagingBag，NoRequireInvestmentNewOfInLineZipperSystem。"
             imageLeft={false}
             index={1}
           />
@@ -135,17 +135,17 @@ const PreZipperedRollstockPage: React.FC = () => {
             <div className="bg-green-50 p-4 rounded-lg border border-green-200">
               <Zap className="h-5 w-5 text-green-600 mb-2" />
               <h4 className="font-semibold text-green-800">Pre-applied zipper</h4>
-              <p className="text-sm text-green-700">拉链预先焊接在卷膜上</p>
+              <p className="text-sm text-green-700">ZipperPre-WeldConnectInOn Roll Film</p>
             </div>
             <div className="bg-green-50 p-4 rounded-lg border border-green-200">
               <Settings className="h-5 w-5 text-green-600 mb-2" />
               <h4 className="font-semibold text-green-800">Minimal adjustments</h4>
-              <p className="text-sm text-green-700">设备仅需微调</p>
+              <p className="text-sm text-green-700">EquipmentOnlyNeeds Adjustment</p>
             </div>
             <div className="bg-green-50 p-4 rounded-lg border border-green-200">
               <Package className="h-5 w-5 text-green-600 mb-2" />
               <h4 className="font-semibold text-green-800">Recloseable pouches</h4>
-              <p className="text-sm text-green-700">可重复封口包装</p>
+              <p className="text-sm text-green-700">CanRepeatedSealPackaging</p>
             </div>
           </div>
         </div>
@@ -161,9 +161,9 @@ const PreZipperedRollstockPage: React.FC = () => {
             image="/imgs/function/roll/a_achievepack_zipper_technology_4352447.webp"
             imageAlt="Pre-Applied Zipper Zone Detail"
             title="Pre-Applied Zipper on Rollstock"
-            titleCn="卷膜上预制拉链"
+            titleCn="On Roll FilmPreMadeZipper"
             content="Precise placement and sealing of zippers before forming the pouch. The zipper profile and seal are engineered for reliable reclosure performance. Custom zipper length and position available to match your product requirements."
-            contentCn="在制袋前就完成拉链的精确定位与热封。拉链截面与封合线经过工程设计，确保可靠的重复封口性能。可定制拉链长度和位置，匹配您的产品需求。"
+            contentCn="InMadeBagBeforeThenCompleteFormZipperOfFineExactFixedPositionAndHeat Seal。ZipperCutFaceAndSealSuitableLineThroughThroughWorkerProcessDesign，EnsureCanReliableOfRepeatedSealPropertyCan。CanCustomZipperLengthAndPositionSet，MatchWithYouOfProductRequireDemand。"
             imageLeft={true}
             index={2}
           />
@@ -180,9 +180,9 @@ const PreZipperedRollstockPage: React.FC = () => {
             image="/imgs/function/roll/a_kv4_no_equipment_5802224.webp"
             imageAlt="No New Equipment Required"
             title="Run on Your Existing Lines"
-            titleCn="兼容现有生产线"
+            titleCn="CompatibleCapacityExistingProductionLine"
             content="Use with conventional VFFS and HFFS equipment. No major capital investment needed—only minor clearance adjustments to the forming tube. Your existing packaging lines become capable of producing premium resealable pouches instantly."
-            contentCn="可搭配常规 VFFS 与 HFFS 设备使用。无需大额新增设备投资，仅需对成型管进行小幅间隙调整。让您现有的包装线瞬间具备生产高端可重复封口袋的能力。"
+            contentCn="CanMatchWithOftenSpecification VFFS And HFFS EquipmentUse。NoRequireLargeExtraNewIncreaseEquipmentInvestment，OnlyRequireForFormTypeTubeIntoLineSmallWidthGap AdjustWhole。LetYouExistingOfPackagingLineInstantToolPrepareProductionPremiumCanRepeatedSealBagOfCanPower。"
             imageLeft={false}
             index={3}
           />
@@ -192,11 +192,11 @@ const PreZipperedRollstockPage: React.FC = () => {
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div>
                 <p className="text-amber-700"><strong>VFFS (Vertical Form Fill Seal)</strong></p>
-                <p className="text-amber-600">垂直成型充填封口机</p>
+                <p className="text-amber-600">HangStraightFormTypeFillSealMachine</p>
               </div>
               <div>
                 <p className="text-amber-700"><strong>HFFS (Horizontal Form Fill Seal)</strong></p>
-                <p className="text-amber-600">水平成型充填封口机</p>
+                <p className="text-amber-600">WaterFlatFormTypeFillSealMachine</p>
               </div>
             </div>
           </div>
@@ -213,9 +213,9 @@ const PreZipperedRollstockPage: React.FC = () => {
             image="/imgs/function/roll/a_achievepack_cost_optimization_2620198.webp"
             imageAlt="Cost and Material Savings"
             title="Reduce Cost, Save Material"
-            titleCn="节省成本，降低材料用量"
+            titleCn="SaveCost，ReduceLowMaterialUseVolume"
             content="Custom zipper length and placement help cut waste and lower cost per pack. Compared to traditional in-line zipper systems, pre-zippered rollstock can save up to 25% on zipper material by only applying zippers where needed, not across the entire width."
-            contentCn="可定制拉链长度和位置，减少浪费，降低单包成本。与传统在线拉链系统相比，预拉链卷膜通过只在需要的区域配置拉链，可节省高达 25% 的拉链材料用量。"
+            contentCn="CanCustomZipperLengthAndPositionSet，ReduceWaveFee，ReduceLowSinglePackCost。AndTraditionalInLineZipperSystemCompared，Pre-Zipper Roll FilmThroughOnlyInRequireNeedOfAreaWithSetZipper，CanSaveHighReach 25% OfZipperMaterialUseVolume。"
             imageLeft={true}
             index={4}
           />
@@ -224,12 +224,12 @@ const PreZipperedRollstockPage: React.FC = () => {
             <div className="bg-green-50 p-5 rounded-lg border border-green-200">
               <h4 className="font-semibold text-green-800 mb-2">Up to 25% Material Savings</h4>
               <p className="text-sm text-green-700">Custom zipper length reduces waste</p>
-              <p className="text-xs text-green-600 mt-1">定制拉链长度减少浪费</p>
+              <p className="text-xs text-green-600 mt-1">CustomZipperLengthReduceWaveFee</p>
             </div>
             <div className="bg-green-50 p-5 rounded-lg border border-green-200">
               <h4 className="font-semibold text-green-800 mb-2">Lower Total Cost</h4>
               <p className="text-sm text-green-700">No inline zipper equipment investment</p>
-              <p className="text-xs text-green-600 mt-1">无需投资在线拉链设备</p>
+              <p className="text-xs text-green-600 mt-1">NoRequireInvestmentInLineZipperEquipment</p>
             </div>
           </div>
         </div>
@@ -245,9 +245,9 @@ const PreZipperedRollstockPage: React.FC = () => {
             image="/imgs/function/roll/a_kv6_efficiency_9836360.webp"
             imageAlt="Production Efficiency and Speed"
             title="Maintain Speed, Boost Efficiency"
-            titleCn="保持速度，提高效率"
+            titleCn="MaintainSpeedDegree，RaiseEfficientRate"
             content="Run at speeds comparable to non-zippered films. Reduce set-up time compared to in-line zipper systems. Improve overall line throughput with pre-zippered rollstock that requires minimal adjustments."
-            contentCn="运行速度可与普通无拉链卷膜相当。相比在线拉链系统减少调机时间。预拉链卷膜仅需微调，提升整体产线吞吐量。"
+            contentCn="ShipLineSpeedDegreeCanAndRegularNoZipperRollFilmRelatedWhen。ComparedInLineZipperSystemReduceAdjustMachineTimeBetween。Pre-Zipper Roll FilmOnlyNeeds Adjustment，ImproveWholeBodyProduceLineThroughputVolume。"
             imageLeft={false}
             index={5}
           />
@@ -256,17 +256,17 @@ const PreZipperedRollstockPage: React.FC = () => {
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 text-center">
               <Gauge className="h-6 w-6 text-blue-600 mx-auto mb-2" />
               <h4 className="font-semibold text-blue-800 text-sm">High Speed</h4>
-              <p className="text-xs text-blue-600">运行速度相当</p>
+              <p className="text-xs text-blue-600">ShipLineSpeedDegreeRelatedWhen</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 text-center">
               <Zap className="h-6 w-6 text-blue-600 mx-auto mb-2" />
               <h4 className="font-semibold text-blue-800 text-sm">Fast Setup</h4>
-              <p className="text-xs text-blue-600">快速换型</p>
+              <p className="text-xs text-blue-600">FastChangeType</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 text-center">
               <Settings className="h-6 w-6 text-blue-600 mx-auto mb-2" />
               <h4 className="font-semibold text-blue-800 text-sm">15%+ Faster</h4>
-              <p className="text-xs text-blue-600">生产时间缩短</p>
+              <p className="text-xs text-blue-600">ProductionTimeBetweenShorten</p>
             </div>
           </div>
         </div>
@@ -282,9 +282,9 @@ const PreZipperedRollstockPage: React.FC = () => {
             image="/imgs/function/roll/a_achievepack_versatility_9776242.webp"
             imageAlt="Flexible Applications"
             title="From Pillow Packs to Stand-Up Pouches"
-            titleCn="从枕形袋到自立袋"
+            titleCn="FromPillowFormBagToStand-Up Pouches"
             content="Ideal for snacks, frozen foods, pet food, powders and more. The same production line can run both regular non-zippered rollstock and Achieve Pack® pre-zippered rollstock, providing flexibility for multiple SKUs and price points."
-            contentCn="适用于休闲零食、冷冻食品、宠物粮及粉末等多种品类。同一条生产线既能跑普通无拉链卷膜，也能跑 Achieve Pack® 预拉链卷膜，为品牌提供多 SKU、多价位段的运行灵活性。"
+            contentCn="Suitable forCasualSnack、FrozenFood、PetGrainAndPowderEtcMultipleProductCategory。SameOneStripProductionLineBothCanRunRegularNoZipperRollFilm，AlsoCanRun Achieve Pack® Pre-Zipper Roll Film，ForBrandProvideMultiple SKU、MultiplePricePositionSectionOfShipLineFlexibleProperty。"
             imageLeft={true}
             index={6}
           />
@@ -293,22 +293,22 @@ const PreZipperedRollstockPage: React.FC = () => {
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <span className="text-2xl">🍿</span>
               <h4 className="font-semibold text-neutral-800 text-sm mt-2">Snacks</h4>
-              <p className="text-xs text-neutral-500">休闲零食</p>
+              <p className="text-xs text-neutral-500">CasualSnack</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <span className="text-2xl">❄️</span>
               <h4 className="font-semibold text-neutral-800 text-sm mt-2">Frozen Foods</h4>
-              <p className="text-xs text-neutral-500">冷冻食品</p>
+              <p className="text-xs text-neutral-500">FrozenFood</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <span className="text-2xl">🐕</span>
               <h4 className="font-semibold text-neutral-800 text-sm mt-2">Pet Food</h4>
-              <p className="text-xs text-neutral-500">宠物粮</p>
+              <p className="text-xs text-neutral-500">PetGrain</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <span className="text-2xl">🥤</span>
               <h4 className="font-semibold text-neutral-800 text-sm mt-2">Powders</h4>
-              <p className="text-xs text-neutral-500">粉末类</p>
+              <p className="text-xs text-neutral-500">PowderCategory</p>
             </div>
           </div>
           
@@ -317,15 +317,15 @@ const PreZipperedRollstockPage: React.FC = () => {
             <div className="grid md:grid-cols-3 gap-4 text-sm">
               <div className="flex items-center gap-2">
                 <Package className="h-4 w-4 text-green-600" />
-                <span className="text-green-700">Pillow Bags 枕形袋</span>
+                <span className="text-green-700">Pillow Bags PillowFormBag</span>
               </div>
               <div className="flex items-center gap-2">
                 <Package className="h-4 w-4 text-green-600" />
-                <span className="text-green-700">Stand-Up Pouches 自立袋</span>
+                <span className="text-green-700">Stand-Up Pouches Stand-Up Pouches</span>
               </div>
               <div className="flex items-center gap-2">
                 <Package className="h-4 w-4 text-green-600" />
-                <span className="text-green-700">Flat Bottom Bags 平底袋</span>
+                <span className="text-green-700">Flat Bottom Bags Flat Bottom Bags</span>
               </div>
             </div>
           </div>
@@ -344,7 +344,7 @@ const PreZipperedRollstockPage: React.FC = () => {
               Add easy reclose convenience to your existing packaging format. Consumers cut open the top, then use the zipper to reseal—keeping snacks crisp, frozen foods fresh, and powders dry.
             </p>
             <p className="text-neutral-600 text-sm">
-              让现有包装轻松升级为可重复密封结构。消费者剪开袋口后，可使用拉链反复封合，保持零食酥脆、冷冻食品新鲜、粉末干燥。
+              LetExistingPackagingLightLooseRiseGradeForCanRepeatedSealedStructure。ConsumerCutOpenBagOpeningAfter，CanUseZipperReverseCompoundSealSuitable，MaintainSnackCrispy、FrozenFoodFresh、PowderDry。
             </p>
           </div>
           
@@ -352,17 +352,17 @@ const PreZipperedRollstockPage: React.FC = () => {
             <div className="bg-white p-4 rounded-lg border border-neutral-200 shadow-sm">
               <h4 className="font-semibold text-neutral-800">Extended Freshness</h4>
               <p className="text-sm text-neutral-600">Delay moisture and oxygen exposure</p>
-              <p className="text-xs text-neutral-500 mt-1">延缓水分和氧气接触</p>
+              <p className="text-xs text-neutral-500 mt-1">ExtendSlowWaterDivideAndOxygenContact</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 shadow-sm">
               <h4 className="font-semibold text-neutral-800">Better Experience</h4>
               <p className="text-sm text-neutral-600">Easy reclose for on-the-go</p>
-              <p className="text-xs text-neutral-500 mt-1">随时封口，方便携带</p>
+              <p className="text-xs text-neutral-500 mt-1">FollowTimeSeal，SidePortableWith</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 shadow-sm">
               <h4 className="font-semibold text-neutral-800">Higher Repurchase</h4>
               <p className="text-sm text-neutral-600">Enhanced user satisfaction</p>
-              <p className="text-xs text-neutral-500 mt-1">增强回购率</p>
+              <p className="text-xs text-neutral-500 mt-1">IncreaseStrongReturnPurchase Rate</p>
             </div>
           </div>
         </div>
@@ -378,9 +378,9 @@ const PreZipperedRollstockPage: React.FC = () => {
             image="/imgs/function/roll/a_achievepack_partnership_cta_8348442.webp"
             imageAlt="Design Your System with Achieve Pack"
             title="Design Your Pre-Zippered Rollstock System"
-            titleCn="和 Achieve Pack 一起设计你的预拉链卷膜系统"
+            titleCn="And Achieve Pack TogetherDesignYouOfPre-Zipper Roll FilmSystem"
             content="From snacks to frozen food, one pre-zippered rollstock for all your resealable needs. Our team helps you choose the right film structure, barrier level, zipper style, and printing options for your specific application."
-            contentCn="从零食到冷冻食品，一种预拉链卷膜覆盖全部可重复封口需求。我们的团队帮助您选择适合特定应用的膜材结构、阻隔等级、拉链类型和印刷方案。"
+            contentCn="FromSnackToFrozenFood，OneTypePre-Zipper Roll FilmCoverFullPartCanRepeatedSealRequireDemand。OurTeamHelpYouChooseSuitableSuitableSpecificApplicationOfFilmMaterialStructure、Barrier Level、ZipperCategoryTypeAndPrintingSolution。"
             imageLeft={false}
             index={7}
           />
@@ -392,19 +392,19 @@ const PreZipperedRollstockPage: React.FC = () => {
                 <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 font-bold mb-3">1</div>
                 <h5 className="font-medium text-neutral-800">Choose Film Structure</h5>
                 <p className="text-sm text-neutral-600">Select barrier level and width</p>
-                <p className="text-xs text-neutral-500 mt-1">选择膜材结构、阻隔等级与幅宽</p>
+                <p className="text-xs text-neutral-500 mt-1">ChooseFilmMaterialStructure、Barrier LevelAndWidthWide</p>
               </div>
               <div className="bg-white p-4 rounded-lg border border-neutral-200">
                 <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 font-bold mb-3">2</div>
                 <h5 className="font-medium text-neutral-800">Define Zipper Style</h5>
                 <p className="text-sm text-neutral-600">Set length and position</p>
-                <p className="text-xs text-neutral-500 mt-1">定义拉链类型、长度与位置</p>
+                <p className="text-xs text-neutral-500 mt-1">DefineZipperCategoryType、LengthAndPositionSet</p>
               </div>
               <div className="bg-white p-4 rounded-lg border border-neutral-200">
                 <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 font-bold mb-3">3</div>
                 <h5 className="font-medium text-neutral-800">Add Printing</h5>
                 <p className="text-sm text-neutral-600">Run on your existing lines</p>
-                <p className="text-xs text-neutral-500 mt-1">加入 Achieve Pack 印刷，在现有产线上直接运行</p>
+                <p className="text-xs text-neutral-500 mt-1">AddEnter Achieve Pack Printing，InExistingProduceLineUpDirectShipLine</p>
               </div>
             </div>
           </div>
@@ -424,7 +424,7 @@ const PreZipperedRollstockPage: React.FC = () => {
               With over 13 years of experience manufacturing flexible packaging, Achieve Pack has supplied pre-zippered rollstock and resealable pouches to snack brands, frozen food manufacturers, and pet food companies across North America, Europe, and Asia-Pacific.
             </p>
             <p className="text-neutral-600 text-sm">
-              凭借超过 13 年的软包装制造经验，Achieve Pack 已为北美、欧洲和亚太地区的零食品牌、冷冻食品制造商和宠物粮公司提供预拉链卷膜和可重复封口袋。
+              With Over 13 Years of FlexiblePackagingMadeMakeThroughTest，Achieve Pack Already Served North America、EuropeAndAsia PacificOfZeroFoodBrand、FrozenFoodMadeMakeBusinessAndPetGrainCompanyProvidePre-Zipper Roll FilmAndCanRepeatedSealBag。
             </p>
           </div>
           
@@ -575,10 +575,10 @@ const PreZipperedRollstockPage: React.FC = () => {
       <SEOPageLayout
         title="Pre-Zippered Rollstock | Achieve Pack® Resealable Film"
         description="Achieve Pack® pre-zippered rollstock converts your existing VFFS/HFFS lines into resealable pouch production. No new equipment needed. Save up to 25% on zipper material. Ideal for snacks, frozen foods, pet food."
-        keywords={['pre-zippered rollstock', 'resealable film', 'VFFS zipper film', 'HFFS resealable', 'pre-applied zipper', 'recloseable packaging', 'snack packaging', 'frozen food packaging', 'pet food bags', 'zipper rollstock', 'resealable pouches', 'flexible packaging film', '预拉链卷膜', '可重复封口包装']}
+        keywords={['pre-zippered rollstock', 'resealable film', 'VFFS zipper film', 'HFFS resealable', 'pre-applied zipper', 'recloseable packaging', 'snack packaging', 'frozen food packaging', 'pet food bags', 'zipper rollstock', 'resealable pouches', 'flexible packaging film', 'Pre-Zipper Roll Film', 'CanRepeatedSealPackaging']}
         canonicalUrl="https://achievepack.com/function/pre-zippered-rollstock"
         heroTitle="Achieve Pack® Pre-Zippered Rollstock"
-        heroSubtitle="Convert your rollstock into resealable pouches without new equipment / 无需更换设备，就能把卷膜升级为可重复密封包装"
+        heroSubtitle="Convert your rollstock into resealable pouches without new equipment / NoRequireMoreChangeEquipment，ThenCanHandleRollFilmRiseGradeForCanRepeatedSealedPackaging"
         heroImage="/imgs/function/roll/hero.webp"
         heroImageAlt="Achieve Pack Pre-Zippered Rollstock"
         introSummary="Achieve Pack® pre-zippered rollstock features zippers applied transversely before your production line. Run on existing VFFS/HFFS equipment with minimal adjustments. Save up to 25% on zipper material and reduce production time by 15%+."

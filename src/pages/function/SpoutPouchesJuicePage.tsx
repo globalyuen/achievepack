@@ -6,16 +6,16 @@ import { useCalendly } from '../../contexts/CalendlyContext'
 
 // Gallery images from /imgs/function/spout/
 const spoutGallery = [
-  { src: '/imgs/function/spout/a_hero_kv_juice_pouch_7892714.webp', title: 'Eco-Friendly Spout Pouches for Juice', desc: '定制异形 · 食品级 · 可回收' },
-  { src: '/imgs/function/spout/a_info_food_safe_recyclable_3061288.webp', title: 'Food-Safe & Recyclable', desc: '食品级 · 可回收' },
-  { src: '/imgs/function/spout/a_detail_spout_cap_2155787.webp', title: 'Easy-Pour Spout Top', desc: '易倒吸嘴设计' },
-  { src: '/imgs/function/spout/a_custom_shape_ergonomic_8007266.webp', title: 'Custom-Shaped Pouches', desc: '面向成年消费者的定制异形袋' },
-  { src: '/imgs/function/spout/a_barrier_freshness_juice_9675285.webp', title: 'Keep Juice Fresh Longer', desc: '让果汁保持更久新鲜' },
-  { src: '/imgs/function/spout/a_refillable_on_the_go_0614853.webp', title: 'Refill, Reuse, Enjoy Again', desc: '可以重复灌装，再次享用' },
-  { src: '/imgs/function/spout/a_recyclable_structure_callout_4512115.webp', title: 'Recyclable Spout Pouch Structure', desc: '可回收吸嘴袋结构' },
-  { src: '/imgs/function/spout/a_sport_commute_scene_7174103.webp', title: 'Perfect for Sport & Commute', desc: '适合运动、通勤与旅行' },
-  { src: '/imgs/function/spout/a_fridge_chill_scene_2985986.webp', title: 'Ready to Chill', desc: '放进冰箱，随拿随喝' },
-  { src: '/imgs/function/spout/a_custom_system_closing_page_7251476.webp', title: 'Design Your Eco Spout Juice Pouch', desc: '和 Achieve Pack 一起设计你的环保吸嘴果汁袋系列' },
+  { src: '/imgs/function/spout/a_hero_kv_juice_pouch_7892714.webp', title: 'Eco-Friendly Spout Pouches for Juice', desc: 'Custom Shapes · Food Grade · Recyclable' },
+  { src: '/imgs/function/spout/a_info_food_safe_recyclable_3061288.webp', title: 'Food-Safe & Recyclable', desc: 'Food Grade · Recyclable' },
+  { src: '/imgs/function/spout/a_detail_spout_cap_2155787.webp', title: 'Easy-Pour Spout Top', desc: 'EasyPourSpoutDesign' },
+  { src: '/imgs/function/spout/a_custom_shape_ergonomic_8007266.webp', title: 'Custom-Shaped Pouches', desc: 'Custom Shaped Bags for Adult Consumers' },
+  { src: '/imgs/function/spout/a_barrier_freshness_juice_9675285.webp', title: 'Keep Juice Fresh Longer', desc: 'LetJuiceMaintainMoreLongFresh' },
+  { src: '/imgs/function/spout/a_refillable_on_the_go_0614853.webp', title: 'Refill, Reuse, Enjoy Again', desc: 'CanWithRepeatedFilling，AgainEnjoyUse' },
+  { src: '/imgs/function/spout/a_recyclable_structure_callout_4512115.webp', title: 'Recyclable Spout Pouch Structure', desc: 'RecyclableSpoutBagStructure' },
+  { src: '/imgs/function/spout/a_sport_commute_scene_7174103.webp', title: 'Perfect for Sport & Commute', desc: 'SuitableSuitableSports、Commute & Travel' },
+  { src: '/imgs/function/spout/a_fridge_chill_scene_2985986.webp', title: 'Ready to Chill', desc: 'PlaceIntoRefrigerator，Ready to Drink' },
+  { src: '/imgs/function/spout/a_custom_system_closing_page_7251476.webp', title: 'Design Your Eco Spout Juice Pouch', desc: 'And Achieve Pack TogetherDesignYouOfEco-FriendlySpoutJuiceBagSeries' },
 ]
 
 const SpoutPouchesJuicePage: React.FC = () => {
@@ -58,7 +58,7 @@ const SpoutPouchesJuicePage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
-            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge 点击放大</div>
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge Click to enlarge</div>
           </button>
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-neutral-900">{title}</h3>
@@ -80,7 +80,7 @@ const SpoutPouchesJuicePage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group md:order-2"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
-            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge 点击放大</div>
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge Click to enlarge</div>
           </button>
         </>
       )}
@@ -99,7 +99,7 @@ const SpoutPouchesJuicePage: React.FC = () => {
               <strong>Custom-shaped, food-safe and recyclable</strong> — Achieve Pack spout pouches are designed for adult beverages including juices, cold brew, sports drinks and more.
             </p>
             <p className="text-neutral-700">
-              定制异形 · 食品级 · 可回收 — 专为成人饮品设计，包括果汁、冷萃、运动饮料等
+              Custom Shapes · Food Grade · Recyclable — ProfessionalForFormPersonBeverageDesign，PackIncludingJuice、Cold Brew、SportsBeverageEtc
             </p>
           </div>
           
@@ -107,9 +107,9 @@ const SpoutPouchesJuicePage: React.FC = () => {
             image="/imgs/function/spout/a_hero_kv_juice_pouch_7892714.webp"
             imageAlt="Achieve Pack Eco-Friendly Spout Pouches for Juice"
             title="Eco-Friendly Spout Pouches for Juice"
-            titleCn="环保吸嘴果汁袋"
+            titleCn="Eco-FriendlySpoutJuiceBag"
             content="Using food-grade multi-layer film structures (such as PET/PE or recyclable mono-PE), suitable for juices, sports drinks, cold brew tea and other liquid products. Spout top with heat seal + screw cap prevents leaks and contamination."
-            contentCn="使用符合食品接触标准的多层薄膜结构（如 PET/PE 或可回收 mono-PE），适合果汁、运动饮料、冷萃茶等液体产品。吸嘴顶部热封 + 旋盖，防泄漏、防污染。"
+            contentCn="UseMatchSuitableFoodContactStandardOfMulti-LayerFilmStructure（If PET/PE OrRecyclable mono-PE），SuitableSuitableJuice、SportsBeverage、Cold BrewTeaEtcLiquidProduct。SpoutTopPartHeat Seal + RotateCover，AntiLeak、AntiContamination。"
             imageLeft={true}
             index={0}
           />
@@ -126,9 +126,9 @@ const SpoutPouchesJuicePage: React.FC = () => {
             image="/imgs/function/spout/a_info_food_safe_recyclable_3061288.webp"
             imageAlt="Food-Safe and Recyclable Spout Pouches"
             title="Food-Grade Materials for Beverages"
-            titleCn="食品级 · 可回收"
+            titleCn="Food Grade · Recyclable"
             content="Choose from 100% recyclable mono-material (such as mono-PE), plant-based or PCR structures to meet brand goals for reducing plastic footprint and local recycling system requirements."
-            contentCn="可选择 100% 可回收单一材质（如 mono-PE）、植物基或含 PCR 结构，满足品牌减少塑料足迹和本地回收体系要求。"
+            contentCn="CanChoose 100% RecyclableSingleMaterial（If mono-PE）、PlantMaterialBaseOrInclude PCR Structure，MeetBrandReducePlasticFootprintAndBookGroundReturnCollectBodySystemNeedDemand。"
             imageLeft={false}
             index={1}
           />
@@ -137,12 +137,12 @@ const SpoutPouchesJuicePage: React.FC = () => {
             <div className="bg-orange-50 p-4 rounded-lg border border-orange-200">
               <Droplets className="h-5 w-5 text-orange-600 mb-2" />
               <h4 className="font-semibold text-orange-800">Food-grade materials</h4>
-              <p className="text-sm text-orange-700">适用于果汁和饮料的食品级材料</p>
+              <p className="text-sm text-orange-700">Suitable forJuiceAndBeverageOfFood GradeMaterial</p>
             </div>
             <div className="bg-green-50 p-4 rounded-lg border border-green-200">
               <Recycle className="h-5 w-5 text-green-600 mb-2" />
               <h4 className="font-semibold text-green-800">Recyclable structures</h4>
-              <p className="text-sm text-green-700">提供单一材质或可回收结构方案</p>
+              <p className="text-sm text-green-700">ProvideSingleMaterialOrRecyclableStructureSolution</p>
             </div>
           </div>
         </div>
@@ -158,9 +158,9 @@ const SpoutPouchesJuicePage: React.FC = () => {
             image="/imgs/function/spout/a_detail_spout_cap_2155787.webp"
             imageAlt="Spout and Cap Close-up"
             title="Twist to Open, Twist to Close – No Spills"
-            titleCn="易倒吸嘴设计"
+            titleCn="EasyPourSpoutDesign"
             content="The spout design makes it convenient for adults to drink one-handed while commuting, exercising or on daily outings. Compared to bottles and cans, it reduces weight and transportation volume."
-            contentCn="吸嘴设计便于成人在通勤、运动或日常外出时单手饮用，相比瓶罐减重、降低运输体积。旋开即用，旋紧防漏。"
+            contentCn="SpoutDesignConvenientAtFormPersonInCommute、SportsOrDailyOutsideOutTimeSingleHandDrinkUse，ComparedBottles and JarsReduceHeavy、ReduceLowTransportationBodyArea。RotateOpenImmediatelyUse，RotateTightLeak-Proof。"
             imageLeft={true}
             index={2}
           />
@@ -177,9 +177,9 @@ const SpoutPouchesJuicePage: React.FC = () => {
             image="/imgs/function/spout/a_custom_shape_ergonomic_8007266.webp"
             imageAlt="Custom-Shaped Pouches"
             title="Custom-Shaped Pouches for Adults"
-            titleCn="面向成年消费者的定制异形袋"
+            titleCn="Custom Shaped Bags for Adult Consumers"
             content="The stand-up design provides a large display surface on shelves and in freezers, making it easy to display. Customize bag contours, handles and curves to make adult juice and functional beverages look more premium and differentiated."
-            contentCn="自立设计在货架、冰柜中展示面大，易于陈列。可定制袋形轮廓、把手、弧线，让成人果汁/功能饮品看起来更加高级和差异化。让袋形既符合品牌个性，又好拿好握。"
+            contentCn="Stand-UpDesignInShelf、FreezerInDisplayFaceLarge，EasyAtDisplay。CanCustomBagFormContour、HandleHand、ArcLine，LetFormPersonJuice/FunctionCanBeverageViewStartComeMoreAddHighGradeAndDifferenceization。LetBagFormBothMatchSuitableBrandUnitProperty，AndGoodTakeGoodGrip。"
             imageLeft={false}
             index={3}
           />
@@ -196,9 +196,9 @@ const SpoutPouchesJuicePage: React.FC = () => {
             image="/imgs/function/spout/a_barrier_freshness_juice_9675285.webp"
             imageAlt="Barrier and Freshness for Juice"
             title="Keep Juice Fresh Longer"
-            titleCn="让果汁保持更久新鲜"
+            titleCn="LetJuiceMaintainMoreLongFresh"
             content="The tight screw cap combined with high-barrier film reduces oxygen and moisture ingress, maintaining fresh taste. High-barrier laminated film helps protect flavor and vitamins."
-            contentCn="紧密旋盖 + 高阻隔膜配合，减少氧气与水汽进入，保持新鲜口感。高阻隔复合膜有助于保护风味和维生素。"
+            contentCn="TightRotateCover + HighBarrierFilmWithSuitable，ReduceOxygenAndWaterSteamEnter，MaintainFreshOpeningFeel。HighBarrierCompoundSuitableFilmHaveAssistAtProtectionFlavorAndVitamin。"
             imageLeft={true}
             index={4}
           />
@@ -207,12 +207,12 @@ const SpoutPouchesJuicePage: React.FC = () => {
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 text-center">
               <div className="text-2xl mb-2">🛡️</div>
               <h4 className="font-semibold text-blue-800">O₂ Barrier</h4>
-              <p className="text-xs text-blue-600">氧气阻隔</p>
+              <p className="text-xs text-blue-600">OxygenBarrier</p>
             </div>
             <div className="bg-cyan-50 p-4 rounded-lg border border-cyan-200 text-center">
               <div className="text-2xl mb-2">💧</div>
               <h4 className="font-semibold text-cyan-800">Moisture Barrier</h4>
-              <p className="text-xs text-cyan-600">水汽阻隔</p>
+              <p className="text-xs text-cyan-600">WaterSteamBarrier</p>
             </div>
           </div>
         </div>
@@ -228,9 +228,9 @@ const SpoutPouchesJuicePage: React.FC = () => {
             image="/imgs/function/spout/a_refillable_on_the_go_0614853.webp"
             imageAlt="Refillable and On-the-Go"
             title="Refill, Reuse, Enjoy Again"
-            titleCn="可以重复灌装，再次享用"
+            titleCn="CanWithRepeatedFilling，AgainEnjoyUse"
             content="Great for juices, cold brew, cocktails and more. The convenient spout design allows for easy refilling and on-the-go consumption."
-            contentCn="适合果汁、冷萃、鸡尾酒等多种饮品。便捷的吸嘴设计方便重复灌装和随身携带。"
+            contentCn="SuitableSuitableJuice、Cold Brew、ChickenEndWineEtcMultipleBeverage。ConvenientQuickOfSpoutDesignSideConvenientRepeatedFillingAndCarry AlongWith。"
             imageLeft={false}
             index={5}
           />
@@ -247,9 +247,9 @@ const SpoutPouchesJuicePage: React.FC = () => {
             image="/imgs/function/spout/a_recyclable_structure_callout_4512115.webp"
             imageAlt="Recyclable Spout Pouch Structure"
             title="Recyclable Spout Pouch Structure"
-            titleCn="可回收吸嘴袋结构"
+            titleCn="RecyclableSpoutBagStructure"
             content="Mono-material PE options are available for markets with recycling infrastructure. Always check local recycling guidelines for proper disposal."
-            contentCn="可选单一材质 PE 结构，适用于具备回收基础设施的市场。请参考当地回收指引进行正确处理。"
+            contentCn="OptionalSingleMaterial PE Structure，Suitable forToolPrepareReturnCollectBaseFoundationSetApplyOfMarket。PleaseReferenceWhenGroundReturnCollectPointLeadIntoLineCorrectProcessing。"
             imageLeft={true}
             index={6}
           />
@@ -266,9 +266,9 @@ const SpoutPouchesJuicePage: React.FC = () => {
             image="/imgs/function/spout/a_sport_commute_scene_7174103.webp"
             imageAlt="Sport and Commute Scene"
             title="Perfect for Sport, Work and Travel"
-            titleCn="适合运动、通勤与旅行"
+            titleCn="SuitableSuitableSports、Commute & Travel"
             content="Lightweight and shatter-free alternative to bottles. Ideal for active lifestyles where convenience and portability matter."
-            contentCn="比瓶装更轻，不易摔碎。非常适合注重便利性和便携性的活跃生活方式。"
+            contentCn="RatioBottleInstallMoreLight，NotEasyShatter。Ideal forSuitableNoteHeavyConvenientBenefitPropertyAndPortablePropertyOfLiveJumpRawLiveMethod。"
             imageLeft={false}
             index={7}
           />
@@ -285,9 +285,9 @@ const SpoutPouchesJuicePage: React.FC = () => {
             image="/imgs/function/spout/a_fridge_chill_scene_2985986.webp"
             imageAlt="Fridge Chill Scene"
             title="Stand-Up Design for Easy Storage"
-            titleCn="放进冰箱，随拿随喝"
+            titleCn="PlaceIntoRefrigerator，Ready to Drink"
             content="The stand-up design keeps pouches neat in the fridge. Easy to grab and enjoy chilled beverages anytime."
-            contentCn="自立结构在冰箱中整齐好摆，方便随时取用冰镇饮品。"
+            contentCn="Stand-UpStructureInRefrigeratorInWholeCompleteGoodPlace，SideConvenientFollowTimeTakeUseChilledBeverage。"
             imageLeft={true}
             index={8}
           />
@@ -304,9 +304,9 @@ const SpoutPouchesJuicePage: React.FC = () => {
             image="/imgs/function/spout/a_custom_system_closing_page_7251476.webp"
             imageAlt="Design Your Custom Spout System"
             title="Design Your Eco Spout Juice Pouch Line"
-            titleCn="和 Achieve Pack 一起设计你的环保吸嘴果汁袋系列"
+            titleCn="And Achieve Pack TogetherDesignYouOfEco-FriendlySpoutJuiceBagSeries"
             content="Three simple steps: 1) Choose your volume and shape, 2) Select spout, cap and material (recyclable, bio-based, PCR), 3) Add custom printing for your adult juice brand."
-            contentCn="三个简单步骤：1) 选择容量与袋形，2) 选择吸嘴、盖子与材料（可回收、生物基、PCR 等），3) 加上你的果汁或功能饮品品牌印刷。"
+            contentCn="Three Simple Steps：1) ChooseCapacityAndBagForm，2) ChooseSpout、CoverChildAndMaterial（Recyclable、Bio-Based、PCR Etc），3) PlusYouOfJuiceOrFunctionCanBeverageBrandPrinting。"
             imageLeft={false}
             index={9}
           />
@@ -318,25 +318,25 @@ const SpoutPouchesJuicePage: React.FC = () => {
                 <div className="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
                 <div>
                   <p className="font-medium text-neutral-800">Choose volume & shape</p>
-                  <p className="text-xs text-neutral-600">选择容量与袋形</p>
+                  <p className="text-xs text-neutral-600">ChooseCapacityAndBagForm</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
                 <div>
                   <p className="font-medium text-neutral-800">Select spout & material</p>
-                  <p className="text-xs text-neutral-600">选择吸嘴、盖子与材料</p>
+                  <p className="text-xs text-neutral-600">ChooseSpout、CoverChildAndMaterial</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div>
                 <div>
                   <p className="font-medium text-neutral-800">Add custom printing</p>
-                  <p className="text-xs text-neutral-600">加上你的品牌印刷</p>
+                  <p className="text-xs text-neutral-600">PlusYouOfBrandPrinting</p>
                 </div>
               </div>
             </div>
-            <p className="text-sm text-neutral-600 mt-4 text-center">From concept to shelf-ready pouches, one partner for liquids<br/>从概念到上架成品，一个伙伴搞定所有液体包装</p>
+            <p className="text-sm text-neutral-600 mt-4 text-center">From concept to shelf-ready pouches, one partner for liquids<br/>FromRoughlyConceptToUpShelfFormProduct，OneUnitPartnerDoneAllLiquidPackaging</p>
           </div>
         </div>
       )
@@ -509,7 +509,7 @@ const SpoutPouchesJuicePage: React.FC = () => {
         keywords={['spout pouches', 'juice pouches', 'recyclable spout bags', 'beverage packaging', 'liquid pouches', 'food-safe pouches', 'custom spout pouches', 'drink pouches', 'juice pouch packaging', 'cold brew pouches', 'sports drink pouches', 'mono-PE spout bags', 'eco friendly juice bags', 'refillable beverage pouches']}
         canonicalUrl="https://achievepack.com/function/spout-pouches-juice"
         heroTitle="Eco-Friendly Spout Pouches for Juice"
-        heroSubtitle="Custom-shaped, food-safe and recyclable — 定制异形 · 食品级 · 可回收"
+        heroSubtitle="Custom-shaped, food-safe and recyclable — Custom Shapes · Food Grade · Recyclable"
         heroImage="/imgs/function/spout/a_hero_kv_juice_pouch_7892714.webp"
         heroImageAlt="Achieve Pack Recyclable Spout Pouches for Juice"
         introSummary="Custom spout pouches designed for adult beverages. From juices to cold brew, enjoy food-safe, recyclable packaging with convenient spout design."

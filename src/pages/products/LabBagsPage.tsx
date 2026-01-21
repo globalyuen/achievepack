@@ -7,15 +7,15 @@ import { useCalendly } from '../../contexts/CalendlyContext'
 // Combined gallery images from lab folders
 const labBagGallery = [
   // Filter bags
-  { src: '/imgs/lab/filter/hero.webp', title: 'Lateral Filter Blender Bags', desc: '侧边滤膜均质袋', category: 'filter' },
-  { src: '/imgs/lab/filter/a_achieve_pack_400ml_kv_main_visual_5029578.webp', title: 'Sterile Lab Bag Collection', desc: '无菌实验室均质袋系列', category: 'filter' },
-  { src: '/imgs/lab/filter/a_achieve_pack_400ml_filter_texture_detail_7479934.webp', title: 'Filter Membrane Detail', desc: '滤膜细节特写', category: 'filter' },
+  { src: '/imgs/lab/filter/hero.webp', title: 'Lateral Filter Blender Bags', desc: 'Side Filter Membrane Homogenizer Bags', category: 'filter' },
+  { src: '/imgs/lab/filter/a_achieve_pack_400ml_kv_main_visual_5029578.webp', title: 'Sterile Lab Bag Collection', desc: 'NoBacteriaLaboratoryHomogenizerBagSeries', category: 'filter' },
+  { src: '/imgs/lab/filter/a_achieve_pack_400ml_filter_texture_detail_7479934.webp', title: 'Filter Membrane Detail', desc: 'Filter MembraneDetailsClose-Up', category: 'filter' },
   // Blender bags
-  { src: '/imgs/lab/blend/a_hero_kv_sterile_lab_1567556.webp', title: 'Lab Blender Bags', desc: '实验室均质袋', category: 'blend' },
-  { src: '/imgs/lab/blend/a_achieve_pack_400ml_kv_main_visual_5029578.webp', title: 'Standard Blender Bags', desc: '标准均质袋', category: 'blend' },
+  { src: '/imgs/lab/blend/a_hero_kv_sterile_lab_1567556.webp', title: 'Lab Blender Bags', desc: 'LaboratoryHomogenizerBag', category: 'blend' },
+  { src: '/imgs/lab/blend/a_achieve_pack_400ml_kv_main_visual_5029578.webp', title: 'Standard Blender Bags', desc: 'StandardHomogenizerBag', category: 'blend' },
   // Wire closure bags
-  { src: '/imgs/lab/wire/hero.webp', title: 'Wire Closure Bags', desc: '铁丝封口袋', category: 'wire' },
-  { src: '/imgs/lab/wire/a_achieve_pack_400ml_kv_main_visual_5029578.webp', title: 'Wire Closure Collection', desc: '铁丝封口系列', category: 'wire' },
+  { src: '/imgs/lab/wire/hero.webp', title: 'Wire Closure Bags', desc: 'Wire Tie Closure Bags', category: 'wire' },
+  { src: '/imgs/lab/wire/a_achieve_pack_400ml_kv_main_visual_5029578.webp', title: 'Wire Closure Collection', desc: 'Iron WireSealSeries', category: 'wire' },
 ]
 
 const LabBagsPage: React.FC = () => {
@@ -58,7 +58,7 @@ const LabBagsPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
-            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge 点击放大</div>
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge Click to enlarge</div>
           </button>
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-neutral-900">{title}</h3>
@@ -80,7 +80,7 @@ const LabBagsPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group md:order-2"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
-            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge 点击放大</div>
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge Click to enlarge</div>
           </button>
         </>
       )}
@@ -99,7 +99,7 @@ const LabBagsPage: React.FC = () => {
               <strong>Premium sterile laboratory bags for microbiology and food safety testing</strong> — AchievePack® lab bag series includes lateral filter bags, standard blender bags, and wire closure bags. Clean room produced and gamma sterilized for contamination-sensitive applications.
             </p>
             <p className="text-neutral-700 mb-4">
-              优质无菌实验室袋，用于微生物学和食品安全检测 — AchievePack® 实验室袋系列包括侧边滤膜袋、标准均质袋和铁丝封口袋。洁净室生产，伽马射线灭菌，适用于对污染敏感的应用。
+              PremiumNoBacteriaLaboratoryBag，UseAtMicrobialStudyAndFoodSafeTesting — AchievePack® LaboratoryBagSeriesPackIncludingSide FilterBag、StandardHomogenizerBagAndWire Tie Closure Bags。Cleanroom Production，GammaRadiation Sterilization，Suitable forContamination-SensitiveOfApplication。
             </p>
             <div className="flex flex-wrap gap-2 mt-4">
               <span className="px-3 py-1 bg-white rounded-full text-sm font-medium text-blue-700 border border-blue-200">Lateral Filter Bags</span>
@@ -113,19 +113,19 @@ const LabBagsPage: React.FC = () => {
             <Link to="/lab/lateral-filter-bags" className="group block bg-white p-6 rounded-xl border border-neutral-200 hover:border-primary-400 hover:shadow-lg transition-all">
               <img src="/imgs/lab/filter/hero.webp" alt="Lateral Filter Blender Bags" className="w-full h-40 object-cover rounded-lg mb-4 group-hover:scale-[1.02] transition-transform" />
               <h3 className="text-lg font-bold text-neutral-900 group-hover:text-primary-600 mb-2">Lateral Filter Bags</h3>
-              <p className="text-sm text-primary-600 font-medium mb-2">侧边滤膜均质袋</p>
+              <p className="text-sm text-primary-600 font-medium mb-2">Side Filter Membrane Homogenizer Bags</p>
               <p className="text-neutral-600 text-sm">Side-mounted filtration membrane for instant, particle-free sample preparation.</p>
             </Link>
             <Link to="/lab/lab-blender-bags" className="group block bg-white p-6 rounded-xl border border-neutral-200 hover:border-primary-400 hover:shadow-lg transition-all">
               <img src="/imgs/lab/blend/a_hero_kv_sterile_lab_1567556.webp" alt="Standard Lab Blender Bags" className="w-full h-40 object-cover rounded-lg mb-4 group-hover:scale-[1.02] transition-transform" />
               <h3 className="text-lg font-bold text-neutral-900 group-hover:text-primary-600 mb-2">Standard Blender Bags</h3>
-              <p className="text-sm text-primary-600 font-medium mb-2">标准实验室均质袋</p>
+              <p className="text-sm text-primary-600 font-medium mb-2">StandardLaboratoryHomogenizerBag</p>
               <p className="text-neutral-600 text-sm">Classic sterile blender bags for general homogenization applications.</p>
             </Link>
             <Link to="/lab/wire-closure-bags" className="group block bg-white p-6 rounded-xl border border-neutral-200 hover:border-primary-400 hover:shadow-lg transition-all">
               <img src="/imgs/lab/wire/hero.webp" alt="Wire Closure Bags" className="w-full h-40 object-cover rounded-lg mb-4 group-hover:scale-[1.02] transition-transform" />
               <h3 className="text-lg font-bold text-neutral-900 group-hover:text-primary-600 mb-2">Wire Closure Bags</h3>
-              <p className="text-sm text-primary-600 font-medium mb-2">铁丝封口袋</p>
+              <p className="text-sm text-primary-600 font-medium mb-2">Wire Tie Closure Bags</p>
               <p className="text-neutral-600 text-sm">Secure wire closure for sample collection and storage applications.</p>
             </Link>
           </div>
@@ -142,9 +142,9 @@ const LabBagsPage: React.FC = () => {
             image="/imgs/lab/filter/a_achieve_pack_400ml_kv_main_visual_5029578.webp"
             imageAlt="Sterile lab bag collection"
             title="Advanced Lateral Filtration Technology"
-            titleCn="先进侧边过滤技术"
+            titleCn="FirstIntoSideThroughFilterTechnology"
             content="AchievePack® BagFilter series features side-mounted non-woven filtration membrane that provides instant, particle-free filtrate. The lateral filter design allows efficient sample separation while maintaining sterility throughout the process."
-            contentCn="AchievePack® BagFilter 系列采用侧置无纺滤膜，提供即时无颗粒滤液。侧边滤膜设计实现高效样品分离，同时全程保持无菌状态。"
+            contentCn="AchievePack® BagFilter SeriesUsingSideSetNoFilter Membrane，ProvideImmediatelyTimeNoParticle Filtrate。Side FilterDesignAchieveEfficientSampleDivideLeave，MeanwhileWhole ProcessMaintainNoBacteriaStatus。"
             imageLeft={true}
             index={1}
           />
@@ -153,9 +153,9 @@ const LabBagsPage: React.FC = () => {
             image="/imgs/lab/filter/a_achieve_pack_400ml_filter_texture_detail_7479934.webp"
             imageAlt="Filter membrane detail"
             title="High-Quality Non-Woven Filter Membrane"
-            titleCn="高质量无纺滤膜"
+            titleCn="HighQualityVolumeNoFilter Membrane"
             content="Our proprietary filter membrane is designed for optimal particle retention while allowing rapid filtrate flow. The non-woven construction ensures consistent performance across batches and eliminates fiber shedding during use."
-            contentCn="我们专有的滤膜设计实现最佳颗粒截留的同时允许快速滤液流动。无纺结构确保批次间一致性能，消除使用过程中的纤维脱落。"
+            contentCn="WeProfessionalHaveOfFilter MembraneDesignAchieveMostBestParticleCutStayOfMeanwhileAllowFastFilterLiquidFlowMove。NoWeaveStructureEnsureBatchTimesBetweenOneUltimatePropertyCan，EliminateUseProcessInOfFiber Shedding。"
             imageLeft={false}
             index={2}
           />
@@ -165,25 +165,25 @@ const LabBagsPage: React.FC = () => {
               <Filter className="h-6 w-6 text-blue-600 mx-auto mb-2" />
               <h5 className="font-semibold text-neutral-900 text-sm">Lateral Filter</h5>
               <p className="text-xs text-neutral-600">Side-mounted membrane</p>
-              <p className="text-xs text-primary-600">侧边滤膜</p>
+              <p className="text-xs text-primary-600">Side Filter</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <Shield className="h-6 w-6 text-blue-600 mx-auto mb-2" />
               <h5 className="font-semibold text-neutral-900 text-sm">Gamma Sterile</h5>
               <p className="text-xs text-neutral-600">Radiation sterilized</p>
-              <p className="text-xs text-primary-600">伽马灭菌</p>
+              <p className="text-xs text-primary-600">GammaSterilization</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <Factory className="h-6 w-6 text-blue-600 mx-auto mb-2" />
               <h5 className="font-semibold text-neutral-900 text-sm">Clean Room</h5>
               <p className="text-xs text-neutral-600">ISO certified production</p>
-              <p className="text-xs text-primary-600">洁净室生产</p>
+              <p className="text-xs text-primary-600">Cleanroom Production</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <Droplets className="h-6 w-6 text-blue-600 mx-auto mb-2" />
               <h5 className="font-semibold text-neutral-900 text-sm">Particle-Free</h5>
               <p className="text-xs text-neutral-600">Clean filtrate</p>
-              <p className="text-xs text-primary-600">无颗粒滤液</p>
+              <p className="text-xs text-primary-600">NoParticle Filtrate</p>
             </div>
           </div>
         </div>
@@ -199,9 +199,9 @@ const LabBagsPage: React.FC = () => {
             image="/imgs/lab/blend/a_hero_kv_sterile_lab_1567556.webp"
             imageAlt="Standard lab blender bags"
             title="Classic Sterile Blender Bags"
-            titleCn="经典无菌均质袋"
+            titleCn="ThroughClassicNoBacteriaHomogenizerBag"
             content="Our standard blender bags are designed for general homogenization applications in food safety, environmental, and pharmaceutical testing. Multi-layer film construction provides excellent puncture resistance and seal integrity."
-            contentCn="我们的标准均质袋专为食品安全、环境和制药检测中的一般均质应用设计。多层薄膜结构提供出色的抗穿刺性和密封完整性。"
+            contentCn="OurStandardHomogenizerBagProfessionalForFoodSafe、EnvironmentAndPharmaceuticalTestingInOfOneGeneralHomogenizerApplicationDesign。Multi-LayerFilmStructureProvideOutstandingOfPuncture ResistantPropertyAndSealedCompleteProperty。"
             imageLeft={true}
             index={3}
           />
@@ -210,17 +210,17 @@ const LabBagsPage: React.FC = () => {
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-5 rounded-lg text-center">
               <div className="text-2xl font-bold text-blue-600 mb-1">400mL</div>
               <p className="text-sm text-neutral-700">Standard Capacity</p>
-              <p className="text-xs text-neutral-600">标准容量</p>
+              <p className="text-xs text-neutral-600">StandardCapacity</p>
             </div>
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-5 rounded-lg text-center">
               <div className="text-2xl font-bold text-blue-600 mb-1">3-Layer</div>
               <p className="text-sm text-neutral-700">Film Construction</p>
-              <p className="text-xs text-neutral-600">三层复合结构</p>
+              <p className="text-xs text-neutral-600">ThreeLayerComposite Structure</p>
             </div>
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-5 rounded-lg text-center">
               <div className="text-2xl font-bold text-blue-600 mb-1">25kGy</div>
               <p className="text-sm text-neutral-700">Gamma Sterilization</p>
-              <p className="text-xs text-neutral-600">伽马射线灭菌</p>
+              <p className="text-xs text-neutral-600">GammaRadiation Sterilization</p>
             </div>
           </div>
         </div>
@@ -236,9 +236,9 @@ const LabBagsPage: React.FC = () => {
             image="/imgs/lab/wire/hero.webp"
             imageAlt="Wire closure bags"
             title="Secure Wire Closure Design"
-            titleCn="安全铁丝封口设计"
+            titleCn="SafeIron WireSealDesign"
             content="Wire closure bags feature integrated metal wire for secure, reusable sealing. Perfect for sample collection, transport, and storage applications where repeated access is required while maintaining sample integrity."
-            contentCn="铁丝封口袋配有集成金属丝，实现安全可重复密封。非常适合需要重复访问同时保持样品完整性的样品收集、运输和存储应用。"
+            contentCn="Wire Tie Closure BagsWithHaveCollectionFormWire，AchieveSafeCanRepeatedSealed。Ideal forSuitableRequireNeedRepeatedVisitMeanwhileMaintainSampleCompletePropertyOfSampleCollectCollection、TransportationAndStorageApplication。"
             imageLeft={false}
             index={5}
           />
@@ -248,19 +248,19 @@ const LabBagsPage: React.FC = () => {
               <Settings className="h-6 w-6 text-blue-600 mb-3" />
               <h5 className="font-semibold text-neutral-900">Reusable Closure</h5>
               <p className="text-sm text-neutral-600 mt-1">Open and reseal multiple times</p>
-              <p className="text-xs text-primary-600 mt-1">可重复开合</p>
+              <p className="text-xs text-primary-600 mt-1">CanRepeatedOpenSuitable</p>
             </div>
             <div className="bg-white p-5 rounded-lg border border-neutral-200">
               <Shield className="h-6 w-6 text-blue-600 mb-3" />
               <h5 className="font-semibold text-neutral-900">Secure Seal</h5>
               <p className="text-sm text-neutral-600 mt-1">Prevents contamination</p>
-              <p className="text-xs text-primary-600 mt-1">防止污染</p>
+              <p className="text-xs text-primary-600 mt-1">PreventContamination</p>
             </div>
             <div className="bg-white p-5 rounded-lg border border-neutral-200">
               <ClipboardCheck className="h-6 w-6 text-blue-600 mb-3" />
               <h5 className="font-semibold text-neutral-900">Sample Storage</h5>
               <p className="text-sm text-neutral-600 mt-1">Long-term preservation</p>
-              <p className="text-xs text-primary-600 mt-1">长期保存</p>
+              <p className="text-xs text-primary-600 mt-1">Long TermSave</p>
             </div>
           </div>
         </div>
@@ -281,7 +281,7 @@ const LabBagsPage: React.FC = () => {
               </div>
               <h5 className="font-semibold text-neutral-900">Food Safety</h5>
               <p className="text-xs text-neutral-600 mt-1">Pathogen detection, quality testing</p>
-              <p className="text-xs text-primary-600">食品安全检测</p>
+              <p className="text-xs text-primary-600">FoodSafeTesting</p>
             </div>
             <div className="bg-white p-5 rounded-lg border border-neutral-200 text-center">
               <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-3">
@@ -289,7 +289,7 @@ const LabBagsPage: React.FC = () => {
               </div>
               <h5 className="font-semibold text-neutral-900">Microbiology</h5>
               <p className="text-xs text-neutral-600 mt-1">Culture preparation, analysis</p>
-              <p className="text-xs text-primary-600">微生物学研究</p>
+              <p className="text-xs text-primary-600">MicrobialStudyResearch</p>
             </div>
             <div className="bg-white p-5 rounded-lg border border-neutral-200 text-center">
               <div className="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center mx-auto mb-3">
@@ -297,7 +297,7 @@ const LabBagsPage: React.FC = () => {
               </div>
               <h5 className="font-semibold text-neutral-900">Pharmaceutical</h5>
               <p className="text-xs text-neutral-600 mt-1">QC testing, sample prep</p>
-              <p className="text-xs text-primary-600">制药质检</p>
+              <p className="text-xs text-primary-600">PharmaceuticalQualityCheck</p>
             </div>
             <div className="bg-white p-5 rounded-lg border border-neutral-200 text-center">
               <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center mx-auto mb-3">
@@ -305,7 +305,7 @@ const LabBagsPage: React.FC = () => {
               </div>
               <h5 className="font-semibold text-neutral-900">Environmental</h5>
               <p className="text-xs text-neutral-600 mt-1">Water, soil, air testing</p>
-              <p className="text-xs text-primary-600">环境检测</p>
+              <p className="text-xs text-primary-600">Environmental Testing</p>
             </div>
           </div>
         </div>

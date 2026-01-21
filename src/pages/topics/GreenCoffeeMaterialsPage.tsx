@@ -247,131 +247,131 @@ const GreenCoffeeMaterialsPage: React.FC = () => {
     },
     {
       id: 'industry-scenarios',
-      title: '行業應用場景 Industry Applications',
+      title: 'Industry Applications',
       icon: <Factory className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-lg">探索不同咨啡品牌如何運用環保包裝提升市場競爭力。</p>
+          <p className="text-lg">ExploreDifferentcoffeeBrandleverageEco-friendlyPackaginggain competitive advantage。</p>
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
               <div className="flex items-center gap-2 mb-3">
                 <ShoppingBag className="h-5 w-5 text-green-600" />
-                <h4 className="font-semibold text-green-800">精品單品烘焙商</h4>
+                <h4 className="font-semibold text-green-800">Specialty Coffee Roasters</h4>
               </div>
-              <p className="text-sm text-green-700">精品咨啡品牌採用家庭可堆肥包裝，強化工匠定位，吸引環保意識消費者。</p>
+              <p className="text-sm text-green-700">Specialty coffee brands use home-compostable packaging to reinforce artisan positioning and attract eco-conscious consumers。</p>
             </div>
             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-5 rounded-xl border border-blue-200">
               <div className="flex items-center gap-2 mb-3">
                 <TrendingUp className="h-5 w-5 text-blue-600" />
-                <h4 className="font-semibold text-blue-800">商業咨啡烘焙廠</h4>
+                <h4 className="font-semibold text-blue-800">Commercial Coffee Roasters</h4>
               </div>
-              <p className="text-sm text-blue-700">大型烘焙廠使用可回收Mono-PE包裝，平衡成本與市場需求，滿足零售通路要求。</p>
+              <p className="text-sm text-blue-700">Large roasters use recyclable Mono-PE packaging, balancing cost with market demands and retail channel requirements。</p>
             </div>
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-200">
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles className="h-5 w-5 text-purple-600" />
-                <h4 className="font-semibold text-purple-800">B Corp認證品牌</h4>
+                <h4 className="font-semibold text-purple-800">B Corp Certified Brands</h4>
               </div>
-              <p className="text-sm text-purple-700">B Corp品牌採用甘蔗基Bio-PE，展現碳中和承諾，強化ESG報告數據。</p>
+              <p className="text-sm text-purple-700">B Corp brands use sugarcane-based Bio-PE to demonstrate carbon-neutral commitment and strengthen ESG reporting。</p>
             </div>
           </div>
           <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
-            <p className="text-sm text-amber-800"><strong>成功案例：</strong>某精品咨啡品牌將包裝全面轉換為家庭可堆肥材料後，品牌認同度提升32%，在高端零售通路銷售增長45%。</p>
+            <p className="text-sm text-amber-800"><strong>Success Story: </strong>A specialty coffeeBrandconvertedPackagingfully to homeCompostable materialsAfter，Brandincreased brand recognition32%，inHighpremiumretailchannelssalesgrowth45%。</p>
           </div>
         </div>
       )
     },
     {
       id: 'market-data',
-      title: '市場數據 Market Intelligence',
+      title: 'Market Data & Intelligence',
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-lg">環保咨啡包裝市場持續擴大，消費者需求強勁。</p>
+          <p className="text-lg">The eco-friendly coffee packaging market continues to expand with strong consumer demand.。</p>
           <div className="grid md:grid-cols-4 gap-4">
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <div className="text-3xl font-bold text-primary-600">68%</div>
-              <p className="text-sm text-neutral-600 mt-1">咨啡消費者重視包裝可持續性</p>
+              <p className="text-sm text-neutral-600 mt-1">of coffee consumers value packaging sustainability</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <div className="text-3xl font-bold text-green-600">$320B</div>
-              <p className="text-sm text-neutral-600 mt-1">全球咨啡市場規模(2025)</p>
+              <p className="text-sm text-neutral-600 mt-1">global coffee market size (2025)</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <div className="text-3xl font-bold text-blue-600">12.5%</div>
-              <p className="text-sm text-neutral-600 mt-1">可持續咨啡包裝年增長率</p>
+              <p className="text-sm text-neutral-600 mt-1">sustainable coffee packaging annual growth</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <div className="text-3xl font-bold text-purple-600">85%</div>
-              <p className="text-sm text-neutral-600 mt-1">精品咨啡店已轉用環保包裝</p>
+              <p className="text-sm text-neutral-600 mt-1">of specialty coffee shops use eco-packaging</p>
             </div>
           </div>
           <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
-            <h4 className="font-semibold text-neutral-800 mb-2">市場趨勢分析</h4>
-            <p className="text-sm text-neutral-600">咨啡行業是環保包裝採用的先驅者。消費者對塑料咨啡袋的負面印象日益加深，轉用可堆肥或可回收包裝已成為品牌差異化的重要策略。</p>
+            <h4 className="font-semibold text-neutral-800 mb-2">Market Trend Analysis</h4>
+            <p className="text-sm text-neutral-600">The coffee industry leads in eco-packaging adoption. Consumer sentiment against plastic coffee bags is growing, and switching to compostable or recyclable packaging has become a key brand differentiation strategy.</p>
           </div>
         </div>
       )
     },
     {
       id: 'material-comparison',
-      title: '材料對比 Material Comparison',
+      title: 'Material Comparison',
       icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-lg">根據咨啡類型和品牌定位選擇最合適的環保材料。</p>
+          <p className="text-lg">Select the most suitable eco-friendly materials based on coffee type and brand positioning.</p>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse bg-white rounded-lg overflow-hidden">
               <thead className="bg-amber-700 text-white">
                 <tr>
-                  <th className="p-3 text-left text-sm">材料類型</th>
-                  <th className="p-3 text-left text-sm">咨啡保鮮期</th>
-                  <th className="p-3 text-left text-sm">最適咨啡類型</th>
-                  <th className="p-3 text-left text-sm">套用對象</th>
-                  <th className="p-3 text-left text-sm">單位成本</th>
+                  <th className="p-3 text-left text-sm">Material Type</th>
+                  <th className="p-3 text-left text-sm">Coffee Freshness</th>
+                  <th className="p-3 text-left text-sm">Best Coffee Type</th>
+                  <th className="p-3 text-left text-sm">Target Brands</th>
+                  <th className="p-3 text-left text-sm">unitCost</th>
                 </tr>
               </thead>
               <tbody className="text-sm">
                 <tr className="border-b border-neutral-200">
-                  <td className="p-3 font-medium">TUV家庭可堆肥</td>
-                  <td className="p-3">6-12個月</td>
-                  <td className="p-3">精品單品、限量版</td>
-                  <td className="p-3">高端烘焙商</td>
+                  <td className="p-3 font-medium">TUV Home Compostable</td>
+                  <td className="p-3">6-12 months</td>
+                  <td className="p-3">Specialty single-origin, limited editions</td>
+                  <td className="p-3">Highpremiumroastingmerchant</td>
                   <td className="p-3"><span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">$$$</span></td>
                 </tr>
                 <tr className="border-b border-neutral-200 bg-neutral-50">
-                  <td className="p-3 font-medium">高阻隔可堆肥</td>
-                  <td className="p-3">12-18個月</td>
-                  <td className="p-3">中深烘焙、啡豆</td>
-                  <td className="p-3">專業烘焙廠</td>
+                  <td className="p-3 font-medium">High-Barrier Compostable</td>
+                  <td className="p-3">12-18 months</td>
+                  <td className="p-3">Mediumdeep roast、coffeebeans</td>
+                  <td className="p-3">Professional roasteries</td>
                   <td className="p-3"><span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">$$$</span></td>
                 </tr>
                 <tr className="border-b border-neutral-200">
-                  <td className="p-3 font-medium">可回收Mono-PE</td>
-                  <td className="p-3">18-24個月</td>
-                  <td className="p-3">商業拼配、大包裝</td>
-                  <td className="p-3">零售通路品牌</td>
+                  <td className="p-3 font-medium">Recyclable Mono-PE</td>
+                  <td className="p-3">18-24 months</td>
+                  <td className="p-3">Commercial blends, bulk packaging</td>
+                  <td className="p-3">Retail channel brands</td>
                   <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">$$</span></td>
                 </tr>
                 <tr className="border-b border-neutral-200 bg-neutral-50">
-                  <td className="p-3 font-medium">甘蔗基Bio-PE</td>
-                  <td className="p-3">18-24個月</td>
-                  <td className="p-3">各種咨啡類型</td>
-                  <td className="p-3">B Corp/ESG品牌</td>
+                  <td className="p-3 font-medium">Sugarcane Bio-PE</td>
+                  <td className="p-3">18-24 months</td>
+                  <td className="p-3">All coffee types</td>
+                  <td className="p-3">B Corp/ESG brands</td>
                   <td className="p-3"><span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">$$$</span></td>
                 </tr>
                 <tr className="border-b border-neutral-200">
-                  <td className="p-3 font-medium">Kraft+PLA內襯</td>
-                  <td className="p-3">6-9個月</td>
-                  <td className="p-3">淡烘焙、有機咨啡</td>
-                  <td className="p-3">自然風格品牌</td>
+                  <td className="p-3 font-medium">Kraft + PLA Liner</td>
+                  <td className="p-3">6-9 months</td>
+                  <td className="p-3">Light roast, organic coffee</td>
+                  <td className="p-3">Natural-style brands</td>
                   <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">$$</span></td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-            <p className="text-sm text-green-800"><strong>專家建議：</strong>選擇咨啡包裝材料時，須綜合考慮烘焙程度、銷售週期、目標通路和品牌定位。精品烘焙商可選擇可堆肥材料，商業品牌可優先考慮可回收方案。</p>
+            <p className="text-sm text-green-800"><strong>Expert Recommendation：</strong>choosechoosecoffeePackagingMaterialwhen，must consider roast level、salescycle、targetchannelsandBrandpositioning。SpecialtyproductsroastingmerchantcanchoosechooseCompostable materials，merchantcommercialBrandcanPriorityconsiderationsRecyclablesolution。</p>
           </div>
         </div>
       )

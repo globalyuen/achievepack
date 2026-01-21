@@ -238,138 +238,138 @@ const CoffeeRoasterPage: React.FC = () => {
     },
     {
       id: 'industry-scenarios',
-      title: '行業應用場景 Industry Applications',
+      title: 'Industry Applications',
       icon: <Factory className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
-          <p className="text-neutral-700">不同規模的咖啡烘焙商對包裝有不同需求，選擇正確的方案是品牌成功的關鍵。</p>
+          <p className="text-neutral-700">DifferentSizeCoffee RoastersforPackaginghaveDifferentRequirements，choosechooseright solutionisBrandSuccesskey。</p>
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
               <div className="flex items-center gap-2 mb-3">
                 <Coffee className="h-5 w-5 text-amber-600" />
-                <h4 className="font-semibold text-amber-800">精品咖啡烘焙商</h4>
+                <h4 className="font-semibold text-amber-800">SpecialtyproductsCoffee Roasters</h4>
               </div>
-              <p className="text-sm text-amber-700 mb-3">單品咖啡、特調咖啡、競賽級品質要求。</p>
-              <div className="text-xs text-amber-600 bg-amber-100 px-2 py-1 rounded inline-block">佔比: 40%</div>
+              <p className="text-sm text-amber-700 mb-3">Single origin coffee、specialty blendscoffee、CompetitionPremiumQualityrequirements。</p>
+              <div className="text-xs text-amber-600 bg-amber-100 px-2 py-1 rounded inline-block">Share:: 40%</div>
             </div>
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles className="h-5 w-5 text-green-600" />
-                <h4 className="font-semibold text-green-800">有機咖啡品牌</h4>
+                <h4 className="font-semibold text-green-800">OrganiccoffeeBrand</h4>
               </div>
-              <p className="text-sm text-green-700 mb-3">認證有機、公平貿易、雨林聯盟等。</p>
-              <div className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded inline-block">佔比: 35%</div>
+              <p className="text-sm text-green-700 mb-3">CertificationOrganic、Fair trade、Rainforest Allianceetc.。</p>
+              <div className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded inline-block">Share:: 35%</div>
             </div>
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-5 rounded-xl border border-blue-200">
               <div className="flex items-center gap-2 mb-3">
                 <Store className="h-5 w-5 text-blue-600" />
-                <h4 className="font-semibold text-blue-800">電商咖啡品牌</h4>
+                <h4 className="font-semibold text-blue-800">e-commercemerchantcoffeeBrand</h4>
               </div>
-              <p className="text-sm text-blue-700 mb-3">線上销售、訂閱模式、DTC品牌等。</p>
-              <div className="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded inline-block">佔比: 25%</div>
+              <p className="text-sm text-blue-700 mb-3">Onlinesales、subscription model、DTCBrandetc.。</p>
+              <div className="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded inline-block">Share:: 25%</div>
             </div>
           </div>
           <div className="bg-neutral-50 p-4 rounded-lg mt-4">
-            <h5 className="font-semibold text-neutral-800 mb-2">客戶成功案例</h5>
-            <p className="text-sm text-neutral-600">「轉換到可堆肥包裝後，我們的咖啡訂閱用戶增長了30%，很多客戶說這是他們選擇我們的重要原因。」— 精品咖啡烘焙廠創辦人</p>
+            <h5 className="font-semibold text-neutral-800 mb-2">Customer Success Story</h5>
+            <p className="text-sm text-neutral-600">「conversiontocanCompostablePackagingAfter，Ourcoffeesubscriptionusedcustomergrowth30%，veryMultipleCustomersaid thisistheychoosechooseOurkey reason。」— SpecialtyproductsCoffee RoastingfactoryFounder</p>
           </div>
         </div>
       )
     },
     {
       id: 'market-data',
-      title: '市場數據 Market Intelligence',
+      title: 'Market Data & Intelligence',
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
-          <p className="text-neutral-700">咖啡包裝市場持續增長，消費者對可持續包裝的需求越來越高。</p>
+          <p className="text-neutral-700">coffeePackagingMarketcontinuedgrowth，ConsumersforSustainablePackagingRequirementsincreasinglyHigh。</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
               <div className="text-3xl font-bold text-primary-600 mb-1">$65B</div>
-              <div className="text-xs text-neutral-500">全球咖啡市場規模</div>
+              <div className="text-xs text-neutral-500">GlobalcoffeeMarketSize</div>
               <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
                 <TrendingUp className="h-3 w-3" />
-                <span>年增長 5.5%</span>
+                <span>yeargrowth 5.5%</span>
               </div>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
               <div className="text-3xl font-bold text-amber-600 mb-1">72%</div>
-              <div className="text-xs text-neutral-500">偏好環保包裝</div>
+              <div className="text-xs text-neutral-500">preferenceEco-friendlyPackaging</div>
               <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
                 <TrendingUp className="h-3 w-3" />
-                <span>增長中</span>
+                <span>growthMedium</span>
               </div>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
               <div className="text-3xl font-bold text-green-600 mb-1">12+</div>
-              <div className="text-xs text-neutral-500">月貨架期保證</div>
+              <div className="text-xs text-neutral-500">monthshelf lifeProtectCertificate</div>
               <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
                 <TrendingUp className="h-3 w-3" />
-                <span>新鮮度</span>
+                <span>freshness</span>
               </div>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
               <div className="text-3xl font-bold text-blue-600 mb-1">500</div>
-              <div className="text-xs text-neutral-500">最低起訂量</div>
+              <div className="text-xs text-neutral-500">maximumlowOrdervolume</div>
               <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
                 <TrendingUp className="h-3 w-3" />
-                <span>靈活</span>
+                <span>Flexible</span>
               </div>
             </div>
           </div>
           <div className="bg-blue-50 p-4 rounded-lg">
-            <h5 className="font-semibold text-blue-800 mb-2">市場趨勢洞察</h5>
-            <p className="text-sm text-blue-700">精品咖啡市場持續擴大，消費者越來越重視咖啡的新鮮度和包裝的環保性。可堆肥和可回收包裝成為市場新寵。</p>
+            <h5 className="font-semibold text-blue-800 mb-2">Market Trend Insights</h5>
+            <p className="text-sm text-blue-700">Specialty coffeeMarketcontinuedexpand，Consumersincreasinglyfocused oncoffeefreshnessandPackagingEco-Friendly。canCompostableandRecyclablePackagingbecomingMarketfavorite。</p>
           </div>
         </div>
       )
     },
     {
       id: 'material-comparison',
-      title: '材料對比 Material Comparison',
+      title: 'Material Comparison',
       icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
-          <p className="text-neutral-700">不同咖啡包裝材料的特點對比，幫助您選擇最適合的解決方案。</p>
+          <p className="text-neutral-700">DifferentcoffeePackagingMaterialFeaturesContrast，to help you choose the best solution。</p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="bg-neutral-100">
-                  <th className="text-left p-3 border font-semibold">包裝類型</th>
-                  <th className="text-left p-3 border font-semibold">貨架期</th>
-                  <th className="text-left p-3 border font-semibold">排氣閥相容</th>
-                  <th className="text-left p-3 border font-semibold">環保認證</th>
-                  <th className="text-left p-3 border font-semibold">成本</th>
+                  <th className="text-left p-3 border font-semibold">Packaging Type</th>
+                  <th className="text-left p-3 border font-semibold">shelf life</th>
+                  <th className="text-left p-3 border font-semibold">RowGas ValvecomparedCapacity</th>
+                  <th className="text-left p-3 border font-semibold">Eco-friendlyCertification</th>
+                  <th className="text-left p-3 border font-semibold">Cost</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="hover:bg-green-50">
-                  <td className="p-3 border"><span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-medium">可堆肥牍紙</span></td>
-                  <td className="p-3 border">6-9個月</td>
-                  <td className="p-3 border">✓ 完全相容</td>
+                  <td className="p-3 border"><span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-medium">canCompostablePaperboard</span></td>
+                  <td className="p-3 border">6-9 months</td>
+                  <td className="p-3 border">✓ CompletecomparedCapacity</td>
                   <td className="p-3 border">ASTM D6400</td>
                   <td className="p-3 border text-green-600 font-medium">$$</td>
                 </tr>
                 <tr className="hover:bg-blue-50">
-                  <td className="p-3 border"><span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium">可回收Mono-PE</span></td>
-                  <td className="p-3 border">12+個月</td>
-                  <td className="p-3 border">✓ 完全相容</td>
+                  <td className="p-3 border"><span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium">Recyclable Mono-PE</span></td>
+                  <td className="p-3 border">12+ months</td>
+                  <td className="p-3 border">✓ CompletecomparedCapacity</td>
                   <td className="p-3 border">How2Recycle</td>
                   <td className="p-3 border text-blue-600 font-medium">$</td>
                 </tr>
                 <tr className="hover:bg-amber-50">
-                  <td className="p-3 border"><span className="px-2 py-1 bg-amber-100 text-amber-700 rounded text-xs font-medium">高阻隔牍紙</span></td>
-                  <td className="p-3 border">12+個月</td>
-                  <td className="p-3 border">✓ 完全相容</td>
-                  <td className="p-3 border">可回收</td>
+                  <td className="p-3 border"><span className="px-2 py-1 bg-amber-100 text-amber-700 rounded text-xs font-medium">HighbarrierPaperboard</span></td>
+                  <td className="p-3 border">12+ months</td>
+                  <td className="p-3 border">✓ CompletecomparedCapacity</td>
+                  <td className="p-3 border">Recyclable</td>
                   <td className="p-3 border text-amber-600 font-medium">$$</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div className="bg-amber-50 p-4 rounded-lg">
-            <h5 className="font-semibold text-amber-800 mb-2">選材建議</h5>
-            <p className="text-sm text-amber-700">對於咖啡烘焙商，建議根據產品定位和目標客戶選擇。高端精品咖啡適合可堆肥牍紙，量販咖啡選擇可回收材料更具成本效益。</p>
+            <h5 className="font-semibold text-amber-800 mb-2">Material Selection Guide</h5>
+            <p className="text-sm text-amber-700">forinCoffee Roasters，RecommendationAccording ToProductpositioningandtargetCustomerchoosechoose。HighpremiumSpecialty coffeesuitableSuitablecanCompostablePaperboard，volumeSellcoffeechoosechooseRecyclableMoreToolCostEffectBenefit。</p>
           </div>
         </div>
       )

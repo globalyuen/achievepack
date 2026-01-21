@@ -6,15 +6,15 @@ import { useCalendly } from '../../contexts/CalendlyContext'
 
 // Gallery images from /imgs/function/rice/
 const ricePaperGallery = [
-  { src: '/imgs/function/rice/hero.webp', title: 'Achieve Pack® Rice Paper & PLA Packaging', desc: 'Achieve Pack® 米纸 PLA 可堆肥包装' },
-  { src: '/imgs/function/rice/a_achievepack_ecomat_closeup_texture_9246951.webp', title: 'Eco Material Closeup & Texture', desc: '环保材质纹理特写' },
-  { src: '/imgs/function/rice/a_achievepack_structure_variety_infographic_9570629.webp', title: 'Structure Variety Infographic', desc: '多种袋型结构' },
-  { src: '/imgs/function/rice/a_achievepack_coffeevalve_degassing_7639370.webp', title: 'Coffee Valve & Degassing System', desc: '咖啡排气阀系统' },
-  { src: '/imgs/function/rice/a_achievepack_snacks_drygood_lifestyle_9593537.webp', title: 'Snacks & Dry Goods Applications', desc: '干货零食应用场景' },
-  { src: '/imgs/function/rice/a_achievepack_coffee_tea_scene_3005344.webp', title: 'Coffee & Tea Scene', desc: '咖啡与茶应用场景' },
-  { src: '/imgs/function/rice/a_achievepack_size_customization_chart_0780816.webp', title: 'Size Customization Chart', desc: '尺寸定制方案' },
-  { src: '/imgs/function/rice/a_achievepack_printing_branding_detail_1178187.webp', title: 'Printing & Branding Detail', desc: '印刷与品牌细节' },
-  { src: '/imgs/function/rice/a_achievepack_sustainability_manifesto_6720236.webp', title: 'Sustainability Manifesto', desc: '可持续宣言' },
+  { src: '/imgs/function/rice/hero.webp', title: 'Achieve Pack® Rice Paper & PLA Packaging', desc: 'Achieve Pack® Rice Paper PLA Compostable Packaging' },
+  { src: '/imgs/function/rice/a_achievepack_ecomat_closeup_texture_9246951.webp', title: 'Eco Material Closeup & Texture', desc: 'Eco-FriendlyMaterialTextureClose-Up' },
+  { src: '/imgs/function/rice/a_achievepack_structure_variety_infographic_9570629.webp', title: 'Structure Variety Infographic', desc: 'MultipleBagTypeStructure' },
+  { src: '/imgs/function/rice/a_achievepack_coffeevalve_degassing_7639370.webp', title: 'Coffee Valve & Degassing System', desc: 'CoffeeDegassing ValveSystem' },
+  { src: '/imgs/function/rice/a_achievepack_snacks_drygood_lifestyle_9593537.webp', title: 'Snacks & Dry Goods Applications', desc: 'Dry GoodsSnackApplicationScenario' },
+  { src: '/imgs/function/rice/a_achievepack_coffee_tea_scene_3005344.webp', title: 'Coffee & Tea Scene', desc: 'CoffeeAndTeaApplicationScenario' },
+  { src: '/imgs/function/rice/a_achievepack_size_customization_chart_0780816.webp', title: 'Size Customization Chart', desc: 'DimensionsCustomSolution' },
+  { src: '/imgs/function/rice/a_achievepack_printing_branding_detail_1178187.webp', title: 'Printing & Branding Detail', desc: 'PrintingAndBrandDetails' },
+  { src: '/imgs/function/rice/a_achievepack_sustainability_manifesto_6720236.webp', title: 'Sustainability Manifesto', desc: 'CanContinuousDeclaration' },
 ]
 
 const RicePaperBagsPage: React.FC = () => {
@@ -57,7 +57,7 @@ const RicePaperBagsPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
-            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge 点击放大</div>
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge Click to enlarge</div>
           </button>
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-neutral-900">{title}</h3>
@@ -79,7 +79,7 @@ const RicePaperBagsPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group md:order-2"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
-            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge 点击放大</div>
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge Click to enlarge</div>
           </button>
         </>
       )}
@@ -98,7 +98,7 @@ const RicePaperBagsPage: React.FC = () => {
               <strong>Premium compostable packaging with natural rice paper texture</strong> — Achieve Pack® rice paper bags combine the authentic look of natural fiber with PLA or cellophane lining for full compostability. Replace traditional plastic packaging with sustainable, premium-feeling pouches.
             </p>
             <p className="text-neutral-700">
-              天然米纸纹理的高端可堆肥包装 — Achieve Pack® 米纸袋将天然纤维质感与 PLA/赛璐玢内衬结合，实现完全可堆肥。用可持续、高级触感的袋子替代传统塑料包装。
+              NaturalRice PaperTextureOfPremiumCompostable Packaging — Achieve Pack® Rice PaperBagWillNaturalFiberQualityFeelAnd PLA/CellophaneInsideLinerKnotSuitable，AchieveCompleteCanCompostable。UseCanContinuous、HighGradeTouchFeelOfBagChildAlternativeTraditionalPlasticPackaging。
             </p>
           </div>
           
@@ -106,9 +106,9 @@ const RicePaperBagsPage: React.FC = () => {
             image="/imgs/function/rice/hero.webp"
             imageAlt="Achieve Pack Rice Paper & PLA Packaging Hero"
             title="Achieve Pack® Rice Paper & PLA Packaging"
-            titleCn="Achieve Pack® 米纸 PLA 可堆肥包装"
+            titleCn="Achieve Pack® Rice Paper PLA Compostable Packaging"
             content="Our rice paper pouches feature natural fiber texture on the exterior with fully compostable PLA or cellophane inner layers. Certified home compostable or industrial compostable options available. Ideal for brands seeking authentic, eco-conscious packaging with premium aesthetics."
-            contentCn="我们的米纸袋外层采用天然纤维纹理，内层为完全可堆肥的 PLA 或赛璐玢。可选家庭可堆肥或工业可堆肥认证。适合追求天然、环保且具有高端美感的品牌。"
+            contentCn="OurRice PaperBagOutsideLayerUsingNaturalFiber Texture，InsideLayerForCompleteCanCompostableOf PLA OrCellophane。OptionalHomeFamilyCanCompostableOrWorkerIndustryCanCompostableCertification。SuitableSuitablePursueNatural、Eco-FriendlyAndToolHavePremiumBeautyFeelOfBrand。"
             imageLeft={true}
             index={0}
           />
@@ -125,9 +125,9 @@ const RicePaperBagsPage: React.FC = () => {
             image="/imgs/function/rice/a_achievepack_ecomat_closeup_texture_9246951.webp"
             imageAlt="Rice Paper Material Closeup Texture"
             title="Rice Paper + PLA/Cellophane: 100% Compostable"
-            titleCn="米纸 + PLA/赛璐玢：100% 可堆肥"
+            titleCn="Rice Paper + PLA/Cellophane：100% CanCompostable"
             content="Rice paper substrate provides natural fiber texture and feel. Combined with PLA (polylactic acid) or cellophane inner layers, the entire structure is fully compostable. Replaces traditional plastic packaging for coffee, tea, snacks, and dry goods with a sustainable alternative that breaks down naturally."
-            contentCn="米纸基材提供天然纤维纹理和触感。结合 PLA（聚乳酸）或赛璐玢内层，整体结构完全可堆肥。用可降解的可持续替代品取代咖啡、茶叶、零食和干货的传统塑料包装。"
+            contentCn="Rice PaperBase MaterialProvideNaturalFiber TextureAndTouchFeel。KnotSuitable PLA（Polylactic Acid）OrCellophaneInsideLayer，WholeBodyStructureCompleteCanCompostable。UseCanDegradableOfCanContinuousAlternativeProductTakeGenerationCoffee、Tea Leaves、SnackAndDry GoodsOfTraditionalPlasticPackaging。"
             imageLeft={false}
             index={1}
           />
@@ -137,19 +137,19 @@ const RicePaperBagsPage: React.FC = () => {
               <Leaf className="h-5 w-5 text-green-600 mb-2" />
               <h4 className="font-semibold text-green-800">Rice Paper Base</h4>
               <p className="text-sm text-green-700">Natural fiber texture substrate</p>
-              <p className="text-xs text-green-600 mt-1">天然纤维纹理基材</p>
+              <p className="text-xs text-green-600 mt-1">NaturalFiber TextureBase Material</p>
             </div>
             <div className="bg-green-50 p-4 rounded-lg border border-green-200">
               <Recycle className="h-5 w-5 text-green-600 mb-2" />
               <h4 className="font-semibold text-green-800">PLA or Cellophane</h4>
               <p className="text-sm text-green-700">Compostable inner barrier</p>
-              <p className="text-xs text-green-600 mt-1">可堆肥内层阻隔</p>
+              <p className="text-xs text-green-600 mt-1">CanCompostableInsideLayerBarrier</p>
             </div>
             <div className="bg-green-50 p-4 rounded-lg border border-green-200">
               <Shield className="h-5 w-5 text-green-600 mb-2" />
               <h4 className="font-semibold text-green-800">Certified Compostable</h4>
               <p className="text-sm text-green-700">Home or industrial options</p>
-              <p className="text-xs text-green-600 mt-1">家庭或工业可堆肥认证</p>
+              <p className="text-xs text-green-600 mt-1">HomeFamilyOrWorkerIndustryCanCompostableCertification</p>
             </div>
           </div>
         </div>
@@ -165,9 +165,9 @@ const RicePaperBagsPage: React.FC = () => {
             image="/imgs/function/rice/a_achievepack_structure_variety_infographic_9570629.webp"
             imageAlt="Rice Paper Bag Structure Variety"
             title="Stand Up, Side Gusset, Flat Bottom & Flat Pouch"
-            titleCn="自立袋、侧褶袋、平底袋、三边封"
+            titleCn="Stand-Up Pouches、Side GussetBag、Flat Bottom Bags、ThreeEdgeSeal"
             content="Achieve Pack® rice paper bags are available in all major pouch structures: Stand up pouch for shelf presence, Side gusset pouch for bulk products, Flat bottom (box pouch) for premium presentation, and Flat pouch (3-side seal) for sachets and samples. Each structure optimized for your specific product requirements."
-            contentCn="Achieve Pack® 米纸袋提供所有主流袋型结构：自立袋展示性佳，侧褶袋适合大容量产品，平底盒型袋呈现高端质感，三边封扁袋用于小袋样品。每种结构均针对您的产品需求进行优化。"
+            contentCn="Achieve Pack® Rice PaperBagProvideAllMainstreamBagTypeStructure：Stand-Up PouchesDisplayPropertyBest，Side GussetBagSuitableSuitableLargeCapacityProduct，FlatBottomBoxTypeBagPresentPremiumQualityFeel，ThreeEdgeSealFlatBagUseAtSmallBagSample。Each TypeStructureEvenNeedleForYouOfProductRequireDemandOptimizeization。"
             imageLeft={true}
             index={2}
           />
@@ -176,22 +176,22 @@ const RicePaperBagsPage: React.FC = () => {
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <Package className="h-6 w-6 text-primary-600 mx-auto mb-2" />
               <h4 className="font-semibold text-neutral-800 text-sm">Stand Up Pouch</h4>
-              <p className="text-xs text-neutral-500">自立袋</p>
+              <p className="text-xs text-neutral-500">Stand-Up Pouches</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <Package className="h-6 w-6 text-primary-600 mx-auto mb-2" />
               <h4 className="font-semibold text-neutral-800 text-sm">Side Gusset</h4>
-              <p className="text-xs text-neutral-500">侧褶袋</p>
+              <p className="text-xs text-neutral-500">Side GussetBag</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <Package className="h-6 w-6 text-primary-600 mx-auto mb-2" />
               <h4 className="font-semibold text-neutral-800 text-sm">Flat Bottom</h4>
-              <p className="text-xs text-neutral-500">平底袋</p>
+              <p className="text-xs text-neutral-500">Flat Bottom Bags</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <Package className="h-6 w-6 text-primary-600 mx-auto mb-2" />
               <h4 className="font-semibold text-neutral-800 text-sm">Flat Pouch</h4>
-              <p className="text-xs text-neutral-500">三边封</p>
+              <p className="text-xs text-neutral-500">ThreeEdgeSeal</p>
             </div>
           </div>
           
@@ -200,19 +200,19 @@ const RicePaperBagsPage: React.FC = () => {
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div>
                 <p className="text-amber-700"><strong>Self-standing bottom</strong></p>
-                <p className="text-amber-600">自立底设计</p>
+                <p className="text-amber-600">Stand-Up BottomDesign</p>
               </div>
               <div>
                 <p className="text-amber-700"><strong>Hang hole / Euro slot</strong></p>
-                <p className="text-amber-600">挂孔 / 欧式挂孔</p>
+                <p className="text-amber-600">Hang Hole / EuroStyleHang Hole</p>
               </div>
               <div>
                 <p className="text-amber-700"><strong>Easy tear notch</strong></p>
-                <p className="text-amber-600">易撕口</p>
+                <p className="text-amber-600">EasyTearOpening</p>
               </div>
               <div>
                 <p className="text-amber-700"><strong>Side gusset expansion</strong></p>
-                <p className="text-amber-600">侧褶加宽</p>
+                <p className="text-amber-600">Side GussetAddWide</p>
               </div>
             </div>
           </div>
@@ -229,9 +229,9 @@ const RicePaperBagsPage: React.FC = () => {
             image="/imgs/function/rice/a_achievepack_coffeevalve_degassing_7639370.webp"
             imageAlt="Rice Paper Bag Coffee Valve Degassing"
             title="Resealable Zipper, Degassing Valve & Clear Window"
-            titleCn="可重复密封拉链、排气阀、透明窗口"
+            titleCn="CanRepeatedSealedZipper、Degassing Valve、TransparentWindow"
             content="Add functional features to your rice paper pouches: Resealable zipper or ziplock for extended freshness, one-way degassing valve perfect for coffee packaging, and clear window options for product visibility. All features maintain the compostable integrity of the packaging."
-            contentCn="为米纸袋添加功能配件：可重复密封拉链延长保鲜期，单向排气阀适合咖啡包装，透明窗口展示产品。所有配件均保持包装的可堆肥特性。"
+            contentCn="ForRice PaperBagAddFunctionCanWithPiece：CanRepeatedSealedZipperExtendLongFresh KeepingPeriod，SingleTowardDegassing ValveSuitableSuitableCoffeePackaging，TransparentWindowDisplayProduct。AllWithPieceEvenMaintainPackagingOfCanCompostableSpecialProperty。"
             imageLeft={false}
             index={3}
           />
@@ -241,19 +241,19 @@ const RicePaperBagsPage: React.FC = () => {
               <Settings className="h-5 w-5 text-blue-600 mb-2" />
               <h4 className="font-semibold text-blue-800">Zipper / Ziplock</h4>
               <p className="text-sm text-blue-700">Resealable closure options</p>
-              <p className="text-xs text-blue-600 mt-1">可重复封口拉链</p>
+              <p className="text-xs text-blue-600 mt-1">CanRepeatedSealZipper</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
               <Coffee className="h-5 w-5 text-blue-600 mb-2" />
               <h4 className="font-semibold text-blue-800">Degassing Valve</h4>
               <p className="text-sm text-blue-700">One-way valve for coffee</p>
-              <p className="text-xs text-blue-600 mt-1">咖啡专用排气阀</p>
+              <p className="text-xs text-blue-600 mt-1">CoffeeProfessionalUseDegassing Valve</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
               <Package className="h-5 w-5 text-blue-600 mb-2" />
               <h4 className="font-semibold text-blue-800">Clear Window</h4>
               <p className="text-sm text-blue-700">Product visibility option</p>
-              <p className="text-xs text-blue-600 mt-1">产品可视窗口</p>
+              <p className="text-xs text-blue-600 mt-1">ProductCanViewWindow</p>
             </div>
           </div>
           
@@ -263,7 +263,7 @@ const RicePaperBagsPage: React.FC = () => {
               Rice paper pouches with PLA or cellophane lining provide good moisture and oxygen barrier properties, suitable for dry goods, coffee beans, tea leaves, nuts, and pet food products.
             </p>
             <p className="text-neutral-600 text-sm">
-              米纸袋配合 PLA 或赛璐玢内衬，提供良好的防潮防氧阻隔性能，适用于干货、咖啡豆、茶叶、坚果和宠物食品。
+              Rice PaperBagWithSuitable PLA OrCellophaneInsideLiner，ProvideGoodGoodOfMoisture ProofAntiOxygenBarrierPropertyCan，Suitable forDry Goods、Coffee Beans、Tea Leaves、NutsAndPetFood。
             </p>
           </div>
         </div>
@@ -279,9 +279,9 @@ const RicePaperBagsPage: React.FC = () => {
             image="/imgs/function/rice/a_achievepack_snacks_drygood_lifestyle_9593537.webp"
             imageAlt="Rice Paper Bags for Snacks and Dry Goods"
             title="Perfect for Snacks, Cereals, Nuts & Superfoods"
-            titleCn="零食、麦片、坚果、超级食品的理想包装"
+            titleCn="Snack、Cereal、Nuts、SuperFoodOfIdealPackaging"
             content="Rice paper pouches are ideal for dry goods that benefit from natural, premium presentation. The authentic fiber texture conveys quality and sustainability. Stand up pouches with clear windows showcase your product while maintaining freshness with resealable zipper closures."
-            contentCn="米纸袋是干货类产品的理想包装，天然高端的呈现方式。真实的纤维纹理传达品质与可持续理念。带透明窗的自立袋展示产品，同时配合可重复封口拉链保持新鲜度。"
+            contentCn="Rice PaperBagIsDry GoodsCategoryProductOfIdealPackaging，NaturalPremiumOfPresentMethod。TrueRealOfFiber TextureTransferReachQualityAndCanContinuousReasonConcept。WithTransparentWindowOfStand-Up PouchesDisplayProduct，MeanwhileWithSuitableCanRepeatedSealZipperMaintainFreshDegree。"
             imageLeft={true}
             index={4}
           />
@@ -290,22 +290,22 @@ const RicePaperBagsPage: React.FC = () => {
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <span className="text-2xl">🥜</span>
               <h4 className="font-semibold text-neutral-800 text-sm mt-2">Nuts & Seeds</h4>
-              <p className="text-xs text-neutral-500">坚果种子</p>
+              <p className="text-xs text-neutral-500">NutsTypeChild</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <span className="text-2xl">🍿</span>
               <h4 className="font-semibold text-neutral-800 text-sm mt-2">Snacks</h4>
-              <p className="text-xs text-neutral-500">休闲零食</p>
+              <p className="text-xs text-neutral-500">CasualSnack</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <span className="text-2xl">🥣</span>
               <h4 className="font-semibold text-neutral-800 text-sm mt-2">Cereals</h4>
-              <p className="text-xs text-neutral-500">麦片谷物</p>
+              <p className="text-xs text-neutral-500">CerealGrains</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <span className="text-2xl">🫐</span>
               <h4 className="font-semibold text-neutral-800 text-sm mt-2">Superfoods</h4>
-              <p className="text-xs text-neutral-500">超级食品</p>
+              <p className="text-xs text-neutral-500">SuperFood</p>
             </div>
           </div>
         </div>
@@ -321,9 +321,9 @@ const RicePaperBagsPage: React.FC = () => {
             image="/imgs/function/rice/a_achievepack_coffee_tea_scene_3005344.webp"
             imageAlt="Rice Paper Bags for Coffee and Tea"
             title="Compostable Coffee & Tea Packaging"
-            titleCn="可堆肥咖啡与茶叶包装"
+            titleCn="CanCompostableCoffeeAndTea LeavesPackaging"
             content="Rice paper coffee bags with one-way degassing valve are perfect for specialty coffee roasters. The natural paper texture aligns with artisan, sustainable brand values. Available in side gusset and flat bottom structures with capacity from 250g to 1kg+. Tea pouches benefit from the premium presentation and eco-friendly messaging."
-            contentCn="带单向排气阀的米纸咖啡袋非常适合精品咖啡烘焙商。天然纸质纹理契合手工艺、可持续的品牌价值观。提供侧褶袋和平底袋结构，容量从 250g 到 1kg+。茶叶袋同样受益于高端呈现和环保理念。"
+            contentCn="WithSingleTowardDegassing ValveOfRice PaperCoffeeBagIdeal forSuitableFineProductCoffeeBakingBusiness。NaturalPaperQualityTextureContractSuitableHandWorkerArt、CanContinuousOfBrandPriceValueView。ProvideSide GussetBagAndFlat Bottom BagsStructure，CapacityFrom 250g To 1kg+。Tea LeavesBagSameStyleReceiveBenefitAtPremiumPresentAndEco-FriendlyReasonConcept。"
             imageLeft={false}
             index={5}
           />
@@ -333,20 +333,20 @@ const RicePaperBagsPage: React.FC = () => {
               <Coffee className="h-6 w-6 text-amber-700 mb-2" />
               <h4 className="font-semibold text-amber-800 mb-2">Coffee Packaging</h4>
               <ul className="text-sm text-amber-700 space-y-1">
-                <li>• One-way degassing valve 单向排气阀</li>
-                <li>• Side gusset or flat bottom 侧褶或平底</li>
-                <li>• 250g to 2kg capacity 多规格</li>
-                <li>• Premium roaster presentation 高端烘焙呈现</li>
+                <li>• One-way degassing valve SingleTowardDegassing Valve</li>
+                <li>• Side gusset or flat bottom Side GussetOrFlatBottom</li>
+                <li>• 250g to 2kg capacity MultipleSpecification</li>
+                <li>• Premium roaster presentation PremiumBakingPresent</li>
               </ul>
             </div>
             <div className="bg-green-50 p-5 rounded-lg border border-green-200">
               <Leaf className="h-6 w-6 text-green-700 mb-2" />
               <h4 className="font-semibold text-green-800 mb-2">Tea Packaging</h4>
               <ul className="text-sm text-green-700 space-y-1">
-                <li>• Loose leaf or tea bag options 散茶或茶包</li>
-                <li>• Stand up or flat pouch 自立袋或扁袋</li>
-                <li>• Small sachets available 小袋装可选</li>
-                <li>• Natural aesthetic appeal 天然美学</li>
+                <li>• Loose leaf or tea bag options ScatterTeaOrTeaPack</li>
+                <li>• Stand up or flat pouch Stand-Up PouchesOrFlatBag</li>
+                <li>• Small sachets available SmallBagInstallOptional</li>
+                <li>• Natural aesthetic appeal NaturalBeautyStudy</li>
               </ul>
             </div>
           </div>
@@ -363,9 +363,9 @@ const RicePaperBagsPage: React.FC = () => {
             image="/imgs/function/rice/a_achievepack_size_customization_chart_0780816.webp"
             imageAlt="Rice Paper Bag Size Customization"
             title="From 250g to 2kg+: Custom Sizes & OEM"
-            titleCn="从 250g 到 2kg+：定制尺寸与 OEM 服务"
+            titleCn="From 250g To 2kg+：CustomDimensionsAnd OEM Service"
             content="Achieve Pack® rice paper pouches are available in standard sizes from 250g to 2kg capacity, with fully custom dimensions available. Choose from kraft brown, white kraft, or natural rice paper texture surfaces. Support for digital printing or gravure printing with brand-specific artwork and logos."
-            contentCn="Achieve Pack® 米纸袋提供 250g 到 2kg 标准规格，也支持完全定制尺寸。可选棕牛皮、白牛皮或天然米纸纹理表面。支持数码印刷或凹版印刷，配合品牌专属图案与 Logo。"
+            contentCn="Achieve Pack® Rice PaperBagProvide 250g To 2kg StandardSpecification，AlsoSupportCompleteCustomDimensions。OptionalBrown KraftSkin、WhiteCowSkinOrNaturalRice PaperTextureSurface。SupportDigitalPrintingOrGravurePrinting，WithSuitableBrandProfessionalBelongPatternAnd Logo。"
             imageLeft={true}
             index={6}
           />
@@ -396,17 +396,17 @@ const RicePaperBagsPage: React.FC = () => {
             <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
               <h4 className="font-semibold text-amber-800">Kraft Brown</h4>
               <p className="text-sm text-amber-700">Classic natural look</p>
-              <p className="text-xs text-amber-600 mt-1">经典棕牛皮</p>
+              <p className="text-xs text-amber-600 mt-1">ThroughClassicBrown KraftSkin</p>
             </div>
             <div className="bg-neutral-100 p-4 rounded-lg border border-neutral-300">
               <h4 className="font-semibold text-neutral-800">White Kraft</h4>
               <p className="text-sm text-neutral-700">Clean modern aesthetic</p>
-              <p className="text-xs text-neutral-600 mt-1">白牛皮纸</p>
+              <p className="text-xs text-neutral-600 mt-1">White Kraft Paper</p>
             </div>
             <div className="bg-green-50 p-4 rounded-lg border border-green-200">
               <h4 className="font-semibold text-green-800">Rice Paper Texture</h4>
               <p className="text-sm text-green-700">Premium fiber feel</p>
-              <p className="text-xs text-green-600 mt-1">米纸纹理</p>
+              <p className="text-xs text-green-600 mt-1">Rice PaperTexture</p>
             </div>
           </div>
         </div>
@@ -422,9 +422,9 @@ const RicePaperBagsPage: React.FC = () => {
             image="/imgs/function/rice/a_achievepack_printing_branding_detail_1178187.webp"
             imageAlt="Rice Paper Bag Printing and Branding"
             title="High-Quality Custom Printing"
-            titleCn="高品质定制印刷"
+            titleCn="HighQualityCustomPrinting"
             content="Achieve Pack® supports both digital printing for low MOQ orders (from 500 pieces) and gravure/plate printing for larger runs. Print your brand artwork, illustrations, and logos with vibrant colors on rice paper substrates. The natural paper texture enhances the premium feel of your printed design."
-            contentCn="Achieve Pack® 支持数码印刷（低至 500 件起订）和凹版印刷（大批量订单）。在米纸基材上印刷您的品牌图案、插画和 Logo，色彩鲜艳。天然纸质纹理增强印刷设计的高端质感。"
+            contentCn="Achieve Pack® SupportDigitalPrinting（LowTo 500 PieceMinimum Order）AndGravurePrinting（LargeBatchVolumeOrder）。InRice PaperBase MaterialUpPrintingYouOfBrandPattern、InsertDrawAnd Logo，ColorColorBright。NaturalPaperQualityTextureIncreaseStrongPrintingDesignOfPremiumQualityFeel。"
             imageLeft={false}
             index={7}
           />
@@ -462,9 +462,9 @@ const RicePaperBagsPage: React.FC = () => {
             image="/imgs/function/rice/a_achievepack_sustainability_manifesto_6720236.webp"
             imageAlt="Achieve Pack Sustainability Manifesto"
             title="Designed for Sustainable Brands"
-            titleCn="为可持续品牌而设计"
+            titleCn="ForCanContinuousBrandAndDesign"
             content="With over 13 years of flexible packaging expertise, Achieve Pack has supplied compostable rice paper pouches to coffee roasters, tea brands, superfood companies, and snack producers across North America, Europe, and Asia-Pacific. Our rice paper bags are certified compostable and trusted by 500+ brands worldwide."
-            contentCn="凭借超过 13 年的软包装专业经验，Achieve Pack 已为北美、欧洲和亚太地区的咖啡烘焙商、茶叶品牌、超级食品公司和零食生产商提供可堆肥米纸袋。我们的米纸袋经过可堆肥认证，受到全球 500+ 品牌信赖。"
+            contentCn="With Over 13 Years of FlexiblePackagingProfessionalIndustryThroughTest，Achieve Pack Already Served North America、EuropeAndAsia PacificOfCoffeeBakingBusiness、Tea LeavesBrand、SuperFoodCompanyAndSnackProductionBusinessProvideCanCompostableRice PaperBag。OurRice PaperBagThroughThroughCanCompostableCertification，ReceiveToGlobal 500+ BrandTrust。"
             imageLeft={true}
             index={8}
           />
@@ -627,10 +627,10 @@ const RicePaperBagsPage: React.FC = () => {
       <SEOPageLayout
         title="Rice Paper Bags | Achieve Pack® Compostable Pouches"
         description="Achieve Pack® rice paper bags feature natural fiber texture with PLA/cellophane lining for 100% compostability. Ideal for coffee, tea, snacks, and dry goods. Stand up, side gusset, flat bottom options. Custom printing from 500pcs."
-        keywords={['rice paper bags', 'compostable pouches', 'rice paper packaging', 'PLA pouches', 'cellophane bags', 'eco-friendly packaging', 'compostable coffee bags', 'natural fiber pouches', 'sustainable packaging', 'biodegradable bags', 'kraft paper bags', 'stand up pouch', 'side gusset bag', '米纸袋', '可堆肥包装', 'PLA包装']}
+        keywords={['rice paper bags', 'compostable pouches', 'rice paper packaging', 'PLA pouches', 'cellophane bags', 'eco-friendly packaging', 'compostable coffee bags', 'natural fiber pouches', 'sustainable packaging', 'biodegradable bags', 'kraft paper bags', 'stand up pouch', 'side gusset bag', 'Rice PaperBag', 'Compostable Packaging', 'PLAPackaging']}
         canonicalUrl="https://achievepack.com/function/rice-paper-bags"
         heroTitle="Achieve Pack® Rice Paper Bags"
-        heroSubtitle="Premium compostable pouches with natural fiber texture / 天然纤维纹理的高端可堆肥包装"
+        heroSubtitle="Premium compostable pouches with natural fiber texture / NaturalFiber TextureOfPremiumCompostable Packaging"
         heroImage="/imgs/function/rice/hero.webp"
         heroImageAlt="Achieve Pack Rice Paper & PLA Compostable Packaging"
         introSummary="Achieve Pack® rice paper bags combine natural fiber texture with PLA or cellophane lining for 100% compostable packaging. Available in stand up, side gusset, flat bottom structures. Perfect for coffee, tea, snacks, and eco-conscious brands."

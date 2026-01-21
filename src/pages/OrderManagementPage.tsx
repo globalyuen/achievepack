@@ -1763,7 +1763,7 @@ const OrderManagementPage: React.FC = () => {
                                         <Eye className="h-5 w-5" />
                                       </button>
                                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                                        查看详情并回复报价
+                                        ViewDetailsAndReturnCompoundQuote
                                       </div>
                                     </div>
                                     <div className="group relative">
@@ -1771,7 +1771,7 @@ const OrderManagementPage: React.FC = () => {
                                         <Trash2 className="h-5 w-5" />
                                       </button>
                                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                                        移至回收站
+                                        MoveToReturnCollectStand
                                       </div>
                                     </div>
                                   </div>
@@ -1914,7 +1914,7 @@ const OrderManagementPage: React.FC = () => {
                                         <Eye className="h-5 w-5" />
                                       </button>
                                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                                        查看订单详情和追踪
+                                        ViewOrderDetailsAndTrack
                                       </div>
                                     </div>
                                   </div>
@@ -4636,7 +4636,7 @@ const OrderManagementPage: React.FC = () => {
           </div>
           {/* Tooltip */}
           <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-            订单工作流说明
+            Order Workflow Instructions
             <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-gray-900"></div>
           </div>
         </div>
@@ -4647,7 +4647,7 @@ const OrderManagementPage: React.FC = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
           <div className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6 border-b flex items-center justify-between sticky top-0 bg-white z-10">
-              <h2 className="text-xl font-bold">订单工作流说明</h2>
+              <h2 className="text-xl font-bold">Order Workflow Instructions</h2>
               <button onClick={() => setShowHelpModal(false)} className="text-gray-500 hover:text-gray-700">
                 <X className="h-5 w-5" />
               </button>
@@ -4655,70 +4655,70 @@ const OrderManagementPage: React.FC = () => {
             <div className="p-6 space-y-6">
               {/* RFQ Stage */}
               <div className="border-l-4 border-yellow-500 pl-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">1. RFQ / 报价请求</h3>
-                <p className="text-gray-700 mb-3">客户提交询价，管理员回复报价</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">1. RFQ / QuotePleaseDemand</h3>
+                <p className="text-gray-700 mb-3">CustomerRaiseInquiryPrice，ManagementStaffReturnCompoundQuote</p>
                 <ul className="space-y-1 text-sm text-gray-600">
-                  <li>• 查看所有待处理的 RFQ</li>
-                  <li>• 回复报价并发送邮件</li>
-                  <li>• 状态: pending → accepted/rejected</li>
-                  <li>• 可以查看客户上传的参考图片和网站链接</li>
+                  <li>• ViewAllPendingOf RFQ</li>
+                  <li>• ReturnCompoundQuoteAndSendMailPiece</li>
+                  <li>• Status: pending → accepted/rejected</li>
+                  <li>• CanWithViewCustomerUploadOfReferenceImagePieceAndWebsiteLink</li>
                 </ul>
               </div>
 
               {/* Artwork Stage */}
               <div className="border-l-4 border-purple-500 pl-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">2. Artwork / 设计稿</h3>
-                <p className="text-gray-700 mb-3">客户上传设计稿，管理员审核并提供反馈</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">2. Artwork / Design Draft</h3>
+                <p className="text-gray-700 mb-3">CustomerUploadDesign Draft，ManagementStaffReviewAndProvideFeedback</p>
                 <ul className="space-y-1 text-sm text-gray-600">
-                  <li>• 审核客户上传的设计文件</li>
-                  <li>• 设置状态: pending_review → proof_ready → in_production</li>
-                  <li>• 与客户通过 Thread System 沟通修改</li>
-                  <li>• 为设计稿分配编码 (Customer Code + Product Code)</li>
+                  <li>• ReviewCustomerUploadOfDesignTextPiece</li>
+                  <li>• SetSetStatus: pending_review → proof_ready → in_production</li>
+                  <li>• AndCustomerThrough Thread System GrooveConnectRepairChange</li>
+                  <li>• ForDesign DraftDivideWithCode (Customer Code + Product Code)</li>
                 </ul>
               </div>
 
               {/* Order Stage */}
               <div className="border-l-4 border-blue-500 pl-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">3. Order / 订单</h3>
-                <p className="text-gray-700 mb-3">客户下单，管理员处理订单和支付</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">3. Order / Order</h3>
+                <p className="text-gray-700 mb-3">CustomerUnderSingle，ManagementStaffProcessingOrderAndPayment</p>
                 <ul className="space-y-1 text-sm text-gray-600">
-                  <li>• 查看订单详情和商品列表</li>
-                  <li>• 更新订单状态: pending → confirmed → production</li>
-                  <li>• 管理支付状态: unpaid → deposit_paid → paid</li>
-                  <li>• 查看关联的 Artwork 和同项目其他订单</li>
+                  <li>• ViewOrderDetailsAndBusinessProductList</li>
+                  <li>• MoreNewOrderStatus: pending → confirmed → production</li>
+                  <li>• ManagementPaymentStatus: unpaid → deposit_paid → paid</li>
+                  <li>• ViewAssociateOf Artwork AndSameProjectOtherOrder</li>
                 </ul>
               </div>
 
               {/* Production Stage */}
               <div className="border-l-4 border-indigo-500 pl-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">4. Production / 生产</h3>
-                <p className="text-gray-700 mb-3">订单进入生产阶段</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">4. Production / Production</h3>
+                <p className="text-gray-700 mb-3">OrderEnterProductionStage</p>
                 <ul className="space-y-1 text-sm text-gray-600">
-                  <li>• 跟踪生产进度</li>
-                  <li>• 添加内部生产备注</li>
-                  <li>• 状态: production → ready to ship</li>
+                  <li>• TrackProductionIntoDegree</li>
+                  <li>• AddInsidePartProductionNotes</li>
+                  <li>• Status: production → ready to ship</li>
                 </ul>
               </div>
 
               {/* Shipping Stage */}
               <div className="border-l-4 border-green-500 pl-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">5. Shipping / 物流</h3>
-                <p className="text-gray-700 mb-3">添加物流信息，客户可以追踪包裹</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">5. Shipping / MaterialFlow</h3>
+                <p className="text-gray-700 mb-3">AddMaterialFlowLetterInfo，CustomerCanWithTrackPackWrap</p>
                 <ul className="space-y-1 text-sm text-gray-600">
-                  <li>• 输入 Tracking Number 和 Carrier</li>
-                  <li>• 提供 Tracking URL 链接</li>
-                  <li>• 添加物流备注 (对客户可见)</li>
-                  <li>• 状态: shipped → delivered</li>
+                  <li>• TransportEnter Tracking Number And Carrier</li>
+                  <li>• Provide Tracking URL Link</li>
+                  <li>• AddMaterialFlowNotes (ForCustomerCanSee)</li>
+                  <li>• Status: shipped → delivered</li>
                 </ul>
               </div>
 
               <div className="bg-blue-50 rounded-lg p-4 border border-blue-200 mt-6">
-                <h4 className="font-semibold text-blue-900 mb-2">💡 提示</h4>
+                <h4 className="font-semibold text-blue-900 mb-2">💡 RaiseShow</h4>
                 <ul className="space-y-1 text-sm text-blue-800">
-                  <li>• <strong>Quick Access</strong>: 右上角闪电图标快速访问待处理项目</li>
-                  <li>• <strong>Work Queue</strong>: 页面顶部显示需要注意的任务</li>
-                  <li>• <strong>Project 关联</strong>: 使用 project_id 串联整个流程</li>
-                  <li>• <strong>状态更新</strong>: 在 Quick Access 中右键点击可快速更新状态</li>
+                  <li>• <strong>Quick Access</strong>: RightUpAngleFlashElectricIconFastVisitPendingProject</li>
+                  <li>• <strong>Work Queue</strong>: PageFaceTopPartDisplayRequireNeedNoteIntentOfTask</li>
+                  <li>• <strong>Project Associate</strong>: Use project_id StringConnectWholeUnitProcess</li>
+                  <li>• <strong>StatusMoreNew</strong>: In Quick Access InRightKeyPointHitCanFastMoreNewStatus</li>
                 </ul>
               </div>
             </div>

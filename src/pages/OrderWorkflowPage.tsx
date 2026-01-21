@@ -12,57 +12,57 @@ const OrderWorkflowPage: React.FC = () => {
   const workflowSteps = [
     {
       id: 'rfq',
-      title: 'RFQ / 报价请求',
+      title: 'RFQ / QuotePleaseDemand',
       icon: FileText,
-      description: '客户提交询价，管理员回复报价',
+      description: 'CustomerRaiseInquiryPrice，ManagementStaffReturnCompoundQuote',
       color: 'blue',
       features: [
-        '查看所有待处理的 RFQ',
-        '回复报价并发送邮件',
-        '配置邮件引用链接',
-        '标记报价状态（已发送、已接受、已拒绝）'
+        'ViewAllPendingOf RFQ',
+        'ReturnCompoundQuoteAndSendMailPiece',
+        'WithSetMailPieceLeadUseLink',
+        'MarkQuoteStatus（AlreadySend、AlreadyConnectReceive、AlreadyReject）'
       ],
       link: '/ctrl-x9k7m/management?tab=quotes&subtab=rfq'
     },
     {
       id: 'artwork',
-      title: 'Artwork / 设计稿',
+      title: 'Artwork / Design Draft',
       icon: ImageIcon,
-      description: '处理客户上传的设计稿并提供反馈',
+      description: 'ProcessingCustomerUploadOfDesign DraftAndProvideFeedback',
       color: 'purple',
       features: [
-        '审核设计稿',
-        '添加评论和反馈',
-        '批准或拒绝设计稿',
-        '管理设计稿版本'
+        'ReviewDesign Draft',
+        'AddReviewTheoryAndFeedback',
+        'BatchStandardOrRejectDesign Draft',
+        'ManagementDesign DraftEditionBook'
       ],
       link: '/ctrl-x9k7m/management?tab=artwork'
     },
     {
       id: 'orders',
-      title: 'Store Orders / 商店订单',
+      title: 'Store Orders / BusinessStoreOrder',
       icon: Package,
-      description: '管理网站商店订单的生产和配送',
+      description: 'ManagementWebsiteBusinessStoreOrderOfProductionAndWithDeliver',
       color: 'green',
       features: [
-        '查看所有订单状态',
-        '更新订单状态（待处理、确认、生产、已发货）',
-        '管理支付状态',
-        '添加订单备注'
+        'ViewAllOrderStatus',
+        'MoreNewOrderStatus（Pending、Confirm、Production、AlreadyShipping）',
+        'ManagementPaymentStatus',
+        'AddOrderNotes'
       ],
       link: '/ctrl-x9k7m/management?tab=quotes&subtab=orders'
     },
     {
       id: 'shipping',
-      title: 'Shipping / 物流追踪',
+      title: 'Shipping / MaterialFlowTrack',
       icon: Truck,
-      description: '添加物流信息并通知客户',
+      description: 'AddMaterialFlowLetterInfoAndNotificationCustomer',
       color: 'indigo',
       features: [
-        '添加追踪号码',
-        '上传物流照片',
-        '发送物流更新邮件',
-        '查看配送历史'
+        'AddTrackNumber',
+        'UploadMaterialFlowPhotoPiece',
+        'SendMaterialFlowMoreNewMailPiece',
+        'ViewWithDeliverHistory'
       ],
       link: '/ctrl-x9k7m/management?tab=quotes&subtab=orders'
     }
@@ -70,21 +70,21 @@ const OrderWorkflowPage: React.FC = () => {
 
   const quickActions = [
     {
-      title: '快速访问',
+      title: 'FastVisit',
       icon: Bell,
       items: [
-        { label: '待处理 RFQ', count: 'QuickAccess', color: 'blue' },
-        { label: '待审核设计稿', count: 'QuickAccess', color: 'purple' },
-        { label: '待处理订单', count: 'QuickAccess', color: 'orange' }
+        { label: 'Pending RFQ', count: 'QuickAccess', color: 'blue' },
+        { label: 'WaitReviewDesign Draft', count: 'QuickAccess', color: 'purple' },
+        { label: 'PendingOrder', count: 'QuickAccess', color: 'orange' }
       ]
     },
     {
-      title: '工作队列',
+      title: 'WorkQueue',
       icon: BarChart3,
       items: [
-        { label: '今日任务', count: 'WorkQueue', color: 'green' },
-        { label: '紧急处理', count: 'WorkQueue', color: 'red' },
-        { label: '待跟进', count: 'WorkQueue', color: 'yellow' }
+        { label: 'TodayTask', count: 'WorkQueue', color: 'green' },
+        { label: 'UrgentProcessing', count: 'WorkQueue', color: 'red' },
+        { label: 'WaitFollowInto', count: 'WorkQueue', color: 'yellow' }
       ]
     }
   ]
@@ -92,33 +92,33 @@ const OrderWorkflowPage: React.FC = () => {
   const adminFeatures = [
     {
       icon: Search,
-      title: '全局搜索',
-      description: '搜索订单、客户、RFQ 编号'
+      title: 'FullBureauSearch',
+      description: 'SearchOrder、Customer、RFQ EditNumber'
     },
     {
       icon: Filter,
-      title: '高级过滤',
-      description: '按状态、日期、客户筛选'
+      title: 'HighGradeThroughFilter',
+      description: 'PressStatus、DayPeriod、CustomerScreen'
     },
     {
       icon: MessageSquare,
-      title: '内部备注',
-      description: '为订单添加团队备注'
+      title: 'InsidePartNotes',
+      description: 'ForOrderAddTeamNotes'
     },
     {
       icon: Mail,
-      title: '邮件通知',
-      description: '自动发送状态更新邮件'
+      title: 'MailPieceNotification',
+      description: 'SelfMoveSendStatusMoreNewMailPiece'
     },
     {
       icon: Download,
-      title: '导出数据',
-      description: '导出订单和报价数据'
+      title: 'GuideOutData',
+      description: 'GuideOutOrderAndQuoteData'
     },
     {
       icon: Users,
-      title: '客户管理',
-      description: '查看客户订单历史'
+      title: 'CustomerManagement',
+      description: 'ViewCustomerOrderHistory'
     }
   ]
 
@@ -180,17 +180,17 @@ const OrderWorkflowPage: React.FC = () => {
             className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-primary-600 transition mb-4"
           >
             <ArrowLeft className="h-4 w-4" />
-            返回管理页面
+            ReturnReturnManagementPageFace
           </button>
-          <h1 className="text-3xl font-bold text-gray-900">订单工作流说明</h1>
-          <p className="text-gray-600 mt-2">了解如何使用订单管理系统处理 RFQ、设计稿和商店订单</p>
+          <h1 className="text-3xl font-bold text-gray-900">Order Workflow Instructions</h1>
+          <p className="text-gray-600 mt-2">DoneSolveIfWhatUseOrderManagementSystemProcessing RFQ、Design DraftAndBusinessStoreOrder</p>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 py-12">
         {/* Workflow Steps */}
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">完整工作流程</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">CompleteWorkProcess</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {workflowSteps.map((step, index) => {
               const Icon = step.icon
@@ -208,7 +208,7 @@ const OrderWorkflowPage: React.FC = () => {
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
                         <span className={`${colors.text} text-xs font-bold px-2 py-0.5 ${colors.bg} rounded-full`}>
-                          步骤 {index + 1}
+                          Steps {index + 1}
                         </span>
                       </div>
                       <h3 className="text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
@@ -222,7 +222,7 @@ const OrderWorkflowPage: React.FC = () => {
                         ))}
                       </ul>
                       <div className="flex items-center gap-2 text-sm font-semibold text-primary-600 group-hover:gap-3 transition-all">
-                        前往处理
+                        BeforeGoProcessing
                         <ArrowRight className="h-4 w-4" />
                       </div>
                     </div>
@@ -235,7 +235,7 @@ const OrderWorkflowPage: React.FC = () => {
 
         {/* Quick Actions */}
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">快速导航</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">FastGuideSail</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {quickActions.map((section) => {
               const Icon = section.icon
@@ -271,7 +271,7 @@ const OrderWorkflowPage: React.FC = () => {
 
         {/* Admin Features */}
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">管理功能</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">ManagementFunctionCan</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {adminFeatures.map((feature) => {
               const Icon = feature.icon
@@ -295,92 +295,92 @@ const OrderWorkflowPage: React.FC = () => {
 
         {/* Status Legend */}
         <div className="bg-white rounded-2xl p-6 border border-gray-200">
-          <h2 className="text-xl font-bold text-gray-900 mb-6">订单状态说明</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-6">OrderStatusInstructions</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="space-y-2">
-              <h4 className="text-sm font-semibold text-gray-700">RFQ 状态</h4>
+              <h4 className="text-sm font-semibold text-gray-700">RFQ Status</h4>
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <span>Pending - 待处理</span>
+                  <span>Pending - Pending</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-                  <span>Quoted - 已报价</span>
+                  <span>Quoted - AlreadyQuote</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                  <span>Accepted - 已接受</span>
+                  <span>Accepted - AlreadyConnectReceive</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                  <span>Rejected - 已拒绝</span>
+                  <span>Rejected - AlreadyReject</span>
                 </div>
               </div>
             </div>
 
             <div className="space-y-2">
-              <h4 className="text-sm font-semibold text-gray-700">订单状态</h4>
+              <h4 className="text-sm font-semibold text-gray-700">OrderStatus</h4>
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <span>Pending - 待处理</span>
+                  <span>Pending - Pending</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-purple-500"></div>
-                  <span>Confirmed - 已确认</span>
+                  <span>Confirmed - AlreadyConfirm</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-purple-500"></div>
-                  <span>Production - 生产中</span>
+                  <span>Production - ProductionIn</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-                  <span>Shipped - 已发货</span>
+                  <span>Shipped - AlreadyShipping</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                  <span>Delivered - 已送达</span>
+                  <span>Delivered - AlreadyDeliverReach</span>
                 </div>
               </div>
             </div>
 
             <div className="space-y-2">
-              <h4 className="text-sm font-semibold text-gray-700">支付状态</h4>
+              <h4 className="text-sm font-semibold text-gray-700">PaymentStatus</h4>
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-gray-400"></div>
-                  <span>Unpaid - 未支付</span>
+                  <span>Unpaid - NotPayment</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-                  <span>Deposit Paid - 已付定金</span>
+                  <span>Deposit Paid - AlreadyPayFixedGold</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                  <span>Paid - 已全额支付</span>
+                  <span>Paid - AlreadyFullExtraPayment</span>
                 </div>
               </div>
             </div>
 
             <div className="space-y-2">
-              <h4 className="text-sm font-semibold text-gray-700">设计稿状态</h4>
+              <h4 className="text-sm font-semibold text-gray-700">Design DraftStatus</h4>
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <span>Pending Review - 待审核</span>
+                  <span>Pending Review - WaitReview</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-                  <span>In Review - 审核中</span>
+                  <span>In Review - ReviewIn</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                  <span>Approved - 已批准</span>
+                  <span>Approved - AlreadyBatchStandard</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                  <span>Needs Changes - 需修改</span>
+                  <span>Needs Changes - RequireRepairChange</span>
                 </div>
               </div>
             </div>
@@ -389,13 +389,13 @@ const OrderWorkflowPage: React.FC = () => {
 
         {/* CTA */}
         <div className="mt-12 bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl p-8 text-center text-white">
-          <h2 className="text-2xl font-bold mb-3">准备好开始处理订单了吗？</h2>
-          <p className="text-primary-100 mb-6">点击下方按钮进入订单管理系统</p>
+          <h2 className="text-2xl font-bold mb-3">StandardPrepareGoodStartProcessingOrder?？</h2>
+          <p className="text-primary-100 mb-6">PointHitUnderSidePressButtonEnterOrderManagementSystem</p>
           <button
             onClick={() => navigate('/ctrl-x9k7m/management')}
             className="px-8 py-3 bg-white text-primary-600 rounded-xl font-semibold hover:bg-gray-50 transition-all shadow-lg hover:shadow-xl"
           >
-            进入订单管理
+            EnterOrderManagement
           </button>
         </div>
       </div>

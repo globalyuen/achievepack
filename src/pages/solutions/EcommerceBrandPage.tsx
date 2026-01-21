@@ -267,145 +267,145 @@ const EcommerceBrandPage: React.FC = () => {
     },
     {
       id: 'industry-scenarios',
-      title: '行業應用場景 Industry Applications',
+      title: 'Industry Applications',
       icon: <Factory className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
-          <p className="text-neutral-700">不同類型的電商品牌對包裝有不同需求，選擇正確的方案是提升客戶體驗的關鍵。</p>
+          <p className="text-neutral-700">Differenttypese-commercemerchantBrandforPackaginghaveDifferentRequirements，Choosing the right solution is key to improvingCustomerexperience。</p>
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-5 rounded-xl border border-blue-200">
               <div className="flex items-center gap-2 mb-3">
                 <ShoppingBag className="h-5 w-5 text-blue-600" />
-                <h4 className="font-semibold text-blue-800">DTC健康品牌</h4>
+                <h4 className="font-semibold text-blue-800">DTCHealthBrand</h4>
               </div>
-              <p className="text-sm text-blue-700 mb-3">保健品、蛋白粉、維生素等線上销售。</p>
-              <div className="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded inline-block">佔比: 40%</div>
+              <p className="text-sm text-blue-700 mb-3">Health supplements、Protein powder、Vitaminsonline sales。</p>
+              <div className="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded inline-block">Share:: 40%</div>
             </div>
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles className="h-5 w-5 text-green-600" />
-                <h4 className="font-semibold text-green-800">線上食品品牌</h4>
+                <h4 className="font-semibold text-green-800">OnlinefoodBrand</h4>
               </div>
-              <p className="text-sm text-green-700 mb-3">零食、咖啡、茶葉等訂閱服務。</p>
-              <div className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded inline-block">佔比: 35%</div>
+              <p className="text-sm text-green-700 mb-3">Snacks、coffee、Teaetc.Subscription services。</p>
+              <div className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded inline-block">Share:: 35%</div>
             </div>
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-200">
               <div className="flex items-center gap-2 mb-3">
                 <Package className="h-5 w-5 text-purple-600" />
-                <h4 className="font-semibold text-purple-800">寵物電商</h4>
+                <h4 className="font-semibold text-purple-800">Pete-commercemerchant</h4>
               </div>
-              <p className="text-sm text-purple-700 mb-3">寵物食品、零食的線上销售。</p>
-              <div className="text-xs text-purple-600 bg-purple-100 px-2 py-1 rounded inline-block">佔比: 25%</div>
+              <p className="text-sm text-purple-700 mb-3">Pet Food、SnacksOnlinesales。</p>
+              <div className="text-xs text-purple-600 bg-purple-100 px-2 py-1 rounded inline-block">Share:: 25%</div>
             </div>
           </div>
           <div className="bg-neutral-50 p-4 rounded-lg mt-4">
-            <h5 className="font-semibold text-neutral-800 mb-2">客戶成功案例</h5>
-            <p className="text-sm text-neutral-600">「從硬盒包裝轉換到軟袋後，我們的運費降低了45%，而且客戶在Instagram上的晒單率提高了3倍。」— DTC保健品品牌創辦人</p>
+            <h5 className="font-semibold text-neutral-800 mb-2">Customer Success Story</h5>
+            <p className="text-sm text-neutral-600">「fromrigidboxesPackagingconversiontoflexiblebagsAfter，Ourshipping costsreduce45%，andCustomerinInstagramunboxing sharerateimprovedHigh3times。」— DTCHealth supplementsBrandFounder</p>
           </div>
         </div>
       )
     },
     {
       id: 'market-data',
-      title: '市場數據 Market Intelligence',
+      title: 'Market Data & Intelligence',
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
-          <p className="text-neutral-700">電商包裝市場快速增長，客戶體驗和運費成本是DTC品牌的核心關注點。</p>
+          <p className="text-neutral-700">e-commercemerchantPackagingMarketrapidgrowth，Customerexperienceandshipping costsCostisDTCBrandcore focus。</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
               <div className="text-3xl font-bold text-primary-600 mb-1">60%</div>
-              <div className="text-xs text-neutral-500">運費節省潛力</div>
+              <div className="text-xs text-neutral-500">shipping costssavingpotential</div>
               <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
                 <TrendingUp className="h-3 w-3" />
-                <span>效益顯著</span>
+                <span>EffectBenefitSignificant</span>
               </div>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
               <div className="text-3xl font-bold text-blue-600 mb-1">3x</div>
-              <div className="text-xs text-neutral-500">社交分享提升</div>
+              <div className="text-xs text-neutral-500">SocialDivideEnjoyimprove</div>
               <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
                 <TrendingUp className="h-3 w-3" />
-                <span>增長中</span>
+                <span>growthMedium</span>
               </div>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
               <div className="text-3xl font-bold text-green-600 mb-1">0.1%</div>
-              <div className="text-xs text-neutral-500">運輸破損率</div>
+              <div className="text-xs text-neutral-500">Shipping Damagerate</div>
               <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
                 <TrendingUp className="h-3 w-3" />
-                <span>極低</span>
+                <span>ultralow</span>
               </div>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
               <div className="text-3xl font-bold text-amber-600 mb-1">100</div>
-              <div className="text-xs text-neutral-500">最低起訂量</div>
+              <div className="text-xs text-neutral-500">maximumlowOrdervolume</div>
               <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
                 <TrendingUp className="h-3 w-3" />
-                <span>靈活</span>
+                <span>Flexible</span>
               </div>
             </div>
           </div>
           <div className="bg-blue-50 p-4 rounded-lg">
-            <h5 className="font-semibold text-blue-800 mb-2">市場趨勢洞察</h5>
-            <p className="text-sm text-blue-700">DTC品牌越來越重視包裝的社交傳播效果。軟袋包裝因其輕便、高印刷品質和強運輸保護能力成為電商品牌的首選。</p>
+            <h5 className="font-semibold text-blue-800 mb-2">Market Trend Insights</h5>
+            <p className="text-sm text-blue-700">DTCBrandincreasinglyfocused onPackagingSocialSpreadeffect。flexiblebagsPackagingbecauseItsLightconvenient、HighPrintingQualityandStrongShipping ProtectionperformancePowerbecominge-commercemerchantBrandFirstchoose。</p>
           </div>
         </div>
       )
     },
     {
       id: 'material-comparison',
-      title: '材料對比 Material Comparison',
+      title: 'Material Comparison',
       icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
-          <p className="text-neutral-700">不同電商包裝的特點對比，幫助您選擇最適合的解決方案。</p>
+          <p className="text-neutral-700">Differente-commercemerchantPackagingFeaturesContrast，to help you choose the best solution。</p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="bg-neutral-100">
-                  <th className="text-left p-3 border font-semibold">包裝類型</th>
-                  <th className="text-left p-3 border font-semibold">重量節省</th>
-                  <th className="text-left p-3 border font-semibold">運輸保護</th>
-                  <th className="text-left p-3 border font-semibold">開箱體驗</th>
-                  <th className="text-left p-3 border font-semibold">運費影響</th>
+                  <th className="text-left p-3 border font-semibold">Packaging Type</th>
+                  <th className="text-left p-3 border font-semibold">Heavyvolumesaving</th>
+                  <th className="text-left p-3 border font-semibold">Shipping Protection</th>
+                  <th className="text-left p-3 border font-semibold">unboxing experience</th>
+                  <th className="text-left p-3 border font-semibold">shipping costsCost Impact</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="hover:bg-green-50">
-                  <td className="p-3 border"><span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-medium">軟觸感軟袋</span></td>
+                  <td className="p-3 border"><span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-medium">Soft-touchflexiblebags</span></td>
                   <td className="p-3 border">-75%</td>
                   <td className="p-3 border">★★★★★</td>
                   <td className="p-3 border">★★★★★</td>
                   <td className="p-3 border text-green-600 font-medium">-60%</td>
                 </tr>
                 <tr className="hover:bg-blue-50">
-                  <td className="p-3 border"><span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium">穋迷光面</span></td>
+                  <td className="p-3 border"><span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium">LostGloss</span></td>
                   <td className="p-3 border">-75%</td>
                   <td className="p-3 border">★★★★</td>
                   <td className="p-3 border">★★★★</td>
                   <td className="p-3 border text-blue-600 font-medium">-55%</td>
                 </tr>
                 <tr className="hover:bg-amber-50">
-                  <td className="p-3 border"><span className="px-2 py-1 bg-amber-100 text-amber-700 rounded text-xs font-medium">牍紙軟袋</span></td>
+                  <td className="p-3 border"><span className="px-2 py-1 bg-amber-100 text-amber-700 rounded text-xs font-medium">Paperboardflexiblebags</span></td>
                   <td className="p-3 border">-70%</td>
                   <td className="p-3 border">★★★★</td>
                   <td className="p-3 border">★★★★</td>
                   <td className="p-3 border text-amber-600 font-medium">-50%</td>
                 </tr>
                 <tr className="hover:bg-neutral-50">
-                  <td className="p-3 border"><span className="px-2 py-1 bg-neutral-100 text-neutral-700 rounded text-xs font-medium">傳統硬盒</span></td>
-                  <td className="p-3 border">基準</td>
+                  <td className="p-3 border"><span className="px-2 py-1 bg-neutral-100 text-neutral-700 rounded text-xs font-medium">traditionalrigidboxes</span></td>
+                  <td className="p-3 border">BaseStandard</td>
                   <td className="p-3 border">★★★</td>
                   <td className="p-3 border">★★★</td>
-                  <td className="p-3 border text-neutral-600 font-medium">基準</td>
+                  <td className="p-3 border text-neutral-600 font-medium">BaseStandard</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div className="bg-amber-50 p-4 rounded-lg">
-            <h5 className="font-semibold text-amber-800 mb-2">選材建議</h5>
-            <p className="text-sm text-amber-700">對於DTC電商品牌，軟觸感軟袋是最佳選擇，既能大幅節省運費，又能提供優越的開箱體驗。多種表面處理可提升社交分享率。</p>
+            <h5 className="font-semibold text-amber-800 mb-2">Material Selection Guide</h5>
+            <p className="text-sm text-amber-700">forinDTC E-commerce Brands，Soft-touchflexiblebagsismaximumBestchoosechoose，Bothperformancesignificantlysavingshipping costs，AndperformanceimprovedSupplySuperiorunboxing experience。MultipletypesSurface FinishcanimproveSocialDivideEnjoyrate。</p>
           </div>
         </div>
       )

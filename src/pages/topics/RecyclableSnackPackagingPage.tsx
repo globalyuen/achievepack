@@ -221,124 +221,124 @@ const RecyclableSnackPackagingPage: React.FC = () => {
     },
     {
       id: 'industry-scenarios',
-      title: '行業應用場景 Industry Applications',
+      title: 'Industry Applications',
       icon: <Factory className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-lg">了解不同零食品牌如何運用可回收包裝達成可持續目標。</p>
+          <p className="text-lg">Learn how differentSnacksBrandleverageRecyclablePackagingachieve sustainability goals。</p>
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
               <div className="flex items-center gap-2 mb-3">
                 <ShoppingBag className="h-5 w-5 text-green-600" />
-                <h4 className="font-semibold text-green-800">健康零食品牌</h4>
+                <h4 className="font-semibold text-green-800">Health Snack Brands</h4>
               </div>
-              <p className="text-sm text-green-700">健康零食品牌採用Mono-PE可回收包裝，強化健康與環保的品牌理念。</p>
+              <p className="text-sm text-green-700">Health Snack BrandsadoptionMono-PERecyclablePackaging，reinforcing healthy andEco-friendlyBrandvalues。</p>
             </div>
             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-5 rounded-xl border border-blue-200">
               <div className="flex items-center gap-2 mb-3">
                 <TrendingUp className="h-5 w-5 text-blue-600" />
-                <h4 className="font-semibold text-blue-800">大型零食廠商</h4>
+                <h4 className="font-semibold text-blue-800">Large Snack Manufacturers</h4>
               </div>
-              <p className="text-sm text-blue-700">大型製造商切換到單一材料包裝，滿足零售商的可持續包裝要求。</p>
+              <p className="text-sm text-blue-700">Large manufacturers switch to mono-material packaging to meet retailer sustainability requirements。</p>
             </div>
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-200">
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles className="h-5 w-5 text-purple-600" />
-                <h4 className="font-semibold text-purple-800">有機零食品牌</h4>
+                <h4 className="font-semibold text-purple-800">Organic Snack Brands</h4>
               </div>
-              <p className="text-sm text-purple-700">有機品牌使用単一材料包裝配合清晰的回收標誌，提升消費者信任。</p>
+              <p className="text-sm text-purple-700">Organic brands use mono-material packaging with clear recycling labels to increase consumer trust。</p>
             </div>
           </div>
           <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
-            <p className="text-sm text-amber-800"><strong>成功案例：</strong>某知名薯片品牌將包裝全面轉換為How2Recycle認證的Mono-PE包裝後，消費者滿意度提升22%，並成功進入更多重視可持續性的零售通路。</p>
+            <p className="text-sm text-amber-800"><strong>Success Story: </strong>Awell-known chipBrandconvertedPackagingfullyconversiontoHow2RecycleCertificationMono-PE PackagingAfter，Consumerssatisfactionimprove22%，andSuccessgaining access to moreMultiplefocused onSustainablefocusedretailchannels。</p>
           </div>
         </div>
       )
     },
     {
       id: 'market-data',
-      title: '市場數據 Market Intelligence',
+      title: 'Market Data & Intelligence',
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-lg">零食行業可回收包裝市場快速增長。</p>
+          <p className="text-lg">The recyclable snack packaging market is growing rapidly.。</p>
           <div className="grid md:grid-cols-4 gap-4">
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <div className="text-3xl font-bold text-primary-600">78%</div>
-              <p className="text-sm text-neutral-600 mt-1">消費者希望零食包裝可回收</p>
+              <p className="text-sm text-neutral-600 mt-1">of consumers want recyclable snack packaging</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <div className="text-3xl font-bold text-green-600">45K+</div>
-              <p className="text-sm text-neutral-600 mt-1">北美軟塑料回收點</p>
+              <p className="text-sm text-neutral-600 mt-1">North American soft plastic drop-off locations</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <div className="text-3xl font-bold text-blue-600">2025</div>
-              <p className="text-sm text-neutral-600 mt-1">多數零售商可回收目標年</p>
+              <p className="text-sm text-neutral-600 mt-1">target year for most retailer recyclability goals</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <div className="text-3xl font-bold text-purple-600">24+</div>
-              <p className="text-sm text-neutral-600 mt-1">個月可回收包裝保質期</p>
+              <p className="text-sm text-neutral-600 mt-1">months recyclable packaging shelf life</p>
             </div>
           </div>
           <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
-            <h4 className="font-semibold text-neutral-800 mb-2">市場趨勢分析</h4>
-            <p className="text-sm text-neutral-600">零食包裝是最難實現可回收的包裝類別之一，但單一材料技術的突破讓這成為現實。提前採用的品牌將在市場中享有競爭優勢。</p>
+            <h4 className="font-semibold text-neutral-800 mb-2">Market Trend Analysis</h4>
+            <p className="text-sm text-neutral-600">Snack packaging is one of the hardest categories to make recyclable, but mono-material technology breakthroughs have made it possible. Early adopters will gain competitive advantage in the market.</p>
           </div>
         </div>
       )
     },
     {
       id: 'material-comparison',
-      title: '材料對比 Material Comparison',
+      title: 'Material Comparison',
       icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-lg">比較傳統包裝與可回收單一材料包裝的差異。</p>
+          <p className="text-lg">ComparetraditionalPackagingwithRecyclablemono-materialMaterialPackagingdifference。</p>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse bg-white rounded-lg overflow-hidden">
               <thead className="bg-blue-600 text-white">
                 <tr>
-                  <th className="p-3 text-left text-sm">包裝類型</th>
-                  <th className="p-3 text-left text-sm">可回收性</th>
-                  <th className="p-3 text-left text-sm">阻隔性能</th>
-                  <th className="p-3 text-left text-sm">保質期</th>
-                  <th className="p-3 text-left text-sm">回收方式</th>
+                  <th className="p-3 text-left text-sm">Packaging Type</th>
+                  <th className="p-3 text-left text-sm">Recyclability</th>
+                  <th className="p-3 text-left text-sm">Barrierperformance</th>
+                  <th className="p-3 text-left text-sm">Shelf Life</th>
+                  <th className="p-3 text-left text-sm">Recycling Method</th>
                 </tr>
               </thead>
               <tbody className="text-sm">
                 <tr className="border-b border-neutral-200">
-                  <td className="p-3 font-medium">傳統多層包裝</td>
-                  <td className="p-3"><span className="bg-red-100 text-red-800 px-2 py-1 rounded">不可回收</span></td>
-                  <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">高</span></td>
-                  <td className="p-3">24+個月</td>
-                  <td className="p-3">垃圾填埋</td>
+                  <td className="p-3 font-medium">Traditional Multi-Layer</td>
+                  <td className="p-3"><span className="bg-red-100 text-red-800 px-2 py-1 rounded">notRecyclable</span></td>
+                  <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">High</span></td>
+                  <td className="p-3">24+ months</td>
+                  <td className="p-3">Landfill</td>
                 </tr>
                 <tr className="border-b border-neutral-200 bg-neutral-50">
-                  <td className="p-3 font-medium">Mono-PE包裝</td>
-                  <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">可回收</span></td>
-                  <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">高</span></td>
-                  <td className="p-3">18-24個月</td>
+                  <td className="p-3 font-medium">Mono-PE Packaging</td>
+                  <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">Recyclable</span></td>
+                  <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">High</span></td>
+                  <td className="p-3">18-24 months</td>
                   <td className="p-3">Store Drop-Off</td>
                 </tr>
                 <tr className="border-b border-neutral-200">
-                  <td className="p-3 font-medium">Mono-PP包裝</td>
-                  <td className="p-3"><span className="bg-blue-100 text-blue-800 px-2 py-1 rounded">部分可回收</span></td>
-                  <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">高</span></td>
-                  <td className="p-3">18-24個月</td>
-                  <td className="p-3">檢查當地設施</td>
+                  <td className="p-3 font-medium">Mono-PP Packaging</td>
+                  <td className="p-3"><span className="bg-blue-100 text-blue-800 px-2 py-1 rounded">partialRecyclable</span></td>
+                  <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">High</span></td>
+                  <td className="p-3">18-24 months</td>
+                  <td className="p-3">Check local facilities</td>
                 </tr>
                 <tr className="border-b border-neutral-200 bg-neutral-50">
-                  <td className="p-3 font-medium">高阻隔Mono-PE</td>
-                  <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">可回收</span></td>
-                  <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">極高</span></td>
-                  <td className="p-3">24+個月</td>
+                  <td className="p-3 font-medium">High-Barrier Mono-PE</td>
+                  <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">Recyclable</span></td>
+                  <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">ultraHigh</span></td>
+                  <td className="p-3">24+ months</td>
                   <td className="p-3">Store Drop-Off</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-            <p className="text-sm text-green-800"><strong>專家建議：</strong>對於大多數零食產品，Mono-PE是最佳可回收選擇，因為北美和歐洲都有廣泛的PE薄膜回收基礎設施。配合How2Recycle認證標籤可有效提升實際回收率。</p>
+            <p className="text-sm text-green-800"><strong>Expert Recommendation：</strong>forinlargeMultiplenumberSnacksProduct，Mono-PEismaximumBestRecyclablechoosechoose，becausetoNorth AmericaandEurope bothhaveextensivePEfilmrecycling infrastructure。WithSuitableHow2RecycleCertificationLabelcanhaveEffectimproveActualReturnCollectrate。</p>
           </div>
         </div>
       )

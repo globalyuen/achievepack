@@ -7,17 +7,17 @@ import { useCalendly } from '../../contexts/CalendlyContext'
 // Combined gallery images from custom-label and custom-sticker
 const combinedGallery = [
   // Custom Labels
-  { src: '/imgs/label/custom-label/hero.webp', title: 'Custom Sheet Labels', desc: '定制纸张不干胶标签', category: 'labels' },
-  { src: '/imgs/label/custom-label/a_brand_product_overview_main_3845394.webp', title: 'Brand Label Overview', desc: '品牌标签总览', category: 'labels' },
-  { src: '/imgs/label/custom-label/a_label_on_standup_pouch_2613164.webp', title: 'Labels on Pouches', desc: '标签应用于自立袋', category: 'labels' },
-  { src: '/imgs/label/custom-label/a_multi_material_pouch_labels_2396520.webp', title: 'Multi-Material Labels', desc: '多种材质标签', category: 'labels' },
+  { src: '/imgs/label/custom-label/hero.webp', title: 'Custom Sheet Labels', desc: 'CustomPaperNotAdhesiveLabel', category: 'labels' },
+  { src: '/imgs/label/custom-label/a_brand_product_overview_main_3845394.webp', title: 'Brand Label Overview', desc: 'BrandLabelOverview', category: 'labels' },
+  { src: '/imgs/label/custom-label/a_label_on_standup_pouch_2613164.webp', title: 'Labels on Pouches', desc: 'LabelApplicationAtStand-Up Pouches', category: 'labels' },
+  { src: '/imgs/label/custom-label/a_multi_material_pouch_labels_2396520.webp', title: 'Multi-Material Labels', desc: 'MultipleMaterialLabel', category: 'labels' },
   // Custom Stickers
-  { src: '/imgs/label/custom-sticker/hero.webp', title: 'Custom Stickers', desc: '定制贴纸', category: 'stickers' },
-  { src: '/imgs/label/custom-sticker/a_achievepack_sticker_overview_four_types_8850197.webp', title: 'Four Sticker Types', desc: '四种贴纸类型', category: 'stickers' },
-  { src: '/imgs/label/custom-sticker/a_achievepack_sticker_shapes_custom_5720791.webp', title: 'Custom Shapes', desc: '自定义形状', category: 'stickers' },
-  { src: '/imgs/label/custom-sticker/a_achievepack_eco_materials_pla_6955352.webp', title: 'Eco-Friendly Materials', desc: '环保材料', category: 'stickers' },
-  { src: '/imgs/label/custom-sticker/a_achievepack_surface_finishes_comparison_4126542.webp', title: 'Surface Finishes', desc: '表面工艺', category: 'stickers' },
-  { src: '/imgs/label/custom-sticker/a_achievepack_brand_collage_application_8409454.webp', title: 'Brand Applications', desc: '品牌应用场景', category: 'stickers' },
+  { src: '/imgs/label/custom-sticker/hero.webp', title: 'Custom Stickers', desc: 'CustomSticker', category: 'stickers' },
+  { src: '/imgs/label/custom-sticker/a_achievepack_sticker_overview_four_types_8850197.webp', title: 'Four Sticker Types', desc: 'Four TypesStickerCategoryType', category: 'stickers' },
+  { src: '/imgs/label/custom-sticker/a_achievepack_sticker_shapes_custom_5720791.webp', title: 'Custom Shapes', desc: 'Custom Shape', category: 'stickers' },
+  { src: '/imgs/label/custom-sticker/a_achievepack_eco_materials_pla_6955352.webp', title: 'Eco-Friendly Materials', desc: 'Eco-Friendly Materials', category: 'stickers' },
+  { src: '/imgs/label/custom-sticker/a_achievepack_surface_finishes_comparison_4126542.webp', title: 'Surface Finishes', desc: 'Surface Finish', category: 'stickers' },
+  { src: '/imgs/label/custom-sticker/a_achievepack_brand_collage_application_8409454.webp', title: 'Brand Applications', desc: 'BrandApplicationScenario', category: 'stickers' },
 ]
 
 const LabelsAndStickersPage: React.FC = () => {
@@ -60,7 +60,7 @@ const LabelsAndStickersPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
-            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge 点击放大</div>
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge Click to enlarge</div>
           </button>
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-neutral-900">{title}</h3>
@@ -82,7 +82,7 @@ const LabelsAndStickersPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group md:order-2"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
-            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge 点击放大</div>
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge Click to enlarge</div>
           </button>
         </>
       )}
@@ -101,7 +101,7 @@ const LabelsAndStickersPage: React.FC = () => {
               <strong>Complete labeling and sticker solutions for every brand</strong> — From professional sheet labels to factory-grade roll stickers, we provide full customization with premium materials, eco-friendly options, and expert printing capabilities.
             </p>
             <p className="text-neutral-700 mb-4">
-              为每个品牌提供完整的标签和贴纸解决方案 — 从专业纸张不干胶标签到工厂级卷装贴纸，我们提供优质材料、环保选项和专业印刷能力的全面定制服务。
+              ForEachUnitBrandProvideCompleteOfLabelAndStickerSolveSolution — FromProfessionalIndustryPaperNotAdhesiveLabelToFactory GradeRoll FormSticker，WeProvidePremiumMaterial、Eco-FriendlyOptionsAndProfessionalIndustryPrintingCanPowerOfFullFaceCustomService。
             </p>
             <div className="flex flex-wrap gap-2 mt-4">
               <span className="px-3 py-1 bg-white rounded-full text-sm font-medium text-primary-700 border border-primary-200">Sheet Labels</span>
@@ -116,13 +116,13 @@ const LabelsAndStickersPage: React.FC = () => {
             <Link to="/products/custom-labels" className="group block bg-white p-6 rounded-xl border border-neutral-200 hover:border-primary-400 hover:shadow-lg transition-all">
               <img src="/imgs/label/custom-label/hero.webp" alt="Custom Sheet Labels" className="w-full h-48 object-cover rounded-lg mb-4 group-hover:scale-[1.02] transition-transform" />
               <h3 className="text-xl font-bold text-neutral-900 group-hover:text-primary-600 mb-2">Custom Sheet Labels</h3>
-              <p className="text-sm text-primary-600 font-medium mb-2">定制纸张不干胶标签</p>
+              <p className="text-sm text-primary-600 font-medium mb-2">CustomPaperNotAdhesiveLabel</p>
               <p className="text-neutral-600 text-sm">Professional sheet labels with no minimum order, print-ready in 2-3 business days. Perfect for products, events, and small batch customization.</p>
             </Link>
             <Link to="/products/custom-stickers" className="group block bg-white p-6 rounded-xl border border-neutral-200 hover:border-primary-400 hover:shadow-lg transition-all">
               <img src="/imgs/label/custom-sticker/hero.webp" alt="Custom Stickers" className="w-full h-48 object-cover rounded-lg mb-4 group-hover:scale-[1.02] transition-transform" />
               <h3 className="text-xl font-bold text-neutral-900 group-hover:text-primary-600 mb-2">Custom Stickers</h3>
-              <p className="text-sm text-primary-600 font-medium mb-2">工厂级定制贴纸</p>
+              <p className="text-sm text-primary-600 font-medium mb-2">Factory GradeCustomSticker</p>
               <p className="text-neutral-600 text-sm">Factory-grade custom stickers with multiple types, shapes, materials, and finishes. Cut-to-size, roll, sheet, and kiss-cut options.</p>
             </Link>
           </div>
@@ -139,9 +139,9 @@ const LabelsAndStickersPage: React.FC = () => {
             image="/imgs/label/custom-label/a_brand_product_overview_main_3845394.webp"
             imageAlt="Brand label product overview"
             title="Professional Sheet Labels for Any Product"
-            titleCn="适用于任何产品的专业纸张标签"
+            titleCn="Suitable forAnyProductOfProfessionalIndustryPaperLabel"
             content="High-quality sheet labels designed for products, events, personal use, and small batch customization. Multiple material options including white matte, glossy, kraft, and clear films. Strong permanent adhesive ensures your labels stay perfectly applied."
-            contentCn="高质量纸张不干胶标签，适用于产品标签、活动标签、个人定制和小批量生产。多种材质可选，包括白色哑光、亮光、牛皮纸和透明薄膜。强力永久胶粘剂确保标签完美贴附。"
+            contentCn="High Quality Paper Adhesive Labels，Suitable forProductLabel、ActivityLabel、UnitPersonCustomAndSmall BatchProduction。MultipleMaterialOptional，PackIncludingWhiteMatte、Gloss、Kraft PaperAndTransparentFilm。StrongPowerPermanentLongGlueStickAgentEnsureLabelCompleteBeautyPasteAttach。"
             imageLeft={true}
             index={1}
           />
@@ -150,9 +150,9 @@ const LabelsAndStickersPage: React.FC = () => {
             image="/imgs/label/custom-label/a_label_on_standup_pouch_2613164.webp"
             imageAlt="Labels on stand-up pouches"
             title="Perfect Pairing with Flexible Packaging"
-            titleCn="与软包装完美搭配"
+            titleCn="AndFlexiblePackagingCompleteBeautyMatchWith"
             content="Our custom labels are designed to complement our stand-up pouches and flexible packaging. Whether you need branded labels for your pouches or separate product labeling, we ensure consistent quality across your entire packaging system."
-            contentCn="我们的定制标签旨在与自立袋和软包装完美配合。无论您需要袋子品牌标签还是独立产品贴标，我们确保整个包装系统的一致质量。"
+            contentCn="OurCustomLabelPurposeInAndStand-Up PouchesAndFlexiblePackagingCompleteBeautyWithSuitable。NoTheoryYouRequireNeedBagChildBrandLabelAlsoIsIndependentProductLabeling，WeEnsureWholeUnitPackagingSystemOfOneUltimateQualityVolume。"
             imageLeft={false}
             index={2}
           />
@@ -162,25 +162,25 @@ const LabelsAndStickersPage: React.FC = () => {
               <FileCheck className="h-6 w-6 text-primary-600 mx-auto mb-2" />
               <h5 className="font-semibold text-neutral-900 text-sm">No Minimum</h5>
               <p className="text-xs text-neutral-600">Order any quantity</p>
-              <p className="text-xs text-primary-600">无最低起订量</p>
+              <p className="text-xs text-primary-600">NoMostLowMinimum OrderVolume</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <Truck className="h-6 w-6 text-primary-600 mx-auto mb-2" />
               <h5 className="font-semibold text-neutral-900 text-sm">2-3 Days</h5>
               <p className="text-xs text-neutral-600">Print-ready turnaround</p>
-              <p className="text-xs text-primary-600">快速出货</p>
+              <p className="text-xs text-primary-600">FastOutGoods</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <Palette className="h-6 w-6 text-primary-600 mx-auto mb-2" />
               <h5 className="font-semibold text-neutral-900 text-sm">Multi-Design</h5>
               <p className="text-xs text-neutral-600">Discounts available</p>
-              <p className="text-xs text-primary-600">多设计优惠</p>
+              <p className="text-xs text-primary-600">Multi-Design Discounts</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <Shield className="h-6 w-6 text-primary-600 mx-auto mb-2" />
               <h5 className="font-semibold text-neutral-900 text-sm">Strong Adhesive</h5>
               <p className="text-xs text-neutral-600">Permanent hold</p>
-              <p className="text-xs text-primary-600">强力胶粘</p>
+              <p className="text-xs text-primary-600">StrongPowerGlueStick</p>
             </div>
           </div>
         </div>
@@ -196,9 +196,9 @@ const LabelsAndStickersPage: React.FC = () => {
             image="/imgs/label/custom-sticker/a_achievepack_sticker_overview_four_types_8850197.webp"
             imageAlt="Four types of custom stickers"
             title="Four Sticker Types for Every Need"
-            titleCn="四种贴纸类型满足各种需求"
+            titleCn="Four TypesStickerCategoryTypeMeetVariousRequireDemand"
             content="Choose from Cut to Size (individual die-cut stickers), Roll (continuous roll for high-volume application), Sheet (multiple stickers per sheet), and Kiss Cut (stickers on backing sheet for easy peeling). Each type is optimized for specific use cases."
-            contentCn="可选择剪裁单张、卷装、纸张式和亲切切割。每种类型都针对特定使用场景进行优化。"
+            contentCn="CanChooseDie-Cut Sheets、Roll Form、Paper StyleAndDie Cut。Each TypeCategoryTypeAllNeedleForSpecificUseScenarioOptimizeization。"
             imageLeft={true}
             index={5}
           />
@@ -207,9 +207,9 @@ const LabelsAndStickersPage: React.FC = () => {
             image="/imgs/label/custom-sticker/a_achievepack_sticker_shapes_custom_5720791.webp"
             imageAlt="Custom shapes and sizes for stickers"
             title="Unlimited Shape & Size Options"
-            titleCn="无限形状与尺寸选择"
+            titleCn="NoLimitShapeAndDimensionsChoose"
             content="Go beyond standard shapes with our custom die-cutting capabilities. Square, circle, oval, rounded rectangle, heart, hexagon, starburst, or completely custom shapes — we can produce any design you need with precision cutting."
-            contentCn="突破标准形状限制，我们提供定制模切能力。方形、圆形、椭圆、圆角矩形、心形、六边形、星爆形，或完全自定义形状。"
+            contentCn="Break ThroughStandardShapeLimit，WeProvideCustomDie CutCanPower。Square、Round、Oval、Rounded RectangleForm、HeartForm、SixEdgeForm、StarBurstForm，OrCompleteCustom Shape。"
             imageLeft={false}
             index={6}
           />
@@ -219,25 +219,25 @@ const LabelsAndStickersPage: React.FC = () => {
               <Layers className="h-6 w-6 text-primary-600 mx-auto mb-2" />
               <h5 className="font-semibold text-neutral-900 text-sm">Roll Stickers</h5>
               <p className="text-xs text-neutral-600">High-volume ready</p>
-              <p className="text-xs text-primary-600">卷装贴纸</p>
+              <p className="text-xs text-primary-600">Roll FormSticker</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <Settings className="h-6 w-6 text-primary-600 mx-auto mb-2" />
               <h5 className="font-semibold text-neutral-900 text-sm">Die-Cut</h5>
               <p className="text-xs text-neutral-600">Custom shapes</p>
-              <p className="text-xs text-primary-600">模切成型</p>
+              <p className="text-xs text-primary-600">Die CutFormType</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <Package className="h-6 w-6 text-primary-600 mx-auto mb-2" />
               <h5 className="font-semibold text-neutral-900 text-sm">Sheet Stickers</h5>
               <p className="text-xs text-neutral-600">Multi per sheet</p>
-              <p className="text-xs text-primary-600">纸张式</p>
+              <p className="text-xs text-primary-600">Paper Style</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <Sparkles className="h-6 w-6 text-primary-600 mx-auto mb-2" />
               <h5 className="font-semibold text-neutral-900 text-sm">Kiss Cut</h5>
               <p className="text-xs text-neutral-600">Easy peeling</p>
-              <p className="text-xs text-primary-600">亲切切割</p>
+              <p className="text-xs text-primary-600">Die Cut</p>
             </div>
           </div>
         </div>
@@ -253,9 +253,9 @@ const LabelsAndStickersPage: React.FC = () => {
             image="/imgs/label/custom-sticker/a_achievepack_eco_materials_pla_6955352.webp"
             imageAlt="Eco-friendly PLA and paper-based materials"
             title="Eco-Friendly & Sustainable Options"
-            titleCn="环保可持续选择"
+            titleCn="Eco-FriendlyCanContinuousChoose"
             content="Choose environmentally responsible materials including PLA-based biodegradable films, FSC-certified paper stocks, and recyclable substrates. Perfect for brands committed to reducing environmental impact."
-            contentCn="选择环保负责任的材料，包括PLA基可降解薄膜、FSC认证纸张和可回收基材。非常适合致力于减少环境影响的品牌。"
+            contentCn="ChooseEco-FriendlyResponsibleOfMaterial，PackIncludingPLABaseCanDegradableFilm、FSCCertificationPaperAndRecyclableBase Material。Ideal forSuitableUltimatePowerAtReduceEnvironmentImpactOfBrand。"
             imageLeft={true}
             index={7}
           />
@@ -264,9 +264,9 @@ const LabelsAndStickersPage: React.FC = () => {
             image="/imgs/label/custom-sticker/a_achievepack_surface_finishes_comparison_4126542.webp"
             imageAlt="Surface finish comparison"
             title="Premium Surface Finishes"
-            titleCn="高端表面工艺"
+            titleCn="Premium Surface Finishing"
             content="Elevate your labels and stickers with professional finishes: Matte for sophisticated, non-reflective look; Gloss for vibrant shine; UV Coating for enhanced durability; and Hot Foil Stamping for luxurious metallic accents."
-            contentCn="用专业表面处理提升标签和贴纸品质：哑光呈现精致外观、亮光带来光泽、UV涂层增强耐久性、烫金工艺打造奢华金属质感。"
+            contentCn="UseProfessionalIndustrySurfaceProcessingImproveLabelAndStickerQuality：MattePresentFineUltimateOutsideView、GlossWithComeGloss、UVCoatingLayerIncreaseStrongResistantLongProperty、Hot StampingWorkerArtStrikeMakeLuxury GoldBelongQualityFeel。"
             imageLeft={false}
             index={8}
           />
@@ -274,23 +274,23 @@ const LabelsAndStickersPage: React.FC = () => {
           <div className="grid md:grid-cols-5 gap-3">
             <div className="bg-gradient-to-br from-neutral-100 to-neutral-200 p-4 rounded-lg text-center">
               <div className="font-bold text-neutral-800 text-sm">Matte</div>
-              <p className="text-xs text-neutral-600">哑光</p>
+              <p className="text-xs text-neutral-600">Matte</p>
             </div>
             <div className="bg-gradient-to-br from-blue-100 to-blue-200 p-4 rounded-lg text-center">
               <div className="font-bold text-neutral-800 text-sm">Gloss</div>
-              <p className="text-xs text-neutral-600">亮光</p>
+              <p className="text-xs text-neutral-600">Gloss</p>
             </div>
             <div className="bg-gradient-to-br from-purple-100 to-purple-200 p-4 rounded-lg text-center">
               <div className="font-bold text-neutral-800 text-sm">UV Coating</div>
-              <p className="text-xs text-neutral-600">UV涂层</p>
+              <p className="text-xs text-neutral-600">UVCoatingLayer</p>
             </div>
             <div className="bg-gradient-to-br from-amber-100 to-amber-200 p-4 rounded-lg text-center">
               <div className="font-bold text-neutral-800 text-sm">Hot Foil</div>
-              <p className="text-xs text-neutral-600">烫金</p>
+              <p className="text-xs text-neutral-600">Hot Stamping</p>
             </div>
             <div className="bg-gradient-to-br from-green-100 to-green-200 p-4 rounded-lg text-center">
               <div className="font-bold text-neutral-800 text-sm">Kraft</div>
-              <p className="text-xs text-neutral-600">牛皮纸</p>
+              <p className="text-xs text-neutral-600">Kraft Paper</p>
             </div>
           </div>
         </div>
@@ -306,9 +306,9 @@ const LabelsAndStickersPage: React.FC = () => {
             image="/imgs/label/custom-sticker/a_achievepack_brand_collage_application_8409454.webp"
             imageAlt="Brand application collage"
             title="From Factory to Brand Application"
-            titleCn="从工厂到品牌落地"
+            titleCn="FromFactoryToBrandLand"
             content="Our labels and stickers work seamlessly across applications: product branding on bottles and jars, flexible packaging labeling, box sealing, food container identification, promotional materials, and event marketing."
-            contentCn="我们的标签和贴纸可无缝应用于各种场景：瓶罐产品品牌、软包装贴标、盒子封口、食品容器标识、促销材料和活动营销。"
+            contentCn="OurLabelAndStickerCanNoSeamApplicationAtVariousScenario：Bottles and JarsProductBrand、FlexiblePackagingLabeling、BoxChildSeal、FoodCapacityDeviceIdentification、PromotionMaterialAndActivityMarketing。"
             imageLeft={true}
             index={9}
           />
@@ -318,19 +318,19 @@ const LabelsAndStickersPage: React.FC = () => {
               <Package className="h-6 w-6 text-primary-600 mb-3" />
               <h5 className="font-semibold text-neutral-900">Product Branding</h5>
               <p className="text-sm text-neutral-600 mt-1">Bottles, jars, pouches, boxes</p>
-              <p className="text-xs text-primary-600 mt-1">产品品牌贴标</p>
+              <p className="text-xs text-primary-600 mt-1">ProductBrandLabeling</p>
             </div>
             <div className="bg-white p-5 rounded-lg border border-neutral-200">
               <FileCheck className="h-6 w-6 text-primary-600 mb-3" />
               <h5 className="font-semibold text-neutral-900">Package Sealing</h5>
               <p className="text-sm text-neutral-600 mt-1">Seal bags, boxes, envelopes</p>
-              <p className="text-xs text-primary-600 mt-1">包装封口</p>
+              <p className="text-xs text-primary-600 mt-1">PackagingSeal</p>
             </div>
             <div className="bg-white p-5 rounded-lg border border-neutral-200">
               <Zap className="h-6 w-6 text-primary-600 mb-3" />
               <h5 className="font-semibold text-neutral-900">Marketing & Events</h5>
               <p className="text-sm text-neutral-600 mt-1">Promotional, giveaways</p>
-              <p className="text-xs text-primary-600 mt-1">营销与活动</p>
+              <p className="text-xs text-primary-600 mt-1">MarketingAndActivity</p>
             </div>
           </div>
         </div>

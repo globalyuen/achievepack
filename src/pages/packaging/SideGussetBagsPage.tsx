@@ -112,7 +112,7 @@ const SideGussetBagsPage: React.FC = () => {
     },
     {
       id: 'industry-scenarios',
-      title: '行業應用場景 Industry Applications',
+      title: 'Industry Applications',
       icon: <Factory className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
@@ -120,74 +120,74 @@ const SideGussetBagsPage: React.FC = () => {
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
               <div className="flex items-center gap-2 mb-3">
                 <ShoppingBag className="h-5 w-5 text-amber-600" />
-                <h4 className="font-semibold text-neutral-900">咖啡烘焙 Coffee Roasters</h4>
+                <h4 className="font-semibold text-neutral-900">Coffee Roasting Coffee Roasters</h4>
               </div>
-              <p className="text-sm text-neutral-600 mb-3">精品咖啡豆、單品豆、經典咖啡袋格式</p>
-              <div className="text-xs text-amber-700 bg-amber-100 px-2 py-1 rounded inline-block">佔比 55%</div>
+              <p className="text-sm text-neutral-600 mb-3">Specialty coffee beans、Single origin beans、ClassicCoffee BagsFormat</p>
+              <div className="text-xs text-amber-700 bg-amber-100 px-2 py-1 rounded inline-block">Share: 55%</div>
             </div>
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles className="h-5 w-5 text-green-600" />
-                <h4 className="font-semibold text-neutral-900">茶葉品牌 Tea Brands</h4>
+                <h4 className="font-semibold text-neutral-900">TeaBrand Tea Brands</h4>
               </div>
-              <p className="text-sm text-neutral-600 mb-3">散裝茶葉、高山茶、傳統茶包裝</p>
-              <div className="text-xs text-green-700 bg-green-100 px-2 py-1 rounded inline-block">佔比 25%</div>
+              <p className="text-sm text-neutral-600 mb-3">BulkTea、HighCamellia tea、Traditional teaPackaging</p>
+              <div className="text-xs text-green-700 bg-green-100 px-2 py-1 rounded inline-block">25% market share</div>
             </div>
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-5 rounded-xl border border-blue-200">
               <div className="flex items-center gap-2 mb-3">
                 <TrendingUp className="h-5 w-5 text-blue-600" />
-                <h4 className="font-semibold text-neutral-900">穀物食品 Grains & Rice</h4>
+                <h4 className="font-semibold text-neutral-900">Cerealsfood Grains & Rice</h4>
               </div>
-              <p className="text-sm text-neutral-600 mb-3">大米、穀物、麻、豆類大容量包裝</p>
-              <div className="text-xs text-blue-700 bg-blue-100 px-2 py-1 rounded inline-block">佔比 20%</div>
+              <p className="text-sm text-neutral-600 mb-3">Rice、Cereals、Hemp、Legumes bulkPackaging</p>
+              <div className="text-xs text-blue-700 bg-blue-100 px-2 py-1 rounded inline-block">Share: 20%</div>
             </div>
           </div>
           <div className="bg-white p-4 rounded-lg border border-neutral-200">
-            <h4 className="font-semibold text-neutral-900 mb-3">客戶成功案例 Success Story</h4>
-            <p className="text-sm text-neutral-600">「我們的精品咖啡品牌採用側風琴袋加排氣閥後，新鮮烘焙咖啡的CO2可正常釋放，同時保持包裝美觀，客戶滿意度提升40%。」</p>
-            <p className="text-xs text-neutral-500 mt-2">— 精品咖啡烘焙商，月銷售 5000袋</p>
+            <h4 className="font-semibold text-neutral-900 mb-3">Customer Success Story</h4>
+            <p className="text-sm text-neutral-600">「OurSpecialty coffeeBrandadoptionSide gusset bag with degassing valveAfter，Freshly roasted coffeeCO2can release normally，whilewhenmaintainingPackagingaesthetics，Customersatisfactionimprove40%。」</p>
+            <p className="text-xs text-neutral-500 mt-2">— SpecialtyproductsCoffee Roasters，monthsales 5000bags</p>
           </div>
         </div>
       )
     },
     {
       id: 'market-data',
-      title: '市場數據 Market Intelligence',
+      title: 'Market Data & Intelligence',
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="bg-gradient-to-br from-primary-500 to-primary-600 text-white p-4 rounded-xl text-center">
               <div className="text-3xl font-bold">$4.8B</div>
-              <div className="text-sm opacity-90">全球側風琴袋市場</div>
-              <div className="text-xs opacity-75 mt-1">2024年規模</div>
+              <div className="text-sm opacity-90">GlobalSide gussetbagsMarket</div>
+              <div className="text-xs opacity-75 mt-1">2024yearSize</div>
             </div>
             <div className="bg-gradient-to-br from-green-500 to-green-600 text-white p-4 rounded-xl text-center">
               <div className="text-3xl font-bold">5.2%</div>
-              <div className="text-sm opacity-90">年複合增長率</div>
+              <div className="text-sm opacity-90">CAGR</div>
               <div className="text-xs opacity-75 mt-1">2024-2030</div>
             </div>
             <div className="bg-gradient-to-br from-amber-500 to-amber-600 text-white p-4 rounded-xl text-center">
               <div className="text-3xl font-bold">65%</div>
-              <div className="text-sm opacity-90">咖啡應用佔比</div>
-              <div className="text-xs opacity-75 mt-1">最大應用領域</div>
+              <div className="text-sm opacity-90">coffeeApplicationsShare:</div>
+              <div className="text-xs opacity-75 mt-1">largestApplicationssector</div>
             </div>
             <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-4 rounded-xl text-center">
               <div className="text-3xl font-bold">32%</div>
-              <div className="text-sm opacity-90">精品咖啡市場增速</div>
-              <div className="text-xs opacity-75 mt-1">推動包裝升級</div>
+              <div className="text-sm opacity-90">Specialty coffeeMarketgrowth rate</div>
+              <div className="text-xs opacity-75 mt-1">drivingPackagingincreasedPremium</div>
             </div>
           </div>
           <div className="bg-neutral-50 p-4 rounded-lg">
-            <h4 className="font-semibold text-neutral-900 mb-3">市場趨勢洞察</h4>
+            <h4 className="font-semibold text-neutral-900 mb-3">Market Trend Insights</h4>
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div className="flex items-start gap-2">
                 <TrendingUp className="h-4 w-4 text-green-500 mt-0.5" />
-                <span><strong>傳統格式回歸</strong>：精品咖啡品牌偶好經典側風琴袋外觀</span>
+                <span><strong>traditionalFormatreturn</strong>：Specialty coffeeBrandpreferenceClassicSide gussetbagsappearance</span>
               </div>
               <div className="flex items-start gap-2">
                 <TrendingUp className="h-4 w-4 text-green-500 mt-0.5" />
-                <span><strong>排氣閥標配</strong>：85%咖啡袋配備單向排氣閥</span>
+                <span><strong>degassing valve standard</strong>：85%Coffee Bagsequipped with one-way degassing valve</span>
               </div>
             </div>
           </div>
@@ -196,7 +196,7 @@ const SideGussetBagsPage: React.FC = () => {
     },
     {
       id: 'material-comparison',
-      title: '材料對比 Material Comparison',
+      title: 'Material Comparison',
       icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
@@ -204,48 +204,48 @@ const SideGussetBagsPage: React.FC = () => {
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="bg-neutral-100">
-                  <th className="border border-neutral-200 px-4 py-2 text-left">材料類型</th>
-                  <th className="border border-neutral-200 px-4 py-2 text-center">阻隔性</th>
-                  <th className="border border-neutral-200 px-4 py-2 text-center">成本</th>
-                  <th className="border border-neutral-200 px-4 py-2 text-center">環保性</th>
-                  <th className="border border-neutral-200 px-4 py-2 text-left">推薦應用</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-left">Material Type</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-center">Barrier</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-center">Cost</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-center">Eco-Friendly</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-left">Recommended Use</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-neutral-200 px-4 py-2 font-medium">牛皮紙/鋁箔</td>
+                  <td className="border border-neutral-200 px-4 py-2 font-medium">Kraft paper/aluminum foil</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">⭐⭐⭐⭐⭐</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">💰💰</td>
-                  <td className="border border-neutral-200 px-4 py-2 text-center">紙外觀</td>
-                  <td className="border border-neutral-200 px-4 py-2">精品咖啡、高端茶葉</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">Paper Appearance</td>
+                  <td className="border border-neutral-200 px-4 py-2">Specialty coffee、HighpremiumTea</td>
                 </tr>
                 <tr className="bg-neutral-50">
                   <td className="border border-neutral-200 px-4 py-2 font-medium">PET/Al/PE</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">⭐⭐⭐⭐⭐</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">💰💰</td>
-                  <td className="border border-neutral-200 px-4 py-2 text-center">難回收</td>
-                  <td className="border border-neutral-200 px-4 py-2">長保鮮期咖啡</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">Hard to recycle</td>
+                  <td className="border border-neutral-200 px-4 py-2">Extended Freshness Period Coffee</td>
                 </tr>
                 <tr>
-                  <td className="border border-neutral-200 px-4 py-2 font-medium">Mono PE 可回收</td>
+                  <td className="border border-neutral-200 px-4 py-2 font-medium">Mono PE Recyclable</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">⭐⭐⭐</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">💰💰</td>
-                  <td className="border border-neutral-200 px-4 py-2 text-center">♥️ 可回收</td>
-                  <td className="border border-neutral-200 px-4 py-2">環保咖啡品牌</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">♥️ Recyclable</td>
+                  <td className="border border-neutral-200 px-4 py-2">Eco-friendlycoffeeBrand</td>
                 </tr>
                 <tr className="bg-green-50">
-                  <td className="border border-neutral-200 px-4 py-2 font-medium">PLA 可堆肥</td>
+                  <td className="border border-neutral-200 px-4 py-2 font-medium">PLA Compostable</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">⭐⭐</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">💰💰💰</td>
-                  <td className="border border-neutral-200 px-4 py-2 text-center">🌱 可堆肥</td>
-                  <td className="border border-neutral-200 px-4 py-2">有機咖啡茶葉</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">🌱 Compostable</td>
+                  <td className="border border-neutral-200 px-4 py-2">OrganicCoffee & Tea</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div className="bg-primary-50 p-4 rounded-lg">
-            <h4 className="font-semibold text-primary-800 mb-2">選材建議</h4>
-            <p className="text-sm text-primary-700">側風琴袋是咖啡經典包裝格式。需最佳保鮮效果選鋁箔複合；追求環保形象可選Mono PE可回收材質。</p>
+            <h4 className="font-semibold text-primary-800 mb-2">Material Selection Guide</h4>
+            <p className="text-sm text-primary-700">Side gusset bags are the classic coffee packaging format。RequiremaximumBestFreshnesseffectchooseAluminum Foil Laminate；PursueEco-friendlyimagecanchooseMono PERecyclableMaterials。</p>
           </div>
         </div>
       )

@@ -6,15 +6,15 @@ import { useCalendly } from '../../contexts/CalendlyContext'
 
 // Gallery images from /imgs/function/water/
 const pvaGallery = [
-  { src: '/imgs/function/water/hero.webp', title: 'Achieve Pack® PVA Water-Soluble Bait Bags', desc: 'Achieve Pack® PVA 水溶诱饵袋' },
-  { src: '/imgs/function/water/a_pva_material_closeup_8668927.webp', title: 'PVA Material Closeup', desc: 'PVA 材质特写' },
-  { src: '/imgs/function/water/a_dissolution_step1_drop_6327912.webp', title: 'Step 1: Drop in Water', desc: '步骤1：入水瞬间' },
-  { src: '/imgs/function/water/a_dissolution_step2_dissolving_9965853.webp', title: 'Step 2: Film Dissolving', desc: '步骤2：薄膜溶解' },
-  { src: '/imgs/function/water/a_dissolution_step3_complete_2409421.webp', title: 'Step 3: Complete Dissolution', desc: '步骤3：完全溶解' },
-  { src: '/imgs/function/water/a_hook_bait_unity_8654964.webp', title: 'Hook Hidden Inside Bait', desc: '钩饵一体' },
-  { src: '/imgs/function/water/a_fishing_application_scene_9430782.webp', title: 'Fishing Application Scene', desc: '钓鱼应用场景' },
-  { src: '/imgs/function/water/a_specification_custom_sizes_2365104.webp', title: 'Custom Sizes Available', desc: '多规格定制' },
-  { src: '/imgs/function/water/a_performance_storage_solubility_8701547.webp', title: 'Storage & Solubility Performance', desc: '防潮储存与水溶性能' },
+  { src: '/imgs/function/water/hero.webp', title: 'Achieve Pack® PVA Water-Soluble Bait Bags', desc: 'Achieve Pack® PVA Water Soluble Bait Bags' },
+  { src: '/imgs/function/water/a_pva_material_closeup_8668927.webp', title: 'PVA Material Closeup', desc: 'PVA MaterialClose-Up' },
+  { src: '/imgs/function/water/a_dissolution_step1_drop_6327912.webp', title: 'Step 1: Drop in Water', desc: 'Steps1：EnterWaterInstant' },
+  { src: '/imgs/function/water/a_dissolution_step2_dissolving_9965853.webp', title: 'Step 2: Film Dissolving', desc: 'Steps2：FilmDissolve' },
+  { src: '/imgs/function/water/a_dissolution_step3_complete_2409421.webp', title: 'Step 3: Complete Dissolution', desc: 'Steps3：CompleteDissolve' },
+  { src: '/imgs/function/water/a_hook_bait_unity_8654964.webp', title: 'Hook Hidden Inside Bait', desc: 'HookBaitOneBody' },
+  { src: '/imgs/function/water/a_fishing_application_scene_9430782.webp', title: 'Fishing Application Scene', desc: 'FishingApplicationScenario' },
+  { src: '/imgs/function/water/a_specification_custom_sizes_2365104.webp', title: 'Custom Sizes Available', desc: 'MultipleSpecificationCustom' },
+  { src: '/imgs/function/water/a_performance_storage_solubility_8701547.webp', title: 'Storage & Solubility Performance', desc: 'Moisture ProofStoreAndWater SolublePropertyCan' },
 ]
 
 const PVAWaterSolubleBagsPage: React.FC = () => {
@@ -57,7 +57,7 @@ const PVAWaterSolubleBagsPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
-            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge 点击放大</div>
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge Click to enlarge</div>
           </button>
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-neutral-900">{title}</h3>
@@ -79,7 +79,7 @@ const PVAWaterSolubleBagsPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group md:order-2"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
-            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge 点击放大</div>
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge Click to enlarge</div>
           </button>
         </>
       )}
@@ -98,7 +98,7 @@ const PVAWaterSolubleBagsPage: React.FC = () => {
               <strong>Completely dissolves in water for clean and efficient bait delivery</strong> — Achieve Pack® PVA water-soluble bait bags are designed specifically for fishing applications. The film dissolves completely underwater, leaving no residue while delivering bait precisely to your target location.
             </p>
             <p className="text-neutral-700">
-              完全溶于水，实现干净高效的诱饵投放 — Achieve Pack® PVA 水溶诱饵袋专为钓鱼应用设计。薄膜在水中完全溶解，无残留，精准将饵料投放到目标位置。
+              CompleteDissolveAtWater，AchieveCleanEfficientOfAttractBaitDeploy — Achieve Pack® PVA Water Soluble Bait BagsProfessionalForFishingApplicationDesign。FilmCompletely Dissolves in Water，NoResidue，FineStandardWillBait MaterialDeployToTargetPositionSet。
             </p>
           </div>
           
@@ -106,9 +106,9 @@ const PVAWaterSolubleBagsPage: React.FC = () => {
             image="/imgs/function/water/hero.webp"
             imageAlt="Achieve Pack PVA Water-Soluble Bait Bags Hero"
             title="Achieve Pack® PVA Water-Soluble Bait Bags"
-            titleCn="Achieve Pack® PVA 水溶诱饵袋"
+            titleCn="Achieve Pack® PVA Water Soluble Bait Bags"
             content="Our PVA water-soluble bait bags are made from polyvinyl alcohol film that completely dissolves in water. Perfect for carp fishing, catfishing, and other angling applications. Fill with pellets, groundbait, or boilies - cast and watch the bag dissolve, creating a concentrated bait cloud around your hook."
-            contentCn="我们的 PVA 水溶诱饵袋采用聚乙烯醇薄膜制成，在水中完全溶解。非常适合鲤鱼、鲶鱼等各类钓鱼应用。装入颗粒饵、粉饵或鱼饵球，抛投后袋子溶解，在钩子周围形成浓缩饵料云。"
+            contentCn="Our PVA Water Soluble Bait BagsUsingPolyvinyl AlcoholFilmMadeForm，Completely Dissolves in Water。Ideal forSuitableCarp、CatfishEtcEachCategoryFishingApplication。InstallEnterParticleBait、Bait PowderOrBait Ball，ThrowAfterBagChildDissolve，InHookChildAroundFormFormConcentrateBait MaterialCloud。"
             imageLeft={true}
             index={0}
           />
@@ -125,9 +125,9 @@ const PVAWaterSolubleBagsPage: React.FC = () => {
             image="/imgs/function/water/a_pva_material_closeup_8668927.webp"
             imageAlt="PVA Water-Soluble Film Material Closeup"
             title="100% Water-Soluble PVA Film"
-            titleCn="100% 水溶性 PVA 薄膜"
+            titleCn="100% Water SolubleProperty PVA Film"
             content="PVA (Polyvinyl Alcohol) film is a biodegradable, water-soluble material that dissolves completely in water without leaving any harmful residue. The film is soft, flexible, and transparent, allowing you to see the bait inside. Heat-sealable for secure closure before casting."
-            contentCn="PVA（聚乙烯醇）薄膜是一种可生物降解的水溶性材料，在水中完全溶解，不留任何有害残留物。薄膜柔软、灵活、透明，可以看到内部的饵料。可热封密封，抛投前确保封口牢固。"
+            contentCn="PVA（Polyvinyl Alcohol）FilmIsOneTypeCanRawMaterialDegradableOfWater SolublePropertyMaterial，Completely Dissolves in Water，NotStayAnyHaveHarmResidueMaterial。FilmSoftFlexible、Flexible、Transparent，CanWithViewToInsidePartOfBait Material。CanHeat SealSealed，ThrowBeforeEnsureSealSturdy。"
             imageLeft={false}
             index={1}
           />
@@ -137,19 +137,19 @@ const PVAWaterSolubleBagsPage: React.FC = () => {
               <Droplets className="h-5 w-5 text-blue-600 mb-2" />
               <h4 className="font-semibold text-blue-800">100% Water Soluble</h4>
               <p className="text-sm text-blue-700">Dissolves completely in water</p>
-              <p className="text-xs text-blue-600 mt-1">在水中完全溶解</p>
+              <p className="text-xs text-blue-600 mt-1">Completely Dissolves in Water</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
               <Recycle className="h-5 w-5 text-blue-600 mb-2" />
               <h4 className="font-semibold text-blue-800">Biodegradable</h4>
               <p className="text-sm text-blue-700">Eco-friendly, no residue</p>
-              <p className="text-xs text-blue-600 mt-1">环保无残留</p>
+              <p className="text-xs text-blue-600 mt-1">Eco-FriendlyNoResidue</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
               <Shield className="h-5 w-5 text-blue-600 mb-2" />
               <h4 className="font-semibold text-blue-800">Heat Sealable</h4>
               <p className="text-sm text-blue-700">Secure closure before casting</p>
-              <p className="text-xs text-blue-600 mt-1">热封确保密封</p>
+              <p className="text-xs text-blue-600 mt-1">Heat SealEnsureSealed</p>
             </div>
           </div>
         </div>
@@ -165,9 +165,9 @@ const PVAWaterSolubleBagsPage: React.FC = () => {
             image="/imgs/function/water/a_dissolution_step1_drop_6327912.webp"
             imageAlt="PVA Bait Bag Drop in Water Step 1"
             title="Step 1: Cast and Drop into Water"
-            titleCn="步骤1：抛投入水"
+            titleCn="Steps1：ThrowEnterWater"
             content="Cast your PVA bait bag attached to your fishing rig into the water. The moment the bag hits the water surface, the dissolution process begins. The bag contour remains clear initially, with slight ripples on the water surface indicating the entry point."
-            contentCn="将挂有 PVA 诱饵袋的钓组抛入水中。袋子入水的瞬间，溶解过程开始。袋子轮廓最初仍清晰可见，水面轻微涟漪标记着入水点。"
+            contentCn="WillHangHave PVA AttractBaitBagOfFishGroupThrowEnterWaterIn。BagChildEnterWaterOfInstant，DissolveProcessStart。BagChildContourMostStill InitiallyClearCanSee，WaterFaceLightMicroRippleMarkingEnterWaterPoint。"
             imageLeft={true}
             index={2}
           />
@@ -177,11 +177,11 @@ const PVAWaterSolubleBagsPage: React.FC = () => {
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div>
                 <p className="text-cyan-700"><strong>Attach to rig securely</strong></p>
-                <p className="text-cyan-600">确保与钓组连接牢固</p>
+                <p className="text-cyan-600">EnsureAndFishGroupConnectConnectSturdy</p>
               </div>
               <div>
                 <p className="text-cyan-700"><strong>Cast smoothly to avoid tearing</strong></p>
-                <p className="text-cyan-600">平稳抛投避免撕裂</p>
+                <p className="text-cyan-600">FlatSteadyThrowAvoidTearSplit</p>
               </div>
             </div>
           </div>
@@ -198,9 +198,9 @@ const PVAWaterSolubleBagsPage: React.FC = () => {
             image="/imgs/function/water/a_dissolution_step2_dissolving_9965853.webp"
             imageAlt="PVA Film Dissolving Step 2"
             title="Step 2: Film Starts to Dissolve"
-            titleCn="步骤2：薄膜开始溶解"
+            titleCn="Steps2：FilmStartDissolve"
             content="Within seconds of submersion, the PVA film begins to thin and become more transparent. Small tears and openings appear along the edges as the water breaks down the polymer structure. You can see fine dissolution trails and tiny bubbles in the water as the film disintegrates."
-            contentCn="入水几秒后，PVA 薄膜开始变薄变透明。边缘出现小裂口和开口，水分解聚合物结构。可以看到水中有细小的溶解纹路和微泡，薄膜逐渐分解。"
+            contentCn="EnterWaterA Few SecondsAfter，PVA FilmStartChangeThinChangeTransparent。EdgeEdgeOutPresentSmallSplitOpeningAndOpenOpening，WaterDivideSolvePolySuitableMaterialStructure。CanWithViewToWaterInHaveFineSmallOfDissolveTextureAndMicrobubble，FilmGraduallyDivideSolve。"
             imageLeft={false}
             index={3}
           />
@@ -209,17 +209,17 @@ const PVAWaterSolubleBagsPage: React.FC = () => {
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <span className="text-2xl">💧</span>
               <h4 className="font-semibold text-neutral-800 text-sm mt-2">Water Activation</h4>
-              <p className="text-xs text-neutral-500">水分激活溶解</p>
+              <p className="text-xs text-neutral-500">WaterDivideIntenseLiveDissolve</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <span className="text-2xl">⏱️</span>
               <h4 className="font-semibold text-neutral-800 text-sm mt-2">Fast Dissolution</h4>
-              <p className="text-xs text-neutral-500">快速溶解</p>
+              <p className="text-xs text-neutral-500">FastDissolve</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <span className="text-2xl">🫧</span>
               <h4 className="font-semibold text-neutral-800 text-sm mt-2">No Residue</h4>
-              <p className="text-xs text-neutral-500">无残留</p>
+              <p className="text-xs text-neutral-500">NoResidue</p>
             </div>
           </div>
         </div>
@@ -235,9 +235,9 @@ const PVAWaterSolubleBagsPage: React.FC = () => {
             image="/imgs/function/water/a_dissolution_step3_complete_2409421.webp"
             imageAlt="PVA Film Complete Dissolution Step 3"
             title="Step 3: Film Completely Dissolves - Bait Cloud Forms"
-            titleCn="步骤3：薄膜完全溶解 - 饵料云形成"
+            titleCn="Steps3：FilmCompleteDissolve - Bait MaterialCloudFormForm"
             content="The PVA film is now almost invisible underwater. The bait pellets or groundbait freely disperse in the water, forming a concentrated 'cloud' around your hook. The fishing hook and line are clearly visible, surrounded by an attractive bait presentation that draws fish to your target zone."
-            contentCn="PVA 薄膜在水中几乎看不见了。饵料颗粒或粉饵在水中自由扩散，在钩子周围形成浓缩的饵料云。鱼钩和鱼线清晰可见，周围是吸引鱼类的诱人饵料呈现。"
+            contentCn="PVA FilmInWaterInAlmostViewNotSeeDone。Bait MaterialParticleOrBait PowderInWaterInSelfByExpandScatter，InHookChildAroundFormFormConcentrateOfBait MaterialCloud。Fish HookAndFishLineClearCanSee，AroundIsAbsorbLeadFishCategoryOfAttractPersonBait MaterialPresent。"
             imageLeft={true}
             index={4}
           />
@@ -264,9 +264,9 @@ const PVAWaterSolubleBagsPage: React.FC = () => {
             image="/imgs/function/water/a_hook_bait_unity_8654964.webp"
             imageAlt="Hook Hidden Inside PVA Bait Bag"
             title="Hook Hidden Inside the Bait"
-            titleCn="钩子隐藏在饵料中"
+            titleCn="HookChildHiddenInBait MaterialIn"
             content="Before casting, the fishing hook is completely buried inside the bait mound within the PVA bag. Only a tiny tip of the hook is slightly visible. The bag top is heat-sealed for a secure closure. Once underwater, the bag dissolves and the hook is revealed, surrounded by an attractive bait pile."
-            contentCn="抛投前，鱼钩完全埋在 PVA 袋内的饵料堆中，只有一点点钩尖略微可见。袋口热封确保密封。入水后袋子溶解，钩子显露，周围是诱人的饵料堆。"
+            contentCn="ThrowBefore，Fish HookCompleteBuryIn PVA BagInsideOfBait MaterialStackIn，OnlyHaveOnePointPointHookSharpStrategyMicroCanSee。BagOpeningHeat SealEnsureSealed。EnterWaterAfterBagChildDissolve，HookChildReveal，AroundIsAttractPersonOfBait MaterialStack。"
             imageLeft={false}
             index={5}
           />
@@ -276,20 +276,20 @@ const PVAWaterSolubleBagsPage: React.FC = () => {
               <Fish className="h-6 w-6 text-amber-700 mb-2" />
               <h4 className="font-semibold text-amber-800 mb-2">Carp Fishing</h4>
               <ul className="text-sm text-amber-700 space-y-1">
-                <li>• Pellets and boilies 颗粒饵和鱼饵球</li>
-                <li>• Hemp and particles 麻籽和颗粒</li>
-                <li>• Groundbait mix 粉饵混合</li>
-                <li>• Method feeder setups 方法钓组</li>
+                <li>• Pellets and boilies ParticleBaitAndBait Ball</li>
+                <li>• Hemp and particles HempSeedAndParticle</li>
+                <li>• Groundbait mix Bait PowderMixSuitable</li>
+                <li>• Method feeder setups SideLawFishGroup</li>
               </ul>
             </div>
             <div className="bg-blue-50 p-5 rounded-lg border border-blue-200">
               <Target className="h-6 w-6 text-blue-700 mb-2" />
               <h4 className="font-semibold text-blue-800 mb-2">Catfishing</h4>
               <ul className="text-sm text-blue-700 space-y-1">
-                <li>• Stink bait 臭味饵</li>
-                <li>• Cut bait 切片饵</li>
-                <li>• Dough bait 面团饵</li>
-                <li>• Punch bait 冲压饵</li>
+                <li>• Stink bait SmellTasteBait</li>
+                <li>• Cut bait CutPieceBait</li>
+                <li>• Dough bait FaceGroupBait</li>
+                <li>• Punch bait RushPressureBait</li>
               </ul>
             </div>
           </div>
@@ -306,9 +306,9 @@ const PVAWaterSolubleBagsPage: React.FC = () => {
             image="/imgs/function/water/a_fishing_application_scene_9430782.webp"
             imageAlt="PVA Bait Bag Fishing Application Scene"
             title="Clean Casting - Precise Baiting"
-            titleCn="干净抛投 - 精准打窝"
+            titleCn="CleanThrow - FineStandardStrikeNest"
             content="An angler stands by the lake or river, casting a fishing hook rigged with a PVA water-soluble bait bag. The bait bag hits the water surface with a small splash, then sinks to the bottom where the bag dissolves and releases the bait cloud. Perfect for targeting specific spots without creating disturbance."
-            contentCn="钓鱼者站在湖边或河边，将挂有 PVA 水溶诱饵袋的鱼钩抛出。饵袋入水时溅起小水花，然后沉入水底，袋子溶解释放饵料云。非常适合精准打窝而不惊扰鱼群。"
+            contentCn="FishingPersonStandInLakeEdgeOrRiverEdge，WillHangHave PVA Water Soluble Bait BagsOfFish HookThrowOut。BaitBagEnterWaterTimeSplashStartSmallWaterFlower，ThenSinkEnterWaterBottom，BagChildDissolveReleaseBait MaterialCloud。Ideal forSuitableFineStandardStrikeNestAndNotDisturbFishGroup。"
             imageLeft={true}
             index={6}
           />
@@ -317,22 +317,22 @@ const PVAWaterSolubleBagsPage: React.FC = () => {
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <span className="text-2xl">🐟</span>
               <h4 className="font-semibold text-neutral-800 text-sm mt-2">Carp Fishing</h4>
-              <p className="text-xs text-neutral-500">鲤鱼钓</p>
+              <p className="text-xs text-neutral-500">CarpFish</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <span className="text-2xl">🎣</span>
               <h4 className="font-semibold text-neutral-800 text-sm mt-2">Catfishing</h4>
-              <p className="text-xs text-neutral-500">鲶鱼钓</p>
+              <p className="text-xs text-neutral-500">CatfishFish</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <span className="text-2xl">🌊</span>
               <h4 className="font-semibold text-neutral-800 text-sm mt-2">Lake Fishing</h4>
-              <p className="text-xs text-neutral-500">湖钓</p>
+              <p className="text-xs text-neutral-500">LakeFish</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <span className="text-2xl">🏞️</span>
               <h4 className="font-semibold text-neutral-800 text-sm mt-2">River Fishing</h4>
-              <p className="text-xs text-neutral-500">河钓</p>
+              <p className="text-xs text-neutral-500">RiverFish</p>
             </div>
           </div>
         </div>
@@ -348,9 +348,9 @@ const PVAWaterSolubleBagsPage: React.FC = () => {
             image="/imgs/function/water/a_specification_custom_sizes_2365104.webp"
             imageAlt="PVA Bait Bag Custom Sizes"
             title="Custom Sizes & Printing Available"
-            titleCn="多规格定制与印刷"
+            titleCn="MultipleSpecificationCustomAndPrinting"
             content="Achieve Pack® offers PVA water-soluble bait bags in multiple sizes from small to large, suitable for different bait quantities and fishing applications. Custom sizes available. Options include clear or tinted film, with up to 10 colors printing for branding. All bags are heat-sealable."
-            contentCn="Achieve Pack® 提供从小到大多种规格的 PVA 水溶诱饵袋，适用于不同饵量和钓鱼应用。支持定制尺寸。可选透明或有色薄膜，最多 10 色印刷用于品牌定制。所有袋子均可热封。"
+            contentCn="Achieve Pack® ProvideFromSmallToLargeMultipleSpecificationOf PVA Water Soluble Bait Bags，Suitable forNotSameBaitVolumeAndFishingApplication。SupportCustomDimensions。OptionalTransparentOrHaveColorFilm，MostMultiple 10 ColorPrintingUseAtBrandCustom。AllBagChildEvenCanHeat Seal。"
             imageLeft={false}
             index={7}
           />
@@ -381,17 +381,17 @@ const PVAWaterSolubleBagsPage: React.FC = () => {
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
               <h4 className="font-semibold text-blue-800">Clear Film</h4>
               <p className="text-sm text-blue-700">See-through transparency</p>
-              <p className="text-xs text-blue-600 mt-1">透明薄膜</p>
+              <p className="text-xs text-blue-600 mt-1">TransparentFilm</p>
             </div>
             <div className="bg-cyan-50 p-4 rounded-lg border border-cyan-200">
               <h4 className="font-semibold text-cyan-800">Tinted Film</h4>
               <p className="text-sm text-cyan-700">Color options available</p>
-              <p className="text-xs text-cyan-600 mt-1">有色薄膜</p>
+              <p className="text-xs text-cyan-600 mt-1">HaveColorFilm</p>
             </div>
             <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
               <h4 className="font-semibold text-purple-800">Custom Printing</h4>
               <p className="text-sm text-purple-700">Up to 10 colors</p>
-              <p className="text-xs text-purple-600 mt-1">最多10色印刷</p>
+              <p className="text-xs text-purple-600 mt-1">MostMultiple10ColorPrinting</p>
             </div>
           </div>
         </div>
@@ -407,9 +407,9 @@ const PVAWaterSolubleBagsPage: React.FC = () => {
             image="/imgs/function/water/a_performance_storage_solubility_8701547.webp"
             imageAlt="PVA Bag Storage and Solubility Performance"
             title="Moisture-Proof Storage & Fast Water Solubility"
-            titleCn="防潮储存与快速水溶"
+            titleCn="Moisture ProofStoreAndFastWater Soluble"
             content="PVA water-soluble bags must be stored in a dry environment before use to prevent premature dissolution. Keep in sealed containers or resealable pouches away from moisture. Once in water, the bags dissolve rapidly, releasing bait efficiently. Our bags are designed for consistent performance in various water temperatures."
-            contentCn="PVA 水溶袋使用前必须存放在干燥环境中，防止提前溶解。保存在密封容器或可重封袋中，远离潮湿。入水后袋子快速溶解，高效释放饵料。我们的袋子在各种水温下都能保持稳定性能。"
+            contentCn="PVA Water SolubleBagUseBeforeMust StorePlaceInDryEnvironmentIn，PreventRaiseBeforeDissolve。SaveInSealedCapacityDeviceOrCanResealBagIn，FarLeaveHumid。EnterWaterAfterBagChildFastDissolve，EfficientReleaseBait Material。OurBagChildInVariousWaterTemperatureUnderAllCanMaintainStablePropertyCan。"
             imageLeft={true}
             index={8}
           />
@@ -452,7 +452,7 @@ const PVAWaterSolubleBagsPage: React.FC = () => {
               With over 13 years of flexible packaging expertise and production capacity up to 1,200 tons per year, Achieve Pack supplies PVA water-soluble bait bags to fishing tackle brands and bait manufacturers worldwide. ISO and BRC certified production ensures consistent quality for both food and non-food applications.
             </p>
             <p className="text-neutral-600 text-sm">
-              凭借超过 13 年的软包装专业经验和年产能高达 1,200 吨，Achieve Pack 为全球钓具品牌和饵料制造商供应 PVA 水溶诱饵袋。ISO 和 BRC 认证生产确保食品和非食品应用的稳定品质。
+              With Over 13 Years of FlexiblePackagingProfessionalIndustryThroughTestAndYearProduceCanHighReach 1,200 Ton，Achieve Pack ForGlobalFishToolBrandAndBait MaterialMadeMakeBusinessSupplyShould PVA Water Soluble Bait Bags。ISO And BRC CertificationProductionEnsureFoodAndNonFoodApplicationOfStableQuality。
             </p>
           </div>
           
@@ -608,10 +608,10 @@ const PVAWaterSolubleBagsPage: React.FC = () => {
       <SEOPageLayout
         title="PVA Water-Soluble Bait Bags | Achieve Pack® Fishing Packaging"
         description="Achieve Pack® PVA water-soluble bait bags dissolve completely in water for clean, efficient bait delivery. Perfect for carp fishing, catfishing. Custom sizes, printing available. ISO & BRC certified."
-        keywords={['PVA bait bags', 'water-soluble bags', 'fishing bait packaging', 'PVA bags fishing', 'dissolving bait bags', 'carp fishing bags', 'catfish bait bags', 'water soluble film', 'biodegradable bait bags', 'fishing tackle packaging', 'PVA mesh bags', '水溶诱饵袋', 'PVA钓鱼袋']}
+        keywords={['PVA bait bags', 'water-soluble bags', 'fishing bait packaging', 'PVA bags fishing', 'dissolving bait bags', 'carp fishing bags', 'catfish bait bags', 'water soluble film', 'biodegradable bait bags', 'fishing tackle packaging', 'PVA mesh bags', 'Water Soluble Bait Bags', 'PVAFishingBag']}
         canonicalUrl="https://achievepack.com/function/pva-water-soluble-bags"
         heroTitle="Achieve Pack® PVA Water-Soluble Bait Bags"
-        heroSubtitle="Completely dissolves in water - Clean and efficient bait delivery / 完全溶于水 - 干净高效的诱饵投放"
+        heroSubtitle="Completely dissolves in water - Clean and efficient bait delivery / CompleteDissolveAtWater - CleanEfficientOfAttractBaitDeploy"
         heroImage="/imgs/function/water/hero.webp"
         heroImageAlt="Achieve Pack PVA Water-Soluble Bait Bags"
         introSummary="Achieve Pack® PVA water-soluble bait bags are made from 100% biodegradable PVA film that dissolves completely in water. Perfect for carp fishing, catfishing, and precise bait delivery. Custom sizes and printing available."

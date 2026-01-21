@@ -6,16 +6,16 @@ import { useCalendly } from '../../contexts/CalendlyContext'
 
 // Gallery images from /imgs/function/microwave/
 const microwaveGallery = [
-  { src: '/imgs/function/microwave/a_kv_1_hero_main_4427371.webp', title: 'Eco-Friendly Microwave Cooking Bags', desc: '安全微波蒸煮、保鲜与加热的一体袋' },
-  { src: '/imgs/function/microwave/a_kv_2_info_foodsafe_5240576.webp', title: 'Food-Safe & Microwave-Safe', desc: '食品级材料 · 微波炉安全' },
-  { src: '/imgs/function/microwave/a_kv_3_detail_zipperbase_3012328.webp', title: 'Strong Zipper & Stand-Up Base', desc: '牢固拉链 + 自立底结构' },
-  { src: '/imgs/function/microwave/a_kv_4_detail_steamvent_4869525.webp', title: 'Built-in Steam Vent', desc: '内置蒸汽孔设计' },
-  { src: '/imgs/function/microwave/a_kv_5_detail_freshness_8989322.webp', title: 'See Freshness at a Glance', desc: '一眼看见新鲜' },
-  { src: '/imgs/function/microwave/a_kv_6_detail_waterdrops_2735995.webp', title: 'Heat-Resistant Food-Grade Film', desc: '耐热食品级薄膜' },
-  { src: '/imgs/function/microwave/a_kv_7_detail_capacity_9860751.webp', title: 'Generous Capacity for Family Portions', desc: '宽口大容量，适合家庭份量' },
-  { src: '/imgs/function/microwave/a_kv_8_lifestyle_journeyscene_9334974.webp', title: 'From Fridge to Microwave in One Bag', desc: '一袋搞定，从冰箱到微波炉' },
-  { src: '/imgs/function/microwave/a_kv_9_info_ecocomparison_5260427.webp', title: 'Eco-Friendly Convenience', desc: '环保又省事' },
-  { src: '/imgs/function/microwave/a_kv_10_specs_closingpage_2082225.webp', title: 'Achieve Pack Microwave Steam Pouch', desc: 'Achieve Pack 微波蒸煮袋' },
+  { src: '/imgs/function/microwave/a_kv_1_hero_main_4427371.webp', title: 'Eco-Friendly Microwave Cooking Bags', desc: 'Safe Microwave Steaming、All-in-One Storage & Heating Bag' },
+  { src: '/imgs/function/microwave/a_kv_2_info_foodsafe_5240576.webp', title: 'Food-Safe & Microwave-Safe', desc: 'Food GradeMaterial · MicrowaveOvenSafe' },
+  { src: '/imgs/function/microwave/a_kv_3_detail_zipperbase_3012328.webp', title: 'Strong Zipper & Stand-Up Base', desc: 'SturdyZipper + Stand-Up BottomStructure' },
+  { src: '/imgs/function/microwave/a_kv_4_detail_steamvent_4869525.webp', title: 'Built-in Steam Vent', desc: 'InsideSetSteamSteamHoleDesign' },
+  { src: '/imgs/function/microwave/a_kv_5_detail_freshness_8989322.webp', title: 'See Freshness at a Glance', desc: 'OneEyeViewSeeFresh' },
+  { src: '/imgs/function/microwave/a_kv_6_detail_waterdrops_2735995.webp', title: 'Heat-Resistant Food-Grade Film', desc: 'Heat ResistantFood GradeFilm' },
+  { src: '/imgs/function/microwave/a_kv_7_detail_capacity_9860751.webp', title: 'Generous Capacity for Family Portions', desc: 'Wide OpeningLargeCapacity，SuitableSuitableFamily PortionVolume' },
+  { src: '/imgs/function/microwave/a_kv_8_lifestyle_journeyscene_9334974.webp', title: 'From Fridge to Microwave in One Bag', desc: 'OneBagDone，FromRefrigeratorToMicrowaveOven' },
+  { src: '/imgs/function/microwave/a_kv_9_info_ecocomparison_5260427.webp', title: 'Eco-Friendly Convenience', desc: 'Eco-FriendlyAnd Convenient' },
+  { src: '/imgs/function/microwave/a_kv_10_specs_closingpage_2082225.webp', title: 'Achieve Pack Microwave Steam Pouch', desc: 'Achieve Pack MicrowaveSteamingBag' },
 ]
 
 const MicrowaveSteamBagsPage: React.FC = () => {
@@ -58,7 +58,7 @@ const MicrowaveSteamBagsPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
-            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge 点击放大</div>
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge Click to enlarge</div>
           </button>
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-neutral-900">{title}</h3>
@@ -80,7 +80,7 @@ const MicrowaveSteamBagsPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group md:order-2"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
-            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge 点击放大</div>
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge Click to enlarge</div>
           </button>
         </>
       )}
@@ -99,7 +99,7 @@ const MicrowaveSteamBagsPage: React.FC = () => {
               <strong>Steam, store and reheat food safely</strong> — Achieve Pack microwave steam bags are designed for modern, eco-conscious kitchens.
             </p>
             <p className="text-neutral-700">
-              安全微波蒸煮、保鲜与加热的一体袋 — 专为现代环保厨房设计
+              Safe Microwave Steaming、All-in-One Storage & Heating Bag — ProfessionalForModernEco-FriendlyKitchenDesign
             </p>
           </div>
           
@@ -107,9 +107,9 @@ const MicrowaveSteamBagsPage: React.FC = () => {
             image="/imgs/function/microwave/a_kv_1_hero_main_4427371.webp"
             imageAlt="Achieve Pack Microwave Steam Bag Hero"
             title="Eco-Friendly Microwave Cooking Bags"
-            titleCn="环保微波蒸煮袋"
+            titleCn="Eco-FriendlyMicrowaveSteamingBag"
             content="Our food-grade microwave steam bags are perfect for steaming vegetables, reheating frozen meals, and meal prep. The innovative design reduces the need for extra cookware while maintaining food safety standards."
-            contentCn="我们的食品级微波蒸煮袋非常适合蒸蔬菜、加热冷冻餐和备餐。创新设计减少了额外炊具的使用，同时保持食品安全标准。"
+            contentCn="OurFood GradeMicrowaveSteamingBagIdeal forSuitableSteamVegetables、HeatingFrozenMealAndPrepareMeal。CreateNewDesignReduceDoneExtraOutsideCookToolOfUse，MeanwhileMaintainFoodSafeStandard。"
             imageLeft={true}
             index={0}
           />
@@ -126,9 +126,9 @@ const MicrowaveSteamBagsPage: React.FC = () => {
             image="/imgs/function/microwave/a_kv_2_info_foodsafe_5240576.webp"
             imageAlt="Food Safe Microwave Bag"
             title="Certified Food-Contact Material"
-            titleCn="食品级材料 · 微波炉安全"
+            titleCn="Food GradeMaterial · MicrowaveOvenSafe"
             content="Made from food-grade film that can directly contact vegetables, fruits, and meat. Passed relevant food safety tests and designed to withstand typical home microwave temperatures."
-            contentCn="采用食品级薄膜，可直接与蔬菜、水果、肉类接触，通过相关食品安全测试，耐受典型家用微波加热温度。"
+            contentCn="UsingFood GradeFilm，CanDirectAndVegetables、Fruit、MeatCategoryContact，ThroughRelatedCloseFoodSafeTest，ResistantReceiveClassicTypeHomeUseMicrowaveHeatingTemperatureDegree。"
             imageLeft={false}
             index={1}
           />
@@ -137,12 +137,12 @@ const MicrowaveSteamBagsPage: React.FC = () => {
             <div className="bg-green-50 p-4 rounded-lg border border-green-200">
               <CheckCircle className="h-5 w-5 text-green-600 mb-2" />
               <h4 className="font-semibold text-green-800">Certified food-contact material</h4>
-              <p className="text-sm text-green-700">通过食品接触安全测试</p>
+              <p className="text-sm text-green-700">ThroughFoodContactSafeTest</p>
             </div>
             <div className="bg-green-50 p-4 rounded-lg border border-green-200">
               <Thermometer className="h-5 w-5 text-green-600 mb-2" />
               <h4 className="font-semibold text-green-800">Designed for home microwave temperatures</h4>
-              <p className="text-sm text-green-700">专为家用微波加热温度设计</p>
+              <p className="text-sm text-green-700">ProfessionalForHomeUseMicrowaveHeatingTemperatureDegreeDesign</p>
             </div>
           </div>
         </div>
@@ -158,9 +158,9 @@ const MicrowaveSteamBagsPage: React.FC = () => {
             image="/imgs/function/microwave/a_kv_3_detail_zipperbase_3012328.webp"
             imageAlt="Zipper and Stand-Up Base Detail"
             title="Easy to Seal, Easy to Stand"
-            titleCn="牢固拉链 + 自立底结构"
+            titleCn="SturdyZipper + Stand-Up BottomStructure"
             content="The double-track zipper at the top makes it easy to seal and store ingredients, preventing odor mixing and freezer burn. The stand-up base allows the bag to sit upright in the microwave for even heating."
-            contentCn="顶部双道拉链结构，便于密封保存食材，防止异味串味和冷冻烧伤，同时可重复开合。自立底设计让袋子在微波炉中稳稳站立，加热更均匀。"
+            contentCn="TopPartDual TrackZipperStructure，ConvenientAtSealedSaveFoodMaterial，PreventDifferentTasteStringTasteAndFrozenBurn，MeanwhileCanRepeatedOpenSuitable。Stand-Up BottomDesignLetBagChildInMicrowaveOvenInSteadySteadyStandStand，HeatingMoreEvenEven。"
             imageLeft={true}
             index={2}
           />
@@ -177,9 +177,9 @@ const MicrowaveSteamBagsPage: React.FC = () => {
             image="/imgs/function/microwave/a_kv_4_detail_steamvent_4869525.webp"
             imageAlt="Steam Vent Detail"
             title="Safe Pressure Release"
-            titleCn="内置蒸汽孔设计"
+            titleCn="InsideSetSteamSteamHoleDesign"
             content="The small holes above the zipper serve as steam vents, preventing excessive internal pressure. This helps achieve even heating and reduces the risk of the bag bursting during microwave cooking."
-            contentCn="袋口上方的小孔作为蒸汽排气口，避免袋内压力过高，有助于均匀加热，减少爆袋风险。"
+            contentCn="BagOpeningUpSideOfSmallHoleWorkForSteamSteamRowAirOpening，AvoidBagInsidePressurePowerThroughHigh，HaveAssistAtEvenEvenHeating，ReduceBurstBagRisk。"
             imageLeft={false}
             index={3}
           />
@@ -196,9 +196,9 @@ const MicrowaveSteamBagsPage: React.FC = () => {
             image="/imgs/function/microwave/a_kv_5_detail_freshness_8989322.webp"
             imageAlt="Freshness Visibility"
             title="Clear Enough to Check Doneness"
-            titleCn="一眼看见新鲜"
+            titleCn="OneEyeViewSeeFresh"
             content="The semi-transparent film allows you to see the vibrant colors of vegetables inside, making it easy to monitor cooking progress and check doneness without opening the bag."
-            contentCn="够清晰看熟度，也能适度遮挡混乱 — 半透明薄膜让您可以看到袋内蔬菜的鲜艳颜色，轻松监控烹饪进度。"
+            contentCn="EnoughClearViewCookedDegree，AlsoCanSuitableDegreeBlockMixMess — HalfTransparentFilmLetYouCanWithViewToBagInsideVegetablesOfBrightColorColor，LightLooseMonitorCookingIntoDegree。"
             imageLeft={true}
             index={4}
           />
@@ -215,9 +215,9 @@ const MicrowaveSteamBagsPage: React.FC = () => {
             image="/imgs/function/microwave/a_kv_6_detail_waterdrops_2735995.webp"
             imageAlt="Heat Resistant Film with Water Droplets"
             title="Designed for Everyday Microwave Use"
-            titleCn="耐热食品级薄膜"
+            titleCn="Heat ResistantFood GradeFilm"
             content="The heat-resistant film is specifically designed for everyday microwave reheating and steaming. Water droplets on the surface indicate the bag is working properly to retain moisture during cooking."
-            contentCn="专为日常微波加热与蒸煮设计 — 耐热薄膜确保安全烹饪，表面水珠表明袋子正在正常保持烹饪过程中的水分。"
+            contentCn="ProfessionalForDailyMicrowaveHeatingAndSteamingDesign — Heat ResistantFilmEnsureSafeCooking，SurfaceWaterBead ShowsBagChildRightInRightOftenMaintainCookingProcessInOfWaterDivide。"
             imageLeft={false}
             index={5}
           />
@@ -234,9 +234,9 @@ const MicrowaveSteamBagsPage: React.FC = () => {
             image="/imgs/function/microwave/a_kv_7_detail_capacity_9860751.webp"
             imageAlt="Bag Capacity"
             title="Ideal for Vegetables, Mixed Meals and Meal Prep"
-            titleCn="宽口大容量，适合家庭份量"
+            titleCn="Wide OpeningLargeCapacity，SuitableSuitableFamily PortionVolume"
             content="The wide opening and generous capacity make it easy to fill with vegetables, mixed meals, or pre-portioned ingredients. Perfect for both home cooking and commercial meal prep applications."
-            contentCn="适合蔬菜拼盘、混合餐和预制菜分装 — 宽口设计便于填充，大容量满足家庭份量需求。"
+            contentCn="SuitableSuitableVegetablesPlatter、MixSuitableMealAndPre-Made Meal Portioning — Wide OpeningDesignConvenientAtFill，LargeCapacityMeetFamily PortionVolumeRequireDemand。"
             imageLeft={true}
             index={6}
           />
@@ -253,9 +253,9 @@ const MicrowaveSteamBagsPage: React.FC = () => {
             image="/imgs/function/microwave/a_kv_8_lifestyle_journeyscene_9334974.webp"
             imageAlt="From Fridge to Microwave Journey"
             title="Store, Steam and Serve"
-            titleCn="一袋搞定，从冰箱到微波炉"
+            titleCn="OneBagDone，FromRefrigeratorToMicrowaveOven"
             content="One bag handles the entire journey from storage to cooking to serving. Store in the fridge or freezer, heat in the microwave, and serve directly — reducing the need for multiple containers."
-            contentCn="存放、蒸煮、上桌都用同一只 Achieve Pack 袋 — 减少多个容器的使用，简化厨房流程。"
+            contentCn="StorePlace、Steaming、UpTableAllUseSameOneOnly Achieve Pack Bag — ReduceMultipleUnitCapacityDeviceOfUse，SimpleizationKitchenProcess。"
             imageLeft={false}
             index={7}
           />
@@ -272,9 +272,9 @@ const MicrowaveSteamBagsPage: React.FC = () => {
             image="/imgs/function/microwave/a_kv_9_info_ecocomparison_5260427.webp"
             imageAlt="Eco Comparison"
             title="Less Water, Fewer Dishes to Wash"
-            titleCn="环保又省事"
+            titleCn="Eco-FriendlyAnd Convenient"
             content="Compared to traditional cooking methods, our steam bags use less water and create fewer dishes to wash. They also use less material than rigid plastic containers, reducing carbon footprint during transportation and disposal."
-            contentCn="用水更少、减少刷锅洗碗。比硬质塑料盒使用更少材料，运输与废弃阶段碳足迹更低。"
+            contentCn="UseWaterMoreFew、ReduceWash Dishes。RatioHardQualityPlasticBoxUseMoreFewMaterial，TransportationAndDiscardStageCarbonLower Footprint。"
             imageLeft={true}
             index={8}
           />
@@ -310,9 +310,9 @@ const MicrowaveSteamBagsPage: React.FC = () => {
             image="/imgs/function/microwave/a_kv_10_specs_closingpage_2082225.webp"
             imageAlt="Product Specifications"
             title="Achieve Pack Microwave Steam Pouch"
-            titleCn="Achieve Pack 微波蒸煮袋"
+            titleCn="Achieve Pack MicrowaveSteamingBag"
             content="Available in multiple sizes to suit your needs. Perfect for vegetables, frozen meals, and meal prep applications. Supports eco-friendly material options including recyclable and bio-based formulations."
-            contentCn="由 Achieve Pack 打造，服务现代环保厨房 — 提供多种尺寸选择，支持环保材料方案。"
+            contentCn="By Achieve Pack StrikeMake，ServiceModernEco-FriendlyKitchen — ProvideMultipleDimensionsChoose，SupportEco-Friendly MaterialsSolution。"
             imageLeft={false}
             index={9}
           />
@@ -320,29 +320,29 @@ const MicrowaveSteamBagsPage: React.FC = () => {
           <div className="grid md:grid-cols-3 gap-4 mt-6">
             <div className="bg-white border border-neutral-200 p-4 rounded-lg">
               <h4 className="font-semibold text-neutral-800 mb-2">Sizes & Formats</h4>
-              <p className="text-sm text-neutral-600">尺寸与规格</p>
+              <p className="text-sm text-neutral-600">DimensionsAndSpecification</p>
               <ul className="text-xs text-neutral-500 mt-2 space-y-1">
-                <li>• Small (个人份)</li>
-                <li>• Medium (2-3人份)</li>
-                <li>• Family Size (家庭装)</li>
+                <li>• Small (UnitPersonPortion)</li>
+                <li>• Medium (2-3PersonPortion)</li>
+                <li>• Family Size (HomeFamilyInstall)</li>
               </ul>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-lg">
               <h4 className="font-semibold text-neutral-800 mb-2">Usage</h4>
-              <p className="text-sm text-neutral-600">用途</p>
+              <p className="text-sm text-neutral-600">UseRoute</p>
               <ul className="text-xs text-neutral-500 mt-2 space-y-1">
-                <li>• Vegetables 蔬菜</li>
-                <li>• Frozen meals 冷冻餐</li>
-                <li>• Meal prep 预制菜分装</li>
+                <li>• Vegetables Vegetables</li>
+                <li>• Frozen meals FrozenMeal</li>
+                <li>• Meal prep Pre-Made Meal Portioning</li>
               </ul>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-lg">
               <h4 className="font-semibold text-neutral-800 mb-2">Safety & Standards</h4>
-              <p className="text-sm text-neutral-600">安全与标准</p>
+              <p className="text-sm text-neutral-600">SafeAndStandard</p>
               <ul className="text-xs text-neutral-500 mt-2 space-y-1">
-                <li>• Food-grade 食品级</li>
-                <li>• Microwave-safe 微波安全</li>
-                <li>• Eco material options 环保材料</li>
+                <li>• Food-grade Food Grade</li>
+                <li>• Microwave-safe MicrowaveSafe</li>
+                <li>• Eco material options Eco-Friendly Materials</li>
               </ul>
             </div>
           </div>
@@ -362,7 +362,7 @@ const MicrowaveSteamBagsPage: React.FC = () => {
               Achieve Pack has been manufacturing food-safe flexible packaging for over 13 years. Our microwave steam bags are produced in BRC-certified facilities and tested to meet FDA food contact standards.
             </p>
             <p className="text-neutral-600 text-sm">
-              Achieve Pack 自 2011 年起专注食品级软包装制造。我们的微波蒸煮袋在 BRC 认证工厂生产，符合 FDA 食品接触标准。
+              Achieve Pack Self 2011 YearStartProfessionalNoteFood GradeFlexiblePackagingMadeMake。OurMicrowaveSteamingBagIn BRC CertificationFactoryProduction，MatchSuitable FDA FoodContactStandard。
             </p>
           </div>
           
@@ -514,7 +514,7 @@ const MicrowaveSteamBagsPage: React.FC = () => {
         keywords={['microwave steam bags', 'microwave cooking pouches', 'vegetable steam bags', 'food-safe microwave bags', 'eco-friendly cooking bags', 'meal prep pouches', 'steam vent bags', 'microwaveable food pouches', 'heat resistant bags', 'frozen meal bags', 'reheatable pouches', 'BPA-free microwave bags', 'sustainable cooking bags', 'food grade steam bags']}
         canonicalUrl="https://achievepack.com/function/microwave-steam-bags"
         heroTitle="Eco-Friendly Microwave Cooking Bags"
-        heroSubtitle="Steam, store and reheat food safely — 安全微波蒸煮、保鲜与加热的一体袋"
+        heroSubtitle="Steam, store and reheat food safely — Safe Microwave Steaming、All-in-One Storage & Heating Bag"
         heroImage="/imgs/function/microwave/a_microwavebag_hero_main_kitchen_2543693.webp"
         heroImageAlt="Achieve Pack Microwave Steam Bag with vegetables"
         introSummary="Food-grade microwave steam bags designed for modern, eco-conscious kitchens. Perfect for steaming vegetables, reheating frozen meals, and meal prep."

@@ -229,7 +229,7 @@ const MediumBarrierPage: React.FC = () => {
     },
     {
       id: 'industry-scenarios',
-      title: '行業應用場景 Industry Applications',
+      title: 'Industry Applications',
       icon: <Factory className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
@@ -237,74 +237,74 @@ const MediumBarrierPage: React.FC = () => {
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
               <div className="flex items-center gap-2 mb-3">
                 <ShoppingBag className="h-5 w-5 text-amber-600" />
-                <h4 className="font-semibold text-neutral-900">咖啡豆 Coffee Beans</h4>
+                <h4 className="font-semibold text-neutral-900">coffeebeans Coffee Beans</h4>
               </div>
-              <p className="text-sm text-neutral-600 mb-3">烘焙咖啡豆、單品咖啡、精品咖啡</p>
-              <div className="text-xs text-amber-700 bg-amber-100 px-2 py-1 rounded inline-block">佔比 35%</div>
+              <p className="text-sm text-neutral-600 mb-3">Roasted coffee beans、Single origin coffee、Specialty coffee</p>
+              <div className="text-xs text-amber-700 bg-amber-100 px-2 py-1 rounded inline-block">Share: 35%</div>
             </div>
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-5 rounded-xl border border-blue-200">
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles className="h-5 w-5 text-blue-600" />
-                <h4 className="font-semibold text-neutral-900">寵物食品 Pet Food</h4>
+                <h4 className="font-semibold text-neutral-900">Pet Food Pet Food</h4>
               </div>
-              <p className="text-sm text-neutral-600 mb-3">狗糧、貓糧、寵物零食</p>
-              <div className="text-xs text-blue-700 bg-blue-100 px-2 py-1 rounded inline-block">佔比 40%</div>
+              <p className="text-sm text-neutral-600 mb-3">Dog food、Cat food、PetSnacks</p>
+              <div className="text-xs text-blue-700 bg-blue-100 px-2 py-1 rounded inline-block">Share: 40%</div>
             </div>
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
               <div className="flex items-center gap-2 mb-3">
                 <TrendingUp className="h-5 w-5 text-green-600" />
-                <h4 className="font-semibold text-neutral-900">堅果零食 Nuts & Snacks</h4>
+                <h4 className="font-semibold text-neutral-900">nutsSnacks Nuts & Snacks</h4>
               </div>
-              <p className="text-sm text-neutral-600 mb-3">堅果、種子、乾果、零食</p>
-              <div className="text-xs text-green-700 bg-green-100 px-2 py-1 rounded inline-block">佔比 25%</div>
+              <p className="text-sm text-neutral-600 mb-3">nuts、Seeds、Dried fruits、Snacks</p>
+              <div className="text-xs text-green-700 bg-green-100 px-2 py-1 rounded inline-block">25% market share</div>
             </div>
           </div>
           <div className="bg-white p-4 rounded-lg border border-neutral-200">
-            <h4 className="font-semibold text-neutral-900 mb-3">客戶成功案例 Success Story</h4>
-            <p className="text-sm text-neutral-600">「我們的寵物食品品牌採用中阻隔可回收包裝後，產品保質期達到了12個月，同時滿足了消費者對環保包裝的需求，市場反饋非常正面。」</p>
-            <p className="text-xs text-neutral-500 mt-2">— 寵物食品品牌，年銷售額增長 35%</p>
+            <h4 className="font-semibold text-neutral-900 mb-3">Customer Success Story</h4>
+            <p className="text-sm text-neutral-600">「OurPet FoodBrandadoptionMediumbarrierRecyclablePackagingAfter，ProductShelf Lifeachieved12 months，whilewhenmeetConsumersforEco-friendlyPackagingRequirements，Marketfeedback was very positive。」</p>
+            <p className="text-xs text-neutral-500 mt-2">— Pet FoodBrand，yearsalesamountgrowth 35%</p>
           </div>
         </div>
       )
     },
     {
       id: 'market-data',
-      title: '市場數據 Market Intelligence',
+      title: 'Market Data & Intelligence',
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="bg-gradient-to-br from-primary-500 to-primary-600 text-white p-4 rounded-xl text-center">
               <div className="text-3xl font-bold">$22.5B</div>
-              <div className="text-sm opacity-90">全球中阻隔包裝市場</div>
-              <div className="text-xs opacity-75 mt-1">2024年規模</div>
+              <div className="text-sm opacity-90">GlobalMediumbarrierPackagingMarket</div>
+              <div className="text-xs opacity-75 mt-1">2024yearSize</div>
             </div>
             <div className="bg-gradient-to-br from-green-500 to-green-600 text-white p-4 rounded-xl text-center">
               <div className="text-3xl font-bold">5.8%</div>
-              <div className="text-sm opacity-90">年複合增長率</div>
+              <div className="text-sm opacity-90">CAGR</div>
               <div className="text-xs opacity-75 mt-1">2024-2030</div>
             </div>
             <div className="bg-gradient-to-br from-amber-500 to-amber-600 text-white p-4 rounded-xl text-center">
               <div className="text-3xl font-bold">6-12</div>
-              <div className="text-sm opacity-90">個月保質期</div>
-              <div className="text-xs opacity-75 mt-1">中阻隔標準</div>
+              <div className="text-sm opacity-90"> monthsShelf Life</div>
+              <div className="text-xs opacity-75 mt-1">Mediumbarrierstandard</div>
             </div>
             <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-4 rounded-xl text-center">
               <div className="text-3xl font-bold">55%</div>
-              <div className="text-sm opacity-90">可回收材料佔比</div>
-              <div className="text-xs opacity-75 mt-1">中阻隔市場</div>
+              <div className="text-sm opacity-90">RecyclableShare:</div>
+              <div className="text-xs opacity-75 mt-1">MediumbarrierMarket</div>
             </div>
           </div>
           <div className="bg-neutral-50 p-4 rounded-lg">
-            <h4 className="font-semibold text-neutral-900 mb-3">市場趨勢洞察</h4>
+            <h4 className="font-semibold text-neutral-900 mb-3">Market Trend Insights</h4>
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div className="flex items-start gap-2">
                 <TrendingUp className="h-4 w-4 text-green-500 mt-0.5" />
-                <span><strong>Mono PE市場領先</strong>：可回收單一材質結構成主流</span>
+                <span><strong>Mono PEMarketleading</strong>：Recyclablemono-materialMaterialsstructureFormMainstream</span>
               </div>
               <div className="flex items-start gap-2">
                 <TrendingUp className="h-4 w-4 text-green-500 mt-0.5" />
-                <span><strong>寵物食品增長</strong>：全球寵物食品市場年增8%</span>
+                <span><strong>Pet Foodgrowth</strong>：GlobalPet FoodMarketyeargrowth8%</span>
               </div>
             </div>
           </div>
@@ -313,7 +313,7 @@ const MediumBarrierPage: React.FC = () => {
     },
     {
       id: 'material-comparison',
-      title: '材料對比 Material Comparison',
+      title: 'Material Comparison',
       icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
@@ -321,48 +321,48 @@ const MediumBarrierPage: React.FC = () => {
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="bg-neutral-100">
-                  <th className="border border-neutral-200 px-4 py-2 text-left">材料類型</th>
-                  <th className="border border-neutral-200 px-4 py-2 text-center">保質期</th>
-                  <th className="border border-neutral-200 px-4 py-2 text-center">成本</th>
-                  <th className="border border-neutral-200 px-4 py-2 text-center">環保性</th>
-                  <th className="border border-neutral-200 px-4 py-2 text-left">推薦應用</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-left">Material Type</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-center">Shelf Life</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-center">Cost</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-center">Eco-Friendly</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-left">Recommended Use</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-neutral-200 px-4 py-2 font-medium">Mono-PE 可回收</td>
-                  <td className="border border-neutral-200 px-4 py-2 text-center">6-9月</td>
+                  <td className="border border-neutral-200 px-4 py-2 font-medium">Mono-PE Recyclable</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">6-9month</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">💰</td>
-                  <td className="border border-neutral-200 px-4 py-2 text-center">♥️ 可回收</td>
-                  <td className="border border-neutral-200 px-4 py-2">咖啡豆、寵物食品</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">♥️ Recyclable</td>
+                  <td className="border border-neutral-200 px-4 py-2">coffeebeans、Pet Food</td>
                 </tr>
                 <tr className="bg-neutral-50">
-                  <td className="border border-neutral-200 px-4 py-2 font-medium">Bio-PE 甘蔗</td>
-                  <td className="border border-neutral-200 px-4 py-2 text-center">6-9月</td>
+                  <td className="border border-neutral-200 px-4 py-2 font-medium">Bio-PE sugarcane</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">6-9month</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">💰💰</td>
-                  <td className="border border-neutral-200 px-4 py-2 text-center">🌱 碳負性</td>
-                  <td className="border border-neutral-200 px-4 py-2">環保品牌</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">🌱 carbon negativefocused</td>
+                  <td className="border border-neutral-200 px-4 py-2">Eco-friendlyBrand</td>
                 </tr>
                 <tr>
-                  <td className="border border-neutral-200 px-4 py-2 font-medium">PCR 回收塑料</td>
-                  <td className="border border-neutral-200 px-4 py-2 text-center">6-12月</td>
+                  <td className="border border-neutral-200 px-4 py-2 font-medium">PCR recycled plastic</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">6-12month</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">💰</td>
-                  <td className="border border-neutral-200 px-4 py-2 text-center">🌱 循環經濟</td>
-                  <td className="border border-neutral-200 px-4 py-2">大型品牌、零售</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">🌱 circular economy</td>
+                  <td className="border border-neutral-200 px-4 py-2">largetypeBrand、retail</td>
                 </tr>
                 <tr className="bg-green-50">
-                  <td className="border border-neutral-200 px-4 py-2 font-medium">金屬化牛皮紙</td>
-                  <td className="border border-neutral-200 px-4 py-2 text-center">9-12月</td>
+                  <td className="border border-neutral-200 px-4 py-2 font-medium">MetallicizationKraft paper</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">9-12month</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">💰💰</td>
-                  <td className="border border-neutral-200 px-4 py-2 text-center">部分可回收</td>
-                  <td className="border border-neutral-200 px-4 py-2">精品咖啡、高端茶葉</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">partialRecyclable</td>
+                  <td className="border border-neutral-200 px-4 py-2">Specialty coffee、HighpremiumTea</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div className="bg-primary-50 p-4 rounded-lg">
-            <h4 className="font-semibold text-primary-800 mb-2">選材建議</h4>
-            <p className="text-sm text-primary-700">中阻隔是最廣泛使用的包裝類別。追求可回收選Mono-PE；環保優先選Bio-PE或PCR；追求奢華外觀選金屬化牛皮紙。</p>
+            <h4 className="font-semibold text-primary-800 mb-2">Material Selection Guide</h4>
+            <p className="text-sm text-primary-700">MediumbarrierismaximumextensiveEnableusedPackagingCategoryType。PursueRecyclablechooseMono-PE；Eco-friendlyPrioritychooseBio-PEOrPCR；PursueLuxuriousappearancechooseMetallicizationKraft paper。</p>
           </div>
         </div>
       )

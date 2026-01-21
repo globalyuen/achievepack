@@ -312,145 +312,145 @@ const ReclosureOptionsPage: React.FC = () => {
     },
     {
       id: 'industry-scenarios',
-      title: '行業應用場景 Industry Applications',
+      title: 'Industry Applications',
       icon: <Factory className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
-          <p className="text-neutral-700">不同產品類型對重封功能有不同需求，選擇正確的閉合方式是提升消費體驗的關鍵。</p>
+          <p className="text-neutral-700">DifferentProducttypesforreseal functionhaveDifferentRequirements，Choosing the right closure type is key to enhancing consumer experience。</p>
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
               <div className="flex items-center gap-2 mb-3">
                 <ShoppingBag className="h-5 w-5 text-green-600" />
-                <h4 className="font-semibold text-green-800">零食寵物食品</h4>
+                <h4 className="font-semibold text-green-800">SnacksPet Food</h4>
               </div>
-              <p className="text-sm text-green-700 mb-3">滑塊拉鏈、壓合拉鏈幫助保持零食和寵物食品新鮮度。</p>
-              <div className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded inline-block">佔比: 45%</div>
+              <p className="text-sm text-green-700 mb-3">Slider zipper、Press-to-close zipper helps maintainSnacksandPet Foodfreshness。</p>
+              <div className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded inline-block">Share:: 45%</div>
             </div>
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-5 rounded-xl border border-blue-200">
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles className="h-5 w-5 text-blue-600" />
-                <h4 className="font-semibold text-blue-800">嬰兒醬料食品</h4>
+                <h4 className="font-semibold text-blue-800">Baby pureesfood</h4>
               </div>
-              <p className="text-sm text-blue-700 mb-3">嘴嘴壺設計適合嘴兒食品泥、醬料等流體產品的控制倎出。</p>
-              <div className="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded inline-block">佔比: 30%</div>
+              <p className="text-sm text-blue-700 mb-3">Spout pouchdesignssuitable for babiesfoodpuree、pureesetc.liquidProductcontrolled dispensing。</p>
+              <div className="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded inline-block">Share:: 30%</div>
             </div>
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-200">
               <div className="flex items-center gap-2 mb-3">
                 <Package className="h-5 w-5 text-purple-600" />
-                <h4 className="font-semibold text-purple-800">大麻醫藥</h4>
+                <h4 className="font-semibold text-purple-800">largeHempPharmaceutical</h4>
               </div>
-              <p className="text-sm text-purple-700 mb-3">兒童安全鎖對大麻和醫藥產品是法規強制要求。</p>
-              <div className="text-xs text-purple-600 bg-purple-100 px-2 py-1 rounded inline-block">佔比: 25%</div>
+              <p className="text-sm text-purple-700 mb-3">Child-resistant lockforlargeHempandPharmaceuticalProductisregulationsmandatoryrequirements。</p>
+              <div className="text-xs text-purple-600 bg-purple-100 px-2 py-1 rounded inline-block">Share:: 25%</div>
             </div>
           </div>
           <div className="bg-neutral-50 p-4 rounded-lg mt-4">
-            <h5 className="font-semibold text-neutral-800 mb-2">客戶成功案例</h5>
-            <p className="text-sm text-neutral-600">「從普通拉鏈升級到滑塊拉鏈後，我們的寵物零食客戶回購率提升25%，客戶反映很喜歡單手就能操作。」— 寵物食品品牌經理</p>
+            <h5 className="font-semibold text-neutral-800 mb-2">Customer Success Story</h5>
+            <p className="text-sm text-neutral-600">「fromStandard zipperincreasedPremiumtoSlider zipperAfter，OurPetSnacksCustomerrepurchaserateimprove25%，Customerfeedback loves single-handperformanceoperation。」— Pet FoodBrandManager</p>
           </div>
         </div>
       )
     },
     {
       id: 'market-data',
-      title: '市場數據 Market Intelligence',
+      title: 'Market Data & Intelligence',
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
-          <p className="text-neutral-700">重封包裝市場持續增長，消費者對便利性和新鮮度的要求越來越高。</p>
+          <p className="text-neutral-700">resealPackagingMarketcontinuedgrowth，ConsumersforconvenientleveragefocusedandfreshnessrequirementsincreasinglyHigh。</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
               <div className="text-3xl font-bold text-primary-600 mb-1">78%</div>
-              <div className="text-xs text-neutral-500">消費者偏好可重封包裝</div>
+              <div className="text-xs text-neutral-500">ConsumerspreferencecanresealPackaging</div>
               <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
                 <TrendingUp className="h-3 w-3" />
-                <span>增長中</span>
+                <span>growthMedium</span>
               </div>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
               <div className="text-3xl font-bold text-blue-600 mb-1">$8.5B</div>
-              <div className="text-xs text-neutral-500">可重封包裝市場規模</div>
+              <div className="text-xs text-neutral-500">canresealPackagingMarketSize</div>
               <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
                 <TrendingUp className="h-3 w-3" />
-                <span>年增長 6.2%</span>
+                <span>yeargrowth 6.2%</span>
               </div>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
               <div className="text-3xl font-bold text-green-600 mb-1">35%</div>
-              <div className="text-xs text-neutral-500">提升產品價値感</div>
+              <div className="text-xs text-neutral-500">improveProductValueFeel</div>
               <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
                 <TrendingUp className="h-3 w-3" />
-                <span>穩定</span>
+                <span>stable</span>
               </div>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
               <div className="text-3xl font-bold text-amber-600 mb-1">500+</div>
-              <div className="text-xs text-neutral-500">拉鏈開合循環次數</div>
+              <div className="text-xs text-neutral-500">PullChain OpenSuitableCycle Timesnumber</div>
               <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
                 <TrendingUp className="h-3 w-3" />
-                <span>高耐用</span>
+                <span>HighResistantused</span>
               </div>
             </div>
           </div>
           <div className="bg-blue-50 p-4 rounded-lg">
-            <h5 className="font-semibold text-blue-800 mb-2">市場趨勢洞察</h5>
-            <p className="text-sm text-blue-700">消費者對包裝便利性的要求不斷提升，滑塊拉鏈因其單手操作特點成為新寵，預計到2026年將佔市場的40%。</p>
+            <h5 className="font-semibold text-blue-800 mb-2">Market Trend Insights</h5>
+            <p className="text-sm text-blue-700">ConsumersforPackagingconvenientleveragefocusedrequirementsnotBreakimprove，Slider zipperbecauseItsSingleHandoperationFeaturesbecomingfavorite，Expected by2026yearconvertedshareMarket40%。</p>
           </div>
         </div>
       )
     },
     {
       id: 'material-comparison',
-      title: '材料對比 Material Comparison',
+      title: 'Material Comparison',
       icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
-          <p className="text-neutral-700">不同重封方式的性能對比，幫助您選擇最適合的解決方案。</p>
+          <p className="text-neutral-700">DifferentresealMethodfocusedperformanceContrast，to help you choose the best solution。</p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="bg-neutral-100">
-                  <th className="text-left p-3 border font-semibold">閉合類型</th>
-                  <th className="text-left p-3 border font-semibold">操作便利性</th>
-                  <th className="text-left p-3 border font-semibold">密封性能</th>
-                  <th className="text-left p-3 border font-semibold">適用場景</th>
-                  <th className="text-left p-3 border font-semibold">成本影響</th>
+                  <th className="text-left p-3 border font-semibold">CloseSuitabletypes</th>
+                  <th className="text-left p-3 border font-semibold">operationconvenientleveragefocused</th>
+                  <th className="text-left p-3 border font-semibold">Sealingfocusedperformance</th>
+                  <th className="text-left p-3 border font-semibold">suitableusedScenario</th>
+                  <th className="text-left p-3 border font-semibold">CostCost Impact</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="hover:bg-green-50">
-                  <td className="p-3 border"><span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-medium">壓合拉鏈</span></td>
+                  <td className="p-3 border"><span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-medium">PressureSuitablePullChain</span></td>
                   <td className="p-3 border">★★★</td>
                   <td className="p-3 border">★★★★</td>
-                  <td className="p-3 border">零食、寵物食品、干貨</td>
+                  <td className="p-3 border">Snacks、Pet Food、Dry Goods</td>
                   <td className="p-3 border text-green-600 font-medium">+5%</td>
                 </tr>
                 <tr className="hover:bg-blue-50">
-                  <td className="p-3 border"><span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium">滑塊拉鏈</span></td>
+                  <td className="p-3 border"><span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium">Slider zipper</span></td>
                   <td className="p-3 border">★★★★★</td>
                   <td className="p-3 border">★★★★</td>
-                  <td className="p-3 border">高端零食、寵物食品</td>
+                  <td className="p-3 border">HighpremiumSnacks、Pet Food</td>
                   <td className="p-3 border text-blue-600 font-medium">+15%</td>
                 </tr>
                 <tr className="hover:bg-purple-50">
-                  <td className="p-3 border"><span className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-medium">嘴嘴壺</span></td>
+                  <td className="p-3 border"><span className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-medium">Spout pouch</span></td>
                   <td className="p-3 border">★★★★</td>
                   <td className="p-3 border">★★★★★</td>
-                  <td className="p-3 border">嬰兒食品、醬料、流體</td>
+                  <td className="p-3 border">Baby Food、purees、liquid</td>
                   <td className="p-3 border text-purple-600 font-medium">+30%</td>
                 </tr>
                 <tr className="hover:bg-amber-50">
-                  <td className="p-3 border"><span className="px-2 py-1 bg-amber-100 text-amber-700 rounded text-xs font-medium">鐐條</span></td>
+                  <td className="p-3 border"><span className="px-2 py-1 bg-amber-100 text-amber-700 rounded text-xs font-medium">Chain</span></td>
                   <td className="p-3 border">★★</td>
                   <td className="p-3 border">★★★</td>
-                  <td className="p-3 border">咖啡、烘焙食品</td>
+                  <td className="p-3 border">coffee、Baked Goods</td>
                   <td className="p-3 border text-amber-600 font-medium">+10%</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div className="bg-amber-50 p-4 rounded-lg">
-            <h5 className="font-semibold text-amber-800 mb-2">選型建議</h5>
-            <p className="text-sm text-amber-700">選擇重封方式時，建議從產品形態、使用場景和目標客戶群三個維度考慮。我們提供免費樣品測試，幫助您驗證最佳方案。</p>
+            <h5 className="font-semibold text-amber-800 mb-2">Selection Guide</h5>
+            <p className="text-sm text-amber-700">choosechooseresealMethodwhen，RecommendationfromProductFormState、EnableusedScenarioandtargetCustomerGroupThreeDimensiondegreeconsiderations。OurimprovedSupplyFreeSample Feeproductstest，HelpYouVerifymaximumBestsolution。</p>
           </div>
         </div>
       )

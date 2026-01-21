@@ -447,7 +447,7 @@ const CustomBoxesPage: React.FC = () => {
     },
     {
       id: 'industry-scenarios',
-      title: '行業應用場景 Industry Applications',
+      title: 'Industry Applications',
       icon: <Factory className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
@@ -455,74 +455,74 @@ const CustomBoxesPage: React.FC = () => {
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
               <div className="flex items-center gap-2 mb-3">
                 <ShoppingBag className="h-5 w-5 text-amber-600" />
-                <h4 className="font-semibold text-neutral-900">巧克力糖果 Chocolate & Confectionery</h4>
+                <h4 className="font-semibold text-neutral-900">Chocolate & Confectionery Chocolate & Confectionery</h4>
               </div>
-              <p className="text-sm text-neutral-600 mb-3">精品巧克力、手工糖果、節日禮盒</p>
-              <div className="text-xs text-amber-700 bg-amber-100 px-2 py-1 rounded inline-block">佔比 40%</div>
+              <p className="text-sm text-neutral-600 mb-3">Premium chocolates、Artisan candies、HolidayGift Boxes</p>
+              <div className="text-xs text-amber-700 bg-amber-100 px-2 py-1 rounded inline-block">Share: 40%</div>
             </div>
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles className="h-5 w-5 text-green-600" />
-                <h4 className="font-semibold text-neutral-900">咖啡茶葉 Coffee & Tea</h4>
+                <h4 className="font-semibold text-neutral-900">Coffee & Tea Coffee & Tea</h4>
               </div>
-              <p className="text-sm text-neutral-600 mb-3">精品咖啡禮盒、高端茶葉包裝、訂閱盒</p>
-              <div className="text-xs text-green-700 bg-green-100 px-2 py-1 rounded inline-block">佔比 35%</div>
+              <p className="text-sm text-neutral-600 mb-3">Specialty coffeeGift Boxes、HighpremiumTeaPackaging、Subscription boxes</p>
+              <div className="text-xs text-green-700 bg-green-100 px-2 py-1 rounded inline-block">Share: 35%</div>
             </div>
             <div className="bg-gradient-to-br from-purple-50 to-indigo-50 p-5 rounded-xl border border-purple-200">
               <div className="flex items-center gap-2 mb-3">
                 <TrendingUp className="h-5 w-5 text-purple-600" />
-                <h4 className="font-semibold text-neutral-900">精品禮品 Premium Gifts</h4>
+                <h4 className="font-semibold text-neutral-900">Premium gifts Premium Gifts</h4>
               </div>
-              <p className="text-sm text-neutral-600 mb-3">企業禮品、婚慶喜糖、節日套裝</p>
-              <div className="text-xs text-purple-700 bg-purple-100 px-2 py-1 rounded inline-block">佔比 25%</div>
+              <p className="text-sm text-neutral-600 mb-3">Corporate gifts、Wedding favors、HolidaySets</p>
+              <div className="text-xs text-purple-700 bg-purple-100 px-2 py-1 rounded inline-block">25% market share</div>
             </div>
           </div>
           <div className="bg-white p-4 rounded-lg border border-neutral-200">
-            <h4 className="font-semibold text-neutral-900 mb-3">客戶成功案例 Success Story</h4>
-            <p className="text-sm text-neutral-600">「我們的精品巧克力品牌採用金箔壓印+壓紋包裝盒後，產品售價提升30%，客戶聹予率增加45%，包裝成為我們品牌差異化的重要優勢。」</p>
-            <p className="text-xs text-neutral-500 mt-2">— 手工巧克力品牌，年銀售額增長 60%</p>
+            <h4 className="font-semibold text-neutral-900 mb-3">Customer Success Story</h4>
+            <p className="text-sm text-neutral-600">「OurPremium chocolatesBrandadoptionGold foil stamping+EmbossingPackagingboxesAfter，Productretail priceimprove30%，Customerconversion rateincrease45%，PackagingbecomingOurBranddifferentiation advantage。」</p>
+            <p className="text-xs text-neutral-500 mt-2">— Artisan chocolatesBrand，yearsalesgrowth 60%</p>
           </div>
         </div>
       )
     },
     {
       id: 'market-data',
-      title: '市場數據 Market Intelligence',
+      title: 'Market Data & Intelligence',
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="bg-gradient-to-br from-primary-500 to-primary-600 text-white p-4 rounded-xl text-center">
               <div className="text-3xl font-bold">$28B</div>
-              <div className="text-sm opacity-90">全球包裝盒市場</div>
-              <div className="text-xs opacity-75 mt-1">2024年規模</div>
+              <div className="text-sm opacity-90">GlobalPackagingboxesMarket</div>
+              <div className="text-xs opacity-75 mt-1">2024yearSize</div>
             </div>
             <div className="bg-gradient-to-br from-green-500 to-green-600 text-white p-4 rounded-xl text-center">
               <div className="text-3xl font-bold">4.8%</div>
-              <div className="text-sm opacity-90">年複合增長率</div>
+              <div className="text-sm opacity-90">CAGR</div>
               <div className="text-xs opacity-75 mt-1">2024-2030</div>
             </div>
             <div className="bg-gradient-to-br from-amber-500 to-amber-600 text-white p-4 rounded-xl text-center">
               <div className="text-3xl font-bold">68%</div>
-              <div className="text-sm opacity-90">消費者看重包裝</div>
-              <div className="text-xs opacity-75 mt-1">影響購買決策</div>
+              <div className="text-sm opacity-90">ConsumersvaluePackaging</div>
+              <div className="text-xs opacity-75 mt-1">Cost Impactpurchase decisions</div>
             </div>
             <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-4 rounded-xl text-center">
               <div className="text-3xl font-bold">52%</div>
-              <div className="text-sm opacity-90">願為FSC付溫價</div>
-              <div className="text-xs opacity-75 mt-1">環保意識提升</div>
+              <div className="text-sm opacity-90">willingtoFSCpay premium</div>
+              <div className="text-xs opacity-75 mt-1">Eco-friendlyawarenessimprove</div>
             </div>
           </div>
           <div className="bg-neutral-50 p-4 rounded-lg">
-            <h4 className="font-semibold text-neutral-900 mb-3">市場趨勢洞察</h4>
+            <h4 className="font-semibold text-neutral-900 mb-3">Market Trend Insights</h4>
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div className="flex items-start gap-2">
                 <TrendingUp className="h-4 w-4 text-green-500 mt-0.5" />
-                <span><strong>開箱體驗升級</strong>：精品品牌重視包裝的第一印象</span>
+                <span><strong>unboxing experienceincreasedPremium</strong>：SpecialtyproductsBrandfocused onPackagingfirst impression</span>
               </div>
               <div className="flex items-start gap-2">
                 <TrendingUp className="h-4 w-4 text-green-500 mt-0.5" />
-                <span><strong>FSC認證標配</strong>：85%高端品牌選擇環保包裝</span>
+                <span><strong>FSCCertificationstandard</strong>：85%HighPremium brandschoosechooseEco-friendlyPackaging</span>
               </div>
             </div>
           </div>
@@ -531,7 +531,7 @@ const CustomBoxesPage: React.FC = () => {
     },
     {
       id: 'material-comparison',
-      title: '材料對比 Material Comparison',
+      title: 'Material Comparison',
       icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
@@ -539,48 +539,48 @@ const CustomBoxesPage: React.FC = () => {
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="bg-neutral-100">
-                  <th className="border border-neutral-200 px-4 py-2 text-left">盒型類型</th>
-                  <th className="border border-neutral-200 px-4 py-2 text-center">結構強度</th>
-                  <th className="border border-neutral-200 px-4 py-2 text-center">成本</th>
-                  <th className="border border-neutral-200 px-4 py-2 text-center">適用場景</th>
-                  <th className="border border-neutral-200 px-4 py-2 text-left">推薦應用</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-left">boxestypetypes</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-center">structural strength</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-center">Cost</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-center">suitableusedScenario</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-left">Recommended Use</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-neutral-200 px-4 py-2 font-medium">瓦楞紙郵寄盒</td>
+                  <td className="border border-neutral-200 px-4 py-2 font-medium">Corrugated Mailer Boxes</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">⭐⭐⭐⭐⭐</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">💰</td>
-                  <td className="border border-neutral-200 px-4 py-2 text-center">運輸保護</td>
-                  <td className="border border-neutral-200 px-4 py-2">咖啡、茶葉、訂閱盒</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">Shipping Protection</td>
+                  <td className="border border-neutral-200 px-4 py-2">coffee、Tea、Subscription boxes</td>
                 </tr>
                 <tr className="bg-neutral-50">
-                  <td className="border border-neutral-200 px-4 py-2 font-medium">紙卡折盒</td>
+                  <td className="border border-neutral-200 px-4 py-2 font-medium">Cardboard Folding Boxes</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">⭐⭐⭐</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">💰</td>
-                  <td className="border border-neutral-200 px-4 py-2 text-center">零售展示</td>
-                  <td className="border border-neutral-200 px-4 py-2">巧克力棒、茶包</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">retailDisplay</td>
+                  <td className="border border-neutral-200 px-4 py-2">Chocolate Bars, Tea Units</td>
                 </tr>
                 <tr>
-                  <td className="border border-neutral-200 px-4 py-2 font-medium">硬紙盒 + 金箔</td>
+                  <td className="border border-neutral-200 px-4 py-2 font-medium">rigidPaper Boxes + Gold Foil</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">⭐⭐⭐⭐⭐</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">💰💰💰</td>
-                  <td className="border border-neutral-200 px-4 py-2 text-center">奢華高端</td>
-                  <td className="border border-neutral-200 px-4 py-2">精品巧克力、禮品</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">LuxuriousHighpremium</td>
+                  <td className="border border-neutral-200 px-4 py-2">Premium Chocolates, Gift Products</td>
                 </tr>
                 <tr className="bg-green-50">
-                  <td className="border border-neutral-200 px-4 py-2 font-medium">FSC認證材質</td>
+                  <td className="border border-neutral-200 px-4 py-2 font-medium">FSCCertificationMaterials</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">⭐⭐⭐⭐</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">💰💰</td>
-                  <td className="border border-neutral-200 px-4 py-2 text-center">🌱 環保優先</td>
-                  <td className="border border-neutral-200 px-4 py-2">有機食品、綠色品牌</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">🌱 Eco-friendlyPriority</td>
+                  <td className="border border-neutral-200 px-4 py-2">Organicfood、greenBrand</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div className="bg-primary-50 p-4 rounded-lg">
-            <h4 className="font-semibold text-primary-800 mb-2">選材建議</h4>
-            <p className="text-sm text-primary-700">紙盒包裝適合高端奢華定位產品。需運輸保護選瓦楞紙；追求極致奢華感選金箔壓紋；環保優先選FSC認證材質。</p>
+            <h4 className="font-semibold text-primary-800 mb-2">Material Selection Guide</h4>
+            <p className="text-sm text-primary-700">Paper BoxesPackagingsuitableSuitableHighpremiumLuxuriouspositioningProduct。RequireShipping ProtectionchooseCorrugatedPaper；PursueultraUltimateLuxuriousFeelchooseGold FoilEmbossing；Eco-friendlyPrioritychooseFSCCertificationMaterials。</p>
           </div>
         </div>
       )

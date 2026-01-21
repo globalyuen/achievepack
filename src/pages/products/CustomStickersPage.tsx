@@ -6,17 +6,17 @@ import { useCalendly } from '../../contexts/CalendlyContext'
 
 // Gallery images from /imgs/label/custom-sticker/
 const customStickerGallery = [
-  { src: '/imgs/label/custom-sticker/hero.webp', title: 'Custom Stickers Overview', desc: '定制贴纸总览' },
-  { src: '/imgs/label/custom-sticker/a_achievepack_sticker_overview_four_types_8850197.webp', title: 'Four Sticker Types', desc: '四种贴纸类型' },
-  { src: '/imgs/label/custom-sticker/a_achievepack_sticker_shapes_custom_5720791.webp', title: 'Custom Shapes & Sizes', desc: '形状与尺寸定制' },
-  { src: '/imgs/label/custom-sticker/a_achievepack_materials_swatch_wall_2342788.webp', title: 'Material Options', desc: '材料选项' },
-  { src: '/imgs/label/custom-sticker/a_achievepack_eco_materials_pla_6955352.webp', title: 'Eco-Friendly Materials', desc: '环保材料' },
-  { src: '/imgs/label/custom-sticker/a_achievepack_printing_methods_detail_2866450.webp', title: 'Printing Methods', desc: '印刷方式' },
-  { src: '/imgs/label/custom-sticker/a_achievepack_ink_types_effects_1477402.webp', title: 'Ink Types & Effects', desc: '油墨类型与效果' },
-  { src: '/imgs/label/custom-sticker/a_achievepack_surface_finishes_comparison_4126542.webp', title: 'Surface Finishes', desc: '表面工艺' },
-  { src: '/imgs/label/custom-sticker/a_achievepack_order_config_interface_2146544.webp', title: 'Easy Configuration', desc: '便捷配置' },
-  { src: '/imgs/label/custom-sticker/a_achievepack_ordering_process_steps_1608220.webp', title: 'Ordering Process', desc: '订购流程' },
-  { src: '/imgs/label/custom-sticker/a_achievepack_brand_collage_application_8409454.webp', title: 'Brand Applications', desc: '品牌应用场景' },
+  { src: '/imgs/label/custom-sticker/hero.webp', title: 'Custom Stickers Overview', desc: 'CustomStickerOverview' },
+  { src: '/imgs/label/custom-sticker/a_achievepack_sticker_overview_four_types_8850197.webp', title: 'Four Sticker Types', desc: 'Four TypesStickerCategoryType' },
+  { src: '/imgs/label/custom-sticker/a_achievepack_sticker_shapes_custom_5720791.webp', title: 'Custom Shapes & Sizes', desc: 'ShapeAndDimensionsCustom' },
+  { src: '/imgs/label/custom-sticker/a_achievepack_materials_swatch_wall_2342788.webp', title: 'Material Options', desc: 'MaterialOptions' },
+  { src: '/imgs/label/custom-sticker/a_achievepack_eco_materials_pla_6955352.webp', title: 'Eco-Friendly Materials', desc: 'Eco-Friendly Materials' },
+  { src: '/imgs/label/custom-sticker/a_achievepack_printing_methods_detail_2866450.webp', title: 'Printing Methods', desc: 'PrintingMethod' },
+  { src: '/imgs/label/custom-sticker/a_achievepack_ink_types_effects_1477402.webp', title: 'Ink Types & Effects', desc: 'InkCategoryTypeAndEffect' },
+  { src: '/imgs/label/custom-sticker/a_achievepack_surface_finishes_comparison_4126542.webp', title: 'Surface Finishes', desc: 'Surface Finish' },
+  { src: '/imgs/label/custom-sticker/a_achievepack_order_config_interface_2146544.webp', title: 'Easy Configuration', desc: 'ConvenientQuickWithSet' },
+  { src: '/imgs/label/custom-sticker/a_achievepack_ordering_process_steps_1608220.webp', title: 'Ordering Process', desc: 'OrderProcess' },
+  { src: '/imgs/label/custom-sticker/a_achievepack_brand_collage_application_8409454.webp', title: 'Brand Applications', desc: 'BrandApplicationScenario' },
 ]
 
 const CustomStickersPage: React.FC = () => {
@@ -59,7 +59,7 @@ const CustomStickersPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
-            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge 点击放大</div>
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge Click to enlarge</div>
           </button>
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-neutral-900">{title}</h3>
@@ -81,7 +81,7 @@ const CustomStickersPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group md:order-2"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
-            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge 点击放大</div>
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge Click to enlarge</div>
           </button>
         </>
       )}
@@ -100,7 +100,7 @@ const CustomStickersPage: React.FC = () => {
               <strong>Factory-grade custom stickers with premium materials and finishes</strong> — From cut-to-size singles to roll stickers, we offer complete customization for shape, material, printing, and finishing options.
             </p>
             <p className="text-neutral-700 mb-4">
-              工厂级定制贴纸，优质材料与表面工艺 — 从剪裁单张到卷装贴纸，提供形状、材质、印刷和表面处理的全方位定制。
+              Factory GradeCustomSticker，PremiumMaterialAndSurface Finish — FromDie-Cut SheetsToRoll FormSticker，ProvideShape、Material、PrintingAndSurfaceProcessingOfFullSidePositionCustom。
             </p>
             <div className="flex flex-wrap gap-2 mt-4">
               <span className="px-3 py-1 bg-white rounded-full text-sm font-medium text-primary-700 border border-primary-200">Cut to Size</span>
@@ -114,9 +114,9 @@ const CustomStickersPage: React.FC = () => {
             image="/imgs/label/custom-sticker/a_achievepack_sticker_overview_four_types_8850197.webp"
             imageAlt="Four types of custom stickers"
             title="Four Sticker Types for Every Need"
-            titleCn="四种贴纸类型满足各种需求"
+            titleCn="Four TypesStickerCategoryTypeMeetVariousRequireDemand"
             content="Choose from Cut to Size (individual die-cut stickers), Roll (continuous roll for high-volume application), Sheet (multiple stickers per sheet), and Kiss Cut (stickers on backing sheet for easy peeling). Each type is optimized for specific use cases and application methods."
-            contentCn="可选择剪裁单张（单独模切贴纸）、卷装（适合大批量应用的连续卷）、纸张式（每张多个贴纸）和亲切切割（带衬纸便于撕取）。每种类型都针对特定使用场景和应用方式进行优化。"
+            contentCn="CanChooseDie-Cut Sheets（SingleUniqueDie CutSticker）、Roll Form（SuitableSuitableLargeBatchVolumeApplicationOfContinuousRoll）、Paper Style（EachSheetMultipleUnitSticker）AndDie Cut（WithLinerPaperConvenientAtTearTake）。Each TypeCategoryTypeAllNeedleForSpecificUseScenarioAndApplicationMethodOptimizeization。"
             imageLeft={true}
             index={1}
           />
@@ -125,9 +125,9 @@ const CustomStickersPage: React.FC = () => {
             image="/imgs/label/custom-sticker/a_achievepack_sticker_shapes_custom_5720791.webp"
             imageAlt="Custom shapes and sizes for stickers"
             title="Unlimited Shape & Size Options"
-            titleCn="无限形状与尺寸选择"
+            titleCn="NoLimitShapeAndDimensionsChoose"
             content="Go beyond standard shapes with our custom die-cutting capabilities. Square, circle, oval, rounded rectangle, heart, hexagon, starburst, or completely custom shapes — we can produce any design you need with precision cutting."
-            contentCn="突破标准形状限制，我们提供定制模切能力。方形、圆形、椭圆、圆角矩形、心形、六边形、星爆形，或完全自定义形状——我们可以精确切割生产任何您需要的设计。"
+            contentCn="Break ThroughStandardShapeLimit，WeProvideCustomDie CutCanPower。Square、Round、Oval、Rounded RectangleForm、HeartForm、SixEdgeForm、StarBurstForm，OrCompleteCustom Shape——WeCanWithFineExactCutProductionAnyYouRequireNeedOfDesign。"
             imageLeft={false}
             index={2}
           />
@@ -144,9 +144,9 @@ const CustomStickersPage: React.FC = () => {
             image="/imgs/label/custom-sticker/a_achievepack_materials_swatch_wall_2342788.webp"
             imageAlt="Material options swatch wall"
             title="Premium Material Selection"
-            titleCn="优质材料选择"
+            titleCn="PremiumMaterialChoose"
             content="Our material library includes White Kraft paper for an organic feel, C2S coated paper for vibrant colors, Clear Plastic for transparent applications, White Plastic for durability, and natural Kraft Paper for eco-conscious brands."
-            contentCn="我们的材料库包括：白牛皮纸带来自然有机感、C2S涂布纸呈现鲜艳色彩、透明塑料适合透明应用、白色塑料提供耐用性、天然牛皮纸满足环保品牌需求。"
+            contentCn="OurMaterialStoragePackIncluding：White Kraft PaperWithComeSelfNaturalOrganicFeel、C2SCoatingClothPaperPresentBrightColorColor、TransparentPlasticSuitableSuitableTransparentApplication、WhitePlasticProvideResistantUseProperty、NaturalKraft PaperMeetEco-FriendlyBrandRequireDemand。"
             imageLeft={true}
             index={3}
           />
@@ -158,7 +158,7 @@ const CustomStickersPage: React.FC = () => {
               </div>
               <h5 className="font-semibold text-neutral-900 text-sm">White Kraft</h5>
               <p className="text-xs text-neutral-600 mt-1">Natural look</p>
-              <p className="text-xs text-primary-600">白牛皮纸</p>
+              <p className="text-xs text-primary-600">White Kraft Paper</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <div className="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-2">
@@ -166,7 +166,7 @@ const CustomStickersPage: React.FC = () => {
               </div>
               <h5 className="font-semibold text-neutral-900 text-sm">C2S Coated</h5>
               <p className="text-xs text-neutral-600 mt-1">Vibrant colors</p>
-              <p className="text-xs text-primary-600">涂布纸</p>
+              <p className="text-xs text-primary-600">CoatingClothPaper</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <div className="w-10 h-10 bg-neutral-50 rounded-full flex items-center justify-center mx-auto mb-2">
@@ -174,7 +174,7 @@ const CustomStickersPage: React.FC = () => {
               </div>
               <h5 className="font-semibold text-neutral-900 text-sm">Clear Plastic</h5>
               <p className="text-xs text-neutral-600 mt-1">Transparent</p>
-              <p className="text-xs text-primary-600">透明塑料</p>
+              <p className="text-xs text-primary-600">TransparentPlastic</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <div className="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-2">
@@ -182,7 +182,7 @@ const CustomStickersPage: React.FC = () => {
               </div>
               <h5 className="font-semibold text-neutral-900 text-sm">White Plastic</h5>
               <p className="text-xs text-neutral-600 mt-1">Durable</p>
-              <p className="text-xs text-primary-600">白色塑料</p>
+              <p className="text-xs text-primary-600">WhitePlastic</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <div className="w-10 h-10 bg-orange-50 rounded-full flex items-center justify-center mx-auto mb-2">
@@ -190,7 +190,7 @@ const CustomStickersPage: React.FC = () => {
               </div>
               <h5 className="font-semibold text-neutral-900 text-sm">Kraft Paper</h5>
               <p className="text-xs text-neutral-600 mt-1">Eco-friendly</p>
-              <p className="text-xs text-primary-600">牛皮纸</p>
+              <p className="text-xs text-primary-600">Kraft Paper</p>
             </div>
           </div>
         </div>
@@ -206,9 +206,9 @@ const CustomStickersPage: React.FC = () => {
             image="/imgs/label/custom-sticker/a_achievepack_eco_materials_pla_6955352.webp"
             imageAlt="Eco-friendly PLA and paper-based stickers"
             title="Sustainable Material Options"
-            titleCn="可持续材料方案"
+            titleCn="CanContinuousMaterialSolution"
             content="Choose environmentally responsible materials including PLA-based biodegradable films, FSC-certified paper stocks, and recyclable substrates. Perfect for brands committed to reducing their environmental footprint."
-            contentCn="选择环保负责任的材料，包括PLA基可降解薄膜、FSC认证纸张和可回收基材。非常适合致力于减少环境足迹的品牌。"
+            contentCn="ChooseEco-FriendlyResponsibleOfMaterial，PackIncludingPLABaseCanDegradableFilm、FSCCertificationPaperAndRecyclableBase Material。Ideal forSuitableUltimatePowerAtReduceEnvironmentFootprintOfBrand。"
             imageLeft={false}
             index={4}
           />
@@ -255,9 +255,9 @@ const CustomStickersPage: React.FC = () => {
             image="/imgs/label/custom-sticker/a_achievepack_printing_methods_detail_2866450.webp"
             imageAlt="Professional printing methods detail"
             title="Factory-Grade Printing Technology"
-            titleCn="工厂级印刷技术"
+            titleCn="Factory GradePrintingTechnology"
             content="We utilize multiple printing technologies to achieve the best results: Flexography for cost-effective high-volume runs, Gravure for exceptional detail, Digital printing for short runs and variable data, and UV printing for special effects."
-            contentCn="我们采用多种印刷技术以获得最佳效果：柔版印刷适合高性价比大批量、凹版印刷呈现卓越细节、数字印刷适合短版和可变数据、UV印刷实现特殊效果。"
+            contentCn="WeUsingMultiplePrintingTechnologyWithObtainMostBestEffect：SoftEditionPrintingSuitableSuitableHighPropertyPriceRatioLargeBatchVolume、GravurePrintingPresentExcellentDetails、DigitalPrintingSuitableSuitableShortEditionAndCanChangeData、UVPrintingAchieveSpecialEffect。"
             imageLeft={true}
             index={5}
           />
@@ -266,9 +266,9 @@ const CustomStickersPage: React.FC = () => {
             image="/imgs/label/custom-sticker/a_achievepack_ink_types_effects_1477402.webp"
             imageAlt="Ink types and special effects"
             title="Specialty Ink Options"
-            titleCn="特殊油墨选项"
+            titleCn="SpecialInkOptions"
             content="Beyond standard inks, we offer water-based eco inks, soy/vegetable-based sustainable options, fluorescent colors for eye-catching impact, and metallic Pantone inks for premium finishes that catch the light."
-            contentCn="除标准油墨外，我们还提供水性环保墨、大豆/植物基可持续选项、荧光色打造吸睛效果，以及金属潘通墨实现捕捉光线的高端表面效果。"
+            contentCn="RemoveStandardInkOutside，WeAlsoProvideWaterPropertyEco-FriendlyInk、LargeBean/PlantMaterialBaseCanContinuousOptions、FluorescentColorStrikeMakeEye-CatchingEffect，WithAndGoldBelongPanConnectInkAchieveCapture LightLineOfPremiumSurfaceEffect。"
             imageLeft={false}
             index={6}
           />
@@ -277,22 +277,22 @@ const CustomStickersPage: React.FC = () => {
             <div className="bg-white p-5 rounded-lg border border-neutral-200 text-center">
               <div className="text-lg font-bold text-primary-600 mb-2">Flexography</div>
               <p className="text-xs text-neutral-600">High-volume, cost-effective</p>
-              <p className="text-xs text-primary-600 mt-1">柔版印刷</p>
+              <p className="text-xs text-primary-600 mt-1">SoftEditionPrinting</p>
             </div>
             <div className="bg-white p-5 rounded-lg border border-neutral-200 text-center">
               <div className="text-lg font-bold text-primary-600 mb-2">Gravure</div>
               <p className="text-xs text-neutral-600">Exceptional detail</p>
-              <p className="text-xs text-primary-600 mt-1">凹版印刷</p>
+              <p className="text-xs text-primary-600 mt-1">GravurePrinting</p>
             </div>
             <div className="bg-white p-5 rounded-lg border border-neutral-200 text-center">
               <div className="text-lg font-bold text-primary-600 mb-2">Digital</div>
               <p className="text-xs text-neutral-600">Short runs, variable data</p>
-              <p className="text-xs text-primary-600 mt-1">数字印刷</p>
+              <p className="text-xs text-primary-600 mt-1">DigitalPrinting</p>
             </div>
             <div className="bg-white p-5 rounded-lg border border-neutral-200 text-center">
               <div className="text-lg font-bold text-primary-600 mb-2">UV Print</div>
               <p className="text-xs text-neutral-600">Special effects</p>
-              <p className="text-xs text-primary-600 mt-1">UV印刷</p>
+              <p className="text-xs text-primary-600 mt-1">UVPrinting</p>
             </div>
           </div>
         </div>
@@ -308,9 +308,9 @@ const CustomStickersPage: React.FC = () => {
             image="/imgs/label/custom-sticker/a_achievepack_surface_finishes_comparison_4126542.webp"
             imageAlt="Surface finish comparison matte gloss UV foil"
             title="Premium Finish Options"
-            titleCn="高端表面工艺"
+            titleCn="Premium Surface Finishing"
             content="Elevate your stickers with professional finishes: Matte for a sophisticated, non-reflective look; Gloss for vibrant, eye-catching shine; UV Coating for enhanced durability; and Hot Foil Stamping for luxurious metallic accents."
-            contentCn="用专业表面处理提升贴纸品质：哑光呈现精致无反射外观、亮光带来鲜艳吸睛光泽、UV涂层增强耐久性、烫金工艺打造奢华金属质感。"
+            contentCn="UseProfessionalIndustrySurfaceProcessingImproveStickerQuality：MattePresentFineUltimateNoReverseInjectOutsideView、GlossWithComeBrightEye-CatchingGloss、UVCoatingLayerIncreaseStrongResistantLongProperty、Hot StampingWorkerArtStrikeMakeLuxury GoldBelongQualityFeel。"
             imageLeft={true}
             index={7}
           />
@@ -319,22 +319,22 @@ const CustomStickersPage: React.FC = () => {
             <div className="bg-gradient-to-br from-neutral-100 to-neutral-200 p-5 rounded-lg text-center">
               <div className="font-bold text-neutral-800 mb-2">Matte</div>
               <p className="text-xs text-neutral-600">Sophisticated, non-reflective</p>
-              <p className="text-xs text-primary-600 mt-1">哑光</p>
+              <p className="text-xs text-primary-600 mt-1">Matte</p>
             </div>
             <div className="bg-gradient-to-br from-blue-100 to-blue-200 p-5 rounded-lg text-center">
               <div className="font-bold text-neutral-800 mb-2">Gloss</div>
               <p className="text-xs text-neutral-600">Vibrant, shiny</p>
-              <p className="text-xs text-primary-600 mt-1">亮光</p>
+              <p className="text-xs text-primary-600 mt-1">Gloss</p>
             </div>
             <div className="bg-gradient-to-br from-purple-100 to-purple-200 p-5 rounded-lg text-center">
               <div className="font-bold text-neutral-800 mb-2">UV Coating</div>
               <p className="text-xs text-neutral-600">Enhanced durability</p>
-              <p className="text-xs text-primary-600 mt-1">UV涂层</p>
+              <p className="text-xs text-primary-600 mt-1">UVCoatingLayer</p>
             </div>
             <div className="bg-gradient-to-br from-amber-100 to-amber-200 p-5 rounded-lg text-center">
               <div className="font-bold text-neutral-800 mb-2">Hot Foil</div>
               <p className="text-xs text-neutral-600">Metallic accents</p>
-              <p className="text-xs text-primary-600 mt-1">烫金</p>
+              <p className="text-xs text-primary-600 mt-1">Hot Stamping</p>
             </div>
           </div>
         </div>
@@ -350,9 +350,9 @@ const CustomStickersPage: React.FC = () => {
             image="/imgs/label/custom-sticker/a_achievepack_order_config_interface_2146544.webp"
             imageAlt="Order configuration interface"
             title="Simple Configuration System"
-            titleCn="简洁配置系统"
+            titleCn="SimpleCleanWithSetSystem"
             content="Our intuitive ordering system lets you select Type (Cut to Size, Roll, Sheet, Kiss Cut), Shape (Square, Circle, Oval, Custom), Material (White Kraft, Clear Plastic, White Plastic, Kraft Paper), and Finish (Matte, Gloss) — all in one streamlined interface."
-            contentCn="我们直观的订购系统让您可以选择类型（剪裁单张、卷装、纸张式、亲切切割）、形状（方形、圆形、椭圆、自定义）、材质（白牛皮纸、透明塑料、白色塑料、牛皮纸）和表面处理（哑光、亮光）——全部在一个简化界面中完成。"
+            contentCn="WeStraightViewOfOrderSystemLetYouCanWithChooseCategoryType（Die-Cut Sheets、Roll Form、Paper Style、Die Cut）、Shape（Square、Round、Oval、SelfDefine）、Material（White Kraft Paper、TransparentPlastic、WhitePlastic、Kraft Paper）AndSurfaceProcessing（Matte、Gloss）——FullPartInOneUnitSimpleizationWorldFaceInCompleteForm。"
             imageLeft={false}
             index={8}
           />
@@ -361,9 +361,9 @@ const CustomStickersPage: React.FC = () => {
             image="/imgs/label/custom-sticker/a_achievepack_ordering_process_steps_1608220.webp"
             imageAlt="Four-step ordering process"
             title="4 Simple Steps to Your Custom Stickers"
-            titleCn="四步轻松定制贴纸"
+            titleCn="FourStepLightLooseCustomSticker"
             content="1) Customize your packaging with our online configurator. 2) Add to quote and submit your requirements. 3) Consult with our packaging expert for optimization. 4) Production begins with fast shipping to your location."
-            contentCn="1）使用在线配置器定制您的包装。2）添加到报价并提交需求。3）与包装专家咨询优化方案。4）开始生产并快速发货到您的位置。"
+            contentCn="1）UseInLineWithSetDeviceCustomYouOfPackaging。2）AddToQuoteAndRaiseSubmitRequireDemand。3）AndPackagingProfessionalHomeConsultExcellentizationSolution。4）StartProductionAndFastShippingToYouOfPositionSet。"
             imageLeft={true}
             index={9}
           />
@@ -413,9 +413,9 @@ const CustomStickersPage: React.FC = () => {
             image="/imgs/label/custom-sticker/a_achievepack_brand_collage_application_8409454.webp"
             imageAlt="Brand application collage showing stickers on various products"
             title="From Factory to Brand Application"
-            titleCn="从工厂到品牌落地"
+            titleCn="FromFactoryToBrandLand"
             content="Our stickers work seamlessly across applications: product branding on glass bottles and jars, box and package sealing, food container labeling, promotional materials, and event marketing. Complete capability from production to your customers' hands."
-            contentCn="我们的贴纸可无缝应用于各种场景：玻璃瓶罐产品品牌、盒子和包装封口、食品容器贴标、促销材料和活动营销。从生产到客户手中的完整能力。"
+            contentCn="OurStickerCanNoSeamApplicationAtVariousScenario：GlassBottles and JarsProductBrand、BoxChildAndPackagingSeal、FoodCapacityDeviceLabeling、PromotionMaterialAndActivityMarketing。FromProductionToCustomerHandInOfCompleteCanPower。"
             imageLeft={false}
             index={10}
           />
@@ -425,19 +425,19 @@ const CustomStickersPage: React.FC = () => {
               <Package className="h-6 w-6 text-primary-600 mb-3" />
               <h5 className="font-semibold text-neutral-900">Product Branding</h5>
               <p className="text-sm text-neutral-600 mt-1">Bottles, jars, containers</p>
-              <p className="text-xs text-primary-600 mt-1">产品品牌贴标</p>
+              <p className="text-xs text-primary-600 mt-1">ProductBrandLabeling</p>
             </div>
             <div className="bg-white p-5 rounded-lg border border-neutral-200">
               <FileCheck className="h-6 w-6 text-primary-600 mb-3" />
               <h5 className="font-semibold text-neutral-900">Package Sealing</h5>
               <p className="text-sm text-neutral-600 mt-1">Boxes, bags, envelopes</p>
-              <p className="text-xs text-primary-600 mt-1">包装封口</p>
+              <p className="text-xs text-primary-600 mt-1">PackagingSeal</p>
             </div>
             <div className="bg-white p-5 rounded-lg border border-neutral-200">
               <Zap className="h-6 w-6 text-primary-600 mb-3" />
               <h5 className="font-semibold text-neutral-900">Marketing & Events</h5>
               <p className="text-sm text-neutral-600 mt-1">Promotional, giveaways</p>
-              <p className="text-xs text-primary-600 mt-1">营销与活动</p>
+              <p className="text-xs text-primary-600 mt-1">MarketingAndActivity</p>
             </div>
           </div>
         </div>

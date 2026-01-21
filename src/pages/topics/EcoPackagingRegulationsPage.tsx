@@ -220,114 +220,114 @@ const EcoPackagingRegulationsPage: React.FC = () => {
     },
     {
       id: 'industry-scenarios',
-      title: '行業應用場景 Industry Applications',
+      title: 'Industry Applications',
       icon: <Factory className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-lg">了解各行業如何應對環保包裝法規變化。</p>
+          <p className="text-lg">Learn how differentIndustryhownavigate eco-packaging regulations。</p>
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
               <div className="flex items-center gap-2 mb-3">
                 <ShoppingBag className="h-5 w-5 text-green-600" />
-                <h4 className="font-semibold text-green-800">有機食品品牌</h4>
+                <h4 className="font-semibold text-green-800">Organic Food Brands</h4>
               </div>
-              <p className="text-sm text-green-700">有機品牌採用TUV認證可堆肥包裝，符合歐美及澳洲的有機認證要求。</p>
+              <p className="text-sm text-green-700">Organic brands use TUV-certified compostable packaging to meet organic certification requirements in EU, US, and Australia。</p>
             </div>
             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-5 rounded-xl border border-blue-200">
               <div className="flex items-center gap-2 mb-3">
                 <TrendingUp className="h-5 w-5 text-blue-600" />
-                <h4 className="font-semibold text-blue-800">大型零售商</h4>
+                <h4 className="font-semibold text-blue-800">Large Retailers</h4>
               </div>
-              <p className="text-sm text-blue-700">零售巨頭要求供應商提供EPR合規証明，可回收包裝成為上架必要條件。</p>
+              <p className="text-sm text-blue-700">Retail giants require suppliers to provide EPR compliance documentation, making recyclable packaging essential for shelf placement。</p>
             </div>
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-200">
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles className="h-5 w-5 text-purple-600" />
-                <h4 className="font-semibold text-purple-800">出口品牌</h4>
+                <h4 className="font-semibold text-purple-800">Export Brands</h4>
               </div>
-              <p className="text-sm text-purple-700">出口歐美的品牌需要同時滿足多國法規，我們提供全面合規支持。</p>
+              <p className="text-sm text-purple-700">Brands exporting to EU and US must meet multi-country regulations; we provide comprehensive compliance support。</p>
             </div>
           </div>
           <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
-            <p className="text-sm text-amber-800"><strong>案例分享：</strong>某食品品牌透過我們的合規支持，成功獲得英國、歐盟、美國三大市場的包裝認證，節省10%塑料稅成本。</p>
+            <p className="text-sm text-amber-800"><strong>Case Study: </strong>AfoodBrandthroughOurcomplianceSupport，Successgained UK、EU、and US majorMarketPackagingCertification，saving10%plastic taxCost。</p>
           </div>
         </div>
       )
     },
     {
       id: 'market-data',
-      title: '市場數據 Market Intelligence',
+      title: 'Market Data & Intelligence',
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-lg">全球包裝法規正快速變化，採取行動刻不容緩。</p>
+          <p className="text-lg">Global packaging regulations are evolving rapidly; action is urgent.。</p>
           <div className="grid md:grid-cols-4 gap-4">
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <div className="text-3xl font-bold text-primary-600">£217</div>
-              <p className="text-sm text-neutral-600 mt-1">英國塑料稅/噸（未達30%PCR）</p>
+              <p className="text-sm text-neutral-600 mt-1">UK plastic tax/tonne (under 30% PCR)</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <div className="text-3xl font-bold text-green-600">2025</div>
-              <p className="text-sm text-neutral-600 mt-1">EU PPWR新包裝法規生效年</p>
+              <p className="text-sm text-neutral-600 mt-1">EU PPWR new packaging regulation effective</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <div className="text-3xl font-bold text-blue-600">15+</div>
-              <p className="text-sm text-neutral-600 mt-1">美國已推行EPR法案的州</p>
+              <p className="text-sm text-neutral-600 mt-1">US states with EPR legislation</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <div className="text-3xl font-bold text-purple-600">30%</div>
-              <p className="text-sm text-neutral-600 mt-1">英國免塑料稅最低PCR比例</p>
+              <p className="text-sm text-neutral-600 mt-1">UK minimum PCR for plastic tax exemption</p>
             </div>
           </div>
           <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
-            <h4 className="font-semibold text-neutral-800 mb-2">法規趨勢預測</h4>
-            <p className="text-sm text-neutral-600">歐盟、英國、美國各州正在加速推動包裝法規。預計2027年後，所有主要市場都將有強制性的可持續包裝要求。提前佈局的品牌將獲得先發優勢。</p>
+            <h4 className="font-semibold text-neutral-800 mb-2">Regulatory Trend Forecast</h4>
+            <p className="text-sm text-neutral-600">EU, UK, and US states are accelerating packaging regulations. By 2027, all major markets will have mandatory sustainable packaging requirements. Brands that prepare early will gain first-mover advantage.</p>
           </div>
         </div>
       )
     },
     {
       id: 'material-comparison',
-      title: '材料對比 Material Comparison',
+      title: 'Material Comparison',
       icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-lg">比較不同材料的法規合規性，選擇最佳方案。</p>
+          <p className="text-lg">Compare regulatory compliance of different materials to choose the best solution.</p>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse bg-white rounded-lg overflow-hidden">
               <thead className="bg-primary-600 text-white">
                 <tr>
-                  <th className="p-3 text-left text-sm">材料類型</th>
-                  <th className="p-3 text-left text-sm">歐盟EU</th>
-                  <th className="p-3 text-left text-sm">英國UK</th>
-                  <th className="p-3 text-left text-sm">美國US</th>
-                  <th className="p-3 text-left text-sm">澳洲AU</th>
+                  <th className="p-3 text-left text-sm">Material Type</th>
+                  <th className="p-3 text-left text-sm">EU</th>
+                  <th className="p-3 text-left text-sm">UK</th>
+                  <th className="p-3 text-left text-sm">US</th>
+                  <th className="p-3 text-left text-sm">AU</th>
                 </tr>
               </thead>
               <tbody className="text-sm">
                 <tr className="border-b border-neutral-200">
-                  <td className="p-3 font-medium">可堆肥材料</td>
+                  <td className="p-3 font-medium">Compostable materials</td>
                   <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">EN13432</span></td>
                   <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">PAS9017</span></td>
                   <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">ASTM D6400</span></td>
                   <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded">AS5810</span></td>
                 </tr>
                 <tr className="border-b border-neutral-200 bg-neutral-50">
-                  <td className="p-3 font-medium">可回收材料</td>
+                  <td className="p-3 font-medium">Recyclable</td>
                   <td className="p-3"><span className="bg-blue-100 text-blue-800 px-2 py-1 rounded">RecyClass</span></td>
                   <td className="p-3"><span className="bg-blue-100 text-blue-800 px-2 py-1 rounded">OPRL</span></td>
                   <td className="p-3"><span className="bg-blue-100 text-blue-800 px-2 py-1 rounded">How2Recycle</span></td>
                   <td className="p-3"><span className="bg-blue-100 text-blue-800 px-2 py-1 rounded">APCO</span></td>
                 </tr>
                 <tr className="border-b border-neutral-200">
-                  <td className="p-3 font-medium">PCR內容</td>
-                  <td className="p-3"><span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">PPWR要求</span></td>
-                  <td className="p-3"><span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">≥30%免稅</span></td>
-                  <td className="p-3"><span className="bg-gray-100 text-gray-800 px-2 py-1 rounded">州別規定</span></td>
-                  <td className="p-3"><span className="bg-gray-100 text-gray-800 px-2 py-1 rounded">自願目標</span></td>
+                  <td className="p-3 font-medium">PCR Content</td>
+                  <td className="p-3"><span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">PPWR Required</span></td>
+                  <td className="p-3"><span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">≥30% Tax-free</span></td>
+                  <td className="p-3"><span className="bg-gray-100 text-gray-800 px-2 py-1 rounded">State-specific</span></td>
+                  <td className="p-3"><span className="bg-gray-100 text-gray-800 px-2 py-1 rounded">Voluntary targets</span></td>
                 </tr>
                 <tr className="border-b border-neutral-200 bg-neutral-50">
-                  <td className="p-3 font-medium">食品安全</td>
+                  <td className="p-3 font-medium">Food Safety</td>
                   <td className="p-3"><span className="bg-purple-100 text-purple-800 px-2 py-1 rounded">EC1935</span></td>
                   <td className="p-3"><span className="bg-purple-100 text-purple-800 px-2 py-1 rounded">UK FCM</span></td>
                   <td className="p-3"><span className="bg-purple-100 text-purple-800 px-2 py-1 rounded">FDA 21CFR</span></td>
@@ -337,7 +337,7 @@ const EcoPackagingRegulationsPage: React.FC = () => {
             </table>
           </div>
           <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-            <p className="text-sm text-green-800"><strong>專家建議：</strong>出口多個市場的品牌應選擇可同時滿足多國法規的材料。我們提供完整的合規文件包支持客戶通過各市場審核。</p>
+            <p className="text-sm text-green-800"><strong>Expert Recommendation：</strong>Brands exporting to multiple markets should choose materials that meet multi-country regulations. We provide complete compliance documentation packages to help clients pass market audits.</p>
           </div>
         </div>
       )

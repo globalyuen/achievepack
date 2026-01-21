@@ -6,19 +6,19 @@ import { useCalendly } from '../../contexts/CalendlyContext'
 
 // Gallery images from /imgs/function/retort/
 const retortGallery = [
-  { src: '/imgs/function/retort/retort-hero.webp', title: 'High-Barrier Retort Pouches', desc: '高阻隔蒸煮袋主 KV' },
-  { src: '/imgs/function/retort/what-is-retort.webp', title: 'What Is Retort Packaging?', desc: '什么是蒸煮包装？' },
-  { src: '/imgs/function/retort/layers.webp', title: '4-Layer Retort Structure', desc: '多层蒸煮结构' },
-  { src: '/imgs/function/retort/high-temp.webp', title: 'High-Temperature Resistance', desc: '适配高温蒸煮杀菌' },
-  { src: '/imgs/function/retort/barrier.webp', title: 'Extreme Barrier Protection', desc: '极致阻隔保护' },
-  { src: '/imgs/function/retort/stront-seals.webp', title: 'Strong Hermetic Seals', desc: '牢固气密封口' },
-  { src: '/imgs/function/retort/ready-to-heat.webp', title: 'Ready-to-Heat Convenience', desc: '可加热，易开启' },
-  { src: '/imgs/function/retort/shelf-stable.webp', title: 'Shelf-Stable Ready Meals', desc: '常温即食餐' },
-  { src: '/imgs/function/retort/more-meals.webp', title: 'More Meals Per Pallet', desc: '每托盘可装更多餐食' },
-  { src: '/imgs/function/retort/custom-retort.webp', title: 'Design Your Retort System', desc: '设计你的蒸煮包装方案' },
-  { src: '/imgs/function/retort/100pcs.webp', title: '100 pcs Low MOQ', desc: '起订量仅 100 包' },
-  { src: '/imgs/function/retort/Full-color digital printing.webp', title: 'Full-Color Digital Printing', desc: '全彩数码印刷' },
-  { src: '/imgs/function/retort/Launch a full flavor line with low MOQ.webp', title: 'Low MOQ for Many SKUs', desc: '低起订即可覆盖多口味' },
+  { src: '/imgs/function/retort/retort-hero.webp', title: 'High-Barrier Retort Pouches', desc: 'HighBarrierSteamingBagMain KV' },
+  { src: '/imgs/function/retort/what-is-retort.webp', title: 'What Is Retort Packaging?', desc: 'What IsSteamingPackaging？' },
+  { src: '/imgs/function/retort/layers.webp', title: '4-Layer Retort Structure', desc: 'Multi-LayerSteamingStructure' },
+  { src: '/imgs/function/retort/high-temp.webp', title: 'High-Temperature Resistance', desc: 'SuitableWithHighTemperatureSteamingKillBacteria' },
+  { src: '/imgs/function/retort/barrier.webp', title: 'Extreme Barrier Protection', desc: 'ExtremeUltimateBarrierProtection' },
+  { src: '/imgs/function/retort/stront-seals.webp', title: 'Strong Hermetic Seals', desc: 'SturdyAirtightSeal' },
+  { src: '/imgs/function/retort/ready-to-heat.webp', title: 'Ready-to-Heat Convenience', desc: 'CanHeating，EasyOpen' },
+  { src: '/imgs/function/retort/shelf-stable.webp', title: 'Shelf-Stable Ready Meals', desc: 'Room TemperatureReady-to-EatMeal' },
+  { src: '/imgs/function/retort/more-meals.webp', title: 'More Meals Per Pallet', desc: 'More Meals Per Pallet' },
+  { src: '/imgs/function/retort/custom-retort.webp', title: 'Design Your Retort System', desc: 'DesignYouOfSteamingPackagingSolution' },
+  { src: '/imgs/function/retort/100pcs.webp', title: '100 pcs Low MOQ', desc: 'Minimum OrderVolumeOnly 100 Pack' },
+  { src: '/imgs/function/retort/Full-color digital printing.webp', title: 'Full-Color Digital Printing', desc: 'FullColorDigitalPrinting' },
+  { src: '/imgs/function/retort/Launch a full flavor line with low MOQ.webp', title: 'Low MOQ for Many SKUs', desc: 'LowMinimum OrderImmediatelyCanCoverMultipleFlavor' },
 ]
 
 const DigitalPrintedRetortBagsPage: React.FC = () => {
@@ -61,7 +61,7 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
-            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge 点击放大</div>
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge Click to enlarge</div>
           </button>
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-neutral-900">{title}</h3>
@@ -83,7 +83,7 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group md:order-2"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
-            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge 点击放大</div>
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge Click to enlarge</div>
           </button>
         </>
       )}
@@ -102,7 +102,7 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
               <strong>Shelf-stable ready meals without cans or jars</strong> — Digital printed retort pouches designed for high-temperature sterilization, offering long shelf life at ambient temperature with 100 pcs low MOQ.
             </p>
             <p className="text-neutral-700">
-              无需铁罐玻璃，也能实现常温保质即食餐 — 数码印刷蒸煮袋，适配高温杀菌，100 包超低起订
+              NoRequireTin CanGlass，AlsoCanAchieveRoom TemperatureProtectQualityReady-to-EatMeal — DigitalPrintingSteamingBag，SuitableWithHighTemperatureKillBacteria，100 PackUltraLowMinimum Order
             </p>
           </div>
           
@@ -110,9 +110,9 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             image="/imgs/function/retort/retort-hero.webp"
             imageAlt="High-Barrier Retort Pouches Hero"
             title="High-Barrier Retort Pouches"
-            titleCn="高阻隔蒸煮袋"
+            titleCn="HighBarrierSteamingBag"
             content="Using food-grade multi-layer film structures (PET/AL/NY/CPP), our retort pouches withstand 116–135°C sterilization. Ideal for curries, ready meals, baby food, pet food and more. Digital printing available from just 100 pieces."
-            contentCn="使用食品级多层薄膜结构（PET/铝箔/尼龙/CPP），我们的蒸煮袋可承受 116–135℃ 杀菌。适合咖喱、即食餐、婴儿食品、宠物食品等，数码印刷仅需 100 包起订。"
+            contentCn="UseFood GradeMulti-LayerFilmStructure（PET/Aluminum Foil/Nylon/CPP），OurSteamingBagCanWithstand 116–135℃ KillBacteria。SuitableSuitableCurry、Ready-to-EatMeal、BabyFood、PetFoodEtc，DigitalPrintingOnlyRequire 100 PackMinimum Order。"
             imageLeft={true}
             index={0}
           />
@@ -129,9 +129,9 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             image="/imgs/function/retort/what-is-retort.webp"
             imageAlt="What Is Retort Packaging"
             title="Flexible Pouches That Replace Cans and Jars"
-            titleCn="什么是蒸煮包装？"
+            titleCn="What IsSteamingPackaging？"
             content="Retort packaging uses multi-layer films that withstand 116–135°C sterilization, replacing traditional cans and jars for ready-to-eat food. Designed for long shelf life at ambient temperature without refrigeration."
-            contentCn="蒸煮包装使用可承受 116–135℃ 杀菌的多层薄膜，替代传统铁罐和玻璃，服务即食食品。适用于长货架期常温保存，无需冷藏。"
+            contentCn="SteamingPackagingUseCanWithstand 116–135℃ KillBacteriaOfMulti-LayerFilm，AlternativeTraditionalTin CanAndGlass，ServiceReady-to-EatFood。Suitable forLong Shelf LifeRoom TemperatureSave，NoRequireRefrigerated。"
             imageLeft={false}
             index={1}
           />
@@ -140,17 +140,17 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
               <Thermometer className="h-5 w-5 text-amber-600 mb-2" />
               <h4 className="font-semibold text-amber-800">116–135°C sterilization</h4>
-              <p className="text-sm text-amber-700">可承受高温杀菌</p>
+              <p className="text-sm text-amber-700">CanWithstandHighTemperatureKillBacteria</p>
             </div>
             <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
               <Package className="h-5 w-5 text-amber-600 mb-2" />
               <h4 className="font-semibold text-amber-800">Replace cans & jars</h4>
-              <p className="text-sm text-amber-700">替代铁罐和玻璃</p>
+              <p className="text-sm text-amber-700">AlternativeTin CanAndGlass</p>
             </div>
             <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
               <CheckCircle className="h-5 w-5 text-amber-600 mb-2" />
               <h4 className="font-semibold text-amber-800">Ambient shelf life</h4>
-              <p className="text-sm text-amber-700">常温长货架期</p>
+              <p className="text-sm text-amber-700">Room TemperatureLong Shelf Life</p>
             </div>
           </div>
         </div>
@@ -166,9 +166,9 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             image="/imgs/function/retort/layers.webp"
             imageAlt="4-Layer Retort Structure"
             title="Multi-Layer Retort Structure"
-            titleCn="多层蒸煮结构"
+            titleCn="Multi-LayerSteamingStructure"
             content="Our retort pouches feature a 4-layer structure: PET (outer layer for printing), Aluminum foil (barrier layer), Nylon/OPA (puncture resistance), and CPP (heat-seal inner layer). This structure resists high heat, pressure and prevents delamination."
-            contentCn="我们的蒸煮袋采用四层结构：PET（外层印刷）、铝箔（阻隔层）、尼龙/OPA（耐磨层）、CPP（内层耐高温密封层）。适应高温高压，不易分层。"
+            contentCn="OurSteamingBagUsingFourLayerStructure：PET（OutsideLayerPrinting）、Aluminum Foil（BarrierLayer）、Nylon/OPA（ResistantGrindLayer）、CPP（InsideLayerResistantHighTemperatureSealedLayer）。SuitableShouldHighTemperatureHighPressure，NotEasyDivideLayer。"
             imageLeft={true}
             index={2}
           />
@@ -176,19 +176,19 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
           <div className="grid md:grid-cols-4 gap-3 mt-6">
             <div className="bg-gray-100 p-3 rounded-lg text-center">
               <div className="font-bold text-gray-800">PET</div>
-              <p className="text-xs text-gray-600">外层 Print Layer</p>
+              <p className="text-xs text-gray-600">OutsideLayer Print Layer</p>
             </div>
             <div className="bg-gray-200 p-3 rounded-lg text-center">
               <div className="font-bold text-gray-800">AL</div>
-              <p className="text-xs text-gray-600">铝箔 Barrier</p>
+              <p className="text-xs text-gray-600">Aluminum Foil Barrier</p>
             </div>
             <div className="bg-gray-300 p-3 rounded-lg text-center">
               <div className="font-bold text-gray-800">NY/OPA</div>
-              <p className="text-xs text-gray-600">尼龙 Puncture</p>
+              <p className="text-xs text-gray-600">Nylon Puncture</p>
             </div>
             <div className="bg-amber-100 p-3 rounded-lg text-center">
               <div className="font-bold text-amber-800">CPP</div>
-              <p className="text-xs text-amber-600">耐高温 Seal</p>
+              <p className="text-xs text-amber-600">ResistantHighTemperature Seal</p>
             </div>
           </div>
         </div>
@@ -204,9 +204,9 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             image="/imgs/function/retort/high-temp.webp"
             imageAlt="High-Temperature Sterilization Ready"
             title="Withstands 121–135°C for 30–50 Minutes"
-            titleCn="适配高温蒸煮杀菌"
+            titleCn="SuitableWithHighTemperatureSteamingKillBacteria"
             content="Our retort pouches are designed for commercial sterilization at 121–135°C (up to 250°F) for 30–50 minutes without seal failure. Perfect for retort processing lines producing shelf-stable ready meals."
-            contentCn="我们的蒸煮袋可在 121–135℃（高达 250°F）连续 30–50 分钟保持封口稳定，适配商业蒸煮杀菌生产线，生产常温保质即食餐。"
+            contentCn="OurSteamingBagCanIn 121–135℃（HighReach 250°F）Continuous 30–50 DivideClockMaintainSealStable，SuitableWithBusinessIndustrySteamingKillBacteriaProductionLine，ProductionRoom TemperatureProtectQualityReady-to-EatMeal。"
             imageLeft={false}
             index={3}
           />
@@ -223,9 +223,9 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             image="/imgs/function/retort/barrier.webp"
             imageAlt="Extreme Barrier Protection"
             title="Oxygen, Moisture & Light Barrier"
-            titleCn="极致阻隔保护"
+            titleCn="ExtremeUltimateBarrierProtection"
             content="The aluminum foil layer provides extreme barrier protection: keeps oxygen out and flavor in, controls moisture to protect texture, shields from light to reduce nutrient loss. Maintains food quality for extended shelf life."
-            contentCn="铝箔层提供极致阻隔保护：阻隔氧气锁住风味，控制水分保护口感，遮光减少营养流失。维持食品品质，延长货架期。"
+            contentCn="Aluminum FoilLayerProvideExtremeUltimateBarrierProtection：BarrierOxygenLock InFlavor，ControlMadeWaterDivideProtectionOpeningFeel，Light BlockingReduceCampNurtureFlowLose。DimensionHoldFoodQuality，ExtendLong Shelf Life。"
             imageLeft={true}
             index={4}
           />
@@ -234,17 +234,17 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 text-center">
               <div className="text-2xl mb-2">🛡️</div>
               <h4 className="font-semibold text-blue-800">O₂ Barrier</h4>
-              <p className="text-xs text-blue-600">氧气阻隔</p>
+              <p className="text-xs text-blue-600">OxygenBarrier</p>
             </div>
             <div className="bg-cyan-50 p-4 rounded-lg border border-cyan-200 text-center">
               <div className="text-2xl mb-2">💧</div>
               <h4 className="font-semibold text-cyan-800">Moisture Barrier</h4>
-              <p className="text-xs text-cyan-600">水汽阻隔</p>
+              <p className="text-xs text-cyan-600">WaterSteamBarrier</p>
             </div>
             <div className="bg-purple-50 p-4 rounded-lg border border-purple-200 text-center">
               <div className="text-2xl mb-2">☀️</div>
               <h4 className="font-semibold text-purple-800">Light Barrier</h4>
-              <p className="text-xs text-purple-600">遮光保护</p>
+              <p className="text-xs text-purple-600">Light BlockingProtection</p>
             </div>
           </div>
         </div>
@@ -260,9 +260,9 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             image="/imgs/function/retort/stront-seals.webp"
             imageAlt="Strong Hermetic Seals"
             title="Designed to Prevent Leaks and Bursting"
-            titleCn="牢固气密封口"
+            titleCn="SturdyAirtightSeal"
             content="Our retort pouches feature strong, hermetic seals with optimized seal width and corner radius. Designed to prevent leaks and survive retort pressure without bursting, ensuring product safety and integrity."
-            contentCn="我们的蒸煮袋具有牢固的气密封口，优化了封口宽度和圆角半径。设计用于防渗漏，并在蒸煮压力下不爆袋，确保产品安全和完整性。"
+            contentCn="OurSteamingBagToolHaveSturdyOfAirtightSeal，ExcellentizationDoneSealWidthAndRoundAngleHalfPath。DesignUseAtAntiLeakage，AndInSteamingPressurePowerUnderNotBurstBag，EnsureProductSafeAndCompleteProperty。"
             imageLeft={false}
             index={5}
           />
@@ -279,9 +279,9 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             image="/imgs/function/retort/ready-to-heat.webp"
             imageAlt="Ready-to-Heat Convenience Features"
             title="Easy to Open, Ready to Eat"
-            titleCn="可加热，易开启"
+            titleCn="CanHeating，EasyOpen"
             content="Optional convenience features include tear notches for easy opening, zippers for resealing, spout attachments for liquids, and microwave-friendly designs for heat-and-eat meals. No can opener or extra dishes needed."
-            contentCn="可选便利功能包括：撕口方便开启、拉链可重封、吸嘴适合液体、可选微波加热设计袋中即热即食。无需开罐器和额外餐具。"
+            contentCn="OptionalConvenientBenefitFunctionCanPackIncluding：TearOpeningSideConvenientOpen、ZipperCanReseal、SpoutSuitableSuitableLiquid、OptionalMicrowaveHeatingDesignBagInImmediatelyHeatReady-to-Eat。NoRequireOpenCanDeviceAndExtraOutsideMealTool。"
             imageLeft={true}
             index={6}
           />
@@ -298,9 +298,9 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             image="/imgs/function/retort/shelf-stable.webp"
             imageAlt="Shelf-Stable Ready Meals"
             title="Less Packaging Weight, Same Protection"
-            titleCn="更轻包装也能实现常温即食餐"
+            titleCn="MoreLightPackagingAlsoCanAchieveRoom TemperatureReady-to-EatMeal"
             content="Replace heavy cans and glass jars with lightweight flexible retort pouches. Perfect for curries, chili, pasta sauces, soups, baby food, pet food and more. Stand-up or flat pouch formats available."
-            contentCn="用轻量柔性蒸煮袋替代传统罐瓶。适合咖喱、辣酱、意面酱、汤品、婴儿食品、宠物食品等。可选自立袋或平袋款式。"
+            contentCn="UseLightVolumeSoftPropertySteamingBagAlternativeTraditionalJars and Bottles。SuitableSuitableCurry、SpicySauce、IntentFaceSauce、SoupProduct、BabyFood、PetFoodEtc。OptionalStand-Up PouchesOrFlatBagStyle。"
             imageLeft={false}
             index={7}
           />
@@ -317,9 +317,9 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             image="/imgs/function/retort/more-meals.webp"
             imageAlt="More Meals Per Pallet"
             title="More Meals Per Pallet"
-            titleCn="每托盘可装更多餐食"
+            titleCn="More Meals Per Pallet"
             content="Lightweight, stackable retort pouches reduce shipping and storage costs significantly compared to cans and jars. More meals per pallet means lower logistics costs and smaller carbon footprint."
-            contentCn="轻量可平铺堆叠的蒸煮袋，相比罐瓶大幅降低运输与仓储成本。每托盘可装更多餐食，意味着更低的物流成本和更小的碳足迹。"
+            contentCn="LightVolumeCanFlatShopStackStackOfSteamingBag，ComparedJars and BottlesLargeWidthReduceLowTransportationAndWarehouseStoreCost。More Meals Per Pallet，IntentTasteingMoreLowOfMaterialFlowCostAndMoreSmallOfCarbon Footprint。"
             imageLeft={true}
             index={8}
           />
@@ -336,16 +336,16 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             image="/imgs/function/retort/100pcs.webp"
             imageAlt="100 pcs Low MOQ"
             title="Start Small, Scale Fast"
-            titleCn="小批量起步，快速放大"
+            titleCn="Small BatchStartStep，FastPlaceLarge"
             content="Our digital printing technology enables minimum orders of just 100 pieces for printed trial runs. Perfect for product launches, sampling, and new flavor testing without large inventory risk."
-            contentCn="我们的数码印刷技术支持印刷试单仅需 100 包起订。适合上新、打样和小批量口味测试，无需承担大量库存风险。"
+            contentCn="OurDigitalPrintingTechnologySupportPrintingTrySingleOnlyRequire 100 PackMinimum Order。SuitableSuitableUpNew、StrikeStyleAndSmall BatchFlavorTest，NoRequireBearLargeVolumeInventoryRisk。"
             imageLeft={false}
             index={10}
           />
           
           <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-lg border border-green-200 text-center">
             <div className="text-4xl font-bold text-green-700 mb-2">100 pcs</div>
-            <p className="text-green-800 font-medium">起订量仅 100 包</p>
+            <p className="text-green-800 font-medium">Minimum OrderVolumeOnly 100 Pack</p>
             <p className="text-sm text-green-600 mt-2">Minimum order for digital printed retort pouches</p>
           </div>
         </div>
@@ -361,9 +361,9 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             image="/imgs/function/retort/Full-color digital printing.webp"
             imageAlt="Full-Color Digital Printing"
             title="No Plate Fees, Photo-Quality Graphics"
-            titleCn="全彩数码印刷"
+            titleCn="FullColorDigitalPrinting"
             content="Digital printing eliminates plate fees, making it ideal for short runs and multiple SKUs. Print multiple designs in one production run with photo-quality graphics perfect for premium branding."
-            contentCn="数码印刷无需制版费，适合小批量和多 SKU。多个 SKU 可混合同批生产，照片级图案适配高端品牌形象。"
+            contentCn="DigitalPrintingNoRequireMadeEditionFee，SuitableSuitableSmall BatchAndMultiple SKU。MultipleUnit SKU CanMixSuitableSameBatchProduction，PhotoPieceGradePatternSuitableWithPremiumBrandFormElephant。"
             imageLeft={true}
             index={11}
           />
@@ -372,17 +372,17 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
               <Printer className="h-5 w-5 text-purple-600 mb-2" />
               <h4 className="font-semibold text-purple-800">No plate fees</h4>
-              <p className="text-sm text-purple-700">无需制版费</p>
+              <p className="text-sm text-purple-700">NoRequireMadeEditionFee</p>
             </div>
             <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
               <Package className="h-5 w-5 text-purple-600 mb-2" />
               <h4 className="font-semibold text-purple-800">Multiple SKUs</h4>
-              <p className="text-sm text-purple-700">多 SKU 混合生产</p>
+              <p className="text-sm text-purple-700">Multiple SKU MixSuitableProduction</p>
             </div>
             <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
               <Sparkles className="h-5 w-5 text-purple-600 mb-2" />
               <h4 className="font-semibold text-purple-800">Photo-quality</h4>
-              <p className="text-sm text-purple-700">照片级图案</p>
+              <p className="text-sm text-purple-700">PhotoPieceGradePattern</p>
             </div>
           </div>
         </div>
@@ -398,9 +398,9 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             image="/imgs/function/retort/Launch a full flavor line with low MOQ.webp"
             imageAlt="Low MOQ for Many SKUs"
             title="Launch a Full Flavor Line with Low MOQ"
-            titleCn="低起订即可覆盖多口味"
+            titleCn="LowMinimum OrderImmediatelyCanCoverMultipleFlavor"
             content="Digital printing makes it easy to launch multiple flavors and designs without large inventory risk. Just 100 pieces per SKU means you can test Green Curry, Tomato Soup, Beef Stew, and Vegan Chili all at once."
-            contentCn="数码印刷让你轻松测试包装与口味，而不压大量库存。每个口味仅需 100 包，可以同时测试青咖喱、番茄汤、红烧牛肉、素辣椒等多种口味。"
+            contentCn="DigitalPrintingLetYouLightLooseTestPackagingAndFlavor，AndNotPressureLargeVolumeInventory。EachUnitFlavorOnlyRequire 100 Pack，CanWithMeanwhileTestGreenCurry、TimeTomato Soup、Braised BeefMeat、ElementPepperEtcMultipleFlavor。"
             imageLeft={false}
             index={12}
           />
@@ -417,9 +417,9 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             image="/imgs/function/retort/custom-retort.webp"
             imageAlt="Design Your Custom Retort System"
             title="Design Your Custom Retort Packaging"
-            titleCn="和 Achieve Pack 一起设计你的专属蒸煮包装方案"
+            titleCn="And Achieve Pack TogetherDesignYouOfProfessionalBelongSteamingPackagingSolution"
             content="Three simple steps: 1) Choose pouch size, shape and format (flat or stand-up), 2) Select retort structure and barrier level, 3) Add your branding, artwork and features. From baby food to curries and pet meals, one retort system for your whole line."
-            contentCn="三个简单步骤：1) 选择袋子尺寸、外形和款式（平袋或自立袋），2) 选择蒸煮结构与阻隔等级，3) 加入你的品牌、图案与功能细节。从婴儿食品到咖喱和宠物餐，一套蒸煮系统覆盖整条产品线。"
+            contentCn="Three Simple Steps：1) ChooseBagChildDimensions、OutsideFormAndStyle（FlatBagOrStand-Up Pouches），2) ChooseSteamingStructureAndBarrier Level，3) AddEnterYouOfBrand、PatternAndFunctionCanDetails。FromBabyFoodToCurryAndPetMeal，OneSetSteamingSystemCoverWholeStripProductLine。"
             imageLeft={true}
             index={9}
           />
@@ -431,25 +431,25 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
                 <div className="w-8 h-8 bg-amber-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
                 <div>
                   <p className="font-medium text-neutral-800">Choose size & format</p>
-                  <p className="text-xs text-neutral-600">选择尺寸与款式</p>
+                  <p className="text-xs text-neutral-600">ChooseDimensionsAndStyle</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 bg-amber-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
                 <div>
                   <p className="font-medium text-neutral-800">Select structure & barrier</p>
-                  <p className="text-xs text-neutral-600">选择结构与阻隔等级</p>
+                  <p className="text-xs text-neutral-600">ChooseStructureAndBarrier Level</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 bg-amber-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div>
                 <div>
                   <p className="font-medium text-neutral-800">Add branding & artwork</p>
-                  <p className="text-xs text-neutral-600">加入品牌与图案</p>
+                  <p className="text-xs text-neutral-600">AddEnterBrandAndPattern</p>
                 </div>
               </div>
             </div>
-            <p className="text-sm text-neutral-600 mt-4 text-center">From baby food to curries and pet meals, one retort system for your whole line<br/>从婴儿食品到咖喱和宠物餐，一套蒸煮系统覆盖整条产品线</p>
+            <p className="text-sm text-neutral-600 mt-4 text-center">From baby food to curries and pet meals, one retort system for your whole line<br/>FromBabyFoodToCurryAndPetMeal，OneSetSteamingSystemCoverWholeStripProductLine</p>
           </div>
         </div>
       )
