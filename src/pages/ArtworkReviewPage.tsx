@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { 
   Lock, CheckCircle, AlertCircle, Clock, X, Check, ChevronLeft, ChevronRight,
   RefreshCw, FileImage, Sparkles, AlertTriangle, Info, Send, MessageSquare,
-  ZoomIn, Download
+  ZoomIn, Download, Search, Code
 } from 'lucide-react'
 import { supabase, ArtworkBatch, ArtworkBatchItem } from '../lib/supabase'
 
@@ -57,8 +57,22 @@ const ArtworkReviewPage: React.FC = () => {
   const [overallComment, setOverallComment] = useState('')
   const [submitting, setSubmitting] = useState(false)
   
+  // Bulk review state
+  const [showBulkReview, setShowBulkReview] = useState(false)
+  const [bulkChecklist, setBulkChecklist] = useState<Record<string, boolean>>({})
+  const [bulkApprovalType, setBulkApprovalType] = useState<'approve_as_is' | 'approve_with_changes' | 'not_approved' | null>(null)
+  const [bulkComment, setBulkComment] = useState('')
+  const [bulkSubmitting, setBulkSubmitting] = useState(false)
+  
   // Image preview
   const [previewImage, setPreviewImage] = useState<string | null>(null)
+  
+  // Search state
+  const [searchQuery, setSearchQuery] = useState('')
+  
+  // JSON preview state
+  const [showJsonModal, setShowJsonModal] = useState(false)
+  const [selectedItemJson, setSelectedItemJson] = useState<ArtworkBatchItem | null>(null)
 
   // Fetch batch data
   const fetchBatchData = useCallback(async () => {
@@ -186,6 +200,69 @@ const ArtworkReviewPage: React.FC = () => {
     }
   }
 
+  // Bulk review all items at once
+  const handleBulkReview = async () => {
+    if (!bulkApprovalType) {
+      alert('Please select an approval decision')
+      return
+    }
+    
+    const allChecked = CHECKLIST_ITEMS.every(c => bulkChecklist[c.key])
+    if (bulkApprovalType !== 'not_approved' && !allChecked) {
+      alert('Please verify all checklist items before approving')
+      return
+    }
+    
+    if (bulkApprovalType === 'not_approved' && !bulkComment.trim()) {
+      alert('Please provide comments for revision request')
+      return
+    }
+    
+    setBulkSubmitting(true)
+    try {
+      const status = bulkApprovalType === 'not_approved' ? 'rejected' : 'approved'
+      
+      // Update all items
+      for (const item of items) {
+        await supabase
+          .from('artwork_batch_items')
+          .update({
+            status,
+            approval_type: bulkApprovalType,
+            customer_comment: bulkComment || null,
+            checklist: bulkChecklist,
+            updated_at: new Date().toISOString()
+          })
+          .eq('id', item.id)
+      }
+      
+      // Update batch counts
+      const approved = bulkApprovalType !== 'not_approved' ? items.length : 0
+      const rejected = bulkApprovalType === 'not_approved' ? items.length : 0
+      
+      await supabase
+        .from('artwork_batches')
+        .update({
+          approved_count: approved,
+          rejected_count: rejected,
+          status: bulkApprovalType === 'not_approved' ? 'rejected' : 'approved'
+        })
+        .eq('id', batchId)
+      
+      alert(`All ${items.length} artworks have been reviewed!`)
+      setShowBulkReview(false)
+      setBulkChecklist({})
+      setBulkApprovalType(null)
+      setBulkComment('')
+      fetchBatchData()
+    } catch (err) {
+      console.error('Error bulk reviewing:', err)
+      alert('Failed to save. Please try again.')
+    } finally {
+      setBulkSubmitting(false)
+    }
+  }
+
   useEffect(() => {
     if (batchId) {
       fetchBatchData()
@@ -284,6 +361,24 @@ const ArtworkReviewPage: React.FC = () => {
   const rejectedCount = items.filter(i => i.status === 'rejected').length
   const pendingCount = items.filter(i => i.status === 'pending').length
   const allReviewed = pendingCount === 0
+  
+  // Filter items by search
+  const filteredItems = items.filter(item => {
+    if (!searchQuery.trim()) return true
+    const q = searchQuery.toLowerCase()
+    const ai = item.ai_analysis
+    return (
+      item.name.toLowerCase().includes(q) ||
+      item.customer_comment?.toLowerCase().includes(q) ||
+      ai?.title?.toLowerCase().includes(q) ||
+      ai?.description?.toLowerCase().includes(q) ||
+      ai?.keywords?.some(k => k.toLowerCase().includes(q)) ||
+      ai?.category?.toLowerCase().includes(q) ||
+      ai?.colors?.some(c => c.toLowerCase().includes(q)) ||
+      ai?.content_detected?.some(c => c.toLowerCase().includes(q)) ||
+      (ai && JSON.stringify(ai).toLowerCase().includes(q))
+    )
+  })
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -292,7 +387,7 @@ const ArtworkReviewPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-4">
-              <img src="https://achievepack.com/favicon.ico" alt="AchievePack" className="h-8 w-8" />
+              <img src="/ap-logo.svg" alt="AchievePack" className="h-8 w-auto" />
               <div>
                 <h1 className="font-semibold text-gray-900">Artwork Review - Batch {batch.batch_name}</h1>
                 <p className="text-xs text-gray-500">{totalItems} artworks • {pendingCount} pending review</p>
@@ -363,24 +458,65 @@ const ArtworkReviewPage: React.FC = () => {
           </div>
         </div>
 
+        {/* Bulk Review Button */}
+        {pendingCount > 0 && items.length > 1 && (
+          <div className="mb-6 p-4 bg-primary-50 border border-primary-200 rounded-xl">
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="font-semibold text-primary-900">Review All Artworks at Once</h3>
+                <p className="text-sm text-primary-700 mt-1">
+                  Apply the same checklist verification and decision to all {items.length} artworks
+                </p>
+              </div>
+              <button
+                onClick={() => setShowBulkReview(true)}
+                className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition font-medium"
+              >
+                Review All ({items.length})
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Search Box */}
+        <div className="mb-6">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search by name, keyword, color..."
+              className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500"
+            />
+          </div>
+          {searchQuery && (
+            <p className="text-sm text-gray-500 mt-2">
+              Showing {filteredItems.length} of {items.length} artworks
+            </p>
+          )}
+        </div>
+
         {/* Artworks Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {items.map((item, index) => {
+          {filteredItems.map((item, index) => {
             const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.file_url)
             return (
               <div 
                 key={item.id} 
-                className={`bg-white rounded-xl border overflow-hidden hover:shadow-lg transition cursor-pointer ${
+                className={`bg-white rounded-xl border overflow-hidden hover:shadow-lg transition ${
                   item.status === 'approved' ? 'border-green-200' :
                   item.status === 'rejected' ? 'border-red-200' : 'border-gray-200'
                 }`}
-                onClick={() => {
-                  setSelectedItem(item)
-                  setShowReviewModal(true)
-                }}
               >
                 {/* Preview */}
-                <div className="aspect-[4/3] bg-gray-100 relative">
+                <div 
+                  className="aspect-[4/3] bg-gray-100 relative cursor-pointer"
+                  onClick={() => {
+                    setSelectedItem(item)
+                    setShowReviewModal(true)
+                  }}
+                >
                   {isImage ? (
                     <img 
                       src={item.file_url} 
@@ -400,20 +536,53 @@ const ArtworkReviewPage: React.FC = () => {
                   <div className="absolute top-2 right-2">
                     {getStatusBadge(item.status)}
                   </div>
+                  {/* AI Badge */}
+                  {item.ai_analysis?.analyzed_at && (
+                    <div className="absolute bottom-2 right-2">
+                      <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-indigo-100 text-indigo-700">
+                        <Sparkles className="h-3 w-3" />
+                        AI
+                      </span>
+                    </div>
+                  )}
                 </div>
                 
                 {/* Info */}
                 <div className="p-3">
                   <h3 className="font-medium text-gray-900 truncate text-sm" title={item.name}>{item.name}</h3>
+                  {item.ai_analysis?.title && (
+                    <p className="text-xs text-gray-500 mt-1 truncate">{item.ai_analysis.title}</p>
+                  )}
                   {item.customer_comment && (
                     <p className="text-xs text-gray-500 mt-1 truncate">
                       <MessageSquare className="h-3 w-3 inline mr-1" />
                       {item.customer_comment}
                     </p>
                   )}
-                  <button className="w-full mt-2 py-2 text-sm font-medium text-primary-600 hover:bg-primary-50 rounded-lg transition">
-                    {item.status === 'pending' ? 'Review Now' : 'View Details'}
-                  </button>
+                  <div className="flex items-center gap-2 mt-2">
+                    <button 
+                      onClick={() => {
+                        setSelectedItem(item)
+                        setShowReviewModal(true)
+                      }}
+                      className="flex-1 py-2 text-sm font-medium text-primary-600 hover:bg-primary-50 rounded-lg transition"
+                    >
+                      {item.status === 'pending' ? 'Review Now' : 'View Details'}
+                    </button>
+                    {item.ai_analysis && (
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          setSelectedItemJson(item)
+                          setShowJsonModal(true)
+                        }}
+                        className="p-2 text-emerald-500 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition"
+                        title="View AI JSON"
+                      >
+                        <Code className="h-4 w-4" />
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
             )
@@ -545,6 +714,186 @@ const ArtworkReviewPage: React.FC = () => {
             className="max-w-full max-h-full object-contain"
             onClick={(e) => e.stopPropagation()}
           />
+        </div>
+      )}
+
+      {/* Bulk Review Modal */}
+      {showBulkReview && (
+        <div className="fixed inset-0 z-50 flex items-start justify-center p-4 bg-black/50 overflow-y-auto">
+          <div className="bg-white rounded-2xl max-w-2xl w-full my-8">
+            {/* Header */}
+            <div className="flex items-center justify-between p-6 border-b">
+              <div>
+                <h2 className="text-xl font-bold text-gray-900">Review All Artworks</h2>
+                <p className="text-sm text-gray-500 mt-1">Apply to all {items.length} artworks at once</p>
+              </div>
+              <button onClick={() => setShowBulkReview(false)} className="text-gray-400 hover:text-gray-600">
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+            
+            <div className="p-6 space-y-6">
+              {/* Checklist */}
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="font-semibold text-gray-900">Verification Checklist</h3>
+                  <button
+                    onClick={() => {
+                      const allChecked = CHECKLIST_ITEMS.every(c => bulkChecklist[c.key])
+                      if (allChecked) {
+                        setBulkChecklist({})
+                      } else {
+                        const newChecklist: Record<string, boolean> = {}
+                        CHECKLIST_ITEMS.forEach(c => { newChecklist[c.key] = true })
+                        setBulkChecklist(newChecklist)
+                      }
+                    }}
+                    className="text-sm text-primary-600 hover:text-primary-700 font-medium"
+                  >
+                    {CHECKLIST_ITEMS.every(c => bulkChecklist[c.key]) ? 'Uncheck All' : 'Check All'}
+                  </button>
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  {CHECKLIST_ITEMS.map(c => (
+                    <label 
+                      key={c.key}
+                      className="flex items-center gap-3 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer"
+                    >
+                      <input
+                        type="checkbox"
+                        checked={bulkChecklist[c.key] || false}
+                        onChange={(e) => setBulkChecklist(prev => ({ ...prev, [c.key]: e.target.checked }))}
+                        className="w-5 h-5 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
+                      />
+                      <span className="text-sm text-gray-700">{c.label}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Decision */}
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-3">Your Decision</h3>
+                <div className="space-y-2">
+                  <label className={`flex items-start gap-3 p-4 border rounded-lg cursor-pointer transition ${
+                    bulkApprovalType === 'approve_as_is' ? 'border-green-500 bg-green-50' : 'border-gray-200 hover:bg-gray-50'
+                  }`}>
+                    <input
+                      type="radio"
+                      name="bulk_approval"
+                      checked={bulkApprovalType === 'approve_as_is'}
+                      onChange={() => setBulkApprovalType('approve_as_is')}
+                      className="mt-1"
+                    />
+                    <div>
+                      <span className="font-medium text-gray-900">Approve as is</span>
+                      <p className="text-sm text-gray-500">The artwork is approved for production</p>
+                    </div>
+                  </label>
+                  
+                  <label className={`flex items-start gap-3 p-4 border rounded-lg cursor-pointer transition ${
+                    bulkApprovalType === 'approve_with_changes' ? 'border-yellow-500 bg-yellow-50' : 'border-gray-200 hover:bg-gray-50'
+                  }`}>
+                    <input
+                      type="radio"
+                      name="bulk_approval"
+                      checked={bulkApprovalType === 'approve_with_changes'}
+                      onChange={() => setBulkApprovalType('approve_with_changes')}
+                      className="mt-1"
+                    />
+                    <div>
+                      <span className="font-medium text-gray-900">Approve with changes</span>
+                      <p className="text-sm text-gray-500">Minor changes noted but approved for production</p>
+                    </div>
+                  </label>
+                  
+                  <label className={`flex items-start gap-3 p-4 border rounded-lg cursor-pointer transition ${
+                    bulkApprovalType === 'not_approved' ? 'border-red-500 bg-red-50' : 'border-gray-200 hover:bg-gray-50'
+                  }`}>
+                    <input
+                      type="radio"
+                      name="bulk_approval"
+                      checked={bulkApprovalType === 'not_approved'}
+                      onChange={() => setBulkApprovalType('not_approved')}
+                      className="mt-1"
+                    />
+                    <div>
+                      <span className="font-medium text-gray-900">Not Approved - Send New Proof</span>
+                      <p className="text-sm text-gray-500">Requires revision before approval</p>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              
+              {/* Comment */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Comments for All Artworks {bulkApprovalType === 'not_approved' && <span className="text-red-500">*</span>}
+                </label>
+                <textarea
+                  value={bulkComment}
+                  onChange={(e) => setBulkComment(e.target.value)}
+                  placeholder={bulkApprovalType === 'not_approved' ? 'Please describe what needs to be changed...' : 'Optional comments...'}
+                  rows={3}
+                  className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500"
+                />
+              </div>
+              
+              {/* Summary */}
+              <div className="p-4 bg-gray-50 rounded-xl">
+                <p className="text-sm text-gray-600">
+                  <Info className="h-4 w-4 inline mr-1" />
+                  This will apply your verification and decision to <strong>all {items.length} artworks</strong> in this batch.
+                </p>
+              </div>
+            </div>
+            
+            {/* Footer */}
+            <div className="flex gap-3 p-6 border-t bg-gray-50 rounded-b-2xl">
+              <button
+                onClick={() => setShowBulkReview(false)}
+                className="flex-1 px-4 py-3 border border-gray-200 rounded-lg hover:bg-white transition"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleBulkReview}
+                disabled={
+                  !bulkApprovalType || 
+                  bulkSubmitting ||
+                  (bulkApprovalType !== 'not_approved' && !CHECKLIST_ITEMS.every(c => bulkChecklist[c.key])) ||
+                  (bulkApprovalType === 'not_approved' && !bulkComment.trim())
+                }
+                className={`flex-1 px-4 py-3 text-white rounded-lg transition disabled:opacity-50 ${
+                  bulkApprovalType === 'not_approved' ? 'bg-red-600 hover:bg-red-700' : 'bg-green-600 hover:bg-green-700'
+                }`}
+              >
+                {bulkSubmitting ? 'Applying...' : `Apply to All ${items.length} Artworks`}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* JSON Preview Modal */}
+      {showJsonModal && selectedItemJson && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
+          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-hidden">
+            <div className="flex items-center justify-between p-6 border-b">
+              <div>
+                <h2 className="text-xl font-bold text-gray-900">AI Analysis JSON</h2>
+                <p className="text-sm text-gray-500 mt-1">{selectedItemJson.name}</p>
+              </div>
+              <button onClick={() => { setShowJsonModal(false); setSelectedItemJson(null) }} className="text-gray-400 hover:text-gray-600">
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+            <div className="p-6 overflow-y-auto max-h-[60vh]">
+              <pre className="bg-gray-50 p-4 rounded-lg text-sm overflow-x-auto">
+                {JSON.stringify(selectedItemJson.ai_analysis, null, 2)}
+              </pre>
+            </div>
+          </div>
         </div>
       )}
     </div>

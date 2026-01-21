@@ -1,12 +1,14 @@
 import React from 'react'
-import { Recycle, Leaf, Shield, CheckCircle, Factory, MessageCircle, BookOpen, Building2, Image } from 'lucide-react'
+import { Recycle, Leaf, Shield, CheckCircle, Factory, MessageCircle, BookOpen, Building2, Image, TrendingUp, BarChart3, ArrowLeftRight, ShoppingBag, Coffee, Sparkles, Globe, Target, Calendar, Phone, Download, Mail } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import ClickableImage from '../../components/ClickableImage'
+import { useCalendly } from '../../contexts/CalendlyContext'
 
 const RecyclableMonoPEPage: React.FC = () => {
   const { t } = useTranslation()
+  const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.recyclableMonoPE'
   const sections = [
     {
@@ -125,6 +127,266 @@ const RecyclableMonoPEPage: React.FC = () => {
           <p className="text-sm text-neutral-600 mt-4">
             {t(`${p}.sections.recycling.note`)}
           </p>
+        </div>
+      )
+    },
+    // ========== 場景 (Industry Applications) ==========
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">Mono-PE recyclable packaging is the circular economy solution for brands committed to keeping materials in use:</p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-5 rounded-xl border border-blue-200">
+              <div className="flex items-center gap-2 mb-3">
+                <ShoppingBag className="h-6 w-6 text-blue-600" />
+                <h4 className="font-bold text-blue-800">Food & Snacks</h4>
+              </div>
+              <ul className="text-sm space-y-2 text-blue-700">
+                <li>• <strong>Snack Brands:</strong> Chips, nuts, dried fruits</li>
+                <li>• <strong>Pet Food:</strong> Treats and dry food pouches</li>
+                <li>• <strong>Frozen Foods:</strong> Vegetables, ready meals</li>
+              </ul>
+              <div className="mt-3 pt-3 border-t border-blue-200">
+                <span className="text-xs text-blue-600">EVOH layer maintains 9-12 month shelf life</span>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Coffee className="h-6 w-6 text-green-600" />
+                <h4 className="font-bold text-green-800">Coffee Industry</h4>
+              </div>
+              <ul className="text-sm space-y-2 text-green-700">
+                <li>• <strong>Roasters:</strong> Mono-PE with EVOH for freshness</li>
+                <li>• <strong>Subscriptions:</strong> Widely recyclable messaging</li>
+                <li>• <strong>Retail:</strong> How2Recycle label compatible</li>
+              </ul>
+              <div className="mt-3 pt-3 border-t border-green-200">
+                <span className="text-xs text-green-600">Degassing valves available</span>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-purple-50 to-violet-50 p-5 rounded-xl border border-purple-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="h-6 w-6 text-purple-600" />
+                <h4 className="font-bold text-purple-800">Non-Food Applications</h4>
+              </div>
+              <ul className="text-sm space-y-2 text-purple-700">
+                <li>• <strong>Personal Care:</strong> Refill pouches</li>
+                <li>• <strong>Detergents:</strong> Household product refills</li>
+                <li>• <strong>E-commerce:</strong> Protective mailers</li>
+              </ul>
+              <div className="mt-3 pt-3 border-t border-purple-200">
+                <span className="text-xs text-purple-600">Perfect for refill economy</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 mt-6">
+            <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
+              <Building2 className="h-5 w-5 text-primary-600" />
+              Customer Success Stories
+            </h4>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="bg-white p-4 rounded-lg border border-neutral-200">
+                <span className="text-xs font-semibold text-blue-600 uppercase">US Snack Brand</span>
+                <p className="text-sm text-neutral-700 mt-2">Switched from multi-layer laminate to mono-PE. Added "Widely Recyclable" label. Result: 20% increase in retailer shelf placement.</p>
+              </div>
+              <div className="bg-white p-4 rounded-lg border border-neutral-200">
+                <span className="text-xs font-semibold text-green-600 uppercase">EU Pet Food Company</span>
+                <p className="text-sm text-neutral-700 mt-2">Transitioned entire treat line to mono-PE. Customer feedback: "Finally packaging I can recycle!" 15% sales increase.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    // ========== 數據 (Market & Performance Data) ==========
+    {
+      id: 'market-data',
+      title: '市場數據 Market & Performance Data',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-5 rounded-xl text-center">
+              <TrendingUp className="h-8 w-8 mx-auto mb-2 opacity-80" />
+              <p className="text-3xl font-bold">95%</p>
+              <p className="text-sm opacity-90">PE Recycling Rate (EU)</p>
+            </div>
+            <div className="bg-gradient-to-br from-green-500 to-green-600 text-white p-5 rounded-xl text-center">
+              <BarChart3 className="h-8 w-8 mx-auto mb-2 opacity-80" />
+              <p className="text-3xl font-bold">9-12</p>
+              <p className="text-sm opacity-90">Months Shelf Life (w/EVOH)</p>
+            </div>
+            <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-5 rounded-xl text-center">
+              <Globe className="h-8 w-8 mx-auto mb-2 opacity-80" />
+              <p className="text-3xl font-bold">#4</p>
+              <p className="text-sm opacity-90">Resin Code (LDPE)</p>
+            </div>
+            <div className="bg-gradient-to-br from-amber-500 to-amber-600 text-white p-5 rounded-xl text-center">
+              <Recycle className="h-8 w-8 mx-auto mb-2 opacity-80" />
+              <p className="text-3xl font-bold">∞</p>
+              <p className="text-sm opacity-90">Times Recyclable</p>
+            </div>
+          </div>
+          
+          <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
+            <div className="bg-neutral-100 px-4 py-3 border-b">
+              <h4 className="font-bold text-neutral-900">Mono-PE Structure Options</h4>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-neutral-50">
+                  <tr>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Structure</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Barrier Level</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Shelf Life</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Best For</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-neutral-100">
+                  <tr>
+                    <td className="px-4 py-3 font-medium">PE/PE (Basic)</td>
+                    <td className="px-4 py-3">Low</td>
+                    <td className="px-4 py-3">3-6 months</td>
+                    <td className="px-4 py-3">Dry goods, non-food</td>
+                  </tr>
+                  <tr className="bg-neutral-50">
+                    <td className="px-4 py-3 font-medium">PE/EVOH/PE</td>
+                    <td className="px-4 py-3">Medium-High</td>
+                    <td className="px-4 py-3">9-12 months</td>
+                    <td className="px-4 py-3">Coffee, snacks, pet food</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-medium">OPE/PE (Oriented)</td>
+                    <td className="px-4 py-3">Medium</td>
+                    <td className="px-4 py-3">6-9 months</td>
+                    <td className="px-4 py-3">Frozen foods, meat</td>
+                  </tr>
+                  <tr className="bg-neutral-50">
+                    <td className="px-4 py-3 font-medium">PE + Barrier Coating</td>
+                    <td className="px-4 py-3">Medium</td>
+                    <td className="px-4 py-3">6-9 months</td>
+                    <td className="px-4 py-3">General food applications</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div className="bg-blue-50 p-6 rounded-xl border border-blue-200">
+            <h4 className="font-bold text-blue-800 mb-4">Environmental Impact: Recyclable vs Landfill</h4>
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="text-center">
+                <p className="text-2xl font-bold text-blue-700">-80%</p>
+                <p className="text-sm text-blue-600">Energy vs virgin production</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-blue-700">-70%</p>
+                <p className="text-sm text-blue-600">CO₂ when recycled</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-blue-700">0</p>
+                <p className="text-sm text-blue-600">Waste to landfill (if recycled)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    // ========== 對比 (Material Comparison) ==========
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">Compare mono-PE with other sustainable packaging options:</p>
+          
+          <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
+            <div className="bg-primary-600 px-4 py-3">
+              <h4 className="font-bold text-white text-center">Recyclable vs Compostable Comparison</h4>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-neutral-50">
+                  <tr>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Criteria</th>
+                    <th className="px-4 py-3 text-center font-semibold text-blue-700">Mono-PE</th>
+                    <th className="px-4 py-3 text-center font-semibold text-purple-700">Mono-PP</th>
+                    <th className="px-4 py-3 text-center font-semibold text-green-700">Compostable</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-neutral-100">
+                  <tr>
+                    <td className="px-4 py-3 font-medium">End of Life</td>
+                    <td className="px-4 py-3 text-center">PE recycling stream</td>
+                    <td className="px-4 py-3 text-center">PP recycling stream</td>
+                    <td className="px-4 py-3 text-center">Composting facility</td>
+                  </tr>
+                  <tr className="bg-neutral-50">
+                    <td className="px-4 py-3 font-medium">Barrier Level</td>
+                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐⭐</td>
+                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐⭐</td>
+                    <td className="px-4 py-3 text-center">⭐⭐⭐</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-medium">Heat Resistance</td>
+                    <td className="px-4 py-3 text-center">Up to 80°C</td>
+                    <td className="px-4 py-3 text-center">Up to 130°C</td>
+                    <td className="px-4 py-3 text-center">Up to 50°C</td>
+                  </tr>
+                  <tr className="bg-neutral-50">
+                    <td className="px-4 py-3 font-medium">Consumer Accessibility</td>
+                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐⭐ (Curbside)</td>
+                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐ (Variable)</td>
+                    <td className="px-4 py-3 text-center">⭐⭐⭐ (Facility needed)</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-medium">Cost Premium</td>
+                    <td className="px-4 py-3 text-center">+5-10%</td>
+                    <td className="px-4 py-3 text-center">+8-15%</td>
+                    <td className="px-4 py-3 text-center">+20-30%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div className="bg-amber-50 p-6 rounded-xl border border-amber-200">
+            <h4 className="font-bold text-amber-800 mb-3">💡 Quick Decision Guide</h4>
+            <div className="grid md:grid-cols-3 gap-4 text-sm">
+              <div>
+                <p className="font-semibold text-blue-700">Choose Mono-PE if:</p>
+                <ul className="mt-2 space-y-1 text-blue-600">
+                  <li>• Recycling is most accessible</li>
+                  <li>• Need flexible/soft feel</li>
+                  <li>• How2Recycle label important</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-semibold text-purple-700">Choose Mono-PP if:</p>
+                <ul className="mt-2 space-y-1 text-purple-600">
+                  <li>• Hot-fill or microwave needed</li>
+                  <li>• Higher heat resistance required</li>
+                  <li>• <Link to="/materials/recyclable-mono-pp" className="underline">Learn more →</Link></li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-semibold text-green-700">Choose Compostable if:</p>
+                <ul className="mt-2 space-y-1 text-green-600">
+                  <li>• Composting access for customers</li>
+                  <li>• Eco-story is key differentiator</li>
+                  <li>• <Link to="/materials/compostable" className="underline">Learn more →</Link></li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       )
     },

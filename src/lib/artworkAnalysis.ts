@@ -133,19 +133,32 @@ Respond ONLY with valid JSON, no other text.`
     
     console.log('xAI Analysis result:', analysis)
     
-    // Save to database
-    const { error } = await supabase
-      .from('artwork_files')
+    // Save to database - try artwork_batch_items first (for batch system), then artwork_files
+    const { error: batchError } = await supabase
+      .from('artwork_batch_items')
       .update({
         ai_analysis: analysis,
         updated_at: new Date().toISOString()
       })
       .eq('id', artworkId)
     
-    if (error) {
-      console.error('Failed to save AI analysis to database:', error)
+    if (batchError) {
+      // Try artwork_files table as fallback
+      const { error: filesError } = await supabase
+        .from('artwork_files')
+        .update({
+          ai_analysis: analysis,
+          updated_at: new Date().toISOString()
+        })
+        .eq('id', artworkId)
+      
+      if (filesError) {
+        console.error('Failed to save AI analysis to database:', filesError)
+      } else {
+        console.log('AI analysis saved to artwork_files for:', artworkId)
+      }
     } else {
-      console.log('AI analysis saved to database for artwork:', artworkId)
+      console.log('AI analysis saved to artwork_batch_items for:', artworkId)
     }
     
     return analysis

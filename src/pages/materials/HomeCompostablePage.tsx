@@ -1,9 +1,10 @@
 import React from 'react'
-import { Home, Leaf, CheckCircle, Clock, Award, Target, Shield, Calendar, Phone, Download, Mail, MessageCircle, Building2 } from 'lucide-react'
+import { Home, Leaf, CheckCircle, Clock, Award, Target, Shield, Calendar, Phone, Download, Mail, MessageCircle, Building2, TrendingUp, BarChart3, ArrowLeftRight, Factory, ShoppingBag, Coffee, Sparkles, Globe, Recycle } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import ClickableImage from '../../components/ClickableImage'
 
 const HomeCompostablePage: React.FC = () => {
   const { t } = useTranslation()
@@ -66,10 +67,62 @@ const HomeCompostablePage: React.FC = () => {
       icon: <Award className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
+          {/* Certification Badges Overview */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 flex flex-col items-center text-center">
+              <ClickableImage 
+                src="/imgs/cert/cert-din-home-compost.png" 
+                alt="DIN CERTCO Home Compostable Certification" 
+                className="h-16 w-auto mb-2"
+                caption="Home Compostable"
+              />
+              <span className="text-xs font-semibold text-neutral-800">OK Home</span>
+              <span className="text-xs text-neutral-500">TÜV Austria</span>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 flex flex-col items-center text-center">
+              <ClickableImage 
+                src="/imgs/cert/cert-ABA-as5810.png" 
+                alt="ABA AS5810 Australian Home Composting Certification" 
+                className="h-16 w-auto mb-2"
+                caption="AS5810 Australia"
+              />
+              <span className="text-xs font-semibold text-neutral-800">AS 5810</span>
+              <span className="text-xs text-neutral-500">Australia</span>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 flex flex-col items-center text-center">
+              <ClickableImage 
+                src="/imgs/cert/logo-compostable-seed.png" 
+                alt="EU Seedling Logo Compostable" 
+                className="h-16 w-auto mb-2"
+                caption="EU Seedling"
+              />
+              <span className="text-xs font-semibold text-neutral-800">Seedling</span>
+              <span className="text-xs text-neutral-500">EU Standard</span>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200 flex flex-col items-center text-center">
+              <ClickableImage 
+                src="/imgs/cert/logo-achievepack-BPI.jpg" 
+                alt="BPI Certified Compostable" 
+                className="h-16 w-auto mb-2"
+                caption="BPI Certified"
+              />
+              <span className="text-xs font-semibold text-neutral-800">BPI</span>
+              <span className="text-xs text-neutral-500">US Standard</span>
+            </div>
+          </div>
+          
+          {/* Detailed Certification Info */}
           <div className="grid md:grid-cols-2 gap-4 mt-4">
             <div className="bg-green-50 p-4 rounded-lg border-2 border-green-200">
-              <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sections.certifications.okHome.title`)}</h4>
-              <p className="text-sm text-green-700 mb-2">{t(`${p}.sections.certifications.okHome.subtitle`)}</p>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center border border-green-200 flex-shrink-0">
+                  <ClickableImage src="/imgs/cert/cert-din-home-compost.png" alt="OK Home" className="h-10 w-auto" caption="OK Home" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-green-800">{t(`${p}.sections.certifications.okHome.title`)}</h4>
+                  <p className="text-sm text-green-700">{t(`${p}.sections.certifications.okHome.subtitle`)}</p>
+                </div>
+              </div>
               <ul className="text-sm space-y-1">
                 <li>• {t(`${p}.sections.certifications.okHome.feature1`)}</li>
                 <li>• {t(`${p}.sections.certifications.okHome.feature2`)}</li>
@@ -78,14 +131,281 @@ const HomeCompostablePage: React.FC = () => {
               </ul>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border-2 border-blue-200">
-              <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.certifications.as5810.title`)}</h4>
-              <p className="text-sm text-blue-700 mb-2">{t(`${p}.sections.certifications.as5810.subtitle`)}</p>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center border border-blue-200 flex-shrink-0">
+                  <ClickableImage src="/imgs/cert/cert-ABA-as5810.png" alt="AS5810" className="h-10 w-auto" caption="AS5810" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-blue-800">{t(`${p}.sections.certifications.as5810.title`)}</h4>
+                  <p className="text-sm text-blue-700">{t(`${p}.sections.certifications.as5810.subtitle`)}</p>
+                </div>
+              </div>
               <ul className="text-sm space-y-1">
                 <li>• {t(`${p}.sections.certifications.as5810.feature1`)}</li>
                 <li>• {t(`${p}.sections.certifications.as5810.feature2`)}</li>
                 <li>• {t(`${p}.sections.certifications.as5810.feature3`)}</li>
                 <li>• {t(`${p}.sections.certifications.as5810.feature4`)}</li>
               </ul>
+            </div>
+          </div>
+          
+          {/* Certification Link */}
+          <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 mt-4">
+            <p className="text-sm text-neutral-600">
+              <strong>Verify our certifications:</strong> View all our compostable certifications and download official documents at our <Link to="/company/certificates" className="text-primary-600 hover:underline">Certificates Page</Link>.
+            </p>
+          </div>
+        </div>
+      )
+    },
+    // ========== 場景 (Industry Applications) ==========
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">Home compostable packaging is ideal for brands targeting eco-conscious consumers who compost at home:</p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Coffee className="h-6 w-6 text-amber-600" />
+                <h4 className="font-bold text-amber-800">Specialty Tea & Coffee</h4>
+              </div>
+              <ul className="text-sm space-y-2 text-amber-700">
+                <li>• <strong>Loose Leaf Tea:</strong> Kraft/PLA sachets for premium tea</li>
+                <li>• <strong>Single Origin Coffee:</strong> Small batch roasters</li>
+                <li>• <strong>Herbal Blends:</strong> Natural products, natural disposal</li>
+              </ul>
+              <div className="mt-3 pt-3 border-t border-amber-200">
+                <span className="text-xs text-amber-600">Perfect for farmers market & specialty retail</span>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+              <div className="flex items-center gap-2 mb-3">
+                <ShoppingBag className="h-6 w-6 text-green-600" />
+                <h4 className="font-bold text-green-800">Organic Food Brands</h4>
+              </div>
+              <ul className="text-sm space-y-2 text-green-700">
+                <li>• <strong>Organic Snacks:</strong> Complete the eco-story</li>
+                <li>• <strong>Dried Fruits:</strong> Clear window options available</li>
+                <li>• <strong>Seeds & Nuts:</strong> Short shelf life products</li>
+              </ul>
+              <div className="mt-3 pt-3 border-t border-green-200">
+                <span className="text-xs text-green-600">Appeals to health & eco-conscious consumers</span>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-purple-50 to-violet-50 p-5 rounded-xl border border-purple-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="h-6 w-6 text-purple-600" />
+                <h4 className="font-bold text-purple-800">AU/UK/EU Markets</h4>
+              </div>
+              <ul className="text-sm space-y-2 text-purple-700">
+                <li>• <strong>Australia:</strong> AS 5810 certified for local compliance</li>
+                <li>• <strong>UK:</strong> Garden composting culture strong</li>
+                <li>• <strong>Germany:</strong> High home composting adoption</li>
+              </ul>
+              <div className="mt-3 pt-3 border-t border-purple-200">
+                <span className="text-xs text-purple-600">Regional certifications available</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 mt-6">
+            <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
+              <Building2 className="h-5 w-5 text-primary-600" />
+              Customer Success Stories
+            </h4>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="bg-white p-4 rounded-lg border border-neutral-200">
+                <span className="text-xs font-semibold text-green-600 uppercase">Australian Tea Brand</span>
+                <p className="text-sm text-neutral-700 mt-2">Switched to AS 5810 certified pouches. Customer feedback: "Love that I can compost the bag with my tea leaves!"</p>
+              </div>
+              <div className="bg-white p-4 rounded-lg border border-neutral-200">
+                <span className="text-xs font-semibold text-amber-600 uppercase">UK Organic Snacks</span>
+                <p className="text-sm text-neutral-700 mt-2">Launched with OK Home certified bags. 40% of customers mentioned packaging in positive reviews.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    // ========== 數據 (Market & Performance Data) ==========
+    {
+      id: 'market-data',
+      title: '市場數據 Market & Performance Data',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-gradient-to-br from-green-500 to-green-600 text-white p-5 rounded-xl text-center">
+              <TrendingUp className="h-8 w-8 mx-auto mb-2 opacity-80" />
+              <p className="text-3xl font-bold">45%</p>
+              <p className="text-sm opacity-90">UK Households Compost at Home</p>
+            </div>
+            <div className="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-5 rounded-xl text-center">
+              <BarChart3 className="h-8 w-8 mx-auto mb-2 opacity-80" />
+              <p className="text-3xl font-bold">65%</p>
+              <p className="text-sm opacity-90">Australian Home Composters</p>
+            </div>
+            <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-5 rounded-xl text-center">
+              <Globe className="h-8 w-8 mx-auto mb-2 opacity-80" />
+              <p className="text-3xl font-bold">180</p>
+              <p className="text-sm opacity-90">Days to Full Decomposition</p>
+            </div>
+            <div className="bg-gradient-to-br from-amber-500 to-amber-600 text-white p-5 rounded-xl text-center">
+              <Recycle className="h-8 w-8 mx-auto mb-2 opacity-80" />
+              <p className="text-3xl font-bold">20-30°C</p>
+              <p className="text-sm opacity-90">Ambient Temperature Composting</p>
+            </div>
+          </div>
+          
+          <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
+            <div className="bg-neutral-100 px-4 py-3 border-b">
+              <h4 className="font-bold text-neutral-900">Home Compostable Material Options</h4>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-neutral-50">
+                  <tr>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Material</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Decomposition</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Shelf Life</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Certifications</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-neutral-100">
+                  <tr>
+                    <td className="px-4 py-3 font-medium">Kraft/PLA</td>
+                    <td className="px-4 py-3">90-180 days</td>
+                    <td className="px-4 py-3">3-6 months</td>
+                    <td className="px-4 py-3">OK Home, AS5810</td>
+                  </tr>
+                  <tr className="bg-neutral-50">
+                    <td className="px-4 py-3 font-medium">PBAT/PLA Blend</td>
+                    <td className="px-4 py-3">90-180 days</td>
+                    <td className="px-4 py-3">6-9 months</td>
+                    <td className="px-4 py-3">OK Home</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-medium">NatureFlex™</td>
+                    <td className="px-4 py-3">45-90 days</td>
+                    <td className="px-4 py-3">6-12 months</td>
+                    <td className="px-4 py-3">OK Home, TÜV</td>
+                  </tr>
+                  <tr className="bg-neutral-50">
+                    <td className="px-4 py-3 font-medium">Paper/PLA</td>
+                    <td className="px-4 py-3">60-120 days</td>
+                    <td className="px-4 py-3">3-6 months</td>
+                    <td className="px-4 py-3">OK Home, AS5810</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div className="bg-green-50 p-6 rounded-xl border border-green-200">
+            <h4 className="font-bold text-green-800 mb-4">Environmental Impact: Home vs Landfill</h4>
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="text-center">
+                <p className="text-2xl font-bold text-green-700">0</p>
+                <p className="text-sm text-green-600">Microplastics after composting</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-green-700">100%</p>
+                <p className="text-sm text-green-600">Returns nutrients to soil</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-green-700">-70%</p>
+                <p className="text-sm text-green-600">CO₂ vs plastic in landfill</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    // ========== 對比 (Material Comparison) ==========
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">Understanding home vs industrial compostable helps you make the right choice:</p>
+          
+          <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
+            <div className="bg-gradient-to-r from-green-600 to-blue-600 px-4 py-3">
+              <h4 className="font-bold text-white text-center">Home Compostable vs Industrial Compostable</h4>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-neutral-50">
+                  <tr>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Feature</th>
+                    <th className="px-4 py-3 text-left font-semibold text-green-700">🏡 Home Compostable</th>
+                    <th className="px-4 py-3 text-left font-semibold text-blue-700">🏭 Industrial Compostable</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-neutral-100">
+                  <tr>
+                    <td className="px-4 py-3 font-medium">Temperature Required</td>
+                    <td className="px-4 py-3 text-green-700">✓ 20-30°C (ambient)</td>
+                    <td className="px-4 py-3 text-blue-700">58°C+ (controlled)</td>
+                  </tr>
+                  <tr className="bg-neutral-50">
+                    <td className="px-4 py-3 font-medium">Where to Compost</td>
+                    <td className="px-4 py-3 text-green-700">✓ Backyard bin</td>
+                    <td className="px-4 py-3 text-blue-700">Commercial facility</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-medium">Consumer Accessibility</td>
+                    <td className="px-4 py-3 text-green-700">✓ Easy - home garden</td>
+                    <td className="px-4 py-3 text-amber-700">△ Requires facility access</td>
+                  </tr>
+                  <tr className="bg-neutral-50">
+                    <td className="px-4 py-3 font-medium">Barrier Properties</td>
+                    <td className="px-4 py-3 text-amber-700">△ Low-Medium</td>
+                    <td className="px-4 py-3 text-blue-700">✓ Medium-High</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-medium">Shelf Life</td>
+                    <td className="px-4 py-3">3-9 months</td>
+                    <td className="px-4 py-3">9-12+ months</td>
+                  </tr>
+                  <tr className="bg-neutral-50">
+                    <td className="px-4 py-3 font-medium">Cost</td>
+                    <td className="px-4 py-3 text-amber-700">△ Higher premium</td>
+                    <td className="px-4 py-3 text-green-700">✓ More economical</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div className="bg-amber-50 p-6 rounded-xl border border-amber-200">
+            <h4 className="font-bold text-amber-800 mb-3">💡 Quick Decision Guide</h4>
+            <div className="grid md:grid-cols-2 gap-4 text-sm">
+              <div>
+                <p className="font-semibold text-green-700">Choose Home Compostable if:</p>
+                <ul className="mt-2 space-y-1 text-green-600">
+                  <li>• Your customers have gardens/compost bins</li>
+                  <li>• Selling in AU/UK/EU markets</li>
+                  <li>• Products with 3-6 month shelf life</li>
+                  <li>• Premium eco-story is key differentiator</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-semibold text-blue-700">Choose Industrial Compostable if:</p>
+                <ul className="mt-2 space-y-1 text-blue-600">
+                  <li>• Need longer shelf life (9-12+ months)</li>
+                  <li>• Higher barrier required</li>
+                  <li>• Commercial composting accessible to customers</li>
+                  <li>• <Link to="/materials/industrial-compostable" className="underline">Learn more →</Link></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

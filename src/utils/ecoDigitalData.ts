@@ -27,14 +27,14 @@ export type ShippingMethod = 'Air Freight' | 'Sea Freight' | 'Dual Shipping'
 
 // SIZE_DATA from Python
 export const SIZE_DATA: Record<EcoSizeCode, { base_cost: number; base_weight: number }> = {
-  XXXS: { base_cost: 0.45, base_weight: 3 },
-  XXS: { base_cost: 0.75, base_weight: 5 },
-  XS: { base_cost: 0.77, base_weight: 6 },
-  S: { base_cost: 0.80, base_weight: 7.5 },
-  M: { base_cost: 0.82, base_weight: 9 },
-  L: { base_cost: 0.89, base_weight: 12 },
-  XL: { base_cost: 1.05, base_weight: 15 },
-  XXL: { base_cost: 1.25, base_weight: 18 },
+  XXXS: { base_cost: 0.81, base_weight: 3 },
+  XXS: { base_cost: 0.83, base_weight: 5 },
+  XS: { base_cost: 0.86, base_weight: 6 },
+  S: { base_cost: 0.90, base_weight: 7.5 },
+  M: { base_cost: 0.95, base_weight: 9 },
+  L: { base_cost: 1.05, base_weight: 12 },
+  XL: { base_cost: 1.25, base_weight: 15 },
+  XXL: { base_cost: 1.55, base_weight: 18 },
 }
 
 // SIZE_SPECS with display labels

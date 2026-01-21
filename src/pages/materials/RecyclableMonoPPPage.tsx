@@ -1,5 +1,5 @@
 import React from 'react'
-import { Recycle, Leaf, Shield, CheckCircle, Thermometer, Target, Calendar, Phone, Download, Mail, MessageCircle, Image } from 'lucide-react'
+import { Recycle, Leaf, Shield, CheckCircle, Thermometer, Target, Calendar, Phone, Download, Mail, MessageCircle, Image, TrendingUp, BarChart3, ArrowLeftRight, Factory, ShoppingBag, Coffee, Sparkles, Globe, Building2 } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
@@ -127,6 +127,272 @@ const RecyclableMonoPPPage: React.FC = () => {
             <ul className="space-y-2 text-sm">
               {(t(`${p}.sections.specifications.specs`, { returnObjects: true }) as string[]).map((s, i) => <li key={i}>✓ {s}</li>)}
             </ul>
+          </div>
+        </div>
+      )
+    },
+    // ========== 場景 (Industry Applications) ==========
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">Mono-PP recyclable packaging excels where heat resistance and clarity are essential:</p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-purple-50 to-violet-50 p-5 rounded-xl border border-purple-200">
+              <div className="flex items-center gap-2 mb-3">
+                <ShoppingBag className="h-6 w-6 text-purple-600" />
+                <h4 className="font-bold text-purple-800">Hot-Fill Foods</h4>
+              </div>
+              <ul className="text-sm space-y-2 text-purple-700">
+                <li>• <strong>Soups & Sauces:</strong> Withstands 85°C+ fill temps</li>
+                <li>• <strong>Ready Meals:</strong> Hot-pack convenience foods</li>
+                <li>• <strong>Condiments:</strong> Ketchup, mayo, dressings</li>
+              </ul>
+              <div className="mt-3 pt-3 border-t border-purple-200">
+                <span className="text-xs text-purple-600">No distortion at high temperatures</span>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Coffee className="h-6 w-6 text-amber-600" />
+                <h4 className="font-bold text-amber-800">Microwave Foods</h4>
+              </div>
+              <ul className="text-sm space-y-2 text-amber-700">
+                <li>• <strong>Frozen Meals:</strong> Microwave-safe packaging</li>
+                <li>• <strong>Rice & Grains:</strong> Steam-in-pouch solutions</li>
+                <li>• <strong>Convenience:</strong> Heat-and-eat products</li>
+              </ul>
+              <div className="mt-3 pt-3 border-t border-amber-200">
+                <span className="text-xs text-amber-600">Microwave safe at 130°C</span>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-5 rounded-xl border border-blue-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="h-6 w-6 text-blue-600" />
+                <h4 className="font-bold text-blue-800">High-Clarity Needs</h4>
+              </div>
+              <ul className="text-sm space-y-2 text-blue-700">
+                <li>• <strong>Premium Snacks:</strong> Clear window visibility</li>
+                <li>• <strong>Dried Fruits:</strong> Product showcase</li>
+                <li>• <strong>Confectionery:</strong> High-gloss presentation</li>
+              </ul>
+              <div className="mt-3 pt-3 border-t border-blue-200">
+                <span className="text-xs text-blue-600">Superior optical clarity vs PE</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 mt-6">
+            <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
+              <Building2 className="h-5 w-5 text-primary-600" />
+              Customer Success Stories
+            </h4>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="bg-white p-4 rounded-lg border border-neutral-200">
+                <span className="text-xs font-semibold text-purple-600 uppercase">EU Soup Brand</span>
+                <p className="text-sm text-neutral-700 mt-2">Switched hot-fill line to mono-PP pouches. Maintained product quality while achieving "Widely Recyclable" label for retail.</p>
+              </div>
+              <div className="bg-white p-4 rounded-lg border border-neutral-200">
+                <span className="text-xs font-semibold text-amber-600 uppercase">US Frozen Foods</span>
+                <p className="text-sm text-neutral-700 mt-2">Launched microwave-safe recyclable pouches. Customer surveys showed 30% preference increase vs non-recyclable competitors.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    // ========== 數據 (Market & Performance Data) ==========
+    {
+      id: 'market-data',
+      title: '市場數據 Market & Performance Data',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-5 rounded-xl text-center">
+              <TrendingUp className="h-8 w-8 mx-auto mb-2 opacity-80" />
+              <p className="text-3xl font-bold">130°C</p>
+              <p className="text-sm opacity-90">Max Heat Resistance</p>
+            </div>
+            <div className="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-5 rounded-xl text-center">
+              <BarChart3 className="h-8 w-8 mx-auto mb-2 opacity-80" />
+              <p className="text-3xl font-bold">12-18</p>
+              <p className="text-sm opacity-90">Months Shelf Life</p>
+            </div>
+            <div className="bg-gradient-to-br from-green-500 to-green-600 text-white p-5 rounded-xl text-center">
+              <Globe className="h-8 w-8 mx-auto mb-2 opacity-80" />
+              <p className="text-3xl font-bold">#5</p>
+              <p className="text-sm opacity-90">Resin Code (PP)</p>
+            </div>
+            <div className="bg-gradient-to-br from-amber-500 to-amber-600 text-white p-5 rounded-xl text-center">
+              <Recycle className="h-8 w-8 mx-auto mb-2 opacity-80" />
+              <p className="text-3xl font-bold">85%</p>
+              <p className="text-sm opacity-90">PP Clarity vs PE</p>
+            </div>
+          </div>
+          
+          <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
+            <div className="bg-neutral-100 px-4 py-3 border-b">
+              <h4 className="font-bold text-neutral-900">Mono-PP vs Mono-PE Performance</h4>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-neutral-50">
+                  <tr>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Property</th>
+                    <th className="px-4 py-3 text-left font-semibold text-purple-700">Mono-PP</th>
+                    <th className="px-4 py-3 text-left font-semibold text-blue-700">Mono-PE</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Better For</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-neutral-100">
+                  <tr>
+                    <td className="px-4 py-3 font-medium">Heat Resistance</td>
+                    <td className="px-4 py-3 text-purple-600">130°C ✓</td>
+                    <td className="px-4 py-3">80°C</td>
+                    <td className="px-4 py-3">PP for hot-fill</td>
+                  </tr>
+                  <tr className="bg-neutral-50">
+                    <td className="px-4 py-3 font-medium">Optical Clarity</td>
+                    <td className="px-4 py-3 text-purple-600">Excellent ✓</td>
+                    <td className="px-4 py-3">Good</td>
+                    <td className="px-4 py-3">PP for clear windows</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-medium">Flexibility</td>
+                    <td className="px-4 py-3">Stiffer</td>
+                    <td className="px-4 py-3 text-blue-600">More flexible ✓</td>
+                    <td className="px-4 py-3">PE for soft pouches</td>
+                  </tr>
+                  <tr className="bg-neutral-50">
+                    <td className="px-4 py-3 font-medium">Recycling Access</td>
+                    <td className="px-4 py-3">Variable</td>
+                    <td className="px-4 py-3 text-blue-600">Wider access ✓</td>
+                    <td className="px-4 py-3">PE in most markets</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-medium">Cost</td>
+                    <td className="px-4 py-3">+10-15%</td>
+                    <td className="px-4 py-3 text-blue-600">+5-10% ✓</td>
+                    <td className="px-4 py-3">PE for budget</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div className="bg-purple-50 p-6 rounded-xl border border-purple-200">
+            <h4 className="font-bold text-purple-800 mb-4">Mono-PP Technical Advantages</h4>
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="text-center">
+                <p className="text-2xl font-bold text-purple-700">+50°C</p>
+                <p className="text-sm text-purple-600">Higher heat tolerance vs PE</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-purple-700">85%</p>
+                <p className="text-sm text-purple-600">Light transmission (clarity)</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-purple-700">+20%</p>
+                <p className="text-sm text-purple-600">Stiffness vs PE</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    // ========== 對比 (Material Comparison) ==========
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">Compare mono-PP with other recyclable and sustainable options:</p>
+          
+          <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
+            <div className="bg-primary-600 px-4 py-3">
+              <h4 className="font-bold text-white text-center">Heat-Resistant Materials Comparison</h4>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-neutral-50">
+                  <tr>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Criteria</th>
+                    <th className="px-4 py-3 text-center font-semibold text-purple-700">Mono-PP</th>
+                    <th className="px-4 py-3 text-center font-semibold text-blue-700">Mono-PE</th>
+                    <th className="px-4 py-3 text-center font-semibold text-red-700">Traditional Laminate</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-neutral-100">
+                  <tr>
+                    <td className="px-4 py-3 font-medium">Hot-Fill Capable</td>
+                    <td className="px-4 py-3 text-center text-green-600">✓ Yes (130°C)</td>
+                    <td className="px-4 py-3 text-center text-amber-600">△ Limited (80°C)</td>
+                    <td className="px-4 py-3 text-center text-green-600">✓ Yes</td>
+                  </tr>
+                  <tr className="bg-neutral-50">
+                    <td className="px-4 py-3 font-medium">Microwave Safe</td>
+                    <td className="px-4 py-3 text-center text-green-600">✓ Yes</td>
+                    <td className="px-4 py-3 text-center text-red-600">✗ No</td>
+                    <td className="px-4 py-3 text-center text-amber-600">△ Some</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-medium">Recyclability</td>
+                    <td className="px-4 py-3 text-center text-green-600">✓ PP stream</td>
+                    <td className="px-4 py-3 text-center text-green-600">✓ PE stream</td>
+                    <td className="px-4 py-3 text-center text-red-600">✗ Landfill</td>
+                  </tr>
+                  <tr className="bg-neutral-50">
+                    <td className="px-4 py-3 font-medium">Clarity</td>
+                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐⭐</td>
+                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐</td>
+                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐⭐</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-medium">Cost Premium</td>
+                    <td className="px-4 py-3 text-center">+10-15%</td>
+                    <td className="px-4 py-3 text-center">+5-10%</td>
+                    <td className="px-4 py-3 text-center">Baseline</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div className="bg-amber-50 p-6 rounded-xl border border-amber-200">
+            <h4 className="font-bold text-amber-800 mb-3">💡 Quick Decision Guide</h4>
+            <div className="grid md:grid-cols-3 gap-4 text-sm">
+              <div>
+                <p className="font-semibold text-purple-700">Choose Mono-PP if:</p>
+                <ul className="mt-2 space-y-1 text-purple-600">
+                  <li>• Hot-fill or microwave needed</li>
+                  <li>• High clarity is essential</li>
+                  <li>• PP recycling accessible locally</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-semibold text-blue-700">Choose Mono-PE if:</p>
+                <ul className="mt-2 space-y-1 text-blue-600">
+                  <li>• No heat requirements</li>
+                  <li>• Wider recycling access preferred</li>
+                  <li>• <Link to="/materials/recyclable-mono-pe" className="underline">Learn more →</Link></li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-semibold text-green-700">Choose Compostable if:</p>
+                <ul className="mt-2 space-y-1 text-green-600">
+                  <li>• End-of-life story is key</li>
+                  <li>• Customers compost actively</li>
+                  <li>• <Link to="/materials/compostable" className="underline">Learn more →</Link></li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       )

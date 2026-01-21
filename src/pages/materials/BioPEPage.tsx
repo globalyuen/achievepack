@@ -1,5 +1,5 @@
 import React from 'react'
-import { Leaf, Recycle, CheckCircle, Globe, Sprout, MessageCircle, Award, Target, Shield, Calendar, Phone, Download, Mail, BookOpen, Building2, Image } from 'lucide-react'
+import { Leaf, Recycle, CheckCircle, Globe, Sprout, MessageCircle, Award, Target, Shield, Calendar, Phone, Download, Mail, BookOpen, Building2, Image, TrendingUp, BarChart3, ArrowLeftRight, Factory, ShoppingBag, Coffee, Sparkles } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
@@ -184,9 +184,269 @@ const BioPEPage: React.FC = () => {
             </ul>
           </div>
           
-          <p className="text-sm text-neutral-600 mt-4">
+          <p className="mt-4">
             {t(`${p}.sections.carbon.note`)}
           </p>
+        </div>
+      )
+    },
+    // ========== 場景 (Industry Applications) ==========
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">Bio-PE packaging appeals to brands prioritizing carbon footprint reduction while maintaining conventional plastic performance:</p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+              <div className="flex items-center gap-2 mb-3">
+                <ShoppingBag className="h-6 w-6 text-green-600" />
+                <h4 className="font-bold text-green-800">FMCG & Consumer Goods</h4>
+              </div>
+              <ul className="text-sm space-y-2 text-green-700">
+                <li>• <strong>Personal Care:</strong> Shampoo refill pouches</li>
+                <li>• <strong>Household Products:</strong> Detergent packaging</li>
+                <li>• <strong>Food Brands:</strong> Snack bags with I'm Green™</li>
+              </ul>
+              <div className="mt-3 pt-3 border-t border-green-200">
+                <span className="text-xs text-green-600">Major brands already transitioned</span>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Coffee className="h-6 w-6 text-amber-600" />
+                <h4 className="font-bold text-amber-800">Coffee & Beverages</h4>
+              </div>
+              <ul className="text-sm space-y-2 text-amber-700">
+                <li>• <strong>Coffee Bags:</strong> Full recyclability maintained</li>
+                <li>• <strong>Beverage Pouches:</strong> Drink pouches with bio content</li>
+                <li>• <strong>Protein Drinks:</strong> Sports nutrition packaging</li>
+              </ul>
+              <div className="mt-3 pt-3 border-t border-amber-200">
+                <span className="text-xs text-amber-600">Same barrier as conventional PE</span>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-5 rounded-xl border border-blue-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="h-6 w-6 text-blue-600" />
+                <h4 className="font-bold text-blue-800">Premium & Eco Brands</h4>
+              </div>
+              <ul className="text-sm space-y-2 text-blue-700">
+                <li>• <strong>Organic Foods:</strong> Carbon-conscious packaging</li>
+                <li>• <strong>Natural Cosmetics:</strong> Sustainable beauty</li>
+                <li>• <strong>Pet Products:</strong> Eco-friendly pet food bags</li>
+              </ul>
+              <div className="mt-3 pt-3 border-t border-blue-200">
+                <span className="text-xs text-blue-600">I'm Green™ logo adds credibility</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 mt-6">
+            <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
+              <Building2 className="h-5 w-5 text-primary-600" />
+              Global Brand Examples
+            </h4>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="bg-white p-4 rounded-lg border border-neutral-200">
+                <span className="text-xs font-semibold text-green-600 uppercase">CPG Company</span>
+                <p className="text-sm text-neutral-700 mt-2">Transitioned 100M+ units to Bio-PE. Result: 30% reduction in carbon footprint while maintaining full recyclability.</p>
+              </div>
+              <div className="bg-white p-4 rounded-lg border border-neutral-200">
+                <span className="text-xs font-semibold text-blue-600 uppercase">European Retailer</span>
+                <p className="text-sm text-neutral-700 mt-2">Private label Bio-PE packaging across 500+ SKUs. Marketing highlight: "Plant-based packaging, fully recyclable."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    // ========== 數據 (Market & Performance Data) ==========
+    {
+      id: 'market-data',
+      title: '市場數據 Market & Performance Data',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-gradient-to-br from-green-500 to-green-600 text-white p-5 rounded-xl text-center">
+              <TrendingUp className="h-8 w-8 mx-auto mb-2 opacity-80" />
+              <p className="text-3xl font-bold">-3.09</p>
+              <p className="text-sm opacity-90">kg CO₂/kg (Carbon Negative)</p>
+            </div>
+            <div className="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-5 rounded-xl text-center">
+              <BarChart3 className="h-8 w-8 mx-auto mb-2 opacity-80" />
+              <p className="text-3xl font-bold">30-50%</p>
+              <p className="text-sm opacity-90">Bio-based Content</p>
+            </div>
+            <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-5 rounded-xl text-center">
+              <Globe className="h-8 w-8 mx-auto mb-2 opacity-80" />
+              <p className="text-3xl font-bold">100%</p>
+              <p className="text-sm opacity-90">PE Stream Recyclable</p>
+            </div>
+            <div className="bg-gradient-to-br from-amber-500 to-amber-600 text-white p-5 rounded-xl text-center">
+              <Recycle className="h-8 w-8 mx-auto mb-2 opacity-80" />
+              <p className="text-3xl font-bold">12-18</p>
+              <p className="text-sm opacity-90">Months Shelf Life</p>
+            </div>
+          </div>
+          
+          <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
+            <div className="bg-neutral-100 px-4 py-3 border-b">
+              <h4 className="font-bold text-neutral-900">Bio-PE Technical Performance</h4>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-neutral-50">
+                  <tr>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Property</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Bio-PE</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Conventional PE</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Comparison</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-neutral-100">
+                  <tr>
+                    <td className="px-4 py-3 font-medium">Tensile Strength</td>
+                    <td className="px-4 py-3">20-30 MPa</td>
+                    <td className="px-4 py-3">20-30 MPa</td>
+                    <td className="px-4 py-3 text-green-600">= Identical</td>
+                  </tr>
+                  <tr className="bg-neutral-50">
+                    <td className="px-4 py-3 font-medium">Barrier (WVTR)</td>
+                    <td className="px-4 py-3">1-5 g/m²/day</td>
+                    <td className="px-4 py-3">1-5 g/m²/day</td>
+                    <td className="px-4 py-3 text-green-600">= Identical</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-medium">Heat Seal Temp</td>
+                    <td className="px-4 py-3">120-150°C</td>
+                    <td className="px-4 py-3">120-150°C</td>
+                    <td className="px-4 py-3 text-green-600">= Identical</td>
+                  </tr>
+                  <tr className="bg-neutral-50">
+                    <td className="px-4 py-3 font-medium">Carbon Footprint</td>
+                    <td className="px-4 py-3 text-green-600">-3.09 kg CO₂/kg</td>
+                    <td className="px-4 py-3 text-red-600">+1.83 kg CO₂/kg</td>
+                    <td className="px-4 py-3 text-green-600">✓ 70% better</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div className="bg-green-50 p-6 rounded-xl border border-green-200">
+            <h4 className="font-bold text-green-800 mb-4">Environmental Impact: Bio-PE vs Fossil PE</h4>
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="text-center">
+                <p className="text-2xl font-bold text-green-700">-70%</p>
+                <p className="text-sm text-green-600">Carbon footprint reduction</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-green-700">100%</p>
+                <p className="text-sm text-green-600">Renewable raw material</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-green-700">0</p>
+                <p className="text-sm text-green-600">Compromise on performance</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    // ========== 對比 (Material Comparison) ==========
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">Compare Bio-PE with other sustainable packaging options:</p>
+          
+          <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
+            <div className="bg-primary-600 px-4 py-3">
+              <h4 className="font-bold text-white text-center">Sustainable Materials Comparison</h4>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-neutral-50">
+                  <tr>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Criteria</th>
+                    <th className="px-4 py-3 text-center font-semibold text-green-700">Bio-PE</th>
+                    <th className="px-4 py-3 text-center font-semibold text-blue-700">PCR</th>
+                    <th className="px-4 py-3 text-center font-semibold text-purple-700">Compostable</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-neutral-100">
+                  <tr>
+                    <td className="px-4 py-3 font-medium">Raw Material</td>
+                    <td className="px-4 py-3 text-center">Sugarcane (renewable)</td>
+                    <td className="px-4 py-3 text-center">Recycled plastic</td>
+                    <td className="px-4 py-3 text-center">PLA/PBAT (bio-based)</td>
+                  </tr>
+                  <tr className="bg-neutral-50">
+                    <td className="px-4 py-3 font-medium">End of Life</td>
+                    <td className="px-4 py-3 text-center">Recyclable (PE stream)</td>
+                    <td className="px-4 py-3 text-center">Recyclable (PE stream)</td>
+                    <td className="px-4 py-3 text-center">Compostable</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-medium">Carbon Benefit</td>
+                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐⭐ (Carbon negative)</td>
+                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐ (Reduces virgin use)</td>
+                    <td className="px-4 py-3 text-center">⭐⭐⭐ (Lower carbon)</td>
+                  </tr>
+                  <tr className="bg-neutral-50">
+                    <td className="px-4 py-3 font-medium">Performance</td>
+                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐⭐ (Identical to PE)</td>
+                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐⭐ (Identical to PE)</td>
+                    <td className="px-4 py-3 text-center">⭐⭐⭐ (Lower barrier)</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-medium">Cost Premium</td>
+                    <td className="px-4 py-3 text-center">+5-15%</td>
+                    <td className="px-4 py-3 text-center">+5-10%</td>
+                    <td className="px-4 py-3 text-center">+20-30%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div className="bg-amber-50 p-6 rounded-xl border border-amber-200">
+            <h4 className="font-bold text-amber-800 mb-3">💡 Quick Decision Guide</h4>
+            <div className="grid md:grid-cols-3 gap-4 text-sm">
+              <div>
+                <p className="font-semibold text-green-700">Choose Bio-PE if:</p>
+                <ul className="mt-2 space-y-1 text-green-600">
+                  <li>• Carbon footprint is top priority</li>
+                  <li>• Need conventional PE performance</li>
+                  <li>• Want to use I'm Green™ logo</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-semibold text-blue-700">Choose PCR if:</p>
+                <ul className="mt-2 space-y-1 text-blue-600">
+                  <li>• Circular economy messaging</li>
+                  <li>• GRS certification needed</li>
+                  <li>• <Link to="/materials/pcr" className="underline">Learn more →</Link></li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-semibold text-purple-700">Choose Compostable if:</p>
+                <ul className="mt-2 space-y-1 text-purple-600">
+                  <li>• End-of-life story is key</li>
+                  <li>• Customers compost actively</li>
+                  <li>• <Link to="/materials/compostable" className="underline">Learn more →</Link></li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       )
     },

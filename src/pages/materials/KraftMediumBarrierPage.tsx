@@ -1,7 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Leaf, Shield, Award, CheckCircle, Package, Layers } from 'lucide-react';
+import { Leaf, Shield, Award, CheckCircle, Package, Layers, Factory, TrendingUp, BarChart3, ArrowLeftRight, Building2, ShoppingBag, Coffee, Sparkles, Globe, Recycle } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
+import { Link } from 'react-router-dom';
 
 const KraftMediumBarrierPage: React.FC = () => {
   const { t } = useTranslation();
@@ -140,6 +141,254 @@ const KraftMediumBarrierPage: React.FC = () => {
                 <li>• Metallized layer reduces recyclability</li>
                 <li>• Requires proper storage conditions</li>
               </ul>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    // ========== 場景 (Industry Applications) ==========
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">Kraft medium barrier is the most popular choice for coffee roasters and premium food brands:</p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Coffee className="h-6 w-6 text-amber-600" />
+                <h4 className="font-bold text-amber-800">Coffee Roasters</h4>
+              </div>
+              <ul className="text-sm space-y-2 text-amber-700">
+                <li>• <strong>Specialty Coffee:</strong> 9-12 month freshness with valve</li>
+                <li>• <strong>Ground Coffee:</strong> Excellent aroma retention</li>
+                <li>• <strong>Third Wave:</strong> Premium craft aesthetic</li>
+              </ul>
+              <div className="mt-3 pt-3 border-t border-amber-200">
+                <span className="text-xs text-amber-600">Most popular choice for roasters</span>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
+              <div className="flex items-center gap-2 mb-3">
+                <ShoppingBag className="h-6 w-6 text-green-600" />
+                <h4 className="font-bold text-green-800">Premium Snacks</h4>
+              </div>
+              <ul className="text-sm space-y-2 text-green-700">
+                <li>• <strong>Roasted Nuts:</strong> Maintain crunch & freshness</li>
+                <li>• <strong>Dried Fruits:</strong> Preserve natural moisture</li>
+                <li>• <strong>Granola:</strong> Keep clusters crispy</li>
+              </ul>
+              <div className="mt-3 pt-3 border-t border-green-200">
+                <span className="text-xs text-green-600">Natural look + protection</span>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-purple-50 to-violet-50 p-5 rounded-xl border border-purple-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="h-6 w-6 text-purple-600" />
+                <h4 className="font-bold text-purple-800">Health & Wellness</h4>
+              </div>
+              <ul className="text-sm space-y-2 text-purple-700">
+                <li>• <strong>Protein Powders:</strong> Keep dry & fresh</li>
+                <li>• <strong>Superfood Blends:</strong> Preserve nutrients</li>
+                <li>• <strong>Tea Blends:</strong> Aroma protection</li>
+              </ul>
+              <div className="mt-3 pt-3 border-t border-purple-200">
+                <span className="text-xs text-purple-600">Natural positioning for health brands</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 mt-6">
+            <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
+              <Building2 className="h-5 w-5 text-primary-600" />
+              Customer Success Stories
+            </h4>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="bg-white p-4 rounded-lg border border-neutral-200">
+                <span className="text-xs font-semibold text-amber-600 uppercase">US Specialty Roaster</span>
+                <p className="text-sm text-neutral-700 mt-2">"Kraft medium barrier with valve is our sweet spot - 9 month shelf life, beautiful craft look, and customers love the natural aesthetic."</p>
+              </div>
+              <div className="bg-white p-4 rounded-lg border border-neutral-200">
+                <span className="text-xs font-semibold text-green-600 uppercase">EU Organic Snack Brand</span>
+                <p className="text-sm text-neutral-700 mt-2">"Switched from plastic to kraft medium barrier. Sales up 20% - customers associate kraft with natural and organic."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    // ========== 數據 (Market & Performance Data) ==========
+    {
+      id: 'market-data',
+      title: '市場數據 Market & Performance Data',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-gradient-to-br from-amber-500 to-amber-600 text-white p-5 rounded-xl text-center">
+              <TrendingUp className="h-8 w-8 mx-auto mb-2 opacity-80" />
+              <p className="text-3xl font-bold">1-3</p>
+              <p className="text-sm opacity-90">MVTR (g/m²/day)</p>
+            </div>
+            <div className="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-5 rounded-xl text-center">
+              <BarChart3 className="h-8 w-8 mx-auto mb-2 opacity-80" />
+              <p className="text-3xl font-bold">5-20</p>
+              <p className="text-sm opacity-90">OTR (cc/m²/day)</p>
+            </div>
+            <div className="bg-gradient-to-br from-green-500 to-green-600 text-white p-5 rounded-xl text-center">
+              <Globe className="h-8 w-8 mx-auto mb-2 opacity-80" />
+              <p className="text-3xl font-bold">6-12</p>
+              <p className="text-sm opacity-90">Months Shelf Life</p>
+            </div>
+            <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-5 rounded-xl text-center">
+              <Recycle className="h-8 w-8 mx-auto mb-2 opacity-80" />
+              <p className="text-3xl font-bold">60-70%</p>
+              <p className="text-sm opacity-90">Renewable Content</p>
+            </div>
+          </div>
+          
+          <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
+            <div className="bg-neutral-100 px-4 py-3 border-b">
+              <h4 className="font-bold text-neutral-900">Medium Barrier Structure Options</h4>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-neutral-50">
+                  <tr>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Structure</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Barrier Layer</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Shelf Life</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Best For</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-neutral-100">
+                  <tr>
+                    <td className="px-4 py-3 font-medium">Kraft/MET PET/PE</td>
+                    <td className="px-4 py-3">Metallized PET</td>
+                    <td className="px-4 py-3">9-12 months</td>
+                    <td className="px-4 py-3">Coffee, premium snacks</td>
+                  </tr>
+                  <tr className="bg-neutral-50">
+                    <td className="px-4 py-3 font-medium">Kraft/ALU/PE</td>
+                    <td className="px-4 py-3">Thin Aluminum</td>
+                    <td className="px-4 py-3">12 months</td>
+                    <td className="px-4 py-3">Supplements, tea</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-medium">Kraft/VMPET/PE</td>
+                    <td className="px-4 py-3">Vacuum Metallized</td>
+                    <td className="px-4 py-3">6-9 months</td>
+                    <td className="px-4 py-3">Nuts, dried fruits</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div className="bg-blue-50 p-6 rounded-xl border border-blue-200">
+            <h4 className="font-bold text-blue-800 mb-4">Why Brands Choose Medium Barrier</h4>
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="text-center">
+                <p className="text-2xl font-bold text-blue-700">Best Value</p>
+                <p className="text-sm text-blue-600">Protection vs cost balance</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-blue-700">60-70%</p>
+                <p className="text-sm text-blue-600">Renewable kraft content</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-blue-700">#1</p>
+                <p className="text-sm text-blue-600">Choice for coffee roasters</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    // ========== 對比 (Material Comparison) ==========
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">Compare kraft medium barrier with other options:</p>
+          
+          <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
+            <div className="bg-primary-600 px-4 py-3">
+              <h4 className="font-bold text-white text-center">Kraft Barrier Options</h4>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-neutral-50">
+                  <tr>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Criteria</th>
+                    <th className="px-4 py-3 text-center font-semibold text-blue-700">Medium Barrier</th>
+                    <th className="px-4 py-3 text-center font-semibold text-amber-700">High Barrier</th>
+                    <th className="px-4 py-3 text-center font-semibold text-green-700">Low Barrier</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-neutral-100">
+                  <tr>
+                    <td className="px-4 py-3 font-medium">Ideal Products</td>
+                    <td className="px-4 py-3 text-center">Coffee, nuts, snacks</td>
+                    <td className="px-4 py-3 text-center">Pharma, freeze-dried</td>
+                    <td className="px-4 py-3 text-center">Bakery, dry goods</td>
+                  </tr>
+                  <tr className="bg-neutral-50">
+                    <td className="px-4 py-3 font-medium">Shelf Life</td>
+                    <td className="px-4 py-3 text-center">6-12 months</td>
+                    <td className="px-4 py-3 text-center">12-24+ months</td>
+                    <td className="px-4 py-3 text-center">3-6 months</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-medium">Value Rating</td>
+                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐⭐ Best</td>
+                    <td className="px-4 py-3 text-center">⭐⭐⭐ Premium</td>
+                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐ Budget</td>
+                  </tr>
+                  <tr className="bg-neutral-50">
+                    <td className="px-4 py-3 font-medium">Sustainability</td>
+                    <td className="px-4 py-3 text-center">⭐⭐⭐ (metallized)</td>
+                    <td className="px-4 py-3 text-center">⭐⭐ (aluminum)</td>
+                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐⭐ (recyclable)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div className="bg-amber-50 p-6 rounded-xl border border-amber-200">
+            <h4 className="font-bold text-amber-800 mb-3">💡 Quick Decision Guide</h4>
+            <div className="grid md:grid-cols-3 gap-4 text-sm">
+              <div>
+                <p className="font-semibold text-blue-700">Choose Medium Barrier if:</p>
+                <ul className="mt-2 space-y-1 text-blue-600">
+                  <li>• Coffee, nuts, or snacks</li>
+                  <li>• 6-12 month shelf life works</li>
+                  <li>• Best value-protection balance</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-semibold text-amber-700">Choose High Barrier if:</p>
+                <ul className="mt-2 space-y-1 text-amber-600">
+                  <li>• Need 12-24+ month shelf life</li>
+                  <li>• Very sensitive products</li>
+                  <li>• <Link to="/materials/kraft-high-barrier" className="underline">Learn more →</Link></li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-semibold text-green-700">Choose Low Barrier if:</p>
+                <ul className="mt-2 space-y-1 text-green-600">
+                  <li>• 3-6 month shelf life OK</li>
+                  <li>• Sustainability priority</li>
+                  <li>• <Link to="/materials/kraft-low-barrier" className="underline">Learn more →</Link></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

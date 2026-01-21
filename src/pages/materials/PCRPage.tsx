@@ -1,5 +1,5 @@
 import React from 'react'
-import { Recycle, CheckCircle, Shield, Award, Factory, MessageCircle, Target, Calendar, Phone, Download, Mail, Image } from 'lucide-react'
+import { Recycle, CheckCircle, Shield, Award, Factory, MessageCircle, Target, Calendar, Phone, Download, Mail, Image, TrendingUp, BarChart3, ArrowLeftRight, ShoppingBag, Coffee, Sparkles, Globe, Building2, Leaf } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
@@ -152,6 +152,260 @@ const PCRPage: React.FC = () => {
             <div className="border border-green-200 rounded-lg p-4">
               <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sections.certifications.scs.title`)}</h4>
               <p className="text-sm">{t(`${p}.sections.certifications.scs.desc`)}</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    // ========== 場景 (Industry Applications) ==========
+    {
+      id: 'industry-scenarios',
+      title: '行業應用場景 Industry Applications',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">PCR packaging is ideal for brands with circular economy commitments and recycled content targets:</p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-gradient-to-br from-emerald-50 to-green-50 p-5 rounded-xl border border-emerald-200">
+              <div className="flex items-center gap-2 mb-3">
+                <ShoppingBag className="h-6 w-6 text-emerald-600" />
+                <h4 className="font-bold text-emerald-800">CPG & FMCG Brands</h4>
+              </div>
+              <ul className="text-sm space-y-2 text-emerald-700">
+                <li>• <strong>Personal Care:</strong> Shampoo, soap refill pouches</li>
+                <li>• <strong>Household:</strong> Cleaning product refills</li>
+                <li>• <strong>Food:</strong> Snacks with recycled content claims</li>
+              </ul>
+              <div className="mt-3 pt-3 border-t border-emerald-200">
+                <span className="text-xs text-emerald-600">Meeting 2025 recycled content pledges</span>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-5 rounded-xl border border-blue-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Coffee className="h-6 w-6 text-blue-600" />
+                <h4 className="font-bold text-blue-800">EU Market Brands</h4>
+              </div>
+              <ul className="text-sm space-y-2 text-blue-700">
+                <li>• <strong>EPR Compliance:</strong> Reduce producer responsibility fees</li>
+                <li>• <strong>Green Claims:</strong> GRS certified marketing</li>
+                <li>• <strong>Retail Requirements:</strong> Meet retailer sustainability mandates</li>
+              </ul>
+              <div className="mt-3 pt-3 border-t border-blue-200">
+                <span className="text-xs text-blue-600">EU Packaging Regulation ready</span>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-purple-50 to-violet-50 p-5 rounded-xl border border-purple-200">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="h-6 w-6 text-purple-600" />
+                <h4 className="font-bold text-purple-800">Sustainability Leaders</h4>
+              </div>
+              <ul className="text-sm space-y-2 text-purple-700">
+                <li>• <strong>B-Corps:</strong> Verified circular economy practices</li>
+                <li>• <strong>ESG Focused:</strong> Corporate sustainability reporting</li>
+                <li>• <strong>Premium Brands:</strong> Transparent sourcing story</li>
+              </ul>
+              <div className="mt-3 pt-3 border-t border-purple-200">
+                <span className="text-xs text-purple-600">Supports sustainability reporting</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 mt-6">
+            <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
+              <Building2 className="h-5 w-5 text-primary-600" />
+              Customer Success Stories
+            </h4>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="bg-white p-4 rounded-lg border border-neutral-200">
+                <span className="text-xs font-semibold text-emerald-600 uppercase">Global CPG Company</span>
+                <p className="text-sm text-neutral-700 mt-2">Transitioned to 50% PCR pouches across EU portfolio. Achieved 30% EPR fee reduction and met 2025 recycled content target early.</p>
+              </div>
+              <div className="bg-white p-4 rounded-lg border border-neutral-200">
+                <span className="text-xs font-semibold text-blue-600 uppercase">US Natural Brand</span>
+                <p className="text-sm text-neutral-700 mt-2">Launched "100% recycled content" packaging line. Customer surveys showed 25% increase in purchase intent.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    // ========== 數據 (Market & Performance Data) ==========
+    {
+      id: 'market-data',
+      title: '市場數據 Market & Performance Data',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 text-white p-5 rounded-xl text-center">
+              <TrendingUp className="h-8 w-8 mx-auto mb-2 opacity-80" />
+              <p className="text-3xl font-bold">30-100%</p>
+              <p className="text-sm opacity-90">PCR Content Available</p>
+            </div>
+            <div className="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-5 rounded-xl text-center">
+              <BarChart3 className="h-8 w-8 mx-auto mb-2 opacity-80" />
+              <p className="text-3xl font-bold">-50%</p>
+              <p className="text-sm opacity-90">Virgin Plastic Reduction</p>
+            </div>
+            <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-5 rounded-xl text-center">
+              <Globe className="h-8 w-8 mx-auto mb-2 opacity-80" />
+              <p className="text-3xl font-bold">GRS</p>
+              <p className="text-sm opacity-90">Certified Traceability</p>
+            </div>
+            <div className="bg-gradient-to-br from-amber-500 to-amber-600 text-white p-5 rounded-xl text-center">
+              <Recycle className="h-8 w-8 mx-auto mb-2 opacity-80" />
+              <p className="text-3xl font-bold">12-18</p>
+              <p className="text-sm opacity-90">Months Shelf Life</p>
+            </div>
+          </div>
+          
+          <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
+            <div className="bg-neutral-100 px-4 py-3 border-b">
+              <h4 className="font-bold text-neutral-900">PCR Content Levels & Applications</h4>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-neutral-50">
+                  <tr>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">PCR Level</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Best For</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Appearance</th>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Cost Premium</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-neutral-100">
+                  <tr>
+                    <td className="px-4 py-3 font-medium">30% PCR</td>
+                    <td className="px-4 py-3">Entry-level sustainability</td>
+                    <td className="px-4 py-3">Near-virgin clarity</td>
+                    <td className="px-4 py-3">+5-8%</td>
+                  </tr>
+                  <tr className="bg-neutral-50">
+                    <td className="px-4 py-3 font-medium">50% PCR</td>
+                    <td className="px-4 py-3">Balanced performance & claims</td>
+                    <td className="px-4 py-3">Slight tint acceptable</td>
+                    <td className="px-4 py-3">+8-12%</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-medium">100% PCR</td>
+                    <td className="px-4 py-3">Maximum sustainability message</td>
+                    <td className="px-4 py-3">Opaque/kraft preferred</td>
+                    <td className="px-4 py-3">+12-18%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div className="bg-emerald-50 p-6 rounded-xl border border-emerald-200">
+            <h4 className="font-bold text-emerald-800 mb-4">Environmental Impact: PCR Benefits</h4>
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="text-center">
+                <p className="text-2xl font-bold text-emerald-700">-70%</p>
+                <p className="text-sm text-emerald-600">Energy vs virgin plastic</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-emerald-700">-50%</p>
+                <p className="text-sm text-emerald-600">CO₂ emissions reduction</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-emerald-700">∞</p>
+                <p className="text-sm text-emerald-600">Recyclable again & again</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    // ========== 對比 (Material Comparison) ==========
+    {
+      id: 'material-comparison',
+      title: '材料對比 Material Comparison',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg">Compare PCR with other sustainable packaging options:</p>
+          
+          <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
+            <div className="bg-primary-600 px-4 py-3">
+              <h4 className="font-bold text-white text-center">Sustainable Materials Comparison</h4>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-neutral-50">
+                  <tr>
+                    <th className="px-4 py-3 text-left font-semibold text-neutral-700">Criteria</th>
+                    <th className="px-4 py-3 text-center font-semibold text-emerald-700">PCR</th>
+                    <th className="px-4 py-3 text-center font-semibold text-green-700">Bio-PE</th>
+                    <th className="px-4 py-3 text-center font-semibold text-purple-700">Compostable</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-neutral-100">
+                  <tr>
+                    <td className="px-4 py-3 font-medium">Sustainability Story</td>
+                    <td className="px-4 py-3 text-center">Circular economy</td>
+                    <td className="px-4 py-3 text-center">Carbon negative</td>
+                    <td className="px-4 py-3 text-center">Returns to earth</td>
+                  </tr>
+                  <tr className="bg-neutral-50">
+                    <td className="px-4 py-3 font-medium">End of Life</td>
+                    <td className="px-4 py-3 text-center">Recyclable</td>
+                    <td className="px-4 py-3 text-center">Recyclable</td>
+                    <td className="px-4 py-3 text-center">Compostable</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-medium">Barrier Performance</td>
+                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐⭐</td>
+                    <td className="px-4 py-3 text-center">⭐⭐⭐⭐⭐</td>
+                    <td className="px-4 py-3 text-center">⭐⭐⭐</td>
+                  </tr>
+                  <tr className="bg-neutral-50">
+                    <td className="px-4 py-3 font-medium">Certifications</td>
+                    <td className="px-4 py-3 text-center">GRS, SCS</td>
+                    <td className="px-4 py-3 text-center">I'm Green™</td>
+                    <td className="px-4 py-3 text-center">BPI, EN 13432</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-medium">Cost Premium</td>
+                    <td className="px-4 py-3 text-center">+5-15%</td>
+                    <td className="px-4 py-3 text-center">+5-15%</td>
+                    <td className="px-4 py-3 text-center">+20-30%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div className="bg-amber-50 p-6 rounded-xl border border-amber-200">
+            <h4 className="font-bold text-amber-800 mb-3">💡 Quick Decision Guide</h4>
+            <div className="grid md:grid-cols-3 gap-4 text-sm">
+              <div>
+                <p className="font-semibold text-emerald-700">Choose PCR if:</p>
+                <ul className="mt-2 space-y-1 text-emerald-600">
+                  <li>• Circular economy messaging key</li>
+                  <li>• Recycled content targets to meet</li>
+                  <li>• GRS certification needed</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-semibold text-green-700">Choose Bio-PE if:</p>
+                <ul className="mt-2 space-y-1 text-green-600">
+                  <li>• Carbon footprint priority</li>
+                  <li>• Renewable source story</li>
+                  <li>• <Link to="/materials/bio-pe" className="underline">Learn more →</Link></li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-semibold text-purple-700">Choose Compostable if:</p>
+                <ul className="mt-2 space-y-1 text-purple-600">
+                  <li>• End-of-life story essential</li>
+                  <li>• Customers have composting access</li>
+                  <li>• <Link to="/materials/compostable" className="underline">Learn more →</Link></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
