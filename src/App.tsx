@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useTransition, useMemo, lazy, Suspens
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom'
-import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield, ShoppingCart, User, Linkedin, ArrowRight, Plus, AlertCircle, ChevronLeft, ChevronRight, Gift } from 'lucide-react'
+import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield, ShoppingCart, User, Linkedin, ArrowRight, Plus, AlertCircle, ChevronLeft, ChevronRight, Gift, Palette } from 'lucide-react'
 import { HeroGrainBackground } from './components/HeroGrainBackground'
 import { CardContainer, CardBody, CardItem } from './components/ui/3d-card'
 import { getImage } from './utils/imageMapper'
@@ -621,7 +621,7 @@ function App() {
               </Link>
               {/* Glowing FREE Button */}
               <Link
-                to="/free-service/packaging-design-consultation"
+                to="/free-service"
                 className="relative w-11 h-11 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center hover:from-green-600 hover:to-emerald-600 transition-all shadow-lg animate-pulse active:scale-95"
                 style={{ boxShadow: '0 0 15px rgba(16, 185, 129, 0.6)' }}
               >
@@ -1781,6 +1781,62 @@ function App() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Free Services Section */}
+      <section className="py-16 bg-gradient-to-br from-green-50 via-white to-emerald-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-green-100 mb-6">
+              <Gift className="h-5 w-5 text-green-600" />
+              <span className="text-sm font-medium text-neutral-700">100% Free • No Obligation</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">Free Services for Your Brand</h2>
+            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">Expert help at absolutely no cost—design consultation, 3D mockups, website design, and customer portal.</p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <Link to="/free-service/packaging-design-consultation" className="group bg-white rounded-2xl p-6 shadow-sm border border-green-100 hover:shadow-xl hover:border-green-300 transition-all hover:-translate-y-1">
+              <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                <Palette className="h-6 w-6 text-white" />
+              </div>
+              <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-green-600 transition-colors">Design Consultation</h3>
+              <p className="text-sm text-neutral-600">Expert packaging design advice with custom dielines</p>
+            </Link>
+            
+            <Link to="/free-service/packaging-mockup" className="group bg-white rounded-2xl p-6 shadow-sm border border-orange-100 hover:shadow-xl hover:border-orange-300 transition-all hover:-translate-y-1">
+              <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                <Package className="h-6 w-6 text-white" />
+              </div>
+              <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-orange-600 transition-colors">3D Mockup</h3>
+              <p className="text-sm text-neutral-600">Photorealistic renders of your packaging design</p>
+            </Link>
+            
+            <Link to="/free-service/website-upgrade" className="group bg-white rounded-2xl p-6 shadow-sm border border-blue-100 hover:shadow-xl hover:border-blue-300 transition-all hover:-translate-y-1">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                <Globe className="h-6 w-6 text-white" />
+              </div>
+              <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-blue-600 transition-colors">Website Design</h3>
+              <p className="text-sm text-neutral-600">Modern landing page for your brand</p>
+            </Link>
+            
+            <Link to="/free-service/customer-center" className="group bg-white rounded-2xl p-6 shadow-sm border border-purple-100 hover:shadow-xl hover:border-purple-300 transition-all hover:-translate-y-1">
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                <Users className="h-6 w-6 text-white" />
+              </div>
+              <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-purple-600 transition-colors">Customer Center</h3>
+              <p className="text-sm text-neutral-600">Dashboard to track orders and manage quotes</p>
+            </Link>
+          </div>
+          
+          <div className="text-center mt-10">
+            <Link to="/free-service" className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:from-green-600 hover:to-emerald-600 transition-all hover:shadow-xl">
+              <Gift className="h-5 w-5" />
+              Explore All Free Services
+              <ArrowRight className="h-5 w-5" />
+            </Link>
           </div>
         </div>
       </section>

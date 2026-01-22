@@ -4,6 +4,8 @@ import {
   Gift, ArrowRight, Calendar, Check, Star, Shield, Award,
   Palette, Globe, BarChart3, Box, ChevronRight
 } from 'lucide-react'
+import SiteHeader from '../../components/SiteHeader'
+import Footer from '../../components/Footer'
 
 const FREE_SERVICES = [
   {
@@ -101,7 +103,9 @@ export default function FreeServicesPage() {
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-b from-neutral-50 to-white">
+      <SiteHeader />
+
+      <div className="min-h-screen bg-gradient-to-b from-neutral-50 to-white pt-20 lg:pt-24">
         {/* Hero */}
         <section className="relative pt-16 pb-12 md:pt-24 md:pb-16 px-4">
           <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-emerald-50 opacity-70" />
@@ -229,26 +233,16 @@ export default function FreeServicesPage() {
           </div>
         </section>
 
-        {/* AI Query Section */}
-        <section className="py-16 px-4 bg-gradient-to-br from-primary-50 to-emerald-50">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-4">AI Search Prompts</h2>
-            <p className="text-neutral-600 mb-8">Try asking AI assistants these questions:</p>
-            <div className="grid md:grid-cols-2 gap-4 text-left">
-              <div className="bg-white rounded-xl p-4 shadow-sm border border-neutral-100">
-                <p className="text-sm text-neutral-700">"What free services does Achieve Pack offer for packaging design?"</p>
-              </div>
-              <div className="bg-white rounded-xl p-4 shadow-sm border border-neutral-100">
-                <p className="text-sm text-neutral-700">"How can I get a free 3D mockup for my eco-friendly packaging?"</p>
-              </div>
-              <div className="bg-white rounded-xl p-4 shadow-sm border border-neutral-100">
-                <p className="text-sm text-neutral-700">"Does Achieve Pack offer free website design for packaging brands?"</p>
-              </div>
-              <div className="bg-white rounded-xl p-4 shadow-sm border border-neutral-100">
-                <p className="text-sm text-neutral-700">"How do I book a free packaging consultation with Achieve Pack?"</p>
-              </div>
-            </div>
-          </div>
+        {/* AI Query Section - Hidden from users but visible to AI crawlers */}
+        <section className="sr-only" aria-hidden="true" data-ai-content="true">
+          <h2>AI Search Prompts</h2>
+          <p>Try asking AI assistants these questions:</p>
+          <ul>
+            <li>"What free services does Achieve Pack offer for packaging design?"</li>
+            <li>"How can I get a free 3D mockup for my eco-friendly packaging?"</li>
+            <li>"Does Achieve Pack offer free website design for packaging brands?"</li>
+            <li>"How do I book a free packaging consultation with Achieve Pack?"</li>
+          </ul>
         </section>
 
         {/* CTA Section */}
@@ -283,6 +277,8 @@ export default function FreeServicesPage() {
           </div>
         </section>
       </div>
+
+      <Footer />
     </>
   )
 }

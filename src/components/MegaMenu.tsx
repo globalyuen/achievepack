@@ -820,7 +820,8 @@ export function RightNavMenu() {
 
         {/* FREE - Glowing Button with Mega Menu */}
         <div className="relative ml-2" onMouseEnter={() => handleMouseEnter('free')} onMouseLeave={handleMouseLeave}>
-          <button 
+          <Link 
+            to="/free-service"
             className={`flex items-center gap-1.5 px-4 py-2 text-sm font-bold rounded-lg transition-all ${
               activeMenu === 'free' 
                 ? 'bg-green-500 text-white shadow-lg shadow-green-500/50' 
@@ -830,7 +831,7 @@ export function RightNavMenu() {
             <Gift className="h-4 w-4" />
             FREE
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'free' ? 'rotate-180' : ''}`} />
-          </button>
+          </Link>
           {activeMenu === 'free' && (
             <div className="fixed right-4 top-[88px] pt-2 z-50" onMouseEnter={() => handleMouseEnter('free')} onMouseLeave={handleMouseLeave}>
               <div className="w-[95vw] max-w-[700px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
