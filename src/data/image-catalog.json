@@ -3,8 +3,8 @@
   "total_images": 1135,
   "total_categories": 120,
   "extensions": {
-    ".webp": 1052,
-    ".png": 78,
+    ".webp": 1058,
+    ".png": 72,
     ".jpg": 2,
     ".svg": 3
   },
@@ -83,40 +83,40 @@
       "count": 6,
       "images": [
         {
-          "filename": "a_achievepack_hero_shot_1_white_background_2665361 (1).png",
-          "path": "/imgs/banner/transparent/a_achievepack_hero_shot_1_white_background_2665361 (1).png",
-          "extension": ".png",
-          "modified": "2026-01-22T04:33:44.801Z"
+          "filename": "a_achievepack_hero_3d_depth_5416790 (1).webp",
+          "path": "/imgs/banner/transparent/a_achievepack_hero_3d_depth_5416790 (1).webp",
+          "extension": ".webp",
+          "modified": "2026-01-21T20:42:36.000Z"
         },
         {
-          "filename": "a_achievepack_hero_gradient_eco_9331347 (1).png",
-          "path": "/imgs/banner/transparent/a_achievepack_hero_gradient_eco_9331347 (1).png",
-          "extension": ".png",
-          "modified": "2026-01-22T04:32:57.685Z"
+          "filename": "a_achievepack_hero_3d_depth_5416790 (2).webp",
+          "path": "/imgs/banner/transparent/a_achievepack_hero_3d_depth_5416790 (2).webp",
+          "extension": ".webp",
+          "modified": "2026-01-21T20:42:36.000Z"
         },
         {
-          "filename": "a_achievepack_hero_flatlay_5941661 (1).png",
-          "path": "/imgs/banner/transparent/a_achievepack_hero_flatlay_5941661 (1).png",
-          "extension": ".png",
-          "modified": "2026-01-22T04:32:09.120Z"
+          "filename": "a_achievepack_hero_eco_nature_7180632 (1).webp",
+          "path": "/imgs/banner/transparent/a_achievepack_hero_eco_nature_7180632 (1).webp",
+          "extension": ".webp",
+          "modified": "2026-01-21T20:42:36.000Z"
         },
         {
-          "filename": "a_achievepack_hero_eco_nature_7180632 (1).png",
-          "path": "/imgs/banner/transparent/a_achievepack_hero_eco_nature_7180632 (1).png",
-          "extension": ".png",
-          "modified": "2026-01-22T04:31:21.039Z"
+          "filename": "a_achievepack_hero_flatlay_5941661 (1).webp",
+          "path": "/imgs/banner/transparent/a_achievepack_hero_flatlay_5941661 (1).webp",
+          "extension": ".webp",
+          "modified": "2026-01-21T20:42:36.000Z"
         },
         {
-          "filename": "a_achievepack_hero_3d_depth_5416790 (2).png",
-          "path": "/imgs/banner/transparent/a_achievepack_hero_3d_depth_5416790 (2).png",
-          "extension": ".png",
-          "modified": "2026-01-22T04:30:32.939Z"
+          "filename": "a_achievepack_hero_gradient_eco_9331347 (1).webp",
+          "path": "/imgs/banner/transparent/a_achievepack_hero_gradient_eco_9331347 (1).webp",
+          "extension": ".webp",
+          "modified": "2026-01-21T20:42:36.000Z"
         },
         {
-          "filename": "a_achievepack_hero_3d_depth_5416790 (1).png",
-          "path": "/imgs/banner/transparent/a_achievepack_hero_3d_depth_5416790 (1).png",
-          "extension": ".png",
-          "modified": "2026-01-22T04:29:44.637Z"
+          "filename": "a_achievepack_hero_shot_1_white_background_2665361 (1).webp",
+          "path": "/imgs/banner/transparent/a_achievepack_hero_shot_1_white_background_2665361 (1).webp",
+          "extension": ".webp",
+          "modified": "2026-01-21T20:42:36.000Z"
         }
       ]
     },

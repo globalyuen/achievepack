@@ -17,11 +17,12 @@ const DEFAULT_POUCH = '/imgs/testimonials/pouch-hover/morlife.webp'
 
 // Hero banner images with transparent background for random display on page refresh
 const HERO_BANNER_IMAGES = [
-  '/imgs/banner/transparent/a_achievepack_hero_3d_depth_5416790 (1).png',
-  '/imgs/banner/transparent/a_achievepack_hero_eco_nature_7180632 (1).png',
-  '/imgs/banner/transparent/a_achievepack_hero_flatlay_5941661 (1).png',
-  '/imgs/banner/transparent/a_achievepack_hero_gradient_eco_9331347 (1).png',
-  '/imgs/banner/transparent/a_achievepack_hero_shot_1_white_background_2665361 (1).png',
+  '/imgs/banner/transparent/a_achievepack_hero_3d_depth_5416790 (1).webp',
+  '/imgs/banner/transparent/a_achievepack_hero_3d_depth_5416790 (2).webp',
+  '/imgs/banner/transparent/a_achievepack_hero_eco_nature_7180632 (1).webp',
+  '/imgs/banner/transparent/a_achievepack_hero_flatlay_5941661 (1).webp',
+  '/imgs/banner/transparent/a_achievepack_hero_gradient_eco_9331347 (1).webp',
+  '/imgs/banner/transparent/a_achievepack_hero_shot_1_white_background_2665361 (1).webp',
 ]
 
 // Store product images for random display when review has no product photo
