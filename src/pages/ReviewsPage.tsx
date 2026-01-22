@@ -15,6 +15,15 @@ function getTestimonialText(t: (key: string) => string, id: string, field: 'quot
 // Default pouch image path - reviews without unique product photos will get random store images
 const DEFAULT_POUCH = '/imgs/testimonials/pouch-hover/morlife.webp'
 
+// Hero banner images for random background display on page refresh
+const HERO_BANNER_IMAGES = [
+  '/imgs/banner/a_achievepack_hero_3d_depth_5416790.webp',
+  '/imgs/banner/a_achievepack_hero_eco_nature_7180632.webp',
+  '/imgs/banner/a_achievepack_hero_flatlay_5941661.webp',
+  '/imgs/banner/a_achievepack_hero_gradient_eco_9331347.webp',
+  '/imgs/banner/a_achievepack_hero_shot_1_white_background_2665361.webp',
+]
+
 // Store product images for random display when review has no product photo
 const STORE_PRODUCT_IMAGES = [
   '/imgs/store/sample/sizing-pack.webp',
@@ -58,6 +67,11 @@ export default function ReviewsPage() {
   const [isPending, startTransition] = useTransition()
   const [activeTestimonial, setActiveTestimonial] = useState<Testimonial | null>(null)
   const [videoTestimonial, setVideoTestimonial] = useState<Testimonial | null>(null)
+
+  // Random hero banner - changes on each page refresh
+  const [heroBanner] = useState(() => 
+    HERO_BANNER_IMAGES[Math.floor(Math.random() * HERO_BANNER_IMAGES.length)]
+  )
 
   // Sort testimonials: prioritize those with real photos AND unique products first
   const sortedTestimonials = useMemo(() => {
@@ -125,9 +139,20 @@ export default function ReviewsPage() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="pt-24 pb-12 bg-gradient-to-b from-primary-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Hero Section with Random Banner Background */}
+      <section className="pt-24 pb-12 relative overflow-hidden">
+        {/* Background Banner Image with 50% opacity */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ 
+            backgroundImage: `url(${heroBanner})`,
+            opacity: 0.5
+          }}
+        />
+        {/* Gradient overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary-50/80 to-white/90" />
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-neutral-600 mb-6">
             <Link to="/" className="hover:text-primary-600 transition-colors">Home</Link>
