@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 
 const BANNER_IMAGES = [
-  '/imgs/banner/a_achievepack_hero_3d_depth_5416790.webp',
-  '/imgs/banner/a_achievepack_hero_eco_nature_7180632.webp',
-  '/imgs/banner/a_achievepack_hero_flatlay_5941661.webp',
-  '/imgs/banner/a_achievepack_hero_gradient_eco_9331347.webp',
-  '/imgs/banner/a_achievepack_hero_shot_1_white_background_2665361.webp',
+  '/imgs/banner/transparent/a_achievepack_hero_3d_depth_5416790 (1).png',
+  '/imgs/banner/transparent/a_achievepack_hero_eco_nature_7180632 (1).png',
+  '/imgs/banner/transparent/a_achievepack_hero_flatlay_5941661 (1).png',
+  '/imgs/banner/transparent/a_achievepack_hero_gradient_eco_9331347 (1).png',
+  '/imgs/banner/transparent/a_achievepack_hero_shot_1_white_background_2665361 (1).png',
 ]
 
 interface RandomBannerProps {
