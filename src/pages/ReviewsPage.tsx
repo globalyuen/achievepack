@@ -15,13 +15,13 @@ function getTestimonialText(t: (key: string) => string, id: string, field: 'quot
 // Default pouch image path - reviews without unique product photos will get random store images
 const DEFAULT_POUCH = '/imgs/testimonials/pouch-hover/morlife.webp'
 
-// Hero banner images for random background display on page refresh
+// Hero banner images with transparent background for random display on page refresh
 const HERO_BANNER_IMAGES = [
-  '/imgs/banner/a_achievepack_hero_3d_depth_5416790.webp',
-  '/imgs/banner/a_achievepack_hero_eco_nature_7180632.webp',
-  '/imgs/banner/a_achievepack_hero_flatlay_5941661.webp',
-  '/imgs/banner/a_achievepack_hero_gradient_eco_9331347.webp',
-  '/imgs/banner/a_achievepack_hero_shot_1_white_background_2665361.webp',
+  '/imgs/banner/transparent/a_achievepack_hero_3d_depth_5416790 (1).png',
+  '/imgs/banner/transparent/a_achievepack_hero_eco_nature_7180632 (1).png',
+  '/imgs/banner/transparent/a_achievepack_hero_flatlay_5941661 (1).png',
+  '/imgs/banner/transparent/a_achievepack_hero_gradient_eco_9331347 (1).png',
+  '/imgs/banner/transparent/a_achievepack_hero_shot_1_white_background_2665361 (1).png',
 ]
 
 // Store product images for random display when review has no product photo
@@ -141,12 +141,11 @@ export default function ReviewsPage() {
 
       {/* Hero Section with Random Banner Background */}
       <section className="pt-24 pb-12 relative overflow-hidden">
-        {/* Background Banner Image with 50% opacity */}
+        {/* Background Banner Image - transparent PNG, no opacity needed */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ 
-            backgroundImage: `url(${heroBanner})`,
-            opacity: 0.75
+            backgroundImage: `url(${heroBanner})`
           }}
         />
         {/* Gradient overlay for better text readability */}
