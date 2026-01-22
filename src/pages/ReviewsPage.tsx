@@ -241,6 +241,67 @@ export default function ReviewsPage() {
         </div>
       </section>
 
+      {/* Brand Logo Marquee */}
+      <section className="py-8 bg-white overflow-hidden border-y border-neutral-100">
+        <div className="relative">
+          <p className="text-center text-sm font-medium text-neutral-500 uppercase tracking-wider mb-6">
+            Trusted by Leading Brands
+          </p>
+          <div className="flex animate-marquee whitespace-nowrap">
+            {/* First set of logos */}
+            {[
+              '/imgs/testimonials/brand-logo/a_morlife_logo_7487286.webp',
+              '/imgs/testimonials/brand-logo/a_emu_elixir_logo_7729355.webp',
+              '/imgs/testimonials/brand-logo/a_dancing_lion_chocolate_logo_9125312.webp',
+              '/imgs/testimonials/brand-logo/a_plantpowders_company_logo_3847855.webp',
+              '/imgs/testimonials/brand-logo/a_just_be_kind_logo_9956961.webp',
+              '/imgs/testimonials/brand-logo/a_hike_again_remedies_logo_3308658.webp',
+              '/imgs/testimonials/brand-logo/a_mylk_made_logo_6762912.webp',
+              '/imgs/testimonials/brand-logo/a_wise_angler_logo_8090229.webp',
+            ].map((logo, index) => (
+              <div key={`logo-1-${index}`} className="mx-8 flex-shrink-0">
+                <img
+                  src={logo}
+                  alt="Client brand logo"
+                  className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
+                />
+              </div>
+            ))}
+            {/* Duplicate set for seamless loop */}
+            {[
+              '/imgs/testimonials/brand-logo/a_morlife_logo_7487286.webp',
+              '/imgs/testimonials/brand-logo/a_emu_elixir_logo_7729355.webp',
+              '/imgs/testimonials/brand-logo/a_dancing_lion_chocolate_logo_9125312.webp',
+              '/imgs/testimonials/brand-logo/a_plantpowders_company_logo_3847855.webp',
+              '/imgs/testimonials/brand-logo/a_just_be_kind_logo_9956961.webp',
+              '/imgs/testimonials/brand-logo/a_hike_again_remedies_logo_3308658.webp',
+              '/imgs/testimonials/brand-logo/a_mylk_made_logo_6762912.webp',
+              '/imgs/testimonials/brand-logo/a_wise_angler_logo_8090229.webp',
+            ].map((logo, index) => (
+              <div key={`logo-2-${index}`} className="mx-8 flex-shrink-0">
+                <img
+                  src={logo}
+                  alt="Client brand logo"
+                  className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+        <style>{`
+          @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-marquee {
+            animation: marquee 30s linear infinite;
+          }
+          .animate-marquee:hover {
+            animation-play-state: paused;
+          }
+        `}</style>
+      </section>
+
       {/* Reviews Grid */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -364,22 +425,6 @@ export default function ReviewsPage() {
             >
               Get Free Quote
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Client Logos */}
-      <section className="py-16 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-medium text-neutral-500 uppercase tracking-wider mb-8">
-            Trusted by Leading Brands Worldwide
-          </p>
-          <div className="flex justify-center">
-            <img
-              src="/imgs/testimonials-client-logos.webp"
-              alt="Our Client Logos"
-              className="max-w-full h-auto opacity-80 hover:opacity-100 transition-opacity duration-500"
-            />
           </div>
         </div>
       </section>
