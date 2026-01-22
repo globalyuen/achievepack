@@ -1085,8 +1085,40 @@ function App() {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-6 text-center">What is Compostable Packaging?</h2>
             <p className="text-lg text-neutral-700 leading-relaxed mb-8">
-              Compostable packaging is certified material that fully biodegrades into natural elements within 180 days under industrial composting conditions. Unlike regular plastics, compostable pouches break down into water, CO₂, and biomass, leaving no microplastics. Achieve Pack's compostable bags are certified to <Link to="/composting/home-vs-industrial-compostable" className="text-primary-600 hover:underline font-medium">EN13432</Link> and <Link to="/materials/compostable" className="text-primary-600 hover:underline font-medium">ASTM D6400</Link> standards, ensuring genuine environmental credentials.
+              Compostable packaging is certified material that fully biodegrades into natural elements within 180 days under industrial composting conditions. Unlike regular plastics, compostable pouches break down into water, CO₂, and biomass, leaving no <Link to="/composting/plastic-free" className="text-primary-600 hover:underline font-medium">microplastics</Link>. Achieve Pack's compostable bags are certified to <Link to="/composting/home-vs-industrial-compostable" className="text-primary-600 hover:underline font-medium">EN13432</Link> and <Link to="/materials/compostable" className="text-primary-600 hover:underline font-medium">ASTM D6400</Link> standards, ensuring genuine environmental credentials.
             </p>
+            
+            {/* Plastic-Free Highlight Block with Image */}
+            <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-6 mb-8">
+              <div className="grid md:grid-cols-2 gap-6 items-center">
+                <div>
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Leaf className="h-5 w-5 text-green-600" />
+                    </div>
+                    <h3 className="text-lg font-bold text-green-800">Conventional Plastic-Free</h3>
+                  </div>
+                  <p className="text-green-700 text-sm leading-relaxed mb-4">
+                    Our compostable pouches contain zero petroleum-based plastics. Made from plant-based PLA and PBAT biopolymers, they return to nature—not persist as microplastics in oceans and soil.
+                  </p>
+                  <Link
+                    to="/composting/plastic-free"
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-green-700 hover:text-green-800 transition"
+                  >
+                    Learn about plastic-free vs compostable
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+                <Link to="/composting/plastic-free" className="block">
+                  <img 
+                    src="/imgs/composting/plastic-free/a_lifecycle_journey_compostable_1656229.webp" 
+                    alt="Compostable packaging lifecycle - from plant-based materials to soil nutrients"
+                    className="w-full rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                    loading="lazy"
+                  />
+                </Link>
+              </div>
+            </div>
             
             {/* Comparison Table - Featured Snippet Optimized */}
             <div className="overflow-x-auto">

@@ -13,7 +13,7 @@ const BioCelloTriplexHighestPage: React.FC = () => {
   const sections = [
     {
       id: 'structure-overview',
-      title: 'Material Structure Overview',
+      title: 'What Is This Material Structure?',
       icon: <Layers className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -54,7 +54,7 @@ const BioCelloTriplexHighestPage: React.FC = () => {
     },
     {
       id: 'layer-breakdown',
-      title: 'Layer-by-Layer Breakdown',
+      title: 'How Is Each Layer Built?',
       icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -86,7 +86,7 @@ const BioCelloTriplexHighestPage: React.FC = () => {
     },
     {
       id: 'barrier-properties',
-      title: 'Barrier Properties & Performance',
+      title: 'What Barrier Protection Does It Offer?',
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -112,7 +112,7 @@ const BioCelloTriplexHighestPage: React.FC = () => {
     },
     {
       id: 'sustainability',
-      title: 'Compostability & Certifications',
+      title: 'Is It Certified Compostable?',
       icon: <Sprout className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -142,7 +142,7 @@ const BioCelloTriplexHighestPage: React.FC = () => {
     },
     {
       id: 'applications',
-      title: 'Ideal Applications',
+      title: 'What Products Is This Best For?',
       icon: <CheckCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -160,7 +160,7 @@ const BioCelloTriplexHighestPage: React.FC = () => {
     },
     {
       id: 'ai-search',
-      title: 'Finding High-Barrier Compostable Packaging',
+      title: 'Need High-Barrier Compostable Packaging?',
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">

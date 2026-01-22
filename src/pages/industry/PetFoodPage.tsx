@@ -38,7 +38,7 @@ const PetFoodPage: React.FC = () => {
     },
     {
       id: 'overview',
-      title: 'Pet Food & Treats Packaging',
+      title: 'What Makes Great Pet Food Packaging?',
       icon: <Heart className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -62,7 +62,7 @@ const PetFoodPage: React.FC = () => {
     },
     {
       id: 'products',
-      title: 'Pet Products We Package',
+      title: 'What Pet Products Can You Package?',
       icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -90,7 +90,7 @@ const PetFoodPage: React.FC = () => {
     },
     {
       id: 'sustainability',
-      title: 'Sustainable Pet Packaging',
+      title: 'Which Sustainable Materials Work for Pet Food?',
       icon: <Leaf className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -116,7 +116,7 @@ const PetFoodPage: React.FC = () => {
     },
     {
       id: 'formats',
-      title: 'Packaging Formats',
+      title: 'What Packaging Formats Are Best for Pet Products?',
       icon: <CheckCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -145,7 +145,7 @@ const PetFoodPage: React.FC = () => {
     },
     {
       id: 'safety',
-      title: 'Pet Safety Standards',
+      title: 'How Do We Ensure Pet Food Safety Standards?',
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -169,7 +169,7 @@ const PetFoodPage: React.FC = () => {
     },
     {
       id: 'risk-hedging',
-      title: 'Is This Packaging Right for Your Pet Products?',
+      title: 'When Is Our Pet Food Packaging Right (or Wrong) for You?',
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="grid md:grid-cols-3 gap-4">

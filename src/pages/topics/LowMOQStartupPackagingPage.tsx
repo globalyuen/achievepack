@@ -12,7 +12,7 @@ const LowMOQStartupPackagingPage: React.FC = () => {
   const sections = [
     {
       id: 'hero-problem',
-      title: 'The Startup Packaging Challenge',
+      title: 'Why Do High MOQs Hurt Startups?',
       icon: <Target className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -46,12 +46,12 @@ const LowMOQStartupPackagingPage: React.FC = () => {
     },
     {
       id: 'low-moq-options',
-      title: 'Low MOQ Packaging Options',
+      title: 'What Low-MOQ Packaging Options Are Available?',
       icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <p>
-            Get <strong>professional custom packaging</strong> at startup-friendly quantities. All sustainable material options available.
+            Get <strong>professional custom packaging</strong> at startup-friendly quantities—all sustainable material options are on the table.
           </p>
           
           <div className="grid md:grid-cols-3 gap-4 mt-6">
@@ -103,7 +103,7 @@ const LowMOQStartupPackagingPage: React.FC = () => {
     },
     {
       id: 'startup-benefits',
-      title: 'Why Startups Choose Us',
+      title: 'Why Do Startups Choose Low-MOQ Packaging?',
       icon: <Rocket className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -142,12 +142,12 @@ const LowMOQStartupPackagingPage: React.FC = () => {
     },
     {
       id: 'eco-options',
-      title: 'Sustainable Materials for Startups',
+      title: 'Which Sustainable Materials Work at Low Volumes?',
       icon: <Award className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <p>
-            Launch with <strong>sustainability from day one</strong>. All eco-friendly materials available at low MOQ.
+            Launch with <strong>sustainability from day one</strong>—you don't have to compromise on eco-friendliness just because you're starting small.
           </p>
           
           <div className="grid md:grid-cols-2 gap-4 mt-4">
@@ -173,13 +173,13 @@ const LowMOQStartupPackagingPage: React.FC = () => {
     },
     {
       id: 'cta',
-      title: 'Launch Your Product With Us',
+      title: 'How Can You Launch Your Product With Us?',
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-r from-purple-600 to-indigo-600 p-8 rounded-xl text-white text-center">
           <h3 className="text-2xl font-bold mb-4">Start Your Packaging Project</h3>
           <p className="text-lg mb-6 opacity-90">
-            Tell us about your product. We'll recommend materials, sizes, and help you get samples for testing.
+            Tell us about your product, and we'll recommend materials, sizes, and help you get samples for testing.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -203,7 +203,7 @@ const LowMOQStartupPackagingPage: React.FC = () => {
     },
     {
       id: 'industry-scenarios',
-      title: 'Industry Applications',
+      title: 'How Are Different Startups Using Low-MOQ Packaging?',
       icon: <Factory className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -239,7 +239,7 @@ const LowMOQStartupPackagingPage: React.FC = () => {
     },
     {
       id: 'market-data',
-      title: 'Market Data & Intelligence',
+      title: 'What Do the Numbers Say About Low-MOQ Packaging?',
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -271,7 +271,7 @@ const LowMOQStartupPackagingPage: React.FC = () => {
     },
     {
       id: 'material-comparison',
-      title: 'Material Comparison',
+      title: 'How Do Packaging Options Compare for Startups?',
       icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">

@@ -17,7 +17,7 @@ const SnacksFoodPage: React.FC = () => {
       content: (
         <div className="bg-gradient-to-r from-orange-50 to-amber-50 p-6 rounded-lg border border-orange-200">
           <p className="text-lg font-medium text-neutral-900 mb-4">
-            If you are a <strong>snack brand, confectionery maker, or dried food producer</strong> looking for sustainable packaging that keeps products fresh—you're in the right place.
+            If you're a <strong>snack brand, confectionery maker, or dried food producer</strong> looking for sustainable packaging that actually keeps products fresh—you're in the right place.
           </p>
           <div className="grid md:grid-cols-3 gap-4 mt-4">
             <div className="bg-white p-4 rounded-lg shadow-sm">
@@ -38,7 +38,7 @@ const SnacksFoodPage: React.FC = () => {
     },
     {
       id: 'overview',
-      title: 'Snacks & Food Packaging Solutions',
+      title: 'What Makes Great Snack Packaging?',
       icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -62,11 +62,11 @@ const SnacksFoodPage: React.FC = () => {
     },
     {
       id: 'products',
-      title: 'Food Products We Package',
+      title: 'What Food Products Can You Package?',
       icon: <CheckCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Our flexible packaging solutions serve the entire food industry spectrum:</p>
+          <p>Our flexible packaging handles the entire food industry spectrum—here's what we pack most:</p>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
             <div className="bg-orange-50 p-4 rounded-lg">
@@ -129,11 +129,11 @@ const SnacksFoodPage: React.FC = () => {
     },
     {
       id: 'materials',
-      title: 'Material Options',
+      title: 'Which Sustainable Materials Work Best for Snacks?',
       icon: <Leaf className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Choose the right sustainable material for your snack product:</p>
+          <p>Here's how to pick the right sustainable material for your snack product:</p>
           
           <div className="space-y-4 mt-4">
             <div className="border border-primary-200 rounded-lg p-4">
@@ -163,11 +163,11 @@ const SnacksFoodPage: React.FC = () => {
     },
     {
       id: 'features',
-      title: 'Packaging Features',
+      title: 'How Can You Customize Your Snack Packaging?',
       icon: <Zap className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Customize your snack packaging with these functional features:</p>
+          <p>Want to make your snack packaging stand out? Here are the features that actually matter:</p>
           
           <div className="grid md:grid-cols-2 gap-4 mt-4">
             {[
@@ -194,7 +194,7 @@ const SnacksFoodPage: React.FC = () => {
     },
     {
       id: 'compliance',
-      title: 'Food Safety & Compliance',
+      title: 'How Do We Meet Food Safety & Compliance Standards?',
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">

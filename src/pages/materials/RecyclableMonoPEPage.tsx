@@ -13,7 +13,7 @@ const RecyclableMonoPEPage: React.FC = () => {
   const sections = [
     {
       id: 'infographic',
-      title: 'Recyclable Mono-PE Infographic',
+      title: 'What Is Recyclable Mono-PE at a Glance?',
       icon: <Image className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -133,7 +133,7 @@ const RecyclableMonoPEPage: React.FC = () => {
     // ========== Scenario (Industry Applications) ==========
     {
       id: 'industry-scenarios',
-      title: 'Industry Applications',
+      title: 'Which Industries Use Recyclable Mono-PE?',
       icon: <Factory className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">

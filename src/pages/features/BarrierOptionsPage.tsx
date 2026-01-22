@@ -59,7 +59,7 @@ const BarrierOptionsPage: React.FC = () => {
     },
     {
       id: 'overview',
-      title: 'Barrier Options for Eco-Friendly Packaging',
+      title: 'What Are Barrier Options and Why Do They Matter?',
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -77,7 +77,7 @@ const BarrierOptionsPage: React.FC = () => {
     },
     {
       id: 'visual-gallery',
-      title: 'Barrier Solutions Gallery',
+      title: 'What Do Different Barrier Levels Look Like?',
       icon: <Image className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -104,7 +104,7 @@ const BarrierOptionsPage: React.FC = () => {
     },
     {
       id: 'barrier-types',
-      title: 'Barrier Level Comparison',
+      title: 'How Do Low, Medium, and High Barriers Compare?',
       icon: <Thermometer className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -148,7 +148,7 @@ const BarrierOptionsPage: React.FC = () => {
     },
     {
       id: 'materials',
-      title: 'Sustainable Barrier Materials',
+      title: 'Which Eco-Friendly Materials Offer the Best Barrier?',
       icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -179,7 +179,7 @@ const BarrierOptionsPage: React.FC = () => {
     },
     {
       id: 'applications',
-      title: 'Product Recommendations',
+      title: 'What Barrier Level Does Your Product Need?',
       icon: <CheckCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -220,7 +220,7 @@ const BarrierOptionsPage: React.FC = () => {
     },
     {
       id: 'order',
-      title: 'Order Information',
+      title: 'How to Get Started with Barrier Testing',
       icon: <Clock className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -246,7 +246,7 @@ const BarrierOptionsPage: React.FC = () => {
     },
     {
       id: 'risk-hedge',
-      title: 'Still Not Sure? We Have Answers',
+      title: 'What If You\'re Not Sure Which Barrier to Choose?',
       icon: <Shield className="h-5 w-5 text-amber-600" />,
       content: (
         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border border-blue-200">
@@ -289,7 +289,7 @@ const BarrierOptionsPage: React.FC = () => {
     },
     {
       id: 'decision-cta',
-      title: 'Ready to Get Started?',
+      title: 'How Can You Take the Next Step?',
       icon: <Shield className="h-5 w-5 text-white" />,
       content: (
         <div className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white p-8 rounded-xl">

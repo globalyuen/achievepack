@@ -110,7 +110,9 @@ export default function Footer() {
               <li><Link to="/knowledge/size-guide" className="hover:text-primary-400">Size Reference</Link></li>
               <li><Link to="/knowledge/all-options" className="hover:text-primary-400">All Options</Link></li>
               <li><Link to="/knowledge/printing-types" className="hover:text-primary-400">Printing Types</Link></li>
-              <li><Link to="/knowledge/workflow" className="hover:text-primary-400">Workflow</Link></li>
+              <li><Link to="/knowledge/k-seal-stand-up-pouches" className="hover:text-primary-400">K-Seal Pouches</Link></li>
+              <li><Link to="/knowledge/white-ink-underprint" className="hover:text-primary-400">White Ink Underprint</Link></li>
+              <li><Link to="/knowledge/fin-seal-lap-seal" className="hover:text-primary-400">Fin Seal vs Lap Seal</Link></li>
             </ul>
           </div>
 
@@ -159,8 +161,54 @@ export default function Footer() {
               <li><Link to="/pcr/pcr-plastic-guide" className="hover:text-primary-400">What Is PCR Plastic?</Link></li>
               <li><Link to="/pcr/7-checklist" className="hover:text-primary-400">PCR 7-Point Checklist</Link></li>
               <li><Link to="/pcr/realistic-pcr-content" className="hover:text-primary-400">Realistic PCR Content</Link></li>
+              <li><Link to="/pcr/recyclable-vs-pcr-biobased" className="hover:text-primary-400">Recyclable vs PCR vs Bio-Based</Link></li>
               <li><Link to="/materials/pcr" className="hover:text-primary-400">PCR Materials</Link></li>
-              <li><Link to="/spec/pcr-pet-duplex-clear" className="hover:text-primary-400">PCR Structures</Link></li>
+            </ul>
+          </div>
+
+          {/* Recyclable */}
+          <div>
+            <h4 className="font-semibold text-sm mb-2">Recyclable</h4>
+            <ul className="space-y-1 text-xs text-neutral-400">
+              <li><Link to="/recyclable/what-is-recyclable" className="hover:text-primary-400">What Is 100% Recyclable?</Link></li>
+              <li><Link to="/recyclable/roadmap-sme" className="hover:text-primary-400">3-Step Roadmap for SMEs</Link></li>
+              <li><Link to="/recyclable/mono-material-foundation" className="hover:text-primary-400">Mono-Material Foundation</Link></li>
+              <li><Link to="/materials/recyclable-mono-pe" className="hover:text-primary-400">Recyclable Mono-PE</Link></li>
+              <li><Link to="/materials/recyclable-mono-pp" className="hover:text-primary-400">Recyclable Mono-PP</Link></li>
+            </ul>
+          </div>
+
+          {/* Function */}
+          <div>
+            <h4 className="font-semibold text-sm mb-2">Function</h4>
+            <ul className="space-y-1 text-xs text-neutral-400">
+              <li><Link to="/function/microwave-steam-bags" className="hover:text-primary-400">Microwave Steam Bags</Link></li>
+              <li><Link to="/function/child-resistant-bags" className="hover:text-primary-400">Child-Resistant Bags</Link></li>
+              <li><Link to="/function/spout-pouches-juice" className="hover:text-primary-400">Spout Pouches Juice</Link></li>
+              <li><Link to="/function/digital-printed-retort-bags" className="hover:text-primary-400">Retort Bags</Link></li>
+              <li><Link to="/function/rice-paper-bags" className="hover:text-primary-400">Rice Paper Bags</Link></li>
+            </ul>
+          </div>
+
+          {/* Lab Bag */}
+          <div>
+            <h4 className="font-semibold text-sm mb-2">Lab Bag</h4>
+            <ul className="space-y-1 text-xs text-neutral-400">
+              <li><Link to="/lab/lateral-filter-bags" className="hover:text-primary-400">Lateral Filter Bags</Link></li>
+              <li><Link to="/lab/wire-closure-bags" className="hover:text-primary-400">Wire Closure Bags</Link></li>
+              <li><Link to="/lab/lab-blender-bags" className="hover:text-primary-400">Lab Blender Bags</Link></li>
+              <li><Link to="/products/lab-bags" className="hover:text-primary-400">All Lab Bags</Link></li>
+            </ul>
+          </div>
+
+          {/* Free Service */}
+          <div>
+            <h4 className="font-semibold text-sm mb-2">Free Service</h4>
+            <ul className="space-y-1 text-xs text-neutral-400">
+              <li><Link to="/free-service/packaging-design-consultation" className="hover:text-primary-400">Design Consultation</Link></li>
+              <li><Link to="/free-service/website-upgrade" className="hover:text-primary-400">Website Upgrade</Link></li>
+              <li><Link to="/free-service/packaging-mockup" className="hover:text-primary-400">Packaging Mockup</Link></li>
+              <li><Link to="/free-service/customer-center" className="hover:text-primary-400">Customer Center</Link></li>
             </ul>
           </div>
 
@@ -180,6 +228,17 @@ export default function Footer() {
                 <Calendar className="h-3 w-3 text-primary-500" />
                 <a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noopener noreferrer" className="hover:text-primary-400">Book Meeting</a>
               </li>
+            </ul>
+          </div>
+
+          {/* USA Market */}
+          <div>
+            <h4 className="font-semibold text-sm mb-2">USA Market</h4>
+            <ul className="space-y-1 text-xs text-neutral-400">
+              <li><Link to="/usa/compostable-packaging" className="hover:text-primary-400">Compostable Packaging USA</Link></li>
+              <li><Link to="/usa/coffee-packaging" className="hover:text-primary-400">Coffee Packaging USA</Link></li>
+              <li><Link to="/usa/snacks-packaging" className="hover:text-primary-400">Snacks Packaging USA</Link></li>
+              <li><Link to="/usa/labeling-guide" className="hover:text-primary-400">Labeling Guide USA</Link></li>
             </ul>
           </div>
         </div>

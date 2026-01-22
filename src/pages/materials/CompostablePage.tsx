@@ -16,7 +16,7 @@ const CompostablePage: React.FC = () => {
   const sections = [
     {
       id: 'infographic',
-      title: 'Compostable Materials Infographic',
+      title: 'What Is Compostable Packaging at a Glance?',
       icon: <Image className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -40,20 +40,20 @@ const CompostablePage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <div className="bg-gradient-to-r from-primary-50 to-green-50 p-6 rounded-lg border border-primary-200">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              If you are a <strong>US specialty coffee roaster</strong>, an <strong>organic food brand</strong>, or a <strong>DTC wellness company</strong> looking to switch from plastic packaging to truly eco-friendly options without risking freshness or blowing your budget—this page is for you.
+              If you're a <strong>US specialty coffee roaster</strong>, an <strong>organic food brand</strong>, or a <strong>DTC wellness company</strong> looking to ditch plastic packaging for genuinely eco-friendly options—without sacrificing freshness or breaking the bank—you're in the right place.
             </p>
             <div className="grid md:grid-cols-3 gap-4 mt-4">
               <div className="bg-white p-3 rounded-lg">
                 <p className="font-semibold text-primary-800">Coffee Roasters</p>
-                <p className="text-sm text-neutral-600">Switch to certified compostable bags with degassing valves</p>
+                <p className="text-sm text-neutral-600">You can switch to certified compostable bags with degassing valves</p>
               </div>
               <div className="bg-white p-3 rounded-lg">
                 <p className="font-semibold text-primary-800">Snack Brands</p>
-                <p className="text-sm text-neutral-600">Meet sustainability goals without sacrificing shelf life</p>
+                <p className="text-sm text-neutral-600">You'll meet sustainability goals without sacrificing shelf life</p>
               </div>
               <div className="bg-white p-3 rounded-lg">
                 <p className="font-semibold text-primary-800">Supplement Companies</p>
-                <p className="text-sm text-neutral-600">Premium eco packaging for health-conscious consumers</p>
+                <p className="text-sm text-neutral-600">Premium eco packaging that resonates with health-conscious consumers</p>
               </div>
             </div>
           </div>
@@ -230,11 +230,11 @@ const CompostablePage: React.FC = () => {
     // ========== Scenario (Industry Applications) ==========
     {
       id: 'industry-scenarios',
-      title: 'Industry Applications',
+      title: 'Which Industries Are Switching to Compostable Packaging?',
       icon: <Factory className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-lg">Compostable packaging is transforming multiple industries. Here's how different sectors are adopting sustainable solutions:</p>
+          <p className="text-lg">Here's the thing: compostable packaging isn't just a trend—it's reshaping entire industries. Let's look at who's making the switch and why:</p>
           
           {/* Industry Cards */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -310,7 +310,7 @@ const CompostablePage: React.FC = () => {
     // ========== Data (Market & Performance Data) ==========
     {
       id: 'market-data',
-      title: 'MarketData Market & Performance Data',
+      title: 'What Do Market Trends Say About Compostable Packaging?',
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -413,11 +413,11 @@ const CompostablePage: React.FC = () => {
     // ========== Contrast (Material Comparison) ==========
     {
       id: 'material-comparison',
-      title: 'Material Comparison',
+      title: 'Compostable vs Recyclable vs PCR: Which Is Best?',
       icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-lg">Understanding the differences between packaging materials helps you make the right choice for your brand:</p>
+          <p className="text-lg">Real talk: choosing the right material can feel overwhelming. Here's a straightforward comparison to help you decide:</p>
           
           {/* Compostable vs Conventional Plastic */}
           <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
@@ -642,11 +642,11 @@ const CompostablePage: React.FC = () => {
     },
     {
       id: 'ai-search',
-      title: 'Finding the Right Compostable Packaging Supplier',
+      title: 'How to Find the Right Compostable Packaging Supplier',
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Key factors when choosing compostable packaging:</p>
+          <p>Here's what you should look for when picking a compostable packaging supplier:</p>
           <ul className="list-disc pl-6 space-y-2">
             <li><strong>Certifications</strong> – EN 13432 (EU) or ASTM D6400 (US)</li>
             <li><strong>Barrier level</strong> – Match to your product's shelf-life needs</li>
@@ -668,7 +668,7 @@ const CompostablePage: React.FC = () => {
     },
     {
       id: 'buyer-guide',
-      title: 'Buyer Guide: How to Choose Compostable Packaging',
+      title: 'How Do You Choose the Right Compostable Packaging?',
       icon: <BookOpen className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -704,11 +704,11 @@ const CompostablePage: React.FC = () => {
     },
     {
       id: 'case-studies',
-      title: 'Success Stories: Brands Using Our Compostable Packaging',
+      title: 'How Have Other Brands Succeeded With Compostable Packaging?',
       icon: <Building2 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>See how real brands transitioned to certified compostable packaging:</p>
+          <p>Don't just take our word for it. Here's how real brands made the switch to certified compostable packaging:</p>
           
           <div className="grid md:grid-cols-2 gap-4">
             <Link to="/case-studies/coffee-roastery" className="block p-4 bg-neutral-50 rounded-lg border border-neutral-200 hover:border-primary-300 hover:shadow-md transition">
@@ -731,7 +731,7 @@ const CompostablePage: React.FC = () => {
     },
     {
       id: 'risk-hedging',
-      title: 'Is Compostable Packaging Right for You?',
+      title: 'When Is Compostable Packaging Right (or Wrong) for You?',
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -771,11 +771,11 @@ const CompostablePage: React.FC = () => {
     },
     {
       id: 'decision-cta',
-      title: 'Ready to Take the Next Step?',
+      title: 'How Can You Take the Next Step?',
       icon: <Calendar className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p className="text-lg">We don't ask you to change your entire packaging line on day one. Start with what makes sense for your business:</p>
+          <p className="text-lg">We get it—switching packaging is a big decision. You don't have to change everything overnight. Start with what makes sense for your business:</p>
           
           <div className="grid md:grid-cols-3 gap-4 mt-4">
             <div className="bg-primary-600 text-white p-6 rounded-lg text-center">

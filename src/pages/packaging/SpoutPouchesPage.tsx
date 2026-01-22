@@ -63,7 +63,7 @@ const SpoutPouchesPage: React.FC = () => {
     },
     {
       id: 'applications',
-      title: 'Common Applications',
+      title: 'What Products Work Best in Spout Pouches?',
       icon: <CheckCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -124,7 +124,7 @@ const SpoutPouchesPage: React.FC = () => {
     },
     {
       id: 'spout-options',
-      title: 'Spout & Cap Options',
+      title: 'What Spout & Cap Options Are Available?',
       icon: <Settings className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -184,7 +184,7 @@ const SpoutPouchesPage: React.FC = () => {
     },
     {
       id: 'eco-materials',
-      title: 'Eco-Friendly Material Options',
+      title: 'Which Eco-Friendly Materials Work for Liquid Packaging?',
       icon: <Package className="h-5 w-5 text-green-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">

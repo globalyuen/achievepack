@@ -12,7 +12,7 @@ const CoffeeRoasteryCaseStudy = () => {
   const sections = [
     {
       id: 'overview',
-      title: 'Client Overview',
+      title: 'Who Is This Client?',
       icon: <Building2 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -42,11 +42,11 @@ const CoffeeRoasteryCaseStudy = () => {
     },
     {
       id: 'challenge',
-      title: 'The Challenge',
+      title: 'What Challenge Did They Face?',
       icon: <AlertCircle className="h-5 w-5 text-red-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p className="mb-4">Bean & Bole faced several packaging challenges:</p>
+          <p className="mb-4">Here's what Bean & Bole was up against:</p>
           <ul className="space-y-3 text-neutral-700">
             <li className="flex items-start gap-3">
               <span className="text-red-500 mt-1">✗</span>
@@ -70,11 +70,11 @@ const CoffeeRoasteryCaseStudy = () => {
     },
     {
       id: 'solution',
-      title: 'Our Solution',
+      title: 'How Did Achieve Pack Help?',
       icon: <Lightbulb className="h-5 w-5 text-yellow-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p className="mb-4">We worked with Bean & Bole to develop a custom packaging solution:</p>
+          <p className="mb-4">Here's how we worked with Bean & Bole to develop a custom packaging solution:</p>
           <div className="grid md:grid-cols-2 gap-4 mb-6">
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-5 rounded-xl border border-blue-200">
               <h4 className="font-semibold text-blue-800 mb-3 flex items-center gap-2">
@@ -110,7 +110,7 @@ const CoffeeRoasteryCaseStudy = () => {
     },
     {
       id: 'results',
-      title: 'The Results',
+      title: 'What Results Did They Achieve?',
       icon: <TrendingUp className="h-5 w-5 text-green-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -141,7 +141,7 @@ const CoffeeRoasteryCaseStudy = () => {
     },
     {
       id: 'specs',
-      title: 'Package Specifications',
+      title: 'What Packaging Specs Were Used?',
       icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -194,7 +194,7 @@ const CoffeeRoasteryCaseStudy = () => {
     },
     {
       id: 'key-takeaways',
-      title: 'Key Takeaways',
+      title: 'What Can You Learn From This?',
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">

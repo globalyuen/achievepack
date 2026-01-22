@@ -111,7 +111,30 @@ export default function ReviewsPage() {
       {/* Trust Badges */}
       <section className="py-8 bg-white border-b border-neutral-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-6 md:gap-12">
+          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-12">
+            {/* Trustpilot Badge */}
+            <a 
+              href="https://www.trustpilot.com/review/pouch.eco" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 bg-[#00b67a]/10 rounded-lg hover:bg-[#00b67a]/20 transition group"
+            >
+              <svg className="h-5 w-5" viewBox="0 0 126 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M33.4 10.4h-4.7v15.9h-4.1V10.4H20V6.9h13.4v3.5z" fill="#191919"/>
+                <path d="M40.6 10.1c-.5-.1-1.1-.2-1.8-.2-1.6 0-2.5.8-2.5 2.5v1h4v3.4h-4v9.5h-4.1v-9.5h-2.4v-3.4h2.4v-1.2c0-1.9.5-3.3 1.6-4.3 1-.9 2.4-1.4 4.2-1.4.9 0 1.7.1 2.6.3v3.3z" fill="#191919"/>
+                <path d="M55.4 13.4v12.9h-3.9v-2.1c-.4.7-1 1.3-1.8 1.7-.8.4-1.6.6-2.6.6-1.8 0-3.2-.6-4.2-1.7-1-1.1-1.5-2.7-1.5-4.8v-6.6h4.1v6.1c0 1 .2 1.8.7 2.3.5.5 1.1.8 2 .8.9 0 1.6-.3 2.2-.9.5-.6.8-1.5.8-2.6v-5.7h4.2z" fill="#191919"/>
+                <path d="M64.5 26.5c-1.4 0-2.7-.3-3.9-.8-1.2-.6-2.1-1.4-2.8-2.5s-1-2.4-1-3.8c0-1.5.3-2.8 1-3.9.7-1.1 1.6-1.9 2.8-2.5 1.2-.6 2.5-.9 4-.9 1.2 0 2.2.2 3.2.6 1 .4 1.8 1 2.4 1.8l-2.6 2.4c-.6-.9-1.6-1.4-2.8-1.4-1.1 0-2 .4-2.6 1.1-.7.7-1 1.7-1 2.9 0 1.2.3 2.1 1 2.9.6.7 1.5 1.1 2.6 1.1 1.2 0 2.2-.5 2.8-1.4l2.6 2.4c-.6.8-1.4 1.4-2.4 1.8-1 .5-2.1.7-3.3.7z" fill="#191919"/>
+                <path d="M82.2 13.4L77.9 26h-4.4l-4.3-12.6h4.3l2.3 8 2.3-8h4.1z" fill="#191919"/>
+                <path d="M88.5 13.2c1.4 0 2.4.4 3.1 1.2.7.8 1 1.9 1 3.5v8.4h-4.1v-7.6c0-.7-.2-1.3-.5-1.6-.3-.4-.8-.5-1.5-.5-.8 0-1.4.3-1.9.8-.5.5-.7 1.3-.7 2.2v6.7h-4.1V6.9h4.1v7.8c.8-1 2-1.5 3.6-1.5z" fill="#191919"/>
+                <path d="M98.5 26.5c-1.2 0-2.3-.2-3.3-.7-1-.5-1.8-1.2-2.4-2.1-.6-.9-.9-2-.9-3.3 0-1.3.3-2.4.9-3.3.6-.9 1.4-1.6 2.4-2.1 1-.5 2.1-.7 3.3-.7 1.2 0 2.3.2 3.3.7 1 .5 1.8 1.2 2.4 2.1.6.9.9 2 .9 3.3 0 1.3-.3 2.4-.9 3.3-.6.9-1.4 1.6-2.4 2.1-1 .5-2.1.7-3.3.7zm0-3.3c.7 0 1.3-.3 1.7-.8.4-.5.6-1.2.6-2.1 0-.9-.2-1.6-.6-2.1-.4-.5-1-.8-1.7-.8-.7 0-1.3.3-1.7.8-.4.5-.6 1.2-.6 2.1 0 .9.2 1.6.6 2.1.4.5 1 .8 1.7.8z" fill="#191919"/>
+                <path d="M118 13.4v12.9h-3.9v-2.1c-.4.7-1 1.3-1.8 1.7-.8.4-1.6.6-2.6.6-1.8 0-3.2-.6-4.2-1.7-1-1.1-1.5-2.7-1.5-4.8v-6.6h4.1v6.1c0 1 .2 1.8.7 2.3.5.5 1.1.8 2 .8.9 0 1.6-.3 2.2-.9.5-.6.8-1.5.8-2.6v-5.7h4.2z" fill="#191919"/>
+                <path d="M126 13.4v12.9h-4.1V13.4h4.1zm-2.1-2.3c-.7 0-1.3-.2-1.8-.7-.4-.4-.7-1-.7-1.6 0-.6.2-1.2.7-1.6.5-.4 1-.7 1.8-.7.7 0 1.3.2 1.7.6.5.4.7 1 .7 1.6 0 .7-.2 1.2-.7 1.7-.4.5-1 .7-1.7.7z" fill="#191919"/>
+                <path d="M15.5 0l3.8 11.8H31.6l-9.9 7.2 3.8 11.8-9.9-7.2-9.9 7.2 3.8-11.8L-.4 11.8H11.8L15.5 0z" fill="#00B67A"/>
+                <path d="M22.3 21.7l-.9-2.7-5.9 4.3 6.8-1.6z" fill="#005128"/>
+              </svg>
+              <span className="text-sm font-medium text-neutral-700 group-hover:text-neutral-900">Excellent on Trustpilot</span>
+              <ExternalLink className="h-3 w-3 text-neutral-400" />
+            </a>
             <div className="flex items-center gap-2 text-neutral-600">
               <CheckCircle className="h-5 w-5 text-green-500" />
               <span className="text-sm font-medium">Verified Customers</span>

@@ -158,6 +158,32 @@ const ArtworkReviewPage: React.FC = () => {
         })
         .eq('id', batchId)
       
+      // Send notification email to admin for individual item review
+      try {
+        await fetch('/api/send-artwork-batch-approval', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            batchName: batch?.batch_name,
+            batchId,
+            approvalType,
+            approverName: '',
+            approverCompany: '',
+            comment: comment,
+            totalItems: 1,
+            approvedCount: approvalType !== 'not_approved' ? 1 : 0,
+            rejectedCount: approvalType === 'not_approved' ? 1 : 0,
+            items: [{
+              name: item.name,
+              status,
+              comment
+            }]
+          })
+        })
+      } catch (emailErr) {
+        console.error('Failed to send notification email:', emailErr)
+      }
+      
       setShowReviewModal(false)
       setSelectedItem(null)
     } catch (err) {
@@ -175,6 +201,10 @@ const ArtworkReviewPage: React.FC = () => {
     
     setSubmitting(true)
     try {
+      const finalStatus = items.some(i => i.status === 'rejected') ? 'rejected' : 'approved'
+      const approvedCount = items.filter(i => i.status === 'approved').length
+      const rejectedCount = items.filter(i => i.status === 'rejected').length
+      
       await supabase
         .from('artwork_batches')
         .update({
@@ -182,12 +212,35 @@ const ArtworkReviewPage: React.FC = () => {
           approved_by_name: approverName,
           approved_by_company: approverCompany || null,
           approved_at: new Date().toISOString(),
-          status: items.some(i => i.status === 'rejected') ? 'rejected' : 'approved'
+          status: finalStatus
         })
         .eq('id', batchId)
       
-      // Send notification email to admin (via edge function or direct)
-      // This would typically be done via a Supabase edge function
+      // Send notification email to admin
+      try {
+        await fetch('/api/send-artwork-batch-approval', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            batchName: batch?.batch_name,
+            batchId,
+            approvalType: rejectedCount > 0 ? 'not_approved' : 'approve_as_is',
+            approverName,
+            approverCompany,
+            comment: overallComment,
+            totalItems: items.length,
+            approvedCount,
+            rejectedCount,
+            items: items.map(i => ({
+              name: i.name,
+              status: i.status,
+              comment: i.customer_comment
+            }))
+          })
+        })
+      } catch (emailErr) {
+        console.error('Failed to send notification email:', emailErr)
+      }
       
       alert('Your review has been submitted. Thank you!')
       setShowOverallApproval(false)
@@ -248,6 +301,32 @@ const ArtworkReviewPage: React.FC = () => {
           status: bulkApprovalType === 'not_approved' ? 'rejected' : 'approved'
         })
         .eq('id', batchId)
+      
+      // Send notification email to admin
+      try {
+        await fetch('/api/send-artwork-batch-approval', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            batchName: batch?.batch_name,
+            batchId,
+            approvalType: bulkApprovalType,
+            approverName: '',
+            approverCompany: '',
+            comment: bulkComment,
+            totalItems: items.length,
+            approvedCount: approved,
+            rejectedCount: rejected,
+            items: items.map(i => ({
+              name: i.name,
+              status: bulkApprovalType === 'not_approved' ? 'rejected' : 'approved',
+              comment: bulkComment
+            }))
+          })
+        })
+      } catch (emailErr) {
+        console.error('Failed to send notification email:', emailErr)
+      }
       
       alert(`All ${items.length} artworks have been reviewed!`)
       setShowBulkReview(false)

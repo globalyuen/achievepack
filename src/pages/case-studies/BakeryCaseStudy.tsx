@@ -11,7 +11,7 @@ const BakeryCaseStudy = () => {
   const sections = [
     {
       id: 'overview',
-      title: 'Client Overview',
+      title: 'Who Is This Client?',
       icon: <Building2 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -29,7 +29,7 @@ const BakeryCaseStudy = () => {
     },
     {
       id: 'challenge',
-      title: 'The Challenge',
+      title: 'What Challenge Did They Face?',
       icon: <AlertCircle className="h-5 w-5 text-red-600" />,
       content: (
         <ul className="space-y-3 text-neutral-700">
@@ -42,7 +42,7 @@ const BakeryCaseStudy = () => {
     },
     {
       id: 'solution',
-      title: 'Our Solution',
+      title: 'How Did Achieve Pack Help?',
       icon: <Lightbulb className="h-5 w-5 text-green-600" />,
       content: (
         <div className="grid md:grid-cols-2 gap-4">
@@ -79,7 +79,7 @@ const BakeryCaseStudy = () => {
     },
     {
       id: 'results',
-      title: 'The Results',
+      title: 'What Results Did They Achieve?',
       icon: <TrendingUp className="h-5 w-5 text-green-600" />,
       content: (
         <div className="space-y-6">
@@ -110,7 +110,7 @@ const BakeryCaseStudy = () => {
     },
     {
       id: 'specs',
-      title: 'Package Specifications',
+      title: 'What Packaging Specs Were Used?',
       icon: <Package className="h-5 w-5 text-neutral-600" />,
       content: (
         <div className="bg-neutral-100 p-6 rounded-xl">

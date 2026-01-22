@@ -90,13 +90,13 @@ const CarbonNeutralBagsPage: React.FC = () => {
   const sections = [
     {
       id: 'intro',
-      title: 'Carbon-Neutral Packaging Overview',
+      title: 'What Is Carbon-Neutral Packaging?',
       icon: <Leaf className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-lg border border-green-200">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              <strong>Lower CO₂, same convenience</strong> — Achieve Pack carbon-neutral bags help brands reduce their packaging carbon footprint through material optimization, efficient production, and certified carbon offset projects.
+              <strong>Lower CO₂, same convenience</strong> — Achieve Pack's carbon-neutral bags help you cut your packaging carbon footprint through material optimization, efficient production, and certified carbon offset projects.
             </p>
             <p className="text-neutral-700">
               Reduce Carbon Emissions · Retain Daily Convenience — ThroughMaterialExcellentization、EfficientProductionAndCertificationCarbon OffsetProject，HelpBrandReduceLowPackagingCarbon Footprint
@@ -108,7 +108,7 @@ const CarbonNeutralBagsPage: React.FC = () => {
             imageAlt="Achieve Pack Carbon-Neutral Bags Hero"
             title="Carbon-Neutral Cooking Bags"
             titleCn="Carbon NeutralAndPackagingBag"
-            content="Choose from multiple low-carbon material combinations including traditional PE with offsets, PCR recycled PE, and bio-based Green PE. All engineered to reach carbon-neutral balance while maintaining product compatibility."
+            content="You can choose from multiple low-carbon material combinations including traditional PE with offsets, PCR recycled PE, and bio-based Green PE. All engineered to reach carbon-neutral balance while keeping your products safe."
             contentCn="OptionalTraditional PE + Carbon Offset、PCR Recycled PE Blending、Bio-Based Green PE EtcMultipleLow CarbonMaterialGroupSuitable，FullPartCanThroughGroupSuitableReachToCarbon NeutralAndFlatBalance。"
             imageLeft={true}
             index={0}
@@ -150,7 +150,7 @@ const CarbonNeutralBagsPage: React.FC = () => {
     },
     {
       id: 'ap-carbon',
-      title: 'Achieve Pack × Carbon-Neutral Materials',
+      title: 'How Does Achieve Pack Deliver Carbon-Neutral Materials?',
       icon: <CheckCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
@@ -169,7 +169,7 @@ const CarbonNeutralBagsPage: React.FC = () => {
     },
     {
       id: 'lifecycle',
-      title: 'Life-Cycle Carbon Reduction',
+      title: 'How Does Life-Cycle Carbon Reduction Work?',
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
@@ -178,7 +178,7 @@ const CarbonNeutralBagsPage: React.FC = () => {
             imageAlt="Life Cycle Carbon Reduction"
             title="Carbon Footprint, Managed End to End"
             titleCn="FromHeadToEndManagementCarbon Footprint"
-            content="Our approach covers the entire life cycle: Materials (low-carbon or bio-based films), Production (efficient manufacturing & printing), and End-of-life (recyclable structures + carbon offsets)."
+            content="Our approach covers the entire life cycle: Materials (low-carbon or bio-based films), Production (efficient manufacturing & printing), and End-of-life (recyclable structures + carbon offsets). It's end-to-end carbon management."
             contentCn="OurSideMethod IncludeCoverWholeUnitRawLifeWeekPeriod：Material（Low CarbonOrBio-BasedFilm）→ Production（Efficient Production & Printing）→ EndEnd（RecyclableStructure + Carbon Offset）。"
             imageLeft={false}
             index={3}
@@ -206,7 +206,7 @@ const CarbonNeutralBagsPage: React.FC = () => {
     },
     {
       id: 'co2-reduction',
-      title: 'Up to -20% CO₂ Reduction',
+      title: 'How Much CO₂ Can You Reduce?',
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
@@ -230,7 +230,7 @@ const CarbonNeutralBagsPage: React.FC = () => {
     },
     {
       id: 'materials-mix',
-      title: 'Materials Mix Options',
+      title: 'What Material Options Are Available?',
       icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
@@ -267,7 +267,7 @@ const CarbonNeutralBagsPage: React.FC = () => {
     },
     {
       id: 'recyclable',
-      title: 'Recyclable Carbon-Neutral Structures',
+      title: 'What Recyclable Structures Are Available?',
       icon: <Recycle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">

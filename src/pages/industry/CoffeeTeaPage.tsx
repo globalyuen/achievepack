@@ -18,7 +18,7 @@ const CoffeeTeaPage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-lg border border-amber-200">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              If you are a <strong>US specialty coffee roaster</strong>, a <strong>growing tea brand on Amazon</strong>, or a <strong>cafe looking to launch retail packaging</strong>—and you want truly eco-friendly pouches without sacrificing freshness or blowing your budget, this page is for you.
+              If you're a <strong>US specialty coffee roaster</strong>, a <strong>growing tea brand on Amazon</strong>, or a <strong>cafe looking to launch retail packaging</strong>—and you're after truly eco-friendly pouches that don't sacrifice freshness or break the bank—you're in the right place.
             </p>
             <div className="grid md:grid-cols-3 gap-4 mt-4">
               <div className="bg-white p-3 rounded-lg">
@@ -40,7 +40,7 @@ const CoffeeTeaPage: React.FC = () => {
     },
     {
       id: 'overview',
-      title: 'Coffee & Tea Packaging Solutions',
+      title: 'What Makes Great Coffee & Tea Packaging?',
       icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -64,7 +64,7 @@ const CoffeeTeaPage: React.FC = () => {
     },
     {
       id: 'materials',
-      title: 'Sustainable Material Options',
+      title: 'Which Sustainable Materials Work Best for Coffee & Tea?',
       icon: <Leaf className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -99,11 +99,11 @@ const CoffeeTeaPage: React.FC = () => {
     },
     {
       id: 'applications',
-      title: 'Product Applications',
+      title: 'What Products Can You Package?',
       icon: <CheckCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Our coffee and tea packaging solutions serve a wide range of products:</p>
+          <p>Our coffee and tea packaging works for a wide range of products—here's what we pack most often:</p>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
             {[
@@ -131,7 +131,7 @@ const CoffeeTeaPage: React.FC = () => {
     },
     {
       id: 'specifications',
-      title: 'Technical Specifications',
+      title: 'What Technical Specs Should Coffee Packaging Have?',
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -160,7 +160,7 @@ const CoffeeTeaPage: React.FC = () => {
     },
     {
       id: 'moq',
-      title: 'Order Information',
+      title: 'How Do You Order Coffee Packaging?',
       icon: <Clock className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -190,11 +190,11 @@ const CoffeeTeaPage: React.FC = () => {
     },
     {
       id: 'ai-search',
-      title: 'Finding the Right Supplier',
+      title: 'How to Find the Right Coffee Packaging Supplier',
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>When searching for a coffee or tea packaging supplier, here are the key factors to consider:</p>
+          <p>Wondering how to pick the right coffee packaging supplier? Here are the key factors that actually matter:</p>
           
           <ul className="list-disc pl-6 space-y-2">
             <li><strong>Sustainability Credentials:</strong> Look for EN 13432 or ASTM D6400 certifications for compostable claims</li>
@@ -219,7 +219,7 @@ const CoffeeTeaPage: React.FC = () => {
     },
     {
       id: 'risk-hedging',
-      title: 'Compostable vs Recyclable: Which is Right for Your Coffee Brand?',
+      title: 'Compostable vs Recyclable: Which Should You Choose?',
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -256,11 +256,11 @@ const CoffeeTeaPage: React.FC = () => {
     },
     {
       id: 'decision-cta',
-      title: 'Ready to Upgrade Your Coffee Packaging?',
+      title: 'How Can You Upgrade Your Coffee Packaging Today?',
       icon: <Calendar className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p className="text-lg">We don't ask you to change your entire packaging line on day one. Start small and test:</p>
+          <p className="text-lg">Here's the deal: we don't expect you to overhaul your entire packaging line on day one. Start small and see what works:</p>
           
           <div className="grid md:grid-cols-3 gap-4 mt-4">
             <div className="bg-amber-600 text-white p-6 rounded-lg text-center">
@@ -293,7 +293,7 @@ const CoffeeTeaPage: React.FC = () => {
     },
     {
       id: 'industry-scenarios',
-      title: 'Industry Applications',
+      title: 'How Do Different Coffee & Tea Brands Use Our Packaging?',
       icon: <Factory className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -349,7 +349,7 @@ const CoffeeTeaPage: React.FC = () => {
     },
     {
       id: 'market-data',
-      title: 'Market Data & Intelligence',
+      title: 'What Do Market Trends Say About Coffee Packaging?',
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -415,7 +415,7 @@ const CoffeeTeaPage: React.FC = () => {
     },
     {
       id: 'material-comparison',
-      title: 'Material Comparison',
+      title: 'How Do Coffee Packaging Materials Compare?',
       icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">

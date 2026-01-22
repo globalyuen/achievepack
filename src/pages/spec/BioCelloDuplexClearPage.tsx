@@ -14,7 +14,7 @@ const BioCelloDuplexClearPage: React.FC = () => {
   const sections = [
     {
       id: 'all-compost-overview',
-      title: 'All Compostable Structures at a Glance',
+      title: 'What Compostable Structures Are Available?',
       icon: <Layers className="h-5 w-5 text-primary-600" />,
       content: (
         <SortableMaterialStructuresTable
@@ -26,7 +26,7 @@ const BioCelloDuplexClearPage: React.FC = () => {
     },
     {
       id: 'structure-overview',
-      title: 'Material Structure Overview',
+      title: 'What Is This Material Structure?',
       icon: <Layers className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -67,7 +67,7 @@ const BioCelloDuplexClearPage: React.FC = () => {
     },
     {
       id: 'layer-breakdown',
-      title: 'Layer-by-Layer Breakdown',
+      title: 'How Is Each Layer Built?',
       icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -92,11 +92,11 @@ const BioCelloDuplexClearPage: React.FC = () => {
     },
     {
       id: 'barrier-properties',
-      title: 'Barrier Properties & Performance',
+      title: 'What Barrier Protection Does It Offer?',
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>This compostable structure offers mid-level barrier suitable for many food applications.</p>
+          <p>Here's the thing: this compostable structure gives you mid-level barrier—enough for many food applications without sacrificing your eco-credentials.</p>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
               <h4 className="font-semibold text-amber-800 mb-2">Oxygen Barrier</h4>
@@ -121,7 +121,7 @@ const BioCelloDuplexClearPage: React.FC = () => {
     },
     {
       id: 'sustainability',
-      title: 'Compostability & Certifications',
+      title: 'Is It Certified Compostable?',
       icon: <Sprout className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -155,11 +155,11 @@ const BioCelloDuplexClearPage: React.FC = () => {
     },
     {
       id: 'applications',
-      title: 'Ideal Applications',
+      title: 'What Products Is This Best For?',
       icon: <CheckCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Perfect for eco-conscious brands with access to composting infrastructure:</p>
+          <p>This structure is perfect for eco-conscious brands that have access to composting infrastructure:</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
             {['Coffee beans', 'Tea leaves', 'Dried fruits', 'Nuts & seeds', 'Granola', 'Organic snacks', 'Herbs & spices', 'Supplements', 'Pet treats'].map((item, idx) => (
               <div key={idx} className="flex items-center gap-2 bg-green-50 px-3 py-2 rounded-lg">
@@ -173,7 +173,7 @@ const BioCelloDuplexClearPage: React.FC = () => {
     },
     {
       id: 'ai-search',
-      title: 'Finding Compostable Clear Packaging',
+      title: 'Need Help Finding Compostable Clear Packaging?',
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -195,7 +195,7 @@ const BioCelloDuplexClearPage: React.FC = () => {
     },
     {
       id: 'compare-structures',
-      title: 'Compare All Compostable Structures',
+      title: 'How Do Compostable Structures Compare?',
       icon: <Layers className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">

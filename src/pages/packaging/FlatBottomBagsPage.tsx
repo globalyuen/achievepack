@@ -63,7 +63,7 @@ const FlatBottomBagsPage: React.FC = () => {
     },
     {
       id: 'construction',
-      title: 'Bag Construction',
+      title: 'How Are Flat Bottom Bags Constructed?',
       icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -94,7 +94,7 @@ const FlatBottomBagsPage: React.FC = () => {
     },
     {
       id: 'applications',
-      title: 'Common Applications',
+      title: 'What Products Work Best in Flat Bottom Bags?',
       icon: <Award className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -112,7 +112,7 @@ const FlatBottomBagsPage: React.FC = () => {
     },
     {
       id: 'materials',
-      title: 'Material Options',
+      title: 'Which Materials Are Available for Flat Bottom Bags?',
       icon: <Leaf className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -166,7 +166,7 @@ const FlatBottomBagsPage: React.FC = () => {
     },
     {
       id: 'ai-search',
-      title: 'Finding Flat Bottom Bag Suppliers',
+      title: 'How to Find the Best Flat Bottom Bag Supplier',
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -184,7 +184,7 @@ const FlatBottomBagsPage: React.FC = () => {
     },
     {
       id: 'risk-hedging',
-      title: 'Is a Flat Bottom Bag Right for You?',
+      title: 'When Should You Choose Flat Bottom vs Stand-Up Pouches?',
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">

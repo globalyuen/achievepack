@@ -12,7 +12,7 @@ const TeaBrandCaseStudy = () => {
   const sections = [
     {
       id: 'overview',
-      title: 'Client Overview',
+      title: 'Who Is This Client?',
       icon: <Building2 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -42,7 +42,7 @@ const TeaBrandCaseStudy = () => {
     },
     {
       id: 'challenge',
-      title: 'The Challenge',
+      title: 'What Challenge Did They Face?',
       icon: <AlertCircle className="h-5 w-5 text-red-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -70,7 +70,7 @@ const TeaBrandCaseStudy = () => {
     },
     {
       id: 'solution',
-      title: 'Our Solution',
+      title: 'How Did Achieve Pack Help?',
       icon: <Lightbulb className="h-5 w-5 text-yellow-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -110,7 +110,7 @@ const TeaBrandCaseStudy = () => {
     },
     {
       id: 'results',
-      title: 'The Results',
+      title: 'What Results Did They Achieve?',
       icon: <TrendingUp className="h-5 w-5 text-green-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -141,7 +141,7 @@ const TeaBrandCaseStudy = () => {
     },
     {
       id: 'specs',
-      title: 'Package Specifications',
+      title: 'What Packaging Specs Were Used?',
       icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -194,7 +194,7 @@ const TeaBrandCaseStudy = () => {
     },
     {
       id: 'key-takeaways',
-      title: 'Key Takeaways',
+      title: 'What Can You Learn From This?',
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">

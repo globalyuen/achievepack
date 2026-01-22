@@ -37,7 +37,7 @@ const BioPEPage: React.FC = () => {
         <div className="space-y-4 text-neutral-700">
           <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-lg border border-green-200">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              If you are a <strong>sustainability-focused brand</strong> looking for packaging that reduces your carbon footprint while maintaining the same performance as conventional plastic—Bio-PE is your answer.
+              If you're a <strong>sustainability-focused brand</strong> that wants packaging to shrink your carbon footprint while delivering the same performance as conventional plastic—Bio-PE might just be your answer.
             </p>
             <div className="grid md:grid-cols-3 gap-4 mt-4">
               <div className="bg-white p-3 rounded-lg">
@@ -193,11 +193,11 @@ const BioPEPage: React.FC = () => {
     // ========== Scenario (Industry Applications) ==========
     {
       id: 'industry-scenarios',
-      title: 'Industry Applications',
+      title: 'What Industries Are Using Bio-PE?',
       icon: <Factory className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-lg">Bio-PE packaging appeals to brands prioritizing carbon footprint reduction while maintaining conventional plastic performance:</p>
+          <p className="text-lg">Bio-PE packaging is a hit with brands that want to reduce their carbon footprint without changing their recycling story:</p>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
@@ -268,7 +268,7 @@ const BioPEPage: React.FC = () => {
     // ========== Data (Market & Performance Data) ==========
     {
       id: 'market-data',
-      title: 'MarketData Market & Performance Data',
+      title: 'What Do the Numbers Say About Bio-PE?',
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">

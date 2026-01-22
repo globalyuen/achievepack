@@ -12,7 +12,7 @@ const PetTreatsCaseStudy = () => {
   const sections = [
     {
       id: 'overview',
-      title: 'Client Overview',
+      title: 'Who Is This Client?',
       icon: <Building2 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -30,7 +30,7 @@ const PetTreatsCaseStudy = () => {
     },
     {
       id: 'challenge',
-      title: 'The Challenge',
+      title: 'What Challenge Did They Face?',
       icon: <AlertCircle className="h-5 w-5 text-red-600" />,
       content: (
         <div className="space-y-4">
@@ -45,7 +45,7 @@ const PetTreatsCaseStudy = () => {
     },
     {
       id: 'solution',
-      title: 'Our Solution',
+      title: 'How Did Achieve Pack Help?',
       icon: <Lightbulb className="h-5 w-5 text-green-600" />,
       content: (
         <div className="space-y-4">
@@ -84,7 +84,7 @@ const PetTreatsCaseStudy = () => {
     },
     {
       id: 'results',
-      title: 'The Results',
+      title: 'What Results Did They Achieve?',
       icon: <TrendingUp className="h-5 w-5 text-green-600" />,
       content: (
         <div className="space-y-6">
@@ -115,7 +115,7 @@ const PetTreatsCaseStudy = () => {
     },
     {
       id: 'specs',
-      title: 'Package Specifications',
+      title: 'What Packaging Specs Were Used?',
       icon: <Package className="h-5 w-5 text-neutral-600" />,
       content: (
         <div className="bg-neutral-100 p-6 rounded-xl">
@@ -133,7 +133,7 @@ const PetTreatsCaseStudy = () => {
     },
     {
       id: 'key-takeaways',
-      title: 'Key Takeaways',
+      title: 'What Can You Learn From This?',
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">

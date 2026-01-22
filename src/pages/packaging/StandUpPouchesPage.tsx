@@ -18,7 +18,7 @@ const StandUpPouchesPage: React.FC = () => {
       content: (
         <div className="bg-gradient-to-r from-primary-50 to-green-50 p-6 rounded-lg border border-primary-200">
           <p className="text-lg font-medium text-neutral-900 mb-4">
-            If you are a <strong>food brand, snack company, coffee roaster, or pet treat maker</strong> looking for flexible packaging that stands out on shelves—you're in the right place.
+            If you're a <strong>food brand, snack company, coffee roaster, or pet treat maker</strong> looking for flexible packaging that stands out on shelves—you're in the right place.
           </p>
           <div className="grid md:grid-cols-3 gap-4 mt-4">
             <div className="bg-white p-4 rounded-lg shadow-sm">
@@ -62,11 +62,11 @@ const StandUpPouchesPage: React.FC = () => {
     },
     {
       id: 'types',
-      title: 'Types of Stand-Up Pouches',
+      title: 'What Types of Stand-Up Pouches Are Available?',
       icon: <CheckCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>We offer various stand-up pouch configurations to meet different product requirements:</p>
+          <p>We've got various stand-up pouch configurations to meet different product requirements:</p>
           
           <div className="grid md:grid-cols-2 gap-4 mt-4">
             <div className="border border-neutral-200 rounded-lg p-4">
@@ -128,11 +128,11 @@ const StandUpPouchesPage: React.FC = () => {
     },
     {
       id: 'materials',
-      title: 'Sustainable Material Options',
+      title: 'Which Sustainable Materials Can You Choose?',
       icon: <Leaf className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Choose from our range of eco-friendly materials for your stand-up pouches:</p>
+          <p>Pick from our range of eco-friendly materials for your stand-up pouches:</p>
           
           <div className="space-y-4 mt-4">
             <div className="bg-primary-50 border-l-4 border-primary-500 p-4">
@@ -157,11 +157,11 @@ const StandUpPouchesPage: React.FC = () => {
     },
     {
       id: 'features',
-      title: 'Customization Options',
+      title: 'How Can You Customize Your Stand-Up Pouches?',
       icon: <Zap className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Customize your stand-up pouches with these features:</p>
+          <p>Here's how you can customize your stand-up pouches:</p>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
             {[
@@ -251,7 +251,7 @@ const StandUpPouchesPage: React.FC = () => {
     },
     {
       id: 'specifications',
-      title: 'Technical Specifications',
+      title: 'What Sizes and Specs Are Available?',
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -278,7 +278,7 @@ const StandUpPouchesPage: React.FC = () => {
     },
     {
       id: 'applications',
-      title: 'Industry Applications',
+      title: 'What Industries Use Stand-Up Pouches?',
       icon: <Award className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -309,7 +309,7 @@ const StandUpPouchesPage: React.FC = () => {
     },
     {
       id: 'ai-search',
-      title: 'Finding the Right Stand-Up Pouch Supplier',
+      title: 'How to Find the Best Stand-Up Pouch Supplier',
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -335,7 +335,7 @@ const StandUpPouchesPage: React.FC = () => {
     },
     {
       id: 'buyer-guide',
-      title: 'Buyer Guide: Choosing the Right Stand-Up Pouch',
+      title: 'How Do You Choose the Right Stand-Up Pouch?',
       icon: <BookOpen className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -382,7 +382,7 @@ const StandUpPouchesPage: React.FC = () => {
     },
     {
       id: 'risk-hedging',
-      title: 'Is a Stand-Up Pouch Right for Your Product?',
+      title: 'When Should You Use a Stand-Up Pouch vs Other Formats?',
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="grid md:grid-cols-3 gap-4">
@@ -418,7 +418,7 @@ const StandUpPouchesPage: React.FC = () => {
     },
     {
       id: 'decision-cta',
-      title: 'Ready to Take the Next Step?',
+      title: 'How Can You Get Started Today?',
       icon: <Calendar className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="grid md:grid-cols-3 gap-4 mt-4">
@@ -445,7 +445,7 @@ const StandUpPouchesPage: React.FC = () => {
     },
     {
       id: 'case-studies',
-      title: 'Success Stories: Brands Using Our Stand-Up Pouches',
+      title: 'How Have Other Brands Succeeded With Our Pouches?',
       icon: <Building2 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -472,7 +472,7 @@ const StandUpPouchesPage: React.FC = () => {
     },
     {
       id: 'industry-scenarios',
-      title: 'Industry Applications',
+      title: 'Which Industries Are Using Stand-Up Pouches?',
       icon: <Factory className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -528,7 +528,7 @@ const StandUpPouchesPage: React.FC = () => {
     },
     {
       id: 'market-data',
-      title: 'Market Data & Intelligence',
+      title: 'What Do Market Trends Say About Stand-Up Pouches?',
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -594,7 +594,7 @@ const StandUpPouchesPage: React.FC = () => {
     },
     {
       id: 'material-comparison',
-      title: 'Material Comparison',
+      title: 'How Do Stand-Up Pouch Materials Compare?',
       icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">

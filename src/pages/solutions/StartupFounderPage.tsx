@@ -12,7 +12,7 @@ const StartupFounderPage: React.FC = () => {
   const sections = [
     {
       id: 'hero-problem',
-      title: 'The Startup Packaging Challenge',
+      title: 'Why Is Packaging So Hard for Startups?',
       icon: <Target className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -46,7 +46,7 @@ const StartupFounderPage: React.FC = () => {
     },
     {
       id: 'solution',
-      title: 'Packaging That Grows With Your Brand',
+      title: 'How Does Low-MOQ Packaging Solve Your Problems?',
       icon: <Rocket className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -107,7 +107,7 @@ const StartupFounderPage: React.FC = () => {
     },
     {
       id: 'certifications',
-      title: 'Verified Environmental Credentials',
+      title: 'What Certifications Can You Display on Your Packaging?',
       icon: <Award className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -148,7 +148,7 @@ const StartupFounderPage: React.FC = () => {
     },
     {
       id: 'materials',
-      title: 'Sustainable Material Options',
+      title: 'Which Sustainable Material Is Right for Your Startup?',
       icon: <Leaf className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -179,7 +179,7 @@ const StartupFounderPage: React.FC = () => {
     },
     {
       id: 'design-support',
-      title: 'Free Design Consultation & Mockups',
+      title: 'How Can We Help You Design Your Packaging?',
       icon: <Zap className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -206,7 +206,7 @@ const StartupFounderPage: React.FC = () => {
     },
     {
       id: 'social-proof',
-      title: 'Trusted by Startups Worldwide',
+      title: 'How Have Other Startups Succeeded With Us?',
       icon: <Users className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -257,7 +257,7 @@ const StartupFounderPage: React.FC = () => {
     },
     {
       id: 'pricing',
-      title: 'Startup-Friendly Pricing',
+      title: 'How Much Does Startup-Friendly Packaging Cost?',
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
