@@ -628,6 +628,11 @@ const SnacksFoodPage: React.FC = () => {
       title: "Supplier Analysis Report",
       url: "/blog/sustainable-packaging-supplier-analysis",
       description: "Compare eco-friendly packaging suppliers"
+    },
+    {
+      title: "Free Design & Mockup Services",
+      url: "/free-service",
+      description: "Get expert design advice, 3D mockups, and packaging consultation—all free"
     }
   ]
 

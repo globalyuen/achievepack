@@ -598,6 +598,11 @@ const CoffeeTeaPage: React.FC = () => {
       title: "Coffee Roastery Case Study",
       url: "/case-studies/coffee-roastery",
       description: "See how Bean & Bole switched to compostable"
+    },
+    {
+      title: "Free Design & Mockup Services",
+      url: "/free-service",
+      description: "Get expert design advice, 3D mockups, and packaging consultation—all free"
     }
   ]
 

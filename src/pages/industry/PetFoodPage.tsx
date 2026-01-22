@@ -562,6 +562,11 @@ const PetFoodPage: React.FC = () => {
       title: "Snacks & Food Packaging",
       url: "/industry/snacks-food",
       description: "Similar solutions for human snacks"
+    },
+    {
+      title: "Free Design & Mockup Services",
+      url: "/free-service",
+      description: "Get expert design advice, 3D mockups, and packaging consultation—all free"
     }
   ]
 

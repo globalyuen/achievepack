@@ -873,6 +873,11 @@ const CompostablePage: React.FC = () => {
       title: "Sustainable Packaging Guide",
       url: "/blog/sustainable-packaging-supplier-analysis",
       description: "Compare eco-friendly packaging suppliers"
+    },
+    {
+      title: "Free Design Consultation",
+      url: "/free-service",
+      description: "Get expert packaging advice, 3D mockups, and design support—100% free"
     }
   ]
 

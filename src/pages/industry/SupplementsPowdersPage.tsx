@@ -537,7 +537,8 @@ const SupplementsPowdersPage: React.FC = () => {
     { title: "Compostable Packaging", url: "/materials/compostable", description: "Eco-friendly options for natural supplement brands" },
     { title: "Stand-Up Pouches", url: "/packaging/stand-up-pouches", description: "Our most popular format for supplements" },
     { title: "Recyclable Mono-PE", url: "/materials/recyclable-mono-pe", description: "Single-material recyclable packaging" },
-    { title: "Wellness Brand Case Study", url: "/case-studies/wellness-brand", description: "See how wellness brands use our packaging" }
+    { title: "Wellness Brand Case Study", url: "/case-studies/wellness-brand", description: "See how wellness brands use our packaging" },
+    { title: "Free Design & Mockup Services", url: "/free-service", description: "Get expert design advice, 3D mockups, and packaging consultation—all free" }
   ]
 
   return (
