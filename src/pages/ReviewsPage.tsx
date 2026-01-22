@@ -1,4 +1,4 @@
-import { useState, useCallback, useTransition } from 'react'
+import { useState, useCallback, useTransition, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { Link, useNavigate } from 'react-router-dom'
@@ -12,12 +12,78 @@ function getTestimonialText(t: (key: string) => string, id: string, field: 'quot
   return translated === key ? fallback : translated
 }
 
+// Default pouch image path - reviews without unique product photos will get random store images
+const DEFAULT_POUCH = '/imgs/testimonials/pouch-hover/morlife.webp'
+
+// Store product images for random display when review has no product photo
+const STORE_PRODUCT_IMAGES = [
+  '/imgs/store/sample/sizing-pack.webp',
+  '/imgs/store/sample/assorted.webp',
+  '/imgs/store/sample/proof.webp',
+  '/imgs/store/sample/hand-seal.webp',
+  '/imgs/illustrated/a_compostable_v3_9254998.webp',
+  '/imgs/illustrated/a_coffee_roaster_variation_1_6758424.webp',
+  '/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp',
+  '/imgs/illustrated/a_topic_03_coffee_materials_var_c_6491567.webp',
+  '/imgs/illustrated/a_lowmoq_warm_3372406.webp',
+  '/imgs/shapes/3-side-seal/matt/no-zipper.webp',
+  '/imgs/shapes/stand-up/matt/no-zipper.webp',
+  '/imgs/shapes/flat-bottom/matt/no-zipper.webp',
+]
+
+// Helper function to check if review has real photo (not auto-generated avatar)
+function hasRealPhoto(testimonial: Testimonial): boolean {
+  return testimonial.ownerImage.startsWith('/imgs/testimonials/owner/')
+}
+
+// Helper function to check if review has unique product (not default)
+function hasUniqueProduct(testimonial: Testimonial): boolean {
+  return testimonial.pouchImage !== DEFAULT_POUCH && testimonial.pouchImage !== ''
+}
+
+// Generate a pseudo-random but stable image for a testimonial (based on id hash)
+function getRandomProductImage(testimonialId: string): string {
+  let hash = 0
+  for (let i = 0; i < testimonialId.length; i++) {
+    hash = ((hash << 5) - hash) + testimonialId.charCodeAt(i)
+    hash = hash & hash
+  }
+  const index = Math.abs(hash) % STORE_PRODUCT_IMAGES.length
+  return STORE_PRODUCT_IMAGES[index]
+}
+
 export default function ReviewsPage() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const [isPending, startTransition] = useTransition()
   const [activeTestimonial, setActiveTestimonial] = useState<Testimonial | null>(null)
   const [videoTestimonial, setVideoTestimonial] = useState<Testimonial | null>(null)
+
+  // Sort testimonials: prioritize those with real photos AND unique products first
+  const sortedTestimonials = useMemo(() => {
+    return [...TESTIMONIALS].sort((a, b) => {
+      const aHasPhotoAndProduct = hasRealPhoto(a) && hasUniqueProduct(a)
+      const bHasPhotoAndProduct = hasRealPhoto(b) && hasUniqueProduct(b)
+      const aHasPhoto = hasRealPhoto(a)
+      const bHasPhoto = hasRealPhoto(b)
+      const aHasProduct = hasUniqueProduct(a)
+      const bHasProduct = hasUniqueProduct(b)
+      
+      // Priority 1: Has both real photo AND unique product
+      if (aHasPhotoAndProduct && !bHasPhotoAndProduct) return -1
+      if (!aHasPhotoAndProduct && bHasPhotoAndProduct) return 1
+      
+      // Priority 2: Has real photo only
+      if (aHasPhoto && !bHasPhoto) return -1
+      if (!aHasPhoto && bHasPhoto) return 1
+      
+      // Priority 3: Has unique product only
+      if (aHasProduct && !bHasProduct) return -1
+      if (!aHasProduct && bHasProduct) return 1
+      
+      return 0
+    })
+  }, [])
 
   // Calculate stats
   const totalReviews = TESTIMONIALS.length
@@ -155,93 +221,98 @@ export default function ReviewsPage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {TESTIMONIALS.map((testimonial) => (
-              <div
-                key={testimonial.id}
-                className={`${testimonial.bgColor} rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer relative group`}
-                onClick={() => setActiveTestimonial(testimonial)}
-              >
-                {/* Video Play Button */}
-                {testimonial.videoId && (
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      setVideoTestimonial(testimonial)
-                    }}
-                    className="absolute top-4 right-4 z-10 w-12 h-12 bg-red-500 rounded-full flex items-center justify-center shadow-lg hover:bg-red-600 transition-all hover:scale-110"
-                    title="Watch video testimonial"
-                  >
-                    <Play className="h-5 w-5 text-white ml-0.5" fill="white" />
-                    <span className="absolute inset-0 rounded-full border-2 border-red-400 animate-ping opacity-75" />
-                  </button>
-                )}
+            {sortedTestimonials.map((testimonial) => {
+              // Get product image: use unique product image, or random store product image
+              const productImage = hasUniqueProduct(testimonial) 
+                ? testimonial.pouchImage 
+                : getRandomProductImage(testimonial.id)
+              
+              return (
+                <div
+                  key={testimonial.id}
+                  className={`${testimonial.bgColor} rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer relative group`}
+                  onClick={() => setActiveTestimonial(testimonial)}
+                >
+                  {/* Video Play Button */}
+                  {testimonial.videoId && (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        setVideoTestimonial(testimonial)
+                      }}
+                      className="absolute top-4 right-4 z-10 w-12 h-12 bg-red-500 rounded-full flex items-center justify-center shadow-lg hover:bg-red-600 transition-all hover:scale-110"
+                      title="Watch video testimonial"
+                    >
+                      <Play className="h-5 w-5 text-white ml-0.5" fill="white" />
+                      <span className="absolute inset-0 rounded-full border-2 border-red-400 animate-ping opacity-75" />
+                    </button>
+                  )}
 
-                {/* Quote Icon */}
-                <Quote className="h-8 w-8 text-primary-500/30 mb-4" />
+                  {/* Quote Icon */}
+                  <Quote className="h-8 w-8 text-primary-500/30 mb-4" />
 
-                {/* Quote Text */}
-                <p className="text-neutral-800 text-base leading-relaxed mb-6 line-clamp-4 group-hover:line-clamp-none transition-all">
-                  "{getTestimonialText(t, testimonial.id, 'quote', testimonial.quote)}"
-                </p>
+                  {/* Quote Text */}
+                  <p className="text-neutral-800 text-base leading-relaxed mb-6 line-clamp-4 group-hover:line-clamp-none transition-all">
+                    "{getTestimonialText(t, testimonial.id, 'quote', testimonial.quote)}"
+                  </p>
 
-                {/* Author Section */}
-                <div className="flex items-center gap-4">
-                  <div className="relative flex-shrink-0">
-                    <div className="w-14 h-14 rounded-full overflow-hidden border-3 border-white shadow-md">
-                      <img
-                        src={testimonial.ownerImage}
-                        alt={testimonial.name}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement
-                          target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name)}&background=22c55e&color=fff&size=128`
-                        }}
-                      />
+                  {/* Author Section */}
+                  <div className="flex items-center gap-4">
+                    <div className="relative flex-shrink-0">
+                      <div className="w-14 h-14 rounded-full overflow-hidden border-3 border-white shadow-md">
+                        <img
+                          src={testimonial.ownerImage}
+                          alt={testimonial.name}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement
+                            target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name)}&background=22c55e&color=fff&size=128`
+                          }}
+                        />
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2">
-                      <span className="font-semibold text-neutral-900">{testimonial.name}</span>
-                      {testimonial.url && (
-                        <a
-                          href={testimonial.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-primary-500 hover:text-primary-600"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <ExternalLink className="h-4 w-4" />
-                        </a>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2">
+                        <span className="font-semibold text-neutral-900">{testimonial.name}</span>
+                        {testimonial.url && (
+                          <a
+                            href={testimonial.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-primary-500 hover:text-primary-600"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <ExternalLink className="h-4 w-4" />
+                          </a>
+                        )}
+                      </div>
+                      {(testimonial.role || testimonial.company) && (
+                        <p className="text-sm text-neutral-600">
+                          {testimonial.role && `${testimonial.role}${testimonial.company ? ' @ ' : ''}`}
+                          {testimonial.company}
+                        </p>
                       )}
-                    </div>
-                    {(testimonial.role || testimonial.company) && (
-                      <p className="text-sm text-neutral-600">
-                        {testimonial.role && `${testimonial.role}${testimonial.company ? ' @ ' : ''}`}
-                        {testimonial.company}
-                      </p>
-                    )}
-                    {/* Rating */}
-                    <div className="flex items-center gap-0.5 mt-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 text-yellow-400 fill-yellow-400" />
-                      ))}
+                      {/* Rating */}
+                      <div className="flex items-center gap-0.5 mt-1">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="h-4 w-4 text-yellow-400 fill-yellow-400" />
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Pouch Preview on Hover */}
-                {testimonial.pouchImage && (
+                  {/* Product Preview on Hover - Always show (unique or random store product) */}
                   <div className="absolute bottom-4 right-4 w-16 h-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <img
-                      src={testimonial.pouchImage}
+                      src={productImage}
                       alt="Product"
                       className="w-full h-full object-contain drop-shadow-lg"
                     />
                   </div>
-                )}
-              </div>
-            ))}
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -342,11 +413,11 @@ export default function ReviewsPage() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex flex-col md:flex-row">
-              {/* Large Pouch Image */}
+              {/* Large Product Image - use unique or random store product */}
               <div className="hidden md:flex w-[400px] bg-white/30 items-center justify-center p-6 flex-shrink-0">
                 <img
-                  src={activeTestimonial.pouchImage}
-                  alt="Packaging Pouch"
+                  src={hasUniqueProduct(activeTestimonial) ? activeTestimonial.pouchImage : getRandomProductImage(activeTestimonial.id)}
+                  alt="Packaging Product"
                   className="w-full h-auto max-h-[500px] object-contain drop-shadow-2xl"
                 />
               </div>
