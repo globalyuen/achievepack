@@ -685,13 +685,14 @@ const ProductPage: React.FC = () => {
   }, [isEcoDigital, ecoProduct, selectedClosure, selectedSurface, selectedSize, product])
 
   if (!product) {
-    // Random full-page background for Product not found page
+    // Random full-page background for Product not found page - WebP format
     const HERO_IMAGES = [
-      '/imgs/banner/transparent/a_achievepack_hero_3d_depth_5416790 (1).png',
-      '/imgs/banner/transparent/a_achievepack_hero_eco_nature_7180632 (1).png',
-      '/imgs/banner/transparent/a_achievepack_hero_flatlay_5941661 (1).png',
-      '/imgs/banner/transparent/a_achievepack_hero_gradient_eco_9331347 (1).png',
-      '/imgs/banner/transparent/a_achievepack_hero_shot_1_white_background_2665361 (1).png',
+      '/imgs/banner/transparent/a_achievepack_hero_3d_depth_5416790 (1).webp',
+      '/imgs/banner/transparent/a_achievepack_hero_3d_depth_5416790 (2).webp',
+      '/imgs/banner/transparent/a_achievepack_hero_eco_nature_7180632 (1).webp',
+      '/imgs/banner/transparent/a_achievepack_hero_flatlay_5941661 (1).webp',
+      '/imgs/banner/transparent/a_achievepack_hero_gradient_eco_9331347 (1).webp',
+      '/imgs/banner/transparent/a_achievepack_hero_shot_1_white_background_2665361 (1).webp',
     ]
     const randomHero = HERO_IMAGES[Math.floor(Math.random() * HERO_IMAGES.length)]
     

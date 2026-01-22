@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom'
 import { Home, Search, ArrowLeft, Package } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 
-// Random banner images
+// Random banner images - WebP format for smaller file size
 const BANNER_IMAGES = [
-  '/imgs/banner/transparent/a_achievepack_hero_3d_depth_5416790 (1).png',
-  '/imgs/banner/transparent/a_achievepack_hero_eco_nature_7180632 (1).png',
-  '/imgs/banner/transparent/a_achievepack_hero_flatlay_5941661 (1).png',
-  '/imgs/banner/transparent/a_achievepack_hero_gradient_eco_9331347 (1).png',
-  '/imgs/banner/transparent/a_achievepack_hero_shot_1_white_background_2665361 (1).png',
+  '/imgs/banner/transparent/a_achievepack_hero_3d_depth_5416790 (1).webp',
+  '/imgs/banner/transparent/a_achievepack_hero_3d_depth_5416790 (2).webp',
+  '/imgs/banner/transparent/a_achievepack_hero_eco_nature_7180632 (1).webp',
+  '/imgs/banner/transparent/a_achievepack_hero_flatlay_5941661 (1).webp',
+  '/imgs/banner/transparent/a_achievepack_hero_gradient_eco_9331347 (1).webp',
+  '/imgs/banner/transparent/a_achievepack_hero_shot_1_white_background_2665361 (1).webp',
 ]
 
 const NotFoundPage = () => {
