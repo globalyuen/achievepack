@@ -589,6 +589,9 @@ export type ArtworkBatchItem = {
     fin_lap_seal?: boolean
   }
   
+  // Source link for original artwork or extra download
+  source_link?: string
+  
   created_at: string
   updated_at: string
 }

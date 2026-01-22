@@ -4,7 +4,7 @@ import {
   ArrowLeft, Plus, Search, Upload, Trash2, Eye, Copy, Check, 
   RefreshCw, Sparkles, X, ChevronRight, Lock, Mail, ExternalLink,
   CheckCircle, Clock, AlertCircle, FileImage, Download, MoreHorizontal,
-  Folder, Package, Code, ArrowUpDown, ArrowUp, ArrowDown
+  Folder, Package, Code, ArrowUpDown, ArrowUp, ArrowDown, Link2
 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, ArtworkBatch, ArtworkBatchItem } from '../lib/supabase'
@@ -54,6 +54,11 @@ const ArtworkBatchesPage: React.FC = () => {
 
   // Batch item counts (actual count from database)
   const [batchItemCounts, setBatchItemCounts] = useState<Record<string, number>>({})
+
+  // Source link editing state
+  const [editingSourceLink, setEditingSourceLink] = useState<string | null>(null)
+  const [sourceLinkValue, setSourceLinkValue] = useState('')
+  const [savingSourceLink, setSavingSourceLink] = useState(false)
 
   // Fetch batches with actual item counts
   const fetchBatches = useCallback(async () => {
@@ -477,6 +482,34 @@ const ArtworkBatchesPage: React.FC = () => {
     setTimeout(() => setCopiedLink(false), 2000)
   }
 
+  // Save source link for artwork item
+  const handleSaveSourceLink = async (itemId: string) => {
+    if (savingSourceLink) return
+    
+    setSavingSourceLink(true)
+    try {
+      const { error } = await supabase
+        .from('artwork_batch_items')
+        .update({ source_link: sourceLinkValue.trim() || null })
+        .eq('id', itemId)
+      
+      if (error) throw error
+      
+      // Update local state
+      setBatchItems(prev => prev.map(i => 
+        i.id === itemId ? { ...i, source_link: sourceLinkValue.trim() || undefined } : i
+      ))
+      
+      setEditingSourceLink(null)
+      setSourceLinkValue('')
+    } catch (err) {
+      console.error('Save source link error:', err)
+      alert('Failed to save link')
+    } finally {
+      setSavingSourceLink(false)
+    }
+  }
+
   // Filter items by search (searches all JSON fields)
   const filteredItems = batchItems.filter(item => {
     if (!searchQuery.trim()) return true
@@ -830,6 +863,74 @@ const ArtworkBatchesPage: React.FC = () => {
                                 <strong>Comment:</strong> {item.customer_comment}
                               </div>
                             )}
+                            
+                            {/* Source Link */}
+                            <div className="mt-2">
+                              {editingSourceLink === item.id ? (
+                                <div className="flex items-center gap-2">
+                                  <input
+                                    type="url"
+                                    value={sourceLinkValue}
+                                    onChange={(e) => setSourceLinkValue(e.target.value)}
+                                    placeholder="https://drive.google.com/... or download link"
+                                    className="flex-1 px-2 py-1 text-xs border border-gray-200 rounded focus:ring-1 focus:ring-primary-500 focus:border-primary-500"
+                                    autoFocus
+                                    onKeyDown={(e) => {
+                                      if (e.key === 'Enter') handleSaveSourceLink(item.id)
+                                      if (e.key === 'Escape') {
+                                        setEditingSourceLink(null)
+                                        setSourceLinkValue('')
+                                      }
+                                    }}
+                                  />
+                                  <button
+                                    onClick={() => handleSaveSourceLink(item.id)}
+                                    disabled={savingSourceLink}
+                                    className="p-1 text-green-600 hover:bg-green-50 rounded transition"
+                                    title="Save"
+                                  >
+                                    {savingSourceLink ? <RefreshCw className="h-4 w-4 animate-spin" /> : <Check className="h-4 w-4" />}
+                                  </button>
+                                  <button
+                                    onClick={() => {
+                                      setEditingSourceLink(null)
+                                      setSourceLinkValue('')
+                                    }}
+                                    className="p-1 text-gray-400 hover:bg-gray-50 rounded transition"
+                                    title="Cancel"
+                                  >
+                                    <X className="h-4 w-4" />
+                                  </button>
+                                </div>
+                              ) : (
+                                <div className="flex items-center gap-2">
+                                  {item.source_link ? (
+                                    <a
+                                      href={item.source_link}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="flex-1 text-xs text-blue-600 hover:text-blue-800 truncate flex items-center gap-1"
+                                      title={item.source_link}
+                                    >
+                                      <Link2 className="h-3 w-3 flex-shrink-0" />
+                                      <span className="truncate">{item.source_link}</span>
+                                    </a>
+                                  ) : (
+                                    <span className="text-xs text-gray-400">No source link</span>
+                                  )}
+                                  <button
+                                    onClick={() => {
+                                      setEditingSourceLink(item.id)
+                                      setSourceLinkValue(item.source_link || '')
+                                    }}
+                                    className="p-1 text-gray-400 hover:text-gray-600 hover:bg-gray-50 rounded transition flex-shrink-0"
+                                    title="Edit source link"
+                                  >
+                                    <Link2 className="h-3.5 w-3.5" />
+                                  </button>
+                                </div>
+                              )}
+                            </div>
                             
                             {/* Actions */}
                             <div className="flex items-center gap-2 mt-3 pt-3 border-t border-gray-100">
