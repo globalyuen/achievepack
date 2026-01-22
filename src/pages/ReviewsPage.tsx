@@ -146,7 +146,7 @@ export default function ReviewsPage() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ 
             backgroundImage: `url(${heroBanner})`,
-            opacity: 0.5
+            opacity: 0.75
           }}
         />
         {/* Gradient overlay for better text readability */}
