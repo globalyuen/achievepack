@@ -4,7 +4,7 @@ import {
   ArrowLeft, Plus, Search, Upload, Trash2, Eye, Copy, Check, 
   RefreshCw, Sparkles, X, ChevronRight, Lock, Mail, ExternalLink,
   CheckCircle, Clock, AlertCircle, FileImage, Download, MoreHorizontal,
-  Folder, Package, Code, ArrowUpDown, ArrowUp, ArrowDown, Link2
+  Folder, Package, Code, ArrowUpDown, ArrowUp, ArrowDown, Link2, Pencil
 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, ArtworkBatch, ArtworkBatchItem } from '../lib/supabase'
@@ -59,6 +59,11 @@ const ArtworkBatchesPage: React.FC = () => {
   const [editingSourceLink, setEditingSourceLink] = useState<string | null>(null)
   const [sourceLinkValue, setSourceLinkValue] = useState('')
   const [savingSourceLink, setSavingSourceLink] = useState(false)
+
+  // Batch rename state
+  const [editingBatchName, setEditingBatchName] = useState(false)
+  const [batchNameValue, setBatchNameValue] = useState('')
+  const [savingBatchName, setSavingBatchName] = useState(false)
 
   // Fetch batches with actual item counts
   const fetchBatches = useCallback(async () => {
@@ -510,6 +515,35 @@ const ArtworkBatchesPage: React.FC = () => {
     }
   }
 
+  // Rename batch
+  const handleRenameBatch = async () => {
+    if (!selectedBatch || savingBatchName || !batchNameValue.trim()) return
+    
+    setSavingBatchName(true)
+    try {
+      const { error } = await supabase
+        .from('artwork_batches')
+        .update({ batch_name: batchNameValue.trim() })
+        .eq('id', selectedBatch.id)
+      
+      if (error) throw error
+      
+      // Update local state
+      setSelectedBatch({ ...selectedBatch, batch_name: batchNameValue.trim() })
+      setBatches(prev => prev.map(b => 
+        b.id === selectedBatch.id ? { ...b, batch_name: batchNameValue.trim() } : b
+      ))
+      
+      setEditingBatchName(false)
+      setBatchNameValue('')
+    } catch (err) {
+      console.error('Rename batch error:', err)
+      alert('Failed to rename batch')
+    } finally {
+      setSavingBatchName(false)
+    }
+  }
+
   // Filter items by search (searches all JSON fields)
   const filteredItems = batchItems.filter(item => {
     if (!searchQuery.trim()) return true
@@ -679,7 +713,57 @@ const ArtworkBatchesPage: React.FC = () => {
                 <div className="bg-white rounded-xl border border-gray-200 p-6">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div>
-                      <h2 className="text-xl font-bold text-gray-900">Batch {selectedBatch.batch_name}</h2>
+                      {editingBatchName ? (
+                        <div className="flex items-center gap-2">
+                          <input
+                            type="text"
+                            value={batchNameValue}
+                            onChange={(e) => setBatchNameValue(e.target.value)}
+                            className="text-xl font-bold text-gray-900 px-2 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                            placeholder="Batch name"
+                            autoFocus
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter') handleRenameBatch()
+                              if (e.key === 'Escape') {
+                                setEditingBatchName(false)
+                                setBatchNameValue('')
+                              }
+                            }}
+                          />
+                          <button
+                            onClick={handleRenameBatch}
+                            disabled={savingBatchName || !batchNameValue.trim()}
+                            className="p-2 text-green-600 hover:bg-green-50 rounded-lg disabled:opacity-50"
+                            title="Save"
+                          >
+                            {savingBatchName ? <RefreshCw className="h-4 w-4 animate-spin" /> : <Check className="h-4 w-4" />}
+                          </button>
+                          <button
+                            onClick={() => {
+                              setEditingBatchName(false)
+                              setBatchNameValue('')
+                            }}
+                            className="p-2 text-gray-400 hover:bg-gray-100 rounded-lg"
+                            title="Cancel"
+                          >
+                            <X className="h-4 w-4" />
+                          </button>
+                        </div>
+                      ) : (
+                        <div className="flex items-center gap-2">
+                          <h2 className="text-xl font-bold text-gray-900">Batch {selectedBatch.batch_name}</h2>
+                          <button
+                            onClick={() => {
+                              setBatchNameValue(selectedBatch.batch_name)
+                              setEditingBatchName(true)
+                            }}
+                            className="p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition"
+                            title="Rename batch"
+                          >
+                            <Pencil className="h-4 w-4" />
+                          </button>
+                        </div>
+                      )}
                       <p className="text-sm text-gray-500 mt-1">
                         {batchItems.length} artworks • Created {new Date(selectedBatch.created_at).toLocaleDateString()}
                       </p>
