@@ -36,14 +36,39 @@ export default function ProspectFinderPage() {
   const [filterQuery, setFilterQuery] = useState('')
 
   // Auto Run Status - Explained to User
-  const toggleAutoRun = () => {
-      setAutoRunEnabled(!autoRunEnabled)
-      if (!autoRunEnabled) {
-          toast.info("Auto Run Enabled: The system will now automatically search and qualify leads in the background. (Simulation Mode)", {
-              description: "Full background processing will be available in the next update."
-          })
+  const toggleAutoRun = async () => {
+      const newState = !autoRunEnabled
+      try {
+        const endpoint = newState ? '/api/automation/start' : '/api/automation/stop'
+        const res = await fetch(`http://localhost:5001${endpoint}`, { method: 'POST' })
+        const data = await res.json()
+        if (data.success) {
+           setAutoRunEnabled(newState)
+           if (newState) {
+               toast.success("Auto Run Enabled", { description: "Background automation started." })
+           } else {
+               toast.info("Auto Run Disabled")
+           }
+        } else {
+            toast.error("Failed to update automation status")
+        }
+      } catch (e) {
+          console.error(e)
+          toast.error("Network error")
       }
   }
+
+  // Fetch initial status
+  useEffect(() => {
+    fetch('http://localhost:5001/api/automation/status')
+      .then(res => res.json())
+      .then(data => {
+          if (data && typeof data.running !== 'undefined') {
+              setAutoRunEnabled(data.running)
+          }
+      })
+      .catch(console.error)
+  }, [])
 
   // Fetch History
   const fetchHistory = async () => {
