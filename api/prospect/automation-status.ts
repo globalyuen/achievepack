@@ -9,12 +9,40 @@ const supabase = createClient(
 export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Set CORS headers
     res.setHeader('Access-Control-Allow-Origin', '*')
-    res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS')
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
     
     if (req.method === 'OPTIONS') {
         return res.status(200).end()
     }
 
+    // POST - Toggle automation status
+    if (req.method === 'POST') {
+        try {
+            const { running } = req.body || {}
+            
+            if (typeof running !== 'boolean') {
+                return res.status(400).json({ success: false, error: 'running must be boolean' })
+            }
+            
+            // Upsert automation record
+            const { error } = await supabase
+                .from('prospect_automation')
+                .upsert({ id: 1, is_running: running }, { onConflict: 'id' })
+            
+            if (error) {
+                console.error('Error updating automation status:', error)
+                return res.status(500).json({ success: false, error: error.message })
+            }
+            
+            return res.status(200).json({ success: true, running })
+        } catch (error) {
+            console.error('Automation toggle error:', error)
+            return res.status(500).json({ success: false, error: 'Failed to update automation' })
+        }
+    }
+
+    // GET - Fetch automation status
     if (req.method !== 'GET') {
         return res.status(405).json({ success: false, error: 'Method not allowed' })
     }
