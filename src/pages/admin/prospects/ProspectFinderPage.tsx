@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter } from '@/components/ui/sheet'
 import { EmailEditor } from '@/components/EmailEditor'
-import { Search, Mail, RefreshCw, Loader2, PlayCircle, StopCircle, UserMinus, Plus, Check, Send, Wand2, SendHorizonal, Eye, Download, BarChart3, MousePointerClick, MailOpen } from 'lucide-react'
+import { Search, Mail, RefreshCw, Loader2, PlayCircle, StopCircle, UserMinus, Plus, Check, Send, Wand2, SendHorizonal, Eye, Download, BarChart3, MousePointerClick, MailOpen, Upload } from 'lucide-react'
 import { toast } from 'sonner'
 import { Link } from 'react-router-dom'
 import { Label } from '@/components/ui/label'
@@ -67,6 +67,10 @@ export default function ProspectFinderPage() {
   const [historyStats, setHistoryStats] = useState<EmailStats | null>(null)
   const [filterQuery, setFilterQuery] = useState('')
   const [engagementFilter, setEngagementFilter] = useState<'all' | 'opened' | 'clicked' | 'engaged' | 'no_engagement'>('all')
+  // Import state
+  const [isImporting, setIsImporting] = useState(false)
+  const [importProgress, setImportProgress] = useState({ current: 0, total: 0, imported: 0, errors: 0 })
+  const fileInputRef = useRef<HTMLInputElement>(null)
   // Log messages for user visibility
   const [logs, setLogs] = useState<{time: string, message: string, type: 'info' | 'success' | 'error'}[]>([])
 
@@ -201,6 +205,79 @@ export default function ProspectFinderPage() {
   const handleExportExcel = () => {
       // TODO: Implement Excel export via Vercel API
       toast.info('Excel export coming soon')
+  }
+
+  // Import JSON from Replit export
+  const handleImportJSON = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    
+    setIsImporting(true)
+    addLog(`Starting import from ${file.name}...`, 'info')
+    
+    try {
+      const text = await file.text()
+      const records = JSON.parse(text)
+      
+      if (!Array.isArray(records)) {
+        toast.error('Invalid JSON format - expected array')
+        return
+      }
+      
+      addLog(`Found ${records.length} records in file`, 'info')
+      setImportProgress({ current: 0, total: records.length, imported: 0, errors: 0 })
+      
+      const batchSize = 50
+      let totalImported = 0
+      let totalErrors = 0
+      
+      for (let i = 0; i < records.length; i += batchSize) {
+        const batch = records.slice(i, i + batchSize)
+        setImportProgress(prev => ({ ...prev, current: i }))
+        
+        try {
+          const res = await fetch('/api/prospect/bulk-import', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer import-history-2024'
+            },
+            body: JSON.stringify({ records: batch.map((r: any) => ({
+              name: r.name || 'Unknown',
+              email: r.email,
+              website: r.website || '',
+              business_type: r.business_type || 'Unknown',
+              sender: r.sender || 'ryan',
+              email_sent_at: r.date_sent || new Date().toISOString(),
+              sales_pitch: r.search_query || ''
+            }))})
+          })
+          
+          if (res.ok) {
+            const data = await res.json()
+            totalImported += data.imported || 0
+            totalErrors += data.errors || 0
+          } else {
+            totalErrors += batch.length
+          }
+        } catch (err) {
+          totalErrors += batch.length
+        }
+        
+        setImportProgress(prev => ({ ...prev, imported: totalImported, errors: totalErrors }))
+        await new Promise(resolve => setTimeout(resolve, 200))
+      }
+      
+      addLog(`Import complete: ${totalImported} imported, ${totalErrors} errors`, totalErrors === 0 ? 'success' : 'info')
+      toast.success(`Import complete: ${totalImported} imported`)
+      fetchHistory()
+    } catch (err: any) {
+      addLog('Import failed: ' + err.message, 'error')
+      toast.error('Failed to parse JSON file')
+    } finally {
+      setIsImporting(false)
+      if (fileInputRef.current) fileInputRef.current.value = ''
+    }
   }
 
   // Effect to load history when tab changes
@@ -685,6 +762,27 @@ export default function ProspectFinderPage() {
                             </select>
                         </div>
                         <div className="flex gap-2">
+                            <input
+                                type="file"
+                                accept=".json"
+                                ref={fileInputRef}
+                                onChange={handleImportJSON}
+                                className="hidden"
+                                id="import-json-file"
+                            />
+                            <Button 
+                                variant="outline" 
+                                size="sm" 
+                                onClick={() => fileInputRef.current?.click()}
+                                disabled={isImporting}
+                                className="gap-2"
+                            >
+                                {isImporting ? (
+                                    <><Loader2 className="w-4 h-4 animate-spin" /> Importing {importProgress.current}/{importProgress.total}...</>
+                                ) : (
+                                    <><Upload className="w-4 h-4" /> Import JSON</>
+                                )}
+                            </Button>
                             <Button variant="outline" size="sm" onClick={handleExportExcel} className="gap-2">
                                 <Download className="w-4 h-4" /> Export Excel
                             </Button>
