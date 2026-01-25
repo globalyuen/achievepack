@@ -171,7 +171,12 @@ With your approval, I'd like to show you our sample, demonstrating how they can 
 
 Interested in a customized printed eco-friendly packaging solution to help ${companyName} gain more sales from eco-conscious consumers?
 
-You can schedule a free 30-minute consultation with me here:
+Explore our solutions:
+- Compostable Packaging: https://achievepack.com/materials/compostable
+- Stand Up Pouches: https://achievepack.com/packaging/stand-up-pouches
+- Our Free Services: https://achievepack.com/free-service
+
+Schedule a free 30-minute consultation:
 https://calendly.com/30-min-free-packaging-consultancy
 
 Excited to hear back!
@@ -179,7 +184,7 @@ Excited to hear back!
 Best regards,
 ${profile.name}
 Achieve Pack Packaging Development
-www.pouch.eco
+www.achievepack.com | www.pouch.eco
 ${profile.email}
 WhatsApp: +852 69704411
 
