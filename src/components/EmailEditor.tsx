@@ -43,7 +43,8 @@ export const EmailEditor: React.FC<EmailEditorProps> = ({ value, onChange, onSen
       // Call backend scraper
       // Since backend is Python on port 5001 (or separate), we assume proxy or direct call
       // For now, let's fetch from our new API
-      const response = await fetch('http://localhost:5001/api/scrape', {
+      const API_BASE = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5001'
+      const response = await fetch(`${API_BASE}/api/scrape`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url: scrapeUrl })

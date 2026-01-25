@@ -39,8 +39,9 @@ export default function ProspectFinderPage() {
   const toggleAutoRun = async () => {
       const newState = !autoRunEnabled
       try {
+        const API_BASE = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5001'
         const endpoint = newState ? '/api/automation/start' : '/api/automation/stop'
-        const res = await fetch(`http://localhost:5001${endpoint}`, { method: 'POST' })
+        const res = await fetch(`${API_BASE}${endpoint}`, { method: 'POST' })
         const data = await res.json()
         if (data.success) {
            setAutoRunEnabled(newState)
@@ -60,7 +61,8 @@ export default function ProspectFinderPage() {
 
   // Fetch initial status
   useEffect(() => {
-    fetch('http://localhost:5001/api/automation/status')
+    const API_BASE = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5001'
+    fetch(`${API_BASE}/api/automation/status`)
       .then(res => res.json())
       .then(data => {
           if (data && typeof data.running !== 'undefined') {
@@ -73,7 +75,8 @@ export default function ProspectFinderPage() {
   // Fetch History
   const fetchHistory = async () => {
       try {
-          const res = await fetch('http://localhost:5001/api/email/history')
+      const API_BASE = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5001'
+      const res = await fetch(`${API_BASE}/api/email/history`)
           const data = await res.json()
           if (data.success) {
               setHistory(data.results.map((r: any) => ({
@@ -95,10 +98,11 @@ export default function ProspectFinderPage() {
   }, [activeTab])
 
   const handleSearch = async () => {
+    const API_BASE = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5001'
     if (!query) return toast.error("Please enter a keyword")
     setIsSearching(true)
     try {
-      const res = await fetch('http://localhost:5001/api/search', {
+      const res = await fetch(`${API_BASE}/api/search`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query, sender: 'Admin User' }) // TODO: Get actual user
@@ -121,7 +125,8 @@ export default function ProspectFinderPage() {
 
   const fetchResults = async (searchId: number) => {
     try {
-      const res = await fetch(`http://localhost:5001/api/results/${searchId}`)
+      const API_BASE = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5001'
+      const res = await fetch(`${API_BASE}/api/results/${searchId}`)
       const data = await res.json()
       if (data.success) {
         setResults(data.results)
