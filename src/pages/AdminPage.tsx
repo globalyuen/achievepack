@@ -88,6 +88,7 @@ const sidebarMenuItems = [
     group: 'CRM',
     items: [
       { id: 'crm', label: 'CRM / Inquiries', icon: Inbox },
+      { id: 'prospects', label: 'Prospect Finder', icon: Search, externalLink: '/ctrl-x9k7m/prospects' },
     ]
   },
   {

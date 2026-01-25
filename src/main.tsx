@@ -331,6 +331,10 @@ const ReviewsPage = lazyWithRetry(() => import('./pages/ReviewsPage'))
 const ArtworkBatchesPage = lazyWithRetry(() => import('./pages/ArtworkBatchesPage'))
 const ArtworkReviewPage = lazyWithRetry(() => import('./pages/ArtworkReviewPage'))
 
+// Prospect Finder Pages - Lazy loaded
+const ProspectFinderPage = lazyWithRetry(() => import('./pages/admin/prospects/ProspectFinderPage'))
+const ProspectListsPage = lazyWithRetry(() => import('./pages/admin/prospects/ProspectListsPage'))
+
 // Cookie Consent Component
 import CookieConsent from './components/CookieConsent'
 
@@ -368,6 +372,11 @@ createRoot(document.getElementById('root')!).render(
                       <Route path="/ctrl-x9k7m/artwork-hub" element={<ArtworkHubPage />} />
                       <Route path="/ctrl-x9k7m/artwork-batches" element={<ArtworkBatchesPage />} />
                       <Route path="/artwork-review/:batchId" element={<ArtworkReviewPage />} />
+                      
+                      {/* Prospect Finder Routes */}
+                      <Route path="/ctrl-x9k7m/prospects" element={<ProspectFinderPage />} />
+                      <Route path="/ctrl-x9k7m/prospects/lists" element={<ProspectListsPage />} />
+
                       <Route path="/unsubscribe" element={<UnsubscribePage />} />
 
                       {/* Industry Pages */}
