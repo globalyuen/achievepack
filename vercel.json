@@ -12,7 +12,7 @@
       "memory": 1024,
       "maxDuration": 60
     },
-    "api/prospect/import-history.ts": {
+    "api/prospect/bulk-import.ts": {
       "memory": 1024,
       "maxDuration": 300
     },
