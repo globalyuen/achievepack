@@ -12,6 +12,10 @@
       "memory": 1024,
       "maxDuration": 60
     },
+    "api/prospect/import-history.ts": {
+      "memory": 1024,
+      "maxDuration": 300
+    },
     "api/**/*.ts": {
       "memory": 1024,
       "maxDuration": 10,
