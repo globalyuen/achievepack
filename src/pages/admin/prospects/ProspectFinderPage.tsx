@@ -66,6 +66,7 @@ export default function ProspectFinderPage() {
   const [history, setHistory] = useState<SearchResult[]>([])
   const [historyStats, setHistoryStats] = useState<EmailStats | null>(null)
   const [filterQuery, setFilterQuery] = useState('')
+  const [engagementFilter, setEngagementFilter] = useState<'all' | 'opened' | 'clicked' | 'engaged' | 'no_engagement'>('all')
   // Log messages for user visibility
   const [logs, setLogs] = useState<{time: string, message: string, type: 'info' | 'success' | 'error'}[]>([])
 
@@ -273,10 +274,32 @@ export default function ProspectFinderPage() {
       (r.company && r.company.toLowerCase().includes(filterQuery.toLowerCase()))
   )
 
-  const filteredHistory = history.filter(r => 
-      r.name?.toLowerCase().includes(filterQuery.toLowerCase()) || 
-      r.email?.toLowerCase().includes(filterQuery.toLowerCase())
-  )
+  const filteredHistory = history.filter(r => {
+      // Text search filter
+      const matchesText = r.name?.toLowerCase().includes(filterQuery.toLowerCase()) || 
+          r.email?.toLowerCase().includes(filterQuery.toLowerCase())
+      
+      // Engagement filter
+      let matchesEngagement = true
+      switch (engagementFilter) {
+          case 'opened':
+              matchesEngagement = r.email_opened === true
+              break
+          case 'clicked':
+              matchesEngagement = r.email_clicked === true
+              break
+          case 'engaged':
+              matchesEngagement = r.email_opened === true || r.email_clicked === true
+              break
+          case 'no_engagement':
+              matchesEngagement = !r.email_opened && !r.email_clicked
+              break
+          default:
+              matchesEngagement = true
+      }
+      
+      return matchesText && matchesEngagement
+  })
 
 
   // Handle composing email with preview
@@ -642,13 +665,24 @@ export default function ProspectFinderPage() {
                     {/* Controls */}
                     <div className="flex justify-between items-center">
                         <div className="flex gap-4 items-center">
-                            <h2 className="text-lg font-semibold">Sent History ({history.length})</h2>
+                            <h2 className="text-lg font-semibold">Sent History ({filteredHistory.length})</h2>
                             <Input 
                                 placeholder="Search history..." 
-                                className="w-[250px] h-8" 
+                                className="w-[200px] h-8" 
                                 value={filterQuery}
                                 onChange={(e) => setFilterQuery(e.target.value)}
                             />
+                            <select
+                                value={engagementFilter}
+                                onChange={(e) => setEngagementFilter(e.target.value as any)}
+                                className="h-8 px-3 rounded-md border border-neutral-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
+                            >
+                                <option value="all">All Emails</option>
+                                <option value="opened">Opened</option>
+                                <option value="clicked">Clicked</option>
+                                <option value="engaged">Any Engagement</option>
+                                <option value="no_engagement">No Engagement</option>
+                            </select>
                         </div>
                         <div className="flex gap-2">
                             <Button variant="outline" size="sm" onClick={handleExportExcel} className="gap-2">
