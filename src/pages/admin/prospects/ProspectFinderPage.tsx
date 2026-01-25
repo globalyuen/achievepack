@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
 
-const API_BASE = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5001'
+const API_BASE = '' // Use relative paths for Vercel API routes
 
 // Sender profiles matching ProspectPro
 const SENDERS = [
@@ -80,7 +80,7 @@ export default function ProspectFinderPage() {
       setIsTogglingAutoRun(true)
       addLog(`${newState ? 'Starting' : 'Stopping'} Auto Run...`, 'info')
       try {
-        const endpoint = newState ? '/api/automation/start' : '/api/automation/stop'
+        const endpoint = newState ? '/api/prospect/automation-start' : '/api/prospect/automation-stop'
         addLog(`Calling: ${API_BASE}${endpoint}`, 'info')
         const res = await fetch(`${API_BASE}${endpoint}`, { method: 'POST' })
         const data = await res.json()
@@ -112,7 +112,7 @@ export default function ProspectFinderPage() {
   const generateSearchPhrase = async () => {
     setIsGeneratingPhrase(true)
     try {
-      const res = await fetch(`${API_BASE}/generate-phrase-v2`, { method: 'POST' })
+      const res = await fetch(`/api/prospect/generate-phrase`, { method: 'POST' })
       const data = await res.json()
       if (data.success && data.phrase) {
         setQuery(data.phrase)
@@ -130,8 +130,8 @@ export default function ProspectFinderPage() {
 
   // Fetch initial status
   useEffect(() => {
-    addLog(`Checking automation status: ${API_BASE}/api/automation/status`, 'info')
-    fetch(`${API_BASE}/api/automation/status`)
+    addLog(`Checking automation status: /api/prospect/automation-status`, 'info')
+    fetch(`/api/prospect/automation-status`)
       .then(res => res.json())
       .then(data => {
           addLog(`Status response: ${JSON.stringify(data)}`, 'success')
@@ -149,7 +149,7 @@ export default function ProspectFinderPage() {
   // Fetch History
   const fetchHistory = async () => {
       try {
-      const res = await fetch(`${API_BASE}/api/email/history?limit=200`)
+      const res = await fetch(`/api/prospect/email-history?limit=200`)
           const data = await res.json()
           if (data.success) {
               setHistory(data.results.map((r: any) => ({
@@ -166,10 +166,10 @@ export default function ProspectFinderPage() {
       }
   }
 
-  // Export to Excel
+  // Export to Excel - temporarily disabled during migration
   const handleExportExcel = () => {
-      window.open(`${API_BASE}/email-history/download`, '_blank')
-      toast.success('Downloading Excel file...')
+      // TODO: Implement Excel export via Vercel API
+      toast.info('Excel export coming soon')
   }
 
   // Effect to load history when tab changes
@@ -197,9 +197,10 @@ export default function ProspectFinderPage() {
       formData.append('query', fullQuery)
       formData.append('sender', sender)
       
-      const res = await fetch(`${API_BASE}/search`, {
+      const res = await fetch(`/api/prospect/search`, {
         method: 'POST',
-        body: formData
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: fullQuery, sender })
       })
       
       // Check if redirected to results page (success case)
@@ -230,7 +231,7 @@ export default function ProspectFinderPage() {
 
   const fetchResults = async (searchId: number) => {
     try {
-      const res = await fetch(`${API_BASE}/api/results/${searchId}`)
+      const res = await fetch(`/api/prospect/results?id=${searchId}`)
       const data = await res.json()
       if (data.success) {
         setResults(data.results.map((r: any) => ({
@@ -263,7 +264,7 @@ export default function ProspectFinderPage() {
     setIsSending(true)
     try {
       // Fetch email preview from backend
-      const res = await fetch(`${API_BASE}/preview-email/${prospect.id}`)
+      const res = await fetch(`/api/prospect/preview-email?id=${prospect.id}`)
       const data = await res.json()
       if (data.success) {
         setEmailSubject(data.subject)
@@ -288,7 +289,7 @@ export default function ProspectFinderPage() {
     if (!selectedProspect) return
     setIsSending(true)
     try {
-      const res = await fetch(`${API_BASE}/send-single-email/${selectedProspect.id}`, {
+      const res = await fetch(`/api/prospect/send-email?id=${selectedProspect.id}`, {
         method: 'POST'
       })
       const data = await res.json()
@@ -316,10 +317,8 @@ export default function ProspectFinderPage() {
     
     setIsSendingAll(true)
     try {
-      const formData = new FormData()
-      const res = await fetch(`${API_BASE}/send-emails/${currentSearchId}`, {
-        method: 'POST',
-        body: formData
+      const res = await fetch(`/api/prospect/send-all?searchId=${currentSearchId}`, {
+        method: 'POST'
       })
       
       if (res.ok || res.redirected) {

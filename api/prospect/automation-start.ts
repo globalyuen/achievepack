@@ -1,0 +1,44 @@
+import type { VercelRequest, VercelResponse } from '@vercel/node'
+import { createClient } from '@supabase/supabase-js'
+
+const supabase = createClient(
+    process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL || '',
+    process.env.SUPABASE_SERVICE_KEY || ''
+)
+
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
+    
+    if (req.method === 'OPTIONS') {
+        return res.status(200).end()
+    }
+
+    if (req.method !== 'POST') {
+        return res.status(405).json({ success: false, error: 'Method not allowed' })
+    }
+
+    try {
+        const { error } = await supabase
+            .from('prospect_automation')
+            .update({ is_running: true, updated_at: new Date().toISOString() })
+            .eq('id', 1)
+
+        if (error) {
+            console.error('Error starting automation:', error)
+            return res.status(500).json({ success: false, error: error.message })
+        }
+
+        // Note: In Vercel Serverless, we can't run background tasks
+        // The actual automation would need to be triggered via Vercel Cron Jobs
+        // For now, we just update the status flag
+
+        return res.status(200).json({
+            success: true,
+            message: 'Automation started'
+        })
+    } catch (error) {
+        console.error('Start automation error:', error)
+        return res.status(500).json({ success: false, error: 'Failed to start automation' })
+    }
+}
