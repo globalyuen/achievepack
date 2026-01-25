@@ -284,13 +284,22 @@ export default function ProspectFinderPage() {
     }
   }
 
-  // Send single email using ProspectPro API
+  // Send single email using ProspectPro API with edited content
   const handleSendEmail = async () => {
     if (!selectedProspect) return
+    if (!emailSubject.trim() || !emailBody.trim()) {
+      toast.error('Subject and body are required')
+      return
+    }
     setIsSending(true)
     try {
       const res = await fetch(`/api/prospect/send-email?id=${selectedProspect.id}`, {
-        method: 'POST'
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          subject: emailSubject,
+          body: emailBody
+        })
       })
       const data = await res.json()
       if (data.success) {
@@ -299,7 +308,7 @@ export default function ProspectFinderPage() {
         // Update local status
         setResults(prev => prev.map(p => p.id === selectedProspect.id ? { ...p, status: 'sent', email_sent: true } : p))
       } else {
-        toast.error("Failed to send: " + data.message)
+        toast.error("Failed to send: " + (data.error || data.message))
       }
     } catch (e) {
       console.error(e)
@@ -738,27 +747,41 @@ export default function ProspectFinderPage() {
         <Sheet open={isEmailOpen} onOpenChange={setIsEmailOpen}>
             <SheetContent className="sm:max-w-2xl w-full overflow-y-auto">
                 <SheetHeader className="mb-4">
-                    <SheetTitle>Compose Email</SheetTitle>
+                    <SheetTitle>Edit & Send Email</SheetTitle>
                     <SheetDescription>
                         To: <span className="font-medium text-neutral-900">{selectedProspect?.email}</span>
+                        <span className="block text-xs text-green-600 mt-1">Edit the content below before sending. Includes unsubscribe link.</span>
                     </SheetDescription>
                 </SheetHeader>
                 
                 <div className="space-y-4">
                     <div className="space-y-1">
-                        <label className="text-xs font-medium text-neutral-500">Subject</label>
+                        <label className="text-xs font-medium text-neutral-500">Subject Line</label>
                         <Input 
                             value={emailSubject} 
                             onChange={(e) => setEmailSubject(e.target.value)}
+                            placeholder="Enter email subject..."
                         />
                     </div>
                     
                     <div className="space-y-1">
-                        <label className="text-xs font-medium text-neutral-500">Message</label>
+                        <label className="text-xs font-medium text-neutral-500">Message Body</label>
+                        <div className="text-xs text-neutral-400 mb-1">Tip: Links to achievepack.com pages and unsubscribe link are included</div>
                         <EmailEditor 
                             value={emailBody} 
                             onChange={setEmailBody}
                         />
+                    </div>
+                    
+                    <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 text-xs text-amber-800">
+                        <strong>SEO Links included:</strong>
+                        <ul className="mt-1 space-y-0.5 text-amber-700">
+                            <li>• achievepack.com/materials/compostable</li>
+                            <li>• achievepack.com/packaging/stand-up-pouches</li>
+                            <li>• achievepack.com/free-service</li>
+                            <li>• Calendly booking link</li>
+                            <li>• Unsubscribe link (GDPR compliant)</li>
+                        </ul>
                     </div>
                 </div>
 

@@ -7,10 +7,10 @@ const supabase = createClient(
 )
 
 // Sender profiles
-const SENDER_PROFILES: Record<string, { name: string; email: string }> = {
-    ryan: { name: 'Ryan Wong', email: 'ryan@pouch.eco' },
-    jericha: { name: 'Jericha K.', email: 'Jericha.k@pouch.eco' },
-    eric: { name: 'Eric Chan', email: 'eric@pouch.eco' }
+const SENDER_PROFILES: Record<string, { name: string; email: string; signature: string }> = {
+    ryan: { name: 'Ryan Wong', email: 'ryan@pouch.eco', signature: 'Ryan Wong\nBusiness Development\nPouch.eco | Sustainable Packaging Solutions\nryan@pouch.eco' },
+    jericha: { name: 'Jericha K.', email: 'Jericha.k@pouch.eco', signature: 'Jericha K.\nClient Relations\nPouch.eco | Sustainable Packaging Solutions\nJericha.k@pouch.eco' },
+    eric: { name: 'Eric Chan', email: 'eric@pouch.eco', signature: 'Eric Chan\nSales Manager\nPouch.eco | Sustainable Packaging Solutions\neric@pouch.eco' }
 }
 
 async function sendBrevoEmail(to: string, subject: string, body: string, senderKey: string) {
@@ -21,6 +21,15 @@ async function sendBrevoEmail(to: string, subject: string, body: string, senderK
     }
     
     const sender = SENDER_PROFILES[senderKey] || SENDER_PROFILES.ryan
+    
+    // Convert plain text to HTML with proper formatting
+    const htmlBody = body
+        .replace(/\n/g, '<br>')
+        .replace(/•/g, '&bull;')
+        .replace(/✓/g, '&#10003;')
+        .replace(/📦/g, '📦')
+        .replace(/📅/g, '📅')
+        .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" style="color: #059669;">$1</a>')
     
     const response = await fetch('https://api.brevo.com/v3/smtp/email', {
         method: 'POST',
@@ -33,7 +42,7 @@ async function sendBrevoEmail(to: string, subject: string, body: string, senderK
             sender: { name: sender.name, email: sender.email },
             to: [{ email: to }],
             subject,
-            htmlContent: body.replace(/\n/g, '<br>'),
+            htmlContent: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">${htmlBody}</div>`,
             textContent: body
         })
     })
@@ -47,9 +56,57 @@ async function sendBrevoEmail(to: string, subject: string, body: string, senderK
     return { success: true, messageId: result.messageId }
 }
 
+// Generate default email content if not provided
+function generateDefaultEmail(prospect: any, senderKey: string) {
+    const shortName = prospect.name?.split(' ')[0] || prospect.name || 'your business'
+    const businessType = prospect.business_type || 'products'
+    const profile = SENDER_PROFILES[senderKey] || SENDER_PROFILES.ryan
+    
+    const subject = `Boost ${shortName} sales by 15-20% with eco-packaging`
+    const body = `Hi there,
+
+I've checked out ${prospect.name} and see huge potential for your ${businessType}.
+
+We help businesses like yours boost sales by 15-20% with premium eco-friendly packaging that customers love.
+
+✓ Quick wins we can deliver:
+• Custom branded pouches that stand out on shelves
+• Sustainable materials that appeal to eco-conscious buyers  
+• Fast 2-week turnaround with low minimums (500 MOQ)
+• Free design consultation and 3D mockups
+
+✓ Why brands choose Achieve Pack:
+• EN 13432 & ASTM D6400 certified compostable materials
+• GRS certified recycled content options
+• 500+ brands helped across US & EU markets
+• 5.0 star rating from verified customers
+
+📦 Explore our solutions:
+• Compostable Packaging: https://achievepack.com/materials/compostable
+• Stand Up Pouches: https://achievepack.com/packaging/stand-up-pouches
+• Free Services: https://achievepack.com/free-service
+
+📅 Book a free 30-min consultation:
+https://calendly.com/30-min-free-packaging-consultancy
+
+Would you be open to a quick chat about how we could help ${shortName}?
+
+Best regards,
+${profile.signature}
+
+---
+Achieve Pack | Sustainable Packaging Solutions
+https://achievepack.com
+
+To unsubscribe from future emails: https://achievepack.com/unsubscribe?email=${encodeURIComponent(prospect.email || '')}`
+    
+    return { subject, body }
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
     res.setHeader('Access-Control-Allow-Origin', '*')
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
     
     if (req.method === 'OPTIONS') {
         return res.status(200).end()
@@ -61,6 +118,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     try {
         const { id } = req.query
+        
+        // Get custom subject and body from request body (if editing before send)
+        let customSubject: string | undefined
+        let customBody: string | undefined
+        
+        if (req.body) {
+            const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body
+            customSubject = body.subject
+            customBody = body.body
+        }
         
         if (!id) {
             return res.status(400).json({ success: false, error: 'Prospect ID required' })
@@ -85,30 +152,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             return res.status(400).json({ success: false, error: 'Email already sent to this prospect' })
         }
 
-        // Generate email content
-        const shortName = prospect.name?.split(' ')[0] || prospect.name || 'your business'
-        const businessType = prospect.business_type || 'products'
         const sender = prospect.prospect_search_query?.sender || 'ryan'
         const senderProfile = SENDER_PROFILES[sender] || SENDER_PROFILES.ryan
         
-        const subject = `Boost ${shortName} sales by 15-20% with eco-packaging`
-        const body = `Hi there,
-
-I've checked out ${prospect.name} and see huge potential for your ${businessType}.
-
-We help businesses like yours boost sales by 15-20% with premium eco-friendly packaging that customers love.
-
-Quick wins we can deliver:
-• Custom branded pouches that stand out on shelves
-• Sustainable materials that appeal to eco-conscious buyers  
-• Fast 2-week turnaround with low minimums
-
-Would you be open to a quick chat about how we could help ${shortName}?
-
-Best regards,
-${senderProfile.name}
-Business Development
-Pouch.eco | Sustainable Packaging Solutions`
+        // Use custom content if provided, otherwise generate default
+        let subject: string
+        let body: string
+        
+        if (customSubject && customBody) {
+            subject = customSubject
+            body = customBody
+        } else {
+            const defaultEmail = generateDefaultEmail(prospect, sender)
+            subject = defaultEmail.subject
+            body = defaultEmail.body
+        }
 
         // Send email via Brevo
         const emailResult = await sendBrevoEmail(prospect.email, subject, body, sender)

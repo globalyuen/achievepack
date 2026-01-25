@@ -95,3 +95,26 @@ CREATE POLICY "Allow service role full access" ON prospect FOR ALL USING (true);
 CREATE POLICY "Allow service role full access" ON prospect_lead FOR ALL USING (true);
 CREATE POLICY "Allow service role full access" ON prospect_activity FOR ALL USING (true);
 CREATE POLICY "Allow service role full access" ON prospect_automation FOR ALL USING (true);
+
+-- 6. Email Unsubscribes Table
+CREATE TABLE IF NOT EXISTS email_unsubscribes (
+    id BIGSERIAL PRIMARY KEY,
+    email VARCHAR(200) NOT NULL UNIQUE,
+    unsubscribed_at TIMESTAMPTZ DEFAULT NOW(),
+    source VARCHAR(50) DEFAULT 'cold_email',
+    reason TEXT
+);
+
+CREATE INDEX IF NOT EXISTS idx_email_unsubscribes_email ON email_unsubscribes(email);
+ALTER TABLE email_unsubscribes ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Allow service role full access" ON email_unsubscribes FOR ALL USING (true);
+
+-- 7. RPC Function to increment emails_sent counter
+CREATE OR REPLACE FUNCTION increment_emails_sent(search_id BIGINT)
+RETURNS VOID AS $$
+BEGIN
+    UPDATE prospect_search_query
+    SET emails_sent = emails_sent + 1
+    WHERE id = search_id;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
