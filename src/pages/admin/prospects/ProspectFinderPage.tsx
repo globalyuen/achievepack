@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter } from '@/components/ui/sheet'
 import { EmailEditor } from '@/components/EmailEditor'
-import { Search, Mail, RefreshCw, Loader2, PlayCircle, StopCircle, UserMinus, Plus, Check, Send, Wand2, SendHorizonal, Eye } from 'lucide-react'
+import { Search, Mail, RefreshCw, Loader2, PlayCircle, StopCircle, UserMinus, Plus, Check, Send, Wand2, SendHorizonal, Eye, Download, BarChart3, MousePointerClick, MailOpen } from 'lucide-react'
 import { toast } from 'sonner'
 import { Link } from 'react-router-dom'
 import { Label } from '@/components/ui/label'
@@ -29,6 +29,18 @@ interface SearchResult {
   business_type?: string
   last_contacted?: string
   email_sent?: boolean
+  sender?: string
+  email_opened?: boolean
+  email_clicked?: boolean
+  search_query?: string
+}
+
+interface EmailStats {
+  total_sent: number
+  opened: number
+  clicked: number
+  open_rate: number
+  click_rate: number
 }
 
 export default function ProspectFinderPage() {
@@ -50,6 +62,7 @@ export default function ProspectFinderPage() {
   const [autoRunEnabled, setAutoRunEnabled] = useState(false)
   const [isTogglingAutoRun, setIsTogglingAutoRun] = useState(false)
   const [history, setHistory] = useState<SearchResult[]>([])
+  const [historyStats, setHistoryStats] = useState<EmailStats | null>(null)
   const [filterQuery, setFilterQuery] = useState('')
   // Log messages for user visibility
   const [logs, setLogs] = useState<{time: string, message: string, type: 'info' | 'success' | 'error'}[]>([])
@@ -136,7 +149,7 @@ export default function ProspectFinderPage() {
   // Fetch History
   const fetchHistory = async () => {
       try {
-      const res = await fetch(`${API_BASE}/api/email/history`)
+      const res = await fetch(`${API_BASE}/api/email/history?limit=200`)
           const data = await res.json()
           if (data.success) {
               setHistory(data.results.map((r: any) => ({
@@ -144,10 +157,19 @@ export default function ProspectFinderPage() {
                   status: 'sent',
                   last_contacted: r.sent_at
               })))
+              if (data.stats) {
+                  setHistoryStats(data.stats)
+              }
           }
       } catch (e) {
           console.error(e)
       }
+  }
+
+  // Export to Excel
+  const handleExportExcel = () => {
+      window.open(`${API_BASE}/email-history/download`, '_blank')
+      toast.success('Downloading Excel file...')
   }
 
   // Effect to load history when tab changes
@@ -535,10 +557,45 @@ export default function ProspectFinderPage() {
             )}
             
             {activeTab === 'campaigns' && (
-                 <div>
-                    <div className="flex justify-between items-center mb-4">
+                 <div className="space-y-6">
+                    {/* Stats Cards */}
+                    {historyStats && (
+                        <div className="grid grid-cols-4 gap-4">
+                            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4 border border-blue-200">
+                                <div className="flex items-center gap-2 text-blue-600 mb-1">
+                                    <Mail className="w-4 h-4" />
+                                    <span className="text-sm font-medium">Total Sent</span>
+                                </div>
+                                <p className="text-2xl font-bold text-blue-900">{historyStats.total_sent}</p>
+                            </div>
+                            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-4 border border-green-200">
+                                <div className="flex items-center gap-2 text-green-600 mb-1">
+                                    <MailOpen className="w-4 h-4" />
+                                    <span className="text-sm font-medium">Opened</span>
+                                </div>
+                                <p className="text-2xl font-bold text-green-900">{historyStats.opened} <span className="text-sm font-normal">({historyStats.open_rate}%)</span></p>
+                            </div>
+                            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-4 border border-purple-200">
+                                <div className="flex items-center gap-2 text-purple-600 mb-1">
+                                    <MousePointerClick className="w-4 h-4" />
+                                    <span className="text-sm font-medium">Clicked</span>
+                                </div>
+                                <p className="text-2xl font-bold text-purple-900">{historyStats.clicked} <span className="text-sm font-normal">({historyStats.click_rate}%)</span></p>
+                            </div>
+                            <div className="bg-gradient-to-br from-amber-50 to-amber-100 rounded-xl p-4 border border-amber-200">
+                                <div className="flex items-center gap-2 text-amber-600 mb-1">
+                                    <BarChart3 className="w-4 h-4" />
+                                    <span className="text-sm font-medium">Engagement</span>
+                                </div>
+                                <p className="text-2xl font-bold text-amber-900">{historyStats.total_sent > 0 ? Math.round((historyStats.opened + historyStats.clicked) / historyStats.total_sent * 50) : 0}%</p>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Controls */}
+                    <div className="flex justify-between items-center">
                         <div className="flex gap-4 items-center">
-                            <h2 className="text-lg font-semibold">Sent History</h2>
+                            <h2 className="text-lg font-semibold">Sent History ({history.length})</h2>
                             <Input 
                                 placeholder="Search history..." 
                                 className="w-[250px] h-8" 
@@ -546,25 +603,34 @@ export default function ProspectFinderPage() {
                                 onChange={(e) => setFilterQuery(e.target.value)}
                             />
                         </div>
-                        <Button variant="ghost" size="sm" onClick={fetchHistory} className="gap-2">
-                             <RefreshCw className="w-4 h-4" /> Refresh
-                        </Button>
+                        <div className="flex gap-2">
+                            <Button variant="outline" size="sm" onClick={handleExportExcel} className="gap-2">
+                                <Download className="w-4 h-4" /> Export Excel
+                            </Button>
+                            <Button variant="ghost" size="sm" onClick={fetchHistory} className="gap-2">
+                                 <RefreshCw className="w-4 h-4" /> Refresh
+                            </Button>
+                        </div>
                     </div>
 
-                    <div className="border rounded-lg overflow-hidden bg-white shadow-sm">
+                    {/* Table */}
+                    <div className="border rounded-lg overflow-hidden bg-white shadow-sm overflow-x-auto">
                         <table className="w-full text-sm text-left">
                             <thead className="bg-neutral-50 text-neutral-600 border-b">
                                 <tr>
-                                    <th className="px-4 py-3 font-medium">To</th>
+                                    <th className="px-4 py-3 font-medium">Company</th>
+                                    <th className="px-4 py-3 font-medium">Email</th>
+                                    <th className="px-4 py-3 font-medium">Type</th>
+                                    <th className="px-4 py-3 font-medium">Sender</th>
                                     <th className="px-4 py-3 font-medium">Sent At</th>
-                                    <th className="px-4 py-3 font-medium">Subject</th>
-                                    <th className="px-4 py-3 text-right">Action</th>
+                                    <th className="px-4 py-3 font-medium text-center">Opened</th>
+                                    <th className="px-4 py-3 font-medium text-center">Clicked</th>
                                 </tr>
                             </thead>
                             <tbody className="divide-y">
                                 {filteredHistory.length === 0 ? (
                                     <tr>
-                                        <td colSpan={4} className="px-4 py-8 text-center text-neutral-500">
+                                        <td colSpan={7} className="px-4 py-8 text-center text-neutral-500">
                                             No email history found.
                                         </td>
                                     </tr>
@@ -573,20 +639,52 @@ export default function ProspectFinderPage() {
                                         <tr key={item.id} className="hover:bg-neutral-50 transition-colors">
                                             <td className="px-4 py-3">
                                                 <div className="flex flex-col">
-                                                    <span className="font-medium">{item.email}</span>
-                                                    <span className="text-neutral-500 text-xs">{item.name}</span>
+                                                    <span className="font-medium">{item.name}</span>
+                                                    {item.website && (
+                                                        <a href={item.website} target="_blank" rel="noopener noreferrer" className="text-neutral-500 text-xs hover:text-primary-600 truncate max-w-[150px]">
+                                                            {item.website.replace(/^https?:\/\//, '')}
+                                                        </a>
+                                                    )}
                                                 </div>
                                             </td>
                                             <td className="px-4 py-3 text-neutral-600">
+                                                <span className="truncate block max-w-[180px]">{item.email}</span>
+                                            </td>
+                                            <td className="px-4 py-3">
+                                                <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs bg-neutral-100 text-neutral-700 capitalize">
+                                                    {item.business_type || 'general'}
+                                                </span>
+                                            </td>
+                                            <td className="px-4 py-3">
+                                                <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${
+                                                    item.sender === 'ryan' ? 'bg-blue-100 text-blue-700' :
+                                                    item.sender === 'jericha' ? 'bg-pink-100 text-pink-700' :
+                                                    item.sender === 'eric' ? 'bg-green-100 text-green-700' :
+                                                    'bg-neutral-100 text-neutral-700'
+                                                }`}>
+                                                    {item.sender || 'unknown'}
+                                                </span>
+                                            </td>
+                                            <td className="px-4 py-3 text-neutral-600 text-xs">
                                                 {item.last_contacted ? new Date(item.last_contacted).toLocaleString() : '-'}
                                             </td>
-                                            <td className="px-4 py-3 text-neutral-600">
-                                                 Partnership Opportunity
+                                            <td className="px-4 py-3 text-center">
+                                                {item.email_opened ? (
+                                                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-green-100 text-green-600">
+                                                        <Check className="w-4 h-4" />
+                                                    </span>
+                                                ) : (
+                                                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-neutral-100 text-neutral-400">-</span>
+                                                )}
                                             </td>
-                                            <td className="px-4 py-3 text-right">
-                                                <span className="text-xs text-green-600 font-medium flex items-center justify-end gap-1">
-                                                    <Check className="w-3 h-3" /> Sent
-                                                </span>
+                                            <td className="px-4 py-3 text-center">
+                                                {item.email_clicked ? (
+                                                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-purple-100 text-purple-600">
+                                                        <Check className="w-4 h-4" />
+                                                    </span>
+                                                ) : (
+                                                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-neutral-100 text-neutral-400">-</span>
+                                                )}
                                             </td>
                                         </tr>
                                     ))
