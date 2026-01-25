@@ -723,7 +723,7 @@ const FreeWebsiteUpgradePage: React.FC = () => {
                     to="/free-service/achieve-coffee-demo"
                     className="inline-flex items-center gap-2 bg-white text-neutral-900 px-6 py-3 rounded-full font-bold transition hover:bg-amber-100"
                   >
-                    Enter Demo Site <ArrowRight className="h-4 w-4" />
+                    Enter Coffee Demo Site <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
               </motion.div>
@@ -753,7 +753,7 @@ const FreeWebsiteUpgradePage: React.FC = () => {
                     to="/free-service/maxi-foods-demo"
                     className="inline-flex items-center gap-2 bg-[#26c6da] text-black px-6 py-3 rounded-full font-bold transition hover:bg-white"
                   >
-                    Enter Demo Site <ArrowRight className="h-4 w-4" />
+                    Enter Mexican Food Demo Site <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
               </motion.div>
@@ -783,7 +783,37 @@ const FreeWebsiteUpgradePage: React.FC = () => {
                     to="/free-service/achieve-chips-demo"
                     className="inline-flex items-center gap-2 bg-[#C75B39] text-white px-6 py-3 rounded-full font-bold transition hover:bg-white hover:text-black"
                   >
-                    Enter Demo Site <ArrowRight className="h-4 w-4" />
+                    Enter Chips Demo Site <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </motion.div>
+
+              {/* Achieve Tea Demo Card */}
+              <motion.div 
+                className="group relative bg-[#FDFBF7] rounded-3xl overflow-hidden shadow-2xl border border-neutral-200"
+                variants={fadeInUp}
+                whileHover={{ y: -12, transition: { duration: 0.3 } }}
+              >
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img
+                    src="/imgs/demo-site/tea/hero.png"
+                    alt="Achieve Tea Organic"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                </div>
+                <div className="absolute bottom-0 left-0 p-8">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="bg-[#4A7C59] text-white text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Beverage</span>
+                    <span className="text-xs text-white/90 font-medium italic">Organic Tea</span>
+                  </div>
+                  <h3 className="text-3xl font-bold mb-3 text-white">Achieve Tea</h3>
+                  <p className="text-white/90 text-sm mb-6 max-w-sm">A serene, eco-luxury tea brand experience highlighting plastic-free, compostable packaging and wellness.</p>
+                  <Link
+                    to="/free-service/achieve-tea-demo"
+                    className="inline-flex items-center gap-2 bg-[#4A7C59] text-white px-6 py-3 rounded-full font-bold transition hover:bg-[#2C3E50]"
+                  >
+                    Enter Tea Demo Site <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
               </motion.div>

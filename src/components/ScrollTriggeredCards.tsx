@@ -8,7 +8,7 @@ interface InfoBoxContent {
   badges?: string[]
 }
 
-interface CardData {
+export interface CardData {
   image: string
   alt?: string
   title?: string
