@@ -32,49 +32,162 @@ const SEARCH_QUERIES = [
     'protein bar brand Hong Kong'
 ]
 
-// Generate email content
-function generateEmailContent(prospect: any, senderKey: string) {
-    const shortName = prospect.name?.split(' ')[0] || prospect.name || 'your business'
-    const businessType = prospect.business_type || 'products'
+// Words to remove from business names
+const WORDS_TO_REMOVE = [
+    'LLC', 'Inc', 'Corp', 'Corporation', 'Company', 'Co', 'Ltd', 'Limited',
+    'Group', 'Associates', 'Partners', 'Solutions', 'Services', 'International',
+    'Global', 'Worldwide', 'Enterprise', 'Enterprises', 'Business', 'Consulting',
+    'Home', 'Shop', 'Store', 'Buy', 'Online', 'Official', 'Website', 'Site',
+    'Best', 'Top', 'Our', 'Your', 'The', 'A', 'An', 'In', 'Of', 'For', 'And',
+    'Welcome', 'About', 'Contact', 'Products', 'Services', 'FAQ', 'Blog'
+]
+
+// Clean business name using AI (XAI/Grok)
+async function cleanBusinessNameWithAI(rawName: string): Promise<string> {
+    const XAI_API_KEY = process.env.XAI_API_KEY
+    if (!XAI_API_KEY) {
+        return fallbackCleanName(rawName)
+    }
+    
+    try {
+        const response = await fetch('https://api.x.ai/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${XAI_API_KEY}`
+            },
+            body: JSON.stringify({
+                model: 'grok-2-1212',
+                messages: [{
+                    role: 'user',
+                    content: `Extract the actual business/company name from this website title. Return ONLY the company name (2-4 words max), nothing else.
+
+Title: "${rawName}"
+
+Rules:
+- Extract only the company/brand name
+- Remove descriptive text like "Shop", "Buy", "Official", "Best", etc.
+- Remove location info if not part of brand name
+- If unclear, return the most brand-like portion
+- Maximum 4 words`
+                }],
+                max_tokens: 30,
+                temperature: 0.1
+            })
+        })
+        
+        if (response.ok) {
+            const data = await response.json() as { choices?: { message?: { content?: string } }[] }
+            const cleaned = data.choices?.[0]?.message?.content?.trim()
+            if (cleaned && cleaned.length > 1 && cleaned.length < 100) {
+                return cleaned.replace(/["']/g, '')
+            }
+        }
+    } catch (error) {
+        console.error('XAI name cleaning error:', error)
+    }
+    
+    return fallbackCleanName(rawName)
+}
+
+// Fallback name cleaning without AI
+function fallbackCleanName(rawName: string): string {
+    if (!rawName) return 'Your Business'
+    
+    // Remove common patterns
+    let name = rawName
+        .replace(/\s*[-|–—:]\s*.*/g, '')  // Remove everything after - | : etc
+        .replace(/\([^)]*\)/g, '')         // Remove parentheses content
+        .replace(/["']/g, '')              // Remove quotes
+        .trim()
+    
+    // Split into words and filter
+    const words = name.split(/\s+/)
+    const cleanedWords: string[] = []
+    
+    for (const word of words) {
+        const cleanWord = word.replace(/[.,!?;:]/g, '')
+        const upperWord = cleanWord.toUpperCase()
+        
+        // Skip if in removal list
+        if (WORDS_TO_REMOVE.some(w => w.toUpperCase() === upperWord)) {
+            continue
+        }
+        
+        // Keep the word
+        if (cleanWord.length > 1) {
+            cleanedWords.push(cleanWord)
+        }
+        
+        // Max 4 words
+        if (cleanedWords.length >= 4) break
+    }
+    
+    return cleanedWords.length > 0 ? cleanedWords.join(' ') : rawName.split(' ').slice(0, 3).join(' ')
+}
+
+// Extract business type from search query
+function extractBusinessType(searchQuery: string): string {
+    const types: Record<string, string> = {
+        'coffee': 'coffee products',
+        'bakery': 'baked goods',
+        'tea': 'tea products',
+        'snack': 'snack products',
+        'food': 'food products',
+        'chocolate': 'chocolate products',
+        'skincare': 'skincare products',
+        'vegan': 'vegan products',
+        'gluten': 'gluten-free products',
+        'kombucha': 'beverages',
+        'matcha': 'matcha products',
+        'granola': 'granola products',
+        'nut butter': 'nut butter products',
+        'dried fruit': 'dried fruit products',
+        'protein': 'protein products'
+    }
+    
+    const lowerQuery = searchQuery.toLowerCase()
+    for (const [key, value] of Object.entries(types)) {
+        if (lowerQuery.includes(key)) return value
+    }
+    
+    return 'products'
+}
+
+// Generate email content - professional format matching original ProspectPro
+function generateEmailContent(prospect: any, senderKey: string, businessType: string) {
+    const companyName = prospect.clean_name || prospect.name || 'your business'
     const profile = SENDER_PROFILES[senderKey] || SENDER_PROFILES.ryan
     
-    const subject = `Boost ${shortName} sales by 15-20% with eco-packaging`
-    const body = `Hi there,
+    const subject = `Boost ${companyName} sales by 15-20% with eco-friendly packaging from pouch.eco`
+    
+    const body = `Hello ${companyName} Team,
 
-I've checked out ${prospect.name} and see huge potential for your ${businessType}.
+Good morning!
 
-We help businesses like yours boost sales by 15-20% with premium eco-friendly packaging that customers love.
+I've checked out ${companyName} and see huge potential for your ${businessType} to be packed in eco-friendly packaging to shine in the market.
 
-✓ Quick wins we can deliver:
-• Custom branded pouches that stand out on shelves
-• Sustainable materials that appeal to eco-conscious buyers  
-• Fast 2-week turnaround with low minimums (500 MOQ)
-• Free design consultation and 3D mockups
+With your approval, I'd like to show you our sample, demonstrating how they can skyrocket your sales. These strategies will help consumers be more aware of your business both online and offline.
 
-✓ Why brands choose Achieve Pack:
-• EN 13432 & ASTM D6400 certified compostable materials
-• GRS certified recycled content options
-• 500+ brands helped across US & EU markets
-• 5.0 star rating from verified customers
+Interested in a customized printed eco-friendly packaging solution to help ${companyName} gain more sales from eco-conscious consumers?
 
-📦 Explore our solutions:
-• Compostable Packaging: https://achievepack.com/materials/compostable
-• Stand Up Pouches: https://achievepack.com/packaging/stand-up-pouches
-• Free Services: https://achievepack.com/free-service
-
-📅 Book a free 30-min consultation:
+You can schedule a free 30-minute consultation with me here:
 https://calendly.com/30-min-free-packaging-consultancy
 
-Would you be open to a quick chat about how we could help ${shortName}?
+Excited to hear back!
 
 Best regards,
-${profile.signature}
+${profile.name}
+Achieve Pack Packaging Development
+www.pouch.eco
+${profile.email}
+WhatsApp: +852 69704411
 
 ---
 Achieve Pack | Sustainable Packaging Solutions
 https://achievepack.com
 
-To unsubscribe from future emails: https://achievepack.com/unsubscribe?email=${encodeURIComponent(prospect.email || '')}`
+To unsubscribe: https://achievepack.com/unsubscribe?email=${encodeURIComponent(prospect.email || '')}`
     
     return { subject, body }
 }
@@ -237,6 +350,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         
         let emailsSent = 0
         let emailsFound = 0
+        const businessType = extractBusinessType(searchQuery)
         
         for (const business of businesses.slice(0, 5)) { // Limit to 5 per run
             try {
@@ -252,24 +366,28 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 
                 // Check if unsubscribed or already contacted
                 if (await isUnsubscribed(email)) {
-                    console.log(`⏭️ Skipping ${email} - unsubscribed`)
+                    console.log(`Skip ${email} - unsubscribed`)
                     continue
                 }
                 
                 if (await alreadyContacted(email)) {
-                    console.log(`⏭️ Skipping ${email} - already contacted`)
+                    console.log(`Skip ${email} - already contacted`)
                     continue
                 }
+                
+                // Clean business name using AI
+                const cleanName = await cleanBusinessNameWithAI(business.name)
+                console.log(`Cleaned name: "${business.name}" -> "${cleanName}"`)
                 
                 // Create prospect record
                 const { data: prospect, error: prospectError } = await supabase
                     .from('prospect')
                     .insert({
                         search_query_id: searchRecord.id,
-                        name: business.name,
+                        name: cleanName,
                         website: business.website,
                         email,
-                        business_type: searchQuery.split(' ')[0] // e.g., "organic", "artisan"
+                        business_type: businessType
                     })
                     .select()
                     .single()
@@ -279,8 +397,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                     continue
                 }
                 
-                // Generate and send email
-                const { subject, body } = generateEmailContent(prospect, sender)
+                // Generate and send email with cleaned name
+                const prospectWithCleanName = { ...prospect, clean_name: cleanName }
+                const { subject, body } = generateEmailContent(prospectWithCleanName, sender, businessType)
                 const messageId = await sendBrevoEmail(email, subject, body, sender)
                 
                 // Update prospect with sent status
