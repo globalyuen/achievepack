@@ -328,8 +328,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         // Pick a random search query
         const randomIndex = Math.floor(Math.random() * SEARCH_QUERIES.length)
         const searchQuery = SEARCH_QUERIES[randomIndex]
-        const senderKeys = ['ryan', 'jericha', 'eric']
-        const sender = senderKeys[Math.floor(Math.random() * senderKeys.length)]
+        const sender = 'ryan' // Always use Ryan for auto run
         
         console.log(`📍 Searching: "${searchQuery}" as ${sender}`)
         
