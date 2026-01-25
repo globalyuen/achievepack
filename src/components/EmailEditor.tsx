@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
-import { Wand2, Globe, FileText, Check, Loader2 } from 'lucide-react';
+import { Wand2, Globe, FileText, Check, Loader2, X } from 'lucide-react';
 import { toast } from 'sonner';
 
 interface EmailEditorProps {
@@ -82,29 +81,29 @@ export const EmailEditor: React.FC<EmailEditorProps> = ({ value, onChange, onSen
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap gap-2 mb-2">
-        <Dialog>
-            <DialogTrigger asChild>
-                <Button variant="outline" size="sm" className="gap-2">
+        <div className="flex gap-2 items-center">
+            {isScraping ? (
+                <div className="flex gap-2 animate-in fade-in slide-in-from-left-5">
+                    <Input 
+                        placeholder="https://..." 
+                        value={scrapeUrl}
+                        onChange={(e) => setScrapeUrl(e.target.value)}
+                        className="w-64 h-8"
+                    />
+                    <Button size="sm" onClick={handleScrapePage} disabled={!scrapeUrl}>
+                        Fetch
+                    </Button>
+                    <Button size="sm" variant="ghost" onClick={() => setIsScraping(false)}>
+                        <X className="h-4 w-4" />
+                    </Button>
+                </div>
+            ) : (
+                <Button variant="outline" size="sm" className="gap-2" onClick={() => setIsScraping(true)}>
                     <Globe className="h-4 w-4" />
                     Add Page Content
                 </Button>
-            </DialogTrigger>
-            <DialogContent>
-                <DialogHeader>
-                    <DialogTitle>Add Content from Web Page</DialogTitle>
-                </DialogHeader>
-                <div className="flex gap-2 mt-4">
-                    <Input 
-                        placeholder="https://achievepack.com/..." 
-                        value={scrapeUrl}
-                        onChange={(e) => setScrapeUrl(e.target.value)}
-                    />
-                    <Button onClick={handleScrapePage} disabled={isScraping}>
-                        {isScraping ? <Loader2 className="h-4 w-4 animate-spin" /> : "Fetch"}
-                    </Button>
-                </div>
-            </DialogContent>
-        </Dialog>
+            )}
+        </div>
 
         <Button variant="outline" size="sm" className="gap-2" onClick={() => setIsImproving(true)}>
             <Wand2 className="h-4 w-4" />
