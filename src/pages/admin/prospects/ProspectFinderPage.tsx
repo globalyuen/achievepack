@@ -220,12 +220,9 @@ export default function ProspectFinderPage() {
   const handleSearch = async () => {
     if (!query) return toast.error("Please enter a keyword")
     setIsSearching(true)
+    addLog(`Searching for: "${buildSearchQuery()}"`, 'info')
     try {
       const fullQuery = buildSearchQuery()
-      // Use form submission to match ProspectPro backend
-      const formData = new FormData()
-      formData.append('query', fullQuery)
-      formData.append('sender', sender)
       
       const res = await fetch(`/api/prospect/search`, {
         method: 'POST',
@@ -233,26 +230,20 @@ export default function ProspectFinderPage() {
         body: JSON.stringify({ query: fullQuery, sender })
       })
       
-      // Check if redirected to results page (success case)
-      if (res.redirected || res.ok) {
-        // Extract search_id from redirect URL or try API
-        const urlMatch = res.url.match(/search_id=(\d+)/)
-        if (urlMatch) {
-          const searchId = parseInt(urlMatch[1])
-          setCurrentSearchId(searchId)
-          toast.success("Search completed!")
-          setActiveTab('results')
-          fetchResults(searchId)
-        } else {
-          // Try to get latest search via API
-          toast.success("Search started!")
-          setActiveTab('results')
-        }
+      const data = await res.json()
+      addLog(`Search response: ${JSON.stringify(data)}`, data.success ? 'success' : 'error')
+      
+      if (data.success && data.search_id) {
+        setCurrentSearchId(data.search_id)
+        toast.success(`Found ${data.prospects_created || 0} prospects!`)
+        setActiveTab('results')
+        fetchResults(data.search_id)
       } else {
-        toast.error("Search failed")
+        toast.error(data.error || "Search failed")
       }
-    } catch (e) {
+    } catch (e: any) {
       console.error(e)
+      addLog('Search error: ' + e.message, 'error')
       toast.error("Network error")
     } finally {
       setIsSearching(false)
