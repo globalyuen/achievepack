@@ -1,6 +1,16 @@
 {
   "outputDirectory": "dist",
+  "crons": [
+    {
+      "path": "/api/prospect/cron-autorun",
+      "schedule": "0 */2 * * *"
+    }
+  ],
   "functions": {
+    "api/prospect/cron-autorun.ts": {
+      "memory": 1024,
+      "maxDuration": 60
+    },
     "api/**/*.ts": {
       "memory": 1024,
       "maxDuration": 10,

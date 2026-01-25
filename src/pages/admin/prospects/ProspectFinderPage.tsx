@@ -61,6 +61,8 @@ export default function ProspectFinderPage() {
   // Auto Run Status
   const [autoRunEnabled, setAutoRunEnabled] = useState(false)
   const [isTogglingAutoRun, setIsTogglingAutoRun] = useState(false)
+  const [lastRunAt, setLastRunAt] = useState<string | null>(null)
+  const [isRunningManual, setIsRunningManual] = useState(false)
   const [history, setHistory] = useState<SearchResult[]>([])
   const [historyStats, setHistoryStats] = useState<EmailStats | null>(null)
   const [filterQuery, setFilterQuery] = useState('')
@@ -137,7 +139,8 @@ export default function ProspectFinderPage() {
           addLog(`Status response: ${JSON.stringify(data)}`, 'success')
           if (data && typeof data.running !== 'undefined') {
               setAutoRunEnabled(data.running)
-              addLog(`Auto Run is ${data.running ? 'ON' : 'OFF'}`, data.running ? 'success' : 'info')
+              setLastRunAt(data.last_run)
+              addLog(`Auto Run is ${data.running ? 'ON' : 'OFF'}${data.last_run ? `, last run: ${new Date(data.last_run).toLocaleString()}` : ''}`, data.running ? 'success' : 'info')
           }
       })
       .catch(e => {
@@ -145,6 +148,33 @@ export default function ProspectFinderPage() {
           addLog('Failed to fetch status: ' + e.message, 'error')
       })
   }, [])
+
+  // Manual trigger for Auto Run (for testing)
+  const triggerManualRun = async () => {
+    if (isRunningManual) return
+    setIsRunningManual(true)
+    addLog('Manually triggering Auto Run...', 'info')
+    try {
+      const res = await fetch('/api/prospect/cron-autorun', { method: 'GET' })
+      const data = await res.json()
+      addLog(`Manual run response: ${JSON.stringify(data)}`, data.success ? 'success' : 'error')
+      if (data.success) {
+        if (data.skipped) {
+          toast.info('Auto Run is disabled - enable it first')
+        } else {
+          toast.success(`Auto Run complete: ${data.emailsSent || 0} emails sent`)
+          fetchHistory() // Refresh history
+        }
+      } else {
+        toast.error('Manual run failed: ' + (data.error || 'Unknown error'))
+      }
+    } catch (e: any) {
+      addLog('Manual run error: ' + e.message, 'error')
+      toast.error('Failed to trigger manual run')
+    } finally {
+      setIsRunningManual(false)
+    }
+  }
 
   // Fetch History
   const fetchHistory = async () => {
@@ -354,17 +384,35 @@ export default function ProspectFinderPage() {
                 <p className="text-neutral-500">AI-powered lead generation and outreach</p>
             </div>
             <div className="flex items-center gap-4">
-                 <div className="flex items-center space-x-2">
-                    <Label htmlFor="auto-mode" className="text-sm font-medium text-neutral-600">
-                        {isTogglingAutoRun ? 'Auto Run: ...' : autoRunEnabled ? 'Auto Run: ON' : 'Auto Run: OFF'}
-                    </Label>
-                    <Switch 
-                        id="auto-mode" 
-                        checked={autoRunEnabled} 
-                        onCheckedChange={toggleAutoRun} 
-                        disabled={isTogglingAutoRun}
-                    />
-                    {isTogglingAutoRun && <Loader2 className="w-4 h-4 animate-spin text-neutral-400" />}
+                 <div className="flex items-center gap-3">
+                    <div className="flex flex-col items-end">
+                        <div className="flex items-center space-x-2">
+                            <Label htmlFor="auto-mode" className="text-sm font-medium text-neutral-600">
+                                {isTogglingAutoRun ? 'Auto Run: ...' : autoRunEnabled ? 'Auto Run: ON' : 'Auto Run: OFF'}
+                            </Label>
+                            <Switch 
+                                id="auto-mode" 
+                                checked={autoRunEnabled} 
+                                onCheckedChange={toggleAutoRun} 
+                                disabled={isTogglingAutoRun}
+                            />
+                            {isTogglingAutoRun && <Loader2 className="w-4 h-4 animate-spin text-neutral-400" />}
+                        </div>
+                        {lastRunAt && (
+                            <span className="text-xs text-neutral-400">Last: {new Date(lastRunAt).toLocaleString()}</span>
+                        )}
+                    </div>
+                    <Button 
+                        variant="outline" 
+                        size="sm"
+                        onClick={triggerManualRun}
+                        disabled={isRunningManual}
+                        className="gap-1"
+                        title="Manually trigger one automation cycle"
+                    >
+                        {isRunningManual ? <Loader2 className="w-4 h-4 animate-spin" /> : <PlayCircle className="w-4 h-4" />}
+                        Run Now
+                    </Button>
                 </div>
                 <Button variant="outline" asChild>
                     <Link to="/ctrl-x9k7m/prospects/lists">
