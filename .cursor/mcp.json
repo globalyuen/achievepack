@@ -1,0 +1,7 @@
+{
+    "mcpServers": {
+        "pencil": {
+            "url": "REPLACE_WITH_PENCIL_SERVER_URL"
+        }
+    }
+}

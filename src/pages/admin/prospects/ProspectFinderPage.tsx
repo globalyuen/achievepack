@@ -3,33 +3,49 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter } from '@/components/ui/sheet'
 import { EmailEditor } from '@/components/EmailEditor'
-import { Search, Mail, RefreshCw, Loader2, PlayCircle, StopCircle, UserMinus, Plus, Check, Send } from 'lucide-react'
+import { Search, Mail, RefreshCw, Loader2, PlayCircle, StopCircle, UserMinus, Plus, Check, Send, Wand2, SendHorizonal, Eye } from 'lucide-react'
 import { toast } from 'sonner'
 import { Link } from 'react-router-dom'
 import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
+
+const API_BASE = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5001'
+
+// Sender profiles matching ProspectPro
+const SENDERS = [
+  { key: 'ryan', name: 'Ryan Wong', email: 'ryan@pouch.eco' },
+  { key: 'jericha', name: 'Jericha K.', email: 'Jericha.k@pouch.eco' },
+  { key: 'eric', name: 'Eric Chan', email: 'eric@pouch.eco' },
+]
 
 interface SearchResult {
   id: number
   name: string
   company: string
   email: string
+  website?: string
   status: string
   sales_pitch?: string
+  business_type?: string
   last_contacted?: string
+  email_sent?: boolean
 }
 
 export default function ProspectFinderPage() {
   const [activeTab, setActiveTab] = useState<'search' | 'results' | 'campaigns'>('search')
   const [query, setQuery] = useState('')
   const [region, setRegion] = useState('Hong Kong')
+  const [sender, setSender] = useState('ryan')
   const [isSearching, setIsSearching] = useState(false)
+  const [isGeneratingPhrase, setIsGeneratingPhrase] = useState(false)
   const [results, setResults] = useState<SearchResult[]>([])
+  const [currentSearchId, setCurrentSearchId] = useState<number | null>(null)
   const [selectedProspect, setSelectedProspect] = useState<SearchResult | null>(null)
   const [isEmailOpen, setIsEmailOpen] = useState(false)
   const [emailSubject, setEmailSubject] = useState('')
   const [emailBody, setEmailBody] = useState('')
   const [isSending, setIsSending] = useState(false)
+  const [isSendingAll, setIsSendingAll] = useState(false)
   // Auto Run Status
   const [autoRunEnabled, setAutoRunEnabled] = useState(false)
   const [history, setHistory] = useState<SearchResult[]>([])
@@ -39,7 +55,6 @@ export default function ProspectFinderPage() {
   const toggleAutoRun = async () => {
       const newState = !autoRunEnabled
       try {
-        const API_BASE = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5001'
         const endpoint = newState ? '/api/automation/start' : '/api/automation/stop'
         const res = await fetch(`${API_BASE}${endpoint}`, { method: 'POST' })
         const data = await res.json()
@@ -59,9 +74,28 @@ export default function ProspectFinderPage() {
       }
   }
 
+  // Generate AI search phrase
+  const generateSearchPhrase = async () => {
+    setIsGeneratingPhrase(true)
+    try {
+      const res = await fetch(`${API_BASE}/generate-phrase-v2`, { method: 'POST' })
+      const data = await res.json()
+      if (data.success && data.phrase) {
+        setQuery(data.phrase)
+        toast.success("Search phrase generated!")
+      } else {
+        toast.error("Failed to generate phrase")
+      }
+    } catch (e) {
+      console.error(e)
+      toast.error("Network error")
+    } finally {
+      setIsGeneratingPhrase(false)
+    }
+  }
+
   // Fetch initial status
   useEffect(() => {
-    const API_BASE = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5001'
     fetch(`${API_BASE}/api/automation/status`)
       .then(res => res.json())
       .then(data => {
@@ -75,7 +109,6 @@ export default function ProspectFinderPage() {
   // Fetch History
   const fetchHistory = async () => {
       try {
-      const API_BASE = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5001'
       const res = await fetch(`${API_BASE}/api/email/history`)
           const data = await res.json()
           if (data.success) {
@@ -97,23 +130,46 @@ export default function ProspectFinderPage() {
       }
   }, [activeTab])
 
+  // Build full search query with region
+  const buildSearchQuery = () => {
+    if (region && !query.toLowerCase().includes(region.toLowerCase())) {
+      return `${query} in ${region}`
+    }
+    return query
+  }
+
   const handleSearch = async () => {
-    const API_BASE = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5001'
     if (!query) return toast.error("Please enter a keyword")
     setIsSearching(true)
     try {
-      const res = await fetch(`${API_BASE}/api/search`, {
+      const fullQuery = buildSearchQuery()
+      // Use form submission to match ProspectPro backend
+      const formData = new FormData()
+      formData.append('query', fullQuery)
+      formData.append('sender', sender)
+      
+      const res = await fetch(`${API_BASE}/search`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query, sender: 'Admin User' }) // TODO: Get actual user
+        body: formData
       })
-      const data = await res.json()
-      if (data.success) {
-        toast.success("Search started successfully")
-        setActiveTab('results')
-        fetchResults(data.search_id)
+      
+      // Check if redirected to results page (success case)
+      if (res.redirected || res.ok) {
+        // Extract search_id from redirect URL or try API
+        const urlMatch = res.url.match(/search_id=(\d+)/)
+        if (urlMatch) {
+          const searchId = parseInt(urlMatch[1])
+          setCurrentSearchId(searchId)
+          toast.success("Search completed!")
+          setActiveTab('results')
+          fetchResults(searchId)
+        } else {
+          // Try to get latest search via API
+          toast.success("Search started!")
+          setActiveTab('results')
+        }
       } else {
-        toast.error("Search failed: " + data.message)
+        toast.error("Search failed")
       }
     } catch (e) {
       console.error(e)
@@ -125,11 +181,14 @@ export default function ProspectFinderPage() {
 
   const fetchResults = async (searchId: number) => {
     try {
-      const API_BASE = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5001'
       const res = await fetch(`${API_BASE}/api/results/${searchId}`)
       const data = await res.json()
       if (data.success) {
-        setResults(data.results)
+        setResults(data.results.map((r: any) => ({
+          ...r,
+          status: r.email_sent ? 'sent' : 'pending'
+        })))
+        setCurrentSearchId(searchId)
       }
     } catch (e) {
       console.error(e)
@@ -149,39 +208,83 @@ export default function ProspectFinderPage() {
   )
 
 
-  // Handle composing email
-  const handleCompose = (prospect: SearchResult) => {
+  // Handle composing email with preview
+  const handleCompose = async (prospect: SearchResult) => {
     setSelectedProspect(prospect)
-    setIsEmailOpen(true)
+    setIsSending(true)
+    try {
+      // Fetch email preview from backend
+      const res = await fetch(`${API_BASE}/preview-email/${prospect.id}`)
+      const data = await res.json()
+      if (data.success) {
+        setEmailSubject(data.subject)
+        setEmailBody(data.body)
+      } else {
+        // Fallback to sales_pitch
+        setEmailSubject(`Boost ${prospect.name} sales with eco-friendly packaging`)
+        setEmailBody(prospect.sales_pitch || '')
+      }
+    } catch (e) {
+      console.error(e)
+      setEmailSubject(`Boost ${prospect.name} sales with eco-friendly packaging`)
+      setEmailBody(prospect.sales_pitch || '')
+    } finally {
+      setIsSending(false)
+      setIsEmailOpen(true)
+    }
   }
 
+  // Send single email using ProspectPro API
   const handleSendEmail = async () => {
     if (!selectedProspect) return
     setIsSending(true)
     try {
-      const res = await fetch('http://localhost:5001/api/email/send', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          to_email: selectedProspect.email,
-          subject: emailSubject,
-          html_body: emailBody
-        })
+      const res = await fetch(`${API_BASE}/send-single-email/${selectedProspect.id}`, {
+        method: 'POST'
       })
       const data = await res.json()
       if (data.success) {
-        toast.success("Email sent successfully!")
+        toast.success(data.message || "Email sent successfully!")
         setIsEmailOpen(false)
         // Update local status
-        setResults(prev => prev.map(p => p.id === selectedProspect.id ? { ...p, status: 'sent' } : p))
+        setResults(prev => prev.map(p => p.id === selectedProspect.id ? { ...p, status: 'sent', email_sent: true } : p))
       } else {
-        toast.error("Failed to send: " + data.error)
+        toast.error("Failed to send: " + data.message)
       }
     } catch (e) {
       console.error(e)
       toast.error("Network error sending email")
     } finally {
       setIsSending(false)
+    }
+  }
+
+  // Send all emails for current search
+  const handleSendAllEmails = async () => {
+    if (!currentSearchId) return toast.error("No search selected")
+    const pendingCount = results.filter(r => r.status !== 'sent' && r.email && r.email !== 'N/A').length
+    if (pendingCount === 0) return toast.info("No pending emails to send")
+    
+    setIsSendingAll(true)
+    try {
+      const formData = new FormData()
+      const res = await fetch(`${API_BASE}/send-emails/${currentSearchId}`, {
+        method: 'POST',
+        body: formData
+      })
+      
+      if (res.ok || res.redirected) {
+        toast.success(`Emails sent successfully!`)
+        // Refresh results
+        fetchResults(currentSearchId)
+      } else {
+        toast.error("Failed to send emails")
+      }
+    } catch (e) {
+      console.error(e)
+      toast.error("Network error")
+    } finally {
+      setIsSendingAll(false)
     }
   }
 
@@ -238,19 +341,45 @@ export default function ProspectFinderPage() {
                     <div className="space-y-4 p-6 border rounded-xl bg-white shadow-sm">
                         <div className="space-y-2">
                             <Label>Target Keyword</Label>
-                            <Input 
-                                placeholder="e.g. Coffee Roasters, Marketing Agencies" 
-                                value={query}
-                                onChange={(e) => setQuery(e.target.value)}
-                            />
+                            <div className="flex gap-2">
+                                <Input 
+                                    placeholder="e.g. organic coffee roasters, artisan bakeries" 
+                                    value={query}
+                                    onChange={(e) => setQuery(e.target.value)}
+                                    className="flex-1"
+                                />
+                                <Button 
+                                    variant="outline" 
+                                    size="icon"
+                                    onClick={generateSearchPhrase}
+                                    disabled={isGeneratingPhrase}
+                                    title="Generate AI Search Phrase"
+                                >
+                                    {isGeneratingPhrase ? <Loader2 className="w-4 h-4 animate-spin" /> : <Wand2 className="w-4 h-4" />}
+                                </Button>
+                            </div>
                         </div>
                         <div className="space-y-2">
                             <Label>Region / Location</Label>
                             <Input 
-                                placeholder="e.g. Hong Kong, Singapore" 
+                                placeholder="e.g. Hong Kong, New York, London" 
                                 value={region}
                                 onChange={(e) => setRegion(e.target.value)}
                             />
+                        </div>
+                        <div className="space-y-2">
+                            <Label>Send From</Label>
+                            <select 
+                                value={sender} 
+                                onChange={(e) => setSender(e.target.value)}
+                                className="w-full h-10 px-3 rounded-md border border-neutral-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
+                            >
+                                {SENDERS.map(s => (
+                                    <option key={s.key} value={s.key}>
+                                        {s.name} ({s.email})
+                                    </option>
+                                ))}
+                            </select>
                         </div>
                         <Button 
                             className="w-full gap-2" 
@@ -273,7 +402,7 @@ export default function ProspectFinderPage() {
                 <div>
                      <div className="flex justify-between items-center mb-4">
                         <div className="flex gap-4 items-center">
-                            <h2 className="text-lg font-semibold">Latest Results</h2>
+                            <h2 className="text-lg font-semibold">Results ({filteredResults.length})</h2>
                             <Input 
                                 placeholder="Filter results..." 
                                 className="w-[250px] h-8" 
@@ -281,9 +410,21 @@ export default function ProspectFinderPage() {
                                 onChange={(e) => setFilterQuery(e.target.value)}
                             />
                         </div>
-                        <Button variant="ghost" size="sm" onClick={() => fetchResults(1)} className="gap-2"> {/* TODO: Dynamic ID */}
-                            <RefreshCw className="w-4 h-4" /> Refresh
-                        </Button>
+                        <div className="flex gap-2">
+                            <Button 
+                                variant="default" 
+                                size="sm" 
+                                onClick={handleSendAllEmails} 
+                                disabled={isSendingAll || !currentSearchId}
+                                className="gap-2"
+                            >
+                                {isSendingAll ? <Loader2 className="w-4 h-4 animate-spin" /> : <SendHorizonal className="w-4 h-4" />}
+                                Send All Emails
+                            </Button>
+                            <Button variant="ghost" size="sm" onClick={() => currentSearchId && fetchResults(currentSearchId)} className="gap-2">
+                                <RefreshCw className="w-4 h-4" /> Refresh
+                            </Button>
+                        </div>
                     </div>
 
                     <div className="border rounded-lg overflow-hidden bg-white shadow-sm">
@@ -306,29 +447,44 @@ export default function ProspectFinderPage() {
                                 ) : (
                                     filteredResults.map((prospect) => (
                                         <tr key={prospect.id} className="hover:bg-neutral-50 transition-colors">
-                                            <td className="px-4 py-3 font-medium">{prospect.company || 'Unknown'}</td>
                                             <td className="px-4 py-3">
                                                 <div className="flex flex-col">
-                                                    <span>{prospect.name}</span>
-                                                    <span className="text-neutral-500 text-xs">{prospect.email}</span>
+                                                    <span className="font-medium">{prospect.name}</span>
+                                                    {prospect.website && (
+                                                        <a href={prospect.website} target="_blank" rel="noopener noreferrer" className="text-neutral-500 text-xs hover:text-primary-600 truncate max-w-[200px]">
+                                                            {prospect.website.replace(/^https?:\/\//, '')}
+                                                        </a>
+                                                    )}
+                                                </div>
+                                            </td>
+                                            <td className="px-4 py-3">
+                                                <div className="flex flex-col">
+                                                    <span className={prospect.email === 'N/A' ? 'text-neutral-400' : ''}>{prospect.email}</span>
+                                                    {prospect.business_type && (
+                                                        <span className="text-neutral-500 text-xs capitalize">{prospect.business_type}</span>
+                                                    )}
                                                 </div>
                                             </td>
                                             <td className="px-4 py-3">
                                                 <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
-                                                    prospect.status === 'sent' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'
+                                                    prospect.status === 'sent' || prospect.email_sent ? 'bg-green-100 text-green-700' : 
+                                                    prospect.email === 'N/A' ? 'bg-neutral-100 text-neutral-500' : 'bg-yellow-100 text-yellow-700'
                                                 }`}>
-                                                    {prospect.status === 'sent' ? 'Contacted' : 'Pending'}
+                                                    {prospect.status === 'sent' || prospect.email_sent ? 'Sent' : 
+                                                     prospect.email === 'N/A' ? 'No Email' : 'Pending'}
                                                 </span>
                                             </td>
                                             <td className="px-4 py-3 text-right">
-                                                <Button 
-                                                    size="sm" 
-                                                    variant="ghost" 
-                                                    className="h-8 gap-1 text-primary-600 hover:text-primary-700 hover:bg-primary-50"
-                                                    onClick={() => handleCompose(prospect)}
-                                                >
-                                                    <Mail className="w-3 h-3" /> Compose
-                                                </Button>
+                                                {prospect.email && prospect.email !== 'N/A' && !prospect.email_sent && prospect.status !== 'sent' && (
+                                                    <Button 
+                                                        size="sm" 
+                                                        variant="ghost" 
+                                                        className="h-8 gap-1 text-primary-600 hover:text-primary-700 hover:bg-primary-50"
+                                                        onClick={() => handleCompose(prospect)}
+                                                    >
+                                                        <Eye className="w-3 h-3" /> Preview & Send
+                                                    </Button>
+                                                )}
                                             </td>
                                         </tr>
                                     ))
