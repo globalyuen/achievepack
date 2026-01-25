@@ -32,7 +32,7 @@ interface SearchResult {
 }
 
 export default function ProspectFinderPage() {
-  const [activeTab, setActiveTab] = useState<'search' | 'results' | 'campaigns'>('search')
+  const [activeTab, setActiveTab] = useState<'search' | 'results' | 'campaigns' | 'logs'>('search')
   const [query, setQuery] = useState('')
   const [region, setRegion] = useState('Hong Kong')
   const [sender, setSender] = useState('ryan')
@@ -48,29 +48,50 @@ export default function ProspectFinderPage() {
   const [isSendingAll, setIsSendingAll] = useState(false)
   // Auto Run Status
   const [autoRunEnabled, setAutoRunEnabled] = useState(false)
+  const [isTogglingAutoRun, setIsTogglingAutoRun] = useState(false)
   const [history, setHistory] = useState<SearchResult[]>([])
   const [filterQuery, setFilterQuery] = useState('')
+  // Log messages for user visibility
+  const [logs, setLogs] = useState<{time: string, message: string, type: 'info' | 'success' | 'error'}[]>([])
+
+  const addLog = (message: string, type: 'info' | 'success' | 'error' = 'info') => {
+    const time = new Date().toLocaleTimeString()
+    setLogs(prev => [...prev.slice(-19), { time, message, type }]) // Keep last 20 logs
+    console.log(`[${time}] ${type.toUpperCase()}: ${message}`)
+  }
 
   // Auto Run Status - Explained to User
   const toggleAutoRun = async () => {
+      if (isTogglingAutoRun) return // Prevent double click
       const newState = !autoRunEnabled
+      setIsTogglingAutoRun(true)
+      addLog(`${newState ? 'Starting' : 'Stopping'} Auto Run...`, 'info')
       try {
         const endpoint = newState ? '/api/automation/start' : '/api/automation/stop'
+        addLog(`Calling: ${API_BASE}${endpoint}`, 'info')
         const res = await fetch(`${API_BASE}${endpoint}`, { method: 'POST' })
         const data = await res.json()
+        addLog(`Response: ${JSON.stringify(data)}`, data.success ? 'success' : 'error')
         if (data.success) {
            setAutoRunEnabled(newState)
            if (newState) {
                toast.success("Auto Run Enabled", { description: "Background automation started." })
+               addLog('Auto Run ENABLED successfully', 'success')
            } else {
                toast.info("Auto Run Disabled")
+               addLog('Auto Run DISABLED', 'info')
            }
         } else {
-            toast.error("Failed to update automation status")
+            toast.error("Failed to update automation status: " + (data.message || data.error || 'Unknown error'))
+            addLog('Failed: ' + (data.message || data.error || 'Unknown error'), 'error')
         }
-      } catch (e) {
+      } catch (e: any) {
           console.error(e)
-          toast.error("Network error")
+          const errorMsg = e.message || 'Network error'
+          toast.error(errorMsg)
+          addLog('Error: ' + errorMsg, 'error')
+      } finally {
+          setIsTogglingAutoRun(false)
       }
   }
 
@@ -96,14 +117,20 @@ export default function ProspectFinderPage() {
 
   // Fetch initial status
   useEffect(() => {
+    addLog(`Checking automation status: ${API_BASE}/api/automation/status`, 'info')
     fetch(`${API_BASE}/api/automation/status`)
       .then(res => res.json())
       .then(data => {
+          addLog(`Status response: ${JSON.stringify(data)}`, 'success')
           if (data && typeof data.running !== 'undefined') {
               setAutoRunEnabled(data.running)
+              addLog(`Auto Run is ${data.running ? 'ON' : 'OFF'}`, data.running ? 'success' : 'info')
           }
       })
-      .catch(console.error)
+      .catch(e => {
+          console.error(e)
+          addLog('Failed to fetch status: ' + e.message, 'error')
+      })
   }, [])
 
   // Fetch History
@@ -299,9 +326,15 @@ export default function ProspectFinderPage() {
             <div className="flex items-center gap-4">
                  <div className="flex items-center space-x-2">
                     <Label htmlFor="auto-mode" className="text-sm font-medium text-neutral-600">
-                        {autoRunEnabled ? 'Auto Run: ON' : 'Auto Run: OFF'}
+                        {isTogglingAutoRun ? 'Auto Run: ...' : autoRunEnabled ? 'Auto Run: ON' : 'Auto Run: OFF'}
                     </Label>
-                    <Switch id="auto-mode" checked={autoRunEnabled} onCheckedChange={toggleAutoRun} />
+                    <Switch 
+                        id="auto-mode" 
+                        checked={autoRunEnabled} 
+                        onCheckedChange={toggleAutoRun} 
+                        disabled={isTogglingAutoRun}
+                    />
+                    {isTogglingAutoRun && <Loader2 className="w-4 h-4 animate-spin text-neutral-400" />}
                 </div>
                 <Button variant="outline" asChild>
                     <Link to="/ctrl-x9k7m/prospects/lists">
@@ -330,6 +363,12 @@ export default function ProspectFinderPage() {
                  className={`pb-3 px-1 font-medium text-sm transition-colors ${activeTab === 'campaigns' ? 'border-b-2 border-primary-600 text-primary-600' : 'text-neutral-500 hover:text-neutral-700'}`}
             >
                 History ({history.length})
+            </button>
+            <button 
+                 onClick={() => setActiveTab('logs')}
+                 className={`pb-3 px-1 font-medium text-sm transition-colors ${activeTab === 'logs' ? 'border-b-2 border-primary-600 text-primary-600' : 'text-neutral-500 hover:text-neutral-700'}`}
+            >
+                Logs ({logs.length})
             </button>
         </div>
 
@@ -554,6 +593,45 @@ export default function ProspectFinderPage() {
                                 )}
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            )}
+
+            {/* Logs Tab */}
+            {activeTab === 'logs' && (
+                <div className="space-y-4">
+                    <div className="flex justify-between items-center">
+                        <h2 className="text-lg font-semibold">Activity Logs</h2>
+                        <Button variant="ghost" size="sm" onClick={() => setLogs([])} className="gap-2">
+                            Clear Logs
+                        </Button>
+                    </div>
+                    <div className="border rounded-lg bg-neutral-900 text-neutral-100 p-4 font-mono text-sm h-[400px] overflow-y-auto">
+                        {logs.length === 0 ? (
+                            <p className="text-neutral-500">No logs yet. Actions will appear here.</p>
+                        ) : (
+                            logs.map((log, idx) => (
+                                <div key={idx} className={`py-1 border-b border-neutral-800 last:border-0 ${
+                                    log.type === 'error' ? 'text-red-400' : 
+                                    log.type === 'success' ? 'text-green-400' : 'text-neutral-300'
+                                }`}>
+                                    <span className="text-neutral-500">[{log.time}]</span>{' '}
+                                    <span className={`uppercase text-xs px-1 rounded ${
+                                        log.type === 'error' ? 'bg-red-900 text-red-300' : 
+                                        log.type === 'success' ? 'bg-green-900 text-green-300' : 'bg-neutral-700 text-neutral-300'
+                                    }`}>{log.type}</span>{' '}
+                                    {log.message}
+                                </div>
+                            ))
+                        )}
+                    </div>
+                    <div className="p-4 bg-blue-50 text-blue-800 rounded-lg text-sm">
+                        <p className="font-medium mb-1">💡 API Endpoints:</p>
+                        <ul className="list-disc list-inside space-y-1">
+                            <li>Status: <code className="bg-blue-100 px-1 rounded">{API_BASE}/api/automation/status</code></li>
+                            <li>Start: <code className="bg-blue-100 px-1 rounded">{API_BASE}/api/automation/start</code></li>
+                            <li>Stop: <code className="bg-blue-100 px-1 rounded">{API_BASE}/api/automation/stop</code></li>
+                        </ul>
                     </div>
                 </div>
             )}
