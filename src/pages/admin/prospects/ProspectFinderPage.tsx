@@ -8,6 +8,12 @@ import { toast } from 'sonner'
 import { Link } from 'react-router-dom'
 import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
+import { createClient } from '@supabase/supabase-js'
+
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL || '',
+  import.meta.env.VITE_SUPABASE_ANON_KEY || ''
+)
 
 const API_BASE = '' // Use relative paths for Vercel API routes
 
@@ -207,69 +213,111 @@ export default function ProspectFinderPage() {
       toast.info('Excel export coming soon')
   }
 
-  // Import JSON from Replit export
+  // Import JSON from Replit export - Direct Supabase
   const handleImportJSON = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (!file) return
-    
+      
     setIsImporting(true)
     addLog(`Starting import from ${file.name}...`, 'info')
-    
+      
     try {
       const text = await file.text()
       const records = JSON.parse(text)
-      
+        
       if (!Array.isArray(records)) {
         toast.error('Invalid JSON format - expected array')
         return
       }
-      
+        
       addLog(`Found ${records.length} records in file`, 'info')
       setImportProgress({ current: 0, total: records.length, imported: 0, errors: 0 })
-      
-      const batchSize = 50
+        
+      const batchSize = 20 // Smaller batch for direct Supabase
       let totalImported = 0
       let totalErrors = 0
-      
+      let totalSkipped = 0
+        
+      // Get existing emails to skip duplicates
+      addLog('Checking existing emails...', 'info')
+      const existingEmails = new Set<string>()
+      let page = 0
+      while (true) {
+        const { data, error } = await supabase
+          .from('prospect')
+          .select('email')
+          .range(page * 1000, (page + 1) * 1000 - 1)
+        if (error || !data || data.length === 0) break
+        data.forEach(r => { if (r.email) existingEmails.add(r.email.toLowerCase()) })
+        page++
+        if (data.length < 1000) break
+      }
+      addLog(`Found ${existingEmails.size} existing emails`, 'info')
+        
       for (let i = 0; i < records.length; i += batchSize) {
         const batch = records.slice(i, i + batchSize)
         setImportProgress(prev => ({ ...prev, current: i }))
-        
-        try {
-          const res = await fetch('/api/prospect/bulk-import', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': 'Bearer import-history-2024'
-            },
-            body: JSON.stringify({ records: batch.map((r: any) => ({
-              name: r.name || 'Unknown',
-              email: r.email,
-              website: r.website || '',
-              business_type: r.business_type || 'Unknown',
-              sender: r.sender || 'ryan',
-              email_sent_at: r.date_sent || new Date().toISOString(),
-              sales_pitch: r.search_query || ''
-            }))})
-          })
           
-          if (res.ok) {
-            const data = await res.json()
-            totalImported += data.imported || 0
-            totalErrors += data.errors || 0
-          } else {
-            totalErrors += batch.length
+        for (const r of batch) {
+          // Skip if email already exists
+          if (!r.email || existingEmails.has(r.email.toLowerCase())) {
+            totalSkipped++
+            continue
           }
-        } catch (err) {
-          totalErrors += batch.length
+            
+          try {
+            const sender = (r.sender || 'ryan').toLowerCase()
+            const validSender = ['ryan', 'jericha', 'eric'].includes(sender) ? sender : 'ryan'
+              
+            // Create search query record
+            const { data: searchData, error: searchError } = await supabase
+              .from('prospect_search_query')
+              .insert({
+                query: `Imported: ${r.business_type || 'Unknown'}`,
+                sender: validSender,
+                status: 'imported',
+                created_at: r.date_sent || new Date().toISOString()
+              })
+              .select()
+              .single()
+              
+            if (searchError || !searchData) {
+              totalErrors++
+              continue
+            }
+              
+            // Create prospect record
+            const { error: prospectError } = await supabase
+              .from('prospect')
+              .insert({
+                search_query_id: searchData.id,
+                name: (r.name || 'Unknown').substring(0, 500),
+                email: r.email,
+                website: (r.website || '').substring(0, 500),
+                business_type: (r.business_type || 'Unknown').substring(0, 100),
+                email_sent: true,
+                email_sent_at: r.date_sent || new Date().toISOString(),
+                sales_pitch: r.search_query || ''
+              })
+              
+            if (prospectError) {
+              totalErrors++
+            } else {
+              totalImported++
+              existingEmails.add(r.email.toLowerCase())
+            }
+          } catch (err) {
+            totalErrors++
+          }
         }
-        
+          
         setImportProgress(prev => ({ ...prev, imported: totalImported, errors: totalErrors }))
-        await new Promise(resolve => setTimeout(resolve, 200))
+        addLog(`Progress: ${totalImported} imported, ${totalSkipped} skipped, ${totalErrors} errors`, 'info')
+        await new Promise(resolve => setTimeout(resolve, 100))
       }
-      
-      addLog(`Import complete: ${totalImported} imported, ${totalErrors} errors`, totalErrors === 0 ? 'success' : 'info')
-      toast.success(`Import complete: ${totalImported} imported`)
+        
+      addLog(`Import complete: ${totalImported} imported, ${totalSkipped} skipped, ${totalErrors} errors`, totalErrors === 0 ? 'success' : 'info')
+      toast.success(`Import complete: ${totalImported} imported, ${totalSkipped} skipped`)
       fetchHistory()
     } catch (err: any) {
       addLog('Import failed: ' + err.message, 'error')
