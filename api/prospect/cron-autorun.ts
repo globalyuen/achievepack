@@ -154,61 +154,103 @@ function extractBusinessType(searchQuery: string): string {
     return 'products'
 }
 
-// Generate email content - professional format matching original ProspectPro
+// Generate email content - professional format with clear paragraphs
 function generateEmailContent(prospect: any, senderKey: string, businessType: string) {
     const companyName = prospect.clean_name || prospect.name || 'your business'
     const profile = SENDER_PROFILES[senderKey] || SENDER_PROFILES.ryan
     
-    const subject = `Boost ${companyName} sales by 15-20% with eco-friendly packaging from pouch.eco`
+    const subject = `${companyName} - Boost Sales 15-20% with Eco-Friendly Packaging`
     
     const body = `Hello ${companyName} Team,
 
-Good morning!
+I hope this email finds you well!
 
-I've checked out ${companyName} and see huge potential for your ${businessType} to be packed in eco-friendly packaging to shine in the market.
+I recently came across ${companyName} and was truly impressed by your ${businessType}. I believe there's an exciting opportunity to help elevate your brand even further with premium eco-friendly packaging.
 
-With your approval, I'd like to show you our sample, demonstrating how they can skyrocket your sales. These strategies will help consumers be more aware of your business both online and offline.
 
-Interested in a customized printed eco-friendly packaging solution to help ${companyName} gain more sales from eco-conscious consumers?
+**Why Eco-Friendly Packaging Matters:**
 
-Explore our solutions:
-- Compostable Packaging: https://achievepack.com/materials/compostable
-- Stand Up Pouches: https://achievepack.com/packaging/stand-up-pouches
-- Our Free Services: https://achievepack.com/free-service
+Today's consumers increasingly prefer brands that demonstrate environmental responsibility. Studies show that 73% of consumers are willing to pay more for sustainable packaging. This is where Achieve Pack can help you stand out.
 
-Schedule a free 30-minute consultation:
-https://calendly.com/30-min-free-packaging-consultancy
 
-Excited to hear back!
+**What We Offer:**
 
-Best regards,
+• Custom branded pouches with stunning print quality
+• EN 13432 & ASTM D6400 certified compostable materials
+• Low minimum orders starting at just 500 units
+• Fast 2-week turnaround time
+• FREE design consultation and 3D mockups
+
+
+**Explore Our Solutions:**
+
+→ Compostable Packaging: https://achievepack.com/materials/compostable
+→ Stand Up Pouches: https://achievepack.com/packaging/stand-up-pouches
+→ Free Services: https://achievepack.com/free-service
+
+
+**Let's Connect:**
+
+I'd love to show you how we can help ${companyName} attract more eco-conscious customers and boost your sales. Would you be open to a quick 15-minute call?
+
+📅 Book a free consultation: https://calendly.com/30-min-free-packaging-consultancy
+
+Looking forward to hearing from you!
+
+
+Warm regards,
+
 ${profile.name}
-Achieve Pack Packaging Development
-www.achievepack.com | www.pouch.eco
-${profile.email}
-WhatsApp: +852 69704411
+Packaging Development Representative
+
+Achieve Pack™
+🌐 www.achievepack.com
+📧 ${profile.email}
+📱 WhatsApp: +852 69704411
 
 ---
 Achieve Pack | Sustainable Packaging Solutions
-https://achievepack.com
+Helping 500+ brands succeed with eco-friendly packaging
 
 To unsubscribe: https://achievepack.com/unsubscribe?email=${encodeURIComponent(prospect.email || '')}`
     
     return { subject, body }
 }
 
-// Send email via Brevo
+// Send email via Brevo with proper HTML formatting
 async function sendBrevoEmail(to: string, subject: string, body: string, senderKey: string) {
     const BREVO_API_KEY = process.env.BREVO_API_KEY
     if (!BREVO_API_KEY) throw new Error('BREVO_API_KEY not configured')
     
     const sender = SENDER_PROFILES[senderKey] || SENDER_PROFILES.ryan
     
+    // Convert plain text to well-formatted HTML
     const htmlBody = body
-        .replace(/\n/g, '<br>')
-        .replace(/•/g, '&bull;')
-        .replace(/✓/g, '&#10003;')
-        .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" style="color: #059669;">$1</a>')
+        .split('\n\n').map(paragraph => {
+            // Handle section headers with **text**
+            let p = paragraph.replace(/\*\*([^*]+)\*\*/g, '<strong style="color: #059669;">$1</strong>')
+            // Handle bullet points
+            if (p.includes('\n•') || p.includes('\n→')) {
+                const lines = p.split('\n')
+                const intro = lines[0]
+                const items = lines.slice(1).filter(l => l.trim())
+                if (items.length > 0) {
+                    p = intro + '<ul style="margin: 10px 0; padding-left: 20px;">' + 
+                        items.map(item => `<li style="margin: 5px 0;">${item.replace(/^[•→]\s*/, '')}</li>`).join('') + 
+                        '</ul>'
+                }
+            }
+            // Convert URLs to links
+            p = p.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" style="color: #059669; text-decoration: none;">$1</a>')
+            // Convert newlines to breaks within paragraphs
+            p = p.replace(/\n/g, '<br>')
+            return `<p style="margin: 0 0 16px 0; line-height: 1.6;">${p}</p>`
+        }).join('')
+    
+    const styledHtml = `
+    <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333; font-size: 15px;">
+        ${htmlBody}
+    </div>`
     
     const response = await fetch('https://api.brevo.com/v3/smtp/email', {
         method: 'POST',
@@ -221,7 +263,7 @@ async function sendBrevoEmail(to: string, subject: string, body: string, senderK
             sender: { name: sender.name, email: sender.email },
             to: [{ email: to }],
             subject,
-            htmlContent: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">${htmlBody}</div>`,
+            htmlContent: styledHtml,
             textContent: body
         })
     })
@@ -352,7 +394,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const businesses = await searchBusinesses(searchQuery)
         console.log(`🔍 Found ${businesses.length} businesses`)
         
-        let emailsSent = 0
+        let prospectsCreated = 0
         let emailsFound = 0
         const businessType = extractBusinessType(searchQuery)
         
@@ -383,7 +425,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 const cleanName = await cleanBusinessNameWithAI(business.name)
                 console.log(`Cleaned name: "${business.name}" -> "${cleanName}"`)
                 
-                // Create prospect record
+                // Generate email content (for preview)
+                const prospectPreview = { clean_name: cleanName, name: cleanName, email }
+                const { subject, body } = generateEmailContent(prospectPreview, sender, businessType)
+                
+                // Create prospect record with email content ready for review
                 const { data: prospect, error: prospectError } = await supabase
                     .from('prospect')
                     .insert({
@@ -391,7 +437,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                         name: cleanName,
                         website: business.website,
                         email,
-                        business_type: businessType
+                        business_type: businessType,
+                        sales_pitch: `Subject: ${subject}\n\n${body}`,
+                        email_sent: false  // Not sent yet - pending review
                     })
                     .select()
                     .single()
@@ -401,27 +449,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                     continue
                 }
                 
-                // Generate and send email with cleaned name
-                const prospectWithCleanName = { ...prospect, clean_name: cleanName }
-                const { subject, body } = generateEmailContent(prospectWithCleanName, sender, businessType)
-                const messageId = await sendBrevoEmail(email, subject, body, sender)
-                
-                // Update prospect with sent status
-                await supabase
-                    .from('prospect')
-                    .update({
-                        email_sent: true,
-                        email_sent_at: new Date().toISOString(),
-                        brevo_message_id: messageId,
-                        sales_pitch: `Subject: ${subject}\n\n${body}`
-                    })
-                    .eq('id', prospect.id)
-                
-                emailsSent++
-                console.log(`✅ Email sent to ${email}`)
-                
-                // Rate limiting - wait 2 seconds between emails
-                await new Promise(resolve => setTimeout(resolve, 2000))
+                prospectsCreated++
+                console.log(`📋 Prospect queued for review: ${cleanName} (${email})`)
                 
             } catch (error) {
                 console.error('Error processing business:', error)
@@ -432,10 +461,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         await supabase
             .from('prospect_search_query')
             .update({
-                status: 'completed',
+                status: 'pending_review',
                 total_results: businesses.length,
                 emails_found: emailsFound,
-                emails_sent: emailsSent
+                emails_sent: 0  // Not sent yet
             })
             .eq('id', searchRecord.id)
         
@@ -445,16 +474,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             .update({ last_run_at: new Date().toISOString() })
             .eq('id', 1)
         
-        console.log(`🎉 Auto Run complete: ${emailsSent} emails sent`)
+        console.log(`📋 Auto Run complete: ${prospectsCreated} prospects queued for review`)
         
         return res.status(200).json({
             success: true,
-            message: `Automation cycle complete`,
+            message: `${prospectsCreated} prospects ready for review`,
             query: searchQuery,
             sender,
             found: businesses.length,
             emailsFound,
-            emailsSent
+            prospectsCreated,
+            note: 'Prospects saved for review. Go to Results tab to preview and send emails.'
         })
         
     } catch (error) {
