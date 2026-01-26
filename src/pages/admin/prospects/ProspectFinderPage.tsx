@@ -1,14 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter } from '@/components/ui/sheet'
 import { EmailEditor } from '@/components/EmailEditor'
-import { Search, Mail, RefreshCw, Loader2, PlayCircle, StopCircle, UserMinus, Plus, Check, Send, Wand2, SendHorizonal, Eye, Download, BarChart3, MousePointerClick, MailOpen, Upload } from 'lucide-react'
+import { Search, Mail, RefreshCw, Loader2, PlayCircle, StopCircle, UserMinus, Plus, Check, Send, Wand2, SendHorizonal, Eye, Download, BarChart3, MousePointerClick, MailOpen } from 'lucide-react'
 import { toast } from 'sonner'
 import { Link } from 'react-router-dom'
 import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
-import { supabase } from '@/lib/supabase'
 
 const API_BASE = '' // Use relative paths for Vercel API routes
 
@@ -67,11 +66,6 @@ export default function ProspectFinderPage() {
   const [history, setHistory] = useState<SearchResult[]>([])
   const [historyStats, setHistoryStats] = useState<EmailStats | null>(null)
   const [filterQuery, setFilterQuery] = useState('')
-  const [engagementFilter, setEngagementFilter] = useState<'all' | 'opened' | 'clicked' | 'engaged' | 'no_engagement'>('all')
-  // Import state
-  const [isImporting, setIsImporting] = useState(false)
-  const [importProgress, setImportProgress] = useState({ current: 0, total: 0, imported: 0, errors: 0 })
-  const fileInputRef = useRef<HTMLInputElement>(null)
   // Log messages for user visibility
   const [logs, setLogs] = useState<{time: string, message: string, type: 'info' | 'success' | 'error'}[]>([])
 
@@ -208,121 +202,6 @@ export default function ProspectFinderPage() {
       toast.info('Excel export coming soon')
   }
 
-  // Import JSON from Replit export - Direct Supabase
-  const handleImportJSON = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    if (!file) return
-      
-    setIsImporting(true)
-    addLog(`Starting import from ${file.name}...`, 'info')
-      
-    try {
-      const text = await file.text()
-      const records = JSON.parse(text)
-        
-      if (!Array.isArray(records)) {
-        toast.error('Invalid JSON format - expected array')
-        return
-      }
-        
-      addLog(`Found ${records.length} records in file`, 'info')
-      setImportProgress({ current: 0, total: records.length, imported: 0, errors: 0 })
-        
-      const batchSize = 20 // Smaller batch for direct Supabase
-      let totalImported = 0
-      let totalErrors = 0
-      let totalSkipped = 0
-        
-      // Get existing emails to skip duplicates
-      addLog('Checking existing emails...', 'info')
-      const existingEmails = new Set<string>()
-      let page = 0
-      while (true) {
-        const { data, error } = await supabase
-          .from('prospect')
-          .select('email')
-          .range(page * 1000, (page + 1) * 1000 - 1)
-        if (error || !data || data.length === 0) break
-        data.forEach(r => { if (r.email) existingEmails.add(r.email.toLowerCase()) })
-        page++
-        if (data.length < 1000) break
-      }
-      addLog(`Found ${existingEmails.size} existing emails`, 'info')
-        
-      for (let i = 0; i < records.length; i += batchSize) {
-        const batch = records.slice(i, i + batchSize)
-        setImportProgress(prev => ({ ...prev, current: i }))
-          
-        for (const r of batch) {
-          // Skip if email already exists
-          if (!r.email || existingEmails.has(r.email.toLowerCase())) {
-            totalSkipped++
-            continue
-          }
-            
-          try {
-            const sender = (r.sender || 'ryan').toLowerCase()
-            const validSender = ['ryan', 'jericha', 'eric'].includes(sender) ? sender : 'ryan'
-              
-            // Create search query record
-            const { data: searchData, error: searchError } = await supabase
-              .from('prospect_search_query')
-              .insert({
-                query: `Imported: ${r.business_type || 'Unknown'}`,
-                sender: validSender,
-                status: 'imported',
-                created_at: r.date_sent || new Date().toISOString()
-              })
-              .select()
-              .single()
-              
-            if (searchError || !searchData) {
-              totalErrors++
-              continue
-            }
-              
-            // Create prospect record
-            const { error: prospectError } = await supabase
-              .from('prospect')
-              .insert({
-                search_query_id: searchData.id,
-                name: (r.name || 'Unknown').substring(0, 500),
-                email: r.email,
-                website: (r.website || '').substring(0, 500),
-                business_type: (r.business_type || 'Unknown').substring(0, 100),
-                email_sent: true,
-                email_sent_at: r.date_sent || new Date().toISOString(),
-                sales_pitch: r.search_query || ''
-              })
-              
-            if (prospectError) {
-              totalErrors++
-            } else {
-              totalImported++
-              existingEmails.add(r.email.toLowerCase())
-            }
-          } catch (err) {
-            totalErrors++
-          }
-        }
-          
-        setImportProgress(prev => ({ ...prev, imported: totalImported, errors: totalErrors }))
-        addLog(`Progress: ${totalImported} imported, ${totalSkipped} skipped, ${totalErrors} errors`, 'info')
-        await new Promise(resolve => setTimeout(resolve, 100))
-      }
-        
-      addLog(`Import complete: ${totalImported} imported, ${totalSkipped} skipped, ${totalErrors} errors`, totalErrors === 0 ? 'success' : 'info')
-      toast.success(`Import complete: ${totalImported} imported, ${totalSkipped} skipped`)
-      fetchHistory()
-    } catch (err: any) {
-      addLog('Import failed: ' + err.message, 'error')
-      toast.error('Failed to parse JSON file')
-    } finally {
-      setIsImporting(false)
-      if (fileInputRef.current) fileInputRef.current.value = ''
-    }
-  }
-
   // Effect to load history when tab changes
   useEffect(() => {
       if (activeTab === 'campaigns') { 
@@ -394,32 +273,10 @@ export default function ProspectFinderPage() {
       (r.company && r.company.toLowerCase().includes(filterQuery.toLowerCase()))
   )
 
-  const filteredHistory = history.filter(r => {
-      // Text search filter
-      const matchesText = r.name?.toLowerCase().includes(filterQuery.toLowerCase()) || 
-          r.email?.toLowerCase().includes(filterQuery.toLowerCase())
-      
-      // Engagement filter
-      let matchesEngagement = true
-      switch (engagementFilter) {
-          case 'opened':
-              matchesEngagement = r.email_opened === true
-              break
-          case 'clicked':
-              matchesEngagement = r.email_clicked === true
-              break
-          case 'engaged':
-              matchesEngagement = r.email_opened === true || r.email_clicked === true
-              break
-          case 'no_engagement':
-              matchesEngagement = !r.email_opened && !r.email_clicked
-              break
-          default:
-              matchesEngagement = true
-      }
-      
-      return matchesText && matchesEngagement
-  })
+  const filteredHistory = history.filter(r => 
+      r.name?.toLowerCase().includes(filterQuery.toLowerCase()) || 
+      r.email?.toLowerCase().includes(filterQuery.toLowerCase())
+  )
 
 
   // Handle composing email with preview
@@ -785,47 +642,15 @@ export default function ProspectFinderPage() {
                     {/* Controls */}
                     <div className="flex justify-between items-center">
                         <div className="flex gap-4 items-center">
-                            <h2 className="text-lg font-semibold">Sent History ({filteredHistory.length})</h2>
+                            <h2 className="text-lg font-semibold">Sent History ({history.length})</h2>
                             <Input 
                                 placeholder="Search history..." 
-                                className="w-[200px] h-8" 
+                                className="w-[250px] h-8" 
                                 value={filterQuery}
                                 onChange={(e) => setFilterQuery(e.target.value)}
                             />
-                            <select
-                                value={engagementFilter}
-                                onChange={(e) => setEngagementFilter(e.target.value as any)}
-                                className="h-8 px-3 rounded-md border border-neutral-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
-                            >
-                                <option value="all">All Emails</option>
-                                <option value="opened">Opened</option>
-                                <option value="clicked">Clicked</option>
-                                <option value="engaged">Any Engagement</option>
-                                <option value="no_engagement">No Engagement</option>
-                            </select>
                         </div>
                         <div className="flex gap-2">
-                            <input
-                                type="file"
-                                accept=".json"
-                                ref={fileInputRef}
-                                onChange={handleImportJSON}
-                                className="hidden"
-                                id="import-json-file"
-                            />
-                            <Button 
-                                variant="outline" 
-                                size="sm" 
-                                onClick={() => fileInputRef.current?.click()}
-                                disabled={isImporting}
-                                className="gap-2"
-                            >
-                                {isImporting ? (
-                                    <><Loader2 className="w-4 h-4 animate-spin" /> Importing {importProgress.current}/{importProgress.total}...</>
-                                ) : (
-                                    <><Upload className="w-4 h-4" /> Import JSON</>
-                                )}
-                            </Button>
                             <Button variant="outline" size="sm" onClick={handleExportExcel} className="gap-2">
                                 <Download className="w-4 h-4" /> Export Excel
                             </Button>
