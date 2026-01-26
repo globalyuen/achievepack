@@ -394,7 +394,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const businesses = await searchBusinesses(searchQuery)
         console.log(`🔍 Found ${businesses.length} businesses`)
         
-        let prospectsCreated = 0
+        let emailsSent = 0
         let emailsFound = 0
         const businessType = extractBusinessType(searchQuery)
         
@@ -425,11 +425,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 const cleanName = await cleanBusinessNameWithAI(business.name)
                 console.log(`Cleaned name: "${business.name}" -> "${cleanName}"`)
                 
-                // Generate email content (for preview)
-                const prospectPreview = { clean_name: cleanName, name: cleanName, email }
-                const { subject, body } = generateEmailContent(prospectPreview, sender, businessType)
+                // Generate email content
+                const prospectData = { clean_name: cleanName, name: cleanName, email }
+                const { subject, body } = generateEmailContent(prospectData, sender, businessType)
                 
-                // Create prospect record with email content ready for review
+                // Create prospect record
                 const { data: prospect, error: prospectError } = await supabase
                     .from('prospect')
                     .insert({
@@ -438,8 +438,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                         website: business.website,
                         email,
                         business_type: businessType,
-                        sales_pitch: `Subject: ${subject}\n\n${body}`,
-                        email_sent: false  // Not sent yet - pending review
+                        sales_pitch: `Subject: ${subject}\n\n${body}`
                     })
                     .select()
                     .single()
@@ -449,8 +448,24 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                     continue
                 }
                 
-                prospectsCreated++
-                console.log(`📋 Prospect queued for review: ${cleanName} (${email})`)
+                // Send email
+                const messageId = await sendBrevoEmail(email, subject, body, sender)
+                
+                // Update prospect with sent status
+                await supabase
+                    .from('prospect')
+                    .update({
+                        email_sent: true,
+                        email_sent_at: new Date().toISOString(),
+                        brevo_message_id: messageId
+                    })
+                    .eq('id', prospect.id)
+                
+                emailsSent++
+                console.log(`Email sent to ${cleanName} (${email})`)
+                
+                // Rate limiting
+                await new Promise(resolve => setTimeout(resolve, 2000))
                 
             } catch (error) {
                 console.error('Error processing business:', error)
@@ -461,10 +476,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         await supabase
             .from('prospect_search_query')
             .update({
-                status: 'pending_review',
+                status: 'completed',
                 total_results: businesses.length,
                 emails_found: emailsFound,
-                emails_sent: 0  // Not sent yet
+                emails_sent: emailsSent
             })
             .eq('id', searchRecord.id)
         
@@ -474,17 +489,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             .update({ last_run_at: new Date().toISOString() })
             .eq('id', 1)
         
-        console.log(`📋 Auto Run complete: ${prospectsCreated} prospects queued for review`)
+        console.log(`Auto Run complete: ${emailsSent} emails sent`)
         
         return res.status(200).json({
             success: true,
-            message: `${prospectsCreated} prospects ready for review`,
+            message: `${emailsSent} emails sent`,
             query: searchQuery,
             sender,
             found: businesses.length,
             emailsFound,
-            prospectsCreated,
-            note: 'Prospects saved for review. Go to Results tab to preview and send emails.'
+            emailsSent
         })
         
     } catch (error) {
