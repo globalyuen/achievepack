@@ -1,5 +1,5 @@
 {
-  "regions": ["hnd1"],
+  "regions": ["iad1", "hnd1", "fra1"],
   "outputDirectory": "dist",
   "crons": [
     {
