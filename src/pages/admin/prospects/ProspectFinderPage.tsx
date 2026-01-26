@@ -44,7 +44,7 @@ interface EmailStats {
 }
 
 export default function ProspectFinderPage() {
-  const [activeTab, setActiveTab] = useState<'search' | 'results' | 'campaigns' | 'logs'>('search')
+  const [activeTab, setActiveTab] = useState<'search' | 'results' | 'campaigns' | 'autosend' | 'logs'>('search')
   const [query, setQuery] = useState('')
   const [region, setRegion] = useState('Hong Kong')
   const [sender, setSender] = useState('ryan')
@@ -68,6 +68,11 @@ export default function ProspectFinderPage() {
   const [filterQuery, setFilterQuery] = useState('')
   // Log messages for user visibility
   const [logs, setLogs] = useState<{time: string, message: string, type: 'info' | 'success' | 'error'}[]>([])
+  // Auto Send Template Preview
+  const [templatePreview, setTemplatePreview] = useState<{subject: string, body: string, html: string} | null>(null)
+  const [isLoadingTemplate, setIsLoadingTemplate] = useState(false)
+  const [autoSendQuery, setAutoSendQuery] = useState('')
+  const [templateConfirmed, setTemplateConfirmed] = useState(false)
 
   const addLog = (message: string, type: 'info' | 'success' | 'error' = 'info') => {
     const time = new Date().toLocaleTimeString()
@@ -148,6 +153,35 @@ export default function ProspectFinderPage() {
           addLog('Failed to fetch status: ' + e.message, 'error')
       })
   }, [])
+
+  // Fetch template preview
+  const fetchTemplatePreview = async (company?: string, type?: string) => {
+    setIsLoadingTemplate(true)
+    try {
+      const params = new URLSearchParams()
+      if (company) params.set('company', company)
+      if (type) params.set('type', type)
+      params.set('sender', 'ryan')
+      
+      const res = await fetch(`/api/prospect/preview-template?${params}`)
+      const data = await res.json()
+      if (data.success && data.preview) {
+        setTemplatePreview(data.preview)
+      }
+    } catch (e) {
+      console.error(e)
+      toast.error('Failed to load template')
+    } finally {
+      setIsLoadingTemplate(false)
+    }
+  }
+
+  // Load template on Auto Send tab
+  useEffect(() => {
+    if (activeTab === 'autosend' && !templatePreview) {
+      fetchTemplatePreview()
+    }
+  }, [activeTab])
 
   // Manual trigger for Auto Run (for testing)
   const triggerManualRun = async () => {
@@ -432,6 +466,12 @@ export default function ProspectFinderPage() {
                  className={`pb-3 px-1 font-medium text-sm transition-colors ${activeTab === 'campaigns' ? 'border-b-2 border-primary-600 text-primary-600' : 'text-neutral-500 hover:text-neutral-700'}`}
             >
                 History ({history.length})
+            </button>
+            <button 
+                 onClick={() => setActiveTab('autosend')}
+                 className={`pb-3 px-1 font-medium text-sm transition-colors ${activeTab === 'autosend' ? 'border-b-2 border-primary-600 text-primary-600' : 'text-neutral-500 hover:text-neutral-700'}`}
+            >
+                Auto Send
             </button>
             <button 
                  onClick={() => setActiveTab('logs')}
@@ -738,6 +778,132 @@ export default function ProspectFinderPage() {
                                 )}
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            )}
+
+            {/* Auto Send Tab */}
+            {activeTab === 'autosend' && (
+                <div className="space-y-6">
+                    {/* Status Card */}
+                    <div className={`p-6 rounded-xl border-2 ${autoRunEnabled ? 'bg-green-50 border-green-300' : 'bg-neutral-50 border-neutral-200'}`}>
+                        <div className="flex items-center justify-between">
+                            <div>
+                                <h3 className="text-lg font-semibold flex items-center gap-2">
+                                    {autoRunEnabled ? (
+                                        <><PlayCircle className="w-5 h-5 text-green-600" /> Auto Send is ACTIVE</>
+                                    ) : (
+                                        <><StopCircle className="w-5 h-5 text-neutral-400" /> Auto Send is OFF</>
+                                    )}
+                                </h3>
+                                <p className="text-sm text-neutral-600 mt-1">
+                                    {autoRunEnabled 
+                                        ? 'Emails are being sent automatically every 2 hours'
+                                        : 'Enable to automatically find and email prospects'
+                                    }
+                                </p>
+                                {lastRunAt && (
+                                    <p className="text-xs text-neutral-500 mt-2">Last run: {new Date(lastRunAt).toLocaleString()}</p>
+                                )}
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <Switch 
+                                    checked={autoRunEnabled} 
+                                    onCheckedChange={toggleAutoRun}
+                                    disabled={isTogglingAutoRun || (!templateConfirmed && !autoRunEnabled)}
+                                />
+                                {isTogglingAutoRun && <Loader2 className="w-5 h-5 animate-spin" />}
+                            </div>
+                        </div>
+                        {!templateConfirmed && !autoRunEnabled && (
+                            <div className="mt-4 p-3 bg-amber-100 border border-amber-300 rounded-lg text-amber-800 text-sm">
+                                Please review and confirm the email template below before enabling Auto Send.
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Template Preview */}
+                    <div className="border rounded-xl overflow-hidden">
+                        <div className="bg-neutral-100 px-4 py-3 border-b flex items-center justify-between">
+                            <h3 className="font-semibold">Email Template Preview</h3>
+                            <Button 
+                                variant="ghost" 
+                                size="sm" 
+                                onClick={() => fetchTemplatePreview()}
+                                disabled={isLoadingTemplate}
+                            >
+                                {isLoadingTemplate ? <Loader2 className="w-4 h-4 animate-spin" /> : <RefreshCw className="w-4 h-4" />}
+                            </Button>
+                        </div>
+                        
+                        {isLoadingTemplate ? (
+                            <div className="p-8 text-center">
+                                <Loader2 className="w-8 h-8 animate-spin mx-auto text-neutral-400" />
+                                <p className="text-neutral-500 mt-2">Loading template...</p>
+                            </div>
+                        ) : templatePreview ? (
+                            <div className="p-6 space-y-4">
+                                <div className="space-y-1">
+                                    <label className="text-xs font-medium text-neutral-500 uppercase">Subject Line</label>
+                                    <div className="p-3 bg-neutral-50 rounded-lg border font-medium">
+                                        {templatePreview.subject}
+                                    </div>
+                                </div>
+                                <div className="space-y-1">
+                                    <label className="text-xs font-medium text-neutral-500 uppercase">Email Body</label>
+                                    <div 
+                                        className="p-4 bg-white rounded-lg border max-h-[400px] overflow-y-auto"
+                                        dangerouslySetInnerHTML={{ __html: templatePreview.html }}
+                                    />
+                                </div>
+                                <div className="flex items-center gap-2 text-sm text-neutral-600">
+                                    <Mail className="w-4 h-4" />
+                                    <span>Sender: <strong>Ryan Wong</strong> (ryan@pouch.eco)</span>
+                                </div>
+                            </div>
+                        ) : (
+                            <div className="p-8 text-center text-neutral-500">
+                                Failed to load template. Click refresh to try again.
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Confirm Section */}
+                    {!autoRunEnabled && (
+                        <div className="flex items-center justify-between p-4 bg-blue-50 border border-blue-200 rounded-xl">
+                            <div className="flex items-center gap-3">
+                                <input 
+                                    type="checkbox" 
+                                    id="confirm-template"
+                                    checked={templateConfirmed}
+                                    onChange={(e) => setTemplateConfirmed(e.target.checked)}
+                                    className="w-5 h-5 rounded border-blue-300 text-blue-600 focus:ring-blue-500"
+                                />
+                                <label htmlFor="confirm-template" className="text-sm font-medium text-blue-800">
+                                    I have reviewed the email template and confirm it's ready for auto sending
+                                </label>
+                            </div>
+                            <Button 
+                                onClick={toggleAutoRun}
+                                disabled={!templateConfirmed || isTogglingAutoRun}
+                                className="gap-2"
+                            >
+                                {isTogglingAutoRun ? <Loader2 className="w-4 h-4 animate-spin" /> : <PlayCircle className="w-4 h-4" />}
+                                Enable Auto Send
+                            </Button>
+                        </div>
+                    )}
+
+                    {/* Info Box */}
+                    <div className="p-4 bg-neutral-50 border rounded-xl text-sm space-y-2">
+                        <h4 className="font-semibold text-neutral-700">How Auto Send Works:</h4>
+                        <ul className="list-disc list-inside space-y-1 text-neutral-600">
+                            <li>Runs automatically every 2 hours</li>
+                            <li>Searches for new prospects based on configured keywords</li>
+                            <li>Uses AI to clean company names for personalization</li>
+                            <li>Sends emails only to new contacts (skips duplicates & unsubscribed)</li>
+                            <li>Maximum 5 emails per run to maintain quality</li>
+                        </ul>
                     </div>
                 </div>
             )}
