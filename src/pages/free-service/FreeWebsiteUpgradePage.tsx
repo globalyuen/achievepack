@@ -817,6 +817,66 @@ const FreeWebsiteUpgradePage: React.FC = () => {
                   </Link>
                 </div>
               </motion.div>
+
+              {/* Achieve Chocolate Demo Card */}
+              <motion.div 
+                className="group relative bg-[#2C1810] rounded-3xl overflow-hidden shadow-2xl border border-[#D4AF37]/20"
+                variants={fadeInUp}
+                whileHover={{ y: -12, transition: { duration: 0.3 } }}
+              >
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img
+                    src="/imgs/achieve-chocolate/hero-main.png"
+                    alt="Achieve Chocolate Demo"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                </div>
+                <div className="absolute bottom-0 left-0 p-8 text-white">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="bg-[#D4AF37] text-[#2C1810] text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Confectionery</span>
+                    <span className="text-xs text-[#D4AF37]/80 font-medium italic">Luxury Experience</span>
+                  </div>
+                  <h3 className="text-3xl font-bold mb-3 text-[#D4AF37]">Achieve Chocolate</h3>
+                  <p className="text-white/80 text-sm mb-6 max-w-sm">A sustainable luxury chocolate brand showcase featuring premium rigid boxes and compostable pouches.</p>
+                  <Link
+                    to="/free-service/achieve-chocolate-demo"
+                    className="inline-flex items-center gap-2 bg-[#D4AF37] text-[#2C1810] px-6 py-3 rounded-full font-bold transition hover:bg-white"
+                  >
+                    Enter Chocolate Demo Site <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </motion.div>
+
+              {/* Achieve Supplements Demo Card */}
+              <motion.div 
+                className="group relative bg-[#F5F5F7] rounded-3xl overflow-hidden shadow-2xl border border-white/50"
+                variants={fadeInUp}
+                whileHover={{ y: -12, transition: { duration: 0.3 } }}
+              >
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=2574&auto=format&fit=crop"
+                    alt="Achieve Supplements Demo"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                </div>
+                <div className="absolute bottom-0 left-0 p-8">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="bg-[#FFE135] text-black text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Health</span>
+                    <span className="text-xs text-black/70 font-medium italic">Nano Tech</span>
+                  </div>
+                  <h3 className="text-3xl font-bold mb-3 text-black">Achieve Supps</h3>
+                  <p className="text-gray-600 text-sm mb-6 max-w-sm">Scientific minimalist branding for stick packs. Highlighting precision dosage and clean ingredients.</p>
+                  <Link
+                    to="/free-service/achieve-supplement-demo"
+                    className="inline-flex items-center gap-2 bg-black text-white px-6 py-3 rounded-full font-bold transition hover:bg-[#FFE135] hover:text-black"
+                  >
+                    Enter Supplement Demo Site <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </section>

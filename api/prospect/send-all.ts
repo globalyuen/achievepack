@@ -28,6 +28,7 @@ async function sendBrevoEmail(to: string, subject: string, body: string, senderK
         body: JSON.stringify({
             sender: { name: sender.name, email: sender.email },
             to: [{ email: to }],
+            cc: [{ email: 'no-reply@achievepack.com', name: 'Achieve Pack' }],
             subject,
             htmlContent: body.replace(/\n/g, '<br>'),
             textContent: body
