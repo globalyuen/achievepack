@@ -35,6 +35,7 @@ export default function DocumentTemplatesPage() {
   const [uploadName, setUploadName] = useState('')
   const [uploadFile, setUploadFile] = useState<File | null>(null)
   const [previewUrl, setPreviewUrl] = useState<string | null>(null)
+  const [uploadSuccess, setUploadSuccess] = useState<DocumentTemplate | null>(null)
 
   // Fetch templates
   const fetchTemplates = useCallback(async () => {
@@ -119,17 +120,25 @@ export default function DocumentTemplatesPage() {
 
       if (error) throw error
 
-      toast.success('Template uploaded successfully!')
       setShowUploadModal(false)
       setUploadFile(null)
       setUploadName('')
       setPreviewUrl(null)
-      fetchTemplates()
+      
+      // Show success state with the new template
+      setUploadSuccess(data)
+      toast.success('Template uploaded! Now extracting data with XAI...')
+      await fetchTemplates()
 
       // Auto-extract if it's an image
       if (data && uploadFile.type.startsWith('image/')) {
-        extractWithXAI(data)
+        await extractWithXAI(data)
+        setSelectedTemplate(data) // Auto-open the template to show results
+      } else {
+        setSelectedTemplate(data)
       }
+      
+      setUploadSuccess(null)
     } catch (err: any) {
       console.error('Upload error:', err)
       toast.error(err.message || 'Failed to upload template')
@@ -316,6 +325,25 @@ export default function DocumentTemplatesPage() {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Processing Status Banner */}
+        {(uploading || extracting) && (
+          <div className="mb-6 bg-purple-50 border border-purple-200 rounded-xl p-4 flex items-center gap-4">
+            <div className="flex-shrink-0">
+              <Loader2 className="h-8 w-8 animate-spin text-purple-500" />
+            </div>
+            <div>
+              <h3 className="font-medium text-purple-900">
+                {uploading ? 'Uploading template...' : 'Extracting data with XAI...'}
+              </h3>
+              <p className="text-sm text-purple-700">
+                {uploading 
+                  ? 'Please wait while we upload your file'
+                  : 'AI is analyzing the document to extract structured data'}
+              </p>
+            </div>
+          </div>
+        )}
+
         {loading ? (
           <div className="flex items-center justify-center py-20">
             <RefreshCw className="h-8 w-8 animate-spin text-primary-500" />
