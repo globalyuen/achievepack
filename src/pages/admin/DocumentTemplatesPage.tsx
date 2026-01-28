@@ -156,6 +156,15 @@ export default function DocumentTemplatesPage() {
 
     setExtracting(template.id)
     try {
+      // Convert image to base64
+      const imageResponse = await fetch(template.file_url)
+      const blob = await imageResponse.blob()
+      const base64 = await new Promise<string>((resolve) => {
+        const reader = new FileReader()
+        reader.onloadend = () => resolve(reader.result as string)
+        reader.readAsDataURL(blob)
+      })
+
       const prompt = template.type === 'invoice' 
         ? `Analyze this invoice image and extract all structured data including:
            - Invoice number, date, due date
@@ -182,16 +191,17 @@ export default function DocumentTemplatesPage() {
           'Authorization': `Bearer ${XAI_API_KEY}`
         },
         body: JSON.stringify({
-          model: 'grok-vision-beta',
+          model: 'grok-2-vision-1212',
           messages: [
             {
               role: 'user',
               content: [
-                { type: 'text', text: prompt },
-                { type: 'image_url', image_url: { url: template.file_url } }
+                { type: 'image_url', image_url: { url: base64 } },
+                { type: 'text', text: prompt }
               ]
             }
           ],
+          max_tokens: 2000,
           temperature: 0.1
         })
       })
