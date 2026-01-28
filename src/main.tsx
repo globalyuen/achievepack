@@ -337,6 +337,11 @@ const ArtworkReviewPage = lazyWithRetry(() => import('./pages/ArtworkReviewPage'
 const ProspectFinderPage = lazyWithRetry(() => import('./pages/admin/prospects/ProspectFinderPage'))
 const ProspectListsPage = lazyWithRetry(() => import('./pages/admin/prospects/ProspectListsPage'))
 
+// Shipment Document Hub Pages - Lazy loaded
+const ShipmentHubPage = lazyWithRetry(() => import('./pages/admin/ShipmentHubPage'))
+const ShipmentDetailPage = lazyWithRetry(() => import('./pages/admin/ShipmentDetailPage'))
+const ShipmentTrackingPage = lazyWithRetry(() => import('./pages/ShipmentTrackingPage'))
+
 // Cookie Consent Component
 import CookieConsent from './components/CookieConsent'
 
@@ -378,6 +383,11 @@ createRoot(document.getElementById('root')!).render(
                       {/* Prospect Finder Routes */}
                       <Route path="/ctrl-x9k7m/prospects" element={<ProspectFinderPage />} />
                       <Route path="/ctrl-x9k7m/prospects/lists" element={<ProspectListsPage />} />
+
+                      {/* Shipment Document Hub Routes */}
+                      <Route path="/ctrl-x9k7m/shipments" element={<ShipmentHubPage />} />
+                      <Route path="/ctrl-x9k7m/shipments/:id" element={<ShipmentDetailPage />} />
+                      <Route path="/shipment/:batchId" element={<ShipmentTrackingPage />} />
 
                       <Route path="/unsubscribe" element={<UnsubscribePage />} />
 

@@ -47,15 +47,20 @@ const StandUpPouchesPage: React.FC = () => {
             <strong>A stand-up pouch (SUP) is a flexible packaging format with a bottom gusset that allows the bag to stand upright on retail shelves.</strong> This popular format combines the cost efficiency of flexible packaging with excellent shelf presence and consumer convenience.
           </p>
           
-          <div className="bg-primary-50 p-4 rounded-lg mt-4">
-            <h4 className="font-semibold text-primary-800 mb-2">Key Benefits of Stand-Up Pouches:</h4>
-            <ul className="space-y-1 text-sm">
-              <li>✓ 75% less material than rigid containers (source: Flexible Packaging Association)</li>
-              <li>✓ Reduces shipping costs by up to 60% due to lighter weight</li>
-              <li>✓ 360° printable surface for maximum brand visibility</li>
-              <li>✓ Resealable options extend product freshness</li>
-              <li>✓ Available in compostable and recyclable materials</li>
-            </ul>
+          <div className="bg-primary-50 p-4 rounded-lg mt-4 flex flex-col md:flex-row gap-6 items-center">
+             <div className="flex-1">
+                <h4 className="font-semibold text-primary-800 mb-2">Key Benefits of Stand-Up Pouches:</h4>
+                <ul className="space-y-1 text-sm">
+                  <li>✓ 75% less material than rigid containers (source: Flexible Packaging Association)</li>
+                  <li>✓ Reduces shipping costs by up to 60% due to lighter weight</li>
+                  <li>✓ 360° printable surface for maximum brand visibility</li>
+                  <li>✓ Resealable options extend product freshness</li>
+                  <li>✓ Available in compostable and recyclable materials</li>
+                </ul>
+             </div>
+             <div className="w-full md:w-1/3">
+                <img src="/imgs/pouch-shape/nano-pro-sup-lifestyle.png" alt="Nano Pro stand-up pouch lifestyle" className="rounded-lg shadow-sm" />
+             </div>
           </div>
         </div>
       )
@@ -106,9 +111,9 @@ const StandUpPouchesPage: React.FC = () => {
             <div className="flex flex-col md:flex-row gap-4 items-center">
               <div className="flex-shrink-0">
                 <ClickableImage
-                  src="/imgs/pouch-shape/k-seal/hero.webp"
-                  alt="K-seal bottom stand up pouch for heavy products"
-                  className="w-32 h-32 object-cover rounded-lg shadow-md"
+                  src="/imgs/pouch-shape/nano-pro-k-seal.png"
+                  alt="Nano Pro heavy duty K-seal bottom pouch"
+                  className="w-32 h-32 object-contain bg-white rounded-lg shadow-md p-2"
                 />
               </div>
               <div className="flex-1">
@@ -119,6 +124,29 @@ const StandUpPouchesPage: React.FC = () => {
                 <Link to="/knowledge/k-seal-stand-up-pouches" className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold text-sm">
                   Learn about K-Seal Pouches
                   <Package className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+           {/* AchievePacker Mailer Link */}
+           <div className="bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200 rounded-xl p-5 mt-6">
+            <div className="flex flex-col md:flex-row gap-4 items-center">
+              <div className="flex-shrink-0">
+                <ClickableImage
+                  src="/imgs/menu/header/a_hero_kv_compost_mailer_transparent_5939909.webp"
+                  alt="AchievePacker Compostable Mailer"
+                  className="w-32 h-32 object-cover rounded-lg shadow-md bg-white p-2"
+                />
+              </div>
+              <div className="flex-1">
+                <h4 className="font-bold text-emerald-800 text-lg mb-2">Ship Sustainably with AchievePacker™</h4>
+                <p className="text-sm text-neutral-700 mb-3">
+                  Complete your eco-friendly unboxing experience. Our pouches fit perfectly inside our compostable <strong>AchievePacker™</strong> mailers. Certified home compostable and durable enough to protect your products during transit.
+                </p>
+                <Link to="/products/mailers" className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-semibold text-sm">
+                  Shop Eco Mailers
+                  <Leaf className="h-4 w-4" />
                 </Link>
               </div>
             </div>
@@ -527,6 +555,41 @@ const StandUpPouchesPage: React.FC = () => {
       )
     },
     {
+      id: 'branding-spotlight',
+      title: 'Premium Branding with Nano Pro',
+      icon: <Sparkles className="h-5 w-5 text-primary-600" />,
+      content: (
+         <div className="bg-neutral-900 rounded-xl overflow-hidden shadow-xl text-white">
+           <div className="grid md:grid-cols-2 items-center">
+             <div className="p-8">
+               <h4 className="text-2xl font-bold mb-4 text-[#FFE135]">Stand Out on Shelf</h4>
+               <p className="text-neutral-300 mb-6">
+                 See how <strong>Nano Pro</strong> uses vibrant colors and premium matte finishes on our pouches to capture consumer attention. 
+                 High-definition printing ensures your brand looks as good as it tastes.
+               </p>
+               <div className="flex gap-4">
+                 <div className="text-center">
+                    <div className="text-[#FFE135] font-bold text-xl">HD</div>
+                    <div className="text-xs text-neutral-400">Print Quality</div>
+                 </div>
+                 <div className="text-center">
+                    <div className="text-[#FFE135] font-bold text-xl">Matte</div>
+                    <div className="text-xs text-neutral-400">Premium Finish</div>
+                 </div>
+               </div>
+             </div>
+             <div className="h-full bg-neutral-800 flex items-center justify-center p-6">
+                <img 
+                  src="/imgs/pouch-shape/nano-pro-sup-v2.png" 
+                  alt="Nano Pro branded pouch design" 
+                  className="max-h-64 object-contain drop-shadow-2xl"
+                />
+             </div>
+           </div>
+         </div>
+      )
+    },
+    {
       id: 'market-data',
       title: 'What Do Market Trends Say About Stand-Up Pouches?',
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
@@ -769,8 +832,8 @@ const StandUpPouchesPage: React.FC = () => {
       canonicalUrl="https://achievepack.com/packaging/stand-up-pouches"
       heroTitle={t('seoPages.pages.standUpPouches.heroTitle')}
       heroSubtitle={t('seoPages.pages.standUpPouches.heroSubtitle')}
-      heroImage="/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp"
-      heroImageAlt="Custom printed stand-up pouches with zipper closure in various sizes"
+      heroImage="/imgs/pouch-shape/nano-pro-sup-v2.png"
+      heroImageAlt="Nano Pro premium black and yellow stand-up pouch"
       introSummary={t('seoPages.pages.standUpPouches.introSummary')}
       sections={sections}
       faqs={faqs}
