@@ -4,13 +4,22 @@ import {
   ArrowLeft, Plus, Search, Package, FileText, Image, Truck, 
   RefreshCw, X, Eye, Copy, Check, Send, MoreHorizontal,
   Calendar, MapPin, Clock, ChevronRight, Upload, Filter,
-  CheckCircle, AlertCircle, Loader2, ExternalLink, Lock
+  CheckCircle, AlertCircle, Loader2, ExternalLink, Lock,
+  Sparkles, FileUp, Users, Type
 } from 'lucide-react'
 import { useAuth } from '../../hooks/useAuth'
 import { supabase } from '../../lib/supabase'
 import { toast } from 'sonner'
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
+const XAI_API_KEY = import.meta.env.VITE_XAI_API_KEY
+
+interface DocumentTemplate {
+  id: string
+  type: string
+  name: string
+  extracted_data?: any
+}
 
 interface ShipmentBatch {
   id: string
@@ -59,6 +68,13 @@ export default function ShipmentHubPage() {
   
   // Create form state
   const [creating, setCreating] = useState(false)
+  const [createStep, setCreateStep] = useState<'source' | 'form'>('source')
+  const [inputMethod, setInputMethod] = useState<'template' | 'upload' | 'manual'>('manual')
+  const [templates, setTemplates] = useState<DocumentTemplate[]>([])
+  const [selectedTemplate, setSelectedTemplate] = useState<DocumentTemplate | null>(null)
+  const [uploadFile, setUploadFile] = useState<File | null>(null)
+  const [extracting, setExtracting] = useState(false)
+  const [extractedData, setExtractedData] = useState<any>(null)
   const [formData, setFormData] = useState({
     batch_number: '',
     order_number: '',
@@ -105,8 +121,129 @@ export default function ShipmentHubPage() {
   useEffect(() => {
     if (user?.email === ADMIN_EMAIL) {
       fetchBatches()
+      fetchTemplates()
     }
   }, [user, fetchBatches])
+
+  // Fetch templates
+  const fetchTemplates = async () => {
+    try {
+      const { data } = await supabase
+        .from('document_templates')
+        .select('id, type, name, extracted_data')
+        .not('extracted_data', 'is', null)
+      setTemplates(data || [])
+    } catch (err) {
+      console.error('Error fetching templates:', err)
+    }
+  }
+
+  // Apply template data to form
+  const applyTemplateData = (template: DocumentTemplate) => {
+    setSelectedTemplate(template)
+    if (template.extracted_data) {
+      const data = template.extracted_data
+      setFormData(prev => ({
+        ...prev,
+        customer_name: data.seller?.company_name || data.shipper?.company_name || data.company_name || prev.customer_name,
+        customer_email: data.seller?.email || data.shipper?.email || data.email || prev.customer_email,
+        delivery_to: data.buyer?.address || data.consignee?.address || data.delivery_address || prev.delivery_to,
+      }))
+      toast.success('Template data applied!')
+    }
+    setCreateStep('form')
+  }
+
+  // Handle file upload for XAI extraction
+  const handleFileUpload = async (file: File) => {
+    setUploadFile(file)
+    if (!file.type.startsWith('image/') && file.type !== 'application/pdf') {
+      toast.error('Please upload an image or PDF file')
+      return
+    }
+
+    if (!XAI_API_KEY) {
+      toast.error('XAI API key not configured')
+      setCreateStep('form')
+      return
+    }
+
+    setExtracting(true)
+    try {
+      // Convert to base64
+      const base64 = await new Promise<string>((resolve) => {
+        const reader = new FileReader()
+        reader.onloadend = () => resolve(reader.result as string)
+        reader.readAsDataURL(file)
+      })
+
+      const response = await fetch('https://api.x.ai/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${XAI_API_KEY}`
+        },
+        body: JSON.stringify({
+          model: 'grok-2-vision-1212',
+          messages: [{
+            role: 'user',
+            content: [
+              { type: 'image_url', image_url: { url: base64 } },
+              { type: 'text', text: `Extract shipment information from this document. Return JSON with:
+{
+  "batch_number": "order/batch reference",
+  "customer_po": "PO number if any",
+  "customer_name": "buyer/customer company name",
+  "customer_email": "email if visible",
+  "delivery_to": "shipping destination address",
+  "carrier": "shipping carrier name",
+  "tracking_number": "tracking/container number",
+  "estimated_delivery": "delivery date in YYYY-MM-DD format",
+  "total_boxes": "number of boxes/cartons",
+  "total_weight_kg": "total weight in kg",
+  "total_volume_cbm": "total volume in CBM",
+  "notes": "any important notes"
+}
+Return ONLY valid JSON.` }
+            ]
+          }],
+          max_tokens: 2000,
+          temperature: 0.1
+        })
+      })
+
+      if (!response.ok) throw new Error(`API error: ${response.status}`)
+
+      const result = await response.json()
+      const content = result.choices?.[0]?.message?.content || ''
+      
+      // Parse JSON
+      const jsonMatch = content.match(/```json\n?([\s\S]*?)\n?```/) || content.match(/\{[\s\S]*\}/)
+      if (jsonMatch) {
+        const parsed = JSON.parse(jsonMatch[1] || jsonMatch[0])
+        setExtractedData(parsed)
+        setFormData(prev => ({
+          ...prev,
+          batch_number: parsed.batch_number || prev.batch_number,
+          customer_po: parsed.customer_po || prev.customer_po,
+          customer_name: parsed.customer_name || prev.customer_name,
+          customer_email: parsed.customer_email || prev.customer_email,
+          delivery_to: parsed.delivery_to || prev.delivery_to,
+          carrier: parsed.carrier || prev.carrier,
+          tracking_number: parsed.tracking_number || prev.tracking_number,
+          estimated_delivery: parsed.estimated_delivery || prev.estimated_delivery,
+          notes: parsed.notes || prev.notes,
+        }))
+        toast.success('Data extracted successfully!')
+      }
+    } catch (err: any) {
+      console.error('XAI extraction error:', err)
+      toast.error('Failed to extract data: ' + (err.message || 'Unknown error'))
+    } finally {
+      setExtracting(false)
+      setCreateStep('form')
+    }
+  }
 
   // Create batch
   const handleCreate = async () => {
@@ -419,190 +556,324 @@ export default function ShipmentHubPage() {
       {/* Create Modal */}
       {showCreateModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-xl shadow-xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between p-4 border-b sticky top-0 bg-white">
-              <h2 className="text-lg font-semibold text-gray-900">Create New Shipment</h2>
+          <div className="bg-white rounded-xl shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between p-4 border-b sticky top-0 bg-white z-10">
+              <div className="flex items-center gap-3">
+                {createStep === 'form' && (
+                  <button
+                    onClick={() => setCreateStep('source')}
+                    className="text-gray-500 hover:text-gray-700"
+                  >
+                    <ArrowLeft className="h-5 w-5" />
+                  </button>
+                )}
+                <h2 className="text-lg font-semibold text-gray-900">
+                  {createStep === 'source' ? 'Choose Data Source' : 'Create New Shipment'}
+                </h2>
+              </div>
               <button
-                onClick={() => setShowCreateModal(false)}
+                onClick={() => { setShowCreateModal(false); setCreateStep('source'); setExtractedData(null); setUploadFile(null); }}
                 className="text-gray-500 hover:text-gray-700"
               >
                 <X className="h-5 w-5" />
               </button>
             </div>
-            <div className="p-4 space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Batch Number *
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.batch_number}
-                    onChange={(e) => setFormData({ ...formData, batch_number: e.target.value })}
-                    placeholder="e.g. API876-PO20250109"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Customer PO
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.customer_po}
-                    onChange={(e) => setFormData({ ...formData, customer_po: e.target.value })}
-                    placeholder="e.g. 20250109"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
-                  />
-                </div>
-              </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Customer Name *
-                </label>
-                <input
-                  type="text"
-                  value={formData.customer_name}
-                  onChange={(e) => setFormData({ ...formData, customer_name: e.target.value })}
-                  placeholder="e.g. Floriteshop"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Customer Email
-                </label>
-                <input
-                  type="email"
-                  value={formData.customer_email}
-                  onChange={(e) => setFormData({ ...formData, customer_email: e.target.value })}
-                  placeholder="customer@example.com"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Shipping Term
-                  </label>
-                  <select
-                    value={formData.shipping_term}
-                    onChange={(e) => setFormData({ ...formData, shipping_term: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
-                  >
-                    <option value="FOB">FOB</option>
-                    <option value="CIF">CIF</option>
-                    <option value="EXW">EXW</option>
-                    <option value="DDP">DDP</option>
-                    <option value="DAP">DAP</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Shipping Mode
-                  </label>
-                  <select
-                    value={formData.shipping_mode}
-                    onChange={(e) => setFormData({ ...formData, shipping_mode: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
-                  >
-                    <option value="By Sea">By Sea</option>
-                    <option value="By Air">By Air</option>
-                    <option value="By Truck">By Truck</option>
-                    <option value="By Rail">By Rail</option>
-                    <option value="Express">Express</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Delivery To
-                </label>
-                <input
-                  type="text"
-                  value={formData.delivery_to}
-                  onChange={(e) => setFormData({ ...formData, delivery_to: e.target.value })}
-                  placeholder="e.g. Los Angeles Port"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Carrier
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.carrier}
-                    onChange={(e) => setFormData({ ...formData, carrier: e.target.value })}
-                    placeholder="e.g. COSCO, DHL"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Tracking Number
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.tracking_number}
-                    onChange={(e) => setFormData({ ...formData, tracking_number: e.target.value })}
-                    placeholder="e.g. COSU1234567"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Estimated Delivery
-                </label>
-                <input
-                  type="date"
-                  value={formData.estimated_delivery}
-                  onChange={(e) => setFormData({ ...formData, estimated_delivery: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Notes
-                </label>
-                <textarea
-                  value={formData.notes}
-                  onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  placeholder="Any additional notes..."
-                  rows={3}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
-                />
-              </div>
-            </div>
-            <div className="flex justify-end gap-3 p-4 border-t">
-              <button
-                onClick={() => setShowCreateModal(false)}
-                className="px-4 py-2 text-gray-600 hover:text-gray-800 transition"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={handleCreate}
-                disabled={creating}
-                className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50 transition"
-              >
-                {creating ? (
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                ) : (
-                  <Plus className="h-4 w-4" />
+            {/* Step 1: Choose Source */}
+            {createStep === 'source' && (
+              <div className="p-6">
+                {/* Extracting Status */}
+                {extracting && (
+                  <div className="mb-6 bg-purple-50 border border-purple-200 rounded-xl p-4 flex items-center gap-4">
+                    <Loader2 className="h-8 w-8 animate-spin text-purple-500" />
+                    <div>
+                      <h3 className="font-medium text-purple-900">Extracting with XAI...</h3>
+                      <p className="text-sm text-purple-700">AI is analyzing your document</p>
+                    </div>
+                  </div>
                 )}
-                Create Shipment
-              </button>
-            </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {/* Option 1: From Template */}
+                  <button
+                    onClick={() => setInputMethod('template')}
+                    className={`p-6 rounded-xl border-2 text-left transition hover:shadow-md ${
+                      inputMethod === 'template' ? 'border-primary-500 bg-primary-50' : 'border-gray-200 hover:border-gray-300'
+                    }`}
+                  >
+                    <Users className="h-8 w-8 text-blue-500 mb-3" />
+                    <h3 className="font-semibold text-gray-900 mb-1">From Template</h3>
+                    <p className="text-sm text-gray-500">Use saved customer info from templates</p>
+                  </button>
+
+                  {/* Option 2: Upload File */}
+                  <button
+                    onClick={() => setInputMethod('upload')}
+                    className={`p-6 rounded-xl border-2 text-left transition hover:shadow-md ${
+                      inputMethod === 'upload' ? 'border-primary-500 bg-primary-50' : 'border-gray-200 hover:border-gray-300'
+                    }`}
+                  >
+                    <FileUp className="h-8 w-8 text-purple-500 mb-3" />
+                    <h3 className="font-semibold text-gray-900 mb-1">Upload Document</h3>
+                    <p className="text-sm text-gray-500">Extract info from JPG/PDF with AI</p>
+                  </button>
+
+                  {/* Option 3: Manual */}
+                  <button
+                    onClick={() => { setInputMethod('manual'); setCreateStep('form'); }}
+                    className={`p-6 rounded-xl border-2 text-left transition hover:shadow-md ${
+                      inputMethod === 'manual' ? 'border-primary-500 bg-primary-50' : 'border-gray-200 hover:border-gray-300'
+                    }`}
+                  >
+                    <Type className="h-8 w-8 text-green-500 mb-3" />
+                    <h3 className="font-semibold text-gray-900 mb-1">Manual Entry</h3>
+                    <p className="text-sm text-gray-500">Enter shipment details manually</p>
+                  </button>
+                </div>
+
+                {/* Template Selection */}
+                {inputMethod === 'template' && (
+                  <div className="mt-6">
+                    <h4 className="font-medium text-gray-700 mb-3">Select a Template</h4>
+                    {templates.length === 0 ? (
+                      <div className="text-center py-8 bg-gray-50 rounded-lg">
+                        <FileText className="h-10 w-10 text-gray-300 mx-auto mb-2" />
+                        <p className="text-gray-500">No templates with extracted data</p>
+                        <Link
+                          to="/ctrl-x9k7m/document-templates"
+                          className="text-primary-600 hover:text-primary-700 text-sm mt-2 inline-block"
+                        >
+                          Upload templates first
+                        </Link>
+                      </div>
+                    ) : (
+                      <div className="grid grid-cols-2 gap-3 max-h-64 overflow-y-auto">
+                        {templates.map(t => (
+                          <button
+                            key={t.id}
+                            onClick={() => applyTemplateData(t)}
+                            className="p-4 rounded-lg border border-gray-200 text-left hover:border-primary-500 hover:bg-primary-50 transition"
+                          >
+                            <div className="flex items-center gap-2 mb-1">
+                              <FileText className="h-4 w-4 text-gray-400" />
+                              <span className="text-xs text-gray-500 uppercase">{t.type.replace('_', ' ')}</span>
+                            </div>
+                            <p className="font-medium text-gray-900 truncate">{t.name}</p>
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* File Upload */}
+                {inputMethod === 'upload' && (
+                  <div className="mt-6">
+                    <h4 className="font-medium text-gray-700 mb-3">Upload Shipment Document</h4>
+                    <div
+                      className="border-2 border-dashed border-gray-200 rounded-xl p-8 text-center hover:border-primary-400 transition cursor-pointer"
+                      onClick={() => document.getElementById('shipment-file-input')?.click()}
+                    >
+                      <input
+                        id="shipment-file-input"
+                        type="file"
+                        accept="image/*,.pdf"
+                        className="hidden"
+                        onChange={(e) => {
+                          const file = e.target.files?.[0]
+                          if (file) handleFileUpload(file)
+                        }}
+                      />
+                      {uploadFile ? (
+                        <div className="flex items-center justify-center gap-3">
+                          <FileText className="h-10 w-10 text-primary-500" />
+                          <span className="font-medium text-gray-900">{uploadFile.name}</span>
+                        </div>
+                      ) : (
+                        <>
+                          <Upload className="h-12 w-12 text-gray-300 mx-auto mb-3" />
+                          <p className="text-gray-600 font-medium">Click to upload or drag & drop</p>
+                          <p className="text-sm text-gray-400 mt-1">JPG, PNG, PDF - Invoice, Packing List, Bill of Lading</p>
+                        </>
+                      )}
+                    </div>
+                    <div className="mt-3 bg-purple-50 rounded-lg p-3 flex items-start gap-2">
+                      <Sparkles className="h-5 w-5 text-purple-500 flex-shrink-0 mt-0.5" />
+                      <p className="text-sm text-purple-700">
+                        XAI will automatically extract shipment details from your document
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Step 2: Form */}
+            {createStep === 'form' && (
+              <>
+                {/* Extracted Data Banner */}
+                {extractedData && (
+                  <div className="mx-4 mt-4 bg-green-50 border border-green-200 rounded-lg p-3 flex items-center gap-2">
+                    <CheckCircle className="h-5 w-5 text-green-500" />
+                    <span className="text-sm text-green-700">Data extracted from document - please review and edit</span>
+                  </div>
+                )}
+
+                <div className="p-4 space-y-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Batch Number *</label>
+                      <input
+                        type="text"
+                        value={formData.batch_number}
+                        onChange={(e) => setFormData({ ...formData, batch_number: e.target.value })}
+                        placeholder="e.g. API876-PO20250109"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Customer PO</label>
+                      <input
+                        type="text"
+                        value={formData.customer_po}
+                        onChange={(e) => setFormData({ ...formData, customer_po: e.target.value })}
+                        placeholder="e.g. 20250109"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Customer Name *</label>
+                      <input
+                        type="text"
+                        value={formData.customer_name}
+                        onChange={(e) => setFormData({ ...formData, customer_name: e.target.value })}
+                        placeholder="e.g. Floriteshop"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Customer Email</label>
+                      <input
+                        type="email"
+                        value={formData.customer_email}
+                        onChange={(e) => setFormData({ ...formData, customer_email: e.target.value })}
+                        placeholder="customer@example.com"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Shipping Term</label>
+                      <select
+                        value={formData.shipping_term}
+                        onChange={(e) => setFormData({ ...formData, shipping_term: e.target.value })}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+                      >
+                        <option value="FOB">FOB</option>
+                        <option value="CIF">CIF</option>
+                        <option value="EXW">EXW</option>
+                        <option value="DDP">DDP</option>
+                        <option value="DAP">DAP</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Shipping Mode</label>
+                      <select
+                        value={formData.shipping_mode}
+                        onChange={(e) => setFormData({ ...formData, shipping_mode: e.target.value })}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+                      >
+                        <option value="By Sea">By Sea</option>
+                        <option value="By Air">By Air</option>
+                        <option value="By Truck">By Truck</option>
+                        <option value="By Rail">By Rail</option>
+                        <option value="Express">Express</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Delivery To</label>
+                    <input
+                      type="text"
+                      value={formData.delivery_to}
+                      onChange={(e) => setFormData({ ...formData, delivery_to: e.target.value })}
+                      placeholder="e.g. Los Angeles Port"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Carrier</label>
+                      <input
+                        type="text"
+                        value={formData.carrier}
+                        onChange={(e) => setFormData({ ...formData, carrier: e.target.value })}
+                        placeholder="e.g. COSCO, DHL"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Tracking Number</label>
+                      <input
+                        type="text"
+                        value={formData.tracking_number}
+                        onChange={(e) => setFormData({ ...formData, tracking_number: e.target.value })}
+                        placeholder="e.g. COSU1234567"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Estimated Delivery</label>
+                    <input
+                      type="date"
+                      value={formData.estimated_delivery}
+                      onChange={(e) => setFormData({ ...formData, estimated_delivery: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Notes</label>
+                    <textarea
+                      value={formData.notes}
+                      onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+                      placeholder="Any additional notes..."
+                      rows={3}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+                    />
+                  </div>
+                </div>
+                <div className="flex justify-end gap-3 p-4 border-t">
+                  <button
+                    onClick={() => { setShowCreateModal(false); setCreateStep('source'); setExtractedData(null); }}
+                    className="px-4 py-2 text-gray-600 hover:text-gray-800 transition"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    onClick={handleCreate}
+                    disabled={creating}
+                    className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50 transition"
+                  >
+                    {creating ? (
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                    ) : (
+                      <Plus className="h-4 w-4" />
+                    )}
+                    Create Shipment
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         </div>
       )}
