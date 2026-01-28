@@ -1,10 +1,10 @@
 {
-  "generated": "2026-01-25",
-  "total_images": 1142,
-  "total_categories": 121,
+  "generated": "2026-01-28",
+  "total_images": 1152,
+  "total_categories": 123,
   "extensions": {
     ".webp": 1058,
-    ".png": 79,
+    ".png": 89,
     ".jpg": 2,
     ".svg": 3
   },
@@ -41,6 +41,52 @@
           "path": "/imgs/4-infograhic/Bio-PE.webp",
           "extension": ".webp",
           "modified": "2025-12-22T07:22:15.958Z"
+        }
+      ]
+    },
+    "achieve-chocolate": {
+      "count": 4,
+      "images": [
+        {
+          "filename": "sustainability.png",
+          "path": "/imgs/achieve-chocolate/sustainability.png",
+          "extension": ".png",
+          "modified": "2026-01-26T01:11:50.509Z"
+        },
+        {
+          "filename": "box.png",
+          "path": "/imgs/achieve-chocolate/box.png",
+          "extension": ".png",
+          "modified": "2026-01-26T01:11:50.506Z"
+        },
+        {
+          "filename": "pouch.png",
+          "path": "/imgs/achieve-chocolate/pouch.png",
+          "extension": ".png",
+          "modified": "2026-01-26T01:11:50.503Z"
+        },
+        {
+          "filename": "hero-main.png",
+          "path": "/imgs/achieve-chocolate/hero-main.png",
+          "extension": ".png",
+          "modified": "2026-01-26T01:11:50.500Z"
+        }
+      ]
+    },
+    "achieve-supplements": {
+      "count": 2,
+      "images": [
+        {
+          "filename": "pouring-powder.png",
+          "path": "/imgs/achieve-supplements/pouring-powder.png",
+          "extension": ".png",
+          "modified": "2026-01-26T13:21:43.060Z"
+        },
+        {
+          "filename": "flat-pouch.png",
+          "path": "/imgs/achieve-supplements/flat-pouch.png",
+          "extension": ".png",
+          "modified": "2026-01-26T13:21:43.052Z"
         }
       ]
     },
@@ -4044,8 +4090,32 @@
       ]
     },
     "pouch-shape": {
-      "count": 5,
+      "count": 9,
       "images": [
+        {
+          "filename": "nano-pro-sup-lifestyle.png",
+          "path": "/imgs/pouch-shape/nano-pro-sup-lifestyle.png",
+          "extension": ".png",
+          "modified": "2026-01-28T01:12:10.256Z"
+        },
+        {
+          "filename": "nano-pro-k-seal.png",
+          "path": "/imgs/pouch-shape/nano-pro-k-seal.png",
+          "extension": ".png",
+          "modified": "2026-01-28T01:11:34.088Z"
+        },
+        {
+          "filename": "nano-pro-sup-v2.png",
+          "path": "/imgs/pouch-shape/nano-pro-sup-v2.png",
+          "extension": ".png",
+          "modified": "2026-01-28T01:10:28.938Z"
+        },
+        {
+          "filename": "achieve-pack-sup-hero.png",
+          "path": "/imgs/pouch-shape/achieve-pack-sup-hero.png",
+          "extension": ".png",
+          "modified": "2026-01-27T03:38:51.571Z"
+        },
         {
           "filename": "a_flat_bottom_pouch_isolated_7901973.webp",
           "path": "/imgs/pouch-shape/a_flat_bottom_pouch_isolated_7901973.webp",

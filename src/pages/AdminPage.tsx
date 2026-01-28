@@ -85,6 +85,12 @@ const sidebarMenuItems = [
     ]
   },
   {
+    group: 'Shipments',
+    items: [
+      { id: 'shipments', label: 'Shipment Hub', icon: Truck, externalLink: '/ctrl-x9k7m/shipments' },
+    ]
+  },
+  {
     group: 'CRM',
     items: [
       { id: 'crm', label: 'CRM / Inquiries', icon: Inbox },
