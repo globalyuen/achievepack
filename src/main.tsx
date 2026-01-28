@@ -341,6 +341,7 @@ const ProspectListsPage = lazyWithRetry(() => import('./pages/admin/prospects/Pr
 const ShipmentHubPage = lazyWithRetry(() => import('./pages/admin/ShipmentHubPage'))
 const ShipmentDetailPage = lazyWithRetry(() => import('./pages/admin/ShipmentDetailPage'))
 const ShipmentTrackingPage = lazyWithRetry(() => import('./pages/ShipmentTrackingPage'))
+const DocumentTemplatesPage = lazyWithRetry(() => import('./pages/admin/DocumentTemplatesPage'))
 
 // Cookie Consent Component
 import CookieConsent from './components/CookieConsent'
@@ -387,6 +388,7 @@ createRoot(document.getElementById('root')!).render(
                       {/* Shipment Document Hub Routes */}
                       <Route path="/ctrl-x9k7m/shipments" element={<ShipmentHubPage />} />
                       <Route path="/ctrl-x9k7m/shipments/:id" element={<ShipmentDetailPage />} />
+                      <Route path="/ctrl-x9k7m/document-templates" element={<DocumentTemplatesPage />} />
                       <Route path="/shipment/:batchId" element={<ShipmentTrackingPage />} />
 
                       <Route path="/unsubscribe" element={<UnsubscribePage />} />
