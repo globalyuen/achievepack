@@ -253,20 +253,45 @@ Return ONLY valid JSON.` }
     }
     
     setCreating(true)
+    toast.loading('Creating shipment...', { id: 'create-shipment' })
+    
     try {
+      console.log('Creating shipment with data:', formData)
+      
       const { data, error } = await supabase
         .from('shipment_batches')
         .insert({
-          ...formData,
+          batch_number: formData.batch_number,
+          order_number: formData.order_number || null,
+          customer_po: formData.customer_po || null,
+          customer_name: formData.customer_name,
+          customer_email: formData.customer_email || null,
+          shipping_term: formData.shipping_term,
+          shipping_mode: formData.shipping_mode,
+          delivery_to: formData.delivery_to || null,
+          carrier: formData.carrier || null,
+          tracking_number: formData.tracking_number || null,
+          estimated_delivery: formData.estimated_delivery || null,
+          notes: formData.notes || null,
           shipping_status: 'pending'
         })
         .select()
         .single()
       
-      if (error) throw error
+      console.log('Supabase response:', { data, error })
       
-      toast.success('Shipment batch created!')
+      if (error) {
+        console.error('Supabase error:', error)
+        throw error
+      }
+      
+      toast.success('Shipment created successfully!', { id: 'create-shipment' })
+      
+      // Reset form and modal
       setShowCreateModal(false)
+      setCreateStep('source')
+      setExtractedData(null)
+      setUploadFile(null)
       setFormData({
         batch_number: '',
         order_number: '',
@@ -281,7 +306,8 @@ Return ONLY valid JSON.` }
         estimated_delivery: '',
         notes: ''
       })
-      fetchBatches()
+      
+      await fetchBatches()
       
       // Navigate to detail page
       if (data?.id) {
@@ -289,7 +315,7 @@ Return ONLY valid JSON.` }
       }
     } catch (err: any) {
       console.error('Error creating batch:', err)
-      toast.error(err.message || 'Failed to create batch')
+      toast.error(`Failed: ${err.message || 'Unknown error'}`, { id: 'create-shipment' })
     } finally {
       setCreating(false)
     }
