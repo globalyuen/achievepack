@@ -342,6 +342,7 @@ const ShipmentHubPage = lazyWithRetry(() => import('./pages/admin/ShipmentHubPag
 const ShipmentDetailPage = lazyWithRetry(() => import('./pages/admin/ShipmentDetailPage'))
 const ShipmentTrackingPage = lazyWithRetry(() => import('./pages/ShipmentTrackingPage'))
 const DocumentTemplatesPage = lazyWithRetry(() => import('./pages/admin/DocumentTemplatesPage'))
+const ImageGeneratorPage = lazyWithRetry(() => import('./pages/admin/ImageGeneratorPage'))
 
 // Cookie Consent Component
 import CookieConsent from './components/CookieConsent'
@@ -389,6 +390,7 @@ createRoot(document.getElementById('root')!).render(
                       <Route path="/ctrl-x9k7m/shipments" element={<ShipmentHubPage />} />
                       <Route path="/ctrl-x9k7m/shipments/:id" element={<ShipmentDetailPage />} />
                       <Route path="/ctrl-x9k7m/document-templates" element={<DocumentTemplatesPage />} />
+                                            <Route path="/ctrl-x9k7m/ai-image" element={<ImageGeneratorPage />} />
                       <Route path="/shipment/:batchId" element={<ShipmentTrackingPage />} />
 
                       <Route path="/unsubscribe" element={<UnsubscribePage />} />

@@ -59,7 +59,7 @@ const StandUpPouchesPage: React.FC = () => {
                 </ul>
              </div>
              <div className="w-full md:w-1/3">
-                <img src="/imgs/pouch-shape/nano-pro-sup-lifestyle.png" alt="Nano Pro stand-up pouch lifestyle" className="rounded-lg shadow-sm" />
+                <img src="/imgs/pouch-shape/achieve-pack-sup-lifestyle.png" alt="Achieve Pack eco-friendly stand-up pouch in modern kitchen" className="rounded-lg shadow-sm" />
              </div>
           </div>
         </div>
@@ -111,8 +111,8 @@ const StandUpPouchesPage: React.FC = () => {
             <div className="flex flex-col md:flex-row gap-4 items-center">
               <div className="flex-shrink-0">
                 <ClickableImage
-                  src="/imgs/pouch-shape/nano-pro-k-seal.png"
-                  alt="Nano Pro heavy duty K-seal bottom pouch"
+                  src="/imgs/pouch-shape/achieve-pack-k-seal.png"
+                  alt="Achieve Pack heavy duty K-seal bottom pouch"
                   className="w-32 h-32 object-contain bg-white rounded-lg shadow-md p-2"
                 />
               </div>
@@ -556,33 +556,33 @@ const StandUpPouchesPage: React.FC = () => {
     },
     {
       id: 'branding-spotlight',
-      title: 'Premium Branding with Nano Pro',
+      title: 'Showcase Your Eco-Commitment',
       icon: <Sparkles className="h-5 w-5 text-primary-600" />,
       content: (
-         <div className="bg-neutral-900 rounded-xl overflow-hidden shadow-xl text-white">
+         <div className="bg-gradient-to-br from-neutral-50 to-emerald-50 rounded-xl overflow-hidden shadow-lg border border-emerald-100">
            <div className="grid md:grid-cols-2 items-center">
              <div className="p-8">
-               <h4 className="text-2xl font-bold mb-4 text-[#FFE135]">Stand Out on Shelf</h4>
-               <p className="text-neutral-300 mb-6">
-                 See how <strong>Nano Pro</strong> uses vibrant colors and premium matte finishes on our pouches to capture consumer attention. 
-                 High-definition printing ensures your brand looks as good as it tastes.
+               <h4 className="text-2xl font-bold mb-4 text-emerald-900">Certified for Sustainability</h4>
+               <p className="text-neutral-600 mb-6">
+                 Build trust with your customers using our <strong>Achieve Pack</strong> certified compostable pouches. 
+                 Featuring high-definition printing of eco-labels and certification marks that prove your commitment to the planet.
                </p>
                <div className="flex gap-4">
                  <div className="text-center">
-                    <div className="text-[#FFE135] font-bold text-xl">HD</div>
-                    <div className="text-xs text-neutral-400">Print Quality</div>
+                    <div className="text-emerald-600 font-bold text-xl">HD</div>
+                    <div className="text-xs text-neutral-500">Print Quality</div>
                  </div>
                  <div className="text-center">
-                    <div className="text-[#FFE135] font-bold text-xl">Matte</div>
-                    <div className="text-xs text-neutral-400">Premium Finish</div>
+                    <div className="text-emerald-600 font-bold text-xl">Eco</div>
+                    <div className="text-xs text-neutral-500">Certified Inks</div>
                  </div>
                </div>
              </div>
-             <div className="h-full bg-neutral-800 flex items-center justify-center p-6">
+             <div className="h-full bg-white flex items-center justify-center p-6">
                 <img 
-                  src="/imgs/pouch-shape/nano-pro-sup-v2.png" 
-                  alt="Nano Pro branded pouch design" 
-                  className="max-h-64 object-contain drop-shadow-2xl"
+                  src="/imgs/pouch-shape/achieve-pack-branding-spotlight.png" 
+                  alt="Achieve Pack eco-friendly pouch branding details" 
+                  className="max-h-64 object-contain"
                 />
              </div>
            </div>
@@ -832,8 +832,8 @@ const StandUpPouchesPage: React.FC = () => {
       canonicalUrl="https://achievepack.com/packaging/stand-up-pouches"
       heroTitle={t('seoPages.pages.standUpPouches.heroTitle')}
       heroSubtitle={t('seoPages.pages.standUpPouches.heroSubtitle')}
-      heroImage="/imgs/pouch-shape/nano-pro-sup-v2.png"
-      heroImageAlt="Nano Pro premium black and yellow stand-up pouch"
+      heroImage="/imgs/pouch-shape/achieve-pack-sup-hero.png"
+      heroImageAlt="Achieve Pack branded premium stand-up pouch with eco-friendly design"
       introSummary={t('seoPages.pages.standUpPouches.introSummary')}
       sections={sections}
       faqs={faqs}

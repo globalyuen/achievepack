@@ -3,7 +3,7 @@ import { useNavigate, Link, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, Order, Profile, NewsletterSubscriber, Document, Quote, ArtworkFile, EmailDraft, CRMInquiry, CRMActivity, CustomerActivityLog } from '../lib/supabase'
 import { blogPosts } from '../data/blogData'
-import { Home, Users, Package, Settings, Search, ChevronDown, ChevronLeft, ChevronRight, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox, Send, FileCode, Check, Globe, Filter, MapPin, Factory, Tag, History, Zap, Bell, Loader2, Download, Folder, Palette } from 'lucide-react'
+import { Home, Users, Package, Settings, Search, ChevronDown, ChevronLeft, ChevronRight, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox, Send, FileCode, Check, Globe, Filter, MapPin, Factory, Tag, History, Zap, Bell, Loader2, Download, Folder, Palette, Wand2 } from 'lucide-react'
 import CRMPanelAdvanced from '../components/admin/CRMPanelAdvanced'
 import AchieveCoffeeCMS from '../components/admin/AchieveCoffeeCMS'
 import WebsiteDemoCMS from '../components/admin/WebsiteDemoCMS'
@@ -112,6 +112,7 @@ const sidebarMenuItems = [
     collapsible: true,
     items: [
       { id: 'image-catalog', label: 'Image Hub', icon: Folder },
+      { id: 'ai-image-gen', label: 'AI Image Gen', icon: Wand2, externalLink: '/ctrl-x9k7m/ai-image' },
       { id: 'website', label: 'Website CMS', icon: FileCode },
       { id: 'website-demos', label: 'Demo Sites', icon: Globe },
       { id: 'mockup', label: 'Mock Up', icon: Image, comingSoon: true },
