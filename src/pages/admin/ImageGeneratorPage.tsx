@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowLeft, Image, Loader2, Download, Sparkles, Copy, Check, RefreshCw, Wand2 } from 'lucide-react'
+import { ArrowLeft, Image, Loader2, Download, Sparkles, Copy, Check, RefreshCw, Wand2, Settings } from 'lucide-react'
 import { toast } from 'sonner'
 
-// Gemini API Key
-const GEMINI_API_KEY = 'AIzaSyDT-UPqJroRFexHQoOWLtHih3DRm8j1sME'
+// Antigravity Tools API Configuration
+const ANTIGRAVITY_API_KEY = 'sk-42c40a74af1643dca4a1de2778140621'
+const ANTIGRAVITY_BASE_URL = 'https://api.antigravity.codes' // Default proxy endpoint
 
 // Preset prompts for marketing
 const PRESET_PROMPTS = [
@@ -30,6 +31,15 @@ const PRESET_PROMPTS = [
   }
 ]
 
+// Aspect ratio options
+const ASPECT_RATIOS = [
+  { label: '1:1 (Square)', value: '1024x1024' },
+  { label: '16:9 (Wide)', value: '1792x1024' },
+  { label: '9:16 (Portrait)', value: '1024x1792' },
+  { label: '4:3', value: '1024x768' },
+  { label: '3:4', value: '768x1024' }
+]
+
 const ImageGeneratorPage: React.FC = () => {
   const [prompt, setPrompt] = useState('')
   const [generating, setGenerating] = useState(false)
@@ -37,6 +47,10 @@ const ImageGeneratorPage: React.FC = () => {
   const [error, setError] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
   const [imageCount, setImageCount] = useState(1)
+  const [aspectRatio, setAspectRatio] = useState('1024x1024')
+  const [showSettings, setShowSettings] = useState(false)
+  const [customEndpoint, setCustomEndpoint] = useState(ANTIGRAVITY_BASE_URL)
+  const [model, setModel] = useState('imagen-3')
 
   const generateImage = async () => {
     if (!prompt.trim()) {
@@ -46,44 +60,45 @@ const ImageGeneratorPage: React.FC = () => {
 
     setGenerating(true)
     setError(null)
-    toast.loading('Generating image with Imagen 3.0...', { id: 'gen-image' })
+    toast.loading('Generating image with Antigravity...', { id: 'gen-image' })
 
     try {
-      // Call Imagen 3.0 API
+      // Use OpenAI-compatible format through Antigravity proxy
       const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-001:predict?key=${GEMINI_API_KEY}`,
+        `${customEndpoint}/v1/images/generations`,
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            'Authorization': `Bearer ${ANTIGRAVITY_API_KEY}`
           },
           body: JSON.stringify({
-            instances: [
-              {
-                prompt: prompt
-              }
-            ],
-            parameters: {
-              sampleCount: imageCount,
-              aspectRatio: '1:1',
-              negativePrompt: 'blurry, low quality, distorted, ugly, bad anatomy'
-            }
+            model: model,
+            prompt: prompt,
+            n: imageCount,
+            size: aspectRatio,
+            response_format: 'b64_json'
           })
         }
       )
 
       if (!response.ok) {
-        const errorData = await response.json()
+        const errorData = await response.json().catch(() => ({}))
         throw new Error(errorData.error?.message || `API Error: ${response.status}`)
       }
 
       const data = await response.json()
       
-      if (data.predictions && data.predictions.length > 0) {
-        const images = data.predictions.map((pred: any) => {
-          // Imagen returns base64 encoded images
-          return `data:image/png;base64,${pred.bytesBase64Encoded}`
-        })
+      if (data.data && data.data.length > 0) {
+        const images = data.data.map((item: any) => {
+          if (item.b64_json) {
+            return `data:image/png;base64,${item.b64_json}`
+          } else if (item.url) {
+            return item.url
+          }
+          return null
+        }).filter(Boolean)
+        
         setGeneratedImages(prev => [...images, ...prev])
         toast.success(`Generated ${images.length} image(s)!`, { id: 'gen-image' })
       } else {
@@ -137,15 +152,52 @@ const ImageGeneratorPage: React.FC = () => {
                 </div>
                 <div>
                   <h1 className="text-xl font-bold text-white">AI Image Generator</h1>
-                  <p className="text-sm text-gray-400">Powered by Imagen 3.0</p>
+                  <p className="text-sm text-gray-400">Powered by Antigravity + Imagen 3</p>
                 </div>
               </div>
             </div>
+            <button
+              onClick={() => setShowSettings(!showSettings)}
+              className="p-2 text-gray-400 hover:text-white transition-colors"
+            >
+              <Settings className="w-5 h-5" />
+            </button>
           </div>
         </div>
       </header>
 
       <main className="max-w-7xl mx-auto px-4 py-8">
+        {/* Settings Panel */}
+        {showSettings && (
+          <div className="mb-6 bg-gray-800 rounded-2xl p-6 border border-gray-700">
+            <h3 className="text-lg font-medium text-white mb-4">API Settings</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm text-gray-400 mb-2">API Endpoint</label>
+                <input
+                  type="text"
+                  value={customEndpoint}
+                  onChange={(e) => setCustomEndpoint(e.target.value)}
+                  className="w-full bg-gray-900 border border-gray-600 rounded-lg px-4 py-2 text-white"
+                  placeholder="https://api.antigravity.codes"
+                />
+              </div>
+              <div>
+                <label className="block text-sm text-gray-400 mb-2">Model</label>
+                <select
+                  value={model}
+                  onChange={(e) => setModel(e.target.value)}
+                  className="w-full bg-gray-900 border border-gray-600 rounded-lg px-4 py-2 text-white"
+                >
+                  <option value="imagen-3">Imagen 3</option>
+                  <option value="dall-e-3">DALL-E 3</option>
+                  <option value="dall-e-2">DALL-E 2</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        )}
+
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Left Panel - Input */}
           <div className="lg:col-span-1 space-y-6">
@@ -161,19 +213,36 @@ const ImageGeneratorPage: React.FC = () => {
                 placeholder="Professional product photography of sustainable eco-friendly packaging..."
                 className="w-full h-40 bg-gray-900 border border-gray-600 rounded-xl p-4 text-white placeholder-gray-500 focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none"
               />
-              <div className="flex items-center justify-between mt-4">
-                <div className="flex items-center gap-2">
-                  <label className="text-sm text-gray-400">Images:</label>
+              
+              {/* Options Row */}
+              <div className="grid grid-cols-2 gap-4 mt-4">
+                <div>
+                  <label className="text-xs text-gray-400 mb-1 block">Images</label>
                   <select
                     value={imageCount}
                     onChange={(e) => setImageCount(Number(e.target.value))}
-                    className="bg-gray-900 border border-gray-600 rounded-lg px-3 py-1 text-white text-sm"
+                    className="w-full bg-gray-900 border border-gray-600 rounded-lg px-3 py-2 text-white text-sm"
                   >
                     <option value={1}>1</option>
                     <option value={2}>2</option>
                     <option value={4}>4</option>
                   </select>
                 </div>
+                <div>
+                  <label className="text-xs text-gray-400 mb-1 block">Aspect Ratio</label>
+                  <select
+                    value={aspectRatio}
+                    onChange={(e) => setAspectRatio(e.target.value)}
+                    className="w-full bg-gray-900 border border-gray-600 rounded-lg px-3 py-2 text-white text-sm"
+                  >
+                    {ASPECT_RATIOS.map(ar => (
+                      <option key={ar.value} value={ar.value}>{ar.label}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+              
+              <div className="flex items-center justify-end mt-3">
                 <button
                   onClick={copyPrompt}
                   disabled={!prompt}
@@ -182,6 +251,7 @@ const ImageGeneratorPage: React.FC = () => {
                   {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 </button>
               </div>
+              
               <button
                 onClick={generateImage}
                 disabled={generating || !prompt.trim()}
@@ -222,7 +292,7 @@ const ImageGeneratorPage: React.FC = () => {
               <div className="bg-red-900/50 border border-red-500 rounded-xl p-4 text-red-200">
                 <p className="text-sm">{error}</p>
                 <p className="text-xs mt-2 text-red-300">
-                  Note: Imagen API requires a paid Google Cloud account with billing enabled.
+                  Tip: Check API endpoint and ensure Antigravity proxy is running.
                 </p>
               </div>
             )}
@@ -293,10 +363,10 @@ const ImageGeneratorPage: React.FC = () => {
             <div className="mt-6 bg-gray-800/50 rounded-xl p-4 border border-gray-700">
               <h4 className="text-sm font-medium text-gray-300 mb-2">API Information</h4>
               <ul className="text-xs text-gray-500 space-y-1">
-                <li>• Model: Imagen 3.0 (imagen-3.0-generate-001)</li>
+                <li>• Proxy: Antigravity Tools (OpenAI Compatible)</li>
+                <li>• Model: {model}</li>
+                <li>• Endpoint: {customEndpoint}</li>
                 <li>• Output: High-quality PNG images</li>
-                <li>• Aspect Ratio: 1:1 (square)</li>
-                <li>• Requires: Google Cloud billing enabled</li>
               </ul>
             </div>
           </div>
