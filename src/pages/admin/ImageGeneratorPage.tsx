@@ -5,14 +5,14 @@ import { toast } from 'sonner'
 
 // API Configuration Options
 const API_PROVIDERS = [
-  { id: 'together', name: 'Together AI (Free)', endpoint: 'https://api.together.xyz/v1/images/generations', model: 'black-forest-labs/FLUX.1-schnell-Free' },
-  { id: 'openai', name: 'OpenAI DALL-E', endpoint: 'https://api.openai.com/v1/images/generations', model: 'dall-e-3' },
-  { id: 'antigravity', name: 'Antigravity (Local)', endpoint: 'http://localhost:8045/v1/images/generations', model: 'imagen-3' },
+  { id: 'pollinations', name: 'Pollinations (Free, No Key)', endpoint: 'https://image.pollinations.ai/prompt/', model: 'flux', noAuth: true },
+  { id: 'together', name: 'Together AI', endpoint: 'https://api.together.xyz/v1/images/generations', model: 'black-forest-labs/FLUX.1-schnell-Free', noAuth: false },
+  { id: 'openai', name: 'OpenAI DALL-E', endpoint: 'https://api.openai.com/v1/images/generations', model: 'dall-e-3', noAuth: false },
+  { id: 'antigravity', name: 'Antigravity (Local)', endpoint: 'http://localhost:8045/v1/images/generations', model: 'imagen-3', noAuth: false },
 ]
 
 // API Keys
 const ANTIGRAVITY_API_KEY = 'sk-42c40a74af1643dca4a1de2778140621'
-const TOGETHER_API_KEY = '' // Free tier available
 
 // Preset prompts for marketing
 const PRESET_PROMPTS = [
@@ -56,7 +56,7 @@ const ImageGeneratorPage: React.FC = () => {
   const [imageCount, setImageCount] = useState(1)
   const [aspectRatio, setAspectRatio] = useState('1024x1024')
   const [showSettings, setShowSettings] = useState(false)
-  const [selectedProvider, setSelectedProvider] = useState('together')
+  const [selectedProvider, setSelectedProvider] = useState('pollinations')
   const [customApiKey, setCustomApiKey] = useState('')
 
   const currentProvider = API_PROVIDERS.find(p => p.id === selectedProvider) || API_PROVIDERS[0]
@@ -72,12 +72,30 @@ const ImageGeneratorPage: React.FC = () => {
     toast.loading(`Generating with ${currentProvider.name}...`, { id: 'gen-image' })
 
     try {
-      // Determine API key
-      let apiKey = customApiKey || ANTIGRAVITY_API_KEY
-      if (selectedProvider === 'together' && !customApiKey) {
-        // Together AI free tier - no key needed for some models
-        apiKey = TOGETHER_API_KEY || 'free'
+      // Pollinations uses a simple URL-based API (no auth needed)
+      if (selectedProvider === 'pollinations') {
+        const encodedPrompt = encodeURIComponent(prompt)
+        const [width, height] = aspectRatio.split('x').map(Number)
+        const imageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=${width}&height=${height}&model=flux&nologo=true&seed=${Date.now()}`
+        
+        // Fetch image as blob and convert to base64
+        const response = await fetch(imageUrl)
+        if (!response.ok) throw new Error('Failed to generate image')
+        
+        const blob = await response.blob()
+        const reader = new FileReader()
+        reader.onloadend = () => {
+          const base64 = reader.result as string
+          setGeneratedImages(prev => [base64, ...prev])
+          toast.success('Image generated!', { id: 'gen-image' })
+          setGenerating(false)
+        }
+        reader.readAsDataURL(blob)
+        return
       }
+
+      // Other providers use OpenAI-compatible API
+      let apiKey = customApiKey || ANTIGRAVITY_API_KEY
 
       const response = await fetch(currentProvider.endpoint, {
         method: 'POST',
