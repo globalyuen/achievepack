@@ -4,7 +4,7 @@
   "crons": [
     {
       "path": "/api/prospect/cron-autorun",
-      "schedule": "0 */2 * * *"
+      "schedule": "*/30 * * * *"
     }
   ],
   "functions": {

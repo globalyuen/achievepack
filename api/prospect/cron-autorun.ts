@@ -13,23 +13,28 @@ const SENDER_PROFILES: Record<string, { name: string; email: string; signature: 
     eric: { name: 'Eric Chan', email: 'eric@pouch.eco', signature: 'Eric Chan\nSales Manager\nPouch.eco | Sustainable Packaging Solutions\neric@pouch.eco' }
 }
 
-// Search queries to rotate through
+// Search queries to rotate through - USA, Canada, Australia
 const SEARCH_QUERIES = [
-    'organic coffee roasters Hong Kong',
-    'artisan bakery Hong Kong',
-    'specialty tea brand Hong Kong',
-    'healthy snack company Hong Kong',
-    'organic food brand Hong Kong',
-    'craft chocolate maker Hong Kong',
-    'natural skincare brand Hong Kong',
-    'vegan food company Hong Kong',
-    'gluten free bakery Hong Kong',
-    'kombucha brewery Hong Kong',
-    'matcha brand Hong Kong',
-    'granola company Hong Kong',
-    'nut butter brand Hong Kong',
-    'dried fruit company Hong Kong',
-    'protein bar brand Hong Kong'
+    'organic coffee roasters USA',
+    'artisan bakery United States',
+    'specialty tea brand Canada',
+    'healthy snack company Australia',
+    'organic food brand California',
+    'craft chocolate maker Toronto',
+    'natural skincare brand Vancouver',
+    'vegan food company Sydney',
+    'gluten free bakery Melbourne',
+    'kombucha brewery New York',
+    'matcha brand Los Angeles',
+    'granola company Montreal',
+    'nut butter brand Brisbane',
+    'dried fruit company Texas',
+    'protein bar brand Chicago',
+    'coffee roasters Seattle',
+    'organic snacks Boston',
+    'tea company San Francisco',
+    'healthy food brand Denver',
+    'eco food company Portland'
 ]
 
 // Words to remove from business names
