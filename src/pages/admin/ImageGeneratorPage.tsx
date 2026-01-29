@@ -3,9 +3,16 @@ import { Link } from 'react-router-dom'
 import { ArrowLeft, Image, Loader2, Download, Sparkles, Copy, Check, RefreshCw, Wand2, Settings } from 'lucide-react'
 import { toast } from 'sonner'
 
-// Antigravity Tools API Configuration
+// API Configuration Options
+const API_PROVIDERS = [
+  { id: 'together', name: 'Together AI (Free)', endpoint: 'https://api.together.xyz/v1/images/generations', model: 'black-forest-labs/FLUX.1-schnell-Free' },
+  { id: 'openai', name: 'OpenAI DALL-E', endpoint: 'https://api.openai.com/v1/images/generations', model: 'dall-e-3' },
+  { id: 'antigravity', name: 'Antigravity (Local)', endpoint: 'http://localhost:8045/v1/images/generations', model: 'imagen-3' },
+]
+
+// API Keys
 const ANTIGRAVITY_API_KEY = 'sk-42c40a74af1643dca4a1de2778140621'
-const ANTIGRAVITY_BASE_URL = 'https://api.antigravity.codes' // Default proxy endpoint
+const TOGETHER_API_KEY = '' // Free tier available
 
 // Preset prompts for marketing
 const PRESET_PROMPTS = [
@@ -49,8 +56,10 @@ const ImageGeneratorPage: React.FC = () => {
   const [imageCount, setImageCount] = useState(1)
   const [aspectRatio, setAspectRatio] = useState('1024x1024')
   const [showSettings, setShowSettings] = useState(false)
-  const [customEndpoint, setCustomEndpoint] = useState(ANTIGRAVITY_BASE_URL)
-  const [model, setModel] = useState('imagen-3')
+  const [selectedProvider, setSelectedProvider] = useState('together')
+  const [customApiKey, setCustomApiKey] = useState('')
+
+  const currentProvider = API_PROVIDERS.find(p => p.id === selectedProvider) || API_PROVIDERS[0]
 
   const generateImage = async () => {
     if (!prompt.trim()) {
@@ -60,27 +69,30 @@ const ImageGeneratorPage: React.FC = () => {
 
     setGenerating(true)
     setError(null)
-    toast.loading('Generating image with Antigravity...', { id: 'gen-image' })
+    toast.loading(`Generating with ${currentProvider.name}...`, { id: 'gen-image' })
 
     try {
-      // Use OpenAI-compatible format through Antigravity proxy
-      const response = await fetch(
-        `${customEndpoint}/v1/images/generations`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${ANTIGRAVITY_API_KEY}`
-          },
-          body: JSON.stringify({
-            model: model,
-            prompt: prompt,
-            n: imageCount,
-            size: aspectRatio,
-            response_format: 'b64_json'
-          })
-        }
-      )
+      // Determine API key
+      let apiKey = customApiKey || ANTIGRAVITY_API_KEY
+      if (selectedProvider === 'together' && !customApiKey) {
+        // Together AI free tier - no key needed for some models
+        apiKey = TOGETHER_API_KEY || 'free'
+      }
+
+      const response = await fetch(currentProvider.endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${apiKey}`
+        },
+        body: JSON.stringify({
+          model: currentProvider.model,
+          prompt: prompt,
+          n: imageCount,
+          size: aspectRatio,
+          response_format: 'b64_json'
+        })
+      })
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}))
@@ -152,7 +164,7 @@ const ImageGeneratorPage: React.FC = () => {
                 </div>
                 <div>
                   <h1 className="text-xl font-bold text-white">AI Image Generator</h1>
-                  <p className="text-sm text-gray-400">Powered by Antigravity + Imagen 3</p>
+                  <p className="text-sm text-gray-400">Using {currentProvider.name}</p>
                 </div>
               </div>
             </div>
@@ -173,28 +185,31 @@ const ImageGeneratorPage: React.FC = () => {
             <h3 className="text-lg font-medium text-white mb-4">API Settings</h3>
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm text-gray-400 mb-2">API Endpoint</label>
-                <input
-                  type="text"
-                  value={customEndpoint}
-                  onChange={(e) => setCustomEndpoint(e.target.value)}
-                  className="w-full bg-gray-900 border border-gray-600 rounded-lg px-4 py-2 text-white"
-                  placeholder="https://api.antigravity.codes"
-                />
-              </div>
-              <div>
-                <label className="block text-sm text-gray-400 mb-2">Model</label>
+                <label className="block text-sm text-gray-400 mb-2">Provider</label>
                 <select
-                  value={model}
-                  onChange={(e) => setModel(e.target.value)}
+                  value={selectedProvider}
+                  onChange={(e) => setSelectedProvider(e.target.value)}
                   className="w-full bg-gray-900 border border-gray-600 rounded-lg px-4 py-2 text-white"
                 >
-                  <option value="imagen-3">Imagen 3</option>
-                  <option value="dall-e-3">DALL-E 3</option>
-                  <option value="dall-e-2">DALL-E 2</option>
+                  {API_PROVIDERS.map(p => (
+                    <option key={p.id} value={p.id}>{p.name}</option>
+                  ))}
                 </select>
               </div>
+              <div>
+                <label className="block text-sm text-gray-400 mb-2">Custom API Key (Optional)</label>
+                <input
+                  type="password"
+                  value={customApiKey}
+                  onChange={(e) => setCustomApiKey(e.target.value)}
+                  className="w-full bg-gray-900 border border-gray-600 rounded-lg px-4 py-2 text-white"
+                  placeholder="sk-..."
+                />
+              </div>
             </div>
+            <p className="text-xs text-gray-500 mt-3">
+              Endpoint: {currentProvider.endpoint} | Model: {currentProvider.model}
+            </p>
           </div>
         )}
 
@@ -361,12 +376,11 @@ const ImageGeneratorPage: React.FC = () => {
 
             {/* Usage Info */}
             <div className="mt-6 bg-gray-800/50 rounded-xl p-4 border border-gray-700">
-              <h4 className="text-sm font-medium text-gray-300 mb-2">API Information</h4>
+              <h4 className="text-sm font-medium text-gray-300 mb-2">Current Configuration</h4>
               <ul className="text-xs text-gray-500 space-y-1">
-                <li>• Proxy: Antigravity Tools (OpenAI Compatible)</li>
-                <li>• Model: {model}</li>
-                <li>• Endpoint: {customEndpoint}</li>
-                <li>• Output: High-quality PNG images</li>
+                <li>• Provider: {currentProvider.name}</li>
+                <li>• Model: {currentProvider.model}</li>
+                <li>• Endpoint: {currentProvider.endpoint}</li>
               </ul>
             </div>
           </div>
