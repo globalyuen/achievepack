@@ -5,7 +5,8 @@ import { toast } from 'sonner'
 
 // API Configuration Options
 const API_PROVIDERS = [
-  { id: 'pollinations', name: 'Pollinations (Free, No Key)', endpoint: 'https://image.pollinations.ai/prompt/', model: 'flux', noAuth: true },
+  { id: 'gemini-server', name: 'Gemini (Server)', endpoint: '/api/generate-image', model: 'imagen-3.0-generate-001', noAuth: true },
+  { id: 'pollinations', name: 'Pollinations (Free)', endpoint: 'https://image.pollinations.ai/prompt/', model: 'flux', noAuth: true },
   { id: 'together', name: 'Together AI', endpoint: 'https://api.together.xyz/v1/images/generations', model: 'black-forest-labs/FLUX.1-schnell-Free', noAuth: false },
   { id: 'openai', name: 'OpenAI DALL-E', endpoint: 'https://api.openai.com/v1/images/generations', model: 'dall-e-3', noAuth: false },
   { id: 'antigravity', name: 'Antigravity (Local)', endpoint: 'http://localhost:8045/v1/images/generations', model: 'imagen-3', noAuth: false },
@@ -56,7 +57,7 @@ const ImageGeneratorPage: React.FC = () => {
   const [imageCount, setImageCount] = useState(1)
   const [aspectRatio, setAspectRatio] = useState('1024x1024')
   const [showSettings, setShowSettings] = useState(false)
-  const [selectedProvider, setSelectedProvider] = useState('pollinations')
+  const [selectedProvider, setSelectedProvider] = useState('gemini-server')
   const [customApiKey, setCustomApiKey] = useState('')
 
   const currentProvider = API_PROVIDERS.find(p => p.id === selectedProvider) || API_PROVIDERS[0]
@@ -72,6 +73,41 @@ const ImageGeneratorPage: React.FC = () => {
     toast.loading(`Generating with ${currentProvider.name}...`, { id: 'gen-image' })
 
     try {
+      // Gemini Server API (uses Vercel serverless function)
+      if (selectedProvider === 'gemini-server') {
+        const response = await fetch('/api/generate-image', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            prompt,
+            size: aspectRatio,
+            model: 'imagen-3.0-generate-001'
+          })
+        })
+
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}))
+          throw new Error(errorData.error || `API Error: ${response.status}`)
+        }
+
+        const data = await response.json()
+        if (data.data && data.data.length > 0) {
+          const images = data.data.map((item: any) => {
+            if (item.b64_json) {
+              return `data:image/png;base64,${item.b64_json}`
+            }
+            return null
+          }).filter(Boolean)
+          
+          setGeneratedImages(prev => [...images, ...prev])
+          toast.success(`Generated ${images.length} image(s) with Gemini!`, { id: 'gen-image' })
+        } else {
+          throw new Error('No images generated')
+        }
+        setGenerating(false)
+        return
+      }
+
       // Pollinations uses a simple URL-based API (no auth needed)
       if (selectedProvider === 'pollinations') {
         const encodedPrompt = encodeURIComponent(prompt)
