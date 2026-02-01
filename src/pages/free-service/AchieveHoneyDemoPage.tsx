@@ -44,7 +44,7 @@ const fadeInScale: Variants = {
 
 const HONEY_IMAGES = {
   hero: '/imgs/demo-site/honey/hero.png?v=compostable',
-  lifestyle: '/imgs/demo-site/honey/lifestyle.png?v=compostable',
+  lifestyle: '/imgs/demo-site/honey/lifestyle.png?v=clean_fallback',
   flavors: {
     original: '/imgs/demo-site/honey/original.png?v=compostable',
     ginger: '/imgs/demo-site/honey/ginger.png?v=compostable',
