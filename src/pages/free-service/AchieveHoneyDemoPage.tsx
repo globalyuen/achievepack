@@ -43,12 +43,12 @@ const fadeInScale: Variants = {
 // ============================================
 
 const HONEY_IMAGES = {
-  hero: '/imgs/demo-site/honey/hero.png',
-  lifestyle: '/imgs/demo-site/honey/lifestyle.png',
+  hero: '/imgs/demo-site/honey/hero.png?v=compostable',
+  lifestyle: '/imgs/demo-site/honey/lifestyle.png?v=compostable',
   flavors: {
-    original: '/imgs/demo-site/honey/original.png',
-    ginger: '/imgs/demo-site/honey/ginger.png',
-    lemon: '/imgs/demo-site/honey/lemon.png'
+    original: '/imgs/demo-site/honey/original.png?v=compostable',
+    ginger: '/imgs/demo-site/honey/ginger.png?v=compostable',
+    lemon: '/imgs/demo-site/honey/lemon.png?v=compostable'
   }
 }
 
