@@ -1,11 +1,11 @@
 {
-  "generated": "2026-01-28",
-  "total_images": 1152,
-  "total_categories": 123,
+  "generated": "2026-02-01",
+  "total_images": 1159,
+  "total_categories": 124,
   "extensions": {
     ".webp": 1058,
-    ".png": 89,
-    ".jpg": 2,
+    ".png": 92,
+    ".jpg": 6,
     ".svg": 3
   },
   "categories": {
@@ -1128,6 +1128,35 @@
           "path": "/imgs/composting/benefits/hero.webp",
           "extension": ".webp",
           "modified": "2026-01-02T06:43:26.000Z"
+        }
+      ]
+    },
+    "composting/cellulose": {
+      "count": 4,
+      "images": [
+        {
+          "filename": "22be74fbcbe50dba49f2aaac988a540c.jpg",
+          "path": "/imgs/composting/cellulose/22be74fbcbe50dba49f2aaac988a540c.jpg",
+          "extension": ".jpg",
+          "modified": "2026-01-30T09:53:59.625Z"
+        },
+        {
+          "filename": "a2b51f7a3171311964705856d16e1245.jpg",
+          "path": "/imgs/composting/cellulose/a2b51f7a3171311964705856d16e1245.jpg",
+          "extension": ".jpg",
+          "modified": "2026-01-30T09:53:43.151Z"
+        },
+        {
+          "filename": "dd8a02694ab58b4149f7a7f4ff508ad2.jpg",
+          "path": "/imgs/composting/cellulose/dd8a02694ab58b4149f7a7f4ff508ad2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-01-30T09:53:28.663Z"
+        },
+        {
+          "filename": "7a1a72413365ab39c6531312efcfd510.jpg",
+          "path": "/imgs/composting/cellulose/7a1a72413365ab39c6531312efcfd510.jpg",
+          "extension": ".jpg",
+          "modified": "2026-01-30T09:53:18.435Z"
         }
       ]
     },
@@ -4090,8 +4119,26 @@
       ]
     },
     "pouch-shape": {
-      "count": 9,
+      "count": 12,
       "images": [
+        {
+          "filename": "achieve-pack-branding-spotlight.png",
+          "path": "/imgs/pouch-shape/achieve-pack-branding-spotlight.png",
+          "extension": ".png",
+          "modified": "2026-01-29T08:59:20.329Z"
+        },
+        {
+          "filename": "achieve-pack-k-seal.png",
+          "path": "/imgs/pouch-shape/achieve-pack-k-seal.png",
+          "extension": ".png",
+          "modified": "2026-01-29T08:59:20.323Z"
+        },
+        {
+          "filename": "achieve-pack-sup-lifestyle.png",
+          "path": "/imgs/pouch-shape/achieve-pack-sup-lifestyle.png",
+          "extension": ".png",
+          "modified": "2026-01-29T08:59:20.317Z"
+        },
         {
           "filename": "nano-pro-sup-lifestyle.png",
           "path": "/imgs/pouch-shape/nano-pro-sup-lifestyle.png",

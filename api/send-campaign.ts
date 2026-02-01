@@ -10,6 +10,7 @@ interface SendCampaignRequest {
   subject: string
   htmlContent: string
   testEmail?: string // If provided, only send to this email
+  cc?: EmailRecipient[] // CC recipients
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -34,7 +35,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const { recipients, subject, htmlContent, testEmail } = req.body as SendCampaignRequest
+    const { recipients, subject, htmlContent, testEmail, cc } = req.body as SendCampaignRequest
 
     console.log('📧 Campaign request received:', {
       testEmail: testEmail || 'none',
@@ -80,12 +81,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         // Personalize subject line with recipient name
         const personalizedSubject = subject.replace(/\{\{name\}\}/g, recipientName)
 
-        const emailPayload = {
+        const emailPayload: Record<string, unknown> = {
           sender: {
             email: 'hello@achievepack.com',
             name: 'Achieve Pack'
           },
           to: [{ email: recipient.email, name: recipient.name || recipientName }],
+          cc: cc || [{ email: 'ryan@achievepack.com', name: 'Ryan' }],
           subject: personalizedSubject,
           htmlContent: personalizedHtml,
           replyTo: {

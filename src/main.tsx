@@ -289,6 +289,7 @@ const CompostingBenefitsPage = lazyWithRetry(() => import('./pages/composting/Co
 const CommercialCompostingPage = lazyWithRetry(() => import('./pages/composting/CommercialCompostingPage'))
 const HomeVsIndustrialCompostPage = lazyWithRetry(() => import('./pages/composting/HomeVsIndustrialCompostPage'))
 const PlasticFreePage = lazyWithRetry(() => import('./pages/composting/PlasticFreePage'))
+const NaturalCelluloseFiberPage = lazyWithRetry(() => import('./pages/composting/NaturalCelluloseFiberPage'))
 
 // Free Service Pages - Lazy loaded
 const FreePackagingDesignPage = lazyWithRetry(() => import('./pages/free-service/FreePackagingDesignPage'))
@@ -302,6 +303,8 @@ const PencilDemoPage = lazyWithRetry(() => import('./pages/free-service/PencilDe
 const AchieveChocolateDemoPage = lazyWithRetry(() => import('./pages/free-service/AchieveChocolateDemoPage'))
 const AchieveSupplementDemoPage = lazyWithRetry(() => import('./pages/free-service/AchieveSupplementDemoPage'))
 const AchieveTeaDemoPage = lazyWithRetry(() => import('./pages/free-service/AchieveTeaDemoPage'))
+const AchieveEnergyDemoPage = lazyWithRetry(() => import('./pages/free-service/AchieveEnergyDemoPage'))
+const AchieveHoneyDemoPage = lazyWithRetry(() => import('./pages/free-service/AchieveHoneyDemoPage'))
 const FreeServicesHubPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesHubPage'))
 const FreeServicesPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesPage'))
 const Product3DShowcasePage = lazyWithRetry(() => import('./pages/Product3DShowcasePage'))
@@ -546,6 +549,7 @@ createRoot(document.getElementById('root')!).render(
                       <Route path="/composting/commercial-composting" element={<CommercialCompostingPage />} />
                       <Route path="/composting/home-vs-industrial-compostable" element={<HomeVsIndustrialCompostPage />} />
                       <Route path="/composting/plastic-free" element={<PlasticFreePage />} />
+                      <Route path="/composting/natural-cellulose-fiber" element={<NaturalCelluloseFiberPage />} />
 
                       {/* Free Service Pages */}
                       <Route path="/free-service/packaging-design-consultation" element={<FreePackagingDesignPage />} />
@@ -559,6 +563,8 @@ createRoot(document.getElementById('root')!).render(
                       <Route path="/free-service/achieve-chocolate-demo" element={<AchieveChocolateDemoPage />} />
                       <Route path="/free-service/achieve-supplement-demo" element={<AchieveSupplementDemoPage />} />
                       <Route path="/free-service/achieve-tea-demo" element={<AchieveTeaDemoPage />} />
+                      <Route path="/free-service/achieve-energy-demo" element={<AchieveEnergyDemoPage />} />
+                      <Route path="/free-service/achieve-honey-demo" element={<AchieveHoneyDemoPage />} />
                       <Route path="/free" element={<FreeServicesHubPage />} />
                                             <Route path="/free-service" element={<FreeServicesPage />} />
                       <Route path="/3d-showcase" element={<Product3DShowcasePage />} />

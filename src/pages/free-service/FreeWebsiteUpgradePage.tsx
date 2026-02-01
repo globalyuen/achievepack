@@ -818,6 +818,66 @@ const FreeWebsiteUpgradePage: React.FC = () => {
                 </div>
               </motion.div>
 
+              {/* Achieve Energy Demo Card */}
+              <motion.div 
+                className="group relative bg-[#000] rounded-3xl overflow-hidden shadow-2xl border border-[#D4FF00]/50"
+                variants={fadeInUp}
+                whileHover={{ y: -12, transition: { duration: 0.3 } }}
+              >
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img
+                    src="/imgs/demo-site/energy/hero.png"
+                    alt="Achieve Energy Demo"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                </div>
+                <div className="absolute bottom-0 left-0 p-8 text-white">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="bg-[#D4FF00] text-black text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Energy</span>
+                    <span className="text-xs text-[#D4FF00] font-medium italic">High Voltage</span>
+                  </div>
+                  <h3 className="text-3xl font-bold mb-3 text-white">Achieve Energy</h3>
+                  <p className="text-white/80 text-sm mb-6 max-w-sm">Futuristic dark mode design with neon accents. High-energy visuals for a next-gen spouted pouch product.</p>
+                  <Link
+                    to="/free-service/achieve-energy-demo"
+                    className="inline-flex items-center gap-2 bg-[#D4FF00] text-black px-6 py-3 rounded-full font-bold transition hover:bg-white"
+                  >
+                    Enter Energy Demo Site <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </motion.div>
+
+              {/* Achieve Honey Demo Card */}
+              <motion.div 
+                className="group relative bg-[#FDFBF7] rounded-3xl overflow-hidden shadow-2xl border border-amber-200"
+                variants={fadeInUp}
+                whileHover={{ y: -12, transition: { duration: 0.3 } }}
+              >
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img
+                    src="/imgs/demo-site/honey/hero.png"
+                    alt="Achieve Honey Demo"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#5B4839]/80 via-transparent to-transparent" />
+                </div>
+                <div className="absolute bottom-0 left-0 p-8 text-white">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="bg-amber-500 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Nature</span>
+                    <span className="text-xs text-amber-200 font-medium italic">Sweetest Gift</span>
+                  </div>
+                  <h3 className="text-3xl font-bold mb-3 text-white font-serif">Achieve Honey</h3>
+                  <p className="text-white/90 text-sm mb-6 max-w-sm">Organic honey drinks in eco-friendly bottle-shaped pouches. Experience the taste of nature.</p>
+                  <Link
+                    to="/free-service/achieve-honey-demo"
+                    className="inline-flex items-center gap-2 bg-amber-500 text-white px-6 py-3 rounded-full font-bold transition hover:bg-amber-600 shadow-lg"
+                  >
+                    Enter Honey Demo Site <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </motion.div>
+
               {/* Achieve Chocolate Demo Card */}
               <motion.div 
                 className="group relative bg-[#2C1810] rounded-3xl overflow-hidden shadow-2xl border border-[#D4AF37]/20"

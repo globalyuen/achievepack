@@ -140,6 +140,7 @@ export default function Footer() {
               <li><Link to="/composting/biodegradable-vs-compostable" className="hover:text-primary-400">Biodegradable vs Compostable</Link></li>
               <li><Link to="/composting/commercial-composting" className="hover:text-primary-400">Commercial Composting</Link></li>
               <li><Link to="/composting/home-vs-industrial-compostable" className="hover:text-primary-400">Home vs Industrial</Link></li>
+              <li><Link to="/composting/natural-cellulose-fiber" className="hover:text-primary-400">Natural Cellulose Fiber</Link></li>
             </ul>
           </div>
 

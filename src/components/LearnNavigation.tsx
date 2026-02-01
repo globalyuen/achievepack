@@ -98,6 +98,7 @@ const LEARN_PAGES = {
       { name: 'Biodegradable vs Compostable', link: '/composting/biodegradable-vs-compostable', image: '/imgs/composting/vs/a_hero_biodegradable_vs_compostable_8031695.webp' },
       { name: 'Home vs Industrial Compostable', link: '/composting/home-vs-industrial-compostable', image: '/imgs/composting/homevs/a_blog_hero_banner_compostable_choice_5307332.webp' },
       { name: 'Plastic-Free vs Compostable', link: '/composting/plastic-free', image: '/imgs/composting/plastic-free/hero.webp' },
+      { name: 'Natural Cellulose Fiber', link: '/composting/natural-cellulose-fiber', image: '/imgs/composting/cellulose/22be74fbcbe50dba49f2aaac988a540c.jpg' },
     ]
   },
   biope: {

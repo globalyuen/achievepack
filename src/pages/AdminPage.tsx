@@ -3,8 +3,9 @@ import { useNavigate, Link, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, Order, Profile, NewsletterSubscriber, Document, Quote, ArtworkFile, EmailDraft, CRMInquiry, CRMActivity, CustomerActivityLog } from '../lib/supabase'
 import { blogPosts } from '../data/blogData'
-import { Home, Users, Package, Settings, Search, ChevronDown, ChevronLeft, ChevronRight, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox, Send, FileCode, Check, Globe, Filter, MapPin, Factory, Tag, History, Zap, Bell, Loader2, Download, Folder, Palette, Wand2 } from 'lucide-react'
+import { Home, Users, Package, Settings, Search, ChevronDown, ChevronLeft, ChevronRight, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox, Send, FileCode, Check, Globe, Filter, MapPin, Factory, Tag, History, Zap, Bell, Loader2, Download, Folder, Palette, Wand2, Bot, Terminal, Copy } from 'lucide-react'
 import CRMPanelAdvanced from '../components/admin/CRMPanelAdvanced'
+import EmailFollowUpPage from './admin/EmailFollowUpPage'
 import AchieveCoffeeCMS from '../components/admin/AchieveCoffeeCMS'
 import WebsiteDemoCMS from '../components/admin/WebsiteDemoCMS'
 import ImageHubCarousel from '../components/admin/ImageHubCarousel'
@@ -61,7 +62,7 @@ function detectIndustry(text: string): string {
   return 'Other'
 }
 
-type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'quote-management' | 'artwork' | 'artwork-proof' | 'image-catalog' | 'documents' | 'newsletter' | 'crm' | 'email-marketing' | 'website' | 'website-demos' | 'settings' | 'recycle-bin'
+type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'quote-management' | 'artwork' | 'artwork-proof' | 'image-catalog' | 'documents' | 'newsletter' | 'crm' | 'email-marketing' | 'email-followup' | 'website' | 'website-demos' | 'settings' | 'automation' | 'recycle-bin'
 
 // Sidebar menu structure with collapsible groups
 const sidebarMenuItems = [
@@ -95,6 +96,7 @@ const sidebarMenuItems = [
     group: 'CRM',
     items: [
       { id: 'crm', label: 'CRM / Inquiries', icon: Inbox },
+      { id: 'email-followup', label: 'Email Follow Up', icon: Clock },
       { id: 'prospects', label: 'Prospect Finder', icon: Search, externalLink: '/ctrl-x9k7m/prospects' },
     ]
   },
@@ -117,6 +119,12 @@ const sidebarMenuItems = [
       { id: 'website-demos', label: 'Demo Sites', icon: Globe },
       { id: 'mockup', label: 'Mock Up', icon: Image, comingSoon: true },
       { id: 'design', label: 'Design', icon: Palette, comingSoon: true },
+    ]
+  },
+  {
+    group: 'Automation',
+    items: [
+      { id: 'automation', label: 'Clawdbot', icon: Bot },
     ]
   },
   {
@@ -2845,6 +2853,11 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
             </div>
           )}
 
+          {/* Email Follow Up Tab */}
+          {activeTab === 'email-followup' && (
+            <EmailFollowUpPage />
+          )}
+
           {/* Settings Tab */}
           {activeTab === 'settings' && (
             <div className="space-y-4 md:space-y-6">
@@ -2860,6 +2873,155 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                     <Calendar className="h-4 w-4 md:h-5 md:w-5 text-gray-400" />
                     <span className="text-sm md:text-base text-gray-600">Last login: {new Date().toLocaleDateString()}</span>
                   </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Automation / Clawdbot Tab */}
+          {activeTab === 'automation' && (
+            <div className="space-y-4 md:space-y-6">
+              <div className="flex items-center gap-3">
+                <Bot className="h-6 w-6 md:h-8 md:w-8 text-primary-600" />
+                <h1 className="text-xl md:text-2xl font-bold text-gray-900">Clawdbot Automation</h1>
+              </div>
+              
+              {/* Status Card */}
+              <div className="bg-gradient-to-r from-primary-50 to-blue-50 rounded-xl border border-primary-200 p-4 md:p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Bot className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h2 className="text-lg font-semibold text-gray-900">🦞 Clawdbot AI Assistant</h2>
+                    <p className="text-sm text-gray-600 mt-1">24/7 自动化助手，通过 WhatsApp/微信 控制业务流程</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Email Integration - Zoho */}
+              <div className="bg-white rounded-xl shadow-sm border p-4 md:p-6">
+                <div className="flex items-center gap-2 mb-4">
+                  <Mail className="h-5 w-5 text-blue-500" />
+                  <h2 className="text-lg font-semibold">📧 邮件集成 (Zoho)</h2>
+                </div>
+                <div className="space-y-4">
+                  <div className="bg-gray-50 rounded-lg p-4">
+                    <p className="text-sm font-medium text-gray-700 mb-2">1. 安装邮件插件</p>
+                    <div className="bg-gray-900 rounded-lg p-3 font-mono text-sm text-green-400 flex items-center justify-between">
+                      <code>clawdbot plugins install @clawdbot/imap-email</code>
+                      <button onClick={() => navigator.clipboard.writeText('clawdbot plugins install @clawdbot/imap-email')} className="text-gray-400 hover:text-white"><Copy className="h-4 w-4" /></button>
+                    </div>
+                  </div>
+                  <div className="bg-gray-50 rounded-lg p-4">
+                    <p className="text-sm font-medium text-gray-700 mb-2">2. 配置 Zoho IMAP</p>
+                    <div className="bg-gray-900 rounded-lg p-3 font-mono text-xs text-green-400 space-y-1">
+                      <div className="flex items-center justify-between"><code>clawdbot config set email.imap.host "imap.zoho.com"</code><button onClick={() => navigator.clipboard.writeText('clawdbot config set email.imap.host "imap.zoho.com"')} className="text-gray-400 hover:text-white"><Copy className="h-4 w-4" /></button></div>
+                      <div className="flex items-center justify-between"><code>clawdbot config set email.imap.port 993</code><button onClick={() => navigator.clipboard.writeText('clawdbot config set email.imap.port 993')} className="text-gray-400 hover:text-white"><Copy className="h-4 w-4" /></button></div>
+                      <div className="flex items-center justify-between"><code>clawdbot config set email.imap.user "ryan@achievepack.com"</code><button onClick={() => navigator.clipboard.writeText('clawdbot config set email.imap.user "ryan@achievepack.com"')} className="text-gray-400 hover:text-white"><Copy className="h-4 w-4" /></button></div>
+                      <div className="flex items-center justify-between"><code>clawdbot config set email.imap.password "YOUR_APP_PASSWORD"</code><button onClick={() => navigator.clipboard.writeText('clawdbot config set email.imap.password "YOUR_APP_PASSWORD"')} className="text-gray-400 hover:text-white"><Copy className="h-4 w-4" /></button></div>
+                    </div>
+                  </div>
+                  <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
+                    <p className="text-sm text-yellow-800">⚠️ Zoho 需要使用 App Password，在 Zoho Mail → Settings → Security → App Passwords 生成</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Automation Features Grid */}
+              <div className="grid md:grid-cols-2 gap-4">
+                {/* RFQ Automation */}
+                <div className="bg-white rounded-xl shadow-sm border p-4 md:p-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <FileText className="h-5 w-5 text-orange-500" />
+                    <h3 className="font-semibold">RFQ 询盘自动化</h3>
+                  </div>
+                  <ul className="text-sm text-gray-600 space-y-2">
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />收到询盘邮件 → 自动提取产品需求</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />匹配报价规则 → 生成初步报价</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />WhatsApp 通知确认 → 自动发送</li>
+                  </ul>
+                </div>
+
+                {/* Order Tracking */}
+                <div className="bg-white rounded-xl shadow-sm border p-4 md:p-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Truck className="h-5 w-5 text-blue-500" />
+                    <h3 className="font-semibold">订单状态通知</h3>
+                  </div>
+                  <ul className="text-sm text-gray-600 space-y-2">
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />生产完成 → 自动发邮件给客户</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />发货 → 抓取物流单号 → 推送</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />送达 → 自动请求评价</li>
+                  </ul>
+                </div>
+
+                {/* Customer Follow-up */}
+                <div className="bg-white rounded-xl shadow-sm border p-4 md:p-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Users className="h-5 w-5 text-purple-500" />
+                    <h3 className="font-semibold">客户跟进自动化</h3>
+                  </div>
+                  <ul className="text-sm text-gray-600 space-y-2">
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />判断最佳发送时间</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />无回复 3 天后自动跟进</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />AI 生成个性化内容</li>
+                  </ul>
+                </div>
+
+                {/* Deployment */}
+                <div className="bg-white rounded-xl shadow-sm border p-4 md:p-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Globe className="h-5 w-5 text-green-500" />
+                    <h3 className="font-semibold">网站部署自动化</h3>
+                  </div>
+                  <ul className="text-sm text-gray-600 space-y-2">
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />WhatsApp 发 "deploy" → 自动部署</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />部署完成 → 推送确认消息</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />出错 → 自动回滚并通知</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Quick Commands */}
+              <div className="bg-white rounded-xl shadow-sm border p-4 md:p-6">
+                <div className="flex items-center gap-2 mb-4">
+                  <Terminal className="h-5 w-5 text-gray-700" />
+                  <h2 className="text-lg font-semibold">常用命令</h2>
+                </div>
+                <div className="grid md:grid-cols-2 gap-3">
+                  <div className="bg-gray-50 rounded-lg p-3">
+                    <p className="text-xs text-gray-500 mb-1">查看渠道状态</p>
+                    <code className="text-sm font-mono text-gray-800">clawdbot channels status</code>
+                  </div>
+                  <div className="bg-gray-50 rounded-lg p-3">
+                    <p className="text-xs text-gray-500 mb-1">添加新渠道</p>
+                    <code className="text-sm font-mono text-gray-800">clawdbot channels add</code>
+                  </div>
+                  <div className="bg-gray-50 rounded-lg p-3">
+                    <p className="text-xs text-gray-500 mb-1">查看日志</p>
+                    <code className="text-sm font-mono text-gray-800">clawdbot channels logs</code>
+                  </div>
+                  <div className="bg-gray-50 rounded-lg p-3">
+                    <p className="text-xs text-gray-500 mb-1">配置模型</p>
+                    <code className="text-sm font-mono text-gray-800">clawdbot models list</code>
+                  </div>
+                </div>
+              </div>
+
+              {/* Documentation Links */}
+              <div className="bg-gray-50 rounded-xl border p-4">
+                <h3 className="font-medium text-gray-900 mb-3">📚 相关文档</h3>
+                <div className="flex flex-wrap gap-2">
+                  <a href="https://docs.clawd.bot" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 px-3 py-1.5 bg-white rounded-lg border text-sm text-gray-700 hover:border-primary-300 hover:text-primary-600">
+                    <ExternalLink className="h-3 w-3" /> 官方文档
+                  </a>
+                  <a href="https://docs.clawd.bot/cli/channels" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 px-3 py-1.5 bg-white rounded-lg border text-sm text-gray-700 hover:border-primary-300 hover:text-primary-600">
+                    <ExternalLink className="h-3 w-3" /> 渠道配置
+                  </a>
+                  <a href="https://docs.clawd.bot/cli/plugins" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 px-3 py-1.5 bg-white rounded-lg border text-sm text-gray-700 hover:border-primary-300 hover:text-primary-600">
+                    <ExternalLink className="h-3 w-3" /> 插件管理
+                  </a>
                 </div>
               </div>
             </div>
