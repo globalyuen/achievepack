@@ -38,7 +38,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             scopes: ['https://www.googleapis.com/auth/webmasters.readonly']
         })
         
-        const searchConsole = google.searchconsole({ version: 'v1', auth })
+        const searchConsole = google.searchconsole({ version: 'v1', auth: auth as any })
         
         const endDate = new Date()
         const startDate = new Date()

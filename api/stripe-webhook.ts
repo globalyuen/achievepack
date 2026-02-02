@@ -257,15 +257,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
               .ilike('email', customerEmail)
               .maybeSingle()
             
-            // Also check auth.users via admin API
-            const { data: authUsers } = await supabase.auth.admin.listUsers()
-            const existingAuthUser = authUsers?.users?.find(
-              (u: any) => u.email?.toLowerCase() === customerEmail.toLowerCase()
-            )
-            
             const customerName = orderDetails?.customer_name || session.customer_details?.name || 'Customer'
             
-            if (!existingProfile && !existingAuthUser) {
+            if (!existingProfile) {
               // No existing account - send invitation email
               console.log(`No existing account for ${customerEmail}, sending invite...`)
               await sendCustomerInviteEmail(customerEmail, customerName, orderNumber)
