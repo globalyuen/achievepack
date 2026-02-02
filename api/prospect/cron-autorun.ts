@@ -593,16 +593,326 @@ interface ContactInfo {
     firstName: string | null
     lastName: string | null
     position: string | null
+    phoneSource?: string // Track where phone was found
 }
 
-// Find email and phone for a business using Hunter.io
-async function findContactInfo(domain: string): Promise<ContactInfo> {
+interface PhoneLookupResult {
+    phone: string | null
+    source: string
+    success: boolean
+}
+
+// Validate and normalize phone number format
+function normalizePhone(phone: string | null | undefined): string | null {
+    if (!phone) return null
+    
+    // Remove all non-digit characters except +
+    let cleaned = phone.replace(/[^\d+]/g, '')
+    
+    // Must have at least 7 digits
+    const digitCount = cleaned.replace(/\D/g, '').length
+    if (digitCount < 7 || digitCount > 15) return null
+    
+    // Ensure starts with + for international format
+    if (!cleaned.startsWith('+')) {
+        // Assume US number if 10 digits
+        if (digitCount === 10) {
+            cleaned = '+1' + cleaned
+        } else if (digitCount === 11 && cleaned.startsWith('1')) {
+            cleaned = '+' + cleaned
+        }
+    }
+    
+    return cleaned
+}
+
+// ===== LAYER 1: Hunter.io =====
+async function findPhoneViaHunter(domain: string): Promise<PhoneLookupResult> {
     const HUNTER_API_KEY = process.env.HUNTER_API_KEY
-    const result: ContactInfo = { email: null, phone: null, firstName: null, lastName: null, position: null }
+    if (!HUNTER_API_KEY) {
+        return { phone: null, source: 'Hunter.io', success: false }
+    }
+    
+    try {
+        const url = `https://api.hunter.io/v2/domain-search?domain=${domain}&api_key=${HUNTER_API_KEY}`
+        const response = await fetch(url)
+        const data = await response.json() as { 
+            data?: { 
+                emails?: { phone_number?: string }[]
+                phone_numbers?: string[]
+            } 
+        }
+        
+        // Check contact phone
+        let phone = data.data?.emails?.[0]?.phone_number || null
+        
+        // Check organization phones
+        if (!phone && data.data?.phone_numbers?.[0]) {
+            phone = data.data.phone_numbers[0]
+        }
+        
+        phone = normalizePhone(phone)
+        return { phone, source: 'Hunter.io', success: !!phone }
+    } catch (error) {
+        console.error('Hunter.io phone lookup error:', error)
+        return { phone: null, source: 'Hunter.io', success: false }
+    }
+}
+
+// ===== LAYER 2: Apollo.io =====
+async function findPhoneViaApollo(domain: string): Promise<PhoneLookupResult> {
+    const APOLLO_API_KEY = process.env.APOLLO_API_KEY
+    if (!APOLLO_API_KEY) {
+        return { phone: null, source: 'Apollo.io', success: false }
+    }
+    
+    try {
+        // Apollo organization search
+        const url = 'https://api.apollo.io/v1/organizations/enrich'
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Cache-Control': 'no-cache',
+                'X-Api-Key': APOLLO_API_KEY
+            },
+            body: JSON.stringify({ domain })
+        })
+        
+        const data = await response.json() as {
+            organization?: {
+                phone?: string
+                primary_phone?: { number?: string }
+            }
+        }
+        
+        let phone = data.organization?.phone || 
+                    data.organization?.primary_phone?.number || null
+        
+        phone = normalizePhone(phone)
+        return { phone, source: 'Apollo.io', success: !!phone }
+    } catch (error) {
+        console.error('Apollo.io phone lookup error:', error)
+        return { phone: null, source: 'Apollo.io', success: false }
+    }
+}
+
+// ===== LAYER 3: Clearbit =====
+async function findPhoneViaClearbit(domain: string): Promise<PhoneLookupResult> {
+    const CLEARBIT_API_KEY = process.env.CLEARBIT_API_KEY
+    if (!CLEARBIT_API_KEY) {
+        return { phone: null, source: 'Clearbit', success: false }
+    }
+    
+    try {
+        const url = `https://company.clearbit.com/v2/companies/find?domain=${domain}`
+        const response = await fetch(url, {
+            headers: {
+                'Authorization': `Bearer ${CLEARBIT_API_KEY}`
+            }
+        })
+        
+        if (!response.ok) {
+            return { phone: null, source: 'Clearbit', success: false }
+        }
+        
+        const data = await response.json() as {
+            phone?: string
+        }
+        
+        const phone = normalizePhone(data.phone)
+        return { phone, source: 'Clearbit', success: !!phone }
+    } catch (error) {
+        console.error('Clearbit phone lookup error:', error)
+        return { phone: null, source: 'Clearbit', success: false }
+    }
+}
+
+// ===== LAYER 4: SerpAPI Google Search =====
+async function findPhoneViaSerpAPI(domain: string, companyName: string): Promise<PhoneLookupResult> {
+    const SERPAPI_KEY = process.env.SERPAPI_KEY
+    if (!SERPAPI_KEY) {
+        return { phone: null, source: 'SerpAPI', success: false }
+    }
+    
+    try {
+        // Search for company contact info
+        const query = `"${companyName}" contact phone number site:${domain}`
+        const url = `https://serpapi.com/search.json?engine=google&q=${encodeURIComponent(query)}&api_key=${SERPAPI_KEY}&num=3`
+        
+        const response = await fetch(url)
+        const data = await response.json() as {
+            organic_results?: { snippet?: string }[]
+            knowledge_graph?: { phone?: string }
+        }
+        
+        // Check knowledge graph first
+        if (data.knowledge_graph?.phone) {
+            const phone = normalizePhone(data.knowledge_graph.phone)
+            if (phone) return { phone, source: 'SerpAPI/KG', success: true }
+        }
+        
+        // Extract phone from snippets using regex
+        const phoneRegex = /(?:\+?1?[-.]?)?\(?\d{3}\)?[-.]?\d{3}[-.]?\d{4}/g
+        
+        for (const result of data.organic_results || []) {
+            if (result.snippet) {
+                const matches = result.snippet.match(phoneRegex)
+                if (matches) {
+                    const phone = normalizePhone(matches[0])
+                    if (phone) return { phone, source: 'SerpAPI', success: true }
+                }
+            }
+        }
+        
+        return { phone: null, source: 'SerpAPI', success: false }
+    } catch (error) {
+        console.error('SerpAPI phone lookup error:', error)
+        return { phone: null, source: 'SerpAPI', success: false }
+    }
+}
+
+// ===== LAYER 5: Website Scraping =====
+async function findPhoneViaWebscrape(domain: string): Promise<PhoneLookupResult> {
+    const contactPaths = ['/contact', '/contact-us', '/about', '/about-us', '/connect']
+    const phoneRegex = /(?:\+?1?[-.]?)?\(?\d{3}\)?[-.]?\d{3}[-.]?\d{4}/g
+    
+    for (const path of contactPaths) {
+        try {
+            const url = `https://${domain}${path}`
+            const controller = new AbortController()
+            const timeoutId = setTimeout(() => controller.abort(), 5000) // 5s timeout
+            
+            const response = await fetch(url, {
+                signal: controller.signal,
+                headers: {
+                    'User-Agent': 'Mozilla/5.0 (compatible; AchievePackBot/1.0)'
+                }
+            })
+            clearTimeout(timeoutId)
+            
+            if (!response.ok) continue
+            
+            const html = await response.text()
+            
+            // Extract phone numbers from HTML
+            // Look for tel: links first (most reliable)
+            const telMatch = html.match(/href="tel:([^"]+)"/i)
+            if (telMatch) {
+                const phone = normalizePhone(telMatch[1])
+                if (phone) return { phone, source: `Scrape:${path}`, success: true }
+            }
+            
+            // Look for phone patterns in text
+            const matches = html.match(phoneRegex)
+            if (matches) {
+                // Filter out common false positives (zip codes, dates)
+                for (const match of matches) {
+                    const phone = normalizePhone(match)
+                    if (phone && phone.length >= 10) {
+                        return { phone, source: `Scrape:${path}`, success: true }
+                    }
+                }
+            }
+        } catch (error) {
+            // Timeout or fetch error - continue to next path
+            continue
+        }
+    }
+    
+    return { phone: null, source: 'Scrape', success: false }
+}
+
+// ===== MULTI-LAYER PHONE LOOKUP =====
+async function findPhoneMultiLayer(
+    domain: string, 
+    companyName: string,
+    addLog: (msg: string) => void
+): Promise<{ phone: string | null, source: string }> {
+    
+    // Layer 1: Hunter.io (already called for email, reuse if available)
+    addLog(`      📞 Layer 1: Checking Hunter.io...`)
+    const hunterResult = await findPhoneViaHunter(domain)
+    if (hunterResult.success && hunterResult.phone) {
+        addLog(`      ✅ Phone found via Hunter.io: ${hunterResult.phone}`)
+        return { phone: hunterResult.phone, source: 'Hunter.io' }
+    }
+    addLog(`      ❌ Hunter.io: No phone`)
+    
+    // Layer 2: Apollo.io
+    if (process.env.APOLLO_API_KEY) {
+        addLog(`      📞 Layer 2: Checking Apollo.io...`)
+        const apolloResult = await findPhoneViaApollo(domain)
+        if (apolloResult.success && apolloResult.phone) {
+            addLog(`      ✅ Phone found via Apollo.io: ${apolloResult.phone}`)
+            return { phone: apolloResult.phone, source: 'Apollo.io' }
+        }
+        addLog(`      ❌ Apollo.io: No phone`)
+    } else {
+        addLog(`      ⏭️ Layer 2: Apollo.io skipped (no API key)`)
+    }
+    
+    // Layer 3: Clearbit
+    if (process.env.CLEARBIT_API_KEY) {
+        addLog(`      📞 Layer 3: Checking Clearbit...`)
+        const clearbitResult = await findPhoneViaClearbit(domain)
+        if (clearbitResult.success && clearbitResult.phone) {
+            addLog(`      ✅ Phone found via Clearbit: ${clearbitResult.phone}`)
+            return { phone: clearbitResult.phone, source: 'Clearbit' }
+        }
+        addLog(`      ❌ Clearbit: No phone`)
+    } else {
+        addLog(`      ⏭️ Layer 3: Clearbit skipped (no API key)`)
+    }
+    
+    // Layer 4: SerpAPI Google Search
+    if (process.env.SERPAPI_KEY) {
+        addLog(`      📞 Layer 4: Searching via SerpAPI...`)
+        const serpResult = await findPhoneViaSerpAPI(domain, companyName)
+        if (serpResult.success && serpResult.phone) {
+            addLog(`      ✅ Phone found via SerpAPI: ${serpResult.phone}`)
+            return { phone: serpResult.phone, source: serpResult.source }
+        }
+        addLog(`      ❌ SerpAPI: No phone in search results`)
+    } else {
+        addLog(`      ⏭️ Layer 4: SerpAPI skipped (no API key)`)
+    }
+    
+    // Layer 5: Website Scraping (last resort)
+    addLog(`      📞 Layer 5: Scraping contact pages...`)
+    const scrapeResult = await findPhoneViaWebscrape(domain)
+    if (scrapeResult.success && scrapeResult.phone) {
+        addLog(`      ✅ Phone found via ${scrapeResult.source}: ${scrapeResult.phone}`)
+        return { phone: scrapeResult.phone, source: scrapeResult.source }
+    }
+    addLog(`      ❌ Scraping: No phone found on contact pages`)
+    
+    addLog(`      ⚠️ All 5 layers exhausted - no phone number available`)
+    return { phone: null, source: 'none' }
+}
+
+// Find email and phone for a business using Hunter.io (email) + multi-layer phone
+async function findContactInfo(
+    domain: string, 
+    companyName: string = '',
+    addLog?: (msg: string) => void
+): Promise<ContactInfo> {
+    const HUNTER_API_KEY = process.env.HUNTER_API_KEY
+    const result: ContactInfo = { 
+        email: null, 
+        phone: null, 
+        firstName: null, 
+        lastName: null, 
+        position: null,
+        phoneSource: undefined
+    }
+    
+    const log = addLog || ((msg: string) => console.log(msg))
     
     if (!HUNTER_API_KEY) return result
     
     try {
+        // Step 1: Get email from Hunter.io
         const url = `https://api.hunter.io/v2/domain-search?domain=${domain}&api_key=${HUNTER_API_KEY}`
         const response = await fetch(url)
         const data = await response.json() as { 
@@ -625,15 +935,32 @@ async function findContactInfo(domain: string): Promise<ContactInfo> {
             result.firstName = contact.first_name || null
             result.lastName = contact.last_name || null
             result.position = contact.position || null
-            result.phone = contact.phone_number || null
+            
+            // Check Hunter.io phone first
+            result.phone = normalizePhone(contact.phone_number)
+            if (result.phone) {
+                result.phoneSource = 'Hunter.io'
+            }
         }
         
-        // Also check organization phone numbers
+        // Also check organization phone numbers from Hunter
         if (!result.phone && data.data?.phone_numbers?.[0]) {
-            result.phone = data.data.phone_numbers[0]
+            result.phone = normalizePhone(data.data.phone_numbers[0])
+            if (result.phone) {
+                result.phoneSource = 'Hunter.io'
+            }
         }
+        
+        // Step 2: If no phone from Hunter, use multi-layer lookup
+        if (!result.phone && result.email) {
+            log(`   📞 Starting multi-layer phone lookup...`)
+            const phoneResult = await findPhoneMultiLayer(domain, companyName || domain, log)
+            result.phone = phoneResult.phone
+            result.phoneSource = phoneResult.source
+        }
+        
     } catch (error) {
-        console.error('Hunter.io error:', error)
+        console.error('Contact info lookup error:', error)
     }
     return result
 }
@@ -917,9 +1244,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                     continue
                 }
                 
-                // Find contact info (email and phone)
-                addLog(`   🔍 Looking up email via Hunter.io...`)
-                const contactInfo = await findContactInfo(domain)
+                // Find contact info (email and phone with multi-layer lookup)
+                addLog(`   🔍 Looking up contact info...`)
+                const contactInfo = await findContactInfo(domain, business.name, addLog)
                 if (!contactInfo.email) {
                     addLog(`   ❌ No email found for ${domain}`)
                     continue
@@ -929,9 +1256,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 emailsFound++
                 addLog(`   ✅ Email found: ${email}`)
                 if (contactInfo.phone) {
-                    addLog(`   📞 Phone found: ${contactInfo.phone}`)
+                    addLog(`   📞 Phone found: ${contactInfo.phone} (via ${contactInfo.phoneSource})`)
                 } else {
-                    addLog(`   ⚠️ No phone number available (Hunter.io limitation)`)
+                    addLog(`   ⚠️ No phone number found after all layers`)
                 }
                 
                 // Check if email domain is blocked (India/China providers, etc.)
