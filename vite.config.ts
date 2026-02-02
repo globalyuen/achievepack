@@ -19,6 +19,14 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5002',
+        changeOrigin: true,
+      }
+    }
+  },
   // Optimize lucide-react tree-shaking
   optimizeDeps: {
     include: ['lucide-react'],

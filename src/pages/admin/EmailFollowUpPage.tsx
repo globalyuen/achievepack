@@ -1,5 +1,27 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react'
-import { Mail, Clock, AlertCircle, CheckCircle, Send, RefreshCw, Search, ChevronDown, ChevronRight, Building, Calendar, ExternalLink, Star, Reply, Sparkles, Loader2, TrendingUp, Users, Globe, BarChart3, Zap, X, Copy, CheckCheck, XCircle, PlayCircle, PauseCircle, Handshake, Settings, Link, Info, Package } from 'lucide-react'
+import { Mail, Clock, AlertCircle, CheckCircle, Send, RefreshCw, Search, ChevronDown, ChevronRight, Building, Calendar, ExternalLink, Star, Reply, Sparkles, Loader2, TrendingUp, Users, Globe, BarChart3, Zap, X, Copy, CheckCheck, XCircle, PlayCircle, PauseCircle, Handshake, Settings, Link, Info, Package, Filter, Tag, MailCheck, MailX, MailQuestion } from 'lucide-react'
+
+// Customer status options for filtering
+const CUSTOMER_STATUSES = [
+  { value: 'new', label: '新客户', color: 'bg-blue-100 text-blue-700', icon: Star },
+  { value: 'contacted', label: '已联系', color: 'bg-cyan-100 text-cyan-700', icon: Mail },
+  { value: 'quoted', label: '已报价', color: 'bg-purple-100 text-purple-700', icon: Tag },
+  { value: 'following_up', label: '跟进中', color: 'bg-orange-100 text-orange-700', icon: Clock },
+  { value: 'sampling', label: '样品阶段', color: 'bg-indigo-100 text-indigo-700', icon: Package },
+  { value: 'won', label: '已成交', color: 'bg-green-100 text-green-700', icon: CheckCircle },
+  { value: 'lost', label: '已丢失', color: 'bg-red-100 text-red-700', icon: XCircle },
+  { value: 'spam', label: '垃圾邮件', color: 'bg-gray-100 text-gray-500', icon: AlertCircle },
+] as const
+
+// Email sending status options
+const EMAIL_SEND_STATUSES = [
+  { value: 'sent', label: '已发送', color: 'bg-green-100 text-green-700', icon: MailCheck },
+  { value: 'not_sent', label: '未发送', color: 'bg-yellow-100 text-yellow-700', icon: MailQuestion },
+  { value: 'failed', label: '发送失败', color: 'bg-red-100 text-red-700', icon: MailX },
+] as const
+
+type CustomerStatus = typeof CUSTOMER_STATUSES[number]['value']
+type EmailSendStatus = typeof EMAIL_SEND_STATUSES[number]['value']
 
 // Business status options
 const BUSINESS_STATUSES = [
@@ -43,6 +65,11 @@ interface EmailThread {
   businessStatus?: BusinessStatus  // Business relationship status
   domainInfo?: DomainInfo          // Domain check results
   domainChecking?: boolean         // Is domain being checked
+  // Filter-related fields
+  customerStatus?: CustomerStatus  // Customer pipeline status
+  emailSendStatus?: EmailSendStatus // Email sending status
+  lastEmailSentTime?: string       // Last email send timestamp
+  lastStatusUpdateTime?: string    // Last status update timestamp
 }
 
 interface ScanProgress {
@@ -132,6 +159,11 @@ const EmailFollowUpPage: React.FC = () => {
   const [batchCheckingDomains, setBatchCheckingDomains] = useState(false)
   const [batchGeneratingAI, setBatchGeneratingAI] = useState(false)
   const [batchProgress, setBatchProgress] = useState({ current: 0, total: 0, type: '' })
+  
+  // New filter states for multi-select filtering
+  const [selectedCustomerStatuses, setSelectedCustomerStatuses] = useState<CustomerStatus[]>([])
+  const [selectedEmailStatuses, setSelectedEmailStatuses] = useState<EmailSendStatus[]>([])
+  const [showFilterPanel, setShowFilterPanel] = useState(false)
 
   // Real email data from analysis - Updated 2026-02-01
   const realEmailData: EmailThread[] = [
@@ -501,18 +533,58 @@ Ryan`
       result = result.filter(t => t.days >= 90)
     }
     
+    // Customer status filter (multi-select)
+    if (selectedCustomerStatuses.length > 0) {
+      result = result.filter(t => {
+        // Map existing status to customer status
+        const mappedStatus = mapStatusToCustomerStatus(t.status || '')
+        return selectedCustomerStatuses.includes(mappedStatus)
+      })
+    }
+    
+    // Email send status filter (multi-select)
+    if (selectedEmailStatuses.length > 0) {
+      result = result.filter(t => {
+        const emailStatus = getEmailSendStatus(t)
+        return selectedEmailStatuses.includes(emailStatus)
+      })
+    }
+    
     if (searchQuery) {
       const q = searchQuery.toLowerCase()
       result = result.filter(t => 
         t.email.toLowerCase().includes(q) ||
         t.name.toLowerCase().includes(q) ||
         t.lastSubject.toLowerCase().includes(q) ||
-        t.domain.toLowerCase().includes(q)
+        t.domain.toLowerCase().includes(q) ||
+        (t.status && t.status.toLowerCase().includes(q)) ||
+        (t.customerNeeds && t.customerNeeds.toLowerCase().includes(q))
       )
     }
     
     return result.sort((a, b) => b.days - a.days)
-  }, [threads, filter, accountFilter, searchQuery])
+  }, [threads, filter, accountFilter, searchQuery, selectedCustomerStatuses, selectedEmailStatuses])
+
+  // Helper function to map existing status to customer status
+  const mapStatusToCustomerStatus = (status: string): CustomerStatus => {
+    const statusLower = status.toLowerCase()
+    if (statusLower.includes('new') || statusLower.includes('inquiry')) return 'new'
+    if (statusLower.includes('quoted') || statusLower.includes('quote')) return 'quoted'
+    if (statusLower.includes('sample') || statusLower.includes('sampling')) return 'sampling'
+    if (statusLower.includes('meeting') || statusLower.includes('post-meeting') || statusLower.includes('contacted')) return 'contacted'
+    if (statusLower.includes('follow') || statusLower.includes('pending') || statusLower.includes('discussion') || statusLower.includes('design')) return 'following_up'
+    if (statusLower.includes('repeat') || statusLower.includes('partner') || statusLower.includes('active') || statusLower.includes('order')) return 'won'
+    if (statusLower.includes('closed') || statusLower.includes('lost')) return 'lost'
+    return 'new' // Default
+  }
+  
+  // Helper function to determine email send status
+  const getEmailSendStatus = (thread: EmailThread): EmailSendStatus => {
+    if (thread.emailSendStatus) return thread.emailSendStatus
+    // Infer from data
+    if (thread.totalSent > 0) return 'sent'
+    return 'not_sent'
+  }
 
   const groupedThreads = useMemo(() => {
     const groups: Record<string, EmailThread[]> = { high: [], medium: [], low: [] }
@@ -562,7 +634,7 @@ I wanted to follow up on our previous conversation.
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           testEmail: composeData.to,
-          // CC removed - no longer CC to ryan@achievepack.com
+          cc: [{ email: 'ryan@achievepack.com', name: 'Ryan Wong' }],
           subject: composeData.subject,
           htmlContent: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px;">${htmlBody}</div>`
         })

@@ -23,7 +23,7 @@ module.exports = {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: '#2E7D32',
+					DEFAULT: '#1B5E20',
 					50: '#E8F5E9',
 					100: '#C8E6C9',
 					200: '#A5D6A7',
@@ -31,9 +31,9 @@ module.exports = {
 					400: '#66BB6A',
 					500: '#2E7D32',
 					600: '#256729',
-					700: '#1F5522',
-					800: '#1A4A1D',
-					900: '#1B5E20',
+					700: '#1B5E20', // WCAG AA compliant on white
+					800: '#145218',
+					900: '#0D4212',
 					foreground: 'hsl(var(--primary-foreground))',
 				},
 				secondary: {

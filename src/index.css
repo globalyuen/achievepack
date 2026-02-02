@@ -62,6 +62,12 @@
     content-visibility: auto;
   }
 
+  /* Focus styles for accessibility */
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid #1B5E20;
+    outline-offset: 2px;
+  }
+
   /* Reduce motion for users who prefer it */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {

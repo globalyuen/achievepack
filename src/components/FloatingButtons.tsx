@@ -77,9 +77,10 @@ export default function FloatingButtons() {
             {/* Close Button */}
             <button
               onClick={() => setIsWhatsAppOpen(false)}
+              aria-label="Close WhatsApp dialog"
               className="absolute top-4 right-4 z-10 w-10 h-10 bg-neutral-100 hover:bg-neutral-200 rounded-full flex items-center justify-center transition-colors"
             >
-              <X className="h-5 w-5 text-neutral-600" />
+              <X className="h-5 w-5 text-neutral-600" aria-hidden="true" />
             </button>
 
             {/* Header */}
@@ -108,9 +109,10 @@ export default function FloatingButtons() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-green-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-600 transition-colors"
+                aria-label="Open WhatsApp to chat with Achieve Pack"
+                className="inline-flex items-center justify-center gap-2 bg-green-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-600 transition-colors min-h-[48px]"
               >
-                <MessageCircle className="h-5 w-5" />
+                <MessageCircle className="h-5 w-5" aria-hidden="true" />
                 Open WhatsApp
               </a>
             </div>

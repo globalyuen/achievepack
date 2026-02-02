@@ -9,6 +9,7 @@ import EmailFollowUpPage from './admin/EmailFollowUpPage'
 import AchieveCoffeeCMS from '../components/admin/AchieveCoffeeCMS'
 import WebsiteDemoCMS from '../components/admin/WebsiteDemoCMS'
 import ImageHubCarousel from '../components/admin/ImageHubCarousel'
+import SeoRankingDashboard from '../components/admin/SeoRankingDashboard'
 import { sendTestEmail, sendBulkEmails, generateEmailTemplate, EmailRecipient } from '../lib/brevo'
 import { QuickAccessSheet, type QuickAccessItem, type QuoteStatus, type InvoiceStatus, type ArtworkQuickStatus } from '../components/ui/QuickAccessSheet'
 import { PinList, type PinListItem } from '../components/animate-ui/components/community/pin-list'
@@ -62,7 +63,7 @@ function detectIndustry(text: string): string {
   return 'Other'
 }
 
-type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'quote-management' | 'artwork' | 'artwork-proof' | 'image-catalog' | 'documents' | 'newsletter' | 'crm' | 'email-marketing' | 'email-followup' | 'website' | 'website-demos' | 'settings' | 'automation' | 'recycle-bin'
+type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'quote-management' | 'artwork' | 'artwork-proof' | 'image-catalog' | 'documents' | 'newsletter' | 'crm' | 'email-marketing' | 'email-followup' | 'website' | 'website-demos' | 'settings' | 'automation' | 'recycle-bin' | 'seo-ranking'
 
 // Sidebar menu structure with collapsible groups
 const sidebarMenuItems = [
@@ -106,6 +107,7 @@ const sidebarMenuItems = [
     defaultOpen: true,
     items: [
       { id: 'email-marketing', label: 'Email Marketing', icon: Send },
+      { id: 'seo-ranking', label: 'SEO & Ranking', icon: TrendingUp },
       { id: 'newsletter', label: 'Newsletter', icon: Newspaper, countKey: 'subscribers' },
     ]
   },
@@ -2856,6 +2858,11 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
           {/* Email Follow Up Tab */}
           {activeTab === 'email-followup' && (
             <EmailFollowUpPage />
+          )}
+
+          {/* SEO & Ranking Tab */}
+          {activeTab === 'seo-ranking' && (
+            <SeoRankingDashboard />
           )}
 
           {/* Settings Tab */}

@@ -13,6 +13,26 @@ const SENDER_PROFILES: Record<string, { name: string; email: string; signature: 
     eric: { name: 'Eric Chan', email: 'eric@pouch.eco', signature: 'Eric Chan\nSales Manager\nPouch.eco | Sustainable Packaging Solutions\neric@pouch.eco' }
 }
 
+// Blocked email domains - do NOT send to these platforms
+const BLOCKED_DOMAINS = [
+    'reddit.com',
+    'yelp.com', 
+    'instagram.com',
+    'facebook.com',
+    'twitter.com',
+    'x.com',
+    'tiktok.com',
+    'linkedin.com',
+    'pinterest.com',
+    'youtube.com',
+    'google.com',
+    'amazon.com',
+    'ebay.com',
+    'etsy.com',
+    'alibaba.com',
+    'aliexpress.com'
+]
+
 // Search queries to rotate through - USA, Canada, Australia
 const SEARCH_QUERIES = [
     'organic coffee roasters USA',
@@ -347,6 +367,13 @@ async function alreadyContacted(email: string): Promise<boolean> {
     return !!data
 }
 
+// Check if email domain is blocked
+function isBlockedDomain(email: string): boolean {
+    const domain = email.toLowerCase().split('@')[1]
+    if (!domain) return true // Invalid email
+    return BLOCKED_DOMAINS.some(blocked => domain.includes(blocked))
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Verify cron secret to prevent unauthorized access
     const cronSecret = req.headers['authorization']
@@ -415,6 +442,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 if (!email) continue
                 
                 emailsFound++
+                
+                // Check if domain is blocked (Reddit, Yelp, Instagram, etc.)
+                if (isBlockedDomain(email)) {
+                    console.log(`Skip ${email} - blocked domain`)
+                    continue
+                }
                 
                 // Check if unsubscribed or already contacted
                 if (await isUnsubscribed(email)) {
