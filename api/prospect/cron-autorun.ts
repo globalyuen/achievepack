@@ -1288,10 +1288,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 addLog(`   📝 Name: "${business.name}" → "${cleanName}"`)
                 
                 // Generate email content
+                addLog(`   📧 Generating email content...`)
                 const prospectData = { clean_name: cleanName, name: cleanName, email }
                 const { subject, body } = generateEmailContent(prospectData, sender, businessType)
                 
                 // Create prospect record with phone number
+                addLog(`   💾 Saving prospect to database...`)
                 const { data: prospect, error: prospectError } = await supabase
                     .from('prospect')
                     .insert({
@@ -1311,25 +1313,34 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                     .single()
                 
                 if (prospectError) {
+                    addLog(`   ❌ Database error: ${prospectError.message || JSON.stringify(prospectError)}`)
                     console.error('Failed to create prospect:', prospectError)
                     continue
                 }
+                addLog(`   ✅ Prospect saved (ID: ${prospect.id})`)
                 
                 // Send email
-                const messageId = await sendBrevoEmail(email, subject, body, sender)
-                
-                // Update prospect with sent status
-                await supabase
-                    .from('prospect')
-                    .update({
-                        email_sent: true,
-                        email_sent_at: new Date().toISOString(),
-                        brevo_message_id: messageId
-                    })
-                    .eq('id', prospect.id)
-                
-                emailsSent++
-                addLog(`   ✉️ EMAIL SENT to ${cleanName} (${email})`)
+                addLog(`   📨 Sending email via Brevo...`)
+                try {
+                    const messageId = await sendBrevoEmail(email, subject, body, sender)
+                    addLog(`   ✅ Brevo response: ${messageId || 'sent'}`)
+                    
+                    // Update prospect with sent status
+                    await supabase
+                        .from('prospect')
+                        .update({
+                            email_sent: true,
+                            email_sent_at: new Date().toISOString(),
+                            brevo_message_id: messageId
+                        })
+                        .eq('id', prospect.id)
+                    
+                    emailsSent++
+                    addLog(`   ✉️ EMAIL SENT to ${cleanName} (${email})`)
+                } catch (emailError: any) {
+                    addLog(`   ❌ Email send error: ${emailError.message || 'Unknown'}`)
+                    continue
+                }
                 
                 // Add to WhatsApp queue if phone number available
                 if (contactInfo.phone) {
