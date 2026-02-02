@@ -87,7 +87,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             name: 'Achieve Pack'
           },
           to: [{ email: recipient.email, name: recipient.name || recipientName }],
-          cc: cc || [{ email: 'ryan@achievepack.com', name: 'Ryan' }],
+          // CC removed - notifications will be sent via WhatsApp instead
+          // If cc is explicitly provided in request, use it; otherwise no CC
+          ...(cc && cc.length > 0 ? { cc } : {}),
           subject: personalizedSubject,
           htmlContent: personalizedHtml,
           replyTo: {

@@ -937,6 +937,36 @@ const FreeWebsiteUpgradePage: React.FC = () => {
                   </Link>
                 </div>
               </motion.div>
+
+              {/* Achieve Superfood Demo Card */}
+              <motion.div 
+                className="group relative bg-[#FDFBF7] rounded-3xl overflow-hidden shadow-2xl border border-green-200"
+                variants={fadeInUp}
+                whileHover={{ y: -12, transition: { duration: 0.3 } }}
+              >
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img
+                    src="/imgs/demo-site/superfood/hero.png"
+                    alt="Achieve Superfood Demo"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-stone-900/40 via-transparent to-transparent" />
+                </div>
+                <div className="absolute bottom-0 left-0 p-8">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="bg-green-700 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Wellness</span>
+                    <span className="text-xs text-stone-100 font-medium italic">Pure Superfoods</span>
+                  </div>
+                  <h3 className="text-3xl font-bold mb-3 text-white drop-shadow-sm">Achieve Superfood</h3>
+                  <p className="text-stone-100 text-sm mb-6 max-w-sm font-medium drop-shadow-md">Earthy, organic branding for premium superfoods. Highlighting compostable pouch textures and natural ingredients.</p>
+                  <Link
+                    to="/free-service/achieve-superfood-demo"
+                    className="inline-flex items-center gap-2 bg-green-700 text-white px-6 py-3 rounded-full font-bold transition hover:bg-green-800 shadow-lg"
+                  >
+                    Enter Superfood Demo Site <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </section>
