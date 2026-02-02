@@ -1292,7 +1292,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 const prospectData = { clean_name: cleanName, name: cleanName, email }
                 const { subject, body } = generateEmailContent(prospectData, sender, businessType)
                 
-                // Create prospect record with phone number
+                // Create prospect record
                 addLog(`   💾 Saving prospect to database...`)
                 const { data: prospect, error: prospectError } = await supabase
                     .from('prospect')
@@ -1301,7 +1301,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                         name: cleanName,
                         website: business.website,
                         email,
-                        phone: contactInfo.phone,
                         business_type: businessType,
                         sales_pitch: `Subject: ${subject}\n\n${body}`
                     })
