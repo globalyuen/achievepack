@@ -689,6 +689,87 @@ function isBlockedDomain(email: string): boolean {
     return false
 }
 
+// Check if website domain should be skipped (social media, platforms, govt, etc.)
+// This runs BEFORE Hunter.io API call to save API credits
+function isBlockedWebsite(domain: string): boolean {
+    const domainLower = domain.toLowerCase()
+    
+    // Blocked website patterns - social media, platforms, marketplaces, govt
+    const blockedWebsitePatterns = [
+        // Social Media
+        'facebook.com', 'fb.com',
+        'twitter.com', 'x.com',
+        'instagram.com',
+        'linkedin.com',
+        'tiktok.com',
+        'pinterest.com',
+        'youtube.com',
+        'snapchat.com',
+        'reddit.com',
+        
+        // Review/Listing Platforms
+        'yelp.com',
+        'tripadvisor.com',
+        'trustpilot.com',
+        'g2.com',
+        'capterra.com',
+        'glassdoor.com',
+        
+        // E-commerce Marketplaces (not direct brands)
+        'amazon.com', 'amazon.co', 'amazon.ca', 'amazon.co.uk',
+        'ebay.com', 'ebay.co.uk',
+        'etsy.com',
+        'alibaba.com',
+        'aliexpress.com',
+        'walmart.com',
+        'target.com',
+        'costco.com',
+        'shopify.com', // Platform, not store
+        
+        // Search Engines & Tech
+        'google.com', 'google.co',
+        'bing.com',
+        'yahoo.com',
+        'apple.com',
+        'microsoft.com',
+        
+        // News & Media
+        'medium.com',
+        'wordpress.com',
+        'blogspot.com',
+        'tumblr.com',
+        'substack.com',
+        
+        // Government & Education
+        '.gov', '.gov.', '.edu',
+        'wikipedia.org',
+        
+        // Generic/Hosting
+        'wix.com',
+        'squarespace.com',
+        'weebly.com',
+        'godaddy.com',
+        'namecheap.com',
+        
+        // Packaging competitors (we don't want to email them)
+        'packaging', 'pouches', 'bags', 'boxes',
+        'supplier', 'wholesale', 'manufacturer',
+        'printing', 'printshop'
+    ]
+    
+    // Check if domain matches any blocked pattern
+    if (blockedWebsitePatterns.some(pattern => domainLower.includes(pattern))) {
+        return true
+    }
+    
+    // Check blocked country TLDs (India, China)
+    if (BLOCKED_COUNTRY_TLDS.some(tld => domainLower.endsWith(tld))) {
+        return true
+    }
+    
+    return false
+}
+
 // Generate WhatsApp message content
 function generateWhatsAppMessage(companyName: string, businessType: string): string {
     return `Hi ${companyName} Team! 👋
@@ -829,6 +910,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 const domain = new URL(business.website).hostname.replace('www.', '')
                 addLog(`\n🏢 Processing: ${domain}`)
                 
+                // EARLY domain filtering - skip social media, platforms, etc. BEFORE API calls
+                if (isBlockedWebsite(domain)) {
+                    addLog(`   🚫 SKIP: ${domain} (blocked website type)`)
+                    continue
+                }
+                
                 // Find contact info (email and phone)
                 addLog(`   🔍 Looking up email via Hunter.io...`)
                 const contactInfo = await findContactInfo(domain)
@@ -844,22 +931,26 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                     addLog(`   📞 Phone found: ${contactInfo.phone}`)
                 }
                 
-                // Check if domain is blocked (Reddit, Yelp, Instagram, etc.)
+                // Check if email domain is blocked (India/China providers, etc.)
                 if (isBlockedDomain(email)) {
-                    addLog(`   🚫 BLOCKED: ${email} (blocked domain)`)
+                    addLog(`   🚫 BLOCKED: ${email} (blocked email domain)`)
                     continue
                 }
                 
                 // Check if unsubscribed or already contacted
-                if (await isUnsubscribed(email)) {
+                const isUnsub = await isUnsubscribed(email)
+                if (isUnsub) {
                     addLog(`   ⛔ SKIP: ${email} (unsubscribed)`)
                     continue
                 }
                 
-                if (await alreadyContacted(email)) {
+                const contacted = await alreadyContacted(email)
+                if (contacted) {
                     addLog(`   ⏭️ SKIP: ${email} (already contacted)`)
                     continue
                 }
+                
+                addLog(`   ✅ Email passed all checks, preparing to send...`)
                 
                 // Clean business name using AI
                 addLog(`   🤖 Cleaning business name with AI...`)
