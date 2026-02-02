@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Trash2, Plus, ArrowLeft, Loader2, Ban } from 'lucide-react'
+import { Trash2, Plus, ArrowLeft, Loader2, Ban, Globe } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { toast } from 'sonner'
 
@@ -14,24 +14,26 @@ interface UnsubscribedEmail {
 
 export default function ProspectListsPage() {
   const [unsubs, setUnsubs] = useState<UnsubscribedEmail[]>([])
+  const [blockedDomains, setBlockedDomains] = useState<string[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [newUnsubEmail, setNewUnsubEmail] = useState('')
   const [isAdding, setIsAdding] = useState(false)
 
   useEffect(() => {
-    fetchUnsubs()
+    fetchLists()
   }, [])
 
-  const fetchUnsubs = async () => {
+  const fetchLists = async () => {
     setIsLoading(true)
     try {
-      const res = await fetch('http://localhost:5001/api/lists/unsubscribe')
+      const res = await fetch('/api/prospect/lists')
       const data = await res.json()
       if (data.success) {
-        setUnsubs(data.results)
+        setUnsubs(data.unsubscribes || [])
+        setBlockedDomains(data.blocked_domains || [])
       }
     } catch (e) {
-      toast.error("Failed to load unsubscribe list")
+      toast.error("Failed to load lists")
     } finally {
       setIsLoading(false)
     }
@@ -41,7 +43,7 @@ export default function ProspectListsPage() {
     if (!newUnsubEmail) return
     setIsAdding(true)
     try {
-      const res = await fetch('http://localhost:5001/api/lists/unsubscribe', {
+      const res = await fetch('/api/prospect/lists', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: newUnsubEmail, reason: 'Manual Admin Add' })
@@ -50,7 +52,7 @@ export default function ProspectListsPage() {
       if (data.success) {
         toast.success("Added to unsubscribe list")
         setNewUnsubEmail('')
-        fetchUnsubs()
+        fetchLists()
       } else {
         toast.error(data.error || "Failed to add")
       }
@@ -64,13 +66,13 @@ export default function ProspectListsPage() {
   const handleRemove = async (id: number) => {
     if (!confirm("Are you sure you want to remove this email from the unsubscribe list? They will be able to receive emails again.")) return
     try {
-      const res = await fetch(`http://localhost:5001/api/lists/unsubscribe/${id}`, {
+      const res = await fetch(`/api/prospect/lists?id=${id}`, {
         method: 'DELETE'
       })
       const data = await res.json()
       if (data.success) {
         toast.success("Removed from unsubscribe list")
-        fetchUnsubs()
+        fetchLists()
       }
     } catch (e) {
       toast.error("Failed to remove")
@@ -91,7 +93,8 @@ export default function ProspectListsPage() {
             </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm border border-neutral-100 p-6">
+        {/* Unsubscribed Emails Section */}
+        <div className="bg-white rounded-xl shadow-sm border border-neutral-100 p-6 mb-6">
             <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
                 <Ban className="w-5 h-5 text-red-500" /> Unsubscribed Emails
             </h2>
@@ -101,6 +104,7 @@ export default function ProspectListsPage() {
                     placeholder="Enter email to block..." 
                     value={newUnsubEmail}
                     onChange={(e) => setNewUnsubEmail(e.target.value)}
+                    onKeyDown={(e) => e.key === 'Enter' && handleAdd()}
                 />
                 <Button onClick={handleAdd} disabled={isAdding}>
                     {isAdding ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />}
@@ -150,6 +154,27 @@ export default function ProspectListsPage() {
                     </table>
                 </div>
             )}
+        </div>
+
+        {/* Blocked Domains Section */}
+        <div className="bg-white rounded-xl shadow-sm border border-neutral-100 p-6">
+            <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                <Globe className="w-5 h-5 text-orange-500" /> Blocked Domains
+            </h2>
+            <p className="text-sm text-neutral-500 mb-4">
+                Emails from these domains are automatically blocked and will not receive outreach.
+            </p>
+            
+            <div className="flex flex-wrap gap-2">
+                {blockedDomains.map((domain) => (
+                    <span 
+                        key={domain} 
+                        className="px-3 py-1.5 bg-orange-50 text-orange-700 rounded-full text-sm font-medium"
+                    >
+                        {domain}
+                    </span>
+                ))}
+            </div>
         </div>
       </div>
     </div>

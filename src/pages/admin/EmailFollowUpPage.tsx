@@ -94,7 +94,8 @@ const XAI_API_KEY = import.meta.env.VITE_XAI_API_KEY || ''
 // LocalStorage keys for persistence
 const STORAGE_KEYS = {
   BUSINESS_STATUS: 'email_followup_business_status',
-  DELETED_CONTACTS: 'email_followup_deleted_contacts'
+  DELETED_CONTACTS: 'email_followup_deleted_contacts',
+  MANUALLY_SENT: 'email_followup_manually_sent'
 }
 
 // Helper functions for localStorage
@@ -135,6 +136,46 @@ const addDeletedContact = (threadId: string) => {
     }
   } catch (e) {
     console.error('Failed to save deleted contact:', e)
+  }
+}
+
+// Helper functions for manually sent status
+interface ManuallySentRecord {
+  threadId: string
+  markedAt: string
+  email: string
+}
+
+const getManuallySentRecords = (): Record<string, ManuallySentRecord> => {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEYS.MANUALLY_SENT)
+    return saved ? JSON.parse(saved) : {}
+  } catch {
+    return {}
+  }
+}
+
+const saveManuallySentRecord = (threadId: string, email: string) => {
+  try {
+    const current = getManuallySentRecords()
+    current[threadId] = {
+      threadId,
+      email,
+      markedAt: new Date().toISOString()
+    }
+    localStorage.setItem(STORAGE_KEYS.MANUALLY_SENT, JSON.stringify(current))
+  } catch (e) {
+    console.error('Failed to save manually sent record:', e)
+  }
+}
+
+const removeManuallySentRecord = (threadId: string) => {
+  try {
+    const current = getManuallySentRecords()
+    delete current[threadId]
+    localStorage.setItem(STORAGE_KEYS.MANUALLY_SENT, JSON.stringify(current))
+  } catch (e) {
+    console.error('Failed to remove manually sent record:', e)
   }
 }
 
@@ -581,9 +622,69 @@ Ryan`
   // Helper function to determine email send status
   const getEmailSendStatus = (thread: EmailThread): EmailSendStatus => {
     if (thread.emailSendStatus) return thread.emailSendStatus
+    // Check localStorage for manually marked sent
+    const manuallySent = getManuallySentRecords()
+    if (manuallySent[thread.id]) return 'sent'
     // Infer from data
     if (thread.totalSent > 0) return 'sent'
     return 'not_sent'
+  }
+  
+  // Check if a thread is manually marked as sent
+  const isManuallyMarkedSent = (threadId: string): boolean => {
+    const records = getManuallySentRecords()
+    return !!records[threadId]
+  }
+  
+  // Get manually sent time for display
+  const getManualSentTime = (threadId: string): string | null => {
+    const records = getManuallySentRecords()
+    if (records[threadId]) {
+      return new Date(records[threadId].markedAt).toLocaleString('zh-CN')
+    }
+    return null
+  }
+
+  // Mark a thread as manually sent
+  const markAsSent = (thread: EmailThread) => {
+    console.log('✉️ Marking as sent:', thread.email)
+    saveManuallySentRecord(thread.id, thread.email)
+    
+    // Update local state to trigger re-render
+    const today = new Date().toISOString().split('T')[0]
+    setThreads(prev => prev.map(t => 
+      t.id === thread.id 
+        ? { 
+            ...t, 
+            days: 0,
+            lastSent: today,
+            totalSent: t.totalSent + 1,
+            emailSendStatus: 'sent' as const,
+            lastEmailSentTime: new Date().toISOString(),
+            priority: 'low' as const
+          } 
+        : t
+    ))
+    
+    // Update stats
+    setStats(prev => prev ? {
+      ...prev,
+      needsFollowup: Math.max(0, prev.needsFollowup - 1),
+      highPriority: Math.max(0, prev.highPriority - 1)
+    } : null)
+  }
+  
+  // Unmark a thread as sent (toggle back)
+  const unmarkAsSent = (thread: EmailThread) => {
+    console.log('❌ Unmarking as sent:', thread.email)
+    removeManuallySentRecord(thread.id)
+    
+    // Update local state
+    setThreads(prev => prev.map(t => 
+      t.id === thread.id 
+        ? { ...t, emailSendStatus: undefined } 
+        : t
+    ))
   }
 
   const groupedThreads = useMemo(() => {
@@ -1025,13 +1126,14 @@ Respond in this JSON format only:
       </div>
 
       {/* Filters */}
-      <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
+      <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm space-y-4">
+        {/* Main Filter Row */}
         <div className="flex flex-wrap items-center gap-3">
           <div className="relative flex-1 min-w-[200px]">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
             <input
               type="text"
-              placeholder="Search by name, email, domain..."
+              placeholder="搜索客户名称、邮箱、域名、需求..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
@@ -1043,7 +1145,7 @@ Respond in this JSON format only:
             onChange={(e) => setAccountFilter(e.target.value as any)}
             className="px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white"
           >
-            <option value="all">All Accounts</option>
+            <option value="all">所有账户</option>
             <option value="achievepack">achievepack</option>
             <option value="poucheco">poucheco</option>
           </select>
@@ -1053,13 +1155,31 @@ Respond in this JSON format only:
             onChange={(e) => setFilter(e.target.value as any)}
             className="px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white"
           >
-            <option value="all">All Priorities</option>
-            <option value="high">🔴 High Priority</option>
-            <option value="medium">🟡 Medium Priority</option>
-            <option value="30days">30-60 Days</option>
-            <option value="60days">60-90 Days</option>
-            <option value="90days">&gt; 90 Days</option>
+            <option value="all">所有优先级</option>
+            <option value="high">🔴 高优先级</option>
+            <option value="medium">🟡 中优先级</option>
+            <option value="30days">30-60 天</option>
+            <option value="60days">60-90 天</option>
+            <option value="90days">&gt; 90 天</option>
           </select>
+          
+          {/* Advanced Filter Toggle */}
+          <button
+            onClick={() => setShowFilterPanel(!showFilterPanel)}
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border transition-all ${
+              showFilterPanel || selectedCustomerStatuses.length > 0 || selectedEmailStatuses.length > 0
+                ? 'bg-primary-50 border-primary-300 text-primary-700'
+                : 'border-gray-300 text-gray-600 hover:bg-gray-50'
+            }`}
+          >
+            <Filter className="w-4 h-4" />
+            高级筛选
+            {(selectedCustomerStatuses.length + selectedEmailStatuses.length) > 0 && (
+              <span className="px-1.5 py-0.5 text-xs bg-primary-600 text-white rounded-full">
+                {selectedCustomerStatuses.length + selectedEmailStatuses.length}
+              </span>
+            )}
+          </button>
 
           {/* Batch Action Buttons */}
           <div className="flex items-center gap-2 ml-auto">
@@ -1099,6 +1219,118 @@ Respond in this JSON format only:
             </button>
           </div>
         </div>
+        
+        {/* Advanced Filter Panel */}
+        {showFilterPanel && (
+          <div className="border-t border-gray-200 pt-4 space-y-4">
+            {/* Customer Status Filter */}
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <h4 className="text-sm font-medium text-gray-700 flex items-center gap-2">
+                  <Tag className="w-4 h-4" />
+                  客户状态筛选 (多选)
+                </h4>
+                {selectedCustomerStatuses.length > 0 && (
+                  <button
+                    onClick={() => setSelectedCustomerStatuses([])}
+                    className="text-xs text-gray-500 hover:text-gray-700"
+                  >
+                    清除选择
+                  </button>
+                )}
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {CUSTOMER_STATUSES.map((status) => {
+                  const Icon = status.icon
+                  const isSelected = selectedCustomerStatuses.includes(status.value)
+                  return (
+                    <button
+                      key={status.value}
+                      onClick={() => {
+                        setSelectedCustomerStatuses(prev => 
+                          isSelected 
+                            ? prev.filter(s => s !== status.value)
+                            : [...prev, status.value]
+                        )
+                      }}
+                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border transition-all text-sm ${
+                        isSelected
+                          ? `${status.color} border-current ring-1 ring-current ring-opacity-30`
+                          : 'bg-white border-gray-200 text-gray-600 hover:border-gray-300 hover:bg-gray-50'
+                      }`}
+                    >
+                      <Icon className="w-3.5 h-3.5" />
+                      {status.label}
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+            
+            {/* Email Send Status Filter */}
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <h4 className="text-sm font-medium text-gray-700 flex items-center gap-2">
+                  <Mail className="w-4 h-4" />
+                  邮件发送状态 (多选)
+                </h4>
+                {selectedEmailStatuses.length > 0 && (
+                  <button
+                    onClick={() => setSelectedEmailStatuses([])}
+                    className="text-xs text-gray-500 hover:text-gray-700"
+                  >
+                    清除选择
+                  </button>
+                )}
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {EMAIL_SEND_STATUSES.map((status) => {
+                  const Icon = status.icon
+                  const isSelected = selectedEmailStatuses.includes(status.value)
+                  return (
+                    <button
+                      key={status.value}
+                      onClick={() => {
+                        setSelectedEmailStatuses(prev => 
+                          isSelected 
+                            ? prev.filter(s => s !== status.value)
+                            : [...prev, status.value]
+                        )
+                      }}
+                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border transition-all text-sm ${
+                        isSelected
+                          ? `${status.color} border-current ring-1 ring-current ring-opacity-30`
+                          : 'bg-white border-gray-200 text-gray-600 hover:border-gray-300 hover:bg-gray-50'
+                      }`}
+                    >
+                      <Icon className="w-3.5 h-3.5" />
+                      {status.label}
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+            
+            {/* Filter Summary */}
+            {(selectedCustomerStatuses.length > 0 || selectedEmailStatuses.length > 0) && (
+              <div className="flex items-center justify-between bg-primary-50 rounded-lg px-3 py-2">
+                <span className="text-sm text-primary-700">
+                  筛选结果: <strong>{filteredThreads.length}</strong> 条记录
+                </span>
+                <button
+                  onClick={() => {
+                    setSelectedCustomerStatuses([])
+                    setSelectedEmailStatuses([])
+                  }}
+                  className="text-sm text-primary-600 hover:text-primary-800 flex items-center gap-1"
+                >
+                  <X className="w-3.5 h-3.5" />
+                  清除所有筛选
+                </button>
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
       {/* Thread List */}
@@ -1200,8 +1432,56 @@ Respond in this JSON format only:
                           </div>
                           
                           <p className="text-sm text-gray-600 mb-2">{thread.email}</p>
+                          
+                          {/* Status and Email Info Row */}
+                          <div className="flex flex-wrap items-center gap-3 mb-2 text-sm">
+                            {/* Last Email Sent */}
+                            <div className="flex items-center gap-1.5 text-gray-500">
+                              <Calendar className="w-3.5 h-3.5" />
+                              <span>最后发送: <strong className="text-gray-700">{thread.lastSent}</strong></span>
+                            </div>
+                            
+                            {/* Email Count */}
+                            <div className="flex items-center gap-1.5 text-gray-500">
+                              <Mail className="w-3.5 h-3.5" />
+                              <span>发送 <strong className="text-blue-600">{thread.totalSent}</strong> / 收到 <strong className="text-green-600">{thread.totalRecv}</strong></span>
+                            </div>
+                            
+                            {/* Customer Status Badge */}
+                            {(() => {
+                              const mappedStatus = mapStatusToCustomerStatus(thread.status || '')
+                              const statusInfo = CUSTOMER_STATUSES.find(s => s.value === mappedStatus)
+                              if (statusInfo) {
+                                const Icon = statusInfo.icon
+                                return (
+                                  <span className={`flex items-center gap-1 px-2 py-0.5 text-xs rounded-full ${statusInfo.color}`}>
+                                    <Icon className="w-3 h-3" />
+                                    {statusInfo.label}
+                                  </span>
+                                )
+                              }
+                              return null
+                            })()}
+                            
+                            {/* Email Send Status */}
+                            {(() => {
+                              const emailStatus = getEmailSendStatus(thread)
+                              const statusInfo = EMAIL_SEND_STATUSES.find(s => s.value === emailStatus)
+                              if (statusInfo) {
+                                const Icon = statusInfo.icon
+                                return (
+                                  <span className={`flex items-center gap-1 px-2 py-0.5 text-xs rounded-full ${statusInfo.color}`}>
+                                    <Icon className="w-3 h-3" />
+                                    {statusInfo.label}
+                                  </span>
+                                )
+                              }
+                              return null
+                            })()}
+                          </div>
+                          
                           <p className="text-sm text-gray-700 mb-2">
-                            <span className="text-gray-400">Last Subject:</span> {thread.lastSubject}
+                            <span className="text-gray-400">最后主题:</span> {thread.lastSubject}
                           </p>
                           
                           {/* Domain Info Section - Shows after XAI check */}
@@ -1301,7 +1581,7 @@ Respond in this JSON format only:
                             thread.days >= 60 ? 'bg-orange-100 text-orange-700' :
                             thread.days >= 30 ? 'bg-yellow-100 text-yellow-700' : 'bg-gray-100 text-gray-700'
                           }`}>
-                            {thread.days} days
+                            {thread.days} 天未联系
                           </div>
                           
                           {/* Domain Check Button */}
@@ -1334,6 +1614,28 @@ Respond in this JSON format only:
                               )}
                               AI Suggest
                             </button>
+                            
+                            {/* Mark as Sent Button */}
+                            {isManuallyMarkedSent(thread.id) ? (
+                              <button
+                                onClick={() => unmarkAsSent(thread)}
+                                className="flex items-center gap-1.5 px-3 py-1.5 bg-green-100 text-green-700 text-sm rounded-lg hover:bg-green-200 transition-colors ring-2 ring-green-300"
+                                title={`已标记为已发送: ${getManualSentTime(thread.id) || ''}`}
+                              >
+                                <MailCheck className="w-3.5 h-3.5" />
+                                已标记
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() => markAsSent(thread)}
+                                className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 text-gray-600 text-sm rounded-lg hover:bg-green-100 hover:text-green-700 transition-colors"
+                                title="标记为已发送（通过其他渠道发送的邮件）"
+                              >
+                                <MailCheck className="w-3.5 h-3.5" />
+                                标记已发送
+                              </button>
+                            )}
+                            
                             <button
                               onClick={() => handleCompose(thread)}
                               className="flex items-center gap-1.5 px-3 py-1.5 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700 transition-colors"
@@ -1342,7 +1644,16 @@ Respond in this JSON format only:
                               Follow Up
                             </button>
                           </div>
-                          <span className="text-xs text-gray-400">{thread.totalSent + thread.totalRecv} total emails</span>
+                          
+                          {/* Show manual sent indicator */}
+                          {isManuallyMarkedSent(thread.id) && (
+                            <div className="flex items-center gap-1 text-xs text-green-600">
+                              <CheckCheck className="w-3 h-3" />
+                              手动标记于: {getManualSentTime(thread.id)}
+                            </div>
+                          )}
+                          
+                          <span className="text-xs text-gray-400">共 {thread.totalSent + thread.totalRecv} 封邮件</span>
                         </div>
                       </div>
                     </div>
@@ -1356,8 +1667,8 @@ Respond in this JSON format only:
         {filteredThreads.length === 0 && (
           <div className="bg-white rounded-xl p-12 border border-gray-200 shadow-sm text-center">
             <CheckCircle className="w-12 h-12 text-green-500 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-gray-900 mb-2">All Caught Up!</h3>
-            <p className="text-gray-500">No emails matching your criteria need follow-up.</p>
+            <h3 className="text-lg font-medium text-gray-900 mb-2">没有匹配的记录</h3>
+            <p className="text-gray-500">没有符合当前筛选条件的客户需要跟进。</p>
           </div>
         )}
       </div>

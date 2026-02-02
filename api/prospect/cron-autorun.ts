@@ -33,28 +33,218 @@ const BLOCKED_DOMAINS = [
     'aliexpress.com'
 ]
 
-// Search queries to rotate through - USA, Canada, Australia
+// Blocked country TLDs - exclude India and China
+const BLOCKED_COUNTRY_TLDS = [
+    '.cn',      // China
+    '.com.cn',  // China
+    '.net.cn',  // China
+    '.org.cn',  // China
+    '.in',      // India
+    '.co.in',   // India
+    '.net.in',  // India
+    '.org.in'   // India
+]
+
+// Blocked email patterns (India/China specific providers)
+const BLOCKED_EMAIL_PATTERNS = [
+    '@qq.com',
+    '@163.com',
+    '@126.com',
+    '@sina.com',
+    '@sohu.com',
+    '@aliyun.com',
+    '@foxmail.com',
+    '@rediffmail.com',
+    '@yahoo.in',
+    '@hotmail.in'
+]
+
+// Search queries targeting businesses that USE packaging (not packaging suppliers)
+// Focus: Food & Beverage, FMCG, Healthcare/Supplements
+// Regions: Major international cities, excluding India and China
 const SEARCH_QUERIES = [
-    'organic coffee roasters USA',
-    'artisan bakery United States',
-    'specialty tea brand Canada',
-    'healthy snack company Australia',
-    'organic food brand California',
-    'craft chocolate maker Toronto',
-    'natural skincare brand Vancouver',
-    'vegan food company Sydney',
-    'gluten free bakery Melbourne',
-    'kombucha brewery New York',
-    'matcha brand Los Angeles',
-    'granola company Montreal',
-    'nut butter brand Brisbane',
-    'dried fruit company Texas',
-    'protein bar brand Chicago',
-    'coffee roasters Seattle',
-    'organic snacks Boston',
-    'tea company San Francisco',
-    'healthy food brand Denver',
-    'eco food company Portland'
+    // ========== FOOD & BEVERAGE ==========
+    
+    // Coffee Roasters & Tea Brands
+    'specialty coffee roaster New York',
+    'artisan coffee company Los Angeles',
+    'small batch coffee roaster London',
+    'craft coffee brand Berlin',
+    'specialty coffee roaster Tokyo',
+    'artisan tea company Singapore',
+    'loose leaf tea brand Sydney',
+    'premium tea company Toronto',
+    'organic coffee roaster Amsterdam',
+    'specialty coffee Paris',
+    'craft coffee Melbourne',
+    'boutique coffee roaster Seoul',
+    'third wave coffee brand Dubai',
+    
+    // Snack Food Brands
+    'healthy snack brand New York',
+    'organic snack company California',
+    'protein bar manufacturer London',
+    'granola brand Los Angeles',
+    'nut butter company Toronto',
+    'dried fruit brand Sydney',
+    'trail mix company Berlin',
+    'jerky brand Texas',
+    'popcorn company Chicago',
+    'chips brand Amsterdam',
+    'crackers company Tokyo',
+    'cookie brand Singapore',
+    'biscuit company London',
+    
+    // Chocolate & Confectionery
+    'craft chocolate maker Brooklyn',
+    'bean to bar chocolate San Francisco',
+    'artisan chocolate London',
+    'premium chocolate brand Paris',
+    'organic chocolate company Amsterdam',
+    'specialty chocolate Tokyo',
+    'handmade candy company Toronto',
+    'gourmet confectionery Sydney',
+    
+    // Bakery & Baked Goods
+    'artisan bakery New York',
+    'gluten free bakery Los Angeles',
+    'organic bakery London',
+    'sourdough bakery San Francisco',
+    'vegan bakery Berlin',
+    'premium bakery Toronto',
+    'specialty bakery Sydney',
+    
+    // Beverages
+    'kombucha brewery California',
+    'cold brew coffee brand New York',
+    'functional beverage company Los Angeles',
+    'energy drink brand London',
+    'sparkling water brand Berlin',
+    'juice company Toronto',
+    'smoothie brand Sydney',
+    'matcha brand Tokyo',
+    'herbal drink company Singapore',
+    
+    // Baby & Kids Food
+    'organic baby food brand California',
+    'baby food company New York',
+    'kids snacks brand London',
+    'children food company Toronto',
+    'baby nutrition brand Sydney',
+    
+    // Pet Food
+    'premium pet food company California',
+    'organic dog treats brand New York',
+    'natural pet food London',
+    'artisan pet treats Toronto',
+    'pet nutrition company Sydney',
+    
+    // Sauces & Condiments
+    'hot sauce brand New York',
+    'specialty sauce company California',
+    'artisan condiment brand London',
+    'gourmet sauce company Toronto',
+    'organic dressing brand Sydney',
+    
+    // Spices & Seasonings
+    'specialty spice company New York',
+    'organic spice brand California',
+    'gourmet seasoning London',
+    'artisan spice blend Toronto',
+    
+    // ========== FMCG (Fast-Moving Consumer Goods) ==========
+    
+    // Skincare & Beauty
+    'natural skincare brand California',
+    'organic beauty company New York',
+    'clean beauty brand London',
+    'vegan skincare company Paris',
+    'eco skincare brand Berlin',
+    'natural cosmetics Toronto',
+    'organic beauty Sydney',
+    'K-beauty brand Seoul',
+    'J-beauty company Tokyo',
+    
+    // Personal Care
+    'natural soap company New York',
+    'organic shampoo brand California',
+    'eco personal care London',
+    'natural body care Toronto',
+    'organic deodorant brand Sydney',
+    
+    // ========== HEALTHCARE & SUPPLEMENTS ==========
+    
+    // Vitamins & Supplements
+    'vitamin supplement brand California',
+    'organic supplement company New York',
+    'natural supplement brand London',
+    'health supplement company Toronto',
+    'wellness supplement Sydney',
+    'herbal supplement brand Berlin',
+    
+    // Protein & Fitness
+    'protein powder brand California',
+    'fitness supplement company New York',
+    'sports nutrition brand London',
+    'workout supplement Toronto',
+    'muscle supplement Sydney',
+    
+    // Superfood & Functional
+    'superfood powder company California',
+    'adaptogen brand New York',
+    'mushroom supplement company London',
+    'collagen powder brand Toronto',
+    'greens powder company Sydney',
+    'prebiotic supplement Berlin',
+    
+    // Specialty Diet
+    'keto supplement brand California',
+    'vegan protein company New York',
+    'plant based nutrition London',
+    'paleo supplement Toronto',
+    'whole food supplement Sydney',
+    
+    // ========== INTERNATIONAL MARKETS ==========
+    
+    // Europe
+    'food startup London UK',
+    'organic food brand Amsterdam Netherlands',
+    'healthy food company Berlin Germany',
+    'specialty food Paris France',
+    'artisan food brand Milan Italy',
+    'health food company Barcelona Spain',
+    'organic brand Stockholm Sweden',
+    'natural food Copenhagen Denmark',
+    
+    // Asia Pacific (excluding China/India)
+    'food brand Tokyo Japan',
+    'health food company Singapore',
+    'organic food brand Seoul South Korea',
+    'specialty food Sydney Australia',
+    'healthy food Melbourne Australia',
+    'artisan food Auckland New Zealand',
+    'food company Taipei Taiwan',
+    'organic brand Hong Kong',
+    
+    // Middle East
+    'health food company Dubai UAE',
+    'organic food brand Tel Aviv Israel',
+    'specialty food Riyadh Saudi Arabia',
+    
+    // North America
+    'food startup San Francisco',
+    'health brand Boston',
+    'organic company Seattle',
+    'specialty food Miami',
+    'artisan brand Denver',
+    'healthy food Austin',
+    'food company Vancouver Canada',
+    'organic brand Montreal Canada',
+    
+    // South America
+    'organic food brand Sao Paulo Brazil',
+    'health food company Buenos Aires Argentina',
+    'specialty food Mexico City'
 ]
 
 // Words to remove from business names
@@ -154,21 +344,90 @@ function fallbackCleanName(rawName: string): string {
 // Extract business type from search query
 function extractBusinessType(searchQuery: string): string {
     const types: Record<string, string> = {
+        // Food & Beverage
         'coffee': 'coffee products',
-        'bakery': 'baked goods',
         'tea': 'tea products',
+        'bakery': 'baked goods',
         'snack': 'snack products',
         'food': 'food products',
         'chocolate': 'chocolate products',
-        'skincare': 'skincare products',
-        'vegan': 'vegan products',
-        'gluten': 'gluten-free products',
-        'kombucha': 'beverages',
-        'matcha': 'matcha products',
+        'cookie': 'baked goods',
+        'biscuit': 'baked goods',
+        'candy': 'confectionery',
+        'confectionery': 'confectionery',
         'granola': 'granola products',
         'nut butter': 'nut butter products',
         'dried fruit': 'dried fruit products',
-        'protein': 'protein products'
+        'popcorn': 'gourmet snacks',
+        'jerky': 'jerky products',
+        'chips': 'snack products',
+        'crackers': 'snack products',
+        'trail mix': 'trail mix products',
+        
+        // Beverages
+        'kombucha': 'beverages',
+        'matcha': 'matcha products',
+        'beverage': 'beverages',
+        'juice': 'juice products',
+        'smoothie': 'beverages',
+        'cold brew': 'coffee beverages',
+        'energy drink': 'beverages',
+        'sparkling': 'beverages',
+        
+        // Health & Diet
+        'vegan': 'vegan products',
+        'gluten': 'gluten-free products',
+        'keto': 'keto-friendly products',
+        'paleo': 'paleo products',
+        'plant based': 'plant-based products',
+        'allergen free': 'allergen-free products',
+        
+        // Supplements & Wellness
+        'protein': 'protein products',
+        'superfood': 'superfood products',
+        'supplement': 'wellness supplements',
+        'vitamin': 'vitamin supplements',
+        'collagen': 'beauty supplements',
+        'mushroom': 'functional products',
+        'adaptogen': 'wellness products',
+        'prebiotic': 'digestive health products',
+        'greens': 'superfood products',
+        'fitness': 'fitness nutrition',
+        'sports nutrition': 'sports supplements',
+        'workout': 'fitness supplements',
+        
+        // Baby & Pet
+        'baby food': 'baby food products',
+        'kids': 'kids snacks',
+        'pet food': 'pet food products',
+        'dog treat': 'pet treats',
+        'cat food': 'pet nutrition products',
+        'pet nutrition': 'pet nutrition products',
+        
+        // Sauces & Spices
+        'spice': 'spice products',
+        'seasoning': 'seasonings',
+        'sauce': 'sauce products',
+        'hot sauce': 'hot sauce products',
+        'condiment': 'condiments',
+        'dressing': 'food products',
+        
+        // Other Foods
+        'soup': 'soup products',
+        'meal kit': 'meal kit products',
+        'freeze dried': 'freeze-dried products',
+        
+        // Beauty & Personal Care (FMCG)
+        'skincare': 'skincare products',
+        'beauty': 'beauty products',
+        'cosmetics': 'cosmetic products',
+        'K-beauty': 'Korean beauty products',
+        'J-beauty': 'Japanese beauty products',
+        'soap': 'personal care products',
+        'shampoo': 'hair care products',
+        'body care': 'body care products',
+        'deodorant': 'personal care products',
+        'personal care': 'personal care products'
     }
     
     const lowerQuery = searchQuery.toLowerCase()
@@ -287,7 +546,7 @@ async function sendBrevoEmail(to: string, subject: string, body: string, senderK
         body: JSON.stringify({
             sender: { name: sender.name, email: sender.email },
             to: [{ email: to }],
-            // CC removed - notifications will be sent via WhatsApp instead
+            cc: [{ email: 'ryan@achievepack.com', name: 'Ryan Wong' }],
             subject,
             htmlContent: styledHtml,
             textContent: body
@@ -327,23 +586,62 @@ async function searchBusinesses(query: string): Promise<any[]> {
     }
 }
 
-// Find email for a business using Hunter.io
-async function findEmail(domain: string): Promise<string | null> {
+// Contact info from Hunter.io
+interface ContactInfo {
+    email: string | null
+    phone: string | null
+    firstName: string | null
+    lastName: string | null
+    position: string | null
+}
+
+// Find email and phone for a business using Hunter.io
+async function findContactInfo(domain: string): Promise<ContactInfo> {
     const HUNTER_API_KEY = process.env.HUNTER_API_KEY
-    if (!HUNTER_API_KEY) return null
+    const result: ContactInfo = { email: null, phone: null, firstName: null, lastName: null, position: null }
+    
+    if (!HUNTER_API_KEY) return result
     
     try {
         const url = `https://api.hunter.io/v2/domain-search?domain=${domain}&api_key=${HUNTER_API_KEY}`
         const response = await fetch(url)
-        const data = await response.json() as { data?: { emails?: { value: string }[] } }
+        const data = await response.json() as { 
+            data?: { 
+                emails?: { 
+                    value: string
+                    first_name?: string
+                    last_name?: string
+                    position?: string
+                    phone_number?: string
+                }[]
+                organization?: string
+                phone_numbers?: string[]
+            } 
+        }
         
-        if (data.data?.emails?.[0]?.value) {
-            return data.data.emails[0].value
+        if (data.data?.emails?.[0]) {
+            const contact = data.data.emails[0]
+            result.email = contact.value || null
+            result.firstName = contact.first_name || null
+            result.lastName = contact.last_name || null
+            result.position = contact.position || null
+            result.phone = contact.phone_number || null
+        }
+        
+        // Also check organization phone numbers
+        if (!result.phone && data.data?.phone_numbers?.[0]) {
+            result.phone = data.data.phone_numbers[0]
         }
     } catch (error) {
         console.error('Hunter.io error:', error)
     }
-    return null
+    return result
+}
+
+// Legacy function for backward compatibility
+async function findEmail(domain: string): Promise<string | null> {
+    const info = await findContactInfo(domain)
+    return info.email
 }
 
 // Check if email is unsubscribed
@@ -369,9 +667,82 @@ async function alreadyContacted(email: string): Promise<boolean> {
 
 // Check if email domain is blocked
 function isBlockedDomain(email: string): boolean {
-    const domain = email.toLowerCase().split('@')[1]
+    const emailLower = email.toLowerCase()
+    const domain = emailLower.split('@')[1]
     if (!domain) return true // Invalid email
-    return BLOCKED_DOMAINS.some(blocked => domain.includes(blocked))
+    
+    // Check blocked platforms (Reddit, Yelp, etc.)
+    if (BLOCKED_DOMAINS.some(blocked => domain.includes(blocked))) {
+        return true
+    }
+    
+    // Check blocked country TLDs (India, China)
+    if (BLOCKED_COUNTRY_TLDS.some(tld => domain.endsWith(tld))) {
+        return true
+    }
+    
+    // Check blocked email patterns (China/India email providers)
+    if (BLOCKED_EMAIL_PATTERNS.some(pattern => emailLower.includes(pattern))) {
+        return true
+    }
+    
+    return false
+}
+
+// Generate WhatsApp message content
+function generateWhatsAppMessage(companyName: string, businessType: string): string {
+    return `Hi ${companyName} Team! 👋
+
+I just sent you an email about eco-friendly packaging for your ${businessType}.
+
+Quick highlights:
+• Custom branded pouches with stunning prints
+• Certified compostable materials (EN 13432)
+• Low MOQ starting 500 units
+• FREE design consultation
+
+Would love to connect! Reply here or check your inbox.
+
+Best,
+Ryan
+Achieve Pack™
+🌐 achievepack.com
+📅 Book a call: calendly.com/30-min-free-packaging-consultancy`
+}
+
+// Add WhatsApp message to queue for local processing
+async function addToWhatsAppQueue(
+    prospectId: number, 
+    phone: string, 
+    companyName: string, 
+    businessType: string
+): Promise<void> {
+    if (!phone) {
+        console.log(`⏭️ No phone number for ${companyName}, skipping WhatsApp queue`)
+        return
+    }
+    
+    const message = generateWhatsAppMessage(companyName, businessType)
+    
+    try {
+        const { error } = await supabase
+            .from('prospect_whatsapp_queue')
+            .insert({
+                prospect_id: prospectId,
+                phone: phone,
+                company_name: companyName,
+                message: message,
+                status: 'pending'
+            })
+        
+        if (error) {
+            console.error(`❌ Failed to queue WhatsApp for ${companyName}:`, error)
+        } else {
+            console.log(`📱 WhatsApp queued for ${companyName} (${phone})`)
+        }
+    } catch (e) {
+        console.error(`❌ WhatsApp queue error:`, e)
+    }
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -382,7 +753,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         console.log('Cron job called without valid secret')
     }
     
+    // Collect detailed logs
+    const runLogs: string[] = []
+    const addLog = (msg: string) => {
+        const timestamp = new Date().toISOString().substring(11, 19)
+        const logEntry = `[${timestamp}] ${msg}`
+        runLogs.push(logEntry)
+        console.log(logEntry)
+    }
+    
     try {
+        addLog('🚀 Auto Run: Starting automation cycle...')
+        
         // Check if automation is enabled
         const { data: automation } = await supabase
             .from('prospect_automation')
@@ -391,21 +773,24 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             .single()
         
         if (!automation?.is_running) {
+            addLog('⏸️ Automation is disabled - skipping')
             return res.status(200).json({ 
                 success: true, 
                 message: 'Automation is disabled',
-                skipped: true 
+                skipped: true,
+                logs: runLogs
             })
         }
         
-        console.log('🚀 Auto Run: Starting automation cycle...')
+        addLog('✅ Automation is enabled')
         
         // Pick a random search query
         const randomIndex = Math.floor(Math.random() * SEARCH_QUERIES.length)
         const searchQuery = SEARCH_QUERIES[randomIndex]
         const sender = 'ryan' // Always use Ryan for auto run
         
-        console.log(`📍 Searching: "${searchQuery}" as ${sender}`)
+        addLog(`📍 Search Query: "${searchQuery}"`)
+        addLog(`👤 Sender: ${sender}`)
         
         // Create search record
         const { data: searchRecord, error: searchError } = await supabase
@@ -424,51 +809,68 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         }
         
         // Search for businesses
+        addLog('🔎 Searching Google via SerpAPI...')
         const businesses = await searchBusinesses(searchQuery)
-        console.log(`🔍 Found ${businesses.length} businesses`)
+        addLog(`🔍 Found ${businesses.length} businesses from search`)
         
         let emailsSent = 0
         let emailsFound = 0
         const businessType = extractBusinessType(searchQuery)
         
+        addLog(`📋 Processing top 5 businesses...`)
+        
         for (const business of businesses.slice(0, 5)) { // Limit to 5 per run
             try {
                 // Extract domain from website
-                if (!business.website) continue
+                if (!business.website) {
+                    addLog(`⏭️ Skipping: No website`)
+                    continue
+                }
                 const domain = new URL(business.website).hostname.replace('www.', '')
+                addLog(`\n🏢 Processing: ${domain}`)
                 
-                // Find email
-                const email = await findEmail(domain)
-                if (!email) continue
+                // Find contact info (email and phone)
+                addLog(`   🔍 Looking up email via Hunter.io...`)
+                const contactInfo = await findContactInfo(domain)
+                if (!contactInfo.email) {
+                    addLog(`   ❌ No email found for ${domain}`)
+                    continue
+                }
                 
+                const email = contactInfo.email
                 emailsFound++
+                addLog(`   ✅ Email found: ${email}`)
+                if (contactInfo.phone) {
+                    addLog(`   📞 Phone found: ${contactInfo.phone}`)
+                }
                 
                 // Check if domain is blocked (Reddit, Yelp, Instagram, etc.)
                 if (isBlockedDomain(email)) {
-                    console.log(`Skip ${email} - blocked domain`)
+                    addLog(`   🚫 BLOCKED: ${email} (blocked domain)`)
                     continue
                 }
                 
                 // Check if unsubscribed or already contacted
                 if (await isUnsubscribed(email)) {
-                    console.log(`Skip ${email} - unsubscribed`)
+                    addLog(`   ⛔ SKIP: ${email} (unsubscribed)`)
                     continue
                 }
                 
                 if (await alreadyContacted(email)) {
-                    console.log(`Skip ${email} - already contacted`)
+                    addLog(`   ⏭️ SKIP: ${email} (already contacted)`)
                     continue
                 }
                 
                 // Clean business name using AI
+                addLog(`   🤖 Cleaning business name with AI...`)
                 const cleanName = await cleanBusinessNameWithAI(business.name)
-                console.log(`Cleaned name: "${business.name}" -> "${cleanName}"`)
+                addLog(`   📝 Name: "${business.name}" → "${cleanName}"`)
                 
                 // Generate email content
                 const prospectData = { clean_name: cleanName, name: cleanName, email }
                 const { subject, body } = generateEmailContent(prospectData, sender, businessType)
                 
-                // Create prospect record
+                // Create prospect record with phone number
                 const { data: prospect, error: prospectError } = await supabase
                     .from('prospect')
                     .insert({
@@ -476,6 +878,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                         name: cleanName,
                         website: business.website,
                         email,
+                        phone: contactInfo.phone,
+                        contact_name: contactInfo.firstName && contactInfo.lastName 
+                            ? `${contactInfo.firstName} ${contactInfo.lastName}` 
+                            : contactInfo.firstName || null,
+                        contact_position: contactInfo.position,
                         business_type: businessType,
                         sales_pitch: `Subject: ${subject}\n\n${body}`
                     })
@@ -501,12 +908,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                     .eq('id', prospect.id)
                 
                 emailsSent++
-                console.log(`Email sent to ${cleanName} (${email})`)
+                addLog(`   ✉️ EMAIL SENT to ${cleanName} (${email})`)
+                
+                // Add to WhatsApp queue if phone number available
+                if (contactInfo.phone) {
+                    await addToWhatsAppQueue(prospect.id, contactInfo.phone, cleanName, businessType)
+                    addLog(`   📱 Added to WhatsApp queue`)
+                }
                 
                 // Rate limiting
+                addLog(`   ⏳ Rate limit delay (2s)...`)
                 await new Promise(resolve => setTimeout(resolve, 2000))
                 
-            } catch (error) {
+            } catch (error: any) {
+                addLog(`   ❌ Error: ${error.message || 'Unknown error'}`)
                 console.error('Error processing business:', error)
             }
         }
@@ -528,7 +943,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             .update({ last_run_at: new Date().toISOString() })
             .eq('id', 1)
         
-        console.log(`Auto Run complete: ${emailsSent} emails sent`)
+        addLog(`\n========================================`)
+        addLog(`✅ AUTO RUN COMPLETE`)
+        addLog(`   📊 Businesses found: ${businesses.length}`)
+        addLog(`   📧 Emails found: ${emailsFound}`)
+        addLog(`   ✉️ Emails sent: ${emailsSent}`)
+        addLog(`========================================`)
         
         return res.status(200).json({
             success: true,
@@ -537,14 +957,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             sender,
             found: businesses.length,
             emailsFound,
-            emailsSent
+            emailsSent,
+            logs: runLogs
         })
         
-    } catch (error) {
+    } catch (error: any) {
+        addLog(`\n❌ AUTOMATION ERROR: ${error.message || 'Unknown error'}`)
         console.error('Automation error:', error)
         return res.status(500).json({ 
             success: false, 
-            error: error instanceof Error ? error.message : 'Automation failed' 
+            error: error instanceof Error ? error.message : 'Automation failed',
+            logs: runLogs
         })
     }
 }

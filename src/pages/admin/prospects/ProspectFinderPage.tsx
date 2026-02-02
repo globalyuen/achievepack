@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter } from '@/components/ui/sheet'
 import { EmailEditor } from '@/components/EmailEditor'
-import { Search, Mail, RefreshCw, Loader2, PlayCircle, StopCircle, UserMinus, Plus, Check, Send, Wand2, SendHorizonal, Eye, Download, BarChart3, MousePointerClick, MailOpen } from 'lucide-react'
+import { Search, Mail, RefreshCw, Loader2, PlayCircle, StopCircle, UserMinus, Plus, Check, Send, Wand2, SendHorizonal, Eye, Download, BarChart3, MousePointerClick, MailOpen, Phone, ExternalLink } from 'lucide-react'
 import { toast } from 'sonner'
 import { Link } from 'react-router-dom'
 import { Label } from '@/components/ui/label'
@@ -24,6 +24,9 @@ interface SearchResult {
   company: string
   email: string
   website?: string
+  phone?: string
+  contact_name?: string
+  contact_position?: string
   status: string
   sales_pitch?: string
   business_type?: string
@@ -187,11 +190,27 @@ export default function ProspectFinderPage() {
   const triggerManualRun = async () => {
     if (isRunningManual) return
     setIsRunningManual(true)
-    addLog('Manually triggering Auto Run...', 'info')
+    setActiveTab('logs') // Switch to logs tab to show progress
+    addLog('========================================', 'info')
+    addLog('🚀 Manually triggering Auto Run...', 'info')
     try {
       const res = await fetch('/api/prospect/cron-autorun', { method: 'GET' })
       const data = await res.json()
-      addLog(`Manual run response: ${JSON.stringify(data)}`, data.success ? 'success' : 'error')
+      
+      // Display detailed logs from the API response
+      if (data.logs && Array.isArray(data.logs)) {
+        for (const logLine of data.logs) {
+          // Determine log type from content
+          let logType: 'info' | 'success' | 'error' = 'info'
+          if (logLine.includes('✅') || logLine.includes('EMAIL SENT') || logLine.includes('COMPLETE')) {
+            logType = 'success'
+          } else if (logLine.includes('❌') || logLine.includes('Error') || logLine.includes('BLOCKED') || logLine.includes('SKIP')) {
+            logType = 'error'
+          }
+          addLog(logLine.replace(/^\[[^\]]+\]\s*/, ''), logType)
+        }
+      }
+      
       if (data.success) {
         if (data.skipped) {
           toast.info('Auto Run is disabled - enable it first')
@@ -200,12 +219,14 @@ export default function ProspectFinderPage() {
           fetchHistory() // Refresh history
         }
       } else {
+        addLog(`Error: ${data.error || 'Unknown error'}`, 'error')
         toast.error('Manual run failed: ' + (data.error || 'Unknown error'))
       }
     } catch (e: any) {
       addLog('Manual run error: ' + e.message, 'error')
       toast.error('Failed to trigger manual run')
     } finally {
+      addLog('========================================', 'info')
       setIsRunningManual(false)
     }
   }
@@ -581,6 +602,7 @@ export default function ProspectFinderPage() {
                                 <tr>
                                     <th className="px-4 py-3 font-medium">Company</th>
                                     <th className="px-4 py-3 font-medium">Contact</th>
+                                    <th className="px-4 py-3 font-medium">Phone</th>
                                     <th className="px-4 py-3 font-medium">Status</th>
                                     <th className="px-4 py-3 text-right">Action</th>
                                 </tr>
@@ -588,7 +610,7 @@ export default function ProspectFinderPage() {
                             <tbody className="divide-y">
                                 {filteredResults.length === 0 ? (
                                     <tr>
-                                        <td colSpan={4} className="px-4 py-8 text-center text-neutral-500">
+                                        <td colSpan={5} className="px-4 py-8 text-center text-neutral-500">
                                             No results found. Start a new search.
                                         </td>
                                     </tr>
@@ -599,8 +621,14 @@ export default function ProspectFinderPage() {
                                                 <div className="flex flex-col">
                                                     <span className="font-medium">{prospect.name}</span>
                                                     {prospect.website && (
-                                                        <a href={prospect.website} target="_blank" rel="noopener noreferrer" className="text-neutral-500 text-xs hover:text-primary-600 truncate max-w-[200px]">
-                                                            {prospect.website.replace(/^https?:\/\//, '')}
+                                                        <a 
+                                                            href={prospect.website.startsWith('http') ? prospect.website : `https://${prospect.website}`} 
+                                                            target="_blank" 
+                                                            rel="noopener noreferrer" 
+                                                            className="inline-flex items-center gap-1 text-primary-600 text-xs hover:text-primary-700 hover:underline max-w-[200px]"
+                                                        >
+                                                            <ExternalLink className="w-3 h-3 flex-shrink-0" />
+                                                            <span className="truncate">{prospect.website.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
                                                         </a>
                                                     )}
                                                 </div>
@@ -612,6 +640,29 @@ export default function ProspectFinderPage() {
                                                         <span className="text-neutral-500 text-xs capitalize">{prospect.business_type}</span>
                                                     )}
                                                 </div>
+                                            </td>
+                                            <td className="px-4 py-3">
+                                                {prospect.phone ? (
+                                                    <div className="flex flex-col gap-1">
+                                                        <span className="text-neutral-600 text-xs flex items-center gap-1">
+                                                            <Phone className="w-3 h-3" />
+                                                            {prospect.phone}
+                                                        </span>
+                                                        <a 
+                                                            href={`https://wa.me/${prospect.phone.replace(/[^0-9]/g, '')}`}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="inline-flex items-center gap-1 px-2 py-0.5 bg-green-100 text-green-700 rounded text-xs hover:bg-green-200 transition-colors w-fit"
+                                                        >
+                                                            <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
+                                                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                                                            </svg>
+                                                            WhatsApp
+                                                        </a>
+                                                    </div>
+                                                ) : (
+                                                    <span className="text-neutral-400 text-xs">-</span>
+                                                )}
                                             </td>
                                             <td className="px-4 py-3">
                                                 <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
@@ -707,6 +758,7 @@ export default function ProspectFinderPage() {
                                 <tr>
                                     <th className="px-4 py-3 font-medium">Company</th>
                                     <th className="px-4 py-3 font-medium">Email</th>
+                                    <th className="px-4 py-3 font-medium">Phone / WhatsApp</th>
                                     <th className="px-4 py-3 font-medium">Type</th>
                                     <th className="px-4 py-3 font-medium">Sender</th>
                                     <th className="px-4 py-3 font-medium">Sent At</th>
@@ -717,7 +769,7 @@ export default function ProspectFinderPage() {
                             <tbody className="divide-y">
                                 {filteredHistory.length === 0 ? (
                                     <tr>
-                                        <td colSpan={7} className="px-4 py-8 text-center text-neutral-500">
+                                        <td colSpan={8} className="px-4 py-8 text-center text-neutral-500">
                                             No email history found.
                                         </td>
                                     </tr>
@@ -727,15 +779,47 @@ export default function ProspectFinderPage() {
                                             <td className="px-4 py-3">
                                                 <div className="flex flex-col">
                                                     <span className="font-medium">{item.name}</span>
+                                                    {item.contact_name && (
+                                                        <span className="text-neutral-500 text-xs">{item.contact_name}{item.contact_position ? ` - ${item.contact_position}` : ''}</span>
+                                                    )}
                                                     {item.website && (
-                                                        <a href={item.website} target="_blank" rel="noopener noreferrer" className="text-neutral-500 text-xs hover:text-primary-600 truncate max-w-[150px]">
-                                                            {item.website.replace(/^https?:\/\//, '')}
+                                                        <a 
+                                                            href={item.website.startsWith('http') ? item.website : `https://${item.website}`} 
+                                                            target="_blank" 
+                                                            rel="noopener noreferrer" 
+                                                            className="inline-flex items-center gap-1 text-primary-600 text-xs hover:text-primary-700 hover:underline max-w-[180px]"
+                                                        >
+                                                            <ExternalLink className="w-3 h-3 flex-shrink-0" />
+                                                            <span className="truncate">{item.website.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
                                                         </a>
                                                     )}
                                                 </div>
                                             </td>
                                             <td className="px-4 py-3 text-neutral-600">
                                                 <span className="truncate block max-w-[180px]">{item.email}</span>
+                                            </td>
+                                            <td className="px-4 py-3">
+                                                {item.phone ? (
+                                                    <div className="flex flex-col gap-1">
+                                                        <span className="text-neutral-600 text-xs flex items-center gap-1">
+                                                            <Phone className="w-3 h-3" />
+                                                            {item.phone}
+                                                        </span>
+                                                        <a 
+                                                            href={`https://wa.me/${item.phone.replace(/[^0-9]/g, '')}`}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="inline-flex items-center gap-1 px-2 py-1 bg-green-100 text-green-700 rounded text-xs hover:bg-green-200 transition-colors w-fit"
+                                                        >
+                                                            <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
+                                                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                                                            </svg>
+                                                            WhatsApp
+                                                        </a>
+                                                    </div>
+                                                ) : (
+                                                    <span className="text-neutral-400 text-xs">-</span>
+                                                )}
                                             </td>
                                             <td className="px-4 py-3">
                                                 <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs bg-neutral-100 text-neutral-700 capitalize">
