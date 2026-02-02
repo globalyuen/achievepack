@@ -1302,10 +1302,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                         website: business.website,
                         email,
                         phone: contactInfo.phone,
-                        contact_name: contactInfo.firstName && contactInfo.lastName 
-                            ? `${contactInfo.firstName} ${contactInfo.lastName}` 
-                            : contactInfo.firstName || null,
-                        contact_position: contactInfo.position,
                         business_type: businessType,
                         sales_pitch: `Subject: ${subject}\n\n${body}`
                     })
