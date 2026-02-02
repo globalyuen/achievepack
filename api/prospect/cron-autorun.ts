@@ -896,6 +896,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         
         let emailsSent = 0
         let emailsFound = 0
+        let whatsappQueued = 0
         const businessType = extractBusinessType(searchQuery)
         
         addLog(`📋 Processing top 5 businesses...`)
@@ -929,6 +930,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 addLog(`   ✅ Email found: ${email}`)
                 if (contactInfo.phone) {
                     addLog(`   📞 Phone found: ${contactInfo.phone}`)
+                } else {
+                    addLog(`   ⚠️ No phone number available (Hunter.io limitation)`)
                 }
                 
                 // Check if email domain is blocked (India/China providers, etc.)
@@ -1004,7 +1007,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 // Add to WhatsApp queue if phone number available
                 if (contactInfo.phone) {
                     await addToWhatsAppQueue(prospect.id, contactInfo.phone, cleanName, businessType)
-                    addLog(`   📱 Added to WhatsApp queue`)
+                    whatsappQueued++
+                    addLog(`   📱 WhatsApp QUEUED for ${contactInfo.phone}`)
+                } else {
+                    addLog(`   ⏭️ WhatsApp skipped (no phone number)`)
                 }
                 
                 // Rate limiting
@@ -1039,16 +1045,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         addLog(`   📊 Businesses found: ${businesses.length}`)
         addLog(`   📧 Emails found: ${emailsFound}`)
         addLog(`   ✉️ Emails sent: ${emailsSent}`)
+        addLog(`   📱 WhatsApp queued: ${whatsappQueued}`)
         addLog(`========================================`)
         
         return res.status(200).json({
             success: true,
-            message: `${emailsSent} emails sent`,
+            message: `${emailsSent} emails sent, ${whatsappQueued} WhatsApp queued`,
             query: searchQuery,
             sender,
             found: businesses.length,
             emailsFound,
             emailsSent,
+            whatsappQueued,
             logs: runLogs
         })
         
