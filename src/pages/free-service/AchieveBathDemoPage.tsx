@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { 
   ShoppingBag, Search, Menu, X, ArrowRight, 
-  Droplet, Feather, Circle, Star
+  Droplet, Feather, Circle, Star, Leaf, Crown
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import GeoBlocker from '../../components/GeoBlocker'
@@ -17,24 +17,51 @@ const ASSETS = {
   lifestyle: '/imgs/demo-site/bath/lifestyle.png',
   lavender: '/imgs/demo-site/bath/lavender.png',
   rose: '/imgs/demo-site/bath/rose.png',
+  ocean: '/imgs/demo-site/bath/ocean.png',
+  golden: '/imgs/demo-site/bath/golden.png',
+  forest: '/imgs/demo-site/bath/forest.png',
 }
 
 const PRODUCTS = [
   {
     id: 'calm-lavender',
-    name: 'Calm Lavender',
+    name: 'Lavender Dream',
     note: 'Sleep & Relaxation',
     price: 24,
     image: ASSETS.lavender,
-    bgColor: 'bg-[#F3E5F5]', // Light Purple
+    bgColor: 'bg-[#E6E6FA]/40', // Light Lavender
   },
   {
-    id: 'rose-quartz',
-    name: 'Rose Quartz',
+    id: 'ocean-escape',
+    name: 'Ocean Escape',
+    note: 'Invigorate & Refresh',
+    price: 24,
+    image: ASSETS.ocean,
+    bgColor: 'bg-[#E0F7FA]/40', // Light Cyan
+  },
+  {
+    id: 'desert-rose',
+    name: 'Desert Rose',
     note: 'Love & Harmony',
     price: 24,
     image: ASSETS.rose,
-    bgColor: 'bg-[#FCE4EC]', // Light Pink
+    bgColor: 'bg-[#FCE4EC]/40', // Light Pink
+  },
+  {
+    id: 'golden-hour',
+    name: 'Golden Hour',
+    note: 'Uplift & Energize',
+    price: 24,
+    image: ASSETS.golden,
+    bgColor: 'bg-[#FFF8E1]/40', // Light Amber
+  },
+  {
+    id: 'forest-retreat',
+    name: 'Forest Retreat',
+    note: 'Grounding & Balance',
+    price: 24,
+    image: ASSETS.forest,
+    bgColor: 'bg-[#E8F5E9]/40', // Light Green
   }
 ]
 
@@ -245,6 +272,106 @@ const Pillars = () => {
   )
 }
 
+const Pricing = () => {
+    return (
+        <section className="py-32 px-6 bg-[#FAFAFA]">
+            <div className="max-w-7xl mx-auto">
+                <div className="text-center mb-24 space-y-4">
+                    <span className="text-xs font-medium tracking-[0.3em] text-neutral-400 uppercase">Membership</span>
+                    <h2 className="font-serif text-5xl text-neutral-900">Choose Your Ritual</h2>
+                </div>
+                
+                <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    {/* Starter */}
+                    <div className="bg-white p-12 border border-neutral-100 flex flex-col items-center text-center space-y-8 hover:shadow-xl transition-shadow duration-300">
+                        <div className="w-16 h-16 rounded-full bg-neutral-50 flex items-center justify-center">
+                            <Leaf className="w-6 h-6 text-neutral-400" />
+                        </div>
+                        <div>
+                            <h3 className="font-serif text-2xl mb-2">Ritual Starter</h3>
+                            <p className="text-sm text-neutral-500">Essential oils & natural fragrances</p>
+                        </div>
+                        <div className="text-4xl font-serif">$29<span className="text-sm font-sans text-neutral-400">/mo</span></div>
+                        <ul className="space-y-4 text-sm text-neutral-600">
+                            <li>3 Handcrafted Bath Bombs</li>
+                            <li>Eco-Friendly Packaging</li>
+                            <li>Access to Basic Content</li>
+                        </ul>
+                        <button className="w-full py-4 border border-neutral-900 text-xs tracking-[0.2em] hover:bg-neutral-900 hover:text-white transition-colors">START MY RITUAL</button>
+                    </div>
+
+                    {/* Collector - Highlighted */}
+                    <div className="bg-[#1A1A1A] p-12 text-white flex flex-col items-center text-center space-y-8 relative transform lg:-translate-y-8 shadow-2xl">
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#D4AF37] text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1">Most Popular</div>
+                        <div className="w-16 h-16 rounded-full bg-neutral-800 flex items-center justify-center">
+                            <Star className="w-6 h-6 text-[#D4AF37]" />
+                        </div>
+                        <div>
+                            <h3 className="font-serif text-2xl mb-2">Ritual Collector</h3>
+                            <p className="text-sm text-neutral-400">6 Premium Bath Bombs</p>
+                        </div>
+                        <div className="text-4xl font-serif">$49<span className="text-sm font-sans text-neutral-500">/mo</span></div>
+                        <ul className="space-y-4 text-sm text-neutral-300">
+                            <li>Inclusive Seasonal Scents</li>
+                            <li>Deluxe Gift Packaging</li>
+                            <li>Full Access to Content Library</li>
+                            <li>Priority Shipping</li>
+                        </ul>
+                        <button className="w-full py-4 bg-[#D4AF37] text-white text-xs tracking-[0.2em] hover:bg-[#C5A028] transition-colors font-bold">CHOOSE COLLECTOR</button>
+                    </div>
+
+                    {/* Master */}
+                    <div className="bg-white p-12 border border-neutral-100 flex flex-col items-center text-center space-y-8 hover:shadow-xl transition-shadow duration-300">
+                        <div className="w-16 h-16 rounded-full bg-neutral-50 flex items-center justify-center">
+                            <Crown className="w-6 h-6 text-neutral-400" />
+                        </div>
+                        <div>
+                            <h3 className="font-serif text-2xl mb-2">Ritual Master</h3>
+                            <p className="text-sm text-neutral-500">12 Luxury Bath Bombs</p>
+                        </div>
+                        <div className="text-4xl font-serif">$89<span className="text-sm font-sans text-neutral-400">/mo</span></div>
+                        <ul className="space-y-4 text-sm text-neutral-600">
+                            <li>Customizable Scent Selection</li>
+                            <li>Signature Keepsake Box</li>
+                            <li>VIP Membership Perks</li>
+                            <li>Dedicated Concierge Support</li>
+                        </ul>
+                        <button className="w-full py-4 border border-neutral-900 text-xs tracking-[0.2em] hover:bg-neutral-900 hover:text-white transition-colors">BECOME A MASTER</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
+}
+
+const IngredientSource = () => (
+    <section className="py-24 bg-white border-t border-neutral-100">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+                <span className="text-xs font-medium tracking-[0.3em] text-neutral-400 uppercase">Sourcing</span>
+                <h2 className="font-serif text-4xl md:text-5xl text-neutral-900">Where It Comes From</h2>
+                <p className="text-neutral-600 leading-relaxed font-light">
+                    Our ingredients are sourced with care and respect for nature. From the rolling hills of Provence for our lavender to the mineral-rich waters of the Dead Sea.
+                </p>
+                <div className="grid grid-cols-2 gap-8 pt-8">
+                    <div>
+                        <h4 className="font-serif text-xl mb-2">Botanical Farms</h4>
+                        <p className="text-sm text-neutral-500">We partner with sustainable farms and local producers to ensure every bath bomb tells a story.</p>
+                    </div>
+                    <div>
+                        <h4 className="font-serif text-xl mb-2">Artisan Workshops</h4>
+                        <p className="text-sm text-neutral-500">Handcrafted in small batches to preserve potency and quality.</p>
+                    </div>
+                </div>
+            </div>
+            <div className="relative aspect-square md:aspect-[4/3] bg-neutral-100 p-8">
+                 <img src={ASSETS.lavender} className="w-full h-full object-contain mix-blend-multiply opacity-80" alt="Ingredients" />
+                 <div className="absolute inset-0 border border-neutral-200 m-4"></div>
+            </div>
+        </div>
+    </section>
+)
+
 const Lifestyle = () => {
   return (
     <section className="py-0 grid md:grid-cols-2 min-h-screen">
@@ -321,7 +448,10 @@ export default function AchieveBathDemoPage() {
         <Navbar />
         <Hero />
         <Pillars />
+        <Pillars />
         <Shop />
+        <IngredientSource />
+        <Pricing />
         <Lifestyle />
         <Footer />
         <DemoBanner />
