@@ -216,7 +216,17 @@ const EmailFollowUpPage: React.FC = () => {
   const [filter, setFilter] = useState<'all' | 'high' | 'medium' | '30days' | '60days' | '90days'>('high')
   const [accountFilter, setAccountFilter] = useState<'all' | 'achievepack' | 'poucheco'>('all')
   const [searchQuery, setSearchQuery] = useState('')
-  const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>({ 'high': true, 'medium': true, 'low': false })
+  const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>({ 
+      'high': true, 
+      'medium': true, 
+      'low': false,
+      'sent_14': false,
+      'sent_30': false,
+      'sent_60': false,
+      'sent_90': false,
+      'sent_120': false,
+      'sent_180': false
+    })
   const [showComposeModal, setShowComposeModal] = useState(false)
   const [selectedThread, setSelectedThread] = useState<EmailThread | null>(null)
   const [composeData, setComposeData] = useState({ to: '', subject: '', body: '' })
@@ -734,9 +744,61 @@ Ryan`
     ))
   }
 
+  // Define sent groups for recently sent emails
+  type SentGroupKey = 'sent_14' | 'sent_30' | 'sent_60' | 'sent_90' | 'sent_120' | 'sent_180'
+  
+  const SENT_GROUPS: { key: SentGroupKey; label: string; maxDays: number; color: string; borderColor: string; badgeColor: string }[] = [
+    { key: 'sent_14', label: '14 天内已发送', maxDays: 14, color: 'from-emerald-50 to-emerald-100', borderColor: 'border-emerald-200', badgeColor: 'bg-emerald-200 text-emerald-800' },
+    { key: 'sent_30', label: '30 天内已发送', maxDays: 30, color: 'from-teal-50 to-teal-100', borderColor: 'border-teal-200', badgeColor: 'bg-teal-200 text-teal-800' },
+    { key: 'sent_60', label: '60 天内已发送', maxDays: 60, color: 'from-cyan-50 to-cyan-100', borderColor: 'border-cyan-200', badgeColor: 'bg-cyan-200 text-cyan-800' },
+    { key: 'sent_90', label: '90 天内已发送', maxDays: 90, color: 'from-sky-50 to-sky-100', borderColor: 'border-sky-200', badgeColor: 'bg-sky-200 text-sky-800' },
+    { key: 'sent_120', label: '120 天内已发送', maxDays: 120, color: 'from-blue-50 to-blue-100', borderColor: 'border-blue-200', badgeColor: 'bg-blue-200 text-blue-800' },
+    { key: 'sent_180', label: '180 天内已发送', maxDays: 180, color: 'from-indigo-50 to-indigo-100', borderColor: 'border-indigo-200', badgeColor: 'bg-indigo-200 text-indigo-800' },
+  ]
+
   const groupedThreads = useMemo(() => {
-    const groups: Record<string, EmailThread[]> = { high: [], medium: [], low: [] }
-    filteredThreads.forEach(t => groups[t.priority].push(t))
+    const groups: Record<string, EmailThread[]> = { 
+      high: [], 
+      medium: [], 
+      low: [],
+      sent_14: [],
+      sent_30: [],
+      sent_60: [],
+      sent_90: [],
+      sent_120: [],
+      sent_180: []
+    }
+    
+    filteredThreads.forEach(t => {
+      const emailStatus = getEmailSendStatus(t)
+      
+      // If recently sent (within 180 days), group by days since sent
+      if (emailStatus === 'sent' && t.days <= 180) {
+        // Find the appropriate sent group
+        if (t.days <= 14) {
+          groups.sent_14.push(t)
+        } else if (t.days <= 30) {
+          groups.sent_30.push(t)
+        } else if (t.days <= 60) {
+          groups.sent_60.push(t)
+        } else if (t.days <= 90) {
+          groups.sent_90.push(t)
+        } else if (t.days <= 120) {
+          groups.sent_120.push(t)
+        } else {
+          groups.sent_180.push(t)
+        }
+      } else {
+        // Normal priority grouping for unsent or very old sent emails
+        groups[t.priority].push(t)
+      }
+    })
+    
+    // Sort sent groups by days (most recent first)
+    SENT_GROUPS.forEach(g => {
+      groups[g.key].sort((a, b) => a.days - b.days)
+    })
+    
     return groups
   }, [filteredThreads])
 
@@ -1710,6 +1772,93 @@ Respond in this JSON format only:
                             </div>
                           )}
                           
+                          <span className="text-xs text-gray-400">共 {thread.totalSent + thread.totalRecv} 封邮件</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )
+        ))}
+
+        {/* Sent Email Groups - Displayed after priority groups */}
+        {SENT_GROUPS.map((sentGroup) => (
+          groupedThreads[sentGroup.key].length > 0 && (
+            <div key={sentGroup.key} className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+              <button
+                onClick={() => toggleGroup(sentGroup.key)}
+                className={`w-full flex items-center justify-between p-4 transition-colors bg-gradient-to-r ${sentGroup.color} border-b ${sentGroup.borderColor}`}
+              >
+                <div className="flex items-center gap-3">
+                  {expandedGroups[sentGroup.key] ? <ChevronDown className="w-5 h-5 text-gray-600" /> : <ChevronRight className="w-5 h-5 text-gray-600" />}
+                  <MailCheck className="w-5 h-5 text-emerald-600" />
+                  <span className="font-semibold text-gray-700">
+                    {sentGroup.label}
+                  </span>
+                  <span className={`px-2.5 py-1 text-xs font-medium rounded-full ${sentGroup.badgeColor}`}>
+                    {groupedThreads[sentGroup.key].length}
+                  </span>
+                </div>
+              </button>
+
+              {expandedGroups[sentGroup.key] && (
+                <div className="divide-y divide-gray-100">
+                  {groupedThreads[sentGroup.key].map((thread) => (
+                    <div key={thread.id} className="p-4 hover:bg-gray-50 transition-colors">
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="flex-1 min-w-0">
+                          {/* Header Row */}
+                          <div className="flex items-center flex-wrap gap-2 mb-2">
+                            <span className="font-medium text-gray-900">{thread.name}</span>
+                            <span className={`px-2 py-0.5 text-xs rounded-full ${thread.account === 'achievepack' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700'}`}>
+                              {thread.account}
+                            </span>
+                            {!['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'me.com', 'icloud.com', 'yahoo.co.uk'].includes(thread.domain.toLowerCase()) ? (
+                              <button
+                                onClick={() => openDomainWebsite(thread.domain)}
+                                className="flex items-center gap-1 text-xs text-blue-600 hover:text-blue-800 hover:underline"
+                              >
+                                <Globe className="w-3 h-3" />
+                                {thread.domain}
+                                <ExternalLink className="w-3 h-3" />
+                              </button>
+                            ) : (
+                              <span className="text-xs text-gray-400">@{thread.domain}</span>
+                            )}
+                            <span className="px-2 py-0.5 text-xs rounded-full bg-emerald-100 text-emerald-700 flex items-center gap-1">
+                              <MailCheck className="w-3 h-3" />
+                              {thread.days} 天前发送
+                            </span>
+                          </div>
+                          
+                          <p className="text-sm text-gray-600 mb-2">{thread.email}</p>
+                          
+                          <div className="flex flex-wrap items-center gap-3 mb-2 text-sm">
+                            <div className="flex items-center gap-1.5 text-gray-500">
+                              <Calendar className="w-3.5 h-3.5" />
+                              <span>最后发送: <strong className="text-gray-700">{thread.lastSent}</strong></span>
+                            </div>
+                            <div className="flex items-center gap-1.5 text-gray-500">
+                              <Mail className="w-3.5 h-3.5" />
+                              <span>发送 <strong className="text-blue-600">{thread.totalSent}</strong> / 收到 <strong className="text-green-600">{thread.totalRecv}</strong></span>
+                            </div>
+                          </div>
+                          
+                          <p className="text-sm text-gray-700">
+                            <span className="text-gray-400">最后主题:</span> {thread.lastSubject}
+                          </p>
+                        </div>
+                        
+                        <div className="flex flex-col items-end gap-2">
+                          <button
+                            onClick={() => handleCompose(thread)}
+                            className="flex items-center gap-1.5 px-3 py-1.5 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700 transition-colors"
+                          >
+                            <Reply className="w-3.5 h-3.5" />
+                            Follow Up
+                          </button>
                           <span className="text-xs text-gray-400">共 {thread.totalSent + thread.totalRecv} 封邮件</span>
                         </div>
                       </div>
