@@ -30,7 +30,7 @@ async function searchGoogle(query: string): Promise<SearchResult[]> {
     try {
         const url = `https://www.googleapis.com/customsearch/v1?key=${GOOGLE_SEARCH_API_KEY}&cx=${GOOGLE_SEARCH_CX}&q=${encodeURIComponent(query)}&num=10`
         const response = await fetch(url)
-        const data = await response.json()
+        const data = await response.json() as { error?: any, items?: any[] }
         
         if (data.error) {
             console.error('Google Search API error:', data.error)
