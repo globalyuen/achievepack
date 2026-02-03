@@ -997,6 +997,69 @@ const FreeWebsiteUpgradePage: React.FC = () => {
                   </Link>
                 </div>
               </motion.div>
+
+              {/* Achieve Spreads Demo Card */}
+              <motion.div 
+                className="group relative bg-[#FDFAF5] rounded-3xl overflow-hidden shadow-2xl border border-amber-900/10"
+                variants={fadeInUp}
+                whileHover={{ y: -12, transition: { duration: 0.3 } }}
+              >
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img
+                    src="/imgs/demo-site/spreads/hero.png"
+                    alt="Achieve Spreads Demo"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723]/60 via-transparent to-transparent" />
+                </div>
+                <div className="absolute bottom-0 left-0 p-8">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="bg-[#8B5A2B] text-white text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Food</span>
+                    <span className="text-xs text-[#FDFAF5] font-medium italic">Squeeze Pack</span>
+                  </div>
+                  <h3 className="text-3xl font-bold mb-3 text-white drop-shadow-sm">Achieve Spreads</h3>
+                  <p className="text-[#FDFAF5] text-sm mb-6 max-w-sm font-medium drop-shadow-md">Premium nut butters in compostable Nano Banana Pro squeeze pouches. Earthy, organic, and mess-free.</p>
+                  <Link
+                    to="/free-service/achieve-spreads-demo"
+                    className="inline-flex items-center gap-2 bg-[#8B5A2B] text-white px-6 py-3 rounded-full font-bold transition hover:bg-[#6D4C41] shadow-lg"
+                  >
+                    Enter Spreads Demo Site <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </motion.div>
+
+              {/* Achieve Muesli Demo Card */}
+              <motion.div 
+                className="group relative bg-[#1A1A1A] rounded-3xl overflow-hidden shadow-2xl border-2 border-[#00FFFF]"
+                variants={fadeInUp}
+                whileHover={{ y: -12, transition: { duration: 0.3 } }}
+              >
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img
+                    src="/imgs/demo-site/muesli/hero.png"
+                    alt="Achieve Muesli Demo"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-transparent to-transparent" />
+                </div>
+                <div className="absolute top-0 right-0 p-4">
+                  <span className="bg-[#FF007F] text-white text-[10px] font-black uppercase px-3 py-1 rounded-sm rotate-3 shadow-[2px_2px_0px_0px_#00FFFF]">Vibrant</span>
+                </div>
+                <div className="absolute bottom-0 left-0 p-8">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="bg-[#00FFFF] text-[#1A1A1A] text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest border border-[#1A1A1A]">Breakfast</span>
+                    <span className="text-xs text-[#00FFFF] font-bold italic">Full Print Pouch</span>
+                  </div>
+                  <h3 className="text-3xl font-black mb-3 text-white drop-shadow-sm uppercase">Achieve Muesli</h3>
+                  <p className="text-gray-300 text-sm mb-6 max-w-sm font-bold">Pop-art inspired muesli brand with edge-to-edge printing on biodegradable Nano Banana Pro.</p>
+                  <Link
+                    to="/free-service/achieve-muesli-demo"
+                    className="inline-flex items-center gap-2 bg-[#FFD700] text-[#1A1A1A] px-6 py-3 rounded-full font-black transition hover:bg-white hover:scale-105 shadow-[4px_4px_0px_0px_#FF007F]"
+                  >
+                    ENTER VIBE <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </section>

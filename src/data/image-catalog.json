@@ -1,10 +1,10 @@
 {
   "generated": "2026-02-03",
-  "total_images": 1173,
-  "total_categories": 127,
+  "total_images": 1177,
+  "total_categories": 128,
   "extensions": {
     ".webp": 1058,
-    ".png": 106,
+    ".png": 110,
     ".jpg": 6,
     ".svg": 3
   },
@@ -1541,6 +1541,35 @@
           "path": "/imgs/demo-site/chips/png-a_achievepack_sea_salt_chips_6256919.webp",
           "extension": ".webp",
           "modified": "2026-01-09T22:05:56.000Z"
+        }
+      ]
+    },
+    "demo-site/cleaning": {
+      "count": 4,
+      "images": [
+        {
+          "filename": "ocean.png",
+          "path": "/imgs/demo-site/cleaning/ocean.png",
+          "extension": ".png",
+          "modified": "2026-02-03T08:28:11.236Z"
+        },
+        {
+          "filename": "lemon.png",
+          "path": "/imgs/demo-site/cleaning/lemon.png",
+          "extension": ".png",
+          "modified": "2026-02-03T08:27:57.726Z"
+        },
+        {
+          "filename": "lifestyle.png",
+          "path": "/imgs/demo-site/cleaning/lifestyle.png",
+          "extension": ".png",
+          "modified": "2026-02-03T08:27:43.957Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/demo-site/cleaning/hero.png",
+          "extension": ".png",
+          "modified": "2026-02-03T08:27:28.831Z"
         }
       ]
     },

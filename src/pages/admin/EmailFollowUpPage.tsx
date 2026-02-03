@@ -1384,61 +1384,6 @@ Respond in this JSON format only:
               </span>
             )}
           </button>
-
-          {/* Batch Action Buttons */}
-          <div className="flex items-center gap-2 ml-auto">
-            <button
-              onClick={batchCheckAllDomains}
-              disabled={batchCheckingDomains || batchGeneratingAI || batchSendingEmails}
-              className="flex items-center gap-2 px-4 py-2.5 bg-cyan-600 text-white rounded-xl hover:bg-cyan-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {batchCheckingDomains ? (
-                <>
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                  Checking {batchProgress.current}/{batchProgress.total}
-                </>
-              ) : (
-                <>
-                  <Globe className="w-4 h-4" />
-                  Check All Domains
-                </>
-              )}
-            </button>
-            <button
-              onClick={batchGenerateAllAI}
-              disabled={batchGeneratingAI || batchCheckingDomains || batchSendingEmails}
-              className="flex items-center gap-2 px-4 py-2.5 bg-purple-600 text-white rounded-xl hover:bg-purple-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {batchGeneratingAI ? (
-                <>
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                  Generating {batchProgress.current}/{batchProgress.total}
-                </>
-              ) : (
-                <>
-                  <Sparkles className="w-4 h-4" />
-                  AI Suggest All
-                </>
-              )}
-            </button>
-            <button
-              onClick={batchSendAllEmails}
-              disabled={batchSendingEmails || batchGeneratingAI || batchCheckingDomains}
-              className="flex items-center gap-2 px-4 py-2.5 bg-green-600 text-white rounded-xl hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {batchSendingEmails ? (
-                <>
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                  Sending {batchProgress.current}/{batchProgress.total}
-                </>
-              ) : (
-                <>
-                  <Send className="w-4 h-4" />
-                  Send All
-                </>
-              )}
-            </button>
-          </div>
         </div>
         
         {/* Advanced Filter Panel */}
@@ -1554,15 +1499,15 @@ Respond in this JSON format only:
         )}
       </div>
 
-      {/* Thread List */}
-      <div className="space-y-4">
+      {/* Thread List - Excel Style Table */}
+      <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
         {/* Email Groups by Days */}
         {SENT_GROUPS.map((sentGroup) => (
           groupedThreads[sentGroup.key].length > 0 && (
-            <div key={sentGroup.key} className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+            <div key={sentGroup.key} className="border-b border-gray-200 last:border-b-0">
               <button
                 onClick={() => toggleGroup(sentGroup.key)}
-                className={`w-full flex items-center justify-between p-4 transition-colors bg-gradient-to-r ${sentGroup.color} border-b ${sentGroup.borderColor}`}
+                className={`w-full flex items-center justify-between p-3 transition-colors bg-gradient-to-r ${sentGroup.color} border-b ${sentGroup.borderColor}`}
               >
                 <div className="flex items-center gap-3">
                   {expandedGroups[sentGroup.key] ? <ChevronDown className="w-5 h-5 text-gray-600" /> : <ChevronRight className="w-5 h-5 text-gray-600" />}
@@ -1577,76 +1522,251 @@ Respond in this JSON format only:
               </button>
 
               {expandedGroups[sentGroup.key] && (
-                <div className="divide-y divide-gray-100">
-                  {groupedThreads[sentGroup.key].map((thread) => (
-                    <div key={thread.id} className="p-4 hover:bg-gray-50 transition-colors">
-                      <div className="flex items-start justify-between gap-4">
-                        <div className="flex-1 min-w-0">
-                          {/* Header Row */}
-                          <div className="flex items-center flex-wrap gap-2 mb-2">
-                            <span className="font-medium text-gray-900">{thread.name}</span>
-                            <span className={`px-2 py-0.5 text-xs rounded-full ${thread.account === 'achievepack' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700'}`}>
-                              {thread.account}
-                            </span>
-                            {!['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'me.com', 'icloud.com', 'yahoo.co.uk'].includes(thread.domain.toLowerCase()) ? (
-                              <button
-                                onClick={() => openDomainWebsite(thread.domain)}
-                                className="flex items-center gap-1 text-xs text-blue-600 hover:text-blue-800 hover:underline"
-                              >
-                                <Globe className="w-3 h-3" />
-                                {thread.domain}
-                                <ExternalLink className="w-3 h-3" />
-                              </button>
-                            ) : (
-                              <span className="text-xs text-gray-400">@{thread.domain}</span>
-                            )}
-                            <span className="px-2 py-0.5 text-xs rounded-full bg-emerald-100 text-emerald-700 flex items-center gap-1">
-                              <MailCheck className="w-3 h-3" />
-                              {thread.days} 天前发送
-                            </span>
-                          </div>
-                          
-                          <p className="text-sm text-gray-600 mb-2">{thread.email}</p>
-                          
-                          <div className="flex flex-wrap items-center gap-3 mb-2 text-sm">
-                            <div className="flex items-center gap-1.5 text-gray-500">
-                              <Calendar className="w-3.5 h-3.5" />
-                              <span>最后发送: <strong className="text-gray-700">{thread.lastSent}</strong></span>
-                            </div>
-                            <div className="flex items-center gap-1.5 text-gray-500">
-                              <Mail className="w-3.5 h-3.5" />
-                              <span>发送 <strong className="text-blue-600">{thread.totalSent}</strong> / 收到 <strong className="text-green-600">{thread.totalRecv}</strong></span>
-                            </div>
-                          </div>
-                          
-                          <p className="text-sm text-gray-700">
-                            <span className="text-gray-400">最后主题:</span> {thread.lastSubject}
-                          </p>
-                        </div>
+                <div className="overflow-x-auto">
+                  <table className="w-full min-w-[1200px] text-sm">
+                    <thead className="bg-gray-50 sticky top-0">
+                      <tr className="text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th className="px-3 py-2 w-[180px]">联系人</th>
+                        <th className="px-3 py-2 w-[200px]">邮箱 / 域名</th>
+                        <th className="px-3 py-2 w-[120px]">状态</th>
+                        <th className="px-3 py-2 w-[100px]">发送天数</th>
+                        <th className="px-3 py-2 w-[250px]">最后主题</th>
+                        <th className="px-3 py-2 w-[300px]">AI 建议</th>
+                        <th className="px-3 py-2 w-[250px] text-right">操作</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-100">
+                      {groupedThreads[sentGroup.key].map((thread) => {
+                        const currentCustomerStatus = mapStatusToCustomerStatus(thread.status || '')
+                        const statusConfig = CUSTOMER_STATUSES.find(s => s.value === currentCustomerStatus)
+                        const StatusIcon = statusConfig?.icon || Star
                         
-                        <div className="flex flex-col items-end gap-2">
-                          <div className="flex items-center gap-2">
-                            <button
-                              onClick={() => deleteContact(thread)}
-                              className="flex items-center gap-1.5 px-3 py-1.5 bg-red-100 text-red-600 text-sm rounded-lg hover:bg-red-200 transition-colors"
-                              title="删除此联系人（已是现有客户）"
-                            >
-                              <Trash2 className="w-3.5 h-3.5" />
-                              删除
-                            </button>
-                            <button
-                              onClick={() => handleCompose(thread)}
-                              className="flex items-center gap-1.5 px-3 py-1.5 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700 transition-colors"
-                            >
-                              <Reply className="w-3.5 h-3.5" />
-                              Follow Up
-                            </button>
-                          </div>
-                          <span className="text-xs text-gray-400">共 {thread.totalSent + thread.totalRecv} 封邮件</span>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                        return (
+                          <tr key={thread.id} className="hover:bg-gray-50 transition-colors">
+                            {/* Contact Name & Account */}
+                            <td className="px-3 py-3">
+                              <div className="flex flex-col">
+                                <span className="font-medium text-gray-900 truncate max-w-[160px]" title={thread.name}>
+                                  {thread.name}
+                                </span>
+                                <span className={`inline-flex w-fit px-1.5 py-0.5 text-[10px] rounded ${thread.account === 'achievepack' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700'}`}>
+                                  {thread.account}
+                                </span>
+                              </div>
+                            </td>
+                            
+                            {/* Email & Domain */}
+                            <td className="px-3 py-3">
+                              <div className="flex flex-col gap-1">
+                                <span className="text-gray-600 truncate max-w-[180px] text-xs" title={thread.email}>
+                                  {thread.email}
+                                </span>
+                                {!['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'me.com', 'icloud.com', 'yahoo.co.uk'].includes(thread.domain.toLowerCase()) ? (
+                                  <button
+                                    onClick={() => openDomainWebsite(thread.domain)}
+                                    className="flex items-center gap-1 text-[10px] text-blue-600 hover:text-blue-800 hover:underline"
+                                  >
+                                    <Globe className="w-3 h-3" />
+                                    {thread.domain}
+                                    <ExternalLink className="w-2.5 h-2.5" />
+                                  </button>
+                                ) : (
+                                  <span className="text-[10px] text-gray-400">@{thread.domain}</span>
+                                )}
+                              </div>
+                            </td>
+                            
+                            {/* Customer Status Dropdown */}
+                            <td className="px-3 py-3">
+                              <div className="relative">
+                                <select
+                                  value={currentCustomerStatus}
+                                  onChange={(e) => {
+                                    const newStatus = e.target.value as CustomerStatus
+                                    // Update thread status based on selection
+                                    const statusMap: Record<CustomerStatus, string> = {
+                                      'new': 'New lead',
+                                      'contacted': 'Contacted',
+                                      'quoted': 'Quoted',
+                                      'following_up': 'Follow up',
+                                      'sampling': 'Sample sent',
+                                      'won': 'Active customer',
+                                      'lost': 'Lost',
+                                      'spam': 'Spam'
+                                    }
+                                    setThreads(prev => prev.map(t => 
+                                      t.id === thread.id ? { ...t, status: statusMap[newStatus], customerStatus: newStatus } : t
+                                    ))
+                                  }}
+                                  className={`appearance-none w-full pl-6 pr-2 py-1 text-xs rounded-lg border cursor-pointer ${statusConfig?.color || 'bg-gray-100 text-gray-600'} border-current/20 focus:ring-1 focus:ring-current focus:outline-none`}
+                                >
+                                  {CUSTOMER_STATUSES.map(status => (
+                                    <option key={status.value} value={status.value}>
+                                      {status.label}
+                                    </option>
+                                  ))}
+                                </select>
+                                <StatusIcon className="absolute left-1.5 top-1/2 -translate-y-1/2 w-3 h-3 pointer-events-none" />
+                              </div>
+                            </td>
+                            
+                            {/* Days Since Last Send */}
+                            <td className="px-3 py-3">
+                              <div className="flex flex-col gap-1">
+                                <span className="px-2 py-0.5 text-xs rounded-full bg-emerald-100 text-emerald-700 inline-flex items-center gap-1 w-fit">
+                                  <MailCheck className="w-3 h-3" />
+                                  {thread.days}天
+                                </span>
+                                <span className="text-[10px] text-gray-400">
+                                  {thread.lastSent}
+                                </span>
+                              </div>
+                            </td>
+                            
+                            {/* Last Subject */}
+                            <td className="px-3 py-3">
+                              <p className="text-xs text-gray-700 truncate max-w-[230px]" title={thread.lastSubject}>
+                                {thread.lastSubject}
+                              </p>
+                              {thread.customerNeeds && (
+                                <p className="text-[10px] text-gray-400 truncate max-w-[230px] mt-0.5" title={thread.customerNeeds}>
+                                  需求: {thread.customerNeeds}
+                                </p>
+                              )}
+                            </td>
+                            
+                            {/* AI Suggestion */}
+                            <td className="px-3 py-3">
+                              {thread.aiSuggestion ? (
+                                <div className="flex flex-col gap-1">
+                                  <p className="text-[10px] text-gray-600 line-clamp-2 max-w-[280px]" title={thread.aiSuggestion}>
+                                    {thread.aiSuggestion.substring(0, 100)}...
+                                  </p>
+                                  <div className="flex gap-1">
+                                    <button
+                                      onClick={() => {
+                                        setComposeData({
+                                          to: thread.email,
+                                          subject: `Re: ${thread.lastSubject}`,
+                                          body: thread.aiSuggestion || ''
+                                        })
+                                        setSelectedThread(thread)
+                                        setShowComposeModal(true)
+                                      }}
+                                      className="text-[10px] px-1.5 py-0.5 bg-green-100 text-green-700 rounded hover:bg-green-200"
+                                    >
+                                      应用
+                                    </button>
+                                    <button
+                                      onClick={() => copyToClipboard(thread.aiSuggestion || '', thread.id)}
+                                      className="text-[10px] px-1.5 py-0.5 bg-gray-100 text-gray-600 rounded hover:bg-gray-200"
+                                    >
+                                      {copiedId === thread.id ? <CheckCheck className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
+                                    </button>
+                                    <button
+                                      onClick={() => generateAISuggestion(thread)}
+                                      disabled={generatingAI === thread.id}
+                                      className="text-[10px] px-1.5 py-0.5 bg-purple-100 text-purple-700 rounded hover:bg-purple-200 disabled:opacity-50"
+                                    >
+                                      {generatingAI === thread.id ? <Loader2 className="w-3 h-3 animate-spin" /> : '重新生成'}
+                                    </button>
+                                  </div>
+                                </div>
+                              ) : (
+                                <button
+                                  onClick={() => generateAISuggestion(thread)}
+                                  disabled={generatingAI === thread.id}
+                                  className="flex items-center gap-1 px-2 py-1 text-xs bg-purple-100 text-purple-700 rounded-lg hover:bg-purple-200 disabled:opacity-50"
+                                >
+                                  {generatingAI === thread.id ? (
+                                    <><Loader2 className="w-3 h-3 animate-spin" /> 生成中...</>
+                                  ) : (
+                                    <><Sparkles className="w-3 h-3" /> AI 建议</>
+                                  )}
+                                </button>
+                              )}
+                            </td>
+                            
+                            {/* Actions */}
+                            <td className="px-3 py-3">
+                              <div className="flex items-center justify-end gap-1 flex-wrap">
+                                {/* Check Site Button */}
+                                {!['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'me.com', 'icloud.com', 'yahoo.co.uk'].includes(thread.domain.toLowerCase()) && (
+                                  <button
+                                    onClick={() => checkDomainStatus(thread)}
+                                    disabled={thread.domainChecking}
+                                    className="flex items-center gap-1 px-2 py-1 text-[10px] bg-cyan-100 text-cyan-700 rounded hover:bg-cyan-200 disabled:opacity-50"
+                                    title={thread.domainInfo ? `上次检查: ${new Date(thread.domainInfo.lastChecked || '').toLocaleString('zh-CN')}` : '检查网站状态'}
+                                  >
+                                    {thread.domainChecking ? (
+                                      <Loader2 className="w-3 h-3 animate-spin" />
+                                    ) : thread.domainInfo ? (
+                                      <>
+                                        <CheckCircle className="w-3 h-3" />
+                                        {thread.domainInfo.status === 'active' ? '活跃' : thread.domainInfo.status === 'closed' ? '已关' : '未知'}
+                                      </>
+                                    ) : (
+                                      <><Globe className="w-3 h-3" /> 检查</>
+                                    )}
+                                  </button>
+                                )}
+                                
+                                {/* Mark as Sent Button */}
+                                {!isManuallyMarkedSent(thread.id) ? (
+                                  <button
+                                    onClick={() => markAsSent(thread)}
+                                    className="flex items-center gap-1 px-2 py-1 text-[10px] bg-green-100 text-green-700 rounded hover:bg-green-200"
+                                    title="标记为已发送"
+                                  >
+                                    <MailCheck className="w-3 h-3" /> 已发
+                                  </button>
+                                ) : (
+                                  <button
+                                    onClick={() => unmarkAsSent(thread)}
+                                    className="flex items-center gap-1 px-2 py-1 text-[10px] bg-yellow-100 text-yellow-700 rounded hover:bg-yellow-200"
+                                    title={`手动标记时间: ${getManualSentTime(thread.id)}`}
+                                  >
+                                    <CheckCheck className="w-3 h-3" /> 取消
+                                  </button>
+                                )}
+                                
+                                {/* Delete Button */}
+                                <button
+                                  onClick={() => deleteContact(thread)}
+                                  className="flex items-center gap-1 px-2 py-1 text-[10px] bg-red-100 text-red-600 rounded hover:bg-red-200"
+                                  title="删除此联系人"
+                                >
+                                  <Trash2 className="w-3 h-3" />
+                                </button>
+                                
+                                {/* Follow Up Button */}
+                                <button
+                                  onClick={() => handleCompose(thread)}
+                                  className="flex items-center gap-1 px-2 py-1 text-[10px] bg-primary-600 text-white rounded hover:bg-primary-700"
+                                >
+                                  <Reply className="w-3 h-3" /> 跟进
+                                </button>
+                              </div>
+                              
+                              {/* Domain Info Display */}
+                              {thread.domainInfo && (
+                                <div className="mt-2 p-2 bg-gray-50 rounded text-[10px] text-gray-600 max-w-[240px]">
+                                  <p className="truncate" title={thread.domainInfo.companyInfo}>
+                                    <strong>公司:</strong> {thread.domainInfo.companyInfo?.substring(0, 50)}...
+                                  </p>
+                                  {thread.domainInfo.recommendedPackaging && (
+                                    <p className="truncate mt-0.5">
+                                      <strong>推荐:</strong> {thread.domainInfo.recommendedPackaging.slice(0, 2).join(', ')}
+                                    </p>
+                                  )}
+                                </div>
+                              )}
+                            </td>
+                          </tr>
+                        )
+                      })}
+                    </tbody>
+                  </table>
                 </div>
               )}
             </div>
