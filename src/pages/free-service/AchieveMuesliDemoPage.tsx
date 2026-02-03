@@ -408,17 +408,18 @@ export default function AchieveMuesliDemoPage() {
         <meta name="description" content="Wake up vibrant with Achieve Muesli. Premium organic muesli in compostable, full-print Nano Banana Pro pouches." />
       </Helmet>
       
-      <div className="min-h-screen bg-[#FFFBF0] font-sans selection:bg-[#00FFFF] selection:text-[#1A1A1A]">
-        <GeoBlocker />
-        <Navbar />
-        <Hero />
-        <Products />
-        <Features />
-        <Lifestyle />
-        <Footer />
-        <DemoBanner />
-        <CookieConsent />
-      </div>
+      <GeoBlocker>
+        <div className="min-h-screen bg-[#FFFBF0] font-sans selection:bg-[#00FFFF] selection:text-[#1A1A1A]">
+          <Navbar />
+          <Hero />
+          <Products />
+          <Features />
+          <Lifestyle />
+          <Footer />
+          <DemoBanner />
+          <CookieConsent />
+        </div>
+      </GeoBlocker>
     </>
   )
 }

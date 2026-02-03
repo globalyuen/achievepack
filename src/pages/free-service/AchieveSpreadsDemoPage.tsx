@@ -440,17 +440,18 @@ export default function AchieveSpreadsDemoPage() {
         <meta name="description" content="Premium, plastic-free spreads packaged in compostable Nano Banana Pro pouches. Creamy Almond and Dark Hazelnut flavors." />
       </Helmet>
       
-      <div className="min-h-screen bg-[#FDFAF5] font-sans selection:bg-[#8B5A2B] selection:text-white">
-        <GeoBlocker />
-        <Navbar />
-        <Hero />
-        <Products />
-        <Lifestyle />
-        <Features />
-        <Footer />
-        <DemoBanner />
-        <CookieConsent />
-      </div>
+      <GeoBlocker>
+        <div className="min-h-screen bg-[#FDFAF5] font-sans selection:bg-[#8B5A2B] selection:text-white">
+          <Navbar />
+          <Hero />
+          <Products />
+          <Lifestyle />
+          <Features />
+          <Footer />
+          <DemoBanner />
+          <CookieConsent />
+        </div>
+      </GeoBlocker>
     </>
   )
 }
