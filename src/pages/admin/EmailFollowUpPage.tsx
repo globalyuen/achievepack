@@ -706,13 +706,21 @@ Ryan`
     
     // Update local state to trigger re-render
     const today = new Date().toISOString().split('T')[0]
+    
+    // Save to localStorage for persistence (same as handleSendEmail)
+    const newTotalSent = thread.totalSent + 1
+    const newSubject = thread.lastSubject || 'Manual Send'
+    saveSentDate(thread.id, today, newSubject, newTotalSent)
+    console.log('💾 Saved sent date to localStorage for:', thread.id)
+    
     setThreads(prev => prev.map(t => 
       t.id === thread.id 
         ? { 
             ...t, 
             days: 0,
             lastSent: today,
-            totalSent: t.totalSent + 1,
+            lastSubject: newSubject,
+            totalSent: newTotalSent,
             emailSendStatus: 'sent' as const,
             lastEmailSentTime: new Date().toISOString(),
             priority: 'low' as const
@@ -858,6 +866,7 @@ I wanted to follow up on our previous conversation.
                 lastSent: today, 
                 lastSubject: composeData.subject,
                 totalSent: t.totalSent + 1,
+                emailSendStatus: 'sent' as const, // Mark as sent
                 priority: 'low' as const // Just contacted, low priority now
               } 
             : t
