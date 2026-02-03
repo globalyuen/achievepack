@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { 
-  ShoppingBag, Search, Menu, X, ArrowRight, 
+  ShoppingBag, Search, Menu, X, ArrowRight, ArrowLeft, 
   Droplet, Feather, Circle, Star, Leaf, Crown
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
@@ -445,6 +445,13 @@ export default function AchieveBathDemoPage() {
       </Helmet>
       
       <div className="min-h-screen bg-white font-sans text-neutral-900 selection:bg-neutral-900 selection:text-white">
+        {/* Demo Banner */}
+        <div className="fixed top-0 left-0 right-0 z-[60] bg-slate-900 text-slate-200 py-1 px-4 font-medium text-center text-xs tracking-wider uppercase">
+          <Link to="/free-service/website-upgrade" className="hover:text-white flex items-center justify-center gap-2 transition-colors">
+            <ArrowLeft className="w-3 h-3" />
+            Demo Site by Achieve Pack
+          </Link>
+        </div>
         <Navbar />
         <Hero />
         <Pillars />

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
-  Menu, X, Facebook, Instagram, Twitter, ArrowRight, 
+  Menu, X, Facebook, Instagram, Twitter, ArrowRight, ArrowLeft, 
   MapPin, ShoppingBag, Search, ChevronRight, Droplet, 
   Leaf, Zap, Star, Sun, Heart
 } from 'lucide-react'
@@ -462,6 +462,13 @@ export default function AchieveMuesliDemoPage() {
       
       <GeoBlocker>
         <div className="min-h-screen bg-[#FFFBF0] font-sans selection:bg-[#00FFFF] selection:text-[#1A1A1A]">
+          {/* Demo Banner */}
+          <div className="fixed top-0 left-0 right-0 z-[60] bg-slate-900 text-slate-200 py-1 px-4 font-medium text-center text-xs tracking-wider uppercase">
+            <Link to="/free-service/website-upgrade" className="hover:text-white flex items-center justify-center gap-2 transition-colors">
+              <ArrowLeft className="w-3 h-3" />
+              Demo Site by Achieve Pack
+            </Link>
+          </div>
           <Navbar />
           <Hero />
           <Products />
