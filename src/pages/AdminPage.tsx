@@ -6,6 +6,7 @@ import { blogPosts } from '../data/blogData'
 import { Home, Users, Package, Settings, Search, ChevronDown, ChevronLeft, ChevronRight, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox, Send, FileCode, Check, Globe, Filter, MapPin, Factory, Tag, History, Zap, Bell, Loader2, Download, Folder, Palette, Wand2, Bot, Terminal, Copy } from 'lucide-react'
 import CRMPanelAdvanced from '../components/admin/CRMPanelAdvanced'
 import EmailFollowUpPage from './admin/EmailFollowUpPage'
+import LinkBuildingPage from './admin/LinkBuildingPage'
 import AchieveCoffeeCMS from '../components/admin/AchieveCoffeeCMS'
 import WebsiteDemoCMS from '../components/admin/WebsiteDemoCMS'
 import ImageHubCarousel from '../components/admin/ImageHubCarousel'
@@ -63,7 +64,7 @@ function detectIndustry(text: string): string {
   return 'Other'
 }
 
-type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'quote-management' | 'artwork' | 'artwork-proof' | 'image-catalog' | 'documents' | 'newsletter' | 'crm' | 'email-marketing' | 'email-followup' | 'website' | 'website-demos' | 'settings' | 'automation' | 'recycle-bin' | 'seo-ranking'
+type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'quote-management' | 'artwork' | 'artwork-proof' | 'image-catalog' | 'documents' | 'newsletter' | 'crm' | 'email-marketing' | 'email-followup' | 'website' | 'website-demos' | 'settings' | 'automation' | 'recycle-bin' | 'seo-ranking' | 'link-building'
 
 // Sidebar menu structure with collapsible groups
 const sidebarMenuItems = [
@@ -108,6 +109,7 @@ const sidebarMenuItems = [
     items: [
       { id: 'email-marketing', label: 'Email Marketing', icon: Send },
       { id: 'seo-ranking', label: 'SEO & Ranking', icon: TrendingUp },
+      { id: 'link-building', label: 'Link Building', icon: ExternalLink },
       { id: 'newsletter', label: 'Newsletter', icon: Newspaper, countKey: 'subscribers' },
     ]
   },
@@ -2863,6 +2865,11 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
           {/* SEO & Ranking Tab */}
           {activeTab === 'seo-ranking' && (
             <SeoRankingDashboard />
+          )}
+
+          {/* Link Building Tab */}
+          {activeTab === 'link-building' && (
+            <LinkBuildingPage />
           )}
 
           {/* Settings Tab */}
