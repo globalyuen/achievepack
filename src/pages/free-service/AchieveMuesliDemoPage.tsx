@@ -14,8 +14,8 @@ import CookieConsent from '../../components/CookieConsent'
 // BRAND ASSETS & CONSTANTS
 // ============================================
 const ASSETS = {
-  hero: '/imgs/demo-site/muesli/hero.png',
-  lifestyle: '/imgs/demo-site/muesli/lifestyle.png',
+  hero: '/imgs/demo-site/muesli/lifestyle.png',
+  lifestyle: '/imgs/demo-site/muesli/hero.png',
   berries: '/imgs/demo-site/muesli/berries.png',
   chocolate: '/imgs/demo-site/muesli/chocolate.png',
 }
