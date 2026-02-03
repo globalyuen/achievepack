@@ -631,8 +631,8 @@ Ryan`
     // Customer status filter (multi-select)
     if (selectedCustomerStatuses.length > 0) {
       result = result.filter(t => {
-        // Map existing status to customer status
-        const mappedStatus = mapStatusToCustomerStatus(t.status || '')
+        // Use customerStatus if already set, otherwise map from status string
+        const mappedStatus = t.customerStatus || mapStatusToCustomerStatus(t.status || '')
         return selectedCustomerStatuses.includes(mappedStatus)
       })
     }
@@ -1537,7 +1537,8 @@ Respond in this JSON format only:
                     </thead>
                     <tbody className="divide-y divide-gray-100">
                       {groupedThreads[sentGroup.key].map((thread) => {
-                        const currentCustomerStatus = mapStatusToCustomerStatus(thread.status || '')
+                        // Use customerStatus if already set, otherwise map from status string
+                        const currentCustomerStatus = thread.customerStatus || mapStatusToCustomerStatus(thread.status || '')
                         const statusConfig = CUSTOMER_STATUSES.find(s => s.value === currentCustomerStatus)
                         const StatusIcon = statusConfig?.icon || Star
                         

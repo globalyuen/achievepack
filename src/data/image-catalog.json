@@ -1,10 +1,10 @@
 {
   "generated": "2026-02-03",
-  "total_images": 1177,
-  "total_categories": 128,
+  "total_images": 1186,
+  "total_categories": 130,
   "extensions": {
     ".webp": 1058,
-    ".png": 110,
+    ".png": 119,
     ".jpg": 6,
     ".svg": 3
   },
@@ -1871,6 +1871,70 @@
           "path": "/imgs/demo-site/maxi/new/a_tomatonion_tortilla_chips_4226853.webp",
           "extension": ".webp",
           "modified": "2026-01-10T01:12:22.000Z"
+        }
+      ]
+    },
+    "demo-site/muesli": {
+      "count": 5,
+      "images": [
+        {
+          "filename": "lifestyle.png",
+          "path": "/imgs/demo-site/muesli/lifestyle.png",
+          "extension": ".png",
+          "modified": "2026-02-03T11:24:01.116Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/demo-site/muesli/hero.png",
+          "extension": ".png",
+          "modified": "2026-02-03T11:23:46.941Z"
+        },
+        {
+          "filename": "chocolate.png",
+          "path": "/imgs/demo-site/muesli/chocolate.png",
+          "extension": ".png",
+          "modified": "2026-02-03T11:22:55.932Z"
+        },
+        {
+          "filename": "berries.png",
+          "path": "/imgs/demo-site/muesli/berries.png",
+          "extension": ".png",
+          "modified": "2026-02-03T11:22:42.284Z"
+        },
+        {
+          "filename": "collection.png",
+          "path": "/imgs/demo-site/muesli/collection.png",
+          "extension": ".png",
+          "modified": "2026-02-03T11:22:14.982Z"
+        }
+      ]
+    },
+    "demo-site/spreads": {
+      "count": 4,
+      "images": [
+        {
+          "filename": "hazelnut.png",
+          "path": "/imgs/demo-site/spreads/hazelnut.png",
+          "extension": ".png",
+          "modified": "2026-02-03T11:17:22.277Z"
+        },
+        {
+          "filename": "almond.png",
+          "path": "/imgs/demo-site/spreads/almond.png",
+          "extension": ".png",
+          "modified": "2026-02-03T11:17:09.021Z"
+        },
+        {
+          "filename": "lifestyle.png",
+          "path": "/imgs/demo-site/spreads/lifestyle.png",
+          "extension": ".png",
+          "modified": "2026-02-03T11:16:54.771Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/demo-site/spreads/hero.png",
+          "extension": ".png",
+          "modified": "2026-02-03T11:16:41.456Z"
         }
       ]
     },
