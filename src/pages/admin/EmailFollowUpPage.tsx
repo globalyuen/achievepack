@@ -95,7 +95,8 @@ const XAI_API_KEY = import.meta.env.VITE_XAI_API_KEY || ''
 const STORAGE_KEYS = {
   BUSINESS_STATUS: 'email_followup_business_status',
   DELETED_CONTACTS: 'email_followup_deleted_contacts',
-  MANUALLY_SENT: 'email_followup_manually_sent'
+  MANUALLY_SENT: 'email_followup_manually_sent',
+  SENT_DATES: 'email_followup_sent_dates'
 }
 
 // Helper functions for localStorage
@@ -176,6 +177,32 @@ const removeManuallySentRecord = (threadId: string) => {
     localStorage.setItem(STORAGE_KEYS.MANUALLY_SENT, JSON.stringify(current))
   } catch (e) {
     console.error('Failed to remove manually sent record:', e)
+  }
+}
+
+// Helper functions for sent dates
+interface SentDateRecord {
+  lastSent: string
+  lastSubject: string
+  totalSent: number
+}
+
+const getSavedSentDates = (): Record<string, SentDateRecord> => {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEYS.SENT_DATES)
+    return saved ? JSON.parse(saved) : {}
+  } catch {
+    return {}
+  }
+}
+
+const saveSentDate = (threadId: string, lastSent: string, lastSubject: string, totalSent: number) => {
+  try {
+    const current = getSavedSentDates()
+    current[threadId] = { lastSent, lastSubject, totalSent }
+    localStorage.setItem(STORAGE_KEYS.SENT_DATES, JSON.stringify(current))
+  } catch (e) {
+    console.error('Failed to save sent date:', e)
   }
 }
 
@@ -366,13 +393,33 @@ const EmailFollowUpPage: React.FC = () => {
     const deletedContacts = getDeletedContacts()
     const savedStatuses = getSavedBusinessStatuses()
     
-    // Filter out deleted contacts and apply saved business statuses
+    // Load saved sent dates
+    const savedSentDates = getSavedSentDates()
+    
+    // Filter out deleted contacts and apply saved business statuses + sent dates
     const filteredData = realEmailData
       .filter(thread => !deletedContacts.includes(thread.id))
-      .map(thread => ({
-        ...thread,
-        businessStatus: savedStatuses[thread.id] || thread.businessStatus
-      }))
+      .map(thread => {
+        const sentDateRecord = savedSentDates[thread.id]
+        const today = new Date()
+        let days = thread.days
+        
+        // Recalculate days if we have a saved lastSent date
+        if (sentDateRecord?.lastSent) {
+          const lastSentDate = new Date(sentDateRecord.lastSent)
+          days = Math.floor((today.getTime() - lastSentDate.getTime()) / (1000 * 60 * 60 * 24))
+        }
+        
+        return {
+          ...thread,
+          businessStatus: savedStatuses[thread.id] || thread.businessStatus,
+          lastSent: sentDateRecord?.lastSent || thread.lastSent,
+          lastSubject: sentDateRecord?.lastSubject || thread.lastSubject,
+          totalSent: sentDateRecord?.totalSent || thread.totalSent,
+          days,
+          priority: days < 30 ? 'low' as const : days < 90 ? 'medium' as const : 'high' as const
+        }
+      })
     
     console.log(`📊 Loaded ${filteredData.length} contacts (${deletedContacts.length} deleted)`)
     
@@ -749,6 +796,16 @@ I wanted to follow up on our previous conversation.
         
         // Update the thread record to show it was just contacted
         const today = new Date().toISOString().split('T')[0] // YYYY-MM-DD format
+        
+        // Find the thread to get its ID and current totalSent
+        const currentThread = threads.find(t => t.email === composeData.to)
+        if (currentThread) {
+          const newTotalSent = currentThread.totalSent + 1
+          // Save to localStorage for persistence
+          saveSentDate(currentThread.id, today, composeData.subject, newTotalSent)
+          console.log('💾 Saved sent date to localStorage for:', currentThread.id)
+        }
+        
         setThreads(prev => prev.map(t => 
           t.email === composeData.to 
             ? { 
