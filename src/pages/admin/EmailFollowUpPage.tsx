@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react'
-import { Mail, Clock, AlertCircle, CheckCircle, Send, RefreshCw, Search, ChevronDown, ChevronRight, Building, Calendar, ExternalLink, Star, Reply, Sparkles, Loader2, TrendingUp, Users, Globe, BarChart3, Zap, X, Copy, CheckCheck, XCircle, PlayCircle, PauseCircle, Handshake, Settings, Link, Info, Package, Filter, Tag, MailCheck, MailX, MailQuestion } from 'lucide-react'
+import { Mail, Clock, AlertCircle, CheckCircle, Send, RefreshCw, Search, ChevronDown, ChevronRight, Building, Calendar, ExternalLink, Star, Reply, Sparkles, Loader2, TrendingUp, Users, Globe, BarChart3, Zap, X, Copy, CheckCheck, XCircle, PlayCircle, PauseCircle, Handshake, Settings, Link, Info, Package, Filter, Tag, MailCheck, MailX, MailQuestion, Trash2 } from 'lucide-react'
 
 // Customer status options for filtering
 const CUSTOMER_STATUSES = [
@@ -217,15 +217,11 @@ const EmailFollowUpPage: React.FC = () => {
   const [accountFilter, setAccountFilter] = useState<'all' | 'achievepack' | 'poucheco'>('all')
   const [searchQuery, setSearchQuery] = useState('')
   const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>({ 
-      'high': true, 
-      'medium': true, 
-      'low': false,
-      'sent_14': false,
-      'sent_30': false,
-      'sent_60': false,
-      'sent_90': false,
-      'sent_120': false,
-      'sent_180': false
+      'sent_14': true,
+      'sent_60': true,
+      'sent_120': true,
+      'sent_240': false,
+      'sent_older': false
     })
   const [showComposeModal, setShowComposeModal] = useState(false)
   const [selectedThread, setSelectedThread] = useState<EmailThread | null>(null)
@@ -236,6 +232,7 @@ const EmailFollowUpPage: React.FC = () => {
   const [sendResult, setSendResult] = useState<{ success: boolean; message: string } | null>(null)
   const [batchCheckingDomains, setBatchCheckingDomains] = useState(false)
   const [batchGeneratingAI, setBatchGeneratingAI] = useState(false)
+  const [batchSendingEmails, setBatchSendingEmails] = useState(false)
   const [batchProgress, setBatchProgress] = useState({ current: 0, total: 0, type: '' })
   
   // New filter states for multi-select filtering
@@ -412,18 +409,18 @@ const EmailFollowUpPage: React.FC = () => {
       .map(thread => {
         const sentDateRecord = savedSentDates[thread.id]
         const today = new Date()
-        let days = thread.days
         
-        // Recalculate days if we have a saved lastSent date
-        if (sentDateRecord?.lastSent) {
-          const lastSentDate = new Date(sentDateRecord.lastSent)
-          days = Math.floor((today.getTime() - lastSentDate.getTime()) / (1000 * 60 * 60 * 24))
-        }
+        // Use saved lastSent date if available, otherwise use the original lastSent
+        const effectiveLastSent = sentDateRecord?.lastSent || thread.lastSent
+        
+        // Always calculate days dynamically from lastSent date
+        const lastSentDate = new Date(effectiveLastSent)
+        const days = Math.floor((today.getTime() - lastSentDate.getTime()) / (1000 * 60 * 60 * 24))
         
         return {
           ...thread,
           businessStatus: savedStatuses[thread.id] || thread.businessStatus,
-          lastSent: sentDateRecord?.lastSent || thread.lastSent,
+          lastSent: effectiveLastSent,
           lastSubject: sentDateRecord?.lastSubject || thread.lastSubject,
           totalSent: sentDateRecord?.totalSent || thread.totalSent,
           days,
@@ -744,57 +741,42 @@ Ryan`
     ))
   }
 
-  // Define sent groups for recently sent emails
-  type SentGroupKey = 'sent_14' | 'sent_30' | 'sent_60' | 'sent_90' | 'sent_120' | 'sent_180'
+  // Define sent groups for all emails by days
+  type SentGroupKey = 'sent_14' | 'sent_60' | 'sent_120' | 'sent_240' | 'sent_older'
   
   const SENT_GROUPS: { key: SentGroupKey; label: string; maxDays: number; color: string; borderColor: string; badgeColor: string }[] = [
-    { key: 'sent_14', label: '14 天内已发送', maxDays: 14, color: 'from-emerald-50 to-emerald-100', borderColor: 'border-emerald-200', badgeColor: 'bg-emerald-200 text-emerald-800' },
-    { key: 'sent_30', label: '30 天内已发送', maxDays: 30, color: 'from-teal-50 to-teal-100', borderColor: 'border-teal-200', badgeColor: 'bg-teal-200 text-teal-800' },
-    { key: 'sent_60', label: '60 天内已发送', maxDays: 60, color: 'from-cyan-50 to-cyan-100', borderColor: 'border-cyan-200', badgeColor: 'bg-cyan-200 text-cyan-800' },
-    { key: 'sent_90', label: '90 天内已发送', maxDays: 90, color: 'from-sky-50 to-sky-100', borderColor: 'border-sky-200', badgeColor: 'bg-sky-200 text-sky-800' },
-    { key: 'sent_120', label: '120 天内已发送', maxDays: 120, color: 'from-blue-50 to-blue-100', borderColor: 'border-blue-200', badgeColor: 'bg-blue-200 text-blue-800' },
-    { key: 'sent_180', label: '180 天内已发送', maxDays: 180, color: 'from-indigo-50 to-indigo-100', borderColor: 'border-indigo-200', badgeColor: 'bg-indigo-200 text-indigo-800' },
+    { key: 'sent_14', label: '14 天内', maxDays: 14, color: 'from-emerald-50 to-emerald-100', borderColor: 'border-emerald-200', badgeColor: 'bg-emerald-200 text-emerald-800' },
+    { key: 'sent_60', label: '60 天内', maxDays: 60, color: 'from-cyan-50 to-cyan-100', borderColor: 'border-cyan-200', badgeColor: 'bg-cyan-200 text-cyan-800' },
+    { key: 'sent_120', label: '120 天内', maxDays: 120, color: 'from-blue-50 to-blue-100', borderColor: 'border-blue-200', badgeColor: 'bg-blue-200 text-blue-800' },
+    { key: 'sent_240', label: '240 天内', maxDays: 240, color: 'from-indigo-50 to-indigo-100', borderColor: 'border-indigo-200', badgeColor: 'bg-indigo-200 text-indigo-800' },
+    { key: 'sent_older', label: '240+ 天', maxDays: Infinity, color: 'from-slate-50 to-slate-100', borderColor: 'border-slate-200', badgeColor: 'bg-slate-200 text-slate-800' },
   ]
 
   const groupedThreads = useMemo(() => {
     const groups: Record<string, EmailThread[]> = { 
-      high: [], 
-      medium: [], 
-      low: [],
       sent_14: [],
-      sent_30: [],
       sent_60: [],
-      sent_90: [],
       sent_120: [],
-      sent_180: []
+      sent_240: [],
+      sent_older: []
     }
     
+    // Group ALL emails by days: 14, 60, 120, 240
     filteredThreads.forEach(t => {
-      const emailStatus = getEmailSendStatus(t)
-      
-      // If recently sent (within 180 days), group by days since sent
-      if (emailStatus === 'sent' && t.days <= 180) {
-        // Find the appropriate sent group
-        if (t.days <= 14) {
-          groups.sent_14.push(t)
-        } else if (t.days <= 30) {
-          groups.sent_30.push(t)
-        } else if (t.days <= 60) {
-          groups.sent_60.push(t)
-        } else if (t.days <= 90) {
-          groups.sent_90.push(t)
-        } else if (t.days <= 120) {
-          groups.sent_120.push(t)
-        } else {
-          groups.sent_180.push(t)
-        }
+      if (t.days <= 14) {
+        groups.sent_14.push(t)
+      } else if (t.days <= 60) {
+        groups.sent_60.push(t)
+      } else if (t.days <= 120) {
+        groups.sent_120.push(t)
+      } else if (t.days <= 240) {
+        groups.sent_240.push(t)
       } else {
-        // Normal priority grouping for unsent or very old sent emails
-        groups[t.priority].push(t)
+        groups.sent_older.push(t)
       }
     })
     
-    // Sort sent groups by days (most recent first)
+    // Sort all groups by days (most recent first within each group)
     SENT_GROUPS.forEach(g => {
       groups[g.key].sort((a, b) => a.days - b.days)
     })
@@ -910,6 +892,24 @@ I wanted to follow up on our previous conversation.
 
   const toggleGroup = (group: string) => {
     setExpandedGroups(prev => ({ ...prev, [group]: !prev[group] }))
+  }
+
+  // Delete a contact from the list
+  const deleteContact = (thread: EmailThread) => {
+    console.log('🗑️ Deleting contact:', thread.email)
+    
+    // Save to localStorage
+    addDeletedContact(thread.id)
+    
+    // Remove from state
+    setThreads(prev => prev.filter(t => t.id !== thread.id))
+    
+    // Update stats
+    setStats(prev => prev ? {
+      ...prev,
+      needsFollowup: Math.max(0, prev.needsFollowup - 1),
+      totalContacts: Math.max(0, prev.totalContacts - 1)
+    } : null)
   }
 
   // Update business status for a thread - Delete if closed
@@ -1098,6 +1098,91 @@ Respond in this JSON format only:
     setBatchGeneratingAI(false)
     setBatchProgress({ current: 0, total: 0, type: '' })
     console.log('✅ Batch AI generation complete')
+  }
+
+  // Batch send follow-up emails to all visible threads with AI suggestions
+  const batchSendAllEmails = async () => {
+    const threadsWithAI = filteredThreads.filter(t => t.aiSuggestion)
+    
+    if (threadsWithAI.length === 0) {
+      alert('❌ 没有可发送的邮件，请先使用 "AI Suggest All" 生成邮件内容')
+      return
+    }
+    
+    if (!confirm(`确定要发送 ${threadsWithAI.length} 封跟进邮件吗？`)) {
+      return
+    }
+    
+    console.log(`📨 Batch sending ${threadsWithAI.length} emails...`)
+    setBatchSendingEmails(true)
+    setBatchProgress({ current: 0, total: threadsWithAI.length, type: 'send' })
+    
+    let successCount = 0
+    let failCount = 0
+    
+    for (let i = 0; i < threadsWithAI.length; i++) {
+      const thread = threadsWithAI[i]
+      setBatchProgress({ current: i + 1, total: threadsWithAI.length, type: 'send' })
+      
+      try {
+        // Convert plain text to HTML
+        const htmlBody = thread.aiSuggestion!
+          .replace(/\n/g, '<br>')
+          .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" style="color: #059669;">$1</a>')
+
+        const response = await fetch('/api/send-campaign', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            testEmail: thread.email,
+            cc: [{ email: 'ryan@achievepack.com', name: 'Ryan Wong' }],
+            subject: `Re: ${thread.lastSubject}`,
+            htmlContent: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px;">${htmlBody}</div>`
+          })
+        })
+
+        const data = await response.json()
+        
+        if (data.success) {
+          successCount++
+          const today = new Date().toISOString().split('T')[0]
+          saveSentDate(thread.id, today, `Re: ${thread.lastSubject}`, thread.totalSent + 1)
+          
+          setThreads(prev => prev.map(t => 
+            t.id === thread.id 
+              ? { 
+                  ...t, 
+                  days: 0, 
+                  lastSent: today, 
+                  totalSent: t.totalSent + 1,
+                  priority: 'low' as const
+                } 
+              : t
+          ))
+        } else {
+          failCount++
+          console.error(`Failed to send to ${thread.email}:`, data.error)
+        }
+      } catch (error) {
+        failCount++
+        console.error(`Error sending to ${thread.email}:`, error)
+      }
+      
+      // Delay between sends to avoid rate limiting
+      await new Promise(r => setTimeout(r, 1000))
+    }
+    
+    setBatchSendingEmails(false)
+    setBatchProgress({ current: 0, total: 0, type: '' })
+    
+    // Update stats
+    setStats(prev => prev ? {
+      ...prev,
+      needsFollowup: Math.max(0, prev.needsFollowup - successCount)
+    } : null)
+    
+    alert(`✅ 发送完成\n成功: ${successCount}\n失败: ${failCount}`)
+    console.log(`✅ Batch send complete. Success: ${successCount}, Failed: ${failCount}`)
   }
 
   if (loading) {
@@ -1304,7 +1389,7 @@ Respond in this JSON format only:
           <div className="flex items-center gap-2 ml-auto">
             <button
               onClick={batchCheckAllDomains}
-              disabled={batchCheckingDomains || batchGeneratingAI}
+              disabled={batchCheckingDomains || batchGeneratingAI || batchSendingEmails}
               className="flex items-center gap-2 px-4 py-2.5 bg-cyan-600 text-white rounded-xl hover:bg-cyan-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {batchCheckingDomains ? (
@@ -1321,7 +1406,7 @@ Respond in this JSON format only:
             </button>
             <button
               onClick={batchGenerateAllAI}
-              disabled={batchGeneratingAI || batchCheckingDomains}
+              disabled={batchGeneratingAI || batchCheckingDomains || batchSendingEmails}
               className="flex items-center gap-2 px-4 py-2.5 bg-purple-600 text-white rounded-xl hover:bg-purple-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {batchGeneratingAI ? (
@@ -1333,6 +1418,23 @@ Respond in this JSON format only:
                 <>
                   <Sparkles className="w-4 h-4" />
                   AI Suggest All
+                </>
+              )}
+            </button>
+            <button
+              onClick={batchSendAllEmails}
+              disabled={batchSendingEmails || batchGeneratingAI || batchCheckingDomains}
+              className="flex items-center gap-2 px-4 py-2.5 bg-green-600 text-white rounded-xl hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {batchSendingEmails ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  Sending {batchProgress.current}/{batchProgress.total}
+                </>
+              ) : (
+                <>
+                  <Send className="w-4 h-4" />
+                  Send All
                 </>
               )}
             </button>
@@ -1454,336 +1556,7 @@ Respond in this JSON format only:
 
       {/* Thread List */}
       <div className="space-y-4">
-        {(['high', 'medium', 'low'] as const).map((priority) => (
-          groupedThreads[priority].length > 0 && (
-            <div key={priority} className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
-              <button
-                onClick={() => toggleGroup(priority)}
-                className={`w-full flex items-center justify-between p-4 transition-colors ${
-                  priority === 'high' ? 'bg-gradient-to-r from-red-50 to-red-100 border-b border-red-200' :
-                  priority === 'medium' ? 'bg-gradient-to-r from-yellow-50 to-yellow-100 border-b border-yellow-200' :
-                  'bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200'
-                }`}
-              >
-                <div className="flex items-center gap-3">
-                  {expandedGroups[priority] ? <ChevronDown className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
-                  <span className={`font-semibold capitalize ${
-                    priority === 'high' ? 'text-red-700' :
-                    priority === 'medium' ? 'text-yellow-700' : 'text-gray-700'
-                  }`}>
-                    {priority === 'high' ? '🔴' : priority === 'medium' ? '🟡' : '⚪'} {priority} Priority
-                  </span>
-                  <span className={`px-2.5 py-1 text-xs font-medium rounded-full ${
-                    priority === 'high' ? 'bg-red-200 text-red-800' :
-                    priority === 'medium' ? 'bg-yellow-200 text-yellow-800' : 'bg-gray-200 text-gray-800'
-                  }`}>
-                    {groupedThreads[priority].length}
-                  </span>
-                </div>
-              </button>
-
-              {expandedGroups[priority] && (
-                <div className="divide-y divide-gray-100">
-                  {groupedThreads[priority].map((thread) => (
-                    <div key={thread.id} className="p-4 hover:bg-gray-50 transition-colors">
-                      <div className="flex items-start justify-between gap-4">
-                        <div className="flex-1 min-w-0">
-                          {/* Header Row with Name, Account, Domain, Status */}
-                          <div className="flex items-center flex-wrap gap-2 mb-2">
-                            <span className="font-medium text-gray-900">{thread.name}</span>
-                            <span className={`px-2 py-0.5 text-xs rounded-full ${
-                              thread.account === 'achievepack' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700'
-                            }`}>
-                              {thread.account}
-                            </span>
-                            
-                            {/* Domain Link - Clickable */}
-                            {!['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'me.com', 'icloud.com', 'yahoo.co.uk'].includes(thread.domain.toLowerCase()) ? (
-                              <button
-                                onClick={() => openDomainWebsite(thread.domain)}
-                                className="flex items-center gap-1 text-xs text-blue-600 hover:text-blue-800 hover:underline"
-                                title="Open website in new tab"
-                              >
-                                <Globe className="w-3 h-3" />
-                                {thread.domain}
-                                <ExternalLink className="w-3 h-3" />
-                              </button>
-                            ) : (
-                              <span className="text-xs text-gray-400">@{thread.domain}</span>
-                            )}
-                            
-                            {/* Business Status - Direct Click Buttons */}
-                            <div className="flex items-center gap-1">
-                              {BUSINESS_STATUSES.map((status) => {
-                                const Icon = status.icon
-                                const isActive = thread.businessStatus === status.value
-                                return (
-                                  <button
-                                    key={status.value}
-                                    onClick={() => updateBusinessStatus(thread.id, status.value)}
-                                    className={`p-1.5 rounded-full transition-all ${
-                                      isActive 
-                                        ? status.value === 'closed' ? 'bg-red-200 text-red-700 ring-2 ring-red-300' :
-                                          status.value === 'partnered' ? 'bg-blue-200 text-blue-700 ring-2 ring-blue-300' :
-                                          status.value === 'paused' ? 'bg-yellow-200 text-yellow-700 ring-2 ring-yellow-300' :
-                                          status.value === 'active' ? 'bg-green-200 text-green-700 ring-2 ring-green-300' :
-                                          'bg-orange-200 text-orange-700 ring-2 ring-orange-300'
-                                        : 'bg-gray-100 text-gray-400 hover:bg-gray-200 hover:text-gray-600'
-                                    }`}
-                                    title={`${status.label}${status.value === 'closed' ? ' (删除联系人)' : ''}`}
-                                  >
-                                    <Icon className="w-3.5 h-3.5" />
-                                  </button>
-                                )
-                              })}
-                            </div>
-                            
-                            {thread.status && (
-                              <span className={`px-2 py-0.5 text-xs rounded-full ${
-                                thread.status === 'Samples delivered' || thread.status === 'Repeat customer' ? 'bg-green-100 text-green-700' :
-                                thread.status === 'Quoted' || thread.status === 'Sample sent' ? 'bg-blue-100 text-blue-700' :
-                                thread.status === 'Design stage' || thread.status === 'Post-meeting' ? 'bg-purple-100 text-purple-700' :
-                                'bg-gray-100 text-gray-600'
-                              }`}>
-                                {thread.status}
-                              </span>
-                            )}
-                          </div>
-                          
-                          <p className="text-sm text-gray-600 mb-2">{thread.email}</p>
-                          
-                          {/* Status and Email Info Row */}
-                          <div className="flex flex-wrap items-center gap-3 mb-2 text-sm">
-                            {/* Last Email Sent */}
-                            <div className="flex items-center gap-1.5 text-gray-500">
-                              <Calendar className="w-3.5 h-3.5" />
-                              <span>最后发送: <strong className="text-gray-700">{thread.lastSent}</strong></span>
-                            </div>
-                            
-                            {/* Email Count */}
-                            <div className="flex items-center gap-1.5 text-gray-500">
-                              <Mail className="w-3.5 h-3.5" />
-                              <span>发送 <strong className="text-blue-600">{thread.totalSent}</strong> / 收到 <strong className="text-green-600">{thread.totalRecv}</strong></span>
-                            </div>
-                            
-                            {/* Customer Status Badge */}
-                            {(() => {
-                              const mappedStatus = mapStatusToCustomerStatus(thread.status || '')
-                              const statusInfo = CUSTOMER_STATUSES.find(s => s.value === mappedStatus)
-                              if (statusInfo) {
-                                const Icon = statusInfo.icon
-                                return (
-                                  <span className={`flex items-center gap-1 px-2 py-0.5 text-xs rounded-full ${statusInfo.color}`}>
-                                    <Icon className="w-3 h-3" />
-                                    {statusInfo.label}
-                                  </span>
-                                )
-                              }
-                              return null
-                            })()}
-                            
-                            {/* Email Send Status */}
-                            {(() => {
-                              const emailStatus = getEmailSendStatus(thread)
-                              const statusInfo = EMAIL_SEND_STATUSES.find(s => s.value === emailStatus)
-                              if (statusInfo) {
-                                const Icon = statusInfo.icon
-                                return (
-                                  <span className={`flex items-center gap-1 px-2 py-0.5 text-xs rounded-full ${statusInfo.color}`}>
-                                    <Icon className="w-3 h-3" />
-                                    {statusInfo.label}
-                                  </span>
-                                )
-                              }
-                              return null
-                            })()}
-                          </div>
-                          
-                          <p className="text-sm text-gray-700 mb-2">
-                            <span className="text-gray-400">最后主题:</span> {thread.lastSubject}
-                          </p>
-                          
-                          {/* Domain Info Section - Shows after XAI check */}
-                          {thread.domainInfo && (
-                            <div className="bg-gradient-to-r from-cyan-50 to-sky-50 rounded-lg p-3 border border-cyan-200 mb-3 space-y-2">
-                              <div className="flex items-center justify-between">
-                                <span className="text-xs font-semibold text-cyan-700 flex items-center gap-1">
-                                  <Building className="w-3.5 h-3.5" />
-                                  域名检查结果
-                                </span>
-                                <span className={`px-2 py-0.5 text-xs rounded-full ${
-                                  thread.domainInfo.status === 'active' ? 'bg-green-100 text-green-700' :
-                                  thread.domainInfo.status === 'closed' ? 'bg-red-100 text-red-700' :
-                                  'bg-gray-100 text-gray-600'
-                                }`}>
-                                  {thread.domainInfo.status === 'active' ? '✅ 活跃' : 
-                                   thread.domainInfo.status === 'closed' ? '❌ 已关闭' : '❓ 未知'}
-                                </span>
-                              </div>
-                              {thread.domainInfo.companyInfo && (
-                                <p className="text-sm text-gray-700">{thread.domainInfo.companyInfo}</p>
-                              )}
-                              {thread.domainInfo.products && thread.domainInfo.products.length > 0 && (
-                                <div className="flex items-start gap-2">
-                                  <span className="text-xs font-semibold text-cyan-600 whitespace-nowrap">产品:</span>
-                                  <div className="flex flex-wrap gap-1">
-                                    {thread.domainInfo.products.map((p, i) => (
-                                      <span key={i} className="text-xs bg-white px-2 py-0.5 rounded border border-cyan-200">{p}</span>
-                                    ))}
-                                  </div>
-                                </div>
-                              )}
-                              {thread.domainInfo.recommendedPackaging && thread.domainInfo.recommendedPackaging.length > 0 && (
-                                <div className="flex items-start gap-2">
-                                  <span className="text-xs font-semibold text-emerald-600 whitespace-nowrap flex items-center gap-1">
-                                    <Package className="w-3 h-3" />
-                                    推荐包装:
-                                  </span>
-                                  <div className="flex flex-wrap gap-1">
-                                    {thread.domainInfo.recommendedPackaging.map((p, i) => (
-                                      <span key={i} className="text-xs bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded border border-emerald-200 font-medium">{p}</span>
-                                    ))}
-                                  </div>
-                                </div>
-                              )}
-                            </div>
-                          )}
-                          
-                          {/* Customer Details Section */}
-                          {(thread.customerNeeds || thread.productInterest || thread.lastReply) && (
-                            <div className="bg-gradient-to-r from-gray-50 to-slate-50 rounded-lg p-3 border border-gray-200 mb-3 space-y-2">
-                              {thread.customerNeeds && (
-                                <div className="flex items-start gap-2">
-                                  <span className="text-xs font-semibold text-gray-500 whitespace-nowrap">NEEDS:</span>
-                                  <span className="text-sm text-gray-800">{thread.customerNeeds}</span>
-                                </div>
-                              )}
-                              {thread.productInterest && (
-                                <div className="flex items-start gap-2">
-                                  <span className="text-xs font-semibold text-gray-500 whitespace-nowrap">PRODUCT:</span>
-                                  <span className="text-sm text-emerald-700 font-medium">{thread.productInterest}</span>
-                                </div>
-                              )}
-                              {thread.lastReply && (
-                                <div className="flex items-start gap-2">
-                                  <span className="text-xs font-semibold text-gray-500 whitespace-nowrap">LAST REPLY:</span>
-                                  <span className="text-sm text-blue-700">{thread.lastReply}</span>
-                                </div>
-                              )}
-                            </div>
-                          )}
-                          
-                          {/* AI Suggestion */}
-                          {thread.aiSuggestion && (
-                            <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl p-3 border border-purple-200 mt-3">
-                              <div className="flex items-center justify-between mb-2">
-                                <span className="text-xs font-medium text-purple-700 flex items-center gap-1">
-                                  <Sparkles className="w-3.5 h-3.5" />
-                                  AI Suggested Reply
-                                </span>
-                                <button
-                                  onClick={() => copyToClipboard(thread.aiSuggestion!, thread.id)}
-                                  className="text-xs text-purple-600 hover:text-purple-800 flex items-center gap-1"
-                                >
-                                  {copiedId === thread.id ? <CheckCheck className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                                  {copiedId === thread.id ? 'Copied!' : 'Copy'}
-                                </button>
-                              </div>
-                              <p className="text-sm text-gray-700 whitespace-pre-line">{thread.aiSuggestion}</p>
-                            </div>
-                          )}
-                        </div>
-
-                        <div className="flex flex-col items-end gap-2">
-                          <div className={`px-3 py-1.5 rounded-full text-sm font-medium ${
-                            thread.days >= 90 ? 'bg-red-100 text-red-700' :
-                            thread.days >= 60 ? 'bg-orange-100 text-orange-700' :
-                            thread.days >= 30 ? 'bg-yellow-100 text-yellow-700' : 'bg-gray-100 text-gray-700'
-                          }`}>
-                            {thread.days} 天未联系
-                          </div>
-                          
-                          {/* Domain Check Button */}
-                          {!['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'me.com', 'icloud.com', 'yahoo.co.uk'].includes(thread.domain.toLowerCase()) && (
-                            <button
-                              onClick={() => checkDomainStatus(thread)}
-                              disabled={thread.domainChecking}
-                              className="flex items-center gap-1.5 px-3 py-1.5 bg-cyan-100 text-cyan-700 text-sm rounded-lg hover:bg-cyan-200 transition-colors disabled:opacity-50"
-                              title="检查域名状态并获取产品推荐"
-                            >
-                              {thread.domainChecking ? (
-                                <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                              ) : (
-                                <Globe className="w-3.5 h-3.5" />
-                              )}
-                              {thread.domainInfo ? 'Re-check' : 'Check Domain'}
-                            </button>
-                          )}
-                          
-                          <div className="flex items-center gap-2">
-                            <button
-                              onClick={() => generateAISuggestion(thread)}
-                              disabled={generatingAI === thread.id}
-                              className="flex items-center gap-1.5 px-3 py-1.5 bg-purple-100 text-purple-700 text-sm rounded-lg hover:bg-purple-200 transition-colors disabled:opacity-50"
-                            >
-                              {generatingAI === thread.id ? (
-                                <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                              ) : (
-                                <Sparkles className="w-3.5 h-3.5" />
-                              )}
-                              AI Suggest
-                            </button>
-                            
-                            {/* Mark as Sent Button */}
-                            {isManuallyMarkedSent(thread.id) ? (
-                              <button
-                                onClick={() => unmarkAsSent(thread)}
-                                className="flex items-center gap-1.5 px-3 py-1.5 bg-green-100 text-green-700 text-sm rounded-lg hover:bg-green-200 transition-colors ring-2 ring-green-300"
-                                title={`已标记为已发送: ${getManualSentTime(thread.id) || ''}`}
-                              >
-                                <MailCheck className="w-3.5 h-3.5" />
-                                已标记
-                              </button>
-                            ) : (
-                              <button
-                                onClick={() => markAsSent(thread)}
-                                className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 text-gray-600 text-sm rounded-lg hover:bg-green-100 hover:text-green-700 transition-colors"
-                                title="标记为已发送（通过其他渠道发送的邮件）"
-                              >
-                                <MailCheck className="w-3.5 h-3.5" />
-                                标记已发送
-                              </button>
-                            )}
-                            
-                            <button
-                              onClick={() => handleCompose(thread)}
-                              className="flex items-center gap-1.5 px-3 py-1.5 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700 transition-colors"
-                            >
-                              <Reply className="w-3.5 h-3.5" />
-                              Follow Up
-                            </button>
-                          </div>
-                          
-                          {/* Show manual sent indicator */}
-                          {isManuallyMarkedSent(thread.id) && (
-                            <div className="flex items-center gap-1 text-xs text-green-600">
-                              <CheckCheck className="w-3 h-3" />
-                              手动标记于: {getManualSentTime(thread.id)}
-                            </div>
-                          )}
-                          
-                          <span className="text-xs text-gray-400">共 {thread.totalSent + thread.totalRecv} 封邮件</span>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          )
-        ))}
-
-        {/* Sent Email Groups - Displayed after priority groups */}
+        {/* Email Groups by Days */}
         {SENT_GROUPS.map((sentGroup) => (
           groupedThreads[sentGroup.key].length > 0 && (
             <div key={sentGroup.key} className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
@@ -1852,13 +1625,23 @@ Respond in this JSON format only:
                         </div>
                         
                         <div className="flex flex-col items-end gap-2">
-                          <button
-                            onClick={() => handleCompose(thread)}
-                            className="flex items-center gap-1.5 px-3 py-1.5 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700 transition-colors"
-                          >
-                            <Reply className="w-3.5 h-3.5" />
-                            Follow Up
-                          </button>
+                          <div className="flex items-center gap-2">
+                            <button
+                              onClick={() => deleteContact(thread)}
+                              className="flex items-center gap-1.5 px-3 py-1.5 bg-red-100 text-red-600 text-sm rounded-lg hover:bg-red-200 transition-colors"
+                              title="删除此联系人（已是现有客户）"
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                              删除
+                            </button>
+                            <button
+                              onClick={() => handleCompose(thread)}
+                              className="flex items-center gap-1.5 px-3 py-1.5 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700 transition-colors"
+                            >
+                              <Reply className="w-3.5 h-3.5" />
+                              Follow Up
+                            </button>
+                          </div>
                           <span className="text-xs text-gray-400">共 {thread.totalSent + thread.totalRecv} 封邮件</span>
                         </div>
                       </div>

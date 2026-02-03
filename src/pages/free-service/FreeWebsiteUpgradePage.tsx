@@ -967,6 +967,36 @@ const FreeWebsiteUpgradePage: React.FC = () => {
                   </Link>
                 </div>
               </motion.div>
+
+              {/* Achieve Cleaning Demo Card */}
+              <motion.div 
+                className="group relative bg-[#F0F9FF] rounded-3xl overflow-hidden shadow-2xl border border-cyan-200"
+                variants={fadeInUp}
+                whileHover={{ y: -12, transition: { duration: 0.3 } }}
+              >
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img
+                    src="/imgs/demo-site/cleaning/hero.png"
+                    alt="Achieve Cleaning Demo"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+                </div>
+                <div className="absolute bottom-0 left-0 p-8">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="bg-cyan-600 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Home Care</span>
+                    <span className="text-xs text-slate-100 font-medium italic">Plastic Free</span>
+                  </div>
+                  <h3 className="text-3xl font-bold mb-3 text-white drop-shadow-sm">Achieve Cleaning</h3>
+                  <p className="text-slate-100 text-sm mb-6 max-w-sm font-medium drop-shadow-md">Revolutionary concentrated cleaning tablets in nano banana pro packaging. Modern, clean, and zero-waste aesthetic.</p>
+                  <Link
+                    to="/free-service/achieve-cleaning-demo"
+                    className="inline-flex items-center gap-2 bg-cyan-600 text-white px-6 py-3 rounded-full font-bold transition hover:bg-cyan-700 shadow-lg"
+                  >
+                    Enter Cleaning Demo Site <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </section>
