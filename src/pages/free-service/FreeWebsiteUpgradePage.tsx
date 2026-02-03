@@ -1060,6 +1060,39 @@ const FreeWebsiteUpgradePage: React.FC = () => {
                   </Link>
                 </div>
               </motion.div>
+
+              {/* Achieve Bath Demo Card */}
+              <motion.div 
+                className="group relative bg-[#FAFAFA] rounded-3xl overflow-hidden shadow-2xl border border-neutral-100"
+                variants={fadeInUp}
+                whileHover={{ y: -12, transition: { duration: 0.3 } }}
+              >
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img
+                    src="/imgs/demo-site/bath/hero.png"
+                    alt="Achieve Bath Demo"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/40 via-transparent to-transparent" />
+                </div>
+                <div className="absolute top-0 right-0 p-4">
+                  <span className="bg-white text-neutral-900 text-[10px] uppercase tracking-[0.2em] font-medium px-3 py-1 rounded-sm shadow-sm border border-neutral-100">Luxury</span>
+                </div>
+                <div className="absolute bottom-0 left-0 p-8">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="bg-neutral-900 text-white text-[10px] font-medium uppercase px-3 py-1 rounded-full tracking-widest">Personal Care</span>
+                    <span className="text-xs text-white/90 font-serif italic">Nano Banana Pro™ Clear</span>
+                  </div>
+                  <h3 className="text-3xl font-serif mb-3 text-white drop-shadow-md">Achieve Bath</h3>
+                  <p className="text-white/80 text-sm mb-6 max-w-sm font-light leading-relaxed drop-shadow-sm">Minimalist luxury bath bombs in revolutionary clear compostable pouches. Experience the purity of direct print.</p>
+                  <Link
+                    to="/free-service/achieve-bath-demo"
+                    className="inline-flex items-center gap-2 bg-white text-neutral-900 px-6 py-3 rounded-sm text-xs font-bold uppercase tracking-widest transition hover:bg-neutral-200 shadow-lg"
+                  >
+                    Enter Ritual <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </section>

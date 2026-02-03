@@ -309,6 +309,7 @@ const AchieveSuperfoodDemoPage = lazyWithRetry(() => import('./pages/free-servic
 const AchieveCleaningDemoPage = lazyWithRetry(() => import('./pages/free-service/AchieveCleaningDemoPage'))
 const AchieveSpreadsDemoPage = lazyWithRetry(() => import('./pages/free-service/AchieveSpreadsDemoPage'))
 const AchieveMuesliDemoPage = lazyWithRetry(() => import('./pages/free-service/AchieveMuesliDemoPage'))
+const AchieveBathDemoPage = lazyWithRetry(() => import('./pages/free-service/AchieveBathDemoPage'))
 const FreeServicesHubPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesHubPage'))
 const FreeServicesPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesPage'))
 const Product3DShowcasePage = lazyWithRetry(() => import('./pages/Product3DShowcasePage'))
@@ -573,6 +574,7 @@ createRoot(document.getElementById('root')!).render(
                       <Route path="/free-service/achieve-cleaning-demo" element={<AchieveCleaningDemoPage />} />
         <Route path="/free-service/achieve-spreads-demo" element={<AchieveSpreadsDemoPage />} />
         <Route path="/free-service/achieve-muesli-demo" element={<AchieveMuesliDemoPage />} />
+        <Route path="/free-service/achieve-bath-demo" element={<AchieveBathDemoPage />} />
                       <Route path="/free" element={<FreeServicesHubPage />} />
                                             <Route path="/free-service" element={<FreeServicesPage />} />
                       <Route path="/3d-showcase" element={<Product3DShowcasePage />} />
