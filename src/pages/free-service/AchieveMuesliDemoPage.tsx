@@ -16,6 +16,7 @@ import CookieConsent from '../../components/CookieConsent'
 const ASSETS = {
   hero: '/imgs/demo-site/muesli/lifestyle.png',
   lifestyle: '/imgs/demo-site/muesli/hero.png',
+  collection: '/imgs/demo-site/muesli/collection.png',
   berries: '/imgs/demo-site/muesli/berries.png',
   chocolate: '/imgs/demo-site/muesli/chocolate.png',
 }
@@ -254,6 +255,57 @@ const Products = () => {
   )
 }
 
+const Collection = () => {
+  return (
+    <section className="py-0 relative bg-[#00FFFF] border-y-4 border-[#1A1A1A] overflow-hidden">
+      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+      
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2">
+        <div className="p-12 lg:p-24 flex flex-col justify-center relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <div className="inline-block bg-[#FF007F] text-white px-4 py-2 text-sm font-black uppercase rotate-2 border-2 border-[#1A1A1A] shadow-[4px_4px_0px_0px_white]">
+               The Full Collection
+            </div>
+            
+            <h2 className="text-5xl md:text-7xl font-black text-[#1A1A1A] leading-[0.9] tracking-tighter">
+              LOUD FLAVORS.<br />
+              LOUDER IMPACT.
+            </h2>
+            
+            <p className="text-[#1A1A1A] text-xl font-bold leading-relaxed border-l-4 border-[#1A1A1A] pl-6">
+              Our full lineup features edge-to-edge printing on Nano Banana Pro. 
+              No stickers, no plastic, just pure vibrant compostable power.
+            </p>
+            
+            <button className="self-start px-8 py-4 bg-[#1A1A1A] text-white border-4 border-white font-black text-xl hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_#FFD700] hover:text-[#FFD700] transition-all">
+              SHOP ALL FLAVORS
+            </button>
+          </motion.div>
+        </div>
+
+        <motion.div 
+          className="relative min-h-[500px] border-l-0 lg:border-l-4 border-[#1A1A1A]"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <img 
+            src={ASSETS.collection} 
+            alt="Achieve Muesli Full Collection" 
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[#FF007F] mix-blend-multiply opacity-20 hover:opacity-0 transition-opacity duration-500"></div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
 const Feature = ({ icon: Icon, title, desc, color }: any) => (
   <motion.div 
     variants={fadeInUp} 
@@ -413,6 +465,7 @@ export default function AchieveMuesliDemoPage() {
           <Navbar />
           <Hero />
           <Products />
+          <Collection />
           <Features />
           <Lifestyle />
           <Footer />
