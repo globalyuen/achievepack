@@ -70,6 +70,7 @@ interface EmailThread {
   emailSendStatus?: EmailSendStatus // Email sending status
   lastEmailSentTime?: string       // Last email send timestamp
   lastStatusUpdateTime?: string    // Last status update timestamp
+  isActive?: boolean               // Active/Non-active status for filtering
 }
 
 interface ScanProgress {
@@ -96,7 +97,8 @@ const STORAGE_KEYS = {
   BUSINESS_STATUS: 'email_followup_business_status',
   DELETED_CONTACTS: 'email_followup_deleted_contacts',
   MANUALLY_SENT: 'email_followup_manually_sent',
-  SENT_DATES: 'email_followup_sent_dates'
+  SENT_DATES: 'email_followup_sent_dates',
+  ACTIVE_STATUS: 'email_followup_active_status'
 }
 
 // Helper functions for localStorage
@@ -206,6 +208,26 @@ const saveSentDate = (threadId: string, lastSent: string, lastSubject: string, t
   }
 }
 
+// Helper functions for active status
+const getActiveStatuses = (): Record<string, boolean> => {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEYS.ACTIVE_STATUS)
+    return saved ? JSON.parse(saved) : {}
+  } catch {
+    return {}
+  }
+}
+
+const saveActiveStatus = (threadId: string, isActive: boolean) => {
+  try {
+    const current = getActiveStatuses()
+    current[threadId] = isActive
+    localStorage.setItem(STORAGE_KEYS.ACTIVE_STATUS, JSON.stringify(current))
+  } catch (e) {
+    console.error('Failed to save active status:', e)
+  }
+}
+
 const EmailFollowUpPage: React.FC = () => {
   const [threads, setThreads] = useState<EmailThread[]>([])
   const [stats, setStats] = useState<AnalysisStats | null>(null)
@@ -213,7 +235,7 @@ const EmailFollowUpPage: React.FC = () => {
   const [loading, setLoading] = useState(true)
   const [scanning, setScanning] = useState(false)
   const [scanProgress, setScanProgress] = useState<ScanProgress>({ stage: '', percent: 0, detail: '' })
-  const [filter, setFilter] = useState<'all' | 'high' | 'medium' | '30days' | '60days' | '90days'>('high')
+  const [filter, setFilter] = useState<'all' | 'active' | 'non-active' | '30days' | '60days' | '90days'>('active')
   const [accountFilter, setAccountFilter] = useState<'all' | 'achievepack' | 'poucheco'>('all')
   const [searchQuery, setSearchQuery] = useState('')
   const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>({ 
@@ -399,11 +421,12 @@ const EmailFollowUpPage: React.FC = () => {
     // Load saved states from localStorage
     const deletedContacts = getDeletedContacts()
     const savedStatuses = getSavedBusinessStatuses()
+    const activeStatuses = getActiveStatuses()
     
     // Load saved sent dates
     const savedSentDates = getSavedSentDates()
     
-    // Filter out deleted contacts and apply saved business statuses + sent dates
+    // Filter out deleted contacts and apply saved business statuses + sent dates + active status
     const filteredData = realEmailData
       .filter(thread => !deletedContacts.includes(thread.id))
       .map(thread => {
@@ -424,7 +447,8 @@ const EmailFollowUpPage: React.FC = () => {
           lastSubject: sentDateRecord?.lastSubject || thread.lastSubject,
           totalSent: sentDateRecord?.totalSent || thread.totalSent,
           days,
-          priority: days < 30 ? 'low' as const : days < 90 ? 'medium' as const : 'high' as const
+          priority: days < 30 ? 'low' as const : days < 90 ? 'medium' as const : 'high' as const,
+          isActive: activeStatuses[thread.id] !== undefined ? activeStatuses[thread.id] : true // Default to active
         }
       })
     
@@ -616,10 +640,10 @@ Ryan`
       result = result.filter(t => t.account === accountFilter)
     }
     
-    if (filter === 'high') {
-      result = result.filter(t => t.priority === 'high')
-    } else if (filter === 'medium') {
-      result = result.filter(t => t.priority === 'medium')
+    if (filter === 'active') {
+      result = result.filter(t => t.isActive === true)
+    } else if (filter === 'non-active') {
+      result = result.filter(t => t.isActive === false)
     } else if (filter === '30days') {
       result = result.filter(t => t.days >= 30 && t.days < 60)
     } else if (filter === '60days') {
@@ -745,6 +769,22 @@ Ryan`
     setThreads(prev => prev.map(t => 
       t.id === thread.id 
         ? { ...t, emailSendStatus: undefined } 
+        : t
+    ))
+  }
+
+  // Toggle active/non-active status
+  const toggleActiveStatus = (thread: EmailThread) => {
+    const newActiveStatus = !thread.isActive
+    console.log(`🔄 Toggling active status for ${thread.email}: ${thread.isActive} → ${newActiveStatus}`)
+    
+    // Save to localStorage
+    saveActiveStatus(thread.id, newActiveStatus)
+    
+    // Update local state
+    setThreads(prev => prev.map(t => 
+      t.id === thread.id 
+        ? { ...t, isActive: newActiveStatus } 
         : t
     ))
   }
@@ -1368,9 +1408,9 @@ Respond in this JSON format only:
             onChange={(e) => setFilter(e.target.value as any)}
             className="px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white"
           >
-            <option value="all">所有优先级</option>
-            <option value="high">🔴 高优先级</option>
-            <option value="medium">🟡 中优先级</option>
+            <option value="all">所有联系人</option>
+            <option value="active">✅ Active (活跃)</option>
+            <option value="non-active">⏸️ Non-active (非活跃)</option>
             <option value="30days">30-60 天</option>
             <option value="60days">60-90 天</option>
             <option value="90days">&gt; 90 天</option>
@@ -1739,6 +1779,23 @@ Respond in this JSON format only:
                                     <CheckCheck className="w-3 h-3" /> 取消
                                   </button>
                                 )}
+                                
+                                {/* Toggle Active/Non-active Button */}
+                                <button
+                                  onClick={() => toggleActiveStatus(thread)}
+                                  className={`flex items-center gap-1 px-2 py-1 text-[10px] rounded hover:opacity-80 ${
+                                    thread.isActive 
+                                      ? 'bg-emerald-100 text-emerald-700' 
+                                      : 'bg-gray-100 text-gray-600'
+                                  }`}
+                                  title={thread.isActive ? "标记为非活跃" : "标记为活跃"}
+                                >
+                                  {thread.isActive ? (
+                                    <><PlayCircle className="w-3 h-3" /> Active</>
+                                  ) : (
+                                    <><PauseCircle className="w-3 h-3" /> Non-active</>
+                                  )}
+                                </button>
                                 
                                 {/* Delete Button */}
                                 <button
