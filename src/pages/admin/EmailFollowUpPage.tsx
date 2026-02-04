@@ -722,8 +722,8 @@ Ryan`
             lastSubject: newSubject,
             totalSent: newTotalSent,
             emailSendStatus: 'sent' as const,
-            lastEmailSentTime: new Date().toISOString(),
-            priority: 'low' as const
+            lastEmailSentTime: new Date().toISOString()
+            // 不改变 priority，保持原有优先级
           } 
         : t
     ))
@@ -731,8 +731,8 @@ Ryan`
     // Update stats
     setStats(prev => prev ? {
       ...prev,
-      needsFollowup: Math.max(0, prev.needsFollowup - 1),
-      highPriority: Math.max(0, prev.highPriority - 1)
+      needsFollowup: Math.max(0, prev.needsFollowup - 1)
+      // 不更新 highPriority，保持统计准确
     } : null)
   }
   

@@ -1,10 +1,10 @@
 {
-  "generated": "2026-02-03",
-  "total_images": 1186,
-  "total_categories": 130,
+  "generated": "2026-02-04",
+  "total_images": 1193,
+  "total_categories": 131,
   "extensions": {
     ".webp": 1058,
-    ".png": 119,
+    ".png": 126,
     ".jpg": 6,
     ".svg": 3
   },
@@ -1386,6 +1386,53 @@
           "path": "/imgs/composting/vs/a_product_trust_achievepack_5584835.webp",
           "extension": ".webp",
           "modified": "2026-01-02T05:53:38.000Z"
+        }
+      ]
+    },
+    "demo-site/bath": {
+      "count": 7,
+      "images": [
+        {
+          "filename": "forest.png",
+          "path": "/imgs/demo-site/bath/forest.png",
+          "extension": ".png",
+          "modified": "2026-02-03T13:33:17.736Z"
+        },
+        {
+          "filename": "golden.png",
+          "path": "/imgs/demo-site/bath/golden.png",
+          "extension": ".png",
+          "modified": "2026-02-03T13:33:02.376Z"
+        },
+        {
+          "filename": "ocean.png",
+          "path": "/imgs/demo-site/bath/ocean.png",
+          "extension": ".png",
+          "modified": "2026-02-03T13:32:48.767Z"
+        },
+        {
+          "filename": "rose.png",
+          "path": "/imgs/demo-site/bath/rose.png",
+          "extension": ".png",
+          "modified": "2026-02-03T13:28:58.787Z"
+        },
+        {
+          "filename": "lavender.png",
+          "path": "/imgs/demo-site/bath/lavender.png",
+          "extension": ".png",
+          "modified": "2026-02-03T13:28:45.158Z"
+        },
+        {
+          "filename": "lifestyle.png",
+          "path": "/imgs/demo-site/bath/lifestyle.png",
+          "extension": ".png",
+          "modified": "2026-02-03T13:28:32.751Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/demo-site/bath/hero.png",
+          "extension": ".png",
+          "modified": "2026-02-03T13:28:15.559Z"
         }
       ]
     },
