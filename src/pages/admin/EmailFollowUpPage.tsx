@@ -448,7 +448,7 @@ const EmailFollowUpPage: React.FC = () => {
           totalSent: sentDateRecord?.totalSent || thread.totalSent,
           days,
           priority: days < 30 ? 'low' as const : days < 90 ? 'medium' as const : 'high' as const,
-          isActive: activeStatuses[thread.id] !== undefined ? activeStatuses[thread.id] : true // Default to active
+          isActive: activeStatuses[thread.id] !== undefined ? activeStatuses[thread.id] : false // Default to non-active (需要跟进)
         }
       })
     
@@ -1409,8 +1409,8 @@ Respond in this JSON format only:
             className="px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white"
           >
             <option value="all">所有联系人</option>
-            <option value="active">✅ Active (活跃)</option>
-            <option value="non-active">⏸️ Non-active (非活跃)</option>
+            <option value="active">✅ 已跟进</option>
+            <option value="non-active">📋 待跟进</option>
             <option value="30days">30-60 天</option>
             <option value="60days">60-90 天</option>
             <option value="90days">&gt; 90 天</option>
@@ -1786,14 +1786,14 @@ Respond in this JSON format only:
                                   className={`flex items-center gap-1 px-2 py-1 text-[10px] rounded hover:opacity-80 ${
                                     thread.isActive 
                                       ? 'bg-emerald-100 text-emerald-700' 
-                                      : 'bg-gray-100 text-gray-600'
+                                      : 'bg-orange-100 text-orange-700'
                                   }`}
-                                  title={thread.isActive ? "标记为非活跃" : "标记为活跃"}
+                                  title={thread.isActive ? "标记为待跟进" : "标记为已跟进"}
                                 >
                                   {thread.isActive ? (
-                                    <><PlayCircle className="w-3 h-3" /> Active</>
+                                    <><CheckCircle className="w-3 h-3" /> 已跟进</>
                                   ) : (
-                                    <><PauseCircle className="w-3 h-3" /> Non-active</>
+                                    <><Clock className="w-3 h-3" /> 待跟进</>
                                   )}
                                 </button>
                                 
