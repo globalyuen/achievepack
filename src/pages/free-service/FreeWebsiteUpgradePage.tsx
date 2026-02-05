@@ -1093,6 +1093,39 @@ const FreeWebsiteUpgradePage: React.FC = () => {
                   </Link>
                 </div>
               </motion.div>
+
+              {/* Achieve Pet Demo Card */}
+              <motion.div 
+                className="group relative bg-[#FDFBF7] rounded-3xl overflow-hidden shadow-2xl border border-[#8B4513]/20"
+                variants={fadeInUp}
+                whileHover={{ y: -12, transition: { duration: 0.3 } }}
+              >
+                <div className="aspect-[16/10] overflow-hidden bg-[#F4F1EA]">
+                  <img
+                    src="/imgs/demo-site/pet/hero.png"
+                    alt="Achieve Pet Treats Demo"
+                    className="w-full h-full object-contain p-8 transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#8B4513]/80 via-transparent to-transparent" />
+                </div>
+                <div className="absolute top-0 right-0 p-4">
+                   <span className="bg-[#8B4513] text-white text-[10px] font-bold uppercase px-3 py-1 rounded-full shadow-lg">New</span>
+                </div>
+                <div className="absolute bottom-0 left-0 p-8">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="bg-[#8B4513] text-white text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Pet Care</span>
+                    <span className="text-xs text-white/90 font-medium italic">Natural Treats</span>
+                  </div>
+                  <h3 className="text-3xl font-serif mb-3 text-white drop-shadow-md">Achieve Pet</h3>
+                  <p className="text-white/90 text-sm mb-6 max-w-sm font-light drop-shadow-sm">Premium air-dried treats in soft-touch matte pouches. Warm, earthy, and 100% natural aesthetic.</p>
+                  <Link
+                    to="/free-service/achieve-pet-demo"
+                    className="inline-flex items-center gap-2 bg-white text-[#8B4513] px-6 py-3 rounded-full font-bold transition hover:bg-[#E6C288] hover:text-[#2C2C2C] shadow-lg"
+                  >
+                    Enter Pet Demo Site <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </section>
