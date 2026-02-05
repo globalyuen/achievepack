@@ -11,7 +11,10 @@
     "preview": "pnpm install --prefer-offline && vite preview",
     "install-deps": "pnpm install --prefer-offline",
     "clean": "rm -rf node_modules .pnpm-store pnpm-lock.yaml && pnpm store prune",
-    "update-catalog": "node scripts/update-image-catalog.cjs"
+    "update-catalog": "node scripts/update-image-catalog.cjs",
+    "update:sitemap": "node scripts/update-sitemap.cjs",
+    "monitor:gsc": "node scripts/monitor-gsc.cjs",
+    "seo:audit": "npm run update:sitemap && npm run monitor:gsc"
   },
   "dependencies": {
     "@base-ui-components/react": "1.0.0-rc.0",
@@ -85,6 +88,7 @@
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^1.1.2",
+    "web-vitals": "^4.2.4",
     "zod": "^3.24.1"
   },
   "devDependencies": {
