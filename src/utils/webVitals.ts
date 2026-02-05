@@ -3,7 +3,7 @@
  * Tracks Core Web Vitals and sends to Google Analytics
  */
 
-import { getCLS, getFID, getFCP, getLCP, getTTFB, Metric } from 'web-vitals';
+import { onCLS, onFID, onFCP, onLCP, onTTFB, Metric } from 'web-vitals';
 
 // Send metrics to Google Analytics
 function sendToAnalytics(metric: Metric) {
@@ -18,7 +18,7 @@ function sendToAnalytics(metric: Metric) {
   }
 
   // Log to console in development
-  if (process.env.NODE_ENV === 'development') {
+  if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
     console.log(`[Web Vitals] ${metric.name}:`, {
       value: metric.value,
       rating: metric.rating,
@@ -50,7 +50,7 @@ function sendToCustomEndpoint(metric: Metric) {
       body,
       keepalive: true,
     }).catch((error) => {
-      if (process.env.NODE_ENV === 'development') {
+      if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
         console.error('Failed to send vitals:', error);
       }
     });
@@ -62,26 +62,26 @@ function sendToCustomEndpoint(metric: Metric) {
  */
 export function initWebVitals() {
   // Cumulative Layout Shift (CLS) - Should be < 0.1
-  getCLS(sendToAnalytics);
+  onCLS(sendToAnalytics);
 
   // First Input Delay (FID) - Should be < 100ms
-  getFID(sendToAnalytics);
+  onFID(sendToAnalytics);
 
   // First Contentful Paint (FCP) - Should be < 1.8s
-  getFCP(sendToAnalytics);
+  onFCP(sendToAnalytics);
 
   // Largest Contentful Paint (LCP) - Should be < 2.5s
-  getLCP(sendToAnalytics);
+  onLCP(sendToAnalytics);
 
   // Time to First Byte (TTFB) - Should be < 600ms
-  getTTFB(sendToAnalytics);
+  onTTFB(sendToAnalytics);
 
   // Also send to custom endpoint if needed
-  // getCLS(sendToCustomEndpoint);
-  // getFID(sendToCustomEndpoint);
-  // getFCP(sendToCustomEndpoint);
-  // getLCP(sendToCustomEndpoint);
-  // getTTFB(sendToCustomEndpoint);
+  // onCLS(sendToCustomEndpoint);
+  // onFID(sendToCustomEndpoint);
+  // onFCP(sendToCustomEndpoint);
+  // onLCP(sendToCustomEndpoint);
+  // onTTFB(sendToCustomEndpoint);
 }
 
 /**
