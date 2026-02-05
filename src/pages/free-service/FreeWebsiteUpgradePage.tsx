@@ -1100,29 +1100,29 @@ const FreeWebsiteUpgradePage: React.FC = () => {
                 variants={fadeInUp}
                 whileHover={{ y: -12, transition: { duration: 0.3 } }}
               >
-                <div className="aspect-[16/10] overflow-hidden bg-[#F4F1EA]">
+                <div className="aspect-[16/10] overflow-hidden bg-[#D4FF00]">
                   <img
                     src="/imgs/demo-site/pet/hero.png"
                     alt="Achieve Pet Treats Demo"
-                    className="w-full h-full object-contain p-8 transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-contain p-8 transition-transform duration-700 group-hover:scale-105 group-hover:rotate-3"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#8B4513]/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 </div>
                 <div className="absolute top-0 right-0 p-4">
-                   <span className="bg-[#8B4513] text-white text-[10px] font-bold uppercase px-3 py-1 rounded-full shadow-lg">New</span>
+                   <span className="bg-[#FF00FF] text-black text-[10px] font-black uppercase px-3 py-1 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">v2.0 Beta</span>
                 </div>
                 <div className="absolute bottom-0 left-0 p-8">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="bg-[#8B4513] text-white text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Pet Care</span>
-                    <span className="text-xs text-white/90 font-medium italic">Natural Treats</span>
+                    <span className="bg-[#00FFFF] text-black text-[10px] font-black uppercase px-3 py-1 border-2 border-black tracking-widest">System</span>
+                    <span className="text-xs text-[#D4FF00] font-mono font-bold">PAW.OS</span>
                   </div>
-                  <h3 className="text-3xl font-serif mb-3 text-white drop-shadow-md">Achieve Pet</h3>
-                  <p className="text-white/90 text-sm mb-6 max-w-sm font-light drop-shadow-sm">Premium air-dried treats in soft-touch matte pouches. Warm, earthy, and 100% natural aesthetic.</p>
+                  <h3 className="text-3xl font-black mb-3 text-white uppercase tracking-tighter drop-shadow-md">PAW.OS</h3>
+                  <p className="text-white/90 text-sm mb-6 max-w-sm font-mono font-bold drop-shadow-sm">Neo-Brutalist pet nutrition interface. High-vis packaging for high-performance biological units.</p>
                   <Link
                     to="/free-service/achieve-pet-demo"
-                    className="inline-flex items-center gap-2 bg-white text-[#8B4513] px-6 py-3 rounded-full font-bold transition hover:bg-[#E6C288] hover:text-[#2C2C2C] shadow-lg"
+                    className="inline-flex items-center gap-2 bg-[#D4FF00] text-black border-2 border-black px-6 py-3 font-black uppercase tracking-widest transition hover:bg-white hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]"
                   >
-                    Enter Pet Demo Site <ArrowRight className="h-4 w-4" />
+                    BOOT_DEMO.EXE <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
               </motion.div>

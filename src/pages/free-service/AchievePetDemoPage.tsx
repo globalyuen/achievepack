@@ -1,37 +1,47 @@
 import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { ShoppingCart, Menu, X, ArrowLeft, ArrowRight, Dog, Bone, Heart, ShieldCheck, Leaf, Check, Star, Award, MapPin } from 'lucide-react'
-import { motion, AnimatePresence, Variants } from 'framer-motion'
+import { 
+  ShoppingCart, Menu, X, ArrowLeft, ArrowUpRight, 
+  Zap, Heart, Shield, Star, Crown, Flame, 
+  Binary, Scan, Box as BoxIcon
+} from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { ParallaxText } from '../../components/ParallaxText'
-import { ScrollTriggeredCards } from '../../components/ScrollTriggeredCards'
 
 // ============================================
-// ANIMATION VARIANTS
+// NEO-BRUTALIST COMPONENTS
 // ============================================
 
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
+const NeoButton = ({ children, onClick, variant = 'primary', className = '' }: any) => {
+  const baseStyle = "relative px-8 py-4 font-black uppercase tracking-widest border-4 border-black transition-all active:translate-x-1 active:translate-y-1"
+  const variants = {
+    primary: "bg-[#D4FF00] text-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1",
+    secondary: "bg-white text-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1",
+    dark: "bg-black text-[#D4FF00] hover:shadow-[8px_8px_0px_0px_#D4FF00] hover:-translate-y-1 hover:-translate-x-1 border-[#D4FF00]"
   }
+  
+  return (
+    <button onClick={onClick} className={`${baseStyle} ${variants[variant as keyof typeof variants]} ${className}`}>
+      {children}
+    </button>
+  )
 }
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1
-    }
-  }
-}
+const NeoCard = ({ children, className = '', color = 'bg-white' }: any) => (
+  <div className={`border-4 border-black p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] ${color} ${className} transition-transform hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[14px_14px_0px_0px_rgba(0,0,0,1)]`}>
+    {children}
+  </div>
+)
+
+const NeoBadge = ({ children, color = 'bg-[#FF00FF]' }: any) => (
+  <span className={`inline-block px-3 py-1 text-xs font-black uppercase border-2 border-black ${color} text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]`}>
+    {children}
+  </span>
+)
 
 // ============================================
-// ASSETS & DATA
+// DATA & ASSETS
 // ============================================
 
 const PET_IMAGES = {
@@ -46,404 +56,343 @@ const PET_IMAGES = {
 
 const PRODUCTS = [
   {
-    id: 'wagyu-bites',
-    name: 'Wagyu Beef Bites',
-    tagline: 'Premium Protein',
-    description: '100% Grass-fed Wagyu beef, air-dried to perfection. Rich in Omega-3 and Omega-6 for a healthy coat and heart.',
-    price: 18.99,
-    weight: '6oz (170g)',
+    id: 'wagyu',
+    name: 'WAGYU_X',
+    description: 'Hyper-protein beef bites. 100% Grass-fed. Zero BS.',
+    stats: { protein: '85%', fat: '12%', carbs: '3%' },
     image: PET_IMAGES.products.wagyu,
-    color: '#8B4513', // Saddle Brown
-    bg: 'bg-[#8B4513]/5',
-    accent: 'text-[#8B4513]',
-    badge: 'Hip & Joint'
+    color: 'bg-[#FF4D4D]' // Red
   },
   {
-    id: 'salmon-superfood',
-    name: 'Salmon Superfood',
-    tagline: 'Vitality Boost',
-    description: 'Wild-caught salmon blended with kale and blueberries. A nutrient-dense treat packed with antioxidants.',
-    price: 16.99,
-    weight: '6oz (170g)',
+    id: 'salmon',
+    name: 'OMEGA_CORE',
+    description: 'Atlantic Salmon + Kale matrix. Coat optimization initiated.',
+    stats: { protein: '78%', fat: '18%', carbs: '4%' },
     image: PET_IMAGES.products.salmon,
-    color: '#CD5C5C', // Indian Red
-    bg: 'bg-[#CD5C5C]/5',
-    accent: 'text-[#CD5C5C]',
-    badge: 'Skin & Coat'
+    color: 'bg-[#00FFFF]' // Cyan
   },
   {
-    id: 'orchard-duck',
-    name: 'Orchard Duck',
-    tagline: 'Hypoallergenic',
-    description: 'Free-range duck with sweet potato and apple. Grain-free and gentle on sensitive stomachs.',
-    price: 17.99,
-    weight: '6oz (170g)',
+    id: 'duck',
+    name: 'HYPO_DUCK',
+    description: 'Free-range duck protocol. Sensitive stomach safe mode.',
+    stats: { protein: '80%', fat: '15%', carbs: '5%' },
     image: PET_IMAGES.products.duck,
-    color: '#2E8B57', // Sea Green
-    bg: 'bg-[#2E8B57]/5',
-    accent: 'text-[#2E8B57]',
-    badge: 'Sensitive Digestion'
-  }
-]
-
-// Feature Cards for Scroll Section
-const PET_SCROLL_CARDS = [
-  {
-    image: PET_IMAGES.products.wagyu,
-    title: 'Peak Freshness',
-    hueA: 30, hueB: 45, // Browns/Oranges
-    leftInfo: {
-      title: 'High Barrier',
-      description: 'Our multi-layer metal-free barrier blocks oxygen and moisture, keeping treats chewy and fresh for months.',
-      badges: ['O2 Barrier', 'Moisture Block']
-    },
-    rightInfo: {
-      title: 'Aroma Lock',
-      description: 'Hermetic seals ensure that enticing meat aroma stays inside the bag until you open it.',
-      badges: ['Scent Lock', 'Flavor Seal']
-    }
-  },
-  {
-    image: PET_IMAGES.products.duck,
-    title: 'Earth Friendly',
-    hueA: 100, hueB: 120, // Greens
-    leftInfo: {
-      title: 'Recyclable',
-      description: 'Made from mono-material PE that can be recycled with grocery bags. No multi-material laminates.',
-      badges: ['Store Drop-off', 'Circular']
-    },
-    rightInfo: {
-      title: 'Soft Touch',
-      description: 'Luxurious matte finish that feels premium in hand while being fully recyclable.',
-      badges: ['Matte Finish', 'Tactile']
-    }
-  },
-  {
-    image: PET_IMAGES.lifestyle,
-    title: 'Dog Approved',
-    hueA: 200, hueB: 220, // Blues
-    leftInfo: {
-      title: 'Resealable',
-      description: 'Premium press-to-close zippers that actually work. Keep the treats in and the pests out.',
-      badges: ['Durable Zipper', 'Easy Open']
-    },
-    rightInfo: {
-      title: 'Safe Materials',
-      description: 'BPA-free, food-grade materials certified for direct food contact. Safety first for your furry friend.',
-      badges: ['BPA Free', 'Food Grade']
-    }
+    color: 'bg-[#D4FF00]' // Yellow
   }
 ]
 
 export default function AchievePetDemoPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-  const [cartCount, setCartCount] = useState(0)
   const [activeProduct, setActiveProduct] = useState(PRODUCTS[0])
+  const [cartCount, setCartCount] = useState(0)
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  // Floating elements animation
+  const floatAnim = {
+    y: [0, -10, 0],
+    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+  }
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-[#4A4A4A] font-sans selection:bg-[#E6C288] selection:text-[#4A4A4A]">
+    <div className="min-h-screen bg-[#F0F0F0] text-black font-sans selection:bg-black selection:text-[#D4FF00] overflow-x-hidden">
       <Helmet>
-        <title>Achieve Pet | Premium Natural Treats | Demo Site</title>
-        <meta name="description" content="Achieve Pet - Premium dog treats in high-barrier recyclable packaging. Keeping trails fresh and tails wagging." />
+        <title>PAW.OS | Next Gen Pet Nutrition | Demo Site</title>
         <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:opsz,wght@9..40,400;500;700&display=swap');
-          .font-serif { font-family: 'DM Serif Display', serif; }
-          .font-sans { font-family: 'DM Sans', sans-serif; }
+          @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+          .font-display { font-family: 'Space Grotesk', sans-serif; }
+          .font-mono { font-family: 'JetBrains Mono', monospace; }
         `}</style>
       </Helmet>
 
-      {/* Achieve Pack Return Banner */}
-      <div className="fixed top-0 left-0 right-0 z-[60] bg-[#4A4A4A] text-[#FDFBF7] py-2 px-4 shadow-md">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link to="/free-service/website-upgrade" className="flex items-center gap-2 text-sm hover:text-[#E6C288] transition">
-            <ArrowLeft className="w-4 h-4" />
-            Back to Achieve Pack
-          </Link>
-          <span className="text-xs text-[#FDFBF7]/80 hidden sm:block font-medium tracking-wide">DEMO SITE BY ACHIEVE PACK</span>
-          <Link to="/packaging/stand-up-pouches" className="text-sm font-medium hover:text-[#E6C288] transition">
-            View Pouch Specs
-          </Link>
-        </div>
+      {/* Return Banner */}
+      <div className="bg-black text-[#D4FF00] py-2 px-4 border-b-4 border-[#D4FF00] font-mono text-xs md:text-sm font-bold flex justify-between items-center sticky top-0 z-[60]">
+        <Link to="/free-service/website-upgrade" className="flex items-center gap-2 hover:underline">
+          <ArrowLeft className="w-4 h-4" /> RET_TO_BASE
+        </Link>
+        <span className="hidden md:inline">SYSTEM_STATUS: ONLINE // DEMO_MODE</span>
+        <span className="uppercase tracking-widest">AchievePack_v2.0</span>
       </div>
 
       {/* Navigation */}
-      <nav className={`fixed top-[40px] w-full z-50 transition-all duration-500 ${scrolled ? 'bg-[#FDFBF7]/95 backdrop-blur-xl shadow-sm py-4 border-b border-[#E5E0D6]' : 'bg-transparent py-8'}`}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Dog className="h-8 w-8 text-[#8B4513] stroke-[1.5]" />
-              <span className="font-serif text-2xl text-[#4A4A4A] tracking-tight">
-                Achieve<span className="text-[#8B4513]">Pet.</span>
-              </span>
+      <nav className="border-b-4 border-black bg-white sticky top-[36px] z-50">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-black flex items-center justify-center">
+              <Crown className="text-[#D4FF00] w-6 h-6" />
             </div>
+            <span className="font-display font-black text-2xl tracking-tighter">
+              PAW<span className="text-[#00FFFF]">.OS</span>
+            </span>
+          </div>
 
-            <div className="hidden md:flex items-center space-x-12">
-              {['Treats', 'Our Story', 'Sustainability'].map((item) => (
-                <a key={item} href={`#${item.toLowerCase().replace(' ', '-')}`} className="text-sm font-bold tracking-wide text-[#4A4A4A]/80 hover:text-[#8B4513] transition-colors uppercase">
-                  {item}
-                </a>
-              ))}
-            </div>
+          <div className="hidden md:flex items-center gap-8 font-mono font-bold text-sm">
+            {['MODULES', 'DATA', 'UPGRADE'].map((item) => (
+              <a key={item} href="#" className="hover:bg-black hover:text-white px-2 py-1 transition-colors">
+                [{item}]
+              </a>
+            ))}
+          </div>
 
-            <div className="flex items-center gap-6">
-              <button 
-                className="relative p-2 hover:text-[#8B4513] transition"
-                onClick={() => setCartCount(c => c + 1)}
-              >
-                <ShoppingCart className="w-6 h-6 stroke-[1.5]" />
+          <div className="flex items-center gap-4">
+             <button className="border-2 border-black p-2 hover:bg-[#FF00FF] transition-colors relative" onClick={() => setCartCount(c => c + 1)}>
+                <ShoppingCart className="w-6 h-6" />
                 {cartCount > 0 && (
-                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-[#8B4513] text-white rounded-full text-[10px] font-bold flex items-center justify-center animate-bounce">
-                    {cartCount}
-                  </span>
+                   <div className="absolute -top-3 -right-3 bg-black text-[#D4FF00] w-6 h-6 flex items-center justify-center font-mono font-bold text-xs border-2 border-[#D4FF00]">
+                      {cartCount}
+                   </div>
                 )}
-              </button>
-              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden p-1">
-                {isMenuOpen ? <X className="w-6 h-6 stroke-[1.5]" /> : <Menu className="w-6 h-6 stroke-[1.5]" />}
-              </button>
-            </div>
+             </button>
+             <button 
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="md:hidden border-2 border-black p-2 hover:bg-[#D4FF00] transition-colors"
+             >
+                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+             </button>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center pt-24 overflow-hidden bg-[#F4F1EA]">
-         {/* Background Pattern */}
-         <div className="absolute inset-0 z-0 opacity-[0.03]" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-         }} />
+      <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px]">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+             
+             {/* Left Content */}
+             <div className="space-y-8 z-10">
+                <div className="inline-block bg-[#D4FF00] border-4 border-black px-4 py-2 transform -rotate-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                   <span className="font-mono font-bold text-sm">V.2025 UPDATE INSTALLED</span>
+                </div>
+                
+                <h1 className="font-display font-black text-6xl md:text-8xl leading-[0.9] tracking-tighter uppercase">
+                   Eat.<br/>
+                   Play.<br/>
+                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF00FF] to-[#00FFFF] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">Glitch.</span>
+                </h1>
 
-         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={staggerContainer}
-              className="space-y-8"
-            >
-               <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 bg-[#E6C288]/20 text-[#8B4513] rounded-full text-sm font-bold tracking-wide uppercase">
-                  <Award className="w-4 h-4" />
-                  Voted Best New Treat 2026
-               </motion.div>
-               
-               <motion.h1 variants={fadeInUp} className="font-serif text-6xl md:text-8xl text-[#2C2C2C] leading-[0.9]">
-                  Real Food <br/>
-                  <span className="italic text-[#8B4513]">Real Love.</span>
-               </motion.h1>
+                <p className="font-mono font-bold text-lg md:text-xl max-w-md bg-white border-2 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                   &gt; High-performance fuel for biological units (dogs).<br/>
+                   &gt; 100% natural compiled code.<br/>
+                   &gt; No bugs found.
+                </p>
 
-               <motion.p variants={fadeInUp} className="text-xl text-[#4A4A4A]/80 max-w-lg leading-relaxed font-medium">
-                  Small-batch, single-ingredient treats in high-barrier sustainable packaging. Because your best friend deserves the best.
-               </motion.p>
-               
-               <motion.div variants={fadeInUp} className="flex gap-4">
-                  <button className="px-8 py-4 bg-[#8B4513] text-white rounded-xl font-bold hover:bg-[#723910] transition shadow-lg shadow-[#8B4513]/20">
-                     Shop All Treats
-                  </button>
-                  <button className="px-8 py-4 bg-white text-[#8B4513] border-2 border-[#8B4513]/10 rounded-xl font-bold hover:border-[#8B4513] transition">
-                     Meet the Farmers
-                  </button>
-               </motion.div>
-            </motion.div>
+                <div className="flex flex-col sm:flex-row gap-4">
+                   <NeoButton>Initialise Order</NeoButton>
+                   <NeoButton variant="secondary">View Source (Ingredients)</NeoButton>
+                </div>
+             </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 100, rotate: 10 }}
-              animate={{ opacity: 1, x: 0, rotate: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              className="relative h-[600px] flex items-center justify-center"
-            >
-               {/* Decorative Circle */}
-               <div className="absolute w-[500px] h-[500px] bg-[#E6C288] rounded-full opacity-20 blur-3xl animate-pulse" />
-               <img 
-                  src={PET_IMAGES.hero} 
-                  alt="Achieve Pet Treats Collection" 
-                  className="relative z-10 w-full max-h-full object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-700 ease-out"
-               />
-            </motion.div>
-         </div>
+             {/* Right Visual */}
+             <div className="relative">
+                <NeoCard className="bg-[#FF00FF] relative z-10 rotate-2 !p-0 overflow-hidden group">
+                   <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')] opacity-20" />
+                   <img 
+                      src={PET_IMAGES.hero} 
+                      alt="Hero Pack" 
+                      className="w-full relative z-10 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3" 
+                   />
+                   {/* Floating Tags */}
+                   <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white border-2 border-black px-2 py-1 font-mono text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20">
+                      HIGH_BARRIER_DETECTED
+                   </motion.div>
+                </NeoCard>
+                
+                {/* Decorative Background Elements */}
+                <div className="absolute top-10 -right-10 w-full h-full border-4 border-black bg-[#00FFFF] -z-0 rotate-6" />
+                <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[#D4FF00] border-4 border-black rounded-full z-20 flex items-center justify-center animate-bounce">
+                   <span className="font-black text-xl rotate-[-15deg]">NEW!</span>
+                </div>
+             </div>
+          </div>
+        </div>
       </section>
 
       {/* Marquee */}
-      <section className="py-6 bg-[#2E8B57] text-[#FDFBF7] overflow-hidden">
-        <ParallaxText baseVelocity={1.5} textClassName="text-xl md:text-3xl font-serif italic px-8">
-           • 100% Natural • Human Grade • High Protein • Grain Free • Sustainable Packaging • Made with Love
-        </ParallaxText>
+      <section className="bg-black text-white py-4 border-b-4 border-black overflow-hidden font-mono font-bold text-xl md:text-2xl uppercase tracking-widest">
+         <ParallaxText baseVelocity={2}>
+            System Optimal • 100% Meat • No Fillers • High Barrier • Recyclable • System Optimal •
+         </ParallaxText>
       </section>
 
-      {/* Products Section */}
-      <section id="treats" className="py-24 bg-white">
-         <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-16 space-y-4">
-               <span className="text-[#8B4513] font-bold tracking-widest uppercase text-sm">The Collection</span>
-               <h2 className="font-serif text-5xl text-[#2C2C2C]">Pawsitively Delicious</h2>
-            </div>
-
-            <div className="grid lg:grid-cols-12 gap-12">
-               {/* Product Selector */}
-               <div className="lg:col-span-4 space-y-4">
-                  {PRODUCTS.map(product => (
-                     <button
-                        key={product.id}
-                        onClick={() => setActiveProduct(product)}
-                        className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-300 flex items-center gap-4 group ${activeProduct.id === product.id ? `border-[${product.color}] bg-[#FDFBF7] shadow-lg` : 'border-transparent hover:bg-gray-50'}`}
-                        style={{ borderColor: activeProduct.id === product.id ? product.color : 'transparent' }}
-                     >
-                        <div className={`w-16 h-16 rounded-xl flex items-center justify-center shrink-0 transition-colors ${activeProduct.id === product.id ? 'bg-white' : 'bg-gray-100'}`}>
-                           <img src={product.image} alt={product.name} className="w-12 h-12 object-contain" />
-                        </div>
-                        <div>
-                           <h3 className="font-bold text-lg text-[#2C2C2C]">{product.name}</h3>
-                           <p className="text-sm text-gray-500 font-medium">{product.tagline}</p>
-                        </div>
-                     </button>
-                  ))}
-               </div>
-
-               {/* Product Detail */}
-               <div className="lg:col-span-8 bg-[#FDFBF7] rounded-[3rem] p-8 md:p-16 relative overflow-hidden flex flex-col items-center text-center border border-[#E5E0D6]">
-                  <AnimatePresence mode="wait">
-                     <motion.div
-                        key={activeProduct.id}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.4 }}
-                        className="relative z-10 max-w-lg"
-                     >
-                        <span 
-                           className="inline-block px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-8 bg-white border shadow-sm"
-                           style={{ color: activeProduct.color, borderColor: activeProduct.color }}
-                        >
-                           {activeProduct.badge}
-                        </span>
-                        
-                        <div className="relative aspect-square mb-12 flex items-center justify-center">
-                           <div 
-                              className="absolute inset-0 rounded-full blur-3xl opacity-30 scale-75"
-                              style={{ backgroundColor: activeProduct.color }} 
-                           />
-                           <img 
-                              src={activeProduct.image} 
-                              alt={activeProduct.name} 
-                              className="w-full h-full object-contain drop-shadow-2xl hover:rotate-3 transition-transform duration-500"
-                           />
-                        </div>
-
-                        <h3 className="font-serif text-4xl mb-4 text-[#2C2C2C]">{activeProduct.name}</h3>
-                        <p className="text-lg text-gray-600 mb-8 leading-relaxed">{activeProduct.description}</p>
-                        
-                        <div className="flex items-center justify-center gap-8 mb-8">
-                           <div className="text-center">
-                              <p className="text-xs text-gray-400 uppercase font-bold tracking-widest mb-1">Weight</p>
-                              <p className="font-serif text-xl">{activeProduct.weight}</p>
-                           </div>
-                           <div className="w-px h-10 bg-gray-200" />
-                           <div className="text-center">
-                              <p className="text-xs text-gray-400 uppercase font-bold tracking-widest mb-1">Price</p>
-                              <p className="font-serif text-xl">${activeProduct.price}</p>
-                           </div>
-                        </div>
-
-                        <button 
-                           className="w-full py-4 text-white rounded-xl font-bold text-lg shadow-xl hover:scale-[1.02] transition-transform active:scale-95"
-                           style={{ backgroundColor: activeProduct.color }}
-                           onClick={() => setCartCount(c => c + 1)}
-                        >
-                           Add to Cart
-                        </button>
-                     </motion.div>
-                  </AnimatePresence>
-               </div>
-            </div>
-         </div>
-      </section>
-
-      {/* Scroll Features */}
-      <section id="sustainability" className="py-24 bg-[#E5E0D6]">
-         <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
-            <span className="text-[#8B4513] font-bold tracking-widest uppercase text-sm block mb-4">Why It Matters</span>
-            <h2 className="font-serif text-4xl md:text-5xl text-[#2C2C2C]">Packaging That Protects</h2>
-            <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-lg">
-               We use advanced high-barrier films that keep our treats fresh without using materials that harm the planet.
-            </p>
-         </div>
-         <ScrollTriggeredCards cards={PET_SCROLL_CARDS} />
-      </section>
-
-      {/* Lifestyle / Story */}
-      <section id="our-story" className="py-0 grid md:grid-cols-2 min-h-[80vh]">
-         <div className="relative h-full min-h-[500px]">
-            <img src={PET_IMAGES.lifestyle} alt="Happy Dog" className="absolute inset-0 w-full h-full object-cover" />
-         </div>
-         <div className="bg-[#8B4513] text-[#FDFBF7] p-12 lg:p-24 flex flex-col justify-center">
-            <Heart className="w-12 h-12 text-[#E6C288] mb-8" />
-            <h2 className="font-serif text-5xl mb-8 leading-tight">
-               From Our Family <br/> To Yours.
+      {/* Bento Grid Section */}
+      <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto">
+         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <h2 className="font-display font-black text-5xl md:text-7xl uppercase">
+               Core<br/>Modules
             </h2>
-            <p className="text-[#FDFBF7]/80 text-lg mb-12 leading-relaxed font-light">
-               Achieve Pet was born from a simple promise: to feed our dogs the same quality food we eat ourselves. 
-               No fillers, no preservatives, and absolutely no mystery ingredients. Just pure, wholesome nutrition 
-               packed in bags that care for the earth they run on.
-            </p>
-            
-            <div className="grid grid-cols-2 gap-8 mb-12 border-t border-[#FDFBF7]/10 pt-8">
-               <div>
-                  <h4 className="font-serif text-3xl mb-2 text-[#E6C288]">50k+</h4>
-                  <p className="text-sm opacity-60 uppercase tracking-widest">Happy Tails</p>
-               </div>
-               <div>
-                  <h4 className="font-serif text-3xl mb-2 text-[#E6C288]">100%</h4>
-                  <p className="text-sm opacity-60 uppercase tracking-widest">Satisfaction Guarantee</p>
-               </div>
+            <div className="font-mono text-sm font-bold bg-[#D4FF00] border-2 border-black px-4 py-2">
+               SELECT_UPGRADE_BELOW
             </div>
+         </div>
 
-            <button className="self-start text-[#FDFBF7] font-bold border-b-2 border-[#E6C288] pb-1 hover:text-[#E6C288] transition-colors">
-               READ OUR FULL STORY
-            </button>
+         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Feature 1: Freshness */}
+            <NeoCard className="md:col-span-2 bg-[#F0F0F0] flex flex-col md:flex-row items-center gap-8 !p-0 overflow-hidden">
+               <div className="p-8 flex-1">
+                  <Flame className="w-12 h-12 mb-4 text-[#FF4D4D]" />
+                  <h3 className="font-display font-black text-3xl mb-4 uppercase">Thermo-Lock Protocol</h3>
+                  <p className="font-mono text-sm leading-relaxed mb-6">
+                     Our high-barrier films block O2 and Moisture transfer with 99.9% efficiency. 
+                     Keeps the crunch executable running at peak performance.
+                  </p>
+                  <div className="flex gap-2">
+                     <NeoBadge color="bg-[#FF4D4D]">Oxygen_Block</NeoBadge>
+                     <NeoBadge color="bg-[#D4FF00]">Aroma_Seal</NeoBadge>
+                  </div>
+               </div>
+               <div className="w-full md:w-1/2 h-full bg-black relative min-h-[300px]">
+                  <img src={PET_IMAGES.lifestyle} className="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all" alt="Dog Life" />
+               </div>
+            </NeoCard>
+
+            {/* Feature 2: Sustainability */}
+            <NeoCard color="bg-[#00FFFF]" className="flex flex-col justify-between">
+               <div>
+                  <Scan className="w-12 h-12 mb-4" />
+                  <h3 className="font-display font-black text-3xl mb-2 uppercase">Eco_Shell</h3>
+                  <p className="font-mono text-sm mb-4">Mono-material PE structure ready for recycling stream injection.</p>
+               </div>
+               <div className="font-mono text-xs border-t-2 border-black pt-4 mt-4">
+                  STATUS: <span className="font-bold">CIRCULAR</span>
+               </div>
+            </NeoCard>
+
+            {/* Feature 3: Texture */}
+            <NeoCard color="bg-[#D4FF00]" className="flex flex-col justify-between">
+               <div>
+                  <BoxIcon className="w-12 h-12 mb-4" />
+                  <h3 className="font-display font-black text-3xl mb-2 uppercase">Soft_Touch</h3>
+                  <p className="font-mono text-sm mb-4">Tactile matte finish interface for superior grip and premium hand-feel.</p>
+               </div>
+               <div className="font-mono text-xs border-t-2 border-black pt-4 mt-4">
+                  FEEL: <span className="font-bold">PREMIUM_MATTE</span>
+               </div>
+            </NeoCard>
+
+            {/* Feature 4: Nutrition (Big) */}
+            <NeoCard className="md:col-span-2 bg-white flex flex-col md:flex-row-reverse items-center gap-8 !p-0 overflow-hidden">
+               <div className="p-8 flex-1">
+                  <Binary className="w-12 h-12 mb-4 text-blue-600" />
+                  <h3 className="font-display font-black text-3xl mb-4 uppercase">Bio-Available Data</h3>
+                  <p className="font-mono text-sm leading-relaxed mb-6">
+                     Compiled from single-source protein. No bloated code (fillers). 
+                     Direct assimilation for maximum tail-wag velocity.
+                  </p>
+                  <NeoButton variant="primary" className="text-sm">View Spectrograph</NeoButton>
+               </div>
+               <div className="w-full md:w-1/2 h-64 md:h-full bg-[url('https://www.transparenttextures.com/patterns/graphy-dark.png')] bg-gray-100 border-r-4 border-black flex items-center justify-center p-8">
+                  <div className="w-full h-full bg-[#FF00FF] rounded-none border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center">
+                     <span className="font-mono font-black text-4xl text-white">100%</span>
+                  </div>
+               </div>
+            </NeoCard>
          </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#2C2C2C] text-white pt-24 pb-12">
-         <div className="max-w-7xl mx-auto px-6">
-            <div className="grid md:grid-cols-4 gap-12 mb-16">
-               <div className="col-span-2">
-                  <div className="flex items-center gap-2 mb-6">
-                     <Dog className="h-8 w-8 text-[#E6C288]" />
-                     <span className="font-serif text-2xl text-white">Achieve<span className="text-[#E6C288]">Pet.</span></span>
+      {/* Product Grid - "The Armory" */}
+      <section className="py-24 bg-black border-y-4 border-[#D4FF00]">
+         <div className="max-w-7xl mx-auto px-4 md:px-6">
+            <h2 className="font-display font-black text-5xl md:text-7xl uppercase text-white mb-16 text-center">
+               Choose Loadout
+            </h2>
+
+            <div className="grid md:grid-cols-3 gap-8">
+               {PRODUCTS.map((product) => (
+                  <div key={product.id} className="group relative">
+                     {/* Hover Card Effect */}
+                     <div className={`absolute inset-0 ${product.color} translate-x-4 translate-y-4 border-4 border-white transition-transform group-hover:translate-x-6 group-hover:translate-y-6`} />
+                     
+                     <div className="relative bg-white border-4 border-black p-6 h-full flex flex-col">
+                        <div className="bg-gray-100 border-2 border-black aspect-square mb-6 flex items-center justify-center relative overflow-hidden">
+                           <div className={`absolute inset-0 ${product.color} opacity-20`} />
+                           <img 
+                              src={product.image} 
+                              alt={product.name} 
+                              className="w-3/4 object-contain drop-shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300" 
+                           />
+                           <div className="absolute top-2 left-2 bg-black text-white px-2 py-0.5 font-mono text-xs font-bold">
+                              ID: {product.id.toUpperCase()}
+                           </div>
+                        </div>
+
+                        <h3 className="font-display font-black text-3xl mb-2 uppercase">{product.name}</h3>
+                        <p className="font-mono text-sm mb-6 flex-grow">{product.description}</p>
+
+                        {/* Stats Grid */}
+                        <div className="grid grid-cols-3 gap-2 mb-6 font-mono text-xs border-y-2 border-black py-4 bg-gray-50">
+                           <div className="text-center">
+                              <div className="font-bold">PROT</div>
+                              <div>{product.stats.protein}</div>
+                           </div>
+                           <div className="text-center border-l-2 border-black">
+                              <div className="font-bold">FAT</div>
+                              <div>{product.stats.fat}</div>
+                           </div>
+                           <div className="text-center border-l-2 border-black">
+                              <div className="font-bold">CARB</div>
+                              <div>{product.stats.carbs}</div>
+                           </div>
+                        </div>
+
+                        <NeoButton onClick={() => setCartCount(c => c + 1)} className="w-full">
+                           ADD TO CART
+                        </NeoButton>
+                     </div>
                   </div>
-                  <p className="text-gray-400 max-w-sm leading-relaxed">
-                     Premium nutrition for the modern dog. <br/>
-                     Packaged sustainably. Delivered with love.
+               ))}
+            </div>
+         </div>
+      </section>
+
+      {/* CTA / Footer */}
+      <footer className="bg-[#D4FF00] pt-24 pb-12 px-4 md:px-6 border-b-8 border-black">
+         <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col md:flex-row justify-between items-start mb-24 gap-12">
+               <div>
+                  <h2 className="font-display font-black text-6xl md:text-8xl leading-none mb-8">
+                     READY TO<br/>
+                     UPGRADE?
+                  </h2>
+                  <p className="font-mono font-bold text-xl max-w-md mb-8">
+                     Join the beta. Get 20% off your first compilation of treats.
                   </p>
+                  <div className="flex gap-4">
+                     <input 
+                        type="email" 
+                        placeholder="ENTER_EMAIL_ADDRESS" 
+                        className="bg-white border-4 border-black px-6 py-4 font-mono font-bold w-full max-w-md focus:outline-none focus:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-shadow"
+                     />
+                     <button className="bg-black text-white px-8 py-4 font-black uppercase border-4 border-black hover:bg-white hover:text-black transition-colors">
+                        Submit
+                     </button>
+                  </div>
                </div>
-               <div>
-                  <h4 className="font-bold text-[#E6C288] uppercase tracking-widest text-sm mb-6">Explore</h4>
-                  <ul className="space-y-4 text-gray-400">
-                     <li><a href="#" className="hover:text-white transition">All Treats</a></li>
-                     <li><a href="#" className="hover:text-white transition">Bundles</a></li>
-                     <li><a href="#" className="hover:text-white transition">Merch</a></li>
-                     <li><a href="#" className="hover:text-white transition">Find a Store</a></li>
-                  </ul>
-               </div>
-               <div>
-                  <h4 className="font-bold text-[#E6C288] uppercase tracking-widest text-sm mb-6">Help</h4>
-                  <ul className="space-y-4 text-gray-400">
-                     <li><a href="#" className="hover:text-white transition">Shipping & Returns</a></li>
-                     <li><a href="#" className="hover:text-white transition">FAQ</a></li>
-                     <li><a href="#" className="hover:text-white transition">Contact Us</a></li>
-                  </ul>
+
+               <div className="grid grid-cols-2 gap-12 font-mono font-bold">
+                  <div>
+                     <h4 className="border-b-4 border-black mb-4 pb-2 uppercase">System</h4>
+                     <ul className="space-y-2">
+                        <li><a href="#" className="hover:underline">Login</a></li>
+                        <li><a href="#" className="hover:underline">Register</a></li>
+                        <li><a href="#" className="hover:underline">Track Protocol</a></li>
+                     </ul>
+                  </div>
+                  <div>
+                     <h4 className="border-b-4 border-black mb-4 pb-2 uppercase">Legal_Core</h4>
+                     <ul className="space-y-2">
+                        <li><a href="#" className="hover:underline">Privacy.txt</a></li>
+                        <li><a href="#" className="hover:underline">Terms.md</a></li>
+                        <li><a href="#" className="hover:underline">Shipping.json</a></li>
+                     </ul>
+                  </div>
                </div>
             </div>
-            <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-800 text-sm text-gray-500">
-               <p>© 2026 Achieve Pet. All rights reserved.</p>
-               <div className="flex items-center gap-2 mt-4 md:mt-0">
-                  <span>Powered by</span>
-                  <Link to="/" className="text-white font-bold hover:text-[#E6C288] transition">Achieve Pack</Link>
+
+            <div className="border-t-4 border-black pt-8 flex flex-col md:flex-row justify-between items-end font-mono text-xs font-bold">
+               <div>
+                  © 2026 PAW.OS // POWERED BY ACHIEVE PACK<br/>
+                  ALL SYSTEMS NOMINAL
+               </div>
+               <div className="text-[10rem] leading-none opacity-10 font-display font-black pointer-events-none select-none overflow-hidden h-32 flex items-end">
+                  PAW
                </div>
             </div>
          </div>
@@ -451,3 +400,4 @@ export default function AchievePetDemoPage() {
     </div>
   )
 }
+
