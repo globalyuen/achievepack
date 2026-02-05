@@ -464,21 +464,22 @@ const ArtworkReviewPage: React.FC = () => {
       {/* Header */}
       <header className="bg-white border-b sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center gap-4">
-              <img src="/ap-logo.svg" alt="AchievePack" className="h-8 w-auto" />
-              <div>
-                <h1 className="font-semibold text-gray-900">Artwork Review - Batch {batch.batch_name}</h1>
+          <div className="flex items-center justify-between py-4 gap-4">
+            <div className="flex items-start gap-4 flex-1 min-w-0">
+              <img src="/ap-logo.svg" alt="AchievePack" className="h-8 w-auto flex-shrink-0 mt-1" />
+              <div className="flex-1 min-w-0">
+                <h1 className="font-semibold text-gray-900 break-words">Artwork Review - Batch {batch.batch_name}</h1>
                 <p className="text-xs text-gray-500">{totalItems} artworks • {pendingCount} pending review</p>
               </div>
             </div>
             {allReviewed && (
               <button
                 onClick={() => setShowOverallApproval(true)}
-                className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+                className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition flex-shrink-0"
               >
                 <Send className="h-4 w-4" />
-                <span>Submit Review</span>
+                <span className="hidden sm:inline">Submit Review</span>
+                <span className="sm:hidden">Submit</span>
               </button>
             )}
           </div>
