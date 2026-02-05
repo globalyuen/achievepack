@@ -577,9 +577,9 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/free-service/achieve-spreads-demo" element={<AchieveSpreadsDemoPage />} />
         <Route path="/free-service/achieve-muesli-demo" element={<AchieveMuesliDemoPage />} />
         <Route path="/free-service/achieve-bath-demo" element={<AchieveBathDemoPage />} />
-          <Route path="achieve-pet-demo" element={<AchievePetDemoPage />} />
-          <Route path="achieve-skin-demo" element={<AchieveSkinDemoPage />} />
-          <Route path="free-services-hub" element={<FreeServicesHubPage />} />
+          <Route path="/free-service/achieve-pet-demo" element={<AchievePetDemoPage />} />
+          <Route path="/free-service/achieve-skin-demo" element={<AchieveSkinDemoPage />} />
+          <Route path="/free-service/free-services-hub" element={<FreeServicesHubPage />} />
                                             <Route path="/free-service" element={<FreeServicesPage />} />
                       <Route path="/3d-showcase" element={<Product3DShowcasePage />} />
 
