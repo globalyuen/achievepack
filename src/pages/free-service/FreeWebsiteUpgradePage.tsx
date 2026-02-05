@@ -1126,6 +1126,55 @@ const FreeWebsiteUpgradePage: React.FC = () => {
                   </Link>
                 </div>
               </motion.div>
+
+              {/* Achieve Skin Demo Card */}
+              <motion.div 
+                className="group relative bg-[#F8FAFC] rounded-3xl overflow-hidden shadow-2xl border border-white/50"
+                variants={fadeInUp}
+                whileHover={{ y: -12, transition: { duration: 0.3 } }}
+              >
+                <div className="aspect-[16/10] overflow-hidden relative">
+                  {/* Fluid Background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-pink-100 via-purple-100 to-cyan-100 animate-pulse" />
+                  <div className="absolute top-0 -left-1/4 w-full h-full bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
+                  <div className="absolute bottom-0 -right-1/4 w-full h-full bg-cyan-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000" />
+                  
+                  <img
+                    src="/imgs/demo-site/skin/hero.png"
+                    alt="Achieve Skin Demo"
+                    className="w-full h-full object-contain p-8 relative z-10 transition-transform duration-700 group-hover:scale-105"
+                  />
+                  
+                  {/* Glass Overlay */}
+                  <div className="absolute inset-0 bg-white/10 backdrop-blur-[2px] transition-opacity duration-500 opacity-0 group-hover:opacity-100" />
+                </div>
+
+                <div className="absolute top-0 right-0 p-4 z-20">
+                   <span className="bg-white/30 backdrop-blur-md border border-white/50 text-slate-700 text-[10px] font-bold uppercase px-3 py-1 rounded-full shadow-sm">
+                      Ethereal
+                   </span>
+                </div>
+
+                <div className="absolute bottom-0 left-0 p-8 z-20 w-full">
+                  <div className="absolute inset-0 bg-white/60 backdrop-blur-md mask-gradient-to-t" />
+                  <div className="relative">
+                     <div className="flex items-center gap-2 mb-3">
+                       <span className="w-2 h-2 rounded-full bg-gradient-to-r from-pink-400 to-cyan-400" />
+                       <span className="text-xs text-slate-500 font-serif italic">Liquid Refills</span>
+                     </div>
+                     <h3 className="text-3xl font-serif mb-3 text-slate-800 italic">Achieve Skin</h3>
+                     <p className="text-slate-600 text-sm mb-6 max-w-sm font-sans font-light leading-relaxed">
+                        Holographic spout pouches for premium serums. Glassmorphism UI with fluid animations.
+                     </p>
+                     <Link
+                       to="/free-service/achieve-skin-demo"
+                       className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest transition hover:bg-slate-700 shadow-lg"
+                     >
+                       Enter Void <ArrowRight className="h-3 w-3" />
+                     </Link>
+                  </div>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </section>
