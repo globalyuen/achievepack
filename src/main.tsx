@@ -294,7 +294,7 @@ const NaturalCelluloseFiberPage = lazyWithRetry(() => import('./pages/composting
 // Free Service Pages - Lazy loaded
 const FreePackagingDesignPage = lazyWithRetry(() => import('./pages/free-service/FreePackagingDesignPage'))
 const FreeWebsiteUpgradePage = lazyWithRetry(() => import('./pages/free-service/FreeWebsiteUpgradePage'))
-const AchieveCoffeeDemoPage = lazyWithRetry(() => import('./pages/free-service/AchieveCoffeeDemoPage'))
+
 const FreeMockupPage = lazyWithRetry(() => import('./pages/free-service/FreeMockupPage'))
 const FreeCustomerCenterPage = lazyWithRetry(() => import('./pages/free-service/FreeCustomerCenterPage'))
 const MaxiFoodsDemoPage = lazyWithRetry(() => import('./pages/free-service/MaxiFoodsDemoPage'))
@@ -562,7 +562,7 @@ createRoot(document.getElementById('root')!).render(
                       {/* Free Service Pages */}
                       <Route path="/free-service/packaging-design-consultation" element={<FreePackagingDesignPage />} />
                       <Route path="/free-service/website-upgrade" element={<FreeWebsiteUpgradePage />} />
-                      <Route path="/free-service/achieve-coffee-demo" element={<AchieveCoffeeDemoPage />} />
+
                       <Route path="/free-service/packaging-mockup" element={<FreeMockupPage />} />
                       <Route path="/free-service/customer-center" element={<FreeCustomerCenterPage />} />
                       <Route path="/free-service/maxi-foods-demo" element={<MaxiFoodsDemoPage />} />
