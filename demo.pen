@@ -1,0 +1,265 @@
+{
+  "version": "1.0",
+  "children": [
+    {
+      "type": "frame",
+      "id": "root_frame",
+      "name": "Achieve Baby Demo",
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 1024,
+      "fills": [{ "type": "color", "color": "#FFF5F5" }],
+      "children": [
+        {
+          "type": "text",
+          "id": "nav_logo",
+          "name": "Logo",
+          "x": 60,
+          "y": 40,
+          "width": 200,
+          "height": 40,
+          "textGrowth": "fixed-width",
+          "content": {
+            "content": "Achieve Baby",
+            "fontSize": 24,
+            "fontWeight": "bold",
+            "fontFamily": "Inter",
+            "color": "#4A4A4A"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "hero_bg_blob",
+          "name": "Soft Blob",
+          "x": 800,
+          "y": 100,
+          "width": 500,
+          "height": 500,
+          "cornerRadius": 250,
+          "fills": [{ "type": "color", "color": "#E3F9E5" }]
+        },
+        {
+          "type": "text",
+          "id": "hero_title",
+          "name": "Hero Title",
+          "x": 100,
+          "y": 200,
+          "width": 600,
+          "height": 200,
+          "textGrowth": "auto",
+          "content": {
+            "content": "Gentle Nutrition\nfor Little Tummies",
+            "fontSize": 72,
+            "fontWeight": "bold",
+            "fontFamily": "Inter",
+            "color": "#2D3748",
+            "lineHeight": 1.1
+          }
+        },
+        {
+          "type": "text",
+          "id": "hero_subtitle",
+          "name": "Hero Subtitle",
+          "x": 100,
+          "y": 400,
+          "width": 500,
+          "height": 100,
+          "textGrowth": "fixed-width",
+          "content": {
+            "content": "Organic purées in soft-touch, squeezable pouches. Designed for safety and easy feeding.",
+            "fontSize": 20,
+            "fontFamily": "Inter",
+            "color": "#718096",
+            "lineHeight": 1.5
+          }
+        },
+        {
+          "type": "frame",
+          "id": "cta_button",
+          "name": "CTA Button",
+          "x": 100,
+          "y": 520,
+          "width": 200,
+          "height": 60,
+          "layout": "none",
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "cta_bg",
+              "x": 0,
+              "y": 0,
+              "width": 200,
+              "height": 60,
+              "cornerRadius": 30,
+              "fills": [{ "type": "color", "color": "#FFABAB" }],
+              "effect": {
+                "type": "shadow",
+                "enabled": true,
+                "shadowType": "outer",
+                "offset": { "x": 0, "y": 8 },
+                "blur": 16,
+                "color": "#FFABAB80"
+              }
+            },
+            {
+              "type": "text",
+              "id": "cta_text",
+              "x": 0,
+              "y": 18,
+              "width": 200,
+              "height": 24,
+              "textGrowth": "fixed-width",
+              "content": {
+                "content": "Shop Pouches",
+                "fontSize": 18,
+                "fontWeight": "bold",
+                "fontFamily": "Inter",
+                "color": "#FFFFFF",
+                "textAlign": "center"
+              }
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "product_card_1",
+          "name": "Product Card 1",
+          "x": 100,
+          "y": 700,
+          "width": 300,
+          "height": 400,
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "card_bg_1",
+              "x": 0,
+              "y": 0,
+              "width": 300,
+              "height": 400,
+              "cornerRadius": 24,
+              "fills": [{ "type": "color", "color": "#FFFFFF" }],
+              "effect": {
+                "type": "shadow",
+                "enabled": true,
+                "shadowType": "outer",
+                "offset": { "x": 0, "y": 10 },
+                "blur": 30,
+                "color": "#00000010"
+              }
+            },
+            {
+              "type": "rectangle",
+              "id": "card_img_place_1",
+              "x": 20,
+              "y": 20,
+              "width": 260,
+              "height": 200,
+              "cornerRadius": 16,
+              "fills": [{ "type": "color", "color": "#FFF0F0" }]
+            },
+            {
+              "type": "text",
+              "id": "card_title_1",
+              "x": 20,
+              "y": 240,
+              "width": 260,
+              "height": 30,
+              "textGrowth": "auto",
+              "content": {
+                "content": "Sweet Carrot",
+                "fontSize": 20,
+                "fontWeight": "bold",
+                "color": "#2D3748"
+              }
+            },
+            {
+              "type": "text",
+              "id": "card_price_1",
+              "x": 20,
+              "y": 280,
+              "width": 100,
+              "height": 24,
+              "textGrowth": "auto",
+              "content": {
+                "content": "$3.50",
+                "fontSize": 18,
+                "fontWeight": "medium",
+                "color": "#718096"
+              }
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "product_card_2",
+          "name": "Product Card 2",
+          "x": 440,
+          "y": 700,
+          "width": 300,
+          "height": 400,
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "card_bg_2",
+              "x": 0,
+              "y": 0,
+              "width": 300,
+              "height": 400,
+              "cornerRadius": 24,
+              "fills": [{ "type": "color", "color": "#FFFFFF" }],
+              "effect": {
+                "type": "shadow",
+                "enabled": true,
+                "shadowType": "outer",
+                "offset": { "x": 0, "y": 10 },
+                "blur": 30,
+                "color": "#00000010"
+              }
+            },
+            {
+              "type": "rectangle",
+              "id": "card_img_place_2",
+              "x": 20,
+              "y": 20,
+              "width": 260,
+              "height": 200,
+              "cornerRadius": 16,
+              "fills": [{ "type": "color", "color": "#F0FFF4" }]
+            },
+            {
+              "type": "text",
+              "id": "card_title_2",
+              "x": 20,
+              "y": 240,
+              "width": 260,
+              "height": 30,
+              "textGrowth": "auto",
+              "content": {
+                "content": "Spring Pea",
+                "fontSize": 20,
+                "fontWeight": "bold",
+                "color": "#2D3748"
+              }
+            },
+            {
+              "type": "text",
+              "id": "card_price_2",
+              "x": 20,
+              "y": 280,
+              "width": 100,
+              "height": 24,
+              "textGrowth": "auto",
+              "content": {
+                "content": "$3.50",
+                "fontSize": 18,
+                "fontWeight": "medium",
+                "color": "#718096"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

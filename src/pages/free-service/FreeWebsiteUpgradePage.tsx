@@ -1175,6 +1175,52 @@ const FreeWebsiteUpgradePage: React.FC = () => {
                   </div>
                 </div>
               </motion.div>
+
+              {/* Achieve Baby Demo Card */}
+              <motion.div 
+                className="group relative bg-[#FFF5F5] rounded-3xl border-4 border-transparent hover:border-[#FFABAB]/50 overflow-hidden shadow-sm hover:shadow-[0_20px_40px_rgba(255,171,171,0.2)] transition-all duration-500"
+                variants={fadeInUp}
+                whileHover={{ y: -8 }}
+              >
+                <div className="aspect-[16/10] overflow-hidden bg-[#E3F9E5] relative">
+                  {/* Soft Blobs */}
+                  <div className="absolute top-[-50%] right-[-50%] w-[150%] h-[150%] bg-[#FFABAB] rounded-full blur-[60px] opacity-20 group-hover:opacity-40 transition-opacity" />
+                  
+                  <img
+                    src="/imgs/demo-site/baby/achieve_baby_hero_v2_1770342396693.png"
+                    alt="Achieve Baby Demo"
+                    className="w-full h-full object-contain p-8 relative z-10 transition-transform duration-700 group-hover:scale-110 group-hover:rotate-2"
+                  />
+                  
+                  <div className="absolute bottom-4 left-4 z-20">
+                     <span className="px-3 py-1 bg-white/80 backdrop-blur-md rounded-full text-xs font-bold text-[#FFABAB] shadow-sm">
+                       NEW • Claymorphism
+                     </span>
+                  </div>
+                </div>
+
+                <div className="p-8">
+                  <div className="flex justify-between items-start mb-4">
+                    <div>
+                      <h3 className="text-2xl font-bold text-[#2D3748] mb-1 group-hover:text-[#FFABAB] transition-colors">Achieve Baby</h3>
+                      <p className="text-[#A0AEC0] text-sm font-medium">Safe & Gentle Nutrition</p>
+                    </div>
+                    <Star className="w-6 h-6 text-[#FFABAB] fill-[#FFABAB]" />
+                  </div>
+                  
+                  <p className="text-[#718096] mb-8 line-clamp-2">
+                    A "Soft 3D" experience featuring puffy claymorphism, pastel aesthetics, and gentle interactions designed for parent trust.
+                  </p>
+
+                  <Link
+                    to="/free-service/achieve-baby-demo"
+                    className="flex w-full items-center justify-center px-6 py-4 bg-white text-[#FFABAB] font-bold rounded-xl shadow-sm border border-[#FFABAB]/20 group-hover:bg-[#FFABAB] group-hover:text-white group-hover:shadow-md transition-all duration-300"
+                  >
+                    View Demo
+                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </section>
