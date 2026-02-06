@@ -1,0 +1,34 @@
+{
+  "version": "1.0",
+  "children": [
+    {
+      "type": "frame",
+      "id": "root_frame",
+      "name": "Achieve Baby Demo",
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 1024,
+      "fills": [{ "type": "color", "color": "#FFF5F5" }],
+      "children": [
+        {
+          "type": "text",
+          "id": "hero_title",
+          "name": "Hero Title",
+          "x": 100,
+          "y": 200,
+          "width": 600,
+          "height": 200,
+          "textGrowth": "auto",
+          "content": {
+            "content": "Gentle Nutrition for Little Tummies",
+            "fontSize": 72,
+            "fontWeight": "bold",
+            "fontFamily": "Inter",
+            "color": "#2D3748"
+          }
+        }
+      ]
+    }
+  ]
+}
