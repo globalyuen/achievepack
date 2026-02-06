@@ -79,21 +79,63 @@ export const useAuth = () => {
 
   // Send OTP code to email
   const sendOtp = async (email: string) => {
-    return await supabase.auth.signInWithOtp({
-      email,
-      options: {
-        shouldCreateUser: true
+    try {
+      console.log('[Auth] Sending OTP to:', email)
+      const result = await supabase.auth.signInWithOtp({
+        email,
+        options: {
+          shouldCreateUser: true
+        }
+      })
+      
+      if (result.error) {
+        console.error('[Auth] Send OTP failed:', result.error)
+      } else {
+        console.log('[Auth] OTP sent successfully')
       }
-    })
+      
+      return result
+    } catch (error) {
+      console.error('[Auth] Send OTP exception:', error)
+      return {
+        data: { user: null, session: null },
+        error: {
+          message: error instanceof Error ? error.message : 'Failed to connect to authentication service. Please check your internet connection and try again.',
+          name: 'NetworkError',
+          status: 0
+        }
+      }
+    }
   }
 
   // Verify OTP code
   const verifyOtp = async (email: string, token: string) => {
-    return await supabase.auth.verifyOtp({
-      email,
-      token,
-      type: 'email'
-    })
+    try {
+      console.log('[Auth] Verifying OTP for:', email)
+      const result = await supabase.auth.verifyOtp({
+        email,
+        token,
+        type: 'email'
+      })
+      
+      if (result.error) {
+        console.error('[Auth] OTP verification failed:', result.error)
+      } else {
+        console.log('[Auth] OTP verification successful')
+      }
+      
+      return result
+    } catch (error) {
+      console.error('[Auth] OTP verification exception:', error)
+      return {
+        data: { user: null, session: null },
+        error: {
+          message: error instanceof Error ? error.message : 'Failed to connect to authentication service. Please check your internet connection and try again.',
+          name: 'NetworkError',
+          status: 0
+        }
+      }
+    }
   }
 
   return { session, user, loading, signIn, signInWithGoogle, signUp, signOut, resetPassword, updatePassword, sendOtp, verifyOtp }

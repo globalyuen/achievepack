@@ -3,7 +3,33 @@ import { createClient } from '@supabase/supabase-js'
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 
-export const supabase = createClient(supabaseUrl || '', supabaseAnonKey || '')
+if (!supabaseUrl || !supabaseAnonKey) {
+  console.error('[Supabase] Missing environment variables:')
+  console.error('  VITE_SUPABASE_URL:', supabaseUrl ? '✓' : '✗')
+  console.error('  VITE_SUPABASE_ANON_KEY:', supabaseAnonKey ? '✓' : '✗')
+}
+
+export const supabase = createClient(supabaseUrl || '', supabaseAnonKey || '', {
+  auth: {
+    autoRefreshToken: true,
+    persistSession: true,
+    detectSessionInUrl: true,
+    flowType: 'pkce'
+  },
+  global: {
+    headers: {
+      'x-client-info': 'achievepack-web'
+    }
+  },
+  db: {
+    schema: 'public'
+  },
+  realtime: {
+    params: {
+      eventsPerSecond: 10
+    }
+  }
+})
 
 // ===========================================
 // Unified Project Tracking System
