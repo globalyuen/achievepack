@@ -1,10 +1,10 @@
 {
-  "generated": "2026-02-04",
-  "total_images": 1193,
-  "total_categories": 131,
+  "generated": "2026-02-06",
+  "total_images": 1205,
+  "total_categories": 134,
   "extensions": {
     ".webp": 1058,
-    ".png": 126,
+    ".png": 138,
     ".jpg": 6,
     ".svg": 3
   },
@@ -1389,6 +1389,29 @@
         }
       ]
     },
+    "demo-site/baby": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "achieve_baby_pea_1770342362697.png",
+          "path": "/imgs/demo-site/baby/achieve_baby_pea_1770342362697.png",
+          "extension": ".png",
+          "modified": "2026-02-06T02:05:52.766Z"
+        },
+        {
+          "filename": "achieve_baby_carrot_1770342349368.png",
+          "path": "/imgs/demo-site/baby/achieve_baby_carrot_1770342349368.png",
+          "extension": ".png",
+          "modified": "2026-02-06T02:05:52.765Z"
+        },
+        {
+          "filename": "achieve_baby_hero_v2_1770342396693.png",
+          "path": "/imgs/demo-site/baby/achieve_baby_hero_v2_1770342396693.png",
+          "extension": ".png",
+          "modified": "2026-02-06T02:05:52.763Z"
+        }
+      ]
+    },
     "demo-site/bath": {
       "count": 7,
       "images": [
@@ -1953,6 +1976,70 @@
           "path": "/imgs/demo-site/muesli/collection.png",
           "extension": ".png",
           "modified": "2026-02-03T11:22:14.982Z"
+        }
+      ]
+    },
+    "demo-site/pet": {
+      "count": 5,
+      "images": [
+        {
+          "filename": "duck.png",
+          "path": "/imgs/demo-site/pet/duck.png",
+          "extension": ".png",
+          "modified": "2026-02-05T12:17:50.665Z"
+        },
+        {
+          "filename": "lifestyle.png",
+          "path": "/imgs/demo-site/pet/lifestyle.png",
+          "extension": ".png",
+          "modified": "2026-02-05T12:17:22.999Z"
+        },
+        {
+          "filename": "salmon.png",
+          "path": "/imgs/demo-site/pet/salmon.png",
+          "extension": ".png",
+          "modified": "2026-02-05T11:20:00.303Z"
+        },
+        {
+          "filename": "wagyu.png",
+          "path": "/imgs/demo-site/pet/wagyu.png",
+          "extension": ".png",
+          "modified": "2026-02-05T11:19:11.481Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/demo-site/pet/hero.png",
+          "extension": ".png",
+          "modified": "2026-02-05T11:18:58.491Z"
+        }
+      ]
+    },
+    "demo-site/skin": {
+      "count": 4,
+      "images": [
+        {
+          "filename": "gel.png",
+          "path": "/imgs/demo-site/skin/gel.png",
+          "extension": ".png",
+          "modified": "2026-02-05T13:27:49.607Z"
+        },
+        {
+          "filename": "essence.png",
+          "path": "/imgs/demo-site/skin/essence.png",
+          "extension": ".png",
+          "modified": "2026-02-05T13:27:19.580Z"
+        },
+        {
+          "filename": "serum.png",
+          "path": "/imgs/demo-site/skin/serum.png",
+          "extension": ".png",
+          "modified": "2026-02-05T13:26:54.757Z"
+        },
+        {
+          "filename": "hero.png",
+          "path": "/imgs/demo-site/skin/hero.png",
+          "extension": ".png",
+          "modified": "2026-02-05T13:26:17.555Z"
         }
       ]
     },
