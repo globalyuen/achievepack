@@ -76,6 +76,17 @@ export default function Footer() {
             </ul>
           </div>
           
+          {/* Structure Spec */}
+          <div>
+            <h4 className="font-semibold text-sm mb-2">Structure Spec</h4>
+            <ul className="space-y-1 text-xs text-neutral-400">
+              <li><Link to="/spec/pcr-pet-duplex-clear" className="hover:text-primary-400">PCR PET Duplex Clear</Link></li>
+              <li><Link to="/spec/biope-pet-duplex-clear" className="hover:text-primary-400">Bio-PE PET Duplex Clear</Link></li>
+              <li><Link to="/spec/bio-cello-duplex-clear" className="hover:text-primary-400">Bio-Cello Duplex Clear</Link></li>
+              <li><Link to="/spec/mono-pe-duplex-clear" className="hover:text-primary-400">Mono PE Duplex Clear</Link></li>
+            </ul>
+          </div>
+          
           {/* Industries */}
           <div>
             <h4 className="font-semibold text-sm mb-2">Industries</h4>
