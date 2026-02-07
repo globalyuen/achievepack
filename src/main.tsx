@@ -314,6 +314,10 @@ const AchievePetDemoPage = lazyWithRetry(() => import('./pages/free-service/Achi
 const AchieveSkinDemoPage = lazyWithRetry(() => import('./pages/free-service/AchieveSkinDemoPage'))
 const AchieveBabyDemoPage = lazyWithRetry(() => import('./pages/free-service/AchieveBabyDemoPage'))
 const AchievePouchEcoDemoPage = lazyWithRetry(() => import('./pages/free-service/AchievePouchEcoDemoPage'))
+
+// Pouch.eco Design Demo - Denterity-inspired
+const PouchEcoDemo = lazyWithRetry(() => import('./pages/PouchEcoDemo'))
+
 const FreeServicesHubPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesHubPage'))
 const FreeServicesPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesPage'))
 const Product3DShowcasePage = lazyWithRetry(() => import('./pages/Product3DShowcasePage'))
@@ -585,6 +589,10 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/free-service/achieve-pouch-eco-demo" element={<AchievePouchEcoDemoPage />} />
           <Route path="/free-service/free-services-hub" element={<FreeServicesHubPage />} />
                                             <Route path="/free-service" element={<FreeServicesPage />} />
+                      
+                      {/* Pouch.eco Design Demo - Denterity Inspired */}
+                      <Route path="/demo/pouch-eco" element={<PouchEcoDemo />} />
+                      
                       <Route path="/3d-showcase" element={<Product3DShowcasePage />} />
 
                       {/* Bio-PE Pages */}
