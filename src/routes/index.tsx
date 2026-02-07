@@ -188,7 +188,7 @@ const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 
 // Define all routes
 const routes = [
-  { path: "/", element: <LazyRoute component={() => import('../App')} fallback={<LoadingFallback />} /> },
+  { path: "/", element: <LazyRoute component={() => import('../pages/DomainHomePage')} fallback={<LoadingFallback />} /> },
   { path: "/store", element: <LazyRoute component={() => import('../pages/StorePage')} fallback={<LoadingFallback />} /> },
   { path: "/store/product/:productId", element: <LazyRoute component={() => import('../pages/ProductPage')} fallback={<LoadingFallback />} /> },
   { path: "/store/checkout", element: <LazyRoute component={() => import('../pages/CheckoutPage')} fallback={<LoadingFallback />} /> },
