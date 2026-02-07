@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { Package, Leaf, Zap, Box as BoxIcon, Flame } from 'lucide-react'
+import { Package, Leaf, Zap, Box as BoxIcon, Flame, Star } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import PouchLayout from '../../components/pouch/PouchLayout'
