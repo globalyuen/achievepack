@@ -18,7 +18,143 @@
       "includeFiles": "node_modules/@supabase/**"
     }
   },
+  "redirects": [
+    {
+      "source": "/gptk",
+      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "destination": "/materials/cello-kraft-triplex",
+      "permanent": true
+    },
+    {
+      "source": "/ptn",
+      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "destination": "/materials/kraft-duplex",
+      "permanent": true
+    },
+    {
+      "source": "/stand-up-pouch-doypack",
+      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "destination": "/shapes/stand-up-pouch",
+      "permanent": true
+    },
+    {
+      "source": "/all-options/quad-seal-and-flat-bottom-pouches",
+      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "destination": "/shapes/quad-seal",
+      "permanent": true
+    },
+    {
+      "source": "/all-options/3-side-sealed-and-center-sealed-pouch-shape",
+      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "destination": "/shapes/3-side-seal",
+      "permanent": true
+    },
+    {
+      "source": "/all-options/side-gusseted-box-bottom-pouch-shape",
+      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "destination": "/shapes/side-gusset",
+      "permanent": true
+    },
+    {
+      "source": "/all-options/surface-finish-options-for-eco-friendly-packaging-pouch",
+      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "destination": "/options/surface-finish",
+      "permanent": true
+    },
+    {
+      "source": "/all-options/reclosure-options-for-eco-friendly-packaging-pouch",
+      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "destination": "/options/reclosure",
+      "permanent": true
+    },
+    {
+      "source": "/all-options/additional-feature-options-for-eco-friendly-packaging-pouch",
+      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "destination": "/options/features",
+      "permanent": true
+    },
+    {
+      "source": "/all-options/barrier-options-for-eco-friendly-material",
+      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "destination": "/barriers/overview",
+      "permanent": true
+    },
+    {
+      "source": "/all-options/low-barrier-options-for-eco-friendly-material",
+      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "destination": "/barriers/low",
+      "permanent": true
+    },
+    {
+      "source": "/all-options/medium-barrier-options-for-eco-friendly-material",
+      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "destination": "/barriers/medium",
+      "permanent": true
+    },
+    {
+      "source": "/all-options/high-barrier-options-for-eco-friendly-material",
+      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "destination": "/barriers/high",
+      "permanent": true
+    },
+    {
+      "source": "/unlimited-colors-digital-printing",
+      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "destination": "/printing/digital",
+      "permanent": true
+    },
+    {
+      "source": "/up-to-10-colors-plate-printing",
+      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "destination": "/printing/plate",
+      "permanent": true
+    },
+    {
+      "source": "/ecommerce-exclusive-lightweight-eco-pouches-cut-shipping-and-emissions",
+      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "destination": "/solutions/ecommerce-shipping",
+      "permanent": true
+    },
+    {
+      "source": "/lead-time",
+      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "destination": "/process/timeline",
+      "permanent": true
+    },
+    {
+      "source": "/workflow",
+      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "destination": "/process/workflow",
+      "permanent": true
+    },
+    {
+      "source": "/testimonial",
+      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "destination": "/testimonials",
+      "permanent": true
+    },
+    {
+      "source": "/size",
+      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "destination": "/size-guide",
+      "permanent": true
+    }
+  ],
   "rewrites": [
+    {
+      "source": "/sitemap.xml",
+      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "destination": "/sitemap-pouch.xml"
+    },
+    {
+      "source": "/sitemap.xml",
+      "has": [{ "type": "host", "value": "achievepack.com" }],
+      "destination": "/sitemap-achievepack.xml"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "/api/robots"
+    },
     {
       "source": "/api/:path*",
       "destination": "/api/:path*"
