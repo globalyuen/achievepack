@@ -13,7 +13,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node'
 export default function handler(req: VercelRequest, res: VercelResponse) {
   const hostname = req.headers.host || 'achievepack.com'
   const isPouch = hostname.includes('pouch.eco')
-  const domain = isPouch ? 'pouch.eco' : 'achievepack.com'
+  const domain = isPouch ? 'www.pouch.eco' : 'achievepack.com'
   
   const robotsTxt = `# https://www.robotstxt.org/robotstxt.html
 User-agent: *
