@@ -318,6 +318,7 @@ const AchievePouchEcoDemoPage = lazyWithRetry(() => import('./pages/free-service
 
 // Pouch.eco Design Demo - Denterity-inspired
 const PouchEcoDemo = lazyWithRetry(() => import('./pages/PouchEcoDemo'))
+const PouchHomePage = lazyWithRetry(() => import('./pages/pouch/PouchHomePage'))
 
 const FreeServicesHubPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesHubPage'))
 const FreeServicesPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesPage'))
@@ -371,7 +372,7 @@ if (getDomain() === 'pouch') {
     <StrictMode>
       <HelmetProvider>
         <Suspense fallback={<PageLoader />}>
-          <PouchEcoDemo />
+          <PouchHomePage />
         </Suspense>
       </HelmetProvider>
     </StrictMode>
@@ -605,7 +606,10 @@ if (getDomain() === 'pouch') {
                                               <Route path="/free-service" element={<FreeServicesPage />} />
                         
                         {/* Pouch.eco Design Demo - Denterity Inspired */}
-                        <Route path="/demo/pouch-eco" element={<PouchEcoDemo />} />
+                        <Route path="/demo" element={<PouchHomePage />} />
+                        <Route path="/products" element={<PouchHomePage />} />
+                        <Route path="/materials" element={<PouchHomePage />} />
+                        <Route path="/start" element={<PouchHomePage />} />
                         
                         <Route path="/3d-showcase" element={<Product3DShowcasePage />} />
 
