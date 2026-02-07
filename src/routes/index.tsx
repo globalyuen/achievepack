@@ -202,6 +202,7 @@ const routes = [
   { path: "/contact", element: <LazyRoute component={() => import('../pages/ContactPage')} fallback={<LoadingFallback />} /> },
   { path: "/solutions", element: <LazyRoute component={() => import('../pages/PouchEcoSolutionsPage')} fallback={<LoadingFallback />} /> },
   { path: "/size-guide", element: <LazyRoute component={() => import('../pages/PouchEcoSizeGuidePage')} fallback={<LoadingFallback />} /> },
+  { path: "/reclosure-options", element: <LazyRoute component={() => import('../pages/PouchEcoReclosurePage')} fallback={<LoadingFallback />} /> },
   { path: "/ctrl-x9k7m", element: <LazyRoute component={() => import('../pages/AdminPage')} fallback={<LoadingFallback />} /> },
   { path: "/ctrl-x9k7m/management", element: <LazyRoute component={() => import('../pages/OrderManagementPage')} fallback={<LoadingFallback />} /> },
 
