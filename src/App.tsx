@@ -18,6 +18,7 @@ import type { CalculatorResults } from './utils/calculatorUtils'
 import { useStore } from './store/StoreContext'
 import { FEATURED_PRODUCTS, type PouchProduct } from './store/productData'
 import ReadingProgress from './components/ReadingProgress'
+import { getDomain, getBrandConfig, getBaseUrl } from './utils/domain'
 
 // Error boundary to handle chunk loading failures
 class ChunkErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
@@ -402,16 +403,21 @@ function App() {
     }))
   }, [t])
 
+  // Get domain-specific configuration
+  const domain = getDomain()
+  const brand = getBrandConfig()
+  const baseUrl = getBaseUrl()
+  const isPouch = domain === 'pouch'
+
   // Get current language for hreflang
   const currentLang = i18n.language || 'en'
-  const baseUrl = 'https://achievepack.com'
 
   return (
     <>
       <Helmet>
         <html lang={currentLang} />
-        <title>{t('seo.home.title', 'Certified Compostable Packaging | Low MOQ from 100pcs - Achieve Pack')}</title>
-        <meta name="description" content={t('seo.home.description', 'Transform your brand with EN13432 certified compostable packaging. Coffee bags, food pouches, pet treat bags. Low MOQ from 100pcs, 2-3 week sampling, trusted by 500+ global brands.')} />
+        <title>{isPouch ? `Pouch.eco - ${t('seo.home.title', 'Eco Packaging for Startups | Low MOQ from 500 units')}` : t('seo.home.title', 'Certified Compostable Packaging | Low MOQ from 100pcs - Achieve Pack')}</title>
+        <meta name="description" content={isPouch ? t('seo.home.description', 'Beautiful compostable packaging from just 500 units. Perfect for small brands starting their sustainability journey.') : t('seo.home.description', 'Transform your brand with EN13432 certified compostable packaging. Coffee bags, food pouches, pet treat bags. Low MOQ from 100pcs, 2-3 week sampling, trusted by 500+ global brands.')} />
         <link rel="canonical" href={baseUrl} />
         
         {/* hreflang for multi-language */}
@@ -422,92 +428,92 @@ function App() {
         <link rel="alternate" hrefLang="x-default" href={baseUrl} />
         
         {/* Open Graph */}
-        <meta property="og:title" content={t('seo.home.title', 'Achieve Pack - Sustainable Eco-Friendly Packaging')} />
-        <meta property="og:description" content={t('seo.home.description', 'Certified compostable & recyclable packaging with low MOQ. Trusted by 500+ brands.')} />
+        <meta property="og:title" content={isPouch ? `Pouch.eco - ${t('seo.home.title', 'Eco Packaging for Startups')}` : t('seo.home.title', 'Achieve Pack - Sustainable Eco-Friendly Packaging')} />
+        <meta property="og:description" content={isPouch ? t('seo.home.description', 'Beautiful compostable packaging from just 500 units. Perfect for small brands.') : t('seo.home.description', 'Certified compostable & recyclable packaging with low MOQ. Trusted by 500+ brands.')} />
         <meta property="og:url" content={baseUrl} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={`${baseUrl}/imgs/og-image.webp`} />
+        <meta property="og:site_name" content={brand.name} />
         <meta property="og:locale" content={currentLang === 'zh-TW' ? 'zh_TW' : currentLang === 'es' ? 'es_ES' : currentLang === 'fr' ? 'fr_FR' : 'en_US'} />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={t('seo.home.title', 'Achieve Pack - Sustainable Packaging')} />
-        <meta name="twitter:description" content={t('seo.home.description', 'Eco-friendly packaging solutions with low MOQ.')} />
-        <meta name="twitter:image" content={`${baseUrl}/imgs/og-image.webp`} />
+        <meta name="twitter:title" content={isPouch ? `Pouch.eco - ${t('seo.home.title', 'Eco Packaging')}` : t('seo.home.title', 'Achieve Pack - Sustainable Packaging')} />
+        <meta name="twitter:description" content={isPouch ? t('seo.home.description', 'Compostable packaging from 500 units') : t('seo.home.description', 'Eco-friendly packaging solutions with low MOQ.')} />
+        <meta property="twitter:image" content={`${baseUrl}/imgs/og-image.webp`} />
 
-        {/* JSON-LD Structured Data - Organization (固定英文) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "@id": "https://achievepack.com/#organization",
-            "name": "Achieve Pack Company Limited",
-            "url": "https://achievepack.com",
-            "logo": "https://achievepack.com/ap-logo.svg",
-            "description": "Achieve Pack helps brands switch to certified eco-friendly pouches – compostable, recyclable and bio-based – without sacrificing product protection, lead times or margins.",
-            "foundingDate": "2011",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "No.41 1/F Wo Liu Hang Tsuen",
-              "addressLocality": "Fotan",
-              "addressRegion": "New Territories",
-              "postalCode": "000000",
-              "addressCountry": "HK"
-            },
-            "contactPoint": [{
-              "@type": "ContactPoint",
-              "contactType": "sales",
-              "email": "ryan@achievepack.com",
-              "telephone": "+852-6970-4411",
-              "areaServed": ["US","CA","GB","EU","AU","NZ","HK"],
-              "availableLanguage": ["en","zh-Hant","es","fr"]
-            }],
-            "sameAs": [
-              "https://pouch.eco",
-              "https://www.linkedin.com/company/achieve-pack/",
-              "https://www.instagram.com/pouch_eco/",
-              "https://www.youtube.com/@AchievePack",
-              "https://climate.stripe.com/WPsfbU"
-            ]
-          })}
-        </script>
+        {/* JSON-LD Structured Data - Organization */}
+        {!isPouch && (
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "@id": "https://achievepack.com/#organization",
+              "name": "Achieve Pack Company Limited",
+              "url": "https://achievepack.com",
+              "logo": "https://achievepack.com/ap-logo.svg",
+              "description": "Achieve Pack helps brands switch to certified eco-friendly pouches – compostable, recyclable and bio-based – without sacrificing product protection, lead times or margins.",
+              "foundingDate": "2011",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "No.41 1/F Wo Liu Hang Tsuen",
+                "addressLocality": "Fotan",
+                "addressRegion": "New Territories",
+                "postalCode": "000000",
+                "addressCountry": "HK"
+              },
+              "contactPoint": [{
+                "@type": "ContactPoint",
+                "contactType": "sales",
+                "email": "ryan@achievepack.com",
+                "telephone": "+852-6970-4411",
+                "areaServed": ["US","CA","GB","EU","AU","NZ","HK"],
+                "availableLanguage": ["en","zh-Hant","es","fr"]
+              }],
+              "sameAs": [
+                "https://pouch.eco",
+                "https://www.linkedin.com/company/achieve-pack/",
+                "https://www.instagram.com/pouch_eco/",
+                "https://www.youtube.com/@AchievePack",
+                "https://climate.stripe.com/WPsfbU"
+              ]
+            })}
+          </script>
+        )}
 
-        {/* JSON-LD Structured Data - WebSite + WebPage (动态语言) */}
+        {/* JSON-LD Structured Data - WebSite + WebPage */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@graph": [
               {
                 "@type": "WebSite",
-                "@id": "https://achievepack.com/#website",
-                "url": "https://achievepack.com",
-                "name": "Achieve Pack - Eco Packaging Partner behind pouch.eco",
+                "@id": `${baseUrl}/#website`,
+                "url": baseUrl,
+                "name": isPouch ? "Pouch.eco - Eco Packaging for Startups" : "Achieve Pack - Eco Packaging Partner behind pouch.eco",
                 "publisher": {
-                  "@id": "https://achievepack.com/#organization"
+                  "@id": `${baseUrl}/#organization`
                 },
                 "inLanguage": currentLang === 'zh-TW' ? 'zh-Hant' : currentLang,
                 "potentialAction": {
                   "@type": "SearchAction",
-                  "target": "https://achievepack.com/?s={search_term_string}",
+                  "target": `${baseUrl}/?s={search_term_string}`,
                   "query-input": "required name=search_term_string"
                 }
               },
               {
                 "@type": "WebPage",
-                "@id": "https://achievepack.com/#webpage",
-                "url": "https://achievepack.com",
-                "name": t('schema.webpage.name', 'Certified eco-friendly pouch packaging partner for global brands'),
+                "@id": `${baseUrl}/#webpage`,
+                "url": baseUrl,
+                "name": isPouch ? t('schema.webpage.name', 'Eco-friendly compostable packaging for startups and small brands') : t('schema.webpage.name', 'Certified eco-friendly pouch packaging partner for global brands'),
                 "isPartOf": {
-                  "@id": "https://achievepack.com/#website"
+                  "@id": `${baseUrl}/#website`
                 },
-                "about": {
-                  "@id": "https://achievepack.com/#organization"
-                },
-                "description": t('schema.webpage.description', 'Achieve Pack provides certified compostable, recyclable and bio-based pouches for coffee, snacks, pet treats and other food brands, with low MOQs, realistic lead times and full technical support.'),
+                "description": isPouch ? t('schema.webpage.description', 'Pouch.eco offers beautiful compostable packaging from just 500 units, perfect for small brands starting their sustainability journey.') : t('schema.webpage.description', 'Achieve Pack provides certified compostable, recyclable and bio-based pouches for coffee, snacks, pet treats and other food brands, with low MOQs, realistic lead times and full technical support.'),
                 "inLanguage": currentLang === 'zh-TW' ? 'zh-Hant' : currentLang,
                 "primaryImageOfPage": {
                   "@type": "ImageObject",
-                  "url": "https://achievepack.com/imgs/og-image.webp"
+                  "url": `${baseUrl}/imgs/og-image.webp`
                 }
               }
             ]
