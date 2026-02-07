@@ -64,7 +64,7 @@
     {
       "source": "/all-options/reclosure-options-for-eco-friendly-packaging-pouch",
       "has": [{ "type": "host", "value": "pouch.eco" }],
-      "destination": "/options/reclosure",
+      "destination": "/reclosure-options",
       "permanent": true
     },
     {
@@ -143,12 +143,16 @@
   "rewrites": [
     {
       "source": "/sitemap.xml",
-      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "has": [{ "type": "host", "value": "(www\\.)?pouch\\.eco" }],
       "destination": "/sitemap-pouch.xml"
     },
     {
       "source": "/sitemap.xml",
-      "has": [{ "type": "host", "value": "achievepack.com" }],
+      "has": [{ "type": "host", "value": "(www\\.)?achievepack\\.com" }],
+      "destination": "/sitemap-achievepack.xml"
+    },
+    {
+      "source": "/sitemap.xml",
       "destination": "/sitemap-achievepack.xml"
     },
     {
