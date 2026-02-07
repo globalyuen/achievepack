@@ -698,6 +698,36 @@ const FreeWebsiteUpgradePage: React.FC = () => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
             >
+              {/* Pouch.eco Demo Card */}
+              <motion.div 
+                className="group relative bg-[#FDFCF8] rounded-3xl overflow-hidden shadow-2xl border border-emerald-100"
+                variants={fadeInUp}
+                whileHover={{ y: -12, transition: { duration: 0.3 } }}
+              >
+                <div className="aspect-[16/10] overflow-hidden relative">
+                  <img
+                    src="/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.webp"
+                    alt="Pouch.eco Demo"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent" />
+                </div>
+                <div className="absolute bottom-0 left-0 p-8 text-emerald-950">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="bg-emerald-600 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Eco-Friendly</span>
+                    <span className="text-xs text-white/90 font-medium italic drop-shadow-md">Gov-Style Minimalist</span>
+                  </div>
+                  <h3 className="text-3xl font-bold mb-3 text-white drop-shadow-lg font-serif">pouch.eco</h3>
+                  <p className="text-white/80 text-sm mb-6 max-w-sm drop-shadow-md">Clean, authority-building design for sustainable packaging. Large typography and clear impact metrics.</p>
+                  <Link
+                    to="/free-service/achieve-pouch-eco-demo"
+                    className="inline-flex items-center gap-2 bg-emerald-800 text-white px-6 py-3 rounded-full font-bold transition hover:bg-emerald-700 shadow-lg"
+                  >
+                    Enter Eco Demo Site <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </motion.div>
+
               {/* Coffee Demo Card */}
               <motion.div 
                 className="group relative bg-neutral-900 rounded-3xl overflow-hidden shadow-2xl"
