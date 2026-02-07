@@ -327,6 +327,8 @@ const PouchTestimonialsPage = lazyWithRetry(() => import('./pages/pouch/PouchTes
 const PouchCelloKraftPage = lazyWithRetry(() => import('./pages/pouch/materials/PouchCelloKraftPage'))
 const PouchReclosureOptionsPage = lazyWithRetry(() => import('./pages/pouch/PouchReclosureOptionsPage'))
 const PouchSurfaceFinishPage = lazyWithRetry(() => import('./pages/pouch/PouchSurfaceFinishPage'))
+const PouchKraftDuplexPage = lazyWithRetry(() => import('./pages/pouch/materials/PouchKraftDuplexPage'))
+const PouchBarrierOverviewPage = lazyWithRetry(() => import('./pages/pouch/PouchBarrierOverviewPage'))
 
 const FreeServicesHubPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesHubPage'))
 const FreeServicesPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesPage'))
@@ -386,8 +388,10 @@ if (getDomain() === 'pouch') {
             <Route path="/size-guide" element={<PouchSizeGuidePage />} />
             <Route path="/testimonials" element={<PouchTestimonialsPage />} />
             <Route path="/materials/cello-kraft-triplex" element={<PouchCelloKraftPage />} />
+            <Route path="/materials/kraft-duplex" element={<PouchKraftDuplexPage />} />
             <Route path="/reclosure-options" element={<PouchReclosureOptionsPage />} />
             <Route path="/options/surface-finish" element={<PouchSurfaceFinishPage />} />
+            <Route path="/barriers/overview" element={<PouchBarrierOverviewPage />} />
             <Route path="/products" element={<PouchProductsPage />} />
             <Route path="/materials" element={<PouchMaterialsPage />} />
             {/* Fallback for other routes back to Home or 404, or keep as Home for now */}
