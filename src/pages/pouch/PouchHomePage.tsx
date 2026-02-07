@@ -284,7 +284,7 @@ export default function PouchHomePage() {
 
       {/* Testimonial */}
       <section className="py-24 px-4 md:px-6 max-w-5xl mx-auto">
-        <NeoCard className="bg-[#FF00FF] text-center">
+        <NeoCard color="bg-[#FF00FF]" className="text-center">
           <div className="flex justify-center mb-6">
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="w-8 h-8 text-white fill-white" />
