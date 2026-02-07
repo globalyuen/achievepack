@@ -486,9 +486,558 @@ For questions about this strategy, contact:
 
 ---
 
+---
+
+## 🔄 WordPress to React Migration Guide (pouch.eco)
+
+**Current Status:** pouch.eco is running on WordPress  
+**Target:** Migrate to achievepack.com React codebase while maintaining SEO
+
+---
+
+### Step 1: Pre-Migration SEO Audit
+
+**Export from Google Search Console:**
+1. Go to pouch.eco GSC property
+2. Performance → Export → Last 3 months
+3. Record top 20 pages by impressions
+4. Record top 50 keywords by clicks
+5. Note average position for each keyword
+
+**Backup WordPress Content:**
+```bash
+# Export WordPress content via admin panel
+Tools → Export → All content
+```
+
+---
+
+### Step 2: URL Mapping (WordPress → React)
+
+**pouch.eco URL Inventory (Found via site:pouch.eco):**
+
+#### Priority 1 - High Traffic Pages (MUST migrate):
+```
+✅ Homepage
+   WordPress: https://pouch.eco/
+   React: / (with domain detection)
+
+✅ Solutions/Categories
+   WordPress: https://pouch.eco/solutions/
+   React: /solutions (domain-aware content)
+
+✅ Material Pages
+   WordPress: https://pouch.eco/gptk/ (Cello Kraft Triplex)
+   WordPress: https://pouch.eco/ptn/ (Kraft Duplex)
+   React: /materials/cello-kraft-triplex
+   React: /materials/kraft-duplex
+
+✅ Size Guide
+   WordPress: https://pouch.eco/size/
+   React: /size-guide
+
+✅ Testimonials
+   WordPress: https://pouch.eco/testimonial/
+   React: /testimonials
+```
+
+#### Priority 2 - Feature Pages:
+```
+✅ Surface Finishes
+   WordPress: https://pouch.eco/all-options/surface-finish-options-for-eco-friendly-packaging-pouch/
+   React: /options/surface-finish
+
+✅ Reclosure Options
+   WordPress: https://pouch.eco/all-options/reclosure-options-for-eco-friendly-packaging-pouch/
+   React: /options/reclosure
+
+✅ Pouch Shapes
+   WordPress: https://pouch.eco/stand-up-pouch-doypack/
+   WordPress: https://pouch.eco/all-options/quad-seal-and-flat-bottom-pouches/
+   WordPress: https://pouch.eco/all-options/3-side-sealed-and-center-sealed-pouch-shape/
+   WordPress: https://pouch.eco/all-options/side-gusseted-box-bottom-pouch-shape/
+   React: /shapes/stand-up-pouch
+   React: /shapes/quad-seal
+   React: /shapes/3-side-seal
+   React: /shapes/side-gusset
+
+✅ Additional Features
+   WordPress: https://pouch.eco/all-options/additional-feature-options-for-eco-friendly-packaging-pouch/
+   React: /options/features
+```
+
+#### Priority 3 - Barrier & Material Options:
+```
+✅ Barrier Options
+   WordPress: https://pouch.eco/all-options/barrier-options-for-eco-friendly-material/
+   WordPress: https://pouch.eco/all-options/low-barrier-options-for-eco-friendly-material/
+   WordPress: https://pouch.eco/all-options/medium-barrier-options-for-eco-friendly-material/
+   WordPress: https://pouch.eco/all-options/high-barrier-options-for-eco-friendly-material/
+   React: /barriers/overview
+   React: /barriers/low
+   React: /barriers/medium
+   React: /barriers/high
+```
+
+#### Priority 4 - Content/Blog Pages:
+```
+✅ Printing Options
+   WordPress: https://pouch.eco/unlimited-colors-digital-printing/
+   WordPress: https://pouch.eco/up-to-10-colors-plate-printing/
+   React: /printing/digital
+   React: /printing/plate
+
+✅ Shipping & DTC
+   WordPress: https://pouch.eco/ecommerce-exclusive-lightweight-eco-pouches-cut-shipping-and-emissions/
+   React: /solutions/ecommerce-shipping
+
+✅ Process Pages
+   WordPress: https://pouch.eco/lead-time/
+   WordPress: https://pouch.eco/workflow/
+   React: /process/timeline
+   React: /process/workflow
+```
+
+#### Priority 5 - Resource Pages:
+```
+✅ Downloads
+   WordPress: https://ecopouch.gumroad.com/ (external)
+   React: /resources/dielines (with external link)
+```
+
+---
+
+### Step 3: Content Migration Strategy
+
+**For Each WordPress Page:**
+
+1. **Extract Content:**
+   ```bash
+   # Use WordPress REST API
+   curl https://pouch.eco/wp-json/wp/v2/pages
+   ```
+
+2. **Differentiate Content (30% rule):**
+   ```typescript
+   // Example: Material page
+   const content = {
+     shared: {
+       // 70% shared technical content
+       specifications: "...",
+       certifications: "...",
+       applications: "..."
+     },
+     pouch: {
+       // 30% B2C content
+       headline: "Perfect Compostable Material for Small Batches",
+       moq: "From 500 units",
+       pricing: "Transparent pricing from $0.50/bag",
+       cta: "Shop Now"
+     },
+     achievepack: {
+       // 30% B2B content
+       headline: "Enterprise-Grade Compostable Material",
+       moq: "Optimized for 10,000+ units",
+       pricing: "Volume pricing available",
+       cta: "Request Quote"
+     }
+   }
+   ```
+
+3. **Create React Components:**
+   ```typescript
+   // src/pages/materials/CelloKraftTriplexPage.tsx
+   import { getDomain, getBrandConfig } from '@/utils/domain'
+   
+   export default function CelloKraftTriplexPage() {
+     const domain = getDomain()
+     const brand = getBrandConfig()
+     const content = getMaterialContent('cello-kraft-triplex', domain)
+     
+     return (
+       <>
+         <SEOHead 
+           title={content.headline}
+           description={content.description}
+           canonical={`https://${brand.domain}/materials/cello-kraft-triplex`}
+         />
+         <MaterialLayout content={content} />
+       </>
+     )
+   }
+   ```
+
+---
+
+### Step 4: 301 Redirects Setup
+
+**Create redirect mapping in Vercel:**
+
+```json
+// vercel.json
+{
+  "redirects": [
+    // Material pages
+    {
+      "source": "/gptk",
+      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "destination": "/materials/cello-kraft-triplex",
+      "permanent": true
+    },
+    {
+      "source": "/ptn",
+      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "destination": "/materials/kraft-duplex",
+      "permanent": true
+    },
+    
+    // Feature pages
+    {
+      "source": "/all-options/surface-finish-options-for-eco-friendly-packaging-pouch",
+      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "destination": "/options/surface-finish",
+      "permanent": true
+    },
+    
+    // Shape pages
+    {
+      "source": "/stand-up-pouch-doypack",
+      "has": [{ "type": "host", "value": "pouch.eco" }],
+      "destination": "/shapes/stand-up-pouch",
+      "permanent": true
+    },
+    
+    // Add all other mappings...
+  ]
+}
+```
+
+---
+
+### Step 5: WordPress Content Extraction
+
+**Key Content to Extract:**
+
+1. **Homepage Hero:**
+   - "10 Reasons Emerging Food Brands Are Switching..."
+   - "$18K–$42K annual shipping savings"
+   - "100-piece MOQ"
+   - Premium finishes messaging
+
+2. **Product Features:**
+   - 8 premium surface finishes
+   - Reclosure options
+   - Shape flexibility
+   - Barrier types (Low to Maximum)
+
+3. **Comparison Tables:**
+   - Rigid Jars vs Flexible Pouches table
+   - Cost savings data
+   - Environmental impact metrics
+
+4. **Testimonials & Social Proof:**
+   - Customer quotes
+   - Data points from FPA 2024
+
+---
+
+### Step 6: Implementation Checklist
+
+**Week 1: Foundation**
+- [ ] Create `src/utils/domain.ts`
+- [ ] Update `src/components/SEOHead.tsx`
+- [ ] Create `src/content/pouchContent.ts`
+- [ ] Setup Vercel redirects in `vercel.json`
+
+**Week 2: Core Pages**
+- [ ] Migrate homepage with domain detection
+- [ ] Migrate Solutions page
+- [ ] Migrate Size Guide
+- [ ] Migrate Testimonials page
+
+**Week 3: Feature Pages**
+- [ ] Migrate all /options/* pages
+- [ ] Migrate all /shapes/* pages
+- [ ] Migrate all /barriers/* pages
+- [ ] Extract and adapt WordPress content
+
+**Week 4: Material Pages**
+- [ ] Migrate material pages (GPTK, PTN, etc.)
+- [ ] Create material detail templates
+- [ ] Implement comparison tables
+
+**Week 5: Content Pages**
+- [ ] Migrate printing pages
+- [ ] Migrate process pages
+- [ ] Migrate blog/content pages
+
+**Week 6: Testing & Launch**
+- [ ] Test all URLs with domain detection
+- [ ] Verify 301 redirects work
+- [ ] Test canonical URLs
+- [ ] Generate both sitemaps
+- [ ] Add pouch.eco domain to Vercel
+- [ ] Configure DNS
+- [ ] Submit new sitemap to GSC
+- [ ] Monitor for 2 weeks
+
+---
+
+### Step 7: DNS Configuration
+
+**At Domain Registrar (for pouch.eco):**
+
+```
+Type: A
+Name: @
+Value: 76.76.21.21
+TTL: 300
+
+Type: CNAME
+Name: www
+Value: cname.vercel-dns.com
+TTL: 300
+```
+
+**Verify DNS propagation:**
+```bash
+dig pouch.eco
+dig www.pouch.eco
+```
+
+---
+
+### Step 8: Vercel Domain Setup
+
+1. Go to Vercel Dashboard
+2. Select achievepack.com project
+3. Settings → Domains
+4. Click "Add Domain"
+5. Enter: `pouch.eco`
+6. Click "Add Domain"
+7. Enter: `www.pouch.eco`
+8. Wait for SSL certificate (5-10 minutes)
+9. Test: `https://pouch.eco`
+
+---
+
+### Step 9: Post-Migration Monitoring
+
+**Week 1-2: Critical Period**
+- [ ] Daily: Check GSC for indexing errors
+- [ ] Daily: Verify canonical URLs in browser
+- [ ] Daily: Test random URLs from old sitemap
+- [ ] Monitor traffic in GA4
+
+**Week 3-4: Stabilization**
+- [ ] Check for duplicate content warnings
+- [ ] Monitor keyword rankings
+- [ ] Compare traffic: Before vs After
+- [ ] Fix any 404 errors in GSC
+
+**Week 5-8: Optimization**
+- [ ] Fine-tune content differentiation
+- [ ] Optimize meta descriptions
+- [ ] Add structured data
+- [ ] Monitor conversion rates
+
+---
+
+### Step 10: WordPress Decommission
+
+**After 4 weeks of stable traffic:**
+
+1. **Keep WordPress redirects active for 6 months**
+   - Don't delete WordPress immediately
+   - Setup redirects at WordPress level too
+
+2. **Update external backlinks:**
+   - Contact sites linking to pouch.eco
+   - Ask to update to new URLs
+   - Preserve link equity
+
+3. **Final WordPress shutdown (after 6 months):**
+   - Export final backup
+   - Cancel WordPress hosting
+   - Keep domain pointing to Vercel
+
+---
+
+## 📋 Complete URL Migration Mapping
+
+### pouch.eco URL Inventory (Complete List)
+
+```yaml
+# Homepage & Main Pages
+/:
+  priority: P0
+  traffic: High
+  react_path: /
+  content_diff: 40%
+
+/solutions/:
+  priority: P0
+  traffic: High
+  react_path: /solutions
+  content_diff: 35%
+
+/size/:
+  priority: P0
+  traffic: Medium
+  react_path: /size-guide
+  content_diff: 30%
+
+/testimonial/:
+  priority: P1
+  traffic: Medium
+  react_path: /testimonials
+  content_diff: 40%
+
+# Material Pages
+/gptk/:
+  priority: P0
+  traffic: High
+  react_path: /materials/cello-kraft-triplex
+  content_diff: 30%
+
+/ptn/:
+  priority: P0
+  traffic: High
+  react_path: /materials/kraft-duplex
+  content_diff: 30%
+
+# Shape Pages
+/stand-up-pouch-doypack/:
+  priority: P1
+  traffic: Medium
+  react_path: /shapes/stand-up-pouch
+  content_diff: 30%
+
+/all-options/quad-seal-and-flat-bottom-pouches/:
+  priority: P1
+  traffic: Medium
+  react_path: /shapes/quad-seal
+  content_diff: 30%
+
+/all-options/3-side-sealed-and-center-sealed-pouch-shape/:
+  priority: P2
+  traffic: Low
+  react_path: /shapes/3-side-seal
+  content_diff: 30%
+
+/all-options/side-gusseted-box-bottom-pouch-shape/:
+  priority: P2
+  traffic: Low
+  react_path: /shapes/side-gusset
+  content_diff: 30%
+
+# Feature Options
+/all-options/surface-finish-options-for-eco-friendly-packaging-pouch/:
+  priority: P1
+  traffic: Medium
+  react_path: /options/surface-finish
+  content_diff: 30%
+
+/all-options/reclosure-options-for-eco-friendly-packaging-pouch/:
+  priority: P1
+  traffic: Medium
+  react_path: /options/reclosure
+  content_diff: 30%
+
+/all-options/additional-feature-options-for-eco-friendly-packaging-pouch/:
+  priority: P2
+  traffic: Low
+  react_path: /options/features
+  content_diff: 30%
+
+# Barrier Options
+/all-options/barrier-options-for-eco-friendly-material/:
+  priority: P1
+  traffic: Medium
+  react_path: /barriers/overview
+  content_diff: 30%
+
+/all-options/low-barrier-options-for-eco-friendly-material/:
+  priority: P2
+  traffic: Low
+  react_path: /barriers/low
+  content_diff: 30%
+
+/all-options/medium-barrier-options-for-eco-friendly-material/:
+  priority: P2
+  traffic: Low
+  react_path: /barriers/medium
+  content_diff: 30%
+
+/all-options/high-barrier-options-for-eco-friendly-material/:
+  priority: P2
+  traffic: Low
+  react_path: /barriers/high
+  content_diff: 30%
+
+# Printing Pages
+/unlimited-colors-digital-printing/:
+  priority: P1
+  traffic: Medium
+  react_path: /printing/digital
+  content_diff: 35%
+
+/up-to-10-colors-plate-printing/:
+  priority: P2
+  traffic: Low
+  react_path: /printing/plate
+  content_diff: 35%
+
+# Content/Blog Pages
+/ecommerce-exclusive-lightweight-eco-pouches-cut-shipping-and-emissions/:
+  priority: P1
+  traffic: Medium
+  react_path: /solutions/ecommerce-shipping
+  content_diff: 40%
+
+# Process Pages
+/lead-time/:
+  priority: P2
+  traffic: Low
+  react_path: /process/timeline
+  content_diff: 30%
+
+/workflow/:
+  priority: P2
+  traffic: Low
+  react_path: /process/workflow
+  content_diff: 30%
+
+# Total Pages: 22
+# P0 (Critical): 4 pages
+# P1 (High): 8 pages
+# P2 (Medium): 10 pages
+```
+
+---
+
+## 🎯 Migration Success Metrics
+
+**Target Goals (Week 8):**
+- ✅ 95%+ of organic traffic maintained
+- ✅ Zero duplicate content warnings in GSC
+- ✅ All old URLs redirect correctly (301)
+- ✅ Keyword rankings within ±3 positions
+- ✅ Page load time < 2 seconds
+- ✅ Core Web Vitals pass
+
+**Expected Timeline:**
+- Week 1-2: Traffic dip 10-20% (normal)
+- Week 3-4: Traffic recovery to 80-90%
+- Week 5-8: Traffic back to 95-100%
+- Week 9+: Traffic growth (better UX + faster site)
+
+---
+
 ## 📝 Changelog
 
 - **2025-01-30**: Initial documentation created
+- **2025-01-30**: Added WordPress migration guide + pouch.eco URL inventory
 - Future updates will be logged here
 
 ---
