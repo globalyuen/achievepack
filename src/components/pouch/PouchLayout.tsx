@@ -1,5 +1,5 @@
-import { ReactNode, useState } from 'react'
-import { Leaf, ShoppingCart } from 'lucide-react'
+import { ReactNode } from 'react'
+import { Leaf, Calendar } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 
 interface PouchLayoutProps {
@@ -7,7 +7,6 @@ interface PouchLayoutProps {
 }
 
 export default function PouchLayout({ children }: PouchLayoutProps) {
-  const [cartCount, setCartCount] = useState(0)
   const location = useLocation()
 
   const isActive = (path: string) => location.pathname === path
@@ -64,15 +63,11 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
           </div>
 
           <button 
-            className="border-2 border-black p-2 hover:bg-[#FF00FF] transition-colors relative" 
-            onClick={() => setCartCount(c => c + 1)}
+            className="border-2 border-black p-2 hover:bg-[#D4FF00] transition-colors relative group" 
+            onClick={() => window.open('https://calendly.com/30-min-free-packaging-consultancy', '_blank')}
+            title="Book Free Consultation"
           >
-            <ShoppingCart className="w-6 h-6" />
-            {cartCount > 0 && (
-              <div className="absolute -top-3 -right-3 bg-black text-[#D4FF00] w-6 h-6 flex items-center justify-center font-['JetBrains_Mono'] font-bold text-xs border-2 border-[#D4FF00]">
-                {cartCount}
-              </div>
-            )}
+            <Calendar className="w-6 h-6" />
           </button>
         </div>
       </nav>
