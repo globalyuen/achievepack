@@ -224,6 +224,7 @@ const routes = [
 
   // Materials Pages
   { path: "/materials/compostable", element: <LazyRoute component={() => import('../pages/materials/CompostablePage')} fallback={<LoadingFallback />} /> },
+  { path: "/materials/cello-kraft-triplex", element: <LazyRoute component={() => import('../pages/PouchEcoGPTKPage')} fallback={<LoadingFallback />} /> },
   { path: "/materials/recyclable-mono-pe", element: <LazyRoute component={() => import('../pages/materials/RecyclableMonoPEPage')} fallback={<LoadingFallback />} /> },
   { path: "/materials/recyclable-mono-pp", element: <LazyRoute component={() => import('../pages/materials/RecyclableMonoPPPage')} fallback={<LoadingFallback />} /> },
   { path: "/materials/bio-pe", element: <LazyRoute component={() => import('../pages/materials/BioPEPage')} fallback={<LoadingFallback />} /> },
