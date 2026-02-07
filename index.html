@@ -12,6 +12,11 @@
       const isPouch = hostname.includes('pouch.eco') || hostname.includes('pouch-eco');
       
       if (isPouch) {
+        // Get current path for dynamic canonical URL
+        const currentPath = window.location.pathname;
+        const baseUrl = 'https://pouch.eco';
+        const fullUrl = baseUrl + currentPath;
+        
         // Update title immediately
         document.title = 'Pouch.eco - Eco Packaging for Startups';
         
@@ -27,33 +32,33 @@
           meta.setAttribute('content', content);
         };
         
-        // Update canonical
+        // Update canonical with current path
         let canonical = document.querySelector('link[rel="canonical"]');
         if (!canonical) {
           canonical = document.createElement('link');
           canonical.rel = 'canonical';
           document.head.appendChild(canonical);
         }
-        canonical.href = 'https://pouch.eco/';
+        canonical.href = fullUrl;
         
         // Update key meta tags
         updateMeta('keywords', 'eco-friendly pouches, compostable bags, sustainable packaging for startups, low MOQ packaging, 500 unit minimum, kraft pouches, stand up pouches');
         updateMeta('description', 'Beautiful compostable packaging from just 500 units. Perfect for small brands starting their sustainability journey. Fast turnaround, free design help.');
         updateMeta('author', 'Pouch.eco Team');
         
-        // Update Open Graph
+        // Update Open Graph with current URL
         updateMeta('og:type', 'website', true);
-        updateMeta('og:url', 'https://pouch.eco/', true);
+        updateMeta('og:url', fullUrl, true);
         updateMeta('og:title', 'Pouch.eco - Eco Packaging for Startups', true);
         updateMeta('og:description', 'Beautiful compostable packaging from just 500 units. Perfect for small brands.', true);
         updateMeta('og:site_name', 'Pouch.eco', true);
-        updateMeta('og:image', 'https://pouch.eco/imgs/og-image.webp', true);
+        updateMeta('og:image', baseUrl + '/imgs/og-image.webp', true);
         
-        // Update Twitter
-        updateMeta('twitter:url', 'https://pouch.eco/', false);
+        // Update Twitter with current URL
+        updateMeta('twitter:url', fullUrl, false);
         updateMeta('twitter:title', 'Pouch.eco - Eco Packaging', false);
         updateMeta('twitter:description', 'Compostable packaging from 500 units', false);
-        updateMeta('twitter:image', 'https://pouch.eco/imgs/og-image.webp', false);
+        updateMeta('twitter:image', baseUrl + '/imgs/og-image.webp', false);
         
         // Update theme color for pouch.eco (green)
         updateMeta('theme-color', '#10b981', false);
