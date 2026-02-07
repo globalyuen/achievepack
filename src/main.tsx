@@ -381,23 +381,25 @@ if (getDomain() === 'pouch') {
   root.render(
     <StrictMode>
       <HelmetProvider>
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            <Route path="/" element={<PouchHomePage />} />
-            <Route path="/solutions" element={<PouchSolutionsPage />} />
-            <Route path="/size-guide" element={<PouchSizeGuidePage />} />
-            <Route path="/testimonials" element={<PouchTestimonialsPage />} />
-            <Route path="/materials/cello-kraft-triplex" element={<PouchCelloKraftPage />} />
-            <Route path="/materials/kraft-duplex" element={<PouchKraftDuplexPage />} />
-            <Route path="/reclosure-options" element={<PouchReclosureOptionsPage />} />
-            <Route path="/options/surface-finish" element={<PouchSurfaceFinishPage />} />
-            <Route path="/barriers/overview" element={<PouchBarrierOverviewPage />} />
-            <Route path="/products" element={<PouchProductsPage />} />
-            <Route path="/materials" element={<PouchMaterialsPage />} />
-            {/* Fallback for other routes back to Home or 404, or keep as Home for now */}
-            <Route path="*" element={<PouchHomePage />} />
-          </Routes>
-        </Suspense>
+        <BrowserRouter>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<PouchHomePage />} />
+              <Route path="/solutions" element={<PouchSolutionsPage />} />
+              <Route path="/size-guide" element={<PouchSizeGuidePage />} />
+              <Route path="/testimonials" element={<PouchTestimonialsPage />} />
+              <Route path="/materials/cello-kraft-triplex" element={<PouchCelloKraftPage />} />
+              <Route path="/materials/kraft-duplex" element={<PouchKraftDuplexPage />} />
+              <Route path="/reclosure-options" element={<PouchReclosureOptionsPage />} />
+              <Route path="/options/surface-finish" element={<PouchSurfaceFinishPage />} />
+              <Route path="/barriers/overview" element={<PouchBarrierOverviewPage />} />
+              <Route path="/products" element={<PouchProductsPage />} />
+              <Route path="/materials" element={<PouchMaterialsPage />} />
+              {/* Fallback for other routes back to Home or 404, or keep as Home for now */}
+              <Route path="*" element={<PouchHomePage />} />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
       </HelmetProvider>
     </StrictMode>
   )
