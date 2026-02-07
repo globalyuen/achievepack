@@ -319,6 +319,8 @@ const AchievePouchEcoDemoPage = lazyWithRetry(() => import('./pages/free-service
 // Pouch.eco Design Demo - Denterity-inspired
 const PouchEcoDemo = lazyWithRetry(() => import('./pages/PouchEcoDemo'))
 const PouchHomePage = lazyWithRetry(() => import('./pages/pouch/PouchHomePage'))
+const PouchProductsPage = lazyWithRetry(() => import('./pages/pouch/PouchProductsPage'))
+const PouchMaterialsPage = lazyWithRetry(() => import('./pages/pouch/PouchMaterialsPage'))
 
 const FreeServicesHubPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesHubPage'))
 const FreeServicesPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesPage'))
@@ -371,9 +373,17 @@ if (getDomain() === 'pouch') {
   root.render(
     <StrictMode>
       <HelmetProvider>
+      <HelmetProvider>
         <Suspense fallback={<PageLoader />}>
-          <PouchHomePage />
+          <Routes>
+            <Route path="/" element={<PouchHomePage />} />
+            <Route path="/products" element={<PouchProductsPage />} />
+            <Route path="/materials" element={<PouchMaterialsPage />} />
+            {/* Fallback for other routes back to Home or 404, or keep as Home for now */}
+            <Route path="*" element={<PouchHomePage />} />
+          </Routes>
         </Suspense>
+      </HelmetProvider>
       </HelmetProvider>
     </StrictMode>
   )
@@ -607,8 +617,8 @@ if (getDomain() === 'pouch') {
                         
                         {/* Pouch.eco Design Demo - Denterity Inspired */}
                         <Route path="/demo" element={<PouchHomePage />} />
-                        <Route path="/products" element={<PouchHomePage />} />
-                        <Route path="/materials" element={<PouchHomePage />} />
+                        <Route path="/products" element={<PouchProductsPage />} />
+                        <Route path="/materials" element={<PouchMaterialsPage />} />
                         <Route path="/start" element={<PouchHomePage />} />
                         
                         <Route path="/3d-showcase" element={<Product3DShowcasePage />} />
