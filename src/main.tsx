@@ -321,6 +321,11 @@ const PouchEcoDemo = lazyWithRetry(() => import('./pages/PouchEcoDemo'))
 const PouchHomePage = lazyWithRetry(() => import('./pages/pouch/PouchHomePage'))
 const PouchProductsPage = lazyWithRetry(() => import('./pages/pouch/PouchProductsPage'))
 const PouchMaterialsPage = lazyWithRetry(() => import('./pages/pouch/PouchMaterialsPage'))
+const PouchSolutionsPage = lazyWithRetry(() => import('./pages/pouch/PouchSolutionsPage'))
+const PouchSizeGuidePage = lazyWithRetry(() => import('./pages/pouch/PouchSizeGuidePage'))
+const PouchTestimonialsPage = lazyWithRetry(() => import('./pages/pouch/PouchTestimonialsPage'))
+const PouchCelloKraftPage = lazyWithRetry(() => import('./pages/pouch/materials/PouchCelloKraftPage'))
+const PouchReclosureOptionsPage = lazyWithRetry(() => import('./pages/pouch/PouchReclosureOptionsPage'))
 
 const FreeServicesHubPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesHubPage'))
 const FreeServicesPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesPage'))
@@ -373,17 +378,20 @@ if (getDomain() === 'pouch') {
   root.render(
     <StrictMode>
       <HelmetProvider>
-      <HelmetProvider>
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<PouchHomePage />} />
+            <Route path="/solutions" element={<PouchSolutionsPage />} />
+            <Route path="/size-guide" element={<PouchSizeGuidePage />} />
+            <Route path="/testimonials" element={<PouchTestimonialsPage />} />
+            <Route path="/materials/cello-kraft-triplex" element={<PouchCelloKraftPage />} />
+            <Route path="/reclosure-options" element={<PouchReclosureOptionsPage />} />
             <Route path="/products" element={<PouchProductsPage />} />
             <Route path="/materials" element={<PouchMaterialsPage />} />
             {/* Fallback for other routes back to Home or 404, or keep as Home for now */}
             <Route path="*" element={<PouchHomePage />} />
           </Routes>
         </Suspense>
-      </HelmetProvider>
       </HelmetProvider>
     </StrictMode>
   )
