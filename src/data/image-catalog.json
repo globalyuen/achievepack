@@ -1,10 +1,10 @@
 {
   "generated": "2026-02-08",
-  "total_images": 1216,
+  "total_images": 1222,
   "total_categories": 134,
   "extensions": {
     ".webp": 1058,
-    ".png": 149,
+    ".png": 155,
     ".jpg": 6,
     ".svg": 3
   },
@@ -5138,43 +5138,79 @@
       ]
     },
     "seo-photos": {
-      "count": 83,
+      "count": 89,
       "images": [
+        {
+          "filename": "roast_ritual_coffee_pouch.png",
+          "path": "/imgs/seo-photos/roast_ritual_coffee_pouch.png",
+          "extension": ".png",
+          "modified": "2026-02-08T08:42:26.609Z"
+        },
+        {
+          "filename": "nutrivie_snacks_pouch.png",
+          "path": "/imgs/seo-photos/nutrivie_snacks_pouch.png",
+          "extension": ".png",
+          "modified": "2026-02-08T08:42:26.573Z"
+        },
+        {
+          "filename": "wholesome_bakery_pouch.png",
+          "path": "/imgs/seo-photos/wholesome_bakery_pouch.png",
+          "extension": ".png",
+          "modified": "2026-02-08T08:42:26.536Z"
+        },
+        {
+          "filename": "vitalgreen_superfood_pouch.png",
+          "path": "/imgs/seo-photos/vitalgreen_superfood_pouch.png",
+          "extension": ".png",
+          "modified": "2026-02-08T08:42:26.498Z"
+        },
         {
           "filename": "grind_culture_pouch.png",
           "path": "/imgs/seo-photos/grind_culture_pouch.png",
           "extension": ".png",
-          "modified": "2026-02-08T07:37:51.552Z"
+          "modified": "2026-02-08T08:42:26.464Z"
         },
         {
           "filename": "little_sprouts_pouch.png",
           "path": "/imgs/seo-photos/little_sprouts_pouch.png",
           "extension": ".png",
-          "modified": "2026-02-08T07:37:15.325Z"
+          "modified": "2026-02-08T08:42:26.451Z"
         },
         {
           "filename": "peak_performance_pouch.png",
           "path": "/imgs/seo-photos/peak_performance_pouch.png",
           "extension": ".png",
-          "modified": "2026-02-08T07:36:59.813Z"
+          "modified": "2026-02-08T08:42:26.437Z"
         },
         {
           "filename": "meadow_moon_pouch.png",
           "path": "/imgs/seo-photos/meadow_moon_pouch.png",
           "extension": ".png",
-          "modified": "2026-02-08T07:36:46.572Z"
+          "modified": "2026-02-08T08:42:26.423Z"
         },
         {
           "filename": "snacksmart_pouch.png",
           "path": "/imgs/seo-photos/snacksmart_pouch.png",
           "extension": ".png",
-          "modified": "2026-02-08T07:36:32.941Z"
+          "modified": "2026-02-08T08:42:26.408Z"
         },
         {
           "filename": "pureleaf_tea_pouch.png",
           "path": "/imgs/seo-photos/pureleaf_tea_pouch.png",
           "extension": ".png",
-          "modified": "2026-02-08T07:33:21.858Z"
+          "modified": "2026-02-08T08:42:26.391Z"
+        },
+        {
+          "filename": "nourishnow_wellness_pouch.png",
+          "path": "/imgs/seo-photos/nourishnow_wellness_pouch.png",
+          "extension": ".png",
+          "modified": "2026-02-08T08:42:08.026Z"
+        },
+        {
+          "filename": "bean_bole_coffee_pouch.png",
+          "path": "/imgs/seo-photos/bean_bole_coffee_pouch.png",
+          "extension": ".png",
+          "modified": "2026-02-08T08:42:08.011Z"
         },
         {
           "filename": "og-testimonials-pouch.png",
