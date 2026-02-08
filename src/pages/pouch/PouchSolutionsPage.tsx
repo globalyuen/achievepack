@@ -39,7 +39,7 @@ export default function PouchSolutionsPage() {
       description: 'Perfect for organic brands and eco-conscious startups. Your packaging breaks down in 1-6 months—no microplastics.',
       benefits: ['Certified EN13432/ASTM D6400', 'Industrial & home compost', 'From just 500 units', 'Great for snacks, tea, supplements'],
       color: 'bg-[#D4FF00]',
-      image: 'https://achievepack.com/imgs/material-compostable.webp'
+      image: '/imgs/seo-photos/a_compostable_materials_home_transformation_8840512.webp'
     },
     {
       id: 'recyclable',
@@ -49,7 +49,7 @@ export default function PouchSolutionsPage() {
       description: 'Mono-material PE/PP pouches accepted in standard recycling streams. High barrier, longer shelf life.',
       benefits: ['Up to 70% PCR content', 'Single-stream recyclable', '9-18 month shelf life', 'Best for coffee, pet food'],
       color: 'bg-[#00FFFF]',
-      image: 'https://achievepack.com/imgs/material-recyclable.webp'
+      image: '/imgs/seo-photos/a_grs_mono_material_luxury_texture_1597149.webp'
     },
     {
       id: 'bio-based',
@@ -59,7 +59,7 @@ export default function PouchSolutionsPage() {
       description: 'Made from renewable sugarcane & corn. Lower carbon footprint verified by recent studies.',
       benefits: ['Reduces fossil fuel use', 'Carbon-neutral production', 'Durable & reliable', 'Custom shapes available'],
       color: 'bg-[#FF00FF]',
-      image: 'https://achievepack.com/imgs/material-bio-based.webp'
+      image: '/imgs/seo-photos/a_pcr_biobased_pouches_workspace_6547751.webp'
     }
   ]
 
