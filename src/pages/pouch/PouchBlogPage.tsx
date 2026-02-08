@@ -197,9 +197,25 @@ export default function PouchBlogPage() {
         <meta property="og:type" content="website" />
       </Helmet>
 
-      {/* Hero */}
-      <section className="pt-12 pb-16 px-4 bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px]">
-        <div className="max-w-6xl mx-auto">
+      {/* Hero Section with Video Background */}
+      <section className="relative pt-12 pb-16 px-4 overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-30"
+            key="hero-video-blog"
+          >
+            <source src="/video/pouch-eco-marketing-videos/lowmoq.mp4" type="video/mp4" />
+          </video>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px] opacity-80" />
+        </div>
+
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="inline-block bg-[#00FFFF] border-4 border-black px-4 py-2 transform rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-8">
             <span className="font-['JetBrains_Mono'] font-bold">KNOWLEDGE_BASE</span>
           </div>

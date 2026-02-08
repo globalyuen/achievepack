@@ -105,9 +105,25 @@ export default function PouchSolutionsPage() {
         <meta name="twitter:description" content="Start your eco brand with compostable pouches from just 500 units" />
       </Helmet>
 
-      {/* Hero Section */}
-      <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px]">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+      {/* Hero Section with Video Background */}
+      <section className="relative pt-12 pb-24 border-b-4 border-black overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-30"
+            key="hero-video-solutions"
+          >
+            <source src="/video/pouch-eco-marketing-videos/Environmental.mp4" type="video/mp4" />
+          </video>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px] opacity-80" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
           <div className="text-center space-y-8">
             <div className="inline-block bg-black text-[#D4FF00] border-4 border-black px-4 py-2 transform rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
               <span className="font-['JetBrains_Mono'] font-bold text-sm">SOLUTIONS_INDEX</span>

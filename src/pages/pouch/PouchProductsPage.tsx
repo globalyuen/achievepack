@@ -71,9 +71,25 @@ export default function PouchProductsPage() {
         <meta name="description" content="Explore our eco-friendly pouch options including compostable and recyclable materials. Low MOQs available." />
       </Helmet>
 
-      {/* Header */}
-      <section className="py-24 border-b-4 border-black bg-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 text-center">
+      {/* Hero Section with Video Background */}
+      <section className="relative py-24 border-b-4 border-black overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-30"
+            key="hero-video-products"
+          >
+            <source src="/video/pouch-eco-marketing-videos/use.mp4" type="video/mp4" />
+          </video>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/90 to-white/70" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 md:px-6 text-center relative z-10">
           <div className="inline-block bg-black text-white px-4 py-1 mb-6 font-['JetBrains_Mono'] font-bold transform -rotate-2">
             CATALOG_V1
           </div>

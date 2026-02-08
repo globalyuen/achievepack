@@ -116,8 +116,25 @@ export default function PouchCertificationsPage() {
         <meta property="og:url" content="https://pouch.eco/certifications" />
       </Helmet>
 
-      {/* Hero Section */}
-      <section className="pt-12 pb-16 px-4 bg-[radial-gradient(#000_1px,transparent_1px)] bg-[length:20px_20px]">
+      {/* Hero Section with Video Background */}
+      <section className="relative pt-12 pb-16 px-4 overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-30"
+            key="hero-video-certifications"
+          >
+            <source src="/video/pouch-eco-marketing-videos/Brand.mp4" type="video/mp4" />
+          </video>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px] opacity-80" />
+        </div>
+
+        <div className="relative z-10">
         <div className="max-w-6xl mx-auto text-center">
           <div className="inline-block bg-[#D4FF00] border-4 border-black px-4 py-2 transform -rotate-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-8">
             <span className="font-['JetBrains_Mono'] font-bold text-sm">CERTIFIED_COMPOSTABLE</span>
@@ -152,6 +169,7 @@ export default function PouchCertificationsPage() {
               Get Certified
             </a>
           </div>
+        </div>
         </div>
       </section>
 

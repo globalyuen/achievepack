@@ -99,9 +99,25 @@ export default function PouchSizeGuidePage() {
         </script>
       </Helmet>
 
-      {/* Hero Section */}
-      <section className="relative pt-12 pb-24 border-b-4 border-black bg-gradient-to-br from-white to-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* Hero Section with Video Background */}
+      <section className="relative pt-12 pb-24 border-b-4 border-black overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-30"
+            key="hero-video-size-guide"
+          >
+            <source src="/video/pouch-eco-marketing-videos/Performance.mp4" type="video/mp4" />
+          </video>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/90 to-gray-50/90" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-12">
             <NeoBadge color="lime">START HERE</NeoBadge>
             <h1 className="mt-8 font-black text-6xl md:text-8xl leading-none">
