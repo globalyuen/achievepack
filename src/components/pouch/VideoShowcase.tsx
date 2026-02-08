@@ -16,7 +16,7 @@ const VIDEOS: Video[] = [
     id: 'certification',
     title: 'Certified Materials',
     description: 'TUV OK Home and ASTM D6400 certified - breaks down in 180 days.',
-    thumbnail: '/all-product-photos/IMG_4363.webp',
+    thumbnail: '/video/pouch-eco-marketing-videos/gif/Material-ezgif.com-optimize.gif',
     videoSrc: '/video/pouch-eco-marketing-videos/Material.mp4',
     segment: 'Segment 1 (0-6s)'
   },
@@ -24,7 +24,7 @@ const VIDEOS: Video[] = [
     id: 'performance',
     title: 'Performance & Design',
     description: 'High barrier protection with premium stand-up design.',
-    thumbnail: '/all-product-photos/IMG_4365.webp',
+    thumbnail: '/video/pouch-eco-marketing-videos/gif/Performance-ezgif.com-optimize.gif',
     videoSrc: '/video/pouch-eco-marketing-videos/Performance.mp4',
     segment: 'Segment 2 (6-12s)'
   },
@@ -32,7 +32,7 @@ const VIDEOS: Video[] = [
     id: 'environmental',
     title: 'Environmental Impact',
     description: 'Returns to nature as water, CO₂, and nutrient-rich biomass.',
-    thumbnail: '/all-product-photos/IMG_4369.webp',
+    thumbnail: '/video/pouch-eco-marketing-videos/gif/compost-ezgif.com-optimize.gif',
     videoSrc: '/video/pouch-eco-marketing-videos/Environmental.mp4',
     segment: 'Segment 3 (12-18s)'
   },
@@ -40,7 +40,7 @@ const VIDEOS: Video[] = [
     id: 'brand-benefits',
     title: 'Build Your Brand',
     description: 'Build trust with eco-conscious consumers. Regulatory compliant.',
-    thumbnail: '/all-product-photos/IMG_4371.webp',
+    thumbnail: '/video/pouch-eco-marketing-videos/gif/Brand-ezgif.com-optimize.gif',
     videoSrc: '/video/pouch-eco-marketing-videos/Brand.mp4',
     segment: 'Segment 4 (18-24s)'
   },
@@ -48,7 +48,7 @@ const VIDEOS: Video[] = [
     id: 'customization',
     title: 'Low MOQ & Custom',
     description: 'From 500 pieces with fast digital printing.',
-    thumbnail: '/all-product-photos/IMG_4373.webp',
+    thumbnail: '/video/pouch-eco-marketing-videos/gif/lowmoq-ezgif.com-optimize.gif',
     videoSrc: '/video/pouch-eco-marketing-videos/lowmoq.mp4',
     segment: 'Segment 5 (24-30s)'
   },
@@ -56,7 +56,7 @@ const VIDEOS: Video[] = [
     id: 'cta-build',
     title: 'Compostable Future',
     description: 'Choose packaging that aligns with your values.',
-    thumbnail: '/all-product-photos/IMG_4375.webp',
+    thumbnail: '/video/pouch-eco-marketing-videos/gif/compost-ezgif.com-optimize.gif',
     videoSrc: '/video/pouch-eco-marketing-videos/compost.mp4',
     segment: 'Segment 6 (30-36s)'
   },
@@ -64,7 +64,7 @@ const VIDEOS: Video[] = [
     id: 'close',
     title: 'Start Your Journey',
     description: 'Certified | Plant-Based | Fully Compostable',
-    thumbnail: '/all-product-photos/IMG_4377.webp',
+    thumbnail: '/video/pouch-eco-marketing-videos/gif/cta-ezgif.com-optimize.gif',
     videoSrc: '/video/pouch-eco-marketing-videos/cta2.mp4',
     segment: 'Segment 7 (36-42s)'
   }
@@ -112,49 +112,61 @@ export default function VideoShowcase({ className = '' }: VideoShowcaseProps) {
           </p>
         </div>
 
-        {/* Video Grid - Neo-Brutalist Style */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8">
-          {VIDEOS.map((video, index) => (
-            <motion.div
-              key={video.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              onClick={() => setActiveVideo(video)}
-              className="group cursor-pointer bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all overflow-hidden"
-            >
-              {/* Thumbnail */}
-              <div className="relative aspect-[4/5] overflow-hidden bg-neutral-100">
-                <img 
-                  src={video.thumbnail} 
-                  alt={video.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
-                {/* Play Button Overlay */}
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <div className="w-16 h-16 bg-[#D4FF00] border-4 border-black flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                    <Play className="w-8 h-8 text-black ml-1" fill="currentColor" />
+        {/* Horizontal Scrolling Video Carousel - Neo-Brutalist Style */}
+        <div className="relative overflow-hidden">
+          {/* Scrolling Container */}
+          <div className="flex gap-6 md:gap-8 animate-scroll-slow hover:pause">
+            {/* Duplicate videos for infinite scroll effect */}
+            {[...VIDEOS, ...VIDEOS].map((video, index) => (
+              <motion.div
+                key={`${video.id}-${index}`}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: (index % VIDEOS.length) * 0.05 }}
+                onClick={() => setActiveVideo(video)}
+                className="group cursor-pointer bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all overflow-hidden flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px]"
+              >
+                {/* GIF Thumbnail */}
+                <div className="relative aspect-[4/5] overflow-hidden bg-neutral-100">
+                  <img 
+                    src={video.thumbnail} 
+                    alt={video.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                  {/* Play Button Overlay */}
+                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#D4FF00] border-4 border-black flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                      <Play className="w-7 h-7 sm:w-8 sm:h-8 text-black ml-1" fill="currentColor" />
+                    </div>
+                  </div>
+                  {/* Segment Badge */}
+                  <div className="absolute top-2 left-2 bg-black text-[#D4FF00] px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold border-2 border-black">
+                    #{(index % VIDEOS.length) + 1}
+                  </div>
+                  {/* Time Segment */}
+                  <div className="absolute top-2 right-2 bg-[#D4FF00] text-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold border-2 border-black">
+                    {video.segment}
                   </div>
                 </div>
-                {/* Segment Badge */}
-                <div className="absolute top-2 left-2 bg-black text-[#D4FF00] px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold border-2 border-black">
-                  #{index + 1}
-                </div>
-              </div>
 
-              {/* Content */}
-              <div className="p-4 border-t-4 border-black">
-                <h3 className="font-black text-sm md:text-base uppercase mb-2 leading-tight">
-                  {video.title}
-                </h3>
-                <p className="font-['JetBrains_Mono'] text-xs text-gray-600 line-clamp-2">
-                  {video.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+                {/* Content */}
+                <div className="p-4 border-t-4 border-black">
+                  <h3 className="font-black text-sm md:text-base uppercase mb-2 leading-tight">
+                    {video.title}
+                  </h3>
+                  <p className="font-['JetBrains_Mono'] text-xs text-gray-600 line-clamp-2">
+                    {video.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          
+          {/* Gradient Overlays for fade effect */}
+          <div className="absolute top-0 left-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-white to-transparent pointer-events-none z-10" />
+          <div className="absolute top-0 right-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-white to-transparent pointer-events-none z-10" />
         </div>
 
         {/* CTA */}

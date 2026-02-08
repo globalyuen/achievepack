@@ -211,3 +211,34 @@ section {
 .animation-delay-4000 {
   animation-delay: 4s;
 }
+
+/* Horizontal Scroll Animation for Video Carousel */
+@keyframes scroll-slow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-slow {
+  animation: scroll-slow 40s linear infinite;
+}
+
+.animate-scroll-slow:hover {
+  animation-play-state: paused;
+}
+
+/* Responsive scroll speeds */
+@media (max-width: 640px) {
+  .animate-scroll-slow {
+    animation-duration: 30s;
+  }
+}
+
+@media (min-width: 1280px) {
+  .animate-scroll-slow {
+    animation-duration: 50s;
+  }
+}
