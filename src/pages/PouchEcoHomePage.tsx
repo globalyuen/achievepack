@@ -12,6 +12,7 @@ import { getImage } from '../utils/imageMapper'
 import { HeroGrainBackground } from '../components/HeroGrainBackground'
 import Newsletter from '../components/Newsletter'
 import { useStore } from '../store/StoreContext'
+import ProductCarousel from '../components/ProductCarousel'
 
 /**
  * Pouch.eco Homepage - B2C Focused
@@ -320,6 +321,24 @@ export default function PouchEcoHomePage() {
             </motion.div>
           </div>
         </div>
+      </section>
+
+      {/* Product Photos Carousel */}
+      <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <div className="inline-block bg-black text-[#D4FF00] px-4 py-1 mb-6 font-['JetBrains_Mono'] font-bold transform -rotate-1">
+            REAL PRODUCTS • REAL BRANDS
+          </div>
+          <h2 className="font-black text-5xl md:text-7xl uppercase mb-6">
+            See Our <span className="text-[#10b981]">Work</span>
+          </h2>
+          <p className="font-['JetBrains_Mono'] text-lg max-w-2xl mx-auto text-gray-700">
+            Browse through real product photos from brands we've helped launch and grow. 
+            Your brand could be next.
+          </p>
+        </div>
+        
+        <ProductCarousel autoPlay autoPlayInterval={4000} />
       </section>
 
       {/* Features Bento Grid */}
