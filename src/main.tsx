@@ -326,6 +326,7 @@ const PouchSizeGuidePage = lazyWithRetry(() => import('./pages/pouch/PouchSizeGu
 const PouchTestimonialsPage = lazyWithRetry(() => import('./pages/pouch/PouchTestimonialsPage'))
 const PouchBlogPage = lazyWithRetry(() => import('./pages/pouch/PouchBlogPage'))
 const PouchCertificationsPage = lazyWithRetry(() => import('./pages/pouch/PouchCertificationsPage'))
+const PouchFactoryTourPage = lazyWithRetry(() => import('./pages/pouch/PouchFactoryTourPage'))
 // Blog Article Pages
 const USACompostableGuide = lazyWithRetry(() => import('./pages/pouch/blog/USACompostableGuide'))
 const CoffeePackagingGuide = lazyWithRetry(() => import('./pages/pouch/blog/CoffeePackagingGuide'))
@@ -418,6 +419,7 @@ if (getDomain() === 'pouch') {
               <Route path="/blog/coffee-degassing-valve-guide" element={<CoffeeDegassingValveGuide />} />
               <Route path="/blog/home-compostable-guide" element={<HomeCompostableGuide />} />
               <Route path="/certifications" element={<PouchCertificationsPage />} />
+              <Route path="/factory-tour" element={<PouchFactoryTourPage />} />
               <Route path="/materials/cello-kraft-triplex" element={<PouchCelloKraftPage />} />
               <Route path="/materials/kraft-duplex" element={<PouchKraftDuplexPage />} />
               <Route path="/materials/catalog" element={<PouchMaterialCatalogPage />} />

@@ -91,9 +91,28 @@ export default function PouchHomePage() {
         <meta name="description" content="Sustainable packaging made simple. Low MOQ compostable pouches for startups. Get started with 500 units." />
       </Helmet>
 
-      {/* Hero Section */}
-      <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px]">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+      {/* Hero Section with Video Background */}
+      <section className="relative pt-12 pb-24 border-b-4 border-black overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-30"
+            key="hero-video"
+          >
+            <source src="/video/pouch-eco-marketing-videos/problem.mp4" type="video/mp4" />
+            <source src="/video/pouch-eco-marketing-videos/brand-reveal.mp4" type="video/mp4" />
+            <source src="/video/pouch-eco-marketing-videos/Material.mp4" type="video/mp4" />
+            <source src="/video/pouch-eco-marketing-videos/Performance.mp4" type="video/mp4" />
+          </video>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px] opacity-80" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             
             {/* Left Content */}

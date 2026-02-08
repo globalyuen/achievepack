@@ -17,7 +17,7 @@ const VIDEOS: Video[] = [
     title: 'The Plastic Problem',
     description: 'In a world of single-use plastics, our planet pays the price.',
     thumbnail: '/all-product-photos/IMG_4372.webp',
-    videoSrc: '/3d/video/pouch1.mp4',
+    videoSrc: '/video/pouch-eco-marketing-videos/problem.mp4',
     segment: 'Segment 1 (0-6s)'
   },
   {
@@ -25,15 +25,15 @@ const VIDEOS: Video[] = [
     title: 'Plant-Based Innovation',
     description: 'Certified compostable pouches made from plant-based materials.',
     thumbnail: '/all-product-photos/IMG_4362.webp',
-    videoSrc: '/3d/video/pouch2.mp4',
+    videoSrc: '/video/pouch-eco-marketing-videos/brand-reveal.mp4',
     segment: 'Segment 2 (6-12s)'
   },
   {
     id: 'certification',
-    title: 'Certified Compostable',
+    title: 'Certified Materials',
     description: 'TUV OK Home and ASTM D6400 certified - breaks down in 180 days.',
     thumbnail: '/all-product-photos/IMG_4363.webp',
-    videoSrc: '/3d/video/pouch3.mp4',
+    videoSrc: '/video/pouch-eco-marketing-videos/Material.mp4',
     segment: 'Segment 3 (12-18s)'
   },
   {
@@ -41,7 +41,7 @@ const VIDEOS: Video[] = [
     title: 'Performance & Design',
     description: 'High barrier protection with premium stand-up design.',
     thumbnail: '/all-product-photos/IMG_4365.webp',
-    videoSrc: '/3d/video/pouch4.mp4',
+    videoSrc: '/video/pouch-eco-marketing-videos/Performance.mp4',
     segment: 'Segment 4 (18-24s)'
   },
   {
@@ -49,23 +49,23 @@ const VIDEOS: Video[] = [
     title: 'Designed for Real Life',
     description: 'Perfect for snacks, coffee, tea, and dry goods.',
     thumbnail: '/all-product-photos/IMG_4367.webp',
-    videoSrc: '/video/factory/bag making.mp4',
+    videoSrc: '/video/pouch-eco-marketing-videos/use.mp4',
     segment: 'Segment 5 (24-30s)'
   },
   {
     id: 'environmental',
-    title: 'Circular & Clean',
+    title: 'Environmental Impact',
     description: 'Returns to nature as water, CO₂, and nutrient-rich biomass.',
     thumbnail: '/all-product-photos/IMG_4369.webp',
-    videoSrc: '/video/factory/laminating.mp4',
+    videoSrc: '/video/pouch-eco-marketing-videos/Environmental.mp4',
     segment: 'Segment 6 (30-36s)'
   },
   {
     id: 'brand-benefits',
-    title: 'Consumer-Preferred',
+    title: 'Build Your Brand',
     description: 'Build trust with eco-conscious consumers. Regulatory compliant.',
     thumbnail: '/all-product-photos/IMG_4371.webp',
-    videoSrc: '/video/factory/roto-printing.mp4',
+    videoSrc: '/video/pouch-eco-marketing-videos/Brand.mp4',
     segment: 'Segment 7 (36-42s)'
   },
   {
@@ -73,23 +73,23 @@ const VIDEOS: Video[] = [
     title: 'Low MOQ & Custom',
     description: 'From 500 pieces with fast digital printing.',
     thumbnail: '/all-product-photos/IMG_4373.webp',
-    videoSrc: '/video/factory/digital-printing.mp4',
+    videoSrc: '/video/pouch-eco-marketing-videos/lowmoq.mp4',
     segment: 'Segment 8 (42-48s)'
   },
   {
     id: 'cta-build',
-    title: 'Align with Values',
+    title: 'Compostable Future',
     description: 'Choose packaging that aligns with your values.',
     thumbnail: '/all-product-photos/IMG_4375.webp',
-    videoSrc: '/video/factory/slitting.mp4',
+    videoSrc: '/video/pouch-eco-marketing-videos/compost.mp4',
     segment: 'Segment 9 (48-54s)'
   },
   {
     id: 'close',
-    title: 'Better Packaging Matters',
+    title: 'Start Your Journey',
     description: 'Certified | Plant-Based | Fully Compostable',
     thumbnail: '/all-product-photos/IMG_4377.webp',
-    videoSrc: '/video/factory/enter.mp4',
+    videoSrc: '/video/pouch-eco-marketing-videos/cta2.mp4',
     segment: 'Segment 10 (54-60s)'
   }
 ]
