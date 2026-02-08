@@ -3,6 +3,7 @@ import { Package, Leaf, Zap, Box as BoxIcon, Flame, Star } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import PouchLayout from '../../components/pouch/PouchLayout'
+import ProductCarousel from '../../components/ProductCarousel'
 
 // ============================================
 // NEO-BRUTALIST COMPONENTS (Local)
@@ -152,6 +153,23 @@ export default function PouchHomePage() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Product Photos Carousel */}
+      <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <div className="inline-block bg-black text-[#D4FF00] px-4 py-1 mb-6 font-['JetBrains_Mono'] font-bold transform -rotate-1">
+            REAL_PRODUCTS • REAL_BRANDS
+          </div>
+          <h2 className="font-black text-5xl md:text-7xl uppercase mb-6">
+            See Our <span className="text-[#10b981]">Work</span>
+          </h2>
+          <p className="font-['JetBrains_Mono'] text-lg max-w-2xl mx-auto text-gray-700">
+            Browse real product photos from brands we've helped launch. Your brand could be next.
+          </p>
+        </div>
+        
+        <ProductCarousel autoPlay autoPlayInterval={4000} />
       </section>
 
       {/* Feature Bento Grid */}
