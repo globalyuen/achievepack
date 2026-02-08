@@ -1,5 +1,5 @@
 import { ReactNode, useState } from 'react'
-import { Leaf, Calendar, Menu, X } from 'lucide-react'
+import { Leaf, Calendar, Menu, X, Building2, BookOpen, MessageSquare } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -32,10 +32,12 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8 font-['JetBrains_Mono'] font-bold text-sm">
+          <div className="hidden md:flex items-center gap-6 font-['JetBrains_Mono'] font-bold text-sm">
             {[
               { label: 'PRODUCTS', path: '/products' },
               { label: 'MATERIALS', path: '/materials' },
+              { label: 'TESTIMONIALS', path: '/testimonials' },
+              { label: 'BLOG', path: '/blog' },
               { label: 'START', action: 'book_call' }
             ].map((item) => (
               item.action === 'book_call' ? (
@@ -66,6 +68,20 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
 
           {/* Mobile & Desktop Right Actions */}
           <div className="flex items-center gap-2">
+            {/* AchievePack Enterprise Link */}
+            <a
+              href="https://achievepack.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border-2 border-black p-2 hover:bg-[#00FFFF] transition-colors relative group"
+              title="AchievePack - Enterprise Solutions"
+            >
+              <Building2 className="w-6 h-6" />
+              <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-black text-white px-2 py-1 text-xs font-['JetBrains_Mono'] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                Enterprise
+              </span>
+            </a>
+
             <button 
               className="border-2 border-black p-2 hover:bg-[#D4FF00] transition-colors relative group" 
               onClick={() => window.open('https://calendly.com/30-min-free-packaging-consultancy', '_blank')}
@@ -169,6 +185,27 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                   >
                     [TESTIMONIALS]
                   </Link>
+                  
+                  <Link
+                    to="/blog"
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`block px-4 py-3 border-4 border-black transition-all ${
+                      isActive('/blog') 
+                        ? 'bg-black text-[#D4FF00]' 
+                        : 'bg-white hover:bg-[#D4FF00]'
+                    }`}
+                  >
+                    [BLOG]
+                  </Link>
+                  
+                  <a
+                    href="https://achievepack.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-4 py-3 border-4 border-black bg-[#00FFFF] hover:bg-[#00FFFF]/80 transition-all"
+                  >
+                    [ENTERPRISE →]
+                  </a>
                   
                   <div className="pt-4 border-t-4 border-black mt-4">
                     <button
