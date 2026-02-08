@@ -5,6 +5,10 @@
     {
       "path": "/api/prospect/cron-autorun",
       "schedule": "*/30 * * * *"
+    },
+    {
+      "path": "/api/daily-report",
+      "schedule": "0 9 * * *"
     }
   ],
   "functions": {
