@@ -23,9 +23,13 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
       <nav className="border-b-4 border-black bg-white sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <div className="w-10 h-10 bg-black flex items-center justify-center">
-              <Leaf className="text-[#D4FF00] w-6 h-6" />
-            </div>
+            <img 
+              src="/eco-logo/transparent-bkg/ap-logo.webp" 
+              alt="POUCH.ECO Logo" 
+              className="h-10 w-auto"
+              loading="eager"
+              decoding="async"
+            />
             <span className="font-black text-2xl tracking-tighter">
               POUCH<span className="text-[#00FFFF]">.ECO</span>
             </span>
