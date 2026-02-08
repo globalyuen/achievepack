@@ -6,16 +6,106 @@ import PouchLayout from '../../components/pouch/PouchLayout'
 
 export default function PouchBlogPage() {
   const featured = {
-    title: 'The Ultimate Guide to Compostable Packaging in 2026',
-    excerpt: 'Everything you need to know about industrial vs. home compostable materials, certifications, and choosing the right option for your brand.',
-    image: '/imgs/4-infograhic/compost.webp',
-    date: '2026-01-25',
-    category: 'Materials Guide',
-    readTime: '8 min',
-    link: '/products/compostable-stand-up-pouches'
+    title: 'USA Compostable Packaging Guide: Certifications, State Laws & Low MOQ',
+    excerpt: 'Complete guide for US brands: ASTM D6400, BPI certification, state-by-state regulations, and where to buy with MOQ from 100 pieces.',
+    image: '/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp',
+    date: '2026-01-30',
+    category: 'Sustainability Guide',
+    readTime: '12 min',
+    link: '/blog/usa-compostable-packaging-guide'
   }
 
   const posts = [
+    {
+      title: 'Coffee Bags Degassing Valve Guide: One-Way vs Two-Way vs Aroma Valves',
+      excerpt: 'Complete guide to coffee bag degassing valves. Learn one-way vs two-way vs aroma valves, material compatibility, pricing ($0.08-$0.22/bag), and 309% ROI case study.',
+      image: '/imgs/reclose/ads/a_valve_closure_detail_6401844.webp',
+      date: '2026-01-30',
+      category: 'Coffee',
+      readTime: '15 min',
+      link: '/blog/coffee-degassing-valve-guide'
+    },
+    {
+      title: 'BPI Certified Guide: How to Get Your Packaging BPI-Certified in 2026',
+      excerpt: 'Complete guide to BPI certification. Learn the 4-step process, costs ($11K-$20K), timeline (4-6 months), BPI vs EN 13432 comparison, and real case studies from Intelligentsia Coffee.',
+      image: '/imgs/company/bpi/a_bpi_certification_verification_badge_3065504.webp',
+      date: '2026-01-30',
+      category: 'Certification',
+      readTime: '16 min',
+      link: '/blog/bpi-certified-guide'
+    },
+    {
+      title: 'Industrial Compostable Guide: EN 13432 and ASTM D6400 Certification',
+      excerpt: 'Complete guide to industrial compostable packaging. Learn EN 13432 vs ASTM D6400 certifications, material options (PLA, PBAT, Bio-PBS), pricing, and real case studies.',
+      image: '/imgs/seo-photos/a_industrial_compostable_facility_2850870.webp',
+      date: '2026-01-30',
+      category: 'Materials',
+      readTime: '14 min',
+      link: '/blog/industrial-compostable-guide'
+    },
+    {
+      title: 'USA Labeling Guide: California, Washington & Colorado Compliance',
+      excerpt: 'Avoid the $10K/day fine: Complete guide to California AB 1201/SB 343, Washington HB 1569, Colorado HB 22-1355 compliance. ASTM D6400 certification explained.',
+      image: '/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp',
+      date: '2026-01-30',
+      category: 'USA Compliance',
+      readTime: '12 min',
+      link: '/blog/usa-labeling-guide'
+    },
+    {
+      title: 'USA Snacks Packaging Guide: State Laws, Materials & Real Pricing',
+      excerpt: 'Complete guide for US snack brands: Compostable vs recyclable, California/Washington/Colorado compliance, transparent pricing, startup case study.',
+      image: '/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp',
+      date: '2026-01-30',
+      category: 'Snacks USA',
+      readTime: '14 min',
+      link: '/blog/usa-snacks-packaging-guide'
+    },
+    {
+      title: 'Low MOQ Packaging Guide: Start with Just 100 Pieces',
+      excerpt: 'Digital print vs plate print economics, transparent pricing breakdown, complete timeline. Perfect for small brands, coffee roasters, and e-commerce startups.',
+      image: '/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp',
+      date: '2026-01-30',
+      category: 'Startup Guide',
+      readTime: '16 min',
+      link: '/blog/low-moq-packaging-guide'
+    },
+    {
+      title: 'Compostable Stand-Up Pouches Guide: Materials, Sizes & Real Pricing',
+      excerpt: 'Everything you need to know: ASTM D6400 material science, size-to-product matching, transparent pricing from 100 pieces.',
+      image: '/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.webp',
+      date: '2026-01-30',
+      category: 'Packaging Guide',
+      readTime: '18 min',
+      link: '/blog/compostable-stand-up-pouches-guide'
+    },
+    {
+      title: 'USA Coffee Packaging: Compostable vs Recyclable + State Laws',
+      excerpt: 'Complete guide for US specialty roasters: ASTM D6400 vs recyclable mono-PE, California/Washington compliance, transparent pricing from 100 pieces.',
+      image: '/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp',
+      date: '2026-01-30',
+      category: 'Coffee USA',
+      readTime: '15 min',
+      link: '/blog/usa-coffee-packaging'
+    },
+    {
+      title: 'Coffee Packaging Guide: Compostable vs Recyclable (Low MOQ from 100)',
+      excerpt: 'Everything specialty roasters need to know about barrier performance, degassing valves, and ordering sustainable coffee bags.',
+      image: '/imgs/seo-photos/a_bean_bole_coffee_roastery_8131919.webp',
+      date: '2026-01-30',
+      category: 'Coffee Industry',
+      readTime: '8 min',
+      link: '/blog/coffee-packaging-guide'
+    },
+    {
+      title: 'The Ultimate Guide to Compostable Packaging in 2026',
+      excerpt: 'Everything you need to know about industrial vs. home compostable materials, certifications, and choosing the right option for your brand.',
+      image: '/imgs/4-infograhic/compost.webp',
+      date: '2026-01-25',
+      category: 'Materials Guide',
+      readTime: '8 min',
+      link: '/products/compostable-stand-up-pouches'
+    },
     {
       title: 'Low MOQ Packaging: How to Launch with Just 500 Units',
       excerpt: 'A complete guide for startups and small brands on launching sustainably without huge MOQ commitments.',
@@ -74,8 +164,11 @@ export default function PouchBlogPage() {
 
   const categories = [
     { name: 'All Posts', count: posts.length + 1, icon: BookOpen },
+    { name: 'Sustainability Guide', count: 1, icon: Leaf },
+    { name: 'Packaging Guide', count: 1, icon: Package },
     { name: 'Materials Guide', count: 3, icon: Leaf },
-    { name: 'Coffee Industry', count: 2, icon: Coffee },
+    { name: 'Coffee Industry', count: 3, icon: Coffee },
+    { name: 'Coffee USA', count: 1, icon: Coffee },
     { name: 'Design Tips', count: 2, icon: Package },
     { name: 'Startup Guide', count: 1, icon: TrendingUp }
   ]
