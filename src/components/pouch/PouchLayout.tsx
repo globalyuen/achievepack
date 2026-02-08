@@ -36,6 +36,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
             {[
               { label: 'PRODUCTS', path: '/products' },
               { label: 'MATERIALS', path: '/materials' },
+              { label: 'CERTIFICATIONS', path: '/certifications' },
               { label: 'TESTIMONIALS', path: '/testimonials' },
               { label: 'BLOG', path: '/blog' },
               { label: 'START', action: 'book_call' }
@@ -151,6 +152,18 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                   </Link>
                   
                   <Link
+                    to="/certifications"
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`block px-4 py-3 border-4 border-black transition-all ${
+                      isActive('/certifications') 
+                        ? 'bg-black text-[#D4FF00]' 
+                        : 'bg-white hover:bg-[#D4FF00]'
+                    }`}
+                  >
+                    [CERTIFICATIONS]
+                  </Link>
+                  
+                  <Link
                     to="/solutions"
                     onClick={() => setIsMenuOpen(false)}
                     className={`block px-4 py-3 border-4 border-black transition-all ${
@@ -258,7 +271,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
 
           <div className="border-t-4 border-black pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center font-['JetBrains_Mono'] text-xs font-bold gap-4">
             <div className="text-center md:text-left">
-              © 2025 POUCH.ECO // ECO PACKAGING PROTOCOL<br/>
+              © 2026 POUCH.ECO // ECO PACKAGING PROTOCOL<br/>
               ALL MATERIALS CERTIFIED
             </div>
             <div className="flex gap-4">

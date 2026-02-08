@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { Star, Quote, Sparkles, Award, TrendingUp, Heart } from 'lucide-react'
 import PouchLayout from '../../components/pouch/PouchLayout'

@@ -97,7 +97,7 @@ export default function PouchHomePage() {
             {/* Left Content */}
             <div className="space-y-8 z-10">
               <div className="inline-block bg-[#D4FF00] border-4 border-black px-4 py-2 transform -rotate-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                <span className="font-['JetBrains_Mono'] font-bold text-sm">ECO_SYSTEM v2025</span>
+                <span className="font-['JetBrains_Mono'] font-bold text-sm">ECO_SYSTEM v2026</span>
               </div>
               
               <h1 className="font-black text-6xl md:text-8xl leading-[0.9] tracking-tighter uppercase">

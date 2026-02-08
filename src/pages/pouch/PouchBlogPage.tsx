@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { BookOpen, Calendar, ArrowRight, TrendingUp, Leaf, Coffee, Package } from 'lucide-react'
 import { Link } from 'react-router-dom'
@@ -6,10 +6,10 @@ import PouchLayout from '../../components/pouch/PouchLayout'
 
 export default function PouchBlogPage() {
   const featured = {
-    title: 'The Ultimate Guide to Compostable Packaging in 2025',
+    title: 'The Ultimate Guide to Compostable Packaging in 2026',
     excerpt: 'Everything you need to know about industrial vs. home compostable materials, certifications, and choosing the right option for your brand.',
     image: '/imgs/4-infograhic/compost.webp',
-    date: '2025-01-25',
+    date: '2026-01-25',
     category: 'Materials Guide',
     readTime: '8 min',
     link: '/products/compostable-stand-up-pouches'
@@ -20,7 +20,7 @@ export default function PouchBlogPage() {
       title: 'Low MOQ Packaging: How to Launch with Just 500 Units',
       excerpt: 'A complete guide for startups and small brands on launching sustainably without huge MOQ commitments.',
       image: '/imgs/infographic-low-moq.webp',
-      date: '2025-01-20',
+      date: '2026-01-20',
       category: 'Startup Guide',
       readTime: '6 min',
       link: '/products/low-moq-packaging'
@@ -29,7 +29,7 @@ export default function PouchBlogPage() {
       title: 'Coffee Bag Barrier Options: What You Actually Need',
       excerpt: 'Confused about high vs. medium vs. low barrier? Here\'s how to choose the right protection for your coffee beans.',
       image: '/imgs/reclose/ads/a_valve_closure_detail_6401844.webp',
-      date: '2025-01-18',
+      date: '2026-01-18',
       category: 'Coffee Industry',
       readTime: '7 min',
       link: '/products/coffee-bags-degassing-valve'
@@ -38,7 +38,7 @@ export default function PouchBlogPage() {
       title: 'Degassing Valves Explained: One-Way Valve for Fresh Coffee',
       excerpt: 'Why your coffee bags need degassing valves, how they work, and which type is best for your roast profile.',
       image: '/imgs/reclose/ads/a_tintie_coffee_pouch_correct_4114906.webp',
-      date: '2025-01-15',
+      date: '2026-01-15',
       category: 'Coffee Industry',
       readTime: '5 min',
       link: '/products/coffee-bags-degassing-valve'
@@ -47,7 +47,7 @@ export default function PouchBlogPage() {
       title: 'Recyclable vs. Compostable: Which is Better for Your Brand?',
       excerpt: 'The honest truth about recyclable mono-material and compostable packaging. Pros, cons, and which customers prefer.',
       image: '/imgs/seo-photos/a_mono_recyclable_certification_compliance_7572715.webp',
-      date: '2025-01-12',
+      date: '2026-01-12',
       category: 'Materials Guide',
       readTime: '6 min',
       link: '/products/recyclable-mono-material-pouches'
@@ -56,7 +56,7 @@ export default function PouchBlogPage() {
       title: 'Surface Finishes 101: Matte, Gloss, or Soft-Touch?',
       excerpt: 'Visual comparison and tactile differences between finish options. See which one matches your brand aesthetic.',
       image: '/imgs/surface/a_matte_finish_detail_7483118.webp',
-      date: '2025-01-10',
+      date: '2026-01-10',
       category: 'Design Tips',
       readTime: '4 min',
       link: '/options/surface-finish'
@@ -65,7 +65,7 @@ export default function PouchBlogPage() {
       title: '6 Reclosure Options for Stand-Up Pouches',
       excerpt: 'Zippers, spouts, tin-ties, and more. A complete breakdown of reclosure mechanisms and their best use cases.',
       image: '/imgs/reclose/ads/a_reclosure_four_quadrant_overview_3481316.webp',
-      date: '2025-01-08',
+      date: '2026-01-08',
       category: 'Design Tips',
       readTime: '6 min',
       link: '/options/reclosure'
