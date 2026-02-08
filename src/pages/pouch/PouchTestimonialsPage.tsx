@@ -183,6 +183,7 @@ export default function PouchTestimonialsPage() {
         <meta property="og:url" content="https://pouch.eco/testimonials" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta property="og:image" content="https://pouch.eco/imgs/seo-photos/og-testimonials-pouch.png" />
       </Helmet>
 
       {/* Hero */}

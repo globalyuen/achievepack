@@ -1,10 +1,10 @@
 {
   "generated": "2026-02-08",
-  "total_images": 1209,
+  "total_images": 1210,
   "total_categories": 134,
   "extensions": {
     ".webp": 1058,
-    ".png": 142,
+    ".png": 143,
     ".jpg": 6,
     ".svg": 3
   },
@@ -5138,8 +5138,14 @@
       ]
     },
     "seo-photos": {
-      "count": 76,
+      "count": 77,
       "images": [
+        {
+          "filename": "og-testimonials-pouch.png",
+          "path": "/imgs/seo-photos/og-testimonials-pouch.png",
+          "extension": ".png",
+          "modified": "2026-02-08T07:32:30.825Z"
+        },
         {
           "filename": "a_about_sustainability_mission_5914909.webp",
           "path": "/imgs/seo-photos/a_about_sustainability_mission_5914909.webp",

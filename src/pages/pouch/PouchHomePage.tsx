@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import PouchLayout from '../../components/pouch/PouchLayout'
 import ProductCarousel from '../../components/ProductCarousel'
+import VideoShowcase from '../../components/pouch/VideoShowcase'
 
 // ============================================
 // NEO-BRUTALIST COMPONENTS (Local)
@@ -171,6 +172,9 @@ export default function PouchHomePage() {
         
         <ProductCarousel autoPlay autoPlayInterval={4000} />
       </section>
+
+      {/* Video Showcase */}
+      <VideoShowcase />
 
       {/* Feature Bento Grid */}
       <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto">
