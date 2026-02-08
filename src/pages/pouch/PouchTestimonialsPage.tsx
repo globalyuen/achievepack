@@ -17,7 +17,7 @@ export default function PouchTestimonialsPage() {
       person: 'Sarah Chen',
       role: 'Founder',
       rating: 5,
-      image: '/imgs/seo-photos/a_bean_bole_coffee_roastery_8131919.webp',
+      image: '/imgs/seo-photos/bean_bole_coffee_pouch.png',
       highlights: ['23% Sales Increase', 'Zero Waste', 'Customer Love']
     },
     {
@@ -28,7 +28,7 @@ export default function PouchTestimonialsPage() {
       person: 'Marcus Johnson',
       role: 'Product Manager',
       rating: 5,
-      image: '/imgs/seo-photos/a_nourishnow_seattle_morning_wellness_pouch_1061333.webp',
+      image: '/imgs/seo-photos/nourishnow_wellness_pouch.png',
       highlights: ['Premium Feel', 'Customer Feedback', 'Brand Uplift']
     },
     {
@@ -39,7 +39,7 @@ export default function PouchTestimonialsPage() {
       person: 'Jessica Lee',
       role: 'Co-Founder',
       rating: 5,
-      image: '/imgs/seo-photos/a_vitalgreen_superfood_chicago_wellness_pouch_1211501.webp',
+      image: '/imgs/seo-photos/vitalgreen_superfood_pouch.png',
       highlights: ['3-Week Turnaround', 'Great Support', 'Amazing Quality']
     },
     {
@@ -50,7 +50,7 @@ export default function PouchTestimonialsPage() {
       person: 'David Miller',
       role: 'Owner',
       rating: 5,
-      image: '/imgs/seo-photos/a_wholesome_bakery_pouch_kitchen_9227377.webp',
+      image: '/imgs/seo-photos/wholesome_bakery_pouch.png',
       highlights: ['Artisan Look', 'Perfect Fit', 'Eco Values']
     },
     {
@@ -61,7 +61,7 @@ export default function PouchTestimonialsPage() {
       person: 'Emma Rodriguez',
       role: 'Operations Lead',
       rating: 5,
-      image: '/imgs/seo-photos/a_nutrivie_nuts_sustainable_pouch_lifestyle_0132786.webp',
+      image: '/imgs/seo-photos/nutrivie_snacks_pouch.png',
       highlights: ['Perfect Barrier', 'Great Guidance', '8-Month Shelf Life']
     },
     {
@@ -72,7 +72,7 @@ export default function PouchTestimonialsPage() {
       person: 'Alex Park',
       role: 'Head Roaster',
       rating: 5,
-      image: '/imgs/seo-photos/a_roast_ritual_nyc_coffee_urban_2153150.webp',
+      image: '/imgs/seo-photos/roast_ritual_coffee_pouch.png',
       highlights: ['Started Small', 'Scaled Fast', 'Fresh Coffee']
     },
     {
