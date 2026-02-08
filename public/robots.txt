@@ -19,5 +19,8 @@ Disallow: /store/rfq-confirmation
 Allow: /store
 Allow: /store/product/
 
-# Sitemap
-Sitemap: https://achievepack.com/sitemap.xml
+# Sitemaps - Domain-specific
+# For achievepack.com
+Sitemap: https://achievepack.com/sitemap-achievepack.xml
+# For pouch.eco
+Sitemap: https://pouch.eco/sitemap-pouch.xml
