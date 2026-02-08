@@ -1,0 +1,22 @@
+{
+  "name": "Pouch.eco - Eco Packaging",
+  "short_name": "Pouch.eco",
+  "description": "Beautiful compostable packaging from just 500 units",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#10b981",
+  "icons": [
+    {
+      "src": "/pouch-eco-favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/pouch-eco-apple-touch-icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml"
+    }
+  ]
+}

@@ -152,8 +152,12 @@ export default function DualDomainSEOHead({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImageUrl} />
       
-      {/* Domain-specific favicon */}
+      {/* Domain-specific favicon and icons */}
       <link rel="icon" href={brand.faviconPath} />
+      <link rel="apple-touch-icon" sizes="180x180" href={domain === 'pouch' ? '/pouch-eco-apple-touch-icon.svg' : '/imgs/apple-touch-icon.png'} />
+      <link rel="shortcut icon" href={brand.faviconPath} />
+      <link rel="manifest" href={domain === 'pouch' ? '/manifest-pouch.json' : '/manifest.json'} />
+      <meta name="theme-color" content={brand.primaryColor} />
       
       {/* Schema.org JSON-LD */}
       <script type="application/ld+json">
