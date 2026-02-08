@@ -17,7 +17,7 @@ export default function PouchTestimonialsPage() {
       person: 'Sarah Chen',
       role: 'Founder',
       rating: 5,
-      image: '/imgs/seo-photos/bean_bole_coffee_pouch.png',
+      image: '/imgs/seo-photos/bean_bole_coffee_pouch.png?v=2',
       highlights: ['23% Sales Increase', 'Zero Waste', 'Customer Love']
     },
     {
@@ -28,7 +28,7 @@ export default function PouchTestimonialsPage() {
       person: 'Marcus Johnson',
       role: 'Product Manager',
       rating: 5,
-      image: '/imgs/seo-photos/nourishnow_wellness_pouch.png',
+      image: '/imgs/seo-photos/nourishnow_wellness_pouch.png?v=2',
       highlights: ['Premium Feel', 'Customer Feedback', 'Brand Uplift']
     },
     {
@@ -39,7 +39,7 @@ export default function PouchTestimonialsPage() {
       person: 'Jessica Lee',
       role: 'Co-Founder',
       rating: 5,
-      image: '/imgs/seo-photos/a_vitalgreen_superfood_chicago_wellness_pouch_1211501.webp',
+      image: '/imgs/seo-photos/a_vitalgreen_superfood_chicago_wellness_pouch_1211501.webp?v=2',
       highlights: ['3-Week Turnaround', 'Great Support', 'Amazing Quality']
     },
     {
@@ -50,7 +50,7 @@ export default function PouchTestimonialsPage() {
       person: 'David Miller',
       role: 'Owner',
       rating: 5,
-      image: '/imgs/seo-photos/a_wholesome_bakery_pouch_kitchen_9227377.webp',
+      image: '/imgs/seo-photos/a_wholesome_bakery_pouch_kitchen_9227377.webp?v=2',
       highlights: ['Artisan Look', 'Perfect Fit', 'Eco Values']
     },
     {
@@ -61,7 +61,7 @@ export default function PouchTestimonialsPage() {
       person: 'Emma Rodriguez',
       role: 'Operations Lead',
       rating: 5,
-      image: '/imgs/seo-photos/a_nutrivie_nuts_sustainable_pouch_lifestyle_0132786.webp',
+      image: '/imgs/seo-photos/a_nutrivie_nuts_sustainable_pouch_lifestyle_0132786.webp?v=2',
       highlights: ['Perfect Barrier', 'Great Guidance', '8-Month Shelf Life']
     },
     {
@@ -72,7 +72,7 @@ export default function PouchTestimonialsPage() {
       person: 'Alex Park',
       role: 'Head Roaster',
       rating: 5,
-      image: '/imgs/seo-photos/a_roast_ritual_nyc_coffee_urban_2153150.webp',
+      image: '/imgs/seo-photos/a_roast_ritual_nyc_coffee_urban_2153150.webp?v=2',
       highlights: ['Started Small', 'Scaled Fast', 'Fresh Coffee']
     },
     {
@@ -83,7 +83,7 @@ export default function PouchTestimonialsPage() {
       person: 'Maya Patel',
       role: 'Brand Director',
       rating: 5,
-      image: '/imgs/seo-photos/pureleaf_tea_pouch.png',
+      image: '/imgs/seo-photos/pureleaf_tea_pouch.png?v=2',
       highlights: ['Natural Look', 'Compostable', 'Brand Win']
     },
     {
@@ -94,7 +94,7 @@ export default function PouchTestimonialsPage() {
       person: 'Tom Chen',
       role: 'Founder & CEO',
       rating: 5,
-      image: '/imgs/seo-photos/snacksmart_pouch.png',
+      image: '/imgs/seo-photos/snacksmart_pouch.png?v=2',
       highlights: ['Clear Window', 'Retail Success', 'Customer Trust']
     },
     {
@@ -105,7 +105,7 @@ export default function PouchTestimonialsPage() {
       person: 'Rachel Green',
       role: 'Owner',
       rating: 5,
-      image: '/imgs/seo-photos/meadow_moon_pouch.png',
+      image: '/imgs/seo-photos/meadow_moon_pouch.png?v=2',
       highlights: ['Small Batch', 'Premium Quality', 'Brand Perception']
     },
     {
@@ -116,7 +116,7 @@ export default function PouchTestimonialsPage() {
       person: 'Jordan Smith',
       role: 'Co-Founder',
       rating: 5,
-      image: '/imgs/seo-photos/peak_performance_pouch.png',
+      image: '/imgs/seo-photos/peak_performance_pouch.png?v=2',
       highlights: ['Matte Black', 'Premium Look', 'Social Media Win']
     },
     {
@@ -127,7 +127,7 @@ export default function PouchTestimonialsPage() {
       person: 'Amanda Foster',
       role: 'Founder',
       rating: 5,
-      image: '/imgs/seo-photos/little_sprouts_pouch.png',
+      image: '/imgs/seo-photos/little_sprouts_pouch.png?v=2',
       highlights: ['BPI Certified', 'Parent Approved', 'Zero Issues']
     },
     {
@@ -138,7 +138,7 @@ export default function PouchTestimonialsPage() {
       person: 'Chris Martinez',
       role: 'Head Roaster',
       rating: 5,
-      image: '/imgs/seo-photos/grind_culture_pouch.png',
+      image: '/imgs/seo-photos/grind_culture_pouch.png?v=2',
       highlights: ['Degassing Valve', '6-Week Freshness', 'Subscription Hit']
     }
   ]
