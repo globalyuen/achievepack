@@ -156,6 +156,191 @@ export default function PouchHomePage() {
         </div>
       </section>
 
+      {/* Trusted Brands Logo Marquee - Neo-Brutalist Style */}
+      <section className="py-16 px-4 bg-white border-y-4 border-black overflow-hidden">
+        <div className="max-w-6xl mx-auto mb-12 text-center">
+          <div className="inline-block bg-[#D4FF00] border-4 border-black px-4 py-2 transform rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-6">
+            <span className="font-['JetBrains_Mono'] font-bold uppercase">TRUSTED_BY</span>
+          </div>
+          <h2 className="font-black text-4xl md:text-5xl uppercase mb-4">
+            Join <span className="text-[#10b981]">500+</span> Brands
+          </h2>
+          <p className="text-lg text-gray-700 font-['Space_Grotesk']">
+            From startups to established names - they all started with 500 units
+          </p>
+        </div>
+
+        {/* Logo Strip 1 - Scrolling Left */}
+        <div className="relative -rotate-1 mb-6">
+          <div className="bg-black border-4 border-black py-6 overflow-hidden">
+            <div className="flex animate-scroll-left">
+              {/* First set */}
+              {[
+                { name: 'Morlife', image: '/imgs/clien-logos/morlife.png' },
+                { name: 'Sustenir Agriculture', image: '/imgs/clien-logos/sustenir.png' },
+                { name: 'Two Rivers', image: '/imgs/clien-logos/tworivers.png' },
+                { name: 'Humble Snacks', image: '/imgs/clien-logos/humble.png' },
+                { name: 'Mavella Superfoods', image: '/imgs/clien-logos/mavella.png' },
+                { name: 'Superfood Lab Asia', image: '/imgs/clien-logos/superfood.png' },
+                { name: 'Green Urban Foods', image: '/imgs/clien-logos/green-urban.png' },
+                { name: 'Knowrish Well', image: '/imgs/clien-logos/knowrish.png' },
+                { name: 'Fodilicious', image: '/imgs/clien-logos/fodilicious.png' },
+                { name: 'Hike Again Remedies', image: '/imgs/clien-logos/hike.png' },
+                { name: 'Nuditea', image: '/imgs/clien-logos/nuditea.png' },
+                { name: 'Winand Products', image: '/imgs/clien-logos/winand.png' },
+                { name: 'Freshfield', image: '/imgs/clien-logos/freshfield.png' },
+                { name: 'Honestea', image: '/imgs/clien-logos/honestea.png' },
+                { name: 'Moom Health', image: '/imgs/clien-logos/moom.png' }
+              ].map((logo, idx) => (
+                <div 
+                  key={`logo-1-${idx}`} 
+                  className="flex-shrink-0 mx-8 h-16 w-32 flex items-center justify-center bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(212,255,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(212,255,0,1)] transition-all"
+                >
+                  <img 
+                    src={logo.image} 
+                    alt={logo.name} 
+                    className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" 
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {[
+                { name: 'Morlife', image: '/imgs/clien-logos/morlife.png' },
+                { name: 'Sustenir Agriculture', image: '/imgs/clien-logos/sustenir.png' },
+                { name: 'Two Rivers', image: '/imgs/clien-logos/tworivers.png' },
+                { name: 'Humble Snacks', image: '/imgs/clien-logos/humble.png' },
+                { name: 'Mavella Superfoods', image: '/imgs/clien-logos/mavella.png' },
+                { name: 'Superfood Lab Asia', image: '/imgs/clien-logos/superfood.png' },
+                { name: 'Green Urban Foods', image: '/imgs/clien-logos/green-urban.png' },
+                { name: 'Knowrish Well', image: '/imgs/clien-logos/knowrish.png' },
+                { name: 'Fodilicious', image: '/imgs/clien-logos/fodilicious.png' },
+                { name: 'Hike Again Remedies', image: '/imgs/clien-logos/hike.png' },
+                { name: 'Nuditea', image: '/imgs/clien-logos/nuditea.png' },
+                { name: 'Winand Products', image: '/imgs/clien-logos/winand.png' },
+                { name: 'Freshfield', image: '/imgs/clien-logos/freshfield.png' },
+                { name: 'Honestea', image: '/imgs/clien-logos/honestea.png' },
+                { name: 'Moom Health', image: '/imgs/clien-logos/moom.png' }
+              ].map((logo, idx) => (
+                <div 
+                  key={`logo-2-${idx}`} 
+                  className="flex-shrink-0 mx-8 h-16 w-32 flex items-center justify-center bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(212,255,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(212,255,0,1)] transition-all"
+                >
+                  <img 
+                    src={logo.image} 
+                    alt={logo.name} 
+                    className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" 
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Logo Strip 2 - Scrolling Right */}
+        <div className="relative rotate-1">
+          <div className="bg-[#10b981] border-4 border-black py-6 overflow-hidden">
+            <div className="flex animate-scroll-right">
+              {/* First set */}
+              {[
+                { name: 'Morlife', image: '/imgs/clien-logos/morlife.png' },
+                { name: 'Sustenir Agriculture', image: '/imgs/clien-logos/sustenir.png' },
+                { name: 'Two Rivers', image: '/imgs/clien-logos/tworivers.png' },
+                { name: 'Humble Snacks', image: '/imgs/clien-logos/humble.png' },
+                { name: 'Mavella Superfoods', image: '/imgs/clien-logos/mavella.png' },
+                { name: 'Superfood Lab Asia', image: '/imgs/clien-logos/superfood.png' },
+                { name: 'Green Urban Foods', image: '/imgs/clien-logos/green-urban.png' },
+                { name: 'Knowrish Well', image: '/imgs/clien-logos/knowrish.png' },
+                { name: 'Fodilicious', image: '/imgs/clien-logos/fodilicious.png' },
+                { name: 'Hike Again Remedies', image: '/imgs/clien-logos/hike.png' },
+                { name: 'Nuditea', image: '/imgs/clien-logos/nuditea.png' },
+                { name: 'Winand Products', image: '/imgs/clien-logos/winand.png' },
+                { name: 'Freshfield', image: '/imgs/clien-logos/freshfield.png' },
+                { name: 'Honestea', image: '/imgs/clien-logos/honestea.png' },
+                { name: 'Moom Health', image: '/imgs/clien-logos/moom.png' }
+              ].slice().reverse().map((logo, idx) => (
+                <div 
+                  key={`logo-3-${idx}`} 
+                  className="flex-shrink-0 mx-8 h-16 w-32 flex items-center justify-center bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all"
+                >
+                  <img 
+                    src={logo.image} 
+                    alt={logo.name} 
+                    className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" 
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {[
+                { name: 'Morlife', image: '/imgs/clien-logos/morlife.png' },
+                { name: 'Sustenir Agriculture', image: '/imgs/clien-logos/sustenir.png' },
+                { name: 'Two Rivers', image: '/imgs/clien-logos/tworivers.png' },
+                { name: 'Humble Snacks', image: '/imgs/clien-logos/humble.png' },
+                { name: 'Mavella Superfoods', image: '/imgs/clien-logos/mavella.png' },
+                { name: 'Superfood Lab Asia', image: '/imgs/clien-logos/superfood.png' },
+                { name: 'Green Urban Foods', image: '/imgs/clien-logos/green-urban.png' },
+                { name: 'Knowrish Well', image: '/imgs/clien-logos/knowrish.png' },
+                { name: 'Fodilicious', image: '/imgs/clien-logos/fodilicious.png' },
+                { name: 'Hike Again Remedies', image: '/imgs/clien-logos/hike.png' },
+                { name: 'Nuditea', image: '/imgs/clien-logos/nuditea.png' },
+                { name: 'Winand Products', image: '/imgs/clien-logos/winand.png' },
+                { name: 'Freshfield', image: '/imgs/clien-logos/freshfield.png' },
+                { name: 'Honestea', image: '/imgs/clien-logos/honestea.png' },
+                { name: 'Moom Health', image: '/imgs/clien-logos/moom.png' }
+              ].slice().reverse().map((logo, idx) => (
+                <div 
+                  key={`logo-4-${idx}`} 
+                  className="flex-shrink-0 mx-8 h-16 w-32 flex items-center justify-center bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all"
+                >
+                  <img 
+                    src={logo.image} 
+                    alt={logo.name} 
+                    className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" 
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Custom CSS for infinite scroll animations */}
+        <style>{`
+          @keyframes scroll-left {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-50%);
+            }
+          }
+
+          @keyframes scroll-right {
+            0% {
+              transform: translateX(-50%);
+            }
+            100% {
+              transform: translateX(0);
+            }
+          }
+
+          .animate-scroll-left {
+            animation: scroll-left 40s linear infinite;
+          }
+
+          .animate-scroll-right {
+            animation: scroll-right 40s linear infinite;
+          }
+
+          .animate-scroll-left:hover,
+          .animate-scroll-right:hover {
+            animation-play-state: paused;
+          }
+        `}</style>
+      </section>
+
       {/* Product Photos Carousel */}
       <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto">
         <div className="text-center mb-12">

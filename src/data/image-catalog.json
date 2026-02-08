@@ -1,10 +1,10 @@
 {
   "generated": "2026-02-08",
-  "total_images": 1210,
+  "total_images": 1216,
   "total_categories": 134,
   "extensions": {
     ".webp": 1058,
-    ".png": 143,
+    ".png": 149,
     ".jpg": 6,
     ".svg": 3
   },
@@ -5138,8 +5138,44 @@
       ]
     },
     "seo-photos": {
-      "count": 77,
+      "count": 83,
       "images": [
+        {
+          "filename": "grind_culture_pouch.png",
+          "path": "/imgs/seo-photos/grind_culture_pouch.png",
+          "extension": ".png",
+          "modified": "2026-02-08T07:37:51.552Z"
+        },
+        {
+          "filename": "little_sprouts_pouch.png",
+          "path": "/imgs/seo-photos/little_sprouts_pouch.png",
+          "extension": ".png",
+          "modified": "2026-02-08T07:37:15.325Z"
+        },
+        {
+          "filename": "peak_performance_pouch.png",
+          "path": "/imgs/seo-photos/peak_performance_pouch.png",
+          "extension": ".png",
+          "modified": "2026-02-08T07:36:59.813Z"
+        },
+        {
+          "filename": "meadow_moon_pouch.png",
+          "path": "/imgs/seo-photos/meadow_moon_pouch.png",
+          "extension": ".png",
+          "modified": "2026-02-08T07:36:46.572Z"
+        },
+        {
+          "filename": "snacksmart_pouch.png",
+          "path": "/imgs/seo-photos/snacksmart_pouch.png",
+          "extension": ".png",
+          "modified": "2026-02-08T07:36:32.941Z"
+        },
+        {
+          "filename": "pureleaf_tea_pouch.png",
+          "path": "/imgs/seo-photos/pureleaf_tea_pouch.png",
+          "extension": ".png",
+          "modified": "2026-02-08T07:33:21.858Z"
+        },
         {
           "filename": "og-testimonials-pouch.png",
           "path": "/imgs/seo-photos/og-testimonials-pouch.png",
