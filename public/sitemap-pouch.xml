@@ -187,9 +187,17 @@
   <!-- Printing Pages -->
   <url>
     <loc>https://pouch.eco/printing/digital</loc>
-    <lastmod>2026-01-30</lastmod>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  
+  <!-- SEO & Marketing Resources -->
+  <url>
+    <loc>https://pouch.eco/seo-guide</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   
 </urlset>
