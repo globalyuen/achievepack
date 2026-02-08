@@ -39,7 +39,7 @@ export default function PouchTestimonialsPage() {
       person: 'Jessica Lee',
       role: 'Co-Founder',
       rating: 5,
-      image: '/imgs/seo-photos/vitalgreen_superfood_pouch.png',
+      image: '/imgs/seo-photos/a_vitalgreen_superfood_chicago_wellness_pouch_1211501.webp',
       highlights: ['3-Week Turnaround', 'Great Support', 'Amazing Quality']
     },
     {
@@ -50,7 +50,7 @@ export default function PouchTestimonialsPage() {
       person: 'David Miller',
       role: 'Owner',
       rating: 5,
-      image: '/imgs/seo-photos/wholesome_bakery_pouch.png',
+      image: '/imgs/seo-photos/a_wholesome_bakery_pouch_kitchen_9227377.webp',
       highlights: ['Artisan Look', 'Perfect Fit', 'Eco Values']
     },
     {
@@ -61,7 +61,7 @@ export default function PouchTestimonialsPage() {
       person: 'Emma Rodriguez',
       role: 'Operations Lead',
       rating: 5,
-      image: '/imgs/seo-photos/nutrivie_snacks_pouch.png',
+      image: '/imgs/seo-photos/a_nutrivie_nuts_sustainable_pouch_lifestyle_0132786.webp',
       highlights: ['Perfect Barrier', 'Great Guidance', '8-Month Shelf Life']
     },
     {
@@ -72,7 +72,7 @@ export default function PouchTestimonialsPage() {
       person: 'Alex Park',
       role: 'Head Roaster',
       rating: 5,
-      image: '/imgs/seo-photos/roast_ritual_coffee_pouch.png',
+      image: '/imgs/seo-photos/a_roast_ritual_nyc_coffee_urban_2153150.webp',
       highlights: ['Started Small', 'Scaled Fast', 'Fresh Coffee']
     },
     {
