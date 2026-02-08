@@ -348,6 +348,8 @@ const PouchBarrierOverviewPage = lazyWithRetry(() => import('./pages/pouch/Pouch
 const PouchDigitalPrintingPage = lazyWithRetry(() => import('./pages/pouch/PouchDigitalPrintingPage'))
 const PouchMaterialCatalogPage = lazyWithRetry(() => import('./pages/pouch/PouchMaterialCatalogPage'))
 const PouchSEOPage = lazyWithRetry(() => import('./pages/pouch/PouchSEOPage'))
+// Industry Pages
+const PouchCoffeeTeaPage = lazyWithRetry(() => import('./pages/pouch/industry/PouchCoffeeTeaPage'))
 
 const FreeServicesHubPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesHubPage'))
 const FreeServicesPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesPage'))
@@ -431,6 +433,8 @@ if (getDomain() === 'pouch') {
               <Route path="/products" element={<PouchProductsPage />} />
               <Route path="/materials" element={<PouchMaterialsPage />} />
               <Route path="/seo-guide" element={<PouchSEOPage />} />
+              {/* Industry Solution Pages */}
+              <Route path="/industry/coffee-tea" element={<PouchCoffeeTeaPage />} />
               {/* Fallback for other routes back to Home or 404, or keep as Home for now */}
               <Route path="*" element={<PouchHomePage />} />
             </Routes>

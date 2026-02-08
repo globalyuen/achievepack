@@ -195,7 +195,15 @@
   <!-- SEO & Marketing Resources -->
   <url>
     <loc>https://pouch.eco/seo-guide</loc>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Industry Solution Pages -->
+  <url>
+    <loc>https://pouch.eco/industry/coffee-tea</loc>
+    <lastmod>2026-02-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
