@@ -352,6 +352,7 @@ const PouchSEOPage = lazyWithRetry(() => import('./pages/pouch/PouchSEOPage'))
 const PouchCoffeeTeaPage = lazyWithRetry(() => import('./pages/pouch/industry/PouchCoffeeTeaPage'))
 const PouchPetFoodPage = lazyWithRetry(() => import('./pages/pouch/industry/PouchPetFoodPage'))
 const PouchSnacksPage = lazyWithRetry(() => import('./pages/pouch/industry/PouchSnacksPage'))
+const PouchSupplementsPage = lazyWithRetry(() => import('./pages/pouch/industry/PouchSupplementsPage'))
 
 const FreeServicesHubPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesHubPage'))
 const FreeServicesPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesPage'))
@@ -439,6 +440,7 @@ if (getDomain() === 'pouch') {
               <Route path="/industry/coffee-tea" element={<PouchCoffeeTeaPage />} />
               <Route path="/industry/pet-food" element={<PouchPetFoodPage />} />
               <Route path="/industry/snacks" element={<PouchSnacksPage />} />
+              <Route path="/industry/supplements" element={<PouchSupplementsPage />} />
               {/* Fallback for other routes back to Home or 404, or keep as Home for now */}
               <Route path="*" element={<PouchHomePage />} />
             </Routes>
