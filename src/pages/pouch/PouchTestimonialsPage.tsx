@@ -83,7 +83,7 @@ export default function PouchTestimonialsPage() {
       person: 'Maya Patel',
       role: 'Brand Director',
       rating: 5,
-      image: '/imgs/seo-photos/a_pureleaf_tea_natural_packaging_4567890.webp',
+      image: '/imgs/seo-photos/pureleaf_tea_pouch.png',
       highlights: ['Natural Look', 'Compostable', 'Brand Win']
     },
     {
@@ -94,7 +94,7 @@ export default function PouchTestimonialsPage() {
       person: 'Tom Chen',
       role: 'Founder & CEO',
       rating: 5,
-      image: '/imgs/seo-photos/a_snacksmart_healthy_snacks_retail_7891234.webp',
+      image: '/imgs/seo-photos/snacksmart_pouch.png',
       highlights: ['Clear Window', 'Retail Success', 'Customer Trust']
     },
     {
@@ -105,7 +105,7 @@ export default function PouchTestimonialsPage() {
       person: 'Rachel Green',
       role: 'Owner',
       rating: 5,
-      image: '/imgs/seo-photos/a_meadow_moon_herbal_wellness_3456789.webp',
+      image: '/imgs/seo-photos/meadow_moon_pouch.png',
       highlights: ['Small Batch', 'Premium Quality', 'Brand Perception']
     },
     {
@@ -116,7 +116,7 @@ export default function PouchTestimonialsPage() {
       person: 'Jordan Smith',
       role: 'Co-Founder',
       rating: 5,
-      image: '/imgs/seo-photos/a_peak_performance_sports_nutrition_6789012.webp',
+      image: '/imgs/seo-photos/peak_performance_pouch.png',
       highlights: ['Matte Black', 'Premium Look', 'Social Media Win']
     },
     {
@@ -127,7 +127,7 @@ export default function PouchTestimonialsPage() {
       person: 'Amanda Foster',
       role: 'Founder',
       rating: 5,
-      image: '/imgs/seo-photos/a_little_sprouts_baby_food_8901234.webp',
+      image: '/imgs/seo-photos/little_sprouts_pouch.png',
       highlights: ['BPI Certified', 'Parent Approved', 'Zero Issues']
     },
     {
@@ -138,7 +138,7 @@ export default function PouchTestimonialsPage() {
       person: 'Chris Martinez',
       role: 'Head Roaster',
       rating: 5,
-      image: '/imgs/seo-photos/a_grind_culture_coffee_brooklyn_9012345.webp',
+      image: '/imgs/seo-photos/grind_culture_pouch.png',
       highlights: ['Degassing Valve', '6-Week Freshness', 'Subscription Hit']
     }
   ]
