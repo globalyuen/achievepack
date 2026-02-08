@@ -74,6 +74,72 @@ export default function PouchTestimonialsPage() {
       rating: 5,
       image: '/imgs/seo-photos/a_roast_ritual_nyc_coffee_urban_2153150.webp',
       highlights: ['Started Small', 'Scaled Fast', 'Fresh Coffee']
+    },
+    {
+      company: 'PureLeaf Organics',
+      industry: 'Tea Brand',
+      location: 'Boulder, CO',
+      quote: 'We loved the kraft-look material with bio-based barrier. Our customers appreciate the natural aesthetic and the fact it\'s 100% compostable. Game changer for our brand!',
+      person: 'Maya Patel',
+      role: 'Brand Director',
+      rating: 5,
+      image: '/imgs/seo-photos/a_pureleaf_tea_natural_packaging_4567890.webp',
+      highlights: ['Natural Look', 'Compostable', 'Brand Win']
+    },
+    {
+      company: 'SnackSmart',
+      industry: 'Healthy Snacks',
+      location: 'Los Angeles, CA',
+      quote: 'The clear window on our pouches was a must-have. Customers love seeing the product before buying. The response has been incredible - our retail partners love it too!',
+      person: 'Tom Chen',
+      role: 'Founder & CEO',
+      rating: 5,
+      image: '/imgs/seo-photos/a_snacksmart_healthy_snacks_retail_7891234.webp',
+      highlights: ['Clear Window', 'Retail Success', 'Customer Trust']
+    },
+    {
+      company: 'Meadow & Moon',
+      industry: 'Herbal Wellness',
+      location: 'Portland, ME',
+      quote: 'As a small batch producer, finding 500 unit minimums was impossible until we found pouch.eco. The quality rivals brands 10x our size. Our customers think we\'re much bigger!',
+      person: 'Rachel Green',
+      role: 'Owner',
+      rating: 5,
+      image: '/imgs/seo-photos/a_meadow_moon_herbal_wellness_3456789.webp',
+      highlights: ['Small Batch', 'Premium Quality', 'Brand Perception']
+    },
+    {
+      company: 'Peak Performance',
+      industry: 'Sports Nutrition',
+      location: 'Denver, CO',
+      quote: 'The matte black finish with spot UV logo - absolute fire! Our pre-workout pouches look like they cost $50 when they\'re only $25. Instagram engagement went through the roof!',
+      person: 'Jordan Smith',
+      role: 'Co-Founder',
+      rating: 5,
+      image: '/imgs/seo-photos/a_peak_performance_sports_nutrition_6789012.webp',
+      highlights: ['Matte Black', 'Premium Look', 'Social Media Win']
+    },
+    {
+      company: 'Little Sprouts',
+      industry: 'Baby Food',
+      location: 'San Diego, CA',
+      quote: 'Parents love that our pouches are BPI certified compostable. The resealable zipper keeps snacks fresh all day. We\'ve had zero complaints about leaking or quality issues!',
+      person: 'Amanda Foster',
+      role: 'Founder',
+      rating: 5,
+      image: '/imgs/seo-photos/a_little_sprouts_baby_food_8901234.webp',
+      highlights: ['BPI Certified', 'Parent Approved', 'Zero Issues']
+    },
+    {
+      company: 'Grind Culture',
+      industry: 'Specialty Coffee',
+      location: 'Brooklyn, NY',
+      quote: 'The one-way degassing valve was essential for our micro-roastery. Keeps beans fresh for 6+ weeks. Our subscription customers notice the difference immediately!',
+      person: 'Chris Martinez',
+      role: 'Head Roaster',
+      rating: 5,
+      image: '/imgs/seo-photos/a_grind_culture_coffee_brooklyn_9012345.webp',
+      highlights: ['Degassing Valve', '6-Week Freshness', 'Subscription Hit']
     }
   ]
 
@@ -82,6 +148,25 @@ export default function PouchTestimonialsPage() {
     { icon: TrendingUp, value: '98%', label: 'Repeat Customers' },
     { icon: Award, value: '4.9/5', label: 'Average Rating' },
     { icon: Sparkles, value: '500', label: 'Minimum Order' }
+  ]
+
+  // 客户 Logo 数据
+  const clientLogos = [
+    { name: 'Morlife', image: '/imgs/clien-logos/morlife.png' },
+    { name: 'Sustenir Agriculture', image: '/imgs/clien-logos/sustenir.png' },
+    { name: 'Two Rivers', image: '/imgs/clien-logos/tworivers.png' },
+    { name: 'Humble Snacks', image: '/imgs/clien-logos/humble.png' },
+    { name: 'Mavella Superfoods', image: '/imgs/clien-logos/mavella.png' },
+    { name: 'Superfood Lab Asia', image: '/imgs/clien-logos/superfood.png' },
+    { name: 'Green Urban Foods', image: '/imgs/clien-logos/green-urban.png' },
+    { name: 'Knowrish Well', image: '/imgs/clien-logos/knowrish.png' },
+    { name: 'Fodilicious', image: '/imgs/clien-logos/fodilicious.png' },
+    { name: 'Hike Again Remedies', image: '/imgs/clien-logos/hike.png' },
+    { name: 'Nuditea', image: '/imgs/clien-logos/nuditea.png' },
+    { name: 'Winand Products', image: '/imgs/clien-logos/winand.png' },
+    { name: 'Freshfield', image: '/imgs/clien-logos/freshfield.png' },
+    { name: 'Honestea', image: '/imgs/clien-logos/honestea.png' },
+    { name: 'Moom Health', image: '/imgs/clien-logos/moom.png' }
   ]
 
   return (
@@ -203,6 +288,127 @@ export default function PouchTestimonialsPage() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Trusted Brands Logo Marquee - Neo-Brutalist Style */}
+      <section className="py-16 px-4 bg-white border-y-4 border-black overflow-hidden">
+        <div className="max-w-6xl mx-auto mb-12 text-center">
+          <div className="inline-block bg-[#D4FF00] border-4 border-black px-4 py-2 transform rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-6">
+            <span className="font-['JetBrains_Mono'] font-bold uppercase">TRUSTED_BY</span>
+          </div>
+          <h2 className="font-black text-4xl md:text-5xl uppercase mb-4">
+            Join <span className="text-[#10b981]">500+</span> Brands
+          </h2>
+          <p className="text-lg text-gray-700 font-['Space_Grotesk']">
+            From startups to established names - they all started with 500 units
+          </p>
+        </div>
+
+        {/* Logo Strip 1 - Scrolling Left */}
+        <div className="relative -rotate-1 mb-6">
+          <div className="bg-black border-4 border-black py-6 overflow-hidden">
+            <div className="flex animate-scroll-left">
+              {/* First set */}
+              {clientLogos.map((logo, idx) => (
+                <div 
+                  key={`logo-1-${idx}`} 
+                  className="flex-shrink-0 mx-8 h-16 w-32 flex items-center justify-center bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(212,255,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(212,255,0,1)] transition-all"
+                >
+                  <img 
+                    src={logo.image} 
+                    alt={logo.name} 
+                    className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" 
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {clientLogos.map((logo, idx) => (
+                <div 
+                  key={`logo-2-${idx}`} 
+                  className="flex-shrink-0 mx-8 h-16 w-32 flex items-center justify-center bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(212,255,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(212,255,0,1)] transition-all"
+                >
+                  <img 
+                    src={logo.image} 
+                    alt={logo.name} 
+                    className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" 
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Logo Strip 2 - Scrolling Right */}
+        <div className="relative rotate-1">
+          <div className="bg-[#10b981] border-4 border-black py-6 overflow-hidden">
+            <div className="flex animate-scroll-right">
+              {/* First set */}
+              {clientLogos.slice().reverse().map((logo, idx) => (
+                <div 
+                  key={`logo-3-${idx}`} 
+                  className="flex-shrink-0 mx-8 h-16 w-32 flex items-center justify-center bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all"
+                >
+                  <img 
+                    src={logo.image} 
+                    alt={logo.name} 
+                    className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" 
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {clientLogos.slice().reverse().map((logo, idx) => (
+                <div 
+                  key={`logo-4-${idx}`} 
+                  className="flex-shrink-0 mx-8 h-16 w-32 flex items-center justify-center bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all"
+                >
+                  <img 
+                    src={logo.image} 
+                    alt={logo.name} 
+                    className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" 
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Custom CSS for infinite scroll animations */}
+        <style>{`
+          @keyframes scroll-left {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-50%);
+            }
+          }
+
+          @keyframes scroll-right {
+            0% {
+              transform: translateX(-50%);
+            }
+            100% {
+              transform: translateX(0);
+            }
+          }
+
+          .animate-scroll-left {
+            animation: scroll-left 40s linear infinite;
+          }
+
+          .animate-scroll-right {
+            animation: scroll-right 40s linear infinite;
+          }
+
+          .animate-scroll-left:hover,
+          .animate-scroll-right:hover {
+            animation-play-state: paused;
+          }
+        `}</style>
       </section>
 
       {/* CTA Section */}
