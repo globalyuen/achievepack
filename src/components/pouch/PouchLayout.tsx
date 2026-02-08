@@ -24,11 +24,9 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
         <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
             <img 
-              src="/eco-logo/transparent-bkg/ap-logo.webp" 
-              alt="POUCH.ECO Logo" 
-              className="h-10 w-auto"
-              loading="eager"
-              decoding="async"
+              src="/eco-logo/transparent-bkg/compost.png" 
+              alt="POUCH.ECO - Eco Packaging" 
+              className="h-12 w-auto"
             />
             <span className="font-black text-2xl tracking-tighter">
               POUCH<span className="text-[#00FFFF]">.ECO</span>

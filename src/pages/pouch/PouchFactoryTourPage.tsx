@@ -120,15 +120,6 @@ export default function PouchFactoryTourPage() {
             <span className="text-[#10b981]">Make Magic</span>
           </h1>
 
-          {/* Core Value Proposition */}
-          <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] max-w-2xl mx-auto mb-8">
-            <p className="font-['JetBrains_Mono'] font-bold text-lg md:text-xl">
-              &gt; Eco packaging from 500 units.<br/>
-              &gt; Compostable // Recyclable // Bio-based.<br/>
-              &gt; Fast turnaround. No BS.
-            </p>
-          </div>
-
           <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto font-['Space_Grotesk']">
             Virtual tour of our <strong>certified facility</strong> where sustainable pouches come to life
           </p>

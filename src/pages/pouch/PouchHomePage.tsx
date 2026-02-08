@@ -156,10 +156,12 @@ export default function PouchHomePage() {
                   &gt; Compostable // Recyclable // Bio-based.<br/>
                   &gt; Fast turnaround. No BS.
                 </p>
-                {/* Trust Badges */}
+                {/* Eco Material Badges */}
                 <div className="flex gap-4 mt-4 border-t-2 border-black pt-4">
-                  <img src="https://achievepack.com/imgs/bpi.svg" alt="BPI Certified" className="h-8 md:h-12 w-auto grayscale contrast-150 brightness-0 opacity-80" />
-                  <img src="https://achievepack.com/imgs/cert-home-compost.png" alt="Home Compostable" className="h-8 md:h-12 w-auto grayscale contrast-150 brightness-0 opacity-80" />
+                  <img src="/eco-logo/transparent-bkg/compost.png" alt="Compostable" className="h-12 md:h-16 w-auto hover:scale-110 transition-transform" />
+                  <img src="/eco-logo/transparent-bkg/recycle.png" alt="Recyclable" className="h-12 md:h-16 w-auto hover:scale-110 transition-transform" />
+                  <img src="/eco-logo/transparent-bkg/biope.png" alt="Bio-based" className="h-12 md:h-16 w-auto hover:scale-110 transition-transform" />
+                  <img src="/eco-logo/transparent-bkg/pcr.png" alt="PCR" className="h-12 md:h-16 w-auto hover:scale-110 transition-transform" />
                 </div>
               </div>
 
@@ -169,28 +171,44 @@ export default function PouchHomePage() {
               </div>
             </div>
 
-            {/* Right Visual */}
+            {/* Right Visual - Eco Logos Grid */}
             <div className="relative flex justify-center lg:justify-end">
-              <NeoCard className="bg-[#00FFFF] relative z-10 rotate-2 !p-0 overflow-hidden group max-w-md w-full aspect-square">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#00FFFF] to-[#FF00FF] opacity-20 z-0 mix-blend-multiply" />
-                <img 
-                  src="https://achievepack.com/imgs/landing-hero.webp" 
-                  alt="Sustainable Pouch Hero" 
-                  className="w-full h-full object-cover relative z-10 mix-blend-multiply opacity-90 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500"
-                />
+              <NeoCard className="bg-white relative z-10 rotate-2 !p-8 overflow-hidden group max-w-md w-full aspect-square">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#D4FF00]/10 to-[#10b981]/10 z-0" />
+                
+                {/* 2x2 Grid of Eco Logos */}
+                <div className="relative z-10 grid grid-cols-2 gap-6 h-full items-center justify-items-center">
+                  <img 
+                    src="/eco-logo/transparent-bkg/compost.png" 
+                    alt="Compostable Packaging" 
+                    className="w-full h-auto max-w-[140px] group-hover:scale-110 transition-transform duration-500 drop-shadow-lg"
+                  />
+                  <img 
+                    src="/eco-logo/transparent-bkg/recycle.png" 
+                    alt="Recyclable Packaging" 
+                    className="w-full h-auto max-w-[140px] group-hover:scale-110 transition-transform duration-500 delay-100 drop-shadow-lg"
+                  />
+                  <img 
+                    src="/eco-logo/transparent-bkg/biope.png" 
+                    alt="Bio-based Packaging" 
+                    className="w-full h-auto max-w-[140px] group-hover:scale-110 transition-transform duration-500 delay-200 drop-shadow-lg"
+                  />
+                  <img 
+                    src="/eco-logo/transparent-bkg/pcr.png" 
+                    alt="PCR Packaging" 
+                    className="w-full h-auto max-w-[140px] group-hover:scale-110 transition-transform duration-500 delay-300 drop-shadow-lg"
+                  />
+                </div>
                 
                 {/* Floating Tag */}
-                <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20">
-                  COMPOSTABLE_OK
+                <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-[#D4FF00] border-2 border-black px-3 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20">
+                  4_ECO_OPTIONS
                 </motion.div>
-                
-                {/* Overlay Texture */}
-                <div className="absolute inset-0 bg-[url('https://achievepack.com/imgs/paper-texture.png')] opacity-20 mix-blend-overlay z-10 pointer-events-none" />
               </NeoCard>
               
               {/* Decorative Background Elements */}
-              <div className="absolute top-10 -right-4 md:-right-10 w-full h-full border-4 border-black bg-[#D4FF00] -z-0 rotate-6 translate-y-4 translate-x-4" />
-              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[#FF00FF] border-4 border-black flex items-center justify-center animate-bounce z-20 hidden md:flex">
+              <div className="absolute top-10 -right-4 md:-right-10 w-full h-full border-4 border-black bg-[#10b981] -z-0 rotate-6 translate-y-4 translate-x-4" />
+              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[#D4FF00] border-4 border-black flex items-center justify-center animate-bounce z-20 hidden md:flex">
                 <span className="font-black text-xl rotate-[-15deg]">500!</span>
               </div>
             </div>
