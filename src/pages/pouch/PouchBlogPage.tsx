@@ -17,6 +17,15 @@ export default function PouchBlogPage() {
 
   const posts = [
     {
+      title: 'Home Compostable Packaging Guide: OK Home, AS 5810, TÜV Certification',
+      excerpt: 'Complete guide to home compostable packaging for Australia, UK, and EU markets. Learn OK Home vs AS 5810 certifications, material options (Kraft/PLA, PBAT, NatureFlex), transparent pricing (+25-35% cost), and real ROI case study from Melbourne tea brand.',
+      image: '/imgs/seo-photos/a_achievepack_home_compostable_balcony_9883994.webp',
+      date: '2026-01-30',
+      category: 'Materials',
+      readTime: '15 min',
+      link: '/blog/home-compostable-guide'
+    },
+    {
       title: 'Coffee Bags Degassing Valve Guide: One-Way vs Two-Way vs Aroma Valves',
       excerpt: 'Complete guide to coffee bag degassing valves. Learn one-way vs two-way vs aroma valves, material compatibility, pricing ($0.08-$0.22/bag), and 309% ROI case study.',
       image: '/imgs/reclose/ads/a_valve_closure_detail_6401844.webp',

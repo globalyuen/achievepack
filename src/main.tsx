@@ -337,6 +337,7 @@ const USALabelingGuide = lazyWithRetry(() => import('./pages/pouch/blog/USALabel
 const IndustrialCompostableGuide = lazyWithRetry(() => import('./pages/pouch/blog/IndustrialCompostableGuide'))
 const BPICertifiedGuide = lazyWithRetry(() => import('./pages/pouch/blog/BPICertifiedGuide'))
 const CoffeeDegassingValveGuide = lazyWithRetry(() => import('./pages/pouch/blog/CoffeeDegassingValveGuide'))
+const HomeCompostableGuide = lazyWithRetry(() => import('./pages/pouch/blog/HomeCompostableGuide'))
 // Material Pages
 const PouchCelloKraftPage = lazyWithRetry(() => import('./pages/pouch/materials/PouchCelloKraftPage'))
 const PouchReclosureOptionsPage = lazyWithRetry(() => import('./pages/pouch/PouchReclosureOptionsPage'))
@@ -415,6 +416,7 @@ if (getDomain() === 'pouch') {
               <Route path="/blog/industrial-compostable-guide" element={<IndustrialCompostableGuide />} />
               <Route path="/blog/bpi-certified-guide" element={<BPICertifiedGuide />} />
               <Route path="/blog/coffee-degassing-valve-guide" element={<CoffeeDegassingValveGuide />} />
+              <Route path="/blog/home-compostable-guide" element={<HomeCompostableGuide />} />
               <Route path="/certifications" element={<PouchCertificationsPage />} />
               <Route path="/materials/cello-kraft-triplex" element={<PouchCelloKraftPage />} />
               <Route path="/materials/kraft-duplex" element={<PouchKraftDuplexPage />} />
