@@ -257,7 +257,7 @@ export default function PouchTestimonialsPage() {
                     <img 
                       src={testimonial.image} 
                       alt={`${testimonial.company} packaging`}
-                      className="w-full h-48 object-cover"
+                      className="w-full h-auto object-contain"
                       loading="lazy"
                     />
                   </div>
