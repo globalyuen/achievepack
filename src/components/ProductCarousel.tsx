@@ -1,3 +1,9 @@
+/**
+ * ProductCarousel Component
+ * 
+ * Displays product photos in a carousel format with auto-play functionality
+ * Deployed: 2026-02-08
+ */
 import React, { useState, useEffect } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
