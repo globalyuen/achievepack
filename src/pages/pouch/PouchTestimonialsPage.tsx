@@ -1,12 +1,34 @@
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { Star, Quote, Sparkles, Award, TrendingUp, Heart } from 'lucide-react'
+import { useEffect } from 'react'
 import PouchLayout from '../../components/pouch/PouchLayout'
 import { getImagesForPage } from '../../data/imageHub'
 
 export default function PouchTestimonialsPage() {
   // 从 imageHub 获取相关图片
   const pageImages = getImagesForPage('/testimonials')
+
+  // Add scroll detection for marquee speed boost
+  useEffect(() => {
+    let scrollTimer: NodeJS.Timeout
+    
+    const handleScroll = () => {
+      document.body.classList.add('is-scrolling')
+      
+      clearTimeout(scrollTimer)
+      scrollTimer = setTimeout(() => {
+        document.body.classList.remove('is-scrolling')
+      }, 150)
+    }
+    
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      clearTimeout(scrollTimer)
+    }
+  }, [])
 
   const testimonials = [
     {
@@ -415,17 +437,44 @@ export default function PouchTestimonialsPage() {
             }
           }
 
+          @keyframes scroll-left-fast {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-50%);
+            }
+          }
+
+          @keyframes scroll-right-fast {
+            0% {
+              transform: translateX(-50%);
+            }
+            100% {
+              transform: translateX(0);
+            }
+          }
+
           .animate-scroll-left {
-            animation: scroll-left 40s linear infinite;
+            animation: scroll-left 13s linear infinite;
           }
 
           .animate-scroll-right {
-            animation: scroll-right 40s linear infinite;
+            animation: scroll-right 13s linear infinite;
           }
 
           .animate-scroll-left:hover,
           .animate-scroll-right:hover {
             animation-play-state: paused;
+          }
+
+          /* Speed up on page scroll */
+          body.is-scrolling .animate-scroll-left {
+            animation: scroll-left-fast 4s linear infinite;
+          }
+
+          body.is-scrolling .animate-scroll-right {
+            animation: scroll-right-fast 4s linear infinite;
           }
         `}</style>
       </section>
