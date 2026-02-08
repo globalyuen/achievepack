@@ -502,6 +502,91 @@ export default function PouchPetFoodPage() {
           </motion.div>
         </div>
       </section>
+
+      {/* Keep Reading */}
+      <section className="py-16 px-4 bg-white border-t-4 border-black">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="font-['Space_Grotesk'] font-black text-3xl md:text-4xl uppercase mb-8">
+            <span className="bg-[#D4FF00] px-2">Keep Reading</span>
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <a
+              href="/industry/coffee-tea"
+              className="group bg-[#F0F0F0] border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
+            >
+              <div className="border-b-4 border-black overflow-hidden">
+                <img 
+                  src="/all-product-photos/IMG_4378.webp"
+                  alt="Compostable Coffee Pouches"
+                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
+                />
+              </div>
+              <div className="p-4">
+                <h3 className="font-['Space_Grotesk'] font-black text-lg uppercase group-hover:text-[#10b981] transition-colors">
+                  Coffee & Tea Pouches
+                </h3>
+                <p className="text-sm font-['JetBrains_Mono'] text-gray-600 mt-2 mb-3">
+                  Degassing valves. High-barrier. Home compostable.
+                </p>
+                <div className="flex items-center gap-2 text-sm font-['JetBrains_Mono'] font-bold">
+                  Read More
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </a>
+
+            <a
+              href="/industry/snacks"
+              className="group bg-[#F0F0F0] border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
+            >
+              <div className="border-b-4 border-black overflow-hidden">
+                <img 
+                  src="/all-product-photos/IMG_4376.webp"
+                  alt="Compostable Snack Pouches"
+                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
+                />
+              </div>
+              <div className="p-4">
+                <h3 className="font-['Space_Grotesk'] font-black text-lg uppercase group-hover:text-[#10b981] transition-colors">
+                  Snack Pouches
+                </h3>
+                <p className="text-sm font-['JetBrains_Mono'] text-gray-600 mt-2 mb-3">
+                  Grease-resistant. Keeps crunch. Compostable.
+                </p>
+                <div className="flex items-center gap-2 text-sm font-['JetBrains_Mono'] font-bold">
+                  Read More
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </a>
+
+            <a
+              href="/blog/home-compostable-guide"
+              className="group bg-[#F0F0F0] border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
+            >
+              <div className="border-b-4 border-black overflow-hidden">
+                <img 
+                  src="/imgs/4-infograhic/compost.webp"
+                  alt="Home Composting Guide"
+                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
+                />
+              </div>
+              <div className="p-4">
+                <h3 className="font-['Space_Grotesk'] font-black text-lg uppercase group-hover:text-[#10b981] transition-colors">
+                  Home Composting Guide
+                </h3>
+                <p className="text-sm font-['JetBrains_Mono'] text-gray-600 mt-2 mb-3">
+                  Complete guide to home composting.
+                </p>
+                <div className="flex items-center gap-2 text-sm font-['JetBrains_Mono'] font-bold">
+                  Read More
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
     </PouchLayout>
   )
 }
