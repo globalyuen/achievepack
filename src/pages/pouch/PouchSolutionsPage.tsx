@@ -114,12 +114,14 @@ export default function PouchSolutionsPage() {
             loop
             muted
             playsInline
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-50"
             key="hero-video-solutions"
           >
             <source src="/video/pouch-eco-marketing-videos/Environmental.mp4" type="video/mp4" />
           </video>
-          {/* Overlay */}
+          {/* Liquid Glass Effect Overlay */}
+          <div className="absolute inset-0 backdrop-blur-[2px] bg-white/30" />
+          {/* Pattern Overlay */}
           <div className="absolute inset-0 bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px] opacity-80" />
         </div>
 

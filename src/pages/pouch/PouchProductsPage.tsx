@@ -80,12 +80,14 @@ export default function PouchProductsPage() {
             loop
             muted
             playsInline
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-50"
             key="hero-video-products"
           >
             <source src="/video/pouch-eco-marketing-videos/use.mp4" type="video/mp4" />
           </video>
-          {/* Overlay */}
+          {/* Liquid Glass Effect Overlay */}
+          <div className="absolute inset-0 backdrop-blur-[2px] bg-white/40" />
+          {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-white/90 to-white/70" />
         </div>
 

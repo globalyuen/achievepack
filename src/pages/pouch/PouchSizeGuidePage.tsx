@@ -108,12 +108,14 @@ export default function PouchSizeGuidePage() {
             loop
             muted
             playsInline
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-50"
             key="hero-video-size-guide"
           >
             <source src="/video/pouch-eco-marketing-videos/Performance.mp4" type="video/mp4" />
           </video>
-          {/* Overlay */}
+          {/* Liquid Glass Effect Overlay */}
+          <div className="absolute inset-0 backdrop-blur-[2px] bg-white/40" />
+          {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-white/90 to-gray-50/90" />
         </div>
 

@@ -17,7 +17,7 @@ export default function PouchTestimonialsPage() {
       person: 'Sarah Chen',
       role: 'Founder',
       rating: 5,
-      image: '/imgs/seo-photos/bean_bole_coffee_pouch.png?v=2',
+      image: '/imgs/seo-photos/a_bean_bole_coffee_roastery_8131919.webp',
       highlights: ['23% Sales Increase', 'Zero Waste', 'Customer Love']
     },
     {
@@ -28,7 +28,7 @@ export default function PouchTestimonialsPage() {
       person: 'Marcus Johnson',
       role: 'Product Manager',
       rating: 5,
-      image: '/imgs/seo-photos/nourishnow_wellness_pouch.png?v=2',
+      image: '/imgs/seo-photos/a_nourishnow_seattle_morning_wellness_pouch_1061333.webp',
       highlights: ['Premium Feel', 'Customer Feedback', 'Brand Uplift']
     },
     {
@@ -195,12 +195,14 @@ export default function PouchTestimonialsPage() {
             loop
             muted
             playsInline
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-50"
             key="hero-video-testimonials"
           >
             <source src="/video/pouch-eco-marketing-videos/compost.mp4" type="video/mp4" />
           </video>
-          {/* Overlay */}
+          {/* Liquid Glass Effect Overlay */}
+          <div className="absolute inset-0 backdrop-blur-[2px] bg-white/30" />
+          {/* Pattern Overlay */}
           <div className="absolute inset-0 bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px] opacity-80" />
         </div>
 

@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import { Package, Leaf, Zap, Box as BoxIcon, Flame, Star } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
@@ -84,6 +84,27 @@ export default function PouchHomePage() {
     }
   ]
 
+  // Add scroll detection for marquee speed boost
+  useEffect(() => {
+    let scrollTimer: NodeJS.Timeout
+    
+    const handleScroll = () => {
+      document.body.classList.add('is-scrolling')
+      
+      clearTimeout(scrollTimer)
+      scrollTimer = setTimeout(() => {
+        document.body.classList.remove('is-scrolling')
+      }, 150)
+    }
+    
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      clearTimeout(scrollTimer)
+    }
+  }, [])
+
   return (
     <PouchLayout>
       <Helmet>
@@ -100,7 +121,7 @@ export default function PouchHomePage() {
             loop
             muted
             playsInline
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-50"
             key="hero-video"
           >
             <source src="/video/pouch-eco-marketing-videos/problem.mp4" type="video/mp4" />
@@ -108,7 +129,9 @@ export default function PouchHomePage() {
             <source src="/video/pouch-eco-marketing-videos/Material.mp4" type="video/mp4" />
             <source src="/video/pouch-eco-marketing-videos/Performance.mp4" type="video/mp4" />
           </video>
-          {/* Overlay */}
+          {/* Liquid Glass Effect Overlay */}
+          <div className="absolute inset-0 backdrop-blur-[2px] bg-white/30" />
+          {/* Pattern Overlay */}
           <div className="absolute inset-0 bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px] opacity-80" />
         </div>
 
@@ -345,17 +368,44 @@ export default function PouchHomePage() {
             }
           }
 
+          @keyframes scroll-left-fast {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-50%);
+            }
+          }
+
+          @keyframes scroll-right-fast {
+            0% {
+              transform: translateX(-50%);
+            }
+            100% {
+              transform: translateX(0);
+            }
+          }
+
           .animate-scroll-left {
-            animation: scroll-left 40s linear infinite;
+            animation: scroll-left 13s linear infinite;
           }
 
           .animate-scroll-right {
-            animation: scroll-right 40s linear infinite;
+            animation: scroll-right 13s linear infinite;
           }
 
           .animate-scroll-left:hover,
           .animate-scroll-right:hover {
             animation-play-state: paused;
+          }
+
+          /* Speed up on page scroll */
+          body.is-scrolling .animate-scroll-left {
+            animation: scroll-left-fast 4s linear infinite;
+          }
+
+          body.is-scrolling .animate-scroll-right {
+            animation: scroll-right-fast 4s linear infinite;
           }
         `}</style>
       </section>
