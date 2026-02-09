@@ -1,10 +1,13 @@
+import { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { BookOpen, Calendar, ArrowRight, TrendingUp, Leaf, Coffee, Package } from 'lucide-react'
+import { BookOpen, Calendar, ArrowRight, TrendingUp, Leaf, Coffee, Package, Search } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import PouchLayout from '../../components/pouch/PouchLayout'
 
 export default function PouchBlogPage() {
+  const [searchQuery, setSearchQuery] = useState('')
+  const [selectedCategory, setSelectedCategory] = useState('All Posts')
   const featured = {
     title: 'USA Compostable Packaging Guide: Certifications, State Laws & Low MOQ',
     excerpt: 'Complete guide for US brands: ASTM D6400, BPI certification, state-by-state regulations, and where to buy with MOQ from 100 pieces.',
@@ -182,6 +185,43 @@ export default function PouchBlogPage() {
     { name: 'Startup Guide', count: 1, icon: TrendingUp }
   ]
 
+  // Filter posts based on search query and selected category
+  const filteredPosts = useMemo(() => {
+    let filtered = posts
+
+    // Filter by category
+    if (selectedCategory !== 'All Posts') {
+      filtered = filtered.filter(post => {
+        // Handle category name variations
+        if (selectedCategory === 'Materials Guide') {
+          return post.category === 'Materials' || post.category === 'Materials Guide'
+        }
+        if (selectedCategory === 'Sustainability Guide') {
+          return post.category === 'Sustainability' || post.category === 'Sustainability Guide'
+        }
+        if (selectedCategory === 'Packaging Guide') {
+          return post.category === 'Packaging' || post.category === 'Packaging Guide'
+        }
+        if (selectedCategory === 'Coffee USA') {
+          return post.category === 'Snacks USA' || post.category === 'Coffee USA'
+        }
+        return post.category === selectedCategory || post.category.includes(selectedCategory.split(' ')[0])
+      })
+    }
+
+    // Filter by search query
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase()
+      filtered = filtered.filter(post =>
+        post.title.toLowerCase().includes(query) ||
+        post.excerpt.toLowerCase().includes(query) ||
+        post.category.toLowerCase().includes(query)
+      )
+    }
+
+    return filtered
+  }, [posts, selectedCategory, searchQuery])
+
   return (
     <PouchLayout>
       <Helmet>
@@ -235,20 +275,55 @@ export default function PouchBlogPage() {
         </div>
       </section>
 
-      {/* Categories */}
+      {/* Categories & Search */}
       <section className="py-8 px-4 bg-white border-y-4 border-black">
         <div className="max-w-6xl mx-auto">
+          {/* Search Bar */}
+          <div className="mb-6">
+            <div className="relative max-w-2xl">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Search by title, tags, or content..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-12 pr-4 py-3 border-4 border-black font-['JetBrains_Mono'] font-bold text-sm focus:outline-none focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-sm font-bold hover:text-[#10b981] transition-colors"
+                >
+                  Clear
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Category Filters */}
           <div className="flex gap-4 overflow-x-auto pb-2">
             {categories.map((cat, idx) => (
               <button
                 key={idx}
-                className="flex items-center gap-2 px-4 py-2 border-2 border-black bg-white hover:bg-[#D4FF00] transition-colors whitespace-nowrap font-['JetBrains_Mono'] font-bold text-sm"
+                onClick={() => setSelectedCategory(cat.name)}
+                className={`flex items-center gap-2 px-4 py-2 border-2 border-black transition-colors whitespace-nowrap font-['JetBrains_Mono'] font-bold text-sm ${
+                  selectedCategory === cat.name 
+                    ? 'bg-[#D4FF00] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]' 
+                    : 'bg-white hover:bg-[#D4FF00]'
+                }`}
               >
                 <cat.icon className="w-4 h-4" />
                 {cat.name} ({cat.count})
               </button>
             ))}
           </div>
+
+          {/* Search Results Info */}
+          {searchQuery && (
+            <div className="mt-4 font-['JetBrains_Mono'] text-sm">
+              Found <strong>{filteredPosts.length}</strong> {filteredPosts.length === 1 ? 'post' : 'posts'} matching "{searchQuery}"
+            </div>
+          )}
         </div>
       </section>
 
@@ -301,59 +376,87 @@ export default function PouchBlogPage() {
       {/* Blog Posts Grid */}
       <section className="py-16 px-4 bg-[#F0F0F0]">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-black text-4xl mb-12 uppercase">Latest Posts</h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.map((post, idx) => (
-              <motion.article
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all overflow-hidden group"
-              >
-                {/* Image */}
-                <div className="border-b-4 border-black overflow-hidden h-48">
-                  <img 
-                    src={post.image} 
-                    alt={post.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="bg-[#D4FF00] border-2 border-black px-2 py-1 text-xs font-['JetBrains_Mono'] font-bold">
-                      {post.category}
-                    </span>
-                  </div>
-
-                  <h3 className="font-black text-xl mb-3 leading-tight">
-                    {post.title}
-                  </h3>
-
-                  <p className="text-sm mb-4 font-['Space_Grotesk'] text-gray-700">
-                    {post.excerpt}
-                  </p>
-
-                  <div className="flex items-center justify-between text-xs font-['JetBrains_Mono'] font-bold mb-4">
-                    <span>{post.date}</span>
-                    <span>{post.readTime} read</span>
-                  </div>
-
-                  <Link
-                    to={post.link}
-                    className="inline-flex items-center gap-2 text-sm font-black uppercase hover:text-[#10b981] transition-colors"
-                  >
-                    Read More
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </motion.article>
-            ))}
+          <div className="flex items-center justify-between mb-12">
+            <h2 className="font-black text-4xl uppercase">
+              {selectedCategory === 'All Posts' ? 'Latest Posts' : selectedCategory}
+            </h2>
+            <div className="font-['JetBrains_Mono'] text-sm font-bold">
+              Showing {filteredPosts.length} of {posts.length} posts
+            </div>
           </div>
+
+          {filteredPosts.length === 0 ? (
+            <div className="text-center py-16">
+              <div className="bg-white border-4 border-black p-12 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] max-w-md mx-auto">
+                <BookOpen className="w-16 h-16 mx-auto mb-4 text-gray-400" />
+                <h3 className="font-black text-2xl mb-3">No Posts Found</h3>
+                <p className="font-['JetBrains_Mono'] text-sm mb-6 text-gray-600">
+                  Try adjusting your search or filter to find what you're looking for.
+                </p>
+                <button
+                  onClick={() => {
+                    setSearchQuery('')
+                    setSelectedCategory('All Posts')
+                  }}
+                  className="bg-black text-white px-6 py-3 font-black uppercase border-4 border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all"
+                >
+                  Reset Filters
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredPosts.map((post, idx) => (
+                <motion.article
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all overflow-hidden group"
+                >
+                  {/* Image */}
+                  <div className="border-b-4 border-black overflow-hidden h-48">
+                    <img 
+                      src={post.image} 
+                      alt={post.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="bg-[#D4FF00] border-2 border-black px-2 py-1 text-xs font-['JetBrains_Mono'] font-bold">
+                        {post.category}
+                      </span>
+                    </div>
+
+                    <h3 className="font-black text-xl mb-3 leading-tight">
+                      {post.title}
+                    </h3>
+
+                    <p className="text-sm mb-4 font-['Space_Grotesk'] text-gray-700">
+                      {post.excerpt}
+                    </p>
+
+                    <div className="flex items-center justify-between text-xs font-['JetBrains_Mono'] font-bold mb-4">
+                      <span>{post.date}</span>
+                      <span>{post.readTime} read</span>
+                    </div>
+
+                    <Link
+                      to={post.link}
+                      className="inline-flex items-center gap-2 text-sm font-black uppercase hover:text-[#10b981] transition-colors"
+                    >
+                      Read More
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                </motion.article>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

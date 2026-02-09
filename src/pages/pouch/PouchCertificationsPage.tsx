@@ -5,6 +5,7 @@ import { useState } from 'react'
 import PouchLayout from '../../components/pouch/PouchLayout'
 
 export default function PouchCertificationsPage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
   
   const certifications = [
     {
