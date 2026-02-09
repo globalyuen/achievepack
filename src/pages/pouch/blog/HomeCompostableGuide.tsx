@@ -510,11 +510,11 @@ export default function HomeCompostableGuide() {
           </div>
 
           <div className="bg-black text-[#D4FF00] border-4 border-black p-6">
-            <h3 className="text-xl font-bold mb-3 font-['JetBrains_Mono']">READY TO REPLICATE THIS SUCCESS?</h3>
+            <h3 className="text-xl font-bold mb-3 font-['JetBrains_Mono'] text-[#D4FF00]">READY TO REPLICATE THIS SUCCESS?</h3>
             <div className="grid md:grid-cols-2 gap-4 text-sm">
-              <div>
-                <p className="mb-2">Get AS 5810 or OK Home certified pouches without paying $7K-$16K certification cost.</p>
-                <p>Start with 100-500 pieces to test, scale to 1,000-3,000 pieces once validated.</p>
+              <div className="text-[#D4FF00]">
+                <p className="mb-2 text-[#D4FF00]">Get AS 5810 or OK Home certified pouches without paying $7K-$16K certification cost.</p>
+                <p className="text-[#D4FF00]">Start with 100-500 pieces to test, scale to 1,000-3,000 pieces once validated.</p>
               </div>
               <div className="flex flex-col gap-3">
                 <a 
@@ -543,17 +543,17 @@ export default function HomeCompostableGuide() {
     {
       title: 'Industrial Compostable Guide',
       url: '/blog/industrial-compostable-guide',
-      image: '/imgs/seo-photos/industrial-compost-facility.webp'
+      image: '/imgs/composting/commercial/a_windrow_composting_facility_0882621.webp'
     },
     {
       title: 'BPI Certified Guide',
       url: '/blog/bpi-certified-guide',
-      image: '/imgs/seo-photos/bpi-certification-lab.webp'
+      image: '/imgs/company/bpi/a_bpi_certification_verification_badge_3065504.webp'
     },
     {
       title: 'USA Compostable Packaging Guide',
       url: '/blog/usa-compostable-guide',
-      image: '/imgs/seo-photos/usa-compostable-packaging.webp'
+      image: '/imgs/composting/finder/a_achievepack_composting_locator_hero_9733153.webp'
     }
   ]
 
