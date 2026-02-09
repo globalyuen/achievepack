@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Leaf, Recycle, Heart } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import PouchLayout from '../../components/pouch/PouchLayout'
 
 // Reusing Neo-components for consistency
@@ -137,7 +138,7 @@ export default function PouchMaterialsPage() {
       <section className="py-24 border-t-4 border-black bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6 text-center">
           <h2 className="font-black text-4xl mb-12 uppercase">Certifications Matter</h2>
-             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+             <Link to="/company/certificates" className="grid grid-cols-2 md:grid-cols-4 gap-8 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-pointer">
                <img src="/imgs/cert/cert-din-home-compost.png" alt="DIN Home Compost" className="h-24 w-auto object-contain mx-auto" />
                <img src="/imgs/cert/logo-achievepack-BPI.jpg" alt="BPI Certified" className="h-24 w-auto object-contain mx-auto" />
                <img src="/imgs/cert/cert-ABA-as5810.png" alt="ABA Home Compost" className="h-24 w-auto object-contain mx-auto" />
@@ -146,7 +147,7 @@ export default function PouchMaterialsPage() {
                <img src="/imgs/cert/cert-fsc.png" alt="FSC Certified" className="h-24 w-auto object-contain mx-auto" />
                <img src="/imgs/cert/cert-ISO9001.webp" alt="ISO 9001" className="h-24 w-auto object-contain mx-auto" />
                <img src="/imgs/cert/cert-ISO14001-cert.webp" alt="ISO 14001" className="h-24 w-auto object-contain mx-auto" />
-             </div>
+             </Link>
           <div className="mt-12">
             <NeoButton onClick={() => window.open('https://calendly.com/30-min-free-packaging-consultancy', '_blank')}>
               Speak to an Expert

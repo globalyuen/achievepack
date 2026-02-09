@@ -209,7 +209,7 @@ export default function PouchCertificationsPage() {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-black text-4xl md:text-5xl uppercase text-center mb-12">
-            4 Main Certifications
+            Our Certifications
           </h2>
           
           <div className="grid md:grid-cols-2 gap-8">
