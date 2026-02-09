@@ -56,31 +56,31 @@ export default function PouchHomePage() {
 
   const PRODUCTS = [
     {
-      id: 'starter',
-      name: 'STARTER_KIT',
-      description: 'Compostable pouches from 500 units. Perfect for testing markets.',
+      id: 'compostable',
+      name: 'Compostable',
+      description: 'Certified home & industrial compostable. Breaks down naturally.',
       price: '$0.50',
       stats: { moq: '500', material: 'BIO', barrier: 'MED' },
       color: 'bg-[#D4FF00]', // Yellow
-      image: 'https://achievepack.com/imgs/product-hero-pouch.webp'
+      image: '/imgs/seo-photos/a_achievepack_compostable_garden_9329618.webp'
     },
     {
-      id: 'pro',
-      name: 'PRO_PACK',
-      description: 'High-barrier recyclable pouches. Food-safe protocol certified.',
+      id: 'recyclable',
+      name: 'Recyclable',
+      description: 'Mono-material PE/PP structures. Recycling stream ready.',
       price: '$0.35',
-      stats: { moq: '2K', material: 'PCR', barrier: 'HIGH' },
+      stats: { moq: '2K', material: 'PE/PP', barrier: 'HIGH' },
       color: 'bg-[#00FFFF]', // Cyan
-      image: 'https://achievepack.com/imgs/product-recyclable-pouches.webp'
+      image: '/imgs/seo-photos/a_mono_recyclable_certification_compliance_7572715.webp'
     },
     {
-      id: 'enterprise',
-      name: 'ENTERPRISE',
-      description: 'Custom bulk orders. Full compliance matrix. Global certified.',
+      id: 'pcr-bio',
+      name: 'PCR / BioPE',
+      description: 'Post-Consumer Recycled or Bio-based plastics. Maximum sustainability.',
       price: 'Custom',
-      stats: { moq: '10K+', material: 'ANY', barrier: 'MAX' },
+      stats: { moq: '10K+', material: 'MIX', barrier: 'MAX' },
       color: 'bg-[#FF00FF]', // Magenta
-      image: 'https://achievepack.com/imgs/feature-pouch-shapes.webp'
+      image: '/imgs/product-pcr-biobased.webp'
     }
   ]
 
