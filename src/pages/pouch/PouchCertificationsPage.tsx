@@ -238,7 +238,7 @@ export default function PouchCertificationsPage() {
                 <img 
                   src={cert.image} 
                   alt={cert.name}
-                  className="w-full h-48 object-cover border-4 border-black mb-4"
+                  className="w-full h-64 object-contain bg-white border-4 border-black mb-4 p-4"
                   loading="lazy"
                 />
 
