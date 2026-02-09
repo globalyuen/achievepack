@@ -63,7 +63,7 @@ export const getBrandConfig = (): BrandConfig => {
       domain: 'pouch.eco',
       email: 'cs@pouch.eco',
       phone: '+1 (626) 476-0958',
-      logoPath: '/eco-logo/ep-logo.svg',
+      logoPath: '/logo.png',
       faviconPath: '/pouch-eco-favicon.svg',
       primaryColor: '#10b981', // Green (eco-friendly)
       secondaryColor: '#059669', // Darker green

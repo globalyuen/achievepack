@@ -603,7 +603,7 @@ function App() {
             {/* Center Logo - Bigger */}
             <div className="absolute left-1/2 -translate-x-1/2">
               <Link to="/" className="flex items-center">
-                <img src="/ap-logo.svg" alt="Achieve Pack Logo" className="h-12 w-auto" loading="eager" decoding="async" width="160" height="48" fetchPriority="high" />
+                <img src={brand.logoPath} alt={`${brand.name} Logo`} className="h-12 w-auto" loading="eager" decoding="async" width="160" height="48" fetchPriority="high" />
               </Link>
             </div>
             
@@ -614,7 +614,7 @@ function App() {
           {/* Mobile Layout */}
           <div className="lg:hidden flex items-center justify-between h-16">
             <Link to="/" className="flex items-center">
-              <img src="/ap-logo.svg" alt="Achieve Pack Logo" className="h-10 w-auto" loading="eager" decoding="async" width="120" height="40" fetchPriority="high" />
+              <img src={brand.logoPath} alt={`${brand.name} Logo`} className="h-10 w-auto" loading="eager" decoding="async" width="120" height="40" fetchPriority="high" />
             </Link>
 
             {/* Mobile Menu Button with Store Icon */}
