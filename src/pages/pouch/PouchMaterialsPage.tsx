@@ -34,9 +34,9 @@ export default function PouchMaterialsPage() {
   const MATERIALS = [
     {
       id: 'compostable',
-      name: 'HOME_COMPOSTABLE',
+      name: 'HOME & INDUSTRIAL COMPOSTABLE',
       description: 'Breaks down in home and industrial environments. Certified TUV & BPI.',
-      pros: ['Zero Waste', 'Plant-Based', 'Certified'],
+      pros: ['Zero Waste', 'Plant-Based', 'Certified', 'Industrial Compostable'],
       cons: ['6-12 Months Shelf Life', 'Higher Cost'],
       icon: Leaf,
       color: 'bg-[#D4FF00]', // Yellow
@@ -52,9 +52,9 @@ export default function PouchMaterialsPage() {
     },
     {
       id: 'pcr',
-      name: 'PCR_CONTENT',
-      description: 'Post-Consumer Recycled plastics. Giving new life to old waste.',
-      pros: ['Circular Economy', 'Reduced Virgin Plastic', 'Durable'],
+      name: 'PCR & BIO PE CONTENT',
+      description: 'Post-Consumer Recycled plastics & Bio-based Polyethylene. Giving new life to old waste / Plant-based resources.',
+      pros: ['Circular Economy', 'Reduced Virgin Plastic', 'Durable', 'Bio PE Available'],
       cons: ['Slight visual imperfections', 'Specific sourcing'],
       icon: Heart,
       color: 'bg-[#FF00FF]', // Magenta
@@ -137,11 +137,16 @@ export default function PouchMaterialsPage() {
       <section className="py-24 border-t-4 border-black bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6 text-center">
           <h2 className="font-black text-4xl mb-12 uppercase">Certifications Matter</h2>
-          <div className="flex flex-wrap justify-center gap-12 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-             <img src="https://achievepack.com/imgs/bpi.svg" alt="BPI Certified" className="h-16 w-auto" />
-             <img src="https://achievepack.com/imgs/cert-home-compost.png" alt="Home Compostable" className="h-16 w-auto" />
-             {/* Add more cert logs if available */}
-          </div>
+             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+               <img src="/imgs/cert/cert-din-home-compost.png" alt="DIN Home Compost" className="h-24 w-auto object-contain mx-auto" />
+               <img src="/imgs/cert/logo-achievepack-BPI.jpg" alt="BPI Certified" className="h-24 w-auto object-contain mx-auto" />
+               <img src="/imgs/cert/cert-ABA-as5810.png" alt="ABA Home Compost" className="h-24 w-auto object-contain mx-auto" />
+               <img src="/imgs/cert/cert-pcr-grs.webp" alt="GRS Certified" className="h-24 w-auto object-contain mx-auto" />
+               <img src="/imgs/cert/cert-BioPE.webp" alt="Biobased PE" className="h-24 w-auto object-contain mx-auto" />
+               <img src="/imgs/cert/cert-fsc.png" alt="FSC Certified" className="h-24 w-auto object-contain mx-auto" />
+               <img src="/imgs/cert/cert-ISO9001.webp" alt="ISO 9001" className="h-24 w-auto object-contain mx-auto" />
+               <img src="/imgs/cert/cert-ISO14001-cert.webp" alt="ISO 14001" className="h-24 w-auto object-contain mx-auto" />
+             </div>
           <div className="mt-12">
             <NeoButton onClick={() => window.open('https://calendly.com/30-min-free-packaging-consultancy', '_blank')}>
               Speak to an Expert

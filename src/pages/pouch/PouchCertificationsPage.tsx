@@ -1,52 +1,81 @@
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { Shield, CheckCircle, Award, Leaf, Globe, Factory, Home, ExternalLink, ChevronDown } from 'lucide-react'
+import { Shield, CheckCircle, Award, Leaf, Globe, Factory, Home, ExternalLink, ChevronDown, Recycle } from 'lucide-react'
 import { useState } from 'react'
 import PouchLayout from '../../components/pouch/PouchLayout'
 
 export default function PouchCertificationsPage() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null)
-
+  
   const certifications = [
+    {
+      name: 'DIN TRUST',
+      region: 'Europe/Global',
+      icon: Leaf,
+      color: '#10b981',
+      description: 'DIN Geprüft Home Compostable certification. Verified for backyard composting.',
+      standard: 'NF T51-800',
+      facility: 'Home Composting',
+      image: '/imgs/cert/cert-din-home-compost.png'
+    },
     {
       name: 'BPI Certified',
       region: 'North America',
       icon: Shield,
       color: '#10b981',
-      description: 'Third-party verified compostable by the Biodegradable Products Institute. Your packaging meets ASTM D6400/D6868 standards.',
-      standard: 'ASTM D6400 & D6868',
+      description: 'Third-party verified compostable by the Biodegradable Products Institute. Meets ASTM D6400/D6868.',
+      standard: 'ASTM D6400',
       facility: 'Industrial Composting',
-      image: '/imgs/company/bpi/a_bpi_certification_verification_badge_3065504.webp'
+      image: '/imgs/cert/logo-achievepack-BPI.jpg'
     },
     {
-      name: 'EN 13432',
-      region: 'Europe',
-      icon: Globe,
-      color: '#3b82f6',
-      description: 'European standard for compostability. Required for certified compostable packaging in EU markets.',
-      standard: 'EN 13432',
-      facility: 'Industrial Composting',
-      image: '/imgs/4-infograhic/compost.webp'
-    },
-    {
-      name: 'AS 4736',
+      name: 'ABA Home Compost',
       region: 'Australia',
-      icon: Leaf,
+      icon: Globe,
       color: '#f59e0b',
-      description: 'Australian standard for biodegradable plastics. Ensures compostability in Australian facilities.',
-      standard: 'AS 4736',
-      facility: 'Industrial Composting',
-      image: '/imgs/material-illustrations/3-compostable-packaging-collage.webp'
+      description: 'Australasian Bioplastics Association Home Compostable Verification. The gold standard in AU.',
+      standard: 'AS 5810',
+      facility: 'Home Composting',
+      image: '/imgs/cert/cert-ABA-as5810.png'
     },
     {
-      name: 'Home Compostable',
+      name: 'GRS Certified',
       region: 'Global',
-      icon: Home,
+      icon: Recycle,
+      color: '#3b82f6',
+      description: 'Global Recycled Standard. Verifies recycled content (PCR) and responsible social/environmental practices.',
+      standard: 'GRS 4.0',
+      facility: 'Recycling Stream',
+      image: '/imgs/cert/cert-pcr-grs.webp'
+    },
+    {
+      name: 'Bio-based PE',
+      region: 'Global',
+      icon: Leaf,
       color: '#8b5cf6',
-      description: 'Breaks down in your backyard compost pile. Lower temperature and time requirements than industrial.',
-      standard: 'TÜV Austria OK compost HOME',
-      facility: 'Home Composting',
-      image: '/imgs/seo-photos/a_bean_bole_coffee_roastery_8131919.webp'
+      description: 'Verified bio-based carbon content from renewable resources like sugarcane.',
+      standard: 'ASTM D6866',
+      facility: 'Recycling Stream',
+      image: '/imgs/cert/cert-BioPE.webp'
+    },
+    {
+      name: 'FSC Certified',
+      region: 'Global',
+      icon: Leaf,
+      color: '#059669',
+      description: 'Forest Stewardship Council. Ensures paper comes from responsibly managed forests.',
+      standard: 'FSC Mix',
+      facility: 'Paper Recycling',
+      image: '/imgs/cert/cert-fsc.png'
+    },
+    {
+      name: 'ISO 9001/14001',
+      region: 'Global',
+      icon: Factory,
+      color: '#6b7280',
+      description: 'International standards for Quality Management and Environmental Management Systems.',
+      standard: 'ISO 9001/14001',
+      facility: 'Manufacturing',
+      image: '/imgs/cert/cert-ISO14001-cert.webp'
     }
   ]
 
@@ -333,6 +362,49 @@ export default function PouchCertificationsPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Certifications Grid Details */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="font-black text-4xl md:text-5xl uppercase text-center mb-12">
+            View Certificates
+          </h2>
+             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+               <div className="text-center group">
+                 <img src="/imgs/cert/cert-din-home-compost.png" alt="DIN Home Compost" className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
+                 <p className="mt-2 font-bold">DIN Home Compost</p>
+               </div>
+               <div className="text-center group">
+                 <img src="/imgs/cert/logo-achievepack-BPI.jpg" alt="BPI Certified" className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
+                 <p className="mt-2 font-bold">BPI Compostable</p>
+               </div>
+               <div className="text-center group">
+                 <img src="/imgs/cert/cert-ABA-as5810.png" alt="ABA Home Compost" className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
+                 <p className="mt-2 font-bold">ABA AS 5810</p>
+               </div>
+               <div className="text-center group">
+                 <img src="/imgs/cert/cert-pcr-grs.webp" alt="GRS Certified" className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
+                 <p className="mt-2 font-bold">GRS Recycled</p>
+               </div>
+               <div className="text-center group">
+                 <img src="/imgs/cert/cert-BioPE.webp" alt="Biobased PE" className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
+                 <p className="mt-2 font-bold">Bio-based PE</p>
+               </div>
+               <div className="text-center group">
+                 <img src="/imgs/cert/cert-fsc.png" alt="FSC Certified" className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
+                 <p className="mt-2 font-bold">FSC Mix</p>
+               </div>
+               <div className="text-center group">
+                 <img src="/imgs/cert/cert-ISO9001.webp" alt="ISO 9001" className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
+                 <p className="mt-2 font-bold">ISO 9001</p>
+               </div>
+               <div className="text-center group">
+                 <img src="/imgs/cert/cert-ISO14001-cert.webp" alt="ISO 14001" className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
+                 <p className="mt-2 font-bold">ISO 14001</p>
+               </div>
+             </div>
         </div>
       </section>
 
