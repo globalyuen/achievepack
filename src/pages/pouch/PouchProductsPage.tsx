@@ -42,7 +42,7 @@ export default function PouchProductsPage() {
       stats: { moq: '500', material: 'BIO/PCR', barrier: 'HIGH' },
       features: ['Self-Standing Design', 'Resealable Zipper', 'Maximum Shelf Appeal'],
       color: 'bg-[#D4FF00]', // Yellow
-      image: '/3d/2d-pouch/pouch1.webp'
+      image: '/3d/2d-pouch/pouch2.webp'
     },
     {
       id: 'flat-bottom',
@@ -54,7 +54,7 @@ export default function PouchProductsPage() {
       stats: { moq: '500', material: 'RECYCLABLE', barrier: 'MAX' },
       features: ['5 Printable Faces', 'Box-Like Stability', 'Premium Look & Feel'],
       color: 'bg-[#00FFFF]', // Cyan
-      image: '/3d/2d-pouch/pouch2.webp'
+      image: '/3d/2d-pouch/pouch1.webp'
     },
     {
       id: 'spouted',
@@ -66,11 +66,11 @@ export default function PouchProductsPage() {
       stats: { moq: '1K', material: 'MONO-PE', barrier: 'LIQUID' },
       features: ['Leak-Proof Spout', '80% Less Plastic', 'Cheaper Shipping'],
       color: 'bg-[#FF00FF]', // Magenta
-      image: '/3d/2d-pouch/pouch3.webp'
+      image: '/3d/2d-pouch/pouch4.webp'
     },
     {
       id: 'sachet',
-      name: 'SAMPLE_SACHET',
+      name: 'SACHET',
       description: 'The conversion engine. 3-side seal flat pouches perfect for single-serves and samples.',
       problem: 'Customers want to try before they buy, but generic sample packaging cheapens your brand.',
       solution: 'Our custom-printed 3-Side Seal Sachets provide a premium unboxing experience even for trial sizes. Convert browsers into buyers.',
@@ -78,7 +78,7 @@ export default function PouchProductsPage() {
       stats: { moq: '2K', material: 'ANY', barrier: 'HIGH' },
       features: ['Cost-Effective', 'Mail-Friendly', 'High Conversion'],
       color: 'bg-white', // White
-      image: '/3d/2d-pouch/pouch4.webp'
+      image: '/3d/2d-pouch/pouch3.webp'
     }
   ]
 

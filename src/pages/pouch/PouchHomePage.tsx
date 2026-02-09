@@ -62,7 +62,7 @@ export default function PouchHomePage() {
       price: '$0.50',
       stats: { moq: '500', material: 'BIO/PCR', barrier: 'HIGH' },
       color: 'bg-[#D4FF00]', // Yellow
-      image: '/3d/2d-pouch/pouch1.webp'
+      image: '/3d/2d-pouch/pouch2.webp'
     },
     {
       id: 'flat-bottom',
@@ -71,7 +71,7 @@ export default function PouchHomePage() {
       price: '$0.65',
       stats: { moq: '500', material: 'RECYCLABLE', barrier: 'MAX' },
       color: 'bg-[#00FFFF]', // Cyan
-      image: '/3d/2d-pouch/pouch2.webp'
+      image: '/3d/2d-pouch/pouch1.webp'
     },
     {
       id: 'spouted',
@@ -80,7 +80,7 @@ export default function PouchHomePage() {
       price: '$0.45',
       stats: { moq: '1K', material: 'MONO-PE', barrier: 'LIQUID' },
       color: 'bg-[#FF00FF]', // Magenta
-      image: '/3d/2d-pouch/pouch3.webp'
+      image: '/3d/2d-pouch/pouch4.webp'
     }
   ]
 
