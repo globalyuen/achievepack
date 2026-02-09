@@ -33,34 +33,52 @@ const NeoBadge = ({ children, color = 'bg-[#FF00FF]' }: any) => (
 export default function PouchProductsPage() {
   const PRODUCTS = [
     {
-      id: 'starter',
-      name: 'STARTER_KIT',
-      description: 'The perfect entry point for new brands. Get 500 fully compostable pouches with your branding.',
+      id: 'stand-up',
+      name: 'STAND_UP_POUCH',
+      description: 'The industry standard for shelf presence. Perfect for snacks, granola, and supplements.',
+      problem: 'Your brand needs to stand out, but custom printing usually requires ordering 10,000+ bags and paying expensive plate fees.',
+      solution: 'Our digital print Stand Up Pouches let you launch with pro-level packaging from just 500 units—no plate fees, fast turnaround.',
       price: '$0.50',
-      stats: { moq: '500', material: 'BIO', barrier: 'MED' },
-      features: ['Digital Print', 'No Plate Fees', 'Fast Turnaround'],
+      stats: { moq: '500', material: 'BIO/PCR', barrier: 'HIGH' },
+      features: ['Self-Standing Design', 'Resealable Zipper', 'Maximum Shelf Appeal'],
       color: 'bg-[#D4FF00]', // Yellow
-      image: 'https://achievepack.com/imgs/product-hero-pouch.webp'
+      image: '/3d/2d-pouch/pouch1.webp'
     },
     {
-      id: 'pro',
-      name: 'PRO_PACK',
-      description: 'High-barrier recyclable pouches designed for retail shelf life and durability.',
-      price: '$0.35',
-      stats: { moq: '2K', material: 'PCR', barrier: 'HIGH' },
-      features: ['High Barrier', 'Matte/Gloss Finish', 'Resealable Zipper'],
+      id: 'flat-bottom',
+      name: 'FLAT_BOTTOM_POUCH',
+      description: 'The premium choice for coffee and high-end goods. Box-like stability with flexible benefits.',
+      problem: 'Premium coffee and tea need stability on the shelf and distinct branding, which standard pouches often lack.',
+      solution: 'Our Flat Bottom Pouch (Box Bottom) offers 5 printable faces and maximum stability—giving your product a top-tier look.',
+      price: '$0.65',
+      stats: { moq: '500', material: 'RECYCLABLE', barrier: 'MAX' },
+      features: ['5 Printable Faces', 'Box-Like Stability', 'Premium Look & Feel'],
       color: 'bg-[#00FFFF]', // Cyan
-      image: 'https://achievepack.com/imgs/product-recyclable-pouches.webp'
+      image: '/3d/2d-pouch/pouch2.webp'
     },
     {
-      id: 'enterprise',
-      name: 'ENTERPRISE',
-      description: 'Custom bespoke packaging solutions for scaling brands. Full compliance support.',
-      price: 'Custom',
-      stats: { moq: '10K+', material: 'ANY', barrier: 'MAX' },
-      features: ['Custom Shapes', 'Volume Discount', 'Global Logistics'],
+      id: 'spouted',
+      name: 'SPOUTED_POUCH',
+      description: 'The modern alternative to rigid bottles. Lighter, unbreakable, and eco-friendly.',
+      problem: 'Selling liquids in bottles is heavy, fragile, and expensive to ship—eating into your margins.',
+      solution: 'Switch to flexible Spouted Pouches—lighter, durable, and uses 80% less plastic than rigid bottles. Perfect for refills.',
+      price: '$0.45',
+      stats: { moq: '1K', material: 'MONO-PE', barrier: 'LIQUID' },
+      features: ['Leak-Proof Spout', '80% Less Plastic', 'Cheaper Shipping'],
       color: 'bg-[#FF00FF]', // Magenta
-      image: 'https://achievepack.com/imgs/feature-pouch-shapes.webp'
+      image: '/3d/2d-pouch/pouch3.webp'
+    },
+    {
+      id: 'sachet',
+      name: 'SAMPLE_SACHET',
+      description: 'The conversion engine. 3-side seal flat pouches perfect for single-serves and samples.',
+      problem: 'Customers want to try before they buy, but generic sample packaging cheapens your brand.',
+      solution: 'Our custom-printed 3-Side Seal Sachets provide a premium unboxing experience even for trial sizes. Convert browsers into buyers.',
+      price: '$0.25',
+      stats: { moq: '2K', material: 'ANY', barrier: 'HIGH' },
+      features: ['Cost-Effective', 'Mail-Friendly', 'High Conversion'],
+      color: 'bg-white', // White
+      image: '/3d/2d-pouch/pouch4.webp'
     }
   ]
 
@@ -136,6 +154,17 @@ export default function PouchProductsPage() {
                   <p className="font-['Space_Grotesk'] text-xl leading-relaxed">
                     {product.description}
                   </p>
+
+                  <div className="space-y-4 font-['JetBrains_Mono'] text-sm border-y-2 border-black py-4">
+                    <div>
+                      <span className="font-bold block bg-black text-white px-2 inline-block mb-1">THE_PROBLEM:</span>
+                      <p className="leading-relaxed text-gray-700">{product.problem}</p>
+                    </div>
+                    <div>
+                      <span className="font-bold block bg-[#D4FF00] text-black px-2 inline-block mb-1 border-2 border-black">THE_SOLUTION:</span>
+                      <p className="leading-relaxed font-bold">{product.solution}</p>
+                    </div>
+                  </div>
                   
                   <ul className="space-y-2 font-['JetBrains_Mono'] text-sm">
                     {product.features.map(feature => (

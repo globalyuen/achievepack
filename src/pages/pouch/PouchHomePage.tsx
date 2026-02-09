@@ -56,31 +56,31 @@ export default function PouchHomePage() {
 
   const PRODUCTS = [
     {
-      id: 'compostable',
-      name: 'Compostable',
-      description: 'Certified home & industrial compostable. Breaks down naturally.',
+      id: 'stand-up',
+      name: 'Stand Up Pouch',
+      description: 'The industry standard. Perfect for snacks & supplements.',
       price: '$0.50',
-      stats: { moq: '500', material: 'BIO', barrier: 'MED' },
+      stats: { moq: '500', material: 'BIO/PCR', barrier: 'HIGH' },
       color: 'bg-[#D4FF00]', // Yellow
-      image: '/imgs/seo-photos/a_achievepack_compostable_garden_9329618.webp'
+      image: '/3d/2d-pouch/pouch1.webp'
     },
     {
-      id: 'recyclable',
-      name: 'Recyclable',
-      description: 'Mono-material PE/PP structures. Recycling stream ready.',
-      price: '$0.35',
-      stats: { moq: '2K', material: 'PE/PP', barrier: 'HIGH' },
+      id: 'flat-bottom',
+      name: 'Flat Bottom',
+      description: 'Premium box-like stability. Best for coffee & tea.',
+      price: '$0.65',
+      stats: { moq: '500', material: 'RECYCLABLE', barrier: 'MAX' },
       color: 'bg-[#00FFFF]', // Cyan
-      image: '/imgs/seo-photos/a_mono_recyclable_certification_compliance_7572715.webp'
+      image: '/3d/2d-pouch/pouch2.webp'
     },
     {
-      id: 'pcr-bio',
-      name: 'PCR / BioPE',
-      description: 'Post-Consumer Recycled or Bio-based plastics. Maximum sustainability.',
-      price: 'Custom',
-      stats: { moq: '10K+', material: 'MIX', barrier: 'MAX' },
+      id: 'spouted',
+      name: 'Spouted Pouch',
+      description: 'Flexible alternative to bottles. Lighter & cheaper.',
+      price: '$0.45',
+      stats: { moq: '1K', material: 'MONO-PE', barrier: 'LIQUID' },
       color: 'bg-[#FF00FF]', // Magenta
-      image: '/imgs/product-pcr-biobased.webp'
+      image: '/3d/2d-pouch/pouch3.webp'
     }
   ]
 
