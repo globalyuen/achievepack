@@ -25,7 +25,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
           <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
             <img src="/logo.png" alt="Pouch.eco Logo" className="w-10 h-10 object-contain" />
             <span className="font-black text-2xl tracking-tighter">
-              POUCH<span className="text-[#00FFFF]">.ECO</span>
+              POUCH<span className="text-[#14532d]">.ECO</span>
             </span>
           </Link>
 
