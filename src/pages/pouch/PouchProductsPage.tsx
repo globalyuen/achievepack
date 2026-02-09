@@ -62,7 +62,7 @@ export default function PouchProductsPage() {
       description: 'The modern alternative to rigid bottles. Lighter, unbreakable, and eco-friendly.',
       problem: 'Selling liquids in bottles is heavy, fragile, and expensive to ship—eating into your margins.',
       solution: 'Switch to flexible Spouted Pouches—lighter, durable, and uses 80% less plastic than rigid bottles. Perfect for refills.',
-      price: '$0.45',
+      price: '$0.90',
       stats: { moq: '1K', material: 'MONO-PE', barrier: 'LIQUID' },
       features: ['Leak-Proof Spout', '80% Less Plastic', 'Cheaper Shipping'],
       color: 'bg-[#FF00FF]', // Magenta
@@ -74,8 +74,8 @@ export default function PouchProductsPage() {
       description: 'The conversion engine. 3-side seal flat pouches perfect for single-serves and samples.',
       problem: 'Customers want to try before they buy, but generic sample packaging cheapens your brand.',
       solution: 'Our custom-printed 3-Side Seal Sachets provide a premium unboxing experience even for trial sizes. Convert browsers into buyers.',
-      price: '$0.25',
-      stats: { moq: '2K', material: 'ANY', barrier: 'HIGH' },
+      price: '$0.40',
+      stats: { moq: '500', material: 'ANY', barrier: 'HIGH' },
       features: ['Cost-Effective', 'Mail-Friendly', 'High Conversion'],
       color: 'bg-white', // White
       image: '/3d/2d-pouch/pouch3.webp'

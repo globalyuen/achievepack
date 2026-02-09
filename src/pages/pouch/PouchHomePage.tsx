@@ -77,7 +77,7 @@ export default function PouchHomePage() {
       id: 'spouted',
       name: 'Spouted Pouch',
       description: 'Flexible alternative to bottles. Lighter & cheaper.',
-      price: '$0.45',
+      price: '$0.90',
       stats: { moq: '1K', material: 'MONO-PE', barrier: 'LIQUID' },
       color: 'bg-[#FF00FF]', // Magenta
       image: '/3d/2d-pouch/pouch4.webp'
