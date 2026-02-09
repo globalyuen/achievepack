@@ -38,7 +38,7 @@ export default function PouchMaterialsPage() {
       name: 'HOME & INDUSTRIAL COMPOSTABLE',
       description: 'Breaks down in home and industrial environments. Certified TUV & BPI.',
       pros: ['Zero Waste', 'Plant-Based', 'Certified', 'Industrial Compostable'],
-      cons: ['6-12 Months Shelf Life', 'Higher Cost'],
+      cons: ['+12 Months Shelf Life', 'Higher Cost'],
       icon: Leaf,
       color: 'bg-[#D4FF00]', // Yellow
     },
