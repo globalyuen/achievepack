@@ -175,7 +175,7 @@ export default function PouchProductsPage() {
                   </ul>
 
                   <div className="pt-6 border-t-2 border-black flex items-center justify-between">
-                    <div className="font-black text-3xl">{product.price}</div>
+                    <div className="font-black text-3xl">FROM {product.price}+</div>
                     <NeoButton onClick={() => window.open('https://calendly.com/30-min-free-packaging-consultancy', '_blank')}>
                       Book Call
                     </NeoButton>
