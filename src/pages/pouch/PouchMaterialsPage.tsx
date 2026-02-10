@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async'
-import { Leaf, Recycle, Heart } from 'lucide-react'
+import { Leaf, Recycle, Heart, ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import PouchLayout from '../../components/pouch/PouchLayout'
 
@@ -130,6 +130,38 @@ export default function PouchMaterialsPage() {
               </NeoCard>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Tech Specs CTA */}
+      <section className="py-24 bg-black text-[#D4FF00] border-t-4 border-black">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+           <div className="flex flex-col md:flex-row items-center gap-12">
+              <div className="flex-1">
+                 <div className="inline-block bg-[#D4FF00] text-black px-4 py-1 mb-6 font-['JetBrains_Mono'] font-bold transform -rotate-1">
+                    FOR_ENGINEERS
+                 </div>
+                 <h2 className="font-black text-4xl md:text-6xl uppercase mb-6 leading-none">
+                    Technical<br/>Data Sheets.
+                 </h2>
+                 <p className="font-['Space_Grotesk'] text-xl mb-8 text-white max-w-xl">
+                    Need exact barrier properties, thickness options, and seal strengths? Access our full library of technical specifications and downloadable PDFs.
+                 </p>
+                 <Link to="/tech-specs">
+                    <NeoButton variant="primary" className="inline-flex items-center">
+                       View All Specs <ArrowRight className="w-5 h-5 ml-2" />
+                    </NeoButton>
+                 </Link>
+              </div>
+              <div className="flex-1 w-full relative">
+                 <div className="border-4 border-[#D4FF00] p-4 relative rotate-2 hover:rotate-0 transition-transform duration-500">
+                    <div className="absolute -top-6 -left-6 bg-[#00FFFF] border-4 border-black p-4 font-['JetBrains_Mono'] font-bold text-black transform -rotate-6 z-10 shadow-[8px_8px_0px_0px_#D4FF00]">
+                       DOWNLOADABLE_PDFs
+                    </div>
+                    <img src="/imgs/spec/tech-spec-hero.png" alt="Tech Specs" className="w-full h-auto border-2 border-[#D4FF00] grayscale hover:grayscale-0 transition-all" />
+                 </div>
+              </div>
+           </div>
         </div>
       </section>
 
