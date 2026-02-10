@@ -24,7 +24,7 @@ const specs = [
             sealStrength: '> 30 N/15mm'
         },
         questions: [
-            { q: 'What is the shelf life?', a: '6-12 months under standard storage conditions relative to the product.' },
+            { q: 'What is the shelf life?', a: '+12 months under standard storage conditions relative to the product.' },
             { q: 'Is a valve available?', a: 'Yes, certified compostable degassing valves can be applied.' },
             { q: 'How should it be disposed?', a: 'Ideally in an industrial composting facility, but TUV Home certification allows for home compost piles.' }
         ]
