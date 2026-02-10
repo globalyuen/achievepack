@@ -44,7 +44,7 @@ export default function PouchTechSpecsPage() {
       ],
       features: ['Moisture Barrier', 'Oxygen Barrier', 'Heat Sealable', 'Printable'],
       certifications: ['BPI', 'TUV Home', 'TUV Industrial'],
-      pdfUrl: '#'
+      pdfUrl: '/pdfs/compostable-spec-sheet.pdf'
     },
     {
       id: 'recyclable',
@@ -59,7 +59,7 @@ export default function PouchTechSpecsPage() {
       ],
       features: ['Recyclable (Code 4)', 'High Clarity', 'Durable', 'Moisture Resistant'],
       certifications: ['How2Recycle', 'RedCycle'],
-      pdfUrl: '#'
+      pdfUrl: '/pdfs/recyclable-spec-sheet.pdf'
     },
     {
       id: 'pcr',
@@ -74,7 +74,37 @@ export default function PouchTechSpecsPage() {
       ],
       features: ['Circular Economy', 'Reduced Carbon Footprint', 'Virgin Plastic Reduction'],
       certifications: ['GRS', 'SCS Global'],
-      pdfUrl: '#'
+      pdfUrl: '/pdfs/pcr-spec-sheet.pdf'
+    },
+    {
+      id: 'aluminum',
+      title: 'High Barrier Foil',
+      subtitle: 'Premium Protection',
+      description: 'The industry gold standard for oxygen and moisture protection. Ideal for coffee, powders, and long shelf-life products.',
+      image: '/imgs/spec/pcr-pet-triplex-aluminum.webp',
+      layers: [
+        { name: 'Print', desc: 'PET / OPP' },
+        { name: 'Barrier', desc: 'Aluminum Foil (7-9µm)' },
+        { name: 'Sealant', desc: 'PE / RCPP' }
+      ],
+      features: ['Zero OTR/WVTR', 'Light Blocking', 'Retortable Option', 'Rigid Feel'],
+      certifications: ['FDA Compliant', 'ISO 9001'],
+      pdfUrl: '/pdfs/aluminum-spec-sheet.pdf'
+    },
+    {
+      id: 'bio-pe',
+      title: 'Bio-Based PE',
+      subtitle: 'Sugar Cane Derived',
+      description: 'Carbon negative polyethylene derived from renewable sugar cane resources. Same performance as fossil fuel PE.',
+      image: '/imgs/spec/biope-kraft-vmpet.webp',
+      layers: [
+        { name: 'Print', desc: 'Bio-PET / Paper' },
+        { name: 'Barrier', desc: 'AL / VMPET' },
+        { name: 'Sealant', desc: 'Bio-PE (Sugar Cane)' }
+      ],
+      features: ['Renewable Resource', 'Carbon Negative', 'High Strength', 'Drop-in Replacement'],
+      certifications: ['Bonsucro', 'ASTM D6866', 'Carbon Trust'],
+      pdfUrl: '/pdfs/bio-pe-spec-sheet.pdf'
     }
   ]
 
@@ -109,7 +139,7 @@ export default function PouchTechSpecsPage() {
             </div>
             <div className="flex-1 relative">
                 <div className="border-4 border-black p-2 bg-white shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] rotate-3 transition-transform hover:rotate-0">
-                  <img src="/imgs/spec/bio-kraft-vmpet.webp" alt="Tech Spec Preview" className="w-full h-auto border-2 border-black" />
+                  <img src="/imgs/spec/tech-spec-hero.png" alt="Tech Spec Preview" className="w-full h-auto border-2 border-black" />
                 </div>
             </div>
           </div>
