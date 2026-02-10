@@ -1,5 +1,5 @@
 import { ReactNode, useState } from 'react'
-import { Calendar, Menu, X, Building2, BookOpen, MessageSquare, Instagram, Linkedin } from 'lucide-react'
+import { Calendar, Menu, X, Building2, Instagram, Linkedin } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 

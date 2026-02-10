@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Package, Leaf, Zap, Box as BoxIcon, Flame, Star } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
@@ -42,6 +43,7 @@ const NeoBadge = ({ children, color = 'bg-[#FF00FF]' }: any) => (
 // ============================================
 
 export default function PouchHomePage() {
+  const navigate = useNavigate()
   const productsRef = useRef<HTMLElement>(null)
 
   const scrollToProducts = () => {
@@ -496,7 +498,7 @@ export default function PouchHomePage() {
                 Multi-layer barrier structures. O2 + moisture blocking. 
                 Keeps product fresh for 6-18 months shelf life.
               </p>
-              <NeoButton variant="primary" className="text-sm">View Tech Specs</NeoButton>
+              <NeoButton variant="primary" className="text-sm" onClick={() => navigate('/tech-specs')}>View Tech Specs</NeoButton>
             </div>
             <img src="https://achievepack.com/imgs/feature-barrier-options.webp" className="absolute right-0 top-0 h-full w-1/2 object-cover opacity-20 grayscale group-hover:grayscale-0 transition-all duration-500 mask-image-gradient" alt="Barrier Options" />
           </NeoCard>
