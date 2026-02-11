@@ -908,10 +908,7 @@ function App() {
         </div>
       </section>
 
-      {/* Eco Video Showcase */}
-      <Suspense fallback={<div className="h-64 bg-green-50" />}>
-        <EcoVideoShowcase className="" />
-      </Suspense>
+
 
       {/* Success Stories - Coverflow Testimonials */}
       <Suspense fallback={<div className="h-96 bg-neutral-50" />}>
