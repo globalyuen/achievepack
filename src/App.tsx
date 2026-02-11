@@ -844,12 +844,9 @@ function App() {
 
       {/* 3D Eco Pouch Material Experience - Disabled */}
 
-      {/* Random Banner with Floating Infographic Icons - Below Hero */}
+      {/* Random Banner - Below Hero */}
       <Suspense fallback={<div className="h-32" />}>
-        <div className="relative">
-          <RandomBanner className="" />
-          <FloatingInfoGraphics />
-        </div>
+        <RandomBanner className="" />
       </Suspense>
 
       {/* Discover Products - Coverflow Carousel Section */}
@@ -922,14 +919,25 @@ function App() {
       </Suspense>
 
       {/* Trusted Clients Logo Marquee */}
-      <section className="py-12 bg-gradient-to-b from-neutral-50 to-white overflow-hidden">
-        <div className="text-center mb-8">
+      <section 
+        className="py-12 overflow-hidden relative"
+        style={{
+          backgroundImage: 'url(/imgs/group/group.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* Overlay for text readability */}
+        <div className="absolute inset-0 bg-white/85 backdrop-blur-[2px]" />
+        
+        <div className="text-center mb-8 relative z-10">
           <p className="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-2">Trusted by Industry Leaders</p>
           <h2 className="text-3xl md:text-4xl font-bold text-neutral-900">Why 500+ Global Brands Choose Achieve Pack</h2>
         </div>
         
         {/* Strip 1 - Deep Forest Green */}
-        <div className="relative -rotate-1 mb-4">
+        <div className="relative -rotate-1 mb-4 z-10">
           <div className="bg-[#1b4332] py-4">
             <ParallaxText baseVelocity={-2} textClassName="flex items-center gap-12">
               {CLIENT_LOGOS.slice(0, 10).map((logo) => (
@@ -959,7 +967,7 @@ function App() {
         </div>
 
         {/* Strip 2 - Vibrant Green */}
-        <div className="relative rotate-1 mb-4">
+        <div className="relative rotate-1 mb-4 z-10">
           <div className="bg-[#2d6a4f] py-4">
             <ParallaxText baseVelocity={3} textClassName="flex items-center gap-12">
               {CLIENT_LOGOS.slice(10, 19).map((logo) => (
@@ -989,7 +997,7 @@ function App() {
         </div>
 
         {/* Strip 3 - Fresh Emerald Green */}
-        <div className="relative -rotate-1">
+        <div className="relative -rotate-1 z-10">
           <div className="bg-[#40916c] py-4">
             <ParallaxText baseVelocity={-2.5} textClassName="flex items-center gap-12">
               {CLIENT_LOGOS.slice(19, 28).map((logo) => (
@@ -2960,10 +2968,7 @@ Please contact me to discuss custom solutions.`;
       {/* Cart Sidebar */}
       <CartSidebar />
 
-      {/* Floating Testimonial Video */}
-      <Suspense fallback={null}>
-        <FloatingTestimonialVideo />
-      </Suspense>
+      {/* Floating Testimonial Video - Removed */}
     </div>
     </>
   )

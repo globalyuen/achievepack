@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { 
   Package, Leaf, Zap, ShoppingCart, Star, CheckCircle, 
   ArrowRight, Box, Sparkles, Heart, Users, Globe,
-  Calculator as CalcIcon, Calendar, ChevronDown
+  Calculator as CalcIcon, Calendar, ChevronDown, Volume2, VolumeX
 } from 'lucide-react'
 import DualDomainSEOHead from '../components/DualDomainSEOHead'
 import { getDomain, getBrandConfig, getDomainContent } from '../utils/domain'
@@ -68,6 +68,12 @@ export default function PouchEcoHomePage() {
   const { cartCount, setIsCartOpen } = useStore()
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeFeature, setActiveFeature] = useState(0)
+  const [isMuted, setIsMuted] = useState(true)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  // Hero background video - bag.mov with cover.jpg as poster
+  const heroVideo = '/video/hero/bag.mov'
+  const heroPoster = '/video/hero/cover.jpg'
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50)
@@ -82,6 +88,14 @@ export default function PouchEcoHomePage() {
     }, 5000)
     return () => clearInterval(timer)
   }, [])
+
+  // 音频控制
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted
+      setIsMuted(!isMuted)
+    }
+  }
 
   const features = [
     {
@@ -204,9 +218,46 @@ export default function PouchEcoHomePage() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative pt-16 pb-24 border-b-4 border-black bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:20px_20px]">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+      {/* Hero Section with Video Background */}
+      <section className="relative pt-16 pb-24 border-b-4 border-black overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 z-0">
+          <video
+            ref={videoRef}
+            className="w-full h-full object-cover"
+            autoPlay
+            loop
+            muted={isMuted}
+            playsInline
+            poster={heroPoster}
+          >
+            <source src={heroVideo} type="video/quicktime" />
+            <source src={heroVideo} type="video/mp4" />
+          </video>
+          {/* Dark overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
+
+        {/* Dot pattern overlay */}
+        <div className="absolute inset-0 z-[1] bg-[radial-gradient(rgba(16,185,129,0.3)_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
+
+        {/* Audio Control Button */}
+        <button
+          onClick={toggleMute}
+          className="absolute top-24 right-6 z-30 bg-white/20 backdrop-blur-md border-2 border-white/30 rounded-full w-14 h-14 flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all shadow-lg group"
+          aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+        >
+          {isMuted ? (
+            <VolumeX className="w-6 h-6 text-white" />
+          ) : (
+            <Volume2 className="w-6 h-6 text-white" />
+          )}
+          <span className="absolute -bottom-8 right-0 text-xs text-white font-semibold opacity-0 group-hover:opacity-100 transition whitespace-nowrap bg-black/60 px-2 py-1 rounded">
+            {isMuted ? 'Unmute' : 'Mute'}
+          </span>
+        </button>
+
+        <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             
             {/* Left Content */}
@@ -224,11 +275,11 @@ export default function PouchEcoHomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="font-black text-6xl md:text-8xl leading-[0.9] tracking-tighter uppercase"
+                className="font-black text-6xl md:text-8xl leading-[0.9] tracking-tighter uppercase text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]"
               >
                 Your Brand.<br/>
                 Our Eco<br/>
-                <span className="text-[#10b981]">Packaging.</span>
+                <span className="text-[#D4FF00]">Packaging.</span>
               </motion.h1>
 
               <motion.p 
@@ -258,22 +309,34 @@ export default function PouchEcoHomePage() {
                 </NeoButton>
               </motion.div>
 
-              {/* Social Proof */}
+              {/* Social Proof with group.png background */}
               <motion.div 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="grid grid-cols-4 gap-4 pt-8"
+                className="relative pt-8 mt-4 -mx-4 px-4 py-6 rounded-xl overflow-hidden"
+                style={{
+                  backgroundImage: 'url(/imgs/group/group.png)',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
               >
-                {socialProof.map((item, idx) => (
-                  <div key={idx} className="text-center">
-                    <div className="flex justify-center mb-2 text-[#10b981]">
-                      {item.icon}
+                {/* Overlay for readability */}
+                <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]" />
+                
+                <p className="text-center text-sm font-bold text-[#D4FF00] mb-4 relative z-10 uppercase tracking-wider">Trusted by Global Brands</p>
+                
+                <div className="grid grid-cols-4 gap-4 relative z-10">
+                  {socialProof.map((item, idx) => (
+                    <div key={idx} className="text-center bg-white/10 backdrop-blur-sm border-2 border-white/20 p-3 rounded-lg">
+                      <div className="flex justify-center mb-2 text-[#D4FF00]">
+                        {item.icon}
+                      </div>
+                      <div className="font-black text-xl text-white">{item.number}</div>
+                      <div className="text-xs text-white/80 font-['JetBrains_Mono']">{item.label}</div>
                     </div>
-                    <div className="font-black text-xl">{item.number}</div>
-                    <div className="text-xs text-gray-600 font-['JetBrains_Mono']">{item.label}</div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </motion.div>
             </div>
 

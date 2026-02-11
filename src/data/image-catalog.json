@@ -1,10 +1,10 @@
 {
   "generated": "2026-02-11",
-  "total_images": 1224,
-  "total_categories": 134,
+  "total_images": 1225,
+  "total_categories": 135,
   "extensions": {
     ".webp": 1058,
-    ".png": 157,
+    ".png": 158,
     ".jpg": 6,
     ".svg": 3
   },
@@ -3014,6 +3014,17 @@
           "path": "/imgs/function/water/hero.webp",
           "extension": ".webp",
           "modified": "2025-12-28T18:09:48.000Z"
+        }
+      ]
+    },
+    "group": {
+      "count": 1,
+      "images": [
+        {
+          "filename": "group.png",
+          "path": "/imgs/group/group.png",
+          "extension": ".png",
+          "modified": "2026-02-11T13:41:48.127Z"
         }
       ]
     },
