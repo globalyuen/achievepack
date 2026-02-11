@@ -814,7 +814,7 @@ export default function LowMOQPackagingGuide() {
       heroTitle={
         <>
           Low MOQ Packaging Guide 2026:<br />
-          <span className="text-[#D4FF00]">Start with Just 100 Pieces</span>
+          <span className="bg-black text-white px-2">Start with Just 100 Pieces</span>
         </>
       }
       heroSubtitle="Digital print vs plate print economics, transparent pricing breakdown, complete timeline, and real startup success story. Perfect for small brands, coffee roasters, and e-commerce startups."
@@ -836,7 +836,7 @@ export default function LowMOQPackagingGuide() {
         {
           title: 'Coffee Packaging Guide: Why Your Plastic Bag Is Killing Your Coffee',
           url: '/blog/coffee-packaging-guide',
-          image: '/imgs/seo-photos/coffee-tea/coffee-packaging/a_coffee_bag_standing_on_a_cafe_counter_next_to_a_cer_4567890.webp'
+          image: '/imgs/seo-photos/a_bean_bole_coffee_roastery_8131919.webp'
         }
       ]}
     />
