@@ -40,7 +40,7 @@ export default function PouchBlogPage() {
     {
       title: 'Green Coffee Packaging Guide 2026',
       excerpt: 'Stop sacrificing freshness for sustainability. Guide to high-barrier compostable coffee bags, biodegradable valves, and recyclable Mono-PE options.',
-      image: '/imgs/seo-photos/coffee/a_coffee_bag_valve_with_kraft_pouch_1816878.webp',
+      image: '/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp',
       date: '2026-02-11',
       category: 'Coffee & Tea',
       readTime: '13 min',
