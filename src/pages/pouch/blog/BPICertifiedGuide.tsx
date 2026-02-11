@@ -698,7 +698,7 @@ export default function BPICertifiedGuide() {
     {
       title: 'USA Compostable Hub: State Laws and Compliance',
       url: '/blog/usa-compostable-packaging-guide',
-      image: '/imgs/seo-photos/usa/hub/a_usa_compostable_packaging_regulation_2589743.webp'
+      image: '/imgs/seo-photos/usa/hub/a_sustainability_labeling_guide_7131825.webp'
     }
   ]
 
