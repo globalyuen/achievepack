@@ -356,6 +356,10 @@ const PouchSupplementsPage = lazyWithRetry(() => import('./pages/pouch/industry/
 const PouchTechSpecsPage = lazyWithRetry(() => import('./pages/pouch/PouchTechSpecsPage'))
 
 const FreeServicesHubPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesHubPage'))
+const EcoFriendlyFoodPackagingGuide = lazyWithRetry(() => import('./pages/pouch/blog/EcoFriendlyFoodPackagingGuide'))
+const DTCSustainablePackagingGuide = lazyWithRetry(() => import('./pages/pouch/blog/DTCSustainablePackagingGuide'))
+const RecyclableSnackPackagingGuide = lazyWithRetry(() => import('./pages/pouch/blog/RecyclableSnackPackagingGuide'))
+
 const FreeServicesPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesPage'))
 const Product3DShowcasePage = lazyWithRetry(() => import('./pages/Product3DShowcasePage'))
 
@@ -442,6 +446,9 @@ if (getDomain() === 'pouch') {
               <Route path="/industry/pet-food" element={<PouchPetFoodPage />} />
               <Route path="/industry/snacks" element={<PouchSnacksPage />} />
               <Route path="/industry/supplements" element={<PouchSupplementsPage />} />
+              <Route path="/blog/eco-friendly-food-packaging-guide" element={<EcoFriendlyFoodPackagingGuide />} />
+              <Route path="/blog/dtc-sustainable-packaging-guide" element={<DTCSustainablePackagingGuide />} />
+              <Route path="/blog/recyclable-snack-packaging-guide" element={<RecyclableSnackPackagingGuide />} />
               <Route path="/tech-specs" element={<PouchTechSpecsPage />} />
               {/* Fallback for other routes back to Home or 404, or keep as Home for now */}
               <Route path="*" element={<PouchHomePage />} />

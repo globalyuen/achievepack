@@ -29,6 +29,33 @@ export default function PouchBlogPage() {
       link: '/blog/home-compostable-guide'
     },
     {
+      title: 'Eco-Friendly Food Packaging Guide 2026',
+      excerpt: 'Comprehensive guide to sustainable food packaging. Compare compostable vs recyclable options, understand certifications, and choose the right barrier for freshness.',
+      image: '/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp',
+      date: '2026-02-10',
+      category: 'Sustainable Solutions',
+      readTime: '14 min',
+      link: '/blog/eco-friendly-food-packaging-guide'
+    },
+    {
+      title: 'DTC Sustainable Packaging Guide 2026',
+      excerpt: 'Scale your DTC brand with sustainable packaging. Low MOQ (100 units), fast digital printing, and e-commerce ready durability.',
+      image: '/imgs/seo-photos/a_ecommerce_lightweight_pouch_achieve_pack_8535238.webp',
+      date: '2026-02-10',
+      category: 'Direct to Consumer',
+      readTime: '12 min',
+      link: '/blog/dtc-sustainable-packaging-guide'
+    },
+    {
+      title: 'Recyclable Snack Packaging Guide 2026',
+      excerpt: 'Switch to recyclable mono-material snack packaging. High barrier protection for chips, nuts, and jerky. How2Recycle store drop-off compliant.',
+      image: '/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp',
+      date: '2026-02-10',
+      category: 'Recyclable Tech',
+      readTime: '10 min',
+      link: '/blog/recyclable-snack-packaging-guide'
+    },
+    {
       title: 'Coffee Bags Degassing Valve Guide: One-Way vs Two-Way vs Aroma Valves',
       excerpt: 'Complete guide to coffee bag degassing valves. Learn one-way vs two-way vs aroma valves, material compatibility, pricing ($0.08-$0.22/bag), and 309% ROI case study.',
       image: '/imgs/reclose/ads/a_valve_closure_detail_6401844.webp',
