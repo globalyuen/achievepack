@@ -137,6 +137,7 @@ export default function GreenCoffeeMaterialsGuide() {
       modifiedDate="2026-02-11T16:00:00Z"
       categoryTag="Coffee & Tea"
       categoryColor="#78350f"
+      heroImage="/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp"
       heroTitle={
         <>
           Roast Perfect.<br />
@@ -162,7 +163,7 @@ export default function GreenCoffeeMaterialsGuide() {
         {
            title: 'Eco Packaging Regulations Guide',
            url: '/blog/eco-packaging-regulations-guide',
-           image: '/imgs/seo-photos/a_achievepack_home_compostable_balcony_9883994.webp'
+           image: '/imgs/seo-photos/a_mono_recyclable_certification_compliance_7572715.webp'
         }
       ]}
     />
