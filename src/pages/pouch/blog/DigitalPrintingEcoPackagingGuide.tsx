@@ -140,7 +140,7 @@ export default function DigitalPrintingEcoPackagingGuide() {
       heroTitle={
         <>
           Print Responsibly.<br />
-          <span className="text-[#D4FF00]">Print Digital.</span>
+          <span className="bg-black text-white px-2">Print Digital.</span>
         </>
       }
       heroSubtitle="Stop paying for plates. Stop wasting ink. Start launching closer to demand with 15-day turnarounds and 100 unit MOQs."
