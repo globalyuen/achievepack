@@ -205,6 +205,39 @@ export default function PouchTechSpecsPage() {
                 </NeoButton>
               </NeoCard>
             ))}
+            
+            {/* Tailor-Made CTA Card */}
+            <NeoCard className="flex flex-col h-full text-[#D4FF00]" color="bg-black">
+               <div className="border-b-4 border-[#D4FF00] pb-4 mb-6">
+                  <div className="flex justify-between items-start mb-2">
+                     <h2 className="font-black text-2xl uppercase text-[#D4FF00]">Tailor-Made</h2>
+                     <div className="bg-[#D4FF00] text-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold">
+                       CUSTOM
+                     </div>
+                  </div>
+                  <p className="font-['JetBrains_Mono'] font-bold text-gray-400">Unique Performance Needs</p>
+               </div>
+
+               <div className="mb-6 border-4 border-[#D4FF00] overflow-hidden relative group h-48 flex items-center justify-center bg-[#1a1a1a]">
+                  <FlaskConical className="w-24 h-24 text-[#D4FF00]" />
+               </div>
+
+               <p className="font-['Space_Grotesk'] mb-6 flex-grow text-[#D4FF00]">
+                  Don't see what you need? We engineer custom material structures tailored to your specific product requirements, shelf-life goals, and machinery.
+               </p>
+
+               <div className="space-y-6 mb-8">
+                   <div className="flex flex-wrap gap-2">
+                      <NeoBadge color="bg-[#D4FF00]">Custom Barrier</NeoBadge>
+                      <NeoBadge color="bg-[#D4FF00]">Specific Thickness</NeoBadge>
+                      <NeoBadge color="bg-[#D4FF00]">Unique Sealants</NeoBadge>
+                   </div>
+               </div>
+
+               <NeoButton variant="primary" className="w-full justify-center mt-auto" onClick={() => window.open('https://calendly.com/30-min-free-packaging-consultancy', '_blank')}>
+                  <ArrowRight className="w-4 h-4" /> Book Consultation
+               </NeoButton>
+            </NeoCard>
           </div>
         </div>
       </section>
