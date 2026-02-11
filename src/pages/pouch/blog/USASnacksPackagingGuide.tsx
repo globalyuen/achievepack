@@ -17,6 +17,7 @@ export default function USASnacksPackagingGuide() {
       icon: <TrendingUp className="w-6 h-6" />,
       content: (
         <div className="space-y-8">
+          <img src="/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp" alt="Sustainable Snack Packaging Market Growth" className="w-full h-64 object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" />
           <div className="bg-[#00FFFF] border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             <h3 className="font-black text-2xl uppercase mb-4">The $42B Natural Snacks Revolution</h3>
             <div className="grid md:grid-cols-2 gap-6">
@@ -104,6 +105,7 @@ export default function USASnacksPackagingGuide() {
       icon: <Shield className="w-6 h-6" />,
       content: (
         <div className="space-y-8">
+          <img src="/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp" alt="USA Snack Packaging State Laws Compliance Map" className="w-full h-64 object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" />
           <div className="bg-[#D4FF00] border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             <h3 className="font-black text-2xl uppercase mb-6">State-by-State Compliance Guide</h3>
             
@@ -206,6 +208,7 @@ export default function USASnacksPackagingGuide() {
         <div className="space-y-8">
           <div className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             <h3 className="font-black text-2xl uppercase mb-6">Material Comparison for Snack Packaging</h3>
+            <img src="/imgs/seo-photos/usa/snack/a_snacks_pouch_format_comparison_8281669.webp" alt="Compostable vs Recyclable Snack Pouch Materials" className="w-full h-64 object-cover border-4 border-black mb-6" />
             
             <div className="overflow-x-auto">
               <table className="w-full border-4 border-black">
@@ -323,11 +326,12 @@ export default function USASnacksPackagingGuide() {
         <div className="space-y-8">
           <div className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             <h3 className="font-black text-2xl uppercase mb-6">Complete Price Breakdown (<Link to="/industry/snacks" className="hover:underline">Compostable Snack Pouches</Link>)</h3>
+            <img src="/imgs/seo-photos/a_data_doesnt_lie_comparison_1860300.webp" alt="Snack Packaging Price Comparison Chart" className="w-full h-64 object-cover border-4 border-black mb-6" />
             
             <div className="overflow-x-auto">
               <table className="w-full border-4 border-black">
                 <thead>
-                  <tr className="bg-black text-[#D4FF00]">
+                  <tr className="bg-black text-white">
                     <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono']">Quantity</th>
                     <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono']">Size</th>
                     <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono']">Kraft + PLA</th>
@@ -465,6 +469,7 @@ export default function USASnacksPackagingGuide() {
         <div className="space-y-8">
           <div className="bg-[#00FFFF] border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             <h3 className="font-black text-2xl uppercase mb-4">The Challenge: Competing in Natural Grocers</h3>
+            <img src="/imgs/seo-photos/little_sprouts_pouch.png" alt="Austin Granola Co Case Study Pouch" className="w-full h-64 object-cover border-4 border-black mb-6" />
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <h4 className="font-bold text-lg mb-3">Background:</h4>
@@ -634,7 +639,7 @@ export default function USASnacksPackagingGuide() {
       heroTitle={
         <>
           USA Snacks Packaging Guide 2026:<br />
-          <span className="text-[#D4FF00]">State Laws, Materials & Real Pricing</span>
+          <span className="bg-black text-white px-2">State Laws, Materials & Real Pricing</span>
         </>
       }
       heroSubtitle="Complete guide for US snack brands: Compostable vs recyclable comparison, California/Washington/Colorado compliance, transparent pricing breakdown, and real startup success story. Perfect for granola, chips, trail mix, and organic snacks."
