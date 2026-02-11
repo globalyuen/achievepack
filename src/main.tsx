@@ -463,6 +463,10 @@ if (getDomain() === 'pouch') {
               <Route path="/blog/eco-packaging-regulations-guide" element={<EcoPackagingRegulationsGuide />} />
               <Route path="/blog/green-coffee-materials-guide" element={<GreenCoffeeMaterialsGuide />} />
               <Route path="/blog/low-moq-startup-packaging-guide" element={<LowMOQStartupPackagingGuide />} />
+              <Route path="/products/recyclable-mono-material-pouches" element={<RecyclableSnackPackagingGuide />} />
+              <Route path="/products/coffee-bags-degassing-valve" element={<CoffeeDegassingValveGuide />} />
+              <Route path="/products/low-moq-packaging" element={<LowMOQPackagingGuide />} />
+              <Route path="/products/compostable-stand-up-pouches" element={<CompostableStandUpPouchesGuide />} />
               <Route path="/tech-specs" element={<PouchTechSpecsPage />} />
               {/* Fallback for other routes back to Home or 404, or keep as Home for now */}
               <Route path="*" element={<PouchHomePage />} />

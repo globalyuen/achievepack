@@ -208,17 +208,17 @@ export default function CoffeePackagingGuide() {
               <tbody>
                 <tr className="border-b-2 border-black">
                   <td className="py-3 font-bold">100-500 pcs</td>
-                  <td className="py-3">$2.80-$4.20</td>
+                  <td className="py-3">$1.40-$2.10</td>
                   <td className="py-3">2-3 weeks</td>
                 </tr>
                 <tr className="border-b-2 border-black">
                   <td className="py-3 font-bold">500-1,000 pcs</td>
-                  <td className="py-3">$2.10-$3.50</td>
+                  <td className="py-3">$1.05-$1.75</td>
                   <td className="py-3">2-3 weeks</td>
                 </tr>
                 <tr className="border-b-2 border-black">
                   <td className="py-3 font-bold">1,000-3,000 pcs</td>
-                  <td className="py-3">$1.60-$2.80</td>
+                  <td className="py-3">$0.80-$1.40</td>
                   <td className="py-3">3-4 weeks</td>
                 </tr>
                 <tr>
