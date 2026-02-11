@@ -579,7 +579,7 @@ export default function PouchSnacksPage() {
             >
               <div className="border-b-4 border-black overflow-hidden">
                 <img 
-                  src="/imgs/seo-photos/usa/snacks/a_diverse_retail_snacks_aisle_stocked_with_products_8587761.webp"
+                  src="/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp"
                   alt="USA Snacks Packaging Guide"
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
                 />
