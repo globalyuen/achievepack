@@ -17,6 +17,7 @@ export default function USALabelingGuide() {
       icon: <AlertTriangle className="w-6 h-6" />,
       content: (
         <div className="space-y-8">
+          <img src="/imgs/seo-photos/usa/label/a_digital_labeling_strategy_0282148.webp" alt="Compostable Labeling Financial Risk" className="w-full h-64 object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" />
           <div className="bg-[#00FFFF] border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             <h3 className="font-black text-2xl uppercase mb-4">The $10,000/Day Mistake</h3>
             <div className="grid md:grid-cols-2 gap-6">
@@ -85,6 +86,7 @@ export default function USALabelingGuide() {
       icon: <MapPin className="w-6 h-6" />,
       content: (
         <div className="space-y-8">
+          <img src="/imgs/seo-photos/usa/label/a_fda_labeling_compliance_checklist_8653787.webp" alt="California AB 1201 Compliance Checklist" className="w-full h-64 object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" />
           <div className="bg-[#D4FF00] border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             <h3 className="font-black text-2xl uppercase mb-6">AB 1201: Compostable Plastics Labeling (2023)</h3>
             
@@ -166,6 +168,7 @@ export default function USALabelingGuide() {
       icon: <Scale className="w-6 h-6" />,
       content: (
         <div className="space-y-8">
+          <img src="/imgs/seo-photos/usa/hub/a_label_compliance_requirements_0902238.webp" alt="State Labeling Laws Comparison" className="w-full h-64 object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" />
           <div className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             <h3 className="font-black text-2xl uppercase mb-6">State-by-State Comparison</h3>
             
@@ -276,6 +279,7 @@ export default function USALabelingGuide() {
       icon: <FileCheck className="w-6 h-6" />,
       content: (
         <div className="space-y-8">
+          <img src="/imgs/seo-photos/usa/label/a_labeling_design_best_practices_0279886.webp" alt="Compostable Label Design Examples" className="w-full h-64 object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" />
           <div className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             <h3 className="font-black text-2xl uppercase mb-6">Visual Design Guidelines</h3>
             
@@ -434,6 +438,7 @@ export default function USALabelingGuide() {
       icon: <Shield className="w-6 h-6" />,
       content: (
         <div className="space-y-8">
+          <img src="/imgs/seo-photos/a_certificates_compliance_trust_4184896.webp" alt="ASTM D6400 Certification Process" className="w-full h-64 object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" />
           <div className="bg-[#00FFFF] border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             <h3 className="font-black text-2xl uppercase mb-4">The Certification Process Explained</h3>
             
@@ -546,7 +551,7 @@ export default function USALabelingGuide() {
       heroTitle={
         <>
           USA Labeling Guide 2026:<br />
-          <span className="text-[#D4FF00]">Avoid the $10K/Day Fine</span>
+          <span className="bg-black text-white px-2">Avoid the $10K/Day Fine</span>
         </>
       }
       heroSubtitle="Complete compliance guide for California AB 1201/SB 343, Washington HB 1569, and Colorado HB 22-1355. ASTM D6400 certification explained, label design do's and don'ts, real examples."
