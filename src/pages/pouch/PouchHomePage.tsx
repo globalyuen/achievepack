@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Package, Leaf, Zap, Box as BoxIcon, Flame, Star } from 'lucide-react'
 import { motion } from 'framer-motion'
@@ -37,6 +37,42 @@ const NeoBadge = ({ children, color = 'bg-[#FF00FF]' }: any) => (
     {children}
   </span>
 )
+
+const Typewriter = ({ words }: { words: string[] }) => {
+  const [text, setText] = useState('')
+  const [isDeleting, setIsDeleting] = useState(false)
+  const [wordIndex, setWordIndex] = useState(0)
+  
+  useEffect(() => {
+    const currentWord = words[wordIndex % words.length]
+    const typeSpeed = isDeleting ? 100 : 200
+    
+    const timer = setTimeout(() => {
+      if (!isDeleting && text === currentWord) {
+         // Finished typing word, wait before deleting
+         setTimeout(() => setIsDeleting(true), 2000)
+         return
+      }
+      
+      if (isDeleting && text === '') {
+         // Finished deleting, move to next word
+         setIsDeleting(false)
+         setWordIndex((prev) => prev + 1)
+         return
+      }
+      
+      setText(currentWord.substring(0, isDeleting ? text.length - 1 : text.length + 1))
+    }, typeSpeed)
+    
+    return () => clearTimeout(timer)
+  }, [text, isDeleting, wordIndex, words])
+
+  return (
+    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF00FF] to-[#00FFFF] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+      {text}<span className="text-black opacity-50 ml-1 animate-pulse">|</span>
+    </span>
+  )
+}
 
 // ============================================
 // MAIN PAGE
@@ -149,7 +185,7 @@ export default function PouchHomePage() {
               <h1 className="font-black text-6xl md:text-8xl leading-[0.9] tracking-tighter uppercase">
                 Start.<br/>
                 Scale.<br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF00FF] to-[#00FFFF] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">Sustain.</span>
+                <Typewriter words={["Sustain.", "Eco.", "Digital."]} />
               </h1>
 
               <div className="bg-white border-2 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] max-w-md">
@@ -169,7 +205,7 @@ export default function PouchHomePage() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <NeoButton onClick={() => window.open('https://calendly.com/30-min-free-packaging-consultancy', '_blank')}>Book Consultation</NeoButton>
-                <NeoButton variant="secondary">View Materials</NeoButton>
+                <NeoButton variant="secondary" onClick={() => navigate('/materials')}>View Materials</NeoButton>
               </div>
             </div>
 
