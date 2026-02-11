@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useTransition, useMemo, lazy, Suspense, useRef, Component, ErrorInfo, ReactNode } from 'react'
+··import { useState, useEffect, useCallback, useTransition, useMemo, lazy, Suspense, useRef, Component, ErrorInfo, ReactNode } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom'
@@ -857,6 +857,27 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6">
             <h2 className="text-4xl md:text-5xl font-bold text-neutral-900">Shop Compostable & Recyclable Packaging</h2>
+            
+            {/* Eco Material Badges */}
+            <div className="flex flex-wrap items-center justify-center gap-6 mt-6 mb-4">
+              <Link to="/materials/compostable" className="group flex flex-col items-center transition-transform hover:scale-105">
+                <img src="/eco-logo/transparent-bkg/compost.png" alt="Compostable" className="h-16 w-auto mb-2" />
+                <span className="text-sm font-semibold text-neutral-700 group-hover:text-primary-600">Compostable</span>
+              </Link>
+              <Link to="/materials/recyclable-mono-pe" className="group flex flex-col items-center transition-transform hover:scale-105">
+                <img src="/eco-logo/transparent-bkg/recycle.png" alt="Recyclable" className="h-16 w-auto mb-2" />
+                <span className="text-sm font-semibold text-neutral-700 group-hover:text-primary-600">Recyclable</span>
+              </Link>
+              <Link to="/materials/pcr" className="group flex flex-col items-center transition-transform hover:scale-105">
+                <img src="/eco-logo/transparent-bkg/pcr.png" alt="PCR" className="h-16 w-auto mb-2" />
+                <span className="text-sm font-semibold text-neutral-700 group-hover:text-primary-600">PCR</span>
+              </Link>
+              <Link to="/materials/biope" className="group flex flex-col items-center transition-transform hover:scale-105">
+                <img src="/eco-logo/transparent-bkg/biope.png" alt="Bio-PE" className="h-16 w-auto mb-2" />
+                <span className="text-sm font-semibold text-neutral-700 group-hover:text-primary-600">Bio-PE</span>
+              </Link>
+            </div>
+            
             <p className="text-lg md:text-xl text-neutral-600 mt-2 max-w-3xl mx-auto">
               <Link to="/materials/compostable" className="text-primary-600 hover:underline">EN13432 certified compostable pouches</Link>, <Link to="/industry/coffee-tea" className="text-primary-600 hover:underline">coffee bags</Link>, and <Link to="/packaging/custom-boxes" className="text-primary-600 hover:underline">custom boxes</Link> with <Link to="/solutions/startup-founder" className="text-primary-600 hover:underline">low MOQ from 100pcs</Link>
             </p>
