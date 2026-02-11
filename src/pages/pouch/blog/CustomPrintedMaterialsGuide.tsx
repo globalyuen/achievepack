@@ -170,7 +170,7 @@ export default function CustomPrintedMaterialsGuide() {
         {
            title: 'Surface Finish Options',
            url: '/options/surface-finish',
-           image: '/imgs/store/surface/matte.webp'
+           image: '/imgs/seo-photos/a_finishing_options_premium_showcase_3613860.webp'
         }
       ]}
     />
