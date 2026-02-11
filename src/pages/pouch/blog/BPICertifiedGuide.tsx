@@ -236,7 +236,7 @@ export default function BPICertifiedGuide() {
           <div className="overflow-x-auto">
             <table className="w-full border-4 border-black bg-white">
               <thead>
-                <tr className="bg-black text-[#D4FF00]">
+                <tr className="bg-black text-white">
                   <th className="border-2 border-black p-4 text-left font-['JetBrains_Mono']">Certification</th>
                   <th className="border-2 border-black p-4 text-center font-['JetBrains_Mono']">Geographic Focus</th>
                   <th className="border-2 border-black p-4 text-center font-['JetBrains_Mono']">Standard</th>
@@ -360,7 +360,7 @@ export default function BPICertifiedGuide() {
             <div className="overflow-x-auto">
               <table className="w-full border-4 border-black bg-white">
                 <thead>
-                  <tr className="bg-black text-[#D4FF00]">
+                  <tr className="bg-black text-white">
                     <th className="border-2 border-black p-3 text-left font-['JetBrains_Mono']">Size</th>
                     <th className="border-2 border-black p-3 text-center font-['JetBrains_Mono']">100 pcs</th>
                     <th className="border-2 border-black p-3 text-center font-['JetBrains_Mono']">500 pcs</th>
