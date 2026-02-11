@@ -127,11 +127,11 @@ export default function PouchProductsPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="grid gap-12">
             {PRODUCTS.map((product, index) => (
-              <div key={product.id} className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 items-center`}>
+              <div key={product.id} className={`flex flex-col md:flex-row ${index % 2 === 1 ? 'md:flex-row-reverse' : ''} gap-8 items-center bg-white p-6 border-4 border-black`}>
                 
-                {/* Image Side */}
+                {/* Image Side - Make it full width on mobile, half on desktop */}
                 <div className="w-full md:w-1/2">
-                   <NeoCard className={`!p-0 overflow-hidden aspect-square relative group ${product.color}`}>
+                   <NeoCard className={`!p-0 overflow-hidden aspect-square relative group ${product.color} w-full`}>
                      <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity z-10" />
                      <img 
                        src={product.image} 
@@ -144,18 +144,15 @@ export default function PouchProductsPage() {
                    </NeoCard>
                 </div>
 
-                {/* Content Side */}
+                {/* Content Side - Ensure it wraps correctly */}
                 <div className="w-full md:w-1/2 space-y-6">
-                  <h2 className="font-black text-4xl md:text-6xl uppercase">{product.name}</h2>
-                  <div className="flex gap-4 font-['JetBrains_Mono'] font-bold text-sm">
+                  <h2 className="font-black text-3xl md:text-5xl uppercase break-words">{product.name.replace(/_/g, ' ')}</h2>
+                  <div className="flex flex-wrap gap-2 font-['JetBrains_Mono'] font-bold text-xs md:text-sm">
                     <span className="bg-black text-white px-2 py-1">MOQ: {product.stats.moq}</span>
                     <span className="border-2 border-black px-2 py-1">BARRIER: {product.stats.barrier}</span>
                   </div>
-                  <p className="font-['Space_Grotesk'] text-xl leading-relaxed">
-                    {product.description}
-                  </p>
-
-                  <div className="space-y-4 font-['JetBrains_Mono'] text-sm border-y-2 border-black py-4">
+                  
+                  <div className="space-y-4 font-['JetBrains_Mono'] text-xs md:text-sm border-y-2 border-black py-4">
                     <div>
                       <span className="font-bold block bg-black text-white px-2 inline-block mb-1">THE_PROBLEM:</span>
                       <p className="leading-relaxed text-gray-700">{product.problem}</p>
@@ -166,17 +163,17 @@ export default function PouchProductsPage() {
                     </div>
                   </div>
                   
-                  <ul className="space-y-2 font-['JetBrains_Mono'] text-sm">
+                  <ul className="space-y-2 font-['JetBrains_Mono'] text-xs md:text-sm">
                     {product.features.map(feature => (
                       <li key={feature} className="flex items-center gap-2">
-                        <Zap className="w-4 h-4" /> {feature}
+                        <Zap className="w-4 h-4 min-w-[16px]" /> {feature}
                       </li>
                     ))}
                   </ul>
 
-                  <div className="pt-6 border-t-2 border-black flex items-center justify-between">
-                    <div className="font-black text-3xl">FROM {product.price}+</div>
-                    <NeoButton onClick={() => window.open('https://calendly.com/30-min-free-packaging-consultancy', '_blank')}>
+                  <div className="pt-6 border-t-2 border-black flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div className="font-black text-2xl md:text-3xl">FROM {product.price}+</div>
+                    <NeoButton className="w-full sm:w-auto" onClick={() => window.open('https://calendly.com/30-min-free-packaging-consultancy', '_blank')}>
                       Book Call
                     </NeoButton>
                   </div>
