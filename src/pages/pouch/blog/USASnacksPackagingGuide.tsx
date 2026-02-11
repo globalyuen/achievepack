@@ -1,4 +1,5 @@
 import { Cookie, TrendingUp, Shield, Package, DollarSign, CheckCircle } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
 
 interface BlogArticleSection {
@@ -25,7 +26,7 @@ export default function USASnacksPackagingGuide() {
                   <li><strong>Whole Foods & Sprouts Requirement:</strong> Prioritize suppliers with sustainable packaging</li>
                   <li><strong>Gen Z Premium:</strong> 73% willing to pay 10-15% more for eco-friendly packaging</li>
                   <li><strong>Instagram Appeal:</strong> Compostable packaging generates 3.2× more social shares</li>
-                  <li><strong>Regulatory Push:</strong> California AB 1201 requires ASTM certification for "compostable" claims</li>
+                  <li><strong>Regulatory Push:</strong> California AB 1201 requires <Link to="/blog/bpi-certified-guide" className="hover:underline text-blue-800">ASTM certification</Link> for "compostable" claims</li>
                 </ul>
               </div>
               <div>
@@ -251,7 +252,7 @@ export default function USASnacksPackagingGuide() {
                     <td className="border-2 border-black p-3 font-bold">Certification</td>
                     <td className="border-2 border-black p-3">ASTM D6400, BPI</td>
                     <td className="border-2 border-black p-3">ASTM D6400, BPI</td>
-                    <td className="border-2 border-black p-3">How2Recycle label</td>
+                    <td className="border-2 border-black p-3"><Link to="/blog/usa-labeling-guide" className="hover:underline">How2Recycle label</Link></td>
                   </tr>
                   <tr className="border-2 border-black">
                     <td className="border-2 border-black p-3 font-bold">End-of-Life</td>
@@ -321,7 +322,7 @@ export default function USASnacksPackagingGuide() {
       content: (
         <div className="space-y-8">
           <div className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <h3 className="font-black text-2xl uppercase mb-6">Complete Price Breakdown (Compostable Snack Pouches)</h3>
+            <h3 className="font-black text-2xl uppercase mb-6">Complete Price Breakdown (<Link to="/industry/snacks" className="hover:underline">Compostable Snack Pouches</Link>)</h3>
             
             <div className="overflow-x-auto">
               <table className="w-full border-4 border-black">

@@ -1,4 +1,5 @@
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
+import { Link } from 'react-router-dom'
 import { Coffee, Shield, MapPin, DollarSign, CheckCircle, TrendingUp, Package, Leaf, Wind, Lock, Droplets, Clock } from 'lucide-react'
 
 export default function USACoffeePackaging() {
@@ -50,7 +51,7 @@ export default function USACoffeePackaging() {
               </div>
               <div className="bg-white border-4 border-black p-4">
                 <Wind className="w-8 h-8 mb-2 text-amber-600" />
-                <h5 className="font-black uppercase mb-2">Degassing Valve</h5>
+                <h5 className="font-black uppercase mb-2"><Link to="/blog/coffee-degassing-valve-guide" className="hover:underline">Degassing Valve</Link></h5>
                 <p className="text-sm">Fresh beans release CO₂ for 2+ weeks—valve prevents bag burst</p>
               </div>
               <div className="bg-white border-4 border-black p-4">
@@ -163,7 +164,7 @@ export default function USACoffeePackaging() {
             <div className="grid md:grid-cols-2 gap-4">
               <div className="bg-white border-2 border-black p-4">
                 <CheckCircle className="w-6 h-6 mb-2 text-green-600" />
-                <h5 className="font-bold mb-2">Compostable Coffee Bags</h5>
+                <h5 className="font-bold mb-2"><Link to="/industry/coffee-tea" className="hover:underline">Compostable Coffee Bags</Link></h5>
                 <p className="text-sm">ASTM D6400 + BPI certified kraft paper pouches with PLA lining. Green color, compost logo included.</p>
               </div>
               <div className="bg-white border-2 border-black p-4">

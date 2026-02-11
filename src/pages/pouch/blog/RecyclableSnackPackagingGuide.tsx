@@ -1,4 +1,5 @@
 import { Recycle, Target, Cookie, Award, MessageCircle, ArrowRight, CheckCircle, AlertTriangle, Trash2 } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
 
 interface BlogArticleSection {
@@ -43,7 +44,7 @@ export default function RecyclableSnackPackagingGuide() {
                  <div className="bg-white border-2 border-black p-4">
                     <h4 className="font-black text-lg uppercase mb-2">Mono-PE (Polyethylene)</h4>
                     <p className="text-sm font-['JetBrains_Mono']">
-                       <strong>Recycling:</strong> Store Drop-off (Code 4)<br/>
+                       <strong>Recycling:</strong> <Link to="/materials" className="underline hover:text-blue-600">Store Drop-off (Code 4)</Link><br/>
                        <strong>Barrier:</strong> High Oxygen/Moisture<br/>
                        <strong>Feel:</strong> Soft, flexible, durable
                     </p>
@@ -94,12 +95,12 @@ export default function RecyclableSnackPackagingGuide() {
       content: (
          <div className="bg-[#D4FF00] border-4 border-black p-6">
             <h3 className="font-black text-xl uppercase mb-4">The Golden Ticket</h3>
-            <p className="mb-4">Don't just say "Recyclable". Prove it with the Store Drop-Off label.</p>
+            <p className="mb-4">Don't just say "Recyclable". Prove it with the <Link to="/blog/usa-labeling-guide" className="font-bold border-b-2 border-black hover:bg-white">Store Drop-Off label</Link>.</p>
             <div className="bg-white border-2 border-black p-4 flex items-center justify-center h-32">
                <span className="font-black text-2xl uppercase text-gray-400">Store Drop-Off Label Here</span>
             </div>
             <p className="mt-4 text-sm font-['JetBrains_Mono']">
-               <strong>We provide:</strong> Pre-approved barrier structures so you can fast-track your How2Recycle application.
+               <strong>We provide:</strong> Pre-approved barrier structures so you can fast-track your <a href="https://how2recycle.info/" target="_blank" rel="noopener noreferrer" className="underline">How2Recycle</a> application.
             </p>
          </div>
       )

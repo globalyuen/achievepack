@@ -359,6 +359,13 @@ const FreeServicesHubPage = lazyWithRetry(() => import('./pages/free-service/Fre
 const EcoFriendlyFoodPackagingGuide = lazyWithRetry(() => import('./pages/pouch/blog/EcoFriendlyFoodPackagingGuide'))
 const DTCSustainablePackagingGuide = lazyWithRetry(() => import('./pages/pouch/blog/DTCSustainablePackagingGuide'))
 const RecyclableSnackPackagingGuide = lazyWithRetry(() => import('./pages/pouch/blog/RecyclableSnackPackagingGuide'))
+const CompostableBabyFoodPackagingGuide = lazyWithRetry(() => import('./pages/pouch/blog/CompostableBabyFoodPackagingGuide'))
+const CustomCompostablePouchSuppliersGuide = lazyWithRetry(() => import('./pages/pouch/blog/CustomCompostablePouchSuppliersGuide'))
+const CustomPrintedMaterialsGuide = lazyWithRetry(() => import('./pages/pouch/blog/CustomPrintedMaterialsGuide'))
+const DigitalPrintingEcoPackagingGuide = lazyWithRetry(() => import('./pages/pouch/blog/DigitalPrintingEcoPackagingGuide'))
+const EcoPackagingRegulationsGuide = lazyWithRetry(() => import('./pages/pouch/blog/EcoPackagingRegulationsGuide'))
+const GreenCoffeeMaterialsGuide = lazyWithRetry(() => import('./pages/pouch/blog/GreenCoffeeMaterialsGuide'))
+const LowMOQStartupPackagingGuide = lazyWithRetry(() => import('./pages/pouch/blog/LowMOQStartupPackagingGuide'))
 
 const FreeServicesPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesPage'))
 const Product3DShowcasePage = lazyWithRetry(() => import('./pages/Product3DShowcasePage'))
@@ -434,7 +441,7 @@ if (getDomain() === 'pouch') {
               <Route path="/materials/cello-kraft-triplex" element={<PouchCelloKraftPage />} />
               <Route path="/materials/kraft-duplex" element={<PouchKraftDuplexPage />} />
               <Route path="/materials/catalog" element={<PouchMaterialCatalogPage />} />
-              <Route path="/reclosure-options" element={<PouchReclosureOptionsPage />} />
+              <Route path="/options/reclosure" element={<PouchReclosureOptionsPage />} />
               <Route path="/options/surface-finish" element={<PouchSurfaceFinishPage />} />
               <Route path="/barriers/overview" element={<PouchBarrierOverviewPage />} />
               <Route path="/printing/digital" element={<PouchDigitalPrintingPage />} />
@@ -449,6 +456,13 @@ if (getDomain() === 'pouch') {
               <Route path="/blog/eco-friendly-food-packaging-guide" element={<EcoFriendlyFoodPackagingGuide />} />
               <Route path="/blog/dtc-sustainable-packaging-guide" element={<DTCSustainablePackagingGuide />} />
               <Route path="/blog/recyclable-snack-packaging-guide" element={<RecyclableSnackPackagingGuide />} />
+              <Route path="/blog/compostable-baby-food-packaging-guide" element={<CompostableBabyFoodPackagingGuide />} />
+              <Route path="/blog/custom-compostable-pouch-suppliers-guide" element={<CustomCompostablePouchSuppliersGuide />} />
+              <Route path="/blog/custom-printed-materials-guide" element={<CustomPrintedMaterialsGuide />} />
+              <Route path="/blog/digital-printing-eco-packaging-guide" element={<DigitalPrintingEcoPackagingGuide />} />
+              <Route path="/blog/eco-packaging-regulations-guide" element={<EcoPackagingRegulationsGuide />} />
+              <Route path="/blog/green-coffee-materials-guide" element={<GreenCoffeeMaterialsGuide />} />
+              <Route path="/blog/low-moq-startup-packaging-guide" element={<LowMOQStartupPackagingGuide />} />
               <Route path="/tech-specs" element={<PouchTechSpecsPage />} />
               {/* Fallback for other routes back to Home or 404, or keep as Home for now */}
               <Route path="*" element={<PouchHomePage />} />

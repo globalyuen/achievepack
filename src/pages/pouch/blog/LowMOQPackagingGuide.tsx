@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Package, DollarSign, Users, TrendingUp, CheckCircle, AlertCircle, Calendar } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
 
 interface BlogArticleSection {
@@ -48,7 +49,7 @@ export default function LowMOQPackagingGuide() {
             </p>
             <div className="grid md:grid-cols-3 gap-4">
               <div className="bg-green-50 border-2 border-green-600 p-4">
-                <p className="font-bold text-lg">Digital Printing</p>
+                <p className="font-bold text-lg"><Link to="/printing/digital" className="hover:underline">Digital Printing</Link></p>
                 <p className="text-sm mt-2">No plate costs, photo-quality graphics, MOQ from 100 pieces</p>
               </div>
               <div className="bg-blue-50 border-2 border-blue-600 p-4">
@@ -107,7 +108,7 @@ export default function LowMOQPackagingGuide() {
                   <div className="bg-[#10b981] text-white px-4 py-2 font-['JetBrains_Mono'] font-bold border-2 border-black">
                     OPTION 1
                   </div>
-                  <span className="font-black text-xl uppercase">Digital Printing (DTF/UV Print)</span>
+                  <span className="font-black text-xl uppercase"><Link to="/printing/digital" className="hover:underline">Digital Printing (DTF/UV Print)</Link></span>
                 </div>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
@@ -227,7 +228,7 @@ export default function LowMOQPackagingGuide() {
           </div>
 
           <div className="bg-[#F0F0F0] border-4 border-black p-6">
-            <h4 className="font-black text-xl uppercase mb-4">Stock Bags: The Ultra-Low MOQ Option</h4>
+            <h4 className="font-black text-xl uppercase mb-4"><Link to="/products" className="hover:underline">Stock Bags: The Ultra-Low MOQ Option</Link></h4>
             <div className="grid md:grid-cols-3 gap-4">
               <div className="bg-white border-2 border-black p-4">
                 <h5 className="font-bold text-lg mb-2">Plain/Stock Bags</h5>
@@ -420,7 +421,7 @@ export default function LowMOQPackagingGuide() {
       content: (
         <div className="space-y-8">
           <div className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <h3 className="font-black text-2xl uppercase mb-6">Digital Print Timeline (2-3 Weeks)</h3>
+            <h3 className="font-black text-2xl uppercase mb-6"><Link to="/printing/digital" className="hover:underline">Digital Print Timeline (2-3 Weeks)</Link></h3>
             
             <div className="space-y-4">
               <div className="flex items-start gap-4">

@@ -1,4 +1,5 @@
 import { Target, ShoppingCart, Truck, TrendingUp, Sparkles, MessageCircle, ArrowRight, Zap, CheckCircle, Package } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
 
 interface BlogArticleSection {
@@ -33,9 +34,9 @@ export default function DTCSustainablePackagingGuide() {
                <div>
                   <h4 className="font-black text-lg uppercase mb-2 text-[#D4FF00] bg-black inline-block px-1">The Pouch.eco Way</h4>
                   <ul className="text-sm font-['JetBrains_Mono'] space-y-2 font-bold">
-                     <li>✓ Custom Branded Compostables</li>
-                     <li>✓ CA/WA/CO Legal Compliance</li>
-                     <li>✓ 100 MOQ (Launch & Test)</li>
+                     <li>✓ <Link to="/materials" className="underline hover:text-[#FF00FF]">Custom Branded Compostables</Link></li>
+                     <li>✓ <Link to="/blog/eco-packaging-regulations-guide" className="underline hover:text-[#FF00FF]">CA/WA/CO Legal Compliance</Link></li>
+                     <li>✓ <Link to="/blog/low-moq-packaging-guide" className="underline hover:text-[#FF00FF]">100 MOQ (Launch & Test)</Link></li>
                   </ul>
                </div>
             </div>
@@ -56,7 +57,7 @@ export default function DTCSustainablePackagingGuide() {
               <div className="grid md:grid-cols-2 gap-6">
                  <div className="bg-neutral-100 border-2 border-black p-4 relative">
                     <Zap className="absolute top-2 right-2 w-6 h-6 text-[#D4FF00] fill-black" />
-                    <h4 className="font-black text-lg uppercase">Digital Printing</h4>
+                    <h4 className="font-black text-lg uppercase"><Link to="/printing/digital" className="hover:underline">Digital Printing</Link></h4>
                     <p className="text-xs font-['JetBrains_Mono'] mt-2">
                        <strong>Speed:</strong> 10-15 Days<br/>
                        <strong>MOQ:</strong> 100 Units<br/>
@@ -67,8 +68,8 @@ export default function DTCSustainablePackagingGuide() {
                     <Package className="absolute top-2 right-2 w-6 h-6 text-[#D4FF00] fill-black" />
                     <h4 className="font-black text-lg uppercase">Finishes</h4>
                     <p className="text-xs font-['JetBrains_Mono'] mt-2">
-                       <strong>Soft Touch:</strong> For beauty brands<br/>
-                       <strong>Spot Gloss:</strong> For premium food<br/>
+                       <strong><Link to="/options/surface-finish" className="hover:underline">Soft Touch:</Link></strong> For beauty brands<br/>
+                       <strong><Link to="/options/surface-finish" className="hover:underline">Spot Gloss:</Link></strong> For premium food<br/>
                        <strong>Kraft:</strong> For organic vibes
                     </p>
                  </div>
@@ -117,21 +118,21 @@ export default function DTCSustainablePackagingGuide() {
                    <li className="flex items-start gap-4">
                       <span className="text-green-600 font-bold text-xl">✓</span>
                       <div>
-                         <strong className="block">BPI Certified Compostable</strong>
+                         <strong className="block"><Link to="/blog/bpi-certified-guide" className="underline hover:text-[#FF00FF]">BPI Certified Compostable</Link></strong>
                          <span className="text-xs text-gray-600">Proof: Certificate # on every bag.</span>
                       </div>
                    </li>
                    <li className="flex items-start gap-4">
                       <span className="text-green-600 font-bold text-xl">✓</span>
                       <div>
-                         <strong className="block">TÜV Austria Home Compostable</strong>
+                         <strong className="block"><Link to="/blog/home-compostable-guide" className="underline hover:text-[#FF00FF]">TÜV Austria Home Compostable</Link></strong>
                          <span className="text-xs text-gray-600">Proof: OK Compost HOME logo.</span>
                       </div>
                    </li>
                    <li className="flex items-start gap-4">
                       <span className="text-green-600 font-bold text-xl">✓</span>
                       <div>
-                         <strong className="block">How2Recycle Store Drop-Off</strong>
+                         <strong className="block"><Link to="/blog/usa-labeling-guide" className="underline hover:text-[#FF00FF]">How2Recycle Store Drop-Off</Link></strong>
                          <span className="text-xs text-gray-600">Proof: Pre-approved structure scan.</span>
                       </div>
                    </li>

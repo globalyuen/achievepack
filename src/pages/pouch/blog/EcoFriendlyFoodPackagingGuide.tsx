@@ -1,4 +1,5 @@
 import { Leaf, Target, Package, Award, Shield, CheckCircle, AlertTriangle, ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
 
 interface BlogArticleSection {
@@ -56,7 +57,7 @@ export default function EcoFriendlyFoodPackagingGuide() {
                  {/* Compostable */}
                  <div className="bg-[#00FFFF] border-4 border-black p-6 relative group hover:-translate-y-1 transition-transform">
                     <div className="flex justify-between items-start mb-4">
-                       <h4 className="font-black text-2xl uppercase">Compostable</h4>
+                       <h4 className="font-black text-2xl uppercase"><Link to="/materials" className="hover:underline">Compostable</Link></h4>
                        <span className="bg-black text-white px-2 py-1 text-xs font-bold font-['JetBrains_Mono']">ORGANIC_CHOICE</span>
                     </div>
                     <p className="mb-4 font-bold">TUV OK Home & Industrial certified. Breaks down into biomass.</p>
@@ -69,7 +70,7 @@ export default function EcoFriendlyFoodPackagingGuide() {
                  {/* Recyclable */}
                  <div className="bg-[#F0F0F0] border-4 border-black p-6 relative group hover:-translate-y-1 transition-transform">
                     <div className="flex justify-between items-start mb-4">
-                       <h4 className="font-black text-2xl uppercase">Recyclable (Mono-PE)</h4>
+                       <h4 className="font-black text-2xl uppercase"><Link to="/materials" className="hover:underline">Recyclable (Mono-PE)</Link></h4>
                        <span className="bg-black text-white px-2 py-1 text-xs font-bold font-['JetBrains_Mono']">MAINSTREAM</span>
                     </div>
                     <p className="mb-4 font-bold">Code 4 LDPE. Store drop-off compatible. High barrier.</p>
@@ -82,7 +83,7 @@ export default function EcoFriendlyFoodPackagingGuide() {
                  {/* Bio-Based */}
                  <div className="bg-[#FF00FF] border-4 border-black p-6 relative group hover:-translate-y-1 transition-transform">
                     <div className="flex justify-between items-start mb-4">
-                       <h4 className="font-black text-2xl uppercase">Bio-Based PE</h4>
+                       <h4 className="font-black text-2xl uppercase"><Link to="/materials" className="hover:underline text-black">Bio-Based PE</Link></h4>
                        <span className="bg-black text-white px-2 py-1 text-xs font-bold font-['JetBrains_Mono']">CARBON_NEGATIVE</span>
                     </div>
                     <p className="mb-4 font-bold">Made from sugarcane, not oil. Identical performance to plastic.</p>
@@ -102,19 +103,40 @@ export default function EcoFriendlyFoodPackagingGuide() {
       icon: <Package className="w-6 h-6" />,
       content: (
         <div className="grid md:grid-cols-2 gap-6">
-           {[
-              { title: 'Coffee & Tea', desc: 'High barrier, degassing valves. Flat bottom & side gusset.' },
-              { title: 'Snacks & Chips', desc: 'Nitrogen-flush compatible. Moisture barrier. Stand-up pouches.' },
-              { title: 'Baby Food', desc: 'BPA-free, spout pouches, squeeze formats. Safety first.' },
-              { title: 'Pet Food', desc: 'Heavy-duty zippers, puncture resistant for kibble/treats.' },
-              { title: 'Supplements', desc: 'Powder-proof zippers, moisture barrier, high rigidity.' },
-              { title: 'Frozen Food', desc: 'Freeze-thaw stable (-20°C to +40°C).' }
-           ].map((item, idx) => (
-              <div key={idx} className="border-4 border-black p-4 hover:bg-[#D4FF00] transition-colors group">
-                 <h4 className="font-black text-lg uppercase mb-2 group-hover:underline">{item.title}</h4>
-                 <p className="font-['JetBrains_Mono'] text-sm">{item.desc}</p>
+           <Link to="/industry/coffee-tea" className="block text-inherit no-underline">
+              <div className="border-4 border-black p-4 hover:bg-[#D4FF00] transition-colors group cursor-pointer h-full">
+                 <h4 className="font-black text-lg uppercase mb-2 group-hover:underline">Coffee & Tea</h4>
+                 <p className="font-['JetBrains_Mono'] text-sm">High barrier, degassing valves. Flat bottom & side gusset.</p>
               </div>
-           ))}
+           </Link>
+           <Link to="/industry/snacks" className="block text-inherit no-underline">
+              <div className="border-4 border-black p-4 hover:bg-[#D4FF00] transition-colors group cursor-pointer h-full">
+                 <h4 className="font-black text-lg uppercase mb-2 group-hover:underline">Snacks & Chips</h4>
+                 <p className="font-['JetBrains_Mono'] text-sm">Nitrogen-flush compatible. Moisture barrier. Stand-up pouches.</p>
+              </div>
+           </Link>
+           <Link to="/blog/compostable-baby-food-packaging-guide" className="block text-inherit no-underline">
+              <div className="border-4 border-black p-4 hover:bg-[#D4FF00] transition-colors group cursor-pointer h-full">
+                 <h4 className="font-black text-lg uppercase mb-2 group-hover:underline">Baby Food</h4>
+                 <p className="font-['JetBrains_Mono'] text-sm">BPA-free, spout pouches, squeeze formats. Safety first.</p>
+              </div>
+           </Link>
+           <Link to="/industry/pet-food" className="block text-inherit no-underline">
+              <div className="border-4 border-black p-4 hover:bg-[#D4FF00] transition-colors group cursor-pointer h-full">
+                 <h4 className="font-black text-lg uppercase mb-2 group-hover:underline">Pet Food</h4>
+                 <p className="font-['JetBrains_Mono'] text-sm">Heavy-duty zippers, puncture resistant for kibble/treats.</p>
+              </div>
+           </Link>
+           <Link to="/industry/supplements" className="block text-inherit no-underline">
+              <div className="border-4 border-black p-4 hover:bg-[#D4FF00] transition-colors group cursor-pointer h-full">
+                 <h4 className="font-black text-lg uppercase mb-2 group-hover:underline">Supplements</h4>
+                 <p className="font-['JetBrains_Mono'] text-sm">Powder-proof zippers, moisture barrier, high rigidity.</p>
+              </div>
+           </Link>
+           <div className="border-4 border-black p-4 hover:bg-[#D4FF00] transition-colors group h-full">
+              <h4 className="font-black text-lg uppercase mb-2 group-hover:underline">Frozen Food</h4>
+              <p className="font-['JetBrains_Mono'] text-sm">Freeze-thaw stable (-20°C to +40°C).</p>
+           </div>
         </div>
       )
     },
@@ -129,19 +151,19 @@ export default function EcoFriendlyFoodPackagingGuide() {
              <div className="grid md:grid-cols-4 gap-4 text-black text-center">
                 <div className="bg-white p-4 border-2 border-[#D4FF00]">
                    <div className="text-3xl mb-2">🌱</div>
-                   <div className="font-black text-sm">TUV OK HOME</div>
+                   <div className="font-black text-sm"><Link to="/blog/home-compostable-guide" className="hover:underline">TUV OK HOME</Link></div>
                 </div>
                 <div className="bg-white p-4 border-2 border-[#D4FF00]">
                    <div className="text-3xl mb-2">🇺🇸</div>
-                   <div className="font-black text-sm">ASTM D6400</div>
+                   <div className="font-black text-sm"><Link to="/blog/bpi-certified-guide" className="hover:underline">ASTM D6400</Link></div>
                 </div>
                 <div className="bg-white p-4 border-2 border-[#D4FF00]">
                    <div className="text-3xl mb-2">🇪🇺</div>
-                   <div className="font-black text-sm">EN 13432</div>
+                   <div className="font-black text-sm"><Link to="/blog/industrial-compostable-guide" className="hover:underline">EN 13432</Link></div>
                 </div>
                 <div className="bg-white p-4 border-2 border-[#D4FF00]">
                    <div className="text-3xl mb-2">♻️</div>
-                   <div className="font-black text-sm">How2Recycle</div>
+                   <div className="font-black text-sm"><Link to="/blog/usa-labeling-guide" className="hover:underline">How2Recycle</Link></div>
                 </div>
              </div>
           </div>

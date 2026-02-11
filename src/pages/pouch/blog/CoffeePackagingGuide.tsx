@@ -315,14 +315,14 @@ export default function CoffeePackagingGuide() {
           image: '/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp'
         },
         {
-          title: 'Recyclable vs Compostable: Which is Better?',
-          url: '/blog/recyclable-vs-compostable',
-          image: '/imgs/4-infograhic/compost.webp'
+          title: 'Coffee Bags Degassing Valve Guide: One-Way vs Two-Way',
+          url: '/blog/coffee-degassing-valve-guide',
+          image: '/imgs/seo-photos/industries/coffee/a_coffee_degassing_valve_2850365.webp'
         },
         {
-          title: 'How to Design Coffee Bag Artwork',
-          url: '/blog/coffee-bag-design-guide',
-          image: '/imgs/material-illustrations/3-compostable-packaging-collage.webp'
+          title: 'Digital Printing Guide: No Plate Fees & Low MOQ',
+          url: '/blog/digital-printing-eco-packaging-guide',
+          image: '/imgs/seo-photos/printing/digital/a_digital_printing_press_packaging_4857399.webp'
         }
       ]}
     />

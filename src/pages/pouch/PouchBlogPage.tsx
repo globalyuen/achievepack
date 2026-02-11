@@ -29,6 +29,74 @@ export default function PouchBlogPage() {
       link: '/blog/home-compostable-guide'
     },
     {
+      title: 'Low MOQ Packaging Guide 2026',
+      excerpt: 'How to launch your food brand without going broke. Visual guide to 100-unit minimums, zero plate fees, and digital printing economics.',
+      image: '/imgs/seo-photos/a_minimalist_eco_pouch_workspace_2025_8541573.webp',
+      date: '2026-02-11',
+      category: 'Startup Guide',
+      readTime: '10 min',
+      link: '/blog/low-moq-packaging-guide'
+    },
+    {
+      title: 'Green Coffee Packaging Guide 2026',
+      excerpt: 'Stop sacrificing freshness for sustainability. Guide to high-barrier compostable coffee bags, biodegradable valves, and recyclable Mono-PE options.',
+      image: '/imgs/seo-photos/coffee/a_coffee_bag_valve_with_kraft_pouch_1816878.webp',
+      date: '2026-02-11',
+      category: 'Coffee & Tea',
+      readTime: '13 min',
+      link: '/blog/green-coffee-materials-guide'
+    },
+
+    {
+      title: 'Eco Packaging Regulations Guide 2026',
+      excerpt: 'Navigating the legal minefield of sustainable packaging. EU PPWR, UK Plastic Tax, California SB 54, and why certifications are mandatory.',
+      image: '/imgs/seo-photos/a_achievepack_home_compostable_balcony_9883994.webp',
+      date: '2026-02-11',
+      category: 'Legal & Compliance',
+      readTime: '15 min',
+      link: '/blog/eco-packaging-regulations-guide'
+    },
+
+    {
+      title: 'Digital Printing Eco Packaging Guide 2026',
+      excerpt: 'Why digital printing is the sustainable choice. Zero setup waste, no plate fees, and 15-day turnaround. HP Indigo 1200 DPI quality on compostable films.',
+      image: '/imgs/seo-photos/a_digital_printing_customization_2717640.webp',
+      date: '2026-02-11',
+      category: 'Tech & Process',
+      readTime: '11 min',
+      link: '/blog/digital-printing-eco-packaging-guide'
+    },
+
+    {
+      title: 'Custom Printed Sustainable Packaging Guide 2026',
+      excerpt: 'Full color digital printing on compostable and recyclable pouches. No plate fees, low MOQs, and premium finishes like soft touch and spot UV.',
+      image: '/imgs/seo-photos/a_digital_printing_customization_2717640.webp',
+      date: '2026-02-11',
+      category: 'Design & Print',
+      readTime: '12 min',
+      link: '/blog/custom-printed-materials-guide'
+    },
+
+    {
+      title: 'Custom Compostable Pouch Suppliers Guide',
+      excerpt: 'How to choose a compostable pouch supplier. Red flags to avoid, certification checklists, and why low MOQ digital printing is the future.',
+      image: '/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp',
+      date: '2026-02-11',
+      category: 'Sourcing Guide',
+      readTime: '15 min',
+      link: '/blog/custom-compostable-pouch-suppliers-guide'
+    },
+
+    {
+      title: 'Compostable Baby Food Packaging Guide 2026',
+      excerpt: 'Safe, certified compostable packaging for baby food. FDA compliant, BPA-free spout pouches and snack bags. Build trust with eco-conscious parents.',
+      image: '/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp',
+      date: '2026-02-11',
+      category: 'Baby & Kids',
+      readTime: '12 min',
+      link: '/blog/compostable-baby-food-packaging-guide'
+    },
+    {
       title: 'Eco-Friendly Food Packaging Guide 2026',
       excerpt: 'Comprehensive guide to sustainable food packaging. Compare compostable vs recyclable options, understand certifications, and choose the right barrier for freshness.',
       image: '/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp',

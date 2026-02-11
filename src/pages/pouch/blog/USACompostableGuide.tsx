@@ -1,4 +1,5 @@
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
+import { Link } from 'react-router-dom'
 import { Leaf, Shield, MapPin, FileCheck, CheckCircle, Coffee, Cookie, Package, TrendingUp, AlertTriangle, Target } from 'lucide-react'
 
 export default function USACompostableGuide() {
@@ -58,12 +59,12 @@ export default function USACompostableGuide() {
             </div>
           </div>
 
-          <a 
-            href="https://www.pouch.eco/products"
+          <Link 
+            to="/materials/compostable"
             className="inline-block bg-black text-[#D4FF00] px-8 py-4 border-4 border-black font-['JetBrains_Mono'] font-bold uppercase hover:bg-[#D4FF00] hover:text-black transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
           >
             Shop Certified Compostable Pouches →
-          </a>
+          </Link>
         </div>
       )
     },
@@ -81,7 +82,7 @@ export default function USACompostableGuide() {
             <div className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
               <div className="flex items-center gap-4 mb-4">
                 <div className="bg-[#10b981] text-white px-4 py-2 font-['JetBrains_Mono'] font-bold border-2 border-black">
-                  ASTM D6400
+                  <Link to="/blog/bpi-certified-guide" className="hover:underline text-white">ASTM D6400</Link>
                 </div>
                 <span className="font-black text-xl uppercase">The US Gold Standard</span>
               </div>
@@ -99,7 +100,7 @@ export default function USACompostableGuide() {
             <div className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
               <div className="flex items-center gap-4 mb-4">
                 <div className="bg-[#3b82f6] text-white px-4 py-2 font-['JetBrains_Mono'] font-bold border-2 border-black">
-                  BPI CERTIFIED
+                  <Link to="/blog/bpi-certified-guide" className="hover:underline text-white">BPI CERTIFIED</Link>
                 </div>
                 <span className="font-black text-xl uppercase">Industry Recognition</span>
               </div>
@@ -117,7 +118,7 @@ export default function USACompostableGuide() {
             <div className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
               <div className="flex items-center gap-4 mb-4">
                 <div className="bg-[#8b5cf6] text-white px-4 py-2 font-['JetBrains_Mono'] font-bold border-2 border-black">
-                  HOME COMPOST
+                  <Link to="/blog/home-compostable-guide" className="hover:underline text-white">HOME COMPOST</Link>
                 </div>
                 <span className="font-black text-xl uppercase">Consumer-Friendly</span>
               </div>
@@ -249,7 +250,7 @@ export default function USACompostableGuide() {
               <li>• You need maximum barrier performance (though compostable is getting better)</li>
             </ul>
             <p className="mt-4 text-sm">
-              <strong>Alternative:</strong> Consider our <a href="/materials/recyclable" className="text-blue-600 underline">recyclable mono-PE pouches</a> which work with existing recycling infrastructure.
+              <strong>Alternative:</strong> Consider our <Link to="/materials" className="text-blue-600 underline">recyclable mono-PE pouches</Link> which work with existing recycling infrastructure.
             </p>
           </div>
 
@@ -288,12 +289,12 @@ export default function USACompostableGuide() {
               <p className="text-xs text-neutral-600 mb-3">
                 <strong>Perfect for:</strong> Specialty roasters, tea brands, cafes launching retail lines
               </p>
-              <a 
-                href="/blog/coffee-packaging-guide"
+              <Link 
+                to="/blog/coffee-packaging-guide"
                 className="inline-flex items-center gap-2 text-amber-600 font-bold hover:underline"
               >
                 Read Coffee Packaging Guide →
-              </a>
+              </Link>
             </div>
 
             <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all">
@@ -312,12 +313,12 @@ export default function USACompostableGuide() {
               <p className="text-xs text-neutral-600 mb-3">
                 <strong>Perfect for:</strong> Chips, granola, dried fruits, organic snacks
               </p>
-              <a 
-                href="/products"
+              <Link 
+                to="/industry/snacks"
                 className="inline-flex items-center gap-2 text-orange-600 font-bold hover:underline"
               >
                 Browse Snack Pouches →
-              </a>
+              </Link>
             </div>
 
             <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all">
@@ -336,12 +337,12 @@ export default function USACompostableGuide() {
               <p className="text-xs text-neutral-600 mb-3">
                 <strong>Perfect for:</strong> Premium pet treats, freeze-dried food, organic pet products
               </p>
-              <a 
-                href="/products"
+              <Link 
+                to="/industry/pet-food"
                 className="inline-flex items-center gap-2 text-blue-600 font-bold hover:underline"
               >
                 View Pet Food Options →
-              </a>
+              </Link>
             </div>
 
             <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all">
@@ -360,12 +361,12 @@ export default function USACompostableGuide() {
               <p className="text-xs text-neutral-600 mb-3">
                 <strong>Perfect for:</strong> Protein powder, pre-workout, collagen, superfoods
               </p>
-              <a 
-                href="/products"
+              <Link 
+                to="/industry/supplements"
                 className="inline-flex items-center gap-2 text-green-600 font-bold hover:underline"
               >
                 Shop Supplement Pouches →
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -411,12 +412,12 @@ export default function USACompostableGuide() {
               >
                 Book Free Call
               </a>
-              <a 
-                href="/products"
+              <Link 
+                to="/products"
                 className="inline-flex items-center justify-center gap-2 bg-transparent text-white px-8 py-4 border-4 border-white font-['JetBrains_Mono'] font-bold uppercase hover:bg-white hover:text-black transition-colors"
               >
                 Browse Products
-              </a>
+              </Link>
             </div>
           </div>
 

@@ -1,4 +1,5 @@
 import { FileCheck, Shield, AlertTriangle, Scale, CheckCircle, MapPin } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
 
 interface BlogArticleSection {
@@ -94,7 +95,7 @@ export default function USALabelingGuide() {
                   <div>
                     <h5 className="font-bold mb-2">1. Certification Proof</h5>
                     <ul className="text-sm space-y-1">
-                      <li>✓ ASTM D6400 (for plastic film)</li>
+                      <li>✓ <Link to="/blog/bpi-certified-guide" className="hover:underline text-blue-800">ASTM D6400 (for plastic film)</Link></li>
                       <li>✓ ASTM D6868 (for paper + plastic)</li>
                       <li>✓ Must be third-party certified</li>
                       <li>✓ Certification docs available on request</li>
@@ -302,7 +303,7 @@ export default function USALabelingGuide() {
                   <li className="flex items-start gap-2">
                     <span className="text-green-700 font-bold">✓</span>
                     <div>
-                      <p className="font-bold">BPI Certified Logo</p>
+                      <p className="font-bold"><Link to="/blog/bpi-certified-guide" className="hover:underline">BPI Certified Logo</Link></p>
                       <p className="text-xs">Most trusted third-party certification in US</p>
                     </div>
                   </li>
@@ -412,7 +413,7 @@ export default function USALabelingGuide() {
                   <div className="flex items-center gap-2 my-3">
                     <div className="bg-green-700 text-white px-2 py-1 text-xs font-bold">🌱 HOME COMPOSTABLE</div>
                   </div>
-                  <p className="mb-1">TÜV Austria OK compost HOME</p>
+                  <p className="mb-1"><Link to="/blog/home-compostable-guide" className="hover:underline text-green-800">TÜV Austria OK compost HOME</Link></p>
                   <p className="mb-1">Compostable in home compost systems.</p>
                   <p className="text-[10px] text-gray-600">Breaks down in 90-180 days at ambient temp.</p>
                   <div className="mt-3 text-[10px]">

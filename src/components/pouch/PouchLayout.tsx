@@ -36,18 +36,8 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
               { label: 'MATERIALS', path: '/materials' },
               { label: 'CERTIFICATIONS', path: '/certifications' },
               { label: 'TESTIMONIALS', path: '/testimonials' },
-              { label: 'BLOG', path: '/blog' },
-              { label: 'START', action: 'book_call' }
+              { label: 'BLOG', path: '/blog' }
             ].map((item) => (
-              item.action === 'book_call' ? (
-                <button
-                  key="start-btn"
-                  onClick={() => window.open('https://calendly.com/30-min-free-packaging-consultancy', '_blank')}
-                  className="px-2 py-1 transition-colors hover:bg-black hover:text-white"
-                >
-                  [{item.label}]
-                </button>
-              ) : (
               <Link
                 key={item.path}
                 // @ts-ignore
@@ -61,7 +51,6 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
               >
                 [{item.label}]
               </Link>
-              )
             ))}
           </div>
 
