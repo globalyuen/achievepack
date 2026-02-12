@@ -467,6 +467,33 @@ export default function PouchHomePage() {
         <ProductCarousel autoPlay autoPlayInterval={4000} />
       </section>
 
+
+      {/* Social Video Section - Added by AI */}
+      <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <div className="inline-block bg-black text-[#D4FF00] px-4 py-1 mb-6 font-['JetBrains_Mono'] font-bold transform -rotate-1">
+            REAL PRODUCTS • REAL BRANDS
+          </div>
+          <h2 className="font-black text-5xl md:text-7xl uppercase mb-6">
+            As Seen In <span className="text-[#10b981]">Social</span>
+          </h2>
+          <p className="font-['JetBrains_Mono'] text-lg max-w-2xl mx-auto text-gray-700">
+            Watch how our pouches help brands go viral. Unboxing experiences that customers love to share.
+          </p>
+        </div>
+        
+        <div className="max-w-4xl mx-auto border-4 border-black p-4 bg-white shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+          <div className="aspect-video relative bg-black">
+            <video 
+              src="/pouch-social.mp4"
+              controls
+              className="w-full h-full object-cover"
+              poster="/imgs/hero/pouch-eco-cover.jpg"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Video Showcase */}
       <VideoShowcase />
 
