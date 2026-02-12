@@ -378,7 +378,7 @@ export default function PouchEcoHomePage() {
         <div className="max-w-4xl mx-auto border-4 border-black p-4 bg-white shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
           <div className="aspect-video relative bg-black">
             <video 
-              src="/video/social.mp4"
+              src="/pouch-social.mp4"
               controls
               className="w-full h-full object-cover"
               poster="/imgs/hero/pouch-eco-cover.jpg"
