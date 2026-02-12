@@ -300,15 +300,15 @@ export default function PouchEcoHomePage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <NeoCard className="bg-gradient-to-br from-[#10b981] to-[#059669] relative z-10 rotate-2 !p-0 overflow-hidden group">
-                <div className="aspect-square flex items-center justify-center relative bg-gradient-to-br from-[#10b981]/20 to-transparent">
+              <div className="relative z-10 rotate-2 group">
+                <div className="aspect-square flex items-center justify-center relative bg-black border-4 border-black">
                   <video 
                     src="/video/hero/bag.mov"
                     autoPlay
                     loop
                     muted
                     playsInline
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 rounded-sm"
+                    className="w-full h-full object-cover"
                     poster="/imgs/hero/pouch-eco-cover.jpg"
                   />
                   {/* Floating Badges */}
@@ -327,7 +327,7 @@ export default function PouchEcoHomePage() {
                     FROM 500
                   </motion.div>
                 </div>
-              </NeoCard>
+              </div>
               
               {/* Decorative Background Elements */}
               <div className="absolute top-10 -right-10 w-full h-full border-4 border-black bg-[#D4FF00] -z-0 rotate-6" />
