@@ -74,6 +74,57 @@ const Typewriter = ({ words }: { words: string[] }) => {
   )
 }
 
+const SocialVideoCard = ({ videoSrc, coverSrc, index }: { videoSrc: string, coverSrc: string, index: number }) => {
+  const [isPlaying, setIsPlaying] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  const handlePlay = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setIsPlaying(true)
+  }
+
+  return (
+    <div className="flex-shrink-0 w-[280px] md:w-[320px] snap-center">
+      <div className="border-4 border-black p-2 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1">
+        <div 
+          className="aspect-[9/16] relative bg-black overflow-hidden cursor-pointer group" 
+          onClick={!isPlaying ? handlePlay : undefined}
+        >
+          {!isPlaying ? (
+            <>
+              <img 
+                src={coverSrc} 
+                alt={`Social Video ${index}`} 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              {/* Play Button Overlay */}
+              <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
+                <div className="w-16 h-16 bg-[#D4FF00] border-4 border-black rounded-full flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover:scale-110 transition-transform">
+                  <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[20px] border-l-black border-b-[10px] border-b-transparent ml-2" />
+                </div>
+              </div>
+            </>
+          ) : (
+            <video 
+              ref={videoRef}
+              src={videoSrc}
+              controls
+              autoPlay
+              playsInline
+              className="w-full h-full object-cover"
+            />
+          )}
+        </div>
+        <div className="mt-2 flex justify-between items-center font-['JetBrains_Mono'] text-xs font-bold px-1 uppercase">
+          <span>@POUCH.ECO</span>
+          <span>#{index.toString().padStart(3, '0')}</span>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 // ============================================
 // MAIN PAGE
 // ============================================
@@ -482,25 +533,14 @@ export default function PouchHomePage() {
         </div>
         
         {/* Horizontal Scroll / Grid of Vertical Videos */}
-        <div className="flex gap-4 overflow-x-auto pb-8 snap-x snap-mandatory px-4 md:px-0 md:justify-center">
+        <div className="flex gap-4 overflow-x-auto pb-8 snap-x snap-mandatory px-4 md:px-0 md:justify-center scrollbar-hide">
           {[1, 2, 3, 4, 5, 6, 7].map((num) => (
-            <div key={num} className="flex-shrink-0 w-[280px] md:w-[320px] snap-center">
-              <div className="border-4 border-black p-2 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1">
-                <div className="aspect-[9/16] relative bg-black overflow-hidden">
-                  <video 
-                    src={`/video/social/social-${num}.mp4`}
-                    controls
-                    preload="metadata"
-                    className="w-full h-full object-cover"
-                    playsInline
-                  />
-                </div>
-                <div className="mt-2 flex justify-between items-center font-['JetBrains_Mono'] text-xs font-bold px-1">
-                  <span>@POUCH.ECO</span>
-                  <span>#{num.toString().padStart(3, '0')}</span>
-                </div>
-              </div>
-            </div>
+            <SocialVideoCard 
+              key={num}
+              index={num}
+              videoSrc={`/video/social/social-${num}.mp4`}
+              coverSrc={`/video/social/cover-${num}.jpg`}
+            />
           ))}
         </div>
       </section>
