@@ -417,62 +417,66 @@ if (getDomain() === 'pouch') {
   root.render(
     <StrictMode>
       <HelmetProvider>
-        <BrowserRouter>
-          <Suspense fallback={<PageLoader />}>
-            <Routes>
-              <Route path="/" element={<PouchHomePage />} />
-              <Route path="/solutions" element={<PouchSolutionsPage />} />
-              <Route path="/size-guide" element={<PouchSizeGuidePage />} />
-              <Route path="/testimonials" element={<PouchTestimonialsPage />} />
-              <Route path="/blog" element={<PouchBlogPage />} />
-              <Route path="/blog/usa-compostable-packaging-guide" element={<USACompostableGuide />} />
-              <Route path="/blog/coffee-packaging-guide" element={<CoffeePackagingGuide />} />
-              <Route path="/blog/usa-coffee-packaging" element={<USACoffeePackaging />} />
-              <Route path="/blog/compostable-stand-up-pouches-guide" element={<CompostableStandUpPouchesGuide />} />
-              <Route path="/blog/low-moq-packaging-guide" element={<LowMOQPackagingGuide />} />
-              <Route path="/blog/usa-snacks-packaging-guide" element={<USASnacksPackagingGuide />} />
-              <Route path="/blog/usa-labeling-guide" element={<USALabelingGuide />} />
-              <Route path="/blog/industrial-compostable-guide" element={<IndustrialCompostableGuide />} />
-              <Route path="/blog/bpi-certified-guide" element={<BPICertifiedGuide />} />
-              <Route path="/blog/coffee-degassing-valve-guide" element={<CoffeeDegassingValveGuide />} />
-              <Route path="/blog/home-compostable-guide" element={<HomeCompostableGuide />} />
-              <Route path="/certifications" element={<PouchCertificationsPage />} />
-              <Route path="/factory-tour" element={<PouchFactoryTourPage />} />
-              <Route path="/materials/cello-kraft-triplex" element={<PouchCelloKraftPage />} />
-              <Route path="/materials/kraft-duplex" element={<PouchKraftDuplexPage />} />
-              <Route path="/materials/catalog" element={<PouchMaterialCatalogPage />} />
-              <Route path="/options/reclosure" element={<PouchReclosureOptionsPage />} />
-              <Route path="/options/surface-finish" element={<PouchSurfaceFinishPage />} />
-              <Route path="/barriers/overview" element={<PouchBarrierOverviewPage />} />
-              <Route path="/printing/digital" element={<PouchDigitalPrintingPage />} />
-              <Route path="/products" element={<PouchProductsPage />} />
-              <Route path="/materials" element={<PouchMaterialsPage />} />
-              <Route path="/seo-guide" element={<PouchSEOPage />} />
-              {/* Industry Solution Pages */}
-              <Route path="/industry/coffee-tea" element={<PouchCoffeeTeaPage />} />
-              <Route path="/industry/pet-food" element={<PouchPetFoodPage />} />
-              <Route path="/industry/snacks" element={<PouchSnacksPage />} />
-              <Route path="/industry/supplements" element={<PouchSupplementsPage />} />
-              <Route path="/blog/eco-friendly-food-packaging-guide" element={<EcoFriendlyFoodPackagingGuide />} />
-              <Route path="/blog/dtc-sustainable-packaging-guide" element={<DTCSustainablePackagingGuide />} />
-              <Route path="/blog/recyclable-snack-packaging-guide" element={<RecyclableSnackPackagingGuide />} />
-              <Route path="/blog/compostable-baby-food-packaging-guide" element={<CompostableBabyFoodPackagingGuide />} />
-              <Route path="/blog/custom-compostable-pouch-suppliers-guide" element={<CustomCompostablePouchSuppliersGuide />} />
-              <Route path="/blog/custom-printed-materials-guide" element={<CustomPrintedMaterialsGuide />} />
-              <Route path="/blog/digital-printing-eco-packaging-guide" element={<DigitalPrintingEcoPackagingGuide />} />
-              <Route path="/blog/eco-packaging-regulations-guide" element={<EcoPackagingRegulationsGuide />} />
-              <Route path="/blog/green-coffee-materials-guide" element={<GreenCoffeeMaterialsGuide />} />
-              <Route path="/blog/low-moq-startup-packaging-guide" element={<LowMOQStartupPackagingGuide />} />
-              <Route path="/products/recyclable-mono-material-pouches" element={<RecyclableSnackPackagingGuide />} />
-              <Route path="/products/coffee-bags-degassing-valve" element={<CoffeeDegassingValveGuide />} />
-              <Route path="/products/low-moq-packaging" element={<LowMOQPackagingGuide />} />
-              <Route path="/products/compostable-stand-up-pouches" element={<CompostableStandUpPouchesGuide />} />
-              <Route path="/tech-specs" element={<PouchTechSpecsPage />} />
-              {/* Fallback for other routes back to Home or 404, or keep as Home for now */}
-              <Route path="*" element={<PouchHomePage />} />
-            </Routes>
-          </Suspense>
-        </BrowserRouter>
+        <ErrorBoundary>
+          <GeoBlocker>
+            <BrowserRouter>
+              <Suspense fallback={<PageLoader />}>
+                <Routes>
+                  <Route path="/" element={<PouchHomePage />} />
+                  <Route path="/solutions" element={<PouchSolutionsPage />} />
+                  <Route path="/size-guide" element={<PouchSizeGuidePage />} />
+                  <Route path="/testimonials" element={<PouchTestimonialsPage />} />
+                  <Route path="/blog" element={<PouchBlogPage />} />
+                  <Route path="/blog/usa-compostable-packaging-guide" element={<USACompostableGuide />} />
+                  <Route path="/blog/coffee-packaging-guide" element={<CoffeePackagingGuide />} />
+                  <Route path="/blog/usa-coffee-packaging" element={<USACoffeePackaging />} />
+                  <Route path="/blog/compostable-stand-up-pouches-guide" element={<CompostableStandUpPouchesGuide />} />
+                  <Route path="/blog/low-moq-packaging-guide" element={<LowMOQPackagingGuide />} />
+                  <Route path="/blog/usa-snacks-packaging-guide" element={<USASnacksPackagingGuide />} />
+                  <Route path="/blog/usa-labeling-guide" element={<USALabelingGuide />} />
+                  <Route path="/blog/industrial-compostable-guide" element={<IndustrialCompostableGuide />} />
+                  <Route path="/blog/bpi-certified-guide" element={<BPICertifiedGuide />} />
+                  <Route path="/blog/coffee-degassing-valve-guide" element={<CoffeeDegassingValveGuide />} />
+                  <Route path="/blog/home-compostable-guide" element={<HomeCompostableGuide />} />
+                  <Route path="/certifications" element={<PouchCertificationsPage />} />
+                  <Route path="/factory-tour" element={<PouchFactoryTourPage />} />
+                  <Route path="/materials/cello-kraft-triplex" element={<PouchCelloKraftPage />} />
+                  <Route path="/materials/kraft-duplex" element={<PouchKraftDuplexPage />} />
+                  <Route path="/materials/catalog" element={<PouchMaterialCatalogPage />} />
+                  <Route path="/options/reclosure" element={<PouchReclosureOptionsPage />} />
+                  <Route path="/options/surface-finish" element={<PouchSurfaceFinishPage />} />
+                  <Route path="/barriers/overview" element={<PouchBarrierOverviewPage />} />
+                  <Route path="/printing/digital" element={<PouchDigitalPrintingPage />} />
+                  <Route path="/products" element={<PouchProductsPage />} />
+                  <Route path="/materials" element={<PouchMaterialsPage />} />
+                  <Route path="/seo-guide" element={<PouchSEOPage />} />
+                  {/* Industry Solution Pages */}
+                  <Route path="/industry/coffee-tea" element={<PouchCoffeeTeaPage />} />
+                  <Route path="/industry/pet-food" element={<PouchPetFoodPage />} />
+                  <Route path="/industry/snacks" element={<PouchSnacksPage />} />
+                  <Route path="/industry/supplements" element={<PouchSupplementsPage />} />
+                  <Route path="/blog/eco-friendly-food-packaging-guide" element={<EcoFriendlyFoodPackagingGuide />} />
+                  <Route path="/blog/dtc-sustainable-packaging-guide" element={<DTCSustainablePackagingGuide />} />
+                  <Route path="/blog/recyclable-snack-packaging-guide" element={<RecyclableSnackPackagingGuide />} />
+                  <Route path="/blog/compostable-baby-food-packaging-guide" element={<CompostableBabyFoodPackagingGuide />} />
+                  <Route path="/blog/custom-compostable-pouch-suppliers-guide" element={<CustomCompostablePouchSuppliersGuide />} />
+                  <Route path="/blog/custom-printed-materials-guide" element={<CustomPrintedMaterialsGuide />} />
+                  <Route path="/blog/digital-printing-eco-packaging-guide" element={<DigitalPrintingEcoPackagingGuide />} />
+                  <Route path="/blog/eco-packaging-regulations-guide" element={<EcoPackagingRegulationsGuide />} />
+                  <Route path="/blog/green-coffee-materials-guide" element={<GreenCoffeeMaterialsGuide />} />
+                  <Route path="/blog/low-moq-startup-packaging-guide" element={<LowMOQStartupPackagingGuide />} />
+                  <Route path="/products/recyclable-mono-material-pouches" element={<RecyclableSnackPackagingGuide />} />
+                  <Route path="/products/coffee-bags-degassing-valve" element={<CoffeeDegassingValveGuide />} />
+                  <Route path="/products/low-moq-packaging" element={<LowMOQPackagingGuide />} />
+                  <Route path="/products/compostable-stand-up-pouches" element={<CompostableStandUpPouchesGuide />} />
+                  <Route path="/tech-specs" element={<PouchTechSpecsPage />} />
+                  {/* Fallback for other routes back to Home or 404, or keep as Home for now */}
+                  <Route path="*" element={<PouchHomePage />} />
+                </Routes>
+              </Suspense>
+            </BrowserRouter>
+          </GeoBlocker>
+        </ErrorBoundary>
       </HelmetProvider>
     </StrictMode>
   )
