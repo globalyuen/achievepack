@@ -204,18 +204,8 @@ export default function PouchEcoHomePage() {
         </div>
       </nav>
 
-      {/* Hero Section with Video Background */}
-      <section className="relative pt-16 pb-24 border-b-4 border-black overflow-hidden">
-        {/* Image Background */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/imgs/hero/pouch-eco-cover.jpg"
-            alt="Eco Packaging"
-            className="w-full h-full object-cover"
-          />
-          {/* Dark overlay for better text readability */}
-          <div className="absolute inset-0 bg-black/40" />
-        </div>
+      {/* Hero Section with Dark Background */}
+      <section className="relative pt-16 pb-24 border-b-4 border-black overflow-hidden bg-neutral-900">
 
         {/* Dot pattern overlay */}
         <div className="absolute inset-0 z-[1] bg-[radial-gradient(rgba(16,185,129,0.3)_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
@@ -312,10 +302,14 @@ export default function PouchEcoHomePage() {
             >
               <NeoCard className="bg-gradient-to-br from-[#10b981] to-[#059669] relative z-10 rotate-2 !p-0 overflow-hidden group">
                 <div className="aspect-square flex items-center justify-center relative bg-gradient-to-br from-[#10b981]/20 to-transparent">
-                  <img 
-                    src={getImage('stand-up-pouch/stand800')}
-                    alt="Eco Pouch"
-                    className="w-full h-full object-contain p-8 group-hover:scale-110 transition-transform duration-500"
+                  <video 
+                    src="/video/hero/bag.mov"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 rounded-sm"
+                    poster="/imgs/hero/pouch-eco-cover.jpg"
                   />
                   {/* Floating Badges */}
                   <motion.div 
