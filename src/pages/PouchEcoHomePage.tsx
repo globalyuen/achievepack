@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { 
   Package, Leaf, Zap, ShoppingCart, Star, CheckCircle, 
   ArrowRight, Box, Sparkles, Heart, Users, Globe,
-  Calculator as CalcIcon, Calendar, ChevronDown, Volume2, VolumeX
+  Calculator as CalcIcon, Calendar, ChevronDown
 } from 'lucide-react'
 import DualDomainSEOHead from '../components/DualDomainSEOHead'
 import { getDomain, getBrandConfig, getDomainContent } from '../utils/domain'
@@ -68,12 +68,6 @@ export default function PouchEcoHomePage() {
   const { cartCount, setIsCartOpen } = useStore()
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeFeature, setActiveFeature] = useState(0)
-  const [isMuted, setIsMuted] = useState(true)
-  const videoRef = useRef<HTMLVideoElement>(null)
-
-  // Hero background video - bag.mov with cover.jpg as poster
-  const heroVideo = '/video/hero/bag.mov'
-  const heroPoster = '/video/hero/cover.jpg'
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50)
@@ -88,14 +82,6 @@ export default function PouchEcoHomePage() {
     }, 5000)
     return () => clearInterval(timer)
   }, [])
-
-  // 音频控制
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted
-      setIsMuted(!isMuted)
-    }
-  }
 
   const features = [
     {
@@ -220,42 +206,19 @@ export default function PouchEcoHomePage() {
 
       {/* Hero Section with Video Background */}
       <section className="relative pt-16 pb-24 border-b-4 border-black overflow-hidden">
-        {/* Video Background */}
+        {/* Image Background */}
         <div className="absolute inset-0 z-0">
-          <video
-            ref={videoRef}
+          <img
+            src="/imgs/hero/pouch-eco-cover.jpg"
+            alt="Eco Packaging"
             className="w-full h-full object-cover"
-            autoPlay
-            loop
-            muted={isMuted}
-            playsInline
-            poster={heroPoster}
-          >
-            <source src={heroVideo} type="video/quicktime" />
-            <source src={heroVideo} type="video/mp4" />
-          </video>
+          />
           {/* Dark overlay for better text readability */}
           <div className="absolute inset-0 bg-black/40" />
         </div>
 
         {/* Dot pattern overlay */}
         <div className="absolute inset-0 z-[1] bg-[radial-gradient(rgba(16,185,129,0.3)_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
-
-        {/* Audio Control Button */}
-        <button
-          onClick={toggleMute}
-          className="absolute top-24 right-6 z-30 bg-white/20 backdrop-blur-md border-2 border-white/30 rounded-full w-14 h-14 flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all shadow-lg group"
-          aria-label={isMuted ? 'Unmute video' : 'Mute video'}
-        >
-          {isMuted ? (
-            <VolumeX className="w-6 h-6 text-white" />
-          ) : (
-            <Volume2 className="w-6 h-6 text-white" />
-          )}
-          <span className="absolute -bottom-8 right-0 text-xs text-white font-semibold opacity-0 group-hover:opacity-100 transition whitespace-nowrap bg-black/60 px-2 py-1 rounded">
-            {isMuted ? 'Unmute' : 'Mute'}
-          </span>
-        </button>
 
         <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">

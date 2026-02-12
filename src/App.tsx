@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom'
 import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield, ShoppingCart, User, Linkedin, ArrowRight, Plus, AlertCircle, ChevronLeft, ChevronRight, Gift, Palette } from 'lucide-react'
-import { HeroGrainBackground } from './components/HeroGrainBackground'
 import { CardContainer, CardBody, CardItem } from './components/ui/3d-card'
 import { getImage } from './utils/imageMapper'
 import Newsletter from './components/Newsletter'
@@ -760,8 +759,15 @@ function App() {
 
       {/* Hero Section */}
       <section id="hero" className="pt-24 pb-16 relative overflow-hidden">
-        {/* GrainGradient 背景动效 */}
-        <HeroGrainBackground animate={true} />
+        {/* Hero Image Background */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/imgs/hero/pouch-eco-cover.jpg" 
+            alt="Hero Background" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-white/75" />
+        </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
