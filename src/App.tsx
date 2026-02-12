@@ -824,19 +824,14 @@ function App() {
                 <CardBody className="relative group/card w-full">
                   <div className="absolute inset-0 bg-primary-500 rounded-full filter blur-3xl opacity-10"></div>
                   <CardItem translateZ="100" className="w-full">
-                    <img
-                      src={img("about-hero")}
-                      alt="Premium Sustainable Packaging"
-                      width="600"
-                      height="600"
-                      fetchPriority="high"
-                      decoding="async"
-                      className="relative z-10 w-full rounded-2xl shadow-2xl cursor-pointer group-hover/card:shadow-primary-500/[0.3]"
-                      onClick={() => {
-                        setModalImage(img("about-hero"))
-                        setModalAlt('Premium Sustainable Packaging')
-                        setIsModalOpen(true)
-                      }}
+                    <video
+                      src="/video/hero/bag.mov"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="relative z-10 w-full rounded-2xl shadow-2xl object-cover aspect-square group-hover/card:shadow-primary-500/[0.3]"
+                      poster="/imgs/hero/pouch-eco-cover.jpg"
                     />
                   </CardItem>
                 </CardBody>
