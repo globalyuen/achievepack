@@ -1,6 +1,6 @@
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect, useState, type MouseEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Package, Leaf, Zap, Box as BoxIcon, Flame, Star } from 'lucide-react'
+import { Package, Leaf, Zap, Box as BoxIcon, Flame, Star, Play } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import PouchLayout from '../../components/pouch/PouchLayout'
@@ -78,7 +78,7 @@ const SocialVideoCard = ({ videoSrc, coverSrc, index }: { videoSrc: string, cove
   const [isPlaying, setIsPlaying] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
-  const handlePlay = (e: React.MouseEvent) => {
+  const handlePlay = (e: MouseEvent) => {
     e.stopPropagation()
     setIsPlaying(true)
   }
