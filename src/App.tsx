@@ -766,25 +766,25 @@ function App() {
             alt="Hero Background" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-white/75" />
+          <div className="absolute inset-0 bg-black/40" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-left">
-              <h1 className="text-3xl md:text-5xl font-bold text-neutral-900 leading-tight tracking-tight mb-6">
+              <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight tracking-tight mb-6">
                 {t('hero.titlePrefix')}
-                <span className="text-primary-500"> {t('hero.titleSuffix')}</span>
+                <span className="text-[#D4FF00]"> {t('hero.titleSuffix')}</span>
               </h1>
-              <p className="text-xl text-neutral-700 leading-relaxed mb-8 max-w-xl">
+              <p className="text-xl text-neutral-100 leading-relaxed mb-8 max-w-xl">
                 Transform your business with certified{' '}
                 <TextRotate
                   words={['eco-friendly', 'compostable', 'PCR', 'BioPE', 'recyclable', 'FSC']}
-                  className="text-primary-600 font-semibold"
+                  className="text-[#D4FF00] font-semibold"
                   interval={2500}
                   animationType="flip"
                 />{' '}
-                packaging solutions. From <Link to="/industry/coffee-tea" className="text-primary-600 hover:underline">coffee bags with degassing valves</Link> to <Link to="/packaging/stand-up-pouches" className="text-primary-600 hover:underline">custom printed food pouches</Link>, reduce your environmental impact while delivering exceptional business value.
+                packaging solutions. From <Link to="/industry/coffee-tea" className="text-[#D4FF00] hover:underline">coffee bags with degassing valves</Link> to <Link to="/packaging/stand-up-pouches" className="text-[#D4FF00] hover:underline">custom printed food pouches</Link>, reduce your environmental impact while delivering exceptional business value.
               </p>
 
               {/* CTA Buttons */}
@@ -796,7 +796,7 @@ function App() {
                   <ShoppingCart className="h-5 w-5" />
                   <span>Shop Now</span>
                 </Link>
-                <a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center space-x-2 border-2 border-neutral-200 text-neutral-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-neutral-50 transition-colors">
+                <a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center space-x-2 border-2 border-white/30 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/10 transition-colors">
                   <Calendar className="h-5 w-5" />
                   <span>{t('hero.bookConsultation')}</span>
                 </a>
@@ -804,17 +804,17 @@ function App() {
 
               {/* Key Metrics */}
               <div className="grid grid-cols-3 gap-4">
-                <div className="bg-white/90 backdrop-blur-md rounded-lg p-4 shadow-sm border border-white/20">
-                  <div className="text-2xl md:text-3xl font-bold text-primary-500 mb-1">70%</div>
-                  <div className="text-xs md:text-sm text-neutral-600 leading-tight">{t('hero.stats.carbon')}</div>
+                <div className="bg-white/10 backdrop-blur-md rounded-lg p-4 shadow-sm border border-white/20">
+                  <div className="text-2xl md:text-3xl font-bold text-[#D4FF00] mb-1">70%</div>
+                  <div className="text-xs md:text-sm text-white leading-tight">{t('hero.stats.carbon')}</div>
                 </div>
-                <div className="bg-white/90 backdrop-blur-md rounded-lg p-4 shadow-sm border border-white/20">
-                  <div className="text-2xl md:text-3xl font-bold text-primary-500 mb-1">70%</div>
-                  <div className="text-xs md:text-sm text-neutral-600 leading-tight">{t('hero.stats.plastic')}</div>
+                <div className="bg-white/10 backdrop-blur-md rounded-lg p-4 shadow-sm border border-white/20">
+                  <div className="text-2xl md:text-3xl font-bold text-[#D4FF00] mb-1">70%</div>
+                  <div className="text-xs md:text-sm text-white leading-tight">{t('hero.stats.plastic')}</div>
                 </div>
-                <div className="bg-white/90 backdrop-blur-md rounded-lg p-4 shadow-sm border border-white/20">
-                  <div className="text-2xl md:text-3xl font-bold text-primary-500 mb-1">22%</div>
-                  <div className="text-xs md:text-sm text-neutral-600 leading-tight">{t('hero.stats.shipping')}</div>
+                <div className="bg-white/10 backdrop-blur-md rounded-lg p-4 shadow-sm border border-white/20">
+                  <div className="text-2xl md:text-3xl font-bold text-[#D4FF00] mb-1">22%</div>
+                  <div className="text-xs md:text-sm text-white leading-tight">{t('hero.stats.shipping')}</div>
                 </div>
               </div>
             </div>
