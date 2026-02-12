@@ -467,14 +467,13 @@ export default function PouchHomePage() {
         <ProductCarousel autoPlay autoPlayInterval={4000} />
       </section>
 
-
       {/* Social Video Section - Added by AI */}
-      <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto">
-        <div className="text-center mb-12">
+      <section className="py-24 px-4 md:px-6 max-w-[1920px] mx-auto overflow-hidden">
+        <div className="text-center mb-16">
           <div className="inline-block bg-black text-[#D4FF00] px-4 py-1 mb-6 font-['JetBrains_Mono'] font-bold transform -rotate-1">
             REAL PRODUCTS • REAL BRANDS
           </div>
-          <h2 className="font-black text-5xl md:text-7xl uppercase mb-6">
+          <h2 className="font-black text-5xl md:text-8xl uppercase mb-6 tracking-tighter">
             As Seen In <span className="text-[#10b981]">Social</span>
           </h2>
           <p className="font-['JetBrains_Mono'] text-lg max-w-2xl mx-auto text-gray-700">
@@ -482,15 +481,27 @@ export default function PouchHomePage() {
           </p>
         </div>
         
-        <div className="max-w-4xl mx-auto border-4 border-black p-4 bg-white shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-          <div className="aspect-video relative bg-black">
-            <video 
-              src="/pouch-social.mp4"
-              controls
-              className="w-full h-full object-cover"
-              poster="/imgs/hero/pouch-eco-cover.jpg"
-            />
-          </div>
+        {/* Horizontal Scroll / Grid of Vertical Videos */}
+        <div className="flex gap-4 overflow-x-auto pb-8 snap-x snap-mandatory px-4 md:px-0 md:justify-center">
+          {[1, 2, 3, 4, 5, 6, 7].map((num) => (
+            <div key={num} className="flex-shrink-0 w-[280px] md:w-[320px] snap-center">
+              <div className="border-4 border-black p-2 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1">
+                <div className="aspect-[9/16] relative bg-black overflow-hidden">
+                  <video 
+                    src={`/video/social/social-${num}.mp4`}
+                    controls
+                    preload="metadata"
+                    className="w-full h-full object-cover"
+                    playsInline
+                  />
+                </div>
+                <div className="mt-2 flex justify-between items-center font-['JetBrains_Mono'] text-xs font-bold px-1">
+                  <span>@POUCH.ECO</span>
+                  <span>#{num.toString().padStart(3, '0')}</span>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
