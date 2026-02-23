@@ -1,11 +1,11 @@
 {
-  "generated": "2026-02-11",
-  "total_images": 1225,
-  "total_categories": 135,
+  "generated": "2026-02-23",
+  "total_images": 1230,
+  "total_categories": 137,
   "extensions": {
-    ".webp": 1058,
+    ".webp": 1062,
     ".png": 158,
-    ".jpg": 6,
+    ".jpg": 7,
     ".svg": 3
   },
   "categories": {
@@ -3028,6 +3028,17 @@
         }
       ]
     },
+    "hero": {
+      "count": 1,
+      "images": [
+        {
+          "filename": "pouch-eco-cover.jpg",
+          "path": "/imgs/hero/pouch-eco-cover.jpg",
+          "extension": ".jpg",
+          "modified": "2026-02-12T04:04:06.123Z"
+        }
+      ]
+    },
     "illustrated": {
       "count": 70,
       "images": [
@@ -4650,6 +4661,35 @@
         }
       ]
     },
+    "reclose": {
+      "count": 4,
+      "images": [
+        {
+          "filename": "a_valve_closure_detail_6401844.webp",
+          "path": "/imgs/reclose/a_valve_closure_detail_6401844.webp",
+          "extension": ".webp",
+          "modified": "2026-02-19T09:46:58.524Z"
+        },
+        {
+          "filename": "a_spout_closure_closeup_detail_2705813.webp",
+          "path": "/imgs/reclose/a_spout_closure_closeup_detail_2705813.webp",
+          "extension": ".webp",
+          "modified": "2026-02-19T09:46:58.523Z"
+        },
+        {
+          "filename": "a_tintie_coffee_pouch_correct_4114906.webp",
+          "path": "/imgs/reclose/a_tintie_coffee_pouch_correct_4114906.webp",
+          "extension": ".webp",
+          "modified": "2026-02-19T09:46:58.523Z"
+        },
+        {
+          "filename": "a_reclosure_options_kv_product_photo_7983949.webp",
+          "path": "/imgs/reclose/a_reclosure_options_kv_product_photo_7983949.webp",
+          "extension": ".webp",
+          "modified": "2026-02-19T09:46:58.522Z"
+        }
+      ]
+    },
     "reclose/ads": {
       "count": 9,
       "images": [
@@ -4703,7 +4743,7 @@
         },
         {
           "filename": "a_valve_closure_detail_6401844.webp",
-          "path": "/imgs/store/additional/valve.webp",
+          "path": "/imgs/reclose/ads/a_valve_closure_detail_6401844.webp",
           "extension": ".webp",
           "modified": "2025-12-22T21:56:28.000Z"
         }
