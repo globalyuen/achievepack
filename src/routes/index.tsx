@@ -26,6 +26,7 @@ const TermsPage = lazy(() => import('../pages/TermsPage'));
 const ContactPage = lazy(() => import('../pages/ContactPage'));
 const AdminPage = lazy(() => import('../pages/AdminPage'));
 const OrderManagementPage = lazy(() => import('../pages/OrderManagementPage'));
+const FlatBottomQuotePage = lazy(() => import('../pages/quotes/FlatBottomQuotePage'));
 
 // Industry Pages
 const CoffeeTeaPage = lazy(() => import('../pages/industry/CoffeeTeaPage'));
@@ -206,6 +207,7 @@ const routes = [
   { path: "/reclosure-options", element: <LazyRoute component={() => import('../pages/PouchEcoReclosurePage')} fallback={<LoadingFallback />} /> },
   { path: "/ctrl-x9k7m", element: <LazyRoute component={() => import('../pages/AdminPage')} fallback={<LoadingFallback />} /> },
   { path: "/ctrl-x9k7m/management", element: <LazyRoute component={() => import('../pages/OrderManagementPage')} fallback={<LoadingFallback />} /> },
+  { path: "/quotes/flat-bottom", element: <LazyRoute component={() => import('../pages/quotes/FlatBottomQuotePage')} fallback={<LoadingFallback />} /> },
 
   // Industry Pages
   { path: "/industry/coffee-tea", element: <LazyRoute component={() => import('../pages/industry/CoffeeTeaPage')} fallback={<LoadingFallback />} /> },

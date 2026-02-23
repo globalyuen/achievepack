@@ -1,640 +1,519 @@
-import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
-import { Link } from 'react-router-dom'
-import { Coffee, Shield, MapPin, DollarSign, CheckCircle, TrendingUp, Package, Leaf, Wind, Lock, Droplets, Clock } from 'lucide-react'
+import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useSearchParams } from 'react-router-dom';
 
-export default function USACoffeePackaging() {
-  const sections = [
-    {
-      id: 'why-us-roasters',
-      title: 'Why 67% of US Specialty Roasters Are Switching Packaging in 2026',
-      icon: <TrendingUp className="w-6 h-6" />,
-      content: (
-        <div className="space-y-6">
-          <p className="text-xl font-bold text-neutral-900">
-            The US specialty coffee market is booming—$48 billion by 2027—and packaging is the secret weapon separating winning brands from the rest.
-          </p>
-          
-          <div className="bg-[#D4FF00] border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <h3 className="font-black text-2xl uppercase mb-4">What's Driving The Shift:</h3>
-            <ul className="space-y-3 text-lg">
-              <li className="flex items-start gap-3">
-                <span className="font-['JetBrains_Mono'] font-bold">→</span>
-                <span><strong>73% of US consumers</strong> now prefer brands with sustainable packaging</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="font-['JetBrains_Mono'] font-bold">→</span>
-                <span><strong>California + Washington laws</strong> now require certified compostable claims</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="font-['JetBrains_Mono'] font-bold">→</span>
-                <span><strong>Freshness = Revenue</strong> – Wrong packaging kills aroma in 30 days</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="font-['JetBrains_Mono'] font-bold">→</span>
-                <span><strong>Low MOQ (100 pcs)</strong> lets small roasters compete with big brands</span>
-              </li>
-            </ul>
-          </div>
+const FlatBottomQuotePage: React.FC = () => {
+  const [searchParams] = useSearchParams();
+  const pwd = searchParams.get('p');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-          <div className="bg-amber-50 border-l-8 border-amber-600 p-6">
-            <h4 className="font-black text-2xl uppercase mb-3 text-amber-900">
-              The Coffee Freshness Crisis
-            </h4>
-            <p className="text-lg mb-3">
-              Here's what most roasters don't know: <strong>90% of coffee's volatile aroma compounds degrade within 4 weeks if your packaging isn't up to spec.</strong>
-            </p>
-            <div className="grid md:grid-cols-3 gap-4 mt-4">
-              <div className="bg-white border-4 border-black p-4">
-                <Droplets className="w-8 h-8 mb-2 text-amber-600" />
-                <h5 className="font-black uppercase mb-2">Oxygen Barrier</h5>
-                <p className="text-sm">OTR &lt; 1.0 cc/m²/24hr or you're losing aroma daily</p>
-              </div>
-              <div className="bg-white border-4 border-black p-4">
-                <Wind className="w-8 h-8 mb-2 text-amber-600" />
-                <h5 className="font-black uppercase mb-2"><Link to="/blog/coffee-degassing-valve-guide" className="hover:underline">Degassing Valve</Link></h5>
-                <p className="text-sm">Fresh beans release CO₂ for 2+ weeks—valve prevents bag burst</p>
-              </div>
-              <div className="bg-white border-4 border-black p-4">
-                <Lock className="w-8 h-8 mb-2 text-amber-600" />
-                <h5 className="font-black uppercase mb-2">Resealable Zipper</h5>
-                <p className="text-sm">Customers open bags 10+ times—no zipper = stale coffee</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="bg-[#F0F0F0] border-4 border-black p-6">
-              <h4 className="font-black text-xl uppercase mb-3 text-green-600">✓ High-Barrier Coffee Pouch</h4>
-              <ul className="space-y-2 text-sm">
-                <li>• 12-18 months shelf life with valve + zipper</li>
-                <li>• Aroma retention: 95%+ after 6 months</li>
-                <li>• ASTM D6400 compostable or recyclable mono-PE</li>
-                <li>• Premium matte/kraft finish for retail</li>
-                <li>• Resealable for multi-use</li>
-              </ul>
-            </div>
-            <div className="bg-[#F0F0F0] border-4 border-black p-6">
-              <h4 className="font-black text-xl uppercase mb-3 text-red-600">✗ Regular Plastic Bag</h4>
-              <ul className="space-y-2 text-sm">
-                <li>• 30-45 days shelf life (if lucky)</li>
-                <li>• Aroma retention: &lt;50% after 2 months</li>
-                <li>• No composting certification</li>
-                <li>• Cheap appearance = low perceived value</li>
-                <li>• Single-use only (no zipper)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'state-compliance',
-      title: 'US State Laws: California, Washington, Colorado Coffee Packaging Rules',
-      icon: <Shield className="w-6 h-6" />,
-      content: (
-        <div className="space-y-6">
-          <p className="text-xl font-bold">
-            If you're selling coffee in CA, WA, or CO, you MUST follow these packaging laws or face fines up to $2,500/day.
-          </p>
-
-          <div className="bg-blue-50 border-l-8 border-blue-600 p-6">
-            <h4 className="font-black text-2xl uppercase mb-3 text-blue-900 flex items-center gap-3">
-              <MapPin className="w-6 h-6" />
-              California (SB 343 & AB 1201)
-            </h4>
-            <div className="space-y-3">
-              <p className="text-lg">
-                <strong>Strictest in the nation.</strong> California bans misleading environmental claims and requires proof for "compostable" labels.
-              </p>
-              <div className="bg-white border-2 border-blue-600 p-4">
-                <h5 className="font-black uppercase mb-2">What You MUST Do:</h5>
-                <ul className="space-y-2 text-sm">
-                  <li>✓ Use ASTM D6400 or D6868 certified materials only</li>
-                  <li>✓ Green/brown color or "Compostable" label required</li>
-                  <li>✓ Never claim "biodegradable" on plastic packaging</li>
-                  <li>✓ Provide certification docs if requested</li>
-                </ul>
-              </div>
-              <div className="bg-red-50 border-2 border-red-600 p-4">
-                <h5 className="font-black uppercase mb-2 text-red-800">What Gets You Fined:</h5>
-                <ul className="space-y-2 text-sm">
-                  <li>✗ "Biodegradable" claims without ASTM certification</li>
-                  <li>✗ Using recycling symbols on non-recyclable materials</li>
-                  <li>✗ "Eco-friendly" claims without substantiation</li>
-                  <li><strong className="text-red-700">Penalties: $2,500/violation/day</strong></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-green-50 border-l-8 border-green-600 p-6">
-            <h4 className="font-black text-2xl uppercase mb-3 text-green-900 flex items-center gap-3">
-              <MapPin className="w-6 h-6" />
-              Washington (HB 1569)
-            </h4>
-            <p className="mb-3">
-              Washington requires compostable products to meet ASTM standards AND be accepted by local composting facilities.
-            </p>
-            <ul className="space-y-2">
-              <li>• Must meet ASTM D6400 or D6868</li>
-              <li>• Can only use "compostable" label if accepted by WA facilities</li>
-              <li>• Green color + compost logo required</li>
-              <li>• Home compostable claims need OK Compost HOME certification</li>
-            </ul>
-          </div>
-
-          <div className="bg-amber-50 border-l-8 border-amber-600 p-6">
-            <h4 className="font-black text-2xl uppercase mb-3 text-amber-900 flex items-center gap-3">
-              <MapPin className="w-6 h-6" />
-              Colorado (HB 22-1355)
-            </h4>
-            <p className="mb-3">
-              Colorado bans single-use plastic bags and requires proof of compostability claims.
-            </p>
-            <ul className="space-y-2">
-              <li>• ASTM D6400 certification mandatory</li>
-              <li>• Third-party verification (BPI, TÜV Austria) recommended</li>
-              <li>• "Compostable" must be clearly labeled</li>
-              <li>• Retailers can be held liable for non-compliant products</li>
-            </ul>
-          </div>
-
-          <div className="bg-[#00FFFF] border-4 border-black p-6">
-            <h4 className="font-black text-2xl uppercase mb-3">How POUCH.ECO Keeps You Compliant:</h4>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="bg-white border-2 border-black p-4">
-                <CheckCircle className="w-6 h-6 mb-2 text-green-600" />
-                <h5 className="font-bold mb-2"><Link to="/industry/coffee-tea" className="hover:underline">Compostable Coffee Bags</Link></h5>
-                <p className="text-sm">ASTM D6400 + BPI certified kraft paper pouches with PLA lining. Green color, compost logo included.</p>
-              </div>
-              <div className="bg-white border-2 border-black p-4">
-                <CheckCircle className="w-6 h-6 mb-2 text-blue-600" />
-                <h5 className="font-bold mb-2">Recyclable Coffee Bags</h5>
-                <p className="text-sm">Mono-PE structure accepted in curbside recycling (#4 LDPE). Clear labeling, How2Recycle certified.</p>
-              </div>
-            </div>
-            <p className="mt-4 text-sm font-bold">
-              We provide certification PDFs with every order so you're always audit-ready.
-            </p>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'material-options',
-      title: 'Compostable vs Recyclable: Which Coffee Bag Material Is Right for You?',
-      icon: <Leaf className="w-6 h-6" />,
-      content: (
-        <div className="space-y-6">
-          <p className="text-xl">
-            There's no "best" option—it depends on your brand positioning, customer base, and state laws. Here's the honest breakdown:
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-green-50 border-4 border-green-600 p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-              <h4 className="font-black text-2xl uppercase mb-4 flex items-center gap-2">
-                <Leaf className="w-6 h-6" />
-                Compostable Kraft Coffee Bags
-              </h4>
-              
-              <div className="space-y-4">
-                <div>
-                  <h5 className="font-bold mb-2">Structure:</h5>
-                  <p className="text-sm">Kraft Paper + PLA Film + PLA Zipper + PLA Valve</p>
-                </div>
-                
-                <div>
-                  <h5 className="font-bold mb-2">Certifications:</h5>
-                  <p className="text-sm">ASTM D6400, BPI, EN 13432</p>
-                </div>
-                
-                <div>
-                  <h5 className="font-bold mb-2">Barrier Performance:</h5>
-                  <p className="text-sm">OTR: 1-3 cc/m²/24hr | MVTR: 5-10 g/m²/24hr</p>
-                  <p className="text-xs text-neutral-600 mt-1">Shelf life: 6-12 months for ground coffee</p>
-                </div>
-                
-                <div>
-                  <h5 className="font-bold mb-2">Best For:</h5>
-                  <ul className="text-sm space-y-1">
-                    <li>• Brands targeting eco-conscious millennials/Gen Z</li>
-                    <li>• Selling in CA, WA, CO markets</li>
-                    <li>• Premium positioning ($18-25/lb coffee)</li>
-                    <li>• Whole beans (valve lets CO₂ escape)</li>
-                  </ul>
-                </div>
-                
-                <div className="bg-white border-2 border-green-600 p-3">
-                  <h5 className="font-bold mb-2">Price Premium:</h5>
-                  <p className="text-lg font-black text-green-700">1.3x standard bags</p>
-                  <p className="text-xs">Example: $2.80 vs $2.15 for 12oz pouch (MOQ 500)</p>
-                </div>
-                
-                <div>
-                  <h5 className="font-bold mb-2 text-green-700">✓ Pros:</h5>
-                  <ul className="text-sm space-y-1">
-                    <li>✓ Breaks down in 90-180 days</li>
-                    <li>✓ Premium kraft look + matte finish</li>
-                    <li>✓ Compliant with CA/WA/CO laws</li>
-                    <li>✓ Strong brand story for marketing</li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h5 className="font-bold mb-2 text-red-700">✗ Cons:</h5>
-                  <ul className="text-sm space-y-1">
-                    <li>✗ Requires industrial composting (not widely available)</li>
-                    <li>✗ Slightly lower barrier than aluminum foil</li>
-                    <li>✗ 30% higher cost than recyclable</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-blue-50 border-4 border-blue-600 p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-              <h4 className="font-black text-2xl uppercase mb-4 flex items-center gap-2">
-                <Package className="w-6 h-6" />
-                Recyclable Mono-PE Coffee Bags
-              </h4>
-              
-              <div className="space-y-4">
-                <div>
-                  <h5 className="font-bold mb-2">Structure:</h5>
-                  <p className="text-sm">PE (all layers) + PE Zipper + PE Valve</p>
-                </div>
-                
-                <div>
-                  <h5 className="font-bold mb-2">Certifications:</h5>
-                  <p className="text-sm">How2Recycle, CEFLEX, APR</p>
-                </div>
-                
-                <div>
-                  <h5 className="font-bold mb-2">Barrier Performance:</h5>
-                  <p className="text-sm">OTR: 0.5-1.5 cc/m²/24hr | MVTR: 2-5 g/m²/24hr</p>
-                  <p className="text-xs text-neutral-600 mt-1">Shelf life: 12-18 months for ground coffee</p>
-                </div>
-                
-                <div>
-                  <h5 className="font-bold mb-2">Best For:</h5>
-                  <ul className="text-sm space-y-1">
-                    <li>• Brands prioritizing maximum freshness</li>
-                    <li>• Selling in mainstream grocery chains</li>
-                    <li>• Mid-range pricing ($12-18/lb coffee)</li>
-                    <li>• Ground coffee (requires superior barrier)</li>
-                  </ul>
-                </div>
-                
-                <div className="bg-white border-2 border-blue-600 p-3">
-                  <h5 className="font-bold mb-2">Price Baseline:</h5>
-                  <p className="text-lg font-black text-blue-700">1.0x standard bags</p>
-                  <p className="text-xs">Example: $2.15 for 12oz pouch (MOQ 500)</p>
-                </div>
-                
-                <div>
-                  <h5 className="font-bold mb-2 text-green-700">✓ Pros:</h5>
-                  <ul className="text-sm space-y-1">
-                    <li>✓ Best barrier performance (longest shelf life)</li>
-                    <li>✓ Accepted in curbside recycling (#4 LDPE)</li>
-                    <li>✓ 30% cheaper than compostable</li>
-                    <li>✓ Glossy or matte finish available</li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h5 className="font-bold mb-2 text-red-700">✗ Cons:</h5>
-                  <ul className="text-sm space-y-1">
-                    <li>✗ Not compostable (needs recycling infrastructure)</li>
-                    <li>✗ Less premium "eco" positioning</li>
-                    <li>✗ Lower recycling rates in practice (~9% US)</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-[#D4FF00] border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <h4 className="font-black text-3xl uppercase mb-4">Quick Decision Guide:</h4>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div>
-                <h5 className="font-bold mb-3">Choose Compostable If:</h5>
-                <ul className="space-y-2 text-sm">
-                  <li>✓ You sell whole beans with degassing needs</li>
-                  <li>✓ Your brand is premium/artisanal ($18+/lb)</li>
-                  <li>✓ You sell in CA, WA, CO, or eco-conscious markets</li>
-                  <li>✓ Your customers have access to commercial composting</li>
-                  <li>✓ Sustainability is core to your brand story</li>
-                </ul>
-              </div>
-              <div>
-                <h5 className="font-bold mb-3">Choose Recyclable If:</h5>
-                <ul className="space-y-2 text-sm">
-                  <li>✓ You sell ground coffee requiring max shelf life</li>
-                  <li>✓ Your price point is mid-range ($12-18/lb)</li>
-                  <li>✓ You distribute through grocery chains</li>
-                  <li>✓ You want the best barrier performance</li>
-                  <li>✓ Budget is a primary concern</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'pricing-moq',
-      title: 'Transparent Pricing: Coffee Bag MOQ from 100 Pieces for US Roasters',
-      icon: <DollarSign className="w-6 h-6" />,
-      content: (
-        <div className="space-y-6">
-          <p className="text-xl font-bold">
-            No games, no hidden fees. Here's exactly what coffee packaging costs in 2026:
-          </p>
-
-          <div className="bg-[#00FFFF] border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <h4 className="font-black text-3xl uppercase mb-6">12oz Stand-Up Coffee Pouch with Valve + Zipper</h4>
-            
-            <table className="w-full text-left border-4 border-black">
-              <thead>
-                <tr className="bg-black text-[#00FFFF]">
-                  <th className="py-3 px-4 font-['JetBrains_Mono'] border-r-2 border-[#00FFFF]">Quantity</th>
-                  <th className="py-3 px-4 border-r-2 border-[#00FFFF]">Compostable (Kraft)</th>
-                  <th className="py-3 px-4 border-r-2 border-[#00FFFF]">Recyclable (Mono-PE)</th>
-                  <th className="py-3 px-4">Lead Time</th>
-                </tr>
-              </thead>
-              <tbody className="bg-white">
-                <tr className="border-t-4 border-black">
-                  <td className="py-3 px-4 font-bold border-r-2 border-black">100-500 pcs</td>
-                  <td className="py-3 px-4 border-r-2 border-black">$3.20-$4.50</td>
-                  <td className="py-3 px-4 border-r-2 border-black">$2.50-$3.50</td>
-                  <td className="py-3 px-4">2-3 weeks</td>
-                </tr>
-                <tr className="border-t-2 border-black">
-                  <td className="py-3 px-4 font-bold border-r-2 border-black">500-1,000 pcs</td>
-                  <td className="py-3 px-4 border-r-2 border-black">$2.80-$3.80</td>
-                  <td className="py-3 px-4 border-r-2 border-black">$2.15-$3.00</td>
-                  <td className="py-3 px-4">2-3 weeks</td>
-                </tr>
-                <tr className="border-t-2 border-black">
-                  <td className="py-3 px-4 font-bold border-r-2 border-black">1,000-3,000 pcs</td>
-                  <td className="py-3 px-4 border-r-2 border-black">$2.40-$3.20</td>
-                  <td className="py-3 px-4 border-r-2 border-black">$1.85-$2.50</td>
-                  <td className="py-3 px-4">3-4 weeks</td>
-                </tr>
-                <tr className="border-t-2 border-black">
-                  <td className="py-3 px-4 font-bold border-r-2 border-black">3,000+ pcs</td>
-                  <td className="py-3 px-4 text-green-600 font-bold border-r-2 border-black">Request Quote</td>
-                  <td className="py-3 px-4 text-green-600 font-bold border-r-2 border-black">Request Quote</td>
-                  <td className="py-3 px-4">3-4 weeks</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <div className="mt-6 bg-white border-4 border-black p-4">
-              <h5 className="font-black uppercase mb-3">Price Factors:</h5>
-              <ul className="space-y-2 text-sm">
-                <li>• Size: 8oz bags are ~70% of 12oz price | 16oz bags are ~130%</li>
-                <li>• Printing: Full-color custom printing included (no setup fees for digital)</li>
-                <li>• Features: Valve ($0.08-0.12 extra) | Tear notch (free) | Hang hole (free)</li>
-                <li>• Shipping to USA: $150-300 for 100-500 pcs (air) | $80-150 for sea (3,000+ pcs)</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-[#F0F0F0] border-4 border-black p-6">
-              <h4 className="font-black text-xl uppercase mb-4">What's Included:</h4>
-              <ul className="space-y-2">
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600" />
-                  <span>Free design review + file optimization</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600" />
-                  <span>Digital proof before production</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600" />
-                  <span>One-way degassing valve (standard)</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600" />
-                  <span>Resealable zipper (standard)</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600" />
-                  <span>Tear notch for easy opening</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600" />
-                  <span>Certification PDFs (ASTM/BPI)</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600" />
-                  <span>QC inspection photos before shipping</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-[#F0F0F0] border-4 border-black p-6">
-              <h4 className="font-black text-xl uppercase mb-4">Optional Add-Ons:</h4>
-              <ul className="space-y-2">
-                <li className="flex items-center gap-2">
-                  <span className="font-['JetBrains_Mono'] font-bold text-amber-600">+$0.15</span>
-                  <span>Metallic foil stamping (logo/text)</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="font-['JetBrains_Mono'] font-bold text-amber-600">+$0.20</span>
-                  <span>Spot UV coating (glossy accents)</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="font-['JetBrains_Mono'] font-bold text-amber-600">+$0.10</span>
-                  <span>Window (clear PLA or PE)</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="font-['JetBrains_Mono'] font-bold text-amber-600">+$0.05</span>
-                  <span>QR code printing</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="font-['JetBrains_Mono'] font-bold text-amber-600">+$150</span>
-                  <span>Custom size development</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="bg-amber-50 border-l-8 border-amber-600 p-6">
-            <h4 className="font-black text-2xl uppercase mb-3">3-Step Ordering Process:</h4>
-            <div className="space-y-4">
-              <div className="flex items-start gap-4">
-                <div className="bg-black text-[#D4FF00] w-10 h-10 rounded-full flex items-center justify-center font-['JetBrains_Mono'] font-bold text-xl shrink-0">
-                  1
-                </div>
-                <div>
-                  <h5 className="font-bold mb-1">Book Free 30-Min Consultation</h5>
-                  <p className="text-sm text-neutral-700">Tell us about your coffee brand, target market, and sustainability goals. We'll recommend the best material + size.</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="bg-black text-[#D4FF00] w-10 h-10 rounded-full flex items-center justify-center font-['JetBrains_Mono'] font-bold text-xl shrink-0">
-                  2
-                </div>
-                <div>
-                  <h5 className="font-bold mb-1">Approve Digital Proof</h5>
-                  <p className="text-sm text-neutral-700">We send a 3D mockup + dieline review within 48 hours. Make revisions until perfect.</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="bg-black text-[#D4FF00] w-10 h-10 rounded-full flex items-center justify-center font-['JetBrains_Mono'] font-bold text-xl shrink-0">
-                  3
-                </div>
-                <div>
-                  <h5 className="font-bold mb-1">Receive Your Coffee Bags in 2-4 Weeks</h5>
-                  <p className="text-sm text-neutral-700">Production takes 7-10 days, shipping 7-14 days (air) or 20-30 days (sea). QC photos sent before dispatch.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'case-study',
-      title: 'Case Study: Portland Roaster Switches to Compostable Coffee Bags',
-      icon: <Coffee className="w-6 h-6" />,
-      content: (
-        <div className="space-y-6">
-          <div className="bg-gradient-to-br from-amber-50 to-orange-50 border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <div className="flex items-start gap-4 mb-6">
-              <div className="bg-black text-[#D4FF00] px-4 py-2 font-['JetBrains_Mono'] font-bold uppercase transform -rotate-2">
-                Real Results
-              </div>
-            </div>
-            
-            <blockquote className="text-xl italic text-neutral-800 mb-6 border-l-4 border-amber-600 pl-6">
-              "We switched from plastic bags to POUCH.ECO's compostable kraft pouches in January 2026. Within 3 months, we saw a 23% increase in repeat customers and our coffee won 'Best Packaging' at Portland Coffee Fest. The 100-piece MOQ let us test before committing to large volumes."
-            </blockquote>
-            
-            <p className="font-bold text-lg text-neutral-900">
-              — Sarah Chen, Head Roaster at Cascade Coffee Co., Portland, OR
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-4">
-            <div className="bg-white border-4 border-black p-6 text-center">
-              <div className="text-4xl font-black text-green-600 mb-2">+23%</div>
-              <div className="text-sm font-bold uppercase">Repeat Customer Rate</div>
-              <div className="text-xs text-neutral-600 mt-2">Tracked via Shopify analytics</div>
-            </div>
-            <div className="bg-white border-4 border-black p-6 text-center">
-              <div className="text-4xl font-black text-blue-600 mb-2">$0</div>
-              <div className="text-sm font-bold uppercase">Additional Marketing Spend</div>
-              <div className="text-xs text-neutral-600 mt-2">Packaging sells itself</div>
-            </div>
-            <div className="bg-white border-4 border-black p-6 text-center">
-              <div className="text-4xl font-black text-amber-600 mb-2">1st</div>
-              <div className="text-sm font-bold uppercase">Place - Best Packaging</div>
-              <div className="text-xs text-neutral-600 mt-2">Portland Coffee Fest 2026</div>
-            </div>
-          </div>
-
-          <div className="bg-[#F0F0F0] border-4 border-black p-6">
-            <h4 className="font-black text-xl uppercase mb-4">Cascade Coffee's Journey:</h4>
-            <div className="space-y-4">
-              <div>
-                <h5 className="font-bold mb-2">Challenge:</h5>
-                <p className="text-sm">Plastic pouches didn't align with their "zero-waste roastery" mission. Customers complained about non-recyclable packaging. Retail buyers (Whole Foods, New Seasons) wanted compostable options.</p>
-              </div>
-              <div>
-                <h5 className="font-bold mb-2">Solution:</h5>
-                <p className="text-sm">Switched to 12oz kraft compostable pouches (ASTM D6400) with matte finish. Started with 100-piece test order ($380 total including shipping). Expanded to 1,000-piece orders after validating customer response.</p>
-              </div>
-              <div>
-                <h5 className="font-bold mb-2">Results:</h5>
-                <ul className="text-sm space-y-1">
-                  <li>✓ Featured in Portland Monthly's "Top 10 Sustainable Brands"</li>
-                  <li>✓ Whole Foods picked up 3 SKUs (required compostable packaging)</li>
-                  <li>✓ Social media engagement up 45% (customers posting bag photos)</li>
-                  <li>✓ Average order value increased from $28 → $34</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-blue-50 border-l-8 border-blue-600 p-6">
-            <h4 className="font-black text-xl uppercase mb-3 text-blue-900">Key Takeaways:</h4>
-            <ol className="space-y-3 list-decimal list-inside">
-              <li className="font-bold">Start with MOQ 100 to test market response before scaling</li>
-              <li className="font-bold">Kraft + matte finish = premium perception (justifies higher pricing)</li>
-              <li className="font-bold">ASTM D6400 certification = door opener for retail buyers</li>
-              <li className="font-bold">Compostable packaging = free marketing via word-of-mouth</li>
-            </ol>
-          </div>
-        </div>
-      )
+  useEffect(() => {
+    if (pwd === 'pouch2026') {
+      setIsAuthenticated(true);
     }
-  ]
+  }, [pwd]);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      // Set dynamic dates
+      const today = new Date();
+      const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+      
+      const elDate = document.getElementById('current-date');
+      if (elDate) {
+        elDate.textContent = today.toLocaleDateString('en-US', options);
+      }
+      
+      const validUntil = new Date();
+      validUntil.setDate(validUntil.getDate() + 30);
+      const elValid = document.getElementById('valid-until');
+      if (elValid) {
+        elValid.textContent = validUntil.toLocaleDateString('en-US', options);
+      }
+    }
+  }, [isAuthenticated]);
+
+  const generatePDF = async () => {
+    // Dynamic import to avoid SSR issues
+    try {
+      // @ts-expect-error
+      const html2pdf = (await import('html2pdf.js')).default;
+      const element = document.getElementById('quotation-content');
+      
+      // Hide standard button, show loading
+      const downloadBtn = document.getElementById('download-btn');
+      const loadingBtn = document.getElementById('loading-btn');
+      
+      if (downloadBtn && loadingBtn) {
+        downloadBtn.classList.add('hidden');
+        loadingBtn.classList.remove('hidden');
+      }
+      
+      const opt = {
+        margin: [10, 10, 10, 10],
+        filename: 'Quotation_100g_200g_500g_1kg_compostable_flat_bottom_one_sided_zipper_pouch_with_valve.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true, letterRendering: true },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+
+      await html2pdf().set(opt).from(element).save();
+      
+      // Restore buttons
+      if (downloadBtn && loadingBtn) {
+        downloadBtn.classList.remove('hidden');
+        loadingBtn.classList.add('hidden');
+      }
+    } catch (e) {
+      console.error('Failed to load html2pdf or generate', e);
+      alert('Failed to generate PDF. Please try again.');
+      
+      // Restore buttons
+      const downloadBtn = document.getElementById('download-btn');
+      const loadingBtn = document.getElementById('loading-btn');
+      if (downloadBtn && loadingBtn) {
+        downloadBtn.classList.remove('hidden');
+        loadingBtn.classList.add('hidden');
+      }
+    }
+  };
+
+  const copyLink = () => {
+    const link = window.location.origin + window.location.pathname + '?p=pouch2026';
+    navigator.clipboard.writeText(link).then(() => {
+      alert('Link copied to clipboard!\n' + link);
+    });
+  };
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
+        <Helmet>
+          <title>Secure Quotation - Achieve Pack</title>
+        </Helmet>
+        <div className="bg-white p-8 rounded-xl shadow-md max-w-md w-full text-center">
+          <svg className="w-16 h-16 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+          <h1 className="text-2xl font-bold mb-2">Password Required</h1>
+          <p className="text-gray-600 mb-6">Please enter the password to view this quotation.</p>
+          <div className="flex gap-2">
+            <input 
+              type="password" 
+              id="pwdInput"
+              className="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none" 
+              placeholder="Enter password"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  window.location.href = '?p=' + (e.target as HTMLInputElement).value;
+                }
+              }}
+            />
+            <button 
+              onClick={() => {
+                const el = document.getElementById('pwdInput') as HTMLInputElement;
+                if (el) window.location.href = '?p=' + el.value;
+              }}
+              className="bg-green-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-700 transition"
+            >
+              Unlock
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <BlogArticleTemplate
-      title="USA Coffee Packaging Guide 2026: Compostable vs Recyclable | State Laws & Low MOQ | POUCH.ECO"
-      metaDescription="Complete guide for US specialty roasters: ASTM D6400 compostable vs recyclable mono-PE coffee bags. California/Washington compliance, transparent pricing, MOQ from 100 pieces."
-      canonicalUrl="https://pouch.eco/blog/usa-coffee-packaging"
-      keywords={[
-        'USA coffee packaging',
-        'compostable coffee bags USA',
-        'recyclable coffee pouches',
-        'ASTM D6400 coffee bags',
-        'California coffee packaging laws',
-        'specialty coffee roaster packaging',
-        'degassing valve bags',
-        'low MOQ coffee bags'
-      ]}
-      publishedDate="2026-01-30"
-      modifiedDate="2026-01-30"
-      author="POUCH.ECO Packaging Experts"
+    <>
+      <Helmet>
+        <title>Quotation: 100g 200g 500g 1kg compostable flat bottom one sided zipper pouch with valve</title>
+        <style>
+          {`
+            .pricing-table th {
+                background-color: #25a556;
+                color: white;
+                font-weight: 600;
+                padding: 12px 16px;
+                text-align: left;
+                border-bottom: 2px solid #1e8a47;
+            }
+            .pricing-table td {
+                padding: 12px 16px;
+                border-bottom: 1px solid #e5e7eb;
+                color: #374151;
+            }
+            .pricing-table tr:nth-child(even) {
+                background-color: #f9fafb;
+            }
+            .pricing-table tr:hover {
+                background-color: #f0fdf4;
+                transition: background-color 0.2s ease;
+            }
+            .spec-badge {
+                display: inline-flex;
+                align-items: center;
+                padding: 6px 12px;
+                border-radius: 9999px;
+                font-size: 0.875rem;
+                font-weight: 500;
+                background-color: #e6f4ea;
+                color: #1e8a47;
+                margin-right: 8px;
+                margin-bottom: 8px;
+                border: 1px solid #bce4c8;
+            }
+            @media print {
+                .no-print { display: none !important; }
+                body { background-color: white !important; }
+                #quotation-content { box-shadow: none !important; padding: 0 !important; }
+                main { padding-top: 0 !important; padding-bottom: 0 !important; }
+            }
+          `}
+        </style>
+      </Helmet>
       
-      heroTitle={
-        <>
-          USA Coffee Packaging:<br />
-          <span className="text-amber-600">Compostable vs Recyclable</span><br />
-          (+ State Laws You Must Know)
-        </>
-      }
-      heroSubtitle="Everything US specialty roasters need to know about ASTM D6400 compostable and recyclable mono-PE coffee bags, California/Washington/Colorado compliance, and ordering with MOQ from 100 pieces."
-      heroImage="/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp"
-      heroImageAlt="Compostable kraft coffee bags with degassing valves for US specialty roasters"
-      categoryTag="COFFEE_USA"
-      categoryColor="#d97706"
-      readTime="15 min read"
-      
-      sections={sections}
-      
-      ctaTitle="Get Your Coffee Packaging Right the First Time"
-      ctaDescription="Book a free 30-minute consultation with our packaging experts. We'll help you choose the right material, size, and features for your US coffee brand—whether you're a startup roaster or scaling to retail."
-      calendlyUrl="https://calendly.com/30-min-free-packaging-consultancy"
-      
-      achievePackLink="https://achievepack.com/usa/coffee-packaging"
-      achievePackText="Need enterprise-level coffee packaging with custom material development?"
-      
-      showTableOfContents={true}
-      relatedArticles={[
-        {
-          title: 'USA Compostable Packaging Guide: ASTM D6400, BPI & State Laws',
-          url: '/blog/usa-compostable-packaging-guide',
-          image: '/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp'
-        },
-        {
-          title: 'Coffee Packaging Guide: Compostable vs Recyclable Options',
-          url: '/blog/coffee-packaging-guide',
-          image: '/imgs/seo-photos/a_bean_bole_coffee_roastery_8131919.webp'
-        },
-        {
-          title: 'The Ultimate Guide to Compostable Packaging in 2026',
-          url: '/blog/compostable-packaging-guide',
-          image: '/imgs/seo-photos/a_industrial_compostable_facility_2850870.webp'
-        }
-      ]}
-    />
-  )
-}
+      <div className="bg-gray-50 font-sans min-h-screen pb-12">
+        {/* Floating Action Bar */}
+        <div className="fixed top-0 left-0 right-0 bg-white shadow-md z-50 no-print">
+            <div className="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center flex-wrap gap-4">
+                <div className="flex items-center gap-3">
+                    <img src="/ap-logo.svg" alt="Achieve Pack Logo" className="h-8" />
+                    <div>
+                        <h1 className="text-sm font-bold text-gray-800">Quotation #AP-2026-HQ-FB</h1>
+                        <span className="text-xs bg-green-100 text-green-800 py-0.5 px-2 rounded-full font-medium">Valid until <span id="top-valid-date"></span></span>
+                    </div>
+                </div>
+                <div className="flex gap-3">
+                    <button onClick={copyLink} className="flex items-center gap-2 bg-blue-50 text-blue-600 hover:bg-blue-100 px-4 py-2 rounded-lg font-medium transition duration-200 border border-blue-200">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                        Copy Share Link
+                    </button>
+                    <button id="download-btn" onClick={generatePDF} className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium shadow-sm transition duration-200">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        Download PDF
+                    </button>
+                    <button id="loading-btn" className="hidden flex items-center gap-2 bg-gray-400 text-white px-4 py-2 rounded-lg font-medium cursor-not-allowed">
+                        <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Generating PDF...
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        {/* Main Content Area */}
+        <main className="pt-24 max-w-5xl mx-auto px-4 print:pt-0 print:px-0">
+            <div id="quotation-content" className="bg-white p-8 md:p-12 rounded-xl shadow-lg print:shadow-none print:p-0">
+                
+                {/* Header Section */}
+                <header className="flex flex-col md:flex-row justify-between items-start border-b pb-8 mb-8 border-gray-200">
+                    <div className="mb-6 md:mb-0">
+                        <img src="/ap-logo.svg" alt="Achieve Pack Logo" className="h-12 mb-4" />
+                        <h2 className="text-2xl font-bold text-gray-800">Achieve Pack Company Limited</h2>
+                        <div className="text-gray-600 mt-2 text-sm leading-relaxed">
+                            <p>No.41 1/F Wo Liu Hang Tsuen, Fotan,</p>
+                            <p>New Territories, Hong Kong</p>
+                            <p>Email: hello@achievepack.com</p>
+                            <p>Website: www.pouch.eco</p>
+                        </div>
+                    </div>
+                    
+                    <div className="bg-gray-50 p-6 rounded-lg border border-gray-100 text-right w-full md:w-auto">
+                        <h1 className="text-3xl font-bold text-gray-800 mb-2 uppercase tracking-wide">Quotation</h1>
+                        <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-sm">
+                            <div className="text-gray-500 text-left font-medium">Quote Ref:</div>
+                            <div className="font-semibold text-gray-800">AP-2026-HQ-FB</div>
+                            
+                            <div className="text-gray-500 text-left font-medium">Date:</div>
+                            <div className="text-gray-800" id="current-date">Fetching date...</div>
+                            
+                            <div className="text-gray-500 text-left font-medium">Valid Until:</div>
+                            <div className="text-gray-800 font-medium text-red-600" id="valid-until">Fetching date...</div>
+                            
+                            <div className="text-gray-500 text-left font-medium">Prepared By:</div>
+                            <div className="text-gray-800 font-medium">Team Achieve Pack</div>
+                        </div>
+                    </div>
+                </header>
+                
+                {/* Product Overview */}
+                <section className="mb-10">
+                    <div className="flex items-center gap-3 mb-6">
+                        <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                            <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                        </div>
+                        <h2 className="text-2xl font-bold text-gray-800">Product Specifications</h2>
+                    </div>
+                    
+                    <div className="bg-white border rounded-xl overflow-hidden shadow-sm">
+                        <div className="bg-gray-50 px-6 py-4 border-b">
+                            <h3 className="text-lg font-bold text-gray-800">Compostable Box Bottom Kraft Pouch (Custom Printed)</h3>
+                        </div>
+                        <div className="p-6">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
+                                <div>
+                                    <div className="text-sm font-semibold text-gray-500 mb-1 uppercase tracking-wider">Product Description</div>
+                                    <p className="text-gray-800 font-medium">100g 200g 500g 1kg compostable flat bottom one sided zipper pouch with valve</p>
+                                </div>
+                                <div>
+                                    <div className="text-sm font-semibold text-gray-500 mb-1 uppercase tracking-wider">Pouch Shape</div>
+                                    <p className="text-gray-800 font-medium">Box Bottom / Flat Bottom Pouch</p>
+                                </div>
+                                <div className="md:col-span-2 mt-2">
+                                    <div className="text-sm font-semibold text-gray-500 mb-2 uppercase tracking-wider">Selected Upgrades</div>
+                                    <div className="flex flex-wrap">
+                                        <span className="spec-badge"><svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>One Side Pocket Zipper (Extra $0.02)</span>
+                                        <span className="spec-badge"><svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Compostable Wipf Valve (Extra $0.15)</span>
+                                    </div>
+                                    <p className="text-xs text-green-700 mt-2 bg-green-50 p-2 rounded-md font-medium inline-block border border-green-100">
+                                        💡 Note: The unit prices in the tables below <strong>already include</strong> the cost of the selected upgrades.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <hr className="my-10 border-gray-200" />
+                
+                {/* Pricing Section 1: Roto Print */}
+                <section className="mb-10 page-break-inside-avoid">
+                    <div className="flex items-center gap-3 mb-4">
+                        <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                            <span className="font-bold text-blue-600">A</span>
+                        </div>
+                        <h2 className="text-2xl font-bold text-gray-800">Option A: Roto Plate Printing</h2>
+                    </div>
+                    <p className="text-gray-600 mb-6 bg-blue-50 p-4 rounded-lg border border-blue-100 shadow-sm leading-relaxed">
+                        <span className="font-semibold text-blue-800">Best for: Large volumes and highest quality printing.</span> Cost-effective at scale. 
+                        <strong>Plate Cost: USD $80/color.</strong> (Plate fees are a one-time charge per unique design/color, 
+                        valid for 1 year without re-order).
+                    </p>
+                    
+                    <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+                        <table className="w-full text-left border-collapse pricing-table">
+                            <thead>
+                                <tr>
+                                    <th className="w-1/4">Size (W x H + Bottom x2) & Material</th>
+                                    <th>10,000 pcs</th>
+                                    <th>20,000 pcs</th>
+                                    <th>30,000 pcs</th>
+                                    <th>50,000 pcs</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td className="font-medium align-top">
+                                        <div className="text-sm font-bold text-gray-800 mb-1">100g Size</div>
+                                        <div className="text-xs text-gray-500 mb-2">90 x 185 + 50 x 2 mm</div>
+                                        <div className="text-xs bg-gray-100 p-1.5 rounded text-gray-700 inline-block font-medium">BOPLA / PBAT+PLA</div>
+                                    </td>
+                                    <td className="font-semibold text-gray-800">$0.255 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                    <td className="font-semibold text-gray-800">$0.231 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                    <td className="font-semibold text-gray-800">$0.207 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                    <td className="font-semibold text-gray-800 text-green-700">$0.198 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                </tr>
+                                <tr>
+                                    <td className="font-medium align-top">
+                                        <div className="text-sm font-bold text-gray-800 mb-1">200g Size</div>
+                                        <div className="text-xs text-gray-500 mb-2">120 x 200 + 70 x 2 mm</div>
+                                        <div className="text-xs bg-gray-100 p-1.5 rounded text-gray-700 inline-block font-medium">BOPLA / PBAT+PLA</div>
+                                    </td>
+                                    <td className="font-semibold text-gray-800">$0.316 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                    <td className="font-semibold text-gray-800">$0.283 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                    <td className="font-semibold text-gray-800">$0.250 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                    <td className="font-semibold text-gray-800 text-green-700">$0.233 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                </tr>
+                                <tr>
+                                    <td className="font-medium align-top">
+                                        <div className="text-sm font-bold text-gray-800 mb-1">500g Size</div>
+                                        <div className="text-xs text-gray-500 mb-2">130 x 260 + 80 x 2 mm</div>
+                                        <div className="text-xs bg-gray-100 p-1.5 rounded text-gray-700 inline-block font-medium">BOPLA / PBAT+PLA</div>
+                                    </td>
+                                    <td className="font-semibold text-gray-800">$0.366 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                    <td className="font-semibold text-gray-800">$0.339 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                    <td className="font-semibold text-gray-800">$0.312 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                    <td className="font-semibold text-gray-800 text-green-700">$0.288 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                </tr>
+                                <tr>
+                                    <td className="font-medium align-top">
+                                        <div className="text-sm font-bold text-gray-800 mb-1">1000g Size</div>
+                                        <div className="text-xs text-gray-500 mb-2">135 x 335 + 100 x 2 mm</div>
+                                        <div className="text-xs bg-gray-100 p-1.5 rounded text-gray-700 inline-block font-medium">BOPLA / PBAT+PLA</div>
+                                    </td>
+                                    <td className="font-semibold text-gray-800">$0.457 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                    <td className="font-semibold text-gray-800">$0.427 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                    <td className="font-semibold text-gray-800">$0.380 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                    <td className="font-semibold text-gray-800 text-green-700">$0.354 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                
+                {/* Pricing Section 2: Digital Print */}
+                <section className="mb-10 page-break-inside-avoid print:mt-12">
+                    <div className="flex items-center gap-3 mb-4">
+                        <div className="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center">
+                            <span className="font-bold text-purple-600">B</span>
+                        </div>
+                        <h2 className="text-2xl font-bold text-gray-800">Option B: HP Indigo Digital Printing</h2>
+                    </div>
+                    <p className="text-gray-600 mb-6 bg-purple-50 p-4 rounded-lg border border-purple-100 shadow-sm leading-relaxed">
+                        <span className="font-semibold text-purple-800">Best for: Multiple SKUs, short runs, and testing new markets.</span>
+                        <strong>No Plate Costs applicable!</strong> You save on upfront setup fees, allowing flexible design changes.
+                    </p>
+                    
+                    <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+                        <table className="w-full text-left border-collapse pricing-table">
+                            <thead>
+                                <tr>
+                                    <th className="w-1/4">Size (W x H + Bottom x2) & Material</th>
+                                    <th>1,000 pcs <span className="text-xs font-normal block text-green-100">(Per SKU)</span></th>
+                                    <th>3,000 pcs <span className="text-xs font-normal block text-green-100">(Per SKU)</span></th>
+                                    <th>5,000 pcs <span className="text-xs font-normal block text-green-100">(Per SKU)</span></th>
+                                    <th>10,000 pcs <span className="text-xs font-normal block text-green-100">(Per SKU)</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td className="font-medium align-top">
+                                        <div className="text-sm font-bold text-gray-800 mb-1">100g Size</div>
+                                        <div className="text-xs text-gray-500 mb-2">90 x 185 + 50 x 2 mm</div>
+                                        <div className="text-xs bg-gray-100 p-1.5 rounded text-gray-700 inline-block font-medium">BOPLA / PBAT+PLA</div>
+                                    </td>
+                                    <td className="font-semibold text-gray-800">$0.876 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                    <td className="font-semibold text-gray-800">$0.575 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                    <td className="font-semibold text-gray-800">$0.456 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                    <td className="font-semibold text-gray-800 text-purple-700">$0.347 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                </tr>
+                                <tr>
+                                    <td className="font-medium align-top">
+                                        <div className="text-sm font-bold text-gray-800 mb-1">200g Size</div>
+                                        <div className="text-xs text-gray-500 mb-2">120 x 200 + 70 x 2 mm</div>
+                                        <div className="text-xs bg-gray-100 p-1.5 rounded text-gray-700 inline-block font-medium">BOPLA / PBAT+PLA</div>
+                                    </td>
+                                    <td className="font-semibold text-gray-800">$0.963 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                    <td className="font-semibold text-gray-800">$0.618 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                    <td className="font-semibold text-gray-800">$0.540 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                    <td className="font-semibold text-gray-800 text-purple-700">$0.426 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                </tr>
+                                <tr>
+                                    <td className="font-medium align-top">
+                                        <div className="text-sm font-bold text-gray-800 mb-1">500g Size</div>
+                                        <div className="text-xs text-gray-500 mb-2">130 x 260 + 80 x 2 mm</div>
+                                        <div className="text-xs bg-gray-100 p-1.5 rounded text-gray-700 inline-block font-medium">BOPLA / PBAT+PLA</div>
+                                    </td>
+                                    <td className="font-semibold text-gray-800">$1.127 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                    <td className="font-semibold text-gray-800">$0.732 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                    <td className="font-semibold text-gray-800">$0.640 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                    <td className="font-semibold text-gray-800 text-purple-700">$0.490 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                </tr>
+                                <tr>
+                                    <td className="font-medium align-top">
+                                        <div className="text-sm font-bold text-gray-800 mb-1">1000g Size</div>
+                                        <div className="text-xs text-gray-500 mb-2">135 x 335 + 100 x 2 mm</div>
+                                        <div className="text-xs bg-gray-100 p-1.5 rounded text-gray-700 inline-block font-medium">BOPLA / PBAT+PLA</div>
+                                    </td>
+                                    <td className="font-semibold text-gray-800">$1.340 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                    <td className="font-semibold text-gray-800">$1.028 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                    <td className="font-semibold text-gray-800">$0.760 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                    <td className="font-semibold text-gray-800 text-purple-700">$0.638 <span className="text-xs font-normal text-gray-500">/pc</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                
+                {/* Terms and Conditions */}
+                <section className="bg-gray-50 p-6 md:p-8 rounded-xl border border-gray-200 page-break-inside-avoid shadow-inner">
+                    <h2 className="text-xl font-bold text-gray-800 mb-4 pb-2 border-b border-gray-300 flex items-center gap-2">
+                        <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        Terms & Conditions
+                    </h2>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                        <div>
+                            <h3 className="text-sm font-bold text-gray-800 mb-2 uppercase tracking-wide">Production Time</h3>
+                            <ul className="text-sm text-gray-600 space-y-2">
+                                <li className="flex items-start">
+                                    <span className="mr-2 text-green-500">●</span> 
+                                    <span><strong>Digital Print:</strong> 15 - 20 working days</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <span className="mr-2 text-blue-500">●</span> 
+                                    <span><strong>Roto Print:</strong> 25 - 30 working days</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <span className="mr-2 text-gray-400">●</span> 
+                                    <span>Time counts from artwork approval & deposit receipt.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 className="text-sm font-bold text-gray-800 mb-2 uppercase tracking-wide">Standard Features Included</h3>
+                            <ul className="text-sm text-gray-600 space-y-2">
+                                <li className="flex items-start">
+                                    <svg className="w-4 h-4 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> 
+                                    Regular Zipper & Tear Notch
+                                </li>
+                                <li className="flex items-start">
+                                    <svg className="w-4 h-4 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> 
+                                    Round Corners & Default Clear Window (if requested)
+                                </li>
+                                <li className="flex items-start">
+                                    <svg className="w-4 h-4 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> 
+                                    Matte or Glossy Finish
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 className="text-sm font-bold text-gray-800 mb-2 uppercase tracking-wide">Shipping & Margin</h3>
+                            <ul className="text-sm text-gray-600 space-y-2">
+                                <li className="flex items-start">
+                                    <span className="mr-2 text-yellow-500">●</span> 
+                                    <span>Shipping cost will be calculated separately based on final destination and method (Air/Sea).</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <span className="mr-2 text-yellow-500">●</span> 
+                                    <span><strong>Roto MOQ Tolerance:</strong> Please allow +/- 10% quantity difference margin based on actual factory output.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 className="text-sm font-bold text-gray-800 mb-2 uppercase tracking-wide">Payment Terms</h3>
+                            <p className="text-sm text-gray-600">
+                                <strong>50% deposit</strong> to commence production.<br/>
+                                <strong>50% balance</strong> prior to shipment.<br/>
+                                Bank transfer details will be provided on the Proforma Invoice.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                
+                {/* Special Thanks & Signature */}
+                <div className="mt-12 text-center page-break-inside-avoid">
+                    <p className="text-lg font-medium text-gray-700 italic border-t pt-8 pb-4">Thank you for considering Achieve Pack for your sustainable packaging journey.</p>
+                    <div className="flex justify-center mb-2">
+                        <img src="/imgs/ryan-email-signature.jpg" alt="Ryan Signature" className="h-40 rounded-lg shadow-sm" />
+                    </div>
+                </div>
+                
+            </div>
+        </main>
+        
+        {/* Footer */}
+        <footer className="mt-12 text-center text-gray-500 text-sm no-print mb-8">
+            <p>&copy; {new Date().getFullYear()} Achieve Pack Company Limited. All rights reserved.</p>
+            <p className="mt-1">Pouch.eco is a brand by Achieve Pack.</p>
+        </footer>
+      </div>
+    </>
+  );
+};
+
+export default FlatBottomQuotePage;
