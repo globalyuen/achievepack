@@ -17,6 +17,17 @@ const CLOSURE_OPTIONS = ['Press-to-Close Zipper', 'Child Resistant', 'Slider Zip
 const BARRIER_OPTIONS = ['High Barrier (Aluminum)', 'Medium Barrier (Metalized)', 'Standard Barrier', 'Ultra-High Barrier (EVOH)']
 const SURFACE_OPTIONS = ['Matte', 'Gloss', 'Soft Touch', 'Spot UV', 'Embossed', 'Metallic']
 
+const FLAT_BOTTOM_PRESET_ITEMS = [
+  { item_name: '100g Flat Bottom Kraft Pouch (Roto Print)', shape: 'Flat Bottom', size: '105 x 190 + 60mm', material: 'Kraft Paper / PLA', closure: 'Press-to-Close Zipper', barrier: 'Medium Barrier (Metalized)', surface: 'Matte', structure_spec: 'Kraft Paper 70gsm / Metalised Layer / PBAT60', quantity: 10000, unit_price: 0.41, setup_cost: 0, shipping_cost: 0, price_table_raw: '10000 - $0.41\n15000 - $0.39\n20000 - $0.38', notes: 'Home Compostable Zipper, PLA One-Way Degassing Valve. Plate cost not included (USD 120/color/size).' },
+  { item_name: '100g Flat Bottom Kraft Pouch (Digital Print)', shape: 'Flat Bottom', size: '105 x 190 + 60mm', material: 'Kraft Paper / PLA', closure: 'Press-to-Close Zipper', barrier: 'Medium Barrier (Metalized)', surface: 'Matte', structure_spec: 'Kraft Paper 70gsm / Metalised Layer / PBAT60', quantity: 100, unit_price: 9.77, setup_cost: 0, shipping_cost: 0, price_table_raw: '100 - $9.77\n1000 - $1.48\n10000 - $0.56', notes: 'Home Compostable Zipper, PLA One-Way Degassing Valve.' },
+  { item_name: '200g Flat Bottom Kraft Pouch (Roto Print)', shape: 'Flat Bottom', size: '110 x 205 + 65mm', material: 'Kraft Paper / PLA', closure: 'Press-to-Close Zipper', barrier: 'Medium Barrier (Metalized)', surface: 'Matte', structure_spec: 'Kraft Paper 70gsm / Metalised Layer / PBAT60', quantity: 10000, unit_price: 0.43, setup_cost: 0, shipping_cost: 0, price_table_raw: '10000 - $0.43\n15000 - $0.41\n20000 - $0.40', notes: 'Home Compostable Zipper, PLA One-Way Degassing Valve. Plate cost not included (USD 120/color/size).' },
+  { item_name: '200g Flat Bottom Kraft Pouch (Digital Print)', shape: 'Flat Bottom', size: '110 x 205 + 65mm', material: 'Kraft Paper / PLA', closure: 'Press-to-Close Zipper', barrier: 'Medium Barrier (Metalized)', surface: 'Matte', structure_spec: 'Kraft Paper 70gsm / Metalised Layer / PBAT60', quantity: 100, unit_price: 9.77, setup_cost: 0, shipping_cost: 0, price_table_raw: '100 - $9.77\n1000 - $1.52\n10000 - $0.61', notes: 'Home Compostable Zipper, PLA One-Way Degassing Valve.' },
+  { item_name: '500g Flat Bottom Kraft Pouch (Roto Print)', shape: 'Flat Bottom', size: '130 x 250 + 70mm', material: 'Kraft Paper / PLA', closure: 'Press-to-Close Zipper', barrier: 'Medium Barrier (Metalized)', surface: 'Matte', structure_spec: 'Kraft Paper 70gsm / Metalised Layer / PBAT60', quantity: 10000, unit_price: 0.54, setup_cost: 0, shipping_cost: 0, price_table_raw: '10000 - $0.54\n15000 - $0.52\n20000 - $0.51', notes: 'Home Compostable Zipper, PLA One-Way Degassing Valve. Plate cost not included (USD 120/color/size).' },
+  { item_name: '500g Flat Bottom Kraft Pouch (Digital Print)', shape: 'Flat Bottom', size: '130 x 250 + 70mm', material: 'Kraft Paper / PLA', closure: 'Press-to-Close Zipper', barrier: 'Medium Barrier (Metalized)', surface: 'Matte', structure_spec: 'Kraft Paper 70gsm / Metalised Layer / PBAT60', quantity: 100, unit_price: 10.44, setup_cost: 0, shipping_cost: 0, price_table_raw: '100 - $10.44\n1000 - $1.61\n10000 - $0.70', notes: 'Home Compostable Zipper, PLA One-Way Degassing Valve.' },
+  { item_name: '1kg Flat Bottom Kraft Pouch (Roto Print)', shape: 'Flat Bottom', size: '132 x 320 + 92mm', material: 'Kraft Paper / PLA', closure: 'Press-to-Close Zipper', barrier: 'Medium Barrier (Metalized)', surface: 'Matte', structure_spec: 'Kraft Paper 70gsm / Metalised Layer / PBAT60', quantity: 10000, unit_price: 0.69, setup_cost: 0, shipping_cost: 0, price_table_raw: '10000 - $0.69\n15000 - $0.67\n20000 - $0.66', notes: 'Home Compostable Zipper, PLA One-Way Degassing Valve. Plate cost not included (USD 120/color/size).' },
+  { item_name: '1kg Flat Bottom Kraft Pouch (Digital Print)', shape: 'Flat Bottom', size: '132 x 320 + 92mm', material: 'Kraft Paper / PLA', closure: 'Press-to-Close Zipper', barrier: 'Medium Barrier (Metalized)', surface: 'Matte', structure_spec: 'Kraft Paper 70gsm / Metalised Layer / PBAT60', quantity: 100, unit_price: 11.94, setup_cost: 0, shipping_cost: 0, price_table_raw: '100 - $11.94\n1000 - $2.05\n10000 - $0.91', notes: 'Home Compostable Zipper, PLA One-Way Degassing Valve.' }
+]
+
 const QuotationBatchesPage: React.FC = () => {
   const navigate = useNavigate()
   const { user, loading: authLoading } = useAuth()
@@ -41,6 +52,7 @@ const QuotationBatchesPage: React.FC = () => {
     shipping_cost: 0, price_table_raw: '', notes: ''
   })
   const [addingItem, setAddingItem] = useState(false)
+  const [addingPreset, setAddingPreset] = useState(false)
   
   const [analyzingId, setAnalyzingId] = useState<string | null>(null)
   const [generatingSummary, setGeneratingSummary] = useState(false)
@@ -198,6 +210,50 @@ const QuotationBatchesPage: React.FC = () => {
       alert('Failed to add item')
     } finally {
       setAddingItem(false)
+    }
+  }
+
+  const handleAddPresetQuote = async () => {
+    if (!selectedBatch) return
+    if (!confirm('This will add 8 Kraft Flat Bottom preset quoting items (Roto & Digital print). Proceed?')) return
+    setAddingPreset(true)
+    try {
+      let currentSubtotal = selectedBatch.subtotal || 0;
+      let addedItemsCount = 0;
+      const newItems = [];
+      
+      for (const item of FLAT_BOTTOM_PRESET_ITEMS) {
+        const priceTableParsed = item.price_table_raw ? parsePriceTable(item.price_table_raw) : null
+        const lineTotal = (item.quantity * item.unit_price) + (item.setup_cost || 0) + (item.shipping_cost || 0)
+        
+        const { data, error } = await supabase.from('quotation_items').insert({
+          batch_id: selectedBatch.id, item_name: item.item_name, shape: item.shape, size: item.size,
+          material: item.material, closure: item.closure, barrier: item.barrier, surface: item.surface,
+          structure_spec: item.structure_spec, quantity: item.quantity, unit_price: item.unit_price,
+          setup_cost: item.setup_cost, shipping_cost: item.shipping_cost, line_total: lineTotal,
+          price_table_raw: item.price_table_raw, price_table_parsed: priceTableParsed, notes: item.notes
+        }).select().single()
+        
+        if (error) throw error;
+        newItems.push(data);
+        currentSubtotal += lineTotal;
+        addedItemsCount++;
+      }
+      
+      const newTotal = currentSubtotal * (1 - (selectedBatch.discount_percent || 0) / 100) * (1 + (selectedBatch.tax_percent || 0) / 100)
+      
+      await supabase.from('quotation_batches').update({ 
+        subtotal: currentSubtotal, total: newTotal, total_items: (selectedBatch.total_items || 0) + addedItemsCount, updated_at: new Date().toISOString()
+      }).eq('id', selectedBatch.id)
+      
+      setBatchItems(prev => [...prev, ...newItems])
+      setSelectedBatch(prev => prev ? { ...prev, subtotal: currentSubtotal, total: newTotal, total_items: (prev.total_items || 0) + addedItemsCount } : null)
+      
+    } catch (err) {
+      console.error('Error adding preset quote:', err)
+      alert('Failed to add preset quote items')
+    } finally {
+      setAddingPreset(false)
     }
   }
 
@@ -370,6 +426,7 @@ const QuotationBatchesPage: React.FC = () => {
                   {selectedBatch.ai_summary && <div className="mt-4 p-3 bg-purple-50 rounded-lg"><p className="text-sm text-purple-800">{selectedBatch.ai_summary}</p></div>}
                   <div className="flex items-center gap-2 mt-4 pt-4 border-t">
                     <button onClick={() => setShowAddItemModal(true)} className="flex items-center gap-2 bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800"><Plus className="w-4 h-4" />Add Item</button>
+                    <button onClick={handleAddPresetQuote} disabled={addingPreset} className="flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 disabled:opacity-50"><Plus className="w-4 h-4" />{addingPreset ? 'Adding...' : 'Preset: Flat Bottom'}</button>
                     <button onClick={handleGenerateSummary} disabled={generatingSummary || batchItems.length === 0} className="flex items-center gap-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 disabled:opacity-50"><Sparkles className="w-4 h-4" />{generatingSummary ? 'Generating...' : 'AI Summary'}</button>
                     <button onClick={handleSendQuote} disabled={selectedBatch.status === 'sent' || batchItems.length === 0} className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 disabled:opacity-50"><Send className="w-4 h-4" />Send Quote</button>
                   </div>
