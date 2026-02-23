@@ -77,6 +77,16 @@ export default function PouchCertificationsPage() {
       standard: 'ISO 9001/14001',
       facility: 'Manufacturing',
       image: '/imgs/cert/cert-ISO14001-cert.webp'
+    },
+    {
+      name: 'BRC Packaging',
+      region: 'Global',
+      icon: Shield,
+      color: '#dc2626',
+      description: 'BRCGS Packaging Materials Standard. Globally recognized certification ensuring safety, quality, and legality of packaging materials for food and consumer products.',
+      standard: 'BRCGS Issue 6',
+      facility: 'Food Safety',
+      image: '/imgs/cert/cert-brc.webp'
     }
   ]
 
@@ -104,6 +114,10 @@ export default function PouchCertificationsPage() {
     {
       question: 'Do you test for PFAS (forever chemicals)?',
       answer: 'Yes! All our certified compostable materials are tested and verified to be PFAS-free. BPI now requires fluorinated chemical restrictions, and we meet those updated standards.'
+    },
+    {
+      question: 'What is BRC Packaging certification?',
+      answer: 'BRC (BRCGS) Packaging Materials is a globally recognized food safety certification standard. It ensures our manufacturing facility meets rigorous requirements for hygiene, quality management, product safety, and process control. This certification is often required by major retailers and food brands to ensure packaging materials are safe for food contact.'
     }
   ]
 
@@ -138,7 +152,7 @@ export default function PouchCertificationsPage() {
           name="description" 
           content="Understand BPI, EN 13432, AS 4736, and home compostable certifications. Learn which certification your eco-friendly packaging needs for North America, Europe, Australia."
         />
-        <meta name="keywords" content="BPI certified, EN 13432, AS 4736, home compostable, ASTM D6400, compostable packaging certification" />
+        <meta name="keywords" content="BPI certified, EN 13432, AS 4736, home compostable, ASTM D6400, BRC packaging, BRCGS, compostable packaging certification, food safety certification" />
         <link rel="canonical" href="https://pouch.eco/certifications" />
         <meta property="og:title" content="Compostable Certifications Explained | POUCH.ECO" />
         <meta property="og:description" content="BPI, EN 13432, AS 4736, Home Compostable - which certification does your packaging need?" />
@@ -326,6 +340,12 @@ export default function PouchCertificationsPage() {
                   <td className="border-4 border-black p-4">Home Compost</td>
                   <td className="border-4 border-black p-4">70-80°F</td>
                 </tr>
+                <tr className="bg-white">
+                  <td className="border-4 border-black p-4 font-bold">BRC Packaging</td>
+                  <td className="border-4 border-black p-4">Global</td>
+                  <td className="border-4 border-black p-4">Food Safety</td>
+                  <td className="border-4 border-black p-4">N/A</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -404,6 +424,10 @@ export default function PouchCertificationsPage() {
                <div className="text-center group">
                  <img src="/imgs/cert/cert-ISO14001-cert.webp" alt="ISO 14001" className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
                  <p className="mt-2 font-bold">ISO 14001</p>
+               </div>
+               <div className="text-center group">
+                 <img src="/imgs/cert/cert-brc.webp" alt="BRC Packaging" className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
+                 <p className="mt-2 font-bold">BRC Packaging</p>
                </div>
              </div>
         </div>

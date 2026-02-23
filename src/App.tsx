@@ -160,7 +160,7 @@ function App() {
     '/imgs/reclose/ads/a_presstoclose_closure_detail_5742103.webp',
     '/imgs/reclose/ads/a_spout_closure_closeup_detail_2705813.webp',
     '/imgs/reclose/ads/a_tintie_coffee_pouch_correct_4114906.webp',
-    '/imgs/reclose/ads/a_valve_closure_detail_6401844.webp',
+    '/imgs/store/additional/valve.webp',
   ];
   
   const navigateRecloseImage = (direction: 'prev' | 'next') => {

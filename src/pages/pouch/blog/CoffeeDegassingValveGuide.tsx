@@ -756,7 +756,7 @@ export default function CoffeeDegassingValveGuide() {
       categoryTag="Coffee"
       categoryColor="amber"
       readTime="15 min"
-      heroImage="/imgs/reclose/ads/a_valve_closure_detail_6401844.webp"
+      heroImage="/imgs/store/additional/valve.webp"
       heroImageAlt="Coffee bag degassing valve closeup showing one-way CO2 release mechanism"
       sections={sections}
       relatedArticles={relatedArticles}

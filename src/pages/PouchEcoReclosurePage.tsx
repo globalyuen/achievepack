@@ -11,7 +11,7 @@ const recloseGallery = [
   { src: '/imgs/reclose/ads/a_presstoclose_closure_detail_5742103.webp', title: 'Easy Zipper', desc: 'Simple press-to-close for everyday products' },
   { src: '/imgs/reclose/ads/a_spout_closure_closeup_detail_2705813.webp', title: 'Spout Cap', desc: 'Perfect for sauces and baby food' },
   { src: '/imgs/reclose/ads/a_tintie_coffee_pouch_correct_4114906.webp', title: 'Tin Tie', desc: 'Classic look for coffee brands' },
-  { src: '/imgs/reclose/ads/a_valve_closure_detail_6401844.webp', title: 'Degassing Valve', desc: 'Keeps roasted coffee fresh' },
+  { src: '/imgs/store/additional/valve.webp', title: 'Degassing Valve', desc: 'Keeps roasted coffee fresh' },
 ]
 
 // Neo-Brutalist Button Component

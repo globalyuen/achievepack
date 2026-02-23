@@ -632,7 +632,7 @@ export default function USACoffeePackaging() {
         {
           title: 'The Ultimate Guide to Compostable Packaging in 2026',
           url: '/blog/compostable-packaging-guide',
-          image: '/imgs/seo-photos/a_compostable_industrial_facility_7774058.webp'
+          image: '/imgs/seo-photos/a_industrial_compostable_facility_2850870.webp'
         }
       ]}
     />

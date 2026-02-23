@@ -62,7 +62,7 @@ const LEARN_ADS_POOL = [
   { image: '/imgs/reclose/ads/a_reclosure_four_quadrant_overview_3481316.webp', link: '/features/reclosure-options' },
   { image: '/imgs/reclose/ads/a_spout_closure_closeup_detail_2705813.webp', link: '/features/reclosure-options' },
   { image: '/imgs/reclose/ads/a_tintie_coffee_pouch_correct_4114906.webp', link: '/features/reclosure-options' },
-  { image: '/imgs/reclose/ads/a_valve_closure_detail_6401844.webp', link: '/features/reclosure-options' },
+  { image: '/imgs/store/additional/valve.webp', link: '/features/reclosure-options' },
   { image: '/imgs/reclose/ads/a_presstoclose_closure_detail_5742103.webp', link: '/features/reclosure-options' },
   { image: '/imgs/reclose/ads/a_reclosure_comparison_scene_9769566.webp', link: '/features/reclosure-options' },
   // Barrier ads (9:16)

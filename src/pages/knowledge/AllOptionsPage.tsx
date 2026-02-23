@@ -61,7 +61,7 @@ const AllOptionsPage = () => {
     { src: '/imgs/reclose/ads/a_presstoclose_closure_detail_5742103.webp', title: 'Press-to-Close Zipper', desc: 'Standard resealable zipper for easy open/close' },
     { src: '/imgs/reclose/ads/a_spout_closure_closeup_detail_2705813.webp', title: 'Spout Cap Detail', desc: 'Screw cap spout for controlled pouring of liquids' },
     { src: '/imgs/reclose/ads/a_tintie_coffee_pouch_correct_4114906.webp', title: 'Tin Tie Closure', desc: 'Classic tin tie for coffee bags and bakery products' },
-    { src: '/imgs/reclose/ads/a_valve_closure_detail_6401844.webp', title: 'Degassing Valve', desc: 'One-way valve for fresh roasted coffee and fermented products' },
+    { src: '/imgs/store/additional/valve.webp', title: 'Degassing Valve', desc: 'One-way valve for fresh roasted coffee and fermented products' },
   ];
   
   const navigateReclose = (direction: 'prev' | 'next') => {

@@ -126,7 +126,7 @@ export default function PouchBlogPage() {
     {
       title: 'Coffee Bags Degassing Valve Guide: One-Way vs Two-Way vs Aroma Valves',
       excerpt: 'Complete guide to coffee bag degassing valves. Learn one-way vs two-way vs aroma valves, material compatibility, pricing ($0.08-$0.22/bag), and 309% ROI case study.',
-      image: '/imgs/reclose/ads/a_valve_closure_detail_6401844.webp',
+      image: '/imgs/store/additional/valve.webp',
       date: '2026-01-30',
       category: 'Coffee',
       readTime: '15 min',
@@ -225,7 +225,7 @@ export default function PouchBlogPage() {
     {
       title: 'Coffee Bag Barrier Options: What You Actually Need',
       excerpt: 'Confused about high vs. medium vs. low barrier? Here\'s how to choose the right protection for your coffee beans.',
-      image: '/imgs/reclose/ads/a_valve_closure_detail_6401844.webp',
+      image: '/imgs/store/additional/valve.webp',
       date: '2026-01-18',
       category: 'Coffee Industry',
       readTime: '7 min',

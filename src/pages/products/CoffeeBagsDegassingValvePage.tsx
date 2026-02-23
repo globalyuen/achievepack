@@ -33,7 +33,7 @@ const CoffeeBagsDegassingValvePage: React.FC = () => {
           
           <div className="mt-6">
             <ClickableImage 
-              src="/imgs/reclose/ads/a_valve_closure_detail_6401844.webp" 
+              src="/imgs/store/additional/valve.webp" 
               alt="Coffee bag degassing valve closeup" 
               className="w-full rounded-lg shadow-md"
               caption="One-way degassing valve for freshly roasted coffee"
@@ -239,7 +239,7 @@ const CoffeeBagsDegassingValvePage: React.FC = () => {
             <h4 className="font-semibold text-neutral-800 mb-3">Coffee Bag Closure & Valve Options</h4>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               <ClickableImage 
-                src="/imgs/reclose/ads/a_valve_closure_detail_6401844.webp" 
+                src="/imgs/store/additional/valve.webp" 
                 alt="Coffee bag degassing valve closeup showing one-way release" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Degassing Valve"
@@ -425,7 +425,7 @@ const CoffeeBagsDegassingValvePage: React.FC = () => {
         heroSubtitle="One-Way Valve | Fresh Roast Protection | Compostable & Recyclable Options"
         introSummary="Professional coffee bags featuring integrated one-way degassing valves that release CO2 while preventing oxygen entry. Available in compostable and recyclable materials from 100 pieces MOQ."
         sections={sections}
-        heroImage="/imgs/reclose/ads/a_valve_closure_detail_6401844.webp"
+        heroImage="/imgs/store/additional/valve.webp"
       />
     </>
   )

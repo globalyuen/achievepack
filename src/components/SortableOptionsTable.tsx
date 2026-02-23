@@ -645,14 +645,16 @@ export function SortableOptionsTable<T extends OptionType>({
         </div>
       )}
 
-      {/* Product Link */}
+      {/* Book Meeting Link */}
       <div className="mt-6 pt-4 border-t border-neutral-200 text-center">
-        <Link
-          to={productLink}
+        <a
+          href="https://calendly.com/30-min-free-packaging-consultancy"
+          target="_blank"
+          rel="noopener noreferrer"
           className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg ${colorClasses.badge} hover:opacity-80 transition-opacity text-sm font-medium`}
         >
-          View in Eco Digital Stand Up Pouch →
-        </Link>
+          Book Meeting →
+        </a>
       </div>
 
       {/* Lightbox */}

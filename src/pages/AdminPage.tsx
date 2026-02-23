@@ -82,8 +82,9 @@ const sidebarMenuItems = [
     ]
   },
   {
-    group: 'Artwork',
+    group: 'Quotation & Artwork',
     items: [
+      { id: 'quotations', label: 'Quotation Manager', icon: FileCheck, externalLink: '/ctrl-x9k7m/quotations' },
       { id: 'artwork-batches', label: 'Artwork Batches', icon: Folder, externalLink: '/ctrl-x9k7m/artwork-batches' },
     ]
   },

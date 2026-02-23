@@ -348,7 +348,7 @@ export const imageHub: ImageAsset[] = [
   // ============================================
   {
     id: 'valve-closure-detail',
-    src: '/imgs/reclose/ads/a_valve_closure_detail_6401844.webp',
+    src: '/imgs/store/additional/valve.webp',
     alt: 'Coffee degassing valve one-way valve detail',
     caption: 'Degassing Valve',
     categories: {

@@ -61,6 +61,7 @@ const PlatePrintingPage = lazy(() => import('../pages/printing/PlatePrintingPage
 // Feature Pages
 const ReclosureOptionsPage = lazy(() => import('../pages/features/ReclosureOptionsPage'));
 const SurfaceFinishPage = lazy(() => import('../pages/features/SurfaceFinishPage'));
+const SurfaceAndReclosureOptionsPage = lazy(() => import('../pages/pouch/options/SurfaceAndReclosureOptionsPage'));
 const BarrierOptionsPage = lazy(() => import('../pages/features/BarrierOptionsPage'));
 const LowBarrierPage = lazy(() => import('../pages/features/LowBarrierPage'));
 const MediumBarrierPage = lazy(() => import('../pages/features/MediumBarrierPage'));
@@ -242,6 +243,7 @@ const routes = [
   // Feature Pages
   { path: "/features/reclosure-options", element: <LazyRoute component={() => import('../pages/features/ReclosureOptionsPage')} fallback={<LoadingFallback />} /> },
   { path: "/features/surface-finish", element: <LazyRoute component={() => import('../pages/features/SurfaceFinishPage')} fallback={<LoadingFallback />} /> },
+  { path: "/features/surface-and-reclosure-options", element: <LazyRoute component={() => import('../pages/pouch/options/SurfaceAndReclosureOptionsPage')} fallback={<LoadingFallback />} /> },
   { path: "/features/barrier-options", element: <LazyRoute component={() => import('../pages/features/BarrierOptionsPage')} fallback={<LoadingFallback />} /> },
   { path: "/features/low-barrier", element: <LazyRoute component={() => import('../pages/features/LowBarrierPage')} fallback={<LoadingFallback />} /> },
   { path: "/features/medium-barrier", element: <LazyRoute component={() => import('../pages/features/MediumBarrierPage')} fallback={<LoadingFallback />} /> },
@@ -261,6 +263,7 @@ const routes = [
 
   // Knowledge Pages
   { path: "/knowledge/all-options", element: <LazyRoute component={() => import('../pages/knowledge/AllOptionsPage')} fallback={<LoadingFallback />} /> },
+  { path: "/knowledge/surface-and-reclosure-options", element: <LazyRoute component={() => import('../pages/pouch/options/SurfaceAndReclosureOptionsPage')} fallback={<LoadingFallback />} /> ,},
   { path: "/knowledge/size-guide", element: <LazyRoute component={() => import('../pages/knowledge/SizeGuidePage')} fallback={<LoadingFallback />} /> },
   { path: "/knowledge/pouch-sizing", element: <LazyRoute component={() => import('../pages/knowledge/PouchSizingPage')} fallback={<LoadingFallback />} /> },
   { path: "/knowledge/printing-types", element: <LazyRoute component={() => import('../pages/knowledge/PrintingTypesPage')} fallback={<LoadingFallback />} /> },
@@ -363,6 +366,9 @@ const routes = [
   { path: "/spec/biope-pet-kraft-quadlex-aluminum", element: <LazyRoute component={() => import('../pages/spec/BioPePetKraftQuadlexAluminumPage')} fallback={<LoadingFallback />} /> },
   { path: "/spec/biope-pp-kraft-quadlex-aluminum", element: <LazyRoute component={() => import('../pages/spec/BioPePpKraftQuadlexAluminumPage')} fallback={<LoadingFallback />} /> },
   { path: "/spec/biope-kraft-duplex-low", element: <LazyRoute component={() => import('../pages/spec/BioPeKraftDuplexLowPage')} fallback={<LoadingFallback />} /> },
+
+  // Options Pages
+  { path: "/options/surface-and-reclosure", element: <LazyRoute component={() => import('../pages/pouch/options/SurfaceAndReclosureOptionsPage')} fallback={<LoadingFallback />} /> },
 
   // 404 - Catch All Route
   { path: "*", element: <LazyRoute component={() => import('../pages/NotFoundPage')} fallback={<LoadingFallback />} /> },

@@ -34,6 +34,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
             {[
               { label: 'PRODUCTS', path: '/products' },
               { label: 'MATERIALS', path: '/materials' },
+              { label: 'OPTIONS', path: '/options/surface-and-reclosure' },
               { label: 'CERTIFICATIONS', path: '/certifications' },
               { label: 'TESTIMONIALS', path: '/testimonials' },
               { label: 'BLOG', path: '/blog' }
@@ -136,6 +137,18 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                     }`}
                   >
                     [MATERIALS]
+                  </Link>
+                  
+                  <Link
+                    to="/options/surface-and-reclosure"
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`block px-4 py-3 border-4 border-black transition-all ${
+                      isActive('/options/surface-and-reclosure') 
+                        ? 'bg-black text-[#10B981]' 
+                        : 'bg-white hover:bg-[#10B981]'
+                    }`}
+                  >
+                    [OPTIONS]
                   </Link>
                   
                   <Link

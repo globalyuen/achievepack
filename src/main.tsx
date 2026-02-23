@@ -343,6 +343,7 @@ const HomeCompostableGuide = lazyWithRetry(() => import('./pages/pouch/blog/Home
 const PouchCelloKraftPage = lazyWithRetry(() => import('./pages/pouch/materials/PouchCelloKraftPage'))
 const PouchReclosureOptionsPage = lazyWithRetry(() => import('./pages/pouch/PouchReclosureOptionsPage'))
 const PouchSurfaceFinishPage = lazyWithRetry(() => import('./pages/pouch/PouchSurfaceFinishPage'))
+const SurfaceAndReclosureOptionsPage = lazyWithRetry(() => import('./pages/pouch/options/SurfaceAndReclosureOptionsPage'))
 const PouchKraftDuplexPage = lazyWithRetry(() => import('./pages/pouch/materials/PouchKraftDuplexPage'))
 const PouchBarrierOverviewPage = lazyWithRetry(() => import('./pages/pouch/PouchBarrierOverviewPage'))
 const PouchDigitalPrintingPage = lazyWithRetry(() => import('./pages/pouch/PouchDigitalPrintingPage'))
@@ -397,6 +398,11 @@ const ReviewsPage = lazyWithRetry(() => import('./pages/ReviewsPage'))
 const ArtworkBatchesPage = lazyWithRetry(() => import('./pages/ArtworkBatchesPage'))
 const ArtworkReviewPage = lazyWithRetry(() => import('./pages/ArtworkReviewPage'))
 
+// Quotation Pages - Lazy loaded
+const QuotationBatchesPage = lazyWithRetry(() => import('./pages/QuotationBatchesPage'))
+const QuotationViewPage = lazyWithRetry(() => import('./pages/QuotationViewPage'))
+const CoffeePouchQuotePage = lazyWithRetry(() => import('./pages/quotes/CoffeePouchQuotePage'))
+
 // Prospect Finder Pages - Lazy loaded
 const ProspectFinderPage = lazyWithRetry(() => import('./pages/admin/prospects/ProspectFinderPage'))
 const ProspectListsPage = lazyWithRetry(() => import('./pages/admin/prospects/ProspectListsPage'))
@@ -445,6 +451,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/materials/catalog" element={<PouchMaterialCatalogPage />} />
                   <Route path="/options/reclosure" element={<PouchReclosureOptionsPage />} />
                   <Route path="/options/surface-finish" element={<PouchSurfaceFinishPage />} />
+                  <Route path="/options/surface-and-reclosure" element={<SurfaceAndReclosureOptionsPage />} />
                   <Route path="/barriers/overview" element={<PouchBarrierOverviewPage />} />
                   <Route path="/printing/digital" element={<PouchDigitalPrintingPage />} />
                   <Route path="/products" element={<PouchProductsPage />} />
@@ -514,6 +521,9 @@ if (getDomain() === 'pouch') {
                         <Route path="/image-catalog" element={<ImageCatalogPage />} />
                         <Route path="/ctrl-x9k7m/artwork-hub" element={<ArtworkHubPage />} />
                         <Route path="/ctrl-x9k7m/artwork-batches" element={<ArtworkBatchesPage />} />
+                        <Route path="/ctrl-x9k7m/quotations" element={<QuotationBatchesPage />} />
+                        <Route path="/quote/coffee-pouch-2025" element={<CoffeePouchQuotePage />} />
+                        <Route path="/quote/:id" element={<QuotationViewPage />} />
                         <Route path="/artwork-review/:batchId" element={<ArtworkReviewPage />} />
                         
                         {/* Prospect Finder Routes */}

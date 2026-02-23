@@ -621,3 +621,82 @@ export type ArtworkBatchItem = {
   created_at: string
   updated_at: string
 }
+
+// ============================================
+// Quotation System Types
+// ============================================
+
+export type QuotationBatch = {
+  id: string
+  batch_name: string
+  password: string
+  status: 'draft' | 'sent' | 'accepted' | 'rejected' | 'expired'
+  
+  customer_name?: string
+  customer_email?: string
+  customer_company?: string
+  customer_phone?: string
+  
+  quote_number?: string
+  valid_until?: string
+  currency: string
+  notes?: string
+  terms_conditions?: string
+  
+  ai_summary?: string
+  ai_recommendations?: string
+  
+  subtotal: number
+  discount_percent: number
+  tax_percent: number
+  total: number
+  
+  total_items: number
+  
+  created_by: string
+  created_at: string
+  updated_at: string
+  sent_at?: string
+  accepted_at?: string
+}
+
+export type QuotationItem = {
+  id: string
+  batch_id: string
+  
+  item_name?: string
+  shape?: string
+  size?: string
+  material?: string
+  closure?: string
+  barrier?: string
+  surface?: string
+  structure_spec?: string
+  
+  quantity?: number
+  unit_price?: number
+  setup_cost?: number
+  shipping_cost?: number
+  line_total?: number
+  
+  price_table_raw?: string
+  price_table_parsed?: {
+    quantities: number[]
+    prices: number[]
+    moq?: number
+  }
+  
+  ai_analysis?: {
+    title?: string
+    description?: string
+    features?: string[]
+    recommendations?: string[]
+    generated_at?: string
+  }
+  
+  product_image?: string
+  notes?: string
+  
+  created_at: string
+  updated_at: string
+}

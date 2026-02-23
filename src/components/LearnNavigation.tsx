@@ -71,6 +71,7 @@ const LEARN_PAGES = {
     icon: <BookOpen className="h-4 w-4" />,
     pages: [
       { name: 'All Options', link: '/knowledge/all-options', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
+      { name: 'Surface & Reclosure Options', link: '/knowledge/surface-and-reclosure-options', image: '/imgs/illustrated/a_surface_finish_close_detail_b_2163248.webp' },
       { name: 'Pouch Sizing', link: '/knowledge/pouch-sizing', image: '/imgs/illustrated/a_pouch_sizing_guide_card_v3_5278730.webp' },
       { name: 'Size Guide', link: '/knowledge/size-guide', image: '/imgs/illustrated/a_size_guide_card_v2_9433535.webp' },
       { name: 'Printing Types', link: '/knowledge/printing-types', image: '/imgs/illustrated/a_printing_types_card_v2_6243973.webp' },
@@ -140,6 +141,7 @@ const LEARN_PAGES = {
       { name: 'Plate Printing', link: '/printing/plate-printing', image: '/imgs/illustrated/a_plate_printing_close_detail_b_8707945.webp' },
       { name: 'Reclosure Options', link: '/features/reclosure-options', image: '/imgs/illustrated/a_reclosure_options_close_detail_b_4502553.webp' },
       { name: 'Surface Finishes', link: '/features/surface-finish', image: '/imgs/illustrated/a_surface_finish_close_detail_b_2163248.webp' },
+      { name: 'Surface & Reclosure Options', link: '/options/surface-and-reclosure', image: '/imgs/illustrated/a_surface_finish_close_detail_b_2163248.webp' },
       { name: 'Barrier Options', link: '/features/barrier-options', image: '/imgs/illustrated/a_barrier_options_presentation_c_6124347.webp' },
       { name: 'Low Barrier', link: '/features/low-barrier', image: '/imgs/seo-photos/a_low_barrier_fresh_produce_5877816.webp' },
       { name: 'Medium Barrier', link: '/features/medium-barrier', image: '/imgs/seo-photos/a_medium_barrier_balanced_freshness_1094166.webp' },

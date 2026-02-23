@@ -264,9 +264,12 @@ export default function PouchHomePage() {
             <div className="relative flex justify-center lg:justify-end">
               <NeoCard className="bg-[#00FFFF] relative z-10 rotate-2 !p-0 overflow-hidden group max-w-md w-full aspect-square">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#00FFFF] to-[#FF00FF] opacity-20 z-0 mix-blend-multiply" />
-                <img 
-                  src="https://achievepack.com/imgs/landing-hero.webp" 
-                  alt="Sustainable Pouch Hero" 
+                <video
+                  src="/video/hero/bag.mov"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                   className="w-full h-full object-cover relative z-10 mix-blend-multiply opacity-90 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500"
                 />
                 
