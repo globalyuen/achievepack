@@ -1,11 +1,11 @@
 {
-  "generated": "2026-02-24",
-  "total_images": 1242,
-  "total_categories": 139,
+  "generated": "2026-03-01",
+  "total_images": 1259,
+  "total_categories": 140,
   "extensions": {
-    ".webp": 1069,
-    ".png": 161,
-    ".jpg": 9,
+    ".webp": 1076,
+    ".png": 166,
+    ".jpg": 14,
     ".svg": 3
   },
   "categories": {
@@ -747,8 +747,20 @@
       ]
     },
     "cert": {
-      "count": 13,
+      "count": 15,
       "images": [
+        {
+          "filename": "compostable-logo.png",
+          "path": "/imgs/cert/compostable-logo.png",
+          "extension": ".png",
+          "modified": "2026-02-25T06:47:09.310Z"
+        },
+        {
+          "filename": "im-green-logo.png",
+          "path": "/imgs/cert/im-green-logo.png",
+          "extension": ".png",
+          "modified": "2026-02-25T06:41:36.881Z"
+        },
         {
           "filename": "cert-ABA-as5810.png",
           "path": "/imgs/cert/cert-ABA-as5810.png",
@@ -5276,6 +5288,83 @@
         }
       ]
     },
+    "samples": {
+      "count": 12,
+      "images": [
+        {
+          "filename": "brittle-vs-strong-compost.jpg",
+          "path": "/imgs/samples/brittle-vs-strong-compost.jpg",
+          "extension": ".jpg",
+          "modified": "2026-03-01T03:02:13.393Z"
+        },
+        {
+          "filename": "biope-banner-v2.jpg",
+          "path": "/imgs/samples/biope-banner-v2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-03-01T02:17:50.090Z"
+        },
+        {
+          "filename": "compostable-pouch-home.jpg",
+          "path": "/imgs/samples/compostable-pouch-home.jpg",
+          "extension": ".jpg",
+          "modified": "2026-02-28T15:47:06.173Z"
+        },
+        {
+          "filename": "composable-pouch-certification.jpg",
+          "path": "/imgs/samples/composable-pouch-certification.jpg",
+          "extension": ".jpg",
+          "modified": "2026-02-28T15:46:38.436Z"
+        },
+        {
+          "filename": "biope-banner.jpg",
+          "path": "/imgs/samples/biope-banner.jpg",
+          "extension": ".jpg",
+          "modified": "2026-02-28T12:28:59.776Z"
+        },
+        {
+          "filename": "glossy-sup-front-2.png",
+          "path": "/imgs/samples/glossy-sup-front-2.png",
+          "extension": ".png",
+          "modified": "2026-02-28T07:31:43.572Z"
+        },
+        {
+          "filename": "glossy-sup-back-2.png",
+          "path": "/imgs/samples/glossy-sup-back-2.png",
+          "extension": ".png",
+          "modified": "2026-02-28T07:31:43.570Z"
+        },
+        {
+          "filename": "glossy-sup-front.webp",
+          "path": "/imgs/samples/glossy-sup-front.webp",
+          "extension": ".webp",
+          "modified": "2026-02-28T04:16:52.325Z"
+        },
+        {
+          "filename": "glossy-sup-back.webp",
+          "path": "/imgs/samples/glossy-sup-back.webp",
+          "extension": ".webp",
+          "modified": "2026-02-28T04:16:52.323Z"
+        },
+        {
+          "filename": "spouted-biope-500ml-back.webp",
+          "path": "/imgs/samples/spouted-biope-500ml-back.webp",
+          "extension": ".webp",
+          "modified": "2026-02-25T14:05:57.356Z"
+        },
+        {
+          "filename": "spouted-biope-500ml-detail.webp",
+          "path": "/imgs/samples/spouted-biope-500ml-detail.webp",
+          "extension": ".webp",
+          "modified": "2026-02-25T14:05:41.504Z"
+        },
+        {
+          "filename": "spouted-biope-500ml-front.webp",
+          "path": "/imgs/samples/spouted-biope-500ml-front.webp",
+          "extension": ".webp",
+          "modified": "2026-02-25T14:05:23.982Z"
+        }
+      ]
+    },
     "seo-photos": {
       "count": 89,
       "images": [
@@ -5937,8 +6026,14 @@
       ]
     },
     "spec": {
-      "count": 39,
+      "count": 40,
       "images": [
+        {
+          "filename": "pet-quadlex-aluminum-heavy.webp",
+          "path": "/imgs/spec/pet-quadlex-aluminum-heavy.webp",
+          "extension": ".webp",
+          "modified": "2026-02-25T02:39:03.959Z"
+        },
         {
           "filename": "tech-spec-hero.png",
           "path": "/imgs/spec/tech-spec-hero.png",
@@ -7548,8 +7643,20 @@
       ]
     },
     "surface": {
-      "count": 11,
+      "count": 13,
       "images": [
+        {
+          "filename": "kraft-texture.png",
+          "path": "/imgs/surface/kraft-texture.png",
+          "extension": ".png",
+          "modified": "2026-02-28T05:56:07.608Z"
+        },
+        {
+          "filename": "spot-matte-finish.webp",
+          "path": "/imgs/surface/spot-matte-finish.webp",
+          "extension": ".webp",
+          "modified": "2026-02-25T06:30:37.284Z"
+        },
         {
           "filename": "a_achieve_pack_closure_decision_guide_8541101.webp",
           "path": "/imgs/surface/a_achieve_pack_closure_decision_guide_8541101.webp",

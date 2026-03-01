@@ -1,6 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { SEOPageHeader } from '../../components/SEOPageLayout';
+import Footer from '../../components/Footer';
 
 const CompostableHumidityControlPage: React.FC = () => {
   return (
@@ -11,6 +13,9 @@ const CompostableHumidityControlPage: React.FC = () => {
         <link rel="canonical" href="https://www.pouch.eco/topics/compostable-humidity-control" />
       </Helmet>
 
+      <SEOPageHeader />
+      
+      <div className="pt-14">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-green-900 to-emerald-800 text-white min-h-[90vh] flex items-center pt-24 pb-20">
         <div className="absolute inset-0 z-0">
@@ -445,6 +450,9 @@ const CompostableHumidityControlPage: React.FC = () => {
           </form>
         </div>
       </section>
+      </div>
+      
+      <Footer />
     </>
   );
 };
