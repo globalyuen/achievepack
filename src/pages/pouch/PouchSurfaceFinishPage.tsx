@@ -59,6 +59,16 @@ export default function PouchSurfaceFinishPage() {
       icon: Eye
     },
     {
+      name: "Spot Matte Varnish",
+      tagline: "Contrast That Captivates!",
+      desc: "Selective matte finish creates stunning contrast—glossy areas shine while matte zones stay subtle. The ultimate premium look!",
+      features: ["Selective matte areas", "Visual contrast effect", "Premium brand positioning"],
+      bestFor: "Luxury coffee, premium snacks, high-end supplements",
+      price: "+$0.05-0.10/pouch",
+      color: "bg-emerald-100",
+      icon: Palette
+    },
+    {
       name: "Soft-Touch Coating",
       tagline: "Feels Like Velvet",
       desc: "This is the one customers can't stop touching! Silky-smooth, velvety texture that screams luxury.",

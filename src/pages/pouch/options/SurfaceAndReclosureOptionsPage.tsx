@@ -9,6 +9,7 @@ import { SortableOptionsTable, CLOSURE_OPTIONS, SURFACE_OPTIONS } from '../../..
 const SURFACE_GALLERY = [
   { id: 'matte', name: 'Matte Finish', description: 'Sophisticated & non-reflective', image: '/imgs/surface/a_matte_finish_detail_7483118.webp' },
   { id: 'gloss', name: 'Gloss Finish', description: 'High-shine & vibrant', image: '/imgs/surface/a_gloss_finish_detail_5685549.webp' },
+  { id: 'spot-matte', name: 'Spot Matte', description: 'Contrast glossy & matte', image: '/imgs/surface/spot-matte-finish.webp' },
   { id: 'soft-touch', name: 'Soft Touch', description: 'Velvet-like tactile feel', image: '/imgs/surface/a_softtouch_pouch_correct_7961783.webp' },
   { id: 'metallic', name: 'Metallic Gold', description: 'Luxurious premium look', image: '/imgs/surface/a_metallic_gold_closeup_5151764.webp' },
   { id: 'embossed', name: 'Embossed', description: 'Raised 3D texture', image: '/imgs/surface/a_embossed_navy_9933981.webp' },
@@ -27,6 +28,7 @@ const RECLOSURE_GALLERY = [
 const SURFACE_COMPARISON = [
   { finish: 'Gloss', visual: 'Shiny, vibrant', tactile: 'Smooth', bestFor: 'Snacks, Candy', cost: 'Base Cost', costColor: 'text-green-600' },
   { finish: 'Matte', visual: 'Elegant, subtle', tactile: 'Smooth, dry', bestFor: 'Organic, Premium', cost: 'Base Cost', costColor: 'text-green-600' },
+  { finish: 'Spot Matte', visual: 'Contrast effect', tactile: 'Mixed texture', bestFor: 'Coffee, Luxury', cost: '+$0.05-0.10/unit', costColor: 'text-amber-600' },
   { finish: 'Soft-Touch', visual: 'Rich, ultra-matte', tactile: 'Velvety', bestFor: 'Luxury, Cosmetics', cost: '+10-15%', costColor: 'text-amber-600' },
   { finish: 'Spot UV', visual: 'Contrast highlights', tactile: 'Textured', bestFor: 'Brand emphasis', cost: '+$0.02-0.05/unit', costColor: 'text-purple-600' },
   { finish: 'Hot Foil', visual: 'Metallic shine', tactile: 'Smooth metallic', bestFor: 'Luxury, Awards', cost: '+$0.05-0.15/unit', costColor: 'text-purple-600' },

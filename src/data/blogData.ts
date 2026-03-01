@@ -18,6 +18,20 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "compostable-humidity-control",
+    slug: "compostable-humidity-control",
+    title: "Protect Cellulose Compost Bags from Becoming Brittle Due to Dryness",
+    excerpt: "Professional humidity control solution for cellulose compost bags – reducing transport damage and increasing product life. Say goodbye to brittle and easily cracked compostable bags.",
+    content: `<!-- Rendered by CompostableHumidityControlPage.tsx -->`,
+    author: "Ryan Wong",
+    publishDate: "2026-03-01",
+    category: "Tips",
+    tags: ["Compostable", "Humidity Control", "Cellulose", "Durability"],
+    featuredImage: "/imgs/samples/brittle-vs-strong-compost.jpg",
+    readTime: 5,
+    metaDescription: "Protect your cellulose compostable bags from becoming brittle. Learn about our professional humidity control solution to keep your eco-friendly packaging strong and flexible."
+  },
+  {
     id: "1",
     slug: "sustainable-packaging-supplier-analysis",
     title: "Sustainable Packaging Supplier Analysis: Evaluating Eco-Friendly Pouch Manufacturers",

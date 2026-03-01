@@ -11,6 +11,7 @@ const surfaceGallery = [
   { src: '/imgs/surface/ads/a_gloss_pouch_correct_5078762.webp', title: 'Gloss Pouch Example', desc: 'Full gloss lamination creating eye-catching shelf presence' },
   { src: '/imgs/surface/ads/a_matte_finish_detail_7483118.webp', title: 'Matte Finish Detail', desc: 'Smooth non-reflective surface for elegant sophisticated look' },
   { src: '/imgs/surface/ads/a_matte_pouch_correct_6361818.webp', title: 'Matte Pouch Example', desc: 'Sophisticated matte finish perfect for premium brands' },
+  { src: '/imgs/surface/spot-matte-finish.webp', title: 'Spot Matte Finish', desc: 'Selective matte varnish creating elegant contrast between glossy and matte areas' },
   { src: '/imgs/surface/ads/a_metallic_gold_closeup_5151764.webp', title: 'Metallic Gold Effect', desc: 'Luxurious gold metallic finish for premium product positioning' },
   { src: '/imgs/surface/ads/a_softtouch_pouch_correct_7961783.webp', title: 'Soft Touch Finish', desc: 'Velvety tactile surface creating sensory brand appeal' },
   { src: '/imgs/surface/ads/a_embossed_navy_9933981.webp', title: 'Embossed Texture', desc: 'Raised patterns creating dimensional brand experience' },

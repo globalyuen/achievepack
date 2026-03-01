@@ -265,13 +265,16 @@ export default function PouchHomePage() {
               <NeoCard className="bg-[#00FFFF] relative z-10 rotate-2 !p-0 overflow-hidden group max-w-md w-full aspect-square">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#00FFFF] to-[#FF00FF] opacity-20 z-0 mix-blend-multiply" />
                 <video
-                  src="/video/hero/bag.mov"
                   autoPlay
                   loop
                   muted
                   playsInline
+                  poster="/video/hero/cover.jpg"
                   className="w-full h-full object-cover relative z-10 mix-blend-multiply opacity-90 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500"
-                />
+                >
+                  <source src="/video/hero/bag.mp4" type="video/mp4" />
+                  <source src="/video/hero/bag.mov" type="video/quicktime" />
+                </video>
                 
                 {/* Floating Tag */}
                 <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20">

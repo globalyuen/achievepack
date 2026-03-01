@@ -15,14 +15,12 @@ function getTestimonialText(t: (key: string) => string, id: string, field: 'quot
 // Default pouch image path - reviews without unique product photos will get random store images
 const DEFAULT_POUCH = '/imgs/testimonials/pouch-hover/morlife.webp'
 
-// Hero banner images with transparent background for random display on page refresh
+// Hero banner images for engaging background display on page refresh
 const HERO_BANNER_IMAGES = [
-  '/imgs/banner/transparent/a_achievepack_hero_3d_depth_5416790 (1).webp',
-  '/imgs/banner/transparent/a_achievepack_hero_3d_depth_5416790 (2).webp',
-  '/imgs/banner/transparent/a_achievepack_hero_eco_nature_7180632 (1).webp',
-  '/imgs/banner/transparent/a_achievepack_hero_flatlay_5941661 (1).webp',
-  '/imgs/banner/transparent/a_achievepack_hero_gradient_eco_9331347 (1).webp',
-  '/imgs/banner/transparent/a_achievepack_hero_shot_1_white_background_2665361 (1).webp',
+  '/imgs/banner/a_achievepack_hero_3d_depth_5416790.webp',
+  '/imgs/banner/a_achievepack_hero_eco_nature_7180632.webp',
+  '/imgs/banner/a_achievepack_hero_flatlay_5941661.webp',
+  '/imgs/banner/a_achievepack_hero_gradient_eco_9331347.webp'
 ]
 
 // Store product images for random display when review has no product photo
@@ -141,35 +139,35 @@ export default function ReviewsPage() {
       </header>
 
       {/* Hero Section with Random Banner Background */}
-      <section className="pt-24 pb-12 relative overflow-hidden">
-        {/* Background Banner Image - transparent PNG, no opacity needed */}
+      <section className="pt-24 pb-16 relative overflow-hidden">
+        {/* Background Banner Image */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[20s] ease-linear hover:scale-110"
           style={{ 
             backgroundImage: `url(${heroBanner})`
           }}
         />
-        {/* Gradient overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-primary-50/80 to-white/90" />
+        {/* Gradient overlay for engaging dark aesthetic and text readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/50 to-primary-900/70" />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-neutral-600 mb-6">
-            <Link to="/" className="hover:text-primary-600 transition-colors">Home</Link>
+          <nav className="flex items-center gap-2 text-sm text-white/70 mb-8 font-medium">
+            <Link to="/" className="hover:text-white transition-colors">Home</Link>
             <span>/</span>
-            <span className="text-neutral-900 font-medium">Reviews</span>
+            <span className="text-white">Reviews</span>
           </nav>
 
           <div className="text-center max-w-3xl mx-auto">
             <div className="flex justify-center mb-6">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center">
-                <MessageCircle className="h-8 w-8 text-primary-600" />
+              <div className="w-16 h-16 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center shadow-2xl">
+                <MessageCircle className="h-8 w-8 text-white" />
               </div>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 drop-shadow-md">
               Customer Reviews
             </h1>
-            <p className="text-lg text-neutral-600 mb-8">
+            <p className="text-lg md:text-xl text-white/90 mb-10 font-medium drop-shadow-sm">
               Real feedback from businesses who trust Eco Pouch for their sustainable packaging needs.
             </p>
 
@@ -232,7 +230,7 @@ export default function ReviewsPage() {
             </div>
             <div className="flex items-center gap-2 text-neutral-600">
               <Award className="h-5 w-5 text-amber-500" />
-              <span className="text-sm font-medium">5+ Years in Business</span>
+              <span className="text-sm font-medium">15+ Years in Business</span>
             </div>
             <div className="flex items-center gap-2 text-neutral-600">
               <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />

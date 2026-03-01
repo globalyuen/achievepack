@@ -1,11 +1,11 @@
 {
-  "generated": "2026-02-23",
-  "total_images": 1230,
-  "total_categories": 137,
+  "generated": "2026-02-24",
+  "total_images": 1242,
+  "total_categories": 139,
   "extensions": {
-    ".webp": 1062,
-    ".png": 158,
-    ".jpg": 7,
+    ".webp": 1069,
+    ".png": 161,
+    ".jpg": 9,
     ".svg": 3
   },
   "categories": {
@@ -4490,6 +4490,71 @@
         }
       ]
     },
+    "pdf-assets": {
+      "count": 10,
+      "images": [
+        {
+          "filename": "foil.webp",
+          "path": "/imgs/pdf-assets/foil.webp",
+          "extension": ".webp",
+          "modified": "2026-02-24T09:25:12.497Z"
+        },
+        {
+          "filename": "cert-brc.webp",
+          "path": "/imgs/pdf-assets/cert-brc.webp",
+          "extension": ".webp",
+          "modified": "2026-02-24T09:25:10.884Z"
+        },
+        {
+          "filename": "cert-fsc.png",
+          "path": "/imgs/pdf-assets/cert-fsc.png",
+          "extension": ".png",
+          "modified": "2026-02-24T09:25:07.789Z"
+        },
+        {
+          "filename": "logo-bpi.jpg",
+          "path": "/imgs/pdf-assets/logo-bpi.jpg",
+          "extension": ".jpg",
+          "modified": "2026-02-24T09:25:04.764Z"
+        },
+        {
+          "filename": "cert-ABA-as5810.png",
+          "path": "/imgs/pdf-assets/cert-ABA-as5810.png",
+          "extension": ".png",
+          "modified": "2026-02-24T09:25:01.430Z"
+        },
+        {
+          "filename": "cert-din-home-compost.png",
+          "path": "/imgs/pdf-assets/cert-din-home-compost.png",
+          "extension": ".png",
+          "modified": "2026-02-24T09:24:57.281Z"
+        },
+        {
+          "filename": "hero.webp",
+          "path": "/imgs/pdf-assets/hero.webp",
+          "extension": ".webp",
+          "modified": "2026-02-24T09:24:14.347Z"
+        },
+        {
+          "filename": "bio-kraft-vm-cello.webp",
+          "path": "/imgs/pdf-assets/bio-kraft-vm-cello.webp",
+          "extension": ".webp",
+          "modified": "2026-02-24T09:24:10.320Z"
+        },
+        {
+          "filename": "valve.webp",
+          "path": "/imgs/pdf-assets/valve.webp",
+          "extension": ".webp",
+          "modified": "2026-02-24T09:24:07.956Z"
+        },
+        {
+          "filename": "front-zipper.webp",
+          "path": "/imgs/pdf-assets/front-zipper.webp",
+          "extension": ".webp",
+          "modified": "2026-02-24T09:23:54.323Z"
+        }
+      ]
+    },
     "pouch-shape": {
       "count": 12,
       "images": [
@@ -4658,6 +4723,17 @@
           "path": "/imgs/pouch-shape/k-seal/b1d23d15-f49f-460a-9ecf-90415fd46000.webp",
           "extension": ".webp",
           "modified": "2026-01-18T19:34:40.000Z"
+        }
+      ]
+    },
+    "product": {
+      "count": 1,
+      "images": [
+        {
+          "filename": "pouch1.webp",
+          "path": "/imgs/product/pouch1.webp",
+          "extension": ".webp",
+          "modified": "2026-02-24T02:43:35.068Z"
         }
       ]
     },
@@ -4974,8 +5050,14 @@
       ]
     },
     "root": {
-      "count": 36,
+      "count": 37,
       "images": [
+        {
+          "filename": "ryan-email-signature.jpg",
+          "path": "/imgs/ryan-email-signature.jpg",
+          "extension": ".jpg",
+          "modified": "2026-02-24T02:52:27.529Z"
+        },
         {
           "filename": "apple-touch-icon.png",
           "path": "/imgs/apple-touch-icon.png",

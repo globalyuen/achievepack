@@ -311,8 +311,12 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
             </div>
             
             <div className="flex gap-4">
-              <Link to="/privacy" className="hover:underline">PRIVACY</Link>
-              <Link to="/terms" className="hover:underline">TERMS</Link>
+              <Link to="/quotes/flat-bottom?p=pouch2026" className="hover:underline">FLAT BOTTOM</Link>
+              <Link to="/quotes/stand-up-pouch?p=pouch2026" className="hover:underline">STAND UP</Link>
+              <Link to="/quotes/spouted-pouch?p=pouch2026" className="hover:underline">SPOUTED</Link>
+              <Link to="/cert?p=pouch2026" className="hover:underline">CERT</Link>
+              <a href="https://achievepack.com/privacy" target="_blank" rel="noopener noreferrer" className="hover:underline">PRIVACY</a>
+              <a href="https://achievepack.com/terms" target="_blank" rel="noopener noreferrer" className="hover:underline">TERMS</a>
             </div>
           </div>
         </div>

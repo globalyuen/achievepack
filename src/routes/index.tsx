@@ -184,6 +184,7 @@ const EcoPackagingRegulationsPage = lazy(() => import('../pages/topics/EcoPackag
 const CustomCompostablePouchSuppliersPage = lazy(() => import('../pages/topics/CustomCompostablePouchSuppliersPage'));
 const LowMOQStartupPackagingPage = lazy(() => import('../pages/topics/LowMOQStartupPackagingPage'));
 const CompostableBabyFoodBagsPage = lazy(() => import('../pages/topics/CompostableBabyFoodBagsPage'));
+const CompostableHumidityControlPage = lazy(() => import('../pages/topics/CompostableHumidityControlPage'));
 
 // 404 Page
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
@@ -327,6 +328,7 @@ const routes = [
   { path: "/topics/compostable-pouch-suppliers", element: <LazyRoute component={() => import('../pages/topics/CustomCompostablePouchSuppliersPage')} fallback={<LoadingFallback />} /> },
   { path: "/topics/low-moq-startup-packaging", element: <LazyRoute component={() => import('../pages/topics/LowMOQStartupPackagingPage')} fallback={<LoadingFallback />} /> },
   { path: "/topics/compostable-baby-food-bags", element: <LazyRoute component={() => import('../pages/topics/CompostableBabyFoodBagsPage')} fallback={<LoadingFallback />} /> },
+  { path: "/topics/compostable-humidity-control", element: <LazyRoute component={() => import('../pages/topics/CompostableHumidityControlPage')} fallback={<LoadingFallback />} /> },
 
   // Spec Pages - Material Structures
   { path: "/spec/pcr-pet-duplex-clear", element: <LazyRoute component={() => import('../pages/spec/PcrPetDuplexClearPage')} fallback={<LoadingFallback />} /> },
