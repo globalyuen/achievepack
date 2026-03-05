@@ -20,6 +20,15 @@ export default function PouchBlogPage() {
 
   const posts = [
     {
+      title: 'Compostable Humidity Control: Stop Packaging from Cracking',
+      excerpt: 'Professional humidity control solutions to prevent compostable packaging from becoming brittle and cracking during ocean freight. Essential for cellulose-based bags.',
+      image: '/imgs/samples/humidity-control-sample.png',
+      date: '2026-03-01',
+      category: 'Tips',
+      readTime: '5 min',
+      link: '/blog/compostable-humidity-control'
+    },
+    {
       title: 'Home Compostable Packaging Guide: OK Home, AS 5810, TÜV Certification',
       excerpt: 'Complete guide to home compostable packaging for Australia, UK, and EU markets. Learn OK Home vs AS 5810 certifications, material options (Kraft/PLA, PBAT, NatureFlex), transparent pricing (+25-35% cost), and real ROI case study from Melbourne tea brand.',
       image: '/imgs/seo-photos/a_achievepack_home_compostable_balcony_9883994.webp',

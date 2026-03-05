@@ -2277,6 +2277,7 @@ function App() {
                 <li><Link to="/composting/commercial-composting" className="hover:text-primary-500">Commercial Composting</Link></li>
                 <li><Link to="/composting/home-vs-industrial-compostable" className="hover:text-primary-500">Home vs Industrial</Link></li>
                 <li><Link to="/composting/plastic-free" className="hover:text-primary-500">Plastic-Free vs Compostable</Link></li>
+                <li><Link to="/topics/compostable-humidity-control" className="hover:text-primary-500">Compost Bag Humidity Control</Link></li>
               </ul>
             </div>
 

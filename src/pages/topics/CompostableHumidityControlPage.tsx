@@ -30,15 +30,11 @@ const CompostableHumidityControlPage: React.FC = () => {
                 HUMIDITY CONTROL SOLUTIONS
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
-                保護你的纖維素堆肥袋，<span className="text-emerald-400">不再因過乾而變脆</span>
-                <br />
-                <span className="text-2xl md:text-3xl lg:text-4xl text-gray-200 mt-4 block font-semibold font-sans">
-                  Protect Cellulose Compost Bags from Becoming Brittle Due to Dryness
-                </span>
+                Protect Your Cellulose Compost Bags<br />
+                <span className="text-emerald-400">From Becoming Brittle Due to Dryness</span>
               </h1>
               <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto lg:mx-0 font-medium">
-                專業溼度控制方案，降低運輸損壞率 70% <br />
-                <span className="text-gray-300 text-base md:text-lg">Professional humidity control for cellulose compost bags – reduce transport damage by 70%.</span>
+                Professional humidity control for cellulose compost bags – reduce transport damage by 70%.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -46,8 +42,7 @@ const CompostableHumidityControlPage: React.FC = () => {
                   href="#contact-form"
                   className="bg-emerald-500 hover:bg-emerald-400 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-emerald-500/30 transition-all transform hover:-translate-y-1"
                 >
-                  立即索取測試方案<br />
-                  <span className="text-sm font-normal">Get Your Test Plan Now</span>
+                  Get Your Test Plan Now
                 </a>
               </div>
             </div>
@@ -77,48 +72,47 @@ const CompostableHumidityControlPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              為什麼纖維素堆肥袋會無故裂開破損？
-              <span className="block text-xl text-gray-500 mt-2 font-normal">Why Do Cellulose Compost Bags Crack and Break?</span>
+              Why Do Cellulose Compost Bags Crack and Break?
             </h2>
             <div className="w-24 h-1 bg-emerald-500 mx-auto rounded-full mt-6"></div>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-12 items-center bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100">
+          <div className="flex flex-col md:flex-row gap-12 items-stretch bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100">
             <div className="w-full md:w-1/2">
               <img 
-                src="https://achievepack.com/imgs/home/sustainable-packaging.webp" 
-                alt="Cellulose material structure" 
-                className="w-full h-auto rounded-xl shadow-md"
+                src="/imgs/samples/cracked-pouch.png" 
+                alt="Cracked compostable packaging" 
+                className="w-full h-full rounded-xl shadow-md border border-gray-100 object-contain bg-gray-50"
               />
             </div>
-            <div className="w-full md:w-1/2 space-y-6">
+            <div className="w-full md:w-1/2 flex flex-col justify-center space-y-6">
               <p className="text-lg text-gray-700 leading-relaxed">
-                纖維素基堆肥袋（Cellulose compost bags）是環保首選，但有個致命弱點：<br/><br/>
-                <strong className="text-red-600">過乾環境下，纖維素含水率驟降 → 變得非常脆，輕微碰撞就裂開破損。</strong>
+                Cellulose compost bags are the ultimate eco-friendly choice, but they have one critical weakness:<br/><br/>
+                <strong className="text-red-600">When the environment is too dry, the moisture content drops sharply → They become extremely brittle, cracking and breaking with even the slightest impact.</strong>
               </p>
               
               <ul className="space-y-4 text-gray-600">
                 <li className="flex items-start">
                   <i className="fas fa-ship text-blue-500 mt-1 mr-3 text-lg"></i>
                   <span>
-                    <strong>海運集裝箱危機 (Ocean Freight Risks):</strong> 溫差大，內部常低於 30%RH，數天內就讓包裝脆化。
+                    <strong>Ocean Freight Risks:</strong> Large temperature fluctuations inside ocean containers often drop the internal humidity below 30% RH, embrittling the packaging within days.
                   </span>
                 </li>
                 <li className="flex items-start">
                   <i className="fas fa-exclamation-triangle text-amber-500 mt-1 mr-3 text-lg"></i>
                   <span>
-                    <strong>嚴重後果 (The Consequences):</strong> 客戶收貨時發現大量破損、產品灑出，直接導致退貨、索賠，嚴重影響品牌形象。
+                    <strong>The Consequences:</strong> Customers receive damaged goods and spilled products, directly leading to returns, compensation claims, and brand damage.
                   </span>
                 </li>
               </ul>
 
               <div className="bg-emerald-50 border border-emerald-100 rounded-xl p-6 mt-6">
                 <h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
-                  <i className="fas fa-chart-line text-emerald-500"></i> 關鍵數據 (Key Data)
+                  <i className="fas fa-chart-line text-emerald-500"></i> Key Data
                 </h4>
                 <ul className="space-y-2 text-sm text-gray-700">
-                  <li>✅ 纖維素最佳含水率：約 <strong>8–12%</strong>（太低脆化、太高發霉）。</li>
-                  <li>⚠️ 乾燥環境下（&lt;40% RH），<strong>48 小時內</strong>包裝強度下降 50% 以上。</li>
+                  <li>✅ Optimal moisture content for cellulose: Around <strong>8–12%</strong> (too low = brittle, too high = mold).</li>
+                  <li>⚠️ In a dry environment (&lt;40% RH), packaging strength drops by over 50% within <strong>48 hours</strong>.</li>
                 </ul>
               </div>
             </div>
@@ -131,72 +125,80 @@ const CompostableHumidityControlPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              我們的解決方案：三層濕度控制選擇
-              <span className="block text-xl text-gray-500 mt-2 font-normal">Our Solutions: 3 Levels of Humidity Control</span>
+              Our Solutions: 3 Levels of Humidity Control
             </h2>
             <p className="text-lg text-gray-600 mt-4">
-              我們提供不同成本的控制方案，確保你的堆肥袋在抵達倉庫時，依然保持最佳柔韌度。
+              We offer different humidity control solutions to ensure your compostable bags retain optimal flexibility upon arrival at the warehouse.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Card 1 */}
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow flex flex-col items-center text-center group">
-              <div className="w-20 h-20 bg-blue-50 text-blue-500 rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
-                <i className="fas fa-shield-alt"></i>
+              <div className="w-full aspect-square rounded-xl overflow-hidden mb-6 relative border border-gray-100">
+                <img src="/imgs/samples/humidity_pack_pro.png" alt="Professional 2-Way Packs" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <div className="absolute top-3 right-3 w-10 h-10 bg-white/90 text-blue-500 rounded-full flex items-center justify-center shadow-sm backdrop-blur-sm">
+                  <i className="fas fa-shield-alt"></i>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">方案一：專業雙向控溼包</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">1. Professional 2-Way Packs</h3>
               <p className="text-sm text-gray-500 mb-4 font-semibold uppercase tracking-wide">Professional 2-Way Control Packs</p>
               
               <p className="text-gray-600 mb-6 flex-grow">
-                精準維持 58% 或 62% RH。<br/>使用進口 Boveda 等級雙向控濕包。
+                Precisely maintains 58% or 62% RH.<br/>Utilizes imported Boveda-grade 2-way humidity control packs.
               </p>
               
               <ul className="text-sm text-left w-full space-y-2 mb-8 bg-gray-50 p-4 rounded-lg">
-                <li className="flex items-center gap-2 border-b border-gray-100 pb-2"><i className="fas fa-bolt text-amber-400 w-4"></i> 起效：24-48小時內穩定</li>
-                <li className="flex items-center gap-2 border-b border-gray-100 pb-2"><i className="fas fa-dollar-sign text-green-500 w-4"></i> 成本：中高 (USD $0.5 - $1.5 / 包)</li>
-                <li className="flex items-center gap-2 font-bold text-gray-900"><i className="fas fa-check-circle text-blue-500 w-4"></i> 適合：高價值訂單、嚴格品質要求</li>
+                <li className="flex items-center gap-2 border-b border-gray-100 pb-2"><i className="fas fa-bolt text-amber-400 w-4"></i> Active: Stable within 24-48 hours</li>
+                <li className="flex items-center gap-2 border-b border-gray-100 pb-2"><i className="fas fa-dollar-sign text-green-500 w-4"></i> Cost: Medium-High (USD $0.5 - $1.5 / pack)</li>
+                <li className="flex items-center gap-2 font-bold text-gray-900"><i className="fas fa-check-circle text-blue-500 w-4"></i> Best For: High value orders</li>
               </ul>
             </div>
 
             {/* Card 2 */}
             <div className="bg-white rounded-2xl p-8 shadow-xl border-2 border-emerald-500 relative flex flex-col items-center text-center group transform md:-translate-y-4">
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-emerald-500 text-white px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wide">
-                最受歡迎推薦 (Most Popular)
+                Most Popular
               </div>
-              <div className="w-20 h-20 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
-                <i className="fas fa-box-open"></i>
+              <div className="w-full aspect-square rounded-xl overflow-hidden mb-6 relative border border-emerald-100">
+                <img src="/imgs/samples/humidity_pack_eco.png" alt="Economical 2-Way Moisture Packs" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <div className="absolute top-3 right-3 w-10 h-10 bg-white/90 text-emerald-500 rounded-full flex items-center justify-center shadow-md backdrop-blur-sm">
+                  <i className="fas fa-box-open"></i>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">方案二：經濟國產雙向定溼包</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">2. Economical 2-Way Packs</h3>
               <p className="text-sm text-gray-500 mb-4 font-semibold uppercase tracking-wide">Economical 2-Way Moisture Packs</p>
               
               <p className="text-gray-600 mb-6 flex-grow">
-                中國工廠直供，同樣具備雙向吸放濕能力，效果與進口品極為相近。
+                Direct from our factory, offering similar 2-way moisture control capability at a fraction of the cost.
               </p>
               
               <ul className="text-sm text-left w-full space-y-2 mb-8 bg-emerald-50 p-4 rounded-lg border border-emerald-100">
-                <li className="flex items-center gap-2 border-b border-emerald-100 pb-2"><i className="fas fa-box text-emerald-600 w-4"></i> 包裝：我們直接幫你包含在出貨紙箱中</li>
-                <li className="flex items-center gap-2 border-b border-emerald-100 pb-2"><i className="fas fa-dollar-sign text-emerald-600 w-4"></i> 成本：極低 (USD $0.1 - $0.3 / 包)</li>
-                <li className="flex items-center gap-2 font-bold text-gray-900"><i className="fas fa-check-circle text-emerald-600 w-4"></i> 適合：超過 90% 的標準海運訂單</li>
+                <li className="flex items-center gap-2 border-b border-emerald-100 pb-2"><i className="fas fa-box text-emerald-600 w-4"></i> Pack: Included directly in the shipping carton</li>
+                <li className="flex items-center gap-2 border-b border-emerald-100 pb-2"><i className="fas fa-dollar-sign text-emerald-600 w-4"></i> Cost: Very Low (USD $0.1 - $0.3 / pack)</li>
+                <li className="flex items-center gap-2 font-bold text-gray-900"><i className="fas fa-check-circle text-emerald-600 w-4"></i> Best For: Over 90% of standard ocean freights</li>
               </ul>
             </div>
 
             {/* Card 3 */}
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow flex flex-col items-center text-center group">
-              <div className="w-20 h-20 bg-gray-100 text-gray-600 rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
-                <i className="fas fa-hands-helping"></i>
+              <div className="w-full aspect-square rounded-xl overflow-hidden mb-6 relative border border-gray-100">
+                <img src="/imgs/samples/humidity_pack_diy.png" alt="DIY Low-Cost Humidification" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <div className="absolute top-3 right-3 w-10 h-10 bg-white/90 text-gray-600 rounded-full flex items-center justify-center shadow-sm backdrop-blur-sm">
+                  <i className="fas fa-hands-helping"></i>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">方案三：超低成本自製加溼</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">3. DIY Low-Cost Approach</h3>
               <p className="text-sm text-gray-500 mb-4 font-semibold uppercase tracking-wide">DIY Low-Cost Humidification</p>
               
               <p className="text-gray-600 mb-6 flex-grow">
-                使用密封溼毛巾或海綿裝入雙層 PE 袋中，緩慢釋放水氣。
+                Place a sealed wet towel or sponge in a double-layer PE bag to slowly release moisture.
               </p>
               
               <ul className="text-sm text-left w-full space-y-2 mb-8 bg-gray-50 p-4 rounded-lg">
-                <li className="flex items-center gap-2 border-b border-gray-100 pb-2"><i className="fas fa-sync text-blue-400 w-4"></i> 監控：需搭配電子溼度計測試調整</li>
-                <li className="flex items-center gap-2 border-b border-gray-100 pb-2"><i className="fas fa-dollar-sign text-green-500 w-4"></i> 成本：幾乎免費 (USD &lt;$0.2 / 箱)</li>
-                <li className="flex items-center gap-2 font-bold text-gray-900"><i className="fas fa-check-circle text-gray-600 w-4"></i> 適合：測試期、預算極限或低利潤訂單</li>
+                <li className="flex items-center gap-2 border-b border-gray-100 pb-2"><i className="fas fa-sync text-blue-400 w-4"></i> Monitor: Hydrometer required for testing</li>
+                <li className="flex items-center gap-2 border-b border-gray-100 pb-2"><i className="fas fa-dollar-sign text-green-500 w-4"></i> Cost: Almost Free (USD &lt;$0.2 / box)</li>
+                <li className="flex items-center gap-2 font-bold text-gray-900"><i className="fas fa-check-circle text-gray-600 w-4"></i> Best For: Testing phase or low budget orders</li>
               </ul>
             </div>
           </div>
@@ -214,8 +216,7 @@ const CompostableHumidityControlPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              操作步驟：如何實施濕度控制？
-              <span className="block text-xl text-emerald-300 mt-2 font-normal">Standard Operating Procedure: 6 Steps Execution</span>
+              Standard Operating Procedure: 6 Steps Execution
             </h2>
             <div className="w-24 h-1 bg-emerald-500 mx-auto rounded-full mt-6"></div>
           </div>
@@ -224,38 +225,38 @@ const CompostableHumidityControlPage: React.FC = () => {
             {/* Step 1 */}
             <div className="bg-emerald-800/50 p-6 rounded-2xl border border-emerald-700 hover:bg-emerald-800 transition-colors">
               <div className="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-xl font-black mb-4 shadow-lg shadow-emerald-500/20">1</div>
-              <h3 className="text-xl font-bold mb-2">確認目標溼度 <span className="text-sm font-normal text-emerald-300 block">Confirm Target RH</span></h3>
-              <p className="text-emerald-100/80 text-sm leading-relaxed">纖維素堆肥袋建議設定在 55–65% RH，我們將依據您的產品特徵調整。</p>
+              <h3 className="text-xl font-bold mb-2">Confirm Target RH</h3>
+              <p className="text-emerald-100/80 text-sm leading-relaxed">Set target to 55-65% RH for cellulose bags. We will adjust based on your specific product.</p>
             </div>
             {/* Step 2 */}
             <div className="bg-emerald-800/50 p-6 rounded-2xl border border-emerald-700 hover:bg-emerald-800 transition-colors">
               <div className="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-xl font-black mb-4 shadow-lg shadow-emerald-500/20">2</div>
-              <h3 className="text-xl font-bold mb-2">選擇方案 <span className="text-sm font-normal text-emerald-300 block">Select Solution</span></h3>
-              <p className="text-emerald-100/80 text-sm leading-relaxed">專業包、國產經濟包或自製方案。我們會為您提供專業諮詢來決定。</p>
+              <h3 className="text-xl font-bold mb-2">Select Solution</h3>
+              <p className="text-emerald-100/80 text-sm leading-relaxed">Choose between professional, economical, or DIY packs based on our expert consultation.</p>
             </div>
             {/* Step 3 */}
             <div className="bg-emerald-800/50 p-6 rounded-2xl border border-emerald-700 hover:bg-emerald-800 transition-colors">
               <div className="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-xl font-black mb-4 shadow-lg shadow-emerald-500/20">3</div>
-              <h3 className="text-xl font-bold mb-2">內袋隔離 <span className="text-sm font-normal text-emerald-300 block">Inner PE Bag Barrier</span></h3>
-              <p className="text-emerald-100/80 text-sm leading-relaxed">將堆肥袋產品與控溼包一同放入食品級 PE 內袋，物理隔開紙箱，防止紙箱吸收水分。</p>
+              <h3 className="text-xl font-bold mb-2">Inner Bag Barrier</h3>
+              <p className="text-emerald-100/80 text-sm leading-relaxed">Place pouches & humidity packs inside a sealed food-grade PE bag to isolate them from the carton.</p>
             </div>
             {/* Step 4 */}
             <div className="bg-emerald-800/50 p-6 rounded-2xl border border-emerald-700 hover:bg-emerald-800 transition-colors">
               <div className="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-xl font-black mb-4 shadow-lg shadow-emerald-500/20">4</div>
-              <h3 className="text-xl font-bold mb-2">放入紙箱 <span className="text-sm font-normal text-emerald-300 block">Pack into Cartons</span></h3>
-              <p className="text-emerald-100/80 text-sm leading-relaxed">將綁好或封口的內袋（含產品與控濕包）放入外層瓦楞紙箱，封好箱口。</p>
+              <h3 className="text-xl font-bold mb-2">Pack into Cartons</h3>
+              <p className="text-emerald-100/80 text-sm leading-relaxed">Place the sealed inner bag (with products and humidity packs) into standard corrugated cartons.</p>
             </div>
             {/* Step 5 */}
             <div className="bg-emerald-800/50 p-6 rounded-2xl border border-emerald-700 hover:bg-emerald-800 transition-colors">
               <div className="w-12 h-12 bg-amber-500 rounded-xl flex items-center justify-center text-xl font-black mb-4 shadow-lg shadow-amber-500/20">5</div>
-              <h3 className="text-xl font-bold mb-2 pr-2">測試與監控 <span className="text-sm font-normal text-emerald-300 block">Test & Monitor</span></h3>
-              <p className="text-emerald-100/80 text-sm leading-relaxed">在首批出貨的幾箱內放置微型電子溼度計，記錄 24/48/72 小時的數據變化確保穩定。</p>
+              <h3 className="text-xl font-bold mb-2 pr-2">Test & Monitor</h3>
+              <p className="text-emerald-100/80 text-sm leading-relaxed">Record data using mini hygrometers in testing boxes for 24/48/72 hours to ensure stability.</p>
             </div>
             {/* Step 6 */}
             <div className="bg-emerald-800/50 p-6 rounded-2xl border border-emerald-700 hover:bg-emerald-800 transition-colors">
               <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-xl font-black mb-4 shadow-lg shadow-blue-500/20">6</div>
-              <h3 className="text-xl font-bold mb-2">量產出貨 <span className="text-sm font-normal text-emerald-300 block">Mass Production Ship</span></h3>
-              <p className="text-emerald-100/80 text-sm leading-relaxed">流程驗證成功後，標準化導入全量出貨程序，從此告別脆化客訴。</p>
+              <h3 className="text-xl font-bold mb-2">Mass Production Ship</h3>
+              <p className="text-emerald-100/80 text-sm leading-relaxed">Once successfully verified, we standardize the process for mass shipping. Say goodbye to brittleness.</p>
             </div>
           </div>
         </div>
@@ -266,8 +267,7 @@ const CompostableHumidityControlPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              成功案例分享
-              <span className="block text-xl text-gray-500 mt-2 font-normal">Real Case Study (Mexico Ocean Freight)</span>
+              Real Case Study (Mexico Ocean Freight)
             </h2>
           </div>
 
@@ -277,21 +277,21 @@ const CompostableHumidityControlPage: React.FC = () => {
               <div className="w-16 h-16 bg-red-100 text-red-500 rounded-full flex items-center justify-center text-2xl mb-6">
                 <i className="fas fa-times"></i>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">過去痛點 (Before)</h3>
-              <p className="text-gray-500 uppercase text-xs font-bold tracking-widest mb-6">無濕度控制 / No Humidity Control</p>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Before</h3>
+              <p className="text-gray-500 uppercase text-xs font-bold tracking-widest mb-6">No Humidity Control</p>
               
               <ul className="w-full space-y-4">
                 <li className="flex justify-between border-b border-gray-100 pb-2">
-                  <span className="text-gray-600">出貨時溼度 (Ship RH)</span>
+                  <span className="text-gray-600">Ship RH</span>
                   <span className="font-bold text-red-600">35%</span>
                 </li>
                 <li className="flex justify-between border-b border-gray-100 pb-2">
-                  <span className="text-gray-600">收貨時破損率 (Damage Rate)</span>
+                  <span className="text-gray-600">Damage Rate</span>
                   <span className="font-bold text-red-600">25%</span>
                 </li>
                 <li className="flex flex-col bg-gray-50 p-4 rounded-lg mt-4">
-                  <span className="text-xs text-gray-500 font-bold mb-1">客戶反饋 (Feedback)</span>
-                  <span className="text-sm text-gray-800 italic">"包裝太脆，輕輕一捏就裂開，產品灑滿整個紙箱。"</span>
+                  <span className="text-xs text-gray-500 font-bold mb-1">Feedback</span>
+                  <span className="text-sm text-gray-800 italic">"The packaging is too brittle, cracking open with a light pinch, spilling the product all over the carton."</span>
                 </li>
               </ul>
             </div>
@@ -302,25 +302,25 @@ const CompostableHumidityControlPage: React.FC = () => {
               <div className="w-16 h-16 bg-emerald-500 text-white rounded-full flex items-center justify-center text-2xl mb-6 shadow-lg z-10">
                 <i className="fas fa-check"></i>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2 z-10">現今解決 (After)</h3>
-              <p className="text-emerald-700 uppercase text-xs font-bold tracking-widest mb-6 z-10">國產雙向控濕方案 / Economical 2-Way Packs</p>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2 z-10">After</h3>
+              <p className="text-emerald-700 uppercase text-xs font-bold tracking-widest mb-6 z-10">Economical 2-Way Packs</p>
               
               <ul className="w-full space-y-4 z-10">
                 <li className="flex justify-between border-b border-emerald-200/50 pb-2">
-                  <span className="text-gray-700">出貨時溼度 (Ship RH)</span>
+                  <span className="text-gray-700">Ship RH</span>
                   <span className="font-bold text-emerald-600 text-lg">58%</span>
                 </li>
                 <li className="flex justify-between border-b border-emerald-200/50 pb-2">
-                  <span className="text-gray-700">收貨時溼度 (Received RH)</span>
+                  <span className="text-gray-700">Received RH</span>
                   <span className="font-bold text-emerald-600 text-lg">56%</span>
                 </li>
                 <li className="flex justify-between border-b border-emerald-200/50 pb-2">
-                  <span className="text-gray-700">收貨時破損率 (Damage Rate)</span>
-                  <span className="font-bold text-emerald-600 text-lg">降到 2%</span>
+                  <span className="text-gray-700">Damage Rate</span>
+                  <span className="font-bold text-emerald-600 text-lg">Dropped to 2%</span>
                 </li>
                 <li className="flex flex-col bg-white/70 p-4 rounded-lg mt-4 border border-emerald-100">
-                  <span className="text-xs text-emerald-600 font-bold mb-1">客戶反饋 (Feedback)</span>
-                  <span className="text-sm text-gray-800 italic">"包裝柔韌度非常完美，破損問題徹底解決，滿意度 95%！"</span>
+                  <span className="text-xs text-emerald-600 font-bold mb-1">Feedback</span>
+                  <span className="text-sm text-gray-800 italic">"The packaging flexibility is perfect, fragility issues completely resolved. 95% satisfaction!"</span>
                 </li>
               </ul>
             </div>
@@ -334,30 +334,29 @@ const CompostableHumidityControlPage: React.FC = () => {
           <div className="bg-yellow-50 border-l-8 border-yellow-400 p-8 rounded-r-2xl shadow-sm">
             <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
               <i className="fas fa-lightbulb text-yellow-500"></i>
-              纖維素堆肥袋溼度控制專屬建議
-              <span className="text-base text-gray-500 font-normal ml-2 hidden sm:inline">(Expert Tips)</span>
+              Expert Tips for Cellulose Compost Bags
             </h3>
             
             <ul className="space-y-4 list-none text-gray-700">
               <li className="flex items-start gap-3">
                 <i className="fas fa-check-circle text-green-500 mt-1"></i>
-                <div><strong>目標 RH (Target RH):</strong> 建議維持在 55–65% 之間（剛剛好避免脆化，又不足以引發發霉風險）。</div>
+                <div><strong>Target RH:</strong> Recommended to maintain between 55-65% (just enough to avoid brittleness, but not enough to risk mold).</div>
               </li>
               <li className="flex items-start gap-3">
                 <i className="fas fa-check-circle text-green-500 mt-1"></i>
-                <div><strong>每箱配置 (Quantity per Box):</strong> 標準 10kg 紙箱，建議放置 60g 定溼包 × 1–2 個。</div>
+                <div><strong>Quantity per Box:</strong> For a standard 10kg carton, we recommend placing 1-2 pieces of 60g humidity control packs.</div>
               </li>
               <li className="flex items-start gap-3">
                 <i className="fas fa-check-circle text-green-500 mt-1"></i>
-                <div><strong>內袋材質 (Inner Bag):</strong> 務必使用食品級 PE 塑料袋包覆產品，避免乾燥的瓦楞紙箱將濕度全部吸光。</div>
+                <div><strong>Inner Bag:</strong> Always use food-grade PE bags to wrap your products to prevent the dry corrugated cartons from absorbing all the moisture.</div>
               </li>
               <li className="flex items-start gap-3">
                 <i className="fas fa-check-circle text-green-500 mt-1"></i>
-                <div><strong>監控工具 (Monitoring Tools):</strong> 強烈建議採購百元內的電子溼度計放入箱中（USD 2–5）監控實況。</div>
+                <div><strong>Monitoring Tools:</strong> We highly recommend tossing an affordable mini hygrometer (USD 2-5) into the boxes to log the actual conditions.</div>
               </li>
               <li className="flex items-start gap-3">
                 <i className="fas fa-check-circle text-green-500 mt-1"></i>
-                <div><strong>運輸注意 (Shipping Watchout):</strong> 碼垛裝櫃時，避免最上層紙箱頂部緊貼集裝箱天花板，防止溫差引發的「集裝箱雨」滴落導致紙箱潮濕破袋。</div>
+                <div><strong>Shipping Watchout:</strong> When palletizing, avoid having the top cartons touch the container ceiling to prevent "container rain" caused by temperature shifts from dripping and soaking the boxes.</div>
               </li>
             </ul>
           </div>
@@ -368,32 +367,32 @@ const CompostableHumidityControlPage: React.FC = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900">常見問題與解答 <span className="text-xl text-gray-500 font-normal block mt-2">Frequently Asked Questions</span></h2>
+            <h2 className="text-3xl font-bold text-gray-900">Frequently Asked Questions</h2>
           </div>
 
           <div className="space-y-6">
             {/* FAQ 1 */}
             <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-              <h4 className="text-lg font-bold text-gray-900 mb-2">Q：為什麼我的纖維素堆肥袋特別容易脆化破裂？</h4>
-              <p className="text-gray-600 leading-relaxed"><strong>A：</strong> 纖維素是天然材料，非常依賴水分維持結構柔韌。當其內部含水率低於 6% 時，材料強度會驟降。在乾燥的倉庫或海運集裝箱內，往往在短短 48 小時內就會被抽乾水份而明顯脆化。</p>
+              <h4 className="text-lg font-bold text-gray-900 mb-2">Q: Why do my cellulose compost bags become brittle and crack so easily?</h4>
+              <p className="text-gray-600 leading-relaxed"><strong>A:</strong> Cellulose is a natural material that relies heavily on moisture to maintain its structural flexibility. When its internal moisture content drops below 6%, the material strength plunges. In dry warehouses or ocean freight containers, it can be drained of moisture in just 48 hours, causing significant embrittlement.</p>
             </div>
             
             {/* FAQ 2 */}
             <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-              <h4 className="text-lg font-bold text-gray-900 mb-2">Q：你們的濕度包方案會不會讓紙箱或產品打溼發霉？</h4>
-              <p className="text-gray-600 leading-relaxed"><strong>A：</strong> 絕對不會。我們的控濕包設計是『水氣形式擴散』（Vapor transition），所有液態水都被鎖在高分子聚合物基質中，不會有液態水滲出。加上 PE 內袋密封隔離，紙箱也不會受到影響。</p>
+              <h4 className="text-lg font-bold text-gray-900 mb-2">Q: Will your humidity packs get the cartons or products wet, causing mold?</h4>
+              <p className="text-gray-600 leading-relaxed"><strong>A:</strong> Absolutely not. Our humidity packs distribute moisture via vapor transition, locking liquid water inside a polymer matrix. With the sealed PE inner bag, the carton will remain unaffected.</p>
             </div>
 
             {/* FAQ 3 */}
             <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-              <h4 className="text-lg font-bold text-gray-900 mb-2">Q：海外客戶（例如墨西哥）要怎麼落地這項操作？</h4>
-              <p className="text-gray-600 leading-relaxed"><strong>A：</strong> 我們會提供完整的標準作業流程（SOP），包含中英文雙語的圖文操作說明書、短視頻教學，以及測試記錄表格，確保海外工廠和員工能輕鬆照做。</p>
+              <h4 className="text-lg font-bold text-gray-900 mb-2">Q: How can our overseas clients (like Mexico) implement this setup?</h4>
+              <p className="text-gray-600 leading-relaxed"><strong>A:</strong> We provide a complete Standard Operating Procedure (SOP), which includes bilingual visual manuals, short instructional videos, and test logging sheets to ensure overseas staff can follow along easily.</p>
             </div>
 
             {/* FAQ 4 */}
             <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-              <h4 className="text-lg font-bold text-gray-900 mb-2">Q：導入這套方案，每箱成本大概增加多少？</h4>
-              <p className="text-gray-600 leading-relaxed"><strong>A：</strong> 非常便宜！以推薦的「國產雙向控濕包」而言，每箱增加成本約不到 USD $0.3；若採用「DIY自製方案」，每箱成本甚至低於 USD $0.1。相比被索賠或退運的龐大損失，這是一筆絕對划算的投資。</p>
+              <h4 className="text-lg font-bold text-gray-900 mb-2">Q: If I implement this solution, how much cost will be added per box?</h4>
+              <p className="text-gray-600 leading-relaxed"><strong>A:</strong> Very affordable! With our recommended "Economical 2-Way Pack," the cost increase per box is less than USD $0.3. The "DIY Approach" is even under USD $0.1. Compared to the massive losses from claims and returns, this is an incredibly worthwhile investment.</p>
             </div>
           </div>
         </div>
@@ -406,45 +405,44 @@ const CompostableHumidityControlPage: React.FC = () => {
         
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <h2 className="text-4xl md:text-5xl font-black mb-6">
-            現在就讓你的堆肥袋不再脆化
-            <span className="block text-2xl md:text-3xl text-emerald-300 font-semibold mt-4">Stop Cellulose Compost Bags from Becoming Brittle – Start Today</span>
+            Stop Cellulose Compost Bags from Becoming Brittle – Start Today
           </h2>
           <p className="text-lg text-emerald-100 mb-10 max-w-2xl mx-auto">
-            填寫下方表單，我們的包裝工程師會立刻為您分析並提供專屬的溼度控制測試方案（Customize Solution）。
+            Fill out the form below, and our packaging engineers will quickly analyze and provide a customized humidity control test plan for you.
           </p>
           
           <form className="bg-white rounded-3xl p-8 md:p-10 shadow-2xl text-left max-w-2xl mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-2">公司名稱 / Company</label>
+                <label className="block text-sm font-bold text-gray-700 mb-2">Company</label>
                 <input type="text" className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-gray-900" placeholder="e.g. Acme Corp" />
               </div>
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-2">聯絡信箱 / Email</label>
+                <label className="block text-sm font-bold text-gray-700 mb-2">Email</label>
                 <input type="email" className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-gray-900" placeholder="email@example.com" />
               </div>
               <div className="sm:col-span-2">
-                <label className="block text-sm font-bold text-gray-700 mb-2">產品類型 / Package Type</label>
+                <label className="block text-sm font-bold text-gray-700 mb-2">Package Type</label>
                 <select className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-gray-900 bg-white">
-                  <option value="">請選擇 / Please Select</option>
-                  <option value="cellulose">纖維素堆肥袋 (Cellulose Compostable)</option>
-                  <option value="pla">PLA 堆肥袋 (PLA Compostable)</option>
-                  <option value="kraft">牛皮紙袋 (Kraft Paper Bags)</option>
-                  <option value="other">其他 / Other</option>
+                  <option value="">Please Select</option>
+                  <option value="cellulose">Cellulose Compostable</option>
+                  <option value="pla">PLA Compostable</option>
+                  <option value="kraft">Kraft Paper Bags</option>
+                  <option value="other">Other</option>
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-2">月出貨量 / Monthly Volume</label>
+                <label className="block text-sm font-bold text-gray-700 mb-2">Monthly Volume</label>
                 <input type="text" className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-gray-900" placeholder="e.g. 50,000 pcs" />
               </div>
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-2">目的地國家 / Destination</label>
+                <label className="block text-sm font-bold text-gray-700 mb-2">Destination</label>
                 <input type="text" className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-gray-900" placeholder="e.g. USA, Mexico" />
               </div>
             </div>
             
             <button type="button" onClick={()=>{alert('Thank you for inquiry! We will contact you shortly.')}} className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-lg py-4 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2">
-              立即取得客製方案 / Get Customized Solution Now <i className="fas fa-arrow-right"></i>
+              Get Customized Solution Now <i className="fas fa-arrow-right"></i>
             </button>
             <p className="text-center text-xs text-gray-400 mt-4">We respect your privacy. All information is kept confidential.</p>
           </form>

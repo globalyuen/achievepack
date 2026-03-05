@@ -7,7 +7,7 @@ const StandUpPouchQuotePage: React.FC = () => {
   const pwd = searchParams.get('p');
   const tabParam = searchParams.get('tab');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [activeTab, setActiveTab] = useState<'kraft' | 'pla' | 'biope' | 'spouted'>('kraft');
+  const [activeTab, setActiveTab] = useState<'kraft' | 'pla' | 'biope' | 'spouted' | 'pe'>('kraft');
   const [copied, setCopied] = useState(false);
   const [biopeSize, setBiopeSize] = useState<'large' | 'small'>('large');
 
@@ -19,8 +19,8 @@ const StandUpPouchQuotePage: React.FC = () => {
 
   // Set active tab from URL parameter
   useEffect(() => {
-    if (tabParam && ['kraft', 'pla', 'biope', 'spouted'].includes(tabParam)) {
-      setActiveTab(tabParam as 'kraft' | 'pla' | 'biope' | 'spouted');
+    if (tabParam && ['kraft', 'pla', 'biope', 'spouted', 'pe'].includes(tabParam)) {
+      setActiveTab(tabParam as 'kraft' | 'pla' | 'biope' | 'spouted' | 'pe');
     }
   }, [tabParam]);
 
@@ -210,6 +210,12 @@ const StandUpPouchQuotePage: React.FC = () => {
             >
                 <i className="fas fa-tint mr-2"></i> Aluminum BioPE
             </button>
+            <button
+                onClick={() => setActiveTab('pe')}
+                className={`flex-1 py-3 px-4 rounded-lg font-bold text-sm transition-all duration-200 ${activeTab === 'pe' ? 'bg-cyan-600 text-white shadow-md' : 'bg-transparent text-gray-600 hover:bg-white hover:shadow-sm'}`}
+            >
+                <i className="fas fa-recycle mr-2"></i> Recyclable PE
+            </button>
             {/* Share Button */}
             <button
                 onClick={handleShare}
@@ -272,14 +278,14 @@ const StandUpPouchQuotePage: React.FC = () => {
                     </div>
                     {/* Zipper Card */}
                     <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200 flex flex-col items-center relative group hover:border-gray-300 transition-colors">
-                        <span className="absolute top-4 left-4 text-xs font-bold text-green-700 uppercase tracking-widest bg-green-50 px-3 py-1 rounded-md z-10 shadow-sm border border-green-100">Standard Zipper</span>
+                        <span className="absolute top-4 left-4 text-xs font-bold text-green-700 uppercase tracking-widest bg-green-50 px-3 py-1 rounded-md z-10 shadow-sm border border-green-100">Compostable Zipper</span>
                         <div className="w-full flex flex-col items-center justify-center min-h-[200px] mt-6">
-                            <img src="https://achievepack.com/imgs/store/closure/normal-zipper.webp" alt="Standard Zipper" className="w-full max-w-[400px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
+                            <img src="/imgs/samples/kraft-compostable-zipper.png" alt="Compostable Zipper" className="w-full max-w-[400px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
                         </div>
                         <div className="w-full pt-4 border-t border-gray-100 mt-2 text-center">
-                            <h6 className="font-bold text-gray-800 text-sm uppercase mb-1">Standard Resealable Zipper</h6>
+                            <h6 className="font-bold text-gray-800 text-sm uppercase mb-1">Compostable Resealable Zipper</h6>
                             <p className="text-sm text-gray-600 leading-relaxed max-w-[90%] mx-auto">
-                                High-quality press-to-close zipper for easy resealing. Keeps contents fresh and provides excellent consumer convenience.
+                                High-quality press-to-close zipper for easy resealing. Fully compostable to match the eco-friendly materials, keeping contents fresh sustainably.
                             </p>
                         </div>
                     </div>
@@ -1453,6 +1459,243 @@ const StandUpPouchQuotePage: React.FC = () => {
                         <p className="mb-1"><strong><i className="fas fa-info-circle mr-1"></i> Pricing Note:</strong> Additional <strong>USD 150 per size per face</strong>.</p>
                         <p className="text-xs text-yellow-800 font-semibold uppercase tracking-wider">Please advise your design to receive a final quote if stamp foiling is needed.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+        </>
+        )}
+
+        {/* ==================== RECYCLABLE PE TAB ==================== */}
+        {activeTab === 'pe' && (
+        <>
+        {/* Recyclable PE Banner */}
+        <section className="mb-12 w-full">
+            <img src="/imgs/samples/pe-pouch-hero.jpg" alt="Recyclable PE Pouch" className="w-full h-auto rounded-2xl shadow-md object-cover" />
+        </section>
+
+        {/* Product Overview - Recyclable PE */}
+        <section className="mb-12 flex flex-col lg:flex-row gap-10 items-start">
+            <div className="w-full lg:w-1/2 flex-shrink-0 flex flex-col gap-6">
+                <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-8 border border-cyan-100 flex items-center justify-center relative shadow-inner min-h-[400px]">
+                    <img src="https://achievepack.com/imgs/pouch-shape/achieve-pack-sup-lifestyle.png" alt="Recyclable PE Stand Up Pouch" className="w-full max-w-[400px] h-auto object-contain rounded drop-shadow-xl mix-blend-multiply transition-transform hover:scale-105 duration-300" />
+                </div>
+                
+                <h5 className="text-lg font-black text-gray-800 uppercase tracking-widest mt-4">Included Details</h5>
+                <div className="flex flex-col gap-6">
+                    {/* Surface Card */}
+                    <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200 flex flex-col items-center relative group hover:border-cyan-300 transition-colors">
+                        <span className="absolute top-4 left-4 text-xs font-bold text-cyan-700 uppercase tracking-widest bg-cyan-50 px-3 py-1 rounded-md z-10 shadow-sm border border-cyan-100">Matte Clear Finish</span>
+                        <div className="w-full flex flex-col items-center justify-center min-h-[200px] mt-6">
+                            <img src="/imgs/samples/pe-clear-matte.png" alt="Clear Material with Matte Surface" className="w-full max-w-[400px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
+                        </div>
+                        <div className="w-full pt-4 border-t border-gray-100 mt-2 text-center">
+                            <h6 className="font-bold text-gray-800 text-sm uppercase mb-1">Clear Material with Matte Surface</h6>
+                            <p className="text-sm text-gray-600 leading-relaxed max-w-[90%] mx-auto">
+                                High transparency clear material paired with a premium matte surface. Fingerprint-resistant and elegantly highlights your internal product.
+                            </p>
+                        </div>
+                    </div>
+                    {/* Zipper Card */}
+                    <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200 flex flex-col items-center relative group hover:border-cyan-300 transition-colors">
+                        <span className="absolute top-4 left-4 text-xs font-bold text-cyan-700 uppercase tracking-widest bg-cyan-50 px-3 py-1 rounded-md z-10 shadow-sm border border-cyan-100">Low-Temp Zipper</span>
+                        <div className="w-full flex flex-col items-center justify-center min-h-[200px] mt-6">
+                            <img src="/imgs/samples/pe-clear-zipper.png" alt="Standard Zipper" className="w-full max-w-[400px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
+                        </div>
+                        <div className="w-full pt-4 border-t border-gray-100 mt-2 text-center">
+                            <h6 className="font-bold text-gray-800 text-sm uppercase mb-1">Ultra Low-Temp Zipper</h6>
+                            <p className="text-sm text-gray-600 leading-relaxed max-w-[90%] mx-auto">
+                                PE laminated PE ultra-low temperature zipper. Resealable and 100% compatible with the mono-material recycling stream.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="w-full lg:w-1/2">
+                <h3 className="text-3xl font-black text-gray-900 mb-5">100% Recyclable High-Barrier PE</h3>
+                <p className="text-gray-700 mb-8 leading-relaxed text-lg">
+                    Premium mono-material stand up pouch combining excellent recyclability (Code 4 LDPE) with an EVOH high-barrier layer to protect your product's freshness and flavor.
+                </p>
+                
+                <h4 className="text-md font-bold text-gray-500 uppercase tracking-widest mb-3 border-b border-gray-100 pb-2">Material Structure</h4>
+                <div className="bg-cyan-50 rounded-xl p-6 border border-cyan-100 mb-8 shadow-sm">
+                    <div className="w-full bg-white p-6 rounded-xl border border-cyan-200 mb-6 flex flex-col items-center justify-center shadow-inner min-h-[200px] group">
+                        {/* Placeholder structure image */}
+                        <img src="https://achievepack.com/imgs/spec/bio-cello-duplex-clear.webp" alt="Recyclable PE Structure" className="w-full max-w-[400px] h-auto object-contain rounded mix-blend-multiply transition-transform group-hover:scale-105 duration-300" />
+                    </div>
+                    <div className="w-full text-gray-800">
+                        <p className="font-bold text-cyan-900 mb-3 text-lg leading-tight flex flex-col sm:flex-row sm:items-center gap-2">
+                            Matte PE / EVOH / Ultra Low-Temp PE
+                            <span className="inline-block text-xs bg-cyan-600 text-white px-3 py-1 rounded-full font-semibold max-w-max shadow-sm tracking-wide">100% Recyclable</span>
+                        </p>
+                        <ul className="list-disc list-inside mt-4 text-cyan-800 space-y-2 block text-base bg-white/50 p-4 rounded-lg border border-cyan-100">
+                            <li><strong>Outer:</strong> Recyclable PE Matte Film (Printable Surface)</li>
+                            <li><strong>Middle:</strong> EVOH (High Barrier for Oxygen/Moisture)</li>
+                            <li><strong>Inner:</strong> Ultra Low-Temp PE (Cold-Resistant Sealant)</li>
+                            <li className="mt-3 pt-3 border-t border-cyan-200 text-sm text-cyan-900 font-bold list-none">Total Thickness: 122 micron</li>
+                        </ul>
+                        
+                        {/* Sustainability Claims */}
+                        <h5 className="text-sm font-bold text-gray-500 uppercase tracking-wider mt-6 mb-3 border-b border-cyan-200/60 pb-1">Sustainability Features</h5>
+                        <ul className="list-none mt-3 text-cyan-900 space-y-2 text-sm bg-blue-50/70 p-4 rounded-lg border border-blue-100 shadow-sm leading-relaxed mb-6">
+                            <li className="flex items-start gap-2"><i className="fas fa-recycle text-blue-600 mt-1"></i> <span><strong>Mono-Material Design:</strong> 100% Polyethylene structure meets guidelines for store drop-off recycling.</span></li>
+                            <li className="flex items-start gap-2"><i className="fas fa-shield-alt text-cyan-600 mt-1"></i> <span><strong>EVOH High Barrier:</strong> Provides gas and moisture barrier comparable to multi-material laminates.</span></li>
+                            <li className="flex items-start gap-2"><i className="fas fa-tint text-purple-500 mt-1"></i> <span><strong>Digital Printing:</strong> No printing plates required, reducing waste and setup energy.</span></li>
+                            <li className="flex items-start gap-2"><i className="fas fa-snowflake text-blue-400 mt-1"></i> <span><strong>Cold Resistant:</strong> Ultra low-temperature PE ensures durability even in freezing conditions.</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">Included Options</h4>
+                <div className="flex flex-wrap">
+                    <span className="spec-badge"><i className="fas fa-box-open mr-2"></i> Stand Up Pouch</span>
+                    <span className="spec-badge"><i className="fas fa-recycle mr-2"></i> Recyclable Mono-PE</span>
+                    <span className="spec-badge"><i className="fas fa-file-zipper mr-2"></i> Recyclable PE Zipper</span>
+                    <span className="spec-badge"><i className="fas fa-shield-virus mr-2"></i> EVOH High Barrier</span>
+                </div>
+            </div>
+        </section>
+
+        {/* Product Dimensions - Recyclable PE */}
+        <section className="mb-10">
+            <h3 className="text-lg font-bold text-gray-800 mb-4 border-b border-gray-200 pb-2 flex items-center gap-2">
+                <i className="fas fa-ruler-combined text-gray-400"></i> Quote Dimensions
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-white p-6 rounded-lg border border-gray-200 text-center hover:border-cyan-300 transition-colors shadow-sm relative overflow-hidden group">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gray-100 group-hover:bg-cyan-400 transition-colors"></div>
+                    <p className="text-xs text-gray-500 font-bold tracking-widest uppercase mb-2">Stand Up Pouch</p>
+                    <p className="text-2xl font-black text-gray-800 mb-2">155 × 205<span className="text-sm font-normal text-gray-500 ml-1">mm</span></p>
+                    <p className="text-sm font-medium text-gray-500 bg-gray-50 mx-auto w-max px-3 py-1 rounded">45mm Bottom Gusset</p>
+                    <p className="text-xs text-gray-400 mt-2">Thickness: 122 micron</p>
+                </div>
+                <div className="bg-cyan-50 p-6 rounded-lg border border-cyan-200 flex flex-col justify-center">
+                    <p className="text-sm text-cyan-800 font-medium"><i className="fas fa-info-circle mr-2"></i> Custom dimensions provided by client. Contact us for modifications.</p>
+                </div>
+            </div>
+
+            {/* Added 5mm shrinkage explanation */}
+            <div className="mt-6 bg-amber-50 rounded-xl p-6 border border-amber-200 flex flex-col md:flex-row gap-6 items-center shadow-sm">
+                <div className="w-full md:w-1/3 flex justify-center">
+                    <img src="/imgs/samples/pe-pouch-shrinkage.png" alt="Production Shrinkage Allowance Diagram" className="w-full h-auto max-w-[250px] rounded-lg shadow-sm border border-amber-300 bg-white" />
+                </div>
+                <div className="w-full md:w-2/3">
+                    <h4 className="text-xl font-bold text-amber-900 mb-3 flex items-center gap-2">
+                        <i className="fas fa-expand-arrows-alt text-amber-600"></i> Production Shrinkage Allowance
+                    </h4>
+                    <p className="text-amber-800 leading-relaxed text-sm mb-2">
+                        Please note that an extra <strong>5mm</strong> has been intentionally added to the requested width, length, and bottom gusset dimensions.
+                    </p>
+                    <p className="text-amber-800 leading-relaxed text-sm">
+                        During the thermal cutting and heat-sealing process of Recyclable PE materials, slight shrinkage naturally occurs. Providing this 5mm production allowance ensures that your final pouch flawlessly matches your target specifications and maintains optimal internal capacity.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        {/* Pricing Table - Digital PE */}
+        <section className="mb-10">
+            <div className="bg-cyan-50 border-l-4 border-cyan-500 p-4 mb-6 rounded-r">
+                <h3 className="text-lg font-bold text-cyan-800 flex items-center gap-2">
+                    <i className="fas fa-bolt"></i> Digital Print Pricing
+                </h3>
+                <p className="text-cyan-700 text-sm mt-1">No plate costs. Base currency calculated at standard exchange rates.</p>
+            </div>
+
+            <div className="overflow-x-auto rounded-lg border border-gray-200 shadow-sm">
+                <table className="w-full pricing-table text-sm">
+                    <thead>
+                        <tr>
+                            <th style={{backgroundColor:"#0891b2",borderBottomColor:"#0e7490"}}>Quantity (pcs)</th>
+                            <th style={{backgroundColor:"#0891b2",borderBottomColor:"#0e7490"}} className="text-right">Unit Price (USD)</th>
+                            <th style={{backgroundColor:"#0891b2",borderBottomColor:"#0e7490"}} className="text-right">Total (USD)</th>
+                            <th style={{backgroundColor:"#0891b2",borderBottomColor:"#0e7490"}} className="text-right">Est. Weight</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td className="font-semibold text-gray-900">1,000</td>
+                            <td className="text-right">$0.61</td>
+                            <td className="text-right font-bold text-gray-900">$610.00</td>
+                            <td className="text-right text-gray-600">11.0 kg</td>
+                        </tr>
+                        <tr>
+                            <td className="font-semibold text-gray-900">2,000</td>
+                            <td className="text-right">$0.49</td>
+                            <td className="text-right font-bold text-gray-900">$980.00</td>
+                            <td className="text-right text-gray-600">22.0 kg</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p className="text-xs text-gray-500 mt-3 italic"><i className="fas fa-info-circle mr-1"></i> Digital printing: Quotes include our standard margin (1.5x on supplier costs). Base Exchange Rate: ~6.8 RMB/USD.</p>
+        </section>
+
+        {/* Shipping Cost Table - PE */}
+        <section className="mb-10">
+            <h3 className="text-lg font-bold text-gray-800 mb-4 border-b border-gray-200 pb-2 flex items-center gap-2">
+                <i className="fas fa-shipping-fast text-blue-500"></i> Estimated Shipping Cost
+            </h3>
+            <p className="text-gray-600 text-sm mb-4 max-w-2xl">
+                Estimated total cost including product and shipping. Standard shipping rates applied: Air ($15/kg) | Sea ($5/kg).
+            </p>
+            <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+                <table className="w-full pricing-table">
+                    <thead>
+                        <tr>
+                            <th className="rounded-tl-xl">Quantity</th>
+                            <th>Product Cost</th>
+                            <th>Gross Weight</th>
+                            <th><i className="fas fa-ship mr-1"></i> Sea Freight</th>
+                            <th>Total (Sea)</th>
+                            <th><i className="fas fa-plane mr-1"></i> Air Freight</th>
+                            <th className="rounded-tr-xl">Total (Air)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                         <tr className="bg-blue-50">
+                            <td className="font-medium">1,000</td>
+                            <td>$610.00</td>
+                            <td>11.0 kg</td>
+                            <td>$55.00</td>
+                            <td className="font-bold text-green-600">$665.00</td>
+                            <td>$165.00</td>
+                            <td className="font-bold text-blue-600">$775.00</td>
+                        </tr>
+                        <tr>
+                            <td className="font-medium">2,000</td>
+                            <td>$980.00</td>
+                            <td>22.0 kg</td>
+                            <td>$110.00</td>
+                            <td className="font-bold text-green-600">$1,090.00</td>
+                            <td>$330.00</td>
+                            <td className="font-bold text-blue-600">$1,310.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        {/* Recycling Logo Section */}
+        <section className="mb-10">
+            <h3 className="text-lg font-bold text-gray-800 mb-4 border-b border-gray-200 pb-2 flex items-center gap-2">
+                <i className="fas fa-recycle text-cyan-500"></i> Recyclability Logos
+            </h3>
+            <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 border border-cyan-200 flex flex-col md:flex-row gap-6 shadow-sm items-center">
+                <div className="w-full md:w-1/3 flex justify-center">
+                    <div className="bg-white p-6 rounded-xl border border-cyan-100 shadow-md">
+                        <img src="/imgs/cert/recycle_4_pe_logo.png" alt="Recycle 4 PE Logo" className="w-full max-w-[150px] h-auto object-contain" onError={(e) => { e.currentTarget.src='https://achievepack.com/imgs/cert/recyclable.png'; }} />
+                    </div>
+                </div>
+                <div className="w-full md:w-2/3 text-gray-800">
+                    <h4 className="text-xl font-bold text-cyan-800 mb-3">Add Recycling Icons</h4>
+                    <p className="text-gray-700 leading-relaxed mb-4">
+                        This packaging is designated as a <strong>Class 4 LDPE Recyclable Plastic</strong> structure. We recommend adding Store Drop-Off or general recycling icons to your artwork to inform customers.
+                    </p>
+                    <ul className="space-y-2 text-sm text-cyan-800 bg-white/60 p-4 rounded-lg border border-cyan-100">
+                        <li className="flex items-start gap-2"><i className="fas fa-check-circle text-cyan-600 mt-0.5"></i> <span>Mono-polymer standard compliance</span></li>
+                        <li className="flex items-start gap-2"><i className="fas fa-check-circle text-cyan-600 mt-0.5"></i> <span>Can be recycled at soft plastic collection points</span></li>
+                        <li className="flex items-start gap-2"><i className="fas fa-check-circle text-cyan-600 mt-0.5"></i> <span>Drives sustainable brand awareness</span></li>
+                    </ul>
                 </div>
             </div>
         </section>

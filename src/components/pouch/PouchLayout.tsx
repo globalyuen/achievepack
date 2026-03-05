@@ -309,8 +309,8 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 </svg>
               </a>
             </div>
-            
             <div className="flex gap-4">
+              <Link to="/quotes/three-side-seal?p=pouch2026" className="hover:underline">3 SIDE</Link>
               <Link to="/quotes/flat-bottom?p=pouch2026" className="hover:underline">FLAT BOTTOM</Link>
               <Link to="/quotes/stand-up-pouch?p=pouch2026" className="hover:underline">STAND UP</Link>
               <Link to="/quotes/spouted-pouch?p=pouch2026" className="hover:underline">SPOUTED</Link>

@@ -56,7 +56,6 @@ const CoffeePouchQuotePage: React.FC = () => {
     { product: '1kg', size: '132 x 320 x 92', zipper: false, valve: true, qty: 10000, unitPrice: 0.91, total: 9133.20 },
   ]
 
-  const handlePrint = () => window.print()
 
   const groupByProduct = (data: typeof rotoPricing) => {
     const grouped: Record<string, typeof rotoPricing> = {}
@@ -114,14 +113,6 @@ const CoffeePouchQuotePage: React.FC = () => {
                 <p className="text-sm text-gray-500">Valid Until</p>
                 <p className="font-semibold flex items-center gap-1"><Calendar className="w-4 h-4 text-amber-600" />{quoteInfo.validUntil}</p>
               </div>
-            </div>
-            <div className="flex items-center gap-3 print:hidden">
-              <button onClick={handlePrint} className="flex items-center gap-2 px-5 py-2.5 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition font-medium">
-                <Download className="w-4 h-4" />Save PDF
-              </button>
-              <button onClick={handlePrint} className="flex items-center gap-2 px-5 py-2.5 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
-                <Printer className="w-4 h-4" />Print
-              </button>
             </div>
           </div>
         </div>

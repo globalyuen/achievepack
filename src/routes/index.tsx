@@ -27,6 +27,7 @@ const ContactPage = lazy(() => import('../pages/ContactPage'));
 const AdminPage = lazy(() => import('../pages/AdminPage'));
 const OrderManagementPage = lazy(() => import('../pages/OrderManagementPage'));
 const FlatBottomQuotePage = lazy(() => import('../pages/quotes/FlatBottomQuotePage'));
+const ThreeSideSealQuotePage = lazy(() => import('../pages/quotes/ThreeSideSealQuotePage'));
 
 // Industry Pages
 const CoffeeTeaPage = lazy(() => import('../pages/industry/CoffeeTeaPage'));
@@ -209,6 +210,10 @@ const routes = [
   { path: "/ctrl-x9k7m", element: <LazyRoute component={() => import('../pages/AdminPage')} fallback={<LoadingFallback />} /> },
   { path: "/ctrl-x9k7m/management", element: <LazyRoute component={() => import('../pages/OrderManagementPage')} fallback={<LoadingFallback />} /> },
   { path: "/quotes/flat-bottom", element: <LazyRoute component={() => import('../pages/quotes/FlatBottomQuotePage')} fallback={<LoadingFallback />} /> },
+  { path: "/quotes/three-side-seal", element: <LazyRoute component={() => import('../pages/quotes/ThreeSideSealQuotePage')} fallback={<LoadingFallback />} /> },
+  { path: "/quotes/stand-up-pouch", element: <LazyRoute component={() => import('../pages/quotes/StandUpPouchQuotePage')} fallback={<LoadingFallback />} /> },
+  { path: "/quotes/spouted-pouch", element: <LazyRoute component={() => import('../pages/quotes/SpoutedPouchQuotePage')} fallback={<LoadingFallback />} /> },
+  { path: "/cert", element: <LazyRoute component={() => import('../pages/quotes/CertificateDownloadPage')} fallback={<LoadingFallback />} /> },
 
   // Industry Pages
   { path: "/industry/coffee-tea", element: <LazyRoute component={() => import('../pages/industry/CoffeeTeaPage')} fallback={<LoadingFallback />} /> },

@@ -820,6 +820,24 @@ const FlatBottomQuotePage: React.FC = () => {
             </div>
         </section>
 
+        {/*  Expert tip: Humidity Control  */}
+        <section className="mb-10 page-break-inside-avoid break-inside-avoid">
+            <h3 className="text-lg font-bold text-gray-800 mb-4 border-b border-gray-200 pb-2 flex items-center gap-2">
+                <i className="fas fa-lightbulb text-yellow-500"></i> Pro Tip: Humidity Control for Compostable Bags
+            </h3>
+            <div className="bg-yellow-50 rounded-xl p-6 border border-yellow-200 mt-4 shadow-sm">
+                <div className="text-yellow-900">
+                    <h4 className="text-xl font-bold mb-2">Prevent your bags from cracking!</h4>
+                    <p className="leading-relaxed mb-4">
+                        Cellulose compostable bags can become brittle and crack during ocean freight if the humidity drops below 40% RH. We highly recommend adding our economical 2-way moisture control packs to your order.
+                    </p>
+                    <a href="/blog/compostable-humidity-control" target="_blank" rel="noopener noreferrer" className="inline-block bg-yellow-400 text-yellow-900 font-bold px-4 py-2 rounded shadow-sm hover:bg-yellow-500 transition-colors">
+                        Learn how it works &rarr;
+                    </a>
+                </div>
+            </div>
+        </section>
+
         {/*  Contact Signature & Bottom Banner  */}
         <section className="border-t border-gray-200 pt-8 mt-12 mb-10">
             <h4 className="text-lg font-bold text-gray-800 mb-6">Contact Information</h4>

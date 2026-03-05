@@ -331,6 +331,7 @@ const PouchFactoryTourPage = lazyWithRetry(() => import('./pages/pouch/PouchFact
 // Blog Article Pages
 const USACompostableGuide = lazyWithRetry(() => import('./pages/pouch/blog/USACompostableGuide'))
 const CoffeePackagingGuide = lazyWithRetry(() => import('./pages/pouch/blog/CoffeePackagingGuide'))
+const PouchHumidityControlGuide = lazyWithRetry(() => import('./pages/pouch/blog/CompostableHumidityControlGuide'))
 const USACoffeePackaging = lazyWithRetry(() => import('./pages/pouch/blog/USACoffeePackaging'))
 const CompostableStandUpPouchesGuide = lazyWithRetry(() => import('./pages/pouch/blog/CompostableStandUpPouchesGuide'))
 const LowMOQPackagingGuide = lazyWithRetry(() => import('./pages/pouch/blog/LowMOQPackagingGuide'))
@@ -406,6 +407,7 @@ const CoffeePouchQuotePage = lazyWithRetry(() => import('./pages/quotes/CoffeePo
 const FlatBottomQuotePage = lazyWithRetry(() => import('./pages/quotes/FlatBottomQuotePage'))
 const StandUpPouchQuotePage = lazyWithRetry(() => import('./pages/quotes/StandUpPouchQuotePage'))
 const SpoutedPouchQuotePage = lazyWithRetry(() => import('./pages/quotes/SpoutedPouchQuotePage'))
+const ThreeSideSealQuotePage = lazyWithRetry(() => import('./pages/quotes/ThreeSideSealQuotePage'))
 const CertificateDownloadPage = lazyWithRetry(() => import('./pages/quotes/CertificateDownloadPage'))
 
 // Prospect Finder Pages - Lazy loaded
@@ -440,6 +442,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/blog" element={<PouchBlogPage />} />
                   <Route path="/blog/usa-compostable-packaging-guide" element={<USACompostableGuide />} />
                   <Route path="/blog/coffee-packaging-guide" element={<CoffeePackagingGuide />} />
+                  <Route path="/blog/compostable-humidity-control" element={<PouchHumidityControlGuide />} />
                   <Route path="/blog/usa-coffee-packaging" element={<USACoffeePackaging />} />
                   <Route path="/blog/compostable-stand-up-pouches-guide" element={<CompostableStandUpPouchesGuide />} />
                   <Route path="/blog/low-moq-packaging-guide" element={<LowMOQPackagingGuide />} />
@@ -484,6 +487,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/products/compostable-stand-up-pouches" element={<CompostableStandUpPouchesGuide />} />
                   <Route path="/tech-specs" element={<PouchTechSpecsPage />} />
                   <Route path="/quotes/flat-bottom" element={<FlatBottomQuotePage />} />
+                  <Route path="/quotes/three-side-seal" element={<ThreeSideSealQuotePage />} />
                   <Route path="/quotes/stand-up-pouch" element={<StandUpPouchQuotePage />} />
                   <Route path="/quotes/spouted-pouch" element={<SpoutedPouchQuotePage />} />
                   <Route path="/cert" element={<CertificateDownloadPage />} />
@@ -534,6 +538,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/ctrl-x9k7m/quotations" element={<QuotationBatchesPage />} />
                         <Route path="/quote/coffee-pouch-2025" element={<CoffeePouchQuotePage />} />
                         <Route path="/quotes/flat-bottom" element={<FlatBottomQuotePage />} />
+                        <Route path="/quotes/three-side-seal" element={<ThreeSideSealQuotePage />} />
                         <Route path="/quotes/stand-up-pouch" element={<StandUpPouchQuotePage />} />
                         <Route path="/quotes/spouted-pouch" element={<SpoutedPouchQuotePage />} />
                         <Route path="/quote/:id" element={<QuotationViewPage />} />
