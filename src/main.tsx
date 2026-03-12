@@ -292,6 +292,7 @@ const CommercialCompostingPage = lazyWithRetry(() => import('./pages/composting/
 const HomeVsIndustrialCompostPage = lazyWithRetry(() => import('./pages/composting/HomeVsIndustrialCompostPage'))
 const PlasticFreePage = lazyWithRetry(() => import('./pages/composting/PlasticFreePage'))
 const NaturalCelluloseFiberPage = lazyWithRetry(() => import('./pages/composting/NaturalCelluloseFiberPage'))
+const OrganicComplianceSupportPage = lazyWithRetry(() => import('./pages/composting/OrganicComplianceSupportPage'))
 
 // Free Service Pages - Lazy loaded
 const FreePackagingDesignPage = lazyWithRetry(() => import('./pages/free-service/FreePackagingDesignPage'))
@@ -341,6 +342,7 @@ const IndustrialCompostableGuide = lazyWithRetry(() => import('./pages/pouch/blo
 const BPICertifiedGuide = lazyWithRetry(() => import('./pages/pouch/blog/BPICertifiedGuide'))
 const CoffeeDegassingValveGuide = lazyWithRetry(() => import('./pages/pouch/blog/CoffeeDegassingValveGuide'))
 const HomeCompostableGuide = lazyWithRetry(() => import('./pages/pouch/blog/HomeCompostableGuide'))
+const OrganicComplianceSupportGuide = lazyWithRetry(() => import('./pages/pouch/blog/OrganicComplianceSupportGuide'))
 // Material Pages
 const PouchCelloKraftPage = lazyWithRetry(() => import('./pages/pouch/materials/PouchCelloKraftPage'))
 const PouchReclosureOptionsPage = lazyWithRetry(() => import('./pages/pouch/PouchReclosureOptionsPage'))
@@ -453,6 +455,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/blog/bpi-certified-guide" element={<BPICertifiedGuide />} />
                   <Route path="/blog/coffee-degassing-valve-guide" element={<CoffeeDegassingValveGuide />} />
                   <Route path="/blog/home-compostable-guide" element={<HomeCompostableGuide />} />
+                  <Route path="/blog/organic-compliance-support" element={<OrganicComplianceSupportGuide />} />
                   <Route path="/blog/compostable-humidity-control" element={<CompostableHumidityControlPage />} />
                   <Route path="/certifications" element={<PouchCertificationsPage />} />
                   <Route path="/factory-tour" element={<PouchFactoryTourPage />} />
@@ -713,6 +716,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/composting/home-vs-industrial-compostable" element={<HomeVsIndustrialCompostPage />} />
                         <Route path="/composting/plastic-free" element={<PlasticFreePage />} />
                         <Route path="/composting/natural-cellulose-fiber" element={<NaturalCelluloseFiberPage />} />
+                        <Route path="/composting/organic-compliance-support" element={<OrganicComplianceSupportPage />} />
 
                         {/* Free Service Pages */}
                         <Route path="/free-service/packaging-design-consultation" element={<FreePackagingDesignPage />} />

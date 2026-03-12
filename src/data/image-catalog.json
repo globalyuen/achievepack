@@ -1,9 +1,9 @@
 {
-  "generated": "2026-03-06",
-  "total_images": 1276,
-  "total_categories": 140,
+  "generated": "2026-03-12",
+  "total_images": 1277,
+  "total_categories": 141,
   "extensions": {
-    ".webp": 1076,
+    ".webp": 1077,
     ".png": 178,
     ".jpg": 19,
     ".svg": 3
@@ -750,22 +750,22 @@
       "count": 16,
       "images": [
         {
+          "filename": "im-green-logo.png",
+          "path": "/imgs/cert/im-green-logo.png",
+          "extension": ".png",
+          "modified": "2026-03-12T01:08:55.672Z"
+        },
+        {
           "filename": "recycle_4_pe_logo.png",
           "path": "/imgs/cert/recycle_4_pe_logo.png",
           "extension": ".png",
-          "modified": "2026-03-04T09:25:40.749Z"
+          "modified": "2026-03-12T01:08:55.672Z"
         },
         {
           "filename": "compostable-logo.png",
           "path": "/imgs/cert/compostable-logo.png",
           "extension": ".png",
-          "modified": "2026-02-25T06:47:09.310Z"
-        },
-        {
-          "filename": "im-green-logo.png",
-          "path": "/imgs/cert/im-green-logo.png",
-          "extension": ".png",
-          "modified": "2026-02-25T06:41:36.881Z"
+          "modified": "2026-03-12T01:08:55.671Z"
         },
         {
           "filename": "cert-ABA-as5810.png",
@@ -4512,64 +4512,64 @@
       "count": 10,
       "images": [
         {
-          "filename": "foil.webp",
-          "path": "/imgs/pdf-assets/foil.webp",
-          "extension": ".webp",
-          "modified": "2026-02-24T09:25:12.497Z"
-        },
-        {
-          "filename": "cert-brc.webp",
-          "path": "/imgs/pdf-assets/cert-brc.webp",
-          "extension": ".webp",
-          "modified": "2026-02-24T09:25:10.884Z"
-        },
-        {
-          "filename": "cert-fsc.png",
-          "path": "/imgs/pdf-assets/cert-fsc.png",
-          "extension": ".png",
-          "modified": "2026-02-24T09:25:07.789Z"
-        },
-        {
           "filename": "logo-bpi.jpg",
           "path": "/imgs/pdf-assets/logo-bpi.jpg",
           "extension": ".jpg",
-          "modified": "2026-02-24T09:25:04.764Z"
-        },
-        {
-          "filename": "cert-ABA-as5810.png",
-          "path": "/imgs/pdf-assets/cert-ABA-as5810.png",
-          "extension": ".png",
-          "modified": "2026-02-24T09:25:01.430Z"
-        },
-        {
-          "filename": "cert-din-home-compost.png",
-          "path": "/imgs/pdf-assets/cert-din-home-compost.png",
-          "extension": ".png",
-          "modified": "2026-02-24T09:24:57.281Z"
-        },
-        {
-          "filename": "hero.webp",
-          "path": "/imgs/pdf-assets/hero.webp",
-          "extension": ".webp",
-          "modified": "2026-02-24T09:24:14.347Z"
-        },
-        {
-          "filename": "bio-kraft-vm-cello.webp",
-          "path": "/imgs/pdf-assets/bio-kraft-vm-cello.webp",
-          "extension": ".webp",
-          "modified": "2026-02-24T09:24:10.320Z"
+          "modified": "2026-03-12T01:08:55.679Z"
         },
         {
           "filename": "valve.webp",
           "path": "/imgs/pdf-assets/valve.webp",
           "extension": ".webp",
-          "modified": "2026-02-24T09:24:07.956Z"
+          "modified": "2026-03-12T01:08:55.679Z"
+        },
+        {
+          "filename": "hero.webp",
+          "path": "/imgs/pdf-assets/hero.webp",
+          "extension": ".webp",
+          "modified": "2026-03-12T01:08:55.678Z"
         },
         {
           "filename": "front-zipper.webp",
           "path": "/imgs/pdf-assets/front-zipper.webp",
           "extension": ".webp",
-          "modified": "2026-02-24T09:23:54.323Z"
+          "modified": "2026-03-12T01:08:55.677Z"
+        },
+        {
+          "filename": "cert-fsc.png",
+          "path": "/imgs/pdf-assets/cert-fsc.png",
+          "extension": ".png",
+          "modified": "2026-03-12T01:08:55.676Z"
+        },
+        {
+          "filename": "foil.webp",
+          "path": "/imgs/pdf-assets/foil.webp",
+          "extension": ".webp",
+          "modified": "2026-03-12T01:08:55.676Z"
+        },
+        {
+          "filename": "cert-ABA-as5810.png",
+          "path": "/imgs/pdf-assets/cert-ABA-as5810.png",
+          "extension": ".png",
+          "modified": "2026-03-12T01:08:55.675Z"
+        },
+        {
+          "filename": "cert-brc.webp",
+          "path": "/imgs/pdf-assets/cert-brc.webp",
+          "extension": ".webp",
+          "modified": "2026-03-12T01:08:55.675Z"
+        },
+        {
+          "filename": "cert-din-home-compost.png",
+          "path": "/imgs/pdf-assets/cert-din-home-compost.png",
+          "extension": ".png",
+          "modified": "2026-03-12T01:08:55.675Z"
+        },
+        {
+          "filename": "bio-kraft-vm-cello.webp",
+          "path": "/imgs/pdf-assets/bio-kraft-vm-cello.webp",
+          "extension": ".webp",
+          "modified": "2026-03-12T01:08:55.673Z"
         }
       ]
     },
@@ -4580,7 +4580,7 @@
           "filename": "rollstock-film.jpg",
           "path": "/imgs/pouch-shape/rollstock-film.jpg",
           "extension": ".jpg",
-          "modified": "2026-03-05T12:22:09.128Z"
+          "modified": "2026-03-12T01:08:55.679Z"
         },
         {
           "filename": "achieve-pack-branding-spotlight.png",
@@ -4757,7 +4757,7 @@
           "filename": "pouch1.webp",
           "path": "/imgs/product/pouch1.webp",
           "extension": ".webp",
-          "modified": "2026-02-24T02:43:35.068Z"
+          "modified": "2026-03-12T01:08:55.680Z"
         }
       ]
     },
@@ -4768,25 +4768,25 @@
           "filename": "a_valve_closure_detail_6401844.webp",
           "path": "/imgs/reclose/a_valve_closure_detail_6401844.webp",
           "extension": ".webp",
-          "modified": "2026-02-19T09:46:58.524Z"
-        },
-        {
-          "filename": "a_spout_closure_closeup_detail_2705813.webp",
-          "path": "/imgs/reclose/a_spout_closure_closeup_detail_2705813.webp",
-          "extension": ".webp",
-          "modified": "2026-02-19T09:46:58.523Z"
-        },
-        {
-          "filename": "a_tintie_coffee_pouch_correct_4114906.webp",
-          "path": "/imgs/reclose/a_tintie_coffee_pouch_correct_4114906.webp",
-          "extension": ".webp",
-          "modified": "2026-02-19T09:46:58.523Z"
+          "modified": "2026-03-12T01:08:55.681Z"
         },
         {
           "filename": "a_reclosure_options_kv_product_photo_7983949.webp",
           "path": "/imgs/reclose/a_reclosure_options_kv_product_photo_7983949.webp",
           "extension": ".webp",
-          "modified": "2026-02-19T09:46:58.522Z"
+          "modified": "2026-03-12T01:08:55.680Z"
+        },
+        {
+          "filename": "a_spout_closure_closeup_detail_2705813.webp",
+          "path": "/imgs/reclose/a_spout_closure_closeup_detail_2705813.webp",
+          "extension": ".webp",
+          "modified": "2026-03-12T01:08:55.680Z"
+        },
+        {
+          "filename": "a_tintie_coffee_pouch_correct_4114906.webp",
+          "path": "/imgs/reclose/a_tintie_coffee_pouch_correct_4114906.webp",
+          "extension": ".webp",
+          "modified": "2026-03-12T01:08:55.680Z"
         }
       ]
     },
@@ -5080,7 +5080,7 @@
           "filename": "ryan-email-signature.jpg",
           "path": "/imgs/ryan-email-signature.jpg",
           "extension": ".jpg",
-          "modified": "2026-02-24T02:52:27.529Z"
+          "modified": "2026-03-12T01:08:55.681Z"
         },
         {
           "filename": "apple-touch-icon.png",
@@ -5304,154 +5304,154 @@
       "count": 25,
       "images": [
         {
-          "filename": "home-compostable-rollstock.jpg",
-          "path": "/imgs/samples/home-compostable-rollstock.jpg",
-          "extension": ".jpg",
-          "modified": "2026-03-05T12:13:55.144Z"
-        },
-        {
-          "filename": "kraft-compostable-zipper.png",
-          "path": "/imgs/samples/kraft-compostable-zipper.png",
-          "extension": ".png",
-          "modified": "2026-03-04T13:09:33.225Z"
-        },
-        {
-          "filename": "pe-clear-matte.png",
-          "path": "/imgs/samples/pe-clear-matte.png",
-          "extension": ".png",
-          "modified": "2026-03-04T12:43:05.089Z"
-        },
-        {
-          "filename": "pe-clear-zipper.png",
-          "path": "/imgs/samples/pe-clear-zipper.png",
-          "extension": ".png",
-          "modified": "2026-03-04T12:39:19.068Z"
-        },
-        {
-          "filename": "pe-clear-material.jpg",
-          "path": "/imgs/samples/pe-clear-material.jpg",
-          "extension": ".jpg",
-          "modified": "2026-03-04T12:19:27.121Z"
-        },
-        {
-          "filename": "pe-pouch-shrinkage.png",
-          "path": "/imgs/samples/pe-pouch-shrinkage.png",
-          "extension": ".png",
-          "modified": "2026-03-04T12:19:27.119Z"
-        },
-        {
-          "filename": "pe-pouch-hero.jpg",
-          "path": "/imgs/samples/pe-pouch-hero.jpg",
-          "extension": ".jpg",
-          "modified": "2026-03-04T09:17:13.531Z"
-        },
-        {
-          "filename": "humidity_pack_diy.png",
-          "path": "/imgs/samples/humidity_pack_diy.png",
-          "extension": ".png",
-          "modified": "2026-03-01T08:27:32.857Z"
-        },
-        {
-          "filename": "humidity_pack_eco.png",
-          "path": "/imgs/samples/humidity_pack_eco.png",
-          "extension": ".png",
-          "modified": "2026-03-01T08:27:32.854Z"
-        },
-        {
-          "filename": "humidity_pack_pro.png",
-          "path": "/imgs/samples/humidity_pack_pro.png",
-          "extension": ".png",
-          "modified": "2026-03-01T08:27:32.851Z"
-        },
-        {
-          "filename": "cracked-pouch.png",
-          "path": "/imgs/samples/cracked-pouch.png",
-          "extension": ".png",
-          "modified": "2026-03-01T08:27:32.849Z"
-        },
-        {
-          "filename": "humidity-control-sample.png",
-          "path": "/imgs/samples/humidity-control-sample.png",
-          "extension": ".png",
-          "modified": "2026-03-01T07:23:37.068Z"
-        },
-        {
-          "filename": "brittle-vs-strong-compost.jpg",
-          "path": "/imgs/samples/brittle-vs-strong-compost.jpg",
-          "extension": ".jpg",
-          "modified": "2026-03-01T03:02:13.393Z"
-        },
-        {
-          "filename": "biope-banner-v2.jpg",
-          "path": "/imgs/samples/biope-banner-v2.jpg",
-          "extension": ".jpg",
-          "modified": "2026-03-01T02:17:50.090Z"
-        },
-        {
-          "filename": "compostable-pouch-home.jpg",
-          "path": "/imgs/samples/compostable-pouch-home.jpg",
-          "extension": ".jpg",
-          "modified": "2026-02-28T15:47:06.173Z"
-        },
-        {
-          "filename": "composable-pouch-certification.jpg",
-          "path": "/imgs/samples/composable-pouch-certification.jpg",
-          "extension": ".jpg",
-          "modified": "2026-02-28T15:46:38.436Z"
-        },
-        {
-          "filename": "biope-banner.jpg",
-          "path": "/imgs/samples/biope-banner.jpg",
-          "extension": ".jpg",
-          "modified": "2026-02-28T12:28:59.776Z"
-        },
-        {
-          "filename": "glossy-sup-front-2.png",
-          "path": "/imgs/samples/glossy-sup-front-2.png",
-          "extension": ".png",
-          "modified": "2026-02-28T07:31:43.572Z"
-        },
-        {
-          "filename": "glossy-sup-back-2.png",
-          "path": "/imgs/samples/glossy-sup-back-2.png",
-          "extension": ".png",
-          "modified": "2026-02-28T07:31:43.570Z"
-        },
-        {
-          "filename": "glossy-sup-front.webp",
-          "path": "/imgs/samples/glossy-sup-front.webp",
-          "extension": ".webp",
-          "modified": "2026-02-28T04:16:52.325Z"
-        },
-        {
-          "filename": "glossy-sup-back.webp",
-          "path": "/imgs/samples/glossy-sup-back.webp",
-          "extension": ".webp",
-          "modified": "2026-02-28T04:16:52.323Z"
-        },
-        {
-          "filename": "spouted-biope-500ml-back.webp",
-          "path": "/imgs/samples/spouted-biope-500ml-back.webp",
-          "extension": ".webp",
-          "modified": "2026-02-25T14:05:57.356Z"
-        },
-        {
           "filename": "spouted-biope-500ml-detail.webp",
           "path": "/imgs/samples/spouted-biope-500ml-detail.webp",
           "extension": ".webp",
-          "modified": "2026-02-25T14:05:41.504Z"
+          "modified": "2026-03-12T01:08:55.696Z"
         },
         {
           "filename": "spouted-biope-500ml-front.webp",
           "path": "/imgs/samples/spouted-biope-500ml-front.webp",
           "extension": ".webp",
-          "modified": "2026-02-25T14:05:23.982Z"
+          "modified": "2026-03-12T01:08:55.696Z"
+        },
+        {
+          "filename": "pe-clear-zipper.png",
+          "path": "/imgs/samples/pe-clear-zipper.png",
+          "extension": ".png",
+          "modified": "2026-03-12T01:08:55.695Z"
+        },
+        {
+          "filename": "pe-pouch-hero.jpg",
+          "path": "/imgs/samples/pe-pouch-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-03-12T01:08:55.695Z"
         },
         {
           "filename": "pe-pouch-recyclable.jpg",
           "path": "/imgs/samples/pe-pouch-recyclable.jpg",
           "extension": ".jpg",
-          "modified": "2026-02-23T13:25:19.380Z"
+          "modified": "2026-03-12T01:08:55.695Z"
+        },
+        {
+          "filename": "pe-pouch-shrinkage.png",
+          "path": "/imgs/samples/pe-pouch-shrinkage.png",
+          "extension": ".png",
+          "modified": "2026-03-12T01:08:55.695Z"
+        },
+        {
+          "filename": "spouted-biope-500ml-back.webp",
+          "path": "/imgs/samples/spouted-biope-500ml-back.webp",
+          "extension": ".webp",
+          "modified": "2026-03-12T01:08:55.695Z"
+        },
+        {
+          "filename": "pe-clear-matte.png",
+          "path": "/imgs/samples/pe-clear-matte.png",
+          "extension": ".png",
+          "modified": "2026-03-12T01:08:55.694Z"
+        },
+        {
+          "filename": "pe-clear-material.jpg",
+          "path": "/imgs/samples/pe-clear-material.jpg",
+          "extension": ".jpg",
+          "modified": "2026-03-12T01:08:55.693Z"
+        },
+        {
+          "filename": "kraft-compostable-zipper.png",
+          "path": "/imgs/samples/kraft-compostable-zipper.png",
+          "extension": ".png",
+          "modified": "2026-03-12T01:08:55.692Z"
+        },
+        {
+          "filename": "humidity_pack_pro.png",
+          "path": "/imgs/samples/humidity_pack_pro.png",
+          "extension": ".png",
+          "modified": "2026-03-12T01:08:55.687Z"
+        },
+        {
+          "filename": "humidity_pack_diy.png",
+          "path": "/imgs/samples/humidity_pack_diy.png",
+          "extension": ".png",
+          "modified": "2026-03-12T01:08:55.686Z"
+        },
+        {
+          "filename": "humidity_pack_eco.png",
+          "path": "/imgs/samples/humidity_pack_eco.png",
+          "extension": ".png",
+          "modified": "2026-03-12T01:08:55.686Z"
+        },
+        {
+          "filename": "glossy-sup-front-2.png",
+          "path": "/imgs/samples/glossy-sup-front-2.png",
+          "extension": ".png",
+          "modified": "2026-03-12T01:08:55.685Z"
+        },
+        {
+          "filename": "glossy-sup-front.webp",
+          "path": "/imgs/samples/glossy-sup-front.webp",
+          "extension": ".webp",
+          "modified": "2026-03-12T01:08:55.685Z"
+        },
+        {
+          "filename": "home-compostable-rollstock.jpg",
+          "path": "/imgs/samples/home-compostable-rollstock.jpg",
+          "extension": ".jpg",
+          "modified": "2026-03-12T01:08:55.685Z"
+        },
+        {
+          "filename": "humidity-control-sample.png",
+          "path": "/imgs/samples/humidity-control-sample.png",
+          "extension": ".png",
+          "modified": "2026-03-12T01:08:55.685Z"
+        },
+        {
+          "filename": "glossy-sup-back-2.png",
+          "path": "/imgs/samples/glossy-sup-back-2.png",
+          "extension": ".png",
+          "modified": "2026-03-12T01:08:55.684Z"
+        },
+        {
+          "filename": "glossy-sup-back.webp",
+          "path": "/imgs/samples/glossy-sup-back.webp",
+          "extension": ".webp",
+          "modified": "2026-03-12T01:08:55.684Z"
+        },
+        {
+          "filename": "composable-pouch-certification.jpg",
+          "path": "/imgs/samples/composable-pouch-certification.jpg",
+          "extension": ".jpg",
+          "modified": "2026-03-12T01:08:55.683Z"
+        },
+        {
+          "filename": "compostable-pouch-home.jpg",
+          "path": "/imgs/samples/compostable-pouch-home.jpg",
+          "extension": ".jpg",
+          "modified": "2026-03-12T01:08:55.683Z"
+        },
+        {
+          "filename": "cracked-pouch.png",
+          "path": "/imgs/samples/cracked-pouch.png",
+          "extension": ".png",
+          "modified": "2026-03-12T01:08:55.683Z"
+        },
+        {
+          "filename": "brittle-vs-strong-compost.jpg",
+          "path": "/imgs/samples/brittle-vs-strong-compost.jpg",
+          "extension": ".jpg",
+          "modified": "2026-03-12T01:08:55.682Z"
+        },
+        {
+          "filename": "biope-banner-v2.jpg",
+          "path": "/imgs/samples/biope-banner-v2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-03-12T01:08:55.681Z"
+        },
+        {
+          "filename": "biope-banner.jpg",
+          "path": "/imgs/samples/biope-banner.jpg",
+          "extension": ".jpg",
+          "modified": "2026-03-12T01:08:55.681Z"
         }
       ]
     },
@@ -5994,6 +5994,17 @@
         }
       ]
     },
+    "seo-photos/organic": {
+      "count": 1,
+      "images": [
+        {
+          "filename": "eco_friendly_organic_pouch.webp",
+          "path": "/imgs/seo-photos/organic/eco_friendly_organic_pouch.webp",
+          "extension": ".webp",
+          "modified": "2026-03-12T01:35:23.457Z"
+        }
+      ]
+    },
     "seo-photos/usa/coffee": {
       "count": 3,
       "images": [
@@ -6119,16 +6130,16 @@
       "count": 41,
       "images": [
         {
-          "filename": "compostable-rollstock-structure.png",
-          "path": "/imgs/spec/compostable-rollstock-structure.png",
-          "extension": ".png",
-          "modified": "2026-03-05T12:29:55.285Z"
-        },
-        {
           "filename": "pet-quadlex-aluminum-heavy.webp",
           "path": "/imgs/spec/pet-quadlex-aluminum-heavy.webp",
           "extension": ".webp",
-          "modified": "2026-02-25T02:39:03.959Z"
+          "modified": "2026-03-12T01:08:55.697Z"
+        },
+        {
+          "filename": "compostable-rollstock-structure.png",
+          "path": "/imgs/spec/compostable-rollstock-structure.png",
+          "extension": ".png",
+          "modified": "2026-03-12T01:08:55.696Z"
         },
         {
           "filename": "tech-spec-hero.png",
@@ -7745,19 +7756,19 @@
           "filename": "spot-uv-pouch.png",
           "path": "/imgs/surface/spot-uv-pouch.png",
           "extension": ".png",
-          "modified": "2026-03-06T03:04:05.418Z"
+          "modified": "2026-03-12T01:08:55.699Z"
         },
         {
           "filename": "kraft-texture.png",
           "path": "/imgs/surface/kraft-texture.png",
           "extension": ".png",
-          "modified": "2026-02-28T05:56:07.608Z"
+          "modified": "2026-03-12T01:08:55.698Z"
         },
         {
           "filename": "spot-matte-finish.webp",
           "path": "/imgs/surface/spot-matte-finish.webp",
           "extension": ".webp",
-          "modified": "2026-02-25T06:30:37.284Z"
+          "modified": "2026-03-12T01:08:55.698Z"
         },
         {
           "filename": "a_achieve_pack_closure_decision_guide_8541101.webp",

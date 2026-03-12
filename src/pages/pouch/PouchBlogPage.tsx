@@ -67,6 +67,16 @@ export default function PouchBlogPage() {
     },
 
     {
+      title: 'Organic & Non-GMO Compliance Support',
+      excerpt: 'Maintain your USDA Organic and EU Organic certifications. Download our Transparency Kit with Non-GMO affidavits and TÜV certificates for your auditor.',
+      image: '/imgs/seo-photos/organic/eco_friendly_organic_pouch.webp',
+      date: '2026-03-12',
+      category: 'Legal & Compliance',
+      readTime: '5 min',
+      link: '/blog/organic-compliance-support'
+    },
+
+    {
       title: 'Digital Printing Eco Packaging Guide 2026',
       excerpt: 'Why digital printing is the sustainable choice. Zero setup waste, no plate fees, and 15-day turnaround. HP Indigo 1200 DPI quality on compostable films.',
       image: '/imgs/seo-photos/a_digital_printing_customization_2717640.webp',
