@@ -409,6 +409,7 @@ const StandUpPouchQuotePage = lazyWithRetry(() => import('./pages/quotes/StandUp
 const SpoutedPouchQuotePage = lazyWithRetry(() => import('./pages/quotes/SpoutedPouchQuotePage'))
 const ThreeSideSealQuotePage = lazyWithRetry(() => import('./pages/quotes/ThreeSideSealQuotePage'))
 const CertificateDownloadPage = lazyWithRetry(() => import('./pages/quotes/CertificateDownloadPage'))
+const RollstockQuotePage = lazyWithRetry(() => import('./pages/quotes/RollstockQuotePage'))
 
 // Prospect Finder Pages - Lazy loaded
 const ProspectFinderPage = lazyWithRetry(() => import('./pages/admin/prospects/ProspectFinderPage'))
@@ -490,6 +491,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/quotes/three-side-seal" element={<ThreeSideSealQuotePage />} />
                   <Route path="/quotes/stand-up-pouch" element={<StandUpPouchQuotePage />} />
                   <Route path="/quotes/spouted-pouch" element={<SpoutedPouchQuotePage />} />
+                  <Route path="/quotes/rollstock" element={<RollstockQuotePage />} />
                   <Route path="/cert" element={<CertificateDownloadPage />} />
                   {/* Fallback for other routes back to Home or 404, or keep as Home for now */}
                   <Route path="*" element={<PouchHomePage />} />
@@ -541,6 +543,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/quotes/three-side-seal" element={<ThreeSideSealQuotePage />} />
                         <Route path="/quotes/stand-up-pouch" element={<StandUpPouchQuotePage />} />
                         <Route path="/quotes/spouted-pouch" element={<SpoutedPouchQuotePage />} />
+                        <Route path="/quotes/rollstock" element={<RollstockQuotePage />} />
                         <Route path="/quote/:id" element={<QuotationViewPage />} />
                         <Route path="/artwork-review/:batchId" element={<ArtworkReviewPage />} />
                         

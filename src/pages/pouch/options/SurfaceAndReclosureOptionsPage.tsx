@@ -10,6 +10,7 @@ const SURFACE_GALLERY = [
   { id: 'matte', name: 'Matte Finish', description: 'Sophisticated & non-reflective', image: '/imgs/surface/a_matte_finish_detail_7483118.webp' },
   { id: 'gloss', name: 'Gloss Finish', description: 'High-shine & vibrant', image: '/imgs/surface/a_gloss_finish_detail_5685549.webp' },
   { id: 'spot-matte', name: 'Spot Matte', description: 'Contrast glossy & matte', image: '/imgs/surface/spot-matte-finish.webp' },
+  { id: 'spot-uv', name: 'Spot UV Finish', description: 'Glossy spots over matte', image: '/imgs/surface/spot-uv-pouch.png' },
   { id: 'soft-touch', name: 'Soft Touch', description: 'Velvet-like tactile feel', image: '/imgs/surface/a_softtouch_pouch_correct_7961783.webp' },
   { id: 'metallic', name: 'Metallic Gold', description: 'Luxurious premium look', image: '/imgs/surface/a_metallic_gold_closeup_5151764.webp' },
   { id: 'embossed', name: 'Embossed', description: 'Raised 3D texture', image: '/imgs/surface/a_embossed_navy_9933981.webp' },
@@ -70,17 +71,10 @@ const StarRating = ({ rating }: { rating: number }) => (
 )
 
 export default function SurfaceAndReclosureOptionsPage() {
-  const [zoomedImage, setZoomedImage] = useState<string | null>(null)
+  
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
 
-  useEffect(() => {
-    // Close zoom modal on escape key
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setZoomedImage(null)
-    }
-    window.addEventListener('keydown', handleEscape)
-    return () => window.removeEventListener('keydown', handleEscape)
-  }, [])
+  
 
   return (
     <PouchLayout>
@@ -120,26 +114,6 @@ export default function SurfaceAndReclosureOptionsPage() {
           })}
         </script>
       </Helmet>
-
-      {/* Image Zoom Modal */}
-      {zoomedImage && (
-        <div 
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center cursor-zoom-out"
-          onClick={() => setZoomedImage(null)}
-        >
-          <button 
-            className="absolute top-4 right-4 text-white hover:text-[#10B981] transition-colors"
-            onClick={() => setZoomedImage(null)}
-          >
-            <X className="w-10 h-10" />
-          </button>
-          <img 
-            src={zoomedImage} 
-            alt="Zoomed view" 
-            className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg"
-          />
-        </div>
-      )}
 
       {/* Hero Section */}
       <section className="relative pt-24 pb-20 border-b-4 border-black overflow-hidden">
@@ -196,8 +170,8 @@ export default function SurfaceAndReclosureOptionsPage() {
 
           {/* Main KV Image */}
           <div 
-            className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl mb-8 cursor-zoom-in group"
-            onClick={() => setZoomedImage('/imgs/surface/a_achieve_pack_main_kv_six_finishes_3535755.webp')}
+            className="lb-img cursor-zoom-in relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl mb-8 cursor-zoom-in group"
+            
           >
             <img 
               src="/imgs/surface/a_achieve_pack_main_kv_six_finishes_3535755.webp" 
@@ -215,8 +189,8 @@ export default function SurfaceAndReclosureOptionsPage() {
             {SURFACE_GALLERY.map((item) => (
               <div 
                 key={item.id}
-                className="bg-white rounded-xl overflow-hidden shadow-lg border-2 border-transparent hover:border-[#10B981] transition-all cursor-pointer group"
-                onClick={() => setZoomedImage(item.image)}
+                className="lb-img cursor-zoom-in bg-white rounded-xl overflow-hidden shadow-lg border-2 border-transparent hover:border-[#10B981] transition-all cursor-pointer group"
+                
               >
                 <div className="aspect-square overflow-hidden">
                   <img 
@@ -364,8 +338,8 @@ export default function SurfaceAndReclosureOptionsPage() {
             {RECLOSURE_GALLERY.map((item) => (
               <div 
                 key={item.id}
-                className="bg-white rounded-xl overflow-hidden shadow-lg border-2 border-transparent hover:border-[#10B981] transition-all cursor-pointer group"
-                onClick={() => setZoomedImage(item.image)}
+                className="lb-img cursor-zoom-in bg-white rounded-xl overflow-hidden shadow-lg border-2 border-transparent hover:border-[#10B981] transition-all cursor-pointer group"
+                
               >
                 <div className="aspect-square overflow-hidden">
                   <img 

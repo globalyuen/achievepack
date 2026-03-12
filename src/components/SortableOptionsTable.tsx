@@ -176,6 +176,17 @@ export const SURFACE_OPTIONS: SurfaceOption[] = [
     description: 'Raised texture creates 3D effect on packaging'
   },
   {
+    id: 'spot-uv',
+    name: 'Spot UV Finish',
+    img: '/imgs/surface/spot-uv-pouch.png',
+    finish: 'gloss',
+    premium: true,
+    printQuality: 'premium',
+    tactile: true,
+    bestFor: ['Brand emphasis', 'Contrast highlights', 'Luxury'],
+    description: 'Glossy spots over a matte surface creating stark contrast and focus'
+  },
+  {
     id: 'stamp-foil',
     name: 'Foil Stamping',
     img: '/imgs/store/surface/stamp-foil.webp',
@@ -369,8 +380,8 @@ export function SortableOptionsTable<T extends OptionType>({
   const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid')
   const [sortBy, setSortBy] = useState<string>('name')
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc')
-  const [lightboxImage, setLightboxImage] = useState<string | null>(null)
-  const [lightboxTitle, setLightboxTitle] = useState<string>('')
+  
+  
 
   const colorClasses = {
     blue: { bg: 'bg-blue-50', border: 'border-blue-200', text: 'text-blue-700', badge: 'bg-blue-100 text-blue-800' },
@@ -428,10 +439,7 @@ export function SortableOptionsTable<T extends OptionType>({
     })
   }, [options, sortBy, sortDirection])
 
-  const openLightbox = (img: string, name: string) => {
-    setLightboxImage(img)
-    setLightboxTitle(name)
-  }
+  
 
   const getSortButtons = () => {
     switch (type) {
@@ -507,9 +515,9 @@ export function SortableOptionsTable<T extends OptionType>({
               className="bg-white rounded-xl p-4 border border-neutral-200 hover:border-primary-300 hover:shadow-md transition-all group"
             >
               {/* Image */}
-              <div 
-                className="aspect-square bg-neutral-50 rounded-lg mb-3 flex items-center justify-center cursor-pointer overflow-hidden"
-                onClick={() => openLightbox(option.img, option.name)}
+              <div data-lb-alt={option.name} 
+                className="lb-img cursor-zoom-in aspect-square bg-neutral-50 rounded-lg mb-3 flex items-center justify-center cursor-pointer overflow-hidden"
+                
               >
                 <img
                   src={option.img}
@@ -601,8 +609,8 @@ export function SortableOptionsTable<T extends OptionType>({
                     <img
                       src={option.img}
                       alt={option.name}
-                      className="w-12 h-12 object-contain bg-neutral-50 rounded cursor-pointer"
-                      onClick={() => openLightbox(option.img, option.name)}
+                      className="lb-img cursor-zoom-in w-12 h-12 object-contain bg-neutral-50 rounded cursor-pointer"
+                      
                     />
                   </td>
                   <td className="py-2 px-3 font-medium text-neutral-800">{option.name}</td>
@@ -656,25 +664,6 @@ export function SortableOptionsTable<T extends OptionType>({
           Book Meeting →
         </a>
       </div>
-
-      {/* Lightbox */}
-      {lightboxImage && (
-        <div 
-          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
-          onClick={() => setLightboxImage(null)}
-        >
-          <div className="relative max-w-2xl w-full bg-white rounded-2xl p-4" onClick={e => e.stopPropagation()}>
-            <button
-              onClick={() => setLightboxImage(null)}
-              className="absolute -top-3 -right-3 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-neutral-100"
-            >
-              <X className="h-5 w-5" />
-            </button>
-            <img src={lightboxImage} alt={lightboxTitle} className="w-full h-auto max-h-[70vh] object-contain" />
-            <p className="text-center mt-3 font-semibold text-neutral-800">{lightboxTitle}</p>
-          </div>
-        </div>
-      )}
     </div>
   )
 }

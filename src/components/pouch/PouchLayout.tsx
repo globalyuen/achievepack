@@ -314,6 +314,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
               <Link to="/quotes/flat-bottom?p=pouch2026" className="hover:underline">FLAT BOTTOM</Link>
               <Link to="/quotes/stand-up-pouch?p=pouch2026" className="hover:underline">STAND UP</Link>
               <Link to="/quotes/spouted-pouch?p=pouch2026" className="hover:underline">SPOUTED</Link>
+              <Link to="/quotes/rollstock?p=pouch2026" className="hover:underline">ROLL</Link>
               <Link to="/cert?p=pouch2026" className="hover:underline">CERT</Link>
               <Link to="/privacy" className="hover:underline">PRIVACY</Link>
               <Link to="/terms" className="hover:underline">TERMS</Link>

@@ -60,6 +60,7 @@ export default function Footer() {
               <li><Link to="/packaging/flat-pouches" className="hover:text-primary-400">Flat Pouches</Link></li>
               <li><Link to="/packaging/side-gusset-bags" className="hover:text-primary-400">Side Gusset Bags</Link></li>
               <li><Link to="/packaging/custom-boxes" className="hover:text-primary-400">Custom Boxes</Link></li>
+              <li><Link to="/quotes/rollstock" className="hover:text-primary-400">Rollstock</Link></li>
             </ul>
           </div>
           
@@ -120,6 +121,8 @@ export default function Footer() {
               <li><Link to="/knowledge/pouch-sizing" className="hover:text-primary-400">Pouch Sizing Guide</Link></li>
               <li><Link to="/knowledge/size-guide" className="hover:text-primary-400">Size Reference</Link></li>
               <li><Link to="/knowledge/all-options" className="hover:text-primary-400">All Options</Link></li>
+              <li><Link to="/features/surface-finish" className="hover:text-primary-400">Surface Option</Link></li>
+              <li><Link to="/features/reclosure-options" className="hover:text-primary-400">Reclosure Option</Link></li>
               <li><Link to="/knowledge/printing-types" className="hover:text-primary-400">Printing Types</Link></li>
               <li><Link to="/knowledge/k-seal-stand-up-pouches" className="hover:text-primary-400">K-Seal Pouches</Link></li>
               <li><Link to="/knowledge/white-ink-underprint" className="hover:text-primary-400">White Ink Underprint</Link></li>

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useSearchParams } from 'react-router-dom';
+import QuoteLightbox from '../../components/QuoteLightbox';
+
 
 const FlatBottomQuotePage: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -64,7 +66,8 @@ const FlatBottomQuotePage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
+      <QuoteLightbox />
+<Helmet>
         <title>Quotation: Flat Bottom Kraft Pouch - Pouch.eco</title>
         <style>
           {`
@@ -314,7 +317,7 @@ const FlatBottomQuotePage: React.FC = () => {
         {/*  Header  */}
         <header className="flex flex-col md:flex-row justify-between items-start border-b border-gray-200 pb-8 mb-8 gap-6">
             <div className="mb-6 md:mb-0 w-full md:w-2/3">
-                <img src="/imgs/ryan-email-signature.jpg" alt="Pouch.eco By Achieve Pack" className="w-full max-w-[400px] h-auto object-contain drop-shadow-sm rounded text-left" onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://achievepack.com/imgs/store/achieve-pack-logo.png'; }} />
+                <img src="/imgs/ryan-email-signature.jpg" alt="Pouch.eco By Achieve Pack" className="lb-img cursor-zoom-in w-full max-w-[400px] h-auto object-contain drop-shadow-sm rounded text-left" onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://achievepack.com/imgs/store/achieve-pack-logo.png'; }} />
             </div>
             <div className="text-left md:text-right">
                 <h2 className="text-2xl font-bold text-green-600 uppercase tracking-widest mb-2">Quotation</h2>
@@ -331,7 +334,7 @@ const FlatBottomQuotePage: React.FC = () => {
         <section className="mb-12 flex flex-col lg:flex-row gap-10 items-start">
             <div className="w-full lg:w-1/2 flex-shrink-0 flex flex-col gap-6">
                 <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100 flex items-center justify-center relative shadow-inner min-h-[500px]">
-                    <img src="/imgs/product/pouch1.webp" alt="Flat Bottom Kraft Pouch" className="w-full max-w-[600px] h-auto object-contain rounded drop-shadow-xl mix-blend-multiply transition-transform hover:scale-105 duration-300" />
+                    <img src="/imgs/product/pouch1.webp" alt="Flat Bottom Kraft Pouch" className="lb-img cursor-zoom-in w-full max-w-[600px] h-auto object-contain rounded drop-shadow-xl mix-blend-multiply transition-transform hover:scale-105 duration-300" />
                 </div>
                 
                 <h5 className="text-lg font-black text-gray-800 uppercase tracking-widest mt-4">Included Details</h5>
@@ -340,7 +343,7 @@ const FlatBottomQuotePage: React.FC = () => {
                     <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200 flex flex-col items-center relative group hover:border-gray-300 transition-colors">
                         <span className="absolute top-4 left-4 text-xs font-bold text-green-700 uppercase tracking-widest bg-green-50 px-3 py-1 rounded-md z-10 shadow-sm border border-green-100">Home Compostable Zipper</span>
                         <div className="w-full flex flex-col items-center justify-center min-h-[250px] mt-6">
-                            <img src="/imgs/pdf-assets/front-zipper.webp" alt="One Sided Zipper" className="w-full max-w-[500px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
+                            <img src="/imgs/pdf-assets/front-zipper.webp" alt="One Sided Zipper" className="lb-img cursor-zoom-in w-full max-w-[500px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
                         </div>
                         <div className="w-full pt-4 border-t border-gray-100 mt-2 text-center">
                             <h6 className="font-bold text-gray-800 text-sm uppercase mb-1">Front Pocket Zipper</h6>
@@ -354,7 +357,7 @@ const FlatBottomQuotePage: React.FC = () => {
                     <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200 flex flex-col items-center relative group hover:border-gray-300 transition-colors">
                         <span className="absolute top-4 left-4 text-xs font-bold text-blue-700 uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-md z-10 shadow-sm border border-blue-100">Industrial Compostable Valve</span>
                         <a href="https://achievepack.com/products/coffee-bags-degassing-valve" target="_blank" className="w-full flex flex-col items-center justify-center min-h-[250px] mt-6 group-hover:opacity-90">
-                            <img src="/imgs/pdf-assets/valve.webp" alt="Degassing Valve" className="w-full max-w-[500px] mx-auto h-auto object-contain mb-4 transition-transform group-hover:scale-105 duration-300" />
+                            <img src="/imgs/pdf-assets/valve.webp" alt="Degassing Valve" className="lb-img cursor-zoom-in w-full max-w-[500px] mx-auto h-auto object-contain mb-4 transition-transform group-hover:scale-105 duration-300" />
                         </a>
                         <div className="w-full pt-4 border-t border-gray-100 mt-2 text-center">
                             <h6 className="font-bold text-gray-800 text-sm uppercase mb-1">PLA One-Way Degassing Valve</h6>
@@ -373,7 +376,7 @@ const FlatBottomQuotePage: React.FC = () => {
                     <div className="absolute top-0 right-0 bg-amber-200 text-amber-800 text-[10px] font-bold px-2 py-1 rounded-bl-lg rounded-tr-xl uppercase tracking-widest">Expert Tip</div>
                     <div className="flex gap-4 items-start">
                         <div className="w-16 h-16 rounded overflow-hidden flex-shrink-0 border border-amber-200">
-                            <img src="/imgs/samples/brittle-vs-strong-compost.jpg" alt="Bag Humidity Control" className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                            <img src="/imgs/samples/brittle-vs-strong-compost.jpg" alt="Bag Humidity Control" className="lb-img cursor-zoom-in w-full h-full object-cover group-hover:scale-105 transition-transform" />
                         </div>
                         <div>
                             <h6 className="font-bold text-amber-900 text-sm mb-1 uppercase pb-1 flex items-center gap-1">
@@ -395,7 +398,7 @@ const FlatBottomQuotePage: React.FC = () => {
                 <h4 className="text-md font-bold text-gray-500 uppercase tracking-widest mb-3 border-b border-gray-100 pb-2">Material Structure</h4>
                 <div className="bg-amber-50 rounded-xl p-6 border border-amber-100 mb-8 shadow-sm">
                     <div className="w-full bg-white p-6 rounded-xl border border-amber-200 mb-6 flex flex-col items-center justify-center shadow-inner min-h-[250px] group">
-                        <img src="/imgs/pdf-assets/bio-kraft-vm-cello.webp" alt="Material Structure Cross Section" className="w-full max-w-[500px] h-auto object-contain rounded mix-blend-multiply transition-transform group-hover:scale-105 duration-300" />
+                        <img src="/imgs/pdf-assets/bio-kraft-vm-cello.webp" alt="Material Structure Cross Section" className="lb-img cursor-zoom-in w-full max-w-[500px] h-auto object-contain rounded mix-blend-multiply transition-transform group-hover:scale-105 duration-300" />
                     </div>
                     <div className="w-full text-gray-800">
                         <p className="font-bold text-amber-900 mb-3 text-lg leading-tight flex flex-col sm:flex-row sm:items-center gap-2">
@@ -423,35 +426,35 @@ const FlatBottomQuotePage: React.FC = () => {
                         <div className="flex flex-wrap gap-5 mt-4 bg-white/70 p-5 rounded-xl border border-amber-200 shadow-sm justify-center sm:justify-start">
                             <div className="flex flex-col items-center text-center group w-24">
                                 <a href="https://achievepack.com/imgs/cert/cert-din-home-compost.png" target="_blank" className="block mb-2">
-                                    <img src="/imgs/pdf-assets/cert-din-home-compost.png" alt="DIN Home Compostable Certification" title="Click to enlarge" className="h-[100px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform" />
+                                    <img src="/imgs/pdf-assets/cert-din-home-compost.png" alt="DIN Home Compostable Certification" title="Click to enlarge" className="lb-img cursor-zoom-in h-[100px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform" />
                                 </a>
                                 <span className="text-xs font-bold text-green-800 leading-tight">DIN Certco</span>
                                 <span className="text-[10px] text-gray-600 font-medium mt-1 leading-tight">Home Compost</span>
                             </div>
                             <div className="flex flex-col items-center text-center group w-24">
                                 <a href="https://achievepack.com/imgs/cert/cert-ABA-as5810.png" target="_blank" className="block mb-2">
-                                    <img src="/imgs/pdf-assets/cert-ABA-as5810.png" alt="ABA AS5810 Australian Certification" title="Click to enlarge" className="h-[100px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform" />
+                                    <img src="/imgs/pdf-assets/cert-ABA-as5810.png" alt="ABA AS5810 Australian Certification" title="Click to enlarge" className="lb-img cursor-zoom-in h-[100px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform" />
                                 </a>
                                 <span className="text-xs font-bold text-green-800 leading-tight">AU AS5810</span>
                                 <span className="text-[10px] text-gray-600 font-medium mt-1 leading-tight">Home Compost</span>
                             </div>
                             <div className="flex flex-col items-center text-center group w-24">
                                 <a href="https://products.bpiworld.org/companies/achieve-pack-company" target="_blank" className="block mb-2">
-                                    <img src="/imgs/pdf-assets/logo-bpi.jpg" alt="BPI Certified" title="Click to view BPI Listing" className="h-[100px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform rounded-sm" />
+                                    <img src="/imgs/pdf-assets/logo-bpi.jpg" alt="BPI Certified" title="Click to view BPI Listing" className="lb-img cursor-zoom-in h-[100px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform rounded-sm" />
                                 </a>
                                 <span className="text-xs font-bold text-green-800 leading-tight">BPI Certified</span>
                                 <span className="text-[10px] text-gray-600 font-medium mt-1 leading-tight">Compostable</span>
                             </div>
                             <div className="flex flex-col items-center text-center group w-24">
                                 <a href="https://achievepack.com/imgs/cert/cert-fsc.png" target="_blank" className="block mb-2">
-                                    <img src="/imgs/pdf-assets/cert-fsc.png" alt="FSC Certification" title="Click to enlarge" className="h-[100px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform" />
+                                    <img src="/imgs/pdf-assets/cert-fsc.png" alt="FSC Certification" title="Click to enlarge" className="lb-img cursor-zoom-in h-[100px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform" />
                                 </a>
                                 <span className="text-xs font-bold text-green-900 leading-tight">FSC Certified</span>
                                 <span className="text-[10px] text-gray-600 font-medium mt-1 leading-tight">Responsible Forestry</span>
                             </div>
                             <div className="flex flex-col items-center text-center group w-24">
                                 <a href="https://achievepack.com/imgs/cert/cert-brc.webp" target="_blank" className="block mb-2">
-                                    <img src="/imgs/pdf-assets/cert-brc.webp" alt="BRC Food Safety" title="Click to enlarge" className="h-[100px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform" />
+                                    <img src="/imgs/pdf-assets/cert-brc.webp" alt="BRC Food Safety" title="Click to enlarge" className="lb-img cursor-zoom-in h-[100px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform" />
                                 </a>
                                 <span className="text-xs font-bold text-gray-800 leading-tight">BRC Standard</span>
                                 <span className="text-[10px] text-gray-600 font-medium mt-1 leading-tight">Food Safety</span>
@@ -804,7 +807,7 @@ const FlatBottomQuotePage: React.FC = () => {
             </h3>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 flex flex-col md:flex-row gap-6 mt-4 shadow-sm items-center">
                 <div className="w-full md:w-1/3 flex justify-center group">
-                    <img src="/imgs/pdf-assets/foil.webp" alt="Stamp Foiling Option" className="w-full max-w-[250px] rounded-lg shadow-md border border-gray-200 object-cover transition-transform group-hover:scale-[1.02] duration-300" />
+                    <img src="/imgs/pdf-assets/foil.webp" alt="Stamp Foiling Option" className="lb-img cursor-zoom-in w-full max-w-[250px] rounded-lg shadow-md border border-gray-200 object-cover transition-transform group-hover:scale-[1.02] duration-300" />
                 </div>
                 <div className="w-full md:w-2/3 text-gray-800">
                     <h4 className="text-xl font-bold text-gray-900 mb-2">Stamp Foiling</h4>

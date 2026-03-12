@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useSearchParams } from 'react-router-dom';
+import QuoteLightbox from '../../components/QuoteLightbox';
+
 
 const StandUpPouchQuotePage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -85,7 +87,8 @@ const StandUpPouchQuotePage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
+      <QuoteLightbox />
+<Helmet>
         <title>Quotation: Stand Up Pouch with Zipper - Pouch.eco</title>
         <style>
           {`
@@ -237,7 +240,7 @@ const StandUpPouchQuotePage: React.FC = () => {
         {/* Header */}
         <header className="flex flex-col md:flex-row justify-between items-start border-b border-gray-200 pb-8 mb-8 gap-6">
             <div className="mb-6 md:mb-0 w-full md:w-2/3">
-                <img src="/imgs/ryan-email-signature.jpg" alt="Pouch.eco By Achieve Pack" className="w-full max-w-[400px] h-auto object-contain drop-shadow-sm rounded text-left" onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://achievepack.com/imgs/store/achieve-pack-logo.png'; }} />
+                <img src="/imgs/ryan-email-signature.jpg" alt="Pouch.eco By Achieve Pack" className="lb-img cursor-zoom-in w-full max-w-[400px] h-auto object-contain drop-shadow-sm rounded text-left" onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://achievepack.com/imgs/store/achieve-pack-logo.png'; }} />
             </div>
             <div className="text-left md:text-right">
                 <h2 className="text-2xl font-bold text-green-600 uppercase tracking-widest mb-2">Quotation</h2>
@@ -258,7 +261,7 @@ const StandUpPouchQuotePage: React.FC = () => {
         <section className="mb-12 flex flex-col lg:flex-row gap-10 items-start">
             <div className="w-full lg:w-1/2 flex-shrink-0 flex flex-col gap-6">
                 <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100 flex items-center justify-center relative shadow-inner min-h-[400px]">
-                    <img src="https://achievepack.com/imgs/pouch-shape/achieve-pack-sup-lifestyle.png" alt="Stand Up Pouch with Zipper" className="w-full max-w-[400px] h-auto object-contain rounded drop-shadow-xl mix-blend-multiply transition-transform hover:scale-105 duration-300" />
+                    <img src="https://achievepack.com/imgs/pouch-shape/achieve-pack-sup-lifestyle.png" alt="Stand Up Pouch with Zipper" className="lb-img cursor-zoom-in w-full max-w-[400px] h-auto object-contain rounded drop-shadow-xl mix-blend-multiply transition-transform hover:scale-105 duration-300" />
                 </div>
                 
                 <h5 className="text-lg font-black text-gray-800 uppercase tracking-widest mt-4">Included Details</h5>
@@ -267,7 +270,7 @@ const StandUpPouchQuotePage: React.FC = () => {
                     <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200 flex flex-col items-center relative group hover:border-gray-300 transition-colors">
                         <span className="absolute top-4 left-4 text-xs font-bold text-amber-700 uppercase tracking-widest bg-amber-50 px-3 py-1 rounded-md z-10 shadow-sm border border-amber-100">Surface Kraft Texture</span>
                         <div className="w-full flex flex-col items-center justify-center min-h-[200px] mt-6">
-                            <img src="/imgs/surface/kraft-texture.png" alt="Kraft Paper Texture" className="w-full max-w-[400px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
+                            <img src="/imgs/surface/kraft-texture.png" alt="Kraft Paper Texture" className="lb-img cursor-zoom-in w-full max-w-[400px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
                         </div>
                         <div className="w-full pt-4 border-t border-gray-100 mt-2 text-center">
                             <h6 className="font-bold text-gray-800 text-sm uppercase mb-1">Natural Kraft Texture</h6>
@@ -280,7 +283,7 @@ const StandUpPouchQuotePage: React.FC = () => {
                     <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200 flex flex-col items-center relative group hover:border-gray-300 transition-colors">
                         <span className="absolute top-4 left-4 text-xs font-bold text-green-700 uppercase tracking-widest bg-green-50 px-3 py-1 rounded-md z-10 shadow-sm border border-green-100">Compostable Zipper</span>
                         <div className="w-full flex flex-col items-center justify-center min-h-[200px] mt-6">
-                            <img src="/imgs/samples/kraft-compostable-zipper.png" alt="Compostable Zipper" className="w-full max-w-[400px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
+                            <img src="/imgs/samples/kraft-compostable-zipper.png" alt="Compostable Zipper" className="lb-img cursor-zoom-in w-full max-w-[400px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
                         </div>
                         <div className="w-full pt-4 border-t border-gray-100 mt-2 text-center">
                             <h6 className="font-bold text-gray-800 text-sm uppercase mb-1">Compostable Resealable Zipper</h6>
@@ -303,7 +306,7 @@ const StandUpPouchQuotePage: React.FC = () => {
                 <h4 className="text-md font-bold text-gray-500 uppercase tracking-widest mb-3 border-b border-gray-100 pb-2">Material Structure</h4>
                 <div className="bg-amber-50 rounded-xl p-6 border border-amber-100 mb-8 shadow-sm">
                     <div className="w-full bg-white p-6 rounded-xl border border-amber-200 mb-6 flex flex-col items-center justify-center shadow-inner min-h-[200px] group">
-                        <img src="https://achievepack.com/imgs/spec/bio-kraft-vm-cello.webp" alt="Kraft Paper Material Structure" className="w-full max-w-[400px] h-auto object-contain rounded mix-blend-multiply transition-transform group-hover:scale-105 duration-300" />
+                        <img src="https://achievepack.com/imgs/spec/bio-kraft-vm-cello.webp" alt="Kraft Paper Material Structure" className="lb-img cursor-zoom-in w-full max-w-[400px] h-auto object-contain rounded mix-blend-multiply transition-transform group-hover:scale-105 duration-300" />
                     </div>
                     <div className="w-full text-gray-800">
                         <p className="font-bold text-amber-900 mb-3 text-lg leading-tight flex flex-col sm:flex-row sm:items-center gap-2">
@@ -331,18 +334,18 @@ const StandUpPouchQuotePage: React.FC = () => {
                         <div className="flex flex-wrap gap-5 mt-4 bg-white/70 p-5 rounded-xl border border-amber-200 shadow-sm justify-center sm:justify-start">
                             <div className="flex flex-col items-center text-center group w-24">
                                 <a href="https://products.bpiworld.org/companies/achieve-pack-company" target="_blank" className="block mb-2">
-                                    <img src="/imgs/pdf-assets/logo-bpi.jpg" alt="BPI Certified" className="h-[80px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform rounded-sm" />
+                                    <img src="/imgs/pdf-assets/logo-bpi.jpg" alt="BPI Certified" className="lb-img cursor-zoom-in h-[80px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform rounded-sm" />
                                 </a>
                                 <span className="text-xs font-bold text-green-800 leading-tight">BPI Certified</span>
                             </div>
                             <div className="flex flex-col items-center text-center group w-24">
                                 <a href="https://achievepack.com/imgs/cert/cert-fsc.png" target="_blank" className="block mb-2">
-                                    <img src="/imgs/pdf-assets/cert-fsc.png" alt="FSC Certification" className="h-[80px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform" />
+                                    <img src="/imgs/pdf-assets/cert-fsc.png" alt="FSC Certification" className="lb-img cursor-zoom-in h-[80px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform" />
                                 </a>
                                 <span className="text-xs font-bold text-green-900 leading-tight">FSC Certified</span>
                             </div>
                             <div className="flex flex-col items-center text-center group w-24">
-                                <img src="https://www.pouch.eco/imgs/cert/cert-brc.webp" alt="BRC Food Safety" className="h-[80px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform rounded-sm" />
+                                <img src="https://www.pouch.eco/imgs/cert/cert-brc.webp" alt="BRC Food Safety" className="lb-img cursor-zoom-in h-[80px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform rounded-sm" />
                                 <span className="text-xs font-bold text-amber-800 leading-tight mt-2">BRC Food Safety</span>
                             </div>
                         </div>
@@ -489,20 +492,30 @@ const StandUpPouchQuotePage: React.FC = () => {
             <div className="bg-gradient-to-br from-green-50 to-lime-50 rounded-xl p-6 border border-green-200 flex flex-col md:flex-row gap-6 shadow-sm items-center">
                 <div className="w-full md:w-1/3 flex justify-center">
                     <div className="bg-white p-6 rounded-xl border border-green-100 shadow-md">
-                        <img src="/imgs/cert/compostable-logo.png" alt="Compostable Certification Logo" className="w-full max-w-[180px] h-auto object-contain" />
+                        <img src="/imgs/cert/compostable-logo.png" alt="Compostable Certification Logo" className="lb-img cursor-zoom-in w-full max-w-[180px] h-auto object-contain" />
                     </div>
                 </div>
                 <div className="w-full md:w-2/3 text-gray-800">
                     <h4 className="text-xl font-bold text-green-800 mb-3">Add This Logo to Your Artwork</h4>
-                    <p className="text-gray-700 leading-relaxed mb-4">
-                        The <strong>Seedling Logo</strong> is the globally recognized symbol for industrially compostable packaging, certified to EN 13432 standard. Display this logo on your packaging to clearly communicate its eco-friendly end-of-life.
-                    </p>
-                    <ul className="space-y-2 text-sm text-green-800 bg-white/60 p-4 rounded-lg border border-green-100">
-                        <li className="flex items-start gap-2"><i className="fas fa-check-circle text-green-600 mt-0.5"></i> <span>Certified industrial compostable (EN 13432 / ASTM D6400)</span></li>
-                        <li className="flex items-start gap-2"><i className="fas fa-check-circle text-green-600 mt-0.5"></i> <span>Breaks down in commercial composting facilities</span></li>
-                        <li className="flex items-start gap-2"><i className="fas fa-check-circle text-green-600 mt-0.5"></i> <span>Builds consumer trust in your sustainability claims</span></li>
-                        <li className="flex items-start gap-2"><i className="fas fa-check-circle text-green-600 mt-0.5"></i> <span>We will provide the logo file for your designer</span></li>
-                    </ul>
+                    
+                    <div className="bg-white/60 p-4 rounded-lg border border-green-100 mb-4">
+                        <h5 className="font-bold text-green-900 flex items-center gap-2 mb-2"><i className="fas fa-gift text-green-600"></i> Free Options:</h5>
+                        <ul className="space-y-2 text-sm text-green-800">
+                            <li className="flex items-start gap-2"><i className="fas fa-check-circle text-green-600 mt-0.5"></i> <span><strong>Seedling Logo / Home Compostable Logo:</strong> We will provide the free logo file for your designer.</span></li>
+                            <li className="flex items-start gap-2"><i className="fas fa-check-circle text-green-600 mt-0.5"></i> <span>Builds consumer trust in your sustainability claims and guides proper disposal.</span></li>
+                        </ul>
+                    </div>
+
+                    <div className="bg-white/60 p-4 rounded-lg border border-amber-200">
+                        <h5 className="font-bold text-amber-900 flex items-center gap-2 mb-2"><i className="fas fa-award text-amber-600"></i> Paid BPI Certified Logo Option:</h5>
+                        <p className="text-sm text-gray-700 mb-2">
+                            Achieve Pack is a BPI Certified manufacturer (<a href="https://products.bpiworld.org/companies/achieve-pack-company" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">verify our BPI listing here</a>). You can add the official BPI logo to your packaging through our sublicense!
+                        </p>
+                        <ul className="space-y-2 text-sm text-amber-800">
+                            <li className="flex items-start gap-2"><i className="fas fa-info-circle text-amber-600 mt-0.5"></i> <span><strong>Sublicense Requirement:</strong> Requires a sublicense agreement. BPI charges USD $1,000 - $2,000 per year.</span></li>
+                            <li className="flex items-start gap-2"><i className="fas fa-check-circle text-amber-600 mt-0.5"></i> <span>Provides the highest standard of validation for industrial compostability in North America.</span></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -514,7 +527,7 @@ const StandUpPouchQuotePage: React.FC = () => {
             </h3>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 flex flex-col md:flex-row gap-6 mt-4 shadow-sm items-center">
                 <div className="w-full md:w-1/3 flex justify-center group">
-                    <img src="/imgs/pdf-assets/foil.webp" alt="Stamp Foiling Option" className="w-full max-w-[200px] rounded-lg shadow-md border border-gray-200 object-cover transition-transform group-hover:scale-[1.02] duration-300" />
+                    <img src="/imgs/pdf-assets/foil.webp" alt="Stamp Foiling Option" className="lb-img cursor-zoom-in w-full max-w-[200px] rounded-lg shadow-md border border-gray-200 object-cover transition-transform group-hover:scale-[1.02] duration-300" />
                 </div>
                 <div className="w-full md:w-2/3 text-gray-800">
                     <h4 className="text-xl font-bold text-gray-900 mb-2">Stamp Foiling</h4>
@@ -543,7 +556,7 @@ const StandUpPouchQuotePage: React.FC = () => {
         <section className="mb-12 flex flex-col lg:flex-row gap-10 items-start">
             <div className="w-full lg:w-1/2 flex-shrink-0 flex flex-col gap-6">
                 <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-100 flex items-center justify-center relative shadow-inner min-h-[400px]">
-                    <img src="https://achievepack.com/imgs/pouch-shape/achieve-pack-sup-lifestyle.png" alt="PLA Clear Stand Up Pouch" className="w-full max-w-[400px] h-auto object-contain rounded drop-shadow-xl mix-blend-multiply transition-transform hover:scale-105 duration-300" />
+                    <img src="https://achievepack.com/imgs/pouch-shape/achieve-pack-sup-lifestyle.png" alt="PLA Clear Stand Up Pouch" className="lb-img cursor-zoom-in w-full max-w-[400px] h-auto object-contain rounded drop-shadow-xl mix-blend-multiply transition-transform hover:scale-105 duration-300" />
                 </div>
                 
                 <h5 className="text-lg font-black text-gray-800 uppercase tracking-widest mt-4">Included Details</h5>
@@ -552,7 +565,7 @@ const StandUpPouchQuotePage: React.FC = () => {
                     <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200 flex flex-col items-center relative group hover:border-green-300 transition-colors">
                         <span className="absolute top-4 left-4 text-xs font-bold text-green-700 uppercase tracking-widest bg-green-50 px-3 py-1 rounded-md z-10 shadow-sm border border-green-100">Glossy Surface</span>
                         <div className="w-full flex flex-col items-center justify-center min-h-[200px] mt-6">
-                            <img src="https://achievepack.com/imgs/surface/ads/a_gloss_finish_detail_5685549.webp" alt="Glossy Surface Finish" className="w-full max-w-[400px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
+                            <img src="https://achievepack.com/imgs/surface/ads/a_gloss_finish_detail_5685549.webp" alt="Glossy Surface Finish" className="lb-img cursor-zoom-in w-full max-w-[400px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
                         </div>
                         <div className="w-full pt-4 border-t border-gray-100 mt-2 text-center">
                             <h6 className="font-bold text-gray-800 text-sm uppercase mb-1">Premium Glossy Finish</h6>
@@ -565,7 +578,7 @@ const StandUpPouchQuotePage: React.FC = () => {
                     <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200 flex flex-col items-center relative group hover:border-green-300 transition-colors">
                         <span className="absolute top-4 left-4 text-xs font-bold text-green-700 uppercase tracking-widest bg-green-50 px-3 py-1 rounded-md z-10 shadow-sm border border-green-100">Standard Zipper</span>
                         <div className="w-full flex flex-col items-center justify-center min-h-[200px] mt-6">
-                            <img src="https://achievepack.com/imgs/store/closure/normal-zipper.webp" alt="Standard Zipper" className="w-full max-w-[400px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
+                            <img src="https://achievepack.com/imgs/store/closure/normal-zipper.webp" alt="Standard Zipper" className="lb-img cursor-zoom-in w-full max-w-[400px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
                         </div>
                         <div className="w-full pt-4 border-t border-gray-100 mt-2 text-center">
                             <h6 className="font-bold text-gray-800 text-sm uppercase mb-1">Standard Resealable Zipper</h6>
@@ -585,7 +598,7 @@ const StandUpPouchQuotePage: React.FC = () => {
                 <h4 className="text-md font-bold text-gray-500 uppercase tracking-widest mb-3 border-b border-gray-100 pb-2">Material Structure</h4>
                 <div className="bg-green-50 rounded-xl p-6 border border-green-100 mb-8 shadow-sm">
                     <div className="w-full bg-white p-6 rounded-xl border border-green-200 mb-6 flex flex-col items-center justify-center shadow-inner min-h-[200px] group">
-                        <img src="https://achievepack.com/imgs/spec/bio-cello-triplex-metalised.webp" alt="PLA Material Structure" className="w-full max-w-[400px] h-auto object-contain rounded mix-blend-multiply transition-transform group-hover:scale-105 duration-300" />
+                        <img src="https://achievepack.com/imgs/spec/bio-cello-triplex-metalised.webp" alt="PLA Material Structure" className="lb-img cursor-zoom-in w-full max-w-[400px] h-auto object-contain rounded mix-blend-multiply transition-transform group-hover:scale-105 duration-300" />
                     </div>
                     <div className="w-full text-gray-800">
                         <p className="font-bold text-green-900 mb-3 text-lg leading-tight flex flex-col sm:flex-row sm:items-center gap-2">
@@ -613,12 +626,12 @@ const StandUpPouchQuotePage: React.FC = () => {
                         <div className="flex flex-wrap gap-5 mt-4 bg-white/70 p-5 rounded-xl border border-green-200 shadow-sm justify-center sm:justify-start">
                             <div className="flex flex-col items-center text-center group w-24">
                                 <a href="https://products.bpiworld.org/companies/achieve-pack-company" target="_blank" className="block mb-2">
-                                    <img src="/imgs/pdf-assets/logo-bpi.jpg" alt="BPI Certified" className="h-[80px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform rounded-sm" />
+                                    <img src="/imgs/pdf-assets/logo-bpi.jpg" alt="BPI Certified" className="lb-img cursor-zoom-in h-[80px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform rounded-sm" />
                                 </a>
                                 <span className="text-xs font-bold text-green-800 leading-tight">BPI Certified</span>
                             </div>
                             <div className="flex flex-col items-center text-center group w-24">
-                                <img src="https://www.pouch.eco/imgs/cert/cert-brc.webp" alt="BRC Food Safety" className="h-[80px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform rounded-sm" />
+                                <img src="https://www.pouch.eco/imgs/cert/cert-brc.webp" alt="BRC Food Safety" className="lb-img cursor-zoom-in h-[80px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform rounded-sm" />
                                 <span className="text-xs font-bold text-green-800 leading-tight mt-2">BRC Food Safety</span>
                             </div>
                         </div>
@@ -664,11 +677,11 @@ const StandUpPouchQuotePage: React.FC = () => {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-4 border border-green-200 shadow-sm hover:shadow-md transition-shadow">
-                    <img src="/imgs/samples/glossy-sup-front-2.png" alt="Glossy Stand Up Pouch - Front" className="w-full h-auto rounded-lg object-cover mb-3" />
+                    <img src="/imgs/samples/glossy-sup-front-2.png" alt="Glossy Stand Up Pouch - Front" className="lb-img cursor-zoom-in w-full h-auto rounded-lg object-cover mb-3" />
                     <p className="text-sm font-bold text-center text-gray-700">Front View</p>
                 </div>
                 <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-4 border border-green-200 shadow-sm hover:shadow-md transition-shadow">
-                    <img src="/imgs/samples/glossy-sup-back-2.png" alt="Glossy Stand Up Pouch - Back" className="w-full h-auto rounded-lg object-cover mb-3" />
+                    <img src="/imgs/samples/glossy-sup-back-2.png" alt="Glossy Stand Up Pouch - Back" className="lb-img cursor-zoom-in w-full h-auto rounded-lg object-cover mb-3" />
                     <p className="text-sm font-bold text-center text-gray-700">Back View</p>
                 </div>
             </div>
@@ -782,20 +795,30 @@ const StandUpPouchQuotePage: React.FC = () => {
             <div className="bg-gradient-to-br from-green-50 to-lime-50 rounded-xl p-6 border border-green-200 flex flex-col md:flex-row gap-6 shadow-sm items-center">
                 <div className="w-full md:w-1/3 flex justify-center">
                     <div className="bg-white p-6 rounded-xl border border-green-100 shadow-md">
-                        <img src="/imgs/cert/compostable-logo.png" alt="Compostable Certification Logo" className="w-full max-w-[180px] h-auto object-contain" />
+                        <img src="/imgs/cert/compostable-logo.png" alt="Compostable Certification Logo" className="lb-img cursor-zoom-in w-full max-w-[180px] h-auto object-contain" />
                     </div>
                 </div>
                 <div className="w-full md:w-2/3 text-gray-800">
                     <h4 className="text-xl font-bold text-green-800 mb-3">Add This Logo to Your Artwork</h4>
-                    <p className="text-gray-700 leading-relaxed mb-4">
-                        The <strong>Seedling Logo</strong> is the globally recognized symbol for industrially compostable packaging, certified to EN 13432 standard. Display this logo on your packaging to clearly communicate its eco-friendly end-of-life.
-                    </p>
-                    <ul className="space-y-2 text-sm text-green-800 bg-white/60 p-4 rounded-lg border border-green-100">
-                        <li className="flex items-start gap-2"><i className="fas fa-check-circle text-green-600 mt-0.5"></i> <span>Certified industrial compostable (EN 13432 / ASTM D6400)</span></li>
-                        <li className="flex items-start gap-2"><i className="fas fa-check-circle text-green-600 mt-0.5"></i> <span>PLA material breaks down in commercial composting</span></li>
-                        <li className="flex items-start gap-2"><i className="fas fa-check-circle text-green-600 mt-0.5"></i> <span>Builds consumer trust in your sustainability claims</span></li>
-                        <li className="flex items-start gap-2"><i className="fas fa-check-circle text-green-600 mt-0.5"></i> <span>We will provide the logo file for your designer</span></li>
-                    </ul>
+                    
+                    <div className="bg-white/60 p-4 rounded-lg border border-green-100 mb-4">
+                        <h5 className="font-bold text-green-900 flex items-center gap-2 mb-2"><i className="fas fa-gift text-green-600"></i> Free Options:</h5>
+                        <ul className="space-y-2 text-sm text-green-800">
+                            <li className="flex items-start gap-2"><i className="fas fa-check-circle text-green-600 mt-0.5"></i> <span><strong>Seedling Logo / Home Compostable Logo:</strong> We will provide the free logo file for your designer.</span></li>
+                            <li className="flex items-start gap-2"><i className="fas fa-check-circle text-green-600 mt-0.5"></i> <span>Builds consumer trust in your sustainability claims and guides proper disposal.</span></li>
+                        </ul>
+                    </div>
+
+                    <div className="bg-white/60 p-4 rounded-lg border border-amber-200">
+                        <h5 className="font-bold text-amber-900 flex items-center gap-2 mb-2"><i className="fas fa-award text-amber-600"></i> Paid BPI Certified Logo Option:</h5>
+                        <p className="text-sm text-gray-700 mb-2">
+                            Achieve Pack is a BPI Certified manufacturer (<a href="https://products.bpiworld.org/companies/achieve-pack-company" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">verify our BPI listing here</a>). You can add the official BPI logo to your packaging through our sublicense!
+                        </p>
+                        <ul className="space-y-2 text-sm text-amber-800">
+                            <li className="flex items-start gap-2"><i className="fas fa-info-circle text-amber-600 mt-0.5"></i> <span><strong>Sublicense Requirement:</strong> Requires a sublicense agreement. BPI charges USD $1,000 - $2,000 per year.</span></li>
+                            <li className="flex items-start gap-2"><i className="fas fa-check-circle text-amber-600 mt-0.5"></i> <span>Provides the highest standard of validation for industrial compostability in North America.</span></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -807,7 +830,7 @@ const StandUpPouchQuotePage: React.FC = () => {
             </h3>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 flex flex-col md:flex-row gap-6 mt-4 shadow-sm items-center">
                 <div className="w-full md:w-1/3 flex justify-center group">
-                    <img src="/imgs/pdf-assets/foil.webp" alt="Stamp Foiling Option" className="w-full max-w-[200px] rounded-lg shadow-md border border-gray-200 object-cover transition-transform group-hover:scale-[1.02] duration-300" />
+                    <img src="/imgs/pdf-assets/foil.webp" alt="Stamp Foiling Option" className="lb-img cursor-zoom-in w-full max-w-[200px] rounded-lg shadow-md border border-gray-200 object-cover transition-transform group-hover:scale-[1.02] duration-300" />
                 </div>
                 <div className="w-full md:w-2/3 text-gray-800">
                     <h4 className="text-xl font-bold text-gray-900 mb-2">Stamp Foiling</h4>
@@ -836,7 +859,7 @@ const StandUpPouchQuotePage: React.FC = () => {
         <section className="mb-12 flex flex-col lg:flex-row gap-10 items-start">
             <div className="w-full lg:w-1/2 flex-shrink-0 flex flex-col gap-6">
                 <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-8 border border-emerald-100 flex items-center justify-center relative shadow-inner min-h-[400px]">
-                    <img src="https://achievepack.com/imgs/pouch-shape/achieve-pack-sup-lifestyle.png" alt="BioPE PET Metalised Stand Up Pouch" className="w-full max-w-[400px] h-auto object-contain rounded drop-shadow-xl mix-blend-multiply transition-transform hover:scale-105 duration-300" />
+                    <img src="https://achievepack.com/imgs/pouch-shape/achieve-pack-sup-lifestyle.png" alt="BioPE PET Metalised Stand Up Pouch" className="lb-img cursor-zoom-in w-full max-w-[400px] h-auto object-contain rounded drop-shadow-xl mix-blend-multiply transition-transform hover:scale-105 duration-300" />
                 </div>
                 
                 <h5 className="text-lg font-black text-gray-800 uppercase tracking-widest mt-4">Included Details</h5>
@@ -845,7 +868,7 @@ const StandUpPouchQuotePage: React.FC = () => {
                     <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200 flex flex-col items-center relative group hover:border-emerald-300 transition-colors">
                         <span className="absolute top-4 left-4 text-xs font-bold text-emerald-700 uppercase tracking-widest bg-emerald-50 px-3 py-1 rounded-md z-10 shadow-sm border border-emerald-100">Spot Matte Varnish</span>
                         <div className="w-full flex flex-col items-center justify-center min-h-[200px] mt-6">
-                            <img src="/imgs/surface/spot-matte-finish.webp" alt="Spot Matte Varnish" className="w-full max-w-[400px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
+                            <img src="/imgs/surface/spot-matte-finish.webp" alt="Spot Matte Varnish" className="lb-img cursor-zoom-in w-full max-w-[400px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
                         </div>
                         <div className="w-full pt-4 border-t border-gray-100 mt-2 text-center">
                             <h6 className="font-bold text-gray-800 text-sm uppercase mb-1">Spot Matte Varnish (局部哑油)</h6>
@@ -858,7 +881,7 @@ const StandUpPouchQuotePage: React.FC = () => {
                     <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200 flex flex-col items-center relative group hover:border-emerald-300 transition-colors">
                         <span className="absolute top-4 left-4 text-xs font-bold text-emerald-700 uppercase tracking-widest bg-emerald-50 px-3 py-1 rounded-md z-10 shadow-sm border border-emerald-100">Standard Zipper</span>
                         <div className="w-full flex flex-col items-center justify-center min-h-[200px] mt-6">
-                            <img src="https://achievepack.com/imgs/store/closure/normal-zipper.webp" alt="Standard Zipper" className="w-full max-w-[400px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
+                            <img src="https://achievepack.com/imgs/store/closure/normal-zipper.webp" alt="Standard Zipper" className="lb-img cursor-zoom-in w-full max-w-[400px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
                         </div>
                         <div className="w-full pt-4 border-t border-gray-100 mt-2 text-center">
                             <h6 className="font-bold text-gray-800 text-sm uppercase mb-1">Standard Resealable Zipper</h6>
@@ -878,7 +901,7 @@ const StandUpPouchQuotePage: React.FC = () => {
                 <h4 className="text-md font-bold text-gray-500 uppercase tracking-widest mb-3 border-b border-gray-100 pb-2">Material Structure</h4>
                 <div className="bg-emerald-50 rounded-xl p-6 border border-emerald-100 mb-8 shadow-sm">
                     <div className="w-full bg-white p-6 rounded-xl border border-emerald-200 mb-6 flex flex-col items-center justify-center shadow-inner min-h-[200px] group">
-                        <img src="https://achievepack.com/imgs/spec/biope-pet-triplex-metalised.webp" alt="BioPE PET Metalised Structure" className="w-full max-w-[400px] h-auto object-contain rounded mix-blend-multiply transition-transform group-hover:scale-105 duration-300" />
+                        <img src="https://achievepack.com/imgs/spec/biope-pet-triplex-metalised.webp" alt="BioPE PET Metalised Structure" className="lb-img cursor-zoom-in w-full max-w-[400px] h-auto object-contain rounded mix-blend-multiply transition-transform group-hover:scale-105 duration-300" />
                     </div>
                     <div className="w-full text-gray-800">
                         <p className="font-bold text-emerald-900 mb-3 text-lg leading-tight flex flex-col sm:flex-row sm:items-center gap-2">
@@ -905,11 +928,11 @@ const StandUpPouchQuotePage: React.FC = () => {
                         <h5 className="text-sm font-bold text-gray-500 uppercase tracking-wider mt-4 mb-4 border-b border-emerald-200/60 pb-1">Certifications & Standards</h5>
                         <div className="flex flex-wrap gap-5 mt-4 bg-white/70 p-5 rounded-xl border border-emerald-200 shadow-sm justify-center sm:justify-start">
                             <div className="flex flex-col items-center text-center group w-24">
-                                <img src="https://www.pouch.eco/imgs/cert/cert-BioPE.webp" alt="Bio-PE Certified" className="h-[80px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform rounded-sm" />
+                                <img src="https://www.pouch.eco/imgs/cert/cert-BioPE.webp" alt="Bio-PE Certified" className="lb-img cursor-zoom-in h-[80px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform rounded-sm" />
                                 <span className="text-xs font-bold text-emerald-800 leading-tight mt-2">Bio-PE Certified</span>
                             </div>
                             <div className="flex flex-col items-center text-center group w-24">
-                                <img src="https://www.pouch.eco/imgs/cert/cert-brc.webp" alt="BRC Certified" className="h-[80px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform rounded-sm" />
+                                <img src="https://www.pouch.eco/imgs/cert/cert-brc.webp" alt="BRC Certified" className="lb-img cursor-zoom-in h-[80px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform rounded-sm" />
                                 <span className="text-xs font-bold text-emerald-800 leading-tight mt-2">BRC Food Safety</span>
                             </div>
                         </div>
@@ -1152,7 +1175,7 @@ const StandUpPouchQuotePage: React.FC = () => {
             <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-xl p-6 border border-emerald-200 flex flex-col md:flex-row gap-6 shadow-sm items-center">
                 <div className="w-full md:w-1/3 flex justify-center">
                     <div className="bg-white p-6 rounded-xl border border-emerald-100 shadow-md">
-                        <img src="/imgs/cert/im-green-logo.png" alt="I'm Green Bio-PE Logo" className="w-full max-w-[200px] h-auto object-contain" />
+                        <img src="/imgs/cert/im-green-logo.png" alt="I'm Green Bio-PE Logo" className="lb-img cursor-zoom-in w-full max-w-[200px] h-auto object-contain" />
                     </div>
                 </div>
                 <div className="w-full md:w-2/3 text-gray-800">
@@ -1177,7 +1200,7 @@ const StandUpPouchQuotePage: React.FC = () => {
             </h3>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 flex flex-col md:flex-row gap-6 mt-4 shadow-sm items-center">
                 <div className="w-full md:w-1/3 flex justify-center group">
-                    <img src="/imgs/pdf-assets/foil.webp" alt="Stamp Foiling Option" className="w-full max-w-[200px] rounded-lg shadow-md border border-gray-200 object-cover transition-transform group-hover:scale-[1.02] duration-300" />
+                    <img src="/imgs/pdf-assets/foil.webp" alt="Stamp Foiling Option" className="lb-img cursor-zoom-in w-full max-w-[200px] rounded-lg shadow-md border border-gray-200 object-cover transition-transform group-hover:scale-[1.02] duration-300" />
                 </div>
                 <div className="w-full md:w-2/3 text-gray-800">
                     <h4 className="text-xl font-bold text-gray-900 mb-2">Stamp Foiling</h4>
@@ -1206,15 +1229,15 @@ const StandUpPouchQuotePage: React.FC = () => {
         <section className="mb-12 flex flex-col lg:flex-row gap-10 items-start">
             <div className="w-full lg:w-1/2 flex-shrink-0 flex flex-col gap-6">
                 <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 border border-blue-100 flex items-center justify-center relative shadow-inner min-h-[400px]">
-                    <img src="/imgs/spec/pet-quadlex-aluminum-heavy.webp" alt="PET Quadlex Heavy Structure" className="w-full max-w-[350px] h-auto object-contain" />
+                    <img src="/imgs/spec/pet-quadlex-aluminum-heavy.webp" alt="PET Quadlex Heavy Structure" className="lb-img cursor-zoom-in w-full max-w-[350px] h-auto object-contain" />
                 </div>
                 <div className="flex gap-4 justify-center flex-wrap">
                     <div className="bg-blue-50 rounded-xl px-6 py-4 text-center border border-blue-200 shadow-sm flex-1 min-w-[140px] group cursor-pointer hover:shadow-md transition-all duration-300">
-                        <img src="https://achievepack.com/imgs/surface/ads/a_gloss_finish_detail_5685549.webp" alt="Glossy Surface" className="w-full max-w-[120px] h-auto object-contain mix-blend-multiply mb-2 mx-auto transition-transform group-hover:scale-105 duration-300" />
+                        <img src="https://achievepack.com/imgs/surface/ads/a_gloss_finish_detail_5685549.webp" alt="Glossy Surface" className="lb-img cursor-zoom-in w-full max-w-[120px] h-auto object-contain mix-blend-multiply mb-2 mx-auto transition-transform group-hover:scale-105 duration-300" />
                         <p className="text-xs font-bold text-blue-700 uppercase">Glossy Surface</p>
                     </div>
                     <div className="bg-blue-50 rounded-xl px-6 py-4 text-center border border-blue-200 shadow-sm flex-1 min-w-[140px] group cursor-pointer hover:shadow-md transition-all duration-300">
-                        <img src="https://achievepack.com/imgs/reclose/ads/a_spout_closure_closeup_detail_2705813.webp" alt="10mm Spout" className="w-full max-w-[120px] h-auto object-contain mix-blend-multiply mb-2 mx-auto transition-transform group-hover:scale-105 duration-300" />
+                        <img src="https://achievepack.com/imgs/reclose/ads/a_spout_closure_closeup_detail_2705813.webp" alt="10mm Spout" className="lb-img cursor-zoom-in w-full max-w-[120px] h-auto object-contain mix-blend-multiply mb-2 mx-auto transition-transform group-hover:scale-105 duration-300" />
                         <p className="text-xs font-bold text-blue-700 uppercase">10mm Spout</p>
                     </div>
                 </div>
@@ -1241,11 +1264,11 @@ const StandUpPouchQuotePage: React.FC = () => {
                 <h5 className="text-sm font-bold text-gray-500 uppercase tracking-wider mt-6 mb-4 border-b border-blue-200/60 pb-1">Certifications & Standards</h5>
                 <div className="flex flex-wrap gap-5 mt-4 bg-white/70 p-5 rounded-xl border border-blue-200 shadow-sm justify-center sm:justify-start">
                     <div className="flex flex-col items-center text-center group w-24">
-                        <img src="https://www.pouch.eco/imgs/cert/cert-BioPE.webp" alt="Bio-PE Certified" className="h-[80px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform rounded-sm" />
+                        <img src="https://www.pouch.eco/imgs/cert/cert-BioPE.webp" alt="Bio-PE Certified" className="lb-img cursor-zoom-in h-[80px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform rounded-sm" />
                         <span className="text-xs font-bold text-blue-800 leading-tight mt-2">Bio-PE Certified</span>
                     </div>
                     <div className="flex flex-col items-center text-center group w-24">
-                        <img src="https://www.pouch.eco/imgs/cert/cert-brc.webp" alt="BRC Food Safety" className="h-[80px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform rounded-sm" />
+                        <img src="https://www.pouch.eco/imgs/cert/cert-brc.webp" alt="BRC Food Safety" className="lb-img cursor-zoom-in h-[80px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform rounded-sm" />
                         <span className="text-xs font-bold text-blue-800 leading-tight mt-2">BRC Food Safety</span>
                     </div>
                 </div>
@@ -1262,15 +1285,15 @@ const StandUpPouchQuotePage: React.FC = () => {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-4 border border-cyan-200 shadow-sm hover:shadow-md transition-shadow">
-                    <img src="/imgs/samples/spouted-biope-500ml-front.webp" alt="500ml BioPE Spouted Pouch - Front" className="w-full h-auto rounded-lg object-cover mb-3" />
+                    <img src="/imgs/samples/spouted-biope-500ml-front.webp" alt="500ml BioPE Spouted Pouch - Front" className="lb-img cursor-zoom-in w-full h-auto rounded-lg object-cover mb-3" />
                     <p className="text-sm font-bold text-center text-gray-700">Front View</p>
                 </div>
                 <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-4 border border-cyan-200 shadow-sm hover:shadow-md transition-shadow">
-                    <img src="/imgs/samples/spouted-biope-500ml-detail.webp" alt="500ml BioPE Spouted Pouch - I'm Green Logo Detail" className="w-full h-auto rounded-lg object-cover mb-3" />
+                    <img src="/imgs/samples/spouted-biope-500ml-detail.webp" alt="500ml BioPE Spouted Pouch - I'm Green Logo Detail" className="lb-img cursor-zoom-in w-full h-auto rounded-lg object-cover mb-3" />
                     <p className="text-sm font-bold text-center text-gray-700">I'm Green™ Logo Detail</p>
                 </div>
                 <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-4 border border-cyan-200 shadow-sm hover:shadow-md transition-shadow">
-                    <img src="/imgs/samples/spouted-biope-500ml-back.webp" alt="500ml BioPE Spouted Pouch - Back" className="w-full h-auto rounded-lg object-cover mb-3" />
+                    <img src="/imgs/samples/spouted-biope-500ml-back.webp" alt="500ml BioPE Spouted Pouch - Back" className="lb-img cursor-zoom-in w-full h-auto rounded-lg object-cover mb-3" />
                     <p className="text-sm font-bold text-center text-gray-700">Back View</p>
                 </div>
             </div>
@@ -1423,7 +1446,7 @@ const StandUpPouchQuotePage: React.FC = () => {
             <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-xl p-6 border border-emerald-200 flex flex-col md:flex-row gap-6 shadow-sm items-center">
                 <div className="w-full md:w-1/3 flex justify-center">
                     <div className="bg-white p-6 rounded-xl border border-emerald-100 shadow-md">
-                        <img src="/imgs/cert/im-green-logo.png" alt="I'm Green Bio-PE Logo" className="w-full max-w-[200px] h-auto object-contain" />
+                        <img src="/imgs/cert/im-green-logo.png" alt="I'm Green Bio-PE Logo" className="lb-img cursor-zoom-in w-full max-w-[200px] h-auto object-contain" />
                     </div>
                 </div>
                 <div className="w-full md:w-2/3 text-gray-800">
@@ -1448,7 +1471,7 @@ const StandUpPouchQuotePage: React.FC = () => {
             </h3>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 flex flex-col md:flex-row gap-6 mt-4 shadow-sm items-center">
                 <div className="w-full md:w-1/3 flex justify-center group">
-                    <img src="/imgs/pdf-assets/foil.webp" alt="Stamp Foiling Option" className="w-full max-w-[200px] rounded-lg shadow-md border border-gray-200 object-cover transition-transform group-hover:scale-[1.02] duration-300" />
+                    <img src="/imgs/pdf-assets/foil.webp" alt="Stamp Foiling Option" className="lb-img cursor-zoom-in w-full max-w-[200px] rounded-lg shadow-md border border-gray-200 object-cover transition-transform group-hover:scale-[1.02] duration-300" />
                 </div>
                 <div className="w-full md:w-2/3 text-gray-800">
                     <h4 className="text-xl font-bold text-gray-900 mb-2">Stamp Foiling</h4>
@@ -1477,7 +1500,7 @@ const StandUpPouchQuotePage: React.FC = () => {
         <section className="mb-12 flex flex-col lg:flex-row gap-10 items-start">
             <div className="w-full lg:w-1/2 flex-shrink-0 flex flex-col gap-6">
                 <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-8 border border-cyan-100 flex items-center justify-center relative shadow-inner min-h-[400px]">
-                    <img src="https://achievepack.com/imgs/pouch-shape/achieve-pack-sup-lifestyle.png" alt="Recyclable PE Stand Up Pouch" className="w-full max-w-[400px] h-auto object-contain rounded drop-shadow-xl mix-blend-multiply transition-transform hover:scale-105 duration-300" />
+                    <img src="https://achievepack.com/imgs/pouch-shape/achieve-pack-sup-lifestyle.png" alt="Recyclable PE Stand Up Pouch" className="lb-img cursor-zoom-in w-full max-w-[400px] h-auto object-contain rounded drop-shadow-xl mix-blend-multiply transition-transform hover:scale-105 duration-300" />
                 </div>
                 
                 <h5 className="text-lg font-black text-gray-800 uppercase tracking-widest mt-4">Included Details</h5>
@@ -1486,7 +1509,7 @@ const StandUpPouchQuotePage: React.FC = () => {
                     <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200 flex flex-col items-center relative group hover:border-cyan-300 transition-colors">
                         <span className="absolute top-4 left-4 text-xs font-bold text-cyan-700 uppercase tracking-widest bg-cyan-50 px-3 py-1 rounded-md z-10 shadow-sm border border-cyan-100">Matte Clear Finish</span>
                         <div className="w-full flex flex-col items-center justify-center min-h-[200px] mt-6">
-                            <img src="/imgs/samples/pe-clear-matte.png" alt="Clear Material with Matte Surface" className="w-full max-w-[400px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
+                            <img src="/imgs/samples/pe-clear-matte.png" alt="Clear Material with Matte Surface" className="lb-img cursor-zoom-in w-full max-w-[400px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
                         </div>
                         <div className="w-full pt-4 border-t border-gray-100 mt-2 text-center">
                             <h6 className="font-bold text-gray-800 text-sm uppercase mb-1">Clear Material with Matte Surface</h6>
@@ -1499,7 +1522,7 @@ const StandUpPouchQuotePage: React.FC = () => {
                     <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200 flex flex-col items-center relative group hover:border-cyan-300 transition-colors">
                         <span className="absolute top-4 left-4 text-xs font-bold text-cyan-700 uppercase tracking-widest bg-cyan-50 px-3 py-1 rounded-md z-10 shadow-sm border border-cyan-100">Low-Temp Zipper</span>
                         <div className="w-full flex flex-col items-center justify-center min-h-[200px] mt-6">
-                            <img src="/imgs/samples/pe-clear-zipper.png" alt="Standard Zipper" className="w-full max-w-[400px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
+                            <img src="/imgs/samples/pe-clear-zipper.png" alt="Standard Zipper" className="lb-img cursor-zoom-in w-full max-w-[400px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
                         </div>
                         <div className="w-full pt-4 border-t border-gray-100 mt-2 text-center">
                             <h6 className="font-bold text-gray-800 text-sm uppercase mb-1">Ultra Low-Temp Zipper</h6>
@@ -1520,7 +1543,7 @@ const StandUpPouchQuotePage: React.FC = () => {
                 <div className="bg-cyan-50 rounded-xl p-6 border border-cyan-100 mb-8 shadow-sm">
                     <div className="w-full bg-white p-6 rounded-xl border border-cyan-200 mb-6 flex flex-col items-center justify-center shadow-inner min-h-[200px] group">
                         {/* Placeholder structure image */}
-                        <img src="https://achievepack.com/imgs/spec/bio-cello-duplex-clear.webp" alt="Recyclable PE Structure" className="w-full max-w-[400px] h-auto object-contain rounded mix-blend-multiply transition-transform group-hover:scale-105 duration-300" />
+                        <img src="https://achievepack.com/imgs/spec/bio-cello-duplex-clear.webp" alt="Recyclable PE Structure" className="lb-img cursor-zoom-in w-full max-w-[400px] h-auto object-contain rounded mix-blend-multiply transition-transform group-hover:scale-105 duration-300" />
                     </div>
                     <div className="w-full text-gray-800">
                         <p className="font-bold text-cyan-900 mb-3 text-lg leading-tight flex flex-col sm:flex-row sm:items-center gap-2">
@@ -1576,7 +1599,7 @@ const StandUpPouchQuotePage: React.FC = () => {
             {/* Added 5mm shrinkage explanation */}
             <div className="mt-6 bg-amber-50 rounded-xl p-6 border border-amber-200 flex flex-col md:flex-row gap-6 items-center shadow-sm">
                 <div className="w-full md:w-1/3 flex justify-center">
-                    <img src="/imgs/samples/pe-pouch-shrinkage.png" alt="Production Shrinkage Allowance Diagram" className="w-full h-auto max-w-[250px] rounded-lg shadow-sm border border-amber-300 bg-white" />
+                    <img src="/imgs/samples/pe-pouch-shrinkage.png" alt="Production Shrinkage Allowance Diagram" className="lb-img cursor-zoom-in w-full h-auto max-w-[250px] rounded-lg shadow-sm border border-amber-300 bg-white" />
                 </div>
                 <div className="w-full md:w-2/3">
                     <h4 className="text-xl font-bold text-amber-900 mb-3 flex items-center gap-2">
@@ -1683,7 +1706,7 @@ const StandUpPouchQuotePage: React.FC = () => {
             <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 border border-cyan-200 flex flex-col md:flex-row gap-6 shadow-sm items-center">
                 <div className="w-full md:w-1/3 flex justify-center">
                     <div className="bg-white p-6 rounded-xl border border-cyan-100 shadow-md">
-                        <img src="/imgs/cert/recycle_4_pe_logo.png" alt="Recycle 4 PE Logo" className="w-full max-w-[150px] h-auto object-contain" onError={(e) => { e.currentTarget.src='https://achievepack.com/imgs/cert/recyclable.png'; }} />
+                        <img src="/imgs/cert/recycle_4_pe_logo.png" alt="Recycle 4 PE Logo" className="lb-img cursor-zoom-in w-full max-w-[150px] h-auto object-contain" onError={(e) => { e.currentTarget.src='https://achievepack.com/imgs/cert/recyclable.png'; }} />
                     </div>
                 </div>
                 <div className="w-full md:w-2/3 text-gray-800">
@@ -1696,6 +1719,50 @@ const StandUpPouchQuotePage: React.FC = () => {
                         <li className="flex items-start gap-2"><i className="fas fa-check-circle text-cyan-600 mt-0.5"></i> <span>Can be recycled at soft plastic collection points</span></li>
                         <li className="flex items-start gap-2"><i className="fas fa-check-circle text-cyan-600 mt-0.5"></i> <span>Drives sustainable brand awareness</span></li>
                     </ul>
+                </div>
+            </div>
+        </section>
+
+        {/* Spot UV Upgrade Option - PE */}
+        <section className="mb-10">
+            <h3 className="text-lg font-bold text-gray-800 mb-4 border-b border-gray-200 pb-2 flex items-center gap-2">
+                <i className="fas fa-star text-purple-500"></i> Optional Upgrade: Spot UV Finish
+            </h3>
+            <div className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-2xl border border-purple-200 shadow-sm overflow-hidden">
+                <div className="flex flex-col md:flex-row">
+                    <div className="w-full md:w-2/5 flex items-center justify-center p-6 bg-white/60 border-b md:border-b-0 md:border-r border-purple-100">
+                        <img
+                            src="/imgs/surface/spot-uv-pouch.png"
+                            alt="Spot UV Finish with Embossing Effect"
+                            className="lb-img cursor-zoom-in w-full max-w-[320px] h-auto object-contain rounded-xl shadow-md transition-transform hover:scale-105 duration-300"
+                        />
+                    </div>
+                    <div className="w-full md:w-3/5 p-6 md:p-8 flex flex-col justify-center">
+                        <div className="flex items-center gap-3 mb-4">
+                            <span className="text-xs font-bold text-purple-700 uppercase tracking-widest bg-purple-100 px-3 py-1 rounded-full border border-purple-200">Premium Add-On</span>
+                            <span className="text-xs font-bold text-amber-700 uppercase tracking-widest bg-amber-100 px-3 py-1 rounded-full border border-amber-200">+30% Cost</span>
+                        </div>
+                        <h4 className="text-2xl font-black text-gray-900 mb-3">Spot UV with Embossing Effect</h4>
+                        <p className="text-gray-700 leading-relaxed mb-4">
+                            Elevate your packaging beyond a flat glossy look. Our Spot UV finish combines <strong>UV varnish with a subtle embossing effect</strong>, creating a raised tactile texture over selected design elements — such as logos, patterns, or key artwork areas — on top of a matte base surface.
+                        </p>
+                        <p className="text-gray-600 text-sm leading-relaxed mb-5">
+                            Unlike standard flat reflective spot UV, this treatment adds a <strong>three-dimensional, tactile quality</strong> that makes your packaging feel premium to the touch. The contrast between the soft matte background and the raised glossy UV spots creates a striking shelf presence.
+                        </p>
+                        <ul className="space-y-2 text-sm text-purple-900 bg-white/70 p-4 rounded-xl border border-purple-100 mb-5">
+                            <li className="flex items-start gap-2"><i className="fas fa-check-circle text-purple-500 mt-0.5"></i> <span><strong>UV + Emboss Combo:</strong> Not just flat reflective — creates raised 3D texture</span></li>
+                            <li className="flex items-start gap-2"><i className="fas fa-check-circle text-purple-500 mt-0.5"></i> <span><strong>Applied over matte base:</strong> Maximum visual contrast between surfaces</span></li>
+                            <li className="flex items-start gap-2"><i className="fas fa-check-circle text-purple-500 mt-0.5"></i> <span><strong>Selective placement:</strong> Logos, borders, illustrations, or specific artwork zones</span></li>
+                            <li className="flex items-start gap-2"><i className="fas fa-check-circle text-purple-500 mt-0.5"></i> <span><strong>Compatible with PE structure:</strong> Available on this recyclable mono-PE material</span></li>
+                        </ul>
+                        <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start gap-3">
+                            <i className="fas fa-info-circle text-amber-500 mt-0.5 flex-shrink-0"></i>
+                            <div>
+                                <p className="text-sm font-bold text-amber-800 mb-1">Pricing Note</p>
+                                <p className="text-sm text-amber-700">Spot UV with embossing adds approximately <strong>+30%</strong> to the base pouch unit price. Please share your artwork or design intent so we can provide a finalised quote for this finish.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

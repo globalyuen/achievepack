@@ -562,27 +562,63 @@ async function sendBrevoEmail(to: string, subject: string, body: string, senderK
     return result.messageId
 }
 
+// Fallback: Google Custom Search Engine
+async function searchWithGoogleCSE(query: string, addLog: (msg: string) => void): Promise<any[]> {
+    const CSE_API_KEY = process.env.GOOGLE_CSE_API_KEY
+    const CSE_ID = process.env.GOOGLE_CSE_ID
+    
+    if (!CSE_API_KEY || !CSE_ID) {
+        addLog('⚠️ Google CSE not configured, returning empty results')
+        return []
+    }
+    
+    try {
+        const url = `https://www.googleapis.com/customsearch/v1?key=${CSE_API_KEY}&cx=${CSE_ID}&q=${encodeURIComponent(query)}&num=10`
+        const response = await fetch(url)
+        const data = await response.json() as { items?: any[], error?: any }
+        
+        if (data.error) {
+            addLog(`❌ Google CSE error: ${data.error.message || 'Unknown'}`)
+            return []
+        }
+
+        return (data.items || []).map((item: any) => ({
+            name: item.title?.replace(/ - .*$/, '').substring(0, 200) || 'Unknown',
+            website: item.link,
+            snippet: item.snippet
+        }))
+    } catch (error: any) {
+        addLog(`❌ Google CSE fetch error: ${error.message || 'Unknown'}`)
+        return []
+    }
+}
+
 // Search for businesses using SerpAPI
-async function searchBusinesses(query: string): Promise<any[]> {
+async function searchBusinesses(query: string, addLog: (msg: string) => void): Promise<any[]> {
     const SERPAPI_KEY = process.env.SERPAPI_KEY
     if (!SERPAPI_KEY) {
-        console.log('SERPAPI_KEY not configured, using mock data')
-        return []
+        addLog('⚠️ SERPAPI_KEY not configured, using Google Custom Search fallback')
+        return searchWithGoogleCSE(query, addLog)
     }
     
     try {
         const url = `https://serpapi.com/search.json?engine=google&q=${encodeURIComponent(query)}&api_key=${SERPAPI_KEY}&num=10`
         const response = await fetch(url)
-        const data = await response.json() as { organic_results?: any[] }
+        const data = await response.json() as { organic_results?: any[], error?: string }
+        
+        if (data.error) {
+            addLog(`⚠️ SerpAPI returned an error: ${data.error}. Falling back to Google Custom Search...`)
+            return searchWithGoogleCSE(query, addLog)
+        }
         
         return (data.organic_results || []).map((result: any) => ({
             name: result.title?.replace(/ - .*$/, '').substring(0, 200) || 'Unknown',
             website: result.link,
             snippet: result.snippet
         }))
-    } catch (error) {
-        console.error('SerpAPI error:', error)
-        return []
+    } catch (error: any) {
+        addLog(`❌ SerpAPI fetch error: ${error.message || 'Unknown'}. Falling back...`)
+        return searchWithGoogleCSE(query, addLog)
     }
 }
 
@@ -1217,8 +1253,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         }
         
         // Search for businesses
-        addLog('🔎 Searching Google via SerpAPI...')
-        const businesses = await searchBusinesses(searchQuery)
+        addLog('🔎 Searching Google via SerpAPI or custom search...')
+        const businesses = await searchBusinesses(searchQuery, addLog)
         addLog(`🔍 Found ${businesses.length} businesses from search`)
         
         let emailsSent = 0

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useSearchParams } from 'react-router-dom';
+import QuoteLightbox from '../../components/QuoteLightbox';
+
 
 const SpoutedPouchQuotePage: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -64,7 +66,8 @@ const SpoutedPouchQuotePage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
+      <QuoteLightbox />
+<Helmet>
         <title>Quotation: Spouted Stand Up Pouch - Pouch.eco</title>
         <style>
           {`
@@ -168,7 +171,7 @@ const SpoutedPouchQuotePage: React.FC = () => {
         {/* Header */}
         <header className="flex flex-col md:flex-row justify-between items-start border-b border-gray-200 pb-8 mb-8 gap-6">
             <div className="mb-6 md:mb-0 w-full md:w-2/3">
-                <img src="/imgs/ryan-email-signature.jpg" alt="Pouch.eco By Achieve Pack" className="w-full max-w-[400px] h-auto object-contain drop-shadow-sm rounded text-left" onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://achievepack.com/imgs/store/achieve-pack-logo.png'; }} />
+                <img src="/imgs/ryan-email-signature.jpg" alt="Pouch.eco By Achieve Pack" className="lb-img cursor-zoom-in w-full max-w-[400px] h-auto object-contain drop-shadow-sm rounded text-left" onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://achievepack.com/imgs/store/achieve-pack-logo.png'; }} />
             </div>
             <div className="text-left md:text-right">
                 <h2 className="text-2xl font-bold text-green-600 uppercase tracking-widest mb-2">Quotation</h2>
@@ -181,7 +184,7 @@ const SpoutedPouchQuotePage: React.FC = () => {
         <section className="mb-12 flex flex-col lg:flex-row gap-10 items-start">
             <div className="w-full lg:w-1/2 flex-shrink-0 flex flex-col gap-6">
                 <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100 flex items-center justify-center relative shadow-inner min-h-[400px]">
-                    <img src="https://achievepack.com/imgs/pouch-shape/a_spout_pouch_isolated_6857112.webp" alt="Spouted Stand Up Pouch" className="w-full max-w-[400px] h-auto object-contain rounded drop-shadow-xl mix-blend-multiply transition-transform hover:scale-105 duration-300" />
+                    <img src="https://achievepack.com/imgs/pouch-shape/a_spout_pouch_isolated_6857112.webp" alt="Spouted Stand Up Pouch" className="lb-img cursor-zoom-in w-full max-w-[400px] h-auto object-contain rounded drop-shadow-xl mix-blend-multiply transition-transform hover:scale-105 duration-300" />
                 </div>
                 
                 <h5 className="text-lg font-black text-gray-800 uppercase tracking-widest mt-4">Included Details</h5>
@@ -190,7 +193,7 @@ const SpoutedPouchQuotePage: React.FC = () => {
                     <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200 flex flex-col items-center relative group hover:border-gray-300 transition-colors">
                         <span className="absolute top-4 left-4 text-xs font-bold text-orange-700 uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-md z-10 shadow-sm border border-orange-100">Spout 9.6mm</span>
                         <div className="w-full flex flex-col items-center justify-center min-h-[200px] mt-6">
-                            <img src="https://achievepack.com/imgs/reclose/ads/a_spout_closure_closeup_detail_2705813.webp" alt="Spout Cap 9.6mm" className="w-full max-w-[300px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
+                            <img src="https://achievepack.com/imgs/reclose/ads/a_spout_closure_closeup_detail_2705813.webp" alt="Spout Cap 9.6mm" className="lb-img cursor-zoom-in w-full max-w-[300px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
                         </div>
                         <div className="w-full pt-4 border-t border-gray-100 mt-2 text-center">
                             <h6 className="font-bold text-gray-800 text-sm uppercase mb-1">9.6mm Spout with Cap</h6>
@@ -204,7 +207,7 @@ const SpoutedPouchQuotePage: React.FC = () => {
                     <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200 flex flex-col items-center relative group hover:border-gray-300 transition-colors">
                         <span className="absolute top-4 left-4 text-xs font-bold text-blue-700 uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-md z-10 shadow-sm border border-blue-100">Surface Finish</span>
                         <div className="w-full flex flex-col items-center justify-center min-h-[200px] mt-6">
-                            <img src="https://achievepack.com/imgs/surface/ads/a_glossy_surface_shine_finish_12834.webp" alt="Glossy Surface Finish" className="w-full max-w-[300px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
+                            <img src="https://achievepack.com/imgs/surface/ads/a_glossy_surface_shine_finish_12834.webp" alt="Glossy Surface Finish" className="lb-img cursor-zoom-in w-full max-w-[300px] h-auto object-contain mix-blend-multiply mb-4 transition-transform group-hover:scale-105 duration-300" />
                         </div>
                         <div className="w-full pt-4 border-t border-gray-100 mt-2 text-center">
                             <h6 className="font-bold text-gray-800 text-sm uppercase mb-1">Glossy Surface Finish</h6>
@@ -227,7 +230,7 @@ const SpoutedPouchQuotePage: React.FC = () => {
                 <h4 className="text-md font-bold text-gray-500 uppercase tracking-widest mb-3 border-b border-gray-100 pb-2">Material Structure</h4>
                 <div className="bg-blue-50 rounded-xl p-6 border border-blue-100 mb-8 shadow-sm">
                     <div className="w-full bg-white p-6 rounded-xl border border-blue-200 mb-6 flex flex-col items-center justify-center shadow-inner min-h-[200px] group">
-                        <img src="https://achievepack.com/imgs/spec/pcr-pp-kraft-quadlex-aluminum.webp" alt="Material Structure" className="w-full max-w-[400px] h-auto object-contain rounded mix-blend-multiply transition-transform group-hover:scale-105 duration-300" />
+                        <img src="https://achievepack.com/imgs/spec/pcr-pp-kraft-quadlex-aluminum.webp" alt="Material Structure" className="lb-img cursor-zoom-in w-full max-w-[400px] h-auto object-contain rounded mix-blend-multiply transition-transform group-hover:scale-105 duration-300" />
                     </div>
                     <div className="w-full text-gray-800">
                         <p className="font-bold text-blue-900 mb-3 text-lg leading-tight flex flex-col sm:flex-row sm:items-center gap-2">
@@ -256,13 +259,13 @@ const SpoutedPouchQuotePage: React.FC = () => {
                         <div className="flex flex-wrap gap-5 mt-4 bg-white/70 p-5 rounded-xl border border-blue-200 shadow-sm justify-center sm:justify-start">
                             <div className="flex flex-col items-center text-center group w-24">
                                 <a href="https://www.pouch.eco/imgs/cert/cert-BioPE.webp" target="_blank" className="block mb-2">
-                                    <img src="https://www.pouch.eco/imgs/cert/cert-BioPE.webp" alt="Bio-PE Certified" className="h-[80px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform rounded-sm" />
+                                    <img src="https://www.pouch.eco/imgs/cert/cert-BioPE.webp" alt="Bio-PE Certified" className="lb-img cursor-zoom-in h-[80px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform rounded-sm" />
                                 </a>
                                 <span className="text-xs font-bold text-green-800 leading-tight">Bio-PE</span>
                             </div>
                             <div className="flex flex-col items-center text-center group w-24">
                                 <a href="https://www.pouch.eco/imgs/cert/cert-brc.webp" target="_blank" className="block mb-2">
-                                    <img src="https://www.pouch.eco/imgs/cert/cert-brc.webp" alt="BRC Food Safety" className="h-[80px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform rounded-sm" />
+                                    <img src="https://www.pouch.eco/imgs/cert/cert-brc.webp" alt="BRC Food Safety" className="lb-img cursor-zoom-in h-[80px] w-auto object-contain drop-shadow-md hover:-translate-y-1 transition-transform rounded-sm" />
                                 </a>
                                 <span className="text-xs font-bold text-green-800 leading-tight">BRC Food Safety</span>
                             </div>
@@ -272,7 +275,7 @@ const SpoutedPouchQuotePage: React.FC = () => {
                         <div className="mt-6 p-5 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-200 shadow-sm">
                             <div className="flex items-start gap-4">
                                 <div className="flex-shrink-0">
-                                    <img src="https://www.pouch.eco/imgs/cert/cert-BioPE.webp" alt="Bio-PE Logo" className="w-16 h-16 object-contain" />
+                                    <img src="https://www.pouch.eco/imgs/cert/cert-BioPE.webp" alt="Bio-PE Logo" className="lb-img cursor-zoom-in w-16 h-16 object-contain" />
                                 </div>
                                 <div className="flex-1">
                                     <h6 className="font-bold text-green-900 text-sm uppercase tracking-wide mb-2 flex items-center gap-2">
@@ -437,7 +440,7 @@ const SpoutedPouchQuotePage: React.FC = () => {
             </h3>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 flex flex-col md:flex-row gap-6 mt-4 shadow-sm items-center">
                 <div className="w-full md:w-1/3 flex justify-center group">
-                    <img src="/imgs/pdf-assets/foil.webp" alt="Stamp Foiling Option" className="w-full max-w-[250px] rounded-lg shadow-md border border-gray-200 object-cover transition-transform group-hover:scale-[1.02] duration-300" />
+                    <img src="/imgs/pdf-assets/foil.webp" alt="Stamp Foiling Option" className="lb-img cursor-zoom-in w-full max-w-[250px] rounded-lg shadow-md border border-gray-200 object-cover transition-transform group-hover:scale-[1.02] duration-300" />
                 </div>
                 <div className="w-full md:w-2/3 text-gray-800">
                     <h4 className="text-xl font-bold text-gray-900 mb-2">Stamp Foiling</h4>

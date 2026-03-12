@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import QuoteLightbox from '../../components/QuoteLightbox'
 import { 
   Download, Printer, CheckCircle, Calendar, Mail, Phone, 
   Package, ArrowRight, Star, Shield, Truck, Clock, 
@@ -68,7 +69,8 @@ const CoffeePouchQuotePage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white print:bg-white">
-      {/* Hero Section */}
+      <QuoteLightbox />
+{/* Hero Section */}
       <div className="relative bg-gradient-to-r from-amber-900 via-amber-800 to-amber-900 text-white overflow-hidden print:hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0" style={{ backgroundImage: 'url(/imgs/demo-site/coffee/a_achieve_detail_07_flatlay_3502987.webp)', backgroundSize: 'cover', backgroundPosition: 'center' }} />
@@ -125,14 +127,14 @@ const CoffeePouchQuotePage: React.FC = () => {
               <img 
                 src="/imgs/pouch-shape/a_flat_bottom_pouch_isolated_7901973.webp" 
                 alt="Flat Bottom Coffee Pouch" 
-                className="max-h-full max-w-full object-contain drop-shadow-xl"
+                className="lb-img cursor-zoom-in max-h-full max-w-full object-contain drop-shadow-xl"
               />
             </div>
             <div className="p-4 grid grid-cols-4 gap-2">
-              <img src="/imgs/demo-site/coffee/a_achieve_detail_04_craftsmanship_5633579.webp" alt="Detail" className="rounded-lg aspect-square object-cover cursor-pointer hover:opacity-80 transition" />
-              <img src="/imgs/demo-site/coffee/a_achieve_detail_05_dimensional_3952382.webp" alt="Dimensional" className="rounded-lg aspect-square object-cover cursor-pointer hover:opacity-80 transition" />
-              <img src="/imgs/demo-site/coffee/a_achieve_detail_08_materials_3186664.webp" alt="Materials" className="rounded-lg aspect-square object-cover cursor-pointer hover:opacity-80 transition" />
-              <img src="/imgs/illustrated/a_achievepack_flatbottom_bags_0519153.webp" alt="Illustration" className="rounded-lg aspect-square object-cover cursor-pointer hover:opacity-80 transition" />
+              <img src="/imgs/demo-site/coffee/a_achieve_detail_04_craftsmanship_5633579.webp" alt="Detail" className="rounded-lg aspect-square object-cover lb-img cursor-zoom-in hover:opacity-80 transition" />
+              <img src="/imgs/demo-site/coffee/a_achieve_detail_05_dimensional_3952382.webp" alt="Dimensional" className="rounded-lg aspect-square object-cover lb-img cursor-zoom-in hover:opacity-80 transition" />
+              <img src="/imgs/demo-site/coffee/a_achieve_detail_08_materials_3186664.webp" alt="Materials" className="rounded-lg aspect-square object-cover lb-img cursor-zoom-in hover:opacity-80 transition" />
+              <img src="/imgs/illustrated/a_achievepack_flatbottom_bags_0519153.webp" alt="Illustration" className="rounded-lg aspect-square object-cover lb-img cursor-zoom-in hover:opacity-80 transition" />
             </div>
           </div>
 

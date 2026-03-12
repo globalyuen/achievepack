@@ -316,36 +316,36 @@ const ReclosureOptionsPage: React.FC = () => {
       icon: <Factory className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
-          <p className="text-neutral-700">DifferentProducttypesforreseal functionhaveDifferentRequirements，Choosing the right closure type is key to enhancing consumer experience。</p>
+          <p className="text-neutral-700">Different product types have unique resealable functionality requirements. Choosing the right closure type is key to enhancing the consumer experience.</p>
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
               <div className="flex items-center gap-2 mb-3">
                 <ShoppingBag className="h-5 w-5 text-green-600" />
-                <h4 className="font-semibold text-green-800">SnacksPet Food</h4>
+                <h4 className="font-semibold text-green-800">Snacks & Pet Food</h4>
               </div>
-              <p className="text-sm text-green-700 mb-3">Slider zipper、Press-to-close zipper helps maintainSnacksandPet Foodfreshness。</p>
-              <div className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded inline-block">Share:: 45%</div>
+              <p className="text-sm text-green-700 mb-3">Slider zippers and press-to-close zippers are essential for maintaining the freshness of snacks and pet food after opening.</p>
+              <div className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded inline-block">Market Share: 45%</div>
             </div>
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-5 rounded-xl border border-blue-200">
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles className="h-5 w-5 text-blue-600" />
-                <h4 className="font-semibold text-blue-800">Baby pureesfood</h4>
+                <h4 className="font-semibold text-blue-800">Baby Food & Puree</h4>
               </div>
-              <p className="text-sm text-blue-700 mb-3">Spout pouchdesignssuitable for babiesfoodpuree、pureesetc.liquidProductcontrolled dispensing。</p>
-              <div className="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded inline-block">Share:: 30%</div>
+              <p className="text-sm text-blue-700 mb-3">Spout pouch designs are ideal for baby purees, squeeze foods, and liquid products, offering controlled dispensing.</p>
+              <div className="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded inline-block">Market Share: 30%</div>
             </div>
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-200">
               <div className="flex items-center gap-2 mb-3">
                 <Package className="h-5 w-5 text-purple-600" />
-                <h4 className="font-semibold text-purple-800">largeHempPharmaceutical</h4>
+                <h4 className="font-semibold text-purple-800">Cannabis & Pharma</h4>
               </div>
-              <p className="text-sm text-purple-700 mb-3">Child-resistant lockforlargeHempandPharmaceuticalProductisregulationsmandatoryrequirements。</p>
-              <div className="text-xs text-purple-600 bg-purple-100 px-2 py-1 rounded inline-block">Share:: 25%</div>
+              <p className="text-sm text-purple-700 mb-3">Child-resistant locks are mandatory regulatory requirements for cannabis and pharmaceutical products to ensure safety.</p>
+              <div className="text-xs text-purple-600 bg-purple-100 px-2 py-1 rounded inline-block">Market Share: 25%</div>
             </div>
           </div>
           <div className="bg-neutral-50 p-4 rounded-lg mt-4">
             <h5 className="font-semibold text-neutral-800 mb-2">Customer Success Story</h5>
-            <p className="text-sm text-neutral-600">「fromStandard zipperincreasedPremiumtoSlider zipperAfter，OurPetSnacksCustomerrepurchaserateimprove25%，Customerfeedback loves single-handperformanceoperation。」— Pet FoodBrandManager</p>
+            <p className="text-sm text-neutral-600">"After upgrading from a standard press-to-close zipper to a premium slider zipper, our pet snack repurchase rate improved by 25%. Customer feedback frequently highlighted how much they loved the single-hand operation." — Pet Food Brand Manager</p>
           </div>
         </div>
       )
@@ -356,93 +356,93 @@ const ReclosureOptionsPage: React.FC = () => {
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
-          <p className="text-neutral-700">resealPackagingMarketcontinuedgrowth，ConsumersforconvenientleveragefocusedandfreshnessrequirementsincreasinglyHigh。</p>
+          <p className="text-neutral-700">The market for resealable packaging is experiencing continued growth as consumers place an increasingly high focus on convenience and prolonged product freshness.</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
               <div className="text-3xl font-bold text-primary-600 mb-1">78%</div>
-              <div className="text-xs text-neutral-500">ConsumerspreferencecanresealPackaging</div>
+              <div className="text-xs text-neutral-500">Consumer Preference for Resealable Layouts</div>
               <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
                 <TrendingUp className="h-3 w-3" />
-                <span>growthMedium</span>
+                <span>Steady Growth</span>
               </div>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
               <div className="text-3xl font-bold text-blue-600 mb-1">$8.5B</div>
-              <div className="text-xs text-neutral-500">canresealPackagingMarketSize</div>
+              <div className="text-xs text-neutral-500">Resealable Packaging Market Size</div>
               <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
                 <TrendingUp className="h-3 w-3" />
-                <span>yeargrowth 6.2%</span>
+                <span>6.2% YoY Growth</span>
               </div>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
               <div className="text-3xl font-bold text-green-600 mb-1">35%</div>
-              <div className="text-xs text-neutral-500">improveProductValueFeel</div>
+              <div className="text-xs text-neutral-500">Improvement in Brand Perception</div>
               <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
                 <TrendingUp className="h-3 w-3" />
-                <span>stable</span>
+                <span>Stable</span>
               </div>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
               <div className="text-3xl font-bold text-amber-600 mb-1">500+</div>
-              <div className="text-xs text-neutral-500">PullChain OpenSuitableCycle Timesnumber</div>
+              <div className="text-xs text-neutral-500">Estimated Open/Close Cycles</div>
               <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
                 <TrendingUp className="h-3 w-3" />
-                <span>HighResistantused</span>
+                <span>High Durability</span>
               </div>
             </div>
           </div>
           <div className="bg-blue-50 p-4 rounded-lg">
             <h5 className="font-semibold text-blue-800 mb-2">Market Trend Insights</h5>
-            <p className="text-sm text-blue-700">ConsumersforPackagingconvenientleveragefocusedrequirementsnotBreakimprove，Slider zipperbecauseItsSingleHandoperationFeaturesbecomingfavorite，Expected by2026yearconvertedshareMarket40%。</p>
+            <p className="text-sm text-blue-700">Consumers consistently prioritize convenience and ease of use in packaging. Slider zippers are becoming a favorite due to their tactile feedback and single-handed operation feature, expected to reach a 40% market share by 2026.</p>
           </div>
         </div>
       )
     },
     {
       id: 'material-comparison',
-      title: 'Material Comparison',
+      title: 'Closure Comparison',
       icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
-          <p className="text-neutral-700">DifferentresealMethodfocusedperformanceContrast，to help you choose the best solution。</p>
+          <p className="text-neutral-700">A detailed performance comparison of different resealable options to help you choose the best solution for your business.</p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="bg-neutral-100">
-                  <th className="text-left p-3 border font-semibold">CloseSuitabletypes</th>
-                  <th className="text-left p-3 border font-semibold">operationconvenientleveragefocused</th>
-                  <th className="text-left p-3 border font-semibold">Sealingfocusedperformance</th>
-                  <th className="text-left p-3 border font-semibold">suitableusedScenario</th>
-                  <th className="text-left p-3 border font-semibold">CostCost Impact</th>
+                  <th className="text-left p-3 border font-semibold">Closure Type</th>
+                  <th className="text-left p-3 border font-semibold">Convenience</th>
+                  <th className="text-left p-3 border font-semibold">Sealing Performance</th>
+                  <th className="text-left p-3 border font-semibold">Suitable Scenarios</th>
+                  <th className="text-left p-3 border font-semibold">Cost Impact</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="hover:bg-green-50">
-                  <td className="p-3 border"><span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-medium">PressureSuitablePullChain</span></td>
+                  <td className="p-3 border"><span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-medium">Press-to-Close</span></td>
                   <td className="p-3 border">★★★</td>
                   <td className="p-3 border">★★★★</td>
-                  <td className="p-3 border">Snacks、Pet Food、Dry Goods</td>
+                  <td className="p-3 border">Snacks, Pet Food, Dry Goods</td>
                   <td className="p-3 border text-green-600 font-medium">+5%</td>
                 </tr>
                 <tr className="hover:bg-blue-50">
-                  <td className="p-3 border"><span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium">Slider zipper</span></td>
+                  <td className="p-3 border"><span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium">Slider Zipper</span></td>
                   <td className="p-3 border">★★★★★</td>
                   <td className="p-3 border">★★★★</td>
-                  <td className="p-3 border">HighpremiumSnacks、Pet Food</td>
+                  <td className="p-3 border">Premium Snacks, Large Pet Food Bags</td>
                   <td className="p-3 border text-blue-600 font-medium">+15%</td>
                 </tr>
                 <tr className="hover:bg-purple-50">
-                  <td className="p-3 border"><span className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-medium">Spout pouch</span></td>
+                  <td className="p-3 border"><span className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-medium">Spout Cap</span></td>
                   <td className="p-3 border">★★★★</td>
                   <td className="p-3 border">★★★★★</td>
-                  <td className="p-3 border">Baby Food、purees、liquid</td>
+                  <td className="p-3 border">Baby Food, Sauces, Liquids</td>
                   <td className="p-3 border text-purple-600 font-medium">+30%</td>
                 </tr>
                 <tr className="hover:bg-amber-50">
-                  <td className="p-3 border"><span className="px-2 py-1 bg-amber-100 text-amber-700 rounded text-xs font-medium">Chain</span></td>
+                  <td className="p-3 border"><span className="px-2 py-1 bg-amber-100 text-amber-700 rounded text-xs font-medium">Tin-Tie</span></td>
                   <td className="p-3 border">★★</td>
                   <td className="p-3 border">★★★</td>
-                  <td className="p-3 border">coffee、Baked Goods</td>
+                  <td className="p-3 border">Coffee Beans, Baked Goods</td>
                   <td className="p-3 border text-amber-600 font-medium">+10%</td>
                 </tr>
               </tbody>
@@ -450,7 +450,7 @@ const ReclosureOptionsPage: React.FC = () => {
           </div>
           <div className="bg-amber-50 p-4 rounded-lg">
             <h5 className="font-semibold text-amber-800 mb-2">Selection Guide</h5>
-            <p className="text-sm text-amber-700">choosechooseresealMethodwhen，RecommendationfromProductFormState、EnableusedScenarioandtargetCustomerGroupThreeDimensiondegreeconsiderations。OurimprovedSupplyFreeSample Feeproductstest，HelpYouVerifymaximumBestsolution。</p>
+            <p className="text-sm text-amber-700">When choosing a reclosure method, we recommend considering your product's physical state, usage scenario, and target demographic. We provide free product samples to help you verify and choose the optimal solution.</p>
           </div>
         </div>
       )

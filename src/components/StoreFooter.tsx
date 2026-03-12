@@ -49,6 +49,7 @@ export default function StoreFooter() {
               <li><Link to="/packaging/side-gusset-bags" className="hover:text-primary-400">Side Gusset</Link></li>
               <li><Link to="/packaging/spout-pouches" className="hover:text-primary-400">Spout Pouches</Link></li>
               <li><Link to="/packaging/custom-boxes" className="hover:text-primary-400">Custom Boxes</Link></li>
+              <li><Link to="/quotes/rollstock" className="hover:text-primary-400">Rollstock</Link></li>
             </ul>
           </div>
 

@@ -71,7 +71,8 @@ const LEARN_PAGES = {
     icon: <BookOpen className="h-4 w-4" />,
     pages: [
       { name: 'All Options', link: '/knowledge/all-options', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
-      { name: 'Surface & Reclosure Options', link: '/knowledge/surface-and-reclosure-options', image: '/imgs/illustrated/a_surface_finish_close_detail_b_2163248.webp' },
+      { name: 'Surface Option', link: '/features/surface-finish', image: '/imgs/illustrated/a_surface_finish_close_detail_b_2163248.webp' },
+      { name: 'Reclosure Option', link: '/features/reclosure-options', image: '/imgs/illustrated/a_reclosure_options_close_detail_b_4502553.webp' },
       { name: 'Pouch Sizing', link: '/knowledge/pouch-sizing', image: '/imgs/illustrated/a_pouch_sizing_guide_card_v3_5278730.webp' },
       { name: 'Size Guide', link: '/knowledge/size-guide', image: '/imgs/illustrated/a_size_guide_card_v2_9433535.webp' },
       { name: 'Printing Types', link: '/knowledge/printing-types', image: '/imgs/illustrated/a_printing_types_card_v2_6243973.webp' },

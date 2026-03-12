@@ -1,11 +1,11 @@
 {
-  "generated": "2026-03-04",
-  "total_images": 1272,
+  "generated": "2026-03-06",
+  "total_images": 1276,
   "total_categories": 140,
   "extensions": {
     ".webp": 1076,
-    ".png": 176,
-    ".jpg": 17,
+    ".png": 178,
+    ".jpg": 19,
     ".svg": 3
   },
   "categories": {
@@ -4574,8 +4574,14 @@
       ]
     },
     "pouch-shape": {
-      "count": 12,
+      "count": 13,
       "images": [
+        {
+          "filename": "rollstock-film.jpg",
+          "path": "/imgs/pouch-shape/rollstock-film.jpg",
+          "extension": ".jpg",
+          "modified": "2026-03-05T12:22:09.128Z"
+        },
         {
           "filename": "achieve-pack-branding-spotlight.png",
           "path": "/imgs/pouch-shape/achieve-pack-branding-spotlight.png",
@@ -5295,8 +5301,14 @@
       ]
     },
     "samples": {
-      "count": 24,
+      "count": 25,
       "images": [
+        {
+          "filename": "home-compostable-rollstock.jpg",
+          "path": "/imgs/samples/home-compostable-rollstock.jpg",
+          "extension": ".jpg",
+          "modified": "2026-03-05T12:13:55.144Z"
+        },
         {
           "filename": "kraft-compostable-zipper.png",
           "path": "/imgs/samples/kraft-compostable-zipper.png",
@@ -6104,8 +6116,14 @@
       ]
     },
     "spec": {
-      "count": 40,
+      "count": 41,
       "images": [
+        {
+          "filename": "compostable-rollstock-structure.png",
+          "path": "/imgs/spec/compostable-rollstock-structure.png",
+          "extension": ".png",
+          "modified": "2026-03-05T12:29:55.285Z"
+        },
         {
           "filename": "pet-quadlex-aluminum-heavy.webp",
           "path": "/imgs/spec/pet-quadlex-aluminum-heavy.webp",
@@ -7721,8 +7739,14 @@
       ]
     },
     "surface": {
-      "count": 13,
+      "count": 14,
       "images": [
+        {
+          "filename": "spot-uv-pouch.png",
+          "path": "/imgs/surface/spot-uv-pouch.png",
+          "extension": ".png",
+          "modified": "2026-03-06T03:04:05.418Z"
+        },
         {
           "filename": "kraft-texture.png",
           "path": "/imgs/surface/kraft-texture.png",

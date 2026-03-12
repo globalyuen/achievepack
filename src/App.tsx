@@ -18,6 +18,7 @@ import { useStore } from './store/StoreContext'
 import { FEATURED_PRODUCTS, type PouchProduct } from './store/productData'
 import ReadingProgress from './components/ReadingProgress'
 import { getDomain, getBrandConfig, getBaseUrl } from './utils/domain'
+import QuoteLightbox from './components/QuoteLightbox';
 
 // Error boundary to handle chunk loading failures
 class ChunkErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
@@ -2960,6 +2961,7 @@ Please contact me to discuss custom solutions.`;
       <CartSidebar />
 
       {/* Floating Testimonial Video - Removed */}
+      <QuoteLightbox />
     </div>
     </>
   )

@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { 
   Lock, CheckCircle, AlertCircle, Clock, X, Check, ChevronLeft, ChevronRight,
   RefreshCw, FileImage, Sparkles, AlertTriangle, Info, Send, MessageSquare,
-  ZoomIn, Download, Search, Code
+  ZoomIn, Download, Search, Code, ExternalLink
 } from 'lucide-react'
 import { supabase, ArtworkBatch, ArtworkBatchItem } from '../lib/supabase'
 
@@ -662,6 +662,18 @@ const ArtworkReviewPage: React.FC = () => {
                         <Code className="h-4 w-4" />
                       </button>
                     )}
+                    {item.source_link && (
+                      <a
+                        href={item.source_link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="p-2 text-indigo-500 hover:text-indigo-700 hover:bg-indigo-50 rounded-lg transition"
+                        title="View Original Source Link"
+                      >
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
@@ -1048,17 +1060,40 @@ const ReviewModal: React.FC<{
                 )}
               </div>
               
-              <div className="mt-4 flex items-center gap-3">
-                <p className="font-medium text-gray-900 truncate flex-1">{item.name}</p>
-                <a
-                  href={item.file_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1 text-sm text-primary-600 hover:text-primary-700"
-                >
-                  <Download className="h-4 w-4" />
-                  Download
-                </a>
+              <div className="mt-4 flex flex-col gap-3">
+                <div className="flex items-center gap-3">
+                  <p className="font-medium text-gray-900 truncate flex-1">{item.name}</p>
+                  <a
+                    href={item.file_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-sm text-primary-600 hover:text-primary-700"
+                  >
+                    <Download className="h-4 w-4" />
+                    Download Preview
+                  </a>
+                </div>
+                
+                {item.source_link && (
+                  <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-3">
+                    <div className="flex items-start gap-2">
+                      <AlertTriangle className="h-5 w-5 text-indigo-600 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-sm font-semibold text-indigo-900 mb-1">Preview Image Only</p>
+                        <p className="text-xs text-indigo-700 mb-2">The image shown is a low-resolution preview. Please download the original proof from the source link below for accurate color and dimension confirmation.</p>
+                        <a
+                          href={item.source_link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 px-3 py-1.5 bg-indigo-600 text-white text-sm font-medium rounded-md hover:bg-indigo-700 transition"
+                        >
+                          <ExternalLink className="h-4 w-4" />
+                          Download Original Source Proof
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
               
               {/* AI Analysis Info */}

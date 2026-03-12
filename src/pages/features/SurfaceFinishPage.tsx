@@ -6,17 +6,16 @@ import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
 const surfaceGallery = [
-  { src: '/imgs/surface/ads/a_achieve_pack_main_kv_six_finishes_3535755.webp', title: 'Six Premium Finishes', desc: 'Complete overview of all available surface treatment options' },
   { src: '/imgs/surface/ads/a_gloss_finish_detail_5685549.webp', title: 'Gloss Finish Detail', desc: 'High-shine reflective surface for maximum color vibrancy' },
   { src: '/imgs/surface/ads/a_gloss_pouch_correct_5078762.webp', title: 'Gloss Pouch Example', desc: 'Full gloss lamination creating eye-catching shelf presence' },
   { src: '/imgs/surface/ads/a_matte_finish_detail_7483118.webp', title: 'Matte Finish Detail', desc: 'Smooth non-reflective surface for elegant sophisticated look' },
   { src: '/imgs/surface/ads/a_matte_pouch_correct_6361818.webp', title: 'Matte Pouch Example', desc: 'Sophisticated matte finish perfect for premium brands' },
   { src: '/imgs/surface/spot-matte-finish.webp', title: 'Spot Matte Finish', desc: 'Selective matte varnish creating elegant contrast between glossy and matte areas' },
+  { src: '/imgs/surface/spot-uv-pouch.png', title: 'Spot UV Finish', desc: 'Premium glossy spots over a matte surface creating stark contrast and focus' },
   { src: '/imgs/surface/ads/a_metallic_gold_closeup_5151764.webp', title: 'Metallic Gold Effect', desc: 'Luxurious gold metallic finish for premium product positioning' },
   { src: '/imgs/surface/ads/a_softtouch_pouch_correct_7961783.webp', title: 'Soft Touch Finish', desc: 'Velvety tactile surface creating sensory brand appeal' },
   { src: '/imgs/surface/ads/a_embossed_navy_9933981.webp', title: 'Embossed Texture', desc: 'Raised patterns creating dimensional brand experience' },
   { src: '/imgs/surface/ads/a_foil_green_charcoal_7632386.webp', title: 'Foil Stamping', desc: 'Hot foil accents in gold, silver, or custom metallic colors' },
-  { src: '/imgs/surface/ads/a_standup_pouches_main_6878547.webp', title: 'Stand-Up Collection', desc: 'Various surface finishes applied to standing pouch format' },
 ];
 
 const SurfaceFinishPage: React.FC = () => {
