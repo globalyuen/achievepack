@@ -66,6 +66,11 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/features/reclosure-options': () => import('./pages/features/ReclosureOptionsPage'),
   '/features/surface-finish': () => import('./pages/features/SurfaceFinishPage'),
   '/features/barrier-options': () => import('./pages/features/BarrierOptionsPage'),
+  '/pouch/reclosure-options': () => import('./pages/pouch/PouchReclosureOptionsPage'),
+  '/pouch/surface-finish': () => import('./pages/pouch/PouchSurfaceFinishPage'),
+  '/pouch/surface-and-reclosure-options': () => import('./pages/pouch/SurfaceAndReclosureOptionsPage'),
+  '/pouch/barrier-overview': () => import('./pages/pouch/PouchBarrierOverviewPage'),
+  '/pouch/material-data-sheet': () => import('./pages/pouch/MaterialDataSheetPage'),
 }
 
 // Export preload function for use in navigation components
@@ -461,6 +466,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/factory-tour" element={<PouchFactoryTourPage />} />
                   <Route path="/materials/cello-kraft-triplex" element={<PouchCelloKraftPage />} />
                   <Route path="/materials/kraft-duplex" element={<PouchKraftDuplexPage />} />
+                  <Route path="/materials/data-sheet" element={<MaterialDataSheetPage />} />
                   <Route path="/materials/catalog" element={<PouchMaterialCatalogPage />} />
                   <Route path="/options/reclosure" element={<PouchReclosureOptionsPage />} />
                   <Route path="/options/surface-finish" element={<PouchSurfaceFinishPage />} />

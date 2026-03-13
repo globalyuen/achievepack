@@ -74,6 +74,7 @@ export default function Footer() {
               <li><Link to="/materials/recyclable-mono-pp" className="hover:text-primary-400">Recyclable Mono PP</Link></li>
               <li><Link to="/materials/bio-pe" className="hover:text-primary-400">Bio-PE</Link></li>
               <li><Link to="/materials/pcr" className="hover:text-primary-400">PCR Recycled</Link></li>
+              <li><Link to="/materials/data-sheet" className="hover:text-primary-400">Material Data Sheet</Link></li>
             </ul>
           </div>
           
