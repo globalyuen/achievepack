@@ -68,7 +68,7 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/features/barrier-options': () => import('./pages/features/BarrierOptionsPage'),
   '/pouch/reclosure-options': () => import('./pages/pouch/PouchReclosureOptionsPage'),
   '/pouch/surface-finish': () => import('./pages/pouch/PouchSurfaceFinishPage'),
-  '/pouch/surface-and-reclosure-options': () => import('./pages/pouch/SurfaceAndReclosureOptionsPage'),
+  '/pouch/surface-and-reclosure-options': () => import('./pages/pouch/options/SurfaceAndReclosureOptionsPage'),
   '/pouch/barrier-overview': () => import('./pages/pouch/PouchBarrierOverviewPage'),
   '/pouch/material-data-sheet': () => import('./pages/pouch/MaterialDataSheetPage'),
 }
