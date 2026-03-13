@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 import PouchLayout from '../../components/pouch/PouchLayout'
-import { ArrowRight, Eye, FileText, FlaskConical, Layers, ShieldCheck, Zap } from 'lucide-react'
+import { ArrowRight, Eye, FileText, FlaskConical, Home, Layers, ShieldCheck, Zap } from 'lucide-react'
 
 // Reusing Neo-components for consistency
 const NeoButton = ({ children, onClick, variant = 'primary', className = '' }: any) => {
@@ -31,6 +31,36 @@ const NeoBadge = ({ children, color = 'bg-[#FF00FF]' }: any) => (
 
 export default function PouchTechSpecsPage() {
   const specs = [
+    {
+      id: 'home-compostable',
+      title: 'Home Compostable',
+      subtitle: 'Kraft + Compostable Film',
+      description: '60gsm Kraft Paper + 50μ Compostable Inner Film. Simple low-barrier structure with home compostable potential. Ideal for fast-moving products at farmers markets, bakeries, and artisan retailers.',
+      image: 'https://achievepack.com/imgs/spec/bio-kraft-pbat-low.webp',
+      layers: [
+        { name: 'Outer', desc: 'Kraft Paper 60gsm (80μ)' },
+        { name: 'Inner', desc: 'Compostable Film 50μ (PBAT)' },
+        { name: 'Total', desc: '130μ nominal thickness' }
+      ],
+      barrier: [
+        { label: 'WVTR', value: '< 150 g/m²/day' },
+        { label: 'OTR', value: '< 80 cc/m²/day' }
+      ],
+      features: ['Home Compostable', 'Moisture Barrier', 'Heat Sealable', 'Printable'],
+      certifications: ['TUV Home Compost', 'EN 13432', 'ASTM D6400'],
+      pdfUrl: '/pdfs/home-compostable-spec-sheet.pdf',
+      dataSheet: {
+        productName: '60gsm Kraft Paper + 50μ Compostable Inner Film',
+        structure: 'Kraft paper / Compostable film',
+        totalThickness: '0.13mm (130μ)',
+        totalWeight: '130 g/m²',
+        layers: [
+          { layer: 'Outer / 外层', material: 'Kraft paper 牛皮纸 (uncoated)', gsm: '60', thicknessMm: '0.08', thicknessMu: '80', weightShare: '46.2', thickShare: '61.5' },
+          { layer: 'Inner / 内层', material: 'Compostable film 可堆肥薄膜 (50μ, ρ=1.4)', gsm: '70', thicknessMm: '0.05', thicknessMu: '50', weightShare: '53.8', thickShare: '38.5' },
+          { layer: 'Total / 合计', material: 'Laminated structure 复合结构', gsm: '130', thicknessMm: '0.13', thicknessMu: '130', weightShare: '100', thickShare: '100' }
+        ]
+      }
+    },
     {
       id: 'compostable',
       title: 'Compostable',
@@ -151,10 +181,13 @@ export default function PouchTechSpecsPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {specs.map((spec, index) => (
-              <NeoCard key={spec.id} className="flex flex-col h-full" color={index % 2 === 0 ? 'bg-white' : 'bg-[#F9F9F9]'}>
+              <NeoCard key={spec.id} className={`flex flex-col h-full ${spec.id === 'home-compostable' ? 'md:col-span-2 lg:col-span-3' : ''}`} color={index % 2 === 0 ? 'bg-white' : 'bg-[#F9F9F9]'}>
                 <div className="border-b-4 border-black pb-4 mb-6">
                    <div className="flex justify-between items-start mb-2">
-                      <h2 className="font-black text-2xl uppercase">{spec.title}</h2>
+                      <div className="flex items-center gap-2">
+                        {spec.id === 'home-compostable' && <Home className="w-6 h-6 text-green-600" />}
+                        <h2 className="font-black text-2xl uppercase">{spec.title}</h2>
+                      </div>
                       <div className="bg-black text-white px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold">
                         {spec.id.toUpperCase()}
                       </div>
@@ -162,47 +195,167 @@ export default function PouchTechSpecsPage() {
                    <p className="font-['JetBrains_Mono'] font-bold text-gray-500">{spec.subtitle}</p>
                 </div>
 
-                <div className="mb-6 border-4 border-black overflow-hidden relative group">
-                  <img src={spec.image} alt={spec.title} className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
-                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <Eye className="text-white w-12 h-12" />
-                   </div>
-                </div>
-
-                <p className="font-['Space_Grotesk'] mb-6 flex-grow">{spec.description}</p>
-
-                <div className="space-y-6 mb-8">
-                   {/* Layers */}
-                   <div>
-                      <div className="flex items-center gap-2 mb-2 font-bold font-['JetBrains_Mono'] uppercase text-sm">
-                         <Layers className="w-4 h-4" /> Structure
+                {spec.id === 'home-compostable' ? (
+                  <div className="grid md:grid-cols-2 gap-8">
+                    {/* Left: Image + Description + Barrier */}
+                    <div className="flex flex-col">
+                      <div className="mb-6 border-4 border-black overflow-hidden relative group">
+                        <img src={spec.image} alt={spec.title} className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                           <Eye className="text-white w-12 h-12" />
+                        </div>
                       </div>
-                      <div className="bg-gray-100 border-2 border-black p-3 space-y-2">
-                         {spec.layers.map((layer, i) => (
-                            <div key={i} className="flex justify-between text-sm border-b border-gray-300 last:border-0 pb-1 last:pb-0">
-                               <span className="font-bold">{layer.name}</span>
-                               <span className="font-mono text-gray-600">{layer.desc}</span>
+                      <p className="font-['Space_Grotesk'] mb-6">{spec.description}</p>
+                      {/* Barrier Properties */}
+                      <div className="mb-6">
+                        <div className="flex items-center gap-2 mb-2 font-bold font-['JetBrains_Mono'] uppercase text-sm">
+                          <Zap className="w-4 h-4" /> Barrier Properties
+                        </div>
+                        <div className="grid grid-cols-2 gap-3">
+                          {(spec as any).barrier?.map((b: any) => (
+                            <div key={b.label} className="bg-green-50 border-2 border-black p-3 text-center">
+                              <div className="font-black text-xl text-green-700">{b.value}</div>
+                              <div className="font-['JetBrains_Mono'] text-xs font-bold uppercase text-gray-500 mt-1">{b.label}</div>
                             </div>
-                         ))}
+                          ))}
+                        </div>
                       </div>
-                   </div>
-                   
-                   {/* Certs */}
-                   <div>
-                      <div className="flex items-center gap-2 mb-2 font-bold font-['JetBrains_Mono'] uppercase text-sm">
-                         <ShieldCheck className="w-4 h-4" /> Certifications
+                      {/* Structure */}
+                      <div className="mb-6">
+                        <div className="flex items-center gap-2 mb-2 font-bold font-['JetBrains_Mono'] uppercase text-sm">
+                          <Layers className="w-4 h-4" /> Structure
+                        </div>
+                        <div className="bg-gray-100 border-2 border-black p-3 space-y-2">
+                          {spec.layers.map((layer, i) => (
+                            <div key={i} className="flex justify-between text-sm border-b border-gray-300 last:border-0 pb-1 last:pb-0">
+                              <span className="font-bold">{layer.name}</span>
+                              <span className="font-mono text-gray-600">{layer.desc}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                      <div className="flex flex-wrap gap-2">
-                         {spec.certifications.map((cert) => (
-                            <NeoBadge key={cert} color="bg-[#00FFFF]">{cert}</NeoBadge>
-                         ))}
+                      {/* Certs */}
+                      <div className="mb-6">
+                        <div className="flex items-center gap-2 mb-2 font-bold font-['JetBrains_Mono'] uppercase text-sm">
+                          <ShieldCheck className="w-4 h-4" /> Certifications
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          {spec.certifications.map((cert) => (
+                            <NeoBadge key={cert} color="bg-[#D4FF00]">{cert}</NeoBadge>
+                          ))}
+                        </div>
                       </div>
-                   </div>
-                </div>
+                      <NeoButton variant="dark" className="w-full justify-center mt-auto" onClick={() => window.open(spec.pdfUrl, '_blank')}>
+                        <FileText className="w-4 h-4" /> Download PDF
+                      </NeoButton>
+                    </div>
 
-                <NeoButton variant="dark" className="w-full justify-center mt-auto" onClick={() => window.open(spec.pdfUrl, '_blank')}>
-                   <FileText className="w-4 h-4" /> Download PDF
-                </NeoButton>
+                    {/* Right: Data Sheet */}
+                    {(spec as any).dataSheet && (
+                      <div className="flex flex-col">
+                        <div className="bg-amber-50 border-4 border-black p-6">
+                          <h3 className="font-black text-lg uppercase mb-1 border-b-2 border-black pb-2 mb-4">Product Data Sheet</h3>
+                          <div className="space-y-2 mb-4 font-['JetBrains_Mono'] text-sm">
+                            <div className="flex justify-between border-b border-gray-300 pb-1">
+                              <span className="font-bold">Product Name</span>
+                              <span className="text-gray-700 text-right max-w-[55%]">{(spec as any).dataSheet.productName}</span>
+                            </div>
+                            <div className="flex justify-between border-b border-gray-300 pb-1">
+                              <span className="font-bold">Structure</span>
+                              <span className="text-gray-700">{(spec as any).dataSheet.structure}</span>
+                            </div>
+                            <div className="flex justify-between border-b border-gray-300 pb-1">
+                              <span className="font-bold">Total Thickness</span>
+                              <span className="text-gray-700">{(spec as any).dataSheet.totalThickness}</span>
+                            </div>
+                            <div className="flex justify-between pb-1">
+                              <span className="font-bold">Total Weight</span>
+                              <span className="text-gray-700">{(spec as any).dataSheet.totalWeight}</span>
+                            </div>
+                          </div>
+                          {/* Layer Table */}
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-xs border border-black border-collapse">
+                              <thead className="bg-black text-white">
+                                <tr>
+                                  <th className="p-2 text-left border border-gray-600">Layer / 层级</th>
+                                  <th className="p-2 text-left border border-gray-600">Material / 材料</th>
+                                  <th className="p-2 text-center border border-gray-600">g/m²</th>
+                                  <th className="p-2 text-center border border-gray-600">mm</th>
+                                  <th className="p-2 text-center border border-gray-600">μm</th>
+                                  <th className="p-2 text-center border border-gray-600">Wt%</th>
+                                  <th className="p-2 text-center border border-gray-600">T%</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {(spec as any).dataSheet.layers.map((row: any, i: number) => (
+                                  <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-amber-50/60'}>
+                                    <td className="p-2 border border-gray-300 font-bold whitespace-nowrap">{row.layer}</td>
+                                    <td className="p-2 border border-gray-300 text-gray-700">{row.material}</td>
+                                    <td className="p-2 border border-gray-300 text-center font-mono">{row.gsm}</td>
+                                    <td className="p-2 border border-gray-300 text-center font-mono">{row.thicknessMm}</td>
+                                    <td className="p-2 border border-gray-300 text-center font-mono">{row.thicknessMu}</td>
+                                    <td className="p-2 border border-gray-300 text-center font-mono">{row.weightShare}%</td>
+                                    <td className="p-2 border border-gray-300 text-center font-mono">{row.thickShare}%</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                          <div className="mt-4 text-xs text-gray-500 font-['JetBrains_Mono'] space-y-1">
+                            <p>* 60gsm kraft paper typical thickness range 70–85μ; nominal 80μ taken here.</p>
+                            <p>* Compostable film 50μ at ρ=1.4 g/cm³ ≈ 70 g/m² basis weight.</p>
+                            <p>* Thickness share = layer thickness ÷ total thickness × 100%</p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <>
+                    <div className="mb-6 border-4 border-black overflow-hidden relative group">
+                      <img src={spec.image} alt={spec.title} className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
+                       <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                          <Eye className="text-white w-12 h-12" />
+                       </div>
+                    </div>
+
+                    <p className="font-['Space_Grotesk'] mb-6 flex-grow">{spec.description}</p>
+
+                    <div className="space-y-6 mb-8">
+                       {/* Layers */}
+                       <div>
+                          <div className="flex items-center gap-2 mb-2 font-bold font-['JetBrains_Mono'] uppercase text-sm">
+                             <Layers className="w-4 h-4" /> Structure
+                          </div>
+                          <div className="bg-gray-100 border-2 border-black p-3 space-y-2">
+                             {spec.layers.map((layer, i) => (
+                                <div key={i} className="flex justify-between text-sm border-b border-gray-300 last:border-0 pb-1 last:pb-0">
+                                   <span className="font-bold">{layer.name}</span>
+                                   <span className="font-mono text-gray-600">{layer.desc}</span>
+                                </div>
+                             ))}
+                          </div>
+                       </div>
+                       
+                       {/* Certs */}
+                       <div>
+                          <div className="flex items-center gap-2 mb-2 font-bold font-['JetBrains_Mono'] uppercase text-sm">
+                             <ShieldCheck className="w-4 h-4" /> Certifications
+                          </div>
+                          <div className="flex flex-wrap gap-2">
+                             {spec.certifications.map((cert) => (
+                                <NeoBadge key={cert} color="bg-[#00FFFF]">{cert}</NeoBadge>
+                             ))}
+                          </div>
+                       </div>
+                    </div>
+
+                    <NeoButton variant="dark" className="w-full justify-center mt-auto" onClick={() => window.open(spec.pdfUrl, '_blank')}>
+                       <FileText className="w-4 h-4" /> Download PDF
+                    </NeoButton>
+                  </>
+                )}
               </NeoCard>
             ))}
             
