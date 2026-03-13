@@ -1,8 +1,13 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Download, FileText, CheckCircle } from 'lucide-react';
+import { Download, CheckCircle, ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { getDomain } from '../../utils/domain';
+import Footer from '../../components/Footer';
+import StoreFooter from '../../components/StoreFooter';
 
 export default function MaterialDataSheetPage() {
+  const isPouch = getDomain() === 'pouch';
   return (
     <div className="min-h-screen bg-neutral-50 pt-24 pb-16">
       <Helmet>
@@ -11,7 +16,13 @@ export default function MaterialDataSheetPage() {
       </Helmet>
 
       <div className="max-w-4xl mx-auto px-4">
-        <div className="bg-white rounded-2xl shadow-sm border border-neutral-200 overflow-hidden">
+        <div className="mb-6">
+          <Link to={isPouch ? "/" : "/store"} className="inline-flex items-center gap-2 text-neutral-500 hover:text-primary-600 font-medium transition-colors">
+            <ArrowLeft className="w-4 h-4" />
+            Back to Home
+          </Link>
+        </div>
+        <div className="bg-white rounded-2xl shadow-sm border border-neutral-200 overflow-hidden mb-16">
           {/* Header */}
           <div className="bg-primary-900 text-white p-8">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
@@ -179,7 +190,7 @@ export default function MaterialDataSheetPage() {
             <div className="border-t border-neutral-200 pt-8 flex flex-col items-center justify-center text-center">
               <p className="text-neutral-500 mb-2">For further details, please contact Achieve Pack's technical team.</p>
               <div className="flex gap-6 text-sm text-neutral-600 font-medium">
-                <span>www.achievepack.com</span>
+                <span>{isPouch ? 'www.pouch.eco' : 'www.achievepack.com'}</span>
                 <span>ryan@achievepack.com</span>
                 <span>Tel: +852 6970 4411</span>
               </div>
@@ -187,6 +198,9 @@ export default function MaterialDataSheetPage() {
           </div>
         </div>
       </div>
+      
+      {/* Global Footer */}
+      {isPouch ? <Footer /> : <StoreFooter />}
     </div>
   );
 }

@@ -35,6 +35,9 @@ export default function Footer() {
               <Link to="/company/b-corp" className="hover:opacity-80 transition-opacity">
                 <img src="/bcorp.svg" alt="Certified B Corporation" className="h-10 w-auto" loading="lazy" decoding="async" />
               </Link>
+              <Link to="/materials/data-sheet" className="ml-2 bg-neutral-800 text-xs font-semibold px-3 py-1.5 rounded-full hover:bg-primary-600 transition-colors">
+                Data Sheet
+              </Link>
             </div>
           </div>
 

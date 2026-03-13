@@ -4,7 +4,7 @@ export default function StoreFooter() {
   return (
     <footer className="bg-primary-800 text-white pt-12 pb-8 rounded-t-[3rem] mt-8">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 mb-8">
           {/* Store Info */}
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-3">
@@ -61,6 +61,13 @@ export default function StoreFooter() {
               <li><Link to="/materials/recyclable-mono-pe" className="hover:text-primary-400">Recyclable Mono-PE</Link></li>
               <li><Link to="/materials/bio-pe" className="hover:text-primary-400">Bio-PE / PCR</Link></li>
               <li><Link to="/materials/home-compostable" className="hover:text-primary-400">Home Compostable</Link></li>
+            </ul>
+          </div>
+
+          {/* Material Data */}
+          <div>
+            <h4 className="font-semibold text-sm mb-4">Material Data</h4>
+            <ul className="space-y-2 text-xs text-neutral-400">
               <li><Link to="/materials/data-sheet" className="hover:text-primary-400">Material Data Sheet</Link></li>
             </ul>
           </div>
