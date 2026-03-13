@@ -12,11 +12,23 @@ const SENDER_PROFILES: Record<string, { name: string; email: string }> = {
     eric: { name: 'Eric Chan', email: 'eric@pouch.eco' }
 }
 
-async function sendBrevoEmail(to: string, subject: string, body: string, senderKey: string) {
+async function sendBrevoEmail(to: string, subject: string, body: string, senderKey: string, prospectId?: number) {
     const BREVO_API_KEY = process.env.BREVO_API_KEY
     if (!BREVO_API_KEY) throw new Error('BREVO_API_KEY not configured')
     
     const sender = SENDER_PROFILES[senderKey] || SENDER_PROFILES.ryan
+    
+    let htmlBody = body
+        .replace(/\n/g, '<br>')
+        .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" style="color: #059669;">$1</a>')
+
+    if (prospectId) {
+        htmlBody += `<img src="https://achievepack.com/api/prospect/track-open?id=${prospectId}" width="1" height="1" style="display:none;" />`
+        htmlBody = htmlBody.replace(/href="(https?:\/\/[^"]+)"/g, (match, url) => {
+            if (url.includes('unsubscribe')) return match
+            return `href="https://achievepack.com/api/prospect/track-click?id=${prospectId}&url=${encodeURIComponent(url)}"`
+        })
+    }
     
     const response = await fetch('https://api.brevo.com/v3/smtp/email', {
         method: 'POST',
@@ -30,7 +42,7 @@ async function sendBrevoEmail(to: string, subject: string, body: string, senderK
             to: [{ email: to }],
             // CC removed - notifications will be sent via WhatsApp instead
             subject,
-            htmlContent: body.replace(/\n/g, '<br>'),
+            htmlContent: htmlBody,
             textContent: body
         })
     })
@@ -112,7 +124,7 @@ ${senderProfile.name}
 Business Development
 Pouch.eco | Sustainable Packaging Solutions`
 
-                const result = await sendBrevoEmail(prospect.email, subject, body, sender)
+                const result = await sendBrevoEmail(prospect.email, subject, body, sender, prospect.id)
 
                 await supabase
                     .from('prospect')

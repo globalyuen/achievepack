@@ -502,7 +502,7 @@ To unsubscribe: https://achievepack.com/unsubscribe?email=${encodeURIComponent(p
 }
 
 // Send email via Brevo with proper HTML formatting
-async function sendBrevoEmail(to: string, subject: string, body: string, senderKey: string) {
+async function sendBrevoEmail(to: string, subject: string, body: string, senderKey: string, prospectId?: number) {
     const BREVO_API_KEY = process.env.BREVO_API_KEY
     if (!BREVO_API_KEY) throw new Error('BREVO_API_KEY not configured')
     
@@ -531,10 +531,18 @@ async function sendBrevoEmail(to: string, subject: string, body: string, senderK
             return `<p style="margin: 0 0 16px 0; line-height: 1.6;">${p}</p>`
         }).join('')
     
-    const styledHtml = `
+    let styledHtml = `
     <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333; font-size: 15px;">
         ${htmlBody}
     </div>`
+    
+    if (prospectId) {
+        styledHtml += `<img src="https://achievepack.com/api/prospect/track-open?id=${prospectId}" width="1" height="1" style="display:none;" />`
+        styledHtml = styledHtml.replace(/href="(https?:\/\/[^"]+)"/g, (match, url) => {
+            if (url.includes('unsubscribe')) return match
+            return `href="https://achievepack.com/api/prospect/track-click?id=${prospectId}&url=${encodeURIComponent(url)}"`
+        })
+    }
     
     const response = await fetch('https://api.brevo.com/v3/smtp/email', {
         method: 'POST',
@@ -1358,7 +1366,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 // Send email
                 addLog(`   📨 Sending email via Brevo...`)
                 try {
-                    const messageId = await sendBrevoEmail(email, subject, body, sender)
+                    const messageId = await sendBrevoEmail(email, subject, body, sender, prospect.id)
                     addLog(`   ✅ Brevo response: ${messageId || 'sent'}`)
                     
                     // Update prospect with sent status

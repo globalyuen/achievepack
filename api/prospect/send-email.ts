@@ -13,7 +13,7 @@ const SENDER_PROFILES: Record<string, { name: string; email: string; signature: 
     eric: { name: 'Eric Chan', email: 'eric@pouch.eco', signature: 'Eric Chan\nSales Manager\nPouch.eco | Sustainable Packaging Solutions\neric@pouch.eco' }
 }
 
-async function sendBrevoEmail(to: string, subject: string, body: string, senderKey: string) {
+async function sendBrevoEmail(to: string, subject: string, body: string, senderKey: string, prospectId?: number) {
     const BREVO_API_KEY = process.env.BREVO_API_KEY
     
     if (!BREVO_API_KEY) {
@@ -31,6 +31,16 @@ async function sendBrevoEmail(to: string, subject: string, body: string, senderK
         .replace(/📅/g, '📅')
         .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" style="color: #059669;">$1</a>')
     
+    let styledHtml = `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">${htmlBody}</div>`
+    
+    if (prospectId) {
+        styledHtml += `<img src="https://achievepack.com/api/prospect/track-open?id=${prospectId}" width="1" height="1" style="display:none;" />`
+        styledHtml = styledHtml.replace(/href="(https?:\/\/[^"]+)"/g, (match, url) => {
+            if (url.includes('unsubscribe')) return match
+            return `href="https://achievepack.com/api/prospect/track-click?id=${prospectId}&url=${encodeURIComponent(url)}"`
+        })
+    }
+
     const response = await fetch('https://api.brevo.com/v3/smtp/email', {
         method: 'POST',
         headers: {
@@ -43,7 +53,7 @@ async function sendBrevoEmail(to: string, subject: string, body: string, senderK
             to: [{ email: to }],
             // CC removed - notifications will be sent via WhatsApp instead
             subject,
-            htmlContent: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">${htmlBody}</div>`,
+            htmlContent: styledHtml,
             textContent: body
         })
     })
@@ -170,7 +180,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         }
 
         // Send email via Brevo
-        const emailResult = await sendBrevoEmail(prospect.email, subject, body, sender)
+        const emailResult = await sendBrevoEmail(prospect.email, subject, body, sender, prospect.id)
 
         // Update prospect record
         const { error: updateError } = await supabase
