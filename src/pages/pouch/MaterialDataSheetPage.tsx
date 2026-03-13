@@ -34,7 +34,7 @@ export default function MaterialDataSheetPage() {
               <div className="mt-4 md:mt-0 text-left md:text-right">
                 <p className="text-sm text-primary-200">Last Update: March 2026</p>
                 <a 
-                  href="/pdfs/material_data_sheet.pdf" 
+                  href="/pdfs/material_data_sheet.pdf?v=2" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 mt-4 bg-white text-primary-900 px-4 py-2 rounded-lg font-medium hover:bg-neutral-100 transition-colors"
