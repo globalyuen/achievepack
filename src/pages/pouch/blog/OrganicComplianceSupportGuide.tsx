@@ -166,25 +166,21 @@ export default function OrganicComplianceSupportGuide() {
             </a>
             
             <a 
-              href="/docs/TUV_Austria_OK_Compost.pdf" 
-              target="_blank"
-              download
+              href="/certifications" 
               className="group bg-white border-4 border-black p-6 flex flex-col items-center text-center hover:bg-[#D4FF00] transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 block"
             >
               <Shield className="w-12 h-12 mb-4 group-hover:scale-110 transition-transform" />
               <h4 className="font-black uppercase mb-2">TÜV Austria Certificate</h4>
-              <span className="text-sm border-2 border-black px-3 py-1 font-['JetBrains_Mono'] font-bold">Download PDF</span>
+              <span className="text-sm border-2 border-black px-3 py-1 font-['JetBrains_Mono'] font-bold">View Certificates</span>
             </a>
 
             <a 
-              href="/docs/Material_Safety_Data_Sheet_MSDS.pdf" 
-              target="_blank"
-              download
+              href="/certifications" 
               className="group bg-white border-4 border-black p-6 flex flex-col items-center text-center hover:bg-[#D4FF00] transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 block"
             >
               <Package className="w-12 h-12 mb-4 group-hover:scale-110 transition-transform" />
               <h4 className="font-black uppercase mb-2">Material Safety Data (MSDS)</h4>
-              <span className="text-sm border-2 border-black px-3 py-1 font-['JetBrains_Mono'] font-bold">Download PDF</span>
+              <span className="text-sm border-2 border-black px-3 py-1 font-['JetBrains_Mono'] font-bold">View Certificates</span>
             </a>
           </div>
 
@@ -236,8 +232,8 @@ export default function OrganicComplianceSupportGuide() {
         </>
       }
       heroSubtitle="Supporting Your Brand's Organic Integrity with Certified Compostable Packaging. Download the exact documents your auditor needs."
-      heroImage="/imgs/seo-photos/organic/eco_friendly_organic_pouch.webp"
-      heroImageAlt="Premium lifestyle product photography of a compostable flat-bottom pouch with organic ingredients"
+      heroImage="/imgs/seo-photos/organic/organic_dried_mango_pouch.webp"
+      heroImageAlt="Premium lifestyle product photography of an Achieve Pack organic dried mango pouch on a wooden table"
       categoryTag="COMPLIANCE"
       categoryColor="#10b981"
       readTime="5 min read"

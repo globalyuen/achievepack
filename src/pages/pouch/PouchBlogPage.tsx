@@ -69,7 +69,7 @@ export default function PouchBlogPage() {
     {
       title: 'Organic & Non-GMO Compliance Support',
       excerpt: 'Maintain your USDA Organic and EU Organic certifications. Download our Transparency Kit with Non-GMO affidavits and TÜV certificates for your auditor.',
-      image: '/imgs/seo-photos/organic/eco_friendly_organic_pouch.webp',
+      image: '/imgs/seo-photos/organic/organic_dried_mango_pouch.webp',
       date: '2026-03-12',
       category: 'Legal & Compliance',
       readTime: '5 min',

@@ -108,8 +108,8 @@ const OrganicComplianceSupportPage: React.FC = () => {
               </div>
               <div className="hidden md:block">
                 <ClickableImage
-                  src="/imgs/seo-photos/organic/eco_friendly_organic_pouch.webp"
-                  alt="Premium lifestyle product photography of a compostable flat-bottom pouch with organic ingredients"
+                  src="/imgs/seo-photos/organic/organic_dried_mango_pouch.webp"
+                  alt="Premium lifestyle product photography of an Achieve Pack organic dried mango pouch on a wooden table"
                   className="rounded-2xl shadow-2xl w-full"
                   caption="Maintain your organic certification with certified non-GMO compostable packaging."
                 />
@@ -268,13 +268,13 @@ const OrganicComplianceSupportPage: React.FC = () => {
                   <FileCheck className="h-5 w-5 text-primary-600" />
                   Non-GMO Declaration (PDF)
                 </a>
-                <a href="/docs/TUV_Austria_OK_Compost.pdf" download className="bg-white border-2 border-primary-200 hover:border-primary-500 text-primary-800 px-6 py-4 rounded-xl flex items-center justify-center gap-3 font-semibold transition hover:shadow-md">
+                <a href="/company/certifications" className="bg-white border-2 border-primary-200 hover:border-primary-500 text-primary-800 px-6 py-4 rounded-xl flex items-center justify-center gap-3 font-semibold transition hover:shadow-md">
                   <Shield className="h-5 w-5 text-primary-600" />
-                  TÜV / BPI Certificate (PDF)
+                  TÜV / BPI Certificate (Link)
                 </a>
-                <a href="/docs/Material_Safety_Data_Sheet_MSDS.pdf" download className="bg-white border-2 border-primary-200 hover:border-primary-500 text-primary-800 px-6 py-4 rounded-xl flex items-center justify-center gap-3 font-semibold transition hover:shadow-md">
+                <a href="/company/certifications" className="bg-white border-2 border-primary-200 hover:border-primary-500 text-primary-800 px-6 py-4 rounded-xl flex items-center justify-center gap-3 font-semibold transition hover:shadow-md">
                   <Package className="h-5 w-5 text-primary-600" />
-                  Safety Data (MSDS) (PDF)
+                  Food Safety (Link)
                 </a>
               </div>
               
