@@ -26,7 +26,9 @@ export default function PouchCertificationsPage() {
       description: 'Third-party verified compostable by the Biodegradable Products Institute. Meets ASTM D6400/D6868.',
       standard: 'ASTM D6400',
       facility: 'Industrial Composting',
-      image: '/imgs/cert/logo-achievepack-BPI.jpg'
+      image: '/imgs/company/bpi/bpi.svg',
+      listingUrl: 'https://products.bpiworld.org/companies/achieve-pack-company',
+      downloadUrl: '/full-cert/BPI_Certificate-Achieve%20Pack%20Company-10529618-1_02_27_2026.pdf'
     },
     {
       name: 'ABA Home Compost',
@@ -204,7 +206,16 @@ export default function PouchCertificationsPage() {
               className="inline-flex items-center gap-2 bg-black text-[#D4FF00] px-6 py-3 border-4 border-black font-['JetBrains_Mono'] font-bold hover:bg-[#D4FF00] hover:text-black transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
             >
               <ExternalLink className="w-5 h-5" />
-              View Our BPI Listing
+              View BPI Listing
+            </a>
+            <a 
+              href="/full-cert/BPI_Certificate-Achieve%20Pack%20Company-10529618-1_02_27_2026.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#10b981] text-white px-6 py-3 border-4 border-black font-['JetBrains_Mono'] font-bold hover:bg-[#059669] hover:text-white transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+            >
+              <ExternalLink className="w-5 h-5" />
+              Download BPI Cert
             </a>
             <a 
               href="https://calendly.com/30-min-free-packaging-consultancy"
@@ -266,6 +277,27 @@ export default function PouchCertificationsPage() {
                     {cert.facility}
                   </div>
                 </div>
+
+                {cert.downloadUrl ? (
+                  <div className="flex gap-2 mb-4">
+                    <a 
+                      href={cert.listingUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex-1 bg-black text-[#D4FF00] text-center py-2 font-bold text-xs border-2 border-black hover:bg-[#D4FF00] hover:text-black transition-colors"
+                    >
+                      LISTING
+                    </a>
+                    <a 
+                      href={cert.downloadUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex-1 bg-[#10b981] text-white text-center py-2 font-bold text-xs border-2 border-black hover:bg-white hover:text-[#10b981] transition-colors"
+                    >
+                      DOWNLOAD
+                    </a>
+                  </div>
+                ) : null}
               </motion.div>
             ))}
           </div>
@@ -397,10 +429,16 @@ export default function PouchCertificationsPage() {
                  <img src="/imgs/cert/cert-din-home-compost.png" alt="DIN Home Compost" className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
                  <p className="mt-2 font-bold">DIN Home Compost</p>
                </div>
-               <div className="text-center group">
-                 <img src="/imgs/cert/logo-achievepack-BPI.jpg" alt="BPI Certified" className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
-                 <p className="mt-2 font-bold">BPI Compostable</p>
-               </div>
+                <a 
+                  href="/full-cert/BPI_Certificate-Achieve%20Pack%20Company-10529618-1_02_27_2026.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-center group block"
+                >
+                  <img src="/imgs/company/bpi/bpi.svg" alt="BPI Certified" className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
+                  <p className="mt-2 font-bold group-hover:text-[#10b981]">BPI Compostable</p>
+                  <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Download →</span>
+                </a>
                <div className="text-center group">
                  <img src="/imgs/cert/cert-ABA-as5810.png" alt="ABA Home Compost" className="h-32 w-auto object-contain mx-auto border-4 border-transparent group-hover:border-black transition-all p-2" />
                  <p className="mt-2 font-bold">ABA AS 5810</p>

@@ -41,7 +41,7 @@ const CertificatesPage = () => {
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 flex flex-col items-center">
               <ClickableImage 
-                src="/imgs/cert/logo-achievepack-BPI.jpg" 
+                src="/imgs/company/bpi/bpi.svg" 
                 alt="BPI Certified Compostable" 
                 className="h-16 w-auto mb-2"
                 caption="BPI Certified"
@@ -72,9 +72,14 @@ const CertificatesPage = () => {
           <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mb-4">
             <h4 className="font-semibold text-blue-800 mb-2">⚠️ BPI Logo Sub-License Information</h4>
             <p className="text-sm text-blue-700">The BPI Certification belongs to Achieve Pack as the certified manufacturer. Brand owners wishing to display the BPI logo on their packaging must apply for a sub-license through BPI.</p>
-            <a href="https://products.bpiworld.org/companies/achieve-pack-company" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm text-blue-600 hover:underline mt-2 font-medium">
-              → View Achieve Pack BPI Certification
-            </a>
+            <div className="flex flex-wrap gap-4 mt-3">
+              <a href="https://products.bpiworld.org/companies/achieve-pack-company" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition font-medium">
+                View BPI Listing
+              </a>
+              <a href="/full-cert/BPI_Certificate-Achieve%20Pack%20Company-10529618-1_02_27_2026.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm bg-white text-blue-700 border border-blue-200 px-4 py-2 rounded-lg hover:bg-blue-50 transition font-medium">
+                Download BPI Cert
+              </a>
+            </div>
           </div>
           
           <div className="grid md:grid-cols-2 gap-6">

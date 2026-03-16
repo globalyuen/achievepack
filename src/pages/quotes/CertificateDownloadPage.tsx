@@ -12,6 +12,13 @@ interface CertificateFile {
 
 const certificates: CertificateFile[] = [
   {
+    name: 'BPI Certificate',
+    description: 'BPI Commercial Compostability Certification',
+    filename: 'BPI_Certificate-Achieve Pack Company-10529618-1_02_27_2026.pdf',
+    icon: 'fa-leaf',
+    category: 'environmental'
+  },
+  {
     name: 'BRC Food Safety Audit Report 2024',
     description: 'Latest BRC Global Standards audit report for food packaging safety',
     filename: '1.BRC AUDI REPORT 2024.pdf',

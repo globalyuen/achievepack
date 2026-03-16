@@ -35,7 +35,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
               { label: 'PRODUCTS', path: '/products' },
               { label: 'MATERIALS', path: '/materials' },
               { label: 'OPTIONS', path: '/options/surface-and-reclosure' },
-              { label: 'CERTIFICATIONS', path: '/certifications' },
+              { label: 'CERT', path: '/certifications' },
               { label: 'TESTIMONIALS', path: '/testimonials' },
               { label: 'BLOG', path: '/blog' }
             ].map((item) => (
@@ -160,7 +160,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                         : 'bg-white hover:bg-[#D4FF00]'
                     }`}
                   >
-                    [CERTIFICATIONS]
+                    [CERT]
                   </Link>
                   
                   <Link
@@ -316,6 +316,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
               <Link to="/quotes/spouted-pouch?p=pouch2026" className="hover:underline">SPOUTED</Link>
               <Link to="/quotes/rollstock?p=pouch2026" className="hover:underline">ROLL</Link>
               <Link to="/cert?p=pouch2026" className="hover:underline">CERT</Link>
+              <a href="/full-cert/BPI_Certificate-Achieve%20Pack%20Company-10529618-1_02_27_2026.pdf" target="_blank" rel="noopener noreferrer" className="hover:underline text-[#10b981]">BPI CERT</a>
               <Link to="/privacy" className="hover:underline">PRIVACY</Link>
               <Link to="/terms" className="hover:underline">TERMS</Link>
             </div>

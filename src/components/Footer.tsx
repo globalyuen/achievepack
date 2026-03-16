@@ -38,6 +38,9 @@ export default function Footer() {
               <Link to="/materials/data-sheet" className="ml-2 bg-neutral-800 text-xs font-semibold px-3 py-1.5 rounded-full hover:bg-primary-600 transition-colors">
                 Data Sheet
               </Link>
+              <a href="/full-cert/BPI_Certificate-Achieve%20Pack%20Company-10529618-1_02_27_2026.pdf" target="_blank" rel="noopener noreferrer" className="ml-2 bg-green-700 text-xs font-semibold px-3 py-1.5 rounded-full hover:bg-green-600 transition-colors">
+                BPI Cert
+              </a>
             </div>
           </div>
 

@@ -228,6 +228,15 @@ const BPICertifiedPage: React.FC = () => {
                   </p>
                   <div className="flex flex-wrap gap-4">
                     <a
+                      href="/full-cert/BPI_Certificate-Achieve%20Pack%20Company-10529618-1_02_27_2026.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-[#15803d] text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition"
+                    >
+                      <FileCheck className="h-4 w-4" />
+                      Download BPI Cert
+                    </a>
+                    <a
                       href="https://products.bpiworld.org/companies/achieve-pack-company"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -673,6 +682,15 @@ const BPICertifiedPage: React.FC = () => {
                 >
                   <ExternalLink className="h-4 w-4" />
                   View BPI Listing
+                </a>
+                <a
+                  href="/full-cert/BPI_Certificate-Achieve%20Pack%20Company-10529618-1_02_27_2026.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-[#15803d] border-2 border-[#15803d] text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 hover:border-green-700 transition shadow-lg"
+                >
+                  <FileCheck className="h-4 w-4" />
+                  Download BPI Cert
                 </a>
               </div>
             </section>
