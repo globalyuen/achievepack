@@ -84,14 +84,7 @@ const PouchSampleQuotePage: React.FC = () => {
                                     Flash Edition
                                 </div>
                             </div>
-                            <div className="bg-black text-white neo-border p-6 w-full md:w-auto">
-                                <p className="text-xs uppercase tracking-[0.3em] font-bold mb-1 opacity-60">Quote Date</p>
-                                <p className="text-xl font-bold">March 17, 2026</p>
-                                <div className="mt-4 pt-4 border-t border-white/20">
-                                    <p className="text-xs uppercase tracking-[0.3em] font-bold mb-1 opacity-60">Validity</p>
-                                    <p className="text-xl font-bold">7 Days</p>
-                                </div>
-                            </div>
+
                         </div>
 
                         {/* Options Grid */}
