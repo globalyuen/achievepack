@@ -84,7 +84,20 @@ const PouchSampleQuotePage: React.FC = () => {
                                     Flash Edition
                                 </div>
                             </div>
+                        </div>
 
+                        {/* Hero Sample Image */}
+                        <div className="mb-12 neo-border overflow-hidden bg-gray-100">
+                            <img 
+                                src="/imgs/samples/ryan-sample-photo.jpg" 
+                                alt="Sample Pouch Prototypes" 
+                                className="w-full h-auto object-cover"
+                            />
+                            <div className="grid grid-cols-3 border-t-4 border-black font-black text-[10px] uppercase text-center bg-white">
+                                <span className="py-2 border-r-4 border-black text-xs">Hand Make Sample</span>
+                                <span className="py-2 border-r-4 border-black text-xs">Commercial Sample</span>
+                                <span className="py-2 text-xs">Sheet Sample</span>
+                            </div>
                         </div>
 
                         {/* Options Grid */}
@@ -196,22 +209,7 @@ const PouchSampleQuotePage: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Image Showcase */}
-                    <div className="bg-white neo-border neo-shadow p-4">
-                        <div className="grid grid-cols-3 gap-2 mb-4">
-                            <h5 className="text-[10px] font-black uppercase text-center bg-black text-white py-1">Hand Make Sample</h5>
-                            <h5 className="text-[10px] font-black uppercase text-center bg-black text-white py-1">Commercial Sample</h5>
-                            <h5 className="text-[10px] font-black uppercase text-center bg-black text-white py-1">Sheet Sample</h5>
-                        </div>
-                        <div className="bg-gray-100 neo-border overflow-hidden">
-                            <img 
-                                src="/imgs/samples/ryan-sample-photo.jpg" 
-                                alt="Sample Pouch Exhibition" 
-                                className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-500"
-                            />
-                        </div>
-                        <p className="text-[10px] font-bold uppercase tracking-[0.4em] p-4 text-center opacity-40">Prototype Demonstration Grid</p>
-                    </div>
+
 
                     {/* Thank you */}
                     <div className="mt-12 text-center">
