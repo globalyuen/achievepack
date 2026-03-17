@@ -207,10 +207,9 @@ const PouchSampleQuotePage: React.FC = () => {
                     <div className="bg-white neo-border neo-shadow p-4">
                         <div className="bg-gray-100 neo-border overflow-hidden">
                             <img 
-                                src="https://achievepack.com/imgs/ryan-pouch-sample.jpg" 
+                                src="/imgs/samples/ryan-sample-photo.jpg" 
                                 alt="Sample Pouch Exhibition" 
                                 className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-500"
-                                onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://achievepack.com/imgs/pouch-shape/achieve-pack-sup-lifestyle.png'; }}
                             />
                         </div>
                         <p className="text-[10px] font-bold uppercase tracking-[0.4em] p-4 text-center opacity-40">Prototype Demonstration Grid</p>
