@@ -334,6 +334,7 @@ const PouchTestimonialsPage = lazyWithRetry(() => import('./pages/pouch/PouchTes
 const PouchBlogPage = lazyWithRetry(() => import('./pages/pouch/PouchBlogPage'))
 const PouchCertificationsPage = lazyWithRetry(() => import('./pages/pouch/PouchCertificationsPage'))
 const PouchFactoryTourPage = lazyWithRetry(() => import('./pages/pouch/PouchFactoryTourPage'))
+const PouchSampleQuotePage = lazyWithRetry(() => import('./pages/pouch/PouchSampleQuotePage'))
 // Blog Article Pages
 const USACompostableGuide = lazyWithRetry(() => import('./pages/pouch/blog/USACompostableGuide'))
 const CoffeePackagingGuide = lazyWithRetry(() => import('./pages/pouch/blog/CoffeePackagingGuide'))
@@ -503,6 +504,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/quotes/spouted-pouch" element={<SpoutedPouchQuotePage />} />
                   <Route path="/quotes/rollstock" element={<RollstockQuotePage />} />
                   <Route path="/cert" element={<CertificateDownloadPage />} />
+                  <Route path="/sample" element={<PouchSampleQuotePage />} />
                   {/* Fallback for other routes back to Home or 404, or keep as Home for now */}
                   <Route path="*" element={<PouchHomePage />} />
                 </Routes>
