@@ -198,6 +198,11 @@ const PouchSampleQuotePage: React.FC = () => {
 
                     {/* Image Showcase */}
                     <div className="bg-white neo-border neo-shadow p-4">
+                        <div className="grid grid-cols-3 gap-2 mb-4">
+                            <h5 className="text-[10px] font-black uppercase text-center bg-black text-white py-1">Hand Make Sample</h5>
+                            <h5 className="text-[10px] font-black uppercase text-center bg-black text-white py-1">Commercial Sample</h5>
+                            <h5 className="text-[10px] font-black uppercase text-center bg-black text-white py-1">Sheet Sample</h5>
+                        </div>
                         <div className="bg-gray-100 neo-border overflow-hidden">
                             <img 
                                 src="/imgs/samples/ryan-sample-photo.jpg" 
