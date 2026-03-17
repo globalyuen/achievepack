@@ -86,18 +86,51 @@ const PouchSampleQuotePage: React.FC = () => {
                             </div>
                         </div>
 
-                        {/* Hero Sample Image */}
-                        <div className="mb-12 neo-border overflow-hidden bg-gray-100">
-                            <img 
-                                src="/imgs/samples/ryan-sample-photo.jpg" 
-                                alt="Sample Pouch Prototypes" 
-                                className="w-full h-auto object-cover"
-                            />
-                            <div className="grid grid-cols-3 border-t-4 border-black font-black text-[10px] uppercase text-center bg-white">
-                                <span className="py-2 border-r-4 border-black text-xs">Hand Make Sample</span>
-                                <span className="py-2 border-r-4 border-black text-xs">Commercial Sample</span>
-                                <span className="py-2 text-xs">Sheet Sample</span>
+                        {/* Hero Sample Images Collection */}
+                        <div className="mb-12 grid grid-cols-1 md:grid-cols-3 gap-4">
+                            
+                            {/* Hand Make Sample */}
+                            <div className="bg-white neo-border neo-shadow flex flex-col overflow-hidden transition-transform hover:-translate-y-1">
+                                <div className="bg-black text-white py-3 text-center font-black text-sm uppercase tracking-widest">
+                                    Hand Make Sample
+                                </div>
+                                <div className="bg-gray-100 flex-grow border-t-4 border-black">
+                                    <img 
+                                        src="/imgs/samples/sample-handmake.png" 
+                                        alt="Hand Make Sample" 
+                                        className="w-full h-full object-cover object-center aspect-[3/4]"
+                                    />
+                                </div>
                             </div>
+
+                            {/* Commercial Sample */}
+                            <div className="bg-[#D4FF00] neo-border neo-shadow flex flex-col overflow-hidden transition-transform hover:-translate-y-1 md:-mt-4">
+                                <div className="bg-black text-[#D4FF00] py-3 text-center font-black text-sm uppercase tracking-widest">
+                                    Commercial Sample
+                                </div>
+                                <div className="bg-white flex-grow border-t-4 border-black">
+                                    <img 
+                                        src="/imgs/samples/sample-commercial.png" 
+                                        alt="Commercial Sample" 
+                                        className="w-full h-full object-cover object-center aspect-[3/4]"
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Sheet Sample */}
+                            <div className="bg-white neo-border neo-shadow flex flex-col overflow-hidden transition-transform hover:-translate-y-1">
+                                <div className="bg-black text-white py-3 text-center font-black text-sm uppercase tracking-widest">
+                                    Sheet Sample
+                                </div>
+                                <div className="bg-gray-100 flex-grow border-t-4 border-black">
+                                    <img 
+                                        src="/imgs/samples/sample-sheet.png" 
+                                        alt="Sheet Sample" 
+                                        className="w-full h-full object-cover object-center aspect-[3/4]"
+                                    />
+                                </div>
+                            </div>
+
                         </div>
 
                         {/* Options Grid */}
