@@ -139,6 +139,38 @@ const PreZipperedRollstockPage: React.FC = () => {
       )
     },
     {
+      id: 'production-sample',
+      title: 'Production Sample',
+      icon: <Sparkles className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6">
+          <div className="bg-white p-6 rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow">
+            <h3 className="text-xl font-bold text-neutral-900 mb-4">See It In Action</h3>
+            <p className="text-neutral-700 mb-6">
+              Watch how our pre-zippered rollstock creates a perfect tearable and resealable pouch directly from the roll film. 
+            </p>
+            <div className="grid md:grid-cols-2 gap-6 items-center">
+              <video 
+                src="/imgs/function/roll/production-sample.mp4" 
+                controls 
+                autoPlay 
+                muted 
+                loop 
+                playsInline
+                className="w-full aspect-[4/5] object-cover rounded-lg shadow-md border border-neutral-100 bg-black"
+                poster="/imgs/function/roll/production-sample.jpg"
+              />
+              <img 
+                src="/imgs/function/roll/production-sample.jpg" 
+                alt="Pre-Zippered Rollstock Production Sample" 
+                className="w-full aspect-[4/5] object-cover rounded-lg shadow-md border border-neutral-100 hidden md:block"
+              />
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
       id: 'zipper-detail',
       title: 'Pre-Applied Zipper Zone Detail',
       icon: <Layers className="h-5 w-5 text-primary-600" />,
