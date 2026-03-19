@@ -305,8 +305,9 @@ const ArtworkBatchesPage: React.FC = () => {
             }
             
             const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(file.name)
+            const isVideo = /\.(mp4|mov|webm)$/i.test(file.name)
             if (itemData) {
-              uploadedItems.push({ id: itemData.id, url: urlData.publicUrl, isImage })
+              uploadedItems.push({ id: itemData.id, url: urlData.publicUrl, isImage: isImage || isVideo })
             }
             
             uploaded++
@@ -617,9 +618,9 @@ const ArtworkBatchesPage: React.FC = () => {
       </header>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="flex gap-6">
+        <div className="flex flex-col lg:flex-row gap-6">
           {/* Left: Batch List */}
-          <div className="w-80 flex-shrink-0">
+          <div className="w-full lg:w-80 flex-shrink-0">
             <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
               <div className="p-4 border-b border-gray-100">
                 <div className="flex items-center justify-between mb-3">
@@ -835,7 +836,7 @@ const ArtworkBatchesPage: React.FC = () => {
                     <input
                       type="file"
                       multiple
-                      accept=".png,.jpg,.jpeg,.webp,.gif,.pdf,.ai,.eps,.tiff,.tif,.psd,.zip"
+                      accept=".png,.jpg,.jpeg,.webp,.gif,.pdf,.ai,.eps,.tiff,.tif,.psd,.zip,.mp4,.mov,.webm"
                       onChange={handleFileUpload}
                       className="hidden"
                       disabled={uploading}
@@ -895,6 +896,7 @@ const ArtworkBatchesPage: React.FC = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {filteredItems.map(item => {
                       const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.file_url)
+                      const isVideo = /\.(mp4|mov|webm)$/i.test(item.file_url)
                       return (
                         <div key={item.id} className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition">
                           {/* Preview */}
@@ -904,6 +906,12 @@ const ArtworkBatchesPage: React.FC = () => {
                                 src={item.file_url} 
                                 alt={item.name}
                                 className="w-full h-full object-contain"
+                              />
+                            ) : isVideo ? (
+                              <video 
+                                src={item.file_url} 
+                                controls
+                                className="w-full h-full object-contain bg-black"
                               />
                             ) : (
                               <div className="w-full h-full flex items-center justify-center">
