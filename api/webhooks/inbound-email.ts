@@ -21,31 +21,36 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(200).json({ message: 'Empty email skipped' })
     }
 
+    // Strip "Re:", "Fwd:" to find the core thread topic for matching old records
+    const cleanSubject = subjectInfo.replace(/^(Fwd:\s*|Re:\s*|FW:\s*|Fw:\s*|AW:\s*)+/ig, '').trim();
+
     const fullContext = `From: ${senderInfo}\nSubject: ${subjectInfo}\nMessage: ${bodyContent}`
     
     let parsedFields = {
-      customer: subjectInfo.substring(0,40),
+      customer: cleanSubject || subjectInfo.substring(0, 50),
       status: 'New',
       category: 'Enquiries',
-      detail: bodyContent.substring(0, 500)
+      detail: bodyContent.substring(0, 600)
     }
 
     let aiStatus = "Skipped"
+    let aiCustomerExtracted = ""
 
     const XAI_API_KEY = process.env.XAI_API_KEY
     if (XAI_API_KEY) {
       try {
         const controller = new AbortController()
-        const timeoutId = setTimeout(() => controller.abort(), 6000)
+        // Raised timeout to 8.5s to give Grok more time to read huge email threads!
+        const timeoutId = setTimeout(() => controller.abort(), 8500)
 
-        const systemPrompt = `Analyze this email string. Extract the exact true "customer" (Company/Person name ONLY, ignore email addresses, e.g. "Rafaela Minatti"), "status" (New, Urgent, In Progress, Shipped, Pending, Scheduled), "category" (Quotes, Production, Shipping, Enquiries, Meetings), and a short summary "detail". Return RAW JSON.`
+        const systemPrompt = `Analyze this email thread carefully. Identify the TRUE primary customer, person, or company involved (e.g. "Justine Heaphy", "Brand XYZ"). Exclude email addresses or generic terms. Also determine the "status" (New, Urgent, In Progress, Shipped, Pending), "category" (Quotes, Production, Shipping, Enquiries), and summarize the "detail". Return RAW JSON: { "customer": "Name", "status": "...", "category": "...", "detail": "..." }`
 
         const xaiResponse = await fetch('https://api.x.ai/v1/chat/completions', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${XAI_API_KEY}` },
           body: JSON.stringify({
             model: 'grok-3-mini-beta',
-            messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: fullContext }],
+            messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: fullContext.substring(0, 3000) }],
             max_tokens: 300, temperature: 0.1,
           }),
           signal: controller.signal
@@ -58,7 +63,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           const cleanJson = responseText.replace(/```json/g, '').replace(/```/g, '').trim()
           const parsed = JSON.parse(cleanJson)
           
-          if (parsed.customer) parsedFields.customer = parsed.customer
+          if (parsed.customer && parsed.customer.length > 2) {
+            parsedFields.customer = parsed.customer
+            aiCustomerExtracted = parsed.customer
+          }
           if (parsed.status) parsedFields.status = parsed.status
           if (parsed.category) parsedFields.category = parsed.category
           if (parsed.detail) parsedFields.detail = parsed.detail
@@ -78,7 +86,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const supabase = createClient(supabaseUrl, supabaseKey, { auth: { persistSession: false } })
     
-    // Process Attachments Upload
+    // Process Attachments...
     let uploadedAttachments: any[] = []
     if (emailData.attachments && Array.isArray(emailData.attachments)) {
       for (const att of emailData.attachments) {
@@ -87,7 +95,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         let docCat = "Other"
         const lowerName = att.filename.toLowerCase()
         if (lowerName.includes('quote') || lowerName.includes('quotation') || lowerName.includes('pricing')) docCat = 'Quote'
-        else if (lowerName.includes('invoice') || lowerName.includes('pi')) docCat = 'Invoice'
+        else if (lowerName.includes('invoice') || lowerName.includes('pi') || lowerName.includes('bill')) docCat = 'Invoice'
         else if (lowerName.includes('pack') || lowerName.includes('pl')) docCat = 'Packing List'
         else if (lowerName.includes('art') || lowerName.includes('design') || lowerName.includes('proof') || lowerName.includes('template')) docCat = 'Artwork'
 
@@ -110,11 +118,33 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }
     }
 
-    // Check if customer already exists
+    // --- AGGRESSIVE SUPABASE THREAD MATCHING ---
     let existingRecord = null
-    if (parsedFields.customer && parsedFields.customer !== 'No Subject') {
-      const { data: records } = await supabase.from('daily_reports').select('*').ilike('customer', `%${parsedFields.customer}%`).order('created_at', { ascending: false }).limit(1)
-      if (records && records.length > 0) existingRecord = records[0]
+    
+    // Safe escaping for ilike
+    const safeAiCustomer = aiCustomerExtracted.replace(/['"%]/g, '')
+    const safeCleanSubject = cleanSubject.replace(/['"%]/g, '')
+
+    // If we have any safe terms to search for, query the database dynamically
+    let queryBuilder = supabase.from('daily_reports').select('*')
+    let orConditions = []
+    
+    // 1. If AI confidently found a customer name, check if any project has that customer
+    if (safeAiCustomer.length > 3) {
+      orConditions.push(`customer.ilike.%${safeAiCustomer}%`)
+    }
+    // 2. Regardless, explicitly search if the 'Cleaned Email Subject' perfectly matches inside ANY old active project 'detail' or 'customer' field
+    if (safeCleanSubject.length > 6) {
+      orConditions.push(`customer.ilike.%${safeCleanSubject}%`)
+      orConditions.push(`detail.ilike.%${safeCleanSubject}%`)
+    }
+
+    if (orConditions.length > 0) {
+      const compiledOrQuery = orConditions.join(',')
+      const { data: records } = await queryBuilder.or(compiledOrQuery).order('created_at', { ascending: false }).limit(1)
+      if (records && records.length > 0) {
+        existingRecord = records[0]
+      }
     }
 
     let actionTaken = ""
@@ -123,7 +153,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     if (existingRecord) {
       // Append and update
       const combinedAttachments = [...(existingRecord.attachments || []), ...uploadedAttachments]
-      const updatedDetail = existingRecord.detail + `\n\n[Email CC'd ${new Date().toISOString().split('T')[0]}] ${subjectInfo}: ` + parsedFields.detail
+      const updatedDetail = existingRecord.detail + `\n\n[Email Thread Update ${new Date().toISOString().split('T')[0]}]\nSubject: ${cleanSubject}\nNotes: ` + parsedFields.detail
 
       const { error: dbError } = await supabase.from('daily_reports').update({
           detail: updatedDetail,
@@ -132,7 +162,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         }).eq('id', existingRecord.id)
 
       if (dbError) { actionTaken = `Update Error: ${dbError.message}`; } 
-      else { actionTaken = `Updated Existing Project Details & Attachments`; dbSuccess = true; }
+      else { actionTaken = `Appended Thread into Existing Project: ${existingRecord.customer}`; dbSuccess = true; }
     } else {
       // Insert new
       const { error: dbError } = await supabase.from('daily_reports').insert([{
@@ -154,9 +184,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       message: actionTaken,
       raw_data: {
         ai_status: aiStatus,
-        customer_matched: parsedFields.customer,
+        customer_matched: existingRecord ? existingRecord.customer : parsedFields.customer,
         sender: senderInfo,
-        subject: subjectInfo,
+        subject: cleanSubject,
+        smart_match_triggered: !!existingRecord,
         files_attached: uploadedAttachments.map(u => ({name: u.name, category: u.docCategory})),
         snippet: bodyContent.substring(0, 100)
       }
