@@ -1,11 +1,11 @@
 {
-  "generated": "2026-03-16",
-  "total_images": 1277,
+  "generated": "2026-03-24",
+  "total_images": 1282,
   "total_categories": 141,
   "extensions": {
     ".webp": 1077,
-    ".png": 178,
-    ".jpg": 19,
+    ".png": 181,
+    ".jpg": 21,
     ".svg": 3
   },
   "categories": {
@@ -2782,8 +2782,14 @@
       ]
     },
     "function/roll": {
-      "count": 8,
+      "count": 9,
       "images": [
+        {
+          "filename": "production-sample.jpg",
+          "path": "/imgs/function/roll/production-sample.jpg",
+          "extension": ".jpg",
+          "modified": "2026-03-19T08:50:39.401Z"
+        },
         {
           "filename": "a_achievepack_cost_optimization_2620198.webp",
           "path": "/imgs/function/roll/a_achievepack_cost_optimization_2620198.webp",
@@ -5301,8 +5307,32 @@
       ]
     },
     "samples": {
-      "count": 25,
+      "count": 29,
       "images": [
+        {
+          "filename": "sample-handmake.png",
+          "path": "/imgs/samples/sample-handmake.png",
+          "extension": ".png",
+          "modified": "2026-03-17T04:12:40.383Z"
+        },
+        {
+          "filename": "sample-commercial.png",
+          "path": "/imgs/samples/sample-commercial.png",
+          "extension": ".png",
+          "modified": "2026-03-17T04:12:40.382Z"
+        },
+        {
+          "filename": "sample-sheet.png",
+          "path": "/imgs/samples/sample-sheet.png",
+          "extension": ".png",
+          "modified": "2026-03-17T04:12:40.380Z"
+        },
+        {
+          "filename": "ryan-sample-photo.jpg",
+          "path": "/imgs/samples/ryan-sample-photo.jpg",
+          "extension": ".jpg",
+          "modified": "2026-03-17T03:38:29.359Z"
+        },
         {
           "filename": "spouted-biope-500ml-detail.webp",
           "path": "/imgs/samples/spouted-biope-500ml-detail.webp",
