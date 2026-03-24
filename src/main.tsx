@@ -430,6 +430,7 @@ const ShipmentDetailPage = lazyWithRetry(() => import('./pages/admin/ShipmentDet
 const ShipmentTrackingPage = lazyWithRetry(() => import('./pages/ShipmentTrackingPage'))
 const DocumentTemplatesPage = lazyWithRetry(() => import('./pages/admin/DocumentTemplatesPage'))
 const ImageGeneratorPage = lazyWithRetry(() => import('./pages/admin/ImageGeneratorPage'))
+const DailyReportsPage = lazyWithRetry(() => import('./pages/admin/DailyReportsPage'))
 
 // Cookie Consent Component
 import CookieConsent from './components/CookieConsent'
@@ -567,6 +568,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/ctrl-x9k7m/shipments" element={<ShipmentHubPage />} />
                         <Route path="/ctrl-x9k7m/shipments/:id" element={<ShipmentDetailPage />} />
                         <Route path="/ctrl-x9k7m/document-templates" element={<DocumentTemplatesPage />} />
+                        <Route path="/ctrl-x9k7m/daily-reports" element={<DailyReportsPage />} />
                                               <Route path="/ctrl-x9k7m/ai-image" element={<ImageGeneratorPage />} />
                         <Route path="/shipment/:batchId" element={<ShipmentTrackingPage />} />
 
