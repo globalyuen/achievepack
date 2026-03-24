@@ -709,6 +709,7 @@ export type DailyReport = {
   status: string
   category: string
   detail: string
+  attachments?: { name: string; url: string; type: string }[]
   created_at?: string
   updated_at?: string
 }

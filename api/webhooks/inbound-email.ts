@@ -17,7 +17,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const subjectInfo = emailData.subject || 'No Subject'
     const bodyContent = emailData.text || emailData.html || ''
     
-    if (!subjectInfo && !bodyContent) {
+    if (!subjectInfo && !bodyContent && !emailData.attachments?.length) {
       return res.status(200).json({ message: 'Empty email skipped' })
     }
 
@@ -30,11 +30,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       detail: bodyContent.substring(0, 500)
     }
 
+    // Try AI block
     const XAI_API_KEY = process.env.XAI_API_KEY
     if (XAI_API_KEY) {
       try {
         const controller = new AbortController()
-        const timeoutId = setTimeout(() => controller.abort(), 6000) // 6 second strict timeout for AI
+        const timeoutId = setTimeout(() => controller.abort(), 6000)
 
         const systemPrompt = `Extract "customer", "status" (New, Urgent, In Progress, Shipped, Pending, Scheduled), "category" (Quotes, Production, Shipping, Enquiries, Meetings), and "detail" from this email into a raw valid JSON object.`
 
@@ -55,7 +56,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           }),
           signal: controller.signal
         })
-
         clearTimeout(timeoutId)
 
         if (xaiResponse.ok) {
@@ -71,22 +71,53 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         }
       } catch (aiErr) {
         console.warn('AI Parsing skipped or timed out:', aiErr)
-        // Fall back to raw email insertion
       }
     }
 
     const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL
     const supabaseKey = process.env.SUPABASE_SERVICE_KEY
-    
     if (!supabaseUrl || !supabaseKey) {
       return res.status(200).json({ error: 'Supabase configuration missing (Server)' })
     }
 
-    const supabase = createClient(supabaseUrl, supabaseKey, {
-      auth: { persistSession: false }
-    })
+    const supabase = createClient(supabaseUrl, supabaseKey, { auth: { persistSession: false } })
     
-    // Fast Insert
+    // Process Attachments Upload
+    let uploadedAttachments: any[] = []
+    if (emailData.attachments && Array.isArray(emailData.attachments)) {
+      for (const att of emailData.attachments) {
+        if (!att.content || !att.filename) continue;
+        try {
+          // Normalize base64 content
+          const base64Content = att.content.replace(/^data:([A-Za-z-+/]+);base64,/, '')
+          const buffer = Buffer.from(base64Content, 'base64')
+          const fileExt = att.filename.split('.').pop()
+          const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`
+          
+          const mimeType = att.contentType || 'application/octet-stream'
+
+          const { data, error } = await supabase.storage
+            .from('daily_reports_files')
+            .upload(fileName, buffer, { contentType: mimeType, upsert: true })
+            
+          if (!error && data) {
+            const { data: { publicUrl } } = supabase.storage
+              .from('daily_reports_files')
+              .getPublicUrl(fileName)
+              
+            uploadedAttachments.push({
+              name: att.filename,
+              url: publicUrl,
+              type: fileExt
+            })
+          }
+        } catch (e) {
+          console.error("Failed to upload attachment", e)
+        }
+      }
+    }
+
+    // Insert Final
     const { error: dbError } = await supabase
       .from('daily_reports')
       .insert([{
@@ -94,13 +125,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
          status: parsedFields.status,
          category: parsedFields.category,
          detail: parsedFields.detail,
+         attachments: uploadedAttachments,
          report_date: new Date().toISOString().split('T')[0]
       }])
 
     if (dbError) throw new Error(`DB Insert Error: ${dbError.message}`)
 
-    return res.status(200).json({ success: true, message: 'Email recorded', parsedFields })
-
+    return res.status(200).json({ success: true, message: 'Email recorded', parsedFields, attachments: uploadedAttachments })
   } catch (err: any) {
     return res.status(200).json({ error: 'Webhook fail', details: err.message })
   }
