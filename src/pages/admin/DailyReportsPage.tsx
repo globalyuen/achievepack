@@ -3,9 +3,9 @@ import { Helmet } from 'react-helmet-async';
 import { 
   Search, AlertTriangle, Package, Activity, MessageSquare, 
   Calendar, Clock, LockKeyhole, Loader2, LogOut, Plus, 
-  Edit3, Trash2, Check, X, Sparkles, Save
+  Edit3, Trash2, Check, X, Sparkles, Save, CheckCircle
 } from 'lucide-react';
-import { supabase, DailyReport } from '../../../lib/supabase';
+import { supabase, DailyReport } from '../../lib/supabase';
 
 // Helper for HK Traditional Chinese mapping
 const STATUS_COLORS: Record<string, string> = {
