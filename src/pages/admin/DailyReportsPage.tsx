@@ -413,7 +413,6 @@ export default function DailyReportsPage() {
             </div>
             
             <div className="overflow-y-auto px-8 py-6 space-y-5">
-              {!editMode && (
                 <div className="p-5 bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl border border-purple-100 mb-2">
                   <label className="flex text-sm font-extrabold text-purple-900 mb-2 items-center gap-1.5"><Sparkles className="w-4 h-4"/> Paste Chat/Email (AI will auto-fill)</label>
                   <textarea rows={2} className="w-full text-sm rounded-xl border-purple-200 p-3 bg-white focus:ring-2 focus:ring-purple-400" value={rawText} onChange={e=>setRawText(e.target.value)} placeholder="E.g. Customer approved the quote, please shift status to In Progress..."/>
@@ -422,7 +421,6 @@ export default function DailyReportsPage() {
                     {aiLoading ? 'Analyzing Context...' : 'Auto-Magic Parse'}
                   </button>
                 </div>
-              )}
 
               <div><label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">Project / Client Name</label>
                 <input type="text" className="w-full border-gray-300 rounded-xl p-3 focus:ring-2 focus:ring-blue-500 bg-gray-50 focus:bg-white transition" value={currentRecord.customer || ''} onChange={e=>setCurrentRecord({...currentRecord, customer: e.target.value})} /></div>
