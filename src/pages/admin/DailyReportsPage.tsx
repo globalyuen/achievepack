@@ -63,7 +63,7 @@ export default function DailyReportsPage() {
     e.preventDefault();
     if (!pin) return;
     setLoading(true);
-    if (pin === (import.meta.env.VITE_ADMIN_PIN || '8888')) {
+    if (pin === (import.meta.env.VITE_ADMIN_PIN || "8888''''")) {
       setIsAuthenticated(true);
       fetchData();
     } else {
