@@ -21,7 +21,8 @@ const STATUS_COLORS: Record<string, string> = {
 const CATEGORY_MAP: Record<string, string> = {
   'All': '全部 (All)',
   'Production': '生產中',
-  'Shipping': '物流',
+  'Sample Shipping': '樣板物流',
+  'Production Shipping': '大貨物流',
   'Quotes': '報價',
   'Enquiries': '新查詢',
   'Meetings': '會議'

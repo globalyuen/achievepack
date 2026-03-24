@@ -43,7 +43,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         // Raised timeout to 8.5s to give Grok more time to read huge email threads!
         const timeoutId = setTimeout(() => controller.abort(), 8500)
 
-        const systemPrompt = `Analyze this email thread carefully. Identify the TRUE primary customer, person, or company involved (e.g. "Justine Heaphy", "Brand XYZ"). Exclude email addresses or generic terms. Also determine the "status" (New, Urgent, In Progress, Shipped, Pending), "category" (Quotes, Production, Shipping, Enquiries), and summarize the "detail". Return RAW JSON: { "customer": "Name", "status": "...", "category": "...", "detail": "..." }`
+        const systemPrompt = `Analyze this email thread carefully. Identify the TRUE primary customer, person, or company involved (e.g. "Justine Heaphy", "Brand XYZ"). Exclude email addresses or generic terms. Also determine the "status" (New, Urgent, In Progress, Shipped, Pending), "category" (Quotes, Production, Sample Shipping, Production Shipping, Enquiries), and summarize the "detail". Return RAW JSON: { "customer": "Name", "status": "...", "category": "...", "detail": "..." }`
 
         const xaiResponse = await fetch('https://api.x.ai/v1/chat/completions', {
           method: 'POST',
