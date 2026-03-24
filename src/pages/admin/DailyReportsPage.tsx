@@ -105,6 +105,29 @@ export default function DailyReportsPage() {
     setIsModalOpen(true);
   };
 
+  const handleAiParse = async () => {
+    if (!rawText) return;
+    setAiLoading(true);
+    try {
+      const resp = await fetch('/api/admin-magic-parse', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: rawText })
+      });
+      const data = await resp.json();
+      if (data.success && data.parsed) {
+        setCurrentRecord(prev => ({ ...prev, ...data.parsed }));
+        setRawText(''); // clear on success so user knows it worked
+      } else {
+        alert("Failed to parse: " + (data.error || 'Unknown AI error'));
+      }
+    } catch (err: any) {
+      alert("AI Error: " + err.message);
+    } finally {
+      setAiLoading(false);
+    }
+  };
+
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!event.target.files || event.target.files.length === 0) return;
     const file = event.target.files[0];
@@ -394,7 +417,10 @@ export default function DailyReportsPage() {
                 <div className="p-5 bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl border border-purple-100 mb-2">
                   <label className="flex text-sm font-extrabold text-purple-900 mb-2 items-center gap-1.5"><Sparkles className="w-4 h-4"/> Paste Chat/Email (AI will auto-fill)</label>
                   <textarea rows={2} className="w-full text-sm rounded-xl border-purple-200 p-3 bg-white focus:ring-2 focus:ring-purple-400" value={rawText} onChange={e=>setRawText(e.target.value)} placeholder="E.g. Customer approved the quote, please shift status to In Progress..."/>
-                  <button type="button" onClick={() => {}} disabled={true} className="mt-3 w-full bg-purple-600 text-white rounded-xl py-2.5 font-bold flex justify-center text-sm shadow-md opacity-50 cursor-not-allowed">Auto-Magic Parse (Backend Connected)</button>
+                  <button type="button" onClick={handleAiParse} disabled={aiLoading || !rawText.trim()} className="mt-3 w-full bg-purple-600 hover:bg-purple-700 text-white rounded-xl py-2.5 font-bold flex justify-center gap-2 items-center text-sm shadow-md transition disabled:opacity-50 disabled:cursor-not-allowed">
+                    {aiLoading ? <Loader2 className="w-4 h-4 animate-spin"/> : <Sparkles className="w-4 h-4"/>}
+                    {aiLoading ? 'Analyzing Context...' : 'Auto-Magic Parse'}
+                  </button>
                 </div>
               )}
 
