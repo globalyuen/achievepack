@@ -168,13 +168,32 @@ export default function DailyReportsPage() {
     return <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded border ${colors[docCat] || colors['Other']} uppercase ml-1`}>{docCat}</span>;
   };
 
+  const [sortBy, setSortBy] = useState<'Newest'|'Oldest'>('Newest');
+
   const filteredReports = useMemo(() => {
-    return reports.filter(report => {
+    let result = reports.filter(report => {
       const matchesSearch = report.customer.toLowerCase().includes(searchTerm.toLowerCase()) || (report.detail || '').toLowerCase().includes(searchTerm.toLowerCase());
       const matchesCategory = filterCategory === 'All' || report.category === filterCategory;
       return matchesSearch && matchesCategory;
     });
-  }, [reports, searchTerm, filterCategory]);
+
+    result.sort((a, b) => {
+      const dateA = new Date(a.created_at || a.report_date || 0).getTime();
+      const dateB = new Date(b.created_at || b.report_date || 0).getTime();
+      return sortBy === 'Oldest' ? dateA - dateB : dateB - dateA;
+    });
+
+    return result;
+  }, [reports, searchTerm, filterCategory, sortBy]);
+
+  const getDaysAgo = (dateStr?: string) => {
+    if (!dateStr) return null;
+    const diff = new Date().getTime() - new Date(dateStr).getTime();
+    const days = Math.floor(diff / (1000 * 3600 * 24));
+    if (days === 0) return 'Today';
+    if (days === 1) return 'Yesterday';
+    return `${days} Days Ago`;
+  };
 
   if (!isAuthenticated) {
     return (
@@ -234,11 +253,16 @@ export default function DailyReportsPage() {
                 <input type="text" className="pl-10 block w-full rounded-xl py-3 px-4 border border-gray-300 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500" placeholder="Search customer, project, tracking #..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
               </div>
               <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-2 sm:pb-0 items-center">
+                <select className="border-2 border-gray-200 text-sm font-bold bg-white text-gray-700 py-2 px-3 rounded-lg cursor-pointer hover:bg-gray-50 focus:ring-2 focus:ring-blue-500" value={sortBy} onChange={(e) => setSortBy(e.target.value as 'Newest'|'Oldest')}>
+                  <option value="Newest">Sorting: Newest</option>
+                  <option value="Oldest">Follow-Up (Oldest)</option>
+                </select>
                 {Object.keys(CATEGORY_MAP).map(cat => (
                   <button key={cat} onClick={() => setFilterCategory(cat)} className={`px-4 py-2 rounded-lg text-sm font-bold whitespace-nowrap border-2 transition ${filterCategory === cat ? 'bg-gray-900 text-white border-gray-900 shadow-md' : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'}`}>
                     {CATEGORY_MAP[cat]}
                   </button>
                 ))}
+
                 <button onClick={openNewModal} className="ml-2 flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-5 py-2.5 rounded-lg font-bold text-white shadow-md transition">
                   <Plus className="h-5 w-5" /> Add Project
                 </button>
@@ -258,7 +282,10 @@ export default function DailyReportsPage() {
                           <div className="truncate">{report.customer.replace('Email: ', '')}</div>
                           <span className={`inline-block mt-2 px-2.5 py-0.5 text-[11px] font-bold rounded-full border ${STATUS_COLORS[report.status] || 'bg-gray-100 border-gray-200 text-gray-800'}`}>{report.status}</span>
                         </td>
-                        <td className="px-6 py-5 whitespace-nowrap text-sm font-medium text-gray-500">{report.report_date}</td>
+                        <td className="px-6 py-5 whitespace-nowrap text-sm font-medium text-gray-500">
+                          <div>{report.report_date}</div>
+                          <div className="mt-1"><span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${getDaysAgo(report.report_date)?.includes('Days') ? 'bg-amber-100 text-amber-700' : 'bg-gray-100 text-gray-500'}`}>{getDaysAgo(report.report_date)}</span></div>
+                        </td>
                         <td className="px-6 py-5 whitespace-nowrap"><span className="text-xs font-bold text-gray-600 bg-gray-100 px-3 py-1 rounded-full uppercase tracking-wide">{report.category}</span></td>
                         <td className="px-6 py-5 text-sm text-gray-700 min-w-[300px]">
                           <div className="mb-3 leading-relaxed opacity-90">{report.detail}</div>
