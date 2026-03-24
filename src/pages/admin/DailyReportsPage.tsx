@@ -1,11 +1,11 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { 
   Search, AlertTriangle, Package, Activity, MessageSquare, 
   Calendar, Clock, LockKeyhole, Loader2, LogOut, Plus, 
   Edit3, Trash2, Check, X, Sparkles, Save, CheckCircle,
   FileText, ImageIcon, UploadCloud, Link as LinkIcon, FileIcon,
-  ClipboardList, Hash, History, ScrollText
+  ClipboardList, Hash, History, ScrollText, RotateCcw
 } from 'lucide-react';
 import { supabase, DailyReport, WebhookLog } from '../../lib/supabase';
 
@@ -48,6 +48,10 @@ export default function DailyReportsPage() {
   const [editMode, setEditMode] = useState(false);
   const [currentRecord, setCurrentRecord] = useState<Partial<DailyReport>>({});
   
+  // Undo Delete State
+  const [lastDeleted, setLastDeleted] = useState<DailyReport | null>(null);
+  const undoTimeoutRef = useRef<any>(null);
+
   // AI
   const [rawText, setRawText] = useState('');
   const [aiLoading, setAiLoading] = useState(false);
@@ -151,10 +155,34 @@ export default function DailyReportsPage() {
     }
   };
 
-  const handleDelete = async (id: string) => {
-    if (!window.confirm("確定刪除此記錄？")) return;
-    await supabase.from('daily_reports').delete().eq('id', id);
-    await fetchData();
+  const handleDelete = async (report: DailyReport) => {
+    // Optimistic UI Update -> immediately remove from view
+    setReports(prev => prev.filter(r => r.id !== report.id));
+    
+    // Execute DB Delete
+    await supabase.from('daily_reports').delete().eq('id', report.id);
+    
+    // Show Undo Toast
+    setLastDeleted(report);
+    if (undoTimeoutRef.current) clearTimeout(undoTimeoutRef.current);
+    undoTimeoutRef.current = setTimeout(() => {
+      setLastDeleted(null);
+    }, 10000); // hide after 10 seconds
+  };
+
+  const handleUndo = async () => {
+    if (!lastDeleted) return;
+    const recordToRestore = { ...lastDeleted };
+    setLastDeleted(null);
+    if (undoTimeoutRef.current) clearTimeout(undoTimeoutRef.current);
+
+    // Re-insert exact record payload including originally generated UUID
+    const { error } = await supabase.from('daily_reports').insert([recordToRestore]);
+    if (error) {
+      alert("Undo failed, could not restore: " + error.message);
+    } else {
+      await fetchData();
+    }
   };
 
   const renderDocBadge = (docCat: string = 'Other') => {
@@ -303,7 +331,7 @@ export default function DailyReportsPage() {
                         </td>
                         <td className="px-6 py-5 whitespace-nowrap text-right">
                           <button onClick={() => openEditModal(report)} className="text-gray-400 hover:text-blue-600 p-2 bg-white rounded-lg border border-transparent hover:border-blue-100 shadow-sm opacity-0 group-hover:opacity-100 transition mr-2"><Edit3 className="w-4 h-4" /></button>
-                          <button onClick={() => handleDelete(report.id)} className="text-gray-400 hover:text-red-600 p-2 bg-white rounded-lg border border-transparent hover:border-red-100 shadow-sm opacity-0 group-hover:opacity-100 transition"><Trash2 className="w-4 h-4" /></button>
+                          <button onClick={() => handleDelete(report)} className="text-gray-400 hover:text-red-600 p-2 bg-white rounded-lg border border-transparent hover:border-red-100 shadow-sm opacity-0 group-hover:opacity-100 transition"><Trash2 className="w-4 h-4" /></button>
                         </td>
                       </tr>
                     ))}
@@ -429,6 +457,24 @@ export default function DailyReportsPage() {
               <button disabled={loading} onClick={handleSave} className="flex gap-2 items-center px-8 py-2.5 text-sm font-extrabold text-white bg-blue-600 rounded-xl shadow-lg hover:bg-blue-700 disabled:opacity-50 transition hover:shadow-blue-500/20 active:scale-95">
                 {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Save className="w-5 h-5"/>} COMPILE RECORD
               </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Undo Toast Notification */}
+      {lastDeleted && (
+        <div className="fixed bottom-6 right-6 z-50 animate-in slide-in-from-bottom-5 duration-300">
+          <div className="bg-gray-900 border border-gray-700 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center justify-between gap-5 min-w-[320px]">
+            <span className="text-sm font-medium flex gap-2 items-center text-gray-200">
+              <Trash2 className="w-4 h-4 text-red-400"/>
+              Deleted Record
+            </span>
+            <div className="flex items-center gap-3">
+              <button onClick={handleUndo} className="bg-white text-gray-900 hover:bg-gray-100 px-4 py-1.5 rounded-lg text-sm font-extrabold transition flex items-center gap-1.5">
+                <RotateCcw className="w-3.5 h-3.5"/> UNDO
+              </button>
+              <button type="button" onClick={() => setLastDeleted(null)} className="text-gray-400 hover:text-white p-1 rounded-full"><X className="w-4 h-4" /></button>
             </div>
           </div>
         </div>
