@@ -6,7 +6,7 @@ import {
   Edit3, Trash2, Check, X, Sparkles, Save, CheckCircle,
   FileText, ImageIcon, UploadCloud, Link as LinkIcon, FileIcon
 } from 'lucide-react';
-import { supabase, DailyReport } from '../../../lib/supabase';
+import { supabase, DailyReport } from '../../lib/supabase';
 
 // Helper for HK Traditional Chinese mapping
 const STATUS_COLORS: Record<string, string> = {
