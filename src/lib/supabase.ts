@@ -709,8 +709,17 @@ export type DailyReport = {
   status: string
   category: string
   detail: string
-  attachments?: { name: string; url: string; type: string }[]
+  attachments?: { name: string; url: string; type: string; docCategory?: string }[]
   created_at?: string
   updated_at?: string
+}
+
+export interface WebhookLog {
+  id: string
+  created_at: string
+  status: string
+  source: string
+  message: string
+  raw_data: any
 }
 
