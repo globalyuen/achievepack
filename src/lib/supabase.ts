@@ -700,3 +700,16 @@ export type QuotationItem = {
   created_at: string
   updated_at: string
 }
+
+// Daily Reports / Production Status tracking
+export type DailyReport = {
+  id: string
+  customer: string
+  report_date: string
+  status: string
+  category: string
+  detail: string
+  created_at?: string
+  updated_at?: string
+}
+
