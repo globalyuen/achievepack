@@ -15,8 +15,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const emailData = payload?.data || payload || {}
     const senderInfo = emailData.from || emailData.sender || 'Unknown Sender'
     const subjectInfo = emailData.subject || 'No Subject'
-    const bodyContent = emailData.text || emailData.html || ''
     
+    // Aggressive fallback to grab ANY text content from the weirdest email formats
+    let rawBody = emailData.text || emailData.html || emailData.raw_body || emailData.body || ''
+    if (typeof rawBody !== 'string') {
+      try { rawBody = JSON.stringify(rawBody) } catch(e) {}
+    }
+    
+    // Stripping ALL HTML tags, CSS blocks, and excessive whitespace
+    const cleanHTML = rawBody.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '').replace(/<[^>]*>?/gm, ' ')
+    const bodyContent = cleanHTML.replace(/\s\s+/g, ' ').trim()
+
     if (!subjectInfo && !bodyContent && !emailData.attachments?.length) {
       return res.status(200).json({ message: 'Empty email skipped' })
     }
@@ -30,7 +39,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       customer: cleanSubject || subjectInfo.substring(0, 50),
       status: 'New',
       category: 'Enquiries',
-      detail: bodyContent.substring(0, 600)
+      detail: bodyContent.substring(0, 600) || "No message body found"
     }
 
     let aiStatus = "Skipped"
