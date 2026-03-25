@@ -16,19 +16,24 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const senderInfo = emailData.from || emailData.sender || 'Unknown Sender'
     const subjectInfo = emailData.subject || 'No Subject'
     
-    // 1. Try to get standard text or html body
-    let rawBody = emailData.text || emailData.html || emailData.raw_body || emailData.body || ''
+    // 1. Explicitly prioritize pure plain text from Resend (safest!)
+    let rawBody = emailData.text;
     
-    // 2. If it's a string, strip aggressive HTML
-    if (typeof rawBody === 'string' && rawBody.trim() !== '') {
-      const cleanHTML = rawBody.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '').replace(/<[^>]*>?/gm, ' ')
-      rawBody = cleanHTML.replace(/\s\s+/g, ' ').trim()
+    // 2. If no plain text exists, carefully strip the HTML body without destroying normal text
+    if (!rawBody || typeof rawBody !== 'string' || rawBody.trim() === '') {
+      let htmlBody = emailData.html || emailData.raw_body || emailData.body || '';
+      if (typeof htmlBody === 'string' && htmlBody.trim() !== '') {
+        // Safe Regex: ONLY matches proper <tags> that close with >. Replaces them with spaces.
+        const cleanHTML = htmlBody.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '').replace(/<[^>]+>/gm, ' ');
+        rawBody = cleanHTML.replace(/\s\s+/g, ' ').trim();
+      }
     }
     
-    // 3. THE ULTIMATE FALLBACK: If the body is STILL blank or missing (e.g. weird automated BPI lead forms), dump the ENTIRE RAW PAYLOAD into the AI!
+    // 3. THE ULTIMATE FALLBACK: If absolutely nothing was extracted, dump the JSON keys / payload
     if (!rawBody || rawBody.trim() === '') {
       try {
-        rawBody = "RAW_PAYLOAD_DUMP: " + JSON.stringify(payload).substring(0, 3000);
+        const payloadFields = Object.keys(emailData).join(', ');
+        rawBody = "RAW_PAYLOAD_DUMP (Fields detected: " + payloadFields + ")\n" + JSON.stringify(emailData).substring(0, 3000);
       } catch(e) {
         rawBody = "Unparseable Empty Email";
       }
