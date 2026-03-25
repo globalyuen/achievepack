@@ -172,14 +172,25 @@ export default function DailyReportsPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ logId: dbLog.id, markup: quoteMarkup })
       });
-      const data = await resp.json();
+
+      // Safe parse: read text first in case Cloudflare returns an HTML error page
+      const rawText = await resp.text();
+      let data: any;
+      try {
+        data = JSON.parse(rawText);
+      } catch {
+        const preview = rawText.substring(0, 120);
+        setQuoteHtml(`<div style="padding:2rem;font-family:sans-serif"><h2 style="color:#dc2626">⚠️ Server Error</h2><p style="color:#555">The server returned a non-JSON response. This usually means the API timed out or Cloudflare blocked the request.</p><pre style="margin-top:1rem;padding:1rem;background:#f3f4f6;border-radius:8px;font-size:12px;white-space:pre-wrap">${preview}</pre><p style="margin-top:1rem;color:#888;font-size:13px">Try again in 30 seconds — Vercel may still be warming up.</p></div>`);
+        return;
+      }
+
       if (data.success && data.html) {
         setQuoteHtml(data.html);
       } else {
-        setQuoteHtml(`<div class="p-8 text-red-600 font-bold">Failed to generate: ${data.error || 'Unknown'}</div>`);
+        setQuoteHtml(`<div style="padding:2rem;font-family:sans-serif;color:#dc2626"><h2>⚠️ Generation Failed</h2><p>${data.error || 'Unknown error'}</p></div>`);
       }
     } catch (e: any) {
-      setQuoteHtml(`<div class="p-8 text-red-600 font-bold">Error: ${e.message}</div>`);
+      setQuoteHtml(`<div style="padding:2rem;font-family:sans-serif;color:#dc2626"><h2>⚠️ Error</h2><p>${e.message}</p></div>`);
     } finally {
       setQuoteLoading(false);
     }
