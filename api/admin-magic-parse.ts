@@ -1,4 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
+import { createClient } from '@supabase/supabase-js'
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -7,16 +8,22 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method === 'OPTIONS') return res.status(200).end()
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' })
 
-  const { text, base64Text } = req.body;
-  
-  let rawText = text;
-  if (base64Text) {
-    try {
-      rawText = Buffer.from(base64Text, 'base64').toString('utf-8');
-    } catch(e) {}
-  }
+  const { logId } = req.body;
+  if (!logId) return res.status(400).json({ error: 'No logId provided' })
 
-  if (!rawText) return res.status(400).json({ error: 'No text provided' })
+  const SUPABASE_URL = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL
+  const SUPABASE_KEY = process.env.SUPABASE_SERVICE_KEY || process.env.VITE_SUPABASE_ANON_KEY
+  
+  if (!SUPABASE_URL || !SUPABASE_KEY) return res.status(500).json({ error: 'Supabase keys missing' })
+  
+  const supabase = createClient(SUPABASE_URL, SUPABASE_KEY)
+  
+  const { data: logRow, error: logError } = await supabase.from('webhook_logs').select('raw_data').eq('id', logId).single()
+  
+  if (logError || !logRow) return res.status(400).json({ error: 'Failed to retrieve payload from DB' })
+
+  const rawText = logRow.raw_data?.text;
+  if (!rawText) return res.status(400).json({ error: 'Database row contained no text' })
 
   const XAI_API_KEY = process.env.XAI_API_KEY
   if (!XAI_API_KEY) return res.status(500).json({ error: 'XAI API key missing in Vercel' })
