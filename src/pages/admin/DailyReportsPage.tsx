@@ -58,6 +58,12 @@ export default function DailyReportsPage() {
   const [aiLoading, setAiLoading] = useState(false);
 
   const [uploadingFile, setUploadingFile] = useState(false);
+
+  // Quote Generator
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  const [quoteHtml, setQuoteHtml] = useState<string>('');
+  const [quoteLoading, setQuoteLoading] = useState(false);
+  const [quoteMarkup, setQuoteMarkup] = useState('1.6');
   const [selectedDocCategory, setSelectedDocCategory] = useState('Quote');
 
   const handleVerifyPin = async (e: React.FormEvent) => {
@@ -144,6 +150,30 @@ export default function DailyReportsPage() {
       alert("AI Error: " + err.message);
     } finally {
       setAiLoading(false);
+    }
+  };
+
+  const handleGenerateQuote = async () => {
+    if (!currentRecord.detail) return alert("Please specify the Project Details & specs to generate a quote!");
+    setQuoteLoading(true);
+    setQuoteHtml('');
+    setIsQuoteModalOpen(true);
+    try {
+      const resp = await fetch('/api/admin-generate-quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: currentRecord.detail, markup: quoteMarkup, customerName: currentRecord.customer || 'Valued Client' })
+      });
+      const data = await resp.json();
+      if (data.success && data.html) {
+        setQuoteHtml(data.html);
+      } else {
+        setQuoteHtml(`<div class="p-8 text-red-600 font-bold">Failed to generate: ${data.error || 'Unknown'}</div>`);
+      }
+    } catch (e: any) {
+      setQuoteHtml(`<div class="p-8 text-red-600 font-bold">Error: ${e.message}</div>`);
+    } finally {
+      setQuoteLoading(false);
     }
   };
 
@@ -464,8 +494,29 @@ export default function DailyReportsPage() {
                 </div>
               </div>
               
-              <div><label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">Project Details & Notes</label>
-                <textarea rows={4} className="w-full border-gray-300 rounded-xl p-3 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500" value={currentRecord.detail || ''} onChange={e=>setCurrentRecord({...currentRecord, detail: e.target.value})} /></div>
+              <div>
+                <label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">Project Details & Notes</label>
+                <textarea rows={4} className="w-full border-gray-300 rounded-xl p-3 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500" value={currentRecord.detail || ''} onChange={e=>setCurrentRecord({...currentRecord, detail: e.target.value})} />
+                <div className="mt-4 p-4 border border-blue-200 bg-blue-50/50 rounded-xl">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div className="text-sm font-bold text-blue-900 flex items-center gap-1.5"><FileText className="w-4 h-4"/> Generate Client Quote PDF</div>
+                    <div className="flex gap-2 items-center bg-white p-1 rounded-lg border border-blue-100 shadow-sm">
+                      <span className="text-xs font-semibold text-blue-700 pl-2">Client Price Markup:</span>
+                      <select className="border-none bg-transparent rounded p-1 text-xs font-bold text-gray-800 cursor-pointer focus:ring-0" value={quoteMarkup} onChange={e => setQuoteMarkup(e.target.value)}>
+                        <option value="1.3">1.3x (30% Profit)</option>
+                        <option value="1.5">1.5x (50% Profit)</option>
+                        <option value="1.6">1.6x (60% Profit)</option>
+                        <option value="1.8">1.8x (80% Profit)</option>
+                        <option value="2.0">2.0x (100% Profit)</option>
+                        <option value="3.0">3.0x (200% Profit)</option>
+                      </select>
+                      <button onClick={handleGenerateQuote} type="button" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-xs font-bold transition flex items-center gap-1">
+                        Generate
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
               
               {/* Attachments UI */}
               <div className="mt-2 pt-5 border-t border-gray-100">
@@ -508,6 +559,42 @@ export default function DailyReportsPage() {
               <button disabled={loading} onClick={handleSave} className="flex gap-2 items-center px-8 py-2.5 text-sm font-extrabold text-white bg-blue-600 rounded-xl shadow-lg hover:bg-blue-700 disabled:opacity-50 transition hover:shadow-blue-500/20 active:scale-95">
                 {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Save className="w-5 h-5"/>} COMPILE RECORD
               </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Quote Generator Modal */}
+      {isQuoteModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-gray-900/90 backdrop-blur-sm">
+          <div className="bg-white rounded-3xl w-full max-w-4xl h-[90vh] flex flex-col shadow-2xl overflow-hidden relative">
+            <div className="flex items-center justify-between px-8 py-5 bg-gray-50 border-b border-gray-200">
+              <h3 className="text-xl font-extrabold text-gray-900 flex items-center gap-3">
+                <FileText className="w-5 h-5 text-blue-600"/> English Quote Preview
+              </h3>
+              <div className="flex gap-4 items-center">
+                <button onClick={() => {
+                  const iframe = document.getElementById('quote-pdf-frame') as HTMLIFrameElement;
+                  if (iframe?.contentWindow) {
+                    iframe.contentWindow.focus();
+                    iframe.contentWindow.print();
+                  }
+                }} disabled={quoteLoading || !quoteHtml || quoteHtml.includes('Error')} className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg font-bold shadow-md transition disabled:opacity-50 disabled:cursor-not-allowed">
+                  Export & Save as PDF
+                </button>
+                <button onClick={() => setIsQuoteModalOpen(false)} className="text-gray-400 hover:bg-gray-200 p-2 rounded-full transition bg-white border border-gray-200"><X className="w-5 h-5"/></button>
+              </div>
+            </div>
+            <div className="flex-1 bg-gray-300 relative overflow-hidden flex flex-col">
+              {quoteLoading ? (
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/80 z-10 backdrop-blur-sm">
+                  <Loader2 className="w-12 h-12 text-blue-600 animate-spin mb-4" />
+                  <p className="font-bold text-gray-600">Translating factory specs & compiling PDF layout...</p>
+                </div>
+              ) : null}
+              {quoteHtml && (
+                <iframe id="quote-pdf-frame" srcDoc={quoteHtml} className="w-full flex-1 border-none bg-white" />
+              )}
             </div>
           </div>
         </div>
