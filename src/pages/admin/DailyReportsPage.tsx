@@ -114,7 +114,15 @@ export default function DailyReportsPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: rawText })
       });
-      const data = await resp.json();
+      
+      const rawTextResponse = await resp.text();
+      let data;
+      try {
+        data = JSON.parse(rawTextResponse);
+      } catch (e) {
+        throw new Error(`Server returned non-JSON response. This usually happens if you are running on Localhost instead of live Vercel, or if a Cloudflare Firewall blocked your pasted text! First 100 chars: ${rawTextResponse.substring(0, 100)}`);
+      }
+
       if (data.success && data.parsed) {
         setCurrentRecord(prev => ({ ...prev, ...data.parsed }));
         setRawText(''); // clear on success so user knows it worked
