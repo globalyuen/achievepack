@@ -206,7 +206,11 @@ export default function DailyReportsPage() {
       }).join('');
 
       const html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
-<style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:system-ui,-apple-system,sans-serif;background:#fff;color:#1e293b;padding:48px}
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:system-ui,-apple-system,sans-serif;background:#fff;color:#1e293b;padding:48px}
+@media print{body{padding:24px}@page{margin:0;size:A4}}
+
 .header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:48px}
 .logo{height:40px}.title{font-size:28px;font-weight:800;letter-spacing:-0.5px}
 .subtitle{font-size:13px;color:#64748b;margin-top:6px}
