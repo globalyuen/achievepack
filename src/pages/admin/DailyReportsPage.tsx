@@ -36,7 +36,7 @@ export default function DailyReportsPage() {
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   
-  const [activeTab, setActiveTab] = useState<'reports'|'logs'>('reports');
+  const [activeTab, setActiveTab] = useState<'reports'|'logs'|'quote'>('reports');
 
   const [reports, setReports] = useState<DailyReport[]>([]);
   const [logs, setLogs] = useState<WebhookLog[]>([]);
@@ -358,6 +358,9 @@ export default function DailyReportsPage() {
           <button onClick={() => setActiveTab('logs')} className={`pb-2 px-4 font-bold flex gap-2 items-center text-lg ${activeTab === 'logs' ? 'border-b-4 border-purple-600 text-purple-700' : 'text-gray-500 hover:text-gray-900'}`}>
             <History className="w-5 h-5"/> Audit Logs (Email / WhatsApp)
           </button>
+          <button onClick={() => setActiveTab('quote')} className={`pb-2 px-4 font-bold flex gap-2 items-center text-lg ${activeTab === 'quote' ? 'border-b-4 border-emerald-600 text-emerald-700' : 'text-gray-500 hover:text-gray-900'}`}>
+            <FileText className="w-5 h-5"/> Quote Generator
+          </button>
         </div>
 
         {/* Tab Content: Daily Reports */}
@@ -462,6 +465,88 @@ export default function DailyReportsPage() {
             </div>
           </div>
         )}
+
+        {/* Tab Content: Quote Generator */}
+        {activeTab === 'quote' && (
+          <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Left: Input Panel */}
+              <div className="bg-white rounded-3xl shadow-sm border border-gray-200 p-6 flex flex-col gap-5">
+                <div className="flex items-center gap-3 mb-1">
+                  <div className="p-2.5 bg-emerald-100 rounded-xl"><FileText className="w-6 h-6 text-emerald-600"/></div>
+                  <div>
+                    <h2 className="text-xl font-extrabold text-gray-900">AI Quote Generator</h2>
+                    <p className="text-sm text-gray-500">Paste factory specs → get a professional English client PDF</p>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">Client / Customer Name</label>
+                  <input type="text" value={currentRecord.customer || ''} onChange={e => setCurrentRecord({...currentRecord, customer: e.target.value})}
+                    className="w-full border-gray-300 rounded-xl p-3 focus:ring-2 focus:ring-emerald-500 bg-gray-50 focus:bg-white transition"
+                    placeholder="e.g. Justine Heaphy / ABC Foods Ltd" />
+                </div>
+
+                <div>
+                  <label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">Factory Raw Quote (Chinese RMB specs)</label>
+                  <textarea rows={10} value={currentRecord.detail || ''} onChange={e => setCurrentRecord({...currentRecord, detail: e.target.value})}
+                    className="w-full border-gray-300 rounded-xl p-3 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-emerald-500 text-sm font-mono"
+                    placeholder={"Paste raw factory cost sheet here...\nE.g.:\n袋型：三边封\n材质结构：PET-12/VMPET/EVOH\n数量：400 单价：￥3.603 重量：2.48kg\n数量：2000 单价：￥1.223 重量：8.57kg"} />
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center p-4 bg-emerald-50 border border-emerald-200 rounded-2xl">
+                  <div className="flex-1">
+                    <label className="block text-xs font-extrabold text-emerald-800 mb-1">Client Price Markup</label>
+                    <select className="w-full border border-emerald-200 bg-white rounded-lg p-2 text-sm font-bold text-gray-800 cursor-pointer focus:ring-2 focus:ring-emerald-400"
+                      value={quoteMarkup} onChange={e => setQuoteMarkup(e.target.value)}>
+                      <option value="1.3">1.3x — 30% Profit</option>
+                      <option value="1.5">1.5x — 50% Profit</option>
+                      <option value="1.6">1.6x — 60% Profit</option>
+                      <option value="1.8">1.8x — 80% Profit</option>
+                      <option value="2.0">2.0x — 100% Profit</option>
+                      <option value="3.0">3.0x — 200% Profit</option>
+                    </select>
+                  </div>
+                  <button onClick={handleGenerateQuote} disabled={quoteLoading || !currentRecord.detail?.trim()}
+                    className="sm:self-end flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed text-white px-6 py-3 rounded-xl font-extrabold shadow-lg transition active:scale-95">
+                    {quoteLoading ? <Loader2 className="w-5 h-5 animate-spin"/> : <FileText className="w-5 h-5"/>}
+                    {quoteLoading ? 'Generating...' : 'Generate Quote PDF'}
+                  </button>
+                </div>
+              </div>
+
+              {/* Right: Preview Panel */}
+              <div className="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden flex flex-col min-h-[600px]">
+                <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 bg-gray-50">
+                  <span className="font-extrabold text-gray-800">📄 Quote Preview</span>
+                  <button onClick={() => {
+                    const iframe = document.getElementById('quote-pdf-frame') as HTMLIFrameElement;
+                    if (iframe?.contentWindow) { iframe.contentWindow.focus(); iframe.contentWindow.print(); }
+                  }} disabled={quoteLoading || !quoteHtml || quoteHtml.includes('Error')}
+                    className="bg-gray-900 hover:bg-black text-white px-5 py-2 rounded-lg font-bold text-sm shadow transition disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2">
+                    <FileText className="w-4 h-4"/> Export & Save as PDF
+                  </button>
+                </div>
+                <div className="relative flex-1 bg-gray-100 flex items-center justify-center">
+                  {quoteLoading && (
+                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/80 z-10">
+                      <Loader2 className="w-12 h-12 text-emerald-600 animate-spin mb-4"/>
+                      <p className="font-bold text-gray-600 text-sm">AI is translating specs & building PDF...</p>
+                    </div>
+                  )}
+                  {!quoteHtml && !quoteLoading && (
+                    <div className="text-center text-gray-400 p-10">
+                      <FileText className="w-16 h-16 mx-auto mb-4 opacity-20"/>
+                      <p className="font-bold text-lg">No preview yet</p>
+                      <p className="text-sm mt-1">Paste a factory quote on the left and click Generate</p>
+                    </div>
+                  )}
+                  {quoteHtml && <iframe id="quote-pdf-frame" srcDoc={quoteHtml} className="w-full h-full border-none min-h-[550px]" />}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Editor Modal */}
@@ -505,25 +590,6 @@ export default function DailyReportsPage() {
               <div>
                 <label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">Project Details & Notes</label>
                 <textarea rows={4} className="w-full border-gray-300 rounded-xl p-3 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500" value={currentRecord.detail || ''} onChange={e=>setCurrentRecord({...currentRecord, detail: e.target.value})} />
-                <div className="mt-4 p-4 border border-blue-200 bg-blue-50/50 rounded-xl">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                    <div className="text-sm font-bold text-blue-900 flex items-center gap-1.5"><FileText className="w-4 h-4"/> Generate Client Quote PDF</div>
-                    <div className="flex gap-2 items-center bg-white p-1 rounded-lg border border-blue-100 shadow-sm">
-                      <span className="text-xs font-semibold text-blue-700 pl-2">Client Price Markup:</span>
-                      <select className="border-none bg-transparent rounded p-1 text-xs font-bold text-gray-800 cursor-pointer focus:ring-0" value={quoteMarkup} onChange={e => setQuoteMarkup(e.target.value)}>
-                        <option value="1.3">1.3x (30% Profit)</option>
-                        <option value="1.5">1.5x (50% Profit)</option>
-                        <option value="1.6">1.6x (60% Profit)</option>
-                        <option value="1.8">1.8x (80% Profit)</option>
-                        <option value="2.0">2.0x (100% Profit)</option>
-                        <option value="3.0">3.0x (200% Profit)</option>
-                      </select>
-                      <button onClick={handleGenerateQuote} type="button" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-xs font-bold transition flex items-center gap-1">
-                        Generate
-                      </button>
-                    </div>
-                  </div>
-                </div>
               </div>
               
               {/* Attachments UI */}
