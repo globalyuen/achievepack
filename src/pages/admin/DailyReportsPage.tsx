@@ -117,7 +117,7 @@ export default function DailyReportsPage() {
         raw_data: { text: rawText }
       }]).select().single();
 
-      if (dbErr || !dbLog) throw new Error("Failed to create secure tunnel via Database.");
+      if (dbErr || !dbLog) throw new Error("Failed to create secure tunnel via DB: " + (dbErr?.message || JSON.stringify(dbErr)));
 
       // 2. We only send the small harmless ID through Vercel. Cloudflare WAF sees nothing malicious!
       const resp = await fetch('/api/admin-magic-parse', {
