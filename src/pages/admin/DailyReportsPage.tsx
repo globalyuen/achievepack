@@ -247,6 +247,13 @@ export default function DailyReportsPage() {
     return `${days} Days Ago`;
   };
 
+  useEffect(() => {
+    if (isAuthenticated) {
+      const interval = setInterval(() => { fetchData() }, 10000);
+      return () => clearInterval(interval);
+    }
+  }, [isAuthenticated]);
+
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 px-6">
@@ -278,9 +285,9 @@ export default function DailyReportsPage() {
           <div className="relative z-10">
             <h1 className="text-3xl font-extrabold mb-3 flex items-center gap-3"><Activity className="h-8 w-8 text-blue-400" /> Control Center</h1>
             <div className="flex gap-2">
-              <span className="flex items-center gap-1.5 bg-emerald-500/20 text-emerald-200 px-3 py-1 rounded-full text-sm font-semibold border border-emerald-500/30">
-                <CheckCircle className="h-4 w-4" /> Live Webhooks Active
-              </span>
+              <button onClick={fetchData} className="flex items-center gap-1.5 bg-emerald-500/20 text-emerald-200 px-3 py-1 rounded-full text-sm font-semibold border border-emerald-500/30 hover:bg-emerald-500/40 transition active:scale-95 shadow-sm">
+                <RotateCcw className="h-3.5 w-3.5" /> Sync Data
+              </button>
             </div>
           </div>
           <button onClick={handleLogout} className="mt-4 sm:mt-0 flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg font-semibold relative z-10"><LogOut className="h-4 w-4" /> Exit</button>
