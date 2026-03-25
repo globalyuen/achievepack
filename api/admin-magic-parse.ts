@@ -7,8 +7,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method === 'OPTIONS') return res.status(200).end()
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' })
 
-  const { text } = req.body;
-  if (!text) return res.status(400).json({ error: 'No text provided' })
+  const { text, base64Text } = req.body;
+  
+  let rawText = text;
+  if (base64Text) {
+    try {
+      rawText = Buffer.from(base64Text, 'base64').toString('utf-8');
+    } catch(e) {}
+  }
+
+  if (!rawText) return res.status(400).json({ error: 'No text provided' })
 
   const XAI_API_KEY = process.env.XAI_API_KEY
   if (!XAI_API_KEY) return res.status(500).json({ error: 'XAI API key missing in Vercel' })
@@ -21,7 +29,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${XAI_API_KEY}` },
       body: JSON.stringify({
         model: 'grok-3-mini-beta',
-        messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: text.substring(0, 3000) }],
+        messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: rawText.substring(0, 3000) }],
         max_tokens: 400, temperature: 0.1,
       })
     })

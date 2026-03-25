@@ -112,7 +112,7 @@ export default function DailyReportsPage() {
       const resp = await fetch('/api/admin-magic-parse', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text: rawText })
+        body: JSON.stringify({ base64Text: window.btoa(unescape(encodeURIComponent(rawText))) })
       });
       
       const rawTextResponse = await resp.text();
