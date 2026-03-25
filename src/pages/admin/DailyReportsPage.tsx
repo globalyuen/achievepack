@@ -154,41 +154,128 @@ export default function DailyReportsPage() {
   };
 
   const handleGenerateQuote = async () => {
-    if (!currentRecord.detail) return alert("Please specify the Project Details & specs to generate a quote!");
+    if (!currentRecord.detail) return alert("Please paste the factory specs to generate a quote!");
     setQuoteLoading(true);
     setQuoteHtml('');
     setIsQuoteModalOpen(true);
     try {
+      // 1. Store in DB tunnel to bypass Cloudflare WAF
       const { data: dbLog, error: dbErr } = await supabase.from('webhook_logs').insert([{
         status: 'Processing',
         source: 'Quote Generator',
-        message: 'Awaiting Quote compilation via bypass tunnel',
+        message: 'Awaiting AI translation',
         raw_data: { text: currentRecord.detail, customer: currentRecord.customer || 'Valued Client' }
       }]).select().single();
-      if (dbErr || !dbLog) throw new Error("Tunnel Error: " + (dbErr?.message || "Failed to establish tunnel"));
+      if (dbErr || !dbLog) throw new Error("DB Tunnel Error: " + (dbErr?.message || "Unknown"));
 
+      // 2. Call API — only returns compact JSON (fast, <8s, no timeout!)
       const resp = await fetch('/api/admin-generate-quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ logId: dbLog.id, markup: quoteMarkup })
       });
 
-      // Safe parse: read text first in case Cloudflare returns an HTML error page
-      const rawText = await resp.text();
+      const rawResp = await resp.text();
       let data: any;
-      try {
-        data = JSON.parse(rawText);
-      } catch {
-        const preview = rawText.substring(0, 120);
-        setQuoteHtml(`<div style="padding:2rem;font-family:sans-serif"><h2 style="color:#dc2626">⚠️ Server Error</h2><p style="color:#555">The server returned a non-JSON response. This usually means the API timed out or Cloudflare blocked the request.</p><pre style="margin-top:1rem;padding:1rem;background:#f3f4f6;border-radius:8px;font-size:12px;white-space:pre-wrap">${preview}</pre><p style="margin-top:1rem;color:#888;font-size:13px">Try again in 30 seconds — Vercel may still be warming up.</p></div>`);
+      try { data = JSON.parse(rawResp); } catch {
+        setQuoteHtml(`<div style="padding:2rem;font-family:sans-serif"><h2 style="color:#dc2626">⚠️ Server Timeout</h2><p>Cloudflare returned an HTML error page. Please wait 30 seconds and try again.</p><pre style="margin-top:1rem;background:#f3f4f6;padding:1rem;border-radius:8px;font-size:11px">${rawResp.substring(0, 200)}</pre></div>`);
         return;
       }
+      if (!data.success || !data.extracted) throw new Error(data.error || "AI extraction failed");
 
-      if (data.success && data.html) {
-        setQuoteHtml(data.html);
-      } else {
-        setQuoteHtml(`<div style="padding:2rem;font-family:sans-serif;color:#dc2626"><h2>⚠️ Generation Failed</h2><p>${data.error || 'Unknown error'}</p></div>`);
-      }
+      // 3. Build beautiful HTML entirely on the client (instant, no timeout!)
+      const { extracted, customerName, markup } = data;
+      const RMB_TO_USD = 6.9;
+      const AIR_PER_KG = 15;
+      const SEA_PER_KG = 5;
+      const today = new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+
+      const rows = (extracted.pricing || []).map((tier: any) => {
+        const unitUsd = (tier.unit_rmb / RMB_TO_USD) * markup;
+        const exwTotal = unitUsd * tier.qty;
+        const airTotal = exwTotal + (tier.weight_kg * AIR_PER_KG);
+        const seaTotal = exwTotal + (tier.weight_kg * SEA_PER_KG);
+        const f = (v: number) => `$${v.toFixed(3)}`;
+        return `<tr>
+          <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;font-weight:700">${tier.qty.toLocaleString()}</td>
+          <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right">${f(unitUsd)}/ea<br><span style="font-size:11px;color:#64748b">Total: ${f(exwTotal)}</span></td>
+          <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;background:#faf5ff;color:#7c3aed;font-weight:700">${f(airTotal/tier.qty)}/ea<br><span style="font-size:11px;font-weight:400">(${f(airTotal)})</span></td>
+          <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;background:#eff6ff;color:#1d4ed8;font-weight:700">${f(seaTotal/tier.qty)}/ea<br><span style="font-size:11px;font-weight:400">(${f(seaTotal)})</span></td>
+          <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;color:#94a3b8">${tier.weight_kg} kg</td>
+        </tr>`;
+      }).join('');
+
+      const html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:system-ui,-apple-system,sans-serif;background:#fff;color:#1e293b;padding:48px}
+.header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:48px}
+.logo{height:40px}.title{font-size:28px;font-weight:800;letter-spacing:-0.5px}
+.subtitle{font-size:13px;color:#64748b;margin-top:6px}
+.ref{font-size:12px;color:#94a3b8;text-align:right}
+.section{background:#f8fafc;border-radius:12px;padding:24px;margin-bottom:24px}
+.section-title{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#94a3b8;margin-bottom:12px}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.spec-item label{font-size:11px;color:#94a3b8;font-weight:700;display:block;margin-bottom:2px}
+.spec-item span{font-size:13px;font-weight:600;color:#1e293b}
+table{width:100%;border-collapse:collapse}
+th{background:#1e293b;color:#fff;padding:12px 16px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:0.5px}
+th:not(:first-child){text-align:right}
+.footer{margin-top:40px;padding-top:24px;border-top:1px solid #e2e8f0;font-size:11px;color:#94a3b8;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+</style></head><body>
+<div class="header">
+  <div>
+    <img class="logo" src="https://pouch.eco/imgs/logo-dark.png" onerror="this.style.display='none'"/>
+    <div class="title" style="margin-top:12px">Official Quotation</div>
+    <div class="subtitle">Prepared for: <strong>${customerName}</strong></div>
+  </div>
+  <div class="ref">
+    <div style="font-size:12px;color:#94a3b8">Date: ${today}</div>
+    <div style="font-size:12px;color:#94a3b8;margin-top:4px">Valid: 15 Days</div>
+    <div style="font-size:11px;color:#cbd5e1;margin-top:8px">Achieve Pack International Ltd<br>support@achievepack.com</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Product Specifications</div>
+  <div class="specs">
+    <div class="spec-item"><label>Product Type</label><span>${extracted.product_name || '—'}</span></div>
+    <div class="spec-item"><label>Dimensions</label><span>${extracted.size || '—'}</span></div>
+    <div class="spec-item"><label>Material Structure</label><span>${extracted.material || '—'}</span></div>
+    <div class="spec-item"><label>Key Features</label><span>${extracted.features || '—'}</span></div>
+  </div>
+  ${extracted.notes ? `<div style="margin-top:16px;padding:12px;background:#fef9c3;border-radius:8px;font-size:12px;color:#854d0e"><strong>⚠️ Note:</strong> ${extracted.notes}</div>` : ''}
+</div>
+
+<div style="background:#f8fafc;border-radius:12px;overflow:hidden;margin-bottom:24px">
+  <div style="background:#1e293b;padding:16px 24px;display:flex;justify-content:space-between;align-items:center">
+    <span style="color:#fff;font-weight:700;font-size:14px">Pricing Tiers</span>
+    <span style="color:#94a3b8;font-size:11px">Exchange Rate: 1 USD = 6.9 RMB | Markup: ${markup}x</span>
+  </div>
+  <table><thead><tr>
+    <th>Quantity</th>
+    <th style="text-align:right">EXW Unit (USD)</th>
+    <th style="text-align:right;background:#3b0764;color:#e9d5ff">✈ Air DDP / Unit</th>
+    <th style="text-align:right;background:#1e3a5f;color:#bfdbfe">🚢 Sea DDP / Unit</th>
+    <th style="text-align:right">Est. Weight</th>
+  </tr></thead><tbody>${rows}</tbody></table>
+  <div style="padding:16px 20px;background:#f1f5f9;display:grid;grid-template-columns:1fr 1fr;gap:16px;font-size:12px">
+    <div><span style="color:#7c3aed;font-weight:700">✈ Air Freight</span>: $15 USD/kg | Lead Time: 2–3 Weeks</div>
+    <div><span style="color:#1d4ed8;font-weight:700">🚢 Sea Freight</span>: $5 USD/kg | Lead Time: 6–8 Weeks</div>
+  </div>
+</div>
+
+<div class="footer">
+  <div>
+    <div style="font-weight:700;color:#1e293b;margin-bottom:6px">Payment Terms</div>
+    <div>100% upfront for digital print orders.<br>50% deposit for large production runs.</div>
+  </div>
+  <div>
+    <div style="font-weight:700;color:#1e293b;margin-bottom:6px">Terms & Conditions</div>
+    <div>Prices valid for 15 days from quote date.<br>±5% tolerance on quantity & weight applies.</div>
+  </div>
+</div>
+</body></html>`;
+
+      setQuoteHtml(html);
     } catch (e: any) {
       setQuoteHtml(`<div style="padding:2rem;font-family:sans-serif;color:#dc2626"><h2>⚠️ Error</h2><p>${e.message}</p></div>`);
     } finally {
