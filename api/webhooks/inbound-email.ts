@@ -16,15 +16,25 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const senderInfo = emailData.from || emailData.sender || 'Unknown Sender'
     const subjectInfo = emailData.subject || 'No Subject'
     
-    // Aggressive fallback to grab ANY text content from the weirdest email formats
+    // 1. Try to get standard text or html body
     let rawBody = emailData.text || emailData.html || emailData.raw_body || emailData.body || ''
-    if (typeof rawBody !== 'string') {
-      try { rawBody = JSON.stringify(rawBody) } catch(e) {}
+    
+    // 2. If it's a string, strip aggressive HTML
+    if (typeof rawBody === 'string' && rawBody.trim() !== '') {
+      const cleanHTML = rawBody.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '').replace(/<[^>]*>?/gm, ' ')
+      rawBody = cleanHTML.replace(/\s\s+/g, ' ').trim()
     }
     
-    // Stripping ALL HTML tags, CSS blocks, and excessive whitespace
-    const cleanHTML = rawBody.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '').replace(/<[^>]*>?/gm, ' ')
-    const bodyContent = cleanHTML.replace(/\s\s+/g, ' ').trim()
+    // 3. THE ULTIMATE FALLBACK: If the body is STILL blank or missing (e.g. weird automated BPI lead forms), dump the ENTIRE RAW PAYLOAD into the AI!
+    if (!rawBody || rawBody.trim() === '') {
+      try {
+        rawBody = "RAW_PAYLOAD_DUMP: " + JSON.stringify(payload).substring(0, 3000);
+      } catch(e) {
+        rawBody = "Unparseable Empty Email";
+      }
+    }
+
+    const bodyContent = rawBody;
 
     if (!subjectInfo && !bodyContent && !emailData.attachments?.length) {
       return res.status(200).json({ message: 'Empty email skipped' })
