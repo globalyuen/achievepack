@@ -1,3 +1,5 @@
+import { createClient } from '@supabase/supabase-js';
+
 export const config = {
   runtime: 'edge'
 }
@@ -9,8 +11,20 @@ export default async function handler(req: Request): Promise<Response> {
   if (req.method !== 'POST') return new Response(JSON.stringify({ error: 'Method not allowed' }), { status: 405 });
 
   try {
-    const { text, markup = 1.6, customerName = "Valued Client" } = await req.json() as any;
-    if (!text) return new Response(JSON.stringify({ error: 'No text provided' }), { status: 400 });
+    const { logId, markup = 1.6 } = await req.json() as any;
+    if (!logId) return new Response(JSON.stringify({ error: 'No DB tunnel logId provided' }), { status: 400 });
+
+    const SUPABASE_URL = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL
+    const SUPABASE_KEY = process.env.SUPABASE_SERVICE_KEY || process.env.VITE_SUPABASE_ANON_KEY
+    if (!SUPABASE_URL || !SUPABASE_KEY) return new Response(JSON.stringify({ error: 'Supabase keys missing' }), { status: 500 });
+    
+    const supabase = createClient(SUPABASE_URL, SUPABASE_KEY)
+    const { data: logRow, error: logError } = await supabase.from('webhook_logs').select('raw_data').eq('id', logId).single()
+    if (logError || !logRow) return new Response(JSON.stringify({ error: 'Failed to retrieve tunnel payload' }), { status: 400 });
+
+    const text = logRow.raw_data?.text;
+    const customerName = logRow.raw_data?.customer || "Valued Client";
+    if (!text) return new Response(JSON.stringify({ error: 'DB row empty' }), { status: 400 });
 
     const XAI_API_KEY = process.env.XAI_API_KEY
     if (!XAI_API_KEY) return new Response(JSON.stringify({ error: 'XAI API key missing' }), { status: 500 });

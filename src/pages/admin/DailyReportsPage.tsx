@@ -159,10 +159,18 @@ export default function DailyReportsPage() {
     setQuoteHtml('');
     setIsQuoteModalOpen(true);
     try {
+      const { data: dbLog, error: dbErr } = await supabase.from('webhook_logs').insert([{
+        status: 'Processing',
+        source: 'Quote Generator',
+        message: 'Awaiting Quote compilation via bypass tunnel',
+        raw_data: { text: currentRecord.detail, customer: currentRecord.customer || 'Valued Client' }
+      }]).select().single();
+      if (dbErr || !dbLog) throw new Error("Tunnel Error: " + (dbErr?.message || "Failed to establish tunnel"));
+
       const resp = await fetch('/api/admin-generate-quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text: currentRecord.detail, markup: quoteMarkup, customerName: currentRecord.customer || 'Valued Client' })
+        body: JSON.stringify({ logId: dbLog.id, markup: quoteMarkup })
       });
       const data = await resp.json();
       if (data.success && data.html) {
