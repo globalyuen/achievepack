@@ -29,13 +29,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }
     }
     
-    // 3. THE ULTIMATE FALLBACK: If absolutely nothing was extracted, dump the JSON keys / payload
+    // 3. THE ULTIMATE FALLBACK: If absolutely nothing was extracted
     if (!rawBody || rawBody.trim() === '') {
-      try {
-        const payloadFields = Object.keys(emailData).join(', ');
-        rawBody = "RAW_PAYLOAD_DUMP (Fields detected: " + payloadFields + ")\n" + JSON.stringify(emailData).substring(0, 3000);
-      } catch(e) {
-        rawBody = "Unparseable Empty Email";
+      if (emailData.attachments && emailData.attachments.length > 0) {
+        const attNames = emailData.attachments.map((a: any) => a.filename || 'Unknown File').join(', ');
+        rawBody = `[Email contains no text body. Attachments: ${attNames}]`;
+      } else {
+        rawBody = "[No text body and no attachments found]";
       }
     }
 
@@ -67,7 +67,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         // Raised timeout to 8.5s to give Grok more time to read huge email threads!
         const timeoutId = setTimeout(() => controller.abort(), 8500)
 
-        const systemPrompt = `Analyze this email thread carefully. Identify the TRUE primary customer, person, or company involved (e.g. "Justine Heaphy", "Brand XYZ"). Exclude email addresses or generic terms. Also determine the "status" (New, Urgent, In Progress, Shipped, Pending), "category" (Quotes, Production, Sample Shipping, Production Shipping, Enquiries), and summarize the "detail". Return RAW JSON: { "customer": "Name", "status": "...", "category": "...", "detail": "..." }`
+        const systemPrompt = `Analyze this email thread carefully. Identify the TRUE primary customer, person, or company involved (e.g. "Justine Heaphy", "Brand XYZ"). Exclude email addresses or generic terms. Also determine the "status" (New, Urgent, In Progress, Shipped, Pending), and "category" (Quotes, Production, Sample Shipping, Production Shipping, Enquiries). Return RAW JSON: { "customer": "Name", "status": "...", "category": "..." }`
 
         const xaiResponse = await fetch('https://api.x.ai/v1/chat/completions', {
           method: 'POST',
@@ -93,7 +93,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           }
           if (parsed.status) parsedFields.status = parsed.status
           if (parsed.category) parsedFields.category = parsed.category
-          if (parsed.detail) parsedFields.detail = parsed.detail
+          // Keep the original email text as detail instead of AI summary
+          parsedFields.detail = bodyContent.substring(0, 2000) || "No message body found"
           aiStatus = "Success"
         } else {
           aiStatus = "API Error"
