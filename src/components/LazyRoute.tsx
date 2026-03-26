@@ -7,7 +7,8 @@ interface LazyRouteProps {
 }
 
 const LazyRoute: React.FC<LazyRouteProps> = ({ component, fallback = null, ...props }) => {
-  const LazyComponent = lazy(component);
+  // Memoize the lazy component to prevent infinite suspense loops on re-renders
+  const LazyComponent = React.useMemo(() => lazy(component), [component]);
 
   return (
     <Suspense fallback={fallback}>

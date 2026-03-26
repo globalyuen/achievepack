@@ -73,6 +73,13 @@ const certificates: CertificateFile[] = [
     filename: 'home compost test report.pdf',
     icon: 'fa-file-medical',
     category: 'environmental'
+  },
+  {
+    name: 'Seedling Logo EU Industrial Compostable',
+    description: 'European Bioplastics certification confirming compliance with EN 13432',
+    filename: 'Seedling Logo Industrial Compostable Certificate.pdf',
+    icon: 'fa-seedling',
+    category: 'environmental'
   }
 ];
 
