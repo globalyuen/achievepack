@@ -30,27 +30,31 @@ export default async function handler(req: Request): Promise<Response> {
     if (!XAI_API_KEY) return new Response(JSON.stringify({ error: 'XAI API key missing' }), { status: 500 });
 
     // FAST PROMPT: Only ask AI to translate/extract into compact JSON - NOT generate HTML (avoids timeout!)
-    const systemPrompt = `You are a packaging product specialist. Analyze this factory quote (in Chinese) and extract the key fields.
-Return ONLY a raw JSON object with these exact fields, no markdown, no explanation:
-{
-  "product_name": "English product name (e.g. 3-Side Seal Pouch, Stand Up Pouch with Zipper)",
-  "material": "English material description",
-  "size": "Dimensions in mm",
-  "features": "Key features in English (zipper, barrier, printing, etc.)",
-  "notes": "Any important notes or warnings in English",
-  "pricing": [
-    { "qty": <number>, "unit_rmb": <number>, "weight_kg": <number> }
-  ]
-}
-Extract all pricing tiers. If 款数 (designs) is mentioned, multiply qty by 款数.`;
+    const systemPrompt = `You are a packaging product specialist. Analyze this factory quote (in Chinese).
+Return ONLY a raw JSON array of objects representing EVERY distinct product type or SKU found in the quote.
+
+Output Format (JSON Array):
+[
+  {
+    "product_name": "English product name",
+    "material": "English material description",
+    "size": "Dimensions in mm",
+    "features": "Key features (zipper, etc.)",
+    "notes": "Important info",
+    "pricing": [
+      { "qty": <number>, "unit_rmb": <number>, "weight_kg": <number> }
+    ]
+  }
+]
+Extract EVERY pricing tier for EVERY product. Do not omit any items. If 款数 (designs) is mentioned, multiply qty by 款数.`;
 
     const xaiResponse = await fetch('https://api.x.ai/v1/chat/completions', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${XAI_API_KEY}` },
       body: JSON.stringify({
         model: 'grok-3-mini-beta',
-        messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: text.substring(0, 2000) }],
-        max_tokens: 600,
+        messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: text.substring(0, 5000) }],
+        max_tokens: 1500,
         temperature: 0.1,
       })
     });

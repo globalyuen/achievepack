@@ -185,25 +185,58 @@ export default function DailyReportsPage() {
       if (!data.success || !data.extracted) throw new Error(data.error || "AI extraction failed");
 
       // 3. Build beautiful HTML entirely on the client (instant, no timeout!)
-      const { extracted, customerName, markup } = data;
+      const { extracted, customerName } = data;
       const RMB_TO_USD = 6.9;
       const AIR_PER_KG = 15;
       const SEA_PER_KG = 5;
       const today = new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
 
-      const rows = (extracted.pricing || []).map((tier: any) => {
-        const unitUsd = (tier.unit_rmb / RMB_TO_USD) * markup;
-        const exwTotal = unitUsd * tier.qty;
-        const airTotal = exwTotal + (tier.weight_kg * AIR_PER_KG);
-        const seaTotal = exwTotal + (tier.weight_kg * SEA_PER_KG);
-        const f = (v: number) => `$${v.toFixed(3)}`;
-        return `<tr>
-          <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;font-weight:700">${tier.qty.toLocaleString()}</td>
-          <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right">${f(unitUsd)}/ea<br><span style="font-size:11px;color:#64748b">Total: ${f(exwTotal)}</span></td>
-          <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;background:#faf5ff;color:#7c3aed;font-weight:700">${f(airTotal/tier.qty)}/ea<br><span style="font-size:11px;font-weight:400">(${f(airTotal)})</span></td>
-          <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;background:#eff6ff;color:#1d4ed8;font-weight:700">${f(seaTotal/tier.qty)}/ea<br><span style="font-size:11px;font-weight:400">(${f(seaTotal)})</span></td>
-          <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;color:#94a3b8">${tier.weight_kg} kg</td>
-        </tr>`;
+      // Handle both old single object format and new array format for backward compatibility
+      const itemsToRender = Array.isArray(extracted) ? extracted : [extracted];
+
+      const sectionsHtml = itemsToRender.map((item: any, idx: number) => {
+        const rows = (item.pricing || []).map((tier: any) => {
+          const unitUsd = (tier.unit_rmb / RMB_TO_USD) * parseFloat(quoteMarkup);
+          const exwTotal = unitUsd * tier.qty;
+          const airTotal = exwTotal + (tier.weight_kg * AIR_PER_KG);
+          const seaTotal = exwTotal + (tier.weight_kg * SEA_PER_KG);
+          const f = (v: number) => `$${v.toFixed(3)}`;
+          return `<tr>
+            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;font-weight:700">${tier.qty.toLocaleString()}</td>
+            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right">${f(unitUsd)}/ea<br><span style="font-size:11px;color:#64748b">Total: ${f(exwTotal)}</span></td>
+            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;background:#faf5ff;color:#7c3aed;font-weight:700">${f(airTotal/tier.qty)}/ea<br><span style="font-size:11px;font-weight:400">(${f(airTotal)})</span></td>
+            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;background:#eff6ff;color:#1d4ed8;font-weight:700">${f(seaTotal/tier.qty)}/ea<br><span style="font-size:11px;font-weight:400">(${f(seaTotal)})</span></td>
+            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;color:#94a3b8">${tier.weight_kg} kg</td>
+          </tr>`;
+        }).join('');
+
+        return `
+        <div style="page-break-inside: avoid; margin-bottom: 40px;">
+          <div class="section">
+            <div class="section-title">Item ${idx+1}: Product Specifications</div>
+            <div class="specs">
+              <div class="spec-item"><label>Product Type</label><span>${item.product_name || '—'}</span></div>
+              <div class="spec-item"><label>Dimensions</label><span>${item.size || '—'}</span></div>
+              <div class="spec-item"><label>Material Structure</label><span>${item.material || '—'}</span></div>
+              <div class="spec-item"><label>Key Features</label><span>${item.features || '—'}</span></div>
+            </div>
+            ${item.notes ? `<div style="margin-top:16px;padding:12px;background:#fef9c3;border-radius:8px;font-size:12px;color:#854d0e"><strong>⚠️ Note:</strong> ${item.notes}</div>` : ''}
+          </div>
+
+          <div style="background:#f8fafc;border-radius:12px;overflow:hidden;">
+            <div style="background:#1e293b;padding:12px 24px;display:flex;justify-content:space-between;align-items:center">
+              <span style="color:#fff;font-weight:700;font-size:13px">Pricing Tiers (USD)</span>
+              <span style="color:#94a3b8;font-size:10px">All-inclusive Door-to-Door Delivery</span>
+            </div>
+            <table><thead><tr>
+              <th>Quantity</th>
+              <th style="text-align:right">EXW Unit</th>
+              <th style="text-align:right;background:#3b0764;color:#e9d5ff">✈ Air DDP</th>
+              <th style="text-align:right;background:#1e3a5f;color:#bfdbfe">🚢 Sea DDP</th>
+              <th style="text-align:right">Weight</th>
+            </tr></thead><tbody>${rows}</tbody></table>
+          </div>
+        </div>`;
       }).join('');
 
       const html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
@@ -216,7 +249,7 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#fff;color:#1e293
 .logo{height:40px}.title{font-size:28px;font-weight:800;letter-spacing:-0.5px}
 .subtitle{font-size:13px;color:#64748b;margin-top:6px}
 .ref{font-size:12px;color:#94a3b8;text-align:right}
-.section{background:#f8fafc;border-radius:12px;padding:24px;margin-bottom:24px}
+.section{background:#f8fafc;border-radius:12px;padding:24px;margin-bottom:20px}
 .section-title{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#94a3b8;margin-bottom:12px}
 .specs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .spec-item label{font-size:11px;color:#94a3b8;font-weight:700;display:block;margin-bottom:2px}
@@ -239,33 +272,11 @@ th:not(:first-child){text-align:right}
   </div>
 </div>
 
-<div class="section">
-  <div class="section-title">Product Specifications</div>
-  <div class="specs">
-    <div class="spec-item"><label>Product Type</label><span>${extracted.product_name || '—'}</span></div>
-    <div class="spec-item"><label>Dimensions</label><span>${extracted.size || '—'}</span></div>
-    <div class="spec-item"><label>Material Structure</label><span>${extracted.material || '—'}</span></div>
-    <div class="spec-item"><label>Key Features</label><span>${extracted.features || '—'}</span></div>
-  </div>
-  ${extracted.notes ? `<div style="margin-top:16px;padding:12px;background:#fef9c3;border-radius:8px;font-size:12px;color:#854d0e"><strong>⚠️ Note:</strong> ${extracted.notes}</div>` : ''}
-</div>
+${sectionsHtml}
 
-<div style="background:#f8fafc;border-radius:12px;overflow:hidden;margin-bottom:24px">
-  <div style="background:#1e293b;padding:16px 24px;display:flex;justify-content:space-between;align-items:center">
-    <span style="color:#fff;font-weight:700;font-size:14px">Pricing Tiers</span>
-    <span style="color:#94a3b8;font-size:11px">Exchange Rate: 1 USD = 6.9 RMB | Markup: ${markup}x</span>
-  </div>
-  <table><thead><tr>
-    <th>Quantity</th>
-    <th style="text-align:right">EXW Unit (USD)</th>
-    <th style="text-align:right;background:#3b0764;color:#e9d5ff">✈ Air DDP / Unit</th>
-    <th style="text-align:right;background:#1e3a5f;color:#bfdbfe">🚢 Sea DDP / Unit</th>
-    <th style="text-align:right">Est. Weight</th>
-  </tr></thead><tbody>${rows}</tbody></table>
-  <div style="padding:16px 20px;background:#f1f5f9;display:grid;grid-template-columns:1fr 1fr;gap:16px;font-size:12px">
-    <div><span style="color:#7c3aed;font-weight:700">✈ Air Freight</span>: $15 USD/kg | Lead Time: 2–3 Weeks</div>
-    <div><span style="color:#1d4ed8;font-weight:700">🚢 Sea Freight</span>: $5 USD/kg | Lead Time: 6–8 Weeks</div>
-  </div>
+<div style="padding:16px 20px;background:#f8fafc;display:grid;grid-template-columns:1fr 1fr;gap:16px;font-size:11px;border:1px solid #e2e8f0;border-radius:12px;color:#64748b;margin-top:20px">
+  <div><strong style="color:#7c3aed">✈ Air Freight</strong>: ~2 Weeks Lead Time</div>
+  <div><strong style="color:#1d4ed8">🚢 Sea Freight</strong>: ~6-8 Weeks Lead Time</div>
 </div>
 
 <div class="footer">

@@ -17,13 +17,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   try {
     const systemPrompt = `You are an expert logistics data extractor for Achieve Pack.
-You will be given raw text or an image of a Chinese supplier's packing list (often messy, missing rows or grouped by CTN).
-Your job is to cleanly extract the distinct packaged items into a standardized JSON array format.
+You will be given raw text or an image of a Chinese supplier's packing list.
+Your job is to EXHAUSTIVELY extract every distinct line item into a standardized JSON array format.
 
 RULES:
-1. Merge/Group identical items if they are packed in the same carton configurations.
-2. If multiple SKUs share the same carton weight and quantity, list the SKUs inside the "details" string.
-3. Calculate or infer missing data (like Total KG) if pieces/ctns are grouped. Always ensure total ctns is represented.
+1. DO NOT aggressive group or skip items. If the vendor lists items line-by-line, extract them line-by-line.
+2. Ensure every SKU (款号) or Description (描述) mentioned is captured.
+3. If multiple rows exist for the same item name but different cartons/quantities, keep them as separate objects.
 4. Output MUST be RAW JSON, exactly an array of objects:
 [
   {
@@ -33,7 +33,7 @@ RULES:
     "kgCtn": 15.80
   }
 ]
-Do not output markdown \`\`\`json blocks. Just the raw array.`;
+Do not output markdown \`\`\`json blocks. Return ONLY the raw array.`;
 
     let extractedText = text || '';
 
@@ -70,7 +70,7 @@ Do not output markdown \`\`\`json blocks. Just the raw array.`;
       body: JSON.stringify({
          model: modelToUse,
          messages,
-         max_tokens: 1500,
+         max_tokens: 2500,
          temperature: 0.1
       }),
       signal: controller.signal
