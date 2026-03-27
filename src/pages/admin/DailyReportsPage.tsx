@@ -412,9 +412,9 @@ export default function DailyReportsPage() {
     const file = event.target.files?.[0];
     if (!file) return;
   
-    // Validate file size (max 5MB to avoid Vercel timeout)
-    if (file.size > 5 * 1024 * 1024) {
-      alert("File is too large. Please upload files smaller than 5MB to avoid server timeout.");
+    // Validate file size (max 3MB to avoid Vercel timeout - stricter than before)
+    if (file.size > 3 * 1024 * 1024) {
+      alert("File is too large. Please upload files smaller than 3MB to avoid server timeout. For larger files, please manually copy the text content instead.");
       return;
     }
   
@@ -440,7 +440,7 @@ export default function DailyReportsPage() {
         let base64Data = reader.result as string;
           
         if (isImage) {
-          // Resize image to avoid Vercel 4.5MB limit
+          // Aggressive image compression to avoid Vercel 4.5MB limit
           const img = new Image();
           img.src = base64Data;
           await new Promise((resolve) => {
@@ -448,8 +448,8 @@ export default function DailyReportsPage() {
           });
           
           const canvas = document.createElement('canvas');
-          const MAX_WIDTH = 1600;
-          const MAX_HEIGHT = 1600;
+          const MAX_WIDTH = 1200; // Reduced from 1600
+          const MAX_HEIGHT = 1200; // Reduced from 1600
           let width = img.width;
           let height = img.height;
   
@@ -468,7 +468,16 @@ export default function DailyReportsPage() {
           canvas.height = height;
           const ctx = canvas.getContext('2d');
           ctx?.drawImage(img, 0, 0, width, height);
-          base64Data = canvas.toDataURL('image/jpeg', 0.8); // 80% quality JPEG
+          base64Data = canvas.toDataURL('image/jpeg', 0.7); // 70% quality (reduced from 80%)
+          
+          // Check final size
+          const estimatedSize = base64Data.length * 0.75; // Base64 is ~4/3 of original
+          console.log(`Compressed image size: ~${(estimatedSize / 1024 / 1024).toFixed(2)}MB`);
+          
+          if (estimatedSize > 4 * 1024 * 1024) {
+            throw new Error("Even after compression, image is too large (>4MB). Please use a smaller image or manually paste the text.");
+          }
+          
           payload.imageBase64 = base64Data;
         } else {
           // Parse PDF locally
@@ -484,8 +493,8 @@ export default function DailyReportsPage() {
           }
           const pdfDoc = await pdfjsLib.getDocument({ data: bytes }).promise;
           let fullText = '';
-          // Only parse first 3 pages to avoid timeout
-          const maxPages = Math.min(pdfDoc.numPages, 3);
+          // Only parse first 2 pages (reduced from 3)
+          const maxPages = Math.min(pdfDoc.numPages, 2);
           for (let i = 1; i <= maxPages; i++) {
             const page = await pdfDoc.getPage(i);
             const content = await page.getTextContent();
@@ -508,6 +517,13 @@ export default function DailyReportsPage() {
         payload.text = rawTextDump;
       }
   
+      console.log('Sending payload to API:', {
+        hasImage: !!payload.imageBase64,
+        hasText: !!payload.text,
+        imageSizeMB: payload.imageBase64 ? (payload.imageBase64.length * 0.75 / 1024 / 1024).toFixed(2) : 'N/A',
+        textLength: payload.text ? payload.text.length : 'N/A'
+      });
+  
       // Pass the generated payload to Edge Function
       const resp = await fetch('/api/admin-parse-packing-list', {
         method: 'POST',
@@ -516,12 +532,17 @@ export default function DailyReportsPage() {
       });
   
       const rawText = await resp.text();
+      console.log('API Response status:', resp.status, 'Raw response preview:', rawText.substring(0, 200));
+      
       let data: any;
       try {
         data = JSON.parse(rawText);
       } catch (e) {
-        console.error('Server response:', rawText.substring(0, 500));
-        throw new Error(`Server error (not JSON). Most likely payload too large or backend timeout. Please try a smaller file or simpler format.`);
+        console.error('Server response was not JSON:', rawText.substring(0, 500));
+        if (rawText.startsWith('<!DOCTYPE') || rawText.startsWith('<html')) {
+          throw new Error("Server returned an HTML error page (likely Vercel timeout or Cloudflare block). Please try a much smaller file (<2MB) or manually paste the text content.");
+        }
+        throw new Error(`Server error (not JSON). Most likely payload too large or backend timeout. Please try a smaller file (<2MB) or simpler format.`);
       }
   
       if (!resp.ok) throw new Error(data.error || 'AI Parsing failed');
@@ -533,10 +554,13 @@ export default function DailyReportsPage() {
         }).join('\n---\n\n');
           
         setCurrentRecord(prev => ({ ...prev, detail: extractedText }));
+        alert(`✅ Successfully extracted ${data.items.length} items from your file!`);
+      } else {
+        alert("⚠️ No items were extracted. The file may be empty or in an unsupported format. Please try a different file or manually paste the text.");
       }
     } catch (err: any) {
       console.error(err);
-      alert("Error parsing vendor quote: " + err.message);
+      alert("❌ Error parsing vendor quote: " + err.message);
     } finally {
       setQuoteLoading(false);
       event.target.value = '';
