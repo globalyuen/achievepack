@@ -68,9 +68,9 @@ Do not output markdown \`\`\`json blocks. Return ONLY the raw array.`;
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${XAI_API_KEY}` },
       body: JSON.stringify({
-         model: modelToUse,
+         model: 'grok-3-beta',
          messages,
-         max_tokens: 2500,
+         max_tokens: 1800,
          temperature: 0.1
       }),
       signal: controller.signal

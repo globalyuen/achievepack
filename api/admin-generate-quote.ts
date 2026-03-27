@@ -30,32 +30,29 @@ export default async function handler(req: Request): Promise<Response> {
     if (!XAI_API_KEY) return new Response(JSON.stringify({ error: 'XAI API key missing' }), { status: 500 });
 
     // FAST PROMPT: Only ask AI to translate/extract into compact JSON - NOT generate HTML (avoids timeout!)
-    const systemPrompt = `You are a packaging product specialist. Analyze this factory quote (in Chinese).
-Return ONLY a raw JSON array of objects representing EVERY distinct product type or SKU found in the quote.
-
-Output Format (JSON Array):
+    const systemPrompt = `You are an expert logistics extractor for Achieve Pack.
+Analyze the factory quote and return ONLY a raw JSON array. SPEED IS CRITICAL.
+Target < 8s response. Extract all SKU/product pricing.
 [
   {
-    "product_name": "English product name",
-    "material": "English material description",
-    "size": "Dimensions in mm",
-    "features": "Key features (zipper, etc.)",
-    "notes": "Important info",
-    "plate_fee_rmb": <number or 0 if not mentioned>,
-    "pricing": [
-      { "qty": <number>, "unit_rmb": <number>, "weight_kg": <number> }
-    ]
+    "product_name": "Product category",
+    "material": "Material spec",
+    "size": "mm dims",
+    "features": "Concise key info",
+    "notes": "Short warning",
+    "plate_fee_rmb": <number>,
+    "pricing": [{ "qty": <number>, "unit_rmb": <number>, "weight_kg": <number> }]
   }
 ]
-Extract EVERY pricing tier for EVERY product. Extract Plate Fee (版费/制版费) if mentioned. If 款数 (designs) is mentioned, multiply qty by 款数.`;
+Exhaustive items, but MINIMAL text tokens. No markdown.`;
 
     const xaiResponse = await fetch('https://api.x.ai/v1/chat/completions', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${XAI_API_KEY}` },
       body: JSON.stringify({
-        model: 'grok-3-mini-beta',
-        messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: text.substring(0, 5000) }],
-        max_tokens: 1500,
+        model: 'grok-3-beta', // Use full Grok-3 for faster high-token generation? Usually mini-beta is geared for speed but Grok-3 (non-mini) is also extremely fast now.
+        messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: text.substring(0, 4000) }],
+        max_tokens: 1000,
         temperature: 0.1,
       })
     });
