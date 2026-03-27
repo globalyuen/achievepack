@@ -47,6 +47,12 @@ export default function DailyReportsPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filterCategory, setFilterCategory] = useState<string>('All');
   
+  // Customer/Project Management
+  const [customers, setCustomers] = useState<string[]>([]);
+  const [selectedCustomer, setSelectedCustomer] = useState<string>('');
+  const [showNewCustomerInput, setShowNewCustomerInput] = useState(false);
+  const [newCustomerName, setNewCustomerName] = useState('');
+  
   // Modal State
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editMode, setEditMode] = useState(false);
@@ -97,6 +103,13 @@ export default function DailyReportsPage() {
       
       const { data: logData } = await supabase.from('webhook_logs').select('*').order('created_at', { ascending: false }).limit(30);
       if (logData) setLogs(logData as WebhookLog[]);
+      
+      // Fetch all unique customers from daily_reports
+      const { data: customerData } = await supabase.from('daily_reports').select('customer');
+      if (customerData) {
+        const uniqueCustomers = Array.from(new Set(customerData.map(r => r.customer).filter(Boolean)));
+        setCustomers(uniqueCustomers.sort());
+      }
     } catch (err) {
       console.error('Fetch error:', err);
     }
@@ -110,7 +123,7 @@ export default function DailyReportsPage() {
 
   const openNewModal = () => {
     setEditMode(false);
-    setCurrentRecord({ customer: '', status: 'New', category: 'Enquiries', detail: '', attachments: [], report_date: new Date().toISOString().split('T')[0] });
+    setCurrentRecord({ customer: selectedCustomer || '', status: 'New', category: 'Enquiries', detail: '', attachments: [], report_date: new Date().toISOString().split('T')[0] });
     setRawText('');
     setIsModalOpen(true);
   };
@@ -162,6 +175,24 @@ export default function DailyReportsPage() {
     } finally {
       setAiLoading(false);
     }
+  };
+
+  // Add new customer to the list
+  const handleAddCustomer = async () => {
+    if (!newCustomerName.trim()) return;
+    
+    if (customers.includes(newCustomerName.trim())) {
+      alert('Customer already exists!');
+      setSelectedCustomer(newCustomerName.trim());
+      setShowNewCustomerInput(false);
+      setNewCustomerName('');
+      return;
+    }
+    
+    setCustomers(prev => [...prev, newCustomerName.trim()].sort());
+    setSelectedCustomer(newCustomerName.trim());
+    setShowNewCustomerInput(false);
+    setNewCustomerName('');
   };
 
   const handleGenerateQuote = async () => {
@@ -636,7 +667,8 @@ export default function DailyReportsPage() {
     let result = reports.filter(report => {
       const matchesSearch = report.customer.toLowerCase().includes(searchTerm.toLowerCase()) || (report.detail || '').toLowerCase().includes(searchTerm.toLowerCase());
       const matchesCategory = filterCategory === 'All' || report.category === filterCategory;
-      return matchesSearch && matchesCategory;
+      const matchesCustomer = !selectedCustomer || report.customer === selectedCustomer;
+      return matchesSearch && matchesCategory && matchesCustomer;
     });
 
     result.sort((a, b) => {
@@ -646,7 +678,7 @@ export default function DailyReportsPage() {
     });
 
     return result;
-  }, [reports, searchTerm, filterCategory, sortBy]);
+  }, [reports, searchTerm, filterCategory, sortBy, selectedCustomer]);
 
   const getDaysAgo = (dateStr?: string) => {
     if (!dateStr) return null;
@@ -701,6 +733,85 @@ export default function DailyReportsPage() {
             </div>
           </div>
           <button onClick={handleLogout} className="mt-4 sm:mt-0 flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg font-semibold relative z-10"><LogOut className="h-4 w-4" /> Exit</button>
+        </div>
+
+        {/* Customer/Project Selector - Global for all tabs */}
+        <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 rounded-2xl p-4 mb-6">
+          <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+            <div className="flex items-center gap-2">
+              <ClipboardList className="w-5 h-5 text-indigo-600" />
+              <label className="font-bold text-indigo-900 whitespace-nowrap">Project / Customer:</label>
+            </div>
+            
+            {showNewCustomerInput ? (
+              <div className="flex gap-2 flex-1 w-full">
+                <input
+                  type="text"
+                  value={newCustomerName}
+                  onChange={(e) => setNewCustomerName(e.target.value)}
+                  placeholder="Enter customer name..."
+                  className="flex-1 min-w-0 rounded-lg border-gray-300 focus:ring-2 focus:ring-indigo-500 text-sm"
+                  autoFocus
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') handleAddCustomer();
+                    if (e.key === 'Escape') {
+                      setShowNewCustomerInput(false);
+                      setNewCustomerName('');
+                    }
+                  }}
+                />
+                <button
+                  onClick={handleAddCustomer}
+                  className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-bold text-sm transition"
+                >
+                  <Check className="w-4 h-4"/>
+                </button>
+                <button
+                  onClick={() => {
+                    setShowNewCustomerInput(false);
+                    setNewCustomerName('');
+                  }}
+                  className="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-lg font-bold text-sm transition"
+                >
+                  <X className="w-4 h-4"/>
+                </button>
+              </div>
+            ) : (
+              <>
+                <select
+                  value={selectedCustomer}
+                  onChange={(e) => setSelectedCustomer(e.target.value)}
+                  className="flex-1 max-w-md rounded-lg border-gray-300 focus:ring-2 focus:ring-indigo-500 font-semibold text-sm cursor-pointer"
+                >
+                  <option value="">— All Projects —</option>
+                  {customers.map(customer => (
+                    <option key={customer} value={customer}>{customer}</option>
+                  ))}
+                </select>
+                <button
+                  onClick={() => setShowNewCustomerInput(true)}
+                  className="flex items-center gap-1 bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 rounded-lg font-bold text-sm transition"
+                >
+                  <Plus className="w-4 h-4"/> New
+                </button>
+                {selectedCustomer && (
+                  <button
+                    onClick={() => setSelectedCustomer('')}
+                    className="text-xs text-gray-600 hover:text-gray-900 underline"
+                  >
+                    Clear selection
+                  </button>
+                )}
+              </>
+            )}
+          </div>
+          
+          {selectedCustomer && (
+            <div className="mt-3 flex items-center gap-2 text-xs text-indigo-700">
+              <Activity className="w-3 h-3" />
+              <span>Filtering by: <strong>{selectedCustomer}</strong> — {reports.filter(r => r.customer === selectedCustomer).length} records found</span>
+            </div>
+          )}
         </div>
 
         {/* Tab Switcher */}
@@ -801,7 +912,12 @@ export default function DailyReportsPage() {
         {activeTab === 'logs' && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div className="bg-white rounded-3xl shadow-sm border border-gray-200 p-2">
-              {logs.map((log, i) => (
+              {logs
+                .filter(log => !selectedCustomer || 
+                  (log.raw_data?.customer_matched && log.raw_data.customer_matched.includes(selectedCustomer)) ||
+                  (log.raw_data?.text && log.raw_data.text.toLowerCase().includes(selectedCustomer.toLowerCase()))
+                )
+                .map((log, i) => (
                 <div key={log.id} className={`p-4 border-b border-gray-100 last:border-0 ${i%2===0?'bg-transparent':'bg-gray-50/50'}`}>
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-3">
