@@ -39,7 +39,7 @@ export default function DailyReportsPage() {
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   
-  const [activeTab, setActiveTab] = useState<'reports'|'logs'|'quote'|'packing'>('reports');
+  const [activeTab, setActiveTab] = useState<'reports'|'logs'|'rfq'|'quote'|'packing'>('reports');
 
   const [reports, setReports] = useState<DailyReport[]>([]);
   const [logs, setLogs] = useState<WebhookLog[]>([]);
@@ -69,6 +69,12 @@ export default function DailyReportsPage() {
   const [quoteMarkup, setQuoteMarkup] = useState('1.6');
   const [selectedDocCategory, setSelectedDocCategory] = useState('Quote');
   const [isAiParsing, setIsAiParsing] = useState(false);
+
+  // RFQ Maker
+  const [rfqCustomerText, setRfqCustomerText] = useState('');
+  const [rfqChineseOutput, setRfqChineseOutput] = useState('');
+  const [rfqLoading, setRfqLoading] = useState(false);
+  const [rfqFileUpload, setRfqFileUpload] = useState<File | null>(null);
 
 
   const handleVerifyPin = async (e: React.FormEvent) => {
@@ -326,6 +332,49 @@ export default function DailyReportsPage() {
       setQuoteHtml(`<div style="padding:2rem;font-family:sans-serif;color:#dc2626"><h2>⚠️ Error</h2><p>${e.message}</p></div>`);
     } finally {
       setQuoteLoading(false);
+    }
+  };
+
+  // RFQ Maker - Convert customer inquiry to Chinese vendor RFQ
+  const handleGenerateRFQ = async () => {
+    if (!rfqCustomerText.trim()) return alert("Please enter or paste the customer's RFQ inquiry first!");
+    
+    setRfqLoading(true);
+    try {
+      // Use DB tunnel to bypass Cloudflare WAF
+      const { data: dbLog, error: dbErr } = await supabase.from('webhook_logs').insert([{
+        status: 'Processing',
+        source: 'RFQ Maker',
+        message: 'Converting customer RFQ to Chinese vendor format',
+        raw_data: { text: rfqCustomerText }
+      }]).select().single();
+      
+      if (dbErr || !dbLog) throw new Error("DB Tunnel Error: " + (dbErr?.message || "Unknown"));
+
+      // Call AI to convert to professional Chinese RFQ
+      const resp = await fetch('/api/admin-convert-rfq', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ logId: dbLog.id })
+      });
+
+      const rawResp = await resp.text();
+      let data: any;
+      try {
+        data = JSON.parse(rawResp);
+      } catch {
+        throw new Error(`Server returned non-JSON response. Raw: ${rawResp.substring(0, 200)}`);
+      }
+
+      if (!resp.ok) throw new Error(data.error || "AI conversion failed");
+
+      // Set the converted Chinese RFQ
+      setRfqChineseOutput(data.chineseRFQ || data.rfq || 'Conversion successful but no output generated');
+    } catch (e: any) {
+      console.error('RFQ conversion error:', e);
+      alert("Failed to generate RFQ: " + e.message);
+    } finally {
+      setRfqLoading(false);
     }
   };
 
@@ -638,6 +687,9 @@ export default function DailyReportsPage() {
           <button onClick={() => setActiveTab('logs')} className={`pb-2 px-4 font-bold flex gap-2 items-center text-lg ${activeTab === 'logs' ? 'border-b-4 border-purple-600 text-purple-700' : 'text-gray-500 hover:text-gray-900'}`}>
             <History className="w-5 h-5"/> Audit Logs (Email / WhatsApp)
           </button>
+          <button onClick={() => setActiveTab('rfq')} className={`pb-2 px-4 font-bold flex gap-2 items-center text-lg ${activeTab === 'rfq' ? 'border-b-4 border-indigo-600 text-indigo-700' : 'text-gray-500 hover:text-gray-900'}`}>
+            <FileText className="w-5 h-5"/> RFQ Maker
+          </button>
           <button onClick={() => setActiveTab('quote')} className={`pb-2 px-4 font-bold flex gap-2 items-center text-lg ${activeTab === 'quote' ? 'border-b-4 border-emerald-600 text-emerald-700' : 'text-gray-500 hover:text-gray-900'}`}>
             <FileText className="w-5 h-5"/> Quote Generator
           </button>
@@ -750,6 +802,76 @@ export default function DailyReportsPage() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        )}
+
+        {/* Tab Content: RFQ Maker */}
+        {activeTab === 'rfq' && (
+          <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Left: Input Panel */}
+              <div className="bg-white rounded-3xl shadow-sm border border-gray-200 p-6 flex flex-col gap-5">
+                <div className="flex items-center gap-3 mb-1">
+                  <div className="p-2.5 bg-indigo-100 rounded-xl"><FileText className="w-6 h-6 text-indigo-600"/></div>
+                  <div>
+                    <h2 className="text-xl font-extrabold text-gray-900">🇨🇳 RFQ Maker for Chinese Vendors</h2>
+                    <p className="text-sm text-gray-500">Paste customer inquiry → AI converts to professional Chinese RFQ</p>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">Customer RFQ (English)</label>
+                  <textarea rows={12} value={rfqCustomerText} onChange={e => setRfqCustomerText(e.target.value)}
+                    className="w-full border-gray-300 rounded-xl p-3 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-indigo-500 text-sm font-mono"
+                    placeholder={"Paste customer's RFQ here...\n\nExample:\nRecyclable Zip Doypack Pouch\n• Materials: PE / EVOH-PE\n• Thickness: 130 µm\n• External dimensions: 100 × 150 mm + 30 mm gusset + 30 mm above the zip\n• Sealing width: 5 mm\n• Printing: 2 sides / 4 colors\n• Number of designs: 1"} />
+                </div>
+
+                <button onClick={handleGenerateRFQ} disabled={rfqLoading || !rfqCustomerText?.trim()}
+                  className="flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed text-white px-6 py-3 rounded-xl font-extrabold shadow-lg transition active:scale-95">
+                  {rfqLoading ? <Loader2 className="w-5 h-5 animate-spin"/> : <FileText className="w-5 h-5"/>}
+                  {rfqLoading ? 'Converting to Chinese...' : 'Generate Chinese RFQ'}
+                </button>
+              </div>
+
+              {/* Right: Output Panel */}
+              <div className="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden flex flex-col min-h-[600px]">
+                <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 bg-gray-50">
+                  <span className="font-extrabold text-gray-800">📄 Chinese RFQ Preview</span>
+                  <button onClick={() => {
+                    if (rfqChineseOutput) {
+                      navigator.clipboard.writeText(rfqChineseOutput);
+                      alert('Copied to clipboard!');
+                    }
+                  }} disabled={rfqLoading || !rfqChineseOutput}
+                    className="bg-gray-900 hover:bg-black text-white px-5 py-2 rounded-lg font-bold text-sm shadow transition disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2">
+                    <FileText className="w-4 h-4"/> Copy Text
+                  </button>
+                </div>
+                <div className="relative flex-1 bg-gray-100 flex items-center justify-center p-6">
+                  {rfqLoading && (
+                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/80 z-10">
+                      <Loader2 className="w-12 h-12 text-indigo-600 animate-spin mb-4"/>
+                      <p className="font-bold text-gray-600 text-sm">AI is converting your RFQ to professional Chinese format...</p>
+                    </div>
+                  )}
+                  {!rfqChineseOutput && !rfqLoading && (
+                    <div className="text-center text-gray-400 p-10">
+                      <FileText className="w-16 h-16 mx-auto mb-4 opacity-20"/>
+                      <p className="font-bold text-lg">No RFQ generated yet</p>
+                      <p className="text-sm mt-1">Paste customer inquiry on the left and click Generate</p>
+                    </div>
+                  )}
+                  {rfqChineseOutput && (
+                    <textarea 
+                      value={rfqChineseOutput}
+                      onChange={(e) => setRfqChineseOutput(e.target.value)}
+                      className="w-full h-full p-4 border-0 bg-white rounded-lg resize-none focus:ring-2 focus:ring-indigo-500 text-sm font-mono leading-relaxed"
+                      style={{ minHeight: '500px' }}
+                    />
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         )}
