@@ -9,6 +9,8 @@ import {
 } from 'lucide-react';
 import { supabase, DailyReport, WebhookLog } from '../../lib/supabase';
 import PackingListTab from '../../components/admin/PackingListTab';
+import * as XLSX from 'xlsx';
+
 
 const STATUS_COLORS: Record<string, string> = {
   'Urgent': 'bg-red-100 text-red-800 border-red-200',
@@ -66,6 +68,8 @@ export default function DailyReportsPage() {
   const [quoteLoading, setQuoteLoading] = useState(false);
   const [quoteMarkup, setQuoteMarkup] = useState('1.6');
   const [selectedDocCategory, setSelectedDocCategory] = useState('Quote');
+  const [isAiParsing, setIsAiParsing] = useState(false);
+
 
   const handleVerifyPin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -328,28 +332,124 @@ export default function DailyReportsPage() {
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!event.target.files || event.target.files.length === 0) return;
     const file = event.target.files[0];
-    
+      
     setUploadingFile(true);
     try {
       const fileExt = file.name.split('.').pop() || 'tmp';
       const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
-      
+        
       const { data, error } = await supabase.storage.from('daily_reports_files').upload(fileName, file, { upsert: true });
       if (error) throw error;
-
+  
       const { data: { publicUrl } } = supabase.storage.from('daily_reports_files').getPublicUrl(fileName);
-
+  
       const newAttachment = { name: file.name, url: publicUrl, type: fileExt, docCategory: selectedDocCategory };
-
+  
       setCurrentRecord(prev => ({
         ...prev,
         attachments: [...(prev.attachments || []), newAttachment]
       }));
-
+  
     } catch (err: any) {
-      alert("檔案上傳失敗: " + err.message);
+      alert("檔案上傳失敗：" + err.message);
     } finally {
       setUploadingFile(false);
+      event.target.value = '';
+    }
+  };
+  
+  // Auto-Extract AI for Vendor Quote Upload (reuse same logic as Packing List)
+  const handleQuoteFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+  
+    if (!file.name.match(/\.(xls|xlsx|csv|pdf|png|jpg|jpeg)$/i)) {
+      alert("Unsupported file format. Only Excel, CSV, PDF, and Images are currently supported for AI auto-extraction.");
+      return;
+    }
+  
+    setQuoteLoading(true);
+    try {
+      const isImage = file.name.match(/\.(png|jpg|jpeg)$/i);
+      const isPdf = file.name.match(/\.(pdf)$/i);
+        
+      let payload: any = {};
+  
+      if (isImage || isPdf) {
+        const reader = new FileReader();
+        await new Promise((resolve, reject) => {
+          reader.onload = resolve;
+          reader.onerror = reject;
+          reader.readAsDataURL(file);
+        });
+        const base64Data = reader.result as string;
+          
+        if (isImage) {
+          payload.imageBase64 = base64Data;
+        } else {
+          // Parse PDF locally
+          // @ts-ignore
+          const pdfjsLib = await import('pdfjs-dist');
+          pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.min.mjs`;
+            
+          const binaryString = window.atob(base64Data.split(',')[1]);
+          const len = binaryString.length;
+          const bytes = new Uint8Array(len);
+          for (let i = 0; i < len; i++) {
+            bytes[i] = binaryString.charCodeAt(i);
+          }
+          const pdfDoc = await pdfjsLib.getDocument({ data: bytes }).promise;
+          let fullText = '';
+          for (let i = 1; i <= pdfDoc.numPages; i++) {
+            const page = await pdfDoc.getPage(i);
+            const content = await page.getTextContent();
+            fullText += content.items.map((it: any) => it.str).join(' ') + '\n';
+          }
+          payload.text = fullText;
+        }
+      } else {
+        // Prepare Excel
+        const arrayBuffer = await file.arrayBuffer();
+        const workbook = XLSX.read(arrayBuffer, { type: 'array' });
+          
+        let rawTextDump = '';
+        workbook.SheetNames.forEach(sheetName => {
+          rawTextDump += `\n--- SHEET ${sheetName} ---\n`;
+          rawTextDump += XLSX.utils.sheet_to_csv(workbook.Sheets[sheetName]);
+        });
+        payload.text = rawTextDump;
+      }
+  
+      // Pass the generated payload to Edge Function
+      const resp = await fetch('/api/admin-parse-packing-list', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+  
+      const rawText = await resp.text();
+      let data: any;
+      try {
+        data = JSON.parse(rawText);
+      } catch (e) {
+        throw new Error(`Server error (not JSON). Most likely payload too large or backend timeout. Raw: ${rawText.substring(0, 100)}`);
+      }
+  
+      if (!resp.ok) throw new Error(data.error || 'AI Parsing failed');
+        
+      // Extract text from parsed items and populate the detail field
+      if (data.items && Array.isArray(data.items)) {
+        const extractedText = data.items.map((item: any) => {
+          return `${item.name || 'Detected Item'}\n${item.details || ''}\nCTN: ${item.ctn || 1}, KG/CTN: ${item.kgCtn || 0}\n`;
+        }).join('\n---\n\n');
+          
+        setCurrentRecord(prev => ({ ...prev, detail: extractedText }));
+      }
+    } catch (err: any) {
+      console.error(err);
+      alert("Error parsing vendor quote: " + err.message);
+    } finally {
+      setQuoteLoading(false);
       event.target.value = '';
     }
   };
@@ -648,6 +748,25 @@ export default function DailyReportsPage() {
                   <textarea rows={10} value={currentRecord.detail || ''} onChange={e => setCurrentRecord({...currentRecord, detail: e.target.value})}
                     className="w-full border-gray-300 rounded-xl p-3 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-emerald-500 text-sm font-mono"
                     placeholder={"Paste raw factory cost sheet here...\nE.g.:\n袋型：三边封\n材质结构：PET-12/VMPET/EVOH\n数量：400 单价：￥3.603 重量：2.48kg\n数量：2000 单价：￥1.223 重量：8.57kg"} />
+                </div>
+
+                <div>
+                  <label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">Auto-Extract AI (Upload Vendor Quote)</label>
+                  <div className="border-2 border-dashed border-emerald-300 bg-emerald-50 rounded-2xl p-6 flex items-center justify-center text-emerald-600 hover:bg-emerald-100 transition cursor-pointer relative overflow-hidden">
+                    <input type="file" onChange={handleQuoteFileUpload} accept=".xlsx,.xls,.csv,.pdf,.png,.jpg,.jpeg" className="absolute inset-0 opacity-0 cursor-pointer" />
+                    {quoteLoading ? (
+                      <div className="flex flex-col items-center">
+                        <Loader2 className="w-8 h-8 mb-2 animate-spin" />
+                        <span className="text-sm font-bold text-center">AI is analyzing vendor quote...</span>
+                      </div>
+                    ) : (
+                      <div className="flex flex-col items-center text-center">
+                        <FileIcon className="w-8 h-8 mb-2 text-emerald-500" />
+                        <span className="text-sm font-bold">Drop Vendor Quote File Here to Auto-Extract</span>
+                        <span className="text-xs text-emerald-500 mt-1">.xls, .csv, .pdf, .png, .jpg supported</span>
+                      </div>
+                    )}
+                  </div>
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center p-4 bg-emerald-50 border border-emerald-200 rounded-2xl">
