@@ -723,34 +723,49 @@ export default function DailyReportsPage() {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="bg-gradient-to-r from-gray-900 to-blue-900 rounded-3xl p-8 text-white shadow-2xl mb-8 relative overflow-hidden flex flex-col sm:flex-row justify-between items-start sm:items-center">
-          <div className="relative z-10">
-            <h1 className="text-3xl font-extrabold mb-3 flex items-center gap-3"><Activity className="h-8 w-8 text-blue-400" /> Control Center</h1>
-            <div className="flex gap-2">
-              <button onClick={fetchData} className="flex items-center gap-1.5 bg-emerald-500/20 text-emerald-200 px-3 py-1 rounded-full text-sm font-semibold border border-emerald-500/30 hover:bg-emerald-500/40 transition active:scale-95 shadow-sm">
+        <div className="bg-gradient-to-r from-gray-900 to-blue-900 rounded-3xl p-6 sm:p-8 text-white shadow-2xl mb-8 relative overflow-hidden flex flex-col gap-4 sm:flex-row justify-between items-start sm:items-center">
+          <div className="relative z-10 flex-1">
+            <h1 className="text-2xl sm:text-3xl font-extrabold mb-3 flex items-center gap-3"><Activity className="h-7 w-7 sm:h-8 sm:w-8 text-blue-400" /> Control Center</h1>
+            <div className="flex flex-wrap gap-2 items-center">
+              <button onClick={fetchData} className="flex items-center gap-1.5 bg-emerald-500/20 text-emerald-200 px-3 py-1.5 rounded-full text-sm font-semibold border border-emerald-500/30 hover:bg-emerald-500/40 transition active:scale-95 shadow-sm">
                 <RotateCcw className="h-3.5 w-3.5" /> Sync Data
               </button>
+              
+              {/* PaddleOCR Quick Access */}
+              <a 
+                href="https://aistudio.baidu.com/paddleocr" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 bg-purple-500/20 text-purple-200 px-3 py-1.5 rounded-full text-sm font-semibold border border-purple-500/30 hover:bg-purple-500/40 transition active:scale-95 shadow-sm"
+                title="Open PaddleOCR for document extraction"
+              >
+                <FileText className="h-3.5 w-3.5" />
+                <span className="hidden xs:inline">PaddleOCR</span>
+                <span className="xs:hidden">OCR</span>
+              </a>
             </div>
           </div>
-          <button onClick={handleLogout} className="mt-4 sm:mt-0 flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg font-semibold relative z-10"><LogOut className="h-4 w-4" /> Exit</button>
+          <button onClick={handleLogout} className="mt-2 sm:mt-0 flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg font-semibold relative z-10 transition active:scale-95 whitespace-nowrap">
+            <LogOut className="h-4 w-4" /> <span className="hidden sm:inline">Exit</span>
+          </button>
         </div>
 
         {/* Customer/Project Selector - Global for all tabs */}
-        <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 rounded-2xl p-4 mb-6">
-          <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+        <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 rounded-2xl p-4 sm:p-5 mb-6">
+          <div className="flex flex-col gap-3">
             <div className="flex items-center gap-2">
-              <ClipboardList className="w-5 h-5 text-indigo-600" />
-              <label className="font-bold text-indigo-900 whitespace-nowrap">Project / Customer:</label>
+              <ClipboardList className="w-5 h-5 text-indigo-600 flex-shrink-0" />
+              <label className="font-bold text-indigo-900 whitespace-nowrap text-sm sm:text-base">Project / Customer:</label>
             </div>
             
             {showNewCustomerInput ? (
-              <div className="flex gap-2 flex-1 w-full">
+              <div className="flex gap-2 w-full">
                 <input
                   type="text"
                   value={newCustomerName}
                   onChange={(e) => setNewCustomerName(e.target.value)}
                   placeholder="Enter customer name..."
-                  className="flex-1 min-w-0 rounded-lg border-gray-300 focus:ring-2 focus:ring-indigo-500 text-sm"
+                  className="flex-1 min-w-0 rounded-lg border-gray-300 focus:ring-2 focus:ring-indigo-500 text-sm py-2 px-3"
                   autoFocus
                   onKeyDown={(e) => {
                     if (e.key === 'Enter') handleAddCustomer();
@@ -762,7 +777,7 @@ export default function DailyReportsPage() {
                 />
                 <button
                   onClick={handleAddCustomer}
-                  className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-bold text-sm transition"
+                  className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-bold text-sm transition flex-shrink-0"
                 >
                   <Check className="w-4 h-4"/>
                 </button>
@@ -771,65 +786,67 @@ export default function DailyReportsPage() {
                     setShowNewCustomerInput(false);
                     setNewCustomerName('');
                   }}
-                  className="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-lg font-bold text-sm transition"
+                  className="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-lg font-bold text-sm transition flex-shrink-0"
                 >
                   <X className="w-4 h-4"/>
                 </button>
               </div>
             ) : (
-              <>
+              <div className="flex flex-col sm:flex-row gap-2 w-full">
                 <select
                   value={selectedCustomer}
                   onChange={(e) => setSelectedCustomer(e.target.value)}
-                  className="flex-1 max-w-md rounded-lg border-gray-300 focus:ring-2 focus:ring-indigo-500 font-semibold text-sm cursor-pointer"
+                  className="flex-1 w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-indigo-500 font-semibold text-sm py-2.5 cursor-pointer"
                 >
                   <option value="">— All Projects —</option>
                   {customers.map(customer => (
                     <option key={customer} value={customer}>{customer}</option>
                   ))}
                 </select>
-                <button
-                  onClick={() => setShowNewCustomerInput(true)}
-                  className="flex items-center gap-1 bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 rounded-lg font-bold text-sm transition"
-                >
-                  <Plus className="w-4 h-4"/> New
-                </button>
-                {selectedCustomer && (
+                <div className="flex gap-2">
                   <button
-                    onClick={() => setSelectedCustomer('')}
-                    className="text-xs text-gray-600 hover:text-gray-900 underline"
+                    onClick={() => setShowNewCustomerInput(true)}
+                    className="flex items-center justify-center gap-1 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-bold text-sm transition whitespace-nowrap flex-shrink-0"
                   >
-                    Clear selection
+                    <Plus className="w-4 h-4"/> New
                   </button>
-                )}
-              </>
+                  {selectedCustomer && (
+                    <button
+                      onClick={() => setSelectedCustomer('')}
+                      className="text-xs text-gray-600 hover:text-gray-900 underline px-2 py-2 transition flex-shrink-0"
+                    >
+                      Clear
+                    </button>
+                  )}
+                </div>
+              </div>
             )}
           </div>
           
           {selectedCustomer && (
-            <div className="mt-3 flex items-center gap-2 text-xs text-indigo-700">
-              <Activity className="w-3 h-3" />
-              <span>Filtering by: <strong>{selectedCustomer}</strong> — {reports.filter(r => r.customer === selectedCustomer).length} records found</span>
+            <div className="mt-3 flex items-center gap-2 text-xs text-indigo-700 bg-indigo-100/50 rounded-lg px-3 py-2">
+              <Activity className="w-3 h-3 flex-shrink-0" />
+              <span>Filtering by: <strong>{selectedCustomer}</strong> — <span className="font-mono bg-indigo-200/50 px-2 py-0.5 rounded">{reports.filter(r => r.customer === selectedCustomer).length}</span> records found</span>
             </div>
           )}
         </div>
 
         {/* Tab Switcher */}
-        <div className="flex gap-4 mb-6 border-b border-gray-200 pb-2">
-          <button onClick={() => setActiveTab('reports')} className={`pb-2 px-4 font-bold flex gap-2 items-center text-lg ${activeTab === 'reports' ? 'border-b-4 border-blue-600 text-blue-700' : 'text-gray-500 hover:text-gray-900'}`}>
-            <ClipboardList className="w-5 h-5"/> Daily Reports
+        <div className="flex gap-2 sm:gap-4 mb-6 border-b border-gray-200 pb-2 overflow-x-auto scrollbar-hide">
+          <button onClick={() => setActiveTab('reports')} className={`pb-2 px-3 sm:px-4 font-bold flex gap-2 items-center text-sm sm:text-lg whitespace-nowrap ${activeTab === 'reports' ? 'border-b-4 border-blue-600 text-blue-700' : 'text-gray-500 hover:text-gray-900'}`}>
+            <ClipboardList className="w-4 h-4 sm:w-5 sm:h-5"/> Daily Reports
           </button>
-          <button onClick={() => setActiveTab('logs')} className={`pb-2 px-4 font-bold flex gap-2 items-center text-lg ${activeTab === 'logs' ? 'border-b-4 border-purple-600 text-purple-700' : 'text-gray-500 hover:text-gray-900'}`}>
-            <History className="w-5 h-5"/> Audit Logs (Email / WhatsApp)
+          <button onClick={() => setActiveTab('logs')} className={`pb-2 px-3 sm:px-4 font-bold flex gap-2 items-center text-sm sm:text-lg whitespace-nowrap ${activeTab === 'logs' ? 'border-b-4 border-purple-600 text-purple-700' : 'text-gray-500 hover:text-gray-900'}`}>
+            <History className="w-4 h-4 sm:w-5 sm:h-5"/> Audit Logs
           </button>
-          <button onClick={() => setActiveTab('rfq')} className={`pb-2 px-4 font-bold flex gap-2 items-center text-lg ${activeTab === 'rfq' ? 'border-b-4 border-indigo-600 text-indigo-700' : 'text-gray-500 hover:text-gray-900'}`}>
-            <FileText className="w-5 h-5"/> RFQ Maker
+          <button onClick={() => setActiveTab('rfq')} className={`pb-2 px-3 sm:px-4 font-bold flex gap-2 items-center text-sm sm:text-lg whitespace-nowrap ${activeTab === 'rfq' ? 'border-b-4 border-indigo-600 text-indigo-700' : 'text-gray-500 hover:text-gray-900'}`}>
+            <FileText className="w-4 h-4 sm:w-5 sm:h-5"/> RFQ Maker
           </button>
-          <button onClick={() => setActiveTab('quote')} className={`pb-2 px-4 font-bold flex gap-2 items-center text-lg ${activeTab === 'quote' ? 'border-b-4 border-emerald-600 text-emerald-700' : 'text-gray-500 hover:text-gray-900'}`}>
-            <FileText className="w-5 h-5"/> Quote Generator
+          <button onClick={() => setActiveTab('quote')} className={`pb-2 px-3 sm:px-4 font-bold flex gap-2 items-center text-sm sm:text-lg whitespace-nowrap ${activeTab === 'quote' ? 'border-b-4 border-emerald-600 text-emerald-700' : 'text-gray-500 hover:text-gray-900'}`}>
+            <FileText className="w-4 h-4 sm:w-5 sm:h-5"/> Quote Generator
           </button>
-          <button onClick={() => setActiveTab('packing')} className={`pb-2 px-4 font-bold flex gap-2 items-center text-lg ${activeTab === 'packing' ? 'border-b-4 border-amber-600 text-amber-700' : 'text-gray-500 hover:text-gray-900'}`}>
-            <Package className="w-5 h-5"/> Packing List Generator
+          <button onClick={() => setActiveTab('packing')} className={`pb-2 px-3 sm:px-4 font-bold flex gap-2 items-center text-sm sm:text-lg whitespace-nowrap ${activeTab === 'packing' ? 'border-b-4 border-amber-600 text-amber-700' : 'text-gray-500 hover:text-gray-900'}`}>
+            <Package className="w-4 h-4 sm:w-5 sm:h-5"/> Packing List
           </button>
         </div>
 
@@ -864,7 +881,8 @@ export default function DailyReportsPage() {
             </div>
 
             <div className="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden">
-              <div className="overflow-x-auto">
+              {/* Desktop Table View */}
+              <div className="hidden md:block overflow-x-auto">
                 <table className="min-w-full divide-y divide-gray-200">
                   <thead className="bg-gray-50/80">
                     <tr><th className="px-6 py-4 text-left text-xs font-extrabold text-gray-500 uppercase tracking-wider">Customer / Project</th><th className="px-6 py-4 text-left text-xs font-extrabold text-gray-500 uppercase tracking-wider">Date</th><th className="px-6 py-4 text-left text-xs font-extrabold text-gray-500 uppercase tracking-wider">Tags</th><th className="px-6 py-4 text-left text-xs font-extrabold text-gray-500 uppercase tracking-wider">Details & Attached Docs</th><th className="px-6 py-4 text-right text-xs font-extrabold text-gray-500 uppercase tracking-wider">Action</th></tr>
@@ -903,6 +921,61 @@ export default function DailyReportsPage() {
                     ))}
                   </tbody>
                 </table>
+              </div>
+
+              {/* Mobile Card View */}
+              <div className="md:hidden divide-y divide-gray-100">
+                {filteredReports.map((report) => (
+                  <div key={report.id} className="p-4 hover:bg-blue-50/20 transition">
+                    <div className="flex justify-between items-start mb-3">
+                      <div className="flex-1">
+                        <h3 className="font-bold text-gray-900 text-base mb-2">{report.customer.replace('Email: ', '')}</h3>
+                        <span className={`inline-block px-2.5 py-0.5 text-[11px] font-bold rounded-full border ${STATUS_COLORS[report.status] || 'bg-gray-100 border-gray-200 text-gray-800'}`}>
+                          {report.status}
+                        </span>
+                      </div>
+                      <div className="flex gap-2 ml-2">
+                        <button onClick={() => openEditModal(report)} className="text-gray-400 hover:text-blue-600 p-2 bg-white rounded-lg border border-gray-200 shadow-sm">
+                          <Edit3 className="w-4 h-4" />
+                        </button>
+                        <button onClick={() => handleDelete(report)} className="text-gray-400 hover:text-red-600 p-2 bg-white rounded-lg border border-gray-200 shadow-sm">
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-3 mb-3 text-xs">
+                      <div className="flex items-center gap-1.5 text-gray-500">
+                        <Calendar className="w-3.5 h-3.5" />
+                        <span>{report.report_date}</span>
+                      </div>
+                      <span className={`px-2 py-0.5 rounded-full font-bold ${getDaysAgo(report.report_date)?.includes('Days') ? 'bg-amber-100 text-amber-700' : 'bg-gray-100 text-gray-500'}`}>
+                        {getDaysAgo(report.report_date)}
+                      </span>
+                    </div>
+
+                    <div className="mb-3">
+                      <span className="text-xs font-bold text-gray-600 bg-gray-100 px-3 py-1 rounded-full uppercase tracking-wide">
+                        {report.category}
+                      </span>
+                    </div>
+
+                    <div className="mb-3">
+                      <p className="text-sm text-gray-700 leading-relaxed opacity-90 line-clamp-3">{report.detail}</p>
+                    </div>
+
+                    {report.attachments && report.attachments.length > 0 && (
+                      <div className="flex flex-wrap gap-2">
+                        {report.attachments.map((file, idx) => (
+                          <a key={idx} href={file.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-800 text-white rounded-lg text-[10px] uppercase font-bold hover:bg-gray-700 transition">
+                            <LinkIcon className="w-3 h-3" />
+                            <span className="max-w-[120px] truncate">{file.name}</span>
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -949,21 +1022,21 @@ export default function DailyReportsPage() {
         {/* Tab Content: RFQ Maker */}
         {activeTab === 'rfq' && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 gap-6">
               {/* Left: Input Panel */}
-              <div className="bg-white rounded-3xl shadow-sm border border-gray-200 p-6 flex flex-col gap-5">
+              <div className="bg-white rounded-3xl shadow-sm border border-gray-200 p-4 sm:p-6 flex flex-col gap-5">
                 <div className="flex items-center gap-3 mb-1">
-                  <div className="p-2.5 bg-indigo-100 rounded-xl"><FileText className="w-6 h-6 text-indigo-600"/></div>
-                  <div>
-                    <h2 className="text-xl font-extrabold text-gray-900">🇨🇳 RFQ Maker for Chinese Vendors</h2>
-                    <p className="text-sm text-gray-500">Paste customer inquiry → AI converts to professional Chinese RFQ</p>
+                  <div className="p-2.5 bg-indigo-100 rounded-xl flex-shrink-0"><FileText className="w-6 h-6 text-indigo-600"/></div>
+                  <div className="min-w-0">
+                    <h2 className="text-lg sm:text-xl font-extrabold text-gray-900">🇨🇳 RFQ Maker for Chinese Vendors</h2>
+                    <p className="text-xs sm:text-sm text-gray-500 truncate sm:truncate">Paste customer inquiry → AI converts to professional Chinese RFQ</p>
                   </div>
                 </div>
 
                 <div>
                   <label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">Customer RFQ (English)</label>
                   <textarea rows={12} value={rfqCustomerText} onChange={e => setRfqCustomerText(e.target.value)}
-                    className="w-full border-gray-300 rounded-xl p-3 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-indigo-500 text-sm font-mono"
+                    className="w-full border-gray-300 rounded-xl p-3 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-indigo-500 text-sm font-mono leading-relaxed"
                     placeholder={"Paste customer's RFQ here...\n\nExample:\nRecyclable Zip Doypack Pouch\n• Materials: PE / EVOH-PE\n• Thickness: 130 µm\n• External dimensions: 100 × 150 mm + 30 mm gusset + 30 mm above the zip\n• Sealing width: 5 mm\n• Printing: 2 sides / 4 colors\n• Number of designs: 1"} />
                 </div>
 
@@ -975,17 +1048,17 @@ export default function DailyReportsPage() {
               </div>
 
               {/* Right: Output Panel */}
-              <div className="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden flex flex-col min-h-[600px]">
-                <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 bg-gray-50">
-                  <span className="font-extrabold text-gray-800">📄 Chinese RFQ Preview</span>
+              <div className="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden flex flex-col min-h-[500px] sm:min-h-[600px]">
+                <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 bg-gray-50">
+                  <span className="font-extrabold text-gray-800 text-sm sm:text-base truncate">📄 Chinese RFQ Preview</span>
                   <button onClick={() => {
                     if (rfqChineseOutput) {
                       navigator.clipboard.writeText(rfqChineseOutput);
                       alert('Copied to clipboard!');
                     }
                   }} disabled={rfqLoading || !rfqChineseOutput}
-                    className="bg-gray-900 hover:bg-black text-white px-5 py-2 rounded-lg font-bold text-sm shadow transition disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2">
-                    <FileText className="w-4 h-4"/> Copy Text
+                    className="bg-gray-900 hover:bg-black text-white px-3 sm:px-5 py-2 rounded-lg font-bold text-xs sm:text-sm shadow transition disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2 flex-shrink-0">
+                    <FileText className="w-3 h-3 sm:w-4 sm:h-4"/> <span className="hidden xs:inline">Copy Text</span>
                   </button>
                 </div>
                 <div className="relative flex-1 bg-gray-100 flex items-center justify-center p-6">
@@ -1006,8 +1079,8 @@ export default function DailyReportsPage() {
                     <textarea 
                       value={rfqChineseOutput}
                       onChange={(e) => setRfqChineseOutput(e.target.value)}
-                      className="w-full h-full p-4 border-0 bg-white rounded-lg resize-none focus:ring-2 focus:ring-indigo-500 text-sm font-mono leading-relaxed"
-                      style={{ minHeight: '500px' }}
+                      className="w-full h-full p-3 sm:p-4 border-0 bg-white rounded-lg resize-none focus:ring-2 focus:ring-indigo-500 text-xs sm:text-sm font-mono leading-relaxed"
+                      style={{ minHeight: '400px' }}
                     />
                   )}
                 </div>
@@ -1019,23 +1092,23 @@ export default function DailyReportsPage() {
         {/* Tab Content: Quote Generator */}
         {activeTab === 'quote' && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 gap-6">
               {/* Left: Input Panel */}
-              <div className="bg-white rounded-3xl shadow-sm border border-gray-200 p-6 flex flex-col gap-5">
+              <div className="bg-white rounded-3xl shadow-sm border border-gray-200 p-4 sm:p-6 flex flex-col gap-5">
                 <div className="flex items-center gap-3 mb-1">
-                  <div className="p-2.5 bg-emerald-100 rounded-xl"><FileText className="w-6 h-6 text-emerald-600"/></div>
-                  <div>
-                    <h2 className="text-xl font-extrabold text-gray-900">AI Quote Generator</h2>
-                    <p className="text-sm text-gray-500">Paste factory specs → get a professional English client PDF</p>
+                  <div className="p-2.5 bg-emerald-100 rounded-xl flex-shrink-0"><FileText className="w-6 h-6 text-emerald-600"/></div>
+                  <div className="min-w-0">
+                    <h2 className="text-lg sm:text-xl font-extrabold text-gray-900">AI Quote Generator</h2>
+                    <p className="text-xs sm:text-sm text-gray-500 truncate sm:truncate">Paste factory specs → get a professional English client PDF</p>
                   </div>
                 </div>
 
-                <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-4 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 bg-white rounded-lg shadow-sm font-bold text-emerald-700 text-xs">1 USD = 6.9 RMB</div>
-                    <div className="text-[11px] font-bold text-emerald-800 uppercase tracking-tight">Active: Markup {quoteMarkup}x + Rounding</div>
+                <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-3 sm:p-4 flex items-center justify-between">
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="p-2 bg-white rounded-lg shadow-sm font-bold text-emerald-700 text-[10px] sm:text-xs whitespace-nowrap">1 USD = 6.9 RMB</div>
+                    <div className="text-[10px] sm:text-[11px] font-bold text-emerald-800 uppercase tracking-tight">Active: Markup {quoteMarkup}x + Rounding</div>
                   </div>
-                  <CheckCircle className="h-4 w-4 text-emerald-500" />
+                  <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 text-emerald-500 flex-shrink-0" />
                 </div>
 
                 <div>
@@ -1048,7 +1121,7 @@ export default function DailyReportsPage() {
                 <div>
                   <label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">Factory Raw Quote (Chinese RMB specs)</label>
                   <textarea rows={10} value={currentRecord.detail || ''} onChange={e => setCurrentRecord({...currentRecord, detail: e.target.value})}
-                    className="w-full border-gray-300 rounded-xl p-3 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-emerald-500 text-sm font-mono"
+                    className="w-full border-gray-300 rounded-xl p-3 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-emerald-500 text-xs sm:text-sm font-mono leading-relaxed"
                     placeholder={"Paste raw factory cost sheet here...\nE.g.:\n袋型：三边封\n材质结构：PET-12/VMPET/EVOH\n数量：400 单价：￥3.603 重量：2.48kg\n数量：2000 单价：￥1.223 重量：8.57kg"} />
                 </div>
 
@@ -1058,21 +1131,21 @@ export default function DailyReportsPage() {
                     <input type="file" onChange={handleQuoteFileUpload} accept=".xlsx,.xls,.csv,.pdf,.png,.jpg,.jpeg" className="absolute inset-0 opacity-0 cursor-pointer" />
                     {quoteLoading ? (
                       <div className="flex flex-col items-center">
-                        <Loader2 className="w-8 h-8 mb-2 animate-spin" />
-                        <span className="text-sm font-bold text-center">AI is analyzing vendor quote...</span>
+                        <Loader2 className="w-6 h-6 sm:w-8 sm:h-8 mb-2 animate-spin" />
+                        <span className="text-xs sm:text-sm font-bold text-center">AI is analyzing vendor quote...</span>
                       </div>
                     ) : (
                       <div className="flex flex-col items-center text-center">
-                        <FileIcon className="w-8 h-8 mb-2 text-emerald-500" />
-                        <span className="text-sm font-bold">Drop Vendor Quote File Here to Auto-Extract</span>
-                        <span className="text-xs text-emerald-500 mt-1">.xls, .csv, .pdf, .png, .jpg supported</span>
+                        <FileIcon className="w-6 h-6 sm:w-8 sm:h-8 mb-2 text-emerald-500" />
+                        <span className="text-xs sm:text-sm font-bold">Drop Vendor Quote File Here to Auto-Extract</span>
+                        <span className="text-[10px] sm:text-xs text-emerald-500 mt-1">.xls, .csv, .pdf, .png, .jpg supported</span>
                       </div>
                     )}
                   </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center p-4 bg-emerald-50 border border-emerald-200 rounded-2xl">
-                  <div className="flex-1">
+                <div className="flex flex-col gap-3 items-stretch sm:items-center p-3 sm:p-4 bg-emerald-50 border border-emerald-200 rounded-2xl">
+                  <div className="flex-1 w-full">
                     <label className="block text-xs font-extrabold text-emerald-800 mb-1">Client Price Markup</label>
                     <select className="w-full border border-emerald-200 bg-white rounded-lg p-2 text-sm font-bold text-gray-800 cursor-pointer focus:ring-2 focus:ring-emerald-400"
                       value={quoteMarkup} onChange={e => setQuoteMarkup(e.target.value)}>
