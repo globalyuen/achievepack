@@ -41,12 +41,13 @@ Output Format (JSON Array):
     "size": "Dimensions in mm",
     "features": "Key features (zipper, etc.)",
     "notes": "Important info",
+    "plate_fee_rmb": <number or 0 if not mentioned>,
     "pricing": [
       { "qty": <number>, "unit_rmb": <number>, "weight_kg": <number> }
     ]
   }
 ]
-Extract EVERY pricing tier for EVERY product. Do not omit any items. If 款数 (designs) is mentioned, multiply qty by 款数.`;
+Extract EVERY pricing tier for EVERY product. Extract Plate Fee (版费/制版费) if mentioned. If 款数 (designs) is mentioned, multiply qty by 款数.`;
 
     const xaiResponse = await fetch('https://api.x.ai/v1/chat/completions', {
       method: 'POST',

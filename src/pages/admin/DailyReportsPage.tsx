@@ -197,18 +197,21 @@ export default function DailyReportsPage() {
       const sectionsHtml = itemsToRender.map((item: any, idx: number) => {
         const rows = (item.pricing || []).map((tier: any) => {
           const unitUsd = (tier.unit_rmb / RMB_TO_USD) * parseFloat(quoteMarkup);
-          const exwTotal = unitUsd * tier.qty;
-          const airTotal = exwTotal + (tier.weight_kg * AIR_PER_KG);
-          const seaTotal = exwTotal + (tier.weight_kg * SEA_PER_KG);
-          const f = (v: number) => `$${v.toFixed(3)}`;
+          const exwTotal = Math.ceil(unitUsd * tier.qty);
+          const airTotal = exwTotal + Math.ceil(tier.weight_kg * AIR_PER_KG);
+          const seaTotal = exwTotal + Math.ceil(tier.weight_kg * SEA_PER_KG);
+          const fUnit = (v: number) => `$${v.toFixed(3)}`;
+          const fC = (v: number) => `$${v.toLocaleString()}`;
           return `<tr>
             <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;font-weight:700">${tier.qty.toLocaleString()}</td>
-            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right">${f(unitUsd)}/ea<br><span style="font-size:11px;color:#64748b">Total: ${f(exwTotal)}</span></td>
-            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;background:#faf5ff;color:#7c3aed;font-weight:700">${f(airTotal/tier.qty)}/ea<br><span style="font-size:11px;font-weight:400">(${f(airTotal)})</span></td>
-            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;background:#eff6ff;color:#1d4ed8;font-weight:700">${f(seaTotal/tier.qty)}/ea<br><span style="font-size:11px;font-weight:400">(${f(seaTotal)})</span></td>
-            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;color:#94a3b8">${tier.weight_kg} kg</td>
+            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right">${fUnit(unitUsd)}/ea<br><span style="font-size:11px;color:#64748b">Total: ${fC(exwTotal)}</span></td>
+            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;background:#faf5ff;color:#7c3aed;font-weight:700">${fUnit(airTotal/tier.qty)}/ea<br><span style="font-size:11px;font-weight:400">(${fC(airTotal)})</span></td>
+            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;background:#eff6ff;color:#1d4ed8;font-weight:700">${fUnit(seaTotal/tier.qty)}/ea<br><span style="font-size:11px;font-weight:400">(${fC(seaTotal)})</span></td>
+            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;color:#94a3b8">${Math.ceil(tier.weight_kg)} kg</td>
           </tr>`;
         }).join('');
+
+        const plateFeeUsd = item.plate_fee_rmb ? Math.ceil((item.plate_fee_rmb / RMB_TO_USD) * parseFloat(quoteMarkup)) : 0;
 
         return `
         <div style="page-break-inside: avoid; margin-bottom: 40px;">
@@ -219,14 +222,15 @@ export default function DailyReportsPage() {
               <div class="spec-item"><label>Dimensions</label><span>${item.size || '—'}</span></div>
               <div class="spec-item"><label>Material Structure</label><span>${item.material || '—'}</span></div>
               <div class="spec-item"><label>Key Features</label><span>${item.features || '—'}</span></div>
+              ${plateFeeUsd > 0 ? `<div class="spec-item" style="grid-column: span 2; margin-top:8px; padding-top:8px; border-top:1px dashed #e2e8f0"><label>Plate Cylinders Fee (Total)</label><span style="color:#d97706">$${plateFeeUsd} USD</span></div>` : ''}
             </div>
             ${item.notes ? `<div style="margin-top:16px;padding:12px;background:#fef9c3;border-radius:8px;font-size:12px;color:#854d0e"><strong>⚠️ Note:</strong> ${item.notes}</div>` : ''}
           </div>
 
           <div style="background:#f8fafc;border-radius:12px;overflow:hidden;">
             <div style="background:#1e293b;padding:12px 24px;display:flex;justify-content:space-between;align-items:center">
-              <span style="color:#fff;font-weight:700;font-size:13px">Pricing Tiers (USD)</span>
-              <span style="color:#94a3b8;font-size:10px">All-inclusive Door-to-Door Delivery</span>
+              <span style="color:#fff;font-weight:700;font-size:13px">Pricing Tiers (Estimated Total Rounded)</span>
+              <span style="color:#94a3b8;font-size:10px">Gate-to-Gate Fully Handled</span>
             </div>
             <table><thead><tr>
               <th>Quantity</th>
@@ -246,7 +250,9 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#fff;color:#1e293
 @media print{body{padding:24px}@page{margin:0;size:A4}}
 
 .header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:48px}
-.logo{height:40px}.title{font-size:28px;font-weight:800;letter-spacing:-0.5px}
+.logo-container{display:flex;gap:20px;align-items:center;margin-bottom:12px}
+.logo{height:35px}
+.title{font-size:32px;font-weight:800;letter-spacing:-1px;color:#1e293b}
 .subtitle{font-size:13px;color:#64748b;margin-top:6px}
 .ref{font-size:12px;color:#94a3b8;text-align:right}
 .section{background:#f8fafc;border-radius:12px;padding:24px;margin-bottom:20px}
@@ -261,14 +267,22 @@ th:not(:first-child){text-align:right}
 </style></head><body>
 <div class="header">
   <div>
-    <img class="logo" src="https://pouch.eco/imgs/logo-dark.png" onerror="this.style.display='none'"/>
-    <div class="title" style="margin-top:12px">Official Quotation</div>
+    <div class="logo-container">
+      <img class="logo" src="https://achievepack.com/imgs/logo-achievepack.png" onerror="this.style.display='none'"/>
+      <div style="width:1px;height:24px;background:#e2e8f0"></div>
+      <img class="logo" src="https://pouch.eco/imgs/logo-dark.png" onerror="this.style.display='none'"/>
+    </div>
+    <div class="title">Official Quotation</div>
     <div class="subtitle">Prepared for: <strong>${customerName}</strong></div>
   </div>
   <div class="ref">
+    <div style="font-size:13px;color:#1e293b;font-weight:800;margin-bottom:4px">Achieve Pack</div>
     <div style="font-size:12px;color:#94a3b8">Date: ${today}</div>
     <div style="font-size:12px;color:#94a3b8;margin-top:4px">Valid: 15 Days</div>
-    <div style="font-size:11px;color:#cbd5e1;margin-top:8px">Achieve Pack International Ltd<br>support@achievepack.com</div>
+    <div style="font-size:11px;color:#64748b;margin-top:12px">
+      ryan@achievepack.com<br>
+      WhatsApp: +852 69704411
+    </div>
   </div>
 </div>
 
