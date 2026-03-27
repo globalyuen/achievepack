@@ -1,4 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+// @ts-ignore
+import pdfParse from 'pdf-parse';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -7,15 +9,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const { text } = req.body;
-  if (!text) return res.status(400).json({ error: 'Missing text content to parse' });
+  const { text, pdfBase64, imageBase64 } = req.body;
+  if (!text && !pdfBase64 && !imageBase64) {
+    return res.status(400).json({ error: 'Missing content to parse (text, pdfBase64, or imageBase64)' });
+  }
 
   const XAI_API_KEY = process.env.XAI_API_KEY;
   if (!XAI_API_KEY) return res.status(500).json({ error: 'XAI API Key is missing on the server' });
 
   try {
     const systemPrompt = `You are an expert logistics data extractor for Achieve Pack.
-You will be given raw text extracted from a Chinese supplier's Excel packing list (often messy, missing rows or grouped by CTN).
+You will be given raw text or an image of a Chinese supplier's packing list (often messy, missing rows or grouped by CTN).
 Your job is to cleanly extract the distinct packaged items into a standardized JSON array format.
 
 RULES:
@@ -33,18 +37,47 @@ RULES:
 ]
 Do not output markdown \`\`\`json blocks. Just the raw array.`;
 
+    let extractedText = text || '';
+    if (pdfBase64) {
+      const buffer = Buffer.from(pdfBase64, 'base64');
+      const pdfParseFn = pdfParse as any;
+      const pdfData = await pdfParseFn(buffer);
+      extractedText += '\n[Extracted PDF Content]\n' + pdfData.text;
+    }
+
+    const messages: any[] = [
+      { role: 'system', content: systemPrompt }
+    ];
+
+    let modelToUse = 'grok-3-mini-beta';
+
+    if (imageBase64) {
+      // Use vision model if image is provided
+      modelToUse = 'grok-2-vision-1212';
+      messages.push({
+        role: 'user',
+        content: [
+          { type: 'text', text: 'Extract this packing list image into the requested JSON array:' },
+          { type: 'image_url', image_url: { url: imageBase64 } }
+        ]
+      });
+    } else {
+      // purely text base model for Excel CSVs and PDFs
+      messages.push({
+        role: 'user',
+        content: extractedText.substring(0, 10000)
+      });
+    }
+
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 12000); // 12s timeout for parsing
+    const timeoutId = setTimeout(() => controller.abort(), 20000); // 20s timeout for heavy vision/PDFs
     
     const xaiResponse = await fetch('https://api.x.ai/v1/chat/completions', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${XAI_API_KEY}` },
       body: JSON.stringify({
-         model: 'grok-3-mini-beta',
-         messages: [
-           { role: 'system', content: systemPrompt },
-           { role: 'user', content: text.substring(0, 6000) }
-         ],
+         model: modelToUse,
+         messages,
          max_tokens: 1500,
          temperature: 0.1
       }),
@@ -70,7 +103,7 @@ Do not output markdown \`\`\`json blocks. Just the raw array.`;
     }
   } catch (err: any) {
     if (err.name === 'AbortError') {
-      return res.status(504).json({ error: 'AI request timed out' });
+      return res.status(504).json({ error: 'AI request timed out due to heavy parsing' });
     }
     return res.status(500).json({ error: 'Server error: ' + err.message });
   }

@@ -44,28 +44,52 @@ export default function PackingListTab() {
     const file = event.target.files?.[0];
     if (!file) return;
 
-    if (!file.name.match(/\.(xls|xlsx|csv)$/i)) {
-      alert("Only Excel (.xls, .xlsx) or CSV files are currently supported for AI auto-extraction.");
+    if (!file.name.match(/\.(xls|xlsx|csv|pdf|png|jpg|jpeg)$/i)) {
+      alert("Unsupported file format. Only Excel, CSV, PDF, and Images are currently supported for AI auto-extraction.");
       return;
     }
 
     setIsAiLoading(true);
     try {
-      const arrayBuffer = await file.arrayBuffer();
-      const workbook = XLSX.read(arrayBuffer, { type: 'array' });
+      const isImage = file.name.match(/\.(png|jpg|jpeg)$/i);
+      const isPdf = file.name.match(/\.(pdf)$/i);
       
-      // Combine all sheet data into one big text dump
-      let rawTextDump = '';
-      workbook.SheetNames.forEach(sheetName => {
-        rawTextDump += `\n--- SHEET ${sheetName} ---\n`;
-        rawTextDump += XLSX.utils.sheet_to_csv(workbook.Sheets[sheetName]);
-      });
+      let payload: any = {};
 
-      // Pass the messy CSV text to Edge Function
+      if (isImage || isPdf) {
+        // Prepare base64 reader
+        const reader = new FileReader();
+        await new Promise((resolve, reject) => {
+          reader.onload = resolve;
+          reader.onerror = reject;
+          reader.readAsDataURL(file);
+        });
+        const base64Data = reader.result as string;
+        
+        if (isImage) {
+          payload.imageBase64 = base64Data; // data:image/png;base64,... is fine for Grok Vision
+        } else {
+          payload.pdfBase64 = base64Data.split(',')[1]; // pdf-parse just needs raw base64 strictly without data-uri prefix
+        }
+      } else {
+        // Prepare Excel
+        const arrayBuffer = await file.arrayBuffer();
+        const workbook = XLSX.read(arrayBuffer, { type: 'array' });
+        
+        // Combine all sheet data into one big text dump
+        let rawTextDump = '';
+        workbook.SheetNames.forEach(sheetName => {
+          rawTextDump += `\n--- SHEET ${sheetName} ---\n`;
+          rawTextDump += XLSX.utils.sheet_to_csv(workbook.Sheets[sheetName]);
+        });
+        payload.text = rawTextDump;
+      }
+
+      // Pass the generated payload to Edge Function
       const resp = await fetch('/api/admin-parse-packing-list', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text: rawTextDump })
+        body: JSON.stringify(payload)
       });
 
       const data = await resp.json();
@@ -233,17 +257,17 @@ export default function PackingListTab() {
             <div>
               <label className="block text-sm font-semibold text-neutral-700 mb-1">Auto-Extract AI (Upload Vendor File)</label>
               <div className="border-2 border-dashed border-emerald-300 bg-emerald-50 rounded-lg p-6 flex flex-col items-center justify-center text-emerald-600 hover:bg-emerald-100 transition cursor-pointer relative overflow-hidden">
-                <input type="file" onChange={handleFileUpload} accept=".xlsx,.xls,.csv" className="absolute inset-0 opacity-0 cursor-pointer" />
+                <input type="file" onChange={handleFileUpload} accept=".xlsx,.xls,.csv,.pdf,.png,.jpg,.jpeg" className="absolute inset-0 opacity-0 cursor-pointer" />
                 {isAiLoading ? (
                   <>
                     <Loader2 className="w-8 h-8 mb-2 animate-spin" />
-                    <span className="text-sm font-bold">Grok is analyzing raw Excel data...</span>
+                    <span className="text-sm font-bold">Grok is analyzing raw Excel/Media data...</span>
                   </>
                 ) : (
                   <>
                     <FileIcon className="w-8 h-8 mb-2 text-emerald-500" />
-                    <span className="text-sm font-bold">Drop Vendor Excel File Here to Auto-Extract</span>
-                    <span className="text-xs text-emerald-500 mt-1">.xls, .xlsx, .csv supported</span>
+                    <span className="text-sm font-bold">Drop Vendor File Here to Auto-Extract</span>
+                    <span className="text-xs text-emerald-500 mt-1">.xls, .csv, .pdf, .png, .jpg supported</span>
                   </>
                 )}
               </div>
