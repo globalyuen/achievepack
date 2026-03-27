@@ -1,6 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 // @ts-ignore
-import pdfParse from 'pdf-parse';
+import * as pdfParseRaw from 'pdf-parse';
+const pdfParseCore = typeof pdfParseRaw === 'function' ? pdfParseRaw : (pdfParseRaw as any).default || pdfParseRaw;
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -40,7 +41,7 @@ Do not output markdown \`\`\`json blocks. Just the raw array.`;
     let extractedText = text || '';
     if (pdfBase64) {
       const buffer = Buffer.from(pdfBase64, 'base64');
-      const pdfParseFn = pdfParse as any;
+      const pdfParseFn = typeof pdfParseCore === 'function' ? pdfParseCore : (pdfParseCore as any).default || pdfParseCore;
       const pdfData = await pdfParseFn(buffer);
       extractedText += '\n[Extracted PDF Content]\n' + pdfData.text;
     }
