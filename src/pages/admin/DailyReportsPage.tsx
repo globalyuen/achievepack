@@ -8,6 +8,7 @@ import {
   ClipboardList, Hash, History, ScrollText, RotateCcw
 } from 'lucide-react';
 import { supabase, DailyReport, WebhookLog } from '../../lib/supabase';
+import PackingListTab from '../../components/admin/PackingListTab';
 
 const STATUS_COLORS: Record<string, string> = {
   'Urgent': 'bg-red-100 text-red-800 border-red-200',
@@ -36,7 +37,7 @@ export default function DailyReportsPage() {
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   
-  const [activeTab, setActiveTab] = useState<'reports'|'logs'|'quote'>('reports');
+  const [activeTab, setActiveTab] = useState<'reports'|'logs'|'quote'|'packing'>('reports');
 
   const [reports, setReports] = useState<DailyReport[]>([]);
   const [logs, setLogs] = useState<WebhookLog[]>([]);
@@ -463,7 +464,15 @@ th:not(:first-child){text-align:right}
           <button onClick={() => setActiveTab('quote')} className={`pb-2 px-4 font-bold flex gap-2 items-center text-lg ${activeTab === 'quote' ? 'border-b-4 border-emerald-600 text-emerald-700' : 'text-gray-500 hover:text-gray-900'}`}>
             <FileText className="w-5 h-5"/> Quote Generator
           </button>
+          <button onClick={() => setActiveTab('packing')} className={`pb-2 px-4 font-bold flex gap-2 items-center text-lg ${activeTab === 'packing' ? 'border-b-4 border-amber-600 text-amber-700' : 'text-gray-500 hover:text-gray-900'}`}>
+            <Package className="w-5 h-5"/> Packing List Generator
+          </button>
         </div>
+
+        {/* Tab Content: Packing List */}
+        {activeTab === 'packing' && (
+          <PackingListTab />
+        )}
 
         {/* Tab Content: Daily Reports */}
         {activeTab === 'reports' && (
