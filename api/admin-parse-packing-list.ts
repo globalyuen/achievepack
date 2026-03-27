@@ -1,0 +1,77 @@
+import type { VercelRequest, VercelResponse } from '@vercel/node';
+
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+
+  if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+
+  const { text } = req.body;
+  if (!text) return res.status(400).json({ error: 'Missing text content to parse' });
+
+  const XAI_API_KEY = process.env.XAI_API_KEY;
+  if (!XAI_API_KEY) return res.status(500).json({ error: 'XAI API Key is missing on the server' });
+
+  try {
+    const systemPrompt = `You are an expert logistics data extractor for Achieve Pack.
+You will be given raw text extracted from a Chinese supplier's Excel packing list (often messy, missing rows or grouped by CTN).
+Your job is to cleanly extract the distinct packaged items into a standardized JSON array format.
+
+RULES:
+1. Merge/Group identical items if they are packed in the same carton configurations.
+2. If multiple SKUs share the same carton weight and quantity, list the SKUs inside the "details" string.
+3. Calculate or infer missing data (like Total KG) if pieces/ctns are grouped. Always ensure total ctns is represented.
+4. Output MUST be RAW JSON, exactly an array of objects:
+[
+  {
+    "name": "[ Item Name / Category ]",
+    "details": "SKUs: 8-1, 8-2\\nQuantity: X pcs (Y pcs/ctn)\\nSingle package size: W x H x L\\nGross Weight: Z kg/ctn",
+    "ctn": 3,
+    "kgCtn": 15.80
+  }
+]
+Do not output markdown \`\`\`json blocks. Just the raw array.`;
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 12000); // 12s timeout for parsing
+    
+    const xaiResponse = await fetch('https://api.x.ai/v1/chat/completions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${XAI_API_KEY}` },
+      body: JSON.stringify({
+         model: 'grok-3-mini-beta',
+         messages: [
+           { role: 'system', content: systemPrompt },
+           { role: 'user', content: text.substring(0, 6000) }
+         ],
+         max_tokens: 1500,
+         temperature: 0.1
+      }),
+      signal: controller.signal
+    });
+    
+    clearTimeout(timeoutId);
+
+    if (!xaiResponse.ok) {
+      const errText = await xaiResponse.text();
+      return res.status(500).json({ error: 'XAI API Error: ' + errText });
+    }
+
+    const data: any = await xaiResponse.json();
+    const responseText = data.choices?.[0]?.message?.content || '[]';
+    const cleanJson = responseText.replace(/```json/gi, '').replace(/```/g, '').trim();
+    
+    try {
+      const parsedItems = JSON.parse(cleanJson);
+      return res.status(200).json({ success: true, items: parsedItems });
+    } catch (parseErr: any) {
+      return res.status(500).json({ error: 'Failed to parse AI JSON', raw: cleanJson });
+    }
+  } catch (err: any) {
+    if (err.name === 'AbortError') {
+      return res.status(504).json({ error: 'AI request timed out' });
+    }
+    return res.status(500).json({ error: 'Server error: ' + err.message });
+  }
+}

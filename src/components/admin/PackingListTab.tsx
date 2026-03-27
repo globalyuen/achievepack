@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { Download, FileSpreadsheet, Plus, Trash2, ImageIcon, FileText } from 'lucide-react';
+import { Download, FileSpreadsheet, Plus, Trash2, Loader2, FileIcon } from 'lucide-react';
+import * as XLSX from 'xlsx';
+import ExcelJS from 'exceljs';
+import { saveAs } from 'file-saver';
 
 export default function PackingListTab() {
   const [billTo, setBillTo] = useState('GRUPO FLORITE SAPI de CV\nJesus Rodolfo Vizcarra Lopez\nEmail: Jesus.vizcarra@floriteshop.com\nPhone: +526421260206\nAddress: Cerro del Colli 1383 B\nCity: Zapopan\nProvince: Jalisco\nCountry: Mexico\nZip Code: 45050');
@@ -7,6 +10,7 @@ export default function PackingListTab() {
   const [invoiceNo, setInvoiceNo] = useState('PL1012');
   const [invoiceDate, setInvoiceDate] = useState(new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }));
   const [incoterm, setIncoterm] = useState('FOB China');
+  const [isAiLoading, setIsAiLoading] = useState(false);
   
   const [items, setItems] = useState([
     {
@@ -26,7 +30,6 @@ export default function PackingListTab() {
   };
 
   const totalGross = items.reduce((acc, curr) => acc + (curr.ctn * curr.kgCtn), 0);
-  const totalNet = totalGross * 0.85; // Estimation or can be manual
   const totalCBM = items.reduce((acc, curr) => {
     const volMatch = curr.details.match(/Volume:\s*([\d.]+)/i);
     return acc + (volMatch ? parseFloat(volMatch[1]) * curr.ctn : 0);
@@ -36,21 +39,181 @@ export default function PackingListTab() {
     window.print();
   };
 
+  // --- 1. AI Parsing from Uploaded Excel ---
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    if (!file.name.match(/\.(xls|xlsx|csv)$/i)) {
+      alert("Only Excel (.xls, .xlsx) or CSV files are currently supported for AI auto-extraction.");
+      return;
+    }
+
+    setIsAiLoading(true);
+    try {
+      const arrayBuffer = await file.arrayBuffer();
+      const workbook = XLSX.read(arrayBuffer, { type: 'array' });
+      
+      // Combine all sheet data into one big text dump
+      let rawTextDump = '';
+      workbook.SheetNames.forEach(sheetName => {
+        rawTextDump += `\n--- SHEET ${sheetName} ---\n`;
+        rawTextDump += XLSX.utils.sheet_to_csv(workbook.Sheets[sheetName]);
+      });
+
+      // Pass the messy CSV text to Edge Function
+      const resp = await fetch('/api/admin-parse-packing-list', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: rawTextDump })
+      });
+
+      const data = await resp.json();
+      if (!resp.ok) throw new Error(data.error || 'AI Parsing failed');
+      
+      if (data.items && Array.isArray(data.items)) {
+        const mappedItems = data.items.map((i: any, index: number) => ({
+          id: Date.now() + index,
+          name: i.name || '[ Detected Item ]',
+          details: i.details || '',
+          ctn: parseFloat(i.ctn) || 1,
+          kgCtn: parseFloat(i.kgCtn) || 0
+        }));
+        // Completely replace existing items with parsed array
+        setItems(mappedItems);
+      }
+    } catch (err: any) {
+      console.error(err);
+      alert("Error parsing vendor packing list: " + err.message);
+    } finally {
+      setIsAiLoading(false);
+      // reset file input
+      event.target.value = '';
+    }
+  };
+
+  // --- 2. Generate and Download Excel (.xlsx) ---
+  const exportExcel = async () => {
+    const workbook = new ExcelJS.Workbook();
+    const sheet = workbook.addWorksheet('Packing List', {
+      pageSetup: { paperSize: 9, orientation: 'portrait' }
+    });
+
+    // Formatting defaults
+    sheet.columns = [
+      { width: 8 },  // A
+      { width: 60 }, // B
+      { width: 16 }, // C
+      { width: 16 }, // D
+      { width: 22 }  // E
+    ];
+
+    const titleStyle: Partial<ExcelJS.Style> = {
+      font: { bold: true, size: 10 },
+      fill: { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFEAEAEA' } },
+      border: {
+        top: { style: 'thin' }, left: { style: 'thin' },
+        bottom: { style: 'thin' }, right: { style: 'thin' }
+      },
+      alignment: { vertical: 'middle', horizontal: 'left' }
+    };
+    
+    // Header Data
+    sheet.mergeCells('A3:E3');
+    sheet.getCell('A3').value = 'PACKING LIST';
+    sheet.getCell('A3').font = { bold: true, size: 18 };
+    sheet.getCell('A3').alignment = { horizontal: 'center', vertical: 'middle' };
+
+    sheet.getCell('E4').value = `Invoice# ${invoiceNo}`;
+    sheet.getCell('E4').font = { bold: true };
+    sheet.getCell('E4').alignment = { horizontal: 'right' };
+
+    sheet.getCell('E1').value = 'Achieve Pack\nHK BRN 41007097-000-07-14-4\n1 FLOOR, NO.41 WO LIU HANG TSUEN\nFOTAN, Hong Kong\n+852 6970 4411\nryan@achievepack.com\nwww.achievepack.com';
+    sheet.getCell('E1').alignment = { horizontal: 'right', vertical: 'top', wrapText: true };
+    sheet.getRow(1).height = 100;
+
+    sheet.getCell('A6').value = 'Bill To';
+    sheet.getCell('A6').style = titleStyle as ExcelJS.Style;
+    sheet.mergeCells('A7:C12');
+    sheet.getCell('A7').value = billTo;
+    sheet.getCell('A7').alignment = { wrapText: true, vertical: 'top' };
+    sheet.getCell('A7').border = titleStyle.border as ExcelJS.Borders;
+
+    sheet.getCell('E6').value = 'Ship To';
+    sheet.getCell('E6').style = titleStyle as ExcelJS.Style;
+    sheet.mergeCells('E7:E12');
+    sheet.getCell('E7').value = shipTo;
+    sheet.getCell('E7').alignment = { wrapText: true, vertical: 'top' };
+    sheet.getCell('E7').border = titleStyle.border as ExcelJS.Borders;
+
+    sheet.getCell('A14').value = 'Invoice Date'; sheet.getCell('A14').style = titleStyle as ExcelJS.Style;
+    sheet.getCell('B14').value = 'Incoterm'; sheet.getCell('B14').style = titleStyle as ExcelJS.Style;
+    sheet.getCell('C14').value = 'Total Gross Weight (KG)'; sheet.getCell('C14').style = titleStyle as ExcelJS.Style;
+    sheet.mergeCells('D14:E14');
+    sheet.getCell('D14').value = 'Total CBM'; sheet.getCell('D14').style = titleStyle as ExcelJS.Style;
+
+    const centerAlign: Partial<ExcelJS.Style> = { alignment: { horizontal: 'center', vertical: 'middle' }, border: titleStyle.border as ExcelJS.Borders };
+    sheet.getCell('A15').value = invoiceDate; sheet.getCell('A15').style = centerAlign as ExcelJS.Style;
+    sheet.getCell('B15').value = incoterm; sheet.getCell('B15').style = centerAlign as ExcelJS.Style;
+    sheet.getCell('C15').value = totalGross; sheet.getCell('C15').style = centerAlign as ExcelJS.Style;
+    sheet.mergeCells('D15:E15');
+    sheet.getCell('D15').value = totalCBM || '---'; sheet.getCell('D15').style = centerAlign as ExcelJS.Style;
+
+    // Items Section
+    sheet.getCell('A18').value = '#'; sheet.getCell('A18').style = titleStyle as ExcelJS.Style;
+    sheet.getCell('B18').value = 'Description'; sheet.getCell('B18').style = titleStyle as ExcelJS.Style;
+    sheet.getCell('C18').value = 'No. of Ctn'; sheet.getCell('C18').style = titleStyle as ExcelJS.Style;
+    sheet.getCell('D18').value = 'KG/Ctn'; sheet.getCell('D18').style = titleStyle as ExcelJS.Style;
+    sheet.getCell('E18').value = 'Total Weight (KG)'; sheet.getCell('E18').style = titleStyle as ExcelJS.Style;
+
+    let startRow = 19;
+    items.forEach((item, index) => {
+      const row = sheet.getRow(startRow);
+      row.height = Math.max(100, item.details.split('\n').length * 15);
+      
+      row.getCell(1).value = index + 1;
+      row.getCell(1).style = centerAlign as ExcelJS.Style;
+      
+      row.getCell(2).value = `${item.name}\n${item.details}`;
+      row.getCell(2).alignment = { wrapText: true, vertical: 'top' };
+      row.getCell(2).border = titleStyle.border as ExcelJS.Borders;
+
+      row.getCell(3).value = item.ctn;
+      row.getCell(3).style = centerAlign as ExcelJS.Style;
+      
+      row.getCell(4).value = item.kgCtn;
+      row.getCell(4).style = centerAlign as ExcelJS.Style;
+      
+      row.getCell(5).value = item.ctn * item.kgCtn;
+      row.getCell(5).style = centerAlign as ExcelJS.Style;
+      
+      startRow++;
+    });
+
+    const buffer = await workbook.xlsx.writeBuffer();
+    saveAs(new Blob([buffer]), `AchievePack_Packing_List_${invoiceNo}.xlsx`);
+  };
+
   return (
     <div className="space-y-6 animate-fade-in relative">
       {/* Configuration UI (Screen Only) */}
       <div className="print:hidden bg-white p-6 rounded-xl shadow-lg border border-neutral-200">
-        <div className="flex justify-between items-center mb-6 border-b pb-4">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 border-b pb-4 gap-4">
           <div>
             <h2 className="text-2xl font-bold text-neutral-800">Packing List Generator</h2>
-            <p className="text-sm text-neutral-500">Draft your packing list and export as a branded PDF. Upload supplier CSV/PNG for reference below.</p>
+            <p className="text-sm text-neutral-500">Upload vendor files to Auto-Extract, edit freely, then Export as Branded PDF or Excel.</p>
           </div>
-          <button onClick={handlePrint} className="bg-primary-600 hover:bg-primary-700 text-white px-5 py-2.5 rounded-lg flex items-center gap-2 font-medium transition shadow-sm">
-            <Download className="w-5 h-5" /> Export PDF
-          </button>
+          <div className="flex gap-2">
+            <button onClick={exportExcel} className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 font-medium transition shadow-sm">
+              <FileSpreadsheet className="w-5 h-5" /> Export Excel
+            </button>
+            <button onClick={handlePrint} className="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 font-medium transition shadow-sm">
+              <Download className="w-5 h-5" /> Export PDF
+            </button>
+          </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-8 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
           <div className="space-y-4">
             <div>
               <label className="block text-sm font-semibold text-neutral-700 mb-1">Invoice Number</label>
@@ -68,11 +231,21 @@ export default function PackingListTab() {
               <input value={incoterm} onChange={e => setIncoterm(e.target.value)} className="w-full border p-2 rounded-lg bg-neutral-50" placeholder="Incoterm..." />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-neutral-700 mb-1">Supplier Attachments (Local Reference Only)</label>
-              <div className="border-2 border-dashed border-neutral-300 rounded-lg p-6 flex flex-col items-center justify-center text-neutral-500 hover:bg-neutral-50 transition cursor-pointer relative">
-                <input type="file" multiple accept=".xlsx,.xls,.csv,.pdf,.png,.jpg" className="absolute inset-0 opacity-0 cursor-pointer" />
-                <FileSpreadsheet className="w-8 h-8 mb-2 text-primary-400" />
-                <span className="text-sm">Click or Drag Excel, PDF, PNG files here to load supplier data reference</span>
+              <label className="block text-sm font-semibold text-neutral-700 mb-1">Auto-Extract AI (Upload Vendor File)</label>
+              <div className="border-2 border-dashed border-emerald-300 bg-emerald-50 rounded-lg p-6 flex flex-col items-center justify-center text-emerald-600 hover:bg-emerald-100 transition cursor-pointer relative overflow-hidden">
+                <input type="file" onChange={handleFileUpload} accept=".xlsx,.xls,.csv" className="absolute inset-0 opacity-0 cursor-pointer" />
+                {isAiLoading ? (
+                  <>
+                    <Loader2 className="w-8 h-8 mb-2 animate-spin" />
+                    <span className="text-sm font-bold">Grok is analyzing raw Excel data...</span>
+                  </>
+                ) : (
+                  <>
+                    <FileIcon className="w-8 h-8 mb-2 text-emerald-500" />
+                    <span className="text-sm font-bold">Drop Vendor Excel File Here to Auto-Extract</span>
+                    <span className="text-xs text-emerald-500 mt-1">.xls, .xlsx, .csv supported</span>
+                  </>
+                )}
               </div>
             </div>
           </div>
