@@ -363,6 +363,12 @@ export default function DailyReportsPage() {
     const file = event.target.files?.[0];
     if (!file) return;
   
+    // Validate file size (max 5MB to avoid Vercel timeout)
+    if (file.size > 5 * 1024 * 1024) {
+      alert("File is too large. Please upload files smaller than 5MB to avoid server timeout.");
+      return;
+    }
+  
     if (!file.name.match(/\.(xls|xlsx|csv|pdf|png|jpg|jpeg)$/i)) {
       alert("Unsupported file format. Only Excel, CSV, PDF, and Images are currently supported for AI auto-extraction.");
       return;
@@ -382,9 +388,38 @@ export default function DailyReportsPage() {
           reader.onerror = reject;
           reader.readAsDataURL(file);
         });
-        const base64Data = reader.result as string;
+        let base64Data = reader.result as string;
           
         if (isImage) {
+          // Resize image to avoid Vercel 4.5MB limit
+          const img = new Image();
+          img.src = base64Data;
+          await new Promise((resolve) => {
+            img.onload = resolve;
+          });
+          
+          const canvas = document.createElement('canvas');
+          const MAX_WIDTH = 1600;
+          const MAX_HEIGHT = 1600;
+          let width = img.width;
+          let height = img.height;
+  
+          if (width > height) {
+            if (width > MAX_WIDTH) {
+              height *= MAX_WIDTH / width;
+              width = MAX_WIDTH;
+            }
+          } else {
+            if (height > MAX_HEIGHT) {
+              width *= MAX_HEIGHT / height;
+              height = MAX_HEIGHT;
+            }
+          }
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx?.drawImage(img, 0, 0, width, height);
+          base64Data = canvas.toDataURL('image/jpeg', 0.8); // 80% quality JPEG
           payload.imageBase64 = base64Data;
         } else {
           // Parse PDF locally
@@ -400,7 +435,9 @@ export default function DailyReportsPage() {
           }
           const pdfDoc = await pdfjsLib.getDocument({ data: bytes }).promise;
           let fullText = '';
-          for (let i = 1; i <= pdfDoc.numPages; i++) {
+          // Only parse first 3 pages to avoid timeout
+          const maxPages = Math.min(pdfDoc.numPages, 3);
+          for (let i = 1; i <= maxPages; i++) {
             const page = await pdfDoc.getPage(i);
             const content = await page.getTextContent();
             fullText += content.items.map((it: any) => it.str).join(' ') + '\n';
@@ -413,10 +450,12 @@ export default function DailyReportsPage() {
         const workbook = XLSX.read(arrayBuffer, { type: 'array' });
           
         let rawTextDump = '';
-        workbook.SheetNames.forEach(sheetName => {
-          rawTextDump += `\n--- SHEET ${sheetName} ---\n`;
-          rawTextDump += XLSX.utils.sheet_to_csv(workbook.Sheets[sheetName]);
-        });
+        // Only process first sheet to avoid timeout
+        const firstSheet = workbook.SheetNames[0];
+        if (firstSheet) {
+          rawTextDump += `\n--- SHEET ${firstSheet} ---\n`;
+          rawTextDump += XLSX.utils.sheet_to_csv(workbook.Sheets[firstSheet]);
+        }
         payload.text = rawTextDump;
       }
   
@@ -432,7 +471,8 @@ export default function DailyReportsPage() {
       try {
         data = JSON.parse(rawText);
       } catch (e) {
-        throw new Error(`Server error (not JSON). Most likely payload too large or backend timeout. Raw: ${rawText.substring(0, 100)}`);
+        console.error('Server response:', rawText.substring(0, 500));
+        throw new Error(`Server error (not JSON). Most likely payload too large or backend timeout. Please try a smaller file or simpler format.`);
       }
   
       if (!resp.ok) throw new Error(data.error || 'AI Parsing failed');
