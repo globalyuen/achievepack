@@ -1,5 +1,8 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
+const PADDLEOCR_URL = "https://03m2c9z0s2tdx7n9.aistudio-app.com/layout-parsing";
+const PADDLEOCR_TOKEN = "28d8a2796a7a9ec9011772749c8b961f1339bdc0";
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -16,6 +19,38 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (!XAI_API_KEY) return res.status(500).json({ error: 'XAI API Key is missing on the server' });
 
   try {
+    let extractedText = text || '';
+    let usedVisionFallback = false;
+
+    // 1. IF IMAGE: Try PaddleOCR first for high-quality table extraction
+    if (imageBase64 && !extractedText) {
+      try {
+        const base64Clean = imageBase64.replace(/^data:image\/\w+;base64,/, '');
+        const pResponse = await fetch(PADDLEOCR_URL, {
+          method: 'POST',
+          headers: {
+            'Authorization': `token ${PADDLEOCR_TOKEN}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ file: base64Clean, fileType: 1 })
+        });
+        
+        if (pResponse.ok) {
+          const pData: any = await pResponse.json();
+          if (pData.result?.layoutParsingResults) {
+            extractedText = pData.result.layoutParsingResults.map((p: any) => p.markdown?.text || '').join('\n\n');
+          }
+        }
+      } catch (ocrErr) {
+        console.error("PaddleOCR failed, will fallback to vision", ocrErr);
+      }
+      
+      // 2. Fallback to Grok Vision if OCR failed or returned nothing
+      if (!extractedText) {
+        usedVisionFallback = true;
+      }
+    }
+
     const systemPrompt = `You are an expert logistics data extractor for Achieve Pack.
 You will be given raw text or an image of a Chinese supplier's packing list.
 Your job is to EXHAUSTIVELY extract every distinct line item into a standardized JSON array format.
@@ -35,46 +70,47 @@ RULES:
 ]
 Do not output markdown \`\`\`json blocks. Return ONLY the raw array.`;
 
-    let extractedText = text || '';
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 25000); // 25s limit
+    
+    let xaiResponse;
 
-    const messages: any[] = [
-      { role: 'system', content: systemPrompt }
-    ];
-
-    let modelToUse = 'grok-3-mini-beta';
-
-    if (imageBase64) {
-      // Use vision model if image is provided
-      modelToUse = 'grok-2-vision-1212';
-      messages.push({
-        role: 'user',
-        content: [
-          { type: 'text', text: 'Extract this packing list image into the requested JSON array:' },
-          { type: 'image_url', image_url: { url: imageBase64 } }
-        ]
+    if (usedVisionFallback) {
+      // Direct Vision Call (grok-vision-beta)
+      xaiResponse = await fetch('https://api.x.ai/v1/chat/completions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${XAI_API_KEY}` },
+        body: JSON.stringify({
+           model: 'grok-vision-beta',
+           messages: [
+             { role: 'system', content: systemPrompt },
+             { role: 'user', content: [
+               { type: 'text', text: 'Extract this packing list image into the requested JSON array:' },
+               { type: 'image_url', image_url: { url: imageBase64 } }
+             ]}
+           ],
+           max_tokens: 2000,
+           temperature: 0.1
+        }),
+        signal: controller.signal
       });
     } else {
-      // purely text base model for Excel CSVs and PDFs
-      messages.push({
-        role: 'user',
-        content: extractedText.substring(0, 10000)
+      // Standard Text Call (grok-3-beta)
+      xaiResponse = await fetch('https://api.x.ai/v1/chat/completions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${XAI_API_KEY}` },
+        body: JSON.stringify({
+           model: 'grok-3-beta', 
+           messages: [
+             { role: 'system', content: systemPrompt },
+             { role: 'user', content: extractedText.substring(0, 10000) }
+           ],
+           max_tokens: 2000,
+           temperature: 0.1
+        }),
+        signal: controller.signal
       });
     }
-
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 20000); // 20s timeout for heavy vision/PDFs
-    
-    const xaiResponse = await fetch('https://api.x.ai/v1/chat/completions', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${XAI_API_KEY}` },
-      body: JSON.stringify({
-         model: modelToUse === 'grok-3-mini-beta' ? 'grok-3-beta' : modelToUse,
-         messages,
-         max_tokens: 1800,
-         temperature: 0.1
-      }),
-      signal: controller.signal
-    });
     
     clearTimeout(timeoutId);
 
@@ -95,7 +131,7 @@ Do not output markdown \`\`\`json blocks. Return ONLY the raw array.`;
     }
   } catch (err: any) {
     if (err.name === 'AbortError') {
-      return res.status(504).json({ error: 'AI request timed out due to heavy parsing' });
+      return res.status(504).json({ error: 'Request timed out' });
     }
     return res.status(500).json({ error: 'Server error: ' + err.message });
   }

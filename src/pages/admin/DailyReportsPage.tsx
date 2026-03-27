@@ -198,16 +198,25 @@ export default function DailyReportsPage() {
         const rows = (item.pricing || []).map((tier: any) => {
           const unitUsd = (tier.unit_rmb / RMB_TO_USD) * parseFloat(quoteMarkup);
           const exwTotal = Math.ceil(unitUsd * tier.qty);
-          const airTotal = exwTotal + Math.ceil(tier.weight_kg * AIR_PER_KG);
-          const seaTotal = exwTotal + Math.ceil(tier.weight_kg * SEA_PER_KG);
+          const weight = parseFloat(tier.weight_kg) || 0;
+          
+          const hasWeight = weight > 0;
+          const airTotal = hasWeight ? exwTotal + Math.ceil(weight * AIR_PER_KG) : 0;
+          const seaTotal = hasWeight ? exwTotal + Math.ceil(weight * SEA_PER_KG) : 0;
+          
           const fUnit = (v: number) => `$${v.toFixed(3)}`;
           const fC = (v: number) => `$${v.toLocaleString()}`;
+          
           return `<tr>
             <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;font-weight:700">${tier.qty.toLocaleString()}</td>
             <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right">${fUnit(unitUsd)}/ea<br><span style="font-size:11px;color:#64748b">Total: ${fC(exwTotal)}</span></td>
-            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;background:#faf5ff;color:#7c3aed;font-weight:700">${fUnit(airTotal/tier.qty)}/ea<br><span style="font-size:11px;font-weight:400">(${fC(airTotal)})</span></td>
-            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;background:#eff6ff;color:#1d4ed8;font-weight:700">${fUnit(seaTotal/tier.qty)}/ea<br><span style="font-size:11px;font-weight:400">(${fC(seaTotal)})</span></td>
-            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;color:#94a3b8">${Math.ceil(tier.weight_kg)} kg</td>
+            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;background:#faf5ff;color:#7c3aed;font-weight:700">
+              ${hasWeight ? `${fUnit(airTotal/tier.qty)}/ea<br><span style="font-size:11px;font-weight:400">(${fC(airTotal)})</span>` : 'N/A: No Weight Provided'}
+            </td>
+            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;background:#eff6ff;color:#1d4ed8;font-weight:700">
+              ${hasWeight ? `${fUnit(seaTotal/tier.qty)}/ea<br><span style="font-size:11px;font-weight:400">(${fC(seaTotal)})</span>` : 'N/A: No Weight Provided'}
+            </td>
+            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;color:#94a3b8">${hasWeight ? `${Math.ceil(weight)} kg` : 'N/A'}</td>
           </tr>`;
         }).join('');
 
@@ -215,6 +224,9 @@ export default function DailyReportsPage() {
 
         return `
         <div style="page-break-inside: avoid; margin-bottom: 40px;">
+          <div style="background:#f8fafc; padding:10px 15px; border-radius:8px; margin-bottom:15px; border:1px solid #e2e8f0; font-size:10px; color:#64748b; text-align:right">
+            Settings: RMB/USD Rate: 6.9 | Markup: ${quoteMarkup}x | Auto-Rounding: Enabled
+          </div>
           <div class="section">
             <div class="section-title">Item ${idx+1}: Product Specifications</div>
             <div class="specs">
@@ -229,8 +241,8 @@ export default function DailyReportsPage() {
 
           <div style="background:#f8fafc;border-radius:12px;overflow:hidden;">
             <div style="background:#1e293b;padding:12px 24px;display:flex;justify-content:space-between;align-items:center">
-              <span style="color:#fff;font-weight:700;font-size:13px">Pricing Tiers (Estimated Total Rounded)</span>
-              <span style="color:#94a3b8;font-size:10px">Gate-to-Gate Fully Handled</span>
+              <span style="color:#fff;font-weight:700;font-size:13px">Pricing Tiers (USD - Total Rounded)</span>
+              <span style="color:#94a3b8;font-size:10px">Incoterm: DDP Handle-to-Door</span>
             </div>
             <table><thead><tr>
               <th>Quantity</th>
@@ -243,69 +255,69 @@ export default function DailyReportsPage() {
         </div>`;
       }).join('');
 
-      const html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
-<style>
-*{box-sizing:border-box;margin:0;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-body{font-family:system-ui,-apple-system,sans-serif;background:#fff;color:#1e293b;padding:48px}
-@media print{body{padding:24px}@page{margin:0;size:A4}}
+      const fullHtml = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <style>
+            body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; padding: 40px; color: #1e293b; background: white; -webkit-print-color-adjust: exact; }
+            .header { display: flex; justify-content: space-between; border-bottom: 2px solid #1e293b; padding-bottom: 20px; margin-bottom: 30px; }
+            .logo-section { display: flex; gap: 20px; align-items: center; }
+            .logo-img { height: 45px; object-fit: contain; }
+            .company-name { font-size: 24px; font-weight: 800; color: #0f172a; }
+            .contact-info { text-align: right; font-size: 11px; color: #64748b; line-height: 1.4; }
+            .quote-title { text-align: center; font-size: 28px; font-weight: 900; color: #1e293b; margin: 40px 0; letter-spacing: -0.025em; text-transform: uppercase; }
+            .client-info { background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 30px; display: flex; justify-content: space-between; }
+            .section { margin-bottom: 30px; }
+            .section-title { font-size: 14px; font-weight: 800; text-transform: uppercase; color: #64748b; margin-bottom: 12px; letter-spacing: 0.05em; border-left: 4px solid #3b82f6; padding-left: 12px; }
+            .specs { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; background: white; padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px; }
+            .spec-item label { display: block; font-size: 10px; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin-bottom: 2px; }
+            .spec-item span { font-size: 13px; font-weight: 600; color: #334155; }
+            table { width: 100%; border-collapse: collapse; font-size: 12px; table-layout: fixed; }
+            th { padding: 12px 16px; font-weight: 800; text-transform: uppercase; color: #64748b; border-bottom: 1px solid #e2e8f0; text-align: left; font-size: 10px; }
+            td { vertical-align: middle; }
+            .footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #e2e8f0; font-size: 10px; color: #94a3b8; text-align: center; }
+            @media print { body { padding: 0; } .no-print { display: none; } }
+          </style>
+        </head>
+        <body>
+          <div class="header">
+            <div class="logo-section">
+              <img src="https://achievepack.com/imgs/logo-achievepack.png" class="logo-img" alt="Achieve Pack" />
+              <img src="https://achievepack.com/imgs/pouch-eco-logo.png" class="logo-img" style="height:35px" alt="Pouch.eco" />
+            </div>
+            <div class="contact-info">
+              <div class="company-name">Achieve Pack</div>
+              HK BRN 41007097-000-07-14-4<br>
+              1 FLOOR, NO.41 WO LIU HANG TSUEN<br>
+              FOTAN, Hong Kong<br>
+              WhatsApp: +852 69704411 | ryan@achievepack.com<br>
+              www.achievepack.com | pouch.eco
+            </div>
+          </div>
 
-.header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:48px}
-.logo-container{display:flex;gap:20px;align-items:center;margin-bottom:12px}
-.logo{height:35px}
-.title{font-size:32px;font-weight:800;letter-spacing:-1px;color:#1e293b}
-.subtitle{font-size:13px;color:#64748b;margin-top:6px}
-.ref{font-size:12px;color:#94a3b8;text-align:right}
-.section{background:#f8fafc;border-radius:12px;padding:24px;margin-bottom:20px}
-.section-title{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#94a3b8;margin-bottom:12px}
-.specs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.spec-item label{font-size:11px;color:#94a3b8;font-weight:700;display:block;margin-bottom:2px}
-.spec-item span{font-size:13px;font-weight:600;color:#1e293b}
-table{width:100%;border-collapse:collapse}
-th{background:#1e293b;color:#fff;padding:12px 16px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:0.5px}
-th:not(:first-child){text-align:right}
-.footer{margin-top:40px;padding-top:24px;border-top:1px solid #e2e8f0;font-size:11px;color:#94a3b8;display:grid;grid-template-columns:1fr 1fr;gap:16px}
-</style></head><body>
-<div class="header">
-  <div>
-    <div class="logo-container">
-      <img class="logo" src="https://achievepack.com/imgs/logo-achievepack.png" onerror="this.style.display='none'"/>
-      <div style="width:1px;height:24px;background:#e2e8f0"></div>
-      <img class="logo" src="https://pouch.eco/imgs/logo-dark.png" onerror="this.style.display='none'"/>
-    </div>
-    <div class="title">Official Quotation</div>
-    <div class="subtitle">Prepared for: <strong>${customerName}</strong></div>
-  </div>
-  <div class="ref">
-    <div style="font-size:13px;color:#1e293b;font-weight:800;margin-bottom:4px">Achieve Pack</div>
-    <div style="font-size:12px;color:#94a3b8">Date: ${today}</div>
-    <div style="font-size:12px;color:#94a3b8;margin-top:4px">Valid: 15 Days</div>
-    <div style="font-size:11px;color:#64748b;margin-top:12px">
-      ryan@achievepack.com<br>
-      WhatsApp: +852 69704411
-    </div>
-  </div>
-</div>
+          <div class="quote-title">Official Quotation</div>
 
-${sectionsHtml}
+          <div class="client-info">
+            <div>
+              <div style="font-size:10px; text-transform:uppercase; font-weight:800; color:#94a3b8; margin-bottom:4px">Prepared For</div>
+              <div style="font-size:18px; font-weight:800; color:#0f172a">${customerName}</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-size:10px; text-transform:uppercase; font-weight:800; color:#94a3b8; margin-bottom:4px">Date</div>
+              <div style="font-size:16px; font-weight:600; color:#0f172a">${today}</div>
+            </div>
+          </div>
 
-<div style="padding:16px 20px;background:#f8fafc;display:grid;grid-template-columns:1fr 1fr;gap:16px;font-size:11px;border:1px solid #e2e8f0;border-radius:12px;color:#64748b;margin-top:20px">
-  <div><strong style="color:#7c3aed">✈ Air Freight</strong>: ~2 Weeks Lead Time</div>
-  <div><strong style="color:#1d4ed8">🚢 Sea Freight</strong>: ~6-8 Weeks Lead Time</div>
-</div>
+          ${sectionsHtml}
 
-<div class="footer">
-  <div>
-    <div style="font-weight:700;color:#1e293b;margin-bottom:6px">Payment Terms</div>
-    <div>100% upfront for digital print orders.<br>50% deposit for large production runs.</div>
-  </div>
-  <div>
-    <div style="font-weight:700;color:#1e293b;margin-bottom:6px">Terms & Conditions</div>
-    <div>Prices valid for 15 days from quote date.<br>±5% tolerance on quantity & weight applies.</div>
-  </div>
-</div>
-</body></html>`;
-
-      setQuoteHtml(html);
+          <div class="footer">
+            &copy; ${new Date().getFullYear()} Achieve Pack. All rates calculated at 6.9 RMB/USD. Final quote subject to artwork review and shipping fluctuations.
+          </div>
+        </body>
+        </html>
+      `;
+      setQuoteHtml(fullHtml);
     } catch (e: any) {
       setQuoteHtml(`<div style="padding:2rem;font-family:sans-serif;color:#dc2626"><h2>⚠️ Error</h2><p>${e.message}</p></div>`);
     } finally {
@@ -614,6 +626,14 @@ ${sectionsHtml}
                     <h2 className="text-xl font-extrabold text-gray-900">AI Quote Generator</h2>
                     <p className="text-sm text-gray-500">Paste factory specs → get a professional English client PDF</p>
                   </div>
+                </div>
+
+                <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-4 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-white rounded-lg shadow-sm font-bold text-emerald-700 text-xs">1 USD = 6.9 RMB</div>
+                    <div className="text-[11px] font-bold text-emerald-800 uppercase tracking-tight">Active: Markup {quoteMarkup}x + Rounding</div>
+                  </div>
+                  <CheckCircle className="h-4 w-4 text-emerald-500" />
                 </div>
 
                 <div>

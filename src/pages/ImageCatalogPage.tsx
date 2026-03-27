@@ -388,7 +388,7 @@ export default function ImageCatalogPage() {
           'Authorization': `Bearer ${apiKey}`
         },
         body: JSON.stringify({
-          model: 'grok-2-vision-1212',
+          model: 'grok-vision-beta',
           messages: [
             {
               role: 'user',
