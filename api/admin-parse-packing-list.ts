@@ -1,7 +1,4 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-// @ts-ignore
-import * as pdfParseRaw from 'pdf-parse';
-const pdfParseCore = typeof pdfParseRaw === 'function' ? pdfParseRaw : (pdfParseRaw as any).default || pdfParseRaw;
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -10,9 +7,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const { text, pdfBase64, imageBase64 } = req.body;
-  if (!text && !pdfBase64 && !imageBase64) {
-    return res.status(400).json({ error: 'Missing content to parse (text, pdfBase64, or imageBase64)' });
+  const { text, imageBase64 } = req.body;
+  if (!text && !imageBase64) {
+    return res.status(400).json({ error: 'Missing content to parse (text or imageBase64)' });
   }
 
   const XAI_API_KEY = process.env.XAI_API_KEY;
@@ -39,12 +36,6 @@ RULES:
 Do not output markdown \`\`\`json blocks. Just the raw array.`;
 
     let extractedText = text || '';
-    if (pdfBase64) {
-      const buffer = Buffer.from(pdfBase64, 'base64');
-      const pdfParseFn = typeof pdfParseCore === 'function' ? pdfParseCore : (pdfParseCore as any).default || pdfParseCore;
-      const pdfData = await pdfParseFn(buffer);
-      extractedText += '\n[Extracted PDF Content]\n' + pdfData.text;
-    }
 
     const messages: any[] = [
       { role: 'system', content: systemPrompt }

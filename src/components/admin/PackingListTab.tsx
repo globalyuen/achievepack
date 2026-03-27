@@ -39,6 +39,38 @@ export default function PackingListTab() {
     window.print();
   };
 
+  // --- Helper: Resize Image Client-side to avoid Vercel 4.5MB limit ---
+  const resizeImage = (base64Str: string): Promise<string> => {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.src = base64Str;
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const MAX_WIDTH = 1600;
+        const MAX_HEIGHT = 1600;
+        let width = img.width;
+        let height = img.height;
+
+        if (width > height) {
+          if (width > MAX_WIDTH) {
+            height *= MAX_WIDTH / width;
+            width = MAX_WIDTH;
+          }
+        } else {
+          if (height > MAX_HEIGHT) {
+            width *= MAX_HEIGHT / height;
+            height = MAX_HEIGHT;
+          }
+        }
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx?.drawImage(img, 0, 0, width, height);
+        resolve(canvas.toDataURL('image/jpeg', 0.8)); // 80% quality JPEG is plenty for OCR
+      };
+    });
+  };
+
   // --- 1. AI Parsing from Uploaded Excel ---
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -67,9 +99,29 @@ export default function PackingListTab() {
         const base64Data = reader.result as string;
         
         if (isImage) {
-          payload.imageBase64 = base64Data; // data:image/png;base64,... is fine for Grok Vision
+          // Resize before sending
+          payload.imageBase64 = await resizeImage(base64Data);
         } else {
-          payload.pdfBase64 = base64Data.split(',')[1]; // pdf-parse just needs raw base64 strictly without data-uri prefix
+          // Parse PDF locally to save Vercel backend crashes
+          // @ts-ignore
+          const pdfjsLib = await import('pdfjs-dist');
+          // Use a more reliable worker source
+          pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.min.mjs`;
+          
+          const binaryString = window.atob(base64Data.split(',')[1]);
+          const len = binaryString.length;
+          const bytes = new Uint8Array(len);
+          for (let i = 0; i < len; i++) {
+            bytes[i] = binaryString.charCodeAt(i);
+          }
+          const pdfDoc = await pdfjsLib.getDocument({ data: bytes }).promise;
+          let fullText = '';
+          for (let i = 1; i <= pdfDoc.numPages; i++) {
+            const page = await pdfDoc.getPage(i);
+            const content = await page.getTextContent();
+            fullText += content.items.map((it: any) => it.str).join(' ') + '\n';
+          }
+          payload.text = fullText;
         }
       } else {
         // Prepare Excel
@@ -92,7 +144,14 @@ export default function PackingListTab() {
         body: JSON.stringify(payload)
       });
 
-      const data = await resp.json();
+      const rawText = await resp.text();
+      let data: any;
+      try {
+        data = JSON.parse(rawText);
+      } catch (e) {
+        throw new Error(`Server error (not JSON). Most likely payload too large or backend timeout. Raw: ${rawText.substring(0, 100)}`);
+      }
+
       if (!resp.ok) throw new Error(data.error || 'AI Parsing failed');
       
       if (data.items && Array.isArray(data.items)) {
