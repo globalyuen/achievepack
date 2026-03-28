@@ -5,7 +5,8 @@ import {
   Calendar, Clock, LockKeyhole, Loader2, LogOut, Plus, 
   Edit3, Trash2, Check, X, Sparkles, Save, CheckCircle,
   FileText, ImageIcon, UploadCloud, Link as LinkIcon, FileIcon,
-  ClipboardList, Hash, History, ScrollText, RotateCcw
+  ClipboardList, Hash, History, ScrollText, RotateCcw,
+  ChevronUp, ChevronDown
 } from 'lucide-react';
 import { supabase, DailyReport, WebhookLog } from '../../lib/supabase';
 import PackingListTab from '../../components/admin/PackingListTab';
@@ -52,6 +53,10 @@ export default function DailyReportsPage() {
   const [selectedCustomer, setSelectedCustomer] = useState<string>('');
   const [showNewCustomerInput, setShowNewCustomerInput] = useState(false);
   const [newCustomerName, setNewCustomerName] = useState('');
+  
+  // Customer Search in Modal
+  const [showCustomerDropdown, setShowCustomerDropdown] = useState(false);
+  const [customerSearchTerm, setCustomerSearchTerm] = useState('');
   
   // Modal State
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -165,8 +170,31 @@ export default function DailyReportsPage() {
       }
 
       if (data.success && data.parsed) {
-        setCurrentRecord(prev => ({ ...prev, ...data.parsed }));
+        // Try to extract customer name from email sender if not already set
+        let extractedCustomer = data.parsed.customer || '';
+        
+        // If no customer extracted, try to infer from email content
+        if (!extractedCustomer && rawText.includes('@')) {
+          const emailMatch = rawText.match(/([\w.-]+@[\w.-]+\.\w+)/i);
+          if (emailMatch) {
+            const email = emailMatch[1];
+            const nameFromEmail = email.split('@')[0].replace(/[._]/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+            extractedCustomer = nameFromEmail;
+          }
+        }
+        
+        setCurrentRecord(prev => ({ 
+          ...prev, 
+          ...data.parsed,
+          customer: extractedCustomer || prev.customer || selectedCustomer || ''
+        }));
         setRawText(''); // clear on success so user knows it worked
+        
+        // Auto-open customer dropdown if we found a potential match
+        if (extractedCustomer) {
+          setCustomerSearchTerm(extractedCustomer);
+          setShowCustomerDropdown(true);
+        }
       } else {
         alert("Failed to parse: " + (data.error || 'Unknown AI error'));
       }
@@ -695,6 +723,18 @@ export default function DailyReportsPage() {
     if (days === 1) return 'Yesterday';
     return `${days} Days Ago`;
   };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (showCustomerDropdown && !target.closest('.customer-dropdown-container')) {
+        setShowCustomerDropdown(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [showCustomerDropdown]);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -1238,8 +1278,81 @@ export default function DailyReportsPage() {
                   </button>
                 </div>
 
-              <div><label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">Project / Client Name</label>
-                <input type="text" className="w-full border-gray-300 rounded-xl p-3 focus:ring-2 focus:ring-blue-500 bg-gray-50 focus:bg-white transition" value={currentRecord.customer || ''} onChange={e=>setCurrentRecord({...currentRecord, customer: e.target.value})} /></div>
+              <div>
+                <label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">Project / Client Name</label>
+                <div className="relative customer-dropdown-container">
+                  <input 
+                    type="text" 
+                    className="w-full border-gray-300 rounded-xl p-3 focus:ring-2 focus:ring-blue-500 bg-gray-50 focus:bg-white transition pr-10"
+                    value={customerSearchTerm}
+                    onChange={(e) => {
+                      setCustomerSearchTerm(e.target.value);
+                      setShowCustomerDropdown(true);
+                    }}
+                    onFocus={() => setShowCustomerDropdown(true)}
+                    placeholder="Type to search or select existing customer..."
+                    autoComplete="off"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowCustomerDropdown(!showCustomerDropdown)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  >
+                    {showCustomerDropdown ? <ChevronUp className="w-5 h-5"/> : <ChevronDown className="w-5 h-5"/>}
+                  </button>
+                  
+                  {/* Customer Dropdown */}
+                  {showCustomerDropdown && (
+                    <div className="absolute z-50 w-full mt-1 bg-white border border-gray-200 rounded-xl shadow-lg max-h-60 overflow-auto">
+                      {customers.filter(c => 
+                        c.toLowerCase().includes(customerSearchTerm.toLowerCase())
+                      ).length === 0 ? (
+                        <div className="p-3 text-sm text-gray-500 text-center">
+                          No matching customers found
+                        </div>
+                      ) : (
+                        customers.filter(c => 
+                          c.toLowerCase().includes(customerSearchTerm.toLowerCase())
+                        ).map(customer => (
+                          <button
+                            key={customer}
+                            type="button"
+                            onClick={() => {
+                              setCustomerSearchTerm(customer);
+                              setCurrentRecord({...currentRecord, customer});
+                              setShowCustomerDropdown(false);
+                            }}
+                            className="w-full text-left px-4 py-2.5 hover:bg-blue-50 text-sm font-medium text-gray-700 transition flex items-center justify-between group"
+                          >
+                            <span>{customer}</span>
+                            <CheckCircle className="w-4 h-4 text-emerald-500 opacity-0 group-hover:opacity-100 transition" />
+                          </button>
+                        ))
+                      )}
+                      
+                      {/* Create New Option */}
+                      {customerSearchTerm.trim() && !customers.includes(customerSearchTerm.trim()) && (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const newCust = customerSearchTerm.trim();
+                            if (!customers.includes(newCust)) {
+                              setCustomers(prev => [...prev, newCust].sort());
+                            }
+                            setCustomerSearchTerm(newCust);
+                            setCurrentRecord({...currentRecord, customer: newCust});
+                            setShowCustomerDropdown(false);
+                          }}
+                          className="w-full text-left px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 text-sm font-medium text-emerald-700 transition border-t border-gray-100 flex items-center gap-2"
+                        >
+                          <Plus className="w-4 h-4"/>
+                          Create new customer: "{customerSearchTerm}"
+                        </button>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </div>
               
               <div className="grid grid-cols-2 gap-5">
                 <div><label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">Active Status</label>
