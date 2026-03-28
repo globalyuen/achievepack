@@ -179,7 +179,7 @@ export default function PackingListTab() {
   const exportExcel = async () => {
     const workbook = new ExcelJS.Workbook();
     const sheet = workbook.addWorksheet('Packing List', {
-      pageSetup: { paperSize: 9, orientation: 'portrait' }
+      pageSetup: { paperSize: 9, orientation: 'landscape' } // Changed to landscape
     });
 
     // Formatting defaults
@@ -377,15 +377,28 @@ export default function PackingListTab() {
       </div>
 
       {/* Actual PDF Layout (Hidden on Screen, block on Print) */}
-      <div className="hidden print:block bg-white text-black min-h-screen" style={{ width: '210mm', padding: '10mm', WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact', fontFamily: 'Arial, sans-serif' }}>
+      <div className="hidden print:block bg-white text-black min-h-screen" style={{ 
+        width: '297mm', // A4 landscape width
+        padding: '10mm', 
+        WebkitPrintColorAdjust: 'exact', 
+        printColorAdjust: 'exact', 
+        fontFamily: 'Arial, sans-serif'
+      }}>
+        <style>{`
+          @page { size: A4 landscape; margin: 10mm; }
+          @media print {
+            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            * { box-sizing: border-box; }
+          }
+        `}</style>
         
         {/* Header */}
         <div className="flex justify-between items-start border-b-2 border-neutral-800 pb-6 mb-8 relative">
-          <div className="w-56">
+          <div className="w-64">
             <img src="/imgs/logo-achievepack.png" alt="Achieve Pack" className="w-full object-contain" />
           </div>
-          <div className="text-right text-[11px] leading-tight text-neutral-600 absolute right-0 top-0">
-            <strong className="text-[13px] text-neutral-800 font-bold block mb-1">Achieve Pack</strong>
+          <div className="text-right text-[10px] leading-tight text-neutral-600 absolute right-0 top-14 max-w-md">
+            <strong className="text-[12px] text-neutral-800 font-bold block mb-1">Achieve Pack</strong>
             HK BRN 41007097-000-07-14-4<br/>
             1 FLOOR, NO.41 WO LIU HANG TSUEN<br/>
             FOTAN, Hong Kong<br/>
@@ -405,14 +418,14 @@ export default function PackingListTab() {
         </div>
 
         {/* Addresses */}
-        <div className="flex gap-8 mb-8">
+        <div className="flex gap-6 mb-8">
           <div className="flex-1 border border-neutral-400 rounded-sm overflow-hidden">
-            <div className="bg-neutral-200 px-3 py-1 font-bold text-xs border-b border-neutral-400 uppercase">Bill To</div>
-            <div className="p-3 text-xs whitespace-pre-wrap leading-relaxed">{billTo}</div>
+            <div className="bg-neutral-200 px-3 py-2 font-bold text-xs border-b border-neutral-400 uppercase">Bill To</div>
+            <div className="p-3 text-[10px] whitespace-pre-wrap leading-relaxed max-h-48 overflow-y-auto">{billTo}</div>
           </div>
           <div className="flex-1 border border-neutral-400 rounded-sm overflow-hidden self-start">
-            <div className="bg-neutral-200 px-3 py-1 font-bold text-xs border-b border-neutral-400 uppercase">Ship To</div>
-            <div className="p-3 text-xs whitespace-pre-wrap leading-relaxed">{shipTo}</div>
+            <div className="bg-neutral-200 px-3 py-2 font-bold text-xs border-b border-neutral-400 uppercase">Ship To / Incoterm</div>
+            <div className="p-3 text-[10px] whitespace-pre-wrap leading-relaxed">{shipTo}</div>
           </div>
         </div>
 
@@ -420,10 +433,10 @@ export default function PackingListTab() {
         <table className="w-full text-xs text-center border-collapse border border-neutral-400 mb-8">
           <thead>
             <tr className="bg-neutral-200 text-neutral-800 border-b border-neutral-400 uppercase">
-              <th className="border-r border-neutral-400 py-2 px-1 w-1/4">Invoice Date</th>
-              <th className="border-r border-neutral-400 py-2 px-1 w-1/4">Incoterm</th>
-              <th className="border-r border-neutral-400 py-2 px-1 w-1/4">Total Gross Weight (KG)</th>
-              <th className="py-2 px-1 w-1/4">Total CBM</th>
+              <th className="border-r border-neutral-400 py-2 px-2 w-[18%]">Invoice Date</th>
+              <th className="border-r border-neutral-400 py-2 px-2 w-[18%]">Incoterm</th>
+              <th className="border-r border-neutral-400 py-2 px-2 w-[32%]">Total Gross Weight (KG)</th>
+              <th className="py-2 px-2 w-[32%]">Total CBM</th>
             </tr>
           </thead>
           <tbody>
@@ -447,8 +460,8 @@ export default function PackingListTab() {
         <table className="w-full text-xs border-collapse border border-neutral-400 mb-12 relative text-left">
           <thead>
             <tr className="bg-neutral-200 text-neutral-800 uppercase border-b border-neutral-400">
-              <th className="border-r border-neutral-400 py-2 px-3 w-10 text-center">#</th>
-              <th className="border-r border-neutral-400 py-2 px-3 text-left">Description</th>
+              <th className="border-r border-neutral-400 py-2 px-3 w-12 text-center">#</th>
+              <th className="border-r border-neutral-400 py-2 px-3 text-left" style={{width: '50%'}}>Description</th>
               <th className="border-r border-neutral-400 py-2 px-3 w-20 text-center">No. of Ctn</th>
               <th className="border-r border-neutral-400 py-2 px-3 w-24 text-center">KG/Ctn</th>
               <th className="py-2 px-3 w-32 text-center">Total Weight (KG)</th>
@@ -460,7 +473,7 @@ export default function PackingListTab() {
                 <td className="border-r border-neutral-400 py-4 px-3 text-center text-neutral-500">{index + 1}</td>
                 <td className="border-r border-neutral-400 py-4 px-3">
                   <span className="font-bold text-black block mb-2">{item.name}</span>
-                  <div className="whitespace-pre-wrap text-neutral-700 leading-snug">{item.details}</div>
+                  <div className="whitespace-pre-wrap text-neutral-700 leading-snug text-[9px]">{item.details}</div>
                 </td>
                 <td className="border-r border-neutral-400 py-4 px-3 text-center">{item.ctn.toFixed(2)}</td>
                 <td className="border-r border-neutral-400 py-4 px-3 text-center">{item.kgCtn.toFixed(2)}</td>
