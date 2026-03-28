@@ -308,22 +308,22 @@ export default function DailyReportsPage() {
               <div class="spec-item"><label>Dimensions</label><span>${item.size || '—'}</span></div>
               <div class="spec-item"><label>Material Structure</label><span>${item.material || '—'}</span></div>
               <div class="spec-item"><label>Key Features</label><span>${item.features || '—'}</span></div>
-              ${plateFeeUsd > 0 ? `<div class="spec-item" style="grid-column: span 2; margin-top:8px; padding-top:8px; border-top:1px dashed #e2e8f0"><label>Plate Cylinders Fee (Total)</label><span style="color:#d97706">$${plateFeeUsd} USD</span></div>` : ''}
+              ${plateFeeUsd > 0 ? `<div class="spec-item" style="grid-column: span 4; margin-top:6px; padding-top:6px; border-top:1px dashed #e2e8f0"><label>Plate Cylinders Fee (Total)</label><span style="color:#d97706">$${plateFeeUsd} USD</span></div>` : ''}
             </div>
             ${item.notes ? `<div style="margin-top:16px;padding:12px;background:#fef9c3;border-radius:8px;font-size:12px;color:#854d0e"><strong>⚠️ Note:</strong> ${item.notes}</div>` : ''}
           </div>
 
-          <div style="background:#f8fafc;border-radius:12px;overflow:hidden;">
-            <div style="background:#1e293b;padding:12px 24px;display:flex;justify-content:space-between;align-items:center">
-              <span style="color:#fff;font-weight:700;font-size:13px">Pricing Tiers (USD - Total Rounded)</span>
-              <span style="color:#94a3b8;font-size:10px">Incoterm: DDP Handle-to-Door</span>
+          <div style="background:#f8fafc;border-radius:8px;overflow:hidden;margin-top:15px;">
+            <div style="background:#1e293b;padding:8px 15px;display:flex;justify-content:space-between;align-items:center">
+              <span style="color:#fff;font-weight:700;font-size:11px">Pricing Tiers (USD - Total Rounded)</span>
+              <span style="color:#94a3b8;font-size:8px">Incoterm: DDP Handle-to-Door</span>
             </div>
             <table><thead><tr>
-              <th>Quantity</th>
-              <th style="text-align:right">EXW Unit</th>
-              <th style="text-align:right;background:#3b0764;color:#e9d5ff">✈ Air DDP</th>
-              <th style="text-align:right;background:#1e3a5f;color:#bfdbfe">🚢 Sea DDP</th>
-              <th style="text-align:right">Weight</th>
+              <th style="width:15%">Quantity</th>
+              <th style="text-align:right;width:17%">EXW Unit</th>
+              <th style="text-align:right;background:#3b0764;color:#e9d5ff;width:22%">✈ Air DDP</th>
+              <th style="text-align:right;background:#1e3a5f;color:#bfdbfe;width:22%">🚢 Sea DDP</th>
+              <th style="text-align:right;width:14%">Weight</th>
             </tr></thead><tbody>${rows}</tbody></table>
           </div>
         </div>`;
@@ -334,24 +334,29 @@ export default function DailyReportsPage() {
         <html>
         <head>
           <style>
-            body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; padding: 40px; color: #1e293b; background: white; -webkit-print-color-adjust: exact; }
-            .header { display: flex; justify-content: space-between; border-bottom: 2px solid #1e293b; padding-bottom: 20px; margin-bottom: 30px; }
+            @page { size: A4 landscape; margin: 15mm; }
+            body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; padding: 20px; color: #1e293b; background: white; -webkit-print-color-adjust: exact; }
+            .header { display: flex; justify-content: space-between; border-bottom: 2px solid #1e293b; padding-bottom: 15px; margin-bottom: 20px; }
             .logo-section { display: flex; gap: 20px; align-items: center; }
-            .logo-text { font-size: 20px; font-weight: 800; color: #0f172a; }
-            .company-name { font-size: 24px; font-weight: 800; color: #0f172a; }
-            .contact-info { text-align: right; font-size: 11px; color: #64748b; line-height: 1.4; }
-            .quote-title { text-align: center; font-size: 28px; font-weight: 900; color: #1e293b; margin: 40px 0; letter-spacing: -0.025em; text-transform: uppercase; }
-            .client-info { background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 30px; display: flex; justify-content: space-between; }
-            .section { margin-bottom: 30px; }
-            .section-title { font-size: 14px; font-weight: 800; text-transform: uppercase; color: #64748b; margin-bottom: 12px; letter-spacing: 0.05em; border-left: 4px solid #3b82f6; padding-left: 12px; }
-            .specs { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; background: white; padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px; }
-            .spec-item label { display: block; font-size: 10px; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin-bottom: 2px; }
-            .spec-item span { font-size: 13px; font-weight: 600; color: #334155; }
-            table { width: 100%; border-collapse: collapse; font-size: 12px; table-layout: fixed; }
-            th { padding: 12px 16px; font-weight: 800; text-transform: uppercase; color: #64748b; border-bottom: 1px solid #e2e8f0; text-align: left; font-size: 10px; }
-            td { vertical-align: middle; }
-            .footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #e2e8f0; font-size: 10px; color: #94a3b8; text-align: center; }
-            @media print { body { padding: 0; } .no-print { display: none; } }
+            .logo-text { font-size: 18px; font-weight: 800; color: #0f172a; }
+            .company-name { font-size: 20px; font-weight: 800; color: #0f172a; }
+            .contact-info { text-align: right; font-size: 9px; color: #64748b; line-height: 1.3; }
+            .quote-title { text-align: center; font-size: 24px; font-weight: 900; color: #1e293b; margin: 20px 0; letter-spacing: -0.025em; text-transform: uppercase; }
+            .client-info { background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px; display: flex; justify-content: space-between; }
+            .section { margin-bottom: 20px; page-break-inside: avoid; }
+            .section-title { font-size: 12px; font-weight: 800; text-transform: uppercase; color: #64748b; margin-bottom: 10px; letter-spacing: 0.05em; border-left: 3px solid #3b82f6; padding-left: 10px; }
+            .specs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; background: white; padding: 15px; border: 1px solid #e2e8f0; border-radius: 8px; }
+            .spec-item label { display: block; font-size: 8px; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin-bottom: 2px; }
+            .spec-item span { font-size: 10px; font-weight: 600; color: #334155; }
+            table { width: 100%; border-collapse: collapse; font-size: 9px; table-layout: auto; }
+            th { padding: 8px 10px; font-weight: 800; text-transform: uppercase; color: #64748b; border-bottom: 1px solid #e2e8f0; text-align: left; font-size: 8px; white-space: nowrap; }
+            td { vertical-align: middle; padding: 8px 10px; }
+            .footer { margin-top: 30px; padding-top: 15px; border-top: 1px solid #e2e8f0; font-size: 8px; color: #94a3b8; text-align: center; }
+            @media print { 
+              body { padding: 0; } 
+              .no-print { display: none; } 
+              @page { size: A4 landscape; margin: 10mm; }
+            }
           </style>
         </head>
         <body>
