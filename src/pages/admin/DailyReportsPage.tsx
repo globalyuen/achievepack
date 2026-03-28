@@ -273,9 +273,6 @@ export default function DailyReportsPage() {
 
         return `
         <div style="page-break-inside: avoid; margin-bottom: 40px;">
-          <div style="background:#f8fafc; padding:10px 15px; border-radius:8px; margin-bottom:15px; border:1px solid #e2e8f0; font-size:10px; color:#64748b; text-align:right">
-            Settings: RMB/USD Rate: 6.9 | Markup: ${quoteMarkup}x | Auto-Rounding: Enabled
-          </div>
           <div class="section">
             <div class="section-title">Item ${idx+1}: Product Specifications</div>
             <div class="specs">
