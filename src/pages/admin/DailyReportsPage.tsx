@@ -841,22 +841,32 @@ export default function DailyReportsPage() {
           )}
         </div>
 
-        {/* Tab Switcher */}
-        <div className="flex gap-2 sm:gap-4 mb-6 border-b border-gray-200 pb-2 overflow-x-auto scrollbar-hide">
-          <button onClick={() => setActiveTab('reports')} className={`pb-2 px-3 sm:px-4 font-bold flex gap-2 items-center text-sm sm:text-lg whitespace-nowrap ${activeTab === 'reports' ? 'border-b-4 border-blue-600 text-blue-700' : 'text-gray-500 hover:text-gray-900'}`}>
-            <ClipboardList className="w-4 h-4 sm:w-5 sm:h-5"/> Daily Reports
+        {/* Tab Switcher - Mobile Optimized */}
+        <div className="flex gap-1.5 sm:gap-4 mb-6 border-b border-gray-200 pb-2 overflow-x-auto scrollbar-hide -mx-2 px-2">
+          <button onClick={() => setActiveTab('reports')} className={`pb-2 px-2 sm:px-4 font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-lg whitespace-nowrap flex-shrink-0 ${activeTab === 'reports' ? 'border-b-4 border-blue-600 text-blue-700' : 'text-gray-500 hover:text-gray-900'}`}>
+            <ClipboardList className="w-3.5 h-3.5 sm:w-5 sm:h-5"/>
+            <span className="hidden xs:inline">Daily Reports</span>
+            <span className="xs:hidden">Reports</span>
           </button>
-          <button onClick={() => setActiveTab('logs')} className={`pb-2 px-3 sm:px-4 font-bold flex gap-2 items-center text-sm sm:text-lg whitespace-nowrap ${activeTab === 'logs' ? 'border-b-4 border-purple-600 text-purple-700' : 'text-gray-500 hover:text-gray-900'}`}>
-            <History className="w-4 h-4 sm:w-5 sm:h-5"/> Audit Logs
+          <button onClick={() => setActiveTab('logs')} className={`pb-2 px-2 sm:px-4 font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-lg whitespace-nowrap flex-shrink-0 ${activeTab === 'logs' ? 'border-b-4 border-purple-600 text-purple-700' : 'text-gray-500 hover:text-gray-900'}`}>
+            <History className="w-3.5 h-3.5 sm:w-5 sm:h-5"/>
+            <span className="hidden xs:inline">Audit Logs</span>
+            <span className="xs:hidden">Logs</span>
           </button>
-          <button onClick={() => setActiveTab('rfq')} className={`pb-2 px-3 sm:px-4 font-bold flex gap-2 items-center text-sm sm:text-lg whitespace-nowrap ${activeTab === 'rfq' ? 'border-b-4 border-indigo-600 text-indigo-700' : 'text-gray-500 hover:text-gray-900'}`}>
-            <FileText className="w-4 h-4 sm:w-5 sm:h-5"/> RFQ Maker
+          <button onClick={() => setActiveTab('rfq')} className={`pb-2 px-2 sm:px-4 font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-lg whitespace-nowrap flex-shrink-0 ${activeTab === 'rfq' ? 'border-b-4 border-indigo-600 text-indigo-700' : 'text-gray-500 hover:text-gray-900'}`}>
+            <FileText className="w-3.5 h-3.5 sm:w-5 sm:h-5"/>
+            <span className="hidden xs:inline">RFQ Maker</span>
+            <span className="xs:hidden">RFQ</span>
           </button>
-          <button onClick={() => setActiveTab('quote')} className={`pb-2 px-3 sm:px-4 font-bold flex gap-2 items-center text-sm sm:text-lg whitespace-nowrap ${activeTab === 'quote' ? 'border-b-4 border-emerald-600 text-emerald-700' : 'text-gray-500 hover:text-gray-900'}`}>
-            <FileText className="w-4 h-4 sm:w-5 sm:h-5"/> Quote Generator
+          <button onClick={() => setActiveTab('quote')} className={`pb-2 px-2 sm:px-4 font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-lg whitespace-nowrap flex-shrink-0 ${activeTab === 'quote' ? 'border-b-4 border-emerald-600 text-emerald-700' : 'text-gray-500 hover:text-gray-900'}`}>
+            <FileText className="w-3.5 h-3.5 sm:w-5 sm:h-5"/>
+            <span className="hidden xs:inline">Quote Gen</span>
+            <span className="xs:hidden">Quote</span>
           </button>
-          <button onClick={() => setActiveTab('packing')} className={`pb-2 px-3 sm:px-4 font-bold flex gap-2 items-center text-sm sm:text-lg whitespace-nowrap ${activeTab === 'packing' ? 'border-b-4 border-amber-600 text-amber-700' : 'text-gray-500 hover:text-gray-900'}`}>
-            <Package className="w-4 h-4 sm:w-5 sm:h-5"/> Packing List
+          <button onClick={() => setActiveTab('packing')} className={`pb-2 px-2 sm:px-4 font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-lg whitespace-nowrap flex-shrink-0 ${activeTab === 'packing' ? 'border-b-4 border-amber-600 text-amber-700' : 'text-gray-500 hover:text-gray-900'}`}>
+            <Package className="w-3.5 h-3.5 sm:w-5 sm:h-5"/>
+            <span className="hidden xs:inline">Packing List</span>
+            <span className="xs:hidden">Packing</span>
           </button>
         </div>
 
