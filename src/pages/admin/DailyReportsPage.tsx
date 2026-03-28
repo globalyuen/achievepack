@@ -235,7 +235,12 @@ export default function DailyReportsPage() {
       // Handle both old single object format and new array format for backward compatibility
       const itemsToRender = Array.isArray(extracted) ? extracted : [extracted];
 
+      // Debug: Log the extracted data to verify structure
+      console.log('Quote Generator - Extracted Data:', extracted);
+      console.log('Quote Generator - Items to render:', itemsToRender);
+      
       const sectionsHtml = itemsToRender.map((item: any, idx: number) => {
+        console.log(`Processing item ${idx}:`, item);
         const rows = (item.pricing || []).map((tier: any) => {
           const unitUsd = (tier.unit_rmb / RMB_TO_USD) * parseFloat(quoteMarkup);
           const exwTotal = Math.ceil(unitUsd * tier.qty);
@@ -247,6 +252,8 @@ export default function DailyReportsPage() {
           
           const fUnit = (v: number) => `$${v.toFixed(3)}`;
           const fC = (v: number) => `$${v.toLocaleString()}`;
+          
+          console.log(`Tier pricing for qty ${tier.qty}:`, { unitUsd, exwTotal, weight, airTotal, seaTotal });
           
           return `<tr>
             <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;font-weight:700">${tier.qty.toLocaleString()}</td>
@@ -262,6 +269,7 @@ export default function DailyReportsPage() {
         }).join('');
 
         const plateFeeUsd = item.plate_fee_rmb ? Math.ceil((item.plate_fee_rmb / RMB_TO_USD) * parseFloat(quoteMarkup)) : 0;
+        console.log(`Plate fee for item ${idx}:`, { rmb: item.plate_fee_rmb, usd: plateFeeUsd });
 
         return `
         <div style="page-break-inside: avoid; margin-bottom: 40px;">
@@ -304,7 +312,7 @@ export default function DailyReportsPage() {
             body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; padding: 40px; color: #1e293b; background: white; -webkit-print-color-adjust: exact; }
             .header { display: flex; justify-content: space-between; border-bottom: 2px solid #1e293b; padding-bottom: 20px; margin-bottom: 30px; }
             .logo-section { display: flex; gap: 20px; align-items: center; }
-            .logo-img { height: 45px; object-fit: contain; }
+            .logo-text { font-size: 20px; font-weight: 800; color: #0f172a; }
             .company-name { font-size: 24px; font-weight: 800; color: #0f172a; }
             .contact-info { text-align: right; font-size: 11px; color: #64748b; line-height: 1.4; }
             .quote-title { text-align: center; font-size: 28px; font-weight: 900; color: #1e293b; margin: 40px 0; letter-spacing: -0.025em; text-transform: uppercase; }
@@ -324,8 +332,10 @@ export default function DailyReportsPage() {
         <body>
           <div class="header">
             <div class="logo-section">
-              <img src="https://achievepack.com/imgs/logo-achievepack.png" class="logo-img" alt="Achieve Pack" />
-              <img src="https://achievepack.com/imgs/pouch-eco-logo.png" class="logo-img" style="height:35px" alt="Pouch.eco" />
+              <div style="display:flex;flex-direction:column;gap:4px">
+                <div class="logo-text" style="color:#1e293b">AchievePack</div>
+                <div class="logo-text" style="color:#059669;font-size:16px">Pouch.eco</div>
+              </div>
             </div>
             <div class="contact-info">
               <div class="company-name">Achieve Pack</div>
