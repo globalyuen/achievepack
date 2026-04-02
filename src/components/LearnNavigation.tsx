@@ -146,6 +146,7 @@ const LEARN_PAGES = {
       { name: 'Surface Finishes', link: '/features/surface-finish', image: '/imgs/illustrated/a_surface_finish_close_detail_b_2163248.webp' },
       { name: 'Surface & Reclosure Options', link: '/options/surface-and-reclosure', image: '/imgs/illustrated/a_surface_finish_close_detail_b_2163248.webp' },
       { name: 'Barrier Options', link: '/features/barrier-options', image: '/imgs/illustrated/a_barrier_options_presentation_c_6124347.webp' },
+      { name: 'Material Barrier Properties', link: '/features/material-barrier-properties', image: '/imgs/seo-photos/a_high_barrier_premium_protection_0120312.webp' },
       { name: 'Low Barrier', link: '/features/low-barrier', image: '/imgs/seo-photos/a_low_barrier_fresh_produce_5877816.webp' },
       { name: 'Medium Barrier', link: '/features/medium-barrier', image: '/imgs/seo-photos/a_medium_barrier_balanced_freshness_1094166.webp' },
       { name: 'High Barrier', link: '/features/high-barrier', image: '/imgs/seo-photos/a_high_barrier_premium_protection_0120312.webp' },

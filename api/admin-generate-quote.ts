@@ -41,10 +41,11 @@ Target < 8s response. Extract all SKU/product pricing.
     "features": "Concise key info",
     "notes": "Short warning",
     "plate_fee_rmb": <number>,
+    "designs_count": <number | null>,
     "pricing": [{ "qty": <number>, "unit_rmb": <number>, "weight_kg": <number> }]
   }
 ]
-Exhaustive items, but MINIMAL text tokens. No markdown.`;
+Exhaustive items, but MINIMAL text tokens. No markdown. If multiple designs (款數) are mentioned (e.g. 款數4), capture it in designs_count. Total qty should still be in pricing.qty.`;
 
     const xaiResponse = await fetch('https://api.x.ai/v1/chat/completions', {
       method: 'POST',

@@ -6,7 +6,7 @@ import {
   Edit3, Trash2, Check, X, Sparkles, Save, CheckCircle,
   FileText, ImageIcon, UploadCloud, Link as LinkIcon, FileIcon,
   ClipboardList, Hash, History, ScrollText, RotateCcw,
-  ChevronUp, ChevronDown
+  ChevronUp, ChevronDown, ArrowRight
 } from 'lucide-react';
 import { supabase, DailyReport, WebhookLog } from '../../lib/supabase';
 import PackingListTab from '../../components/admin/PackingListTab';
@@ -23,13 +23,13 @@ const STATUS_COLORS: Record<string, string> = {
 };
 
 const CATEGORY_MAP: Record<string, string> = {
-  'All': '全部 (All)',
-  'Production': '生產中',
-  'Sample Shipping': '樣板物流',
-  'Production Shipping': '大貨物流',
-  'Quotes': '報價',
-  'Enquiries': '新查詢',
-  'Meetings': '會議'
+  'All': 'All',
+  'Production': 'Production',
+  'Sample Shipping': 'Sample Logistics',
+  'Production Shipping': 'Order Logistics',
+  'Quotes': 'Quotes',
+  'Enquiries': 'New Inquiries',
+  'Meetings': 'Meetings'
 };
 
 const DOC_TYPES = ['Quote', 'Invoice', 'Packing List', 'Artwork', 'Other'];
@@ -96,7 +96,7 @@ export default function DailyReportsPage() {
       setIsAuthenticated(true);
       fetchData();
     } else {
-      setErrorMsg('密碼錯誤 Invalid Secure PIN');
+      setErrorMsg('Incorrect Secure PIN');
     }
     setLoading(false);
   };
@@ -106,7 +106,7 @@ export default function DailyReportsPage() {
       const { data: reportData } = await supabase.from('daily_reports').select('*').order('created_at', { ascending: false });
       if (reportData) setReports(reportData as DailyReport[]);
       
-      const { data: logData } = await supabase.from('webhook_logs').select('*').order('created_at', { ascending: false }).limit(30);
+      const { data: logData } = await supabase.from('webhook_logs').select('*').order('created_at', { ascending: false }).limit(500);
       if (logData) setLogs(logData as WebhookLog[]);
       
       // Fetch all unique customers from daily_reports
@@ -281,10 +281,14 @@ export default function DailyReportsPage() {
           const fUnit = (v: number) => `$${v.toFixed(3)}`;
           const fC = (v: number) => `$${v.toLocaleString()}`;
           
-          console.log(`Tier pricing for qty ${tier.qty}:`, { unitUsd, exwTotal, weight, airTotal, seaTotal });
-          
+          const designsCount = parseInt(item.designs_count) || 0;
+          const qtyPerDesign = designsCount > 0 ? Math.floor(tier.qty / designsCount) : tier.qty;
+          const qtyDisplay = designsCount > 1 
+            ? `${tier.qty.toLocaleString()}<br><span style="font-size:10px;color:#64748b;font-weight:400">${designsCount} designs x ${qtyPerDesign.toLocaleString()}pcs</span>`
+            : tier.qty.toLocaleString();
+
           return `<tr>
-            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;font-weight:700">${tier.qty.toLocaleString()}</td>
+            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;font-weight:700">${qtyDisplay}</td>
             <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right">${fUnit(unitUsd)}/ea<br><span style="font-size:11px;color:#64748b">Total: ${fC(exwTotal)}</span></td>
             <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;background:#faf5ff;color:#7c3aed;font-weight:700">
               ${hasWeight ? `${fUnit(airTotal/tier.qty)}/ea<br><span style="font-size:11px;font-weight:400">(${fC(airTotal)})</span>` : 'N/A: No Weight Provided'}
@@ -305,7 +309,13 @@ export default function DailyReportsPage() {
             <div class="section-title">Item ${idx+1}: Product Specifications</div>
             <div class="specs">
               <div class="spec-item"><label>Product Type</label><span>${item.product_name || '—'}</span></div>
-              <div class="spec-item"><label>Dimensions</label><span>${item.size || '—'}</span></div>
+              <div class="spec-item">
+                <label>Dimensions (Unfolded Size)</label>
+                <span>
+                  ${item.size || '—'}
+                  ${item.size && item.size.toLowerCase().includes('x') && item.size.split(/x|×/).length === 3 ? '<br><span style="font-size:8px;color:#64748b">(Last dimension is Gusset size)</span>' : ''}
+                </span>
+              </div>
               <div class="spec-item"><label>Material Structure</label><span>${item.material || '—'}</span></div>
               <div class="spec-item"><label>Key Features</label><span>${item.features || '—'}</span></div>
               ${plateFeeUsd > 0 ? `<div class="spec-item" style="grid-column: span 4; margin-top:6px; padding-top:6px; border-top:1px dashed #e2e8f0"><label>Plate Cylinders Fee (Total)</label><span style="color:#d97706">$${plateFeeUsd} USD</span></div>` : ''}
@@ -362,10 +372,7 @@ export default function DailyReportsPage() {
         <body>
           <div class="header">
             <div class="logo-section">
-              <div style="display:flex;flex-direction:column;gap:4px">
-                <div class="logo-text" style="color:#1e293b">AchievePack</div>
-                <div class="logo-text" style="color:#059669;font-size:16px">Pouch.eco</div>
-              </div>
+              <img src="/logo.png" alt="Achieve Pack Logo" style="height: 48px; width: auto; object-fit: contain;" />
             </div>
             <div class="contact-info">
               <div class="company-name">Achieve Pack</div>
@@ -399,6 +406,21 @@ export default function DailyReportsPage() {
         </html>
       `;
       setQuoteHtml(fullHtml);
+
+      // 4. Update the log with the final generated HTML for historical record
+      await supabase.from('webhook_logs').update({
+        status: 'Success',
+        message: `Quote generated for ${customerName || 'Client'}`,
+        raw_data: { 
+          text: currentRecord.detail, 
+          customer: customerName || 'Valued Client',
+          quoteHtml: fullHtml,
+          generatedAt: new Date().toISOString()
+        }
+      }).eq('id', dbLog.id);
+
+      // Refresh logs so history shows up
+      fetchData();
     } catch (e: any) {
       setQuoteHtml(`<div style="padding:2rem;font-family:sans-serif;color:#dc2626"><h2>⚠️ Error</h2><p>${e.message}</p></div>`);
     } finally {
@@ -440,7 +462,22 @@ export default function DailyReportsPage() {
       if (!resp.ok) throw new Error(data.error || "AI conversion failed");
 
       // Set the converted Chinese RFQ
-      setRfqChineseOutput(data.chineseRFQ || data.rfq || 'Conversion successful but no output generated');
+      const chineseOutput = data.chineseRFQ || data.rfq || 'Conversion successful but no output generated';
+      setRfqChineseOutput(chineseOutput);
+
+      // Update the log with the final generated RFQ for historical record
+      await supabase.from('webhook_logs').update({
+        status: 'Success',
+        message: `RFQ converted to Chinese`,
+        raw_data: { 
+          text: rfqCustomerText, 
+          rfqOutput: chineseOutput,
+          generatedAt: new Date().toISOString()
+        }
+      }).eq('id', dbLog.id);
+
+      // Refresh logs
+      fetchData();
     } catch (e: any) {
       console.error('RFQ conversion error:', e);
       alert("Failed to generate RFQ: " + e.message);
@@ -471,7 +508,7 @@ export default function DailyReportsPage() {
       }));
   
     } catch (err: any) {
-      alert("檔案上傳失敗：" + err.message);
+      alert("File upload failed: " + err.message);
     } finally {
       setUploadingFile(false);
       event.target.value = '';
@@ -654,7 +691,7 @@ export default function DailyReportsPage() {
       await fetchData();
       setIsModalOpen(false);
     } catch (err: any) {
-      alert("儲存失敗: " + err.message);
+      alert("Save failed: " + err.message);
     } finally {
       setLoading(false);
     }
@@ -751,7 +788,7 @@ export default function DailyReportsPage() {
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 px-6">
-        <Helmet><title>機密登入</title></Helmet>
+        <Helmet><title>Secure Login</title></Helmet>
         <div className="mx-auto w-full max-w-md bg-white py-12 px-10 shadow-2xl rounded-3xl border border-gray-100 text-center">
           <div className="mx-auto h-20 w-20 rounded-full bg-blue-100 flex items-center justify-center border-[6px] border-white shadow-lg mb-6">
             <LockKeyhole className="h-8 w-8 text-blue-600" />
@@ -801,6 +838,7 @@ export default function DailyReportsPage() {
             <LogOut className="h-4 w-4" /> <span className="hidden sm:inline">Exit</span>
           </button>
         </div>
+
 
         {/* Customer/Project Selector - Global for all tabs */}
         <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 rounded-2xl p-4 sm:p-5 mb-6">
@@ -1107,6 +1145,36 @@ export default function DailyReportsPage() {
                   {rfqLoading ? <Loader2 className="w-5 h-5 animate-spin"/> : <FileText className="w-5 h-5"/>}
                   {rfqLoading ? 'Converting to Chinese...' : 'Generate Chinese RFQ'}
                 </button>
+
+                {/* RFQ History */}
+                <div className="mt-4 pt-6 border-t border-gray-100">
+                  <div className="flex items-center gap-2 mb-3 text-indigo-800">
+                    <History className="w-4 h-4" />
+                    <h3 className="text-sm font-extrabold uppercase tracking-wider">Past RFQ History</h3>
+                  </div>
+                  <div className="space-y-2 max-h-[300px] overflow-y-auto pr-1">
+                    {logs
+                      .filter(l => l.source === 'RFQ Maker' && l.status === 'Success')
+                      .map((log) => (
+                        <button
+                          key={log.id}
+                          onClick={() => {
+                            setRfqCustomerText(log.raw_data?.text || '');
+                            setRfqChineseOutput(log.raw_data?.rfqOutput || '');
+                          }}
+                          className="w-full text-left p-3 rounded-xl bg-gray-50 hover:bg-indigo-50 border border-gray-100 hover:border-indigo-200 transition flex flex-col gap-1 group"
+                        >
+                          <div className="flex justify-between items-center">
+                            <span className="font-bold text-gray-900 text-[10px] truncate max-w-[180px]">{log.raw_data?.text?.substring(0, 50)}...</span>
+                            <span className="text-[10px] text-gray-400">{new Date(log.created_at).toLocaleDateString()}</span>
+                          </div>
+                          <div className="flex justify-end opacity-0 group-hover:opacity-100 transition">
+                            <span className="text-[10px] font-bold text-indigo-600 flex items-center gap-1"><ArrowRight className="w-3 h-3"/> Restore</span>
+                          </div>
+                        </button>
+                      ))}
+                  </div>
+                </div>
               </div>
 
               {/* Right: Output Panel */}
@@ -1181,10 +1249,21 @@ export default function DailyReportsPage() {
                 </div>
 
                 <div>
-                  <label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">Factory Raw Quote (Chinese RMB specs)</label>
+                  <div className="flex justify-between items-center mb-1.5">
+                    <label className="block text-xs uppercase font-extrabold text-gray-500">Factory Raw Quote (Chinese RMB specs)</label>
+                    <button 
+                      onClick={() => {
+                        const template = `产品：站立式袋装产品\n材质：PE70/70% PCR-EVOH-PE60\n厚度：130 micron\n尺寸：100x150+35mm\n特性：拉链，撕口，圓角\n版費（人民币）：\n设计数量：1\n数量：1000，单位价格（人民币）：\n数量：10000，单位价格（人民币）：\n数量：100000，单位价格（人民币）：\n重量（件）：`;
+                        setCurrentRecord({...currentRecord, detail: template});
+                      }}
+                      className="text-[10px] font-bold text-emerald-600 hover:text-emerald-700 underline"
+                    >
+                      + Insert Manual Template
+                    </button>
+                  </div>
                   <textarea rows={10} value={currentRecord.detail || ''} onChange={e => setCurrentRecord({...currentRecord, detail: e.target.value})}
                     className="w-full border-gray-300 rounded-xl p-3 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-emerald-500 text-xs sm:text-sm font-mono leading-relaxed"
-                    placeholder={"Paste raw factory cost sheet here...\nE.g.:\n袋型：三边封\n材质结构：PET-12/VMPET/EVOH\n数量：400 单价：￥3.603 重量：2.48kg\n数量：2000 单价：￥1.223 重量：8.57kg"} />
+                    placeholder={"Paste raw factory cost sheet here...\nE.g.:\nPouch Type: Three-side seal\nMaterial Structure: PET-12/VMPET/EVOH\nQty: 400 Unit Price: ¥3.603 Weight: 2.48kg\nQty: 2000 Unit Price: ¥1.223 Weight: 8.57kg"} />
                 </div>
 
                 <div>
@@ -1224,6 +1303,48 @@ export default function DailyReportsPage() {
                     {quoteLoading ? <Loader2 className="w-5 h-5 animate-spin"/> : <FileText className="w-5 h-5"/>}
                     {quoteLoading ? 'Generating...' : 'Generate Quote PDF'}
                   </button>
+                </div>
+
+                {/* Quote History */}
+                <div className="mt-4 pt-6 border-t border-gray-100">
+                  <div className="flex items-center gap-2 mb-3 text-emerald-800">
+                    <History className="w-4 h-4" />
+                    <h3 className="text-sm font-extrabold uppercase tracking-wider">Past Quotes History</h3>
+                  </div>
+                  <div className="space-y-2 max-h-[400px] overflow-y-auto pr-1">
+                    {logs
+                      .filter(l => l.source === 'Quote Generator' && l.status === 'Success')
+                      .map((log) => (
+                        <button
+                          key={log.id}
+                          onClick={() => {
+                            setCurrentRecord({
+                              ...currentRecord,
+                              customer: log.raw_data?.customer || '',
+                              detail: log.raw_data?.text || ''
+                            });
+                            if (log.raw_data?.quoteHtml) {
+                              setQuoteHtml(log.raw_data.quoteHtml);
+                            }
+                          }}
+                          className="w-full text-left p-3 rounded-xl bg-gray-50 hover:bg-emerald-50 border border-gray-100 hover:border-emerald-200 transition flex flex-col gap-1 group"
+                        >
+                          <div className="flex justify-between items-center">
+                            <span className="font-bold text-gray-900 text-xs truncate max-w-[150px]">{log.raw_data?.customer || 'Unknown Client'}</span>
+                            <span className="text-[10px] text-gray-400">{new Date(log.created_at).toLocaleDateString()}</span>
+                          </div>
+                          <p className="text-[10px] text-gray-500 line-clamp-1 italic">{log.raw_data?.text?.substring(0, 100)}...</p>
+                          <div className="flex justify-end opacity-0 group-hover:opacity-100 transition">
+                            <span className="text-[10px] font-bold text-emerald-600 flex items-center gap-1"><ArrowRight className="w-3 h-3"/> Restore</span>
+                          </div>
+                        </button>
+                      ))}
+                    {logs.filter(l => l.source === 'Quote Generator' && l.status === 'Success').length === 0 && (
+                      <div className="text-center py-8 text-gray-400 bg-gray-50 rounded-2xl border-2 border-dashed border-gray-100">
+                        <p className="text-xs font-bold">No past quotes found</p>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
 

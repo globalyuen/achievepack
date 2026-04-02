@@ -142,6 +142,7 @@ const BarrierOptionsPage = lazyWithRetry(() => import('./pages/features/BarrierO
 const LowBarrierPage = lazyWithRetry(() => import('./pages/features/LowBarrierPage'))
 const MediumBarrierPage = lazyWithRetry(() => import('./pages/features/MediumBarrierPage'))
 const HighBarrierPage = lazyWithRetry(() => import('./pages/features/HighBarrierPage'))
+const MaterialBarrierPropertiesPage = lazyWithRetry(() => import('./pages/features/MaterialBarrierPropertiesPage'))
 
 // Function Pages - Lazy loaded
 const MicrowaveSteamBagsPage = lazyWithRetry(() => import('./pages/function/MicrowaveSteamBagsPage'))
@@ -475,6 +476,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/options/surface-finish" element={<PouchSurfaceFinishPage />} />
                   <Route path="/options/surface-and-reclosure" element={<SurfaceAndReclosureOptionsPage />} />
                   <Route path="/barriers/overview" element={<PouchBarrierOverviewPage />} />
+                  <Route path="/barriers/material-properties" element={<MaterialBarrierPropertiesPage />} />
                   <Route path="/printing/digital" element={<PouchDigitalPrintingPage />} />
                   <Route path="/products" element={<PouchProductsPage />} />
                   <Route path="/materials" element={<PouchMaterialsPage />} />
@@ -614,6 +616,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/features/low-barrier" element={<LowBarrierPage />} />
                         <Route path="/features/medium-barrier" element={<MediumBarrierPage />} />
                         <Route path="/features/high-barrier" element={<HighBarrierPage />} />
+                        <Route path="/features/material-barrier-properties" element={<MaterialBarrierPropertiesPage />} />
 
                         {/* Function Pages */}
                         <Route path="/function/microwave-steam-bags" element={<MicrowaveSteamBagsPage />} />

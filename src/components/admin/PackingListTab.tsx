@@ -395,7 +395,7 @@ export default function PackingListTab() {
         {/* Header */}
         <div className="flex justify-between items-start border-b-2 border-neutral-800 pb-6 mb-8 relative">
           <div className="w-64">
-            <img src="/imgs/logo-achievepack.png" alt="Achieve Pack" className="w-full object-contain" />
+            <img src="/logo.png" alt="Achieve Pack" className="h-12 w-auto object-contain" />
           </div>
           <div className="text-right text-[10px] leading-tight text-neutral-600 absolute right-0 top-14 max-w-md">
             <strong className="text-[12px] text-neutral-800 font-bold block mb-1">Achieve Pack</strong>

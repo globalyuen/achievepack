@@ -32,6 +32,8 @@ Extract the following fields from the user's text into a strictly valid JSON obj
 - "category": Must be exactly one of: "Quotes", "Production", "Shipping", "Enquiries", "Meetings". Guess the most appropriate.
 - "detail": A concise summary of the task, shipment tracking number, or notes extracted from the text.
 
+If multiple designs (款數) are mentioned with a total quantity, clearly state it in "detail" as "X designs x Y pcs each (Total Z pcs)".
+
 Example input: "New inquiry from Sarah at EcoBrands. She needs 500 flat pouches quoted."
 Example output:
 {

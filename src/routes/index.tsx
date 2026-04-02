@@ -381,6 +381,33 @@ const routes = [
   // Options Pages
   { path: "/options/surface-and-reclosure", element: <LazyRoute component={() => import('../pages/pouch/options/SurfaceAndReclosureOptionsPage')} fallback={<LoadingFallback />} /> },
 
+  // Free Services Pages
+  { path: "/free-service", element: <LazyRoute component={() => import('../pages/free-service/FreeServicesPage')} fallback={<LoadingFallback />} /> },
+  { path: "/free-service/all", element: <LazyRoute component={() => import('../pages/free-service/FreeServicesHubPage')} fallback={<LoadingFallback />} /> },
+  { path: "/free-service/packaging-design-consultation", element: <LazyRoute component={() => import('../pages/free-service/FreePackagingDesignPage')} fallback={<LoadingFallback />} /> },
+  { path: "/free-service/website-upgrade", element: <LazyRoute component={() => import('../pages/free-service/FreeWebsiteUpgradePage')} fallback={<LoadingFallback />} /> },
+  { path: "/free-service/customer-center", element: <LazyRoute component={() => import('../pages/free-service/FreeCustomerCenterPage')} fallback={<LoadingFallback />} /> },
+  { path: "/free-service/packaging-mockup", element: <LazyRoute component={() => import('../pages/free-service/FreeMockupPage')} fallback={<LoadingFallback />} /> },
+
+  // Free Service Demo Pages
+  { path: "/free-service/achieve-baby-demo", element: <LazyRoute component={() => import('../pages/free-service/AchieveBabyDemoPage')} fallback={<LoadingFallback />} /> },
+  { path: "/free-service/achieve-bath-demo", element: <LazyRoute component={() => import('../pages/free-service/AchieveBathDemoPage')} fallback={<LoadingFallback />} /> },
+  { path: "/free-service/achieve-chips-demo", element: <LazyRoute component={() => import('../pages/free-service/AchieveChipsDemoPage')} fallback={<LoadingFallback />} /> },
+  { path: "/free-service/achieve-chocolate-demo", element: <LazyRoute component={() => import('../pages/free-service/AchieveChocolateDemoPage')} fallback={<LoadingFallback />} /> },
+  { path: "/free-service/achieve-cleaning-demo", element: <LazyRoute component={() => import('../pages/free-service/AchieveCleaningDemoPage')} fallback={<LoadingFallback />} /> },
+  { path: "/free-service/achieve-energy-demo", element: <LazyRoute component={() => import('../pages/free-service/AchieveEnergyDemoPage')} fallback={<LoadingFallback />} /> },
+  { path: "/free-service/achieve-honey-demo", element: <LazyRoute component={() => import('../pages/free-service/AchieveHoneyDemoPage')} fallback={<LoadingFallback />} /> },
+  { path: "/free-service/achieve-muesli-demo", element: <LazyRoute component={() => import('../pages/free-service/AchieveMuesliDemoPage')} fallback={<LoadingFallback />} /> },
+  { path: "/free-service/achieve-pet-demo", element: <LazyRoute component={() => import('../pages/free-service/AchievePetDemoPage')} fallback={<LoadingFallback />} /> },
+  { path: "/free-service/achieve-pouch-eco-demo", element: <LazyRoute component={() => import('../pages/free-service/AchievePouchEcoDemoPage')} fallback={<LoadingFallback />} /> },
+  { path: "/free-service/achieve-skin-demo", element: <LazyRoute component={() => import('../pages/free-service/AchieveSkinDemoPage')} fallback={<LoadingFallback />} /> },
+  { path: "/free-service/achieve-spreads-demo", element: <LazyRoute component={() => import('../pages/free-service/AchieveSpreadsDemoPage')} fallback={<LoadingFallback />} /> },
+  { path: "/free-service/achieve-superfood-demo", element: <LazyRoute component={() => import('../pages/free-service/AchieveSuperfoodDemoPage')} fallback={<LoadingFallback />} /> },
+  { path: "/free-service/achieve-supplement-demo", element: <LazyRoute component={() => import('../pages/free-service/AchieveSupplementDemoPage')} fallback={<LoadingFallback />} /> },
+  { path: "/free-service/achieve-tea-demo", element: <LazyRoute component={() => import('../pages/free-service/AchieveTeaDemoPage')} fallback={<LoadingFallback />} /> },
+  { path: "/free-service/maxi-foods-demo", element: <LazyRoute component={() => import('../pages/free-service/MaxiFoodsDemoPage')} fallback={<LoadingFallback />} /> },
+  { path: "/free-service/pencil-demo", element: <LazyRoute component={() => import('../pages/free-service/PencilDemoPage')} fallback={<LoadingFallback />} /> },
+
   // 404 - Catch All Route
   { path: "*", element: <LazyRoute component={() => import('../pages/NotFoundPage')} fallback={<LoadingFallback />} /> },
 ];

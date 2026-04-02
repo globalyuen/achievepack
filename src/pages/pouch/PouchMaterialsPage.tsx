@@ -147,11 +147,18 @@ export default function PouchMaterialsPage() {
                  <p className="font-['Space_Grotesk'] text-xl mb-8 text-white max-w-xl">
                     Need exact barrier properties, thickness options, and seal strengths? Access our full library of technical specifications and downloadable PDFs.
                  </p>
-                 <Link to="/tech-specs">
-                    <NeoButton variant="primary" className="inline-flex items-center">
-                       View All Specs <ArrowRight className="w-5 h-5 ml-2" />
-                    </NeoButton>
-                 </Link>
+                 <div className="flex flex-col sm:flex-row gap-4">
+                   <Link to="/tech-specs">
+                      <NeoButton variant="primary" className="inline-flex items-center justify-center w-full">
+                         View All Specs <ArrowRight className="w-5 h-5 ml-2" />
+                      </NeoButton>
+                   </Link>
+                   <Link to="/barriers/material-properties">
+                      <NeoButton variant="dark" className="inline-flex items-center justify-center w-full bg-black text-[#00FFFF] border-[#00FFFF] hover:shadow-[8px_8px_0px_0px_#00FFFF]">
+                         Barrier Properties Data
+                      </NeoButton>
+                   </Link>
+                 </div>
               </div>
               <div className="flex-1 w-full relative">
                  <div className="border-4 border-[#D4FF00] p-4 relative rotate-2 hover:rotate-0 transition-transform duration-500">

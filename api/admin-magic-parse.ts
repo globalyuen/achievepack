@@ -30,7 +30,11 @@ export default async function handler(req: Request): Promise<Response> {
     const XAI_API_KEY = process.env.XAI_API_KEY
     if (!XAI_API_KEY) return new Response(JSON.stringify({ error: 'XAI key missing' }), { status: 500 });
 
-    const systemPrompt = `Analyze this chat/email conversation carefully. Identify the TRUE primary customer, person, or company involved. Also determine the "status" (New, Urgent, In Progress, Shipped, Pending), "category" (Quotes, Production, Sample Shipping, Production Shipping, Enquiries), and summarize the core instructions/actions into "detail". Return RAW JSON ONLY: { "customer": "Name", "status": "...", "category": "...", "detail": "..." }`;
+    const systemPrompt = `Analyze this chat/email conversation carefully. Identify the TRUE primary customer, person, or company involved. Also determine the "status" (New, Urgent, In Progress, Shipped, Pending), "category" (Quotes, Production, Sample Shipping, Production Shipping, Enquiries), and summarize the core instructions/actions into "detail". 
+
+    NOTE: If the user mentions designs vs quantity (e.g. "4 designs, 400pcs total"), clearly state it as "4 designs x 100pcs each (Total 400pcs)" in the detail summary.
+    
+    Return RAW JSON ONLY: { "customer": "Name", "status": "...", "category": "...", "detail": "..." }`;
 
     const xaiResponse = await fetch('https://api.x.ai/v1/chat/completions', {
       method: 'POST',

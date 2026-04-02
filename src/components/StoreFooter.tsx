@@ -69,6 +69,7 @@ export default function StoreFooter() {
             <h4 className="font-semibold text-sm mb-4">Material Data</h4>
             <ul className="space-y-2 text-xs text-neutral-400">
               <li><Link to="/materials/data-sheet" className="hover:text-primary-400">Material Data Sheet</Link></li>
+              <li><Link to="/features/material-barrier-properties" className="hover:text-primary-400">Barrier Properties</Link></li>
             </ul>
           </div>
 
