@@ -36,6 +36,8 @@ Target < 8s response. Extract all SKU/product pricing.
 [
   {
     "product_name": "Product category",
+    "print_type": "Digital Print or Cylinder Print",
+    "plate_details": "If cylinder, detail limit per size/color/design and if flat bottom gusset has separate plate",
     "material": "Material spec",
     "size": "mm dims",
     "features": "Concise key info",
@@ -45,7 +47,7 @@ Target < 8s response. Extract all SKU/product pricing.
     "pricing": [{ "qty": <number>, "unit_rmb": <number>, "weight_kg": <number> }]
   }
 ]
-Exhaustive items, but MINIMAL text tokens. No markdown. If multiple designs (款數) are mentioned (e.g. 款數4), capture it in designs_count. Total qty should still be in pricing.qty.`;
+Exhaustive items, but MINIMAL text tokens. No markdown. If multiple designs (款數) are mentioned (e.g. 款數4), capture it in designs_count. Total qty should still be in pricing.qty. Identify if it's Digital (數碼) or Cylinder Print (凹版/制版). If cylinder, capture plate cost details per color/design and note if flat bottom gusset requires separate plates.`;
 
     const xaiResponse = await fetch('https://api.x.ai/v1/chat/completions', {
       method: 'POST',

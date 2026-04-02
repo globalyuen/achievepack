@@ -325,7 +325,7 @@ export default function DailyReportsPage() {
         return `
         <div style="page-break-inside: avoid; margin-bottom: 40px;">
           <div class="section">
-            <div class="section-title">Item ${idx+1}: Product Specifications</div>
+            <div class="section-title">Item ${idx+1}: Product Specifications ${item.print_type ? `<span style="background:#fef3c7;color:#b45309;padding:2px 6px;border-radius:4px;margin-left:8px;font-size:10px">${item.print_type}</span>` : ''}</div>
             <div class="specs">
               <div class="spec-item"><label>Product Type</label><span>${item.product_name || '—'}</span></div>
               <div class="spec-item">
@@ -337,7 +337,7 @@ export default function DailyReportsPage() {
               </div>
               <div class="spec-item"><label>Material Structure</label><span>${item.material || '—'}</span></div>
               <div class="spec-item"><label>Key Features</label><span>${item.features || '—'}</span></div>
-              ${plateFeeUsd > 0 ? `<div class="spec-item" style="grid-column: span 4; margin-top:6px; padding-top:6px; border-top:1px dashed #e2e8f0"><label>Plate Cylinders Fee (Total)</label><span style="color:#d97706">$${plateFeeUsd} USD</span></div>` : ''}
+              ${plateFeeUsd > 0 || item.plate_details ? `<div class="spec-item" style="grid-column: span 4; margin-top:6px; padding-top:6px; border-top:1px dashed #e2e8f0"><label>Cylinder Plate / Print Details</label><span style="color:#d97706;font-size:10px">${item.plate_details || 'Standard Setup'} ${plateFeeUsd > 0 ? `<strong>(Est. Total: $${plateFeeUsd} USD)</strong>` : ''}</span></div>` : ''}
             </div>
             ${item.notes ? `<div style="margin-top:16px;padding:12px;background:#fef9c3;border-radius:8px;font-size:12px;color:#854d0e"><strong>⚠️ Note:</strong> ${item.notes}</div>` : ''}
           </div>
@@ -1613,17 +1613,40 @@ export default function DailyReportsPage() {
                       <div className="space-y-3">
                         <label className="block text-xs font-bold text-gray-500 mb-1 uppercase border-b border-gray-200 pb-2">Item Names</label>
                         {quoteData.extracted.map((item: any, idx: number) => (
-                          <div key={idx}>
-                            <label className="block text-[10px] font-bold text-gray-400 mb-1 uppercase">Product {idx+1}</label>
+                          <div key={idx} className="bg-white p-3 rounded-lg border border-gray-200">
+                            <label className="block text-[10px] font-bold text-gray-400 mb-1 uppercase border-b border-gray-100 pb-1">Product {idx+1}</label>
                             <input 
                               type="text" 
                               value={item.product_name || ''} 
+                              placeholder="Product Name"
                               onChange={e => {
                                 const newExtracted = [...quoteData.extracted];
                                 newExtracted[idx] = { ...newExtracted[idx], product_name: e.target.value };
                                 setQuoteData({...quoteData, extracted: newExtracted});
                               }}
-                              className="w-full border-gray-300 rounded-lg p-2 text-sm font-medium bg-white focus:ring-blue-500 shadow-sm"
+                              className="w-full border-gray-200 rounded p-1.5 text-xs font-bold bg-gray-50 focus:bg-white focus:ring-blue-500 shadow-sm mt-1"
+                            />
+                            <input 
+                              type="text" 
+                              value={item.print_type || ''} 
+                              placeholder="Print Type (e.g. Digital, Cylinder)"
+                              onChange={e => {
+                                const newExtracted = [...quoteData.extracted];
+                                newExtracted[idx] = { ...newExtracted[idx], print_type: e.target.value };
+                                setQuoteData({...quoteData, extracted: newExtracted});
+                              }}
+                              className="w-full border-gray-200 rounded p-1.5 text-xs font-bold text-orange-700 bg-orange-50 focus:bg-white focus:ring-orange-500 shadow-sm mt-2"
+                            />
+                            <textarea 
+                              value={item.plate_details || ''} 
+                              placeholder="Plate Details (per size/color/design)"
+                              rows={3}
+                              onChange={e => {
+                                const newExtracted = [...quoteData.extracted];
+                                newExtracted[idx] = { ...newExtracted[idx], plate_details: e.target.value };
+                                setQuoteData({...quoteData, extracted: newExtracted});
+                              }}
+                              className="w-full border-gray-200 rounded p-1.5 text-xs font-medium text-gray-700 bg-gray-50 focus:bg-white focus:ring-blue-500 shadow-sm mt-2 resize-none"
                             />
                           </div>
                         ))}
