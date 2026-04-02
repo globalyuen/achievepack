@@ -70,6 +70,7 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/pouch/surface-finish': () => import('./pages/pouch/PouchSurfaceFinishPage'),
   '/pouch/surface-and-reclosure-options': () => import('./pages/pouch/options/SurfaceAndReclosureOptionsPage'),
   '/pouch/barrier-overview': () => import('./pages/pouch/PouchBarrierOverviewPage'),
+  '/pouch/material-barrier-properties': () => import('./pages/pouch/PouchMaterialBarrierPropertiesPage'),
   '/pouch/material-data-sheet': () => import('./pages/pouch/MaterialDataSheetPage'),
 }
 
@@ -358,6 +359,7 @@ const SurfaceAndReclosureOptionsPage = lazyWithRetry(() => import('./pages/pouch
 const PouchKraftDuplexPage = lazyWithRetry(() => import('./pages/pouch/materials/PouchKraftDuplexPage'))
 const MaterialDataSheetPage = lazyWithRetry(() => import('./pages/pouch/MaterialDataSheetPage'))
 const PouchBarrierOverviewPage = lazyWithRetry(() => import('./pages/pouch/PouchBarrierOverviewPage'))
+const PouchMaterialBarrierPropertiesPage = lazyWithRetry(() => import('./pages/pouch/PouchMaterialBarrierPropertiesPage'))
 const PouchDigitalPrintingPage = lazyWithRetry(() => import('./pages/pouch/PouchDigitalPrintingPage'))
 const PouchMaterialCatalogPage = lazyWithRetry(() => import('./pages/pouch/PouchMaterialCatalogPage'))
 const PouchSEOPage = lazyWithRetry(() => import('./pages/pouch/PouchSEOPage'))
@@ -476,7 +478,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/options/surface-finish" element={<PouchSurfaceFinishPage />} />
                   <Route path="/options/surface-and-reclosure" element={<SurfaceAndReclosureOptionsPage />} />
                   <Route path="/barriers/overview" element={<PouchBarrierOverviewPage />} />
-                  <Route path="/barriers/material-properties" element={<MaterialBarrierPropertiesPage />} />
+                  <Route path="/barriers/material-properties" element={<PouchMaterialBarrierPropertiesPage />} />
                   <Route path="/printing/digital" element={<PouchDigitalPrintingPage />} />
                   <Route path="/products" element={<PouchProductsPage />} />
                   <Route path="/materials" element={<PouchMaterialsPage />} />
