@@ -76,6 +76,7 @@ export default function DailyReportsPage() {
   // Quote Generator
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [quoteHtml, setQuoteHtml] = useState<string>('');
+  const [quoteData, setQuoteData] = useState<{ customerName: string; extracted: any[]; dbLogId: number } | null>(null);
   const [quoteLoading, setQuoteLoading] = useState(false);
   const [quoteMarkup, setQuoteMarkup] = useState('1.6');
   const [selectedDocCategory, setSelectedDocCategory] = useState('Quote');
@@ -253,18 +254,36 @@ export default function DailyReportsPage() {
       }
       if (!data.success || !data.extracted) throw new Error(data.error || "AI extraction failed");
 
-      // 3. Build beautiful HTML entirely on the client (instant, no timeout!)
+      // Set the extracted JSON variables into state, triggering useEffect to render HTML
       const { extracted, customerName } = data;
+      const itemsToRender = Array.isArray(extracted) ? extracted : [extracted];
+      
+      setQuoteData({
+        customerName: customerName || 'Valued Client',
+        extracted: itemsToRender,
+        dbLogId: dbLog.id
+      });
+
+    } catch (e: any) {
+      setQuoteHtml(`<div style="padding:2rem;font-family:sans-serif;color:#dc2626"><h2>⚠️ Error</h2><p>${e.message}</p></div>`);
+    } finally {
+      setQuoteLoading(false);
+    }
+  };
+
+  // Build the Quote HTML whenever QuoteData changes
+  useEffect(() => {
+    if (!quoteData) return;
+    
+    try {
+      const { extracted, customerName } = quoteData;
+      const itemsToRender = extracted;
       const RMB_TO_USD = 6.9;
       const AIR_PER_KG = 15;
       const SEA_PER_KG = 5;
       const today = new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
 
-      // Handle both old single object format and new array format for backward compatibility
-      const itemsToRender = Array.isArray(extracted) ? extracted : [extracted];
-
       // Debug: Log the extracted data to verify structure
-      console.log('Quote Generator - Extracted Data:', extracted);
       console.log('Quote Generator - Items to render:', itemsToRender);
       
       const sectionsHtml = itemsToRender.map((item: any, idx: number) => {
@@ -406,25 +425,31 @@ export default function DailyReportsPage() {
         </html>
       `;
       setQuoteHtml(fullHtml);
+    } catch (e: any) {
+      setQuoteHtml(`<div style="padding:2rem;font-family:sans-serif;color:#dc2626"><h2>⚠️ Error Building Quote</h2><p>${e.message}</p></div>`);
+    }
+  }, [quoteData, quoteMarkup]);
 
-      // 4. Update the log with the final generated HTML for historical record
-      await supabase.from('webhook_logs').update({
+  const handleSaveQuoteHistory = async () => {
+    if (!quoteData || !quoteHtml) return;
+    try {
+      const { error: dbErr } = await supabase.from('webhook_logs').update({
         status: 'Success',
-        message: `Quote generated for ${customerName || 'Client'}`,
+        message: `Quote generated for ${quoteData.customerName}`,
         raw_data: { 
           text: currentRecord.detail, 
-          customer: customerName || 'Valued Client',
-          quoteHtml: fullHtml,
+          customer: quoteData.customerName,
+          quoteHtml: quoteHtml,
           generatedAt: new Date().toISOString()
         }
-      }).eq('id', dbLog.id);
+      }).eq('id', quoteData.dbLogId);
 
-      // Refresh logs so history shows up
-      fetchData();
-    } catch (e: any) {
-      setQuoteHtml(`<div style="padding:2rem;font-family:sans-serif;color:#dc2626"><h2>⚠️ Error</h2><p>${e.message}</p></div>`);
-    } finally {
-      setQuoteLoading(false);
+      if (dbErr) throw new Error(dbErr.message);
+      
+      alert('Saved successfully to Past Quotes History!');
+      fetchData(); // Refresh history
+    } catch(e: any) {
+      alert('Error saving quote history: ' + e.message);
     }
   };
 
@@ -1565,16 +1590,71 @@ export default function DailyReportsPage() {
                 <button onClick={() => setIsQuoteModalOpen(false)} className="text-gray-400 hover:bg-gray-200 p-2 rounded-full transition bg-white border border-gray-200"><X className="w-5 h-5"/></button>
               </div>
             </div>
-            <div className="flex-1 bg-gray-300 relative overflow-hidden flex flex-col">
-              {quoteLoading ? (
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/80 z-10 backdrop-blur-sm">
-                  <Loader2 className="w-12 h-12 text-blue-600 animate-spin mb-4" />
-                  <p className="font-bold text-gray-600">Translating factory specs & compiling PDF layout...</p>
+            <div className="flex-1 overflow-hidden flex flex-col md:flex-row">
+              {/* Sidebar editing tools */}
+              {quoteData && (
+                <div className="w-full md:w-1/3 max-w-sm bg-gray-50 border-r border-gray-200 p-6 overflow-y-auto flex flex-col gap-6">
+                  <div>
+                    <h4 className="text-sm font-extrabold text-gray-900 mb-4 uppercase tracking-wider flex items-center gap-2">
+                       Edit Info
+                    </h4>
+                    
+                    <div className="space-y-4">
+                      <div>
+                        <label className="block text-xs font-bold text-gray-500 mb-1 uppercase">Customer Name</label>
+                        <input 
+                          type="text" 
+                          value={quoteData.customerName} 
+                          onChange={e => setQuoteData({...quoteData, customerName: e.target.value})}
+                          className="w-full border-gray-300 rounded-lg p-2 text-sm font-bold bg-white focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+                        />
+                      </div>
+                      
+                      <div className="space-y-3">
+                        <label className="block text-xs font-bold text-gray-500 mb-1 uppercase border-b border-gray-200 pb-2">Item Names</label>
+                        {quoteData.extracted.map((item: any, idx: number) => (
+                          <div key={idx}>
+                            <label className="block text-[10px] font-bold text-gray-400 mb-1 uppercase">Product {idx+1}</label>
+                            <input 
+                              type="text" 
+                              value={item.product_name || ''} 
+                              onChange={e => {
+                                const newExtracted = [...quoteData.extracted];
+                                newExtracted[idx] = { ...newExtracted[idx], product_name: e.target.value };
+                                setQuoteData({...quoteData, extracted: newExtracted});
+                              }}
+                              className="w-full border-gray-300 rounded-lg p-2 text-sm font-medium bg-white focus:ring-blue-500 shadow-sm"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-auto pt-6 border-t border-gray-200">
+                    <button 
+                      onClick={handleSaveQuoteHistory}
+                      className="w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl font-extrabold text-sm shadow-lg transition active:scale-95"
+                    >
+                      <Save className="w-5 h-5"/>
+                      SAVE TO QUOTE HISTORY
+                    </button>
+                    <p className="mt-3 text-xs text-center text-gray-500 font-medium">Click this to save the finalised quote HTML into the database history tracking.</p>
+                  </div>
                 </div>
-              ) : null}
-              {quoteHtml && (
-                <iframe id="quote-pdf-frame" srcDoc={quoteHtml} className="w-full flex-1 border-none bg-white" />
               )}
+
+              <div className="flex-1 bg-gray-300 relative overflow-hidden flex flex-col">
+                {quoteLoading ? (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/80 z-10 backdrop-blur-sm">
+                    <Loader2 className="w-12 h-12 text-blue-600 animate-spin mb-4" />
+                    <p className="font-bold text-gray-600">Translating factory specs & compiling PDF layout...</p>
+                  </div>
+                ) : null}
+                {quoteHtml && (
+                  <iframe id="quote-pdf-frame" srcDoc={quoteHtml} className="w-full flex-1 border-none bg-white" />
+                )}
+              </div>
             </div>
           </div>
         </div>
