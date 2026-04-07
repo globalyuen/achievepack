@@ -252,7 +252,12 @@ export default function DailyReportsPage() {
         setQuoteHtml(`<div style="padding:2rem;font-family:sans-serif"><h2 style="color:#dc2626">⚠️ Server Timeout</h2><p>Cloudflare returned an HTML error page. Please wait 30 seconds and try again.</p><pre style="margin-top:1rem;background:#f3f4f6;padding:1rem;border-radius:8px;font-size:11px">${rawResp.substring(0, 200)}</pre></div>`);
         return;
       }
-      if (!data.success || !data.extracted) throw new Error(data.error || "AI extraction failed");
+      
+      if (!data.success || !data.extracted) {
+        const errorSummary = data.error || "AI extraction failed";
+        const errorDetail = data.details ? `: ${data.details}` : "";
+        throw new Error(errorSummary + errorDetail);
+      }
 
       // Set the extracted JSON variables into state, triggering useEffect to render HTML
       const { extracted, customerName } = data;
