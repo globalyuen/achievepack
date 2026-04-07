@@ -483,7 +483,8 @@ const ArtworkBatchesPage: React.FC = () => {
   const handleCopyLink = () => {
     if (!selectedBatch) return
     const link = `${window.location.origin}/artwork-review/${selectedBatch.id}`
-    navigator.clipboard.writeText(link)
+    const textToCopy = `Artwork Review Link: ${link}\nPassword: ${selectedBatch.password}`
+    navigator.clipboard.writeText(textToCopy)
     setCopiedLink(true)
     setTimeout(() => setCopiedLink(false), 2000)
   }
