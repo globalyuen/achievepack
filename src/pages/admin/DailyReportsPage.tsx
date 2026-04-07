@@ -1688,6 +1688,19 @@ export default function DailyReportsPage() {
                               }}
                               className="w-full border-gray-200 rounded p-1.5 text-[10px] font-medium text-amber-700 bg-amber-50 focus:bg-white focus:ring-amber-500 shadow-sm mt-2 resize-none"
                             />
+                            <div className="flex items-center gap-2 mt-2">
+                              <label className="text-[10px] font-bold text-amber-600 uppercase whitespace-nowrap">Est. Plate Fee (RMB):</label>
+                              <input 
+                                type="number" 
+                                value={item.plate_fee_rmb || 0} 
+                                onChange={e => {
+                                  const newExtracted = [...quoteData.extracted];
+                                  newExtracted[idx] = { ...newExtracted[idx], plate_fee_rmb: parseFloat(e.target.value) || 0 };
+                                  setQuoteData({...quoteData, extracted: newExtracted});
+                                }}
+                                className="w-full border-gray-200 rounded p-1.5 text-xs font-bold text-amber-900 bg-amber-100 focus:bg-white focus:ring-amber-500 shadow-sm"
+                              />
+                            </div>
                           </div>
                         ))}
                       </div>
