@@ -857,6 +857,19 @@ export default function DailyReportsPage() {
                 <span className="hidden xs:inline">PaddleOCR</span>
                 <span className="xs:hidden">OCR</span>
               </a>
+
+              {/* Heat Sealer Reference Video */}
+              <a 
+                href="https://www.youtube.com/shorts/QEKDNaWXPFk" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 bg-pink-500/20 text-pink-200 px-3 py-1.5 rounded-full text-sm font-semibold border border-pink-500/30 hover:bg-pink-500/40 transition active:scale-95 shadow-sm"
+                title="Watch Heat Sealer reference video for production setup"
+              >
+                <LinkIcon className="h-3.5 w-3.5" />
+                <span className="hidden xs:inline">Sealer Video</span>
+                <span className="xs:hidden">Video</span>
+              </a>
             </div>
           </div>
           <button onClick={handleLogout} className="mt-2 sm:mt-0 flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg font-semibold relative z-10 transition active:scale-95 whitespace-nowrap">
@@ -1638,15 +1651,37 @@ export default function DailyReportsPage() {
                               className="w-full border-gray-200 rounded p-1.5 text-xs font-bold text-orange-700 bg-orange-50 focus:bg-white focus:ring-orange-500 shadow-sm mt-2"
                             />
                             <textarea 
+                              value={item.material || ''} 
+                              placeholder="Material Structure & Thickness"
+                              rows={2}
+                              onChange={e => {
+                                const newExtracted = [...quoteData.extracted];
+                                newExtracted[idx] = { ...newExtracted[idx], material: e.target.value };
+                                setQuoteData({...quoteData, extracted: newExtracted});
+                              }}
+                              className="w-full border-gray-200 rounded p-1.5 text-xs font-bold text-emerald-800 bg-emerald-50 focus:bg-white focus:ring-emerald-500 shadow-sm mt-2 resize-none"
+                            />
+                            <textarea 
+                              value={item.features || ''} 
+                              placeholder="Key Features (Zipper, Tear notch, etc)"
+                              rows={2}
+                              onChange={e => {
+                                const newExtracted = [...quoteData.extracted];
+                                newExtracted[idx] = { ...newExtracted[idx], features: e.target.value };
+                                setQuoteData({...quoteData, extracted: newExtracted});
+                              }}
+                              className="w-full border-gray-200 rounded p-1.5 text-xs font-bold text-blue-800 bg-blue-50 focus:bg-white focus:ring-blue-500 shadow-sm mt-2 resize-none"
+                            />
+                            <textarea 
                               value={item.plate_details || ''} 
                               placeholder="Plate Details (per size/color/design)"
-                              rows={3}
+                              rows={2}
                               onChange={e => {
                                 const newExtracted = [...quoteData.extracted];
                                 newExtracted[idx] = { ...newExtracted[idx], plate_details: e.target.value };
                                 setQuoteData({...quoteData, extracted: newExtracted});
                               }}
-                              className="w-full border-gray-200 rounded p-1.5 text-xs font-medium text-gray-700 bg-gray-50 focus:bg-white focus:ring-blue-500 shadow-sm mt-2 resize-none"
+                              className="w-full border-gray-200 rounded p-1.5 text-[10px] font-medium text-amber-700 bg-amber-50 focus:bg-white focus:ring-amber-500 shadow-sm mt-2 resize-none"
                             />
                           </div>
                         ))}
