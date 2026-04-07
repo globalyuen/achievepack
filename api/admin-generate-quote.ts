@@ -54,7 +54,7 @@ Exhaustive items, but MINIMAL text tokens. No markdown. If multiple designs (款
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${XAI_API_KEY}` },
       body: JSON.stringify({
-        model: 'grok-3-beta', // Use full Grok-3 for faster high-token generation? Usually mini-beta is geared for speed but Grok-3 (non-mini) is also extremely fast now.
+        model: 'grok-beta',
         messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: text.substring(0, 4000) }],
         max_tokens: 1000,
         temperature: 0.1,
@@ -62,9 +62,27 @@ Exhaustive items, but MINIMAL text tokens. No markdown. If multiple designs (款
     });
 
     const xaiData: any = await xaiResponse.json();
-    let content = xaiData.choices?.[0]?.message?.content || '{}';
+    
+    if (!xaiResponse.ok) {
+      const errMsg = xaiData.error?.message || xaiData.error || 'Unknown X.AI Error';
+      throw new Error(`X.AI API Error: ${errMsg}`);
+    }
+
+    let content = xaiData.choices?.[0]?.message?.content;
+    if (!content) {
+      throw new Error("AI returned an empty response. Please try again.");
+    }
+
+    // Clean markdown if present
     content = content.replace(/^```(json)?/i, '').replace(/```$/g, '').trim();
-    const extracted = JSON.parse(content);
+    
+    let extracted;
+    try {
+      extracted = JSON.parse(content);
+    } catch (e) {
+      console.error("Failed to parse AI JSON:", content);
+      throw new Error("AI returned invalid data format. Please try again with clearer text.");
+    }
 
     return new Response(JSON.stringify({
       success: true,
@@ -74,6 +92,11 @@ Exhaustive items, but MINIMAL text tokens. No markdown. If multiple designs (款
     }), { status: 200, headers: { 'Content-Type': 'application/json' } });
 
   } catch (err: any) {
-    return new Response(JSON.stringify({ error: 'Quote generation failed', details: err.message }), { status: 500 });
+    console.error("Quote API Error:", err.message);
+    return new Response(JSON.stringify({ 
+      success: false,
+      error: 'Quote generation failed', 
+      details: err.message 
+    }), { status: 500, headers: { 'Content-Type': 'application/json' } });
   }
 }
