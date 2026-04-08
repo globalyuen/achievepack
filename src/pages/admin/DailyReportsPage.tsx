@@ -79,6 +79,7 @@ export default function DailyReportsPage() {
   const [quoteData, setQuoteData] = useState<{ customerName: string; extracted: any[]; dbLogId: number } | null>(null);
   const [quoteLoading, setQuoteLoading] = useState(false);
   const [quoteMarkup, setQuoteMarkup] = useState('1.6');
+  const [quoteSearchTerm, setQuoteSearchTerm] = useState('');
   const [selectedDocCategory, setSelectedDocCategory] = useState('Quote');
   const [isAiParsing, setIsAiParsing] = useState(false);
 
@@ -1359,13 +1360,31 @@ export default function DailyReportsPage() {
 
                 {/* Quote History */}
                 <div className="mt-4 pt-6 border-t border-gray-100">
-                  <div className="flex items-center gap-2 mb-3 text-emerald-800">
-                    <History className="w-4 h-4" />
-                    <h3 className="text-sm font-extrabold uppercase tracking-wider">Past Quotes History</h3>
+                  <div className="flex items-center justify-between mb-3 border-b border-gray-50 pb-2">
+                    <div className="flex items-center gap-2 text-emerald-800">
+                      <History className="w-4 h-4" />
+                      <h3 className="text-sm font-extrabold uppercase tracking-wider">Past Quotes History</h3>
+                    </div>
+                    <div className="relative">
+                      <Search className="absolute left-2 top-1/2 -translate-y-1/2 w-3 h-3 text-gray-400" />
+                      <input 
+                        type="text" 
+                        placeholder="Search history..." 
+                        value={quoteSearchTerm}
+                        onChange={(e) => setQuoteSearchTerm(e.target.value)}
+                        className="pl-7 pr-3 py-1 text-[10px] border border-gray-200 rounded-lg focus:ring-1 focus:ring-emerald-500 bg-gray-50"
+                      />
+                    </div>
                   </div>
                   <div className="space-y-2 max-h-[400px] overflow-y-auto pr-1">
                     {logs
                       .filter(l => l.source === 'Quote Generator' && l.status === 'Success')
+                      .filter(l => {
+                        if (!quoteSearchTerm.trim()) return true;
+                        const q = quoteSearchTerm.toLowerCase();
+                        return (l.raw_data?.customer?.toLowerCase().includes(q)) || 
+                               (l.raw_data?.text?.toLowerCase().includes(q));
+                      })
                       .map((log) => (
                         <button
                           key={log.id}
@@ -1379,21 +1398,32 @@ export default function DailyReportsPage() {
                               setQuoteHtml(log.raw_data.quoteHtml);
                             }
                           }}
-                          className="w-full text-left p-3 rounded-xl bg-gray-50 hover:bg-emerald-50 border border-gray-100 hover:border-emerald-200 transition flex flex-col gap-1 group"
+                          className="w-full text-left p-3 rounded-xl bg-gray-50 hover:bg-emerald-50 border border-gray-100 hover:border-emerald-200 transition flex flex-col gap-1 group shadow-sm active:translate-y-px"
                         >
-                          <div className="flex justify-between items-center">
-                            <span className="font-bold text-gray-900 text-xs truncate max-w-[150px]">{log.raw_data?.customer || 'Unknown Client'}</span>
-                            <span className="text-[10px] text-gray-400">{new Date(log.created_at).toLocaleDateString()}</span>
+                          <div className="flex justify-between items-center mb-1">
+                            <span className="font-extrabold text-gray-900 text-[11px] truncate max-w-[140px] uppercase">{log.raw_data?.customer || 'Unknown Client'}</span>
+                            <span className="text-[9px] font-bold text-gray-400 bg-white px-1.5 py-0.5 rounded border border-gray-100">{new Date(log.created_at).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}</span>
                           </div>
-                          <p className="text-[10px] text-gray-500 line-clamp-1 italic">{log.raw_data?.text?.substring(0, 100)}...</p>
-                          <div className="flex justify-end opacity-0 group-hover:opacity-100 transition">
-                            <span className="text-[10px] font-bold text-emerald-600 flex items-center gap-1"><ArrowRight className="w-3 h-3"/> Restore</span>
+                          <p className="text-[10px] text-gray-500 line-clamp-2 leading-relaxed">{log.raw_data?.text?.substring(0, 150)}</p>
+                          <div className="flex justify-end pt-2">
+                             <span className="text-[9px] font-extrabold text-emerald-600 uppercase flex items-center gap-1 opacity-40 group-hover:opacity-100 transition"><RotateCcw className="w-2.5 h-2.5"/> Restore Quote</span>
                           </div>
                         </button>
                       ))}
                     {logs.filter(l => l.source === 'Quote Generator' && l.status === 'Success').length === 0 && (
-                      <div className="text-center py-8 text-gray-400 bg-gray-50 rounded-2xl border-2 border-dashed border-gray-100">
-                        <p className="text-xs font-bold">No past quotes found</p>
+                      <div className="text-center py-10 text-gray-400 bg-gray-50 rounded-2xl border-2 border-dashed border-gray-200">
+                        <History className="w-8 h-8 mx-auto mb-2 opacity-20" />
+                        <p className="text-[11px] font-bold uppercase tracking-tight">No past quotes saved yet</p>
+                        <p className="text-[9px] mt-1 opacity-60 px-4">Generate a quote and click "SAVE TO QUOTE HISTORY" to track them here.</p>
+                      </div>
+                    )}
+                    {logs.filter(l => l.source === 'Quote Generator' && l.status === 'Success').length > 0 && 
+                     logs.filter(l => l.source === 'Quote Generator' && l.status === 'Success').filter(l => {
+                        const q = quoteSearchTerm.toLowerCase();
+                        return (l.raw_data?.customer?.toLowerCase().includes(q)) || (l.raw_data?.text?.toLowerCase().includes(q));
+                      }).length === 0 && (
+                      <div className="text-center py-10 text-gray-400">
+                        <p className="text-[10px] font-bold">No history found for "{quoteSearchTerm}"</p>
                       </div>
                     )}
                   </div>
