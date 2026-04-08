@@ -360,6 +360,15 @@ export default function DailyReportsPage() {
               <th style="text-align:right;width:14%">Weight</th>
             </tr></thead><tbody>${rows}</tbody></table>
           </div>
+
+          <div style="margin-top:10px; padding:8px 12px; background:#fff; border:1px solid #e2e8f0; border-radius:8px; display:flex; justify-content:space-between; align-items:center; gap:10px;">
+            <div style="font-size:9px; color:#64748b; font-weight:700; text-transform:uppercase; letter-spacing:0.025em;">Estimated Lead Times:</div>
+            <div style="display:flex; gap:15px;">
+              <div style="font-size:10px; color:#1e293b; font-weight:600;"><span style="color:#94a3b8">🏭</span> Ex-Work: <span style="color:#0f172a">3-4 Weeks</span></div>
+              <div style="font-size:10px; color:#1e293b; font-weight:600;"><span style="color:#7c3aed">✈</span> Air DDP: <span style="color:#7c3aed">+2 Weeks</span></div>
+              <div style="font-size:10px; color:#1e293b; font-weight:600;"><span style="color:#1d4ed8">🚢</span> Sea DDP: <span style="color:#1d4ed8">+7-8 Weeks</span></div>
+            </div>
+          </div>
         </div>`;
       }).join('');
 
