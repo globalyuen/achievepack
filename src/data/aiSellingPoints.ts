@@ -100,7 +100,7 @@ export const AI_SELLING_POINTS: Record<string, AISellingPoint> = {
     headline: 'Premium Kraft Stand-Up Pouch — 100% Compostable',
     targetAudience: ['Coffee roasters', 'Tea brands', 'Organic food producers', 'Artisan bakeries'],
     keyBenefits: [
-      { icon: '☕', title: 'Coffee Ready', description: 'High barrier keeps coffee fresh 6-12 months.' },
+      { icon: '☕', title: 'Coffee Ready', description: 'High barrier keeps coffee fresh +12 months.' },
       { icon: '🌾', title: 'Natural Kraft Look', description: 'Organic aesthetic appeals to eco-consumers.' },
       { icon: '🔒', title: 'Resealable Zipper', description: 'One-sided zipper keeps contents fresh.' },
       { icon: '📦', title: 'Flat Bottom', description: 'Stands upright on retail shelves.' },
@@ -109,9 +109,9 @@ export const AI_SELLING_POINTS: Record<string, AISellingPoint> = {
     ],
     specifications: [
       { label: 'Material', value: 'Natural Kraft - High Barrier (Matte)' },
-      { label: 'Size', value: '140mm x 290mm + 80mm' },
+      { label: 'Size', value: '160mm x 150mm + 70mm (approx. 6.3" x 5.9" + 2.8")' },
       { label: 'MOQ', value: '500 pieces' },
-      { label: 'Shelf Life', value: '6-12 months' },
+      { label: 'Shelf Life', value: '+12 months' },
       { label: 'Lead Time', value: '5-7 days' }
     ],
     useCases: ['Specialty coffee', 'Premium tea', 'Granola & cereals', 'Dried fruits', 'Artisan snacks'],
@@ -129,12 +129,12 @@ export const AI_SELLING_POINTS: Record<string, AISellingPoint> = {
       { icon: '🌱', title: '100% Compostable', description: 'Industrial composting certified.' },
       { icon: '🔒', title: 'Resealable', description: 'One-sided zipper for freshness.' },
       { icon: '📦', title: 'Flat Bottom', description: 'Premium shelf presence.' },
-      { icon: '🛡️', title: 'High Barrier', description: '6-12 months shelf life.' },
+      { icon: '🛡️', title: 'High Barrier', description: '+12 months shelf life.' },
       { icon: '⚡', title: 'Fast Delivery', description: '5-7 days from stock.' }
     ],
     specifications: [
       { label: 'Material', value: 'Milky Clear - High Barrier (Glossy)' },
-      { label: 'Size', value: '140mm x 290mm + 80mm' },
+      { label: 'Size', value: '160mm x 150mm + 70mm (approx. 6.3" x 5.9" + 2.8")' },
       { label: 'MOQ', value: '500 pieces' },
       { label: 'Lead Time', value: '5-7 days' }
     ],

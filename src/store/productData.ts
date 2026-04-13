@@ -132,6 +132,7 @@ export interface EcoStockProduct extends BaseStoreProduct {
   minQuantity: number
   quantityStep: number
   sizeInfo: string
+  shelfLife?: string
   // For multi-size products like Header Bag
   sizeVariants?: EcoStockSizeVariant[]
   // For multi-size with multi-quantity products like Mailer Bag
@@ -841,7 +842,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
     category: 'eco-stock',
     description: '100% compostable flat bottom pouch with natural kraft finish. Made from plant-based materials that break down in industrial composting facilities. Features one-sided zipper for resealability.',
     shortDesc: 'From US$500 for 500 pcs',
-    features: ['100% Compostable', 'Industrial Composting Certified', 'High Barrier (6-12 months)', 'One-Sided Zipper', 'Natural Kraft Finish'],
+    features: ['100% Compostable', 'Industrial Composting Certified', 'High Barrier (+12 months)', 'One-Sided Zipper', 'Natural Kraft Finish'],
     images: [
       '/imgs/store/eco-stock/flat-bottom/kraft/1.webp',
       '/imgs/store/eco-stock/flat-bottom/kraft/2.webp',
@@ -861,7 +862,8 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
     pricePerPiece: 1.00,
     minQuantity: 500,
     quantityStep: 500,
-    sizeInfo: '140mm x 290mm + 80mm',
+    sizeInfo: '160mm x 150mm + 70mm (approx. 6.3" x 5.9" + 2.8")',
+    shelfLife: '+12 months',
     customPrintNote: 'Custom print available for orders of 5,000+ pcs per design. Contact us for details.',
     videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
@@ -872,7 +874,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
     category: 'eco-stock',
     description: '100% compostable flat bottom pouch with milky clear finish for product visibility. Made from plant-based materials with industrial composting certification. Features one-sided zipper for convenience.',
     shortDesc: 'From US$500 for 500 pcs',
-    features: ['100% Compostable', 'Industrial Composting Certified', 'High Barrier (6-12 months)', 'One-Sided Zipper', 'Milky Clear Finish'],
+    features: ['100% Compostable', 'Industrial Composting Certified', 'High Barrier (+12 months)', 'One-Sided Zipper', 'Milky Clear Finish'],
     images: [
       '/imgs/store/eco-stock/flat-bottom/clear/1.webp',
       '/imgs/store/eco-stock/flat-bottom/clear/2.webp',
@@ -892,7 +894,8 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
     pricePerPiece: 1.00,
     minQuantity: 500,
     quantityStep: 500,
-    sizeInfo: '140mm x 290mm + 80mm',
+    sizeInfo: '160mm x 150mm + 70mm (approx. 6.3" x 5.9" + 2.8")',
+    shelfLife: '+12 months',
     customPrintNote: 'Custom print available for orders of 5,000+ pcs per design. Contact us for details.',
     videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },

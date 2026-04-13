@@ -6,7 +6,7 @@ import {
   Edit3, Trash2, Check, X, Sparkles, Save, CheckCircle,
   FileText, ImageIcon, UploadCloud, Link as LinkIcon, FileIcon,
   ClipboardList, Hash, History, ScrollText, RotateCcw,
-  ChevronUp, ChevronDown, ArrowRight
+  ChevronUp, ChevronDown, ArrowRight, Share, Download
 } from 'lucide-react';
 import { supabase, DailyReport, WebhookLog } from '../../lib/supabase';
 import PackingListTab from '../../components/admin/PackingListTab';
@@ -82,6 +82,7 @@ export default function DailyReportsPage() {
   const [quoteSearchTerm, setQuoteSearchTerm] = useState('');
   const [selectedDocCategory, setSelectedDocCategory] = useState('Quote');
   const [isAiParsing, setIsAiParsing] = useState(false);
+  const [copiedQuoteLink, setCopiedQuoteLink] = useState(false);
 
   // RFQ Maker
   const [rfqCustomerText, setRfqCustomerText] = useState('');
@@ -94,7 +95,7 @@ export default function DailyReportsPage() {
     e.preventDefault();
     if (!pin) return;
     setLoading(true);
-    if (pin === (import.meta.env.VITE_ADMIN_PIN || "8888''''")) {
+    if (pin === (import.meta.env.VITE_ADMIN_PIN || "8888****")) {
       setIsAuthenticated(true);
       fetchData();
     } else {
@@ -366,8 +367,8 @@ export default function DailyReportsPage() {
             <div style="font-size:9px; color:#64748b; font-weight:700; text-transform:uppercase; letter-spacing:0.025em;">Estimated Lead Times:</div>
             <div style="display:flex; gap:15px;">
               <div style="font-size:10px; color:#1e293b; font-weight:600;"><span style="color:#94a3b8">🏭</span> Ex-Work: <span style="color:#0f172a">3-4 Weeks</span></div>
-              <div style="font-size:10px; color:#1e293b; font-weight:600;"><span style="color:#7c3aed">✈</span> Air DDP: <span style="color:#7c3aed">+2 Weeks</span></div>
-              <div style="font-size:10px; color:#1e293b; font-weight:600;"><span style="color:#1d4ed8">🚢</span> Sea DDP: <span style="color:#1d4ed8">+7-8 Weeks</span></div>
+              <div style="font-size:10px; color:#1e293b; font-weight:600;"><span style="color:#7c3aed">✈</span> Air DDP: <span style="color:#7c3aed">2 Weeks</span></div>
+              <div style="font-size:10px; color:#1e293b; font-weight:600;"><span style="color:#1d4ed8">🚢</span> Sea DDP: <span style="color:#1d4ed8">7-8 Weeks</span></div>
             </div>
           </div>
         </div>`;
@@ -448,23 +449,52 @@ export default function DailyReportsPage() {
   const handleSaveQuoteHistory = async () => {
     if (!quoteData || !quoteHtml) return;
     try {
-      const { error: dbErr } = await supabase.from('webhook_logs').update({
-        status: 'Success',
-        message: `Quote generated for ${quoteData.customerName}`,
-        raw_data: { 
-          text: currentRecord.detail, 
-          customer: quoteData.customerName,
+      const response = await fetch('/api/save-shared-quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          id: quoteData.dbLogId,
           quoteHtml: quoteHtml,
-          generatedAt: new Date().toISOString()
-        }
-      }).eq('id', quoteData.dbLogId);
+          customer: quoteData.customerName,
+          detailText: currentRecord.detail
+        })
+      });
 
-      if (dbErr) throw new Error(dbErr.message);
+      const result = await response.json();
+      if (!response.ok || !result.success) throw new Error(result.error);
       
       alert('Saved successfully to Past Quotes History!');
       fetchData(); // Refresh history
     } catch(e: any) {
       alert('Error saving quote history: ' + e.message);
+    }
+  };
+
+  const handleShareQuoteLink = async () => {
+    if (!quoteData || !quoteHtml) return;
+    
+    try {
+      const response = await fetch('/api/save-shared-quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          id: quoteData.dbLogId,
+          quoteHtml: quoteHtml,
+          customer: quoteData.customerName,
+          detailText: currentRecord.detail
+        })
+      });
+
+      const result = await response.json();
+      if (!response.ok || !result.success) throw new Error(result.error);
+      
+      const shareUrl = `${window.location.origin}/view-quote/${quoteData.dbLogId}`;
+      await navigator.clipboard.writeText(shareUrl);
+      setCopiedQuoteLink(true);
+      setTimeout(() => setCopiedQuoteLink(false), 3000);
+      fetchData();
+    } catch (err: any) {
+      alert("Failed to share link: " + err.message);
     }
   };
 
@@ -1382,8 +1412,10 @@ export default function DailyReportsPage() {
                       .filter(l => {
                         if (!quoteSearchTerm.trim()) return true;
                         const q = quoteSearchTerm.toLowerCase();
+                        const dateStr = new Date(l.created_at).toLocaleDateString().toLowerCase();
                         return (l.raw_data?.customer?.toLowerCase().includes(q)) || 
-                               (l.raw_data?.text?.toLowerCase().includes(q));
+                               (l.raw_data?.text?.toLowerCase().includes(q)) ||
+                               (dateStr.includes(q));
                       })
                       .map((log) => (
                         <button
@@ -1434,13 +1466,23 @@ export default function DailyReportsPage() {
               <div className="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden flex flex-col min-h-[600px]">
                 <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 bg-gray-50">
                   <span className="font-extrabold text-gray-800">📄 Quote Preview</span>
-                  <button onClick={() => {
-                    const iframe = document.getElementById('quote-pdf-frame') as HTMLIFrameElement;
-                    if (iframe?.contentWindow) { iframe.contentWindow.focus(); iframe.contentWindow.print(); }
-                  }} disabled={quoteLoading || !quoteHtml || quoteHtml.includes('Error')}
-                    className="bg-gray-900 hover:bg-black text-white px-5 py-2 rounded-lg font-bold text-sm shadow transition disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2">
-                    <FileText className="w-4 h-4"/> Export & Save as PDF
-                  </button>
+                  <div className="flex gap-2">
+                    <button onClick={() => {
+                      const iframe = document.getElementById('quote-pdf-frame') as HTMLIFrameElement;
+                      if (iframe?.contentWindow) { iframe.contentWindow.focus(); iframe.contentWindow.print(); }
+                    }} disabled={quoteLoading || !quoteHtml || quoteHtml.includes('Error')}
+                      className="bg-gray-900 hover:bg-black text-white px-5 py-2 rounded-lg font-bold text-sm shadow transition disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2">
+                      <FileText className="w-4 h-4"/> Export & Save as PDF
+                    </button>
+                    <button 
+                      onClick={handleShareQuoteLink}
+                      disabled={quoteLoading || !quoteHtml || quoteHtml.includes('Error')}
+                      className={`flex items-center gap-2 px-5 py-2 rounded-lg font-bold text-sm shadow transition disabled:opacity-40 disabled:cursor-not-allowed ${copiedQuoteLink ? 'bg-emerald-600 text-white' : 'bg-white text-gray-900 border border-gray-200 hover:bg-gray-50'}`}
+                    >
+                      {copiedQuoteLink ? <Check className="w-4 h-4"/> : <Share className="w-4 h-4"/>}
+                      {copiedQuoteLink ? 'Copied Link!' : 'Share Link'}
+                    </button>
+                  </div>
                 </div>
                 <div className="relative flex-1 bg-gray-100 flex items-center justify-center">
                   {quoteLoading && (
@@ -1641,8 +1683,16 @@ export default function DailyReportsPage() {
                     iframe.contentWindow.focus();
                     iframe.contentWindow.print();
                   }
-                }} disabled={quoteLoading || !quoteHtml || quoteHtml.includes('Error')} className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg font-bold shadow-md transition disabled:opacity-50 disabled:cursor-not-allowed">
-                  Export & Save as PDF
+                }} disabled={quoteLoading || !quoteHtml || quoteHtml.includes('Error')} className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg font-bold shadow-md transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2">
+                  <Download className="w-4 h-4"/> Export PDF
+                </button>
+                <button 
+                  onClick={handleShareQuoteLink}
+                  disabled={quoteLoading || !quoteHtml || quoteHtml.includes('Error')}
+                  className={`flex items-center gap-2 px-5 py-2.5 rounded-lg font-bold shadow-md transition disabled:opacity-50 disabled:cursor-not-allowed ${copiedQuoteLink ? 'bg-emerald-600 text-white' : 'bg-white text-gray-900 border border-gray-200 hover:bg-gray-50'}`}
+                >
+                  {copiedQuoteLink ? <Check className="w-5 h-5"/> : <Share className="w-5 h-5"/>}
+                  {copiedQuoteLink ? 'Link Copied!' : 'Share Link'}
                 </button>
                 <button onClick={() => setIsQuoteModalOpen(false)} className="text-gray-400 hover:bg-gray-200 p-2 rounded-full transition bg-white border border-gray-200"><X className="w-5 h-5"/></button>
               </div>
@@ -1739,6 +1789,27 @@ export default function DailyReportsPage() {
                                 }}
                                 className="w-full border-gray-200 rounded p-1.5 text-xs font-bold text-amber-900 bg-amber-100 focus:bg-white focus:ring-amber-500 shadow-sm"
                               />
+                            </div>
+                            <div className="grid grid-cols-2 gap-2 mt-2">
+                              <div>
+                                <label className="text-[10px] font-bold text-gray-400 uppercase">Designs Count:</label>
+                                <input 
+                                  type="number" 
+                                  value={item.designs_count || 1} 
+                                  onChange={e => {
+                                    const newExtracted = [...quoteData.extracted];
+                                    newExtracted[idx] = { ...newExtracted[idx], designs_count: parseInt(e.target.value) || 1 };
+                                    setQuoteData({...quoteData, extracted: newExtracted});
+                                  }}
+                                  className="w-full border-gray-200 rounded p-1.5 text-xs font-bold bg-gray-50 focus:bg-white"
+                                />
+                              </div>
+                              <div>
+                                <label className="text-[10px] font-bold text-gray-400 uppercase">Quantity (pcs):</label>
+                                <div className="text-[10px] font-bold text-gray-500 pt-1.5">
+                                  {item.pricing?.[0]?.qty?.toLocaleString() || '0'} Total
+                                </div>
+                              </div>
                             </div>
                           </div>
                         ))}

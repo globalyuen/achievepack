@@ -431,6 +431,7 @@ const ProspectListsPage = lazyWithRetry(() => import('./pages/admin/prospects/Pr
 const ShipmentHubPage = lazyWithRetry(() => import('./pages/admin/ShipmentHubPage'))
 const ShipmentDetailPage = lazyWithRetry(() => import('./pages/admin/ShipmentDetailPage'))
 const ShipmentTrackingPage = lazyWithRetry(() => import('./pages/ShipmentTrackingPage'))
+const SharedQuotePage = lazyWithRetry(() => import('./pages/SharedQuotePage'))
 const DocumentTemplatesPage = lazyWithRetry(() => import('./pages/admin/DocumentTemplatesPage'))
 const ImageGeneratorPage = lazyWithRetry(() => import('./pages/admin/ImageGeneratorPage'))
 const DailyReportsPage = lazyWithRetry(() => import('./pages/admin/DailyReportsPage'))
@@ -576,6 +577,7 @@ if (getDomain() === 'pouch') {
                                               <Route path="/ctrl-x9k7m/ai-image" element={<ImageGeneratorPage />} />
                         <Route path="/shipment/:batchId" element={<ShipmentTrackingPage />} />
 
+                        <Route path="/view-quote/:id" element={<SharedQuotePage />} />
                         <Route path="/unsubscribe" element={<UnsubscribePage />} />
 
                         {/* Industry Pages */}

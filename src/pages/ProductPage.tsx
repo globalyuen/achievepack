@@ -1533,7 +1533,7 @@ const ProductPage: React.FC = () => {
                     </div>
                     <div className="grid grid-cols-3 gap-2">
                       <dt className="text-neutral-500">Shelf Life</dt>
-                      <dd className="text-neutral-900 col-span-2">6-12 months freshness</dd>
+                      <dd className="text-neutral-900 col-span-2">{ecoStockProduct.shelfLife || '6-12 months'} freshness</dd>
                     </div>
                     <div className="grid grid-cols-3 gap-2">
                       <dt className="text-neutral-500">Lead Time</dt>
