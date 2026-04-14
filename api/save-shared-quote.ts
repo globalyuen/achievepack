@@ -15,7 +15,8 @@ export default async function handler(req: Request): Promise<Response> {
   }
 
   try {
-    const { id, quoteHtml, customer, detailText } = await req.json();
+    const body = await req.json() as { id?: string; quoteHtml?: string; customer?: string; detailText?: string };
+    const { id, quoteHtml, customer, detailText } = body;
 
     if (!id || !quoteHtml) {
       return new Response(JSON.stringify({ error: 'Missing id or quoteHtml' }), { status: 400 });
