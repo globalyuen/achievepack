@@ -580,7 +580,9 @@ const ArtworkReviewPage: React.FC = () => {
         {/* Artworks Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {filteredItems.map((item, index) => {
-            const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.file_url)
+            const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.file_url) || /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.name)
+            const isVideo = /\.(mp4|mov|webm)$/i.test(item.file_url) || /\.(mp4|mov|webm)$/i.test(item.name)
+            const isPdf = /\.pdf$/i.test(item.file_url) || /\.pdf$/i.test(item.name)
             return (
               <div 
                 key={item.id} 
@@ -591,7 +593,7 @@ const ArtworkReviewPage: React.FC = () => {
               >
                 {/* Preview */}
                 <div 
-                  className="aspect-[4/3] bg-gray-100 relative cursor-pointer"
+                  className="aspect-[4/3] bg-gray-100 relative cursor-pointer overflow-hidden group"
                   onClick={() => {
                     setSelectedItem(item)
                     setShowReviewModal(true)
@@ -602,6 +604,18 @@ const ArtworkReviewPage: React.FC = () => {
                       src={item.file_url} 
                       alt={item.name}
                       className="w-full h-full object-contain"
+                    />
+                  ) : isVideo ? (
+                    <video 
+                      src={item.file_url} 
+                      controls
+                      className="w-full h-full object-contain bg-black pointer-events-none"
+                    />
+                  ) : isPdf ? (
+                    <iframe 
+                      src={`${item.file_url}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} 
+                      className="w-full h-full border-0 pointer-events-none" 
+                      scrolling="no"
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center">
@@ -1007,7 +1021,9 @@ const ReviewModal: React.FC<{
     item.checklist || {}
   )
   
-  const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.file_url)
+  const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.file_url) || /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.name)
+  const isVideo = /\.(mp4|mov|webm)$/i.test(item.file_url) || /\.(mp4|mov|webm)$/i.test(item.name)
+  const isPdf = /\.pdf$/i.test(item.file_url) || /\.pdf$/i.test(item.name)
   const allChecked = CHECKLIST_ITEMS.every(c => checklist[c.key])
 
   const handleSubmit = () => {
@@ -1052,6 +1068,17 @@ const ReviewModal: React.FC<{
                       <ZoomIn className="h-5 w-5 text-white" />
                     </div>
                   </>
+                ) : isVideo ? (
+                  <video 
+                    src={item.file_url} 
+                    controls
+                    className="w-full h-full object-contain bg-black"
+                  />
+                ) : isPdf ? (
+                  <iframe 
+                    src={`${item.file_url}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} 
+                    className="w-full h-full border-0" 
+                  />
                 ) : (
                   <div className="w-full h-full flex flex-col items-center justify-center">
                     <FileImage className="h-16 w-16 text-gray-300 mb-2" />
