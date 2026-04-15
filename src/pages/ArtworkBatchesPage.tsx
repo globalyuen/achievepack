@@ -4,7 +4,7 @@ import {
   ArrowLeft, Plus, Search, Upload, Trash2, Eye, Copy, Check, 
   RefreshCw, Sparkles, X, ChevronRight, Lock, Mail, ExternalLink,
   CheckCircle, Clock, AlertCircle, FileImage, Download, MoreHorizontal,
-  Folder, Package, Code, ArrowUpDown, ArrowUp, ArrowDown, Link2, Pencil
+  Folder, Package, Code, ArrowUpDown, ArrowUp, ArrowDown, Link2, Pencil, Files
 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, ArtworkBatch, ArtworkBatchItem } from '../lib/supabase'
@@ -69,6 +69,9 @@ const ArtworkBatchesPage: React.FC = () => {
   const [editingFileName, setEditingFileName] = useState<string | null>(null)
   const [fileNameValue, setFileNameValue] = useState('')
   const [savingFileName, setSavingFileName] = useState(false)
+
+  // Clone batch state
+  const [cloningBatch, setCloningBatch] = useState(false)
 
   // Fetch batches with actual item counts
   const fetchBatches = useCallback(async () => {
@@ -579,6 +582,67 @@ const ArtworkBatchesPage: React.FC = () => {
     }
   }
 
+  // Clone batch
+  const handleCloneBatch = async () => {
+    if (!selectedBatch || cloningBatch) return
+    
+    if (!confirm('Clone this entire batch? It will copy all artworks & passwords into a new batch link.')) return
+
+    setCloningBatch(true)
+    try {
+      // 1. Create new batch
+      const newBatchName = `${selectedBatch.batch_name} (Copy)`
+      const { data: newBatch, error: batchError } = await supabase
+        .from('artwork_batches')
+        .insert({
+          batch_name: newBatchName,
+          password: selectedBatch.password,
+          customer_email: selectedBatch.customer_email,
+          customer_name: selectedBatch.customer_name,
+          status: 'pending',
+          total_items: selectedBatch.total_items,
+          approved_count: 0,
+          rejected_count: 0,
+          created_by: user?.id || null
+        })
+        .select()
+        .single()
+      
+      if (batchError || !newBatch) throw batchError || new Error("Failed to create new batch")
+
+      // 2. Clone items
+      if (batchItems.length > 0) {
+        const insertItems = batchItems.map(item => ({
+          batch_id: newBatch.id,
+          name: item.name,
+          file_url: item.file_url,
+          file_type: item.file_type,
+          file_size: item.file_size,
+          source_link: item.source_link,
+          ai_analysis: item.ai_analysis,
+          status: 'pending'
+        }))
+        
+        const { error: itemsError } = await supabase
+          .from('artwork_batch_items')
+          .insert(insertItems)
+        
+        if (itemsError) throw itemsError
+      }
+
+      // 3. Update UI
+      fetchBatches()
+      setBatches(prev => [newBatch, ...prev])
+      setSelectedBatch(newBatch)
+      
+    } catch (err) {
+      console.error('Clone batch error:', err)
+      alert('Failed to clone batch')
+    } finally {
+      setCloningBatch(false)
+    }
+  }
+
   // Filter items by search (searches all JSON fields)
   const filteredItems = batchItems.filter(item => {
     if (!searchQuery.trim()) return true
@@ -809,6 +873,15 @@ const ArtworkBatchesPage: React.FC = () => {
                       )}
                     </div>
                     <div className="flex items-center gap-2">
+                      <button
+                        onClick={handleCloneBatch}
+                        disabled={cloningBatch}
+                        className="flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-lg hover:bg-gray-50 transition disabled:opacity-50"
+                        title="Clone entire batch for a new project"
+                      >
+                        {cloningBatch ? <RefreshCw className="h-4 w-4 animate-spin" /> : <Files className="h-4 w-4" />}
+                        <span className="hidden sm:inline text-sm">Clone</span>
+                      </button>
                       <button
                         onClick={handleCopyLink}
                         className="flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-lg hover:bg-gray-50 transition"
