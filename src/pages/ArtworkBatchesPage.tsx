@@ -65,6 +65,11 @@ const ArtworkBatchesPage: React.FC = () => {
   const [batchNameValue, setBatchNameValue] = useState('')
   const [savingBatchName, setSavingBatchName] = useState(false)
 
+  // File rename state
+  const [editingFileName, setEditingFileName] = useState<string | null>(null)
+  const [fileNameValue, setFileNameValue] = useState('')
+  const [savingFileName, setSavingFileName] = useState(false)
+
   // Fetch batches with actual item counts
   const fetchBatches = useCallback(async () => {
     setLoading(true)
@@ -546,6 +551,34 @@ const ArtworkBatchesPage: React.FC = () => {
     }
   }
 
+  // Rename file
+  const handleRenameFile = async (itemId: string) => {
+    if (savingFileName || !fileNameValue.trim()) return
+    
+    setSavingFileName(true)
+    try {
+      const { error } = await supabase
+        .from('artwork_batch_items')
+        .update({ name: fileNameValue.trim() })
+        .eq('id', itemId)
+      
+      if (error) throw error
+      
+      // Update local state
+      setBatchItems(prev => prev.map(i => 
+        i.id === itemId ? { ...i, name: fileNameValue.trim() } : i
+      ))
+      
+      setEditingFileName(null)
+      setFileNameValue('')
+    } catch (err) {
+      console.error('Rename file error:', err)
+      alert('Failed to rename file')
+    } finally {
+      setSavingFileName(false)
+    }
+  }
+
   // Filter items by search (searches all JSON fields)
   const filteredItems = batchItems.filter(item => {
     if (!searchQuery.trim()) return true
@@ -896,12 +929,13 @@ const ArtworkBatchesPage: React.FC = () => {
                 ) : (
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {filteredItems.map(item => {
-                      const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.file_url)
-                      const isVideo = /\.(mp4|mov|webm)$/i.test(item.file_url)
+                      const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.file_url) || /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.name)
+                      const isVideo = /\.(mp4|mov|webm)$/i.test(item.file_url) || /\.(mp4|mov|webm)$/i.test(item.name)
+                      const isPdf = /\.pdf$/i.test(item.file_url) || /\.pdf$/i.test(item.name)
                       return (
                         <div key={item.id} className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition">
                           {/* Preview */}
-                          <div className="aspect-[4/3] bg-gray-100 relative">
+                          <div className="aspect-[4/3] bg-gray-100 relative group overflow-hidden">
                             {isImage ? (
                               <img 
                                 src={item.file_url} 
@@ -913,6 +947,12 @@ const ArtworkBatchesPage: React.FC = () => {
                                 src={item.file_url} 
                                 controls
                                 className="w-full h-full object-contain bg-black"
+                              />
+                            ) : isPdf ? (
+                              <iframe 
+                                src={`${item.file_url}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} 
+                                className="w-full h-full border-0 pointer-events-none" 
+                                scrolling="no"
                               />
                             ) : (
                               <div className="w-full h-full flex items-center justify-center">
@@ -936,7 +976,53 @@ const ArtworkBatchesPage: React.FC = () => {
                           
                           {/* Info */}
                           <div className="p-4">
-                            <h3 className="font-medium text-gray-900 truncate" title={item.name}>{item.name}</h3>
+                            {editingFileName === item.id ? (
+                              <div className="flex items-center gap-2 mb-2">
+                                <input
+                                  type="text"
+                                  value={fileNameValue}
+                                  onChange={(e) => setFileNameValue(e.target.value)}
+                                  className="flex-1 px-2 py-1 text-sm font-medium border border-gray-300 rounded focus:ring-1 focus:ring-primary-500 focus:border-primary-500"
+                                  autoFocus
+                                  onKeyDown={(e) => {
+                                    if (e.key === 'Enter') handleRenameFile(item.id)
+                                    if (e.key === 'Escape') {
+                                      setEditingFileName(null)
+                                      setFileNameValue('')
+                                    }
+                                  }}
+                                />
+                                <button
+                                  onClick={() => handleRenameFile(item.id)}
+                                  disabled={savingFileName}
+                                  className="p-1 text-green-600 hover:bg-green-50 rounded"
+                                >
+                                  {savingFileName ? <RefreshCw className="h-3 w-3 animate-spin" /> : <Check className="h-3 w-3" />}
+                                </button>
+                                <button
+                                  onClick={() => {
+                                    setEditingFileName(null)
+                                    setFileNameValue('')
+                                  }}
+                                  className="p-1 text-gray-400 hover:bg-gray-100 rounded"
+                                >
+                                  <X className="h-3 w-3" />
+                                </button>
+                              </div>
+                            ) : (
+                              <h3 className="font-medium text-gray-900 truncate flex items-center justify-between group/name" title={item.name}>
+                                <span className="truncate">{item.name}</span>
+                                <button 
+                                  onClick={() => {
+                                    setFileNameValue(item.name)
+                                    setEditingFileName(item.id)
+                                  }}
+                                  className="opacity-0 group-hover/name:opacity-100 p-1 text-gray-400 hover:text-primary-600 rounded transition"
+                                >
+                                  <Pencil className="h-3 w-3" />
+                                </button>
+                              </h3>
+                            )}
                             {item.ai_analysis?.title && (
                               <p className="text-sm text-gray-500 truncate mt-1">{item.ai_analysis.title}</p>
                             )}
