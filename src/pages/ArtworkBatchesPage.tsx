@@ -47,6 +47,8 @@ const ArtworkBatchesPage: React.FC = () => {
   
   // Copy link state
   const [copiedLink, setCopiedLink] = useState(false)
+  const [copiedPasswordOnly, setCopiedPasswordOnly] = useState(false)
+  const [copiedLinkOnly, setCopiedLinkOnly] = useState(false)
   
   // JSON preview state
   const [showJsonModal, setShowJsonModal] = useState(false)
@@ -497,6 +499,21 @@ const ArtworkBatchesPage: React.FC = () => {
     setTimeout(() => setCopiedLink(false), 2000)
   }
 
+  const handleCopyPasswordOnly = () => {
+    if (!selectedBatch) return
+    navigator.clipboard.writeText(selectedBatch.password)
+    setCopiedPasswordOnly(true)
+    setTimeout(() => setCopiedPasswordOnly(false), 2000)
+  }
+
+  const handleCopyLinkOnly = () => {
+    if (!selectedBatch) return
+    const link = `${window.location.origin}/artwork-review/${selectedBatch.id}`
+    navigator.clipboard.writeText(link)
+    setCopiedLinkOnly(true)
+    setTimeout(() => setCopiedLinkOnly(false), 2000)
+  }
+
   // Save source link for artwork item
   const handleSaveSourceLink = async (itemId: string) => {
     if (savingSourceLink) return
@@ -910,17 +927,35 @@ const ArtworkBatchesPage: React.FC = () => {
                   
                   {/* Password & Link Info */}
                   <div className="mt-4 p-4 bg-gray-50 rounded-lg">
-                    <div className="flex items-center gap-2 text-sm">
-                      <Lock className="h-4 w-4 text-gray-500" />
-                      <span className="text-gray-600">Password:</span>
-                      <code className="px-2 py-0.5 bg-white rounded border text-gray-800">{selectedBatch.password}</code>
+                    <div className="flex items-center justify-between text-sm">
+                      <div className="flex items-center gap-2">
+                        <Lock className="h-4 w-4 text-gray-500" />
+                        <span className="text-gray-600">Password:</span>
+                        <code className="px-2 py-0.5 bg-white rounded border text-gray-800">{selectedBatch.password}</code>
+                      </div>
+                      <button
+                        onClick={handleCopyPasswordOnly}
+                        className="p-1 text-gray-400 hover:text-gray-700 hover:bg-gray-200 rounded transition"
+                        title="Copy Password"
+                      >
+                        {copiedPasswordOnly ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4" />}
+                      </button>
                     </div>
-                    <div className="flex items-center gap-2 text-sm mt-2">
-                      <ExternalLink className="h-4 w-4 text-gray-500" />
-                      <span className="text-gray-600">Review Link:</span>
-                      <code className="px-2 py-0.5 bg-white rounded border text-gray-800 text-xs truncate max-w-md">
-                        {window.location.origin}/artwork-review/{selectedBatch.id}
-                      </code>
+                    <div className="flex items-center justify-between text-sm mt-3 pt-3 border-t border-gray-200">
+                      <div className="flex items-center gap-2 overflow-hidden pr-2">
+                        <ExternalLink className="h-4 w-4 text-gray-500 flex-shrink-0" />
+                        <span className="text-gray-600 flex-shrink-0">Review Link:</span>
+                        <code className="px-2 py-0.5 bg-white rounded border text-gray-800 text-xs truncate max-w-md">
+                          {window.location.origin}/artwork-review/{selectedBatch.id}
+                        </code>
+                      </div>
+                      <button
+                        onClick={handleCopyLinkOnly}
+                        className="p-1 text-gray-400 hover:text-gray-700 hover:bg-gray-200 rounded transition flex-shrink-0"
+                        title="Copy Link"
+                      >
+                        {copiedLinkOnly ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4" />}
+                      </button>
                     </div>
                   </div>
                 </div>
