@@ -62,7 +62,8 @@ const CheckoutPage: React.FC = () => {
             quantity: item.quantity,
             unitPrice: item.unitPrice,
             totalPrice: item.totalPrice,
-            customSize: item.customSize
+            customSize: item.customSize,
+            configurationLink: item.configurationLink
           })),
           contact_info: {
             email: formData.email,

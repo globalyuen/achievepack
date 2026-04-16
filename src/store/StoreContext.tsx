@@ -34,6 +34,7 @@ export interface CartItem {
   }
   // NEW: Flag to indicate if this is an RFQ item
   isRfqItem?: boolean
+  configurationLink?: string
 }
 
 interface StoreContextType {

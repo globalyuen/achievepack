@@ -791,7 +791,8 @@ const ProductPage: React.FC = () => {
       },
       quantity: 1,
       unitPrice: totalPrice,
-      totalPrice: totalPrice
+      totalPrice: totalPrice,
+      configurationLink: window.location.href
     }
     
     // For custom products, add to RFQ instead of cart
@@ -1409,7 +1410,8 @@ const ProductPage: React.FC = () => {
                       variant: { shape: conventionalProduct.shape, size: selectedConvSize, material: product.name.includes('Metalised') ? 'Mattopp/VMPET/LLDPE' : 'Glossy PET/LLDPE' },
                       quantity: 1,
                       unitPrice: conventionalPrice.total,
-                      totalPrice: conventionalPrice.total
+                      totalPrice: conventionalPrice.total,
+                      configurationLink: window.location.href
                     })
                   }} 
                   className="flex-1 py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2"
@@ -1998,7 +2000,8 @@ const ProductPage: React.FC = () => {
                       variant: { shape: ecoStockProduct.shape, size: cartSize, material: ecoStockProduct.material },
                       quantity: 1,
                       unitPrice: cartPrice,
-                      totalPrice: cartPrice
+                      totalPrice: cartPrice,
+                      configurationLink: window.location.href
                     }
                     
                     // For custom products (boxes, eco-stock custom print), add to RFQ

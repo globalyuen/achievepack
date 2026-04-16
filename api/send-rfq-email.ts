@@ -131,8 +131,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                   ${items.map((item: any) => `
                     <div style="padding: 8px; margin: 4px 0; background: white; border-radius: 4px;">
                       <strong>${item.name}</strong><br>
-                      ${item.variant ? `Variant: ${item.variant}<br>` : ''}
-                      Quantity: ${item.quantity}${item.customSize ? ` | Size: ${item.customSize}` : ''}
+                      ${item.variant ? `Variant: ${typeof item.variant === 'object' ? Object.entries(item.variant).filter(([_,v])=>v).map(([k,v]) => `${k}: ${v}`).join(', ') : item.variant}<br>` : ''}
+                      Quantity: ${item.quantity}${item.customSize ? ` | Size: ${item.customSize.width}x${item.customSize.height}mm${item.customSize.gusset ? ' + ' + item.customSize.gusset + 'mm' : ''}` : ''}
+                      ${item.configurationLink ? `<br><a href="${item.configurationLink}" target="_blank" style="color: #2563eb; font-size: 13px; font-weight: 600; text-decoration: underline; margin-top: 5px; display: inline-block;">View Configuration →</a>` : ''}
                     </div>
                   `).join('')}
                 </div>
