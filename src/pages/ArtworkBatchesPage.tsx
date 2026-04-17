@@ -4,7 +4,7 @@ import {
   ArrowLeft, Plus, Search, Upload, Trash2, Eye, Copy, Check, 
   RefreshCw, Sparkles, X, ChevronRight, Lock, Mail, ExternalLink,
   CheckCircle, Clock, AlertCircle, FileImage, Download, MoreHorizontal,
-  Folder, Package, Code, ArrowUpDown, ArrowUp, ArrowDown, Link2, Pencil, Files
+  Folder, Package, Code, ArrowUpDown, ArrowUp, ArrowDown, Link2, Pencil, Files, Pin
 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, ArtworkBatch, ArtworkBatchItem } from '../lib/supabase'
@@ -74,6 +74,9 @@ const ArtworkBatchesPage: React.FC = () => {
 
   // Clone batch state
   const [cloningBatch, setCloningBatch] = useState(false)
+
+  // Pin functionality state
+  const [copyTargetItem, setCopyTargetItem] = useState<ArtworkBatchItem | null>(null)
 
   // Fetch batches with actual item counts
   const fetchBatches = useCallback(async () => {
@@ -200,8 +203,13 @@ const ArtworkBatchesPage: React.FC = () => {
       })
     }
     
-    // Sort by date
+    // Sort by pinned status first, then by date
     result.sort((a, b) => {
+      const aPinned = a.batch_name.startsWith('📌 ');
+      const bPinned = b.batch_name.startsWith('📌 ');
+      if (aPinned && !bPinned) return -1;
+      if (!aPinned && bPinned) return 1;
+
       const dateA = new Date(a.created_at).getTime()
       const dateB = new Date(b.created_at).getTime()
       return sortOrder === 'newest' ? dateB - dateA : dateA - dateB
@@ -660,6 +668,62 @@ const ArtworkBatchesPage: React.FC = () => {
     }
   }
 
+  // Toggle Pin Batch
+  const handleTogglePinBatch = async (batch: ArtworkBatch) => {
+    const isPinned = batch.batch_name.startsWith('📌 ');
+    const newName = isPinned ? batch.batch_name.replace('📌 ', '') : '📌 ' + batch.batch_name;
+    
+    try {
+      const { error } = await supabase
+        .from('artwork_batches')
+        .update({ batch_name: newName })
+        .eq('id', batch.id);
+
+      if (error) throw error;
+
+      if (selectedBatch?.id === batch.id) {
+        setSelectedBatch({ ...selectedBatch, batch_name: newName });
+      }
+      setBatches(prev => prev.map(b => 
+        b.id === batch.id ? { ...b, batch_name: newName } : b
+      ));
+    } catch (err) {
+      console.error('Toggle pin error:', err);
+      alert('Failed to pin/unpin batch');
+    }
+  }
+
+  // Copy to Pinned Batch
+  const handleCopyToPinnedBatch = async (targetBatchId: string) => {
+    if (!copyTargetItem) return;
+    try {
+      const { data, error } = await supabase.from('artwork_batch_items').insert({
+        batch_id: targetBatchId,
+        name: copyTargetItem.name,
+        file_url: copyTargetItem.file_url,
+        file_type: copyTargetItem.file_type,
+        file_size: copyTargetItem.file_size,
+        status: 'pending',
+        ai_analysis: copyTargetItem.ai_analysis,
+        source_link: copyTargetItem.source_link
+      }).select().single();
+      
+      if (error) throw error;
+      
+      const targetBatch = batches.find(b => b.id === targetBatchId);
+      if (targetBatch) {
+        await supabase.from('artwork_batches').update({ total_items: targetBatch.total_items + 1 }).eq('id', targetBatchId);
+        setBatches(prev => prev.map(b => b.id === targetBatchId ? { ...b, total_items: b.total_items + 1 } : b));
+      }
+
+      setCopyTargetItem(null);
+      alert('Artwork successfully saved template library pinned batch!');
+    } catch (err) {
+      console.error('Copy to pinned batch error:', err);
+      alert('Failed to copy artwork');
+    }
+  }
+
   // Filter items by search (searches all JSON fields)
   const filteredItems = batchItems.filter(item => {
     if (!searchQuery.trim()) return true
@@ -890,6 +954,14 @@ const ArtworkBatchesPage: React.FC = () => {
                       )}
                     </div>
                     <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => handleTogglePinBatch(selectedBatch)}
+                        className={`flex items-center gap-2 px-4 py-2 border rounded-lg transition ${selectedBatch.batch_name.startsWith('📌 ') ? 'bg-primary-50 border-primary-200 text-primary-700' : 'border-gray-200 hover:bg-gray-50'}`}
+                        title={selectedBatch.batch_name.startsWith('📌 ') ? "Unpin Batch" : "Pin Batch for Templates"}
+                      >
+                        <Pin className={`h-4 w-4 ${selectedBatch.batch_name.startsWith('📌 ') ? 'fill-current' : ''}`} />
+                        <span className="hidden sm:inline text-sm">{selectedBatch.batch_name.startsWith('📌 ') ? 'Pinned' : 'Pin'}</span>
+                      </button>
                       <button
                         onClick={handleCloneBatch}
                         disabled={cloningBatch}
@@ -1258,6 +1330,14 @@ const ArtworkBatchesPage: React.FC = () => {
                                   )}
                                 </button>
                               )}
+                              {/* Save to Pinned Batch Button */}
+                              <button
+                                onClick={() => setCopyTargetItem(item)}
+                                className="p-2 text-primary-500 hover:text-primary-700 hover:bg-primary-50 rounded-lg transition"
+                                title="Save to Pinned Batch (Template Library)"
+                              >
+                                <Pin className="h-4 w-4" />
+                              </button>
                               <button
                                 onClick={() => handleDeleteItem(item.id)}
                                 className="p-2 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition ml-auto"
@@ -1390,6 +1470,52 @@ const ArtworkBatchesPage: React.FC = () => {
                 className="flex-1 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition disabled:opacity-50"
               >
                 {creating ? 'Creating...' : 'Create Batch'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Save to Pinned Batch Modal */}
+      {copyTargetItem && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
+          <div className="bg-white rounded-2xl max-w-md w-full p-6">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-xl font-bold text-gray-900">Save to Pinned Batch</h2>
+              <button onClick={() => setCopyTargetItem(null)} className="text-gray-400 hover:text-gray-600">
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+            
+            <p className="text-sm text-gray-600 mb-4">
+              Select a pinned batch to save <strong>{copyTargetItem.name}</strong> as a reusable template.
+            </p>
+
+            <div className="space-y-2 max-h-60 overflow-y-auto border border-gray-200 rounded-lg p-2 mb-6">
+              {batches.filter(b => b.batch_name.startsWith('📌 ')).length === 0 ? (
+                <div className="p-4 text-center text-gray-500 text-sm">
+                  No pinned batches found. Pin a batch first to use it as a template library.
+                </div>
+              ) : (
+                batches.filter(b => b.batch_name.startsWith('📌 ')).map(b => (
+                  <button
+                    key={b.id}
+                    onClick={() => handleCopyToPinnedBatch(b.id)}
+                    className="w-full text-left px-4 py-3 rounded-lg hover:bg-primary-50 hover:text-primary-700 transition border border-transparent hover:border-primary-100 flex items-center justify-between group"
+                  >
+                    <span className="font-medium truncate">{b.batch_name}</span>
+                    <Pin className="h-4 w-4 opacity-0 group-hover:opacity-100 transition" />
+                  </button>
+                ))
+              )}
+            </div>
+            
+            <div className="flex gap-3 mt-4">
+              <button
+                onClick={() => setCopyTargetItem(null)}
+                className="flex-1 px-4 py-2 border border-gray-200 bg-gray-50 text-gray-700 rounded-lg hover:bg-gray-100 transition"
+              >
+                Cancel
               </button>
             </div>
           </div>
