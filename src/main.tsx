@@ -436,6 +436,7 @@ const DocumentTemplatesPage = lazyWithRetry(() => import('./pages/admin/Document
 const ImageGeneratorPage = lazyWithRetry(() => import('./pages/admin/ImageGeneratorPage'))
 const DailyReportsPage = lazyWithRetry(() => import('./pages/admin/DailyReportsPage'))
 
+import AdminProtectedRoute from './components/admin/AdminProtectedRoute'
 // Cookie Consent Component
 import CookieConsent from './components/CookieConsent'
 
@@ -548,14 +549,14 @@ if (getDomain() === 'pouch') {
                         <Route path="/terms" element={<TermsPage />} />
                         <Route path="/terms-of-use" element={<TermsOfUsePage />} />
                         <Route path="/contact" element={<ContactPage />} />
-                        <Route path="/ctrl-x9k7m" element={<AdminPage />} />
-                        <Route path="/ctrl-x9k7m/management" element={<OrderManagementPage />} />
-                        <Route path="/ctrl-x9k7m/order-workflow" element={<OrderWorkflowPage />} />
-                        <Route path="/ctrl-x9k7m/customer-map" element={<CustomerMapPage />} />
+                        <Route path="/ctrl-x9k7m" element={<AdminProtectedRoute><AdminPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/management" element={<AdminProtectedRoute><OrderManagementPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/order-workflow" element={<AdminProtectedRoute><OrderWorkflowPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/customer-map" element={<AdminProtectedRoute><CustomerMapPage /></AdminProtectedRoute>} />
                         <Route path="/image-catalog" element={<ImageCatalogPage />} />
-                        <Route path="/ctrl-x9k7m/artwork-hub" element={<ArtworkHubPage />} />
-                        <Route path="/ctrl-x9k7m/artwork-batches" element={<ArtworkBatchesPage />} />
-                        <Route path="/ctrl-x9k7m/quotations" element={<QuotationBatchesPage />} />
+                        <Route path="/ctrl-x9k7m/artwork-hub" element={<AdminProtectedRoute><ArtworkHubPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/artwork-batches" element={<AdminProtectedRoute><ArtworkBatchesPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/quotations" element={<AdminProtectedRoute><QuotationBatchesPage /></AdminProtectedRoute>} />
                         <Route path="/quote/coffee-pouch-2025" element={<CoffeePouchQuotePage />} />
                         <Route path="/quotes/flat-bottom" element={<FlatBottomQuotePage />} />
                         <Route path="/quotes/three-side-seal" element={<ThreeSideSealQuotePage />} />
@@ -566,15 +567,15 @@ if (getDomain() === 'pouch') {
                         <Route path="/artwork-review/:batchId" element={<ArtworkReviewPage />} />
                         
                         {/* Prospect Finder Routes */}
-                        <Route path="/ctrl-x9k7m/prospects" element={<ProspectFinderPage />} />
-                        <Route path="/ctrl-x9k7m/prospects/lists" element={<ProspectListsPage />} />
+                        <Route path="/ctrl-x9k7m/prospects" element={<AdminProtectedRoute><ProspectFinderPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/prospects/lists" element={<AdminProtectedRoute><ProspectListsPage /></AdminProtectedRoute>} />
 
                         {/* Shipment Document Hub Routes */}
-                        <Route path="/ctrl-x9k7m/shipments" element={<ShipmentHubPage />} />
-                        <Route path="/ctrl-x9k7m/shipments/:id" element={<ShipmentDetailPage />} />
-                        <Route path="/ctrl-x9k7m/document-templates" element={<DocumentTemplatesPage />} />
-                        <Route path="/ctrl-x9k7m/daily-reports" element={<DailyReportsPage />} />
-                                              <Route path="/ctrl-x9k7m/ai-image" element={<ImageGeneratorPage />} />
+                        <Route path="/ctrl-x9k7m/shipments" element={<AdminProtectedRoute><ShipmentHubPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/shipments/:id" element={<AdminProtectedRoute><ShipmentDetailPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/document-templates" element={<AdminProtectedRoute><DocumentTemplatesPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/daily-reports" element={<AdminProtectedRoute><DailyReportsPage /></AdminProtectedRoute>} />
+                                              <Route path="/ctrl-x9k7m/ai-image" element={<AdminProtectedRoute><ImageGeneratorPage /></AdminProtectedRoute>} />
                         <Route path="/shipment/:batchId" element={<ShipmentTrackingPage />} />
 
                         <Route path="/view-quote/:id" element={<SharedQuotePage />} />
