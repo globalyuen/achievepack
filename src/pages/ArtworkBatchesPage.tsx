@@ -1274,8 +1274,8 @@ const ArtworkBatchesPage: React.FC = () => {
                                     >
                                       <Download className="h-3 w-3 flex-shrink-0" />
                                       <span className="truncate font-mono tracking-tight" style={{ fontSize: '10px' }}>
-                                        {item.source_link.length > 45
-                                          ? `${item.source_link.substring(0, 28)}...${item.source_link.substring(item.source_link.length - 14)}`
+                                        {item.source_link.length > 15
+                                          ? `...${item.source_link.slice(-10)}`
                                           : item.source_link}
                                       </span>
                                     </a>
