@@ -24,101 +24,129 @@ const SampleQuotePage: React.FC = () => {
           content: (
             <div className="grid md:grid-cols-3 gap-8">
               {/* Option 1 */}
-              <div className="bg-white border border-neutral-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition group overflow-hidden relative">
-                <div className="absolute top-0 right-0 bg-primary-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">Fastest</div>
-                <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                  <Palette className="h-6 w-6 text-primary-600" />
+              <div className="bg-white border border-neutral-200 rounded-2xl p-0 shadow-sm hover:shadow-md transition group overflow-hidden relative flex flex-col">
+                <div className="absolute top-0 right-0 z-10 bg-primary-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">Fastest</div>
+                <div className="aspect-[4/5] overflow-hidden bg-neutral-100">
+                  <img 
+                    src="/imgs/samples/sample-handmake.png" 
+                    alt="Material Prototype Handmake Sample" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                  />
                 </div>
-                <h3 className="text-xl font-bold text-neutral-900 mb-2">Material Prototype</h3>
-                <div className="text-3xl font-extrabold text-primary-600 mb-4">$200 <span className="text-sm text-neutral-400 font-normal">/ unit</span></div>
-                <p className="text-sm text-neutral-600 mb-6">Handcrafted sample used to verify sizing, material feel, and basic construction. Not for commercial use.</p>
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-start gap-2 text-sm text-neutral-700">
-                    <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
-                    Custom Digital Print
-                  </li>
-                  <li className="flex items-start gap-2 text-sm text-neutral-700">
-                    <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
-                    Hand-trimmed & Sealed
-                  </li>
-                  <li className="flex items-start gap-2 text-sm text-neutral-700">
-                    <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
-                    Verify Dimensions
-                  </li>
-                </ul>
-                <a 
-                  href="https://calendly.com/30-min-free-packaging-consultancy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-3 bg-neutral-900 text-white rounded-lg font-bold hover:bg-neutral-800 transition flex items-center justify-center gap-2"
-                >
-                  Request Sample <ArrowRight className="h-4 w-4" />
-                </a>
+                <div className="p-6 pt-8 relative flex-grow flex flex-col">
+                  <div className="absolute -top-6 left-6 w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center border border-neutral-100 group-hover:scale-110 transition">
+                    <Palette className="h-6 w-6 text-primary-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-neutral-900 mb-2">Material Prototype</h3>
+                  <div className="text-3xl font-extrabold text-primary-600 mb-4">$200 <span className="text-sm text-neutral-400 font-normal">/ unit</span></div>
+                  <p className="text-sm text-neutral-600 mb-6">Handcrafted sample used to verify sizing, material feel, and basic construction. Not for commercial use.</p>
+                  <ul className="space-y-3 mb-8 flex-grow">
+                    <li className="flex items-start gap-2 text-sm text-neutral-700">
+                      <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
+                      Custom Digital Print
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-neutral-700">
+                      <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
+                      Hand-trimmed & Sealed
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-neutral-700">
+                      <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
+                      Verify Dimensions
+                    </li>
+                  </ul>
+                  <a 
+                    href="https://calendly.com/30-min-free-packaging-consultancy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3 bg-neutral-900 text-white rounded-lg font-bold hover:bg-neutral-800 transition flex items-center justify-center gap-2"
+                  >
+                    Request Sample <ArrowRight className="h-4 w-4" />
+                  </a>
+                </div>
               </div>
 
               {/* Option 2 */}
-              <div className="bg-white border-2 border-primary-500 rounded-2xl p-6 shadow-md hover:shadow-lg transition group relative">
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary-500 text-white text-[10px] font-bold px-4 py-1 rounded-full uppercase tracking-widest ring-4 ring-white">Most Popular</div>
-                <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                  <Factory className="h-6 w-6 text-primary-600" />
+              <div className="bg-white border-2 border-primary-500 rounded-2xl p-0 shadow-md hover:shadow-lg transition group relative overflow-hidden flex flex-col">
+                <div className="absolute top-0 right-0 z-10 bg-primary-500 text-white text-[10px] font-bold px-4 py-1 rounded-bl-xl uppercase tracking-widest ring-4 ring-white/20">Most Popular</div>
+                <div className="aspect-[4/5] overflow-hidden bg-neutral-100">
+                  <img 
+                    src="/imgs/samples/sample-commercial.png" 
+                    alt="Final Product Commercial Sample" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                  />
                 </div>
-                <h3 className="text-xl font-bold text-neutral-900 mb-2">Final Product Sample</h3>
-                <div className="text-3xl font-extrabold text-primary-600 mb-4">$400 <span className="text-sm text-neutral-400 font-normal">/ unit</span></div>
-                <p className="text-sm text-neutral-600 mb-6">Produced on commercial assembly lines. Includes all features like zippers and vales. Perfect for retail pitch.</p>
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-start gap-2 text-sm text-neutral-700">
-                    <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
-                    Commercial Craftsmanship
-                  </li>
-                  <li className="flex items-start gap-2 text-sm text-neutral-700">
-                    <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
-                    Full Feature Set (Zip/Valve)
-                  </li>
-                  <li className="flex items-start gap-2 text-sm text-neutral-700">
-                    <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
-                    Retail-Ready Quality
-                  </li>
-                </ul>
-                <a 
-                  href="https://calendly.com/30-min-free-packaging-consultancy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-3 bg-primary-600 text-white rounded-lg font-bold hover:bg-primary-700 transition flex items-center justify-center gap-2"
-                >
-                  Order Prototype <ArrowRight className="h-4 w-4" />
-                </a>
+                <div className="p-6 pt-8 relative flex-grow flex flex-col">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary-500 text-white text-[10px] font-bold px-4 py-1 rounded-full uppercase tracking-widest ring-4 ring-white hidden">Most Popular</div>
+                  <div className="absolute -top-6 left-6 w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center border border-primary-100 group-hover:scale-110 transition">
+                    <Factory className="h-6 w-6 text-primary-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-neutral-900 mb-2">Final Product Sample</h3>
+                  <div className="text-3xl font-extrabold text-primary-600 mb-4">$400 <span className="text-sm text-neutral-400 font-normal">/ unit</span></div>
+                  <p className="text-sm text-neutral-600 mb-6 font-medium">Produced on commercial assembly lines. Includes all features like zippers and vales. Perfect for retail pitch.</p>
+                  <ul className="space-y-3 mb-8 flex-grow">
+                    <li className="flex items-start gap-2 text-sm text-neutral-700 font-semibold">
+                      <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
+                      Commercial Craftsmanship
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-neutral-700 font-semibold">
+                      <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
+                      Full Feature Set (Zip/Valve)
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-neutral-700 font-semibold">
+                      <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
+                      Retail-Ready Quality
+                    </li>
+                  </ul>
+                  <a 
+                    href="https://calendly.com/30-min-free-packaging-consultancy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3 bg-primary-600 text-white rounded-lg font-bold hover:bg-primary-700 transition flex items-center justify-center gap-2"
+                  >
+                    Order Prototype <ArrowRight className="h-4 w-4" />
+                  </a>
+                </div>
               </div>
 
               {/* Option 3 */}
-              <div className="bg-white border border-neutral-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition group">
-                <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                  <ScrollText className="h-6 w-6 text-primary-600" />
+              <div className="bg-white border border-neutral-200 rounded-2xl p-0 shadow-sm hover:shadow-md transition group overflow-hidden flex flex-col">
+                <div className="aspect-[4/5] overflow-hidden bg-neutral-100">
+                  <img 
+                    src="/imgs/samples/sample-sheet.png" 
+                    alt="Artwork Print Proof Sample" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                  />
                 </div>
-                <h3 className="text-xl font-bold text-neutral-900 mb-2">Artwork Print Only</h3>
-                <div className="text-3xl font-extrabold text-primary-600 mb-4">$100 <span className="text-sm text-neutral-400 font-normal">/ unit</span></div>
-                <p className="text-sm text-neutral-600 mb-6">Flat sheet samples to check color accuracy, gradient smoothness, and material finish interactions.</p>
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-start gap-2 text-sm text-neutral-700">
-                    <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
-                    Verify Color Match
-                  </li>
-                  <li className="flex items-start gap-2 text-sm text-neutral-700">
-                    <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
-                    A3/A4 Flat Format
-                  </li>
-                  <li className="flex items-start gap-2 text-sm text-neutral-700">
-                    <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
-                    Check Material Grains
-                  </li>
-                </ul>
-                <a 
-                  href="https://calendly.com/30-min-free-packaging-consultancy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-3 bg-neutral-900 text-white rounded-lg font-bold hover:bg-neutral-800 transition flex items-center justify-center gap-2"
-                >
-                  Get Print Proof <ArrowRight className="h-4 w-4" />
-                </a>
+                <div className="p-6 pt-8 relative flex-grow flex flex-col">
+                  <div className="absolute -top-6 left-6 w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center border border-neutral-100 group-hover:scale-110 transition">
+                    <ScrollText className="h-6 w-6 text-primary-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-neutral-900 mb-2">Artwork Print Only</h3>
+                  <div className="text-3xl font-extrabold text-primary-600 mb-4">$100 <span className="text-sm text-neutral-400 font-normal">/ unit</span></div>
+                  <p className="text-sm text-neutral-600 mb-6">Flat sheet samples to check color accuracy, gradient smoothness, and material finish interactions.</p>
+                  <ul className="space-y-3 mb-8 flex-grow">
+                    <li className="flex items-start gap-2 text-sm text-neutral-700">
+                      <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
+                      Verify Color Match
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-neutral-700">
+                      <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
+                      A3/A4 Flat Format
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-neutral-700">
+                      <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
+                      Check Material Grains
+                    </li>
+                  </ul>
+                  <a 
+                    href="https://calendly.com/30-min-free-packaging-consultancy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3 bg-neutral-900 text-white rounded-lg font-bold hover:bg-neutral-800 transition flex items-center justify-center gap-2"
+                  >
+                    Get Print Proof <ArrowRight className="h-4 w-4" />
+                  </a>
+                </div>
               </div>
             </div>
           )
