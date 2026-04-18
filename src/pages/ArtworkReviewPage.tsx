@@ -682,7 +682,7 @@ const ArtworkReviewPage: React.FC = () => {
                 
                 {/* Info */}
                 <div className="p-3">
-                  <h3 className="font-medium text-gray-900 truncate text-sm" title={item.name}>{item.name}</h3>
+                  <h3 className="font-medium text-gray-900 text-xs leading-snug line-clamp-2 break-words" title={item.name}>{item.name}</h3>
                   {item.ai_analysis?.title && (
                     <p className="text-xs text-gray-500 mt-1 truncate">{item.ai_analysis.title}</p>
                   )}
@@ -733,7 +733,7 @@ const ArtworkReviewPage: React.FC = () => {
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
                         className="p-2 text-indigo-500 hover:text-indigo-700 hover:bg-indigo-50 rounded-lg transition"
-                        title="View Original Source Link"
+                        title="View Original Source File"
                       >
                         <ExternalLink className="h-4 w-4" />
                       </a>
@@ -1156,7 +1156,7 @@ const ReviewModal: React.FC<{
               
               <div className="mt-4 flex flex-col gap-3">
                 <div className="flex items-center gap-3">
-                  <p className="font-medium text-gray-900 truncate flex-1">{item.name}</p>
+                  <p className="font-medium text-gray-900 text-sm leading-snug break-words flex-1">{item.name}</p>
                   <a
                     href={item.file_url}
                     target="_blank"
@@ -1164,7 +1164,7 @@ const ReviewModal: React.FC<{
                     className="flex items-center gap-1 text-sm text-primary-600 hover:text-primary-700"
                   >
                     <Download className="h-4 w-4" />
-                    Download Preview
+                    Download press proof
                   </a>
                 </div>
                 
@@ -1173,8 +1173,8 @@ const ReviewModal: React.FC<{
                     <div className="flex items-start gap-2">
                       <AlertTriangle className="h-5 w-5 text-indigo-600 flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="text-sm font-semibold text-indigo-900 mb-1">Preview Image Only</p>
-                        <p className="text-xs text-indigo-700 mb-2">The image shown is a low-resolution preview. Please download the original proof from the source link below for accurate color and dimension confirmation.</p>
+                        <p className="text-sm font-semibold text-indigo-900 mb-1">Original Source File</p>
+                        <p className="text-xs text-indigo-700 mb-2">The image shown is a low-resolution preview. Please download the original source file for accurate color and dimension confirmation.</p>
                         <a
                           href={item.source_link}
                           target="_blank"
@@ -1182,7 +1182,7 @@ const ReviewModal: React.FC<{
                           className="inline-flex items-center gap-1 px-3 py-1.5 bg-indigo-600 text-white text-sm font-medium rounded-md hover:bg-indigo-700 transition"
                         >
                           <ExternalLink className="h-4 w-4" />
-                          Download Original Source Proof
+                          Download Original Source File
                         </a>
                       </div>
                     </div>

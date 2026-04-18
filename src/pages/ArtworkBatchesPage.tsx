@@ -1298,8 +1298,8 @@ const ArtworkBatchesPage: React.FC = () => {
                                 </button>
                               </div>
                             ) : (
-                              <h3 className="font-medium text-gray-900 truncate flex items-center justify-between group/name" title={item.name}>
-                                <span className="truncate">{item.name}</span>
+                              <h3 className="text-xs font-medium text-gray-900 line-clamp-2 leading-snug flex items-start justify-between gap-1 group/name" title={item.name}>
+                                <span className="break-words min-w-0">{item.name}</span>
                                 <button 
                                   onClick={() => {
                                     setFileNameValue(item.name)
@@ -1434,7 +1434,7 @@ const ArtworkBatchesPage: React.FC = () => {
                             {/* Original Artwork Link */}
                             <div className="mt-3 pt-3 border-t border-gray-100">
                               <label className="text-xs font-semibold text-gray-700 block mb-1.5 flex items-center gap-1">
-                                <Link2 className="h-3 w-3" /> Original Artwork Link
+                                <Link2 className="h-3 w-3" /> Original Source File
                               </label>
                               {editingSourceLink === item.id ? (
                                 <div className="flex items-center gap-2">
