@@ -88,6 +88,7 @@ const LEARN_PAGES = {
     pages: [
       { name: 'FAQs', link: '/support/faqs', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
       { name: 'Lead Time', link: '/support/lead-time', image: '/imgs/illustrated/a_lowmoq_warm_3372406.webp' },
+      { name: 'Sample Quote', link: '/support/sample-quote', image: '/imgs/samples/achieve_pack_samples_hero.png' },
     ]
   },
   composting: {

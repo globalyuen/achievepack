@@ -185,6 +185,7 @@ const FinSealLapSealPage = lazyWithRetry(() => import('./pages/knowledge/FinSeal
 // Support Pages - Lazy loaded
 const FAQsPage = lazyWithRetry(() => import('./pages/support/FAQsPage'))
 const LeadTimePage = lazyWithRetry(() => import('./pages/support/LeadTimePage'))
+const SampleQuotePage = lazyWithRetry(() => import('./pages/support/SampleQuotePage'))
 
 // Case Studies Pages - Lazy loaded
 const CoffeeRoasteryCaseStudy = lazyWithRetry(() => import('./pages/case-studies/CoffeeRoasteryCaseStudy'))
@@ -512,6 +513,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/quotes/rollstock" element={<RollstockQuotePage />} />
                   <Route path="/cert" element={<CertificateDownloadPage />} />
                   <Route path="/sample" element={<PouchSampleQuotePage />} />
+                  <Route path="/support/sample-quote" element={<SampleQuotePage />} />
                   {/* Fallback for other routes back to Home or 404, or keep as Home for now */}
                   <Route path="*" element={<PouchHomePage />} />
                 </Routes>
@@ -666,6 +668,7 @@ if (getDomain() === 'pouch') {
                         {/* Support Pages */}
                         <Route path="/support/faqs" element={<FAQsPage />} />
                         <Route path="/support/lead-time" element={<LeadTimePage />} />
+                        <Route path="/support/sample-quote" element={<SampleQuotePage />} />
 
                         {/* Case Studies Pages */}
                         <Route path="/case-studies/coffee-roastery" element={<CoffeeRoasteryCaseStudy />} />

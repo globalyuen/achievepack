@@ -2334,6 +2334,7 @@ function App() {
               <ul className="space-y-1 text-neutral-400 text-xs">
                 <li><Link to="/support/faqs" className="hover:text-primary-500">{t('footer.links.faqs')}</Link></li>
                 <li><Link to="/support/lead-time" className="hover:text-primary-500">{t('footer.links.leadTime')}</Link></li>
+                <li><Link to="/support/sample-quote" className="hover:text-primary-500">Sample Quote</Link></li>
                 <li><Link to="/knowledge/workflow" className="hover:text-primary-500">{t('footer.links.workflow')}</Link></li>
                 <li><Link to="/reviews" className="hover:text-primary-500">Customer Reviews</Link></li>
                 <li><Link to="/company/about" className="hover:text-primary-500">{t('footer.links.aboutUs')}</Link></li>
@@ -2385,6 +2386,7 @@ function App() {
                 <li><Link to="/knowledge/size-guide" className="hover:text-primary-500">Size Reference</Link></li>
                 <li><Link to="/knowledge/all-options" className="hover:text-primary-500">All Options</Link></li>
                 <li><Link to="/knowledge/printing-types" className="hover:text-primary-500">Printing Types</Link></li>
+                <li><Link to="/support/sample-quote" className="hover:text-primary-500 font-medium text-primary-400 flex items-center gap-1">Sample Quote <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
                 <li><Link to="/knowledge/k-seal-stand-up-pouches" className="hover:text-primary-500">K-Seal Pouches</Link></li>
                 <li><Link to="/knowledge/white-ink-underprint" className="hover:text-primary-500">White Ink Underprint</Link></li>
                 <li><Link to="/knowledge/fin-seal-lap-seal" className="hover:text-primary-500">Fin vs Lap Seal</Link></li>

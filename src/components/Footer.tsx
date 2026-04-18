@@ -131,6 +131,7 @@ export default function Footer() {
               <li><Link to="/features/surface-finish" className="hover:text-primary-400">Surface Option</Link></li>
               <li><Link to="/features/reclosure-options" className="hover:text-primary-400">Reclosure Option</Link></li>
               <li><Link to="/knowledge/printing-types" className="hover:text-primary-400">Printing Types</Link></li>
+              <li><Link to="/support/sample-quote" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Sample Quote <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/knowledge/k-seal-stand-up-pouches" className="hover:text-primary-400">K-Seal Pouches</Link></li>
               <li><Link to="/knowledge/white-ink-underprint" className="hover:text-primary-400">White Ink Underprint</Link></li>
               <li><Link to="/knowledge/fin-seal-lap-seal" className="hover:text-primary-400">Fin Seal vs Lap Seal</Link></li>
@@ -143,6 +144,7 @@ export default function Footer() {
             <ul className="space-y-1 text-xs text-neutral-400">
               <li><Link to="/support/faqs" className="hover:text-primary-400">FAQs</Link></li>
               <li><Link to="/support/lead-time" className="hover:text-primary-400">Lead Time</Link></li>
+              <li><Link to="/support/sample-quote" className="hover:text-primary-400">Sample Quote</Link></li>
               <li><Link to="/blog" className="hover:text-primary-400">All Articles</Link></li>
               <li><Link to="/store" className="hover:text-primary-400">Online Store</Link></li>
               <li><Link to="/reviews" className="hover:text-primary-400">Customer Reviews</Link></li>
