@@ -24,12 +24,12 @@ const SampleQuotePage: React.FC = () => {
           content: (
             <div className="grid md:grid-cols-3 gap-8">
               {/* Option 1 */}
-              <div className="bg-white border border-neutral-200 rounded-2xl p-0 shadow-sm hover:shadow-md transition group overflow-hidden relative flex flex-col">
+              <div className="group bg-white border border-neutral-200 rounded-2xl p-0 shadow-sm hover:shadow-md transition overflow-hidden relative flex flex-col">
                 <div className="absolute top-0 right-0 z-10 bg-primary-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">Fastest</div>
-                <div className="aspect-[4/5] overflow-hidden bg-neutral-100">
+                <div className="aspect-[3/4] overflow-hidden bg-neutral-100">
                   <img 
-                    src="/imgs/samples/sample-handmake.png" 
-                    alt="Material Prototype Handmake Sample" 
+                    src="/imgs/samples/achieve-hand-made-sample.png" 
+                    alt="Hand-made material sample" 
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                   />
                 </div>
@@ -39,11 +39,11 @@ const SampleQuotePage: React.FC = () => {
                   </div>
                   <h3 className="text-xl font-bold text-neutral-900 mb-2">Material Prototype</h3>
                   <div className="text-3xl font-extrabold text-primary-600 mb-4">$200 <span className="text-sm text-neutral-400 font-normal">/ unit</span></div>
-                  <p className="text-sm text-neutral-600 mb-6">Handcrafted sample used to verify sizing, material feel, and basic construction. Not for commercial use.</p>
+                  <p className="text-sm text-neutral-600 mb-6">Handcrafted sample used to verify sizing, material feel, and basic construction. Ideal for initial physical check.</p>
                   <ul className="space-y-3 mb-8 flex-grow">
                     <li className="flex items-start gap-2 text-sm text-neutral-700">
                       <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
-                      Custom Digital Print
+                      Digital Pattern Proof
                     </li>
                     <li className="flex items-start gap-2 text-sm text-neutral-700">
                       <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
@@ -66,35 +66,37 @@ const SampleQuotePage: React.FC = () => {
               </div>
 
               {/* Option 2 */}
-              <div className="bg-white border-2 border-primary-500 rounded-2xl p-0 shadow-md hover:shadow-lg transition group relative overflow-hidden flex flex-col">
+              <div className="group bg-white border-2 border-primary-500 rounded-2xl p-0 shadow-md hover:shadow-lg transition relative overflow-hidden flex flex-col">
                 <div className="absolute top-0 right-0 z-10 bg-primary-500 text-white text-[10px] font-bold px-4 py-1 rounded-bl-xl uppercase tracking-widest ring-4 ring-white/20">Most Popular</div>
-                <div className="aspect-[4/5] overflow-hidden bg-neutral-100">
+                <div className="aspect-[3/4] overflow-hidden bg-neutral-100">
                   <img 
-                    src="/imgs/samples/sample-commercial.png" 
-                    alt="Final Product Commercial Sample" 
+                    src="/imgs/samples/achieve-commercial-sample.png" 
+                    alt="Commercial product sample" 
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                   />
                 </div>
                 <div className="p-6 pt-8 relative flex-grow flex flex-col">
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary-500 text-white text-[10px] font-bold px-4 py-1 rounded-full uppercase tracking-widest ring-4 ring-white hidden">Most Popular</div>
                   <div className="absolute -top-6 left-6 w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center border border-primary-100 group-hover:scale-110 transition">
                     <Factory className="h-6 w-6 text-primary-600" />
                   </div>
                   <h3 className="text-xl font-bold text-neutral-900 mb-2">Final Product Sample</h3>
-                  <div className="text-3xl font-extrabold text-primary-600 mb-4">$400 <span className="text-sm text-neutral-400 font-normal">/ unit</span></div>
-                  <p className="text-sm text-neutral-600 mb-6 font-medium">Produced on commercial assembly lines. Includes all features like zippers and vales. Perfect for retail pitch.</p>
+                  <div className="mb-4">
+                    <div className="text-3xl font-extrabold text-primary-600">$400 <span className="text-sm text-neutral-400 font-normal">for Eco Materials</span></div>
+                    <div className="text-sm font-bold text-neutral-500 mt-1 italic">Starts from $100 for conventional plastics</div>
+                  </div>
+                  <p className="text-sm text-neutral-600 mb-6 font-medium">Produced on industrial assembly lines. Perfect for verifying final print quality and commercial functionality.</p>
                   <ul className="space-y-3 mb-8 flex-grow">
                     <li className="flex items-start gap-2 text-sm text-neutral-700 font-semibold">
                       <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
-                      Commercial Craftsmanship
+                      Recyclable/Bio-PE/Compostable
                     </li>
                     <li className="flex items-start gap-2 text-sm text-neutral-700 font-semibold">
                       <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
                       Full Feature Set (Zip/Valve)
                     </li>
                     <li className="flex items-start gap-2 text-sm text-neutral-700 font-semibold">
-                      <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
-                      Retail-Ready Quality
+                      <CheckCircle className="h-4 v-4 text-primary-500 mt-0.5 flex-shrink-0" />
+                      Retail-Ready Standards
                     </li>
                   </ul>
                   <a 
@@ -109,11 +111,11 @@ const SampleQuotePage: React.FC = () => {
               </div>
 
               {/* Option 3 */}
-              <div className="bg-white border border-neutral-200 rounded-2xl p-0 shadow-sm hover:shadow-md transition group overflow-hidden flex flex-col">
-                <div className="aspect-[4/5] overflow-hidden bg-neutral-100">
+              <div className="group bg-white border border-neutral-200 rounded-2xl p-0 shadow-sm hover:shadow-md transition overflow-hidden flex flex-col">
+                <div className="aspect-[3/4] overflow-hidden bg-neutral-100">
                   <img 
-                    src="/imgs/samples/sample-sheet.png" 
-                    alt="Artwork Print Proof Sample" 
+                    src="/imgs/samples/achieve-sheet-sample.png" 
+                    alt="Flat sheet print proof" 
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                   />
                 </div>
@@ -123,19 +125,19 @@ const SampleQuotePage: React.FC = () => {
                   </div>
                   <h3 className="text-xl font-bold text-neutral-900 mb-2">Artwork Print Only</h3>
                   <div className="text-3xl font-extrabold text-primary-600 mb-4">$100 <span className="text-sm text-neutral-400 font-normal">/ unit</span></div>
-                  <p className="text-sm text-neutral-600 mb-6">Flat sheet samples to check color accuracy, gradient smoothness, and material finish interactions.</p>
+                  <p className="text-sm text-neutral-600 mb-6">Commercial press print on a sheet. Ideal for color matching and high-resolution artwork review.</p>
                   <ul className="space-y-3 mb-8 flex-grow">
                     <li className="flex items-start gap-2 text-sm text-neutral-700">
                       <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
-                      Verify Color Match
+                      Verify Color Accuracy
                     </li>
                     <li className="flex items-start gap-2 text-sm text-neutral-700">
                       <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
-                      A3/A4 Flat Format
+                      Sheet Format Proof
                     </li>
                     <li className="flex items-start gap-2 text-sm text-neutral-700">
                       <CheckCircle className="h-4 w-4 text-primary-500 mt-0.5 flex-shrink-0" />
-                      Check Material Grains
+                      Check Material Effects
                     </li>
                   </ul>
                   <a 
