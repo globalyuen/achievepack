@@ -376,6 +376,63 @@ const ArtworkBatchesPage: React.FC = () => {
     }
   }
 
+  // Update an existing artwork item's file
+  const handleUpdateItemFile = async (e: React.ChangeEvent<HTMLInputElement>, itemId: string) => {
+    const file = e.target.files?.[0]
+    if (!file || !selectedBatch) return
+    
+    setUploading(true)
+    try {
+      // Upload to storage
+      const ext = file.name.split('.').pop() || 'bin'
+      const storagePath = `batches/${selectedBatch.id}/${Date.now()}_${Math.random().toString(36).slice(2)}.${ext}`
+      
+      const { error: uploadError } = await supabase.storage
+        .from('artworks')
+        .upload(storagePath, file)
+      
+      if (uploadError) throw uploadError
+      
+      // Get public URL
+      const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(storagePath)
+      
+      const now = new Date().toISOString()
+      
+      // Update item in database
+      const { error: updateError } = await supabase
+        .from('artwork_batch_items')
+        .update({
+          file_url: urlData.publicUrl,
+          file_type: file.type,
+          file_size: file.size,
+          updated_at: now
+        })
+        .eq('id', itemId)
+      
+      if (updateError) throw updateError
+      
+      // Update local state
+      setBatchItems(prev => prev.map(item => 
+        item.id === itemId 
+          ? { 
+              ...item, 
+              file_url: urlData.publicUrl, 
+              file_type: file.type, 
+              file_size: file.size,
+              updated_at: now
+            } 
+          : item
+      ))
+      
+    } catch (err) {
+      console.error('Update item file error:', err)
+      alert('Failed to update file')
+    } finally {
+      setUploading(false)
+      if (e.target) e.target.value = ''
+    }
+  }
+
   // Create blank artwork slot
   const handleCreateBlankArtwork = async () => {
     if (!selectedBatch) return;
@@ -1243,8 +1300,19 @@ const ArtworkBatchesPage: React.FC = () => {
                                 scrolling="no"
                               />
                             ) : (
-                              <div className="w-full h-full flex items-center justify-center">
-                                <FileImage className="h-12 w-12 text-gray-300" />
+                              <div className="w-full h-full flex flex-col items-center justify-center p-4">
+                                <FileImage className="h-12 w-12 text-gray-300 mb-3" />
+                                <label className="cursor-pointer">
+                                  <span className="px-4 py-2 bg-primary-600 text-white rounded-lg text-xs font-medium hover:bg-primary-700 shadow-sm transition flex items-center gap-2">
+                                    <Upload className="h-3.5 w-3.5" />
+                                    Upload Proof
+                                  </span>
+                                  <input 
+                                    type="file" 
+                                    className="hidden" 
+                                    onChange={(e) => handleUpdateItemFile(e, item.id)}
+                                  />
+                                </label>
                               </div>
                             )}
                             {/* Status Badge */}
@@ -1258,6 +1326,23 @@ const ArtworkBatchesPage: React.FC = () => {
                                   <Sparkles className="h-3 w-3" />
                                   AI
                                 </span>
+                              </div>
+                            )}
+
+                            {/* Replace Overlay (only if file exists) */}
+                            {item.file_url && (
+                              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/preview:opacity-100 transition flex items-center justify-center pointer-events-none group-hover/preview:pointer-events-auto">
+                                <label className="cursor-pointer">
+                                  <span className="px-4 py-2 bg-white rounded-lg text-xs font-semibold text-gray-900 shadow-xl border border-gray-200 hover:bg-gray-50 flex items-center gap-2 transition transform scale-90 group-hover/preview:scale-100">
+                                    <RefreshCw className="h-4 w-4" />
+                                    Replace Proof
+                                  </span>
+                                  <input 
+                                    type="file" 
+                                    className="hidden" 
+                                    onChange={(e) => handleUpdateItemFile(e, item.id)}
+                                  />
+                                </label>
                               </div>
                             )}
                           </div>
@@ -1488,23 +1573,35 @@ const ArtworkBatchesPage: React.FC = () => {
                                       </span>
                                     </a>
                                   ) : (
-                                    <span className="text-xs text-gray-400 italic">No link added</span>
+                                    <span className="text-[10px] text-gray-400 italic">No link</span>
                                   )}
                                   <button
                                     onClick={() => {
-                                      setEditingSourceLink(item.id)
                                       setSourceLinkValue(item.source_link || '')
+                                      setEditingSourceLink(item.id)
                                     }}
-                                    className="px-2 py-1 text-[10px] uppercase tracking-wider font-bold bg-white border border-gray-200 text-gray-600 hover:bg-primary-50 hover:text-primary-600 hover:border-primary-200 rounded transition whitespace-nowrap"
+                                    className="p-1 px-2 text-[10px] font-medium bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 rounded transition flex-shrink-0"
                                   >
                                     {item.source_link ? 'Edit' : '+ Add Link'}
                                   </button>
                                 </div>
                               )}
                             </div>
+
+                            <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-[10px] text-gray-400">
+                              <span className="flex items-center gap-1">
+                                <Clock className="h-3 w-3" />
+                                Updated: {new Date(item.updated_at).toLocaleDateString()}
+                              </span>
+                              <span>{item.file_size ? (item.file_size / 1024 / 1024).toFixed(2) + ' MB' : ''}</span>
+                            </div>
                             
                             {/* Actions */}
                             <div className="flex items-center gap-2 mt-3 pt-3 border-t border-gray-100">
+                              <label className="cursor-pointer p-2 text-gray-500 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition" title="Replace File">
+                                <Upload className="h-4 w-4" />
+                                <input type="file" className="hidden" onChange={(e) => handleUpdateItemFile(e, item.id)} />
+                              </label>
                               <a
                                 href={item.file_url}
                                 target="_blank"
