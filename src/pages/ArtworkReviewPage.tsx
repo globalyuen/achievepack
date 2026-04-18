@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { 
   Lock, CheckCircle, AlertCircle, Clock, X, Check, ChevronLeft, ChevronRight,
   RefreshCw, FileImage, Sparkles, AlertTriangle, Info, Send, MessageSquare,
-  ZoomIn, Download, Search, Code, ExternalLink
+  ZoomIn, Download, Search, Code, ExternalLink, LayoutGrid, CircleDashed, CheckCircle2
 } from 'lucide-react'
 import { supabase, ArtworkBatch, ArtworkBatchItem } from '../lib/supabase'
 
@@ -69,6 +69,7 @@ const ArtworkReviewPage: React.FC = () => {
   
   // Search state
   const [searchQuery, setSearchQuery] = useState('')
+  const [itemFilter, setItemFilter] = useState<'all' | 'with-comment' | 'with-artwork' | 'blank' | 'approved' | 'rejected' | 'pending'>('all')
   
   // JSON preview state
   const [showJsonModal, setShowJsonModal] = useState(false)
@@ -480,22 +481,42 @@ const ArtworkReviewPage: React.FC = () => {
   const pendingCount = items.filter(i => i.status === 'pending').length
   const allReviewed = pendingCount === 0
   
-  // Filter items by search
+  // Filter items by search and status
   const filteredItems = items.filter(item => {
-    if (!searchQuery.trim()) return true
-    const q = searchQuery.toLowerCase()
+    const q = searchQuery.toLowerCase().trim()
     const ai = item.ai_analysis
-    return (
+    
+    // Search filter
+    const matchesSearch = !q || (
       item.name.toLowerCase().includes(q) ||
       item.customer_comment?.toLowerCase().includes(q) ||
       ai?.title?.toLowerCase().includes(q) ||
       ai?.description?.toLowerCase().includes(q) ||
-      ai?.keywords?.some(k => k.toLowerCase().includes(q)) ||
+      ai?.keywords?.some((k: string) => k.toLowerCase().includes(q)) ||
       ai?.category?.toLowerCase().includes(q) ||
-      ai?.colors?.some(c => c.toLowerCase().includes(q)) ||
-      ai?.content_detected?.some(c => c.toLowerCase().includes(q)) ||
+      ai?.colors?.some((c: string) => c.toLowerCase().includes(q)) ||
       (ai && JSON.stringify(ai).toLowerCase().includes(q))
     )
+
+    if (!matchesSearch) return false
+
+    // Category filter
+    switch (itemFilter) {
+      case 'with-comment':
+        return !!(item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0)
+      case 'with-artwork':
+        return !!item.file_url
+      case 'blank':
+        return !item.file_url
+      case 'approved':
+        return item.status === 'approved'
+      case 'rejected':
+        return item.status === 'rejected'
+      case 'pending':
+        return item.status === 'pending'
+      default:
+        return true
+    }
   })
 
   return (
@@ -609,11 +630,43 @@ const ArtworkReviewPage: React.FC = () => {
               className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500"
             />
           </div>
-          {searchQuery && (
-            <p className="text-sm text-gray-500 mt-2">
-              Showing {filteredItems.length} of {items.length} artworks
-            </p>
-          )}
+          {/* Filter Tabs */}
+          <div className="flex flex-wrap items-center gap-2 mt-4 pt-4 border-t border-gray-100">
+            {[
+              { id: 'all', label: 'All', icon: CheckCircle },
+              { id: 'with-comment', label: 'Comments', icon: MessageSquare },
+              { id: 'with-artwork', label: 'Artworks', icon: FileImage },
+              { id: 'approved', label: 'Approved', icon: CheckCircle },
+              { id: 'pending', label: 'Pending', icon: Clock },
+            ].map(f => {
+              const Icon = f.icon
+              const isActive = itemFilter === f.id
+              return (
+                <button
+                  key={f.id}
+                  onClick={() => setItemFilter(f.id as any)}
+                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition ${
+                    isActive 
+                      ? 'bg-primary-600 text-white shadow-sm' 
+                      : 'bg-white text-gray-500 border border-gray-200 hover:border-gray-300 hover:text-gray-700'
+                  }`}
+                >
+                  <Icon className="h-3.5 w-3.5" />
+                  {f.label}
+                  <span className={`ml-1 px-1.5 py-0.5 rounded-full text-[10px] ${isActive ? 'bg-primary-500 text-white' : 'bg-gray-100 text-gray-600'}`}>
+                    {items.filter(i => {
+                      if (f.id === 'all') return true
+                      if (f.id === 'with-comment') return i.customer_comment || (i.ai_analysis?.replies?.length ?? 0) > 0
+                      if (f.id === 'with-artwork') return !!i.file_url
+                      if (f.id === 'approved') return i.status === 'approved'
+                      if (f.id === 'pending') return i.status === 'pending'
+                      return true
+                    }).length}
+                  </span>
+                </button>
+              )
+            })}
+          </div>
         </div>
 
         {/* Artworks Grid */}

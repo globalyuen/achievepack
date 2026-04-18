@@ -4,7 +4,8 @@ import {
   ArrowLeft, Plus, Search, Upload, Trash2, Eye, Copy, Check, 
   RefreshCw, Sparkles, X, ChevronRight, Lock, Mail, ExternalLink,
   CheckCircle, Clock, AlertCircle, FileImage, Download, MoreHorizontal,
-  Folder, Package, Code, ArrowUpDown, ArrowUp, ArrowDown, Link2, Pencil, Files, Pin
+  Folder, Package, Code, ArrowUpDown, ArrowUp, ArrowDown, Link2, Pencil, Files, Pin,
+  LayoutGrid, MessageSquare, CircleDashed, CheckCircle2
 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, ArtworkBatch, ArtworkBatchItem } from '../lib/supabase'
@@ -22,6 +23,7 @@ const ArtworkBatchesPage: React.FC = () => {
   const [batchItems, setBatchItems] = useState<ArtworkBatchItem[]>([])
   const [loading, setLoading] = useState(true)
   const [searchQuery, setSearchQuery] = useState('')
+  const [itemFilter, setItemFilter] = useState<'all' | 'with-comment' | 'with-artwork' | 'blank' | 'approved' | 'rejected' | 'pending'>('all')
   
   // Batch list search and sort
   const [batchSearchQuery, setBatchSearchQuery] = useState('')
@@ -880,12 +882,13 @@ const ArtworkBatchesPage: React.FC = () => {
     }
   }
 
-  // Filter items by search (searches all JSON fields)
+  // Filter items by search and category
   const filteredItems = batchItems.filter(item => {
-    if (!searchQuery.trim()) return true
-    const q = searchQuery.toLowerCase()
+    const q = searchQuery.toLowerCase().trim()
     const ai = item.ai_analysis
-    return (
+    
+    // Search filter
+    const matchesSearch = !q || (
       item.name.toLowerCase().includes(q) ||
       item.customer_comment?.toLowerCase().includes(q) ||
       ai?.title?.toLowerCase().includes(q) ||
@@ -895,9 +898,28 @@ const ArtworkBatchesPage: React.FC = () => {
       ai?.colors?.some(c => c.toLowerCase().includes(q)) ||
       ai?.content_detected?.some(c => c.toLowerCase().includes(q)) ||
       ai?.quality_score?.toLowerCase().includes(q) ||
-      // Search entire JSON as string fallback
       (ai && JSON.stringify(ai).toLowerCase().includes(q))
     )
+
+    if (!matchesSearch) return false
+
+    // Category filter
+    switch (itemFilter) {
+      case 'with-comment':
+        return !!(item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0)
+      case 'with-artwork':
+        return !!item.file_url
+      case 'blank':
+        return !item.file_url
+      case 'approved':
+        return item.status === 'approved'
+      case 'rejected':
+        return item.status === 'rejected'
+      case 'pending':
+        return item.status === 'pending'
+      default:
+        return true
+    }
   })
 
   // Status badge
@@ -1262,6 +1284,40 @@ const ArtworkBatchesPage: React.FC = () => {
                 {/* Items Count */}
                 <div className="text-sm text-gray-500">
                   Showing {filteredItems.length} of {batchItems.length} artworks
+                </div>
+
+                {/* Filter Tabs */}
+                <div className="flex flex-wrap items-center gap-2 mb-6 border-b border-gray-100 pb-4">
+                  {[
+                    { id: 'all', label: 'All Items', icon: LayoutGrid },
+                    { id: 'with-comment', label: 'With Comments', icon: MessageSquare },
+                    { id: 'with-artwork', label: 'With Artwork', icon: FileImage },
+                    { id: 'blank', label: 'Blank Cards', icon: CircleDashed },
+                    { id: 'approved', label: 'Approved', icon: CheckCircle2 },
+                    { id: 'pending', label: 'Pending', icon: Clock },
+                  ].map(f => {
+                    const Icon = f.icon
+                    const isActive = itemFilter === f.id
+                    return (
+                      <button
+                        key={f.id}
+                        onClick={() => setItemFilter(f.id as any)}
+                        className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition ${
+                          isActive 
+                            ? 'bg-primary-50 text-primary-600 border border-primary-200 shadow-sm' 
+                            : 'text-gray-500 hover:bg-gray-50 hover:text-gray-700'
+                        }`}
+                      >
+                        <Icon className={`h-4 w-4 ${isActive ? 'text-primary-600' : 'text-gray-400'}`} />
+                        {f.label}
+                        {isActive && (
+                          <span className="ml-1 px-1.5 py-0.5 bg-primary-100 text-primary-700 rounded-full text-[10px]">
+                            {filteredItems.length}
+                          </span>
+                        )}
+                      </button>
+                    )
+                  })}
                 </div>
 
                 {/* Items Grid */}
