@@ -1223,16 +1223,19 @@ const ArtworkBatchesPage: React.FC = () => {
                               </div>
                             )}
                             
-                            {/* Source Link */}
-                            <div className="mt-2">
+                            {/* Original Artwork Link */}
+                            <div className="mt-3 pt-3 border-t border-gray-100">
+                              <label className="text-xs font-semibold text-gray-700 block mb-1.5 flex items-center gap-1">
+                                <Link2 className="h-3 w-3" /> Original Artwork Link
+                              </label>
                               {editingSourceLink === item.id ? (
                                 <div className="flex items-center gap-2">
                                   <input
                                     type="url"
                                     value={sourceLinkValue}
                                     onChange={(e) => setSourceLinkValue(e.target.value)}
-                                    placeholder="https://drive.google.com/... or download link"
-                                    className="flex-1 px-2 py-1 text-xs border border-gray-200 rounded focus:ring-1 focus:ring-primary-500 focus:border-primary-500"
+                                    placeholder="Google Drive, WeTransfer..."
+                                    className="flex-1 px-2 py-1 text-xs border border-gray-300 rounded focus:ring-1 focus:ring-primary-500 focus:border-primary-500"
                                     autoFocus
                                     onKeyDown={(e) => {
                                       if (e.key === 'Enter') handleSaveSourceLink(item.id)
@@ -1245,47 +1248,44 @@ const ArtworkBatchesPage: React.FC = () => {
                                   <button
                                     onClick={() => handleSaveSourceLink(item.id)}
                                     disabled={savingSourceLink}
-                                    className="p-1 text-green-600 hover:bg-green-50 rounded transition"
-                                    title="Save"
+                                    className="p-1 px-2 text-xs font-medium bg-green-100 text-green-700 hover:bg-green-200 rounded transition"
                                   >
-                                    {savingSourceLink ? <RefreshCw className="h-4 w-4 animate-spin" /> : <Check className="h-4 w-4" />}
+                                    {savingSourceLink ? 'Saving...' : 'Save'}
                                   </button>
                                   <button
                                     onClick={() => {
                                       setEditingSourceLink(null)
                                       setSourceLinkValue('')
                                     }}
-                                    className="p-1 text-gray-400 hover:bg-gray-50 rounded transition"
-                                    title="Cancel"
+                                    className="p-1 px-2 text-xs font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 rounded transition"
                                   >
-                                    <X className="h-4 w-4" />
+                                    Cancel
                                   </button>
                                 </div>
                               ) : (
-                                <div className="flex items-center gap-2">
+                                <div className="flex items-center justify-between gap-2 p-2 bg-gray-50 rounded-lg">
                                   {item.source_link ? (
                                     <a
                                       href={item.source_link}
                                       target="_blank"
                                       rel="noopener noreferrer"
-                                      className="flex-1 text-xs text-blue-600 hover:text-blue-800 truncate flex items-center gap-1"
+                                      className="flex-1 text-xs text-blue-600 hover:text-blue-800 truncate flex items-center gap-1 font-medium"
                                       title={item.source_link}
                                     >
-                                      <Link2 className="h-3 w-3 flex-shrink-0" />
-                                      <span className="truncate">{item.source_link}</span>
+                                      <Download className="h-3 w-3 flex-shrink-0" />
+                                      <span className="truncate">Download Source File</span>
                                     </a>
                                   ) : (
-                                    <span className="text-xs text-gray-400">No source link</span>
+                                    <span className="text-xs text-gray-400 italic">No link added</span>
                                   )}
                                   <button
                                     onClick={() => {
                                       setEditingSourceLink(item.id)
                                       setSourceLinkValue(item.source_link || '')
                                     }}
-                                    className="p-1 text-gray-400 hover:text-gray-600 hover:bg-gray-50 rounded transition flex-shrink-0"
-                                    title="Edit source link"
+                                    className="px-2 py-1 text-[10px] uppercase tracking-wider font-bold bg-white border border-gray-200 text-gray-600 hover:bg-primary-50 hover:text-primary-600 hover:border-primary-200 rounded transition whitespace-nowrap"
                                   >
-                                    <Link2 className="h-3.5 w-3.5" />
+                                    {item.source_link ? 'Edit' : '+ Add Link'}
                                   </button>
                                 </div>
                               )}
