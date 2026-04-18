@@ -721,7 +721,7 @@ const ArtworkBatchesPage: React.FC = () => {
         text: replyText.trim(),
         at: new Date().toISOString()
       }
-      const existingReplies: object[] = item.ai_analysis?.replies ?? []
+      const existingReplies: { author: string; text: string; at: string }[] = item.ai_analysis?.replies ?? []
       const updatedReplies = [...existingReplies, newReply]
       const updatedAnalysis = { ...(item.ai_analysis || {}), replies: updatedReplies }
 
@@ -748,7 +748,7 @@ const ArtworkBatchesPage: React.FC = () => {
   // Delete a reply from thread
   const handleDeleteReply = async (item: ArtworkBatchItem, replyIndex: number) => {
     try {
-      const existingReplies: object[] = item.ai_analysis?.replies ?? []
+      const existingReplies: { author: string; text: string; at: string }[] = item.ai_analysis?.replies ?? []
       const updatedReplies = existingReplies.filter((_, i) => i !== replyIndex)
       const updatedAnalysis = { ...(item.ai_analysis || {}), replies: updatedReplies }
 
