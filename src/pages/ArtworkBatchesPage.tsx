@@ -78,6 +78,11 @@ const ArtworkBatchesPage: React.FC = () => {
   // Pin functionality state
   const [copyTargetItem, setCopyTargetItem] = useState<ArtworkBatchItem | null>(null)
 
+  // Comment thread reply state
+  const [replyingToItem, setReplyingToItem] = useState<string | null>(null)
+  const [replyText, setReplyText] = useState('')
+  const [sendingReply, setSendingReply] = useState(false)
+
   // Fetch batches with actual item counts
   const fetchBatches = useCallback(async () => {
     setLoading(true)
@@ -706,6 +711,62 @@ const ArtworkBatchesPage: React.FC = () => {
     }
   }
 
+  // Add admin reply to comment thread
+  const handleAddReply = async (item: ArtworkBatchItem) => {
+    if (!replyText.trim() || sendingReply) return
+    setSendingReply(true)
+    try {
+      const newReply = {
+        author: 'Admin',
+        text: replyText.trim(),
+        at: new Date().toISOString()
+      }
+      const existingReplies: object[] = item.ai_analysis?.replies ?? []
+      const updatedReplies = [...existingReplies, newReply]
+      const updatedAnalysis = { ...(item.ai_analysis || {}), replies: updatedReplies }
+
+      const { error } = await supabase
+        .from('artwork_batch_items')
+        .update({ ai_analysis: updatedAnalysis })
+        .eq('id', item.id)
+
+      if (error) throw error
+
+      setBatchItems(prev => prev.map(i =>
+        i.id === item.id ? { ...i, ai_analysis: updatedAnalysis } : i
+      ))
+      setReplyText('')
+      setReplyingToItem(null)
+    } catch (err) {
+      console.error('Reply error:', err)
+      alert('Failed to send reply')
+    } finally {
+      setSendingReply(false)
+    }
+  }
+
+  // Delete a reply from thread
+  const handleDeleteReply = async (item: ArtworkBatchItem, replyIndex: number) => {
+    try {
+      const existingReplies: object[] = item.ai_analysis?.replies ?? []
+      const updatedReplies = existingReplies.filter((_, i) => i !== replyIndex)
+      const updatedAnalysis = { ...(item.ai_analysis || {}), replies: updatedReplies }
+
+      const { error } = await supabase
+        .from('artwork_batch_items')
+        .update({ ai_analysis: updatedAnalysis })
+        .eq('id', item.id)
+
+      if (error) throw error
+
+      setBatchItems(prev => prev.map(i =>
+        i.id === item.id ? { ...i, ai_analysis: updatedAnalysis } : i
+      ))
+    } catch (err) {
+      console.error('Delete reply error:', err)
+    }
+  }
+
   // Toggle Pin Batch
   const handleTogglePinBatch = async (batch: ArtworkBatch) => {
     const isPinned = batch.batch_name.startsWith('📌 ');
@@ -1263,10 +1324,110 @@ const ArtworkBatchesPage: React.FC = () => {
                               </div>
                             )}
                             
-                            {/* Customer Comment */}
-                            {item.customer_comment && (
-                              <div className="mt-2 p-2 bg-yellow-50 rounded text-xs text-yellow-800">
-                                <strong>Comment:</strong> {item.customer_comment}
+                            {/* Comment Thread */}
+                            {(item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0) && (
+                              <div className="mt-2 rounded-lg overflow-hidden border border-yellow-100">
+                                {/* Customer comment bubble */}
+                                {item.customer_comment && (
+                                  <div className="p-2.5 bg-yellow-50">
+                                    <div className="flex items-center gap-1.5 mb-1">
+                                      <span className="text-[10px] font-bold uppercase tracking-wide text-yellow-700">Customer</span>
+                                      <span className="text-[10px] text-yellow-500">{new Date(item.updated_at).toLocaleDateString()}</span>
+                                    </div>
+                                    <p className="text-xs text-yellow-900">{item.customer_comment}</p>
+                                  </div>
+                                )}
+                                {/* Admin replies */}
+                                {(item.ai_analysis?.replies ?? []).map((reply: { author: string; text: string; at: string }, idx: number) => (
+                                  <div key={idx} className="p-2.5 bg-blue-50 border-t border-blue-100 flex items-start justify-between gap-2 group/reply">
+                                    <div className="flex-1">
+                                      <div className="flex items-center gap-1.5 mb-1">
+                                        <span className="text-[10px] font-bold uppercase tracking-wide text-blue-700">{reply.author}</span>
+                                        <span className="text-[10px] text-blue-400">{new Date(reply.at).toLocaleDateString()}</span>
+                                      </div>
+                                      <p className="text-xs text-blue-900">{reply.text}</p>
+                                    </div>
+                                    <button
+                                      onClick={() => handleDeleteReply(item, idx)}
+                                      className="opacity-0 group-hover/reply:opacity-100 p-1 text-red-400 hover:text-red-600 hover:bg-red-50 rounded transition mt-0.5"
+                                      title="Delete reply"
+                                    >
+                                      <X className="h-3 w-3" />
+                                    </button>
+                                  </div>
+                                ))}
+                                {/* Reply input */}
+                                {replyingToItem === item.id ? (
+                                  <div className="p-2 bg-gray-50 border-t border-gray-100">
+                                    <textarea
+                                      value={replyText}
+                                      onChange={e => setReplyText(e.target.value)}
+                                      placeholder="Type your reply..."
+                                      rows={2}
+                                      className="w-full px-2 py-1.5 text-xs border border-gray-200 rounded resize-none focus:ring-1 focus:ring-primary-500"
+                                      autoFocus
+                                      onKeyDown={e => {
+                                        if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleAddReply(item) }
+                                        if (e.key === 'Escape') { setReplyingToItem(null); setReplyText('') }
+                                      }}
+                                    />
+                                    <div className="flex gap-1.5 mt-1.5">
+                                      <button
+                                        onClick={() => handleAddReply(item)}
+                                        disabled={!replyText.trim() || sendingReply}
+                                        className="flex-1 py-1 text-[11px] font-semibold bg-primary-600 text-white rounded hover:bg-primary-700 disabled:opacity-50 transition"
+                                      >{sendingReply ? 'Sending...' : 'Send Reply'}</button>
+                                      <button
+                                        onClick={() => { setReplyingToItem(null); setReplyText('') }}
+                                        className="flex-1 py-1 text-[11px] bg-gray-100 text-gray-600 rounded hover:bg-gray-200 transition"
+                                      >Cancel</button>
+                                    </div>
+                                  </div>
+                                ) : (
+                                  <button
+                                    onClick={() => { setReplyingToItem(item.id); setReplyText('') }}
+                                    className="w-full py-1.5 text-[11px] font-semibold text-blue-600 hover:bg-blue-50 transition border-t border-yellow-100"
+                                  >↩ Reply</button>
+                                )}
+                              </div>
+                            )}
+                            {/* Show reply button even if no comment yet */}
+                            {!item.customer_comment && (item.ai_analysis?.replies?.length ?? 0) === 0 && (
+                              <div className="mt-2">
+                                {replyingToItem === item.id ? (
+                                  <div className="rounded-lg border border-gray-200 overflow-hidden">
+                                    <div className="p-2 bg-gray-50">
+                                      <textarea
+                                        value={replyText}
+                                        onChange={e => setReplyText(e.target.value)}
+                                        placeholder="Type your note for the customer..."
+                                        rows={2}
+                                        className="w-full px-2 py-1.5 text-xs border border-gray-200 rounded resize-none focus:ring-1 focus:ring-primary-500"
+                                        autoFocus
+                                        onKeyDown={e => {
+                                          if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleAddReply(item) }
+                                          if (e.key === 'Escape') { setReplyingToItem(null); setReplyText('') }
+                                        }}
+                                      />
+                                      <div className="flex gap-1.5 mt-1.5">
+                                        <button
+                                          onClick={() => handleAddReply(item)}
+                                          disabled={!replyText.trim() || sendingReply}
+                                          className="flex-1 py-1 text-[11px] font-semibold bg-primary-600 text-white rounded hover:bg-primary-700 disabled:opacity-50 transition"
+                                        >{sendingReply ? 'Sending...' : 'Send Note'}</button>
+                                        <button
+                                          onClick={() => { setReplyingToItem(null); setReplyText('') }}
+                                          className="flex-1 py-1 text-[11px] bg-gray-100 text-gray-600 rounded hover:bg-gray-200 transition"
+                                        >Cancel</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                ) : (
+                                  <button
+                                    onClick={() => { setReplyingToItem(item.id); setReplyText('') }}
+                                    className="text-[11px] text-gray-400 hover:text-primary-600 transition"
+                                  >+ Add note</button>
+                                )}
                               </div>
                             )}
                             

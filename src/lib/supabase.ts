@@ -594,6 +594,7 @@ export type ArtworkBatchItem = {
     content_detected?: string[]
     quality_score?: string
     analyzed_at?: string
+    replies?: { author: string; text: string; at: string }[]
   }
   
   // Customer review
