@@ -371,6 +371,44 @@ const ArtworkBatchesPage: React.FC = () => {
     }
   }
 
+  // Create blank artwork slot
+  const handleCreateBlankArtwork = async () => {
+    if (!selectedBatch) return;
+    
+    setUploading(true);
+    try {
+      const { data, error } = await supabase
+        .from('artwork_batch_items')
+        .insert({
+          batch_id: selectedBatch.id,
+          name: 'New Blank Artwork',
+          file_url: '', // Empty or could be a placeholder URL
+          file_type: 'placeholder',
+          file_size: 0,
+          status: 'pending'
+        })
+        .select()
+        .single();
+      
+      if (error) throw error;
+      
+      setBatchItems(prev => [data, ...prev]);
+      
+      // Update batch total
+      await supabase
+        .from('artwork_batches')
+        .update({ total_items: selectedBatch.total_items + 1 })
+        .eq('id', selectedBatch.id);
+      
+      fetchBatches();
+    } catch (err) {
+      console.error('Create blank artwork error:', err);
+      alert('Failed to create blank artwork');
+    } finally {
+      setUploading(false);
+    }
+  }
+
   // Delete batch item
   const handleDeleteItem = async (itemId: string) => {
     if (!confirm('Delete this artwork?')) return
@@ -1044,6 +1082,15 @@ const ArtworkBatchesPage: React.FC = () => {
                       className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500"
                     />
                   </div>
+                  <button
+                    onClick={handleCreateBlankArtwork}
+                    disabled={uploading}
+                    className="flex items-center gap-2 px-4 py-2 border border-gray-200 text-gray-700 bg-white rounded-lg hover:bg-gray-50 transition"
+                    title="Create a placeholder to input original artwork link while waiting for press-ready files"
+                  >
+                    <Plus className="h-4 w-4" />
+                    <span className="whitespace-nowrap">Blank Artwork</span>
+                  </button>
                   <label className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition cursor-pointer">
                     <Upload className="h-4 w-4" />
                     <span>Upload Files</span>
