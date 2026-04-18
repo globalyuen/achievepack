@@ -1273,7 +1273,11 @@ const ArtworkBatchesPage: React.FC = () => {
                                       title={item.source_link}
                                     >
                                       <Download className="h-3 w-3 flex-shrink-0" />
-                                      <span className="truncate">Download Source File</span>
+                                      <span className="truncate font-mono tracking-tight" style={{ fontSize: '10px' }}>
+                                        {item.source_link.length > 45
+                                          ? `${item.source_link.substring(0, 28)}...${item.source_link.substring(item.source_link.length - 14)}`
+                                          : item.source_link}
+                                      </span>
                                     </a>
                                   ) : (
                                     <span className="text-xs text-gray-400 italic">No link added</span>
