@@ -74,6 +74,45 @@ const ArtworkReviewPage: React.FC = () => {
   const [showJsonModal, setShowJsonModal] = useState(false)
   const [selectedItemJson, setSelectedItemJson] = useState<ArtworkBatchItem | null>(null)
 
+  // Customer reply thread state
+  const [replyingToItem, setReplyingToItem] = useState<string | null>(null)
+  const [customerReplyText, setCustomerReplyText] = useState('')
+  const [sendingCustomerReply, setSendingCustomerReply] = useState(false)
+
+  // Customer reply to thread
+  const handleCustomerReply = async (item: ArtworkBatchItem) => {
+    if (!customerReplyText.trim() || sendingCustomerReply) return
+    setSendingCustomerReply(true)
+    try {
+      const newReply = {
+        author: 'Customer',
+        text: customerReplyText.trim(),
+        at: new Date().toISOString()
+      }
+      const existingReplies: { author: string; text: string; at: string }[] = item.ai_analysis?.replies ?? []
+      const updatedReplies = [...existingReplies, newReply]
+      const updatedAnalysis = { ...(item.ai_analysis || {}), replies: updatedReplies }
+
+      const { error } = await supabase
+        .from('artwork_batch_items')
+        .update({ ai_analysis: updatedAnalysis })
+        .eq('id', item.id)
+
+      if (error) throw error
+
+      setItems(prev => prev.map(i =>
+        i.id === item.id ? { ...i, ai_analysis: updatedAnalysis } : i
+      ))
+      setCustomerReplyText('')
+      setReplyingToItem(null)
+    } catch (err) {
+      console.error('Customer reply error:', err)
+      alert('Failed to send reply')
+    } finally {
+      setSendingCustomerReply(false)
+    }
+  }
+
   // Fetch batch data
   const fetchBatchData = useCallback(async () => {
     if (!batchId) return
@@ -647,12 +686,23 @@ const ArtworkReviewPage: React.FC = () => {
                   {item.ai_analysis?.title && (
                     <p className="text-xs text-gray-500 mt-1 truncate">{item.ai_analysis.title}</p>
                   )}
-                  {item.customer_comment && (
-                    <p className="text-xs text-gray-500 mt-1 truncate">
-                      <MessageSquare className="h-3 w-3 inline mr-1" />
-                      {item.customer_comment}
-                    </p>
-                  )}
+                  {/* Thread preview on card */}
+                  {(item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0) ? (
+                    <div className="mt-1 space-y-1">
+                      {item.customer_comment && (
+                        <p className="text-xs text-yellow-700 truncate">
+                          <MessageSquare className="h-3 w-3 inline mr-1" />
+                          You: {item.customer_comment}
+                        </p>
+                      )}
+                      {(item.ai_analysis?.replies ?? []).slice(-1).map((r: { author: string; text: string; at: string }, i: number) => (
+                        <p key={i} className="text-xs text-blue-600 truncate">
+                          <MessageSquare className="h-3 w-3 inline mr-1" />
+                          {r.author}: {r.text}
+                        </p>
+                      ))}
+                    </div>
+                  ) : null}
                   <div className="flex items-center gap-2 mt-2">
                     <button 
                       onClick={() => {
@@ -722,6 +772,7 @@ const ArtworkReviewPage: React.FC = () => {
           }}
           onSubmit={handleItemApproval}
           onPreview={(url) => setPreviewImage(url)}
+          onAddReply={handleCustomerReply}
         />
       )}
 
@@ -1012,7 +1063,8 @@ const ReviewModal: React.FC<{
   onClose: () => void
   onSubmit: (item: ArtworkBatchItem, type: 'approve_as_is' | 'approve_with_changes' | 'not_approved', comment: string, checklist: Record<string, boolean>) => void
   onPreview: (url: string) => void
-}> = ({ item, onClose, onSubmit, onPreview }) => {
+  onAddReply: (item: ArtworkBatchItem, text: string) => Promise<void>
+}> = ({ item, onClose, onSubmit, onPreview, onAddReply }) => {
   const [approvalType, setApprovalType] = useState<'approve_as_is' | 'approve_with_changes' | 'not_approved' | null>(
     item.approval_type || null
   )
@@ -1020,11 +1072,26 @@ const ReviewModal: React.FC<{
   const [checklist, setChecklist] = useState<Record<string, boolean>>(
     item.checklist || {}
   )
+  const [localItem, setLocalItem] = useState(item)
+  const [replyText, setReplyText] = useState('')
+  const [sendingReply, setSendingReply] = useState(false)
   
   const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.file_url) || /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.name)
   const isVideo = /\.(mp4|mov|webm)$/i.test(item.file_url) || /\.(mp4|mov|webm)$/i.test(item.name)
   const isPdf = /\.pdf$/i.test(item.file_url) || /\.pdf$/i.test(item.name)
   const allChecked = CHECKLIST_ITEMS.every(c => checklist[c.key])
+
+  const handleSendReply = async () => {
+    if (!replyText.trim() || sendingReply) return
+    setSendingReply(true)
+    await onAddReply(localItem, replyText.trim())
+    // Update local state to show reply immediately
+    const newReply = { author: 'Customer', text: replyText.trim(), at: new Date().toISOString() }
+    const updatedReplies = [...(localItem.ai_analysis?.replies ?? []), newReply]
+    setLocalItem(prev => ({ ...prev, ai_analysis: { ...(prev.ai_analysis || {}), replies: updatedReplies } }))
+    setReplyText('')
+    setSendingReply(false)
+  }
 
   const handleSubmit = () => {
     if (!approvalType) {
@@ -1223,6 +1290,57 @@ const ReviewModal: React.FC<{
                 </div>
               </div>
               
+              {/* Thread / Discussion */}
+              {(localItem.customer_comment || (localItem.ai_analysis?.replies?.length ?? 0) > 0) && (
+                <div className="mb-4">
+                  <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                    <MessageSquare className="h-4 w-4" /> Discussion Thread
+                  </h3>
+                  <div className="rounded-xl overflow-hidden border border-gray-200">
+                    {localItem.customer_comment && (
+                      <div className="p-3 bg-yellow-50">
+                        <div className="flex items-center gap-1.5 mb-1">
+                          <span className="text-[11px] font-bold uppercase tracking-wide text-yellow-700">Your comment</span>
+                        </div>
+                        <p className="text-sm text-yellow-900">{localItem.customer_comment}</p>
+                      </div>
+                    )}
+                    {(localItem.ai_analysis?.replies ?? []).map((r: { author: string; text: string; at: string }, idx: number) => (
+                      <div key={idx} className={`p-3 border-t ${r.author === 'Admin' ? 'bg-blue-50' : 'bg-gray-50'}`}>
+                        <div className="flex items-center gap-1.5 mb-1">
+                          <span className={`text-[11px] font-bold uppercase tracking-wide ${r.author === 'Admin' ? 'text-blue-700' : 'text-gray-600'}`}>
+                            {r.author === 'Admin' ? 'Achieve Pack' : 'You'}
+                          </span>
+                          <span className="text-[11px] text-gray-400">{new Date(r.at).toLocaleDateString()}</span>
+                        </div>
+                        <p className="text-sm text-gray-900">{r.text}</p>
+                      </div>
+                    ))}
+                    {/* Reply input */}
+                    <div className="p-3 border-t bg-gray-50">
+                      <textarea
+                        value={replyText}
+                        onChange={e => setReplyText(e.target.value)}
+                        placeholder="Reply to this thread..."
+                        rows={2}
+                        className="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg resize-none focus:ring-1 focus:ring-primary-500"
+                        onKeyDown={e => {
+                          if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSendReply() }
+                        }}
+                      />
+                      <button
+                        onClick={handleSendReply}
+                        disabled={!replyText.trim() || sendingReply}
+                        className="mt-2 px-4 py-1.5 text-sm font-semibold bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50 transition flex items-center gap-2"
+                      >
+                        <Send className="h-3.5 w-3.5" />
+                        {sendingReply ? 'Sending...' : 'Send Reply'}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               {/* Comment */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
