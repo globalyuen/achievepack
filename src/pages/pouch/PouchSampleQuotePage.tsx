@@ -96,7 +96,7 @@ const PouchSampleQuotePage: React.FC = () => {
                                 </div>
                                 <div className="bg-gray-100 flex-grow border-t-4 border-black">
                                     <img 
-                                        src="/imgs/samples/sample-handmake.png" 
+                                        src="/imgs/samples/achieve-hand-made-sample.png" 
                                         alt="Hand Make Sample" 
                                         className="w-full h-full object-cover object-center aspect-[3/4]"
                                     />
@@ -110,7 +110,7 @@ const PouchSampleQuotePage: React.FC = () => {
                                 </div>
                                 <div className="bg-white flex-grow border-t-4 border-black">
                                     <img 
-                                        src="/imgs/samples/sample-commercial.png" 
+                                        src="/imgs/samples/achieve-commercial-sample.png" 
                                         alt="Commercial Sample" 
                                         className="w-full h-full object-cover object-center aspect-[3/4]"
                                     />
@@ -124,7 +124,7 @@ const PouchSampleQuotePage: React.FC = () => {
                                 </div>
                                 <div className="bg-gray-100 flex-grow border-t-4 border-black">
                                     <img 
-                                        src="/imgs/samples/sample-sheet.png" 
+                                        src="/imgs/samples/achieve-sheet-sample.png" 
                                         alt="Sheet Sample" 
                                         className="w-full h-full object-cover object-center aspect-[3/4]"
                                     />
@@ -168,16 +168,18 @@ const PouchSampleQuotePage: React.FC = () => {
                                             <h2 className="text-2xl font-black uppercase">Final Product Sample</h2>
                                         </div>
                                         <p className="text-black font-semibold mb-4 leading-relaxed">
-                                            Produced using our industrial commercial press. This is the exact quality and finish of your final production run.
+                                            Produced using our industrial commercial press. Exact quality & finish of your final production run.
                                         </p>
                                         <ul className="space-y-2 mb-6 text-sm font-bold">
-                                            <li className="flex items-center gap-2"><div className="w-2 h-2 bg-black"></div> <strong>Quality:</strong> Commercial Press (Premium)</li>
+                                            <li className="flex items-center gap-2"><div className="w-2 h-2 bg-black"></div> <strong>Eco-Materials:</strong> Recyclable / Bio PE / Compostable</li>
                                             <li className="flex items-center gap-2"><div className="w-2 h-2 bg-black"></div> <strong>Style:</strong> Stand Up Pouch WITH Zipper</li>
                                             <li className="flex items-center gap-2"><div className="w-2 h-2 bg-black"></div> <strong>Status:</strong> Retail Ready Prototype</li>
                                         </ul>
                                     </div>
                                     <div className="md:text-right flex flex-col justify-end">
                                         <div className="text-4xl font-black tracking-tight mb-1 font-mono text-black">USD $400</div>
+                                        <div className="text-xs font-black uppercase mb-1 opacity-70">Eco Materials Pkg</div>
+                                        <div className="text-xs font-bold text-black/60 italic mb-4">Starts from $100 for standard plastics</div>
                                         <div className="text-sm font-black uppercase opacity-60 text-black">Set of 50 pieces</div>
                                     </div>
                                 </div>
