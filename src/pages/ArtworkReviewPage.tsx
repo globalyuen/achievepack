@@ -792,9 +792,9 @@ const ArtworkReviewPage: React.FC = () => {
                     <div className="flex flex-col gap-0.5">
                       <span className="text-[10px] text-gray-400 flex items-center gap-1">
                         <Clock className="h-2.5 w-2.5" />
-                        Updated: {new Date(item.updated_at).toLocaleDateString()}
+                        Updated: {item.updated_at ? new Date(item.updated_at).toLocaleDateString() : 'Recently'}
                       </span>
-                      {item.file_size > 0 && (
+                      {item.file_size && item.file_size > 0 && (
                         <span className="text-[10px] text-gray-400 font-medium">
                           Size: {formatFileSize(item.file_size)}
                         </span>
@@ -1201,9 +1201,11 @@ const ReviewModal: React.FC<{
   const [linkUrl, setLinkUrl] = useState('')
   const [linkLabel, setLinkLabel] = useState('')
   
-  const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.file_url) || /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.name)
-  const isVideo = /\.(mp4|mov|webm)$/i.test(item.file_url) || /\.(mp4|mov|webm)$/i.test(item.name)
-  const isPdf = /\.pdf$/i.test(item.file_url) || /\.pdf$/i.test(item.name)
+  const fileUrl = item.file_url || ''
+  const fileName = item.name || ''
+  const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(fileUrl) || /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(fileName)
+  const isVideo = /\.(mp4|mov|webm)$/i.test(fileUrl) || /\.(mp4|mov|webm)$/i.test(fileName)
+  const isPdf = /\.pdf$/i.test(fileUrl) || /\.pdf$/i.test(fileName)
   const allChecked = CHECKLIST_ITEMS.every(c => checklist[c.key])
 
   const handleAssetUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
