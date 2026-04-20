@@ -81,6 +81,15 @@ const ArtworkReviewPage: React.FC = () => {
   const [customerReplyText, setCustomerReplyText] = useState('')
   const [sendingCustomerReply, setSendingCustomerReply] = useState(false)
 
+  // Format file size
+  const formatFileSize = (bytes?: number) => {
+    if (!bytes) return '0 B'
+    const k = 1024
+    const sizes = ['B', 'KB', 'MB', 'GB']
+    const i = Math.floor(Math.log(bytes) / Math.log(k))
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i]
+  }
+
   // Customer reply to thread
   const handleCustomerReply = async (item: ArtworkBatchItem, text: string, assets: { type: 'image' | 'link', url: string, name?: string }[] = []) => {
     if ((!text.trim() && assets.length === 0) || sendingCustomerReply) return
@@ -780,10 +789,17 @@ const ArtworkReviewPage: React.FC = () => {
                     <p className="text-xs text-gray-500 mt-1 truncate">{item.ai_analysis.title}</p>
                   )}
                   <div className="flex items-center justify-between mt-2 pt-2 border-t border-gray-50">
-                    <span className="text-[10px] text-gray-400 flex items-center gap-1">
-                      <Clock className="h-2.5 w-2.5" />
-                      Updated: {new Date(item.updated_at).toLocaleDateString()}
-                    </span>
+                    <div className="flex flex-col gap-0.5">
+                      <span className="text-[10px] text-gray-400 flex items-center gap-1">
+                        <Clock className="h-2.5 w-2.5" />
+                        Updated: {new Date(item.updated_at).toLocaleDateString()}
+                      </span>
+                      {item.file_size > 0 && (
+                        <span className="text-[10px] text-gray-400 font-medium">
+                          Size: {formatFileSize(item.file_size)}
+                        </span>
+                      )}
+                    </div>
                     {(item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0) && (
                       <span className="text-[10px] text-primary-500 font-bold flex items-center gap-1">
                         <MessageSquare className="h-2.5 w-2.5" />
@@ -1327,7 +1343,12 @@ const ReviewModal: React.FC<{
               
               <div className="mt-4 space-y-3">
                 <div className="flex items-start gap-3">
-                  <p className="font-semibold text-gray-900 text-sm leading-tight break-words flex-1 min-w-0" title={item.name}>{item.name}</p>
+                  <div className="flex-1 min-w-0">
+                    <p className="font-semibold text-gray-900 text-sm leading-tight break-words" title={item.name}>{item.name}</p>
+                    {item.file_size > 0 && (
+                      <p className="text-[10px] text-gray-500 mt-1 font-medium italic">File Size: {formatFileSize(item.file_size)}</p>
+                    )}
+                  </div>
                   <a
                     href={item.file_url}
                     target="_blank"
