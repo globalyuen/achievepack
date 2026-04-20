@@ -40,9 +40,9 @@ export default async function handler(req: Request): Promise<Response> {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${XAI_API_KEY}` },
       body: JSON.stringify({
-        model: 'grok-3-mini-beta',
+        model: 'grok-2',
         messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: rawText.substring(0, 3000) }],
-        max_tokens: 400, temperature: 0.1,
+        max_tokens: 400, temperature: 0,
       })
     });
     
