@@ -54,10 +54,10 @@ Exhaustive items, but MINIMAL text tokens. No markdown. If multiple designs (款
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${XAI_API_KEY}` },
       body: JSON.stringify({
-        model: 'grok-2', // Using grok-2 for better stability and lower latency in extraction
+        model: 'grok-beta', // Using grok-beta for optimal stability and availability
         messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: text.substring(0, 4000) }],
-        max_tokens: 1500, // Increased slightly for complex multi-item quotes
-        temperature: 0, // Using 0 for maximum consistency in JSON extraction
+        max_tokens: 1500,
+        temperature: 0,
       })
     });
 
