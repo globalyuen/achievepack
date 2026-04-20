@@ -517,31 +517,6 @@ const ArtworkBatchesPage: React.FC = () => {
     }
   }
 
-  // Delete batch item
-  const handleDeleteItem = async (itemId: string) => {
-    if (!confirm('Delete this artwork?')) return
-    
-    try {
-      await supabase
-        .from('artwork_batch_items')
-        .delete()
-        .eq('id', itemId)
-      
-      setBatchItems(prev => prev.filter(i => i.id !== itemId))
-      
-      // Update batch total
-      if (selectedBatch) {
-        await supabase
-          .from('artwork_batches')
-          .update({ total_items: Math.max(0, selectedBatch.total_items - 1) })
-          .eq('id', selectedBatch.id)
-        fetchBatches()
-      }
-    } catch (err) {
-      console.error('Delete error:', err)
-    }
-  }
-
   // Delete entire batch
   const handleDeleteBatch = async (batchId: string) => {
     if (!confirm('Delete this entire batch? This will delete all artworks in this batch.')) return

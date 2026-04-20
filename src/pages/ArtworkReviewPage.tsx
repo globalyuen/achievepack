@@ -34,6 +34,15 @@ const TOLERANCES = [
   "Color Tolerance +/-10%"
 ]
 
+// Format file size
+const formatFileSize = (bytes?: number) => {
+  if (!bytes) return '0 B'
+  const k = 1024
+  const sizes = ['B', 'KB', 'MB', 'GB']
+  const i = Math.floor(Math.log(bytes) / Math.log(k))
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i]
+}
+
 const ArtworkReviewPage: React.FC = () => {
   const { batchId } = useParams<{ batchId: string }>()
   
@@ -80,15 +89,6 @@ const ArtworkReviewPage: React.FC = () => {
   const [replyingToItem, setReplyingToItem] = useState<string | null>(null)
   const [customerReplyText, setCustomerReplyText] = useState('')
   const [sendingCustomerReply, setSendingCustomerReply] = useState(false)
-
-  // Format file size
-  const formatFileSize = (bytes?: number) => {
-    if (!bytes) return '0 B'
-    const k = 1024
-    const sizes = ['B', 'KB', 'MB', 'GB']
-    const i = Math.floor(Math.log(bytes) / Math.log(k))
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i]
-  }
 
   // Customer reply to thread
   const handleCustomerReply = async (item: ArtworkBatchItem, text: string, assets: { type: 'image' | 'link', url: string, name?: string }[] = []) => {
