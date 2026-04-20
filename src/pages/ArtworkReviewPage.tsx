@@ -87,6 +87,74 @@ const ArtworkReviewPage: React.FC = () => {
   const [replyingToItem, setReplyingToItem] = useState<string | null>(null)
   const [customerReplyText, setCustomerReplyText] = useState('')
   const [sendingCustomerReply, setSendingCustomerReply] = useState(false)
+  
+  const [itemSortOption, setItemSortOption] = useState<'name' | 'newest' | 'oldest' | 'activity'>('activity')
+
+  // Stats
+  const stats = useMemo(() => {
+    const total = (items || []).length
+    const approved = (items || []).filter(i => i?.status === 'approved').length
+    const rejected = (items || []).filter(i => i?.status === 'rejected').length
+    const pending = (items || []).filter(i => i?.status === 'pending').length
+    return { total, approved, rejected, pending, allReviewed: total > 0 && pending === 0 }
+  }, [items])
+  
+  // Filter and sort items
+  const filteredItems = useMemo(() => {
+    const q = (searchQuery || '').toLowerCase().trim()
+    let filtered = (items || []).filter(item => {
+      if (!item) return false
+      const ai = item.ai_analysis
+      
+      // Search filter
+      const matchesSearch = !q || (
+        String(item.name || '').toLowerCase().includes(q) ||
+        String(item.customer_comment || '').toLowerCase().includes(q) ||
+        String(ai?.title || '').toLowerCase().includes(q) ||
+        String(ai?.description || '').toLowerCase().includes(q) ||
+        (Array.isArray(ai?.keywords) && ai.keywords.some((k: any) => String(k || '').toLowerCase().includes(q))) ||
+        (ai && JSON.stringify(ai).toLowerCase().includes(q))
+      )
+
+      if (!matchesSearch) return false
+
+      // Category filter
+      switch (itemFilter) {
+        case 'with-comment':
+          return !!(item?.customer_comment || (Array.isArray(item?.ai_analysis?.replies) && item.ai_analysis.replies.length > 0))
+        case 'with-artwork':
+          return !!item?.file_url
+        case 'blank':
+          return !item?.file_url
+        case 'approved':
+          return item?.status === 'approved'
+        case 'rejected':
+          return item?.status === 'rejected'
+        case 'pending':
+          return item?.status === 'pending'
+        default:
+          return true
+      }
+    })
+
+    // Sort
+    return filtered.sort((a, b) => {
+      switch (itemSortOption) {
+        case 'newest':
+          return new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        case 'oldest':
+          return new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
+        case 'activity':
+          const dateA = new Date(a.updated_at || a.created_at).getTime()
+          const dateB = new Date(b.updated_at || b.created_at).getTime()
+          return dateB - dateA
+        case 'name':
+        default:
+          return (a.name || '').localeCompare(b.name || '')
+      }
+    })
+  }, [items, searchQuery, itemFilter, itemSortOption])
+
 
   // Customer reply to thread
   const handleCustomerReply = async (item: ArtworkBatchItem, text: string, assets: { type: 'image' | 'link', url: string, name?: string }[] = []) => {
@@ -487,72 +555,7 @@ const ArtworkReviewPage: React.FC = () => {
     )
   }
 
-   // Stats
-  const stats = useMemo(() => {
-    const total = (items || []).length
-    const approved = (items || []).filter(i => i?.status === 'approved').length
-    const rejected = (items || []).filter(i => i?.status === 'rejected').length
-    const pending = (items || []).filter(i => i?.status === 'pending').length
-    return { total, approved, rejected, pending, allReviewed: total > 0 && pending === 0 }
-  }, [items])
-  
-  const [itemSortOption, setItemSortOption] = useState<'name' | 'newest' | 'oldest' | 'activity'>('activity')
-  
-  // Filter and sort items
-  const filteredItems = useMemo(() => {
-    const q = (searchQuery || '').toLowerCase().trim()
-    let filtered = (items || []).filter(item => {
-      if (!item) return false
-      const ai = item.ai_analysis
-      
-      // Search filter
-      const matchesSearch = !q || (
-        String(item.name || '').toLowerCase().includes(q) ||
-        String(item.customer_comment || '').toLowerCase().includes(q) ||
-        String(ai?.title || '').toLowerCase().includes(q) ||
-        String(ai?.description || '').toLowerCase().includes(q) ||
-        (Array.isArray(ai?.keywords) && ai.keywords.some((k: any) => String(k || '').toLowerCase().includes(q))) ||
-        (ai && JSON.stringify(ai).toLowerCase().includes(q))
-      )
 
-    if (!matchesSearch) return false
-
-    // Category filter
-    switch (itemFilter) {
-      case 'with-comment':
-        return !!(item?.customer_comment || (Array.isArray(item?.ai_analysis?.replies) && item.ai_analysis.replies.length > 0))
-      case 'with-artwork':
-        return !!item?.file_url
-      case 'blank':
-        return !item?.file_url
-      case 'approved':
-        return item?.status === 'approved'
-      case 'rejected':
-        return item?.status === 'rejected'
-      case 'pending':
-        return item?.status === 'pending'
-      default:
-        return true
-      }
-    })
-
-    // Sort
-    return filtered.sort((a, b) => {
-      switch (itemSortOption) {
-        case 'newest':
-          return new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-        case 'oldest':
-          return new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
-        case 'activity':
-          const dateA = new Date(a.updated_at || a.created_at).getTime()
-          const dateB = new Date(b.updated_at || b.created_at).getTime()
-          return dateB - dateA
-        case 'name':
-        default:
-          return (a.name || '').localeCompare(b.name || '')
-      }
-    })
-  }, [items, searchQuery, itemFilter, itemSortOption])
 
   return (
     <div className="min-h-screen bg-gray-50">
