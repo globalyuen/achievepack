@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useMemo } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { 
   Lock, CheckCircle, AlertCircle, Clock, X, Check, ChevronLeft, ChevronRight,
   RefreshCw, FileImage, Sparkles, AlertTriangle, Info, Send, MessageSquare,
-  ZoomIn, Download, Search, Code, ExternalLink, LayoutGrid, CircleDashed, CheckCircle2,
-  Image as ImageIcon, Link as LinkIcon, Trash2, Paperclip
+  ZoomIn, Download, Search, Code, ExternalLink, LayoutGrid, Trash2, Paperclip
 } from 'lucide-react'
+import { Image as ImageIcon, Link as LinkIcon } from 'lucide-react'
 import { supabase, ArtworkBatch, ArtworkBatchItem } from '../lib/supabase'
 
-// Important Notice Content (from provided image)
+// Constants
 const IMPORTANT_NOTICE = [
   "This proof is an exact duplicate of the original production artwork that will be used to print your product.",
   "All copy, punctuation and spelling has been proof read by the account executive.",
@@ -16,7 +16,6 @@ const IMPORTANT_NOTICE = [
   "Color Management will be controlled by other document."
 ]
 
-// Checklist Items (from provided image)
 const CHECKLIST_ITEMS = [
   { key: 'size', label: 'Size' },
   { key: 'correct_colours', label: 'Correct Colours' },
@@ -28,18 +27,17 @@ const CHECKLIST_ITEMS = [
   { key: 'fin_lap_seal', label: 'Fin/Lap Seal' }
 ] as const
 
-// Tolerances (from provided image)
 const TOLERANCES = [
   "Bag Making Tolerance +/-2mm",
   "Color Tolerance +/-10%"
 ]
 
-// Format file size
 const formatFileSize = (bytes?: number) => {
   if (!bytes) return '0 B'
   const k = 1024
   const sizes = ['B', 'KB', 'MB', 'GB']
   const i = Math.floor(Math.log(bytes) / Math.log(k))
+  if (i < 0 || isNaN(i)) return '0 B'
   return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i]
 }
 
@@ -283,7 +281,7 @@ const ArtworkReviewPage: React.FC = () => {
             approverName,
             approverCompany,
             comment: overallComment,
-            totalItems: items.length,
+            totalItems: (items || []).length,
             approvedCount,
             rejectedCount,
             items: items.map(i => ({
@@ -450,7 +448,7 @@ const ArtworkReviewPage: React.FC = () => {
               <Lock className="h-8 w-8 text-primary-600" />
             </div>
             <h1 className="text-2xl font-bold text-gray-900">Artwork Review</h1>
-            <p className="text-gray-500 mt-2">Batch: {batch.batch_name}</p>
+            <p className="text-gray-500 mt-2">Batch: {batch?.batch_name || 'Loading...'}</p>
           </div>
           
           <div className="space-y-4">
@@ -489,49 +487,50 @@ const ArtworkReviewPage: React.FC = () => {
     )
   }
 
-  // Stats
-  const totalItems = items.length
-  const approvedCount = items.filter(i => i.status === 'approved').length
-  const rejectedCount = items.filter(i => i.status === 'rejected').length
-  const pendingCount = items.filter(i => i.status === 'pending').length
-  const allReviewed = pendingCount === 0
+   // Stats
+  const stats = useMemo(() => {
+    const total = (items || []).length
+    const approved = (items || []).filter(i => i?.status === 'approved').length
+    const rejected = (items || []).filter(i => i?.status === 'rejected').length
+    const pending = (items || []).filter(i => i?.status === 'pending').length
+    return { total, approved, rejected, pending, allReviewed: total > 0 && pending === 0 }
+  }, [items])
   
   const [itemSortOption, setItemSortOption] = useState<'name' | 'newest' | 'oldest' | 'activity'>('activity')
   
   // Filter and sort items
-  const filteredItems = React.useMemo(() => {
-    let filtered = items.filter(item => {
-    const q = searchQuery.toLowerCase().trim()
-    const ai = item.ai_analysis
-    
-    // Search filter
-    const matchesSearch = !q || (
-      item.name.toLowerCase().includes(q) ||
-      item.customer_comment?.toLowerCase().includes(q) ||
-      ai?.title?.toLowerCase().includes(q) ||
-      ai?.description?.toLowerCase().includes(q) ||
-      ai?.keywords?.some((k: string) => k.toLowerCase().includes(q)) ||
-      ai?.category?.toLowerCase().includes(q) ||
-      ai?.colors?.some((c: string) => c.toLowerCase().includes(q)) ||
-      (ai && JSON.stringify(ai).toLowerCase().includes(q))
-    )
+  const filteredItems = useMemo(() => {
+    const q = (searchQuery || '').toLowerCase().trim()
+    let filtered = (items || []).filter(item => {
+      if (!item) return false
+      const ai = item.ai_analysis
+      
+      // Search filter
+      const matchesSearch = !q || (
+        String(item.name || '').toLowerCase().includes(q) ||
+        String(item.customer_comment || '').toLowerCase().includes(q) ||
+        String(ai?.title || '').toLowerCase().includes(q) ||
+        String(ai?.description || '').toLowerCase().includes(q) ||
+        (Array.isArray(ai?.keywords) && ai.keywords.some((k: any) => String(k || '').toLowerCase().includes(q))) ||
+        (ai && JSON.stringify(ai).toLowerCase().includes(q))
+      )
 
     if (!matchesSearch) return false
 
     // Category filter
     switch (itemFilter) {
       case 'with-comment':
-        return !!(item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0)
+        return !!(item?.customer_comment || (Array.isArray(item?.ai_analysis?.replies) && item.ai_analysis.replies.length > 0))
       case 'with-artwork':
-        return !!item.file_url
+        return !!item?.file_url
       case 'blank':
-        return !item.file_url
+        return !item?.file_url
       case 'approved':
-        return item.status === 'approved'
+        return item?.status === 'approved'
       case 'rejected':
-        return item.status === 'rejected'
+        return item?.status === 'rejected'
       case 'pending':
-        return item.status === 'pending'
+        return item?.status === 'pending'
       default:
         return true
       }
@@ -550,7 +549,7 @@ const ArtworkReviewPage: React.FC = () => {
           return dateB - dateA
         case 'name':
         default:
-          return a.name.localeCompare(b.name)
+          return (a.name || '').localeCompare(b.name || '')
       }
     })
   }, [items, searchQuery, itemFilter, itemSortOption])
@@ -564,11 +563,11 @@ const ArtworkReviewPage: React.FC = () => {
             <div className="flex items-start gap-4 flex-1 min-w-0">
               <img src="/ap-logo.svg" alt="AchievePack" className="h-8 w-auto flex-shrink-0 mt-1" />
               <div className="flex-1 min-w-0">
-                <h1 className="font-semibold text-gray-900 break-words">Artwork Review - Batch {batch.batch_name}</h1>
-                <p className="text-xs text-gray-500">{totalItems} artworks • {pendingCount} pending review</p>
+                <h1 className="font-semibold text-gray-900 break-words">Artwork Review - Batch {batch?.batch_name || '...'}</h1>
+                <p className="text-xs text-gray-500">{(items || []).length} artworks • {stats.pending} pending review</p>
               </div>
             </div>
-            {allReviewed && (
+            {stats.allReviewed && (
               <button
                 onClick={() => setShowOverallApproval(true)}
                 className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition flex-shrink-0"
@@ -616,39 +615,39 @@ const ArtworkReviewPage: React.FC = () => {
               <Clock className="h-5 w-5 text-gray-400" />
               <span className="text-sm text-gray-500">Pending</span>
             </div>
-            <p className="text-2xl font-bold text-gray-900 mt-1">{pendingCount}</p>
+            <p className="text-2xl font-bold text-gray-900 mt-1">{stats.pending}</p>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-4">
             <div className="flex items-center gap-2">
               <CheckCircle className="h-5 w-5 text-green-500" />
               <span className="text-sm text-gray-500">Approved</span>
             </div>
-            <p className="text-2xl font-bold text-green-600 mt-1">{approvedCount}</p>
+            <p className="text-2xl font-bold text-green-600 mt-1">{stats.approved}</p>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-4">
             <div className="flex items-center gap-2">
               <AlertCircle className="h-5 w-5 text-red-500" />
               <span className="text-sm text-gray-500">Need Revision</span>
             </div>
-            <p className="text-2xl font-bold text-red-600 mt-1">{rejectedCount}</p>
+            <p className="text-2xl font-bold text-red-600 mt-1">{stats.rejected}</p>
           </div>
         </div>
 
         {/* Bulk Review Button */}
-        {pendingCount > 0 && items.length > 1 && (
+        {stats.pending > 0 && (items?.length || 0) > 1 && (
           <div className="mb-6 p-4 bg-primary-50 border border-primary-200 rounded-xl">
             <div className="flex items-center justify-between">
               <div>
                 <h3 className="font-semibold text-primary-900">Review All Artworks at Once</h3>
                 <p className="text-sm text-primary-700 mt-1">
-                  Apply the same checklist verification and decision to all {items.length} artworks
+                  Apply the same checklist verification and decision to all {items?.length || 0} artworks
                 </p>
               </div>
               <button
                 onClick={() => setShowBulkReview(true)}
                 className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition font-medium"
               >
-                Review All ({items.length})
+                Review All ({items?.length || 0})
               </button>
             </div>
           </div>
@@ -728,8 +727,8 @@ const ArtworkReviewPage: React.FC = () => {
               <div 
                 key={item.id} 
                 className={`bg-white rounded-xl border overflow-hidden hover:shadow-lg transition ${
-                  item.status === 'approved' ? 'border-green-200' :
-                  item.status === 'rejected' ? 'border-red-200' : 'border-gray-200'
+                  item?.status === 'approved' ? 'border-green-200' :
+                  item?.status === 'rejected' ? 'border-red-200' : 'border-gray-200'
                 }`}
               >
                 {/* Preview */}
@@ -769,7 +768,7 @@ const ArtworkReviewPage: React.FC = () => {
                   </div>
                   {/* Status Badge */}
                   <div className="absolute top-2 right-2">
-                    {getStatusBadge(item.status)}
+                    {getStatusBadge(item?.status || 'pending')}
                   </div>
                   {/* AI Badge */}
                   {item.ai_analysis?.analyzed_at && (
@@ -784,8 +783,8 @@ const ArtworkReviewPage: React.FC = () => {
                 
                 {/* Info */}
                 <div className="p-3">
-                  <h3 className="font-medium text-gray-900 text-xs leading-snug line-clamp-2 break-words" title={item.name}>{item.name}</h3>
-                  {item.ai_analysis?.title && (
+                  <h3 className="font-medium text-gray-900 text-xs leading-snug line-clamp-2 break-words" title={item?.name || 'Untitled'}>{item?.name || 'Untitled'}</h3>
+                  {item?.ai_analysis?.title && (
                     <p className="text-xs text-gray-500 mt-1 truncate">{item.ai_analysis.title}</p>
                   )}
                   <div className="flex items-center justify-between mt-2 pt-2 border-t border-gray-50">
@@ -816,8 +815,8 @@ const ArtworkReviewPage: React.FC = () => {
                         </p>
                       )}
                       {(item.ai_analysis?.replies ?? []).slice(-1).map((r: any, i: number) => (
-                        <p key={i} className={`text-[10px] truncate ${r.author === 'Admin' ? 'text-blue-600' : 'text-gray-500'}`}>
-                          {r.author === 'Admin' ? 'AP: ' : 'You: '}{r.text}
+                        <p key={i} className={`text-[10px] truncate ${r?.author === 'Admin' ? 'text-blue-600' : 'text-gray-500'}`}>
+                          {r?.author === 'Admin' ? 'AP: ' : 'You: '}{r?.text}
                         </p>
                       ))}
                     </div>
@@ -865,7 +864,7 @@ const ArtworkReviewPage: React.FC = () => {
         </div>
 
         {/* Overall Submit Button (bottom) */}
-        {allReviewed && (
+        {stats.allReviewed && (
           <div className="mt-8 text-center">
             <button
               onClick={() => setShowOverallApproval(true)}
@@ -875,7 +874,7 @@ const ArtworkReviewPage: React.FC = () => {
               Submit All Reviews
             </button>
             <p className="text-sm text-gray-500 mt-2">
-              All {totalItems} artworks have been reviewed. Click to finalize your submission.
+              All {stats.total} artworks have been reviewed. Click to finalize your submission.
             </p>
           </div>
         )}
@@ -910,7 +909,7 @@ const ArtworkReviewPage: React.FC = () => {
               {/* Summary */}
               <div className="p-4 bg-gray-50 rounded-xl">
                 <p className="text-sm text-gray-600">
-                  <strong>{approvedCount}</strong> approved, <strong>{rejectedCount}</strong> need revision
+                  <strong>{stats.approved}</strong> approved, <strong>{stats.rejected}</strong> need revision
                 </p>
               </div>
               
@@ -1396,7 +1395,7 @@ const ReviewModal: React.FC<{
                   {item.ai_analysis.title && (
                     <p className="text-sm font-semibold text-gray-800 mb-2">{item.ai_analysis.title}</p>
                   )}
-                  {item.ai_analysis.keywords && (
+                  {item.ai_analysis.keywords && Array.isArray(item.ai_analysis.keywords) && (
                     <div className="flex flex-wrap gap-1.5">
                       {item.ai_analysis.keywords.slice(0, 8).map((kw, i) => (
                         <span key={i} className="px-2 py-0.5 text-[10px] font-bold bg-white text-gray-600 border border-gray-200 rounded uppercase tracking-tighter">
@@ -1530,15 +1529,15 @@ const ReviewModal: React.FC<{
                               {isAdmin ? 'Achieve Pack' : 'You'}
                             </span>
                             <span className={`text-[9px] ${isAdmin ? 'text-gray-400' : 'text-primary-200'}`}>
-                              {new Date(r.at).toLocaleDateString()}
+                              {new Date(r?.at || new Date()).toLocaleDateString()}
                             </span>
                           </div>
-                          {r.text && <p className="text-sm leading-relaxed">{r.text}</p>}
+                          {r?.text && <p className="text-sm leading-relaxed">{r.text}</p>}
                           
                           {/* Reply Assets */}
-                          {r.assets && r.assets.length > 0 && (
+                          {Array.isArray(r?.assets) && r.assets.length > 0 && (
                             <div className="mt-2 space-y-1.5 pt-2 border-t border-black/5">
-                              {r.assets.map((asset: any, aidx: number) => (
+                              {r.assets.filter(Boolean).map((asset: any, aidx: number) => (
                                 <div key={aidx}>
                                   {asset.type === 'image' ? (
                                     <button 
