@@ -122,6 +122,9 @@ export class ErrorBoundary extends React.Component<
             <p className="text-gray-500 text-sm mb-6">
               Don't worry, this usually fixes itself. Try refreshing the page.
             </p>
+            <div className="bg-red-50 p-4 rounded-lg mb-6 text-left overflow-x-auto text-xs text-red-700 whitespace-pre-wrap font-mono">
+              {String(this.state.error?.stack || this.state.error?.message || this.state.error)}
+            </div>
             <div className="flex flex-col gap-3">
               <button
                 onClick={this.handleRefresh}
