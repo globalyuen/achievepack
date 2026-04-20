@@ -5,7 +5,8 @@ import {
   RefreshCw, Sparkles, X, ChevronRight, Lock, Mail, ExternalLink,
   CheckCircle, Clock, AlertCircle, FileImage, Download, MoreHorizontal,
   Folder, Package, Code, ArrowUpDown, ArrowUp, ArrowDown, Link2, Pencil, Files, Pin,
-  LayoutGrid, MessageSquare, CircleDashed, CheckCircle2
+  LayoutGrid, MessageSquare, CircleDashed, CheckCircle2,
+  Image as ImageIcon, Link as LinkIcon
 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, ArtworkBatch, ArtworkBatchItem } from '../lib/supabase'
@@ -84,6 +85,11 @@ const ArtworkBatchesPage: React.FC = () => {
   const [replyingToItem, setReplyingToItem] = useState<string | null>(null)
   const [replyText, setReplyText] = useState('')
   const [sendingReply, setSendingReply] = useState(false)
+  const [adminPendingAssets, setAdminPendingAssets] = useState<{ type: 'image' | 'link', url: string, name?: string }[]>([])
+  const [adminUploadingAsset, setAdminUploadingAsset] = useState(false)
+  const [showAdminLinkInput, setShowAdminLinkInput] = useState(false)
+  const [adminLinkUrl, setAdminLinkUrl] = useState('')
+  const [adminLinkLabel, setAdminLinkLabel] = useState('')
 
   // Fetch batches with actual item counts
   const fetchBatches = useCallback(async () => {
@@ -771,30 +777,88 @@ const ArtworkBatchesPage: React.FC = () => {
   }
 
   // Add admin reply to comment thread
+  const handleAdminAssetUpload = async (e: React.ChangeEvent<HTMLInputElement>, item: ArtworkBatchItem) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    
+    setAdminUploadingAsset(true)
+    try {
+      const ext = file.name.split('.').pop() || 'bin'
+      const filePath = `replies/${item.batch_id}/${item.id}/${Date.now()}_${Math.random().toString(36).slice(2)}.${ext}`
+      
+      const { error: uploadError } = await supabase.storage
+        .from('artworks')
+        .upload(filePath, file)
+      
+      if (uploadError) throw uploadError
+      
+      const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(filePath)
+      
+      setAdminPendingAssets(prev => [...prev, {
+        type: 'image',
+        url: urlData.publicUrl,
+        name: file.name
+      }])
+    } catch (err) {
+      console.error('Asset upload error:', err)
+      alert('Failed to upload image')
+    } finally {
+      setAdminUploadingAsset(false)
+      if (e.target) e.target.value = ''
+    }
+  }
+
+  const handleAdminAddLink = () => {
+    if (!adminLinkUrl.trim()) return
+    let url = adminLinkUrl.trim()
+    if (!/^https?:\/\//i.test(url)) {
+      url = 'https://' + url
+    }
+    setAdminPendingAssets(prev => [...prev, {
+      type: 'link',
+      url: url,
+      name: adminLinkLabel.trim() || url
+    }])
+    setAdminLinkUrl('')
+    setAdminLinkLabel('')
+    setShowAdminLinkInput(false)
+  }
+
+  const handleRemoveAdminPendingAsset = (index: number) => {
+    setAdminPendingAssets(prev => prev.filter((_, i) => i !== index))
+  }
+
   const handleAddReply = async (item: ArtworkBatchItem) => {
-    if (!replyText.trim() || sendingReply) return
+    if ((!replyText.trim() && adminPendingAssets.length === 0) || sendingReply) return
     setSendingReply(true)
     try {
+      const assetsToSend = adminPendingAssets.length > 0 ? adminPendingAssets : undefined
       const newReply = {
         author: 'Admin',
         text: replyText.trim(),
-        at: new Date().toISOString()
+        at: new Date().toISOString(),
+        assets: assetsToSend
       }
-      const existingReplies: { author: string; text: string; at: string }[] = item.ai_analysis?.replies ?? []
+      const existingReplies: any[] = item.ai_analysis?.replies ?? []
       const updatedReplies = [...existingReplies, newReply]
       const updatedAnalysis = { ...(item.ai_analysis || {}), replies: updatedReplies }
 
+      const now = new Date().toISOString()
       const { error } = await supabase
         .from('artwork_batch_items')
-        .update({ ai_analysis: updatedAnalysis })
+        .update({ 
+          ai_analysis: updatedAnalysis,
+          updated_at: now
+        })
         .eq('id', item.id)
 
       if (error) throw error
 
       setBatchItems(prev => prev.map(i =>
-        i.id === item.id ? { ...i, ai_analysis: updatedAnalysis } : i
+        i.id === item.id ? { ...i, ai_analysis: updatedAnalysis, updated_at: now } : i
       ))
       setReplyText('')
+      setAdminPendingAssets([])
       setReplyingToItem(null)
     } catch (err) {
       console.error('Reply error:', err)
@@ -811,15 +875,19 @@ const ArtworkBatchesPage: React.FC = () => {
       const updatedReplies = existingReplies.filter((_, i) => i !== replyIndex)
       const updatedAnalysis = { ...(item.ai_analysis || {}), replies: updatedReplies }
 
+      const now = new Date().toISOString()
       const { error } = await supabase
         .from('artwork_batch_items')
-        .update({ ai_analysis: updatedAnalysis })
+        .update({ 
+          ai_analysis: updatedAnalysis,
+          updated_at: now
+        })
         .eq('id', item.id)
 
       if (error) throw error
 
       setBatchItems(prev => prev.map(i =>
-        i.id === item.id ? { ...i, ai_analysis: updatedAnalysis } : i
+        i.id === item.id ? { ...i, ai_analysis: updatedAnalysis, updated_at: now } : i
       ))
     } catch (err) {
       console.error('Delete reply error:', err)
@@ -882,45 +950,66 @@ const ArtworkBatchesPage: React.FC = () => {
     }
   }
 
-  // Filter items by search and category
-  const filteredItems = batchItems.filter(item => {
-    const q = searchQuery.toLowerCase().trim()
-    const ai = item.ai_analysis
-    
-    // Search filter
-    const matchesSearch = !q || (
-      item.name.toLowerCase().includes(q) ||
-      item.customer_comment?.toLowerCase().includes(q) ||
-      ai?.title?.toLowerCase().includes(q) ||
-      ai?.description?.toLowerCase().includes(q) ||
-      ai?.keywords?.some(k => k.toLowerCase().includes(q)) ||
-      ai?.category?.toLowerCase().includes(q) ||
-      ai?.colors?.some(c => c.toLowerCase().includes(q)) ||
-      ai?.content_detected?.some(c => c.toLowerCase().includes(q)) ||
-      ai?.quality_score?.toLowerCase().includes(q) ||
-      (ai && JSON.stringify(ai).toLowerCase().includes(q))
-    )
+  const [itemSortOption, setItemSortOption] = useState<'name' | 'newest' | 'oldest' | 'activity'>('activity')
 
-    if (!matchesSearch) return false
+  // Filter and sort items
+  const filteredItems = useMemo(() => {
+    let filtered = batchItems.filter(item => {
+      const q = searchQuery.toLowerCase().trim()
+      const ai = item.ai_analysis
+      
+      // Search filter
+      const matchesSearch = !q || (
+        item.name.toLowerCase().includes(q) ||
+        item.customer_comment?.toLowerCase().includes(q) ||
+        ai?.title?.toLowerCase().includes(q) ||
+        ai?.description?.toLowerCase().includes(q) ||
+        ai?.keywords?.some(k => k.toLowerCase().includes(q)) ||
+        ai?.category?.toLowerCase().includes(q) ||
+        ai?.colors?.some(c => c.toLowerCase().includes(q)) ||
+        ai?.content_detected?.some(c => c.toLowerCase().includes(q)) ||
+        ai?.quality_score?.toLowerCase().includes(q) ||
+        (ai && JSON.stringify(ai).toLowerCase().includes(q))
+      )
 
-    // Category filter
-    switch (itemFilter) {
-      case 'with-comment':
-        return !!(item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0)
-      case 'with-artwork':
-        return !!item.file_url
-      case 'blank':
-        return !item.file_url
-      case 'approved':
-        return item.status === 'approved'
-      case 'rejected':
-        return item.status === 'rejected'
-      case 'pending':
-        return item.status === 'pending'
-      default:
-        return true
-    }
-  })
+      if (!matchesSearch) return false
+
+      // Category filter
+      switch (itemFilter) {
+        case 'with-comment':
+          return !!(item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0)
+        case 'with-artwork':
+          return !!item.file_url
+        case 'blank':
+          return !item.file_url
+        case 'approved':
+          return item.status === 'approved'
+        case 'rejected':
+          return item.status === 'rejected'
+        case 'pending':
+          return item.status === 'pending'
+        default:
+          return true
+      }
+    })
+
+    // Sort
+    return filtered.sort((a, b) => {
+      switch (itemSortOption) {
+        case 'newest':
+          return new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        case 'oldest':
+          return new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
+        case 'activity':
+          const dateA = new Date(a.updated_at || a.created_at).getTime()
+          const dateB = new Date(b.updated_at || b.created_at).getTime()
+          return dateB - dateA
+        case 'name':
+        default:
+          return a.name.localeCompare(b.name)
+      }
+    })
+  }, [batchItems, searchQuery, itemFilter, itemSortOption])
 
   // Status badge
   const getStatusBadge = (status: string) => {
@@ -1122,8 +1211,16 @@ const ArtworkBatchesPage: React.FC = () => {
                           </button>
                         </div>
                       )}
-                      <p className="text-sm text-gray-500 mt-1">
-                        {batchItems.length} artworks • Created {new Date(selectedBatch.created_at).toLocaleDateString()}
+                      <p className="text-sm text-gray-500 mt-1 flex flex-wrap gap-x-4 gap-y-1">
+                        <span>{batchItems.length} artworks</span>
+                        <span className="flex items-center gap-1 font-medium text-gray-400">
+                          <Plus className="h-3 w-3" />
+                          Created: {new Date(selectedBatch.created_at).toLocaleDateString()}
+                        </span>
+                        <span className="flex items-center gap-1 font-bold text-primary-600">
+                          <RefreshCw className="h-3 w-3" />
+                          Last Activity: {new Date(selectedBatch.updated_at || selectedBatch.created_at).toLocaleDateString()}
+                        </span>
                       </p>
                       {selectedBatch.customer_name && (
                         <p className="text-sm text-gray-600 mt-1">
@@ -1281,9 +1378,24 @@ const ArtworkBatchesPage: React.FC = () => {
                   </div>
                 )}
 
-                {/* Items Count */}
-                <div className="text-sm text-gray-500">
-                  Showing {filteredItems.length} of {batchItems.length} artworks
+                {/* Items Count & Sort */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                  <div className="text-sm text-gray-500 font-medium">
+                    Showing {filteredItems.length} of {batchItems.length} artworks
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] uppercase font-bold text-gray-400">Sort by:</span>
+                    <select 
+                      value={itemSortOption}
+                      onChange={(e) => setItemSortOption(e.target.value as any)}
+                      className="text-xs border-gray-200 rounded-lg focus:ring-primary-500 focus:border-primary-500 bg-white"
+                    >
+                      <option value="activity">Latest Activity</option>
+                      <option value="newest">Newest First</option>
+                      <option value="oldest">Oldest First</option>
+                      <option value="name">Name (A-Z)</option>
+                    </select>
+                  </div>
                 </div>
 
                 {/* Filter Tabs */}
@@ -1336,7 +1448,7 @@ const ArtworkBatchesPage: React.FC = () => {
                       return (
                         <div key={item.id} className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition">
                           {/* Preview */}
-                          <div className="aspect-[4/3] bg-gray-100 relative group overflow-hidden">
+                          <div className="aspect-[4/3] bg-gray-100 relative group/preview overflow-hidden">
                             {isImage ? (
                               <img 
                                 src={item.file_url} 
@@ -1465,6 +1577,19 @@ const ArtworkBatchesPage: React.FC = () => {
                               </div>
                             )}
                             
+                            <div className="flex items-center justify-between mt-2 pt-2 border-t border-gray-50">
+                              <span className="text-[10px] text-gray-400 flex items-center gap-1">
+                                <Clock className="h-2.5 w-2.5" />
+                                Updated: {new Date(item.updated_at).toLocaleDateString()}
+                              </span>
+                              {(item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0) && (
+                                <span className="text-[10px] text-primary-500 font-bold flex items-center gap-1">
+                                  <MessageSquare className="h-2.5 w-2.5" />
+                                  {(item.ai_analysis?.replies?.length ?? 0) + (item.customer_comment ? 1 : 0)}
+                                </span>
+                              )}
+                            </div>
+                            
                             {/* Comment Thread */}
                             {(item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0) && (
                               <div className="mt-2 rounded-lg overflow-hidden border border-yellow-100">
@@ -1479,14 +1604,44 @@ const ArtworkBatchesPage: React.FC = () => {
                                   </div>
                                 )}
                                 {/* Admin replies */}
-                                {(item.ai_analysis?.replies ?? []).map((reply: { author: string; text: string; at: string }, idx: number) => (
+                                {(item.ai_analysis?.replies ?? []).map((reply: any, idx: number) => (
                                   <div key={idx} className="p-2.5 bg-blue-50 border-t border-blue-100 flex items-start justify-between gap-2 group/reply">
                                     <div className="flex-1">
                                       <div className="flex items-center gap-1.5 mb-1">
                                         <span className="text-[10px] font-bold uppercase tracking-wide text-blue-700">{reply.author}</span>
                                         <span className="text-[10px] text-blue-400">{new Date(reply.at).toLocaleDateString()}</span>
                                       </div>
-                                      <p className="text-xs text-blue-900">{reply.text}</p>
+                                      {reply.text && <p className="text-xs text-blue-900">{reply.text}</p>}
+                                      
+                                      {/* Reply Assets */}
+                                      {reply.assets && reply.assets.length > 0 && (
+                                        <div className="mt-2 space-y-1 pt-1 border-t border-blue-100/50">
+                                          {reply.assets.map((asset: any, aidx: number) => (
+                                            <div key={aidx}>
+                                              {asset.type === 'image' ? (
+                                                <a 
+                                                  href={asset.url}
+                                                  target="_blank"
+                                                  rel="noopener noreferrer"
+                                                  className="block rounded border border-blue-200 overflow-hidden hover:opacity-90 transition"
+                                                >
+                                                  <img src={asset.url} alt="Attachment" className="max-h-24 w-auto object-contain bg-white" />
+                                                </a>
+                                              ) : (
+                                                <a 
+                                                  href={asset.url} 
+                                                  target="_blank" 
+                                                  rel="noopener noreferrer"
+                                                  className="flex items-center gap-1.5 text-[10px] font-bold text-blue-600 hover:text-blue-800 underline decoration-1"
+                                                >
+                                                  <LinkIcon className="h-2.5 w-2.5" />
+                                                  {asset.name || 'View Link'}
+                                                </a>
+                                              )}
+                                            </div>
+                                          ))}
+                                        </div>
+                                      )}
                                     </div>
                                     <button
                                       onClick={() => handleDeleteReply(item, idx)}
@@ -1500,6 +1655,61 @@ const ArtworkBatchesPage: React.FC = () => {
                                 {/* Reply input */}
                                 {replyingToItem === item.id ? (
                                   <div className="p-2 bg-gray-50 border-t border-gray-100">
+                                    {/* Pending Assets Preview */}
+                                    {adminPendingAssets.length > 0 && (
+                                      <div className="flex flex-wrap gap-1 mb-2">
+                                        {adminPendingAssets.map((asset, idx) => (
+                                          <div key={idx} className="relative group bg-white rounded border border-gray-200 p-0.5 pr-5">
+                                            {asset.type === 'image' ? (
+                                              <img src={asset.url} alt="Pending" className="h-6 w-6 object-cover rounded" />
+                                            ) : (
+                                              <div className="h-6 flex items-center px-1 gap-1 text-[9px] font-bold text-gray-600">
+                                                <LinkIcon className="h-2.5 w-2.5" />
+                                                <span className="max-w-[40px] truncate">{asset.name || 'Link'}</span>
+                                              </div>
+                                            )}
+                                            <button 
+                                              onClick={() => handleRemoveAdminPendingAsset(idx)}
+                                              className="absolute right-0.5 top-1/2 -translate-y-1/2 p-0.5 text-gray-400 hover:text-red-500 transition"
+                                            >
+                                              <X className="h-2 w-2" />
+                                            </button>
+                                          </div>
+                                        ))}
+                                      </div>
+                                    )}
+
+                                    {/* Link Input Overlay */}
+                                    {showAdminLinkInput && (
+                                      <div className="mb-2 p-2 bg-primary-50 rounded border border-primary-100 space-y-1.5 shadow-sm">
+                                        <input 
+                                          type="url" 
+                                          value={adminLinkUrl}
+                                          onChange={e => setAdminLinkUrl(e.target.value)}
+                                          placeholder="Paste URL here..."
+                                          className="w-full px-2 py-1 text-[10px] rounded border-gray-200 focus:ring-1 focus:ring-primary-500"
+                                          autoFocus
+                                        />
+                                        <div className="flex gap-1.5">
+                                          <input 
+                                            type="text" 
+                                            value={adminLinkLabel}
+                                            onChange={e => setAdminLinkLabel(e.target.value)}
+                                            placeholder="Label (optional)"
+                                            className="flex-1 px-2 py-1 text-[10px] rounded border-gray-200 focus:ring-1 focus:ring-primary-500"
+                                          />
+                                          <button 
+                                            onClick={handleAdminAddLink}
+                                            className="px-2 py-1 bg-primary-600 text-white text-[10px] font-bold rounded hover:bg-primary-700"
+                                          >Add</button>
+                                          <button 
+                                            onClick={() => setShowAdminLinkInput(false)}
+                                            className="px-2 py-1 bg-white text-gray-500 text-[10px] font-bold rounded border border-gray-200"
+                                          >✕</button>
+                                        </div>
+                                      </div>
+                                    )}
+
                                     <textarea
                                       value={replyText}
                                       onChange={e => setReplyText(e.target.value)}
@@ -1509,24 +1719,37 @@ const ArtworkBatchesPage: React.FC = () => {
                                       autoFocus
                                       onKeyDown={e => {
                                         if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleAddReply(item) }
-                                        if (e.key === 'Escape') { setReplyingToItem(null); setReplyText('') }
+                                        if (e.key === 'Escape') { setReplyingToItem(null); setReplyText(''); setAdminPendingAssets([]); setShowAdminLinkInput(false) }
                                       }}
                                     />
-                                    <div className="flex gap-1.5 mt-1.5">
+                                    <div className="flex items-center gap-1.5 mt-1.5">
+                                      <div className="flex gap-0.5">
+                                        <label className="cursor-pointer p-1.5 text-gray-400 hover:text-primary-600 hover:bg-white rounded transition" title="Attach Image">
+                                          {adminUploadingAsset ? <RefreshCw className="h-3.5 w-3.5 animate-spin" /> : <ImageIcon className="h-3.5 w-3.5" />}
+                                          <input type="file" accept="image/*" className="hidden" onChange={(e) => handleAdminAssetUpload(e, item)} disabled={adminUploadingAsset} />
+                                        </label>
+                                        <button 
+                                          onClick={() => setShowAdminLinkInput(!showAdminLinkInput)}
+                                          className={`p-1.5 transition rounded ${showAdminLinkInput ? 'text-primary-600 bg-white' : 'text-gray-400 hover:text-primary-600 hover:bg-white'}`}
+                                          title="Add Link"
+                                        >
+                                          <LinkIcon className="h-3.5 w-3.5" />
+                                        </button>
+                                      </div>
                                       <button
                                         onClick={() => handleAddReply(item)}
-                                        disabled={!replyText.trim() || sendingReply}
+                                        disabled={(!replyText.trim() && adminPendingAssets.length === 0) || sendingReply || adminUploadingAsset}
                                         className="flex-1 py-1 text-[11px] font-semibold bg-primary-600 text-white rounded hover:bg-primary-700 disabled:opacity-50 transition"
                                       >{sendingReply ? 'Sending...' : 'Send Reply'}</button>
                                       <button
-                                        onClick={() => { setReplyingToItem(null); setReplyText('') }}
-                                        className="flex-1 py-1 text-[11px] bg-gray-100 text-gray-600 rounded hover:bg-gray-200 transition"
+                                        onClick={() => { setReplyingToItem(null); setReplyText(''); setAdminPendingAssets([]); setShowAdminLinkInput(false) }}
+                                        className="py-1 px-3 text-[11px] bg-gray-100 text-gray-600 rounded hover:bg-gray-200 transition"
                                       >Cancel</button>
                                     </div>
                                   </div>
                                 ) : (
                                   <button
-                                    onClick={() => { setReplyingToItem(item.id); setReplyText('') }}
+                                    onClick={() => { setReplyingToItem(item.id); setReplyText(''); setAdminPendingAssets([]); setShowAdminLinkInput(false) }}
                                     className="w-full py-1.5 text-[11px] font-semibold text-blue-600 hover:bg-blue-50 transition border-t border-yellow-100"
                                   >↩ Reply</button>
                                 )}
@@ -1536,8 +1759,63 @@ const ArtworkBatchesPage: React.FC = () => {
                             {!item.customer_comment && (item.ai_analysis?.replies?.length ?? 0) === 0 && (
                               <div className="mt-2">
                                 {replyingToItem === item.id ? (
-                                  <div className="rounded-lg border border-gray-200 overflow-hidden">
+                                  <div className="rounded-lg border border-gray-200 overflow-hidden shadow-sm">
                                     <div className="p-2 bg-gray-50">
+                                      {/* Pending Assets Preview */}
+                                      {adminPendingAssets.length > 0 && (
+                                        <div className="flex flex-wrap gap-1 mb-2">
+                                          {adminPendingAssets.map((asset, idx) => (
+                                            <div key={idx} className="relative group bg-white rounded border border-gray-200 p-0.5 pr-5">
+                                              {asset.type === 'image' ? (
+                                                <img src={asset.url} alt="Pending" className="h-6 w-6 object-cover rounded" />
+                                              ) : (
+                                                <div className="h-6 flex items-center px-1 gap-1 text-[9px] font-bold text-gray-600">
+                                                  <LinkIcon className="h-2.5 w-2.5" />
+                                                  <span className="max-w-[40px] truncate">{asset.name || 'Link'}</span>
+                                                </div>
+                                              )}
+                                              <button 
+                                                onClick={() => handleRemoveAdminPendingAsset(idx)}
+                                                className="absolute right-0.5 top-1/2 -translate-y-1/2 p-0.5 text-gray-400 hover:text-red-500 transition"
+                                              >
+                                                <X className="h-2 w-2" />
+                                              </button>
+                                            </div>
+                                          ))}
+                                        </div>
+                                      )}
+
+                                      {/* Link Input Overlay */}
+                                      {showAdminLinkInput && (
+                                        <div className="mb-2 p-2 bg-primary-50 rounded border border-primary-100 space-y-1.5 shadow-sm">
+                                          <input 
+                                            type="url" 
+                                            value={adminLinkUrl}
+                                            onChange={e => setAdminLinkUrl(e.target.value)}
+                                            placeholder="Paste URL here..."
+                                            className="w-full px-2 py-1 text-[10px] rounded border-gray-200 focus:ring-1 focus:ring-primary-500"
+                                            autoFocus
+                                          />
+                                          <div className="flex gap-1.5">
+                                            <input 
+                                              type="text" 
+                                              value={adminLinkLabel}
+                                              onChange={e => setAdminLinkLabel(e.target.value)}
+                                              placeholder="Label (optional)"
+                                              className="flex-1 px-2 py-1 text-[10px] rounded border-gray-200 focus:ring-1 focus:ring-primary-500"
+                                            />
+                                            <button 
+                                              onClick={handleAdminAddLink}
+                                              className="px-2 py-1 bg-primary-600 text-white text-[10px] font-bold rounded hover:bg-primary-700"
+                                            >Add</button>
+                                            <button 
+                                              onClick={() => setShowAdminLinkInput(false)}
+                                              className="px-2 py-1 bg-white text-gray-500 text-[10px] font-bold rounded border border-gray-200"
+                                            >✕</button>
+                                          </div>
+                                        </div>
+                                      )}
+
                                       <textarea
                                         value={replyText}
                                         onChange={e => setReplyText(e.target.value)}
@@ -1547,25 +1825,38 @@ const ArtworkBatchesPage: React.FC = () => {
                                         autoFocus
                                         onKeyDown={e => {
                                           if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleAddReply(item) }
-                                          if (e.key === 'Escape') { setReplyingToItem(null); setReplyText('') }
+                                          if (e.key === 'Escape') { setReplyingToItem(null); setReplyText(''); setAdminPendingAssets([]); setShowAdminLinkInput(false) }
                                         }}
                                       />
-                                      <div className="flex gap-1.5 mt-1.5">
+                                      <div className="flex items-center gap-1.5 mt-1.5">
+                                        <div className="flex gap-0.5">
+                                          <label className="cursor-pointer p-1.5 text-gray-400 hover:text-primary-600 hover:bg-white rounded transition" title="Attach Image">
+                                            {adminUploadingAsset ? <RefreshCw className="h-3.5 w-3.5 animate-spin" /> : <ImageIcon className="h-3.5 w-3.5" />}
+                                            <input type="file" accept="image/*" className="hidden" onChange={(e) => handleAdminAssetUpload(e, item)} disabled={adminUploadingAsset} />
+                                          </label>
+                                          <button 
+                                            onClick={() => setShowAdminLinkInput(!showAdminLinkInput)}
+                                            className={`p-1.5 transition rounded ${showAdminLinkInput ? 'text-primary-600 bg-white' : 'text-gray-400 hover:text-primary-600 hover:bg-white'}`}
+                                            title="Add Link"
+                                          >
+                                            <LinkIcon className="h-3.5 w-3.5" />
+                                          </button>
+                                        </div>
                                         <button
                                           onClick={() => handleAddReply(item)}
-                                          disabled={!replyText.trim() || sendingReply}
+                                          disabled={(!replyText.trim() && adminPendingAssets.length === 0) || sendingReply || adminUploadingAsset}
                                           className="flex-1 py-1 text-[11px] font-semibold bg-primary-600 text-white rounded hover:bg-primary-700 disabled:opacity-50 transition"
                                         >{sendingReply ? 'Sending...' : 'Send Note'}</button>
                                         <button
-                                          onClick={() => { setReplyingToItem(null); setReplyText('') }}
-                                          className="flex-1 py-1 text-[11px] bg-gray-100 text-gray-600 rounded hover:bg-gray-200 transition"
+                                          onClick={() => { setReplyingToItem(null); setReplyText(''); setAdminPendingAssets([]); setShowAdminLinkInput(false) }}
+                                          className="py-1 px-3 text-[11px] bg-gray-100 text-gray-600 rounded hover:bg-gray-200 transition"
                                         >Cancel</button>
                                       </div>
                                     </div>
                                   </div>
                                 ) : (
                                   <button
-                                    onClick={() => { setReplyingToItem(item.id); setReplyText('') }}
+                                    onClick={() => { setReplyingToItem(item.id); setReplyText(''); setAdminPendingAssets([]); setShowAdminLinkInput(false) }}
                                     className="text-[11px] text-gray-400 hover:text-primary-600 transition"
                                   >+ Add note</button>
                                 )}

@@ -3,7 +3,8 @@ import { useParams, Link } from 'react-router-dom'
 import { 
   Lock, CheckCircle, AlertCircle, Clock, X, Check, ChevronLeft, ChevronRight,
   RefreshCw, FileImage, Sparkles, AlertTriangle, Info, Send, MessageSquare,
-  ZoomIn, Download, Search, Code, ExternalLink, LayoutGrid, CircleDashed, CheckCircle2
+  ZoomIn, Download, Search, Code, ExternalLink, LayoutGrid, CircleDashed, CheckCircle2,
+  Image as ImageIcon, Link as LinkIcon, Trash2, Paperclip
 } from 'lucide-react'
 import { supabase, ArtworkBatch, ArtworkBatchItem } from '../lib/supabase'
 
@@ -81,28 +82,33 @@ const ArtworkReviewPage: React.FC = () => {
   const [sendingCustomerReply, setSendingCustomerReply] = useState(false)
 
   // Customer reply to thread
-  const handleCustomerReply = async (item: ArtworkBatchItem) => {
-    if (!customerReplyText.trim() || sendingCustomerReply) return
+  const handleCustomerReply = async (item: ArtworkBatchItem, text: string, assets: { type: 'image' | 'link', url: string, name?: string }[] = []) => {
+    if ((!text.trim() && assets.length === 0) || sendingCustomerReply) return
     setSendingCustomerReply(true)
     try {
       const newReply = {
         author: 'Customer',
-        text: customerReplyText.trim(),
-        at: new Date().toISOString()
+        text: text.trim(),
+        at: new Date().toISOString(),
+        assets: assets.length > 0 ? assets : undefined
       }
-      const existingReplies: { author: string; text: string; at: string }[] = item.ai_analysis?.replies ?? []
+      const existingReplies: any[] = item.ai_analysis?.replies ?? []
       const updatedReplies = [...existingReplies, newReply]
       const updatedAnalysis = { ...(item.ai_analysis || {}), replies: updatedReplies }
 
+      const now = new Date().toISOString()
       const { error } = await supabase
         .from('artwork_batch_items')
-        .update({ ai_analysis: updatedAnalysis })
+        .update({ 
+          ai_analysis: updatedAnalysis,
+          updated_at: now
+        })
         .eq('id', item.id)
 
       if (error) throw error
 
       setItems(prev => prev.map(i =>
-        i.id === item.id ? { ...i, ai_analysis: updatedAnalysis } : i
+        i.id === item.id ? { ...i, ai_analysis: updatedAnalysis, updated_at: now } : i
       ))
       setCustomerReplyText('')
       setReplyingToItem(null)
@@ -481,8 +487,11 @@ const ArtworkReviewPage: React.FC = () => {
   const pendingCount = items.filter(i => i.status === 'pending').length
   const allReviewed = pendingCount === 0
   
-  // Filter items by search and status
-  const filteredItems = items.filter(item => {
+  const [itemSortOption, setItemSortOption] = useState<'name' | 'newest' | 'oldest' | 'activity'>('activity')
+  
+  // Filter and sort items
+  const filteredItems = React.useMemo(() => {
+    let filtered = items.filter(item => {
     const q = searchQuery.toLowerCase().trim()
     const ai = item.ai_analysis
     
@@ -516,8 +525,26 @@ const ArtworkReviewPage: React.FC = () => {
         return item.status === 'pending'
       default:
         return true
-    }
-  })
+      }
+    })
+
+    // Sort
+    return filtered.sort((a, b) => {
+      switch (itemSortOption) {
+        case 'newest':
+          return new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        case 'oldest':
+          return new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
+        case 'activity':
+          const dateA = new Date(a.updated_at || a.created_at).getTime()
+          const dateB = new Date(b.updated_at || b.created_at).getTime()
+          return dateB - dateA
+        case 'name':
+        default:
+          return a.name.localeCompare(b.name)
+      }
+    })
+  }, [items, searchQuery, itemFilter, itemSortOption])
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -618,9 +645,9 @@ const ArtworkReviewPage: React.FC = () => {
           </div>
         )}
 
-        {/* Search Box */}
-        <div className="mb-6">
-          <div className="relative">
+        {/* Search & Sort */}
+        <div className="mb-6 flex flex-col sm:flex-row gap-4">
+          <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
             <input
               type="text"
@@ -629,6 +656,19 @@ const ArtworkReviewPage: React.FC = () => {
               placeholder="Search by name, keyword, color..."
               className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500"
             />
+          </div>
+          <div className="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-3 py-1 sm:py-0">
+            <span className="text-[10px] uppercase font-bold text-gray-400 whitespace-nowrap">Sort by</span>
+            <select 
+              value={itemSortOption}
+              onChange={(e) => setItemSortOption(e.target.value as any)}
+              className="text-xs border-none focus:ring-0 bg-transparent py-2.5 pr-8 font-medium text-gray-700 cursor-pointer"
+            >
+              <option value="activity">Latest Activity</option>
+              <option value="newest">Newest First</option>
+              <option value="oldest">Oldest First</option>
+              <option value="name">Name (A-Z)</option>
+            </select>
           </div>
           {/* Filter Tabs */}
           <div className="flex flex-wrap items-center gap-2 mt-4 pt-4 border-t border-gray-100">
@@ -739,19 +779,29 @@ const ArtworkReviewPage: React.FC = () => {
                   {item.ai_analysis?.title && (
                     <p className="text-xs text-gray-500 mt-1 truncate">{item.ai_analysis.title}</p>
                   )}
+                  <div className="flex items-center justify-between mt-2 pt-2 border-t border-gray-50">
+                    <span className="text-[10px] text-gray-400 flex items-center gap-1">
+                      <Clock className="h-2.5 w-2.5" />
+                      Updated: {new Date(item.updated_at).toLocaleDateString()}
+                    </span>
+                    {(item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0) && (
+                      <span className="text-[10px] text-primary-500 font-bold flex items-center gap-1">
+                        <MessageSquare className="h-2.5 w-2.5" />
+                        {(item.ai_analysis?.replies?.length ?? 0) + (item.customer_comment ? 1 : 0)}
+                      </span>
+                    )}
+                  </div>
                   {/* Thread preview on card */}
                   {(item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0) ? (
                     <div className="mt-1 space-y-1">
                       {item.customer_comment && (
-                        <p className="text-xs text-yellow-700 truncate">
-                          <MessageSquare className="h-3 w-3 inline mr-1" />
+                        <p className="text-[10px] text-yellow-700 truncate">
                           You: {item.customer_comment}
                         </p>
                       )}
-                      {(item.ai_analysis?.replies ?? []).slice(-1).map((r: { author: string; text: string; at: string }, i: number) => (
-                        <p key={i} className="text-xs text-blue-600 truncate">
-                          <MessageSquare className="h-3 w-3 inline mr-1" />
-                          {r.author}: {r.text}
+                      {(item.ai_analysis?.replies ?? []).slice(-1).map((r: any, i: number) => (
+                        <p key={i} className={`text-[10px] truncate ${r.author === 'Admin' ? 'text-blue-600' : 'text-gray-500'}`}>
+                          {r.author === 'Admin' ? 'AP: ' : 'You: '}{r.text}
                         </p>
                       ))}
                     </div>
@@ -1110,13 +1160,12 @@ const ArtworkReviewPage: React.FC = () => {
   )
 }
 
-// Review Modal Component
 const ReviewModal: React.FC<{
   item: ArtworkBatchItem
   onClose: () => void
   onSubmit: (item: ArtworkBatchItem, type: 'approve_as_is' | 'approve_with_changes' | 'not_approved', comment: string, checklist: Record<string, boolean>) => void
   onPreview: (url: string) => void
-  onAddReply: (item: ArtworkBatchItem, text: string) => Promise<void>
+  onAddReply: (item: ArtworkBatchItem, text: string, assets?: { type: 'image' | 'link', url: string, name?: string }[]) => Promise<void>
 }> = ({ item, onClose, onSubmit, onPreview, onAddReply }) => {
   const [approvalType, setApprovalType] = useState<'approve_as_is' | 'approve_with_changes' | 'not_approved' | null>(
     item.approval_type || null
@@ -1128,21 +1177,89 @@ const ReviewModal: React.FC<{
   const [localItem, setLocalItem] = useState(item)
   const [replyText, setReplyText] = useState('')
   const [sendingReply, setSendingReply] = useState(false)
+
+  // Asset states
+  const [pendingAssets, setPendingAssets] = useState<{ type: 'image' | 'link', url: string, name?: string }[]>([])
+  const [uploadingAsset, setUploadingAsset] = useState(false)
+  const [showLinkInput, setShowLinkInput] = useState(false)
+  const [linkUrl, setLinkUrl] = useState('')
+  const [linkLabel, setLinkLabel] = useState('')
   
   const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.file_url) || /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.name)
   const isVideo = /\.(mp4|mov|webm)$/i.test(item.file_url) || /\.(mp4|mov|webm)$/i.test(item.name)
   const isPdf = /\.pdf$/i.test(item.file_url) || /\.pdf$/i.test(item.name)
   const allChecked = CHECKLIST_ITEMS.every(c => checklist[c.key])
 
+  const handleAssetUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    
+    setUploadingAsset(true)
+    try {
+      const ext = file.name.split('.').pop() || 'bin'
+      const filePath = `replies/${item.batch_id}/${item.id}/${Date.now()}_${Math.random().toString(36).slice(2)}.${ext}`
+      
+      const { error: uploadError } = await supabase.storage
+        .from('artworks')
+        .upload(filePath, file)
+      
+      if (uploadError) throw uploadError
+      
+      const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(filePath)
+      
+      setPendingAssets(prev => [...prev, {
+        type: 'image',
+        url: urlData.publicUrl,
+        name: file.name
+      }])
+    } catch (err) {
+      console.error('Asset upload error:', err)
+      alert('Failed to upload image')
+    } finally {
+      setUploadingAsset(false)
+      if (e.target) e.target.value = ''
+    }
+  }
+
+  const handleAddLink = () => {
+    if (!linkUrl.trim()) return
+    let url = linkUrl.trim()
+    if (!/^https?:\/\//i.test(url)) {
+      url = 'https://' + url
+    }
+    setPendingAssets(prev => [...prev, {
+      type: 'link',
+      url: url,
+      name: linkLabel.trim() || url
+    }])
+    setLinkUrl('')
+    setLinkLabel('')
+    setShowLinkInput(false)
+  }
+
+  const handleRemovePendingAsset = (index: number) => {
+    setPendingAssets(prev => prev.filter((_, i) => i !== index))
+  }
+
   const handleSendReply = async () => {
-    if (!replyText.trim() || sendingReply) return
+    if ((!replyText.trim() && pendingAssets.length === 0) || sendingReply) return
     setSendingReply(true)
-    await onAddReply(localItem, replyText.trim())
+    
+    const assetsToSend = pendingAssets.length > 0 ? pendingAssets : undefined
+    await onAddReply(localItem, replyText.trim(), assetsToSend)
+    
     // Update local state to show reply immediately
-    const newReply = { author: 'Customer', text: replyText.trim(), at: new Date().toISOString() }
+    const newReply = { 
+      author: 'Customer', 
+      text: replyText.trim(), 
+      at: new Date().toISOString(),
+      assets: assetsToSend
+    }
     const updatedReplies = [...(localItem.ai_analysis?.replies ?? []), newReply]
     setLocalItem(prev => ({ ...prev, ai_analysis: { ...(prev.ai_analysis || {}), replies: updatedReplies } }))
+    
     setReplyText('')
+    setPendingAssets([])
     setSendingReply(false)
   }
 
@@ -1160,21 +1277,21 @@ const ReviewModal: React.FC<{
 
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center p-4 bg-black/50 overflow-y-auto">
-      <div className="bg-white rounded-2xl max-w-4xl w-full my-8">
+      <div className="bg-white rounded-2xl max-w-4xl w-full my-8 shadow-2xl">
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b">
           <h2 className="text-xl font-bold text-gray-900">Review Artwork</h2>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
+          <button onClick={onClose} className="text-gray-400 hover:text-gray-600 transition p-1 hover:bg-gray-100 rounded-full">
             <X className="h-6 w-6" />
           </button>
         </div>
         
         <div className="p-6">
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-8">
             {/* Left: Image Preview */}
             <div>
               <div 
-                className="aspect-square bg-gray-100 rounded-xl overflow-hidden relative cursor-zoom-in"
+                className="aspect-square bg-gray-100 rounded-xl overflow-hidden relative cursor-zoom-in group border border-gray-200"
                 onClick={() => isImage && onPreview(item.file_url)}
               >
                 {isImage ? (
@@ -1182,9 +1299,10 @@ const ReviewModal: React.FC<{
                     <img 
                       src={item.file_url} 
                       alt={item.name}
-                      className="w-full h-full object-contain"
+                      className="w-full h-full object-contain transition group-hover:scale-105 duration-500"
                     />
-                    <div className="absolute bottom-2 right-2 p-2 bg-black/50 rounded-lg">
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors" />
+                    <div className="absolute bottom-3 right-3 p-2 bg-black/60 backdrop-blur-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
                       <ZoomIn className="h-5 w-5 text-white" />
                     </div>
                   </>
@@ -1202,40 +1320,42 @@ const ReviewModal: React.FC<{
                 ) : (
                   <div className="w-full h-full flex flex-col items-center justify-center">
                     <FileImage className="h-16 w-16 text-gray-300 mb-2" />
-                    <p className="text-sm text-gray-500">Preview not available</p>
+                    <p className="text-sm text-gray-500 font-medium">Preview not available</p>
                   </div>
                 )}
               </div>
               
-              <div className="mt-4 flex flex-col gap-3">
-                <div className="flex items-center gap-3">
-                  <p className="font-medium text-gray-900 text-sm leading-snug break-words flex-1">{item.name}</p>
+              <div className="mt-4 space-y-3">
+                <div className="flex items-start gap-3">
+                  <p className="font-semibold text-gray-900 text-sm leading-tight break-words flex-1 min-w-0" title={item.name}>{item.name}</p>
                   <a
                     href={item.file_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-sm text-primary-600 hover:text-primary-700"
+                    className="flex items-center gap-1.5 text-sm font-semibold text-primary-600 hover:text-primary-700 whitespace-nowrap bg-primary-50 px-3 py-1 rounded-full transition"
                   >
-                    <Download className="h-4 w-4" />
-                    Download press proof
+                    <Download className="h-3.5 w-3.5" />
+                    Press Proof
                   </a>
                 </div>
                 
                 {item.source_link && (
-                  <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-3">
-                    <div className="flex items-start gap-2">
-                      <AlertTriangle className="h-5 w-5 text-indigo-600 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="text-sm font-semibold text-indigo-900 mb-1">Original Source File</p>
-                        <p className="text-xs text-indigo-700 mb-2">The image shown is a low-resolution preview. Please download the original source file for accurate color and dimension confirmation.</p>
+                  <div className="bg-indigo-50 border border-indigo-100 rounded-xl p-4 shadow-sm">
+                    <div className="flex items-start gap-3">
+                      <div className="p-2 bg-indigo-100 rounded-lg">
+                        <ImageIcon className="h-5 w-5 text-indigo-600 flex-shrink-0" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-bold text-indigo-900 mb-1">Source Link Available</p>
+                        <p className="text-xs text-indigo-700 mb-3 leading-relaxed">Please use the original high-resolution source file for final color and dimension verification.</p>
                         <a
                           href={item.source_link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 px-3 py-1.5 bg-indigo-600 text-white text-sm font-medium rounded-md hover:bg-indigo-700 transition"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white text-xs font-bold rounded-lg hover:bg-indigo-700 transition shadow-sm hover:shadow-md"
                         >
-                          <ExternalLink className="h-4 w-4" />
-                          Download Original Source File
+                          <ExternalLink className="h-3.5 w-3.5" />
+                          Download Original File
                         </a>
                       </div>
                     </div>
@@ -1245,18 +1365,18 @@ const ReviewModal: React.FC<{
               
               {/* AI Analysis Info */}
               {item.ai_analysis && (
-                <div className="mt-4 p-4 bg-indigo-50 rounded-xl">
-                  <div className="flex items-center gap-2 text-indigo-700 mb-2">
-                    <Sparkles className="h-4 w-4" />
-                    <span className="text-sm font-medium">AI Analysis</span>
+                <div className="mt-4 p-4 bg-gray-50 border border-gray-100 rounded-xl">
+                  <div className="flex items-center gap-2 text-gray-700 mb-3">
+                    <Sparkles className="h-4 w-4 text-indigo-500" />
+                    <span className="text-sm font-bold uppercase tracking-wider text-gray-500">Auto-Detect</span>
                   </div>
                   {item.ai_analysis.title && (
-                    <p className="text-sm text-indigo-600">{item.ai_analysis.title}</p>
+                    <p className="text-sm font-semibold text-gray-800 mb-2">{item.ai_analysis.title}</p>
                   )}
                   {item.ai_analysis.keywords && (
-                    <div className="flex flex-wrap gap-1 mt-2">
-                      {item.ai_analysis.keywords.slice(0, 5).map((kw, i) => (
-                        <span key={i} className="px-2 py-0.5 text-xs bg-indigo-100 text-indigo-600 rounded">
+                    <div className="flex flex-wrap gap-1.5">
+                      {item.ai_analysis.keywords.slice(0, 8).map((kw, i) => (
+                        <span key={i} className="px-2 py-0.5 text-[10px] font-bold bg-white text-gray-600 border border-gray-200 rounded uppercase tracking-tighter">
                           {kw}
                         </span>
                       ))}
@@ -1270,12 +1390,17 @@ const ReviewModal: React.FC<{
             <div className="space-y-6">
               {/* Checklist */}
               <div>
-                <h3 className="font-semibold text-gray-900 mb-3">Verification Checklist</h3>
-                <div className="space-y-2">
+                <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-green-500" />
+                  Verification Checklist
+                </h3>
+                <div className="grid grid-cols-1 gap-2">
                   {CHECKLIST_ITEMS.map(c => (
                     <label 
                       key={c.key}
-                      className="flex items-center gap-3 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer"
+                      className={`flex items-center gap-3 p-3 border rounded-xl transition cursor-pointer ${
+                        checklist[c.key] ? 'border-primary-200 bg-primary-50' : 'border-gray-200 hover:border-gray-300'
+                      }`}
                     >
                       <input
                         type="checkbox"
@@ -1283,7 +1408,9 @@ const ReviewModal: React.FC<{
                         onChange={(e) => setChecklist(prev => ({ ...prev, [c.key]: e.target.checked }))}
                         className="w-5 h-5 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
                       />
-                      <span className="text-sm text-gray-700">{c.label}</span>
+                      <span className={`text-sm font-medium ${checklist[c.key] ? 'text-primary-900' : 'text-gray-700'}`}>
+                        {c.label}
+                      </span>
                     </label>
                   ))}
                 </div>
@@ -1291,120 +1418,251 @@ const ReviewModal: React.FC<{
               
               {/* Approval Options */}
               <div>
-                <h3 className="font-semibold text-gray-900 mb-3">Your Decision</h3>
+                <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                  <LayoutGrid className="h-4 w-4 text-primary-500" />
+                  Your Decision
+                </h3>
                 <div className="space-y-2">
-                  <label className={`flex items-start gap-3 p-4 border rounded-lg cursor-pointer transition ${
-                    approvalType === 'approve_as_is' ? 'border-green-500 bg-green-50' : 'border-gray-200 hover:bg-gray-50'
+                  <label className={`flex items-start gap-4 p-4 border rounded-xl cursor-pointer transition ${
+                    approvalType === 'approve_as_is' ? 'border-green-500 bg-green-50' : 'border-gray-200 hover:border-gray-300'
                   }`}>
                     <input
                       type="radio"
                       name="approval"
                       checked={approvalType === 'approve_as_is'}
                       onChange={() => setApprovalType('approve_as_is')}
-                      className="mt-1"
+                      className="mt-1 w-4 h-4 text-green-600 focus:ring-green-500"
                     />
                     <div>
-                      <span className="font-medium text-gray-900">Approve as is</span>
-                      <p className="text-sm text-gray-500">The artwork is approved for production</p>
+                      <span className="font-bold text-gray-900">Approve as is</span>
+                      <p className="text-xs text-gray-600 mt-0.5">Perfect! Ready for full commercial production.</p>
                     </div>
                   </label>
                   
-                  <label className={`flex items-start gap-3 p-4 border rounded-lg cursor-pointer transition ${
-                    approvalType === 'approve_with_changes' ? 'border-yellow-500 bg-yellow-50' : 'border-gray-200 hover:bg-gray-50'
+                  <label className={`flex items-start gap-4 p-4 border rounded-xl cursor-pointer transition ${
+                    approvalType === 'approve_with_changes' ? 'border-amber-500 bg-amber-50' : 'border-gray-200 hover:border-gray-300'
                   }`}>
                     <input
                       type="radio"
                       name="approval"
                       checked={approvalType === 'approve_with_changes'}
                       onChange={() => setApprovalType('approve_with_changes')}
-                      className="mt-1"
+                      className="mt-1 w-4 h-4 text-amber-600 focus:ring-amber-500"
                     />
                     <div>
-                      <span className="font-medium text-gray-900">Approve with changes</span>
-                      <p className="text-sm text-gray-500">Minor changes noted but approved for production</p>
+                      <span className="font-bold text-gray-900">Approve with changes</span>
+                      <p className="text-xs text-gray-600 mt-0.5">Proceed after minor noted corrections.</p>
                     </div>
                   </label>
                   
-                  <label className={`flex items-start gap-3 p-4 border rounded-lg cursor-pointer transition ${
-                    approvalType === 'not_approved' ? 'border-red-500 bg-red-50' : 'border-gray-200 hover:bg-gray-50'
+                  <label className={`flex items-start gap-4 p-4 border rounded-xl cursor-pointer transition ${
+                    approvalType === 'not_approved' ? 'border-red-500 bg-red-50' : 'border-gray-200 hover:border-gray-300'
                   }`}>
                     <input
                       type="radio"
                       name="approval"
                       checked={approvalType === 'not_approved'}
                       onChange={() => setApprovalType('not_approved')}
-                      className="mt-1"
+                      className="mt-1 w-4 h-4 text-red-600 focus:ring-red-500"
                     />
                     <div>
-                      <span className="font-medium text-gray-900">Not Approved - Send New Proof</span>
-                      <p className="text-sm text-gray-500">Requires revision before approval</p>
+                      <span className="font-bold text-gray-900 uppercase tracking-tight">Requires Revision</span>
+                      <p className="text-xs text-gray-600 mt-0.5">Do NOT print. Request new proof after changes.</p>
                     </div>
                   </label>
                 </div>
               </div>
-              
-              {/* Thread / Discussion */}
-              {(localItem.customer_comment || (localItem.ai_analysis?.replies?.length ?? 0) > 0) && (
-                <div className="mb-4">
-                  <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                    <MessageSquare className="h-4 w-4" /> Discussion Thread
+
+              {/* Discussion Thread */}
+              <div className="bg-gray-50 border border-gray-200 rounded-2xl overflow-hidden shadow-inner">
+                <div className="p-4 border-b border-gray-200 bg-white/50 flex items-center justify-between">
+                  <h3 className="font-bold text-gray-900 flex items-center gap-2 text-sm">
+                    <MessageSquare className="h-4 w-4 text-primary-500" />
+                    Discussion Thread
                   </h3>
-                  <div className="rounded-xl overflow-hidden border border-gray-200">
-                    {localItem.customer_comment && (
-                      <div className="p-3 bg-yellow-50">
-                        <div className="flex items-center gap-1.5 mb-1">
-                          <span className="text-[11px] font-bold uppercase tracking-wide text-yellow-700">Your comment</span>
-                        </div>
-                        <p className="text-sm text-yellow-900">{localItem.customer_comment}</p>
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Live Updates</span>
+                </div>
+                
+                <div className="max-h-60 overflow-y-auto p-4 space-y-4">
+                  {localItem.customer_comment && (
+                    <div className="flex flex-col items-end">
+                      <div className="bg-primary-600 text-white rounded-2xl rounded-tr-none px-4 py-2 shadow-sm max-w-[90%]">
+                        <p className="text-xs font-bold mb-1 opacity-80">Initial Feedback</p>
+                        <p className="text-sm leading-relaxed">{localItem.customer_comment}</p>
                       </div>
-                    )}
-                    {(localItem.ai_analysis?.replies ?? []).map((r: { author: string; text: string; at: string }, idx: number) => (
-                      <div key={idx} className={`p-3 border-t ${r.author === 'Admin' ? 'bg-blue-50' : 'bg-gray-50'}`}>
-                        <div className="flex items-center gap-1.5 mb-1">
-                          <span className={`text-[11px] font-bold uppercase tracking-wide ${r.author === 'Admin' ? 'text-blue-700' : 'text-gray-600'}`}>
-                            {r.author === 'Admin' ? 'Achieve Pack' : 'You'}
-                          </span>
-                          <span className="text-[11px] text-gray-400">{new Date(r.at).toLocaleDateString()}</span>
+                    </div>
+                  )}
+                  
+                  {(localItem.ai_analysis?.replies ?? []).map((r: any, idx: number) => {
+                    const isAdmin = r.author === 'Admin' || r.author === 'Achieve Pack'
+                    return (
+                      <div key={idx} className={`flex flex-col ${isAdmin ? 'items-start' : 'items-end'}`}>
+                        <div className={`px-4 py-2 rounded-2xl shadow-sm max-w-[90%] ${
+                          isAdmin 
+                            ? 'bg-white border border-gray-200 rounded-tl-none' 
+                            : 'bg-primary-600 text-white rounded-tr-none'
+                        }`}>
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className={`text-[10px] font-black uppercase tracking-tight ${isAdmin ? 'text-indigo-600' : 'text-primary-100'}`}>
+                              {isAdmin ? 'Achieve Pack' : 'You'}
+                            </span>
+                            <span className={`text-[9px] ${isAdmin ? 'text-gray-400' : 'text-primary-200'}`}>
+                              {new Date(r.at).toLocaleDateString()}
+                            </span>
+                          </div>
+                          {r.text && <p className="text-sm leading-relaxed">{r.text}</p>}
+                          
+                          {/* Reply Assets */}
+                          {r.assets && r.assets.length > 0 && (
+                            <div className="mt-2 space-y-1.5 pt-2 border-t border-black/5">
+                              {r.assets.map((asset: any, aidx: number) => (
+                                <div key={aidx}>
+                                  {asset.type === 'image' ? (
+                                    <button 
+                                      onClick={() => onPreview(asset.url)}
+                                      className="rounded-lg overflow-hidden border border-black/10 hover:opacity-90 transition block"
+                                    >
+                                      <img src={asset.url} alt="Attachment" className="max-h-32 w-auto object-contain" />
+                                    </button>
+                                  ) : (
+                                    <a 
+                                      href={asset.url} 
+                                      target="_blank" 
+                                      rel="noopener noreferrer"
+                                      className={`flex items-center gap-1.5 text-xs font-bold underline decoration-2 underline-offset-2 ${
+                                        isAdmin ? 'text-blue-600 hover:text-blue-800' : 'text-white hover:text-primary-100'
+                                      }`}
+                                    >
+                                      <LinkIcon className="h-3 w-3" />
+                                      {asset.name || 'View Link'}
+                                    </a>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
-                        <p className="text-sm text-gray-900">{r.text}</p>
                       </div>
-                    ))}
-                    {/* Reply input */}
-                    <div className="p-3 border-t bg-gray-50">
+                    )
+                  })}
+                  
+                  {(!localItem.customer_comment && (localItem.ai_analysis?.replies?.length ?? 0) === 0) && (
+                    <div className="text-center py-4">
+                      <p className="text-xs text-gray-400 italic">No discussion yet. Send a note to the production team.</p>
+                    </div>
+                  )}
+                </div>
+                
+                {/* Reply Input Area */}
+                <div className="p-4 bg-white border-t border-gray-200">
+                  {/* Pending Assets Preview */}
+                  {pendingAssets.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {pendingAssets.map((asset, idx) => (
+                        <div key={idx} className="relative group bg-gray-100 rounded-lg p-1 pr-7 border border-gray-200">
+                          {asset.type === 'image' ? (
+                            <div className="h-8 w-8 rounded overflow-hidden flex-shrink-0">
+                              <img src={asset.url} alt="Pending" className="h-full w-full object-cover" />
+                            </div>
+                          ) : (
+                            <div className="h-8 flex items-center px-2 gap-1.5 text-[10px] font-bold text-gray-600">
+                              <LinkIcon className="h-3 w-3" />
+                              <span className="max-w-[80px] truncate">{asset.name || 'Link'}</span>
+                            </div>
+                          )}
+                          <button 
+                            onClick={() => handleRemovePendingAsset(idx)}
+                            className="absolute right-1 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-red-500 transition"
+                          >
+                            <X className="h-3 w-3" />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Link Input Overlay */}
+                  {showLinkInput && (
+                    <div className="mb-3 p-3 bg-primary-50 rounded-xl border border-primary-100 space-y-2 animate-in slide-in-from-top-2">
+                      <input 
+                        type="url" 
+                        value={linkUrl}
+                        onChange={e => setLinkUrl(e.target.value)}
+                        placeholder="Paste URL here..."
+                        className="w-full px-3 py-1.5 text-xs rounded-lg border-gray-200 focus:ring-1 focus:ring-primary-500"
+                        autoFocus
+                      />
+                      <div className="flex gap-2">
+                        <input 
+                          type="text" 
+                          value={linkLabel}
+                          onChange={e => setLinkLabel(e.target.value)}
+                          placeholder="Label (optional)"
+                          className="flex-1 px-3 py-1.5 text-xs rounded-lg border-gray-200 focus:ring-1 focus:ring-primary-500"
+                        />
+                        <button 
+                          onClick={handleAddLink}
+                          className="px-4 py-1.5 bg-primary-600 text-white text-xs font-bold rounded-lg hover:bg-primary-700"
+                        >Add</button>
+                        <button 
+                          onClick={() => setShowLinkInput(false)}
+                          className="px-3 py-1.5 bg-white text-gray-500 text-xs font-bold rounded-lg border border-gray-200"
+                        >✕</button>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="flex items-end gap-2">
+                    <div className="flex-1 min-w-0">
                       <textarea
                         value={replyText}
                         onChange={e => setReplyText(e.target.value)}
-                        placeholder="Reply to this thread..."
+                        placeholder="Write a message..."
                         rows={2}
-                        className="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg resize-none focus:ring-1 focus:ring-primary-500"
+                        className="w-full px-4 py-2 text-sm border border-gray-200 rounded-xl resize-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition"
                         onKeyDown={e => {
                           if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSendReply() }
                         }}
                       />
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <div className="flex gap-1">
+                        <label className="cursor-pointer p-2 text-gray-400 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition" title="Attach Image">
+                          {uploadingAsset ? <RefreshCw className="h-5 w-5 animate-spin" /> : <ImageIcon className="h-5 w-5" />}
+                          <input type="file" accept="image/*" className="hidden" onChange={handleAssetUpload} disabled={uploadingAsset} />
+                        </label>
+                        <button 
+                          onClick={() => setShowLinkInput(!showLinkInput)}
+                          className={`p-2 transition rounded-lg ${showLinkInput ? 'text-primary-600 bg-primary-50' : 'text-gray-400 hover:text-primary-600 hover:bg-primary-50'}`}
+                          title="Add Link"
+                        >
+                          <LinkIcon className="h-5 w-5" />
+                        </button>
+                      </div>
                       <button
                         onClick={handleSendReply}
-                        disabled={!replyText.trim() || sendingReply}
-                        className="mt-2 px-4 py-1.5 text-sm font-semibold bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50 transition flex items-center gap-2"
+                        disabled={(!replyText.trim() && pendingAssets.length === 0) || sendingReply || uploadingAsset}
+                        className="p-2.5 bg-primary-600 text-white rounded-xl hover:bg-primary-700 disabled:opacity-50 transition shadow-sm"
                       >
-                        <Send className="h-3.5 w-3.5" />
-                        {sendingReply ? 'Sending...' : 'Send Reply'}
+                        <Send className="h-5 w-5" />
                       </button>
                     </div>
                   </div>
                 </div>
-              )}
-
-              {/* Comment */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Comments {approvalType === 'not_approved' && <span className="text-red-500">*</span>}
+              </div>
+              
+              {/* Comment Field (Bottom) */}
+              <div className="pt-4 border-t border-gray-100">
+                <label className="block text-sm font-bold text-gray-900 mb-2">
+                  Final Summary / Decision Notes
+                  {approvalType === 'not_approved' && <span className="ml-1 text-red-500 font-black">*</span>}
                 </label>
                 <textarea
                   value={comment}
                   onChange={(e) => setComment(e.target.value)}
-                  placeholder={approvalType === 'not_approved' ? 'Please describe what needs to be changed...' : 'Optional comments...'}
+                  placeholder={approvalType === 'not_approved' ? 'Please describe exactly what needs revision...' : 'Additional notes for the production team...'}
                   rows={3}
-                  className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 transition"
                 />
               </div>
             </div>
@@ -1412,21 +1670,21 @@ const ReviewModal: React.FC<{
         </div>
         
         {/* Footer */}
-        <div className="flex gap-3 p-6 border-t bg-gray-50 rounded-b-2xl">
+        <div className="flex gap-4 p-6 border-t bg-gray-50 rounded-b-2xl">
           <button
             onClick={onClose}
-            className="flex-1 px-4 py-3 border border-gray-200 rounded-lg hover:bg-white transition"
+            className="flex-1 px-6 py-3.5 border border-gray-200 text-gray-700 font-bold rounded-xl hover:bg-white transition shadow-sm"
           >
             Cancel
           </button>
           <button
             onClick={handleSubmit}
             disabled={!approvalType || (approvalType !== 'not_approved' && !allChecked) || (approvalType === 'not_approved' && !comment.trim())}
-            className={`flex-1 px-4 py-3 text-white rounded-lg transition disabled:opacity-50 ${
+            className={`flex-1 px-6 py-3.5 text-white font-black uppercase tracking-wider rounded-xl transition shadow-lg hover:shadow-xl disabled:opacity-50 disabled:shadow-none ${
               approvalType === 'not_approved' ? 'bg-red-600 hover:bg-red-700' : 'bg-green-600 hover:bg-green-700'
             }`}
           >
-            {approvalType === 'not_approved' ? 'Request Revision' : 'Confirm Approval'}
+            {approvalType === 'not_approved' ? 'Request Revision' : 'Confirm & Approve'}
           </button>
         </div>
       </div>
