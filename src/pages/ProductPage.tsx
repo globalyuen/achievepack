@@ -538,7 +538,14 @@ const ProductPage: React.FC = () => {
       if (qtyOption) setSelectedQtyOption(parseInt(qtyOption))
       if (quantity) setSelectedEcoStockQuantity(parseInt(quantity) || 500)
     }
-  }, [product, isEcoDigital, isConventionalDigital, isBoxes, searchParams])
+    
+    // Eco Stock params
+    if (isEcoStock && ecoStockProduct) {
+      const quantity = searchParams.get('quantity')
+      if (quantity) setSelectedEcoStockQuantity(parseInt(quantity) || ecoStockProduct.minQuantity || 500)
+      else if (!searchParams.has('quantity')) setSelectedEcoStockQuantity(ecoStockProduct.minQuantity || 500)
+    }
+  }, [product, isEcoDigital, isConventionalDigital, isBoxes, isEcoStock, ecoStockProduct, searchParams])
   
   // Initialize from product defaults (only if no URL params)
   useEffect(() => {
@@ -1874,7 +1881,7 @@ const ProductPage: React.FC = () => {
                       onChange={e => setSelectedEcoStockQuantity(Number(e.target.value))} 
                       className="w-full p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-green-200 focus:border-green-500 bg-white text-neutral-900 font-medium transition-all hover:border-green-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10"
                     >
-                      {Array.from({ length: 10 }, (_, i) => (i + 1) * ecoStockProduct.quantityStep).map(qty => (
+                      {Array.from({ length: 10 }, (_, i) => (ecoStockProduct.minQuantity || 500) + (i * ecoStockProduct.quantityStep)).map(qty => (
                         <option key={qty} value={qty}>{qty.toLocaleString()} pieces</option>
                       ))}
                     </select>
