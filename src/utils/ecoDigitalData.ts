@@ -177,8 +177,8 @@ export const MATERIALS_FACTORS: Record<EcoMaterial, {
   weight: number
   multiplier: number
 }> = {
-  'PCR or Bio Plastic': { cost: -10.00, weight: 0.00, multiplier: 0.9 },
-  'Mono Recyclable Plastic': { cost: -30.00, weight: 0.00, multiplier: 0.7 },
+  'PCR or Bio Plastic': { cost: 35.00, weight: 0.00, multiplier: 1.35 },
+  'Mono Recyclable Plastic': { cost: 5.00, weight: 0.00, multiplier: 1.05 },
   'Biodegradable and Compostable': { cost: 60.00, weight: 0.00, multiplier: 1.6 },
 }
 
