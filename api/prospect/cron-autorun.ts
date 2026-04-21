@@ -272,7 +272,7 @@ async function cleanBusinessNameWithAI(rawName: string): Promise<string> {
                 'Authorization': `Bearer ${XAI_API_KEY}`
             },
             body: JSON.stringify({
-                model: 'grok-2-1212',
+                model: 'grok-3',
                 messages: [{
                     role: 'user',
                     content: `Extract the actual business/company name from this website title. Return ONLY the company name (2-4 words max), nothing else.

@@ -55,7 +55,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                         'Authorization': `Bearer ${XAI_API_KEY}`
                     },
                     body: JSON.stringify({
-                        model: 'grok-2-1212',
+                        model: 'grok-3',
                         messages: [{
                             role: 'system',
                             content: 'Generate a unique Google search term to find small businesses that could benefit from eco-friendly packaging. Focus on food, beverage, cosmetics, or specialty product businesses. Format: "[business type] in [city]". Do NOT include packaging companies. Return only the search phrase, nothing else.'

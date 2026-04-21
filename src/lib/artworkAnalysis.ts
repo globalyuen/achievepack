@@ -67,7 +67,7 @@ export async function analyzeArtworkWithXAI(
         'Authorization': `Bearer ${apiKey}`
       },
       body: JSON.stringify({
-        model: 'grok-vision-beta',
+        model: 'grok-3',
         messages: [
           {
             role: 'user',

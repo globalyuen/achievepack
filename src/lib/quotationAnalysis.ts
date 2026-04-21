@@ -76,7 +76,7 @@ Response format (JSON only):
         'Authorization': `Bearer ${XAI_API_KEY}`
       },
       body: JSON.stringify({
-        model: 'grok-2-1212',
+        model: 'grok-3',
         messages: [
           { role: 'system', content: 'You are a packaging industry expert. Always respond with valid JSON only.' },
           { role: 'user', content: prompt }
@@ -144,7 +144,7 @@ Provide JSON with: summary, recommendations (2-3), key_benefits (3-4). JSON only
         'Authorization': `Bearer ${XAI_API_KEY}`
       },
       body: JSON.stringify({
-        model: 'grok-2-1212',
+        model: 'grok-3',
         messages: [
           { role: 'system', content: 'Professional sales copywriter. Respond JSON only.' },
           { role: 'user', content: prompt }
@@ -305,7 +305,7 @@ JSON response only:`
         'Authorization': `Bearer ${XAI_API_KEY}`
       },
       body: JSON.stringify({
-        model: 'grok-2-1212',
+        model: 'grok-3',
         messages: [
           { role: 'system', content: 'You are a packaging industry expert assistant. Always respond with valid JSON only, no markdown formatting.' },
           { role: 'user', content: prompt }
