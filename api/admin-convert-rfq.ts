@@ -68,7 +68,7 @@ EXAMPLE STRUCTURE (adapt based on actual input):
         'Authorization': `Bearer ${XAI_API_KEY}`
       },
       body: JSON.stringify({
-        model: 'grok-beta',
+        model: 'grok-2-latest',
         messages: [
           { role: 'system', content: systemPrompt },
           { role: 'user', content: `Convert this customer RFQ to professional Chinese vendor RFQ:\n\n${text}` }

@@ -542,7 +542,7 @@ Reply with ONLY the email body text, no subject line.`
             'Authorization': `Bearer ${XAI_API_KEY}`
           },
           body: JSON.stringify({
-            model: 'grok-beta',
+            model: 'grok-2-latest',
             messages: [{ role: 'user', content: prompt }],
             max_tokens: 300,
             temperature: 0.7
@@ -1036,7 +1036,7 @@ Respond in this JSON format only:
             'Authorization': `Bearer ${XAI_API_KEY}`
           },
           body: JSON.stringify({
-            model: 'grok-beta',
+            model: 'grok-2-latest',
             messages: [{ role: 'user', content: prompt }],
             max_tokens: 500,
             temperature: 0.3
