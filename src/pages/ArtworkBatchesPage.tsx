@@ -75,7 +75,7 @@ const ArtworkBatchesPage: React.FC = () => {
 
   // File rename state
   const [editingFileName, setEditingFileName] = useState<string | null>(null)
-  const [renameValue, setRenameValue] = useState('')
+  const [fileNameValue, setFileNameValue] = useState('')
   
   // Password edit state
   const [editingPasswords, setEditingPasswords] = useState(false)
