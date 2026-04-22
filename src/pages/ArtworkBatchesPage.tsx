@@ -75,7 +75,12 @@ const ArtworkBatchesPage: React.FC = () => {
 
   // File rename state
   const [editingFileName, setEditingFileName] = useState<string | null>(null)
-  const [fileNameValue, setFileNameValue] = useState('')
+  const [renameValue, setRenameValue] = useState('')
+  
+  // Password edit state
+  const [editingPasswords, setEditingPasswords] = useState(false)
+  const [editCustomerPassword, setEditCustomerPassword] = useState('')
+  const [editSupplierPassword, setEditSupplierPassword] = useState('')
   const [savingFileName, setSavingFileName] = useState(false)
 
   // Clone batch state
@@ -620,6 +625,39 @@ const ArtworkBatchesPage: React.FC = () => {
       setAnalyzingAll(false)
       setAnalyzeAllProgress({ done: 0, total: 0 })
       fetchBatchItems(selectedBatch.id)
+    }
+  }
+
+  // Update passwords
+  const handleSavePasswords = async () => {
+    if (!selectedBatch) return
+    if (!editCustomerPassword.trim() || !editSupplierPassword.trim()) {
+      alert('Passwords cannot be empty')
+      return
+    }
+
+    try {
+      const { error } = await supabase
+        .from('artwork_batches')
+        .update({
+          password: editCustomerPassword.trim(),
+          supplier_password: editSupplierPassword.trim()
+        })
+        .eq('id', selectedBatch.id)
+
+      if (error) throw error
+
+      const updatedBatch = {
+        ...selectedBatch,
+        password: editCustomerPassword.trim(),
+        supplier_password: editSupplierPassword.trim()
+      }
+      setSelectedBatch(updatedBatch)
+      setBatches(batches.map(b => b.id === selectedBatch.id ? updatedBatch : b))
+      setEditingPasswords(false)
+    } catch (err) {
+      console.error('Failed to update passwords:', err)
+      alert('Failed to update passwords')
     }
   }
 
@@ -1307,7 +1345,58 @@ const ArtworkBatchesPage: React.FC = () => {
                   
                   {/* Password & Link Info */}
                   <div className="mt-4 p-4 bg-gray-50 rounded-lg">
-                    <div className="flex items-center justify-between text-sm">
+                    {editingPasswords ? (
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between">
+                          <h4 className="font-bold text-gray-900 text-sm flex items-center gap-2">
+                            <Lock className="h-4 w-4" />
+                            Edit Access Passwords
+                          </h4>
+                          <div className="flex gap-2 text-sm">
+                            <button onClick={() => setEditingPasswords(false)} className="text-gray-500 hover:text-gray-700">Cancel</button>
+                            <button onClick={handleSavePasswords} className="text-primary-600 font-bold hover:text-primary-800">Save</button>
+                          </div>
+                        </div>
+                        <div className="space-y-3">
+                          <div>
+                            <label className="block text-xs font-medium text-gray-700 mb-1">Customer Password</label>
+                            <input 
+                              type="text" 
+                              value={editCustomerPassword} 
+                              onChange={(e) => setEditCustomerPassword(e.target.value)}
+                              className="w-full px-3 py-1.5 border border-gray-200 rounded text-sm focus:ring-1 focus:ring-primary-500"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-xs font-medium text-amber-700 mb-1">Supplier Password</label>
+                            <input 
+                              type="text" 
+                              value={editSupplierPassword} 
+                              onChange={(e) => setEditSupplierPassword(e.target.value)}
+                              className="w-full px-3 py-1.5 border border-amber-200 rounded text-sm bg-amber-50 focus:ring-1 focus:ring-amber-500 focus:bg-white transition"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <>
+                        <div className="flex items-center justify-between text-sm mb-3">
+                          <h4 className="font-bold text-gray-900 text-sm flex items-center gap-2">
+                            <Lock className="h-4 w-4" />
+                            Access Links
+                          </h4>
+                          <button 
+                            onClick={() => {
+                              setEditCustomerPassword(selectedBatch.password)
+                              setEditSupplierPassword(selectedBatch.supplier_password || '')
+                              setEditingPasswords(true)
+                            }}
+                            className="text-xs text-primary-600 hover:text-primary-800 font-medium"
+                          >
+                            Edit Passwords
+                          </button>
+                        </div>
+                        <div className="flex items-center justify-between text-sm">
                       <div className="flex items-center gap-2">
                         <Lock className="h-4 w-4 text-gray-500" />
                         <span className="text-gray-600">Password:</span>
@@ -1367,6 +1456,8 @@ const ArtworkBatchesPage: React.FC = () => {
                         {copiedSupplierLinkOnly ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4" />}
                       </button>
                     </div>
+                      </>
+                    )}
                   </div>
                 </div>
 
