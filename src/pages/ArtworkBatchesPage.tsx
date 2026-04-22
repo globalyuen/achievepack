@@ -35,6 +35,7 @@ const ArtworkBatchesPage: React.FC = () => {
   const [showCreateModal, setShowCreateModal] = useState(false)
   const [newBatchName, setNewBatchName] = useState('')
   const [newBatchPassword, setNewBatchPassword] = useState('')
+  const [newBatchSupplierPassword, setNewBatchSupplierPassword] = useState('')
   const [newBatchCustomerEmail, setNewBatchCustomerEmail] = useState('')
   const [newBatchCustomerName, setNewBatchCustomerName] = useState('')
   const [creating, setCreating] = useState(false)
@@ -52,6 +53,8 @@ const ArtworkBatchesPage: React.FC = () => {
   const [copiedLink, setCopiedLink] = useState(false)
   const [copiedPasswordOnly, setCopiedPasswordOnly] = useState(false)
   const [copiedLinkOnly, setCopiedLinkOnly] = useState(false)
+  const [copiedSupplierLinkOnly, setCopiedSupplierLinkOnly] = useState(false)
+  const [copiedSupplierPasswordOnly, setCopiedSupplierPasswordOnly] = useState(false)
   
   // JSON preview state
   const [showJsonModal, setShowJsonModal] = useState(false)
@@ -239,8 +242,8 @@ const ArtworkBatchesPage: React.FC = () => {
 
   // Create new batch
   const handleCreateBatch = async () => {
-    if (!newBatchName.trim() || !newBatchPassword.trim()) {
-      alert('Please enter batch name and password')
+    if (!newBatchName.trim() || !newBatchPassword.trim() || !newBatchSupplierPassword.trim()) {
+      alert('Please enter batch name, customer password, and supplier password')
       return
     }
     
@@ -252,6 +255,7 @@ const ArtworkBatchesPage: React.FC = () => {
         .insert({
           batch_name: newBatchName.trim(),
           password: newBatchPassword.trim(),
+          supplier_password: newBatchSupplierPassword.trim(),
           customer_email: newBatchCustomerEmail.trim() || null,
           customer_name: newBatchCustomerName.trim() || null,
           status: 'pending',
@@ -269,6 +273,7 @@ const ArtworkBatchesPage: React.FC = () => {
       setShowCreateModal(false)
       setNewBatchName('')
       setNewBatchPassword('')
+      setNewBatchSupplierPassword('')
       setNewBatchCustomerEmail('')
       setNewBatchCustomerName('')
       setSelectedBatch(data)
@@ -641,6 +646,21 @@ const ArtworkBatchesPage: React.FC = () => {
     navigator.clipboard.writeText(link)
     setCopiedLinkOnly(true)
     setTimeout(() => setCopiedLinkOnly(false), 2000)
+  }
+
+  const handleCopySupplierLinkOnly = () => {
+    if (!selectedBatch) return
+    const link = `${window.location.origin}/artwork-review/${selectedBatch.id}?role=supplier`
+    navigator.clipboard.writeText(link)
+    setCopiedSupplierLinkOnly(true)
+    setTimeout(() => setCopiedSupplierLinkOnly(false), 2000)
+  }
+
+  const handleCopySupplierPasswordOnly = () => {
+    if (!selectedBatch || !selectedBatch.supplier_password) return
+    navigator.clipboard.writeText(selectedBatch.supplier_password)
+    setCopiedSupplierPasswordOnly(true)
+    setTimeout(() => setCopiedSupplierPasswordOnly(false), 2000)
   }
 
   // Save source link for artwork item
@@ -1315,6 +1335,36 @@ const ArtworkBatchesPage: React.FC = () => {
                         title="Copy Link"
                       >
                         {copiedLinkOnly ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4" />}
+                      </button>
+                    </div>
+                    <div className="flex items-center justify-between text-sm mt-3 pt-3 border-t border-gray-200 bg-amber-50/50 -mx-4 px-4 py-2">
+                      <div className="flex items-center gap-2">
+                        <Lock className="h-4 w-4 text-amber-500" />
+                        <span className="text-gray-600">Supplier Password:</span>
+                        <code className="px-2 py-0.5 bg-white rounded border border-amber-200 text-amber-900">{selectedBatch.supplier_password || 'Not Set'}</code>
+                      </div>
+                      <button
+                        onClick={handleCopySupplierPasswordOnly}
+                        className="p-1 text-amber-400 hover:text-amber-700 hover:bg-amber-100 rounded transition"
+                        title="Copy Supplier Password"
+                      >
+                        {copiedSupplierPasswordOnly ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4" />}
+                      </button>
+                    </div>
+                    <div className="flex items-center justify-between text-sm mt-0 pt-3 border-t border-amber-100 bg-amber-50/50 -mx-4 px-4 pb-2">
+                      <div className="flex items-center gap-2 overflow-hidden pr-2">
+                        <ExternalLink className="h-4 w-4 text-amber-500 flex-shrink-0" />
+                        <span className="text-gray-600 flex-shrink-0">Supplier Upload Link:</span>
+                        <code className="px-2 py-0.5 bg-amber-50 rounded border border-amber-100 text-amber-900 text-xs truncate max-w-md">
+                          {window.location.origin}/artwork-review/{selectedBatch.id}?role=supplier
+                        </code>
+                      </div>
+                      <button
+                        onClick={handleCopySupplierLinkOnly}
+                        className="p-1 text-amber-400 hover:text-amber-700 hover:bg-amber-100 rounded transition flex-shrink-0"
+                        title="Copy Supplier Link"
+                      >
+                        {copiedSupplierLinkOnly ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4" />}
                       </button>
                     </div>
                   </div>
@@ -2121,6 +2171,17 @@ const ArtworkBatchesPage: React.FC = () => {
                   className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500"
                 />
               </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Supplier Password *</label>
+                <input
+                  type="text"
+                  value={newBatchSupplierPassword}
+                  onChange={(e) => setNewBatchSupplierPassword(e.target.value)}
+                  placeholder="Password for supplier access"
+                  className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500"
+                />
+              </div>
               
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Customer Name</label>
@@ -2154,7 +2215,7 @@ const ArtworkBatchesPage: React.FC = () => {
               </button>
               <button
                 onClick={handleCreateBatch}
-                disabled={!newBatchName.trim() || !newBatchPassword.trim() || creating}
+                disabled={!newBatchName.trim() || !newBatchPassword.trim() || !newBatchSupplierPassword.trim() || creating}
                 className="flex-1 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition disabled:opacity-50"
               >
                 {creating ? 'Creating...' : 'Create Batch'}

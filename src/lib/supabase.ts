@@ -553,6 +553,7 @@ export type ArtworkBatch = {
   id: string
   batch_name: string              // e.g. "91"
   password: string                // Admin-set password for customer access
+  supplier_password?: string
   status: 'pending' | 'partial' | 'approved' | 'rejected'
   customer_name?: string          // For email notification
   customer_email?: string
@@ -600,6 +601,7 @@ export type ArtworkBatchItem = {
   // Customer review
   status: 'pending' | 'approved' | 'rejected' | 'revision_needed'
   customer_comment?: string
+  supplier_comment?: string
   
   // Approval details
   approval_type?: 'approve_as_is' | 'approve_with_changes' | 'not_approved'

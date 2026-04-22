@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useLocation } from 'react-router-dom'
 import { 
   Lock, CheckCircle, AlertCircle, Clock, X, Check, ChevronLeft, ChevronRight,
   RefreshCw, FileImage, Sparkles, AlertTriangle, Info, Send, MessageSquare,
@@ -43,6 +43,9 @@ const formatFileSize = (bytes?: number) => {
 
 const ArtworkReviewPage: React.FC = () => {
   const { batchId } = useParams<{ batchId: string }>()
+  const location = useLocation()
+  const searchParams = new URLSearchParams(location.search)
+  const isSupplier = searchParams.get('role') === 'supplier'
   
   // Auth state
   const [authenticated, setAuthenticated] = useState(false)
@@ -229,11 +232,14 @@ const ArtworkReviewPage: React.FC = () => {
   const handleVerifyPassword = async () => {
     if (!password.trim() || !batch) return
     
-    if (password.trim() === batch.password) {
+    const isSupplierAuth = searchParams.get('role') === 'supplier'
+    const correctPassword = isSupplierAuth ? batch.supplier_password : batch.password
+
+    if (correctPassword && password.trim() === correctPassword) {
       setAuthenticated(true)
       setPasswordError('')
     } else {
-      setPasswordError('Incorrect password. Please try again.')
+      setPasswordError(isSupplierAuth ? '密码错误，请重试。(Incorrect password)' : 'Incorrect password. Please try again.')
     }
   }
 
@@ -469,15 +475,59 @@ const ArtworkReviewPage: React.FC = () => {
     }
   }, [batchId, fetchBatchData])
 
+  const handleSupplierUploadMain = async (e: React.ChangeEvent<HTMLInputElement>, item: ArtworkBatchItem) => {
+    if (!e.target.files || !e.target.files.length) return Promise.resolve();
+    const file = e.target.files[0];
+    
+    try {
+      const timestamp = Date.now();
+      const safeName = file.name.replace(/[^a-zA-Z0-9.\-_]/g, '_');
+      const filePath = `artwork/${batchId}/${timestamp}_${safeName}`;
+      
+      const { error: uploadError } = await supabase.storage
+        .from('artworks')
+        .upload(filePath, file);
+        
+      if (uploadError) throw uploadError;
+      
+      const { data: urlData } = supabase.storage
+        .from('artworks')
+        .getPublicUrl(filePath);
+        
+      const now = new Date().toISOString()
+      const { error: updateError } = await supabase
+        .from('artwork_batch_items')
+        .update({
+          file_url: urlData.publicUrl,
+          file_size: file.size,
+          status: 'pending',
+          updated_at: now
+        })
+        .eq('id', item.id);
+        
+      if (updateError) throw updateError;
+      
+      setItems(prev => prev.map(i => i.id === item.id ? { ...i, file_url: urlData.publicUrl, file_size: file.size, status: 'pending', updated_at: now } : i));
+      
+      alert(isSupplier ? '图稿已被成功覆盖！状态已重置为待审核。' : 'Artwork overwritten successfully! Status reset to pending.');
+      
+      return { file_url: urlData.publicUrl, file_size: file.size, status: 'pending', updated_at: now };
+    } catch (error) {
+      console.error('Upload failed:', error);
+      alert(isSupplier ? '上传失败。' : 'Upload failed.');
+      throw error;
+    }
+  };
+
   // Status badge
   const getStatusBadge = (status: string) => {
     switch (status) {
       case 'approved':
-        return <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-700"><CheckCircle className="h-3 w-3" />Approved</span>
+        return <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-700"><CheckCircle className="h-3 w-3" />{isSupplier ? '已批准' : 'Approved'}</span>
       case 'rejected':
-        return <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-red-100 text-red-700"><AlertCircle className="h-3 w-3" />Revision Needed</span>
+        return <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-red-100 text-red-700"><AlertCircle className="h-3 w-3" />{isSupplier ? '需要修改' : 'Revision Needed'}</span>
       default:
-        return <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-700"><Clock className="h-3 w-3" />Pending Review</span>
+        return <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-700"><Clock className="h-3 w-3" />{isSupplier ? '待审核' : 'Pending Review'}</span>
     }
   }
 
@@ -487,7 +537,7 @@ const ArtworkReviewPage: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
           <RefreshCw className="h-8 w-8 animate-spin text-primary-500 mx-auto mb-4" />
-          <p className="text-gray-600">Loading artwork batch...</p>
+          <p className="text-gray-600">{isSupplier ? '正在加载图稿批次...' : 'Loading artwork batch...'}</p>
         </div>
       </div>
     )
@@ -499,8 +549,8 @@ const ArtworkReviewPage: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
           <AlertCircle className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-          <h1 className="text-xl font-semibold text-gray-900">Batch Not Found</h1>
-          <p className="text-gray-500 mt-2">This artwork batch doesn't exist or has been removed.</p>
+          <h1 className="text-xl font-semibold text-gray-900">{isSupplier ? '未找到批次' : 'Batch Not Found'}</h1>
+          <p className="text-gray-500 mt-2">{isSupplier ? '此图稿批次不存在或已被移除。' : 'This artwork batch doesn\'t exist or has been removed.'}</p>
         </div>
       </div>
     )
@@ -515,13 +565,13 @@ const ArtworkReviewPage: React.FC = () => {
             <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Lock className="h-8 w-8 text-primary-600" />
             </div>
-            <h1 className="text-2xl font-bold text-gray-900">Artwork Review</h1>
-            <p className="text-gray-500 mt-2">Batch: {batch?.batch_name || 'Loading...'}</p>
+            <h1 className="text-2xl font-bold text-gray-900">{isSupplier ? '图稿文件上传' : 'Artwork Review'}</h1>
+            <p className="text-gray-500 mt-2">{isSupplier ? '批次' : 'Batch'}: {batch?.batch_name || (isSupplier ? '加载中...' : 'Loading...')}</p>
           </div>
           
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Enter Password</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">{isSupplier ? '输入密码' : 'Enter Password'}</label>
               <input
                 type="password"
                 value={password}
@@ -530,11 +580,11 @@ const ArtworkReviewPage: React.FC = () => {
                   setPasswordError('')
                 }}
                 onKeyDown={(e) => e.key === 'Enter' && handleVerifyPassword()}
-                placeholder="Access password"
+                placeholder={isSupplier ? "访问密码" : "Access password"}
                 className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               />
               {passwordError && (
-                <p className="text-sm text-red-600 mt-2">{passwordError}</p>
+                <p className="text-sm text-red-600 mt-2">{isSupplier ? '密码无效，请重试。' : passwordError}</p>
               )}
             </div>
             
@@ -543,12 +593,12 @@ const ArtworkReviewPage: React.FC = () => {
               disabled={!password.trim()}
               className="w-full py-3 bg-primary-600 text-white rounded-xl font-medium hover:bg-primary-700 transition disabled:opacity-50"
             >
-              Access Artwork
+              {isSupplier ? '访问图稿' : 'Access Artwork'}
             </button>
           </div>
           
           <p className="text-xs text-gray-400 text-center mt-6">
-            Password provided by AchievePack
+            {isSupplier ? '密码由 AchievePack 提供' : 'Password provided by AchievePack'}
           </p>
         </div>
       </div>
@@ -566,11 +616,11 @@ const ArtworkReviewPage: React.FC = () => {
             <div className="flex items-start gap-4 flex-1 min-w-0">
               <img src="/ap-logo.svg" alt="AchievePack" className="h-8 w-auto flex-shrink-0 mt-1" />
               <div className="flex-1 min-w-0">
-                <h1 className="font-semibold text-gray-900 break-words">Artwork Review - Batch {batch?.batch_name || '...'}</h1>
-                <p className="text-xs text-gray-500">{(items || []).length} artworks • {stats.pending} pending review</p>
+                <h1 className="font-semibold text-gray-900 break-words">{isSupplier ? '图稿上传 - 批次' : 'Artwork Review - Batch'} {batch?.batch_name || '...'}</h1>
+                <p className="text-xs text-gray-500">{isSupplier ? `共 ${items?.length || 0} 个文件 • ${stats.pending}待审核` : `${(items || []).length} artworks • ${stats.pending} pending review`}</p>
               </div>
             </div>
-            {stats.allReviewed && (
+            {!isSupplier && stats.allReviewed && (
               <button
                 onClick={() => setShowOverallApproval(true)}
                 className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition flex-shrink-0"
@@ -586,6 +636,7 @@ const ArtworkReviewPage: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Important Notice */}
+        {!isSupplier && (
         <div className="bg-amber-50 border border-amber-200 rounded-xl p-6 mb-6">
           <div className="flex items-start gap-3">
             <AlertTriangle className="h-6 w-6 text-amber-600 flex-shrink-0 mt-0.5" />
@@ -610,34 +661,35 @@ const ArtworkReviewPage: React.FC = () => {
             </div>
           </div>
         </div>
+        )}
 
         {/* Progress Stats */}
         <div className="grid grid-cols-3 gap-4 mb-6">
           <div className="bg-white rounded-xl border border-gray-200 p-4">
             <div className="flex items-center gap-2">
               <Clock className="h-5 w-5 text-gray-400" />
-              <span className="text-sm text-gray-500">Pending</span>
+              <span className="text-sm text-gray-500">{isSupplier ? '待审核' : 'Pending'}</span>
             </div>
             <p className="text-2xl font-bold text-gray-900 mt-1">{stats.pending}</p>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-4">
             <div className="flex items-center gap-2">
               <CheckCircle className="h-5 w-5 text-green-500" />
-              <span className="text-sm text-gray-500">Approved</span>
+              <span className="text-sm text-gray-500">{isSupplier ? '已批准' : 'Approved'}</span>
             </div>
             <p className="text-2xl font-bold text-green-600 mt-1">{stats.approved}</p>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-4">
             <div className="flex items-center gap-2">
               <AlertCircle className="h-5 w-5 text-red-500" />
-              <span className="text-sm text-gray-500">Need Revision</span>
+              <span className="text-sm text-gray-500">{isSupplier ? '需要修改' : 'Need Revision'}</span>
             </div>
             <p className="text-2xl font-bold text-red-600 mt-1">{stats.rejected}</p>
           </div>
         </div>
 
         {/* Bulk Review Button */}
-        {stats.pending > 0 && (items?.length || 0) > 1 && (
+        {!isSupplier && stats.pending > 0 && (items?.length || 0) > 1 && (
           <div className="mb-6 p-4 bg-primary-50 border border-primary-200 rounded-xl">
             <div className="flex items-center justify-between">
               <div>
@@ -664,31 +716,31 @@ const ArtworkReviewPage: React.FC = () => {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search by name, keyword, color..."
+              placeholder={isSupplier ? "请输入关键词搜索..." : "Search by name, keyword, color..."}
               className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500"
             />
           </div>
           <div className="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-3 py-1 sm:py-0">
-            <span className="text-[10px] uppercase font-bold text-gray-400 whitespace-nowrap">Sort by</span>
+            <span className="text-[10px] uppercase font-bold text-gray-400 whitespace-nowrap">{isSupplier ? '排序' : 'Sort by'}</span>
             <select 
               value={itemSortOption}
               onChange={(e) => setItemSortOption(e.target.value as any)}
               className="text-xs border-none focus:ring-0 bg-transparent py-2.5 pr-8 font-medium text-gray-700 cursor-pointer"
             >
-              <option value="activity">Latest Activity</option>
-              <option value="newest">Newest First</option>
-              <option value="oldest">Oldest First</option>
-              <option value="name">Name (A-Z)</option>
+              <option value="activity">{isSupplier ? '最新活动' : 'Latest Activity'}</option>
+              <option value="newest">{isSupplier ? '最新加入' : 'Newest First'}</option>
+              <option value="oldest">{isSupplier ? '最早加入' : 'Oldest First'}</option>
+              <option value="name">{isSupplier ? '按名称排序' : 'Name (A-Z)'}</option>
             </select>
           </div>
           {/* Filter Tabs */}
           <div className="flex flex-wrap items-center gap-2 mt-4 pt-4 border-t border-gray-100">
             {[
-              { id: 'all', label: 'All', icon: CheckCircle },
-              { id: 'with-comment', label: 'Comments', icon: MessageSquare },
-              { id: 'with-artwork', label: 'Artworks', icon: FileImage },
-              { id: 'approved', label: 'Approved', icon: CheckCircle },
-              { id: 'pending', label: 'Pending', icon: Clock },
+              { id: 'all', label: isSupplier ? '全部' : 'All', icon: CheckCircle },
+              { id: 'with-comment', label: isSupplier ? '有留言' : 'Comments', icon: MessageSquare },
+              { id: 'with-artwork', label: isSupplier ? '有预览图' : 'Artworks', icon: FileImage },
+              { id: 'approved', label: isSupplier ? '已批准' : 'Approved', icon: CheckCircle },
+              { id: 'pending', label: isSupplier ? '待审核' : 'Pending', icon: Clock },
             ].map(f => {
               const Icon = f.icon
               const isActive = itemFilter === f.id
@@ -802,7 +854,7 @@ const ArtworkReviewPage: React.FC = () => {
                         </span>
                       )}
                     </div>
-                    {(item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0) && (
+                    {!isSupplier && (item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0) && (
                       <span className="text-[10px] text-primary-500 font-bold flex items-center gap-1">
                         <MessageSquare className="h-2.5 w-2.5" />
                         {(item.ai_analysis?.replies?.length ?? 0) + (item.customer_comment ? 1 : 0)}
@@ -810,7 +862,7 @@ const ArtworkReviewPage: React.FC = () => {
                     )}
                   </div>
                   {/* Thread preview on card */}
-                  {(item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0) ? (
+                  {!isSupplier && (item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0) ? (
                     <div className="mt-1 space-y-1">
                       {item.customer_comment && (
                         <p className="text-[10px] text-yellow-700 truncate">
@@ -830,9 +882,9 @@ const ArtworkReviewPage: React.FC = () => {
                         setSelectedItem(item)
                         setShowReviewModal(true)
                       }}
-                      className="flex-1 py-2 text-sm font-medium text-primary-600 hover:bg-primary-50 rounded-lg transition"
+                      className="flex-1 py-2 text-sm font-medium text-primary-600 hover:bg-primary-50 rounded-lg transition border border-primary-100"
                     >
-                      {item.status === 'pending' ? 'Review Now' : 'View Details'}
+                      {isSupplier ? '上传新版本' : item.status === 'pending' ? 'Review Now' : 'View Details'}
                     </button>
                     {item.ai_analysis && (
                       <button
@@ -887,6 +939,8 @@ const ArtworkReviewPage: React.FC = () => {
       {showReviewModal && selectedItem && (
         <ReviewModal
           item={selectedItem}
+          isSupplier={isSupplier}
+          onSupplierUpload={(e, item) => handleSupplierUploadMain(e, item)}
           onClose={() => {
             setShowReviewModal(false)
             setSelectedItem(null)
@@ -1180,18 +1234,59 @@ const ArtworkReviewPage: React.FC = () => {
 
 const ReviewModal: React.FC<{
   item: ArtworkBatchItem
+  isSupplier?: boolean
+  onSupplierUpload?: (e: React.ChangeEvent<HTMLInputElement>, item: ArtworkBatchItem) => Promise<any>
   onClose: () => void
   onSubmit: (item: ArtworkBatchItem, type: 'approve_as_is' | 'approve_with_changes' | 'not_approved', comment: string, checklist: Record<string, boolean>) => void
   onPreview: (url: string) => void
   onAddReply: (item: ArtworkBatchItem, text: string, assets?: { type: 'image' | 'link', url: string, name?: string }[]) => Promise<void>
-}> = ({ item, onClose, onSubmit, onPreview, onAddReply }) => {
+}> = ({ item, isSupplier, onSupplierUpload, onClose, onSubmit, onPreview, onAddReply }) => {
   const [approvalType, setApprovalType] = useState<'approve_as_is' | 'approve_with_changes' | 'not_approved' | null>(
     item.approval_type || null
   )
   const [comment, setComment] = useState(item.customer_comment || '')
+  const [supplierComment, setSupplierComment] = useState(item.supplier_comment || '')
+  const [savingSupplierComment, setSavingSupplierComment] = useState(false)
   const [checklist, setChecklist] = useState<Record<string, boolean>>(
     item.checklist || {}
   )
+  const [uploadingNewArtwork, setUploadingNewArtwork] = useState(false);
+  const handleSupplierUpload = async (e: React.ChangeEvent<HTMLInputElement>, item: ArtworkBatchItem) => {
+    if (!onSupplierUpload) return;
+    setUploadingNewArtwork(true);
+    try {
+      const result = await onSupplierUpload(e, item);
+      if (result) {
+        setLocalItem(prev => ({ ...prev, ...result }));
+      }
+    } finally {
+      setUploadingNewArtwork(false);
+    }
+  };
+
+  const handleSupplierSaveComment = async () => {
+    setSavingSupplierComment(true);
+    try {
+      const now = new Date().toISOString()
+      const { error } = await supabase
+        .from('artwork_batch_items')
+        .update({
+          supplier_comment: supplierComment,
+          updated_at: now
+        })
+        .eq('id', item.id)
+
+      if (error) throw error
+      alert('留言已成功保存。')
+      setLocalItem(prev => ({ ...prev, supplier_comment: supplierComment, updated_at: now }))
+    } catch (err) {
+      console.error(err)
+      alert('留言保存失败。')
+    } finally {
+      setSavingSupplierComment(false)
+    }
+  };
+
   const [localItem, setLocalItem] = useState(item)
   const [replyText, setReplyText] = useState('')
   const [sendingReply, setSendingReply] = useState(false)
@@ -1411,10 +1506,67 @@ const ReviewModal: React.FC<{
               )}
             </div>
             
-            {/* Right: Review Form */}
+            {/* Right: Review Form or Supplier Upload */}
             <div className="space-y-6">
-              {/* Checklist */}
-              <div>
+              {!isSupplier && localItem.supplier_comment && (
+                <div className="mb-2 p-4 bg-amber-50 border border-amber-200 rounded-xl">
+                  <h4 className="font-bold text-amber-900 flex items-center gap-2 mb-2">
+                    <MessageSquare className="h-4 w-4 text-amber-500" />
+                    Supplier Comment
+                  </h4>
+                  <p className="text-sm text-amber-800 whitespace-pre-wrap">{localItem.supplier_comment}</p>
+                </div>
+              )}
+              
+              {isSupplier ? (
+                <div className="bg-primary-50 rounded-2xl border border-primary-100 p-8 flex flex-col items-stretch text-left">
+                  <div className="flex flex-col items-center justify-center text-center mb-6">
+                    <h3 className="font-bold text-gray-900 mb-2 flex items-center justify-center gap-2">
+                      <Sparkles className="h-5 w-5 text-primary-500" />
+                      供应商专属 - 上传新版本
+                    </h3>
+                    <p className="text-sm text-gray-600 max-w-sm mb-6">
+                      请上传最新的设计文档（如图片或PDF格式），它将会覆盖原来的文件并将状态改变为“待审核”。客户在此的反馈将为您隐藏。
+                    </p>
+                    
+                    <label className={`cursor-pointer inline-flex items-center justify-center gap-2 px-8 py-3 bg-primary-600 text-white font-bold rounded-xl hover:bg-primary-700 transition shadow-sm w-full max-w-sm ${uploadingNewArtwork ? 'opacity-50 cursor-not-allowed' : ''}`}>
+                    {uploadingNewArtwork ? <RefreshCw className="h-5 w-5 animate-spin" /> : <Send className="h-5 w-5" />}
+                    <span>{uploadingNewArtwork ? '正在上传...' : '选择文件并覆盖原文件'}</span>
+                    <input
+                      type="file"
+                      accept="image/*,application/pdf"
+                      className="hidden"
+                      disabled={uploadingNewArtwork}
+                      onChange={(e) => handleSupplierUpload(e, item)}
+                    />
+                  </label>
+                  </div>
+                  
+                  <div className="mt-2 border-t border-primary-100 pt-6">
+                    <label className="block text-sm font-bold text-gray-900 mb-2 flex items-center gap-2">
+                      <MessageSquare className="h-4 w-4 text-primary-500" />
+                      供应商留言 (Supplier Comment)
+                    </label>
+                    <textarea
+                      value={supplierComment}
+                      onChange={(e) => setSupplierComment(e.target.value)}
+                      placeholder="如果您有任何对该图稿的补充说明，请在此输入。留言将由管理团队看到。"
+                      rows={3}
+                      className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 transition mb-3"
+                    />
+                    <button
+                      onClick={handleSupplierSaveComment}
+                      disabled={savingSupplierComment || supplierComment === (localItem.supplier_comment || '')}
+                      className="w-full px-4 py-2.5 bg-white border border-primary-200 text-primary-700 font-bold rounded-xl hover:bg-primary-50 disabled:opacity-50 transition"
+                    >
+                      {savingSupplierComment ? '保存中...' : '保存留言'}
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  {/* Checklist */}
+                  <div>
                 <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-green-500" />
                   Verification Checklist
@@ -1690,6 +1842,8 @@ const ReviewModal: React.FC<{
                   className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 transition"
                 />
               </div>
+              </>
+            )}
             </div>
           </div>
         </div>
@@ -1698,19 +1852,21 @@ const ReviewModal: React.FC<{
         <div className="flex gap-4 p-6 border-t bg-gray-50 rounded-b-2xl">
           <button
             onClick={onClose}
-            className="flex-1 px-6 py-3.5 border border-gray-200 text-gray-700 font-bold rounded-xl hover:bg-white transition shadow-sm"
+            className={`px-6 py-3.5 border border-gray-200 text-gray-700 font-bold rounded-xl hover:bg-white transition shadow-sm ${isSupplier ? 'w-full' : 'flex-1'}`}
           >
-            Cancel
+            {isSupplier ? '关闭' : 'Cancel'}
           </button>
-          <button
-            onClick={handleSubmit}
-            disabled={!approvalType || (approvalType !== 'not_approved' && !allChecked) || (approvalType === 'not_approved' && !comment.trim())}
-            className={`flex-1 px-6 py-3.5 text-white font-black uppercase tracking-wider rounded-xl transition shadow-lg hover:shadow-xl disabled:opacity-50 disabled:shadow-none ${
-              approvalType === 'not_approved' ? 'bg-red-600 hover:bg-red-700' : 'bg-green-600 hover:bg-green-700'
-            }`}
-          >
-            {approvalType === 'not_approved' ? 'Request Revision' : 'Confirm & Approve'}
-          </button>
+          {!isSupplier && (
+            <button
+              onClick={handleSubmit}
+              disabled={!approvalType || (approvalType !== 'not_approved' && !allChecked) || (approvalType === 'not_approved' && !comment.trim())}
+              className={`flex-1 px-6 py-3.5 text-white font-black uppercase tracking-wider rounded-xl transition shadow-lg hover:shadow-xl disabled:opacity-50 disabled:shadow-none ${
+                approvalType === 'not_approved' ? 'bg-red-600 hover:bg-red-700' : 'bg-green-600 hover:bg-green-700'
+              }`}
+            >
+              {approvalType === 'not_approved' ? 'Request Revision' : 'Confirm & Approve'}
+            </button>
+          )}
         </div>
       </div>
     </div>

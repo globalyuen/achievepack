@@ -1,10 +1,10 @@
 {
-  "generated": "2026-04-02",
-  "total_images": 1282,
+  "generated": "2026-04-22",
+  "total_images": 1286,
   "total_categories": 141,
   "extensions": {
     ".webp": 1077,
-    ".png": 181,
+    ".png": 185,
     ".jpg": 21,
     ".svg": 3
   },
@@ -5307,8 +5307,32 @@
       ]
     },
     "samples": {
-      "count": 29,
+      "count": 33,
       "images": [
+        {
+          "filename": "achieve-sheet-sample.png",
+          "path": "/imgs/samples/achieve-sheet-sample.png",
+          "extension": ".png",
+          "modified": "2026-04-18T14:25:17.316Z"
+        },
+        {
+          "filename": "achieve-commercial-sample.png",
+          "path": "/imgs/samples/achieve-commercial-sample.png",
+          "extension": ".png",
+          "modified": "2026-04-18T14:25:17.314Z"
+        },
+        {
+          "filename": "achieve-hand-made-sample.png",
+          "path": "/imgs/samples/achieve-hand-made-sample.png",
+          "extension": ".png",
+          "modified": "2026-04-18T14:25:17.312Z"
+        },
+        {
+          "filename": "achieve_pack_samples_hero.png",
+          "path": "/imgs/samples/achieve_pack_samples_hero.png",
+          "extension": ".png",
+          "modified": "2026-04-18T09:15:38.288Z"
+        },
         {
           "filename": "sample-handmake.png",
           "path": "/imgs/samples/sample-handmake.png",
