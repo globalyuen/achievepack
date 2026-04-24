@@ -344,6 +344,7 @@ const ArtworkBatchesPage: React.FC = () => {
             
             if (itemError) {
               console.error('Item create error:', itemError)
+              uploadErrors.push(`${file.name} (DB Error): ${itemError.message}`)
               return
             }
             
@@ -369,22 +370,6 @@ const ArtworkBatchesPage: React.FC = () => {
       // Refresh data immediately
       fetchBatchItems(selectedBatch.id)
       fetchBatches()
-      
-      // Run AI analysis in background with concurrency limit
-      const imagesToAnalyze = uploadedItems.filter(item => item.isImage)
-      if (imagesToAnalyze.length > 0) {
-        const analyzeInBatches = async () => {
-          for (let i = 0; i < imagesToAnalyze.length; i += CONCURRENT_AI) {
-            const batch = imagesToAnalyze.slice(i, i + CONCURRENT_AI)
-            await Promise.all(batch.map(item => 
-              analyzeArtworkWithXAI(item.url, item.id).catch(console.error)
-            ))
-            // Refresh after each AI batch completes
-            fetchBatchItems(selectedBatch.id)
-          }
-        }
-        analyzeInBatches() // Run in background
-      }
       
       if (uploadErrors.length > 0) {
         alert(`Some files failed to upload:\n\n${uploadErrors.slice(0, 5).join('\n')}${uploadErrors.length > 5 ? '\n...and more' : ''}\n\nNote: Supabase has a 50MB file size limit per file. Make sure your videos or high-res files are under 50MB.`)
@@ -563,75 +548,7 @@ const ArtworkBatchesPage: React.FC = () => {
     }
   }
 
-  // Run AI analysis on item
-  const handleAnalyze = async (item: ArtworkBatchItem) => {
-    const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.file_url)
-    if (!isImage) {
-      alert('AI analysis only works with image files')
-      return
-    }
-    
-    setAnalyzingId(item.id)
-    try {
-      const analysis = await analyzeArtworkWithXAI(item.file_url, item.id)
-      if (analysis) {
-        setBatchItems(prev => prev.map(i => 
-          i.id === item.id ? { ...i, ai_analysis: analysis } : i
-        ))
-      }
-    } catch (err) {
-      console.error('Analysis error:', err)
-    } finally {
-      setAnalyzingId(null)
-    }
-  }
 
-  // Analyze all images in batch
-  const handleAnalyzeAll = async () => {
-    if (!selectedBatch || analyzingAll) return
-    
-    // Filter images that need analysis
-    const imagesToAnalyze = batchItems.filter(item => {
-      const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.file_url)
-      return isImage
-    })
-    
-    if (imagesToAnalyze.length === 0) {
-      alert('No image files to analyze')
-      return
-    }
-    
-    if (!confirm(`Analyze ${imagesToAnalyze.length} images with AI? This may take a while.`)) return
-    
-    setAnalyzingAll(true)
-    setAnalyzeAllProgress({ done: 0, total: imagesToAnalyze.length })
-    
-    const CONCURRENT_AI = 3
-    let done = 0
-    
-    try {
-      for (let i = 0; i < imagesToAnalyze.length; i += CONCURRENT_AI) {
-        const batch = imagesToAnalyze.slice(i, i + CONCURRENT_AI)
-        await Promise.all(batch.map(async (item) => {
-          try {
-            await analyzeArtworkWithXAI(item.file_url, item.id)
-          } catch (err) {
-            console.error('AI analysis error for', item.name, err)
-          }
-          done++
-          setAnalyzeAllProgress({ done, total: imagesToAnalyze.length })
-        }))
-        // Refresh after each batch
-        fetchBatchItems(selectedBatch.id)
-      }
-    } catch (err) {
-      console.error('Analyze all error:', err)
-    } finally {
-      setAnalyzingAll(false)
-      setAnalyzeAllProgress({ done: 0, total: 0 })
-      fetchBatchItems(selectedBatch.id)
-    }
-  }
 
   // Update passwords
   const handleSavePasswords = async () => {
@@ -1499,23 +1416,6 @@ const ArtworkBatchesPage: React.FC = () => {
                       disabled={uploading}
                     />
                   </label>
-                  <button
-                    onClick={handleAnalyzeAll}
-                    disabled={analyzingAll || batchItems.length === 0}
-                    className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {analyzingAll ? (
-                      <>
-                        <RefreshCw className="h-4 w-4 animate-spin" />
-                        <span>{analyzeAllProgress.done}/{analyzeAllProgress.total}</span>
-                      </>
-                    ) : (
-                      <>
-                        <Sparkles className="h-4 w-4" />
-                        <span>Analyze All</span>
-                      </>
-                    )}
-                  </button>
                 </div>
 
                 {/* Upload Progress */}
@@ -2149,21 +2049,7 @@ const ArtworkBatchesPage: React.FC = () => {
                                   <Code className="h-4 w-4" />
                                 </button>
                               )}
-                              {/* AI Analyze Button - show for images */}
-                              {isImage && (
-                                <button
-                                  onClick={() => handleAnalyze(item)}
-                                  disabled={analyzingId === item.id}
-                                  className="p-2 text-indigo-500 hover:text-indigo-700 hover:bg-indigo-50 rounded-lg transition disabled:opacity-50"
-                                  title={item.ai_analysis?.analyzed_at ? 'Re-analyze with AI' : 'Run AI Analysis'}
-                                >
-                                  {analyzingId === item.id ? (
-                                    <RefreshCw className="h-4 w-4 animate-spin" />
-                                  ) : (
-                                    <Sparkles className="h-4 w-4" />
-                                  )}
-                                </button>
-                              )}
+
                               {/* Save to Pinned Batch Button */}
                               <button
                                 onClick={() => setCopyTargetItem(item)}
