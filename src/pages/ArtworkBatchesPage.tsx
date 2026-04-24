@@ -298,10 +298,11 @@ const ArtworkBatchesPage: React.FC = () => {
     setUploading(true)
     setUploadProgress(0)
     
-    const CONCURRENT_UPLOADS = 5 // Upload 5 files at a time
+    const CONCURRENT_UPLOADS = 3 // Reduced to 3 for stability
     const CONCURRENT_AI = 3 // AI analyze 3 at a time
     let uploaded = 0
     const uploadedItems: { id: string, url: string, isImage: boolean }[] = []
+    const uploadErrors: string[] = []
     
     try {
       // Process files in batches for concurrent upload
@@ -319,7 +320,8 @@ const ArtworkBatchesPage: React.FC = () => {
               .upload(fileName, file)
             
             if (uploadError) {
-              console.error('Upload error:', uploadError)
+              console.error('Upload error for', file.name, uploadError)
+              uploadErrors.push(`${file.name}: ${uploadError.message}`)
               return
             }
             
@@ -346,9 +348,8 @@ const ArtworkBatchesPage: React.FC = () => {
             }
             
             const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(file.name)
-            const isVideo = /\.(mp4|mov|webm)$/i.test(file.name)
             if (itemData) {
-              uploadedItems.push({ id: itemData.id, url: urlData.publicUrl, isImage: isImage || isVideo })
+              uploadedItems.push({ id: itemData.id, url: urlData.publicUrl, isImage })
             }
             
             uploaded++
@@ -383,6 +384,10 @@ const ArtworkBatchesPage: React.FC = () => {
           }
         }
         analyzeInBatches() // Run in background
+      }
+      
+      if (uploadErrors.length > 0) {
+        alert(`Some files failed to upload:\n\n${uploadErrors.slice(0, 5).join('\n')}${uploadErrors.length > 5 ? '\n...and more' : ''}\n\nNote: Supabase has a 50MB file size limit per file. Make sure your videos or high-res files are under 50MB.`)
       }
       
     } catch (err) {
