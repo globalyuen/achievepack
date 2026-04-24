@@ -20,7 +20,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     fileName,
     fileUrl,
     fileType,
-    fileSize
+    fileSize,
+    customerComment
   } = req.body
 
   const BREVO_API_KEY = process.env.BREVO_API_KEY
@@ -101,6 +102,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
               </div>
             </div>
             
+            ${customerComment ? `
+            <div class="field" style="background: #fffbeb; border: 1px solid #fcd34d;">
+              <div class="label" style="color: #b45309;">Customer Instructions / Configuration</div>
+              <div class="value" style="white-space: pre-wrap;">${customerComment}</div>
+            </div>
+            ` : ''}
+
             <div class="quick-actions">
               <p style="margin: 0 0 10px; font-weight: 600; color: #065f46;">Quick Actions:</p>
               <a href="${fileUrl}" class="button button-secondary" target="_blank">📥 Download File</a>

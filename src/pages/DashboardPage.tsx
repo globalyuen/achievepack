@@ -69,6 +69,7 @@ const DashboardPage: React.FC = () => {
   const [selectedArtwork, setSelectedArtwork] = useState<ArtworkFile | null>(null)
   const [revisionComment, setRevisionComment] = useState('')
   const [showRevisionModal, setShowRevisionModal] = useState(false)
+  const [uploadComment, setUploadComment] = useState('')
   
   // Artwork comments states (Thread System)
   const [artworkComments, setArtworkComments] = useState<ArtworkComment[]>([])
@@ -681,7 +682,8 @@ const DashboardPage: React.FC = () => {
             file_url: fileUrl,
             file_type: file.type || 'unknown',
             file_size: file.size,
-            status: 'pending_review'
+            status: 'pending_review',
+            customer_comment: uploadComment || undefined
           })
           .select()
         
@@ -704,7 +706,8 @@ const DashboardPage: React.FC = () => {
               fileName: file.name,
               fileUrl: fileUrl,
               fileType: file.type,
-              fileSize: file.size
+              fileSize: file.size,
+              customerComment: uploadComment || undefined
             })
           }).then(() => console.log('Artwork email notification sent')).catch(err => console.error('Failed to send artwork email:', err))
         }
@@ -729,6 +732,7 @@ const DashboardPage: React.FC = () => {
     } finally {
       setUploading(false)
       e.target.value = ''
+      setUploadComment('')
     }
   }
 
@@ -2397,6 +2401,16 @@ const DashboardPage: React.FC = () => {
               {/* Header - Compact Top Bar */}
               <div className="flex flex-wrap items-center gap-3 md:gap-4">
                 <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">Artwork Files</h1>
+                
+                {/* Upload Comment Input */}
+                <input
+                  type="text"
+                  placeholder="Optional: Add instructions or configuration..."
+                  value={uploadComment}
+                  onChange={(e) => setUploadComment(e.target.value)}
+                  className="flex-1 min-w-[200px] max-w-[300px] px-3 py-2 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                />
+
                 <label className="flex items-center gap-2 px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition cursor-pointer text-sm">
                   <Upload className="h-4 w-4" />
                   Upload

@@ -76,7 +76,7 @@ export default function DailyReportsPage() {
   // Quote Generator
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [quoteHtml, setQuoteHtml] = useState<string>('');
-  const [quoteData, setQuoteData] = useState<{ customerName: string; extracted: any[]; dbLogId: number } | null>(null);
+  const [quoteData, setQuoteData] = useState<{ customerName: string; extracted?: any[]; dbLogId: string } | null>(null);
   const [quoteLoading, setQuoteLoading] = useState(false);
   const [quoteMarkup, setQuoteMarkup] = useState('1.6');
   const [quoteSearchTerm, setQuoteSearchTerm] = useState('');
@@ -147,15 +147,17 @@ export default function DailyReportsPage() {
     if (!rawText) return;
     setAiLoading(true);
     try {
+      const base64Text = btoa(encodeURIComponent(rawText));
+
       // 1. Temporarily store the giant risky raw string into the database to bypass all Cloudflare WAF POST limiters/monitors!
       const { data: dbLog, error: dbErr } = await supabase.from('webhook_logs').insert([{
         status: 'Processing',
         source: 'Magic Paste Engine',
         message: 'Awaiting AI extraction via Secure Tunnel',
-        raw_data: { text: rawText }
+        raw_data: { text_base64: base64Text }
       }]).select().single();
 
-      if (dbErr || !dbLog) throw new Error("Failed to create secure tunnel via DB: " + (dbErr?.message || JSON.stringify(dbErr)));
+      if (dbErr || !dbLog) throw new Error("DB Tunnel Error: " + (dbErr?.message || JSON.stringify(dbErr)));
 
       // 2. We only send the small harmless ID through Vercel. Cloudflare WAF sees nothing malicious!
       const resp = await fetch('/api/admin-magic-parse', {
@@ -232,12 +234,14 @@ export default function DailyReportsPage() {
     setQuoteHtml('');
     setIsQuoteModalOpen(true);
     try {
+      const base64Text = btoa(encodeURIComponent(currentRecord.detail));
+
       // 1. Store in DB tunnel to bypass Cloudflare WAF
       const { data: dbLog, error: dbErr } = await supabase.from('webhook_logs').insert([{
         status: 'Processing',
         source: 'Quote Generator',
         message: 'Awaiting AI translation',
-        raw_data: { text: currentRecord.detail, customer: currentRecord.customer || 'Valued Client' }
+        raw_data: { text_base64: base64Text, customer: currentRecord.customer || 'Valued Client' }
       }]).select().single();
       if (dbErr || !dbLog) throw new Error("DB Tunnel Error: " + (dbErr?.message || "Unknown"));
 
@@ -280,7 +284,7 @@ export default function DailyReportsPage() {
 
   // Build the Quote HTML whenever QuoteData changes
   useEffect(() => {
-    if (!quoteData) return;
+    if (!quoteData || !quoteData.extracted || quoteData.extracted.length === 0) return;
     
     try {
       const { extracted, customerName } = quoteData;
@@ -473,6 +477,17 @@ export default function DailyReportsPage() {
   const handleShareQuoteLink = async () => {
     if (!quoteData || !quoteHtml) return;
     
+    const shareUrl = `${window.location.origin}/view-quote/${quoteData.dbLogId}`;
+
+    try {
+      // Immediately copy to clipboard to avoid transient user activation expiration
+      await navigator.clipboard.writeText(shareUrl);
+      setCopiedQuoteLink(true);
+      setTimeout(() => setCopiedQuoteLink(false), 3000);
+    } catch (clipboardErr) {
+      console.warn("Clipboard copy failed:", clipboardErr);
+    }
+
     try {
       const response = await fetch('/api/save-shared-quote', {
         method: 'POST',
@@ -488,10 +503,6 @@ export default function DailyReportsPage() {
       const result = await response.json();
       if (!response.ok || !result.success) throw new Error(result.error);
       
-      const shareUrl = `${window.location.origin}/view-quote/${quoteData.dbLogId}`;
-      await navigator.clipboard.writeText(shareUrl);
-      setCopiedQuoteLink(true);
-      setTimeout(() => setCopiedQuoteLink(false), 3000);
       fetchData();
     } catch (err: any) {
       alert("Failed to share link: " + err.message);
@@ -504,12 +515,14 @@ export default function DailyReportsPage() {
     
     setRfqLoading(true);
     try {
+      const base64Text = btoa(encodeURIComponent(rfqCustomerText));
+
       // Use DB tunnel to bypass Cloudflare WAF
       const { data: dbLog, error: dbErr } = await supabase.from('webhook_logs').insert([{
         status: 'Processing',
         source: 'RFQ Maker',
         message: 'Converting customer RFQ to Chinese vendor format',
-        raw_data: { text: rfqCustomerText }
+        raw_data: { text_base64: base64Text }
       }]).select().single();
       
       if (dbErr || !dbLog) throw new Error("DB Tunnel Error: " + (dbErr?.message || "Unknown"));
@@ -1428,6 +1441,11 @@ export default function DailyReportsPage() {
                             });
                             if (log.raw_data?.quoteHtml) {
                               setQuoteHtml(log.raw_data.quoteHtml);
+                              setQuoteData({
+                                customerName: log.raw_data.customer || 'Unknown Client',
+                                dbLogId: log.id,
+                                extracted: log.raw_data.extracted || undefined
+                              });
                             }
                           }}
                           className="w-full text-left p-3 rounded-xl bg-gray-50 hover:bg-emerald-50 border border-gray-100 hover:border-emerald-200 transition flex flex-col gap-1 group shadow-sm active:translate-y-px"
@@ -1470,13 +1488,13 @@ export default function DailyReportsPage() {
                     <button onClick={() => {
                       const iframe = document.getElementById('quote-pdf-frame') as HTMLIFrameElement;
                       if (iframe?.contentWindow) { iframe.contentWindow.focus(); iframe.contentWindow.print(); }
-                    }} disabled={quoteLoading || !quoteHtml || quoteHtml.includes('Error')}
+                    }} disabled={quoteLoading || !quoteHtml || quoteHtml.includes('⚠️ Error')}
                       className="bg-gray-900 hover:bg-black text-white px-5 py-2 rounded-lg font-bold text-sm shadow transition disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2">
                       <FileText className="w-4 h-4"/> Export & Save as PDF
                     </button>
                     <button 
                       onClick={handleShareQuoteLink}
-                      disabled={quoteLoading || !quoteHtml || quoteHtml.includes('Error')}
+                      disabled={quoteLoading || !quoteHtml || quoteHtml.includes('⚠️ Error')}
                       className={`flex items-center gap-2 px-5 py-2 rounded-lg font-bold text-sm shadow transition disabled:opacity-40 disabled:cursor-not-allowed ${copiedQuoteLink ? 'bg-emerald-600 text-white' : 'bg-white text-gray-900 border border-gray-200 hover:bg-gray-50'}`}
                     >
                       {copiedQuoteLink ? <Check className="w-4 h-4"/> : <Share className="w-4 h-4"/>}
@@ -1683,12 +1701,12 @@ export default function DailyReportsPage() {
                     iframe.contentWindow.focus();
                     iframe.contentWindow.print();
                   }
-                }} disabled={quoteLoading || !quoteHtml || quoteHtml.includes('Error')} className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg font-bold shadow-md transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2">
+                }} disabled={quoteLoading || !quoteHtml || quoteHtml.includes('⚠️ Error')} className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg font-bold shadow-md transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2">
                   <Download className="w-4 h-4"/> Export PDF
                 </button>
                 <button 
                   onClick={handleShareQuoteLink}
-                  disabled={quoteLoading || !quoteHtml || quoteHtml.includes('Error')}
+                  disabled={quoteLoading || !quoteHtml || quoteHtml.includes('⚠️ Error')}
                   className={`flex items-center gap-2 px-5 py-2.5 rounded-lg font-bold shadow-md transition disabled:opacity-50 disabled:cursor-not-allowed ${copiedQuoteLink ? 'bg-emerald-600 text-white' : 'bg-white text-gray-900 border border-gray-200 hover:bg-gray-50'}`}
                 >
                   {copiedQuoteLink ? <Check className="w-5 h-5"/> : <Share className="w-5 h-5"/>}

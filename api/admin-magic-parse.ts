@@ -24,7 +24,10 @@ export default async function handler(req: Request): Promise<Response> {
     const { data: logRow, error: logError } = await supabase.from('webhook_logs').select('raw_data').eq('id', logId).single()
     if (logError || !logRow) return new Response(JSON.stringify({ error: 'Failed to retrieve tunnel payload' }), { status: 400 });
 
-    const rawText = logRow.raw_data?.text;
+    let rawText = logRow.raw_data?.text;
+    if (!rawText && logRow.raw_data?.text_base64) {
+      rawText = decodeURIComponent(Buffer.from(logRow.raw_data.text_base64, 'base64').toString('utf-8'));
+    }
     if (!rawText) return new Response(JSON.stringify({ error: 'DB row empty' }), { status: 400 });
 
     const XAI_API_KEY = process.env.XAI_API_KEY
