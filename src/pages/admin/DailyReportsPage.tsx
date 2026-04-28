@@ -34,6 +34,34 @@ const CATEGORY_MAP: Record<string, string> = {
 
 const DOC_TYPES = ['Quote', 'Invoice', 'Packing List', 'Artwork', 'Other'];
 
+const RFQ_QUICK_TERMS: Record<string, string[]> = {
+  '🧪 Materials': [
+    'PE/EVOH-PE', 'PET12/VMPET/PE', 'PET12/AL/PE', 'BOPP/VMPET/PE',
+    'Kraft Paper/PE', 'PET12/VMPET/CPP', 'MDOPE/BOPE', 'PLA/PBAT (Compostable)',
+    '70% PCR-PE', 'EVOH barrier layer', 'Metallized BOPE', 'Metallized PET'
+  ],
+  '✨ Finishing': [
+    'Matte lamination (哑油)', 'Gloss lamination (光油)', 'Soft-touch matte',
+    'Spot UV', 'Full-surface matte OPP', 'Transparent window',
+    'Kraft paper look', 'Holographic foil', 'Hot stamping gold', 'Embossing'
+  ],
+  '🤐 Zipper & Closure': [
+    'Reclosable zipper', 'Child-resistant zipper', 'Slider zipper',
+    'Tear notch', 'Euro hole hang', 'Spout + cap', 'Valve (degassing)',
+    'Heat seal top', 'Tin tie closure', 'Press-to-close zipper'
+  ],
+  '👜 Bag Type': [
+    'Stand-up pouch (doypack)', 'Flat bottom pouch', 'Three-side seal',
+    'Back-seal pillow bag', 'Side gusset bag', 'Quad-seal box bag',
+    'Roll stock film', 'Spouted pouch', 'K-seal bottom pouch'
+  ],
+  '🖨️ Printing': [
+    '1 design', '2 designs', '4 designs', 'Digital printing',
+    'Cylinder printing (rotogravure)', 'Flexographic printing',
+    '4 colors', '6 colors', '8 colors', 'CMYK + 2 spot colors'
+  ]
+};
+
 export default function DailyReportsPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [pin, setPin] = useState('');
@@ -89,6 +117,7 @@ export default function DailyReportsPage() {
   const [rfqChineseOutput, setRfqChineseOutput] = useState('');
   const [rfqLoading, setRfqLoading] = useState(false);
   const [rfqFileUpload, setRfqFileUpload] = useState<File | null>(null);
+  const [rfqQuickFilter, setRfqQuickFilter] = useState<string>('🧪 Materials');
 
 
   const handleVerifyPin = async (e: React.FormEvent) => {
@@ -1229,9 +1258,67 @@ export default function DailyReportsPage() {
                   </div>
                 </div>
 
+                {/* ── Quick-Pick Terms Panel ── */}
+                <div className="bg-indigo-50 border border-indigo-100 rounded-2xl p-3 flex flex-col gap-2">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-[10px] font-extrabold text-indigo-700 uppercase tracking-widest">⚡ Quick-Pick Terms — click + to insert</span>
+                  </div>
+
+                  {/* Category tabs */}
+                  <div className="flex flex-wrap gap-1.5 mb-1">
+                    {[
+                      ...Object.keys(RFQ_QUICK_TERMS),
+                      ...(logs.filter(l => l.source === 'RFQ Maker' && l.status === 'Success' && l.raw_data?.text).length > 0 ? ['📋 From History'] : [])
+                    ].map(cat => (
+                      <button
+                        key={cat}
+                        onClick={() => setRfqQuickFilter(cat)}
+                        className={`px-2.5 py-1 rounded-full text-[10px] font-extrabold transition ${
+                          rfqQuickFilter === cat
+                            ? 'bg-indigo-600 text-white shadow'
+                            : 'bg-white text-indigo-600 border border-indigo-200 hover:bg-indigo-100'
+                        }`}
+                      >
+                        {cat}
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Term chips */}
+                  <div className="flex flex-wrap gap-1.5">
+                    {(rfqQuickFilter === '📋 From History'
+                      ? Array.from(new Set(
+                          logs
+                            .filter(l => l.source === 'RFQ Maker' && l.status === 'Success' && l.raw_data?.text)
+                            .flatMap(l => {
+                              const txt: string = l.raw_data?.text || '';
+                              const matches: string[] = [];
+                              // extract bullet-point lines and key: value lines
+                              txt.split('\n').forEach(line => {
+                                const cleaned = line.replace(/^[•\-\*\d\.]+\s*/, '').trim();
+                                if (cleaned.length > 3 && cleaned.length < 60) matches.push(cleaned);
+                              });
+                              return matches;
+                            })
+                        ))
+                      : (RFQ_QUICK_TERMS[rfqQuickFilter] || [])
+                    ).map((term, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setRfqCustomerText(prev => prev ? prev + '\n• ' + term : '• ' + term)}
+                        className="flex items-center gap-1 px-2 py-1 bg-white border border-indigo-200 hover:border-indigo-500 hover:bg-indigo-600 hover:text-white text-indigo-700 rounded-lg text-[10px] font-bold transition group"
+                        title={`Add: ${term}`}
+                      >
+                        <span className="text-indigo-400 group-hover:text-white font-extrabold text-[11px] leading-none">+</span>
+                        <span className="max-w-[160px] truncate">{term}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
                 <div>
                   <label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">Customer RFQ (English)</label>
-                  <textarea rows={12} value={rfqCustomerText} onChange={e => setRfqCustomerText(e.target.value)}
+                  <textarea rows={10} value={rfqCustomerText} onChange={e => setRfqCustomerText(e.target.value)}
                     className="w-full border-gray-300 rounded-xl p-3 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-indigo-500 text-sm font-mono leading-relaxed"
                     placeholder={"Paste customer's RFQ here...\n\nExample:\nRecyclable Zip Doypack Pouch\n• Materials: PE / EVOH-PE\n• Thickness: 130 µm\n• External dimensions: 100 × 150 mm + 30 mm gusset + 30 mm above the zip\n• Sealing width: 5 mm\n• Printing: 2 sides / 4 colors\n• Number of designs: 1"} />
                 </div>
