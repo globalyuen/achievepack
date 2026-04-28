@@ -1349,7 +1349,7 @@ export default function DailyReportsPage() {
                     <label className="block text-xs uppercase font-extrabold text-gray-500">Factory Raw Quote (Chinese RMB specs)</label>
                     <button 
                       onClick={() => {
-                        const template = `产品：站立式袋装产品\n材质：PE70/70% PCR-EVOH-PE60\n厚度：130 micron\n尺寸：100x150+35mm\n特性：拉链，撕口，圓角\n版費（人民币）：\n设计数量：1\n数量：1000，单位价格（人民币）：\n数量：10000，单位价格（人民币）：\n数量：100000，单位价格（人民币）：\n重量（件）：`;
+                        const template = `1. 200克包装规格\n建议尺寸： 宽 160 mm × 高 160 mm + 底部折边 40 mm\n\n满版哑油 MDOPE25/镀铝BOPE25/70%PCR-EVOH-PE80\n1,000 件： / 个\n3,000 件： / 个\n5,000 件： / 个\n重量（克/个）：\n\n满版哑油 牛皮纸50克/镀铝PLA25/PBAT60\n1,000 件： / 个\n3,000 件： / 个\n5,000 件： / 个\n重量（克/个）：\n\n满版哑油 PET12/镀铝PET12/70PCR%PE80\n1,000 件： / 个\n3,000 件： / 个\n5,000 件： / 个\n重量（克/个）：\n\n2. 400克包装规格\n宽 220 mm × 高 200 mm + 底部折边 50 mm\n\n满版哑油 MDOPE25/镀铝BOPE25/70%PCR-EVOH-PE80\n1,000 件： / 个\n3,000 件： / 个\n5,000 件： / 个\n重量（克/个）：\n\n满版哑油 牛皮纸50克/镀铝PLA25/PBAT60\n1,000 件： / 个\n3,000 件： / 个\n5,000 件： / 个\n重量（克/个）：\n\n满版哑油 PET12/镀铝PET12/70PCR%PE80\n1,000 件： / 个\n3,000 件： / 个\n5,000 件： / 个\n重量（克/个）：`;
                         setCurrentRecord({...currentRecord, detail: template});
                       }}
                       className="text-[10px] font-bold text-emerald-600 hover:text-emerald-700 underline"

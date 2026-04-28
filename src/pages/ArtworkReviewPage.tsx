@@ -738,8 +738,10 @@ const ArtworkReviewPage: React.FC = () => {
             {[
               { id: 'all', label: isSupplier ? '全部' : 'All', icon: CheckCircle },
               { id: 'with-comment', label: isSupplier ? '有留言' : 'Comments', icon: MessageSquare },
-              { id: 'with-artwork', label: isSupplier ? '有预览图' : 'Artworks', icon: FileImage },
+              { id: 'with-artwork', label: isSupplier ? '有预览图' : 'With Artwork', icon: FileImage },
+              { id: 'blank', label: isSupplier ? '空白卡' : 'Blank Cards', icon: LayoutGrid },
               { id: 'approved', label: isSupplier ? '已批准' : 'Approved', icon: CheckCircle },
+              { id: 'rejected', label: isSupplier ? '需要修改' : 'Rejected', icon: AlertCircle },
               { id: 'pending', label: isSupplier ? '待审核' : 'Pending', icon: Clock },
             ].map(f => {
               const Icon = f.icon
@@ -761,7 +763,9 @@ const ArtworkReviewPage: React.FC = () => {
                       if (f.id === 'all') return true
                       if (f.id === 'with-comment') return i.customer_comment || (i.ai_analysis?.replies?.length ?? 0) > 0
                       if (f.id === 'with-artwork') return !!i.file_url
+                      if (f.id === 'blank') return !i.file_url
                       if (f.id === 'approved') return i.status === 'approved'
+                      if (f.id === 'rejected') return i.status === 'rejected'
                       if (f.id === 'pending') return i.status === 'pending'
                       return true
                     }).length}

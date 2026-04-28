@@ -1465,6 +1465,7 @@ const ArtworkBatchesPage: React.FC = () => {
                     { id: 'with-artwork', label: 'With Artwork', icon: FileImage },
                     { id: 'blank', label: 'Blank Cards', icon: CircleDashed },
                     { id: 'approved', label: 'Approved', icon: CheckCircle2 },
+                    { id: 'rejected', label: 'Rejected', icon: AlertCircle },
                     { id: 'pending', label: 'Pending', icon: Clock },
                   ].map(f => {
                     const Icon = f.icon
