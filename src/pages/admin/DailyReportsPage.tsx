@@ -34,33 +34,59 @@ const CATEGORY_MAP: Record<string, string> = {
 
 const DOC_TYPES = ['Quote', 'Invoice', 'Packing List', 'Artwork', 'Other'];
 
-const RFQ_QUICK_TERMS: Record<string, string[]> = {
+const DEFAULT_QUICK_TERMS: Record<string, string[]> = {
   '🧪 Materials': [
     'PE/EVOH-PE', 'PET12/VMPET/PE', 'PET12/AL/PE', 'BOPP/VMPET/PE',
     'Kraft Paper/PE', 'PET12/VMPET/CPP', 'MDOPE/BOPE', 'PLA/PBAT (Compostable)',
-    '70% PCR-PE', 'EVOH barrier layer', 'Metallized BOPE', 'Metallized PET'
+    '70% PCR-PE', 'EVOH barrier layer', 'Metallized BOPE', 'Metallized PET',
+    'MDOPE25/镀铝BOPE25/70%PCR-EVOH-PE80', '牛皮纸50克/镀铝PLA25/PBAT60',
+    'PET12/镀铝PET12/70PCR%PE80', 'CPP cast polypropylene'
   ],
   '✨ Finishing': [
     'Matte lamination (哑油)', 'Gloss lamination (光油)', 'Soft-touch matte',
     'Spot UV', 'Full-surface matte OPP', 'Transparent window',
-    'Kraft paper look', 'Holographic foil', 'Hot stamping gold', 'Embossing'
+    'Kraft paper look', 'Holographic foil', 'Hot stamping gold', 'Embossing',
+    'Full-bleed print', 'Frosted finish', 'High-barrier coating'
   ],
   '🤐 Zipper & Closure': [
     'Reclosable zipper', 'Child-resistant zipper', 'Slider zipper',
     'Tear notch', 'Euro hole hang', 'Spout + cap', 'Valve (degassing)',
-    'Heat seal top', 'Tin tie closure', 'Press-to-close zipper'
+    'Heat seal top', 'Tin tie closure', 'Press-to-close zipper',
+    'Double zipper', 'Round corner (圆角)', 'Hang hole punched'
   ],
   '👜 Bag Type': [
     'Stand-up pouch (doypack)', 'Flat bottom pouch', 'Three-side seal',
     'Back-seal pillow bag', 'Side gusset bag', 'Quad-seal box bag',
-    'Roll stock film', 'Spouted pouch', 'K-seal bottom pouch'
+    'Roll stock film', 'Spouted pouch', 'K-seal bottom pouch',
+    'Retort pouch', 'Vacuum bag', 'Block bottom bag'
   ],
   '🖨️ Printing': [
     '1 design', '2 designs', '4 designs', 'Digital printing',
     'Cylinder printing (rotogravure)', 'Flexographic printing',
-    '4 colors', '6 colors', '8 colors', 'CMYK + 2 spot colors'
+    '4 colors', '6 colors', '8 colors', 'CMYK + 2 spot colors',
+    'White ink base layer', 'Inside print (reverse print)'
+  ],
+  '📦 Quantity': [
+    '1,000 pcs', '3,000 pcs', '5,000 pcs', '10,000 pcs', '50,000 pcs',
+    'MOQ: 1,000 pcs', 'MOQ: 3,000 pcs', 'Sample: 50 pcs',
+    '1 design × 1,000 pcs', '4 designs × 500 pcs = 2,000 pcs total'
+  ],
+  '📐 Dimensions': [
+    '宽 160mm × 高 160mm + 底部折边 40mm',
+    '宽 220mm × 高 200mm + 底部折边 50mm',
+    '100 × 150mm + 30mm gusset', '130 × 200mm + 35mm gusset',
+    '150 × 225mm + 40mm gusset', '200 × 280mm + 50mm gusset',
+    'Thickness: 120 µm', 'Thickness: 130 µm', 'Thickness: 150 µm'
+  ],
+  '🌿 Certifications': [
+    'BPI Certified Compostable', 'FSC Certified Kraft',
+    'TÜV Austria OK Compost', 'FDA Food Safe', 'ROHS Compliant',
+    '70% PCR post-consumer recycled', 'Carbon neutral packaging',
+    'Recyclable mono-material', 'REACH compliant'
   ]
 };
+
+const RFQ_QUICK_TERMS = DEFAULT_QUICK_TERMS;
 
 export default function DailyReportsPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -118,6 +144,54 @@ export default function DailyReportsPage() {
   const [rfqLoading, setRfqLoading] = useState(false);
   const [rfqFileUpload, setRfqFileUpload] = useState<File | null>(null);
   const [rfqQuickFilter, setRfqQuickFilter] = useState<string>('🧪 Materials');
+  const [quoteQuickFilter, setQuoteQuickFilter] = useState<string>('🧪 Materials');
+
+  // Custom quick-pick terms (persisted to Supabase)
+  const [customTerms, setCustomTerms] = useState<Record<string, string[]>>({});
+  const [customTermsLogId, setCustomTermsLogId] = useState<string | null>(null);
+  const [editingTermCategory, setEditingTermCategory] = useState<string | null>(null);
+  const [newTermInput, setNewTermInput] = useState('');
+  const [savingTerms, setSavingTerms] = useState(false);
+
+  const allQuickTerms = {
+    ...RFQ_QUICK_TERMS,
+    ...Object.fromEntries(
+      Object.entries(customTerms).map(([cat, terms]) => [
+        cat,
+        [...(RFQ_QUICK_TERMS[cat] || []), ...terms.filter(t => !(RFQ_QUICK_TERMS[cat] || []).includes(t))]
+      ])
+    )
+  };
+
+  const persistCustomTerms = async (updated: Record<string, string[]>) => {
+    setSavingTerms(true);
+    try {
+      if (customTermsLogId) {
+        await supabase.from('webhook_logs').update({ raw_data: { terms: updated } }).eq('id', customTermsLogId);
+      } else {
+        const { data } = await supabase.from('webhook_logs').insert({
+          source: 'quick_terms_config', status: 'Config',
+          message: 'Quick-pick term library', raw_data: { terms: updated }
+        }).select('id').single();
+        if (data?.id) setCustomTermsLogId(data.id);
+      }
+    } finally { setSavingTerms(false); }
+  };
+
+  const saveCustomTerm = (category: string, term: string) => {
+    const trimmed = term.trim();
+    if (!trimmed) return;
+    const updated = { ...customTerms, [category]: [...(customTerms[category] || []), trimmed] };
+    setCustomTerms(updated);
+    persistCustomTerms(updated);
+    setNewTermInput('');
+  };
+
+  const deleteCustomTerm = (category: string, term: string) => {
+    const updated = { ...customTerms, [category]: (customTerms[category] || []).filter(t => t !== term) };
+    setCustomTerms(updated);
+    persistCustomTerms(updated);
+  };
 
 
   const handleVerifyPin = async (e: React.FormEvent) => {
@@ -146,6 +220,19 @@ export default function DailyReportsPage() {
       if (customerData) {
         const uniqueCustomers = Array.from(new Set(customerData.map(r => r.customer).filter(Boolean)));
         setCustomers(uniqueCustomers.sort());
+      }
+
+      // Load custom quick-pick terms from Supabase
+      const { data: termsData } = await supabase
+        .from('webhook_logs')
+        .select('id, raw_data')
+        .eq('source', 'quick_terms_config')
+        .order('created_at', { ascending: false })
+        .limit(1)
+        .single();
+      if (termsData?.raw_data?.terms) {
+        setCustomTerms(termsData.raw_data.terms);
+        setCustomTermsLogId(termsData.id);
       }
     } catch (err) {
       console.error('Fetch error:', err);
@@ -1262,6 +1349,13 @@ export default function DailyReportsPage() {
                 <div className="bg-indigo-50 border border-indigo-100 rounded-2xl p-3 flex flex-col gap-2">
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-[10px] font-extrabold text-indigo-700 uppercase tracking-widest">⚡ Quick-Pick Terms — click + to insert</span>
+                    <button
+                      onClick={() => setEditingTermCategory(editingTermCategory ? null : rfqQuickFilter)}
+                      className="text-[10px] font-bold text-indigo-600 hover:text-indigo-800 underline flex items-center gap-1"
+                    >
+                      {savingTerms ? <Loader2 className="w-3 h-3 animate-spin"/> : null}
+                      {editingTermCategory ? '✓ Done Editing' : '✏️ Add / Edit'}
+                    </button>
                   </div>
 
                   {/* Category tabs */}
@@ -1284,7 +1378,7 @@ export default function DailyReportsPage() {
                     ))}
                   </div>
 
-                  {/* Term chips */}
+                  {/* Term chips - RFQ */}
                   <div className="flex flex-wrap gap-1.5">
                     {(rfqQuickFilter === '📋 From History'
                       ? Array.from(new Set(
@@ -1293,7 +1387,6 @@ export default function DailyReportsPage() {
                             .flatMap(l => {
                               const txt: string = l.raw_data?.text || '';
                               const matches: string[] = [];
-                              // extract bullet-point lines and key: value lines
                               txt.split('\n').forEach(line => {
                                 const cleaned = line.replace(/^[•\-\*\d\.]+\s*/, '').trim();
                                 if (cleaned.length > 3 && cleaned.length < 60) matches.push(cleaned);
@@ -1301,23 +1394,52 @@ export default function DailyReportsPage() {
                               return matches;
                             })
                         ))
-                      : (RFQ_QUICK_TERMS[rfqQuickFilter] || [])
+                      : (allQuickTerms[rfqQuickFilter] || [])
                     ).map((term, i) => (
-                      <button
-                        key={i}
-                        onClick={() => setRfqCustomerText(prev => prev ? prev + '\n• ' + term : '• ' + term)}
-                        className="flex items-center gap-1 px-2 py-1 bg-white border border-indigo-200 hover:border-indigo-500 hover:bg-indigo-600 hover:text-white text-indigo-700 rounded-lg text-[10px] font-bold transition group"
-                        title={`Add: ${term}`}
-                      >
-                        <span className="text-indigo-400 group-hover:text-white font-extrabold text-[11px] leading-none">+</span>
-                        <span className="max-w-[160px] truncate">{term}</span>
-                      </button>
+                      <div key={i} className="flex items-center gap-0.5">
+                        <button
+                          onClick={() => setRfqCustomerText(prev => prev ? prev + '\n• ' + term : '• ' + term)}
+                          className="flex items-center gap-1 px-2 py-1 bg-white border border-indigo-200 hover:border-indigo-500 hover:bg-indigo-600 hover:text-white text-indigo-700 rounded-lg text-[10px] font-bold transition group"
+                          title={`Add: ${term}`}
+                        >
+                          <span className="text-indigo-400 group-hover:text-white font-extrabold text-[11px] leading-none">+</span>
+                          <span className="max-w-[160px] truncate">{term}</span>
+                        </button>
+                        {editingTermCategory === rfqQuickFilter && customTerms[rfqQuickFilter]?.includes(term as string) && (
+                          <button onClick={() => deleteCustomTerm(rfqQuickFilter, term as string)}
+                            className="text-red-400 hover:text-red-600 text-[10px] font-bold px-1">×</button>
+                        )}
+                      </div>
                     ))}
                   </div>
+                  {/* Add new term - RFQ */}
+                  {editingTermCategory === rfqQuickFilter && rfqQuickFilter !== '📋 From History' && (
+                    <div className="flex gap-2 mt-1">
+                      <input
+                        type="text" value={newTermInput} onChange={e => setNewTermInput(e.target.value)}
+                        onKeyDown={e => { if (e.key === 'Enter') saveCustomTerm(rfqQuickFilter, newTermInput); }}
+                        placeholder="Type new term and press Enter..."
+                        className="flex-1 border border-indigo-300 rounded-lg px-2 py-1 text-xs focus:ring-1 focus:ring-indigo-500 bg-white"
+                      />
+                      <button onClick={() => saveCustomTerm(rfqQuickFilter, newTermInput)}
+                        className="px-3 py-1 bg-indigo-600 text-white rounded-lg text-xs font-bold hover:bg-indigo-700 flex items-center gap-1">
+                        {savingTerms ? <Loader2 className="w-3 h-3 animate-spin"/> : null}Save
+                      </button>
+                    </div>
+                  )}
                 </div>
 
                 <div>
-                  <label className="block text-xs uppercase font-extrabold text-gray-500 mb-1.5">Customer RFQ (English)</label>
+                  <div className="flex justify-between items-center mb-1.5">
+                    <label className="block text-xs uppercase font-extrabold text-gray-500">Customer RFQ (English)</label>
+                    <button
+                      onClick={() => {
+                        const t = `Product: Stand-up pouch (doypack)\nMaterial: PET12/VMPET/PE\nThickness: 130 µm\nDimensions: 130 × 200mm + 35mm gusset\nFinishing: Matte lamination\nZipper: Reclosable zipper\nTear notch: Yes\nPrinting: Cylinder printing, 6 colors, 1 design\nCertification:\nQuantity: 1,000 / 3,000 / 5,000 pcs\nWeight per pcs (g):`;
+                        setRfqCustomerText(t);
+                      }}
+                      className="text-[10px] font-bold text-indigo-600 hover:text-indigo-700 underline"
+                    >+ Insert Manual Template</button>
+                  </div>
                   <textarea rows={10} value={rfqCustomerText} onChange={e => setRfqCustomerText(e.target.value)}
                     className="w-full border-gray-300 rounded-xl p-3 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-indigo-500 text-sm font-mono leading-relaxed"
                     placeholder={"Paste customer's RFQ here...\n\nExample:\nRecyclable Zip Doypack Pouch\n• Materials: PE / EVOH-PE\n• Thickness: 130 µm\n• External dimensions: 100 × 150 mm + 30 mm gusset + 30 mm above the zip\n• Sealing width: 5 mm\n• Printing: 2 sides / 4 colors\n• Number of designs: 1"} />
@@ -1429,6 +1551,70 @@ export default function DailyReportsPage() {
                   <input type="text" value={currentRecord.customer || ''} onChange={e => setCurrentRecord({...currentRecord, customer: e.target.value})}
                     className="w-full border-gray-300 rounded-xl p-3 focus:ring-2 focus:ring-emerald-500 bg-gray-50 focus:bg-white transition"
                     placeholder="e.g. Justine Heaphy / ABC Foods Ltd" />
+                </div>
+
+                {/* ── Quote Quick-Pick Terms Panel ── */}
+                <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-3 flex flex-col gap-2">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-[10px] font-extrabold text-emerald-700 uppercase tracking-widest">⚡ Quick-Pick Terms — click + to insert</span>
+                    <button
+                      onClick={() => setEditingTermCategory(editingTermCategory ? null : quoteQuickFilter)}
+                      className="text-[10px] font-bold text-emerald-600 hover:text-emerald-800 underline flex items-center gap-1"
+                    >
+                      {savingTerms ? <Loader2 className="w-3 h-3 animate-spin"/> : null}
+                      {editingTermCategory ? '✓ Done Editing' : '✏️ Add / Edit'}
+                    </button>
+                  </div>
+                  {/* Category tabs */}
+                  <div className="flex flex-wrap gap-1.5 mb-1">
+                    {[
+                      ...Object.keys(allQuickTerms),
+                      ...(logs.filter(l => l.source === 'RFQ Maker' && l.status === 'Success' && l.raw_data?.text).length > 0 ? ['📋 From History'] : [])
+                    ].map(cat => (
+                      <button key={cat} onClick={() => { setQuoteQuickFilter(cat); setEditingTermCategory(null); }}
+                        className={`px-2.5 py-1 rounded-full text-[10px] font-extrabold transition ${
+                          quoteQuickFilter === cat ? 'bg-emerald-600 text-white shadow' : 'bg-white text-emerald-700 border border-emerald-200 hover:bg-emerald-100'
+                        }`}>{cat}</button>
+                    ))}
+                  </div>
+                  {/* Term chips */}
+                  <div className="flex flex-wrap gap-1.5">
+                    {(quoteQuickFilter === '📋 From History'
+                      ? Array.from(new Set(logs.filter(l => l.source === 'RFQ Maker' && l.status === 'Success' && l.raw_data?.text)
+                          .flatMap(l => (l.raw_data?.text || '').split('\n')
+                            .map((line: string) => line.replace(/^[•\-\*\d\.]+\s*/, '').trim())
+                            .filter((s: string) => s.length > 3 && s.length < 60))))
+                      : (allQuickTerms[quoteQuickFilter] || [])
+                    ).map((term, i) => (
+                      <div key={i} className="flex items-center gap-0.5 group">
+                        <button
+                          onClick={() => setCurrentRecord(r => ({ ...r, detail: r.detail ? r.detail + '\n• ' + term : '• ' + term }))}
+                          className="flex items-center gap-1 px-2 py-1 bg-white border border-emerald-200 hover:border-emerald-500 hover:bg-emerald-600 hover:text-white text-emerald-700 rounded-lg text-[10px] font-bold transition"
+                          title={`Add: ${term}`}
+                        >
+                          <span className="font-extrabold text-[11px]">+</span>
+                          <span className="max-w-[150px] truncate">{term}</span>
+                        </button>
+                        {editingTermCategory === quoteQuickFilter && customTerms[quoteQuickFilter]?.includes(term as string) && (
+                          <button onClick={() => deleteCustomTerm(quoteQuickFilter, term as string)}
+                            className="text-red-400 hover:text-red-600 text-[10px] font-bold px-1">×</button>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                  {/* Add new term input */}
+                  {editingTermCategory === quoteQuickFilter && quoteQuickFilter !== '📋 From History' && (
+                    <div className="flex gap-2 mt-1">
+                      <input
+                        type="text" value={newTermInput} onChange={e => setNewTermInput(e.target.value)}
+                        onKeyDown={e => { if (e.key === 'Enter') { saveCustomTerm(quoteQuickFilter, newTermInput); } }}
+                        placeholder="Type new term and press Enter..."
+                        className="flex-1 border border-emerald-300 rounded-lg px-2 py-1 text-xs focus:ring-1 focus:ring-emerald-500 bg-white"
+                      />
+                      <button onClick={() => saveCustomTerm(quoteQuickFilter, newTermInput)}
+                        className="px-3 py-1 bg-emerald-600 text-white rounded-lg text-xs font-bold hover:bg-emerald-700">Save</button>
+                    </div>
+                  )}
                 </div>
 
                 <div>
