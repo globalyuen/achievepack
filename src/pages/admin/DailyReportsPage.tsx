@@ -148,30 +148,34 @@ export default function DailyReportsPage() {
 
   // Custom quick-pick terms (persisted to Supabase)
   const [customTerms, setCustomTerms] = useState<Record<string, string[]>>({});
+  const [hiddenTerms, setHiddenTerms] = useState<Record<string, string[]>>({});
   const [customTermsLogId, setCustomTermsLogId] = useState<string | null>(null);
   const [editingTermCategory, setEditingTermCategory] = useState<string | null>(null);
   const [newTermInput, setNewTermInput] = useState('');
   const [savingTerms, setSavingTerms] = useState(false);
 
-  const allQuickTerms = {
-    ...RFQ_QUICK_TERMS,
-    ...Object.fromEntries(
-      Object.entries(customTerms).map(([cat, terms]) => [
-        cat,
-        [...(RFQ_QUICK_TERMS[cat] || []), ...terms.filter(t => !(RFQ_QUICK_TERMS[cat] || []).includes(t))]
-      ])
-    )
-  };
+  const allQuickTerms: Record<string, string[]> = Object.fromEntries(
+    Object.keys({ ...RFQ_QUICK_TERMS, ...customTerms }).map(cat => {
+      const hidden = hiddenTerms[cat] || [];
+      const base = (RFQ_QUICK_TERMS[cat] || []).filter(t => !hidden.includes(t));
+      const custom = (customTerms[cat] || []).filter(t => !hidden.includes(t) && !base.includes(t));
+      return [cat, [...base, ...custom]];
+    })
+  );
 
-  const persistCustomTerms = async (updated: Record<string, string[]>) => {
+  const persistCustomTerms = async (
+    updatedCustom: Record<string, string[]>,
+    updatedHidden: Record<string, string[]>
+  ) => {
     setSavingTerms(true);
     try {
+      const payload = { terms: updatedCustom, hiddenTerms: updatedHidden };
       if (customTermsLogId) {
-        await supabase.from('webhook_logs').update({ raw_data: { terms: updated } }).eq('id', customTermsLogId);
+        await supabase.from('webhook_logs').update({ raw_data: payload }).eq('id', customTermsLogId);
       } else {
         const { data } = await supabase.from('webhook_logs').insert({
           source: 'quick_terms_config', status: 'Config',
-          message: 'Quick-pick term library', raw_data: { terms: updated }
+          message: 'Quick-pick term library', raw_data: payload
         }).select('id').single();
         if (data?.id) setCustomTermsLogId(data.id);
       }
@@ -183,14 +187,30 @@ export default function DailyReportsPage() {
     if (!trimmed) return;
     const updated = { ...customTerms, [category]: [...(customTerms[category] || []), trimmed] };
     setCustomTerms(updated);
-    persistCustomTerms(updated);
+    persistCustomTerms(updated, hiddenTerms);
     setNewTermInput('');
   };
 
-  const deleteCustomTerm = (category: string, term: string) => {
-    const updated = { ...customTerms, [category]: (customTerms[category] || []).filter(t => t !== term) };
-    setCustomTerms(updated);
-    persistCustomTerms(updated);
+  const deleteTerm = (category: string, term: string) => {
+    // Remove from custom if it's custom
+    const updatedCustom = {
+      ...customTerms,
+      [category]: (customTerms[category] || []).filter(t => t !== term)
+    };
+    // Add to hidden (covers both default and custom)
+    const updatedHidden = {
+      ...hiddenTerms,
+      [category]: [...new Set([...(hiddenTerms[category] || []), term])]
+    };
+    setCustomTerms(updatedCustom);
+    setHiddenTerms(updatedHidden);
+    persistCustomTerms(updatedCustom, updatedHidden);
+  };
+
+  const restoreDefaults = (category: string) => {
+    const updatedHidden = { ...hiddenTerms, [category]: [] };
+    setHiddenTerms(updatedHidden);
+    persistCustomTerms(customTerms, updatedHidden);
   };
 
 
@@ -230,9 +250,10 @@ export default function DailyReportsPage() {
         .order('created_at', { ascending: false })
         .limit(1)
         .single();
-      if (termsData?.raw_data?.terms) {
-        setCustomTerms(termsData.raw_data.terms);
+      if (termsData) {
         setCustomTermsLogId(termsData.id);
+        if (termsData.raw_data?.terms) setCustomTerms(termsData.raw_data.terms);
+        if (termsData.raw_data?.hiddenTerms) setHiddenTerms(termsData.raw_data.hiddenTerms);
       }
     } catch (err) {
       console.error('Fetch error:', err);
@@ -1405,26 +1426,34 @@ export default function DailyReportsPage() {
                           <span className="text-indigo-400 group-hover:text-white font-extrabold text-[11px] leading-none">+</span>
                           <span className="max-w-[160px] truncate">{term}</span>
                         </button>
-                        {editingTermCategory === rfqQuickFilter && customTerms[rfqQuickFilter]?.includes(term as string) && (
-                          <button onClick={() => deleteCustomTerm(rfqQuickFilter, term as string)}
-                            className="text-red-400 hover:text-red-600 text-[10px] font-bold px-1">×</button>
+                        {editingTermCategory === rfqQuickFilter && rfqQuickFilter !== '📋 From History' && (
+                          <button onClick={() => deleteTerm(rfqQuickFilter, term as string)}
+                            className="text-red-400 hover:text-red-600 text-[11px] font-extrabold px-1 leading-none" title="Remove term">×</button>
                         )}
                       </div>
                     ))}
                   </div>
-                  {/* Add new term - RFQ */}
+                  {/* Add new term + Reset defaults - RFQ */}
                   {editingTermCategory === rfqQuickFilter && rfqQuickFilter !== '📋 From History' && (
-                    <div className="flex gap-2 mt-1">
-                      <input
-                        type="text" value={newTermInput} onChange={e => setNewTermInput(e.target.value)}
-                        onKeyDown={e => { if (e.key === 'Enter') saveCustomTerm(rfqQuickFilter, newTermInput); }}
-                        placeholder="Type new term and press Enter..."
-                        className="flex-1 border border-indigo-300 rounded-lg px-2 py-1 text-xs focus:ring-1 focus:ring-indigo-500 bg-white"
-                      />
-                      <button onClick={() => saveCustomTerm(rfqQuickFilter, newTermInput)}
-                        className="px-3 py-1 bg-indigo-600 text-white rounded-lg text-xs font-bold hover:bg-indigo-700 flex items-center gap-1">
-                        {savingTerms ? <Loader2 className="w-3 h-3 animate-spin"/> : null}Save
-                      </button>
+                    <div className="flex flex-col gap-1.5 mt-1">
+                      <div className="flex gap-2">
+                        <input
+                          type="text" value={newTermInput} onChange={e => setNewTermInput(e.target.value)}
+                          onKeyDown={e => { if (e.key === 'Enter') saveCustomTerm(rfqQuickFilter, newTermInput); }}
+                          placeholder="Type new term and press Enter..."
+                          className="flex-1 border border-indigo-300 rounded-lg px-2 py-1 text-xs focus:ring-1 focus:ring-indigo-500 bg-white"
+                        />
+                        <button onClick={() => saveCustomTerm(rfqQuickFilter, newTermInput)}
+                          className="px-3 py-1 bg-indigo-600 text-white rounded-lg text-xs font-bold hover:bg-indigo-700 flex items-center gap-1">
+                          {savingTerms ? <Loader2 className="w-3 h-3 animate-spin"/> : null}Save
+                        </button>
+                      </div>
+                      {(hiddenTerms[rfqQuickFilter] || []).length > 0 && (
+                        <button onClick={() => restoreDefaults(rfqQuickFilter)}
+                          className="text-[10px] text-indigo-500 hover:text-indigo-700 underline self-start">
+                          ↺ Restore {(hiddenTerms[rfqQuickFilter] || []).length} deleted default(s)
+                        </button>
+                      )}
                     </div>
                   )}
                 </div>
@@ -1577,7 +1606,7 @@ export default function DailyReportsPage() {
                         }`}>{cat}</button>
                     ))}
                   </div>
-                  {/* Term chips */}
+                  {/* Term chips - Quote */}
                   <div className="flex flex-wrap gap-1.5">
                     {(quoteQuickFilter === '📋 From History'
                       ? Array.from(new Set(logs.filter(l => l.source === 'RFQ Maker' && l.status === 'Success' && l.raw_data?.text)
@@ -1586,7 +1615,7 @@ export default function DailyReportsPage() {
                             .filter((s: string) => s.length > 3 && s.length < 60))))
                       : (allQuickTerms[quoteQuickFilter] || [])
                     ).map((term, i) => (
-                      <div key={i} className="flex items-center gap-0.5 group">
+                      <div key={i} className="flex items-center gap-0.5">
                         <button
                           onClick={() => setCurrentRecord(r => ({ ...r, detail: r.detail ? r.detail + '\n• ' + term : '• ' + term }))}
                           className="flex items-center gap-1 px-2 py-1 bg-white border border-emerald-200 hover:border-emerald-500 hover:bg-emerald-600 hover:text-white text-emerald-700 rounded-lg text-[10px] font-bold transition"
@@ -1595,24 +1624,34 @@ export default function DailyReportsPage() {
                           <span className="font-extrabold text-[11px]">+</span>
                           <span className="max-w-[150px] truncate">{term}</span>
                         </button>
-                        {editingTermCategory === quoteQuickFilter && customTerms[quoteQuickFilter]?.includes(term as string) && (
-                          <button onClick={() => deleteCustomTerm(quoteQuickFilter, term as string)}
-                            className="text-red-400 hover:text-red-600 text-[10px] font-bold px-1">×</button>
+                        {editingTermCategory === quoteQuickFilter && quoteQuickFilter !== '📋 From History' && (
+                          <button onClick={() => deleteTerm(quoteQuickFilter, term as string)}
+                            className="text-red-400 hover:text-red-600 text-[11px] font-extrabold px-1 leading-none" title="Remove term">×</button>
                         )}
                       </div>
                     ))}
                   </div>
-                  {/* Add new term input */}
+                  {/* Add new term + Reset defaults - Quote */}
                   {editingTermCategory === quoteQuickFilter && quoteQuickFilter !== '📋 From History' && (
-                    <div className="flex gap-2 mt-1">
-                      <input
-                        type="text" value={newTermInput} onChange={e => setNewTermInput(e.target.value)}
-                        onKeyDown={e => { if (e.key === 'Enter') { saveCustomTerm(quoteQuickFilter, newTermInput); } }}
-                        placeholder="Type new term and press Enter..."
-                        className="flex-1 border border-emerald-300 rounded-lg px-2 py-1 text-xs focus:ring-1 focus:ring-emerald-500 bg-white"
-                      />
-                      <button onClick={() => saveCustomTerm(quoteQuickFilter, newTermInput)}
-                        className="px-3 py-1 bg-emerald-600 text-white rounded-lg text-xs font-bold hover:bg-emerald-700">Save</button>
+                    <div className="flex flex-col gap-1.5 mt-1">
+                      <div className="flex gap-2">
+                        <input
+                          type="text" value={newTermInput} onChange={e => setNewTermInput(e.target.value)}
+                          onKeyDown={e => { if (e.key === 'Enter') { saveCustomTerm(quoteQuickFilter, newTermInput); } }}
+                          placeholder="Type new term and press Enter..."
+                          className="flex-1 border border-emerald-300 rounded-lg px-2 py-1 text-xs focus:ring-1 focus:ring-emerald-500 bg-white"
+                        />
+                        <button onClick={() => saveCustomTerm(quoteQuickFilter, newTermInput)}
+                          className="px-3 py-1 bg-emerald-600 text-white rounded-lg text-xs font-bold hover:bg-emerald-700 flex items-center gap-1">
+                          {savingTerms ? <Loader2 className="w-3 h-3 animate-spin"/> : null}Save
+                        </button>
+                      </div>
+                      {(hiddenTerms[quoteQuickFilter] || []).length > 0 && (
+                        <button onClick={() => restoreDefaults(quoteQuickFilter)}
+                          className="text-[10px] text-emerald-600 hover:text-emerald-800 underline self-start">
+                          ↺ Restore {(hiddenTerms[quoteQuickFilter] || []).length} deleted default(s)
+                        </button>
+                      )}
                     </div>
                   )}
                 </div>
