@@ -170,15 +170,13 @@ export default function DailyReportsPage() {
     setSavingTerms(true);
     try {
       const payload = { terms: updatedCustom, hiddenTerms: updatedHidden };
-      if (customTermsLogId) {
-        await supabase.from('webhook_logs').update({ raw_data: payload }).eq('id', customTermsLogId);
-      } else {
-        const { data } = await supabase.from('webhook_logs').insert({
-          source: 'quick_terms_config', status: 'Config',
-          message: 'Quick-pick term library', raw_data: payload
-        }).select('id').single();
-        if (data?.id) setCustomTermsLogId(data.id);
-      }
+      // Always INSERT — anon key has INSERT but not UPDATE on webhook_logs (RLS).
+      // fetchData always reads the latest row by created_at desc, so this is safe.
+      const { data } = await supabase.from('webhook_logs').insert({
+        source: 'quick_terms_config', status: 'Config',
+        message: 'Quick-pick term library', raw_data: payload
+      }).select('id').single();
+      if (data?.id) setCustomTermsLogId(data.id);
     } finally { setSavingTerms(false); }
   };
 
