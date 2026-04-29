@@ -304,20 +304,31 @@ const ArtworkBatchesPage: React.FC = () => {
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!selectedBatch || !e.target.files?.length) return
     
+    const MAX_FILE_BYTES = 500 * 1024 * 1024 // 500 MB
     const files = Array.from(e.target.files)
+
+    // Pre-check: reject files over 500 MB before even starting
+    const oversized = files.filter(f => f.size > MAX_FILE_BYTES)
+    if (oversized.length > 0) {
+      alert(`The following file(s) exceed the 500 MB limit and will be skipped:\n\n${oversized.map(f => `${f.name} (${(f.size / 1024 / 1024).toFixed(0)} MB)`).join('\n')}`)
+    }
+    const validFiles = files.filter(f => f.size <= MAX_FILE_BYTES)
+    if (validFiles.length === 0) return
+
     setUploading(true)
     setUploadProgress(0)
     
-    const CONCURRENT_UPLOADS = 3 // Reduced to 3 for stability
-    const CONCURRENT_AI = 3 // AI analyze 3 at a time
+    // Use 1 concurrent upload for large files (>100MB) to avoid timeouts
+    const hasLargeFiles = validFiles.some(f => f.size > 100 * 1024 * 1024)
+    const CONCURRENT_UPLOADS = hasLargeFiles ? 1 : 3
     let uploaded = 0
     const uploadedItems: { id: string, url: string, isImage: boolean }[] = []
     const uploadErrors: string[] = []
     
     try {
       // Process files in batches for concurrent upload
-      for (let i = 0; i < files.length; i += CONCURRENT_UPLOADS) {
-        const batch = files.slice(i, i + CONCURRENT_UPLOADS)
+      for (let i = 0; i < validFiles.length; i += CONCURRENT_UPLOADS) {
+        const batch = validFiles.slice(i, i + CONCURRENT_UPLOADS)
         
         await Promise.all(batch.map(async (file) => {
           try {
@@ -364,7 +375,7 @@ const ArtworkBatchesPage: React.FC = () => {
             }
             
             uploaded++
-            setUploadProgress(Math.round((uploaded / files.length) * 100))
+            setUploadProgress(Math.round((uploaded / validFiles.length) * 100))
           } catch (err) {
             console.error('File upload error:', err)
           }
@@ -382,7 +393,7 @@ const ArtworkBatchesPage: React.FC = () => {
       fetchBatches()
       
       if (uploadErrors.length > 0) {
-        alert(`Some files failed to upload:\n\n${uploadErrors.slice(0, 5).join('\n')}${uploadErrors.length > 5 ? '\n...and more' : ''}\n\nNote: Supabase has a 50MB file size limit per file. Make sure your videos or high-res files are under 50MB.`)
+        alert(`Some files failed to upload:\n\n${uploadErrors.slice(0, 5).join('\n')}${uploadErrors.length > 5 ? '\n...and more' : ''}\n\nMax file size is 500 MB per file.`)
       }
       
     } catch (err) {
@@ -437,6 +448,12 @@ const ArtworkBatchesPage: React.FC = () => {
   const uploadProofFile = async (file: File, itemId: string) => {
     if (!file || !selectedBatch) {
       console.warn('uploadProofFile: missing file or selectedBatch', { file, selectedBatch })
+      return
+    }
+
+    const MAX_FILE_BYTES = 500 * 1024 * 1024 // 500 MB
+    if (file.size > MAX_FILE_BYTES) {
+      alert(`File is too large: ${(file.size / 1024 / 1024).toFixed(0)} MB. Maximum allowed is 500 MB.`)
       return
     }
 
