@@ -32,6 +32,13 @@ const TOLERANCES = [
   "Color Tolerance +/-10%"
 ]
 
+// Convert revision_count to ordinal label: 1 → "1st Revised", 2 → "2nd Revised", etc.
+const getRevisionLabel = (count: number): string => {
+  const ordinals = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th']
+  const suffix = ordinals[count - 1] || `${count}th`
+  return `${suffix} Revised`
+}
+
 const formatFileSize = (bytes?: number) => {
   if (!bytes) return '0 B'
   const k = 1024
@@ -826,8 +833,14 @@ const ArtworkReviewPage: React.FC = () => {
                     {index + 1}
                   </div>
                   {/* Status Badge */}
-                  <div className="absolute top-2 right-2">
+                  <div className="absolute top-2 right-2 flex flex-col items-end gap-1">
                     {getStatusBadge(item?.status || 'pending')}
+                    {/* Revision badge — customer sees which revision round this is */}
+                    {(item.revision_count ?? 0) > 0 && (
+                      <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-bold rounded-full bg-orange-100 text-orange-700 border border-orange-200">
+                        🔄 {getRevisionLabel(item.revision_count!)} Pending
+                      </span>
+                    )}
                   </div>
                   {/* AI Badge */}
                   {item.ai_analysis?.analyzed_at && (

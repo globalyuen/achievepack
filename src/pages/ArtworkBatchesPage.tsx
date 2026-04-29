@@ -14,6 +14,13 @@ import { analyzeArtworkWithXAI } from '../lib/artworkAnalysis'
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
 
+// Convert revision_count number to ordinal label: 1 → "1st Revised", 2 → "2nd Revised", etc.
+const getRevisionLabel = (count: number): string => {
+  const ordinals = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th']
+  const suffix = ordinals[count - 1] || `${count}th`
+  return `${suffix} Revised`
+}
+
 const ArtworkBatchesPage: React.FC = () => {
   const navigate = useNavigate()
   const { user, loading: authLoading } = useAuth()
@@ -443,16 +450,29 @@ const ArtworkBatchesPage: React.FC = () => {
       const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(storagePath)
       
       const now = new Date().toISOString()
+
+      // Find current item to check if it was rejected (so we can increment revision count)
+      const currentItem = batchItems.find(i => i.id === itemId)
+      const wasRejected = currentItem?.status === 'rejected'
+      const newRevisionCount = wasRejected ? ((currentItem?.revision_count || 0) + 1) : (currentItem?.revision_count || 0)
       
-      // Update item in database
+      // Update item in database — reset to pending + bump revision_count if was rejected
+      const updatePayload: any = {
+        file_url: urlData.publicUrl,
+        file_type: file.type,
+        file_size: file.size,
+        updated_at: now,
+        revision_count: newRevisionCount,
+      }
+      if (wasRejected) {
+        updatePayload.status = 'pending'
+        updatePayload.approval_type = null
+        updatePayload.customer_comment = null
+      }
+
       const { error: updateError } = await supabase
         .from('artwork_batch_items')
-        .update({
-          file_url: urlData.publicUrl,
-          file_type: file.type,
-          file_size: file.size,
-          updated_at: now
-        })
+        .update(updatePayload)
         .eq('id', itemId)
       
       if (updateError) throw updateError
@@ -465,10 +485,16 @@ const ArtworkBatchesPage: React.FC = () => {
               file_url: urlData.publicUrl, 
               file_type: file.type, 
               file_size: file.size,
-              updated_at: now
+              updated_at: now,
+              revision_count: newRevisionCount,
+              ...(wasRejected ? { status: 'pending' as const, approval_type: undefined, customer_comment: undefined } : {})
             } 
           : item
       ))
+
+      if (wasRejected) {
+        alert(`✅ New proof uploaded — marked as "${getRevisionLabel(newRevisionCount)} Pending". Status reset to Pending Review.`)
+      }
       
     } catch (err) {
       console.error('Update item file error:', err)
@@ -478,6 +504,7 @@ const ArtworkBatchesPage: React.FC = () => {
       if (e.target) e.target.value = ''
     }
   }
+
 
   // Create blank artwork slot
   const handleCreateBlankArtwork = async () => {
@@ -1544,8 +1571,14 @@ const ArtworkBatchesPage: React.FC = () => {
                               </div>
                             )}
                             {/* Status Badge */}
-                            <div className="absolute top-2 left-2">
+                            <div className="absolute top-2 left-2 flex flex-col gap-1">
                               {getStatusBadge(item.status)}
+                              {/* Revision badge — shown when admin has uploaded at least 1 new proof after rejection */}
+                              {(item.revision_count ?? 0) > 0 && (
+                                <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-bold rounded-full bg-orange-100 text-orange-700 border border-orange-200">
+                                  🔄 {getRevisionLabel(item.revision_count!)} Pending
+                                </span>
+                              )}
                             </div>
                             {/* AI Badge */}
                             {item.ai_analysis?.analyzed_at && (

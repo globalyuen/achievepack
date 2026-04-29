@@ -620,6 +620,9 @@ export type ArtworkBatchItem = {
   
   // Source link for original artwork or extra download
   source_link?: string
+
+  // Revision tracking — incremented each time admin uploads a new proof after rejection
+  revision_count?: number
   
   created_at: string
   updated_at: string
