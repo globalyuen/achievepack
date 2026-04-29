@@ -435,10 +435,14 @@ const ArtworkBatchesPage: React.FC = () => {
 
   // Core proof-upload logic — accepts a plain File, works for both click-to-upload and drag-and-drop
   const uploadProofFile = async (file: File, itemId: string) => {
-    if (!file || !selectedBatch) return
+    if (!file || !selectedBatch) {
+      console.warn('uploadProofFile: missing file or selectedBatch', { file, selectedBatch })
+      return
+    }
 
     setUploading(true)
     try {
+      // ── Step 1: Upload file to storage ──────────────────────────────
       const ext = file.name.split('.').pop() || 'bin'
       const storagePath = `batches/${selectedBatch.id}/${Date.now()}_${Math.random().toString(36).slice(2)}.${ext}`
 
@@ -446,38 +450,56 @@ const ArtworkBatchesPage: React.FC = () => {
         .from('artworks')
         .upload(storagePath, file)
 
-      if (uploadError) throw uploadError
+      if (uploadError) {
+        console.error('Storage upload error:', uploadError)
+        throw uploadError
+      }
 
       const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(storagePath)
       const now = new Date().toISOString()
 
-      // Increment revision_count only when previous status was rejected
+      // ── Step 2: Update core file fields (file_url, type, size) ──────
+      // This MUST succeed — no revision_count here so missing column can't break it
+      const { error: fileUpdateError } = await supabase
+        .from('artwork_batch_items')
+        .update({
+          file_url: urlData.publicUrl,
+          file_type: file.type,
+          file_size: file.size,
+          updated_at: now,
+        })
+        .eq('id', itemId)
+
+      if (fileUpdateError) {
+        console.error('DB file update error:', fileUpdateError)
+        throw fileUpdateError
+      }
+
+      // ── Step 3: Revision tracking (separate call — fails silently if column missing) ──
       const currentItem = batchItems.find(i => i.id === itemId)
       const wasRejected = currentItem?.status === 'rejected'
       const newRevisionCount = wasRejected
         ? (currentItem?.revision_count || 0) + 1
         : (currentItem?.revision_count || 0)
 
-      const updatePayload: any = {
-        file_url: urlData.publicUrl,
-        file_type: file.type,
-        file_size: file.size,
-        updated_at: now,
-        revision_count: newRevisionCount,
-      }
+      const revisionPayload: any = { revision_count: newRevisionCount }
       if (wasRejected) {
-        updatePayload.status = 'pending'
-        updatePayload.approval_type = null
-        updatePayload.customer_comment = null
+        revisionPayload.status = 'pending'
+        revisionPayload.approval_type = null
+        revisionPayload.customer_comment = null
       }
 
-      const { error: updateError } = await supabase
+      const { error: revError } = await supabase
         .from('artwork_batch_items')
-        .update(updatePayload)
+        .update(revisionPayload)
         .eq('id', itemId)
 
-      if (updateError) throw updateError
+      if (revError) {
+        // Log but DON'T throw — file is already uploaded successfully
+        console.warn('Revision count update failed (column may not exist yet — run SQL migration):', revError)
+      }
 
+      // ── Step 4: Update local UI state ────────────────────────────────
       setBatchItems(prev => prev.map(it =>
         it.id === itemId
           ? {
@@ -486,18 +508,18 @@ const ArtworkBatchesPage: React.FC = () => {
               file_type: file.type,
               file_size: file.size,
               updated_at: now,
-              revision_count: newRevisionCount,
-              ...(wasRejected ? { status: 'pending' as const, approval_type: undefined, customer_comment: undefined } : {})
+              ...(!revError ? { revision_count: newRevisionCount } : {}),
+              ...(wasRejected && !revError ? { status: 'pending' as const, approval_type: undefined, customer_comment: undefined } : {}),
             }
           : it
       ))
 
-      if (wasRejected) {
+      if (wasRejected && !revError) {
         alert(`✅ New proof uploaded — marked as "${getRevisionLabel(newRevisionCount)} Pending". Status reset to Pending Review.`)
       }
-    } catch (err) {
-      console.error('Upload proof error:', err)
-      alert('Failed to update file')
+    } catch (err: any) {
+      console.error('uploadProofFile failed:', err)
+      alert(`Failed to update file: ${err?.message || JSON.stringify(err)}`)
     } finally {
       setUploading(false)
     }
