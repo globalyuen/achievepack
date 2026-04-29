@@ -41,8 +41,13 @@ export const uploadWithTus = async (bucketName: string, fileName: string, file: 
         return
       }
 
+      const projectId = supabaseUrl.match(/https:\/\/(.*?)\.supabase\.co/)?.[1]
+      const directEndpoint = projectId 
+        ? `https://${projectId}.storage.supabase.co/storage/v1/upload/resumable`
+        : `${supabaseUrl}/storage/v1/upload/resumable`
+
       const upload = new tus.Upload(file, {
-        endpoint: `${supabaseUrl}/storage/v1/upload/resumable`,
+        endpoint: directEndpoint,
         retryDelays: [0, 3000, 5000, 10000, 20000],
         headers: {
           authorization: `Bearer ${session.access_token}`,
