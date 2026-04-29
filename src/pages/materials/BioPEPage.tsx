@@ -622,8 +622,8 @@ const BioPEPage: React.FC = () => {
       canonicalUrl="https://achievepack.com/materials/bio-pe"
       heroTitle={t('seoPages.pages.bioPE.heroTitle')}
       heroSubtitle={t('seoPages.pages.bioPE.heroSubtitle')}
-      heroImage="/imgs/seo-photos/a_pineapple_bio_based_pouch_garden_1432147.webp"
-      heroImageAlt="Bio-PE plant-based packaging from sugarcane"
+      heroImage="/imgs/biope/what/a_hero_bio_pe_article_2212774.webp"
+      heroImageAlt="Bio-PE plant-based packaging from sugarcane — Bio-Based, Recyclable, Lower Carbon"
       introSummary={t('seoPages.pages.bioPE.introSummary')}
       sections={sections}
       faqs={faqs}
