@@ -469,6 +469,13 @@ const ArtworkBatchesPage: React.FC = () => {
 
       if (uploadError) {
         console.error('Storage upload error:', uploadError)
+        if (uploadError.message?.toLowerCase().includes('maximum allowed size') || uploadError.message?.toLowerCase().includes('exceeded')) {
+          throw new Error(
+            `Supabase bucket limit not updated yet.\n\n` +
+            `Go to: Supabase Dashboard → Storage → Buckets → artworks → Edit → set "File size limit" to 500 MB (524288000 bytes) → Save.\n\n` +
+            `Or run in SQL Editor:\nUPDATE storage.buckets SET file_size_limit = 524288000 WHERE id = 'artworks';`
+          )
+        }
         throw uploadError
       }
 
