@@ -339,10 +339,10 @@ const ArtworkBatchesPage: React.FC = () => {
             const { error: uploadError } = await supabase.storage
               .from('artworks')
               .upload(fileName, file, {
-                // resumable: true uses TUS protocol — handles files > 50MB
+                // resumable uses TUS protocol — handles files > 50MB (cast as any: TS types lag behind runtime)
                 resumable: file.size > 6 * 1024 * 1024,
                 upsert: false,
-              })
+              } as any)
             
             if (uploadError) {
               console.error('Upload error for', file.name, uploadError)
@@ -467,13 +467,13 @@ const ArtworkBatchesPage: React.FC = () => {
       const ext = file.name.split('.').pop() || 'bin'
       const storagePath = `batches/${selectedBatch.id}/${Date.now()}_${Math.random().toString(36).slice(2)}.${ext}`
 
-      // resumable: true uses TUS protocol — handles files well over 50MB
+      // resumable uses TUS protocol — handles files well over 50MB (cast as any: TS types lag behind runtime)
       const { error: uploadError } = await supabase.storage
         .from('artworks')
         .upload(storagePath, file, {
           resumable: file.size > 6 * 1024 * 1024,
           upsert: false,
-        })
+        } as any)
 
       if (uploadError) {
         console.error('Storage upload error:', uploadError)
