@@ -106,6 +106,9 @@ const ArtworkBatchesPage: React.FC = () => {
   const [adminLinkUrl, setAdminLinkUrl] = useState('')
   const [adminLinkLabel, setAdminLinkLabel] = useState('')
 
+  // Drag-over state — tracks which item card is being dragged over for visual feedback
+  const [dragOverItemId, setDragOverItemId] = useState<string | null>(null)
+
   // Fetch batches with actual item counts
   const fetchBatches = useCallback(async () => {
     setLoading(true)
@@ -1534,8 +1537,44 @@ const ArtworkBatchesPage: React.FC = () => {
                       const isPdf = /\.pdf$/i.test(item.file_url) || /\.pdf$/i.test(item.name)
                       return (
                         <div key={item.id} className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition">
-                          {/* Preview */}
-                          <div className="aspect-[4/3] bg-gray-100 relative group/preview overflow-hidden">
+                          {/* Preview — supports drag-and-drop to replace proof */}
+                          <div
+                            className={`aspect-[4/3] bg-gray-100 relative group/preview overflow-hidden transition-all ${
+                              dragOverItemId === item.id
+                                ? 'ring-4 ring-blue-400 ring-inset bg-blue-50'
+                                : ''
+                            }`}
+                            onDragOver={(e) => {
+                              e.preventDefault()
+                              e.stopPropagation()
+                              setDragOverItemId(item.id)
+                            }}
+                            onDragEnter={(e) => {
+                              e.preventDefault()
+                              setDragOverItemId(item.id)
+                            }}
+                            onDragLeave={(e) => {
+                              // Only clear if truly leaving the div (not entering a child)
+                              if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+                                setDragOverItemId(null)
+                              }
+                            }}
+                            onDrop={async (e) => {
+                              e.preventDefault()
+                              e.stopPropagation()
+                              setDragOverItemId(null)
+                              const file = e.dataTransfer.files?.[0]
+                              if (!file) return
+                              // Synthesise a ChangeEvent-like object to reuse handleUpdateItemFile
+                              const dt = new DataTransfer()
+                              dt.items.add(file)
+                              const syntheticEvent = {
+                                target: { files: dt.files, value: '' },
+                                preventDefault: () => {},
+                              } as unknown as React.ChangeEvent<HTMLInputElement>
+                              await handleUpdateItemFile(syntheticEvent, item.id)
+                            }}
+                          >
                             {isImage ? (
                               <img 
                                 src={item.file_url} 
@@ -1590,8 +1629,18 @@ const ArtworkBatchesPage: React.FC = () => {
                               </div>
                             )}
 
-                            {/* Replace Overlay (only if file exists) */}
-                            {item.file_url && (
+                            {/* Drag-over overlay */}
+                            {dragOverItemId === item.id && (
+                              <div className="absolute inset-0 bg-blue-500/20 backdrop-blur-[1px] flex flex-col items-center justify-center z-20 border-4 border-dashed border-blue-400 rounded pointer-events-none">
+                                <Upload className="h-8 w-8 text-blue-600 mb-2 animate-bounce" />
+                                <span className="text-sm font-bold text-blue-700 bg-white/90 px-3 py-1.5 rounded-full shadow">
+                                  Drop to Replace Proof
+                                </span>
+                              </div>
+                            )}
+
+                            {/* Hover Replace Overlay (only if file exists and not dragging) */}
+                            {item.file_url && dragOverItemId !== item.id && (
                               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/preview:opacity-100 transition flex items-center justify-center pointer-events-none group-hover/preview:pointer-events-auto">
                                 <label className="cursor-pointer">
                                   <span className="px-4 py-2 bg-white rounded-lg text-xs font-semibold text-gray-900 shadow-xl border border-gray-200 hover:bg-gray-50 flex items-center gap-2 transition transform scale-90 group-hover/preview:scale-100">
