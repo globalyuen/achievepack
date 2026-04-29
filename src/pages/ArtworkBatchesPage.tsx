@@ -432,34 +432,32 @@ const ArtworkBatchesPage: React.FC = () => {
     }
   }
 
-  // Update an existing artwork item's file
-  const handleUpdateItemFile = async (e: React.ChangeEvent<HTMLInputElement>, itemId: string) => {
-    const file = e.target.files?.[0]
+
+  // Core proof-upload logic — accepts a plain File, works for both click-to-upload and drag-and-drop
+  const uploadProofFile = async (file: File, itemId: string) => {
     if (!file || !selectedBatch) return
-    
+
     setUploading(true)
     try {
-      // Upload to storage
       const ext = file.name.split('.').pop() || 'bin'
       const storagePath = `batches/${selectedBatch.id}/${Date.now()}_${Math.random().toString(36).slice(2)}.${ext}`
-      
+
       const { error: uploadError } = await supabase.storage
         .from('artworks')
         .upload(storagePath, file)
-      
+
       if (uploadError) throw uploadError
-      
-      // Get public URL
+
       const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(storagePath)
-      
       const now = new Date().toISOString()
 
-      // Find current item to check if it was rejected (so we can increment revision count)
+      // Increment revision_count only when previous status was rejected
       const currentItem = batchItems.find(i => i.id === itemId)
       const wasRejected = currentItem?.status === 'rejected'
-      const newRevisionCount = wasRejected ? ((currentItem?.revision_count || 0) + 1) : (currentItem?.revision_count || 0)
-      
-      // Update item in database — reset to pending + bump revision_count if was rejected
+      const newRevisionCount = wasRejected
+        ? (currentItem?.revision_count || 0) + 1
+        : (currentItem?.revision_count || 0)
+
       const updatePayload: any = {
         file_url: urlData.publicUrl,
         file_type: file.type,
@@ -477,35 +475,40 @@ const ArtworkBatchesPage: React.FC = () => {
         .from('artwork_batch_items')
         .update(updatePayload)
         .eq('id', itemId)
-      
+
       if (updateError) throw updateError
-      
-      // Update local state
-      setBatchItems(prev => prev.map(item => 
-        item.id === itemId 
-          ? { 
-              ...item, 
-              file_url: urlData.publicUrl, 
-              file_type: file.type, 
+
+      setBatchItems(prev => prev.map(it =>
+        it.id === itemId
+          ? {
+              ...it,
+              file_url: urlData.publicUrl,
+              file_type: file.type,
               file_size: file.size,
               updated_at: now,
               revision_count: newRevisionCount,
               ...(wasRejected ? { status: 'pending' as const, approval_type: undefined, customer_comment: undefined } : {})
-            } 
-          : item
+            }
+          : it
       ))
 
       if (wasRejected) {
         alert(`✅ New proof uploaded — marked as "${getRevisionLabel(newRevisionCount)} Pending". Status reset to Pending Review.`)
       }
-      
     } catch (err) {
-      console.error('Update item file error:', err)
+      console.error('Upload proof error:', err)
       alert('Failed to update file')
     } finally {
       setUploading(false)
-      if (e.target) e.target.value = ''
     }
+  }
+
+  // Update an existing artwork item's file via file-input change event
+  const handleUpdateItemFile = async (e: React.ChangeEvent<HTMLInputElement>, itemId: string) => {
+    const file = e.target.files?.[0]
+    if (e.target) e.target.value = '' // reset input immediately
+    if (!file) return
+    await uploadProofFile(file, itemId)
   }
 
 
@@ -1565,14 +1568,7 @@ const ArtworkBatchesPage: React.FC = () => {
                               setDragOverItemId(null)
                               const file = e.dataTransfer.files?.[0]
                               if (!file) return
-                              // Synthesise a ChangeEvent-like object to reuse handleUpdateItemFile
-                              const dt = new DataTransfer()
-                              dt.items.add(file)
-                              const syntheticEvent = {
-                                target: { files: dt.files, value: '' },
-                                preventDefault: () => {},
-                              } as unknown as React.ChangeEvent<HTMLInputElement>
-                              await handleUpdateItemFile(syntheticEvent, item.id)
+                              await uploadProofFile(file, item.id)
                             }}
                           >
                             {isImage ? (
