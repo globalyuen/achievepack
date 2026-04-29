@@ -7,7 +7,7 @@ import {
   Clock, Edit3, Plus, Trash2, Eye, Filter, RefreshCw, Upload, Users
 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
-import { supabase, ArtworkFile } from '../lib/supabase'
+import { supabase, ArtworkFile, uploadWithTus } from '../lib/supabase'
 import { ArtworkAIAnalysis, getAISearchableText } from '../lib/artworkAnalysis'
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
@@ -133,10 +133,10 @@ export default function ArtworkHubPage() {
     
     try {
       for (const file of Array.from(files) as File[]) {
-        // Validate file size (10MB limit)
-        const maxSize = 10 * 1024 * 1024
+        // Validate file size (500MB limit)
+        const maxSize = 500 * 1024 * 1024
         if (file.size > maxSize) {
-          setUploadError(`File "${file.name}" is too large (max 10MB)`)
+          setUploadError(`File "${file.name}" is too large (max 500MB)`)
           continue
         }
         
@@ -150,19 +150,27 @@ export default function ArtworkHubPage() {
         // Upload to Supabase Storage
         const ext = file.name.split('.').pop() || 'bin'
         const fileName = `${selectedCustomer}/${Date.now()}.${ext}`
-        const { data: uploadData, error: uploadError } = await supabase.storage
-          .from('artworks')
-          .upload(fileName, file, {
-            cacheControl: '3600',
-            upsert: false,
-            contentType: file.type || 'application/octet-stream'
-          })
-        
-        if (uploadError) throw new Error(uploadError.message)
-        
-        // Get public URL
-        const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(uploadData?.path || fileName)
-        const fileUrl = urlData.publicUrl
+        let fileUrl = ''
+
+        if (file.size > 6 * 1024 * 1024) {
+          await uploadWithTus('artworks', fileName, file)
+          const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(fileName)
+          fileUrl = urlData.publicUrl
+        } else {
+          const { data: uploadData, error: uploadError } = await supabase.storage
+            .from('artworks')
+            .upload(fileName, file, {
+              cacheControl: '3600',
+              upsert: false,
+              contentType: file.type || 'application/octet-stream'
+            })
+          
+          if (uploadError) throw new Error(uploadError.message)
+          
+          // Get public URL
+          const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(uploadData?.path || fileName)
+          fileUrl = urlData.publicUrl
+        }
         
         // Save record to database
         await supabase.from('artwork_files').insert({

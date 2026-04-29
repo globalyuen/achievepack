@@ -9,7 +9,7 @@ import {
   Image as ImageIcon, Link as LinkIcon
 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
-import { supabase, ArtworkBatch, ArtworkBatchItem } from '../lib/supabase'
+import { supabase, ArtworkBatch, ArtworkBatchItem, uploadWithTus } from '../lib/supabase'
 import { analyzeArtworkWithXAI } from '../lib/artworkAnalysis'
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
@@ -336,18 +336,20 @@ const ArtworkBatchesPage: React.FC = () => {
             const ext = file.name.split('.').pop() || 'bin'
             const fileName = `batches/${selectedBatch.id}/${Date.now()}_${Math.random().toString(36).slice(2)}.${ext}`
             
-            const { error: uploadError } = await supabase.storage
-              .from('artworks')
-              .upload(fileName, file, {
-                // resumable uses TUS protocol — handles files > 50MB (cast as any: TS types lag behind runtime)
-                resumable: file.size > 6 * 1024 * 1024,
-                upsert: false,
-              } as any)
-            
-            if (uploadError) {
-              console.error('Upload error for', file.name, uploadError)
-              uploadErrors.push(`${file.name}: ${uploadError.message}`)
-              return
+            if (file.size > 6 * 1024 * 1024) {
+              await uploadWithTus('artworks', fileName, file)
+            } else {
+              const { error: uploadError } = await supabase.storage
+                .from('artworks')
+                .upload(fileName, file, {
+                  upsert: false,
+                })
+              
+              if (uploadError) {
+                console.error('Upload error for', file.name, uploadError)
+                uploadErrors.push(`${file.name}: ${uploadError.message}`)
+                return
+              }
             }
             
             // Get public URL
@@ -467,24 +469,26 @@ const ArtworkBatchesPage: React.FC = () => {
       const ext = file.name.split('.').pop() || 'bin'
       const storagePath = `batches/${selectedBatch.id}/${Date.now()}_${Math.random().toString(36).slice(2)}.${ext}`
 
-      // resumable uses TUS protocol — handles files well over 50MB (cast as any: TS types lag behind runtime)
-      const { error: uploadError } = await supabase.storage
-        .from('artworks')
-        .upload(storagePath, file, {
-          resumable: file.size > 6 * 1024 * 1024,
-          upsert: false,
-        } as any)
+      if (file.size > 6 * 1024 * 1024) {
+        await uploadWithTus('artworks', storagePath, file)
+      } else {
+        const { error: uploadError } = await supabase.storage
+          .from('artworks')
+          .upload(storagePath, file, {
+            upsert: false,
+          })
 
-      if (uploadError) {
-        console.error('Storage upload error:', uploadError)
-        if (uploadError.message?.toLowerCase().includes('maximum allowed size') || uploadError.message?.toLowerCase().includes('exceeded')) {
-          throw new Error(
-            `Supabase bucket limit not updated yet.\n\n` +
-            `Go to: Supabase Dashboard → Storage → Buckets → artworks → Edit → set "File size limit" to 500 MB (524288000 bytes) → Save.\n\n` +
-            `Or run in SQL Editor:\nUPDATE storage.buckets SET file_size_limit = 524288000 WHERE id = 'artworks';`
-          )
+        if (uploadError) {
+          console.error('Storage upload error:', uploadError)
+          if (uploadError.message?.toLowerCase().includes('maximum allowed size') || uploadError.message?.toLowerCase().includes('exceeded')) {
+            throw new Error(
+              `Supabase bucket limit not updated yet.\n\n` +
+              `Go to: Supabase Dashboard → Storage → Buckets → artworks → Edit → set "File size limit" to 500 MB (524288000 bytes) → Save.\n\n` +
+              `Or run in SQL Editor:\nUPDATE storage.buckets SET file_size_limit = 524288000 WHERE id = 'artworks';`
+            )
+          }
+          throw uploadError
         }
-        throw uploadError
       }
 
       const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(storagePath)

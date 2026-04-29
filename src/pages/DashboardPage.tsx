@@ -11,7 +11,7 @@ import {
   LayoutGrid, List
 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
-import { supabase, Order, Quote, Document, ArtworkFile, SavedCartItem, ArtworkComment, CustomerActivityLog, Project } from '../lib/supabase'
+import { supabase, Order, Quote, Document, ArtworkFile, SavedCartItem, ArtworkComment, CustomerActivityLog, Project, uploadWithTus } from '../lib/supabase'
 import { analyzeArtworkWithXAI } from '../lib/artworkAnalysis'
 import { useTranslation } from 'react-i18next'
 import { useStore } from '../store/StoreContext'
@@ -630,13 +630,13 @@ const DashboardPage: React.FC = () => {
     try {
       const uploadedFiles: string[] = []
       for (const file of Array.from(files) as File[]) {
-        // Validate file size (10MB limit for direct storage upload)
-        const maxSize = 10 * 1024 * 1024
+        // Validate file size (500MB limit for direct storage upload)
+        const maxSize = 500 * 1024 * 1024
         if (file.size > maxSize) {
           const fileSizeMB = (file.size / (1024 * 1024)).toFixed(1)
           setUploadError(
             `File "${file.name}" is too large (${fileSizeMB} MB).\n\n` +
-            `Maximum file size is 10 MB.\n\n` +
+            `Maximum file size is 500 MB.\n\n` +
             `For larger files, please use:\n` +
             `• WeTransfer: https://wetransfer.com\n` +
             `• Dropbox: https://www.dropbox.com\n\n` +
@@ -652,25 +652,38 @@ const DashboardPage: React.FC = () => {
           continue
         }
         
-        // Upload directly to Supabase Storage (use SDK, don't manually parse JSON)
+        // Upload directly to Supabase Storage
         const ext = file.name.split('.').pop() || 'bin'
         const fileName = `${user?.id}/${Date.now()}.${ext}`
-        const { data: uploadData, error: uploadError } = await supabase.storage
-          .from('artworks')
-          .upload(fileName, file, {
-            cacheControl: '3600',
-            upsert: false,
-            contentType: file.type || 'application/octet-stream'
-          })
-        
-        if (uploadError) {
+        let fileUrl = ''
+
+        try {
+          if (file.size > 6 * 1024 * 1024) {
+            await uploadWithTus('artworks', fileName, file)
+            const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(fileName)
+            fileUrl = urlData.publicUrl
+          } else {
+            const { data: uploadData, error: uploadError } = await supabase.storage
+              .from('artworks')
+              .upload(fileName, file, {
+                cacheControl: '3600',
+                upsert: false,
+                contentType: file.type || 'application/octet-stream'
+              })
+            
+            if (uploadError) {
+              console.error('Storage upload error:', uploadError)
+              throw new Error(uploadError.message || 'Failed to upload file')
+            }
+            
+            // Get public URL
+            const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(uploadData?.path || fileName)
+            fileUrl = urlData.publicUrl
+          }
+        } catch (uploadError: any) {
           console.error('Storage upload error:', uploadError)
           throw new Error(uploadError.message || 'Failed to upload file')
         }
-        
-        // Get public URL
-        const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(uploadData?.path || fileName)
-        const fileUrl = urlData.publicUrl
         
         // Save record directly to Supabase (RLS policy allows owner to insert with user_id = auth.uid())
         const { data: insertedData, error: insertError } = await supabase
@@ -748,12 +761,12 @@ const DashboardPage: React.FC = () => {
     try {
       const uploadedFiles: string[] = []
       for (const file of Array.from(files) as File[]) {
-        // Validate file size (10MB limit for direct storage upload)
-        const maxSize = 10 * 1024 * 1024
+        // Validate file size (500MB limit for direct storage upload)
+        const maxSize = 500 * 1024 * 1024
         if (file.size > maxSize) {
           const fileSizeMB = (file.size / (1024 * 1024)).toFixed(1)
           setUploadError(
-            `File "${file.name}" is too large (${fileSizeMB} MB). Max 10MB.\n\n` +
+            `File "${file.name}" is too large (${fileSizeMB} MB). Max 500MB.\n\n` +
             `For larger files, please use WeTransfer or Dropbox and share the link with us.`
           )
           continue
@@ -766,25 +779,38 @@ const DashboardPage: React.FC = () => {
           continue
         }
         
-        // Upload directly to Supabase Storage (use SDK, don't manually parse JSON)
+        // Upload directly to Supabase Storage
         const ext = file.name.split('.').pop() || 'bin'
         const fileName = `${user?.id}/${orderNumber}/${Date.now()}.${ext}`
-        const { data: uploadData, error: uploadError } = await supabase.storage
-          .from('artworks')
-          .upload(fileName, file, {
-            cacheControl: '3600',
-            upsert: false,
-            contentType: file.type || 'application/octet-stream'
-          })
-        
-        if (uploadError) {
+        let fileUrl = ''
+
+        try {
+          if (file.size > 6 * 1024 * 1024) {
+            await uploadWithTus('artworks', fileName, file)
+            const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(fileName)
+            fileUrl = urlData.publicUrl
+          } else {
+            const { data: uploadData, error: uploadError } = await supabase.storage
+              .from('artworks')
+              .upload(fileName, file, {
+                cacheControl: '3600',
+                upsert: false,
+                contentType: file.type || 'application/octet-stream'
+              })
+            
+            if (uploadError) {
+              console.error('Storage upload error:', uploadError)
+              throw new Error(uploadError.message || 'Failed to upload file')
+            }
+            
+            // Get public URL
+            const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(uploadData?.path || fileName)
+            fileUrl = urlData.publicUrl
+          }
+        } catch (uploadError: any) {
           console.error('Storage upload error:', uploadError)
           throw new Error(uploadError.message || 'Failed to upload file')
         }
-        
-        // Get public URL
-        const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(uploadData?.path || fileName)
-        const fileUrl = urlData.publicUrl
         
         // Save record directly to Supabase (RLS policy allows owner to insert with user_id = auth.uid())
         const { error: insertError } = await supabase

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, startTransition } from 'react'
 import { useNavigate, Link, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
-import { supabase, Quote, ArtworkFile, Profile, ArtworkComment, CRMInquiry, Project, ProductionJob, ShippingRecord } from '../lib/supabase'
+import { supabase, Quote, ArtworkFile, Profile, ArtworkComment, CRMInquiry, Project, ProductionJob, ShippingRecord, uploadWithTus } from '../lib/supabase'
 import { analyzeArtworkWithXAI, getAISearchableText } from '../lib/artworkAnalysis'
 import { SlidingNumber } from '../components/animate-ui/primitives/texts/sliding-number'
 import { 
@@ -1003,10 +1003,10 @@ const OrderManagementPage: React.FC = () => {
       }
       
       for (const file of Array.from(files) as File[]) {
-        // Validate file size (10MB limit)
-        const maxSize = 10 * 1024 * 1024
+        // Validate file size (500MB limit)
+        const maxSize = 500 * 1024 * 1024
         if (file.size > maxSize) {
-          setUploadError(`File "${file.name}" is too large. Maximum 10MB.`)
+          setUploadError(`File "${file.name}" is too large. Maximum 500MB.`)
           continue
         }
         
@@ -1023,21 +1023,29 @@ const OrderManagementPage: React.FC = () => {
           ? `${uploadCustomerId}/${Date.now()}.${ext}`
           : `inquiries/${contactEmail.replace('@', '_at_')}/${Date.now()}.${ext}`
         
-        const { data: uploadData, error: storageError } = await supabase.storage
-          .from('artworks')
-          .upload(storagePath, file, {
-            cacheControl: '3600',
-            upsert: false,
-            contentType: file.type || 'application/octet-stream'
-          })
-        
-        if (storageError) {
-          throw new Error(storageError.message)
+        let fileUrl = ''
+
+        if (file.size > 6 * 1024 * 1024) {
+          await uploadWithTus('artworks', storagePath, file)
+          const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(storagePath)
+          fileUrl = urlData.publicUrl
+        } else {
+          const { data: uploadData, error: storageError } = await supabase.storage
+            .from('artworks')
+            .upload(storagePath, file, {
+              cacheControl: '3600',
+              upsert: false,
+              contentType: file.type || 'application/octet-stream'
+            })
+          
+          if (storageError) {
+            throw new Error(storageError.message)
+          }
+          
+          // Get public URL
+          const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(uploadData?.path || storagePath)
+          fileUrl = urlData.publicUrl
         }
-        
-        // Get public URL
-        const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(uploadData?.path || storagePath)
-        const fileUrl = urlData.publicUrl
         
         // Insert database record
         // For CRM inquiry, check if there's a matching Website Customer by email

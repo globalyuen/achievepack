@@ -6,7 +6,7 @@ import {
   ZoomIn, Download, Search, Code, ExternalLink, LayoutGrid, Trash2, Paperclip
 } from 'lucide-react'
 import { Image as ImageIcon, Link as LinkIcon } from 'lucide-react'
-import { supabase, ArtworkBatch, ArtworkBatchItem } from '../lib/supabase'
+import { supabase, ArtworkBatch, ArtworkBatchItem, uploadWithTus } from '../lib/supabase'
 
 // Constants
 const IMPORTANT_NOTICE = [
@@ -491,21 +491,34 @@ const ArtworkReviewPage: React.FC = () => {
       const safeName = file.name.replace(/[^a-zA-Z0-9.\-_]/g, '_');
       const filePath = `artwork/${batchId}/${timestamp}_${safeName}`;
       
-      const { error: uploadError } = await supabase.storage
-        .from('artworks')
-        .upload(filePath, file);
+      const maxSize = 500 * 1024 * 1024; // 500MB
+      if (file.size > maxSize) {
+        throw new Error('File size exceeds 500MB limit');
+      }
+
+      let fileUrl = '';
+      if (file.size > 6 * 1024 * 1024) {
+        await uploadWithTus('artworks', filePath, file);
+        const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(filePath);
+        fileUrl = urlData.publicUrl;
+      } else {
+        const { error: uploadError } = await supabase.storage
+          .from('artworks')
+          .upload(filePath, file);
+          
+        if (uploadError) throw uploadError;
         
-      if (uploadError) throw uploadError;
-      
-      const { data: urlData } = supabase.storage
-        .from('artworks')
-        .getPublicUrl(filePath);
+        const { data: urlData } = supabase.storage
+          .from('artworks')
+          .getPublicUrl(filePath);
+        fileUrl = urlData.publicUrl;
+      }
         
       const now = new Date().toISOString()
       const { error: updateError } = await supabase
         .from('artwork_batch_items')
         .update({
-          file_url: urlData.publicUrl,
+          file_url: fileUrl,
           file_size: file.size,
           status: 'pending',
           updated_at: now
@@ -514,11 +527,11 @@ const ArtworkReviewPage: React.FC = () => {
         
       if (updateError) throw updateError;
       
-      setItems(prev => prev.map(i => i.id === item.id ? { ...i, file_url: urlData.publicUrl, file_size: file.size, status: 'pending', updated_at: now } : i));
+      setItems(prev => prev.map(i => i.id === item.id ? { ...i, file_url: fileUrl, file_size: file.size, status: 'pending', updated_at: now } : i));
       
       alert(isSupplier ? '图稿已被成功覆盖！状态已重置为待审核。' : 'Artwork overwritten successfully! Status reset to pending.');
       
-      return { file_url: urlData.publicUrl, file_size: file.size, status: 'pending', updated_at: now };
+      return { file_url: fileUrl, file_size: file.size, status: 'pending', updated_at: now };
     } catch (error) {
       console.error('Upload failed:', error);
       alert(isSupplier ? '上传失败。' : 'Upload failed.');

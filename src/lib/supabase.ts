@@ -31,6 +31,45 @@ export const supabase = createClient(supabaseUrl || '', supabaseAnonKey || '', {
   }
 })
 
+import * as tus from 'tus-js-client'
+
+export const uploadWithTus = async (bucketName: string, fileName: string, file: File): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!session) {
+        reject(new Error('No session found'))
+        return
+      }
+
+      const upload = new tus.Upload(file, {
+        endpoint: `${supabaseUrl}/storage/v1/upload/resumable`,
+        retryDelays: [0, 3000, 5000, 10000, 20000],
+        headers: {
+          authorization: `Bearer ${session.access_token}`,
+          'x-upsert': 'false',
+        },
+        uploadDataDuringCreation: true,
+        removeFingerprintOnSuccess: true,
+        metadata: {
+          bucketName: bucketName,
+          objectName: fileName,
+          contentType: file.type || 'application/octet-stream',
+          cacheControl: '3600',
+        },
+        chunkSize: 6 * 1024 * 1024, // 6MB
+        onError: function (error) {
+          console.error('TUS upload failed:', error)
+          reject(error)
+        },
+        onSuccess: function () {
+          resolve(fileName)
+        },
+      })
+      upload.start()
+    }).catch(reject)
+  })
+}
+
 // ===========================================
 // Unified Project Tracking System
 // PRJ-YYYY-NNNN format for all order stages
