@@ -1659,7 +1659,7 @@ export default function DailyReportsPage() {
                     <label className="block text-xs uppercase font-extrabold text-gray-500">Factory Raw Quote (Chinese RMB specs)</label>
                     <button 
                       onClick={() => {
-                        const template = `1. 200克包装规格\n建议尺寸： 宽 160 mm × 高 160 mm + 底部折边 40 mm\n\n满版哑油 MDOPE25/镀铝BOPE25/70%PCR-EVOH-PE80\n1,000 件： / 个\n3,000 件： / 个\n5,000 件： / 个\n重量（克/个）：\n\n满版哑油 牛皮纸50克/镀铝PLA25/PBAT60\n1,000 件： / 个\n3,000 件： / 个\n5,000 件： / 个\n重量（克/个）：\n\n满版哑油 PET12/镀铝PET12/70PCR%PE80\n1,000 件： / 个\n3,000 件： / 个\n5,000 件： / 个\n重量（克/个）：\n\n2. 400克包装规格\n宽 220 mm × 高 200 mm + 底部折边 50 mm\n\n满版哑油 MDOPE25/镀铝BOPE25/70%PCR-EVOH-PE80\n1,000 件： / 个\n3,000 件： / 个\n5,000 件： / 个\n重量（克/个）：\n\n满版哑油 牛皮纸50克/镀铝PLA25/PBAT60\n1,000 件： / 个\n3,000 件： / 个\n5,000 件： / 个\n重量（克/个）：\n\n满版哑油 PET12/镀铝PET12/70PCR%PE80\n1,000 件： / 个\n3,000 件： / 个\n5,000 件： / 个\n重量（克/个）：`;
+                        const template = `袋型：\n材质结构：\n尺寸规格：  mm*  mm+  mm\n厚度：\nadditional：\n款数：     数量：     单价：￥     金额：￥     预估重量：kg     类型：\n\n---\n\n袋型：自立袋\n材质结构：黄牛皮纸-50g////PLA+PBAT可降解\n尺寸规格：235 mm*345 mm+60 mm\n厚度：130\nadditional：拉链, stamp foil\n款数：     数量：5000     单价：￥1.163     金额：￥5815     预估重量：134.05kg     类型：透明袋`;
                         setCurrentRecord({...currentRecord, detail: template});
                       }}
                       className="text-[10px] font-bold text-emerald-600 hover:text-emerald-700 underline"
