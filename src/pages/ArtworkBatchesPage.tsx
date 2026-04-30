@@ -2478,9 +2478,14 @@ const ArtworkBatchesPage: React.FC = () => {
                 const thumbUrl = croppingItem.ai_analysis?.thumbnail_url || (/\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(croppingItem.file_url) ? croppingItem.file_url : null)
                 if (!thumbUrl) {
                   return (
-                    <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-400 pointer-events-none">
-                      <FileImage className="h-12 w-12 mb-2" />
-                      <p>No image available</p>
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-400 bg-gray-50">
+                      <FileImage className="h-16 w-16 mb-4 text-gray-300" />
+                      <p className="mb-4 text-gray-500 font-medium">No image available for cropping</p>
+                      <label className="cursor-pointer px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 shadow-sm transition flex items-center gap-2">
+                        {customThumbUploading ? <RefreshCw className="h-5 w-5 animate-spin" /> : <Upload className="h-5 w-5" />}
+                        {customThumbUploading ? 'Uploading...' : 'Upload Custom Thumbnail'}
+                        <input type="file" className="hidden" accept="image/*" onChange={handleUploadCustomThumb} disabled={customThumbUploading} />
+                      </label>
                     </div>
                   )
                 }
