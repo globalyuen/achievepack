@@ -33,7 +33,7 @@ export const supabase = createClient(supabaseUrl || '', supabaseAnonKey || '', {
 
 import * as tus from 'tus-js-client'
 
-export const uploadWithTus = async (bucketName: string, fileName: string, file: File): Promise<string> => {
+export const uploadWithTus = async (bucketName: string, fileName: string, file: File, onProgress?: (bytesUploaded: number, bytesTotal: number) => void): Promise<string> => {
   return new Promise((resolve, reject) => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (!session) {
@@ -62,6 +62,11 @@ export const uploadWithTus = async (bucketName: string, fileName: string, file: 
           cacheControl: '3600',
         },
         chunkSize: 6 * 1024 * 1024, // 6MB
+        onProgress: function(bytesUploaded, bytesTotal) {
+          if (onProgress) {
+            onProgress(bytesUploaded, bytesTotal)
+          }
+        },
         onError: function (error) {
           console.error('TUS upload failed:', error)
           reject(error)

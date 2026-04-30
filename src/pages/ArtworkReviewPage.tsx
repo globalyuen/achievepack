@@ -818,29 +818,46 @@ const ArtworkReviewPage: React.FC = () => {
                     setShowReviewModal(true)
                   }}
                 >
-                  {isImage ? (
-                    <img 
-                      src={item.file_url} 
-                      alt={item.name}
-                      className="w-full h-full object-contain"
-                    />
-                  ) : isVideo ? (
-                    <video 
-                      src={item.file_url} 
-                      controls
-                      className="w-full h-full object-contain bg-black pointer-events-none"
-                    />
-                  ) : isPdf ? (
-                    <iframe 
-                      src={`${item.file_url}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} 
-                      className="w-full h-full border-0 pointer-events-none" 
-                      scrolling="no"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center">
-                      <FileImage className="h-12 w-12 text-gray-300" />
-                    </div>
-                  )}
+                  {(() => {
+                    const customThumbUrl = item.ai_analysis?.thumbnail_url
+                    const displayUrl = customThumbUrl || (isImage ? item.file_url : null)
+                    const cropSettings = item.ai_analysis?.thumbnail_crop || { scale: 1, x: 0, y: 0 }
+
+                    if (displayUrl) {
+                      return (
+                        <img 
+                          src={displayUrl} 
+                          alt={item.name}
+                          className="w-full h-full object-contain"
+                          style={{
+                            transform: `translate(${cropSettings.x}px, ${cropSettings.y}px) scale(${cropSettings.scale})`
+                          }}
+                        />
+                      )
+                    } else if (isVideo) {
+                      return (
+                        <video 
+                          src={item.file_url} 
+                          controls
+                          className="w-full h-full object-contain bg-black pointer-events-none"
+                        />
+                      )
+                    } else if (isPdf) {
+                      return (
+                        <iframe 
+                          src={`${item.file_url}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} 
+                          className="w-full h-full border-0 pointer-events-none" 
+                          scrolling="no"
+                        />
+                      )
+                    } else {
+                      return (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <FileImage className="h-12 w-12 text-gray-300" />
+                        </div>
+                      )
+                    }
+                  })()}
                   {/* Number Badge */}
                   <div className="absolute top-2 left-2 w-8 h-8 bg-black/60 text-white rounded-full flex items-center justify-center text-sm font-medium">
                     {index + 1}

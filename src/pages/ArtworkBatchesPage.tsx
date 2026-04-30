@@ -6,7 +6,7 @@ import {
   CheckCircle, Clock, AlertCircle, FileImage, Download, MoreHorizontal,
   Folder, Package, Code, ArrowUpDown, ArrowUp, ArrowDown, Link2, Pencil, Files, Pin,
   LayoutGrid, MessageSquare, CircleDashed, CheckCircle2,
-  Image as ImageIcon, Link as LinkIcon
+  Image as ImageIcon, Link as LinkIcon, Crop
 } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, ArtworkBatch, ArtworkBatchItem, uploadWithTus } from '../lib/supabase'
@@ -108,6 +108,107 @@ const ArtworkBatchesPage: React.FC = () => {
 
   // Drag-over state — tracks which item card is being dragged over for visual feedback
   const [dragOverItemId, setDragOverItemId] = useState<string | null>(null)
+
+  // Crop / Custom Thumbnail state
+  const [croppingItem, setCroppingItem] = useState<ArtworkBatchItem | null>(null)
+  const [cropScale, setCropScale] = useState(1)
+  const [cropX, setCropX] = useState(0)
+  const [cropY, setCropY] = useState(0)
+  const [isDraggingCrop, setIsDraggingCrop] = useState(false)
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 })
+  const [customThumbUploading, setCustomThumbUploading] = useState(false)
+
+  // Track individual file upload progress for mass uploads
+  type FileProgress = {
+    name: string;
+    progress: number;
+    status: 'pending' | 'uploading' | 'processing' | 'done' | 'error';
+    error?: string;
+  }
+  const [fileProgresses, setFileProgresses] = useState<FileProgress[]>([])
+
+  useEffect(() => {
+    if (croppingItem) {
+      const crop = croppingItem.ai_analysis?.thumbnail_crop || { scale: 1, x: 0, y: 0 }
+      setCropScale(crop.scale)
+      setCropX(crop.x)
+      setCropY(crop.y)
+    }
+  }, [croppingItem])
+
+  const handleCropMouseDown = (e: React.MouseEvent) => {
+    setIsDraggingCrop(true)
+    setDragStart({ x: e.clientX - cropX, y: e.clientY - cropY })
+  }
+
+  const handleCropMouseMove = (e: React.MouseEvent) => {
+    if (!isDraggingCrop) return
+    setCropX(e.clientX - dragStart.x)
+    setCropY(e.clientY - dragStart.y)
+  }
+
+  const handleCropMouseUp = () => {
+    setIsDraggingCrop(false)
+  }
+
+  const handleSaveCrop = async () => {
+    if (!croppingItem) return
+    
+    const updatedAnalysis = {
+      ...(croppingItem.ai_analysis || {}),
+      thumbnail_crop: { scale: cropScale, x: cropX, y: cropY }
+    }
+    
+    try {
+      const { error } = await supabase
+        .from('artwork_batch_items')
+        .update({ ai_analysis: updatedAnalysis })
+        .eq('id', croppingItem.id)
+        
+      if (error) throw error
+      
+      setBatchItems(prev => prev.map(i => i.id === croppingItem.id ? { ...i, ai_analysis: updatedAnalysis } : i))
+      setCroppingItem(null)
+    } catch (err) {
+      console.error(err)
+      alert('Failed to save thumbnail settings')
+    }
+  }
+
+  const handleUploadCustomThumb = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file || !croppingItem) return
+    
+    setCustomThumbUploading(true)
+    try {
+       const ext = file.name.split('.').pop() || 'png'
+       const filePath = `thumbnails/${croppingItem.id}/${Date.now()}.${ext}`
+       const { error } = await supabase.storage.from('artworks').upload(filePath, file)
+       if (error) throw error
+       const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(filePath)
+       
+       const updatedAnalysis = {
+         ...(croppingItem.ai_analysis || {}),
+         thumbnail_url: urlData.publicUrl
+       }
+       
+       const { error: updateErr } = await supabase
+        .from('artwork_batch_items')
+        .update({ ai_analysis: updatedAnalysis })
+        .eq('id', croppingItem.id)
+        
+       if (updateErr) throw updateErr
+       
+       setBatchItems(prev => prev.map(i => i.id === croppingItem.id ? { ...i, ai_analysis: updatedAnalysis } : i))
+       setCroppingItem(prev => prev ? { ...prev, ai_analysis: updatedAnalysis } : null)
+    } catch (err) {
+      console.error(err)
+      alert('Failed to upload thumbnail')
+    } finally {
+      setCustomThumbUploading(false)
+      if (e.target) e.target.value = ''
+    }
+  }
 
   // Fetch batches with actual item counts
   const fetchBatches = useCallback(async () => {
@@ -318,6 +419,13 @@ const ArtworkBatchesPage: React.FC = () => {
     setUploading(true)
     setUploadProgress(0)
     
+    const initialProgresses = validFiles.map(f => ({
+      name: f.name,
+      progress: 0,
+      status: 'pending' as const
+    }))
+    setFileProgresses(initialProgresses)
+    
     // Use 1 concurrent upload for large files (>100MB) to avoid timeouts
     const hasLargeFiles = validFiles.some(f => f.size > 100 * 1024 * 1024)
     const CONCURRENT_UPLOADS = hasLargeFiles ? 1 : 3
@@ -332,12 +440,16 @@ const ArtworkBatchesPage: React.FC = () => {
         
         await Promise.all(batch.map(async (file) => {
           try {
+            setFileProgresses(prev => prev.map(p => p.name === file.name ? { ...p, status: 'uploading' } : p))
             // Upload to storage
             const ext = file.name.split('.').pop() || 'bin'
             const fileName = `batches/${selectedBatch.id}/${Date.now()}_${Math.random().toString(36).slice(2)}.${ext}`
             
             if (file.size > 6 * 1024 * 1024) {
-              await uploadWithTus('artworks', fileName, file)
+              await uploadWithTus('artworks', fileName, file, (bytesUploaded, bytesTotal) => {
+                const percent = Math.round((bytesUploaded / bytesTotal) * 100)
+                setFileProgresses(prev => prev.map(p => p.name === file.name ? { ...p, progress: percent } : p))
+              })
             } else {
               const { error: uploadError } = await supabase.storage
                 .from('artworks')
@@ -348,9 +460,13 @@ const ArtworkBatchesPage: React.FC = () => {
               if (uploadError) {
                 console.error('Upload error for', file.name, uploadError)
                 uploadErrors.push(`${file.name}: ${uploadError.message}`)
+                setFileProgresses(prev => prev.map(p => p.name === file.name ? { ...p, status: 'error', error: uploadError.message } : p))
                 return
               }
+              setFileProgresses(prev => prev.map(p => p.name === file.name ? { ...p, progress: 100 } : p))
             }
+            
+            setFileProgresses(prev => prev.map(p => p.name === file.name ? { ...p, status: 'processing' } : p))
             
             // Get public URL
             const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(fileName)
@@ -376,9 +492,11 @@ const ArtworkBatchesPage: React.FC = () => {
             }
             
             const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(file.name)
-            if (itemData) {
+              if (itemData) {
               uploadedItems.push({ id: itemData.id, url: urlData.publicUrl, isImage })
             }
+            
+            setFileProgresses(prev => prev.map(p => p.name === file.name ? { ...p, status: 'done' } : p))
             
             uploaded++
             setUploadProgress(Math.round((uploaded / validFiles.length) * 100))
@@ -405,9 +523,13 @@ const ArtworkBatchesPage: React.FC = () => {
     } catch (err) {
       console.error('Upload error:', err)
     } finally {
-      setUploading(false)
-      setUploadProgress(0)
-      e.target.value = ''
+      // Wait a moment so users can see "Done"
+      setTimeout(() => {
+        setUploading(false)
+        setUploadProgress(0)
+        setFileProgresses([])
+      }, 1500)
+      if (e.target) e.target.value = ''
     }
   }
 
@@ -1511,20 +1633,66 @@ const ArtworkBatchesPage: React.FC = () => {
 
                 {/* Upload Progress */}
                 {uploading && (
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                    <div className="flex items-center gap-3">
-                      <RefreshCw className="h-5 w-5 text-blue-600 animate-spin" />
-                      <div className="flex-1">
-                        <p className="text-sm font-medium text-blue-700">Uploading files...</p>
-                        <div className="mt-2 h-2 bg-blue-100 rounded-full overflow-hidden">
-                          <div 
-                            className="h-full bg-blue-600 transition-all duration-300"
-                            style={{ width: `${uploadProgress}%` }}
-                          />
-                        </div>
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4 shadow-sm">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-3">
+                        <RefreshCw className="h-5 w-5 text-blue-600 animate-spin" />
+                        <h3 className="text-sm font-bold text-blue-800">Mass Uploading {fileProgresses.length} Files</h3>
                       </div>
-                      <span className="text-sm font-medium text-blue-700">{uploadProgress}%</span>
+                      <span className="text-sm font-bold text-blue-800">{uploadProgress}% Total</span>
                     </div>
+                    <div className="mt-2 h-2 bg-blue-100 rounded-full overflow-hidden mb-4">
+                      <div 
+                        className="h-full bg-blue-600 transition-all duration-300"
+                        style={{ width: `${uploadProgress}%` }}
+                      />
+                    </div>
+                    
+                    {/* Individual File Progress List */}
+                    {fileProgresses.length > 0 && (
+                      <div className="bg-white rounded border border-blue-100 max-h-48 overflow-y-auto mt-2">
+                        <ul className="divide-y divide-blue-50">
+                          {fileProgresses.map((fp, i) => (
+                            <li key={i} className="p-2.5 flex items-center gap-3 text-xs">
+                              <div className="w-4 flex-shrink-0 flex justify-center">
+                                {fp.status === 'done' ? (
+                                  <CheckCircle2 className="h-4 w-4 text-green-500" />
+                                ) : fp.status === 'error' ? (
+                                  <AlertCircle className="h-4 w-4 text-red-500" />
+                                ) : fp.status === 'pending' ? (
+                                  <Clock className="h-3 w-3 text-gray-400" />
+                                ) : fp.status === 'processing' ? (
+                                  <RefreshCw className="h-3 w-3 text-blue-400 animate-spin" />
+                                ) : (
+                                  <RefreshCw className="h-3.5 w-3.5 text-blue-500 animate-spin" />
+                                )}
+                              </div>
+                              <div className="flex-1 truncate text-gray-700 font-medium" title={fp.name}>
+                                {fp.name}
+                              </div>
+                              <div className="w-24 flex-shrink-0 flex items-center gap-2">
+                                {fp.status === 'error' ? (
+                                  <span className="text-red-500 truncate" title={fp.error}>Failed</span>
+                                ) : fp.status === 'done' ? (
+                                  <span className="text-green-600 font-medium">Done</span>
+                                ) : fp.status === 'processing' ? (
+                                  <span className="text-blue-500 font-medium">Processing...</span>
+                                ) : fp.status === 'pending' ? (
+                                  <span className="text-gray-400">Waiting</span>
+                                ) : (
+                                  <>
+                                    <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                                      <div className="h-full bg-blue-500" style={{ width: `${fp.progress}%` }} />
+                                    </div>
+                                    <span className="text-gray-500 tabular-nums">{fp.progress}%</span>
+                                  </>
+                                )}
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
                 )}
 
@@ -1629,40 +1797,57 @@ const ArtworkBatchesPage: React.FC = () => {
                               await uploadProofFile(file, item.id)
                             }}
                           >
-                            {isImage ? (
-                              <img 
-                                src={item.file_url} 
-                                alt={item.name}
-                                className="w-full h-full object-contain"
-                              />
-                            ) : isVideo ? (
-                              <video 
-                                src={item.file_url} 
-                                controls
-                                className="w-full h-full object-contain bg-black"
-                              />
-                            ) : isPdf ? (
-                              <iframe 
-                                src={`${item.file_url}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} 
-                                className="w-full h-full border-0 pointer-events-none" 
-                                scrolling="no"
-                              />
-                            ) : (
-                              <div className="w-full h-full flex flex-col items-center justify-center p-4">
-                                <FileImage className="h-12 w-12 text-gray-300 mb-3" />
-                                <label className="cursor-pointer">
-                                  <span className="px-4 py-2 bg-primary-600 text-white rounded-lg text-xs font-medium hover:bg-primary-700 shadow-sm transition flex items-center gap-2">
-                                    <Upload className="h-3.5 w-3.5" />
-                                    Upload Proof
-                                  </span>
-                                  <input 
-                                    type="file" 
-                                    className="hidden" 
-                                    onChange={(e) => handleUpdateItemFile(e, item.id)}
+                            {(() => {
+                              const customThumbUrl = item.ai_analysis?.thumbnail_url
+                              const displayUrl = customThumbUrl || (isImage ? item.file_url : null)
+                              const cropSettings = item.ai_analysis?.thumbnail_crop || { scale: 1, x: 0, y: 0 }
+
+                              if (displayUrl) {
+                                return (
+                                  <img 
+                                    src={displayUrl} 
+                                    alt={item.name}
+                                    className="w-full h-full object-contain"
+                                    style={{
+                                      transform: `translate(${cropSettings.x}px, ${cropSettings.y}px) scale(${cropSettings.scale})`
+                                    }}
                                   />
-                                </label>
-                              </div>
-                            )}
+                                )
+                              } else if (isVideo) {
+                                return (
+                                  <video 
+                                    src={item.file_url} 
+                                    controls
+                                    className="w-full h-full object-contain bg-black"
+                                  />
+                                )
+                              } else if (isPdf) {
+                                return (
+                                  <iframe 
+                                    src={`${item.file_url}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} 
+                                    className="w-full h-full border-0 pointer-events-none" 
+                                    scrolling="no"
+                                  />
+                                )
+                              } else {
+                                return (
+                                  <div className="w-full h-full flex flex-col items-center justify-center p-4">
+                                    <FileImage className="h-12 w-12 text-gray-300 mb-3" />
+                                    <label className="cursor-pointer">
+                                      <span className="px-4 py-2 bg-primary-600 text-white rounded-lg text-xs font-medium hover:bg-primary-700 shadow-sm transition flex items-center gap-2">
+                                        <Upload className="h-3.5 w-3.5" />
+                                        Upload Proof
+                                      </span>
+                                      <input 
+                                        type="file" 
+                                        className="hidden" 
+                                        onChange={(e) => handleUpdateItemFile(e, item.id)}
+                                      />
+                                    </label>
+                                  </div>
+                                )
+                              }
+                            })()}
                             {/* Status Badge */}
                             <div className="absolute top-2 left-2 flex flex-col gap-1">
                               {getStatusBadge(item.status)}
@@ -2173,6 +2358,13 @@ const ArtworkBatchesPage: React.FC = () => {
                               >
                                 <Download className="h-4 w-4" />
                               </a>
+                              <button
+                                onClick={() => setCroppingItem(item)}
+                                className="p-2 text-blue-500 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition"
+                                title="Customize Thumbnail (Crop & Zoom)"
+                              >
+                                <Crop className="h-4 w-4" />
+                              </button>
                               {/* View JSON Button */}
                               {item.ai_analysis && (
                                 <button
@@ -2220,6 +2412,112 @@ const ArtworkBatchesPage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Crop / Customize Thumbnail Modal */}
+      {croppingItem && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/75">
+          <div className="bg-white rounded-2xl max-w-2xl w-full p-6">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xl font-bold text-gray-900">Customize Thumbnail</h2>
+              <button onClick={() => setCroppingItem(null)} className="text-gray-400 hover:text-gray-600">
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+            
+            <div className="mb-4">
+              <p className="text-sm text-gray-600 mb-2">
+                Zoom and drag the image below to focus on the SKU or important details.
+                {(!croppingItem.ai_analysis?.thumbnail_url && !/\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(croppingItem.file_url)) && (
+                  <span className="text-red-500 font-medium ml-1">
+                    (Main file is not an image. Please upload a custom thumbnail.)
+                  </span>
+                )}
+              </p>
+              <div className="flex items-center gap-4 mb-4">
+                <label className="cursor-pointer px-4 py-2 bg-blue-50 text-blue-700 font-medium rounded-lg hover:bg-blue-100 transition flex items-center gap-2">
+                  {customThumbUploading ? <RefreshCw className="h-4 w-4 animate-spin" /> : <Upload className="h-4 w-4" />}
+                  {customThumbUploading ? 'Uploading...' : 'Upload Custom Thumbnail'}
+                  <input type="file" className="hidden" accept="image/*" onChange={handleUploadCustomThumb} disabled={customThumbUploading} />
+                </label>
+                <button 
+                  onClick={() => {
+                    setCropScale(1);
+                    setCropX(0);
+                    setCropY(0);
+                  }}
+                  className="px-4 py-2 bg-gray-100 text-gray-700 font-medium rounded-lg hover:bg-gray-200 transition"
+                >
+                  Reset Crop
+                </button>
+              </div>
+            </div>
+            
+            <div 
+              className="w-full aspect-[4/3] bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg overflow-hidden relative cursor-move select-none"
+              onMouseDown={handleCropMouseDown}
+              onMouseMove={handleCropMouseMove}
+              onMouseUp={handleCropMouseUp}
+              onMouseLeave={handleCropMouseUp}
+            >
+              {(() => {
+                const thumbUrl = croppingItem.ai_analysis?.thumbnail_url || (/\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(croppingItem.file_url) ? croppingItem.file_url : null)
+                if (!thumbUrl) {
+                  return (
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-400 pointer-events-none">
+                      <FileImage className="h-12 w-12 mb-2" />
+                      <p>No image available</p>
+                    </div>
+                  )
+                }
+                return (
+                  <img 
+                    src={thumbUrl} 
+                    draggable={false}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'contain',
+                      transform: `translate(${cropX}px, ${cropY}px) scale(${cropScale})`,
+                      transition: isDraggingCrop ? 'none' : 'transform 0.1s ease-out'
+                    }}
+                    alt="Thumbnail crop preview"
+                    className="pointer-events-none"
+                  />
+                )
+              })()}
+            </div>
+            
+            <div className="mt-6 flex items-center gap-4">
+              <label className="text-sm font-medium text-gray-700 w-16">Zoom:</label>
+              <input 
+                type="range" 
+                min="1" 
+                max="5" 
+                step="0.1" 
+                value={cropScale} 
+                onChange={(e) => setCropScale(parseFloat(e.target.value))}
+                className="flex-1"
+              />
+              <span className="text-sm text-gray-500 w-12 text-right">{cropScale.toFixed(1)}x</span>
+            </div>
+            
+            <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-gray-100">
+              <button
+                onClick={() => setCroppingItem(null)}
+                className="px-6 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition font-medium"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleSaveCrop}
+                className="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition font-medium"
+              >
+                Save Thumbnail
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* JSON Preview Modal */}
       {showJsonModal && selectedItemJson && (
