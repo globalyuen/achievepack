@@ -138,13 +138,20 @@ const ArtworkBatchesPage: React.FC = () => {
 
   const handleCropMouseDown = (e: React.MouseEvent) => {
     setIsDraggingCrop(true)
-    setDragStart({ x: e.clientX - cropX, y: e.clientY - cropY })
+    setDragStart({ x: e.clientX, y: e.clientY })
   }
 
   const handleCropMouseMove = (e: React.MouseEvent) => {
     if (!isDraggingCrop) return
-    setCropX(e.clientX - dragStart.x)
-    setCropY(e.clientY - dragStart.y)
+    const container = e.currentTarget as HTMLDivElement
+    const { width, height } = container.getBoundingClientRect()
+    
+    const dx = ((e.clientX - dragStart.x) / width) * 100
+    const dy = ((e.clientY - dragStart.y) / height) * 100
+    
+    setCropX(prev => prev + dx)
+    setCropY(prev => prev + dy)
+    setDragStart({ x: e.clientX, y: e.clientY })
   }
 
   const handleCropMouseUp = () => {
@@ -168,6 +175,10 @@ const ArtworkBatchesPage: React.FC = () => {
       if (error) throw error
       
       setBatchItems(prev => prev.map(i => i.id === croppingItem.id ? { ...i, ai_analysis: updatedAnalysis } : i))
+      setBatchItemsCache(prev => ({
+        ...prev,
+        [croppingItem.batch_id]: prev[croppingItem.batch_id]?.map(i => i.id === croppingItem.id ? { ...i, ai_analysis: updatedAnalysis } : i) || []
+      }))
       setCroppingItem(null)
     } catch (err) {
       console.error(err)
@@ -200,6 +211,10 @@ const ArtworkBatchesPage: React.FC = () => {
        if (updateErr) throw updateErr
        
        setBatchItems(prev => prev.map(i => i.id === croppingItem.id ? { ...i, ai_analysis: updatedAnalysis } : i))
+       setBatchItemsCache(prev => ({
+         ...prev,
+         [croppingItem.batch_id]: prev[croppingItem.batch_id]?.map(i => i.id === croppingItem.id ? { ...i, ai_analysis: updatedAnalysis } : i) || []
+       }))
        setCroppingItem(prev => prev ? { ...prev, ai_analysis: updatedAnalysis } : null)
     } catch (err) {
       console.error(err)
@@ -1809,7 +1824,7 @@ const ArtworkBatchesPage: React.FC = () => {
                                     alt={item.name}
                                     className="w-full h-full object-contain"
                                     style={{
-                                      transform: `translate(${cropSettings.x}px, ${cropSettings.y}px) scale(${cropSettings.scale})`
+                                      transform: `translate(${cropSettings.x}%, ${cropSettings.y}%) scale(${cropSettings.scale})`
                                     }}
                                   />
                                 )
@@ -2477,7 +2492,7 @@ const ArtworkBatchesPage: React.FC = () => {
                       width: '100%',
                       height: '100%',
                       objectFit: 'contain',
-                      transform: `translate(${cropX}px, ${cropY}px) scale(${cropScale})`,
+                      transform: `translate(${cropX}%, ${cropY}%) scale(${cropScale})`,
                       transition: isDraggingCrop ? 'none' : 'transform 0.1s ease-out'
                     }}
                     alt="Thumbnail crop preview"

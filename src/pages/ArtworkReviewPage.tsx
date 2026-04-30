@@ -830,7 +830,7 @@ const ArtworkReviewPage: React.FC = () => {
                           alt={item.name}
                           className="w-full h-full object-contain"
                           style={{
-                            transform: `translate(${cropSettings.x}px, ${cropSettings.y}px) scale(${cropSettings.scale})`
+                            transform: `translate(${cropSettings.x}%, ${cropSettings.y}%) scale(${cropSettings.scale})`
                           }}
                         />
                       )
