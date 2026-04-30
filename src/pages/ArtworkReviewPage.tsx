@@ -160,7 +160,7 @@ const ArtworkReviewPage: React.FC = () => {
           return dateB - dateA
         case 'name':
         default:
-          return (a.name || '').localeCompare(b.name || '')
+          return (a.name || '').localeCompare(b.name || '', undefined, { numeric: true, sensitivity: 'base' })
       }
     })
   }, [items, searchQuery, itemFilter, itemSortOption])

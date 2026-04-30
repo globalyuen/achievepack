@@ -273,6 +273,8 @@ export type ArtworkFile = {
     quality_score?: string
     recommendations?: string[]
     analyzed_at?: string
+    thumbnail_url?: string
+    thumbnail_crop?: { scale: number, x: number, y: number }
   }
   customer_email?: string  // For reliable matching
   
@@ -645,6 +647,8 @@ export type ArtworkBatchItem = {
     quality_score?: string
     analyzed_at?: string
     replies?: { author: string; text: string; at: string }[]
+    thumbnail_url?: string
+    thumbnail_crop?: { scale: number, x: number, y: number }
   }
   
   // Customer review
