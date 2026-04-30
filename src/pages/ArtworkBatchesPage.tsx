@@ -95,6 +95,7 @@ const ArtworkBatchesPage: React.FC = () => {
 
   // Pin functionality state
   const [copyTargetItem, setCopyTargetItem] = useState<ArtworkBatchItem | null>(null)
+  const [copyBatchSearch, setCopyBatchSearch] = useState('')
 
   // Comment thread reply state
   const [replyingToItem, setReplyingToItem] = useState<string | null>(null)
@@ -1140,8 +1141,8 @@ const ArtworkBatchesPage: React.FC = () => {
     }
   }
 
-  // Copy to Pinned Batch
-  const handleCopyToPinnedBatch = async (targetBatchId: string) => {
+  // Copy to Another Batch
+  const handleCopyToBatch = async (targetBatchId: string) => {
     if (!copyTargetItem) return;
     try {
       const { data, error } = await supabase.from('artwork_batch_items').insert({
@@ -1164,9 +1165,10 @@ const ArtworkBatchesPage: React.FC = () => {
       }
 
       setCopyTargetItem(null);
-      alert('Artwork successfully saved template library pinned batch!');
+      setCopyBatchSearch('');
+      alert('Artwork successfully copied to batch!');
     } catch (err) {
-      console.error('Copy to pinned batch error:', err);
+      console.error('Copy to batch error:', err);
       alert('Failed to copy artwork');
     }
   }
@@ -2381,26 +2383,13 @@ const ArtworkBatchesPage: React.FC = () => {
                                 <Crop className="h-4 w-4" />
                               </button>
                               {/* View JSON Button */}
-                              {item.ai_analysis && (
-                                <button
-                                  onClick={() => {
-                                    setSelectedItemJson(item)
-                                    setShowJsonModal(true)
-                                  }}
-                                  className="p-2 text-emerald-500 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition"
-                                  title="View AI JSON"
-                                >
-                                  <Code className="h-4 w-4" />
-                                </button>
-                              )}
-
-                              {/* Save to Pinned Batch Button */}
+                              {/* Copy to Batch Button */}
                               <button
                                 onClick={() => setCopyTargetItem(item)}
                                 className="p-2 text-primary-500 hover:text-primary-700 hover:bg-primary-50 rounded-lg transition"
-                                title="Save to Pinned Batch (Template Library)"
+                                title="Copy to Another Batch"
                               >
-                                <Pin className="h-4 w-4" />
+                                <Files className="h-4 w-4" />
                               </button>
                               <button
                                 onClick={() => handleDeleteItem(item.id)}
@@ -2662,35 +2651,48 @@ const ArtworkBatchesPage: React.FC = () => {
         </div>
       )}
 
-      {/* Save to Pinned Batch Modal */}
+      {/* Copy to Batch Modal */}
       {copyTargetItem && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
           <div className="bg-white rounded-2xl max-w-md w-full p-6">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-gray-900">Save to Pinned Batch</h2>
-              <button onClick={() => setCopyTargetItem(null)} className="text-gray-400 hover:text-gray-600">
+              <h2 className="text-xl font-bold text-gray-900">Copy to Batch</h2>
+              <button onClick={() => { setCopyTargetItem(null); setCopyBatchSearch(''); }} className="text-gray-400 hover:text-gray-600">
                 <X className="h-6 w-6" />
               </button>
             </div>
             
             <p className="text-sm text-gray-600 mb-4">
-              Select a pinned batch to save <strong>{copyTargetItem.name}</strong> as a reusable template.
+              Select a batch to copy <strong>{copyTargetItem.name}</strong> into.
             </p>
 
+            <div className="mb-4">
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                <input
+                  type="text"
+                  placeholder="Search batches..."
+                  value={copyBatchSearch}
+                  onChange={(e) => setCopyBatchSearch(e.target.value)}
+                  className="w-full pl-9 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500"
+                />
+              </div>
+            </div>
+
             <div className="space-y-2 max-h-60 overflow-y-auto border border-gray-200 rounded-lg p-2 mb-6">
-              {batches.filter(b => b.batch_name.startsWith('📌 ')).length === 0 ? (
+              {batches.filter(b => b.id !== copyTargetItem.batch_id && b.batch_name.toLowerCase().includes(copyBatchSearch.toLowerCase())).length === 0 ? (
                 <div className="p-4 text-center text-gray-500 text-sm">
-                  No pinned batches found. Pin a batch first to use it as a template library.
+                  No batches found.
                 </div>
               ) : (
-                batches.filter(b => b.batch_name.startsWith('📌 ')).map(b => (
+                batches.filter(b => b.id !== copyTargetItem.batch_id && b.batch_name.toLowerCase().includes(copyBatchSearch.toLowerCase())).map(b => (
                   <button
                     key={b.id}
-                    onClick={() => handleCopyToPinnedBatch(b.id)}
+                    onClick={() => handleCopyToBatch(b.id)}
                     className="w-full text-left px-4 py-3 rounded-lg hover:bg-primary-50 hover:text-primary-700 transition border border-transparent hover:border-primary-100 flex items-center justify-between group"
                   >
                     <span className="font-medium truncate">{b.batch_name}</span>
-                    <Pin className="h-4 w-4 opacity-0 group-hover:opacity-100 transition" />
+                    <Files className="h-4 w-4 opacity-0 group-hover:opacity-100 transition" />
                   </button>
                 ))
               )}

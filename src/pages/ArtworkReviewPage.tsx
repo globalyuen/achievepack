@@ -933,19 +933,7 @@ const ArtworkReviewPage: React.FC = () => {
                     >
                       {isSupplier ? '上传新版本' : item.status === 'pending' ? 'Review Now' : 'View Details'}
                     </button>
-                    {item.ai_analysis && (
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          setSelectedItemJson(item)
-                          setShowJsonModal(true)
-                        }}
-                        className="p-2 text-emerald-500 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition"
-                        title="View AI JSON"
-                      >
-                        <Code className="h-4 w-4" />
-                      </button>
-                    )}
+
                     {item.source_link && (
                       <a
                         href={item.source_link}
