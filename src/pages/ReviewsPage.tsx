@@ -5,6 +5,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Star, Quote, ExternalLink, Play, X, ArrowLeft, ArrowRight, MessageCircle, Award, CheckCircle, Mail, Phone } from 'lucide-react'
 import { TESTIMONIALS, type Testimonial } from '../data/testimonialsData'
 import SubmitReviewModal from '../components/SubmitReviewModal'
+import { CLIENT_LOGOS } from '../data/clientLogos'
+import { ParallaxText } from '../components/ParallaxText'
 
 // Helper function to get translated testimonial text
 function getTestimonialText(t: (key: string) => string, id: string, field: 'quote' | 'shortQuote', fallback: string): string {
@@ -254,64 +256,112 @@ export default function ReviewsPage() {
       </section>
 
       {/* Brand Logo Marquee */}
-      <section className="py-8 bg-white overflow-hidden border-y border-neutral-100">
-        <div className="relative">
-          <p className="text-center text-sm font-medium text-neutral-500 uppercase tracking-wider mb-6">
-            Trusted by Leading Brands
-          </p>
-          <div className="flex animate-marquee whitespace-nowrap">
-            {/* First set of logos */}
-            {[
-              '/imgs/testimonials/brand-logo/a_morlife_logo_7487286.webp',
-              '/imgs/testimonials/brand-logo/a_emu_elixir_logo_7729355.webp',
-              '/imgs/testimonials/brand-logo/a_dancing_lion_chocolate_logo_9125312.webp',
-              '/imgs/testimonials/brand-logo/a_plantpowders_company_logo_3847855.webp',
-              '/imgs/testimonials/brand-logo/a_just_be_kind_logo_9956961.webp',
-              '/imgs/testimonials/brand-logo/a_hike_again_remedies_logo_3308658.webp',
-              '/imgs/testimonials/brand-logo/a_mylk_made_logo_6762912.webp',
-              '/imgs/testimonials/brand-logo/a_wise_angler_logo_8090229.webp',
-            ].map((logo, index) => (
-              <div key={`logo-1-${index}`} className="mx-8 flex-shrink-0">
-                <img
-                  src={logo}
-                  alt="Client brand logo"
-                  className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
-                />
-              </div>
-            ))}
-            {/* Duplicate set for seamless loop */}
-            {[
-              '/imgs/testimonials/brand-logo/a_morlife_logo_7487286.webp',
-              '/imgs/testimonials/brand-logo/a_emu_elixir_logo_7729355.webp',
-              '/imgs/testimonials/brand-logo/a_dancing_lion_chocolate_logo_9125312.webp',
-              '/imgs/testimonials/brand-logo/a_plantpowders_company_logo_3847855.webp',
-              '/imgs/testimonials/brand-logo/a_just_be_kind_logo_9956961.webp',
-              '/imgs/testimonials/brand-logo/a_hike_again_remedies_logo_3308658.webp',
-              '/imgs/testimonials/brand-logo/a_mylk_made_logo_6762912.webp',
-              '/imgs/testimonials/brand-logo/a_wise_angler_logo_8090229.webp',
-            ].map((logo, index) => (
-              <div key={`logo-2-${index}`} className="mx-8 flex-shrink-0">
-                <img
-                  src={logo}
-                  alt="Client brand logo"
-                  className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
-                />
-              </div>
-            ))}
+      <section 
+        className="py-12 overflow-hidden relative"
+        style={{
+          backgroundImage: 'url(/imgs/group/group.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* Overlay for text readability */}
+        <div className="absolute inset-0 bg-white/85 backdrop-blur-[2px]" />
+        
+        <div className="text-center mb-8 relative z-10">
+          <p className="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-2">Trusted by Leading Brands</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-neutral-900">Why 500+ Global Brands Choose Achieve Pack</h2>
+        </div>
+        
+        {/* Strip 1 - Deep Forest Green */}
+        <div className="relative -rotate-1 mb-4 z-10">
+          <div className="bg-[#1b4332] py-4">
+            <ParallaxText baseVelocity={-2} textClassName="flex items-center gap-12">
+              {CLIENT_LOGOS.slice(0, 10).map((logo) => (
+                logo.website ? (
+                  <a
+                    key={logo.id}
+                    href={logo.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-shrink-0 h-16 w-40 flex items-center justify-center opacity-90 hover:opacity-100 transition-opacity cursor-pointer"
+                    title={logo.name}
+                  >
+                    <img src={logo.image} alt={logo.name} className="h-full w-auto object-contain brightness-0 invert" loading="lazy" />
+                  </a>
+                ) : (
+                  <div 
+                    key={logo.id} 
+                    className="flex-shrink-0 h-16 w-40 flex items-center justify-center opacity-80"
+                    title={logo.name}
+                  >
+                    <img src={logo.image} alt={logo.name} className="h-full w-auto object-contain brightness-0 invert" loading="lazy" />
+                  </div>
+                )
+              ))}
+            </ParallaxText>
           </div>
         </div>
-        <style>{`
-          @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-          .animate-marquee {
-            animation: marquee 30s linear infinite;
-          }
-          .animate-marquee:hover {
-            animation-play-state: paused;
-          }
-        `}</style>
+
+        {/* Strip 2 - Vibrant Green */}
+        <div className="relative rotate-1 mb-4 z-10">
+          <div className="bg-[#2d6a4f] py-4">
+            <ParallaxText baseVelocity={3} textClassName="flex items-center gap-12">
+              {CLIENT_LOGOS.slice(10, 19).map((logo) => (
+                logo.website ? (
+                  <a
+                    key={logo.id}
+                    href={logo.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-shrink-0 h-16 w-40 flex items-center justify-center opacity-90 hover:opacity-100 transition-opacity cursor-pointer"
+                    title={logo.name}
+                  >
+                    <img src={logo.image} alt={logo.name} className="h-full w-auto object-contain brightness-0 invert" loading="lazy" />
+                  </a>
+                ) : (
+                  <div 
+                    key={logo.id} 
+                    className="flex-shrink-0 h-16 w-40 flex items-center justify-center opacity-80"
+                    title={logo.name}
+                  >
+                    <img src={logo.image} alt={logo.name} className="h-full w-auto object-contain brightness-0 invert" loading="lazy" />
+                  </div>
+                )
+              ))}
+            </ParallaxText>
+          </div>
+        </div>
+
+        {/* Strip 3 - Fresh Emerald Green */}
+        <div className="relative -rotate-1 z-10">
+          <div className="bg-[#40916c] py-4">
+            <ParallaxText baseVelocity={-2.5} textClassName="flex items-center gap-12">
+              {CLIENT_LOGOS.slice(19, 28).map((logo) => (
+                logo.website ? (
+                  <a
+                    key={logo.id}
+                    href={logo.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-shrink-0 h-16 w-40 flex items-center justify-center opacity-90 hover:opacity-100 transition-opacity cursor-pointer"
+                    title={logo.name}
+                  >
+                    <img src={logo.image} alt={logo.name} className="h-full w-auto object-contain brightness-0 invert" loading="lazy" />
+                  </a>
+                ) : (
+                  <div 
+                    key={logo.id} 
+                    className="flex-shrink-0 h-16 w-40 flex items-center justify-center opacity-80"
+                    title={logo.name}
+                  >
+                    <img src={logo.image} alt={logo.name} className="h-full w-auto object-contain brightness-0 invert" loading="lazy" />
+                  </div>
+                )
+              ))}
+            </ParallaxText>
+          </div>
+        </div>
       </section>
 
       {/* Reviews Grid */}
