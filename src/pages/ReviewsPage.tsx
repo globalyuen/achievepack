@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Link, useNavigate } from 'react-router-dom'
 import { Star, Quote, ExternalLink, Play, X, ArrowLeft, ArrowRight, MessageCircle, Award, CheckCircle, Mail, Phone } from 'lucide-react'
 import { TESTIMONIALS, type Testimonial } from '../data/testimonialsData'
+import SubmitReviewModal from '../components/SubmitReviewModal'
 
 // Helper function to get translated testimonial text
 function getTestimonialText(t: (key: string) => string, id: string, field: 'quote' | 'shortQuote', fallback: string): string {
@@ -66,6 +67,7 @@ export default function ReviewsPage() {
   const [isPending, startTransition] = useTransition()
   const [activeTestimonial, setActiveTestimonial] = useState<Testimonial | null>(null)
   const [videoTestimonial, setVideoTestimonial] = useState<Testimonial | null>(null)
+  const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false)
 
   // Random hero banner - changes on each page refresh
   const [heroBanner] = useState(() => 
@@ -172,7 +174,7 @@ export default function ReviewsPage() {
             </p>
 
             {/* Rating Summary */}
-            <div className="inline-flex items-center gap-6 bg-white rounded-2xl px-8 py-6 shadow-lg border border-neutral-100">
+            <div className="inline-flex items-center gap-6 bg-white rounded-2xl px-8 py-6 shadow-lg border border-neutral-100 mb-8">
               <div className="text-center">
                 <div className="text-4xl font-bold text-neutral-900">{averageRating.toFixed(1)}</div>
                 <div className="flex items-center justify-center gap-0.5 my-1">
@@ -192,6 +194,17 @@ export default function ReviewsPage() {
                 <div className="text-4xl font-bold text-primary-600">100%</div>
                 <div className="text-sm text-neutral-500 mt-1">Recommended</div>
               </div>
+            </div>
+
+            {/* Submit Review Button */}
+            <div className="flex justify-center">
+              <button
+                onClick={() => setIsSubmitModalOpen(true)}
+                className="bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all flex items-center gap-2 transform hover:-translate-y-1"
+              >
+                <Star className="h-5 w-5 fill-white" />
+                Submit Your Review
+              </button>
             </div>
           </div>
         </div>
@@ -601,6 +614,12 @@ export default function ReviewsPage() {
           </div>
         </div>
       )}
+
+      {/* Submit Review Modal */}
+      <SubmitReviewModal 
+        isOpen={isSubmitModalOpen} 
+        onClose={() => setIsSubmitModalOpen(false)} 
+      />
     </div>
   )
 }
