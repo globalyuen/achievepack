@@ -131,21 +131,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
               <div class="label">Email</div>
               <div class="value"><a href="mailto:${email}" style="color: #2563eb;">${email}</a></div>
             </div>
-            ${company ? \`
+            ${company ? `
               <div class="field">
                 <div class="label">Company</div>
-                <div class="value">\${company}</div>
+                <div class="value">${company}</div>
               </div>
-            \` : ''}
-            ${role ? \`
+            ` : ''}
+            ${role ? `
               <div class="field">
                 <div class="label">Role</div>
-                <div class="value">\${role}</div>
+                <div class="value">${role}</div>
               </div>
-            \` : ''}
+            ` : ''}
             <div class="message-box">
               <div class="label">Testimonial Quote</div>
-              <div class="value" style="white-space: pre-wrap; font-style: italic;">"\${quote}"</div>
+              <div class="value" style="white-space: pre-wrap; font-style: italic;">"${quote}"</div>
             </div>
             ${attachmentUrls.length > 0 ? `
             <div class="field" style="margin-top: 15px;">
@@ -169,8 +169,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     sender: { name: 'AchievePack', email: 'noreply@achievepack.com' },
     to: [{ email: email, name: name }],
     replyTo: { email: ADMIN_EMAIL, name: 'Ryan at AchievePack' },
-    subject: \`Thank you for your review, \${name}!\`,
-    htmlContent: \`
+    subject: `Thank you for your review, ${name}!`,
+    htmlContent: `
       <!DOCTYPE html>
       <html>
       <head>
@@ -185,11 +185,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       <body>
         <div class="container">
           <div class="header">
-            <h1 style="margin:0; font-size: 26px;">Thank You, \${name}!</h1>
+            <h1 style="margin:0; font-size: 26px;">Thank You, ${name}!</h1>
             <p style="margin: 15px 0 0; font-size: 16px; opacity: 0.9;">We've received your testimonial</p>
           </div>
           <div class="content">
-            <p style="font-size: 16px;">Hi \${name},</p>
+            <p style="font-size: 16px;">Hi ${name},</p>
             <p>Thank you so much for taking the time to share your experience with Achieve Pack!</p>
             <p>We'll review your testimonial and let you know when it's live on our website.</p>
             <p style="margin-top: 30px;">Best regards,</p>
@@ -199,12 +199,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           </div>
           <div class="footer">
             <p>🌱 Sustainable packaging for a greener future</p>
-            <p>© \${new Date().getFullYear()} AchievePack. All rights reserved.</p>
+            <p>© ${new Date().getFullYear()} AchievePack. All rights reserved.</p>
           </div>
         </div>
       </body>
       </html>
-    \`
+    `
   }
 
   try {

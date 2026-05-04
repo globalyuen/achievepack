@@ -40,8 +40,8 @@ export default function SubmitReviewModal({ isOpen, onClose }: SubmitReviewModal
 
       const renderWidget = () => {
         const container = document.getElementById('turnstile-container-review')
-        if (container && window.turnstile) {
-          window.turnstile.render(container, {
+        if (container && (window as any).turnstile) {
+          (window as any).turnstile.render(container, {
             sitekey: import.meta.env.VITE_TURNSTILE_SITE_KEY,
             callback: (token: string) => setTurnstileToken(token),
             'expired-callback': () => setTurnstileToken(null),
@@ -51,7 +51,7 @@ export default function SubmitReviewModal({ isOpen, onClose }: SubmitReviewModal
       }
 
       ;(window as any).onTurnstileLoadForReview = renderWidget
-      if (window.turnstile) renderWidget()
+      if ((window as any).turnstile) renderWidget()
     }
   }, [isOpen])
 
