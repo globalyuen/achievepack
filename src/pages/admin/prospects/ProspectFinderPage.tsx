@@ -192,24 +192,39 @@ export default function ProspectFinderPage() {
     if (isSyncing) return
     setIsSyncing(true)
     addLog('🔄 Syncing history from Brevo...', 'info')
+    toast.info("Starting Brevo sync...")
+    
     try {
+      addLog('📡 Sending POST request to /api/prospect/sync-brevo', 'info')
       const res = await fetch('/api/prospect/sync-brevo', { 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ limit: 100, offset: 0 }) 
       })
+      
+      if (!res.ok) {
+        const text = await res.text()
+        throw new Error(`Server responded with ${res.status}: ${text.substring(0, 50)}`)
+      }
+      
       const data = await res.json()
       if (data.success) {
-        addLog(`✅ Sync complete: Imported ${data.imported} new records, skipped ${data.skipped} existing.`, 'success')
-        toast.success(`Synced ${data.imported} prospects from Brevo`)
+        if (data.error) {
+            addLog(`⚠️ Sync partially failed: ${data.error}`, 'error')
+            toast.warning(`Sync partially failed: ${data.error}`)
+        } else {
+            addLog(`✅ Sync complete: Imported ${data.imported} new records, skipped ${data.skipped} existing.`, 'success')
+            toast.success(`Synced ${data.imported} prospects from Brevo`)
+        }
         fetchHistory()
       } else {
         addLog(`❌ Sync failed: ${data.error}`, 'error')
         toast.error('Sync failed: ' + data.error)
       }
     } catch (e: any) {
+      console.error('Sync error:', e)
       addLog(`❌ Sync error: ${e.message}`, 'error')
-      toast.error('Failed to sync history')
+      toast.error('Failed to sync history: ' + e.message)
     } finally {
       setIsSyncing(false)
     }

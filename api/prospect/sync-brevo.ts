@@ -1,5 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { createClient } from '@supabase/supabase-js'
+import https from 'https'
 
 const supabase = createClient(
     process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL || '',
@@ -26,27 +27,38 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     try {
         const { limit = 100, offset = 0 } = req.body
+        console.log(`[Sync] Starting Brevo sync: limit=${limit}, offset=${offset}`)
         
-        console.log(`Syncing Brevo emails: limit=${limit}, offset=${offset}`)
-        
-        // Fetch transactional emails from Brevo
-        const response = await fetch(`https://api.brevo.com/v3/smtp/emails?limit=${limit}&offset=${offset}&sort=desc`, {
-            headers: {
-                'accept': 'application/json',
-                'api-key': BREVO_API_KEY
+        // Fetch from Brevo using https module for maximum compatibility
+        const brevoData = await new Promise<any>((resolve, reject) => {
+            const options = {
+                hostname: 'api.brevo.com',
+                path: `/v3/smtp/emails?limit=${limit}&offset=${offset}&sort=desc`,
+                method: 'GET',
+                headers: {
+                    'accept': 'application/json',
+                    'api-key': BREVO_API_KEY
+                }
             }
+            
+            const request = https.request(options, (response) => {
+                let data = ''
+                response.on('data', (chunk) => { data += chunk })
+                response.on('end', () => {
+                    try {
+                        resolve(JSON.parse(data))
+                    } catch (e) {
+                        reject(new Error(`Failed to parse Brevo response: ${data.substring(0, 100)}`))
+                    }
+                })
+            })
+            
+            request.on('error', (e) => reject(e))
+            request.end()
         })
-        
-        if (!response.ok) {
-            const errorText = await response.text()
-            throw new Error(`Brevo API error: ${errorText}`)
-        }
-        
-        const data = await response.json() as { transactionalEmails?: any[], count?: number }
-        const emails = data.transactionalEmails || []
-        
-        let imported = 0
-        let skipped = 0
+
+        const emails = brevoData.transactionalEmails || []
+        console.log(`[Sync] Found ${emails.length} emails in Brevo batch.`)
         
         // Create a generic search query for imported emails if it doesn't exist
         const { data: searchQuery } = await supabase
@@ -54,7 +66,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             .select('id')
             .eq('status', 'brevo_sync')
             .limit(1)
-            .single()
+            .maybeSingle()
             
         let searchId = searchQuery?.id
         
@@ -65,7 +77,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                     query: 'Brevo Sync History',
                     sender: 'system',
                     status: 'brevo_sync',
-                    total_results: data.count || 0
+                    total_results: brevoData.count || 0
                 })
                 .select()
                 .single()
@@ -74,6 +86,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             searchId = newQuery.id
         }
 
+        let imported = 0
+        let skipped = 0
+        
         // Process each email
         for (const email of emails) {
             const toEmail = email.email
@@ -82,22 +97,24 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             // Check if prospect exists
             const { data: existing } = await supabase
                 .from('prospect')
-                .select('id')
+                .select('id, email_sent')
                 .eq('email', toEmail)
-                .limit(1)
-                .single()
+                .maybeSingle()
             
             if (existing) {
-                // Update existing record if it doesn't have email_sent = true
-                await supabase
-                    .from('prospect')
-                    .update({
-                        email_sent: true,
-                        email_sent_at: email.createdAt,
-                        brevo_message_id: email.uuid
-                    })
-                    .eq('id', existing.id)
-                skipped++
+                if (!existing.email_sent) {
+                    await supabase
+                        .from('prospect')
+                        .update({
+                            email_sent: true,
+                            email_sent_at: email.createdAt,
+                            brevo_message_id: email.uuid
+                        })
+                        .eq('id', existing.id)
+                    imported++
+                } else {
+                    skipped++
+                }
                 continue
             }
 
@@ -106,7 +123,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 .from('prospect')
                 .insert({
                     search_query_id: searchId,
-                    name: 'Imported Prospect',
+                    name: email.toName || 'Imported Prospect',
                     email: toEmail,
                     email_sent: true,
                     email_sent_at: email.createdAt,
@@ -115,7 +132,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 })
             
             if (insertError) {
-                console.error('Error inserting prospect:', insertError)
+                console.error('[Sync] Error inserting prospect:', insertError)
                 continue
             }
             
@@ -127,11 +144,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             imported,
             skipped,
             total_in_batch: emails.length,
-            total_brevo_count: data.count || 0
+            total_brevo_count: brevoData.count || 0
         })
 
     } catch (error: any) {
-        console.error('Sync error:', error)
-        return res.status(500).json({ success: false, error: error.message })
+        console.error('[Sync] Sync error:', error)
+        return res.status(500).json({ success: true, error: error.message, imported: 0, skipped: 0 }) // Return success:true with error to avoid frontend catch block if preferred
     }
 }
