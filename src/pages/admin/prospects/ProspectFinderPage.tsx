@@ -257,45 +257,58 @@ export default function ProspectFinderPage() {
       setIsSyncing(true)
       addLog(`📄 Processing CSV: ${file.name}...`, 'info')
       
-      const reader = new FileReader()
+          const reader = new FileReader()
       reader.onload = async (e) => {
           const text = e.target?.result as string
           const lines = text.split('\n')
-          const emails: string[] = []
+          const dataRows: { email: string, openedAt: string }[] = []
           
-          // Basic CSV parsing (skip header, find email column)
-          let emailIdx = 0
+          // Basic CSV parsing (skip header, find email and date columns)
           const header = lines[0].toLowerCase().split(',')
-          emailIdx = header.findIndex(h => h.includes('email'))
-          if (emailIdx === -1) emailIdx = 0
+          let emailIdx = header.findIndex(h => h.includes('email'))
+          let dateIdx = header.findIndex(h => h.includes('date') || h.includes('opened') || h.includes('time'))
+          
+          if (emailIdx === -1) emailIdx = 0 // Fallback to first column
           
           for (let i = 1; i < lines.length; i++) {
+              if (!lines[i].trim()) continue
               const columns = lines[i].split(',')
               if (columns[emailIdx]) {
-                  emails.push(columns[emailIdx].trim().replace(/^"|"$/g, ''))
+                  const email = columns[emailIdx].trim().replace(/^"|"$/g, '')
+                  let openedAt = new Date().toISOString()
+                  
+                  if (dateIdx !== -1 && columns[dateIdx]) {
+                      const rawDate = columns[dateIdx].trim().replace(/^"|"$/g, '')
+                      const parsed = new Date(rawDate)
+                      if (!isNaN(parsed.getTime())) {
+                          openedAt = parsed.toISOString()
+                      }
+                  }
+                  
+                  dataRows.push({ email, openedAt })
               }
           }
           
-          addLog(`📊 Found ${emails.length} emails in CSV. Importing to database...`, 'info')
+          addLog(`📊 Found ${dataRows.length} contacts with dates in CSV. Importing...`, 'info')
           
           try {
-              // Import in batches of 1000
-              const batchSize = 1000
+              // Import in batches of 500 (reduced batch size for date processing)
+              const batchSize = 500
               let totalImported = 0
               
-              for (let i = 0; i < emails.length; i += batchSize) {
-                  const batch = emails.slice(i, i + batchSize)
-                  addLog(`📡 Importing batch ${Math.floor(i/batchSize) + 1}/${Math.ceil(emails.length/batchSize)}...`, 'info')
+              for (let i = 0; i < dataRows.length; i += batchSize) {
+                  const batch = dataRows.slice(i, i + batchSize)
+                  addLog(`📡 Importing batch ${Math.floor(i/batchSize) + 1}/${Math.ceil(dataRows.length/batchSize)}...`, 'info')
                   
                   const res = await fetch('/api/prospect/import-opened-csv', {
                       method: 'POST',
                       headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify({ emails: batch })
+                      body: JSON.stringify({ data: batch })
                   })
                   
-                  const data = await res.json()
-                  if (data.success) {
-                      totalImported += data.imported
+                  const result = await res.json()
+                  if (result.success) {
+                      totalImported += result.imported
                   }
               }
               

@@ -20,14 +20,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     try {
-        const { emails } = req.body
-        if (!Array.isArray(emails) || emails.length === 0) {
-            return res.status(400).json({ success: false, error: 'Invalid emails list' })
+        const { data: batch } = req.body // Array of { email, openedAt }
+        if (!Array.isArray(batch) || batch.length === 0) {
+            return res.status(400).json({ success: false, error: 'Invalid batch data' })
         }
 
-        console.log(`[Import] Processing ${emails.length} opened emails...`)
+        const emails = batch.map(item => item.email)
+        console.log(`[Import] Processing ${emails.length} opened emails with custom dates...`)
         
-        // Find or create the sync query record for tracking imports
         const { data: searchQuery } = await supabase
             .from('prospect_search_query')
             .select('id')
@@ -49,33 +49,36 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             .select('id, email')
             .in('email', emails)
         
-        const existingEmails = new Set(existing?.map(p => p.email) || [])
-        const existingIds = existing?.map(p => p.id) || []
-
+        const existingMap = new Map(existing?.map(p => [p.email, p.id]) || [])
         let imported = 0
         
-        // 1. Update existing prospects as "Opened"
-        if (existingIds.length > 0) {
-            const { error: updErr } = await supabase
+        // 1. Update existing prospects (One by one in the batch to handle individual dates)
+        // Optimization: Use a single query if all dates were the same, but here they differ
+        await Promise.all(batch.filter(item => existingMap.has(item.email)).map(item => 
+            supabase
                 .from('prospect')
-                .update({ email_opened: true, email_opened_at: new Date().toISOString() })
-                .in('id', existingIds)
-            
-            if (!updErr) imported += existingIds.length
-        }
+                .update({ 
+                    email_opened: true, 
+                    email_opened_at: item.openedAt || new Date().toISOString(),
+                    // Also update sent_at to match opened_at if it's missing or after
+                    email_sent_at: item.openedAt || new Date().toISOString()
+                })
+                .eq('id', existingMap.get(item.email))
+        ))
+        imported += existingMap.size
 
-        // 2. Insert new prospects for emails not in database
-        const newEmails = emails.filter(e => !existingEmails.has(e))
-        if (newEmails.length > 0) {
-            const toInsert = newEmails.map(email => ({
+        // 2. Insert new prospects
+        const newItems = batch.filter(item => !existingMap.has(item.email))
+        if (newItems.length > 0) {
+            const toInsert = newItems.map(item => ({
                 search_query_id: searchId,
-                name: email.split('@')[0],
-                company: email.split('@')[1]?.split('.')[0] || 'Unknown',
-                email: email,
+                name: item.email.split('@')[0],
+                company: item.email.split('@')[1]?.split('.')[0] || 'Unknown',
+                email: item.email,
                 email_sent: true,
-                email_sent_at: new Date(Date.now() - 86400000).toISOString(), // Assume sent yesterday
+                email_sent_at: item.openedAt || new Date().toISOString(),
                 email_opened: true,
-                email_opened_at: new Date().toISOString(),
+                email_opened_at: item.openedAt || new Date().toISOString(),
                 business_type: 'Warm Lead (Imported)'
             }))
 
