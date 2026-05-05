@@ -411,7 +411,6 @@ const StorePage: React.FC = () => {
       {/* Spacer for fixed header */}
       <div className="h-16"></div>
 
-      {/* Sandbox Testing Banner */}
       <div className="bg-amber-50 border-b border-amber-200">
         <div className="max-w-7xl mx-auto px-4 py-3">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
@@ -431,6 +430,106 @@ const StorePage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Conventional Pouch Feature Section */}
+      <section className="bg-white py-12 border-b border-neutral-200 mb-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h2 className="text-3xl font-bold text-neutral-900 mb-4">
+              Conventional Stand Up Pouch
+            </h2>
+            <p className="text-lg text-neutral-600 mb-8">
+              Metallised with Zipper. Get high barrier protection with an optional premium foiling effect.
+            </p>
+            <Link 
+              to="/store/product/conven-sup-met-zip" 
+              className="inline-flex items-center justify-center bg-primary-600 text-white px-8 py-3 rounded-full font-bold hover:bg-primary-700 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5 transform duration-200"
+            >
+              <ShoppingCart className="w-5 h-5 mr-2" />
+              Buy Now
+            </Link>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lg bg-neutral-100">
+                <video 
+                  src="https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/8312d2d0-2a3e-4871-8333-2a6d78f96030/1777910170433_yt1h1k19q0g.mp4" 
+                  className="absolute inset-0 w-full h-full object-cover rotate-180"
+                  ref={(el) => { if(el) el.playbackRate = 0.3; }}
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                />
+              </div>
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lg bg-neutral-100">
+                <img 
+                  src="https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/8312d2d0-2a3e-4871-8333-2a6d78f96030/1776490853002_3rf9qwsi0za.jpg" 
+                  alt="Foiling effect with matt surface" 
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            
+            <div className="grid sm:grid-cols-2 gap-6">
+              {/* low cost - start from 100USD */}
+              <div className="group bg-white rounded-2xl p-6 shadow-sm border border-green-100 hover:shadow-xl hover:border-green-300 transition-all hover:-translate-y-1">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                  <DollarSign className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-green-600 transition-colors">Low Cost</h3>
+                <p className="text-sm text-neutral-600">Start from 100 USD</p>
+              </div>
+              
+              {/* low moq start from 100pcs */}
+              <div className="group bg-white rounded-2xl p-6 shadow-sm border border-blue-100 hover:shadow-xl hover:border-blue-300 transition-all hover:-translate-y-1">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                  <Package className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-blue-600 transition-colors">Low MOQ</h3>
+                <p className="text-sm text-neutral-600">Start from 100 pcs</p>
+              </div>
+              
+              {/* high barrier - metalised */}
+              <div className="group bg-white rounded-2xl p-6 shadow-sm border border-purple-100 hover:shadow-xl hover:border-purple-300 transition-all hover:-translate-y-1">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                  <Shield className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-purple-600 transition-colors">High Barrier</h3>
+                <p className="text-sm text-neutral-600">Metallised material</p>
+              </div>
+              
+              {/* high attractive - foil */}
+              <div className="group bg-white rounded-2xl p-6 shadow-sm border border-orange-100 hover:shadow-xl hover:border-orange-300 transition-all hover:-translate-y-1">
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                  <Sparkles className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-orange-600 transition-colors">High Attractive</h3>
+                <p className="text-sm text-neutral-600">Foiling optional feature</p>
+              </div>
+              
+              {/* high resolution - HP digital print */}
+              <div className="group bg-white rounded-2xl p-6 shadow-sm border border-rose-100 hover:shadow-xl hover:border-rose-300 transition-all hover:-translate-y-1">
+                <div className="w-12 h-12 bg-gradient-to-br from-rose-500 to-red-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                  <Printer className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-rose-600 transition-colors">High Resolution</h3>
+                <p className="text-sm text-neutral-600">HP digital print</p>
+              </div>
+              
+              {/* included air freight */}
+              <div className="group bg-white rounded-2xl p-6 shadow-sm border border-cyan-100 hover:shadow-xl hover:border-cyan-300 transition-all hover:-translate-y-1">
+                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-sky-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                  <Plane className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-cyan-600 transition-colors">Air Freight</h3>
+                <p className="text-sm text-neutral-600">Included air freight</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <main className="max-w-7xl mx-auto px-4 py-8">
         {/* Search Result Header */}
@@ -802,97 +901,6 @@ const StorePage: React.FC = () => {
         </div>
       </main>
 
-      {/* Conventional Pouch Feature Section */}
-      <section className="bg-white py-16 border-t border-neutral-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold text-neutral-900 mb-4">
-              Conventional Stand Up Pouch
-            </h2>
-            <p className="text-lg text-neutral-600">
-              Metallised with Zipper. Get high barrier protection with an optional premium foiling effect.
-            </p>
-          </div>
-          
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lg bg-neutral-100">
-                <video 
-                  src="https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/8312d2d0-2a3e-4871-8333-2a6d78f96030/1777910170433_yt1h1k19q0g.mp4" 
-                  className="absolute inset-0 w-full h-full object-cover"
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline
-                />
-              </div>
-              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lg bg-neutral-100">
-                <img 
-                  src="https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/8312d2d0-2a3e-4871-8333-2a6d78f96030/1776490853002_3rf9qwsi0za.jpg" 
-                  alt="Foiling effect with matt surface" 
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              </div>
-            </div>
-            
-            <div className="grid sm:grid-cols-2 gap-6">
-              {/* low cost - start from 100USD */}
-              <div className="group bg-white rounded-2xl p-6 shadow-sm border border-green-100 hover:shadow-xl hover:border-green-300 transition-all hover:-translate-y-1">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                  <DollarSign className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-green-600 transition-colors">Low Cost</h3>
-                <p className="text-sm text-neutral-600">Start from 100 USD</p>
-              </div>
-              
-              {/* low moq start from 100pcs */}
-              <div className="group bg-white rounded-2xl p-6 shadow-sm border border-blue-100 hover:shadow-xl hover:border-blue-300 transition-all hover:-translate-y-1">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                  <Package className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-blue-600 transition-colors">Low MOQ</h3>
-                <p className="text-sm text-neutral-600">Start from 100 pcs</p>
-              </div>
-              
-              {/* high barrier - metalised */}
-              <div className="group bg-white rounded-2xl p-6 shadow-sm border border-purple-100 hover:shadow-xl hover:border-purple-300 transition-all hover:-translate-y-1">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                  <Shield className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-purple-600 transition-colors">High Barrier</h3>
-                <p className="text-sm text-neutral-600">Metallised material</p>
-              </div>
-              
-              {/* high attractive - foil */}
-              <div className="group bg-white rounded-2xl p-6 shadow-sm border border-orange-100 hover:shadow-xl hover:border-orange-300 transition-all hover:-translate-y-1">
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                  <Sparkles className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-orange-600 transition-colors">High Attractive</h3>
-                <p className="text-sm text-neutral-600">Foiling optional feature</p>
-              </div>
-              
-              {/* high resolution - HP digital print */}
-              <div className="group bg-white rounded-2xl p-6 shadow-sm border border-rose-100 hover:shadow-xl hover:border-rose-300 transition-all hover:-translate-y-1">
-                <div className="w-12 h-12 bg-gradient-to-br from-rose-500 to-red-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                  <Printer className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-rose-600 transition-colors">High Resolution</h3>
-                <p className="text-sm text-neutral-600">HP digital print</p>
-              </div>
-              
-              {/* included air freight */}
-              <div className="group bg-white rounded-2xl p-6 shadow-sm border border-cyan-100 hover:shadow-xl hover:border-cyan-300 transition-all hover:-translate-y-1">
-                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-sky-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                  <Plane className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-cyan-600 transition-colors">Air Freight</h3>
-                <p className="text-sm text-neutral-600">Included air freight</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Footer */}
       <StoreFooter />
