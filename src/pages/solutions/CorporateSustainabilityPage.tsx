@@ -152,6 +152,7 @@ const CorporateSustainabilityPage: React.FC = () => {
                 alt="Compostable certification documentation" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Compostable Certified"
+                heroBgColor="#14532d"
               />
               <ClickableImage 
                 src="/imgs/4-infograhic/recyclable.webp" 

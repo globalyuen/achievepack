@@ -23,6 +23,7 @@ const PcrPpKraftQuadlexAluminumPage: React.FC = () => {
               alt="PP Kraft Quadlex Aluminum Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="Premium PP Kraft with Aluminum - Lowest WVTR"
+              heroBgColor="#451a03"
             />
             <h3 className="text-xl font-bold text-amber-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">

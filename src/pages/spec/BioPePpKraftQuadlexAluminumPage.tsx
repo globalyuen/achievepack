@@ -23,6 +23,7 @@ const BioPePpKraftQuadlexAluminumPage: React.FC = () => {
               alt="Bio-PE PP Kraft Quadlex Aluminum - Best Moisture Premium"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="Ultimate Kraft - Best Moisture + Ultimate Barrier"
+              heroBgColor="#451a03"
             />
             <h3 className="text-xl font-bold text-amber-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">

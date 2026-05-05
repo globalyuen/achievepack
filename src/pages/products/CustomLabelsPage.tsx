@@ -116,6 +116,7 @@ const CustomLabelsPage: React.FC = () => {
             contentCn="FromProductLabel、ActivityStickerToUnitPersonProjectAndSmallTypeEnterpriseIndustryBrand——OurCustomPaperLabelSuitable forAnyScenario。NoTheoryYouRequireNeed 10 SheetAlsoIs 10,000 Sheet，WeAlwaysIfOneGroundProvideHighQualityProduct。"
             imageLeft={true}
             index={1}
+            heroBgColor="#1f2937"
           />
 
           <AlternatingSection

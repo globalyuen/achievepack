@@ -259,6 +259,7 @@ const AllOptionsPage = () => {
             title="All Barrier Options - Sortable & Filterable"
             categoryColor="purple"
             type="barrier"
+            heroBgColor="#1f2937"
           />
         </div>
       )

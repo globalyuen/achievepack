@@ -81,6 +81,7 @@ const CoffeeRoasterPage: React.FC = () => {
                 alt="Specialty coffee packaging with valve" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Coffee Pouch"
+                heroBgColor="#451a03"
               />
               <ClickableImage 
                 src="/imgs/pouch-shape/a_flat_bottom_pouch_isolated_7901973.webp" 

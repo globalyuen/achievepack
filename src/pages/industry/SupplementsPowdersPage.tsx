@@ -571,6 +571,7 @@ const SupplementsPowdersPage: React.FC = () => {
       ctaTitle={t('seoPages.pages.supplementsPowders.cta.title')}
       ctaDescription={t('seoPages.pages.supplementsPowders.cta.description')}
       ctaButtonText={t('seoPages.pages.supplementsPowders.cta.button')}
+      heroBgColor="#083344"
     />
   )
 }

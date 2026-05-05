@@ -33,6 +33,7 @@ const ClickableImage: React.FC<{
           alt={alt} 
           className={`${className} transition-transform group-hover:scale-[1.02] max-w-full`}
           loading="lazy"
+          heroBgColor="#14532d"
         />
         {caption && (
           <figcaption className="text-xs text-neutral-500 mt-2 text-center">{caption}</figcaption>

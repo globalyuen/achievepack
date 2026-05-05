@@ -137,6 +137,7 @@ const ProductDeveloperPage: React.FC = () => {
                 alt="Metallic finish innovative packaging" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Metallic Finish"
+                heroBgColor="#1f2937"
               />
               <ClickableImage 
                 src="/imgs/store/surface/stamp-foil.webp" 

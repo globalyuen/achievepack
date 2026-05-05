@@ -24,6 +24,7 @@ const RecyclableMonoPPPage: React.FC = () => {
               alt="Recyclable Materials Infographic - Complete guide to recyclable packaging" 
               className="max-w-full md:max-w-2xl rounded-lg shadow-lg border border-neutral-200 cursor-pointer hover:shadow-xl transition"
               caption="Recyclable Materials Infographic"
+              heroBgColor="#1e3a8a"
             />
           </div>
         </div>

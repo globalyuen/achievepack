@@ -140,6 +140,7 @@ const FlatBottomBagsPage: React.FC = () => {
                 alt="Flat bottom bag structure showing box-like base" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Flat Bottom Structure"
+                heroBgColor="#1f2937"
               />
               <ClickableImage 
                 src="/imgs/store/barrier/4-alu.webp" 

@@ -37,6 +37,7 @@ const CoffeeBagsDegassingValvePage: React.FC = () => {
               alt="Coffee bag degassing valve closeup" 
               className="w-full rounded-lg shadow-md"
               caption="One-way degassing valve for freshly roasted coffee"
+              heroBgColor="#451a03"
             />
           </div>
         </div>

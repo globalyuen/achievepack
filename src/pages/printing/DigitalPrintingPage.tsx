@@ -182,6 +182,7 @@ const DigitalPrintingPage: React.FC = () => {
       ctaTitle={t('seoPages.pages.digitalPrinting.cta.title')}
       ctaDescription={t('seoPages.pages.digitalPrinting.cta.description')}
       ctaButtonText={t('seoPages.pages.digitalPrinting.cta.button')}
+      heroBgColor="#1f2937"
     />
   )
 }

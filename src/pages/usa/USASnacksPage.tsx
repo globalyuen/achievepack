@@ -39,6 +39,7 @@ const USASnacksPage: React.FC = () => {
               alt="Sustainable snacks packaging for US brands" 
               className="w-full rounded-lg shadow-md"
               caption="Compostable snack packaging designed for US natural food brands"
+              heroBgColor="#451a03"
             />
           </div>
         </div>

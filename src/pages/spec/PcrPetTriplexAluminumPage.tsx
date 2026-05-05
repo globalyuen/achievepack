@@ -23,6 +23,7 @@ const PcrPetTriplexAluminumPage: React.FC = () => {
               alt="PCR PET Triplex Aluminum Foil Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="PET Triplex with Aluminum Foil"
+              heroBgColor="#3f6212"
             />
             <h3 className="text-xl font-bold text-gray-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">

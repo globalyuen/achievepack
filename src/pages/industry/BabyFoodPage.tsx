@@ -545,6 +545,7 @@ const BabyFoodPage: React.FC = () => {
       ctaTitle={t('seoPages.pages.babyFood.cta.title')}
       ctaDescription={t('seoPages.pages.babyFood.cta.description')}
       ctaButtonText={t('seoPages.pages.babyFood.cta.button')}
+      heroBgColor="#083344"
     />
   )
 }

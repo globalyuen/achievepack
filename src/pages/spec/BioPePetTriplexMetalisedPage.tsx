@@ -23,6 +23,7 @@ const BioPePetTriplexMetalisedPage: React.FC = () => {
               alt="Bio-PE PET Triplex Metalised High Barrier Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="Bio-PE PET Triplex Metalised - High Barrier"
+              heroBgColor="#3f6212"
             />
             <h3 className="text-xl font-bold text-gray-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">

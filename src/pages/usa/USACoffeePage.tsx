@@ -65,6 +65,7 @@ const USACoffeePage: React.FC = () => {
               alt="Specialty coffee packaging pouches for US roasters" 
               className="w-full rounded-lg shadow-md"
               caption="Premium compostable coffee packaging designed for US specialty roasters"
+              heroBgColor="#451a03"
             />
           </div>
         </div>

@@ -186,6 +186,7 @@ const MaterialBarrierPropertiesPage: React.FC = () => {
         ctaDescription={'Still confused about OTR and WVTR values? Contact our packaging engineers to find the precise material combination suited for your product\'s exact shelf-life requirements.'}
         ctaButtonText={'Contact Technical Support'}
         ctaButtonUrl="/contact"
+        heroBgColor="#1f2937"
       />
     </>
   )

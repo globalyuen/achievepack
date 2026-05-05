@@ -75,6 +75,7 @@ const HomeCompostablePage: React.FC = () => {
                 alt="DIN CERTCO Home Compostable Certification" 
                 className="h-16 w-auto mb-2"
                 caption="Home Compostable"
+                heroBgColor="#14532d"
               />
               <span className="text-xs font-semibold text-neutral-800">OK Home</span>
               <span className="text-xs text-neutral-500">TÜV Austria</span>

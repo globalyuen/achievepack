@@ -78,6 +78,7 @@ const LowMOQStartupPackagingPage: React.FC = () => {
               alt="Stand up pouch for startups" 
               className="w-full h-24 object-cover rounded-lg"
               caption="Stand Up"
+              heroBgColor="#1f2937"
             />
             <ClickableImage 
               src="/imgs/store/pouch shape/flat-bottom.webp" 

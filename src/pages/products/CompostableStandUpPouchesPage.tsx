@@ -37,6 +37,7 @@ const CompostableStandUpPouchesPage: React.FC = () => {
               alt="Compostable stand-up pouches for food and beverage" 
               className="w-full rounded-lg shadow-md"
               caption="Premium compostable stand-up pouches with custom printing"
+              heroBgColor="#14532d"
             />
           </div>
         </div>

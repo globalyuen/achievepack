@@ -114,6 +114,7 @@ const StandUpPouchesPage: React.FC = () => {
                   src="/imgs/pouch-shape/achieve-pack-k-seal.png"
                   alt="Achieve Pack heavy duty K-seal bottom pouch"
                   className="w-32 h-32 object-contain bg-white rounded-lg shadow-md p-2"
+                  heroBgColor="#1f2937"
                 />
               </div>
               <div className="flex-1">

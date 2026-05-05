@@ -112,6 +112,7 @@ const MicrowaveSteamBagsPage: React.FC = () => {
             contentCn="OurFood GradeMicrowaveSteamingBagIdeal forSuitableSteamVegetables、HeatingFrozenMealAndPrepareMeal。CreateNewDesignReduceDoneExtraOutsideCookToolOfUse，MeanwhileMaintainFoodSafeStandard。"
             imageLeft={true}
             index={0}
+            heroBgColor="#451a03"
           />
         </div>
       )

@@ -84,6 +84,7 @@ const RecyclableSnackPackagingPage: React.FC = () => {
               alt="Recyclable snack packaging" 
               className="w-full h-24 object-cover rounded-lg"
               caption="Recyclable"
+              heroBgColor="#1e3a8a"
             />
             <ClickableImage 
               src="/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp" 

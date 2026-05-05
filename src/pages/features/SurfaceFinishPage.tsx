@@ -524,6 +524,7 @@ const SurfaceFinishPage: React.FC = () => {
         ctaTitle={t('seoPages.pages.surfaceFinish.cta.title')}
         ctaDescription={t('seoPages.pages.surfaceFinish.cta.description')}
         ctaButtonText={t('seoPages.pages.surfaceFinish.cta.button')}
+        heroBgColor="#1f2937"
       />
       
       {/* Gallery Lightbox Modal */}

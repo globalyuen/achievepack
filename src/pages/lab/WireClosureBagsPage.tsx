@@ -111,6 +111,7 @@ const WireClosureBagsPage: React.FC = () => {
             contentCn="OurWire Tie ClosureHomogenizerBagKnotSuitableOneBodyizationWireSealedTechnologyAnd γ Irradiation Sterilization，AchieveSafeLeak-ProofOfSamplePreparation。Wire Tie ClosureProvideRegularPlasticCable TieNoMethod CompareBeautyOfExcellentSealedEffect，EnsureSampleInProcessingAndTransportationWhole ProcessCompleteProperty。"
             imageLeft={true}
             index={0}
+            heroBgColor="#1f2937"
           />
         </div>
       )

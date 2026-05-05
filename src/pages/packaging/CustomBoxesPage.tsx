@@ -56,6 +56,7 @@ const CustomBoxesPage: React.FC = () => {
                   src="/imgs/store/box/corrugated-box/2be65396-ac07-44d0-b54c-2422d3bfe981.webp" 
                   alt="Custom Printed Corrugated Mailer Box" 
                   className="w-full rounded-lg shadow-md"
+                  heroBgColor="#1f2937"
                 />
               </div>
               <div className="md:w-2/3">

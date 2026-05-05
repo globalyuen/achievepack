@@ -196,6 +196,7 @@ const PlatePrintingPage: React.FC = () => {
       ctaTitle={t('seoPages.pages.platePrinting.cta.title')}
       ctaDescription={t('seoPages.pages.platePrinting.cta.description')}
       ctaButtonText={t('seoPages.pages.platePrinting.cta.button')}
+      heroBgColor="#1f2937"
     />
   )
 }

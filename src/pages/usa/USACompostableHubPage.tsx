@@ -40,6 +40,7 @@ const USACompostableHubPage: React.FC = () => {
               alt="Certified compostable packaging showcase for US brands" 
               className="w-full rounded-lg shadow-md"
               caption="ASTM D6400 certified compostable packaging solutions for US market"
+              heroBgColor="#14532d"
             />
           </div>
         </div>

@@ -54,6 +54,7 @@ const CompostableHumidityControlPage: React.FC = () => {
                 src="/imgs/samples/brittle-vs-strong-compost.jpg" 
                 alt="Dry brittle compost bag vs strong humidity controlled compost bag" 
                 className="relative rounded-2xl shadow-2xl w-full h-auto object-cover border border-white/10"
+                heroBgColor="#14532d"
               />
               <div className="absolute -bottom-6 -right-6 bg-white rounded-xl p-4 shadow-xl border border-gray-100 flex items-center gap-4">
                 <i className="fas fa-tint text-4xl text-blue-500"></i>

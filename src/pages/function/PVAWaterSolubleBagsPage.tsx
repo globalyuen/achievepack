@@ -111,6 +111,7 @@ const PVAWaterSolubleBagsPage: React.FC = () => {
             contentCn="Our PVA Water Soluble Bait BagsUsingPolyvinyl AlcoholFilmMadeForm，Completely Dissolves in Water。Ideal forSuitableCarp、CatfishEtcEachCategoryFishingApplication。InstallEnterParticleBait、Bait PowderOrBait Ball，ThrowAfterBagChildDissolve，InHookChildAroundFormFormConcentrateBait MaterialCloud。"
             imageLeft={true}
             index={0}
+            heroBgColor="#1e3a8a"
           />
         </div>
       )

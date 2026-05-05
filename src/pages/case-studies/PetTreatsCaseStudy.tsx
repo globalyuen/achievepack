@@ -226,6 +226,7 @@ const PetTreatsCaseStudy = () => {
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
+      heroBgColor="#3f6212"
     />
   );
 };

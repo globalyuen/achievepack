@@ -23,6 +23,7 @@ const BioPePpDuplexNoWindowPage: React.FC = () => {
               alt="Bio-PE PP Duplex No Window Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="Bio-PE PP Duplex - Best Moisture + Full Print"
+              heroBgColor="#1f2937"
             />
             <h3 className="text-xl font-bold text-purple-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">

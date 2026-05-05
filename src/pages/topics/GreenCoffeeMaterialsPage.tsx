@@ -105,6 +105,7 @@ const GreenCoffeeMaterialsPage: React.FC = () => {
               alt="High barrier coffee packaging" 
               className="w-full h-28 object-cover rounded-lg"
               caption="High Barrier"
+              heroBgColor="#14532d"
             />
             <ClickableImage 
               src="/imgs/store/barrier/2-clear.webp"

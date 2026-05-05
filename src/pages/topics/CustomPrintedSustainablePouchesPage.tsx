@@ -425,6 +425,7 @@ const CustomPrintedSustainablePouchesPage: React.FC = () => {
         faqs={faqs}
         schemaType="Product"
         heroImage="/imgs/seo-photos/a_digital_printing_customization_2717640.webp"
+        heroBgColor="#14532d"
       />
     </>
   )

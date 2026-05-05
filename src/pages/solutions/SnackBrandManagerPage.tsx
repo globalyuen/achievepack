@@ -80,6 +80,7 @@ const SnackBrandManagerPage: React.FC = () => {
                 alt="Sustainable snack packaging solutions" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Snack Pouches"
+                heroBgColor="#451a03"
               />
               <ClickableImage 
                 src="/imgs/seo-photos/usa/snack/a_snacks_brand_sustainability_guide_7868632.webp" 

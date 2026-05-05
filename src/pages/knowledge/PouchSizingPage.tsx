@@ -21,6 +21,7 @@ const PouchSizingPage: React.FC = () => {
           title="Stand Up Pouch Sizes - Sortable & Filterable"
           categoryColor="blue"
           productLink="/store/product/eco-standup"
+          heroBgColor="#1f2937"
         />
       )
     },

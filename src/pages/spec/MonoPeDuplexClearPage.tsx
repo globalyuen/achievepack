@@ -21,6 +21,7 @@ const MonoPeDuplexClearPage: React.FC = () => {
           structures={MONO_PE_PP_STRUCTURES}
           title="All Mono PE/PP Structures - Sortable & Filterable"
           categoryColor="green"
+          heroBgColor="#1f2937"
         />
       )
     },

@@ -66,6 +66,7 @@ const FactoryTourPage = () => {
                   description={video.description}
                   videoSrc={video.videoSrc}
                   icon={video.icon}
+                  heroBgColor="#1f2937"
                 />
               ))}
             </div>

@@ -64,6 +64,7 @@ const DTCSustainablePackagingPage: React.FC = () => {
                   alt="Custom printed DTC packaging" 
                   className="w-20 h-20 object-cover rounded-lg"
                   caption="Foil Stamp"
+                  heroBgColor="#14532d"
                 />
                 <ClickableImage 
                   src="/imgs/store/surface/matt.webp"

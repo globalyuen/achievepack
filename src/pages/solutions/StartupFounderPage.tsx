@@ -81,6 +81,7 @@ const StartupFounderPage: React.FC = () => {
                 alt="Compostable pouch for wellness startup brand" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Compostable Pouch"
+                heroBgColor="#1f2937"
               />
               <ClickableImage 
                 src="/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp" 

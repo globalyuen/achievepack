@@ -24,6 +24,7 @@ const PCRPage: React.FC = () => {
               alt="PCR Packaging Infographic - Post-Consumer Recycled materials guide" 
               className="max-w-full md:max-w-2xl rounded-lg shadow-lg border border-neutral-200 cursor-pointer hover:shadow-xl transition"
               caption="PCR Packaging Infographic"
+              heroBgColor="#1f2937"
             />
           </div>
         </div>

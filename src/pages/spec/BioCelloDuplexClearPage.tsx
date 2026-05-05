@@ -21,6 +21,7 @@ const BioCelloDuplexClearPage: React.FC = () => {
           structures={COMPOSTABLE_STRUCTURES}
           title="All Compostable Structures - Sortable & Filterable"
           categoryColor="green"
+          heroBgColor="#1f2937"
         />
       )
     },

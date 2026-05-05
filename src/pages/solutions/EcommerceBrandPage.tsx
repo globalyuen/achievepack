@@ -86,6 +86,7 @@ const EcommerceBrandPage: React.FC = () => {
                 alt="Lightweight e-commerce pouch for shipping" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Lightweight Pouch"
+                heroBgColor="#14532d"
               />
               <ClickableImage 
                 src="/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp" 

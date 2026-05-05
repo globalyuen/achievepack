@@ -36,6 +36,7 @@ const CertificatesPage = () => {
                 alt="Seedling Logo - OK Compost Certified" 
                 className="h-16 w-auto mb-2"
                 caption="EU Seedling"
+                heroBgColor="#1f2937"
               />
               <span className="text-xs text-center text-neutral-600">EU Seedling</span>
             </div>

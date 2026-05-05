@@ -112,6 +112,7 @@ const ChildResistantBagsPage: React.FC = () => {
             contentCn="OurChildrenChild-Resistant ZipperBagUsingCertificationOfPressPressureOpenAndPinchPressureSlideInstitution，PressPhotoUSA 16 CFR 1700 ChildrenSafeStandardDesignAndTest。Ideal forSuitableLargeHemp、Pharmaceuticals、Nutritional SupplementsWithAndAnyRequireNeedSafeSuitableSpecificationPackagingOfProduct。"
             imageLeft={true}
             index={0}
+            heroBgColor="#1f2937"
           />
         </div>
       )

@@ -37,6 +37,7 @@ const CompostableCoffeeBagsPage: React.FC = () => {
               alt="Compostable coffee bags with degassing valve for specialty roasters" 
               className="w-full rounded-lg shadow-md"
               caption="Premium compostable coffee bags with degassing valve"
+              heroBgColor="#14532d"
             />
           </div>
         </div>

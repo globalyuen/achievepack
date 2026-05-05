@@ -158,6 +158,7 @@ const SpoutPouchesPage: React.FC = () => {
                 alt="Spout cap for liquid and beverage packaging" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Spout Cap"
+                heroBgColor="#1f2937"
               />
               <ClickableImage 
                 src="/imgs/pouch-shape/a_spout_pouch_isolated_6857112.webp" 

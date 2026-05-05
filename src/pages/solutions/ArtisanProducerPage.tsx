@@ -113,6 +113,7 @@ const ArtisanProducerPage: React.FC = () => {
                 alt="Artisan chocolate packaging" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Artisan Chocolate"
+                heroBgColor="#1f2937"
               />
               <ClickableImage 
                 src="/imgs/seo-photos/a_tea_craft_australia_garden_morning_8955209.webp"

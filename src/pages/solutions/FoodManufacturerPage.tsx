@@ -131,6 +131,7 @@ const FoodManufacturerPage: React.FC = () => {
                 alt="High barrier food packaging" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="High Barrier"
+                heroBgColor="#1f2937"
               />
               <ClickableImage 
                 src="/imgs/store/barrier/3-clear.webp" 

@@ -316,6 +316,7 @@ const SideGussetBagsPage: React.FC = () => {
       ctaTitle={t(`${p}.cta.title`)}
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
+      heroBgColor="#1f2937"
     />
   )
 }

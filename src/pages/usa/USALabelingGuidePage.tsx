@@ -65,6 +65,7 @@ const USALabelingGuidePage: React.FC = () => {
               alt="FDA labeling compliance checklist for compostable packaging" 
               className="w-full rounded-lg shadow-md"
               caption="FDA labeling compliance checklist for US compostable packaging"
+              heroBgColor="#1f2937"
             />
           </div>
         </div>

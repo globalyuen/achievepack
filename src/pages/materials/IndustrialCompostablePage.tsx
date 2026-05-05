@@ -548,6 +548,7 @@ const IndustrialCompostablePage: React.FC = () => {
       relatedLinks={relatedLinks}
       ctaTitle={t(`${p}.ctaTitle`)}
       ctaDescription={t(`${p}.ctaDescription`)}
+      heroBgColor="#14532d"
     />
   )
 }

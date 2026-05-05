@@ -113,6 +113,7 @@ const LateralFilterBagsPage: React.FC = () => {
             contentCn="Our 400mL Side Filter Membrane Homogenizer BagsKnotSuitableSideNoWoven FabricThroughFilterAnd γ Irradiation Sterilization，AchieveSafeEfficientOfMicrobialSamplePreparation。CompatibleCapacityEachLargeBrandLaboratoryHomogenizerDevice，Suitable forFood、Pharmaceutical、CosmeticsAndEnvironmental Testing。"
             imageLeft={true}
             index={0}
+            heroBgColor="#1f2937"
           />
         </div>
       )

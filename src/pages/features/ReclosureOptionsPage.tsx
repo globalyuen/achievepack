@@ -500,6 +500,7 @@ const ReclosureOptionsPage: React.FC = () => {
         ctaTitle={t('seoPages.pages.reclosureOptions.cta.title')}
         ctaDescription={t('seoPages.pages.reclosureOptions.cta.description')}
         ctaButtonText={t('seoPages.pages.reclosureOptions.cta.button')}
+        heroBgColor="#1f2937"
       />
       
       {/* Gallery Lightbox Modal */}

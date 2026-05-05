@@ -119,6 +119,7 @@ const CustomStickersPage: React.FC = () => {
             contentCn="CanChooseDie-Cut Sheets（SingleUniqueDie CutSticker）、Roll Form（SuitableSuitableLargeBatchVolumeApplicationOfContinuousRoll）、Paper Style（EachSheetMultipleUnitSticker）AndDie Cut（WithLinerPaperConvenientAtTearTake）。Each TypeCategoryTypeAllNeedleForSpecificUseScenarioAndApplicationMethodOptimizeization。"
             imageLeft={true}
             index={1}
+            heroBgColor="#1f2937"
           />
 
           <AlternatingSection

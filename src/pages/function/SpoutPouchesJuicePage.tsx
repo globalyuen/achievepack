@@ -112,6 +112,7 @@ const SpoutPouchesJuicePage: React.FC = () => {
             contentCn="UseMatchSuitableFoodContactStandardOfMulti-LayerFilmStructure（If PET/PE OrRecyclable mono-PE），SuitableSuitableJuice、SportsBeverage、Cold BrewTeaEtcLiquidProduct。SpoutTopPartHeat Seal + RotateCover，AntiLeak、AntiContamination。"
             imageLeft={true}
             index={0}
+            heroBgColor="#1f2937"
           />
         </div>
       )

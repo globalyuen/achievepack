@@ -84,6 +84,7 @@ const CustomCompostablePouchSuppliersPage: React.FC = () => {
               alt="Compostable packaging certification" 
               className="w-full h-24 object-cover rounded-lg"
               caption="Compostable"
+              heroBgColor="#14532d"
             />
             <ClickableImage 
               src="/imgs/store/shape/stand-up-pouch.webp" 

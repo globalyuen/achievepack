@@ -293,6 +293,7 @@ const CoffeeRoasteryCaseStudy = () => {
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
+      heroBgColor="#451a03"
     />
   );
 };

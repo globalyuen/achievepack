@@ -99,6 +99,7 @@ const PreZipperedRollstockPage: React.FC = () => {
             content="Our pre-zippered rollstock features zippers applied transversely to the film roll before it reaches your production line. Run it on existing VFFS or HFFS equipment with minimal adjustments to produce cut-to-open, recloseable pouches from standard rollstock."
             imageLeft={true}
             index={0}
+            heroBgColor="#1f2937"
           />
         </div>
       )

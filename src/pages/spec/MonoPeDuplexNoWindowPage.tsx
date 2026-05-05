@@ -23,6 +23,7 @@ const MonoPeDuplexNoWindowPage: React.FC = () => {
               alt="Mono PE Duplex No Window Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="Mono PE Duplex No Window - Fully Recyclable"
+              heroBgColor="#1f2937"
             />
             <h3 className="text-xl font-bold text-blue-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">

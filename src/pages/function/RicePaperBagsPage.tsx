@@ -111,6 +111,7 @@ const RicePaperBagsPage: React.FC = () => {
             contentCn="OurRice PaperBagOutsideLayerUsingNaturalFiber Texture，InsideLayerForCompleteCanCompostableOf PLA OrCellophane。OptionalHomeFamilyCanCompostableOrWorkerIndustryCanCompostableCertification。SuitableSuitablePursueNatural、Eco-FriendlyAndToolHavePremiumBeautyFeelOfBrand。"
             imageLeft={true}
             index={0}
+            heroBgColor="#1f2937"
           />
         </div>
       )

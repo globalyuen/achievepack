@@ -112,6 +112,7 @@ const LabBlenderBagsPage: React.FC = () => {
             contentCn="AchievePack® LaboratoryHomogenizerBagProfessionalForProfessionalIndustryMicrobialLaboratory、Food TestingInstitutionAndPharmaceuticalQuality ControlPartDoorDesign。UsingHigh TransparencyFood GradeOriginalRaw LDPE FilmMadeForm，TheseNoBacteriaBagForSamplePreparationAndHomogenizerizationProvideCanReliableOfNoContaminationEnvironment。"
             imageLeft={true}
             index={0}
+            heroBgColor="#1f2937"
           />
         </div>
       )

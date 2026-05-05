@@ -23,6 +23,7 @@ const BioCelloTriplexHighestPage: React.FC = () => {
               alt="Bio Cellulose Triplex Highest Barrier Compostable"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="Highest Barrier Compostable Structure"
+              heroBgColor="#1f2937"
             />
             <h3 className="text-xl font-bold text-green-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">

@@ -21,6 +21,7 @@ const BioPePetDuplexClearPage: React.FC = () => {
           structures={BIO_PE_STRUCTURES}
           title="All Bio-PE Structures - Sortable & Filterable"
           categoryColor="green"
+          heroBgColor="#3f6212"
         />
       )
     },

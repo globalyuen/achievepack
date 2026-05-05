@@ -24,6 +24,7 @@ const PcrPetDuplexClearPage: React.FC = () => {
           structures={PCR_STRUCTURES}
           title="All 14 PCR Structures - Sortable & Filterable"
           categoryColor="blue"
+          heroBgColor="#3f6212"
         />
       )
     },

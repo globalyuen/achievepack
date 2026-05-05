@@ -144,6 +144,7 @@ const LabelsAndStickersPage: React.FC = () => {
             contentCn="High Quality Paper Adhesive Labels，Suitable forProductLabel、ActivityLabel、UnitPersonCustomAndSmall BatchProduction。MultipleMaterialOptional，PackIncludingWhiteMatte、Gloss、Kraft PaperAndTransparentFilm。StrongPowerPermanentLongGlueStickAgentEnsureLabelCompleteBeautyPasteAttach。"
             imageLeft={true}
             index={1}
+            heroBgColor="#1f2937"
           />
 
           <AlternatingSection

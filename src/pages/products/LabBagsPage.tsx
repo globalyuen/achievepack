@@ -147,6 +147,7 @@ const LabBagsPage: React.FC = () => {
             contentCn="AchievePack® BagFilter SeriesUsingSideSetNoFilter Membrane，ProvideImmediatelyTimeNoParticle Filtrate。Side FilterDesignAchieveEfficientSampleDivideLeave，MeanwhileWhole ProcessMaintainNoBacteriaStatus。"
             imageLeft={true}
             index={1}
+            heroBgColor="#1f2937"
           />
 
           <AlternatingSection

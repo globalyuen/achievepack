@@ -500,6 +500,7 @@ const SaucesCondimentsPage: React.FC = () => {
       ctaTitle={t('seoPages.pages.saucesCondiments.cta.title')}
       ctaDescription={t('seoPages.pages.saucesCondiments.cta.description')}
       ctaButtonText={t('seoPages.pages.saucesCondiments.cta.button')}
+      heroBgColor="#1f2937"
     />
   )
 }

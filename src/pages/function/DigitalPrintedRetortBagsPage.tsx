@@ -115,6 +115,7 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             contentCn="UseFood GradeMulti-LayerFilmStructure（PET/Aluminum Foil/Nylon/CPP），OurSteamingBagCanWithstand 116–135℃ KillBacteria。SuitableSuitableCurry、Ready-to-EatMeal、BabyFood、PetFoodEtc，DigitalPrintingOnlyRequire 100 PackMinimum Order。"
             imageLeft={true}
             index={0}
+            heroBgColor="#1f2937"
           />
         </div>
       )

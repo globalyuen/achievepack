@@ -84,6 +84,7 @@ const EcoFriendlyFoodPackagingPage: React.FC = () => {
                 alt="Compostable packaging for food brands" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Compostable"
+                heroBgColor="#14532d"
               />
               <ClickableImage 
                 src="/imgs/4-infograhic/recyclable.webp" 

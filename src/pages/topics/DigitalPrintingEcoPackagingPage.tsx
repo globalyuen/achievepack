@@ -135,6 +135,7 @@ const DigitalPrintingEcoPackagingPage: React.FC = () => {
               alt="Metallic finish digital print" 
               className="w-full h-24 object-cover rounded-lg"
               caption="Metallic"
+              heroBgColor="#14532d"
             />
             <ClickableImage 
               src="/imgs/store/surface/matte.webp" 

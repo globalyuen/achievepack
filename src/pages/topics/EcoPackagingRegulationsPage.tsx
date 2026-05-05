@@ -398,6 +398,7 @@ const EcoPackagingRegulationsPage: React.FC = () => {
         faqs={faqs}
         schemaType="Article"
         heroImage="/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp"
+        heroBgColor="#14532d"
       />
     </>
   )

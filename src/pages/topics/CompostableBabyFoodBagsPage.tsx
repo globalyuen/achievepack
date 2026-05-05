@@ -101,6 +101,7 @@ const CompostableBabyFoodBagsPage: React.FC = () => {
                   alt="Compostable spout pouch for baby food" 
                   className="w-24 h-24 object-cover rounded-lg"
                   caption="Spout Pouch"
+                  heroBgColor="#14532d"
                 />
                 <div>
                   <h4 className="font-semibold text-neutral-800">Spout Pouches</h4>

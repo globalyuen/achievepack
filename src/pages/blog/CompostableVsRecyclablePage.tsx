@@ -228,6 +228,7 @@ const CompostableVsRecyclablePage: React.FC = () => {
       ctaButtonUrl="/free-service"
       canonicalUrl="https://achievepack.com/blog/compostable-vs-recyclable"
       schemaType="Article"
+      heroBgColor="#14532d"
     />
   )
 }

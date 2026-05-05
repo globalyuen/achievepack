@@ -151,6 +151,7 @@ const AdaptogensCaseStudy = () => {
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
+      heroBgColor="#1f2937"
     />
   );
 };

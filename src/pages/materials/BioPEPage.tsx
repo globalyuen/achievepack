@@ -24,6 +24,7 @@ const BioPEPage: React.FC = () => {
               alt="Bio-PE Packaging Infographic - Plant-based polyethylene guide" 
               className="max-w-full md:max-w-2xl rounded-lg shadow-lg border border-neutral-200 cursor-pointer hover:shadow-xl transition"
               caption="Bio-PE Packaging Infographic"
+              heroBgColor="#1f2937"
             />
           </div>
         </div>

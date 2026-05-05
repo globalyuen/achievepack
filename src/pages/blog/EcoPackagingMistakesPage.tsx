@@ -209,6 +209,7 @@ const EcoPackagingMistakesPage: React.FC = () => {
       ctaButtonUrl="/contact"
       canonicalUrl="https://achievepack.com/blog/eco-packaging-mistakes"
       schemaType="Article"
+      heroBgColor="#14532d"
     />
   )
 }

@@ -23,6 +23,7 @@ const BioKraftVmCelloPage: React.FC = () => {
               alt="Bio Kraft VM Cellulose Compostable Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="Natural Kraft with Compostable Barrier"
+              heroBgColor="#451a03"
             />
             <h3 className="text-xl font-bold text-amber-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">

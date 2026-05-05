@@ -264,7 +264,7 @@ const PackagingCostGuidePage: React.FC = () => {
       canonicalUrl="https://achievepack.com/blog/packaging-cost-guide"
       schemaType="Article"
       heroStyle="split"
-      heroBgColor="#3E2723" // Dark brown matching packaging cardboard
+      heroBgColor="#451a03" // Dark brown matching packaging cardboard
     />
   )
 }

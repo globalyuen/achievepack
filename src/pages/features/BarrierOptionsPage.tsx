@@ -506,6 +506,7 @@ const BarrierOptionsPage: React.FC = () => {
         ctaTitle={t('seoPages.pages.barrierOptions.cta.title')}
         ctaDescription={t('seoPages.pages.barrierOptions.cta.description')}
         ctaButtonText={t('seoPages.pages.barrierOptions.cta.button')}
+        heroBgColor="#1f2937"
       />
       
       {/* Gallery Lightbox Modal */}

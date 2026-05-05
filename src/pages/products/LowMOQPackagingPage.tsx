@@ -68,6 +68,7 @@ const LowMOQPackagingPage: React.FC = () => {
               src="/imgs/seo-photos/a_bean_bole_coffee_roastery_8131919.webp"
               alt="Small batch coffee roaster packaging"
               className="w-full h-40 object-cover rounded-lg"
+              heroBgColor="#1f2937"
             />
             <ClickableImage
               src="/imgs/seo-photos/a_artisan_chocolate_abu_dhabi_luxury_pouch_4218900.webp"

@@ -44,6 +44,7 @@ const RecyclableMonoMaterialPage: React.FC = () => {
               alt="Recyclable mono-material pouch infographic" 
               className="w-full rounded-lg shadow-md"
               caption="Recyclable mono-material packaging overview"
+              heroBgColor="#1e3a8a"
             />
           </div>
         </div>

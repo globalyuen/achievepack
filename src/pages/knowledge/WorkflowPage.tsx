@@ -33,6 +33,7 @@ const WorkflowPage = () => {
                 alt="Design consultation and mockup creation" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Consultation"
+                heroBgColor="#1f2937"
               />
               <ClickableImage 
                 src="/imgs/surface/ads/a_achieve_pack_main_kv_six_finishes_3535755.webp" 

@@ -462,6 +462,7 @@ const KraftLowBarrierPage: React.FC = () => {
       ctaTitle={t(`${p}.cta.title`)}
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
+      heroBgColor="#451a03"
     />
   );
 };

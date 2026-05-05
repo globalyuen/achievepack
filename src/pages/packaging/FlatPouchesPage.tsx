@@ -156,6 +156,7 @@ const FlatPouchesPage: React.FC = () => {
                 alt="Three side seal flat pouch sachet" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="3-Side Seal"
+                heroBgColor="#1f2937"
               />
               <ClickableImage 
                 src="/imgs/store/barrier/2-clear.webp" 
