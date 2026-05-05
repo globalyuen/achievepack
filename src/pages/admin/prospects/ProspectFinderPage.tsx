@@ -446,7 +446,7 @@ export default function ProspectFinderPage() {
 
   // Effect to load history when tab changes
   useEffect(() => {
-      if (activeTab === 'campaigns') { 
+      if (activeTab === 'campaigns' || activeTab === 'followup') { 
           fetchHistory()
       }
   }, [activeTab])
