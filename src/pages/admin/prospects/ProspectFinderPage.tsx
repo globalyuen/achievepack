@@ -187,40 +187,58 @@ export default function ProspectFinderPage() {
     }
   }, [activeTab])
 
-  // Sync History from Brevo
+  // Sync History from Brevo - Fetch multiple batches to handle 60k history
   const syncBrevoHistory = async () => {
     if (isSyncing) return
     setIsSyncing(true)
-    addLog('🔄 Syncing history from Brevo...', 'info')
-    toast.info("Starting Brevo sync...")
+    addLog('🔄 Starting batch sync from Brevo (500 records)...', 'info')
+    toast.info("Starting batch sync (500 records)...")
+    
+    let totalImported = 0
+    let totalSkipped = 0
+    const batchSize = 100
+    const numBatches = 5 // Fetch 500 at a time to avoid browser timeout
     
     try {
-      addLog('📡 Sending POST request to /api/prospect/sync-brevo', 'info')
-      const res = await fetch('/api/prospect/sync-brevo', { 
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ limit: 100, offset: 0 }) 
-      })
-      
-      if (!res.ok) {
-        const text = await res.text()
-        throw new Error(`Server responded with ${res.status}: ${text.substring(0, 50)}`)
-      }
-      
-      const data = await res.json()
-      if (data.success) {
-        if (data.error) {
-            addLog(`⚠️ Sync partially failed: ${data.error}`, 'error')
-            toast.warning(`Sync partially failed: ${data.error}`)
-        } else {
-            addLog(`✅ Sync complete: Imported ${data.imported} new records, skipped ${data.skipped} existing.`, 'success')
-            toast.success(`Synced ${data.imported} prospects from Brevo`)
+      for (let i = 0; i < numBatches; i++) {
+        const offset = i * batchSize
+        addLog(`📡 Syncing batch ${i + 1}/${numBatches} (offset: ${offset})...`, 'info')
+        
+        const res = await fetch('/api/prospect/sync-brevo', { 
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ limit: batchSize, offset: offset }) 
+        })
+        
+        if (!res.ok) {
+          const text = await res.text()
+          throw new Error(`Batch ${i+1} failed: ${res.status}`)
         }
-        fetchHistory()
-      } else {
-        addLog(`❌ Sync failed: ${data.error}`, 'error')
-        toast.error('Sync failed: ' + data.error)
+        
+        const data = await res.json()
+        if (data.success) {
+          totalImported += data.imported
+          totalSkipped += data.skipped
+          addLog(`   📥 Batch ${i + 1}: +${data.imported} new, ${data.skipped} skipped`, 'success')
+          
+          // If we get fewer than 100, we've reached the end of history
+          if (data.total_in_batch < batchSize) {
+            addLog('🏁 Reached end of Brevo history.', 'info')
+            break
+          }
+        } else {
+          addLog(`❌ Batch ${i+1} error: ${data.error}`, 'error')
+          break
+        }
+        
+        // Short pause between batches
+        await new Promise(r => setTimeout(r, 500))
       }
+      
+      addLog(`✅ Sync complete: Imported ${totalImported} new, skipped ${totalSkipped} existing.`, 'success')
+      toast.success(`Sync complete! Imported ${totalImported} records.`)
+      fetchHistory()
+      
     } catch (e: any) {
       console.error('Sync error:', e)
       addLog(`❌ Sync error: ${e.message}`, 'error')
