@@ -2,7 +2,7 @@ import React, { useState, useMemo, useCallback, useTransition, useEffect } from 
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
-import { ShoppingCart, Search, Star, Truck, Shield, Clock, Grid3X3, List, ChevronDown, User, Menu, X, Sparkles, AlertTriangle, Mail, DollarSign, Package, Printer, Plane } from 'lucide-react'
+import { ShoppingCart, Search, Star, Truck, Shield, Clock, Grid3X3, List, ChevronDown, User, Menu, X, Sparkles, AlertTriangle, Mail, DollarSign, Package, Printer, Plane, ChevronLeft, ChevronRight, Leaf, Globe } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import { FEATURED_PRODUCTS, type StoreProduct, type EcoDigitalProduct, type ConventionalProduct, getProductType, getProductSubCategory } from '../store/productData'
 import { getProductImage } from '../utils/productImageMapper'
@@ -94,6 +94,45 @@ const SHAPES = [
   { id: 'Tuck Box', label: 'Tuck Box' },
 ]
 
+const STORE_FEATURES = [
+  {
+    id: 'conventional',
+    title: 'Conventional Stand Up Pouch',
+    description: 'Metallised with Zipper. Get high barrier protection with an optional premium foiling effect.',
+    link: '/store/product/conven-sup-met-zip',
+    media: [
+      { type: 'video', src: 'https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/8312d2d0-2a3e-4871-8333-2a6d78f96030/1777910170433_yt1h1k19q0g.mp4', rotate: true, slow: true },
+      { type: 'image', src: 'https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/8312d2d0-2a3e-4871-8333-2a6d78f96030/1776490853002_3rf9qwsi0za.jpg' }
+    ],
+    benefits: [
+      { title: 'Low Cost', desc: 'Start from USD 140', icon: DollarSign, colors: 'from-green-500 to-emerald-500', bgBorder: 'border-green-100 hover:border-green-300', textGroup: 'group-hover:text-green-600' },
+      { title: 'Low MOQ', desc: 'Start from 100 pcs', icon: Package, colors: 'from-blue-500 to-indigo-500', bgBorder: 'border-blue-100 hover:border-blue-300', textGroup: 'group-hover:text-blue-600' },
+      { title: 'High Barrier', desc: 'Metallised material', icon: Shield, colors: 'from-purple-500 to-violet-500', bgBorder: 'border-purple-100 hover:border-purple-300', textGroup: 'group-hover:text-purple-600' },
+      { title: 'Highly Attractive', desc: 'Foiling optional feature', icon: Sparkles, colors: 'from-orange-500 to-amber-500', bgBorder: 'border-orange-100 hover:border-orange-300', textGroup: 'group-hover:text-orange-600' },
+      { title: 'High Resolution', desc: 'HP digital print', icon: Printer, colors: 'from-rose-500 to-red-500', bgBorder: 'border-rose-100 hover:border-rose-300', textGroup: 'group-hover:text-rose-600' },
+      { title: 'Air Freight', desc: 'Included air freight', icon: Plane, colors: 'from-cyan-500 to-sky-500', bgBorder: 'border-cyan-100 hover:border-cyan-300', textGroup: 'group-hover:text-cyan-600' },
+    ]
+  },
+  {
+    id: 'eco',
+    title: 'Eco Digital Stand Up Pouch',
+    description: 'Premium eco stand-up pouch. Excellent shelf presence with sustainable materials.',
+    link: '/store/product/eco-standup',
+    media: [
+      { type: 'image', src: '/imgs/store/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp' },
+      { type: 'image', src: '/imgs/store/eco-digital/LQ5WGOrIkQPzbXSfWupAIFvVrlyL9lvZoMKc35bbHPw=.webp' }
+    ],
+    benefits: [
+      { title: 'Eco Materials', desc: 'Mono Recyclable or PCR', icon: Leaf, colors: 'from-green-500 to-emerald-500', bgBorder: 'border-green-100 hover:border-green-300', textGroup: 'group-hover:text-green-600' },
+      { title: 'Minimum Order', desc: 'Start from 1000 pcs', icon: Package, colors: 'from-blue-500 to-indigo-500', bgBorder: 'border-blue-100 hover:border-blue-300', textGroup: 'group-hover:text-blue-600' },
+      { title: 'Lower Carbon', desc: '30% lower carbon footprint', icon: Globe, colors: 'from-teal-500 to-emerald-500', bgBorder: 'border-teal-100 hover:border-teal-300', textGroup: 'group-hover:text-teal-600' },
+      { title: 'Premium Look', desc: 'Excellent shelf presence', icon: Star, colors: 'from-amber-500 to-orange-500', bgBorder: 'border-amber-100 hover:border-amber-300', textGroup: 'group-hover:text-amber-600' },
+      { title: 'High Resolution', desc: 'HP digital print', icon: Printer, colors: 'from-rose-500 to-red-500', bgBorder: 'border-rose-100 hover:border-rose-300', textGroup: 'group-hover:text-rose-600' },
+      { title: 'Air Freight', desc: 'Included air freight', icon: Plane, colors: 'from-cyan-500 to-sky-500', bgBorder: 'border-cyan-100 hover:border-cyan-300', textGroup: 'group-hover:text-cyan-600' },
+    ]
+  }
+]
+
 const StorePage: React.FC = () => {
   const { t } = useTranslation()
   const { cartCount, setIsCartOpen } = useStore()
@@ -114,6 +153,15 @@ const StorePage: React.FC = () => {
   const [isSortOpen, setIsSortOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false)
+  const [currentFeatureIndex, setCurrentFeatureIndex] = useState(0)
+
+  const nextFeature = () => {
+    setCurrentFeatureIndex((prev) => (prev + 1) % STORE_FEATURES.length)
+  }
+
+  const prevFeature = () => {
+    setCurrentFeatureIndex((prev) => (prev - 1 + STORE_FEATURES.length) % STORE_FEATURES.length)
+  }
 
   // Sync state with URL params when they change
   useEffect(() => {
@@ -431,102 +479,101 @@ const StorePage: React.FC = () => {
         </div>
       </div>
 
-      {/* Conventional Pouch Feature Section */}
-      <section className="bg-white py-12 border-b border-neutral-200 mb-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold text-neutral-900 mb-4">
-              Conventional Stand Up Pouch
-            </h2>
-            <p className="text-lg text-neutral-600 mb-8">
-              Metallised with Zipper. Get high barrier protection with an optional premium foiling effect.
-            </p>
-            <Link 
-              to="/store/product/conven-sup-met-zip" 
-              className="inline-flex items-center justify-center bg-primary-600 text-white px-8 py-3 rounded-full font-bold hover:bg-primary-700 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5 transform duration-200"
-            >
-              <ShoppingCart className="w-5 h-5 mr-2" />
-              Buy Now
-            </Link>
+      {/* Feature Carousel Section */}
+      <section className="bg-white py-12 border-b border-neutral-200 mb-8 relative overflow-hidden">
+        <div className="absolute inset-y-0 left-0 sm:left-4 flex items-center z-20 pointer-events-none">
+          <button 
+            onClick={prevFeature}
+            className="p-3 rounded-full bg-white/90 backdrop-blur shadow-lg border border-neutral-200 text-neutral-600 hover:text-primary-600 hover:bg-white transition-all transform hover:-translate-x-1 pointer-events-auto mx-2"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+        </div>
+        <div className="absolute inset-y-0 right-0 sm:right-4 flex items-center z-20 pointer-events-none">
+          <button 
+            onClick={nextFeature}
+            className="p-3 rounded-full bg-white/90 backdrop-blur shadow-lg border border-neutral-200 text-neutral-600 hover:text-primary-600 hover:bg-white transition-all transform hover:translate-x-1 pointer-events-auto mx-2"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-16 lg:px-20 relative">
+          <div className="relative">
+            {STORE_FEATURES.map((feature, idx) => (
+              <div 
+                key={feature.id}
+                className={`transition-opacity duration-500 ease-in-out ${idx === currentFeatureIndex ? 'opacity-100 relative z-10' : 'opacity-0 absolute inset-0 z-0 pointer-events-none'}`}
+              >
+                <div className="text-center max-w-3xl mx-auto mb-12">
+                  <h2 className="text-3xl font-bold text-neutral-900 mb-4">
+                    {feature.title}
+                  </h2>
+                  <p className="text-lg text-neutral-600 mb-8 h-14">
+                    {feature.description}
+                  </p>
+                  <Link 
+                    to={feature.link}
+                    className="inline-flex items-center justify-center bg-primary-600 text-white px-8 py-3 rounded-full font-bold hover:bg-primary-700 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5 transform duration-200 pointer-events-auto"
+                  >
+                    <ShoppingCart className="w-5 h-5 mr-2" />
+                    Buy Now
+                  </Link>
+                </div>
+                
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
+                  <div className="space-y-6">
+                    {feature.media.map((mediaItem, mediaIdx) => (
+                      <div key={mediaIdx} className="relative aspect-video rounded-2xl overflow-hidden shadow-lg bg-neutral-100">
+                        {mediaItem.type === 'video' ? (
+                          <video 
+                            src={mediaItem.src} 
+                            className={`absolute inset-0 w-full h-full object-cover ${mediaItem.rotate ? 'rotate-180' : ''}`}
+                            ref={(el) => { if(el && mediaItem.slow) el.playbackRate = 0.3; }}
+                            autoPlay 
+                            loop 
+                            muted 
+                            playsInline
+                          />
+                        ) : (
+                          <img 
+                            src={mediaItem.src} 
+                            alt={`${feature.title} demo`} 
+                            className="absolute inset-0 w-full h-full object-cover"
+                          />
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <div className="grid sm:grid-cols-2 gap-6">
+                    {feature.benefits.map((benefit, bIdx) => {
+                      const Icon = benefit.icon
+                      return (
+                        <div key={bIdx} className={`group bg-white rounded-2xl p-6 shadow-sm border ${benefit.bgBorder} transition-all hover:shadow-xl hover:-translate-y-1 pointer-events-auto`}>
+                          <div className={`w-12 h-12 bg-gradient-to-br ${benefit.colors} rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform`}>
+                            <Icon className="w-6 h-6 text-white" />
+                          </div>
+                          <h3 className={`font-bold text-neutral-900 mb-2 transition-colors ${benefit.textGroup}`}>{benefit.title}</h3>
+                          <p className="text-sm text-neutral-600">{benefit.desc}</p>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lg bg-neutral-100">
-                <video 
-                  src="https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/8312d2d0-2a3e-4871-8333-2a6d78f96030/1777910170433_yt1h1k19q0g.mp4" 
-                  className="absolute inset-0 w-full h-full object-cover rotate-180"
-                  ref={(el) => { if(el) el.playbackRate = 0.3; }}
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline
-                />
-              </div>
-              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lg bg-neutral-100">
-                <img 
-                  src="https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/8312d2d0-2a3e-4871-8333-2a6d78f96030/1776490853002_3rf9qwsi0za.jpg" 
-                  alt="Foiling effect with matt surface" 
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              </div>
-            </div>
-            
-            <div className="grid sm:grid-cols-2 gap-6">
-              {/* low cost - start from 100USD */}
-              <div className="group bg-white rounded-2xl p-6 shadow-sm border border-green-100 hover:shadow-xl hover:border-green-300 transition-all hover:-translate-y-1">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                  <DollarSign className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-green-600 transition-colors">Low Cost</h3>
-                <p className="text-sm text-neutral-600">Start from 100 USD</p>
-              </div>
-              
-              {/* low moq start from 100pcs */}
-              <div className="group bg-white rounded-2xl p-6 shadow-sm border border-blue-100 hover:shadow-xl hover:border-blue-300 transition-all hover:-translate-y-1">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                  <Package className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-blue-600 transition-colors">Low MOQ</h3>
-                <p className="text-sm text-neutral-600">Start from 100 pcs</p>
-              </div>
-              
-              {/* high barrier - metalised */}
-              <div className="group bg-white rounded-2xl p-6 shadow-sm border border-purple-100 hover:shadow-xl hover:border-purple-300 transition-all hover:-translate-y-1">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                  <Shield className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-purple-600 transition-colors">High Barrier</h3>
-                <p className="text-sm text-neutral-600">Metallised material</p>
-              </div>
-              
-              {/* high attractive - foil */}
-              <div className="group bg-white rounded-2xl p-6 shadow-sm border border-orange-100 hover:shadow-xl hover:border-orange-300 transition-all hover:-translate-y-1">
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                  <Sparkles className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-orange-600 transition-colors">High Attractive</h3>
-                <p className="text-sm text-neutral-600">Foiling optional feature</p>
-              </div>
-              
-              {/* high resolution - HP digital print */}
-              <div className="group bg-white rounded-2xl p-6 shadow-sm border border-rose-100 hover:shadow-xl hover:border-rose-300 transition-all hover:-translate-y-1">
-                <div className="w-12 h-12 bg-gradient-to-br from-rose-500 to-red-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                  <Printer className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-rose-600 transition-colors">High Resolution</h3>
-                <p className="text-sm text-neutral-600">HP digital print</p>
-              </div>
-              
-              {/* included air freight */}
-              <div className="group bg-white rounded-2xl p-6 shadow-sm border border-cyan-100 hover:shadow-xl hover:border-cyan-300 transition-all hover:-translate-y-1">
-                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-sky-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                  <Plane className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-bold text-neutral-900 mb-2 group-hover:text-cyan-600 transition-colors">Air Freight</h3>
-                <p className="text-sm text-neutral-600">Included air freight</p>
-              </div>
-            </div>
+          <div className="flex justify-center mt-12 gap-2 relative z-20 pointer-events-auto">
+            {STORE_FEATURES.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentFeatureIndex(idx)}
+                className={`w-3 h-3 rounded-full transition-all ${idx === currentFeatureIndex ? 'bg-primary-600 w-8' : 'bg-neutral-300 hover:bg-primary-400'}`}
+                aria-label={`Go to feature ${idx + 1}`}
+              />
+            ))}
           </div>
         </div>
       </section>
