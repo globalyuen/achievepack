@@ -22,19 +22,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     try {
         log('🚀 Starting Follow-up Sequence...')
 
-        // Try to add touch_count column if it doesn't exist (idempotent)
-        try {
-            await supabase.rpc('exec_sql', { sql: 'ALTER TABLE prospect ADD COLUMN IF NOT EXISTS touch_count INTEGER DEFAULT 1' })
-        } catch (_) { /* ignore, column may already exist */ }
-        try {
-            await supabase.rpc('exec_sql', { sql: 'ALTER TABLE prospect ADD COLUMN IF NOT EXISTS last_touch_at TIMESTAMPTZ' })
-        } catch (_) { /* ignore */ }
-
-        // Fetch eligible prospects: sent emails, fewer than 5 touches
-        // Use coalesce to handle NULL touch_count as 1
+        // Fetch eligible prospects without depending on touch_count column
         const { data: prospects, error: fetchErr } = await supabase
             .from('prospect')
-            .select('id, name, company, email, email_sent_at, email_opened, touch_count, last_touch_at')
+            .select('id, name, company, email, email_sent_at, email_opened')
             .eq('email_sent', true)
             .not('email', 'is', null)
             .order('email_sent_at', { ascending: true })
@@ -51,18 +42,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const skipped: string[] = []
 
         for (const prospect of (prospects || [])) {
-            const touchCount = prospect.touch_count || 1
-            
-            // Skip if already completed 5 touches
+            // Default touch_count to 1 if column doesn't exist yet
+            const touchCount = (prospect as any).touch_count ?? 1
+            const lastTouchAt = (prospect as any).last_touch_at
+
+            // Skip completed sequences
             if (touchCount >= 5) {
                 skipped.push(`${prospect.email} (completed)`)
                 continue
             }
 
-            // Check timing based on last touch
-            const lastTouchDate = new Date(prospect.last_touch_at || prospect.email_sent_at || Date.now())
-            const daysSince = (Date.now() - lastTouchDate.getTime()) / (1000 * 60 * 60 * 24)
             const nextTouch = touchCount + 1
+            const lastTouchDate = new Date(lastTouchAt || prospect.email_sent_at || Date.now())
+            const daysSince = (Date.now() - lastTouchDate.getTime()) / (1000 * 60 * 60 * 24)
 
             const minDays: Record<number, number> = { 2: 3, 3: 5, 4: 7, 5: 10 }
             const required = minDays[nextTouch] || 3
@@ -78,21 +70,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             try {
                 await sendBrevoEmail(prospect.email, subject, body)
 
-                // Update touch count and last_touch_at
+                // Update touch count — gracefully handle if columns don't exist yet
                 const { error: upErr } = await supabase
                     .from('prospect')
-                    .update({
-                        touch_count: nextTouch,
-                        last_touch_at: new Date().toISOString()
-                    })
+                    .update({ touch_count: nextTouch, last_touch_at: new Date().toISOString() } as any)
                     .eq('id', prospect.id)
 
                 if (upErr) {
-                    log(`⚠️ Sent but failed to update DB for ${prospect.email}: ${upErr.message}`)
-                } else {
-                    log(`✅ Touch ${nextTouch} sent to ${prospect.email}`)
-                    sentCount++
+                    log(`⚠️ Sent but DB update failed for ${prospect.email}: ${upErr.message}`)
                 }
+                log(`✅ Touch ${nextTouch} sent to ${prospect.email}`)
+                sentCount++
             } catch (err: any) {
                 log(`❌ Failed to send to ${prospect.email}: ${err.message}`)
             }
