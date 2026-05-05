@@ -696,7 +696,7 @@ export default function ProspectFinderPage() {
                  onClick={() => setActiveTab('followup')}
                  className={`pb-3 px-1 font-medium text-sm transition-colors ${activeTab === 'followup' ? 'border-b-2 border-primary-600 text-primary-600' : 'text-neutral-500 hover:text-neutral-700'}`}
             >
-                🔄 Follow-up Sequence
+                🔄 Follow-up Sequence ({history.filter(p => p.email_sent && (p.touch_count || 0) < 5).length})
             </button>
         </div>
 
@@ -1300,11 +1300,12 @@ export default function ProspectFinderPage() {
                                     <th className="px-4 py-3 font-semibold text-neutral-700">Email</th>
                                     <th className="px-4 py-3 font-semibold text-neutral-700">Current Touch</th>
                                     <th className="px-4 py-3 font-semibold text-neutral-700">Last Touch</th>
-                                    <th className="px-4 py-3 font-semibold text-neutral-700 text-right">Status</th>
+                                    <th className="px-4 py-3 font-semibold text-neutral-700">Status</th>
+                                    <th className="px-4 py-3 font-semibold text-neutral-700 text-right">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {history.map((prospect) => (
+                                {history.filter(p => p.email_sent).map((prospect) => (
                                     <tr key={prospect.id} className="border-b hover:bg-neutral-50/50">
                                         <td className="px-4 py-3 font-medium">{prospect.company || prospect.name}</td>
                                         <td className="px-4 py-3 text-neutral-500">{prospect.email}</td>
@@ -1322,10 +1323,39 @@ export default function ProspectFinderPage() {
                                         <td className="px-4 py-3 text-neutral-500 text-xs">
                                             {prospect.last_contacted ? new Date(prospect.last_contacted).toLocaleDateString() : 'Never'}
                                         </td>
-                                        <td className="px-4 py-3 text-right">
-                                            <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-700">
-                                                {prospect.email_opened ? 'Opened (Warm)' : 'Active'}
+                                        <td className="px-4 py-3">
+                                            <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
+                                                prospect.email_opened ? 'bg-green-100 text-green-700' : 'bg-indigo-100 text-indigo-700'
+                                            }`}>
+                                                {(prospect.touch_count || 1) >= 5 ? 'Completed' : 'Active'}
                                             </span>
+                                        </td>
+                                        <td className="px-4 py-3 text-right">
+                                            <Button 
+                                                variant="ghost" 
+                                                size="sm" 
+                                                className="h-8 text-indigo-600 hover:text-indigo-700 hover:bg-indigo-50"
+                                                onClick={() => {
+                                                    setSelectedProspect(prospect)
+                                                    const nextTouch = (prospect.touch_count || 1) + 1
+                                                    if (nextTouch <= 5) {
+                                                        const templates = [
+                                                            { t: 2, s: `Re: Quick question regarding ${prospect.company || 'your company'} packaging`, b: `Hi ${prospect.name.split(' ')[0]},\n\nI'm just following up...` },
+                                                            { t: 3, s: `Value Add for ${prospect.company || 'your company'}`, b: `Hi ${prospect.name.split(' ')[0]},\n\nThought you might find this useful...` },
+                                                            { t: 4, s: `Free samples?`, b: `Hi ${prospect.name.split(' ')[0]},\n\nWould you like some samples?` },
+                                                            { t: 5, s: `Moving on`, b: `Hi ${prospect.name.split(' ')[0]},\n\nI'll assume it's not a priority...` }
+                                                        ]
+                                                        const current = templates.find(t => t.t === nextTouch)
+                                                        setEmailSubject(current?.s || '')
+                                                        setEmailBody(current?.b || '')
+                                                        setIsEmailOpen(true)
+                                                    } else {
+                                                        toast.info("Sequence completed for this contact")
+                                                    }
+                                                }}
+                                            >
+                                                <Eye className="w-4 h-4 mr-1" /> Preview Next
+                                            </Button>
                                         </td>
                                     </tr>
                                 ))}
