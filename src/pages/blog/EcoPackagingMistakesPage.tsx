@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import SEOPageLayout from '../../components/SEOPageLayout'
 
 const EcoPackagingMistakesPage: React.FC = () => {
-  const heroImage = '/imgs/seo-photos/a_packaging_mistakes_overview_6183920.webp'
+  const heroImage = '/imgs/seo-photos/a_packaging_mistakes_overview_6183920.jpg'
 
   const sections = [
     {

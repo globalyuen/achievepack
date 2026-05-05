@@ -27,7 +27,7 @@ export const blogPosts: BlogPost[] = [
     publishDate: "2026-05-05",
     category: "Guides",
     tags: ["packaging cost", "pricing", "custom packaging", "MOQ", "startup packaging", "budget"],
-    featuredImage: "/imgs/seo-photos/a_packaging_cost_comparison_8724501.webp",
+    featuredImage: "/imgs/seo-photos/a_packaging_cost_comparison_8724501.jpg",
     readTime: 8,
     metaDescription: "Complete custom packaging cost breakdown for 2025. Compare prices for compostable pouches, recyclable bags & custom boxes from 100 to 10,000+ pieces."
   },
@@ -41,7 +41,7 @@ export const blogPosts: BlogPost[] = [
     publishDate: "2026-05-05",
     category: "Sustainable Packaging",
     tags: ["compostable", "recyclable", "comparison", "eco packaging", "mono PE", "sustainability"],
-    featuredImage: "/imgs/seo-photos/a_compostable_vs_recyclable_packaging_4528107.webp",
+    featuredImage: "/imgs/seo-photos/a_compostable_vs_recyclable_packaging_4528107.jpg",
     readTime: 10,
     metaDescription: "In-depth comparison of compostable vs recyclable packaging for food brands. Compare costs, shelf life, certifications, and environmental impact."
   },
@@ -55,7 +55,7 @@ export const blogPosts: BlogPost[] = [
     publishDate: "2026-05-05",
     category: "Startup Resources",
     tags: ["packaging mistakes", "startups", "tips", "eco packaging", "small business", "advice"],
-    featuredImage: "/imgs/seo-photos/a_packaging_mistakes_overview_6183920.webp",
+    featuredImage: "/imgs/seo-photos/a_packaging_mistakes_overview_6183920.jpg",
     readTime: 7,
     metaDescription: "Avoid costly packaging mistakes that waste money and hurt your brand. Expert advice from a packaging manufacturer."
   },

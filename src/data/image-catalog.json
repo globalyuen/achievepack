@@ -3,9 +3,9 @@
   "total_images": 1289,
   "total_categories": 141,
   "extensions": {
-    ".webp": 1080,
+    ".webp": 1077,
     ".png": 185,
-    ".jpg": 21,
+    ".jpg": 24,
     ".svg": 3
   },
   "categories": {
@@ -5513,21 +5513,21 @@
       "count": 92,
       "images": [
         {
-          "filename": "a_packaging_mistakes_overview_6183920.webp",
-          "path": "/imgs/seo-photos/a_packaging_mistakes_overview_6183920.webp",
-          "extension": ".webp",
+          "filename": "a_packaging_mistakes_overview_6183920.jpg",
+          "path": "/imgs/seo-photos/a_packaging_mistakes_overview_6183920.jpg",
+          "extension": ".jpg",
           "modified": "2026-05-05T12:13:41.712Z"
         },
         {
-          "filename": "a_compostable_vs_recyclable_packaging_4528107.webp",
-          "path": "/imgs/seo-photos/a_compostable_vs_recyclable_packaging_4528107.webp",
-          "extension": ".webp",
+          "filename": "a_compostable_vs_recyclable_packaging_4528107.jpg",
+          "path": "/imgs/seo-photos/a_compostable_vs_recyclable_packaging_4528107.jpg",
+          "extension": ".jpg",
           "modified": "2026-05-05T12:13:41.709Z"
         },
         {
-          "filename": "a_packaging_cost_comparison_8724501.webp",
-          "path": "/imgs/seo-photos/a_packaging_cost_comparison_8724501.webp",
-          "extension": ".webp",
+          "filename": "a_packaging_cost_comparison_8724501.jpg",
+          "path": "/imgs/seo-photos/a_packaging_cost_comparison_8724501.jpg",
+          "extension": ".jpg",
           "modified": "2026-05-05T12:13:41.706Z"
         },
         {

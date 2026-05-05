@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import SEOPageLayout from '../../components/SEOPageLayout'
 
 const CompostableVsRecyclablePage: React.FC = () => {
-  const heroImage = '/imgs/seo-photos/a_compostable_vs_recyclable_packaging_4528107.webp'
+  const heroImage = '/imgs/seo-photos/a_compostable_vs_recyclable_packaging_4528107.jpg'
 
   const sections = [
     {

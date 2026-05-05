@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import SEOPageLayout from '../../components/SEOPageLayout'
 
 const PackagingCostGuidePage: React.FC = () => {
-  const heroImage = '/imgs/seo-photos/a_packaging_cost_comparison_8724501.webp'
+  const heroImage = '/imgs/seo-photos/a_packaging_cost_comparison_8724501.jpg'
 
   const sections = [
     {
