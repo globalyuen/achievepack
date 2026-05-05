@@ -500,6 +500,7 @@ interface SEOPageLayoutProps {
 
   // Hero Style
   heroStyle?: 'split' | 'banner'
+  heroBgColor?: string // hex code or tailwind class
 }
 
 const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
@@ -525,7 +526,8 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   ctaDescription = 'Contact our packaging experts for a free consultation and quote.',
   ctaButtonText = 'Get Free Quote',
   ctaButtonUrl = '/#contact',
-  heroStyle = 'split'
+  heroStyle = 'split',
+  heroBgColor
 }) => {
   const { t } = useTranslation()
   const navigate = useNavigate()
@@ -739,12 +741,15 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
             </div>
           </section>
         ) : (
-          <section className="bg-primary-700 text-white">
+          <section 
+            className={heroBgColor && heroBgColor.startsWith('bg-') ? `${heroBgColor} text-white` : (heroBgColor ? "text-white" : "bg-primary-700 text-white")}
+            style={heroBgColor && !heroBgColor.startsWith('bg-') ? { backgroundColor: heroBgColor } : undefined}
+          >
             <div className="max-w-7xl mx-auto px-4">
               <div className="grid md:grid-cols-2 gap-8 items-center py-12 md:py-0">
                 {/* Hero Content - Left */}
                 <div className="md:py-16">
-                  <div className="rounded-xl p-6 md:p-8" style={{ backgroundColor: 'rgba(21, 128, 61, 0.85)', backdropFilter: 'blur(8px)' }}>
+                  <div className="rounded-xl p-6 md:p-8" style={{ backgroundColor: 'rgba(0, 0, 0, 0.25)', backdropFilter: 'blur(8px)' }}>
                     {heroLogo && (
                       <div className="mb-4">
                         <img 
