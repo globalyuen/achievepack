@@ -27,13 +27,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     try {
         const { limit = 100, offset = 0 } = req.body
-        console.log(`[Sync] Starting Brevo sync: limit=${limit}, offset=${offset}`)
+        console.log(`[Sync] Starting Brevo events sync: limit=${limit}, offset=${offset}`)
         
-        // Fetch from Brevo using https module for maximum compatibility
+        // Fetch from Brevo Events API (event=delivered)
         const brevoData = await new Promise<any>((resolve, reject) => {
             const options = {
                 hostname: 'api.brevo.com',
-                path: `/v3/smtp/emails?limit=${limit}&offset=${offset}&sort=desc`,
+                path: `/v3/smtp/statistics/events?limit=${limit}&offset=${offset}&event=delivered`,
                 method: 'GET',
                 headers: {
                     'accept': 'application/json',
@@ -57,8 +57,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             request.end()
         })
 
-        const emails = brevoData.transactionalEmails || []
-        console.log(`[Sync] Found ${emails.length} emails in Brevo batch.`)
+        const events = brevoData.events || []
+        console.log(`[Sync] Found ${events.length} delivered events in Brevo batch.`)
         
         // Create a generic search query for imported emails if it doesn't exist
         const { data: searchQuery } = await supabase
@@ -77,7 +77,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                     query: 'Brevo Sync History',
                     sender: 'system',
                     status: 'brevo_sync',
-                    total_results: brevoData.count || 0
+                    total_results: events.length // approximation
                 })
                 .select()
                 .single()
@@ -90,8 +90,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         let skipped = 0
         
         // Process each email
-        for (const email of emails) {
-            const toEmail = email.email
+        for (const event of events) {
+            const toEmail = event.email
             if (!toEmail) continue
 
             // Check if prospect exists
@@ -107,8 +107,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                         .from('prospect')
                         .update({
                             email_sent: true,
-                            email_sent_at: email.createdAt,
-                            brevo_message_id: email.uuid
+                            email_sent_at: event.date,
+                            brevo_message_id: event.messageId
                         })
                         .eq('id', existing.id)
                     imported++
@@ -123,12 +123,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 .from('prospect')
                 .insert({
                     search_query_id: searchId,
-                    name: email.toName || 'Imported Prospect',
+                    name: toEmail.split('@')[0], // Fallback name
                     email: toEmail,
                     email_sent: true,
-                    email_sent_at: email.createdAt,
-                    brevo_message_id: email.uuid,
-                    business_type: 'Imported'
+                    email_sent_at: event.date,
+                    brevo_message_id: event.messageId,
+                    business_type: 'Imported',
+                    sales_pitch: `Subject: ${event.subject}`
                 })
             
             if (insertError) {
@@ -143,12 +144,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             success: true,
             imported,
             skipped,
-            total_in_batch: emails.length,
-            total_brevo_count: brevoData.count || 0
+            total_in_batch: events.length
         })
 
     } catch (error: any) {
         console.error('[Sync] Sync error:', error)
-        return res.status(500).json({ success: true, error: error.message, imported: 0, skipped: 0 }) // Return success:true with error to avoid frontend catch block if preferred
+        return res.status(500).json({ success: false, error: error.message, imported: 0, skipped: 0 })
     }
 }
