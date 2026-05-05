@@ -263,6 +263,7 @@ const PackagingCostGuidePage: React.FC = () => {
       ctaButtonUrl="/contact"
       canonicalUrl="https://achievepack.com/blog/packaging-cost-guide"
       schemaType="Article"
+      heroStyle="banner"
     />
   )
 }

@@ -497,6 +497,9 @@ interface SEOPageLayoutProps {
   ctaDescription?: string
   ctaButtonText?: string
   ctaButtonUrl?: string
+
+  // Hero Style
+  heroStyle?: 'split' | 'banner'
 }
 
 const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
@@ -521,7 +524,8 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   ctaTitle = 'Ready to Get Started?',
   ctaDescription = 'Contact our packaging experts for a free consultation and quote.',
   ctaButtonText = 'Get Free Quote',
-  ctaButtonUrl = '/#contact'
+  ctaButtonUrl = '/#contact',
+  heroStyle = 'split'
 }) => {
   const { t } = useTranslation()
   const navigate = useNavigate()
@@ -686,52 +690,102 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         <ReadingProgress />
 
         {/* Hero Section */}
-        <section className="bg-primary-700 text-white">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-8 items-center py-12 md:py-0">
-              {/* Hero Content - Left */}
-              <div className="md:py-16">
-                <div className="rounded-xl p-6 md:p-8" style={{ backgroundColor: 'rgba(21, 128, 61, 0.85)', backdropFilter: 'blur(8px)' }}>
+        {heroStyle === 'banner' ? (
+          <section className="relative text-white min-h-[400px] md:min-h-[500px] flex items-center bg-primary-800 overflow-hidden">
+            {/* Background Image */}
+            {heroImage && (
+              <div className="absolute inset-0 w-full h-full">
+                <img 
+                  src={heroImage} 
+                  alt={heroImageAlt || heroTitle}
+                  className="w-full h-full object-cover object-center"
+                  loading="eager"
+                />
+                {/* Gradient Overlay for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-900/95 via-primary-800/80 to-transparent"></div>
+                <div className="absolute inset-0 bg-black/20 md:hidden"></div> {/* Extra darkening for mobile */}
+              </div>
+            )}
+            
+            <div className="relative max-w-7xl mx-auto px-4 w-full z-10 py-12 md:py-20">
+              <div className="max-w-2xl">
+                <div className="rounded-xl p-6 md:p-8 border border-white/10 shadow-2xl" style={{ backgroundColor: 'rgba(21, 128, 61, 0.75)', backdropFilter: 'blur(12px)' }}>
                   {heroLogo && (
-                    <div className="mb-4">
+                    <div className="mb-6">
                       <img 
                         src={heroLogo} 
                         alt={heroLogoAlt || 'Eco Certification'} 
-                        className="h-16 w-auto bg-white rounded-lg p-2 shadow-md"
+                        className="h-14 md:h-16 w-auto bg-white rounded-lg p-2 shadow-md"
                       />
                     </div>
                   )}
-                  <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+                  <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight text-white drop-shadow-md">
                     {heroTitle}
                   </h1>
-                  <p className="text-lg md:text-xl text-primary-100 mb-8">
+                  <p className="text-lg md:text-xl text-primary-50 mb-8 drop-shadow-md">
                     {heroSubtitle}
                   </p>
                   <a 
                     href="https://calendly.com/30-min-free-packaging-consultancy"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-white text-[#15803d] px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition"
+                    className="inline-flex items-center gap-2 bg-white text-primary-700 px-6 py-3.5 rounded-lg font-bold hover:bg-green-50 transition shadow-lg hover:shadow-xl"
                   >
                     <Calendar className="h-4 w-4" />
                     Book Meeting
                   </a>
                 </div>
               </div>
-              {/* Hero Image - Right, Responsive */}
-              {heroImage && (
-                <div className="w-full pb-12 md:pb-0 md:py-16 flex justify-center items-center">
-                  <img 
-                    src={heroImage} 
-                    alt={heroImageAlt || heroTitle}
-                    className="w-full h-auto max-h-[600px] object-cover rounded-xl shadow-2xl"
-                    loading="eager"
-                  />
-                </div>
-              )}
             </div>
-          </div>
-        </section>
+          </section>
+        ) : (
+          <section className="bg-primary-700 text-white">
+            <div className="max-w-7xl mx-auto px-4">
+              <div className="grid md:grid-cols-2 gap-8 items-center py-12 md:py-0">
+                {/* Hero Content - Left */}
+                <div className="md:py-16">
+                  <div className="rounded-xl p-6 md:p-8" style={{ backgroundColor: 'rgba(21, 128, 61, 0.85)', backdropFilter: 'blur(8px)' }}>
+                    {heroLogo && (
+                      <div className="mb-4">
+                        <img 
+                          src={heroLogo} 
+                          alt={heroLogoAlt || 'Eco Certification'} 
+                          className="h-16 w-auto bg-white rounded-lg p-2 shadow-md"
+                        />
+                      </div>
+                    )}
+                    <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+                      {heroTitle}
+                    </h1>
+                    <p className="text-lg md:text-xl text-primary-100 mb-8">
+                      {heroSubtitle}
+                    </p>
+                    <a 
+                      href="https://calendly.com/30-min-free-packaging-consultancy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-white text-[#15803d] px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition"
+                    >
+                      <Calendar className="h-4 w-4" />
+                      Book Meeting
+                    </a>
+                  </div>
+                </div>
+                {/* Hero Image - Right, Responsive */}
+                {heroImage && (
+                  <div className="w-full pb-12 md:pb-0 md:py-16 flex justify-center items-center">
+                    <img 
+                      src={heroImage} 
+                      alt={heroImageAlt || heroTitle}
+                      className="w-full h-auto max-h-[600px] object-cover rounded-xl shadow-2xl"
+                      loading="eager"
+                    />
+                  </div>
+                )}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Quick Summary - Answer First Approach */}
         <section className="py-8 bg-primary-50 border-b border-primary-100">
