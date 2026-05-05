@@ -66,6 +66,7 @@ export default function ProspectFinderPage() {
   const [isTogglingAutoRun, setIsTogglingAutoRun] = useState(false)
   const [lastRunAt, setLastRunAt] = useState<string | null>(null)
   const [isRunningManual, setIsRunningManual] = useState(false)
+  const [isSyncing, setIsSyncing] = useState(false)
   const [history, setHistory] = useState<SearchResult[]>([])
   const [historyStats, setHistoryStats] = useState<EmailStats | null>(null)
   const [filterQuery, setFilterQuery] = useState('')
@@ -185,6 +186,34 @@ export default function ProspectFinderPage() {
       fetchTemplatePreview()
     }
   }, [activeTab])
+
+  // Sync History from Brevo
+  const syncBrevoHistory = async () => {
+    if (isSyncing) return
+    setIsSyncing(true)
+    addLog('🔄 Syncing history from Brevo...', 'info')
+    try {
+      const res = await fetch('/api/prospect/sync-brevo', { 
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ limit: 100, offset: 0 }) 
+      })
+      const data = await res.json()
+      if (data.success) {
+        addLog(`✅ Sync complete: Imported ${data.imported} new records, skipped ${data.skipped} existing.`, 'success')
+        toast.success(`Synced ${data.imported} prospects from Brevo`)
+        fetchHistory()
+      } else {
+        addLog(`❌ Sync failed: ${data.error}`, 'error')
+        toast.error('Sync failed: ' + data.error)
+      }
+    } catch (e: any) {
+      addLog(`❌ Sync error: ${e.message}`, 'error')
+      toast.error('Failed to sync history')
+    } finally {
+      setIsSyncing(false)
+    }
+  }
 
   // Manual trigger for Auto Run (for testing)
   const triggerManualRun = async () => {
@@ -425,14 +454,14 @@ export default function ProspectFinderPage() {
     <div className="min-h-screen bg-neutral-50 p-8 pt-24">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8">
-            <div>
-                <h1 className="text-3xl font-bold text-neutral-900 flex items-center gap-3">
-                    Prospect Finder
-                    <span className="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full border border-blue-200">
-                        ❄️ Cold Email
-                    </span>
-                </h1>
-                <p className="text-neutral-500">AI-powered cold outreach — search, personalize & send to new prospects</p>
+            <div className="flex flex-col gap-1">
+              <div className="flex items-center gap-2">
+                <h1 className="text-2xl font-bold flex items-center gap-2">Prospect Finder</h1>
+                <span className="px-2 py-0.5 bg-blue-100 text-blue-700 text-xs font-bold rounded-full flex items-center gap-1 uppercase tracking-wider">
+                  ❄️ Cold Email
+                </span>
+              </div>
+              <p className="text-neutral-500">AI-powered cold outreach — search, personalize & send to new prospects (60k+ emails sent history)</p>
             </div>
             <div className="flex items-center gap-4">
                  <div className="flex items-center gap-3">
@@ -747,6 +776,16 @@ export default function ProspectFinderPage() {
                             />
                         </div>
                         <div className="flex gap-2">
+                            <Button 
+                                variant="outline" 
+                                size="sm" 
+                                onClick={syncBrevoHistory} 
+                                disabled={isSyncing}
+                                className="gap-2"
+                            >
+                                {isSyncing ? <Loader2 className="h-4 w-4 animate-spin" /> : <RefreshCw className="h-4 w-4" />}
+                                Sync from Brevo
+                            </Button>
                             <Button variant="outline" size="sm" onClick={handleExportExcel} className="gap-2">
                                 <Download className="w-4 h-4" /> Export Excel
                             </Button>
