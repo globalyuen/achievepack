@@ -718,14 +718,14 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                   </a>
                 </div>
               </div>
-              {/* Hero Image - Right, 400px fixed height with rounded corners */}
+              {/* Hero Image - Right, Responsive */}
               {heroImage && (
-                <div className="hidden md:flex justify-end items-center h-[400px]">
+                <div className="w-full pb-12 md:pb-0 md:py-16 flex justify-center items-center">
                   <img 
                     src={heroImage} 
                     alt={heroImageAlt || heroTitle}
-                    className="h-full w-auto object-cover rounded-xl shadow-2xl"
-                    loading="lazy"
+                    className="w-full h-auto max-h-[600px] object-cover rounded-xl shadow-2xl"
+                    loading="eager"
                   />
                 </div>
               )}
