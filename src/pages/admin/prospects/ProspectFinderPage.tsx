@@ -36,6 +36,7 @@ interface SearchResult {
   email_opened?: boolean
   email_clicked?: boolean
   search_query?: string
+  touch_count?: number
 }
 
 interface EmailStats {
@@ -47,7 +48,7 @@ interface EmailStats {
 }
 
 export default function ProspectFinderPage() {
-  const [activeTab, setActiveTab] = useState<'search' | 'results' | 'campaigns' | 'autosend' | 'logs'>('search')
+  const [activeTab, setActiveTab] = useState<'search' | 'results' | 'campaigns' | 'autosend' | 'logs' | 'followup'>('search')
   const [query, setQuery] = useState('')
   const [region, setRegion] = useState('Hong Kong')
   const [sender, setSender] = useState('ryan')
@@ -67,9 +68,12 @@ export default function ProspectFinderPage() {
   const [lastRunAt, setLastRunAt] = useState<string | null>(null)
   const [isRunningManual, setIsRunningManual] = useState(false)
   const [isSyncing, setIsSyncing] = useState(false)
+  const [isCleaning, setIsCleaning] = useState(false)
+  const [isRunningFollowUp, setIsRunningFollowUp] = useState(false)
   const [syncStartOffset, setSyncStartOffset] = useState(0)
   const [history, setHistory] = useState<SearchResult[]>([])
   const [historyStats, setHistoryStats] = useState<EmailStats | null>(null)
+  const [followUpStats, setFollowUpStats] = useState<any | null>(null)
   const [filterQuery, setFilterQuery] = useState('')
   // Log messages for user visibility
   const [logs, setLogs] = useState<{time: string, message: string, type: 'info' | 'success' | 'error'}[]>([])
@@ -247,6 +251,49 @@ export default function ProspectFinderPage() {
     } finally {
       setIsSyncing(false)
     }
+  }
+
+  // Deduplicate contacts
+  const cleanDuplicates = async () => {
+      setIsCleaning(true)
+      addLog('🧹 Cleaning duplicate contacts from database...', 'info')
+      try {
+          // We can call a custom API or a migration-like endpoint
+          const res = await fetch('/api/prospect/clean-duplicates', { method: 'POST' })
+          const data = await res.json()
+          if (data.success) {
+              addLog(`✅ Cleanup complete: Removed ${data.removed} duplicates.`, 'success')
+              toast.success(`Removed ${data.removed} duplicate contacts`)
+              fetchHistory()
+          }
+      } catch (e: any) {
+          addLog(`❌ Cleanup error: ${e.message}`, 'error')
+      } finally {
+          setIsCleaning(false)
+      }
+  }
+
+  // Run Follow-up Automation
+  const runFollowUpCampaign = async () => {
+      if (isRunningFollowUp) return
+      setIsRunningFollowUp(true)
+      addLog('🚀 Starting 5-Touch Follow-up Sequence...', 'info')
+      toast.info("Starting follow-up campaign...")
+      
+      try {
+          const res = await fetch('/api/prospect/follow-up-autorun', { method: 'POST' })
+          const data = await res.json()
+          if (data.success) {
+              addLog(`✅ Follow-up cycle complete: Sent ${data.sent} emails.`, 'success')
+              toast.success(`Sent ${data.sent} follow-up emails`)
+              fetchHistory()
+          }
+      } catch (e: any) {
+          addLog(`❌ Follow-up error: ${e.message}`, 'error')
+          toast.error('Follow-up campaign failed')
+      } finally {
+          setIsRunningFollowUp(false)
+      }
   }
 
   // Import Opened Emails CSV
@@ -645,6 +692,12 @@ export default function ProspectFinderPage() {
             >
                 Logs ({logs.length})
             </button>
+            <button 
+                 onClick={() => setActiveTab('followup')}
+                 className={`pb-3 px-1 font-medium text-sm transition-colors ${activeTab === 'followup' ? 'border-b-2 border-primary-600 text-primary-600' : 'text-neutral-500 hover:text-neutral-700'}`}
+            >
+                🔄 Follow-up Sequence
+            </button>
         </div>
 
         {/* Content */}
@@ -922,6 +975,16 @@ export default function ProspectFinderPage() {
                                     disabled={isSyncing}
                                 />
                             </div>
+                            
+                            <Button 
+                                variant="outline" 
+                                size="sm" 
+                                onClick={cleanDuplicates} 
+                                disabled={isCleaning}
+                                className="gap-2 text-red-600 border-red-100 hover:bg-red-50"
+                            >
+                                <UserMinus className="w-4 h-4" /> Clean Duplicates
+                            </Button>
                             
                             <Button variant="ghost" size="sm" onClick={fetchHistory} className="gap-2">
                                  <RefreshCw className="w-4 h-4" /> Refresh
@@ -1208,7 +1271,69 @@ export default function ProspectFinderPage() {
                     </div>
                 </div>
             )}
-        </div>
+            {activeTab === 'followup' && (
+                <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-indigo-50 to-blue-50 border border-indigo-100 rounded-xl p-6">
+                        <div className="flex justify-between items-center">
+                            <div className="space-y-1">
+                                <h3 className="text-lg font-bold text-indigo-900">The 5-Touch Follow-up Sequence</h3>
+                                <p className="text-sm text-indigo-700 max-w-2xl">
+                                    Automatically follow up with prospects who haven't replied. We use your "Thoughts?", "Case Study", and "Free Sample" templates to maximize reply rates.
+                                </p>
+                            </div>
+                            <Button 
+                                className="bg-indigo-600 hover:bg-indigo-700 text-white gap-2 shadow-lg"
+                                onClick={runFollowUpCampaign}
+                                disabled={isRunningFollowUp}
+                            >
+                                {isRunningFollowUp ? <Loader2 className="h-4 w-4 animate-spin" /> : <PlayCircle className="w-4 h-4" />}
+                                Start Follow-up Automation
+                            </Button>
+                        </div>
+                    </div>
+
+                    <div className="border rounded-lg overflow-hidden bg-white shadow-sm overflow-x-auto">
+                        <table className="w-full text-sm text-left">
+                            <thead className="bg-neutral-50 border-b">
+                                <tr>
+                                    <th className="px-4 py-3 font-semibold text-neutral-700">Company</th>
+                                    <th className="px-4 py-3 font-semibold text-neutral-700">Email</th>
+                                    <th className="px-4 py-3 font-semibold text-neutral-700">Current Touch</th>
+                                    <th className="px-4 py-3 font-semibold text-neutral-700">Last Touch</th>
+                                    <th className="px-4 py-3 font-semibold text-neutral-700 text-right">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {history.map((prospect) => (
+                                    <tr key={prospect.id} className="border-b hover:bg-neutral-50/50">
+                                        <td className="px-4 py-3 font-medium">{prospect.company || prospect.name}</td>
+                                        <td className="px-4 py-3 text-neutral-500">{prospect.email}</td>
+                                        <td className="px-4 py-3">
+                                            <div className="flex gap-1">
+                                                {[1,2,3,4,5].map(i => (
+                                                    <div 
+                                                        key={i} 
+                                                        className={`w-2 h-2 rounded-full ${(prospect.touch_count || 1) >= i ? 'bg-indigo-500' : 'bg-neutral-200'}`}
+                                                    />
+                                                ))}
+                                                <span className="ml-2 text-xs font-medium text-indigo-700">Touch {prospect.touch_count || 1}</span>
+                                            </div>
+                                        </td>
+                                        <td className="px-4 py-3 text-neutral-500 text-xs">
+                                            {prospect.last_contacted ? new Date(prospect.last_contacted).toLocaleDateString() : 'Never'}
+                                        </td>
+                                        <td className="px-4 py-3 text-right">
+                                            <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-700">
+                                                {prospect.email_opened ? 'Opened (Warm)' : 'Active'}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            )}
 
         {/* Email Composer Sheet */}
         <Sheet open={isEmailOpen} onOpenChange={setIsEmailOpen}>
