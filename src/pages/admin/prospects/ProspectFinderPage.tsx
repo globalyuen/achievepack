@@ -281,6 +281,16 @@ export default function ProspectFinderPage() {
       
       try {
           const res = await fetch('/api/prospect/follow-up-autorun', { method: 'POST' })
+
+          // Guard against Vercel returning HTML on deployment errors
+          const contentType = res.headers.get('content-type') || ''
+          if (!contentType.includes('application/json')) {
+              addLog(`❌ Server returned non-JSON (HTTP ${res.status}). Deployment may still be in progress — try again in 2 min.`, 'error')
+              toast.error('Deployment in progress — please wait 2 minutes and try again')
+              setActiveTab('logs')
+              return
+          }
+
           const data = await res.json()
 
           // Show server-side logs in the UI
