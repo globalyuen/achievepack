@@ -1020,4 +1020,20 @@
     <priority>0.6</priority>
   </url>
 
+  <url>
+    <loc>https://achievepack.com/blog/packaging-cost-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://achievepack.com/blog/compostable-vs-recyclable</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://achievepack.com/blog/eco-packaging-mistakes</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>

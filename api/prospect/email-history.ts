@@ -23,7 +23,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const offset = parseInt(req.query.offset as string) || 0
         const senderFilter = req.query.sender as string || ''
 
-        // Build query
+        // 1. Get TOTAL count and GLOBAL stats from the entire database
+        const { data: globalStats, error: statsError } = await supabase
+            .from('prospect')
+            .select('email_opened, email_clicked', { count: 'exact' })
+            .eq('email_sent', true)
+
+        if (statsError) throw statsError
+
+        const totalSent = globalStats?.length || 0
+        const totalOpened = globalStats?.filter(p => p.email_opened).length || 0
+        const totalClicked = globalStats?.filter(p => p.email_clicked).length || 0
+
+        // 2. Build paginated query for results
         let query = supabase
             .from('prospect')
             .select(`
@@ -53,19 +65,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             query = query.eq('prospect_search_query.sender', senderFilter)
         }
 
-        // Get total count
-        const { count } = await supabase
-            .from('prospect')
-            .select('*', { count: 'exact', head: true })
-            .eq('email_sent', true)
-
         // Get paginated results
-        const { data: prospects, error } = await query
+        const { data: prospects, error: fetchError } = await query
             .range(offset, offset + limit - 1)
 
-        if (error) {
-            console.error('Error fetching email history:', error)
-            return res.status(500).json({ success: false, error: error.message })
+        if (fetchError) {
+            console.error('Error fetching email history:', fetchError)
+            return res.status(500).json({ success: false, error: fetchError.message })
         }
 
         const results = (prospects || []).map((p: any) => ({
@@ -86,26 +92,22 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             brevo_message_id: p.brevo_message_id
         }))
 
-        // Calculate stats
-        const openedCount = results.filter((r: any) => r.email_opened).length
-        const clickedCount = results.filter((r: any) => r.email_clicked).length
-
         return res.status(200).json({
             success: true,
             results,
-            total: count || 0,
+            total: totalSent,
             limit,
             offset,
             stats: {
-                total_sent: count || 0,
-                opened: openedCount,
-                clicked: clickedCount,
-                open_rate: results.length > 0 ? Math.round(openedCount / results.length * 1000) / 10 : 0,
-                click_rate: results.length > 0 ? Math.round(clickedCount / results.length * 1000) / 10 : 0
+                total_sent: totalSent,
+                opened: totalOpened,
+                clicked: totalClicked,
+                open_rate: totalSent > 0 ? Math.round(totalOpened / totalSent * 1000) / 10 : 0,
+                click_rate: totalSent > 0 ? Math.round(totalClicked / totalSent * 1000) / 10 : 0
             }
         })
-    } catch (error) {
+    } catch (error: any) {
         console.error('Email history error:', error)
-        return res.status(500).json({ success: false, error: 'Failed to fetch email history' })
+        return res.status(500).json({ success: false, error: error.message || 'Failed to fetch email history' })
     }
 }

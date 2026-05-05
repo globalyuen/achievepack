@@ -204,6 +204,9 @@ const OutdoorSnacksCaseStudy = lazyWithRetry(() => import('./pages/case-studies/
 // Blog Pages - Lazy loaded
 const BlogPage = lazyWithRetry(() => import('./pages/blog/BlogPage'))
 const BlogPostPage = lazyWithRetry(() => import('./pages/blog/BlogPostPage'))
+const PackagingCostGuidePage = lazyWithRetry(() => import('./pages/blog/PackagingCostGuidePage'))
+const CompostableVsRecyclablePage = lazyWithRetry(() => import('./pages/blog/CompostableVsRecyclablePage'))
+const EcoPackagingMistakesPage = lazyWithRetry(() => import('./pages/blog/EcoPackagingMistakesPage'))
 
 // Learn Center - Lazy loaded
 const LearnSearchPage = lazyWithRetry(() => import('./pages/LearnSearchPage'))
@@ -686,6 +689,9 @@ if (getDomain() === 'pouch') {
 
                         {/* Blog Pages */}
                         <Route path="/blog" element={<BlogPage />} />
+                        <Route path="/blog/packaging-cost-guide" element={<PackagingCostGuidePage />} />
+                        <Route path="/blog/compostable-vs-recyclable" element={<CompostableVsRecyclablePage />} />
+                        <Route path="/blog/eco-packaging-mistakes" element={<EcoPackagingMistakesPage />} />
                         <Route path="/blog/:slug" element={<BlogPostPage />} />
 
                         {/* Learn Center */}

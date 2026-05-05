@@ -8,6 +8,7 @@ import { LEARN_PAGES } from './LearnNavigation'
 import { ShareButton } from './animate-ui/components/community/share-button'
 import Footer from './Footer'
 import ReadingProgress from './ReadingProgress'
+import StickyFreeSampleCTA from './StickyFreeSampleCTA'
 
 // Category icons for Learn Menu
 const CATEGORY_ICONS: Record<string, React.ReactNode> = {
@@ -931,6 +932,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         </div>
 
 {/* Footer */}
+        <StickyFreeSampleCTA />
         <Footer />
 
         {/* Lightbox Modal */}

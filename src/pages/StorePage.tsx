@@ -322,12 +322,33 @@ const StorePage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{t('seo.store.title', 'Shop Eco-Friendly Packaging | Achieve Pack Store')}</title>
-        <meta name="description" content={t('seo.store.description', 'Browse our selection of sustainable packaging solutions. Compostable pouches, recyclable bags, and bio-based packaging with low minimum orders.')} />
+        <title>{t('seo.store.title', 'Buy Custom Eco Packaging Online | Low MOQ from 100pcs | Achieve Pack')}</title>
+        <meta name="description" content={t('seo.store.description', 'Order custom printed compostable & recyclable pouches online. Stand-up pouches, flat bottom bags, side gusset bags from 100 pieces. Free design support. Ships to USA, UK, EU & Asia.')} />
         <link rel="canonical" href="https://achievepack.com/store" />
-        <meta property="og:title" content={t('seo.store.title', 'Shop Eco-Friendly Packaging | Achieve Pack')} />
-        <meta property="og:description" content={t('seo.store.description', 'Sustainable packaging solutions with low MOQ.')} />
+        <meta property="og:title" content={t('seo.store.title', 'Buy Custom Eco Packaging Online | Low MOQ | Achieve Pack')} />
+        <meta property="og:description" content={t('seo.store.description', 'Custom printed compostable & recyclable pouches. Low MOQ from 100 pieces. Free design support.')} />
         <meta property="og:url" content="https://achievepack.com/store" />
+        <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Store",
+          "name": "Achieve Pack Store",
+          "description": "Custom printed eco-friendly packaging pouches with low minimum orders. Compostable, recyclable and bio-based options.",
+          "url": "https://achievepack.com/store",
+          "image": "https://achievepack.com/imgs/store/hero.webp",
+          "priceRange": "$$",
+          "address": { "@type": "PostalAddress", "addressCountry": "HK" },
+          "brand": { "@type": "Brand", "name": "Achieve Pack" },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Eco-Friendly Packaging",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Compostable Stand Up Pouches", "category": "Flexible Packaging" }},
+              { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Recyclable Mono PE Pouches", "category": "Flexible Packaging" }},
+              { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Custom Flat Bottom Bags", "category": "Flexible Packaging" }}
+            ]
+          }
+        })}</script>
       </Helmet>
     <div className="min-h-screen bg-neutral-50">
       {/* Store Header - Same as Landing Page */}
