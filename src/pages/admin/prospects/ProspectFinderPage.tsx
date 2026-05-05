@@ -67,6 +67,7 @@ export default function ProspectFinderPage() {
   const [lastRunAt, setLastRunAt] = useState<string | null>(null)
   const [isRunningManual, setIsRunningManual] = useState(false)
   const [isSyncing, setIsSyncing] = useState(false)
+  const [syncStartOffset, setSyncStartOffset] = useState(0)
   const [history, setHistory] = useState<SearchResult[]>([])
   const [historyStats, setHistoryStats] = useState<EmailStats | null>(null)
   const [filterQuery, setFilterQuery] = useState('')
@@ -197,11 +198,11 @@ export default function ProspectFinderPage() {
     let totalImported = 0
     let totalSkipped = 0
     const batchSize = 100
-    const numBatches = 5 // Fetch 500 at a time to avoid browser timeout
+    const numBatches = 20 // Fetch 2000 at a time
     
     try {
       for (let i = 0; i < numBatches; i++) {
-        const offset = i * batchSize
+        const offset = syncStartOffset + (i * batchSize)
         addLog(`📡 Syncing batch ${i + 1}/${numBatches} (offset: ${offset})...`, 'info')
         
         const res = await fetch('/api/prospect/sync-brevo', { 
@@ -798,17 +799,26 @@ export default function ProspectFinderPage() {
                     )}
 
                     {/* Controls */}
-                    <div className="flex justify-between items-center">
-                        <div className="flex gap-4 items-center">
-                            <h2 className="text-lg font-semibold">Sent History ({history.length})</h2>
-                            <Input 
+                        <div className="flex justify-between items-center">
+                            <div className="flex gap-4 items-center">
+                                <h2 className="text-lg font-semibold">Sent History ({historyStats?.total_sent || history.length})</h2>
+                                <Input 
                                 placeholder="Search history..." 
                                 className="w-[250px] h-8" 
                                 value={filterQuery}
                                 onChange={(e) => setFilterQuery(e.target.value)}
                             />
                         </div>
-                        <div className="flex gap-2">
+                        <div className="flex gap-2 items-center">
+                            <div className="flex items-center gap-1 bg-white border rounded px-2 h-8">
+                                <span className="text-xs text-neutral-500 whitespace-nowrap">Start Offset:</span>
+                                <input 
+                                    type="number" 
+                                    className="w-16 text-xs outline-none" 
+                                    value={syncStartOffset}
+                                    onChange={(e) => setSyncStartOffset(parseInt(e.target.value) || 0)}
+                                />
+                            </div>
                             <Button 
                                 variant="outline" 
                                 size="sm" 

@@ -7,6 +7,21 @@ const supabase = createClient(
     process.env.SUPABASE_SERVICE_KEY || ''
 )
 
+// Helper to extract company name from email
+function extractCompanyFromEmail(email: string): string {
+    const domain = email.split('@')[1]
+    if (!domain) return 'Imported Prospect'
+    
+    // Remove TLDs and common prefixes
+    const name = domain.split('.')[0]
+    if (['gmail', 'outlook', 'hotmail', 'yahoo', 'icloud', 'me', 'protonmail', 'msn'].includes(name.toLowerCase())) {
+        return email.split('@')[0]
+    }
+    
+    // Capitalize first letter
+    return name.charAt(0).toUpperCase() + name.slice(1)
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
     res.setHeader('Access-Control-Allow-Origin', '*')
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
@@ -66,7 +81,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const batchEmails = events.map((e: any) => e.email).filter(Boolean)
         const { data: existingProspects } = await supabase
             .from('prospect')
-            .select('email, email_sent')
+            .select('email, email_sent, company')
             .in('email', batchEmails)
         
         const existingMap = new Map(existingProspects?.map(p => [p.email, p]) || [])
@@ -96,22 +111,28 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             const email = event.email
             if (!email) continue
 
+            const companyName = extractCompanyFromEmail(email)
             const existing = existingMap.get(email)
+            
             if (existing) {
-                if (!existing.email_sent) {
+                // If it exists but has no company name or wasn't marked as sent, update it
+                if (!existing.email_sent || !existing.company) {
                     toUpdate.push({
                         email,
+                        company: existing.company || companyName,
                         email_sent: true,
                         email_sent_at: event.date,
                         brevo_message_id: event.messageId
                     })
+                    imported++
                 } else {
                     skipped++
                 }
             } else {
                 toInsert.push({
                     search_query_id: searchId,
-                    name: email.split('@')[0],
+                    name: companyName,
+                    company: companyName,
                     email: email,
                     email_sent: true,
                     email_sent_at: event.date,
@@ -125,20 +146,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         // Perform bulk updates/inserts
         if (toInsert.length > 0) {
             const { error: insErr } = await supabase.from('prospect').insert(toInsert)
-            if (!insErr) imported += toInsert.length
+            if (!insErr) imported += 0 // already counted above
         }
         
-        // Supabase doesn't have a bulk update by email easily without an extension, 
-        // but we can do them in a few parallel calls if small batch
         if (toUpdate.length > 0) {
             await Promise.all(toUpdate.map(u => 
                 supabase.from('prospect').update({
+                    company: u.company,
                     email_sent: u.email_sent,
                     email_sent_at: u.email_sent_at,
                     brevo_message_id: u.brevo_message_id
                 }).eq('email', u.email)
             ))
-            imported += toUpdate.length
         }
 
         return res.status(200).json({
