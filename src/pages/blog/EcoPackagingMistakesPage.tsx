@@ -69,6 +69,10 @@ const EcoPackagingMistakesPage: React.FC = () => {
       icon: <FileText className="h-5 w-5 text-amber-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
+          <figure className="my-6">
+            <img src="/imgs/seo-photos/a_mistakes_compostable_labels_8412414.jpg" alt="Close-up of eco-friendly pouch back panel with clear certified compostable BPI logo" className="w-full rounded-xl shadow-sm border border-neutral-100" />
+            <figcaption className="text-center text-sm text-neutral-500 mt-2">Always use certified logos like BPI instead of vague "eco-friendly" claims.</figcaption>
+          </figure>
           <div className="flex gap-4">
             <div className="flex-1 bg-red-50 p-4 rounded-xl border border-red-100">
               <div className="flex items-center gap-2 mb-2">
@@ -97,6 +101,10 @@ const EcoPackagingMistakesPage: React.FC = () => {
       icon: <Package className="h-5 w-5 text-amber-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
+          <figure className="my-6">
+            <img src="/imgs/seo-photos/a_mistakes_premium_unboxing_8812414.jpg" alt="Perfect ecommerce unboxing experience with kraft mailer box, branded pouch, and tissue paper" className="w-full rounded-xl shadow-sm border border-neutral-100" />
+            <figcaption className="text-center text-sm text-neutral-500 mt-2">A cohesive unboxing experience dramatically increases customer retention and brand loyalty.</figcaption>
+          </figure>
           <div className="flex gap-4">
             <div className="flex-1 bg-red-50 p-4 rounded-xl border border-red-100">
               <div className="flex items-center gap-2 mb-2">

@@ -72,6 +72,10 @@ const CompostableVsRecyclablePage: React.FC = () => {
       icon: <Leaf className="h-5 w-5 text-emerald-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
+          <figure className="my-6">
+            <img src="/imgs/seo-photos/a_compostable_decomposition_soil_8123114.jpg" alt="Compostable packaging pouch partially breaking down into rich soil with green sprouts" className="w-full rounded-xl shadow-sm border border-neutral-100" />
+            <figcaption className="text-center text-sm text-neutral-500 mt-2">Certified compostable materials break down into biomass and nutrients in industrial facilities.</figcaption>
+          </figure>
           <p>Compostable packaging is the right choice when:</p>
           <div className="grid sm:grid-cols-2 gap-3 mt-3">
             {[
@@ -100,6 +104,10 @@ const CompostableVsRecyclablePage: React.FC = () => {
       icon: <Recycle className="h-5 w-5 text-blue-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
+          <figure className="my-6">
+            <img src="/imgs/seo-photos/a_recyclable_coffee_barrier_fresh_4123114.jpg" alt="Fresh roasted coffee beans spilling from a sleek blue-tinted recyclable mono-PE pouch" className="w-full rounded-xl shadow-sm border border-neutral-100" />
+            <figcaption className="text-center text-sm text-neutral-500 mt-2">Mono-PE recyclable pouches provide excellent barrier protection for freshness-sensitive products.</figcaption>
+          </figure>
           <p>Recyclable mono-PE packaging is the right choice when:</p>
           <div className="grid sm:grid-cols-2 gap-3 mt-3">
             {[

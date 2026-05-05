@@ -80,6 +80,10 @@ const PackagingCostGuidePage: React.FC = () => {
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
+          <figure className="my-6">
+            <img src="/imgs/seo-photos/a_packaging_cost_digital_factory_8412414.jpg" alt="Modern digital printing press producing high-quality flexible packaging pouches" className="w-full rounded-xl shadow-sm border border-neutral-100" />
+            <figcaption className="text-center text-sm text-neutral-500 mt-2">Digital printing allows for lower MOQs without plate fees, significantly impacting cost.</figcaption>
+          </figure>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="bg-blue-50 p-5 rounded-xl border border-blue-100">
               <div className="flex items-center gap-2 mb-2">
@@ -119,6 +123,10 @@ const PackagingCostGuidePage: React.FC = () => {
       icon: <TrendingDown className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
+          <figure className="my-6">
+            <img src="/imgs/seo-photos/a_packaging_cost_quality_compare_8712411.jpg" alt="Comparison between cheap poorly printed pouch and high-quality premium custom printed pouch" className="w-full rounded-xl shadow-sm border border-neutral-100" />
+            <figcaption className="text-center text-sm text-neutral-500 mt-2">Investing slightly more in quality packaging elevates your brand's perceived value.</figcaption>
+          </figure>
           <div className="space-y-3">
             {[
               { title: 'Start with digital, scale to plate', desc: 'Test your design at 1,000 units with digital printing, then switch to plate printing at 5,000+ for 30-50% savings.' },
