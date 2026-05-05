@@ -16,6 +16,10 @@
       "memory": 1024,
       "maxDuration": 60
     },
+    "api/prospect/sync-brevo.ts": {
+      "memory": 1024,
+      "maxDuration": 60
+    },
     "api/**/*.ts": {
       "memory": 1024,
       "maxDuration": 10,
