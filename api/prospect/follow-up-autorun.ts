@@ -7,150 +7,152 @@ const supabase = createClient(
     process.env.SUPABASE_SERVICE_KEY || ''
 )
 
-const SENDER_PROFILES: Record<string, any> = {
-    ryan: { name: 'Ryan Wong', email: 'ryan@pouch.eco' }
-}
+const SENDER = { name: 'Ryan Wong', email: 'ryan@pouch.eco' }
+const CC_EMAIL = 'ryan@pouch.eco'
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-    if (req.method !== 'POST' && req.method !== 'GET') {
-        return res.status(405).json({ success: false, error: 'Method not allowed' })
-    }
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
+    if (req.method === 'OPTIONS') return res.status(200).end()
+    if (req.method !== 'POST') return res.status(405).json({ success: false, error: 'Method not allowed' })
 
     const runLogs: string[] = []
-    const addLog = (msg: string) => {
-        const entry = `[${new Date().toISOString().substring(11, 19)}] ${msg}`
-        runLogs.push(entry)
-        console.log(entry)
-    }
+    const log = (msg: string) => { runLogs.push(msg); console.log(msg) }
 
     try {
-        addLog('🚀 Starting Follow-up Sequence Automation...')
+        log('🚀 Starting Follow-up Sequence...')
 
-        // 1. Find prospects eligible for next touch
-        // Criteria: 
-        // - email_sent is true
-        // - touch_count < 5
-        // - last_touch_at is at least X days ago
-        // - NOT opened (for T2) or NOT replied (if we could track replies)
-        // - NOT unsubscribed
-        
+        // Try to add touch_count column if it doesn't exist (idempotent)
+        try {
+            await supabase.rpc('exec_sql', { sql: 'ALTER TABLE prospect ADD COLUMN IF NOT EXISTS touch_count INTEGER DEFAULT 1' })
+        } catch (_) { /* ignore, column may already exist */ }
+        try {
+            await supabase.rpc('exec_sql', { sql: 'ALTER TABLE prospect ADD COLUMN IF NOT EXISTS last_touch_at TIMESTAMPTZ' })
+        } catch (_) { /* ignore */ }
+
+        // Fetch eligible prospects: sent emails, fewer than 5 touches
+        // Use coalesce to handle NULL touch_count as 1
         const { data: prospects, error: fetchErr } = await supabase
             .from('prospect')
-            .select('*')
+            .select('id, name, company, email, email_sent_at, email_opened, touch_count, last_touch_at')
             .eq('email_sent', true)
-            .lt('touch_count', 5)
-            .is('email_clicked', false) // Use clicked as a proxy for high interest if we don't have reply tracking
-            .order('last_touch_at', { ascending: true })
-            .limit(10) // Small batches for safety
+            .not('email', 'is', null)
+            .order('email_sent_at', { ascending: true })
+            .limit(50)
 
-        if (fetchErr) throw fetchErr
+        if (fetchErr) {
+            log(`❌ Fetch error: ${fetchErr.message}`)
+            return res.status(500).json({ success: false, error: fetchErr.message, logs: runLogs })
+        }
 
-        addLog(`📊 Found ${prospects?.length || 0} candidates for follow-up.`)
+        log(`📊 Found ${prospects?.length || 0} candidates to evaluate.`)
 
         let sentCount = 0
-        for (const prospect of (prospects || [])) {
-            // Check timing
-            const lastTouch = new Date(prospect.last_touch_at || prospect.email_sent_at)
-            const daysSince = (Date.now() - lastTouch.getTime()) / (1000 * 60 * 60 * 24)
-            
-            let shouldSend = false
-            let nextTouch = (prospect.touch_count || 1) + 1
-            
-            if (nextTouch === 2 && daysSince >= 3) shouldSend = true
-            else if (nextTouch === 3 && daysSince >= 5) shouldSend = true
-            else if (nextTouch === 4 && daysSince >= 7) shouldSend = true
-            else if (nextTouch === 5 && daysSince >= 10) shouldSend = true
+        const skipped: string[] = []
 
-            if (!shouldSend) {
-                addLog(`⏭️ Skipping ${prospect.email}: Only ${Math.floor(daysSince)} days since touch ${prospect.touch_count}`)
+        for (const prospect of (prospects || [])) {
+            const touchCount = prospect.touch_count || 1
+            
+            // Skip if already completed 5 touches
+            if (touchCount >= 5) {
+                skipped.push(`${prospect.email} (completed)`)
                 continue
             }
 
-            // Generate content based on touch number
+            // Check timing based on last touch
+            const lastTouchDate = new Date(prospect.last_touch_at || prospect.email_sent_at || Date.now())
+            const daysSince = (Date.now() - lastTouchDate.getTime()) / (1000 * 60 * 60 * 24)
+            const nextTouch = touchCount + 1
+
+            const minDays: Record<number, number> = { 2: 3, 3: 5, 4: 7, 5: 10 }
+            const required = minDays[nextTouch] || 3
+
+            if (daysSince < required) {
+                skipped.push(`${prospect.email} (only ${Math.floor(daysSince)}d since last touch, need ${required}d)`)
+                continue
+            }
+
             const { subject, body } = getTemplate(nextTouch, prospect)
-            
-            addLog(`📨 Sending Touch ${nextTouch} to ${prospect.email}...`)
-            
+            log(`📨 Sending Touch ${nextTouch} to ${prospect.email}...`)
+
             try {
-                const messageId = await sendBrevoEmail(prospect.email, subject, body, 'ryan', prospect.id)
-                
-                // Update prospect
-                await supabase
+                await sendBrevoEmail(prospect.email, subject, body)
+
+                // Update touch count and last_touch_at
+                const { error: upErr } = await supabase
                     .from('prospect')
                     .update({
                         touch_count: nextTouch,
-                        last_touch_at: new Date().toISOString(),
-                        brevo_message_id: messageId
+                        last_touch_at: new Date().toISOString()
                     })
                     .eq('id', prospect.id)
-                
-                sentCount++
-                addLog(`✅ Touch ${nextTouch} sent to ${prospect.email}`)
+
+                if (upErr) {
+                    log(`⚠️ Sent but failed to update DB for ${prospect.email}: ${upErr.message}`)
+                } else {
+                    log(`✅ Touch ${nextTouch} sent to ${prospect.email}`)
+                    sentCount++
+                }
             } catch (err: any) {
-                addLog(`❌ Failed to send to ${prospect.email}: ${err.message}`)
+                log(`❌ Failed to send to ${prospect.email}: ${err.message}`)
             }
         }
 
-        return res.status(200).json({
-            success: true,
-            sent: sentCount,
-            logs: runLogs
-        })
+        log(`🏁 Done. Sent: ${sentCount}, Skipped: ${skipped.length}`)
+        return res.status(200).json({ success: true, sent: sentCount, skipped: skipped.length, logs: runLogs })
 
     } catch (error: any) {
-        addLog(`❌ Critical error: ${error.message}`)
+        log(`❌ Critical error: ${error.message}`)
         return res.status(500).json({ success: false, error: error.message, logs: runLogs })
     }
 }
 
 function getTemplate(touch: number, prospect: any) {
-    const firstName = prospect.name.split(' ')[0]
+    const firstName = (prospect.name || 'there').split(' ')[0]
     const company = prospect.company || 'your company'
-    
-    const unsubscribeLink = `https://achievepack.com/api/prospect/unsubscribe?email=${encodeURIComponent(prospect.email)}`
-    const footer = `\n\n---\nIf you'd rather not hear from me again, you can <a href="${unsubscribeLink}">unsubscribe here</a>.`
+    const unsubLink = `https://achievepack.com/api/prospect/unsubscribe?email=${encodeURIComponent(prospect.email)}`
+    const footer = `\n\n<br><br><hr style="border:none;border-top:1px solid #eee;margin:20px 0"><p style="font-size:11px;color:#999">You're receiving this because you were previously contacted about eco-friendly packaging. <a href="${unsubLink}">Unsubscribe</a></p>`
 
     switch (touch) {
         case 2:
             return {
-                subject: `Re: Quick question regarding ${company} packaging`,
-                body: `Hi ${firstName},\n\nI'm just following up on my previous email. I know things get busy, but I'd love to know if you've had a chance to think about eco-friendly packaging for ${company}?\n\nBest,\nRyan${footer}`
+                subject: `Re: Eco packaging for ${company}`,
+                body: `Hi ${firstName},<br><br>Just following up on my last note about sustainable packaging for <strong>${company}</strong>. I know things get busy.<br><br>We help brands cut packaging costs while going 100% compostable — would love to show you how.<br><br>Worth a quick chat this week?<br><br>Best,<br>Ryan${footer}`
             }
         case 3:
             return {
-                subject: `Thought you might find this useful, ${firstName}`,
-                body: `Hi ${firstName},\n\nI was just looking at how we helped another brand in your space reduce their packaging costs while switching to 100% compostable pouches.\n\nWould you be open to a 5-minute chat next week to see if we can do the same for ${company}?\n\nBest,\nRyan${footer}`
+                subject: `How another brand like ${company} saved 20%`,
+                body: `Hi ${firstName},<br><br>I thought this might be relevant — we recently helped a food brand similar to ${company} switch to compostable stand-up pouches and they <strong>saved 20% on packaging costs</strong> in the first year.<br><br>Happy to send you the full case study if you're curious.<br><br>Best,<br>Ryan${footer}`
             }
         case 4:
             return {
                 subject: `Free samples for ${company}?`,
-                body: `Hi ${firstName},\n\nI'd love to put my money where my mouth is. Would you like me to send over some free samples of our latest branded pouches so you can see the quality for yourself?\n\nJust reply with your address if you're interested!\n\nBest,\nRyan${footer}`
+                body: `Hi ${firstName},<br><br>Rather than just talk about it — how about I send ${company} some <strong>free samples</strong> of our latest compostable branded pouches?<br><br>Just reply with your address and I'll ship some out!<br><br>Best,<br>Ryan${footer}`
             }
         case 5:
             return {
-                subject: `Moving on for now`,
-                body: `Hi ${firstName},\n\nI haven't heard back from you, so I'll assume that packaging isn't a priority for ${company} at the moment.\n\nI'll take you off my list for now, but feel free to reach out if your needs change in the future!\n\nBest,\nRyan${footer}`
+                subject: `Last email from me`,
+                body: `Hi ${firstName},<br><br>I've reached out a few times and haven't heard back — I'll assume eco-packaging isn't a priority for ${company} right now, so I'll take you off my list.<br><br>If that ever changes, you can always reach me at ryan@pouch.eco.<br><br>Wishing you all the best!<br><br>Ryan${footer}`
             }
         default:
-            return { subject: 'Follow up', body: `Hi ${firstName}, following up.` }
+            return { subject: 'Following up', body: `Hi ${firstName}, just checking in.${footer}` }
     }
 }
 
-async function sendBrevoEmail(to: string, subject: string, body: string, senderKey: string, prospectId: number) {
+async function sendBrevoEmail(to: string, subject: string, htmlBody: string) {
     const apiKey = process.env.BREVO_API_KEY
-    const sender = SENDER_PROFILES[senderKey]
-    
-    const htmlBody = body.replace(/\n/g, '<br>')
-    
+    if (!apiKey) throw new Error('BREVO_API_KEY not set')
+
     const payload = {
-        sender,
+        sender: SENDER,
         to: [{ email: to }],
+        cc: [{ email: CC_EMAIL, name: 'Ryan Record' }],
         subject,
-        htmlContent: `<div style="font-family: sans-serif; line-height: 1.5; color: #333;">${htmlBody}</div>`,
-        cc: [{ email: 'ryan@pouch.eco', name: 'Record' }] // CC as requested
+        htmlContent: `<div style="font-family:sans-serif;line-height:1.6;color:#333;max-width:600px">${htmlBody}</div>`
     }
 
-    return new Promise((resolve, reject) => {
+    return new Promise<void>((resolve, reject) => {
+        const body = JSON.stringify(payload)
         const options = {
             hostname: 'api.brevo.com',
             path: '/v3/smtp/email',
@@ -158,21 +160,24 @@ async function sendBrevoEmail(to: string, subject: string, body: string, senderK
             headers: {
                 'accept': 'application/json',
                 'api-key': apiKey,
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'content-length': Buffer.byteLength(body)
             }
         }
-        
-        const req = https.request(options, (res) => {
+
+        const r = https.request(options, (response) => {
             let data = ''
-            res.on('data', d => data += d)
-            res.on('end', () => {
-                const json = JSON.parse(data)
-                if (res.statusCode && res.statusCode < 300) resolve(json.messageId)
-                else reject(new Error(json.message || 'Brevo error'))
+            response.on('data', d => data += d)
+            response.on('end', () => {
+                if (response.statusCode && response.statusCode < 300) resolve()
+                else {
+                    try { reject(new Error(JSON.parse(data).message || `HTTP ${response.statusCode}`)) }
+                    catch { reject(new Error(`HTTP ${response.statusCode}: ${data}`)) }
+                }
             })
         })
-        req.on('error', reject)
-        req.write(JSON.stringify(payload))
-        req.end()
+        r.on('error', reject)
+        r.write(body)
+        r.end()
     })
 }

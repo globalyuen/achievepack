@@ -273,7 +273,6 @@ export default function ProspectFinderPage() {
       }
   }
 
-  // Run Follow-up Automation
   const runFollowUpCampaign = async () => {
       if (isRunningFollowUp) return
       setIsRunningFollowUp(true)
@@ -283,14 +282,29 @@ export default function ProspectFinderPage() {
       try {
           const res = await fetch('/api/prospect/follow-up-autorun', { method: 'POST' })
           const data = await res.json()
+
+          // Show server-side logs in the UI
+          if (data.logs && Array.isArray(data.logs)) {
+              data.logs.forEach((msg: string) => {
+                  const type = msg.includes('❌') ? 'error' : msg.includes('✅') ? 'success' : 'info'
+                  addLog(msg, type)
+              })
+          }
+
           if (data.success) {
-              addLog(`✅ Follow-up cycle complete: Sent ${data.sent} emails.`, 'success')
+              addLog(`✅ Follow-up cycle complete: Sent ${data.sent} emails, skipped ${data.skipped}.`, 'success')
               toast.success(`Sent ${data.sent} follow-up emails`)
+              setActiveTab('logs') // Switch to logs tab to show results
               fetchHistory()
+          } else {
+              addLog(`❌ API Error: ${data.error}`, 'error')
+              toast.error(`Error: ${data.error}`)
+              setActiveTab('logs')
           }
       } catch (e: any) {
-          addLog(`❌ Follow-up error: ${e.message}`, 'error')
-          toast.error('Follow-up campaign failed')
+          addLog(`❌ Network error: ${e.message}`, 'error')
+          toast.error('Follow-up campaign failed — check Logs tab')
+          setActiveTab('logs')
       } finally {
           setIsRunningFollowUp(false)
       }
