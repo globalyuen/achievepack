@@ -7,6 +7,10 @@
       "schedule": "*/30 * * * *"
     },
     {
+      "path": "/api/prospect/follow-up-autorun",
+      "schedule": "0 9 * * *"
+    },
+    {
       "path": "/api/daily-report",
       "schedule": "0 9 * * *"
     }
@@ -17,6 +21,10 @@
       "maxDuration": 60
     },
     "api/prospect/sync-brevo.ts": {
+      "memory": 1024,
+      "maxDuration": 60
+    },
+    "api/prospect/follow-up-autorun.ts": {
       "memory": 1024,
       "maxDuration": 60
     },

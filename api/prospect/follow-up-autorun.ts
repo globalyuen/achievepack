@@ -22,6 +22,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     try {
         log('🚀 Starting Follow-up Sequence...')
 
+        // Get offset from DB to paginate through all 15k contacts over time
+        let currentOffset = 0
+        try {
+            const { data: auto } = await supabase
+                .from('prospect_automation')
+                .select('follow_up_offset')
+                .eq('id', 1)
+                .single()
+            currentOffset = (auto as any)?.follow_up_offset ?? 0
+        } catch (_) { /* ignore if column missing */ }
+
+        log(`📌 Processing from offset: ${currentOffset}`)
+
         // Fetch eligible prospects without depending on touch_count column
         const { data: prospects, error: fetchErr } = await supabase
             .from('prospect')
@@ -29,7 +42,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             .eq('email_sent', true)
             .not('email', 'is', null)
             .order('email_sent_at', { ascending: true })
-            .limit(50)
+            .range(currentOffset, currentOffset + 499) // Process 500 at a time
 
         if (fetchErr) {
             log(`❌ Fetch error: ${fetchErr.message}`)
@@ -85,6 +98,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 log(`❌ Failed to send to ${prospect.email}: ${err.message}`)
             }
         }
+
+        // Advance offset for next run (wraps around at 15000)
+        const nextOffset = sentCount + currentOffset >= 14500 ? 0 : currentOffset + 500
+        try {
+            await supabase
+                .from('prospect_automation')
+                .update({ follow_up_offset: nextOffset } as any)
+                .eq('id', 1)
+            log(`📌 Next run will start from offset: ${nextOffset}`)
+        } catch (_) { /* ignore if column missing */ }
 
         log(`🏁 Done. Sent: ${sentCount}, Skipped: ${skipped.length}`)
         return res.status(200).json({ success: true, sent: sentCount, skipped: skipped.length, logs: runLogs })
