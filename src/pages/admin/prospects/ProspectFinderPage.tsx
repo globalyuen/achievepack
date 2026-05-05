@@ -1334,6 +1334,7 @@ export default function ProspectFinderPage() {
                     </div>
                 </div>
             )}
+        </div>
 
         {/* Email Composer Sheet */}
         <Sheet open={isEmailOpen} onOpenChange={setIsEmailOpen}>
